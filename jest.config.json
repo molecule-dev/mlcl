@@ -1,0 +1,11 @@
+{
+  "roots": [
+    "<rootDir>/src/"
+  ],
+  "setupFiles": [
+    "<rootDir>/src/environment.ts"
+  ],
+  "moduleNameMapper": {
+    "^(\\.{1,2}/.*)\\.jsx?$": "$1"
+  }
+}

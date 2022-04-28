@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./build",
+    "target": "ES2020",
+    "lib": [
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./build",
+    "./docs"
+  ],
+  "ts-node": {
+    "files": true
+  }
+}
