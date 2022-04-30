@@ -51,6 +51,7 @@
     "test-watch": "jest --watch",
     "dev": "tsc --watch",
     "build": "tsc",
-    "start": "node build/cli.js"
+    "start": "node build/cli.js",
+    "prepublish": "npm run build"
   }
 }
