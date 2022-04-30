@@ -357,7 +357,6 @@ export const clone = (program: Command) => {
         }
       } catch (error) {
         logger.warn(`Error cloning Molecule: ${getErrorMessage(error) || `Unknown error`}`)
-        logger.warn(`Please contact developer-support@molecule.dev so we can fix this.`)
       }
     })
 }
