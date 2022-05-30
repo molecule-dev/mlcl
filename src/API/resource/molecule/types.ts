@@ -24,6 +24,17 @@ export interface Props extends resourceTypes.Props {
    */
   userId: string
   /**
+   * The type of user who created this Molecule.
+   */
+  userType?: `Individual`
+    | `Startup`
+    | `Established Business`
+    | `Development Agency`
+  /**
+   * The number of people when not an individual.
+   */
+  teamSize?: number
+  /**
    * The object hash of the selected options relevant to the frontend app.
    * 
    * Set only when the selection is valid and implemented.
@@ -220,6 +231,8 @@ export interface Props extends resourceTypes.Props {
  * The properties when creating a molecule. 
  */
 export interface CreateProps {
+  userType: Props['userType']
+  teamSize: Props['teamSize']
   selection: Props['selection']
   other: Props['other']
   plan: Props['plan']
