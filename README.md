@@ -1,6 +1,6 @@
 # mlcl
 
-This package contains command line tools to help with managing full-stack, cross-platform apps assembled with [Molecule.dev](https://www.molecule.dev).
+Command line tools to help with managing full-stack, cross-platform apps assembled with [Molecule.dev](https://www.molecule.dev).
 
 
 ## Usage
