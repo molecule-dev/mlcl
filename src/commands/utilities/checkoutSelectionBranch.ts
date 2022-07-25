@@ -50,9 +50,12 @@ export const checkoutSelectionBranch = async (
     await asyncExec(`git${repoPath ? ` -C "${repoPath}"` : ``} checkout --orphan ${branchName}`)
   }
 
-  // Reset it to an empty repository.
-  logger.info(`Resetting branch to an empty repository...`)
-  await asyncExec(`git${repoPath ? ` -C "${repoPath}"` : ``} rm -rf .`)
+  try {
+    // Reset it to an empty repository.
+    logger.info(`Resetting branch to an empty repository...`)
+    await asyncExec(`git${repoPath ? ` -C "${repoPath}"` : ``} rm -rf .`)
+  } catch (error) {
+  }
 
   logger.info(`Creating empty initial commit...`)
   await asyncExec(`git${repoPath ? ` -C "${repoPath}"` : ``} commit --allow-empty -m "initialize empty repository"`)
