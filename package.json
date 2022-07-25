@@ -1,6 +1,6 @@
 {
   "name": "mlcl",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI (Command Line Interface) for Molecule.dev.",
   "author": "molecule.dev",
   "license": "Apache-2.0",
