@@ -163,6 +163,7 @@ export interface Props extends resourceTypes.Props {
    * Other custom options requested by the customer.
    */
   other: {
+    appType?: string
     appLanguage?: string
     appPackageManager?: string
     appRenderer?: string

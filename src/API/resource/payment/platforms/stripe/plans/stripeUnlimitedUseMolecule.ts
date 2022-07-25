@@ -9,7 +9,7 @@ export const stripeUnlimitedUseMolecule: Plan = {
   platformProductId: ``,
   alias: `unlimitedUseMolecule`,
   period: ``,
-  price: `$1499`,
+  price: `$4999`,
   autoRenews: false,
   title: `Unlimited Use Molecule`,
   description: `Includes all of the core functionality you've selected for your full-stack application.`,

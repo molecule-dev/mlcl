@@ -1,15 +1,15 @@
 import { Plan } from '../../../types.js'
 
 /**
- * The business Stripe plan for molecules.
+ * The reduced business Stripe plan for molecules.
  */
-export const stripeBusinessMolecule: Plan = {
-  planKey: `stripeBusinessMolecule`,
+export const stripeBusinessMoleculeReduced: Plan = {
+  planKey: `stripeBusinessMoleculeReduced`,
   platformKey: `stripe`,
   platformProductId: ``,
   alias: `businessMolecule`,
   period: ``,
-  price: `$1499`,
+  price: `$249`,
   allowMultiple: true,
   minimumQuantity: 10,
   autoRenews: false,

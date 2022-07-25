@@ -1,15 +1,15 @@
 import { Plan } from '../../../types.js'
 
 /**
- * The single use Stripe plan for molecules.
+ * The reduced single use Stripe plan for molecules.
  */
-export const stripeSingleUseMolecule: Plan = {
-  planKey: `stripeSingleUseMolecule`,
+export const stripeSingleUseMoleculeReduced: Plan = {
+  planKey: `stripeSingleUseMoleculeReduced`,
   platformKey: `stripe`,
   platformProductId: ``,
   alias: `singleUseMolecule`,
   period: ``,
-  price: `$1999`,
+  price: `$299`,
   autoRenews: false,
   title: `Single Use Molecule`,
   description: `Includes all of the core functionality you've selected for your full-stack application.`,
