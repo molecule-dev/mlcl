@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "alert_triggered", "title": "SOL up 5.42% in 24h",                   "body": "Solana 24h change crossed your +5% threshold.",                                  "href": "/coin/sol",  "created_at": "2026-04-25T11:42:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "price_milestone", "title": "BTC tagged $68,421",                    "body": "Bitcoin reached a new 30-day high. Watch your $70K alert.",                       "href": "/coin/btc",  "created_at": "2026-04-25T08:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "whale_movement",  "title": "12,400 BTC moved off Coinbase",         "body": "Significant outflow detected. Historically correlated with accumulation phases.","href": "/news",      "created_at": "2026-04-23T22:46:00Z", "unread": false },
+  { "id": "ntf_004", "type": "news_signal",     "title": "Bullish signal on ETH",                  "body": "Pectra mainnet date locked for Q3 — multiple sources flagged as bullish.",         "href": "/news",      "created_at": "2026-04-25T11:20:00Z", "unread": false },
+  { "id": "ntf_005", "type": "alert_triggered", "title": "DOGE 24h alert paused",                 "body": "Your -10% 24h alert was auto-paused after 5 consecutive triggers in 7 days.",      "href": "/alerts",    "created_at": "2026-04-21T16:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",  "title": "Welcome to Sigil",                       "body": "Connect a Coinbase or Kraken read-only API key in /settings to import your trades.","href": "/settings",  "created_at": "2026-04-15T12:00:00Z", "unread": false }
+]

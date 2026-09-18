@@ -1,0 +1,7 @@
+# Handlers exempt from gate-3 (no spec network assertion required).
+#
+# _seed is a startup helper imported by api/src/server.ts that seeds the
+# global coin/news catalog on first boot — it's NOT exposed as an HTTP
+# endpoint. Verified by signup tests indirectly: if seeding fails the
+# /markets and /news lists return empty and dashboard.spec.ts fails.
+_seed

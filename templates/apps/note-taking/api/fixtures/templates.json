@@ -1,0 +1,26 @@
+[
+  {
+    "id": "template-daily",
+    "name": "Daily note",
+    "description": "A frame for the day — three lines of intention, three of reflection.",
+    "icon": "today",
+    "blocks_count": 6,
+    "updated_at": "2026-04-15T10:00:00Z"
+  },
+  {
+    "id": "template-meeting",
+    "name": "Meeting notes",
+    "description": "Attendees, decisions, follow-ups. Nothing more.",
+    "icon": "groups",
+    "blocks_count": 4,
+    "updated_at": "2026-04-15T10:00:00Z"
+  },
+  {
+    "id": "template-reading",
+    "name": "Reading note",
+    "description": "Title, source, three quotes that stuck, one connection.",
+    "icon": "menu_book",
+    "blocks_count": 5,
+    "updated_at": "2026-04-15T10:00:00Z"
+  }
+]

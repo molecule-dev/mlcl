@@ -1,0 +1,209 @@
+{
+  "app": "rental-marketplace",
+  "designProjectId": "12211322715234699515",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-landing.html",
+      "designScreenId": "c4d2163e58874b9fa1425ea18e57e7d5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-login.html",
+      "designScreenId": "0b581060d4fe434d9a83e7aab5955c4e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rental-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split layout with editorial travel photography on the left and a centered card on the right. Card fields: First name, Last name, Email, Password, Confirm password. Headline 'Create your account' in DM Sans 32px 700, subtext 'Join Roost and plan your next stay'. Button text 'Create account' (teal #0d9488). Bottom link 'Already have an account? Sign in' in terracotta #e07052. No Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rental-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains only an Email field. Headline 'Reset your password' in DM Sans 32px 700, subtext 'Enter your email to receive a reset link'. Button text 'Send reset link' (teal #0d9488). Bottom link 'Back to sign in' in terracotta."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rental-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains New password and Confirm password fields. Headline 'Set a new password' in DM Sans 32px 700. Button text 'Reset password' (teal #0d9488). Bottom link 'Back to sign in' in terracotta."
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-search.html",
+      "designScreenId": "4f480f3210264305971d473d0d65f7cc"
+    },
+    {
+      "name": "ListingDetail",
+      "templateFile": "app/pages/ListingDetail.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/listings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-listing-detail.html",
+      "designScreenId": "00f11eacebec4543b98b9cb3334b9420"
+    },
+    {
+      "name": "Bookings",
+      "templateFile": "app/pages/Bookings.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/bookings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-bookings.html",
+      "designScreenId": "eab2ddcddb374eb083b08e786a711480"
+    },
+    {
+      "name": "Wishlist",
+      "templateFile": "app/pages/Wishlist.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/wishlist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-wishlist.html",
+      "designScreenId": "a5dade1372b94239b9acd18b2794a248"
+    },
+    {
+      "name": "HostDashboard",
+      "templateFile": "app/pages/HostDashboard.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/host",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-host-dashboard.html",
+      "designScreenId": "6f4fc317161940c6a3508699674542fb"
+    },
+    {
+      "name": "Messages",
+      "templateFile": "app/pages/Messages.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/messages",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-messages.html",
+      "designScreenId": "5a862f51f63e4511b293c8f222a3f641"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-settings.html",
+      "designScreenId": "70eaea4d3abd40bbb008eb9b31deb92c"
+    },
+    {
+      "name": "BookingDetail",
+      "templateFile": "app/pages/BookingDetail.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/bookings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-booking-detail.html",
+      "designScreenId": "e61a597fa5ae4bf6b2ed0c4823013a1b"
+    },
+    {
+      "name": "MessageThread",
+      "templateFile": "app/pages/MessageThread.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/messages/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-message-thread.html",
+      "designScreenId": "f840f1d5c0404c09b9063990d93e0d12"
+    },
+    {
+      "name": "HostListings",
+      "templateFile": "app/pages/HostListings.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/host/listings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-host-listings.html",
+      "designScreenId": "fa50ab2732db4db8bebf6c782d50e98e"
+    },
+    {
+      "name": "HostListingDetail",
+      "templateFile": "app/pages/HostListingDetail.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/host/listings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-host-listing-detail.html",
+      "designScreenId": "adc438e52a334176834490df66722d79"
+    },
+    {
+      "name": "Reservations",
+      "templateFile": "app/pages/Reservations.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/host/reservations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-reservations.html",
+      "designScreenId": "51d116af8669454a912cacccebbf628b"
+    },
+    {
+      "name": "CreateListing",
+      "templateFile": "app/pages/CreateListing.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/host/listings/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-create-listing.html",
+      "designScreenId": "eca6053f52564119a7b6984b1005c930"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/users/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-profile.html",
+      "designScreenId": "66a816307c9d422ba7dfc49547bdf23c"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/RentalMarketplaceLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rental-marketplace-notifications.html",
+      "designScreenId": "73aa65c830a9446e9c3c5a08da7de1a2"
+    }
+  ]
+}

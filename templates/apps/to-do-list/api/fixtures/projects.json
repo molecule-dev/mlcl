@@ -1,0 +1,7 @@
+[
+  { "id": "prj_001", "name": "Q3 Launch",   "color": "#dc2626", "description": "Launch readiness across product, ops, and marketing.", "sections": [{ "id": "sec_001", "name": "This week" }, { "id": "sec_002", "name": "Before launch day" }, { "id": "sec_003", "name": "Post-launch" }] },
+  { "id": "prj_002", "name": "Personal",    "color": "#10b981", "description": "Personal todos, errands, and habits.",                "sections": [] },
+  { "id": "prj_003", "name": "Engineering", "color": "#4f46e5", "description": "Tech debt, architecture, and on-call hygiene.",        "sections": [{ "id": "sec_003", "name": "Auth refactor" }] },
+  { "id": "prj_004", "name": "Reading",     "color": "#f59e0b", "description": "Books, papers, articles to work through.",             "sections": [] },
+  { "id": "prj_005", "name": "Admin",        "color": "#0284c7", "description": "Filings, paperwork, scheduled obligations.",          "sections": [] }
+]

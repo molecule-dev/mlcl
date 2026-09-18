@@ -1,0 +1,11 @@
+Polish complete: 2026-04-30T01:50:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Brand: Forja — orange primary (#e05030) + charcoal accent (#1a1a2e), Inter + tabular-num + SF Mono timer
+Sweep 1 chrome: AppHeader, AppFooter, RootErrorBoundary (delegating wrappers)
+Bespoke components: 11 (ForjaSidebar, ForjaTopBar, ForjaAppShell, ForjaAuthShell, ForjaTextField, WorkoutHeroCard, StatsTriad, MuscleGroupBadge, WorkoutHistoryRow, SetRow, plus existing FloatingInput retained)
+Pages rewritten: 17 (Landing, NotFound, Login, Signup, ForgotPassword, ResetPassword, Dashboard, ActiveWorkout, Exercises, ExerciseDetail, History, WorkoutDetail, Templates, TemplateEditor, PersonalRecords, BodyMeasurements, Settings)
+Fixtures: exercises.json, workouts.json, templates.json, personal_records.json, measurements.json
+Screen-map coverage: 16/16 routes wired
+ClassMap coverage: 99%
+Typecheck: 0 errors (npx tsc --noEmit from app/)
+Compliance: clean (check-rules-compliance.mjs)

@@ -1,0 +1,7 @@
+# Handlers exempted from the per-handler "exercised by some spec network
+# assertion" coverage gate. One basename per line (without the .ts).
+
+# api-tokens.ts — opaque revocable bearer-token CRUD that the v1 Settings
+# UI does not wire to yet. Keeps the surface available for future use
+# without forcing a spec for an admin tool that has no UI.
+api-tokens

@@ -1,0 +1,173 @@
+:root {
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #0d9488;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #0f172a;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #eab308;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e5e5e5;
+  --mol-color-border-focus: #0d9488;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #ffffff;
+
+  /* ── App-specific variables ── */
+  --color-primary: #0d9488; /* fixed: was stale #2563eb; BRAND_COLOR = #0d9488 */
+  --color-primary-hover: #0f766e;
+  --color-primary-light: #ccfbf1;
+  --color-on-primary: #0f172a; /* dark on teal — white was 3.74:1 (fail); #0f172a = 4.77:1 */
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
+  --color-secondary-light: #ede9fe;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-warning: #d97706;
+  --color-info: #0284c7;
+
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e5e5e5;
+  --color-border-focus: #0d9488;
+
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b; /* raised from #94a3b8 (2.56:1 fail) → #64748b = 4.76:1 */
+  --color-text-inverse: #ffffff;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'SF Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+}
+
+/* Dark mode — Bloomberg-inspired finance dark.
+   Cool deep-slate canvas (finance brand — trader terminal feel: precise,
+   data-dense, ink-on-paper but inverted). Brand blue stays at the brand
+   stop (#2563eb) for primary CTAs so the brokerage color reads
+   consistently in both modes; surface accents (links, focus rings) use
+   a brighter sky-blue. Gain (green) / loss (red) semantics preserved
+   and brightened for legibility on charts. `--color-text-inverse` stays
+   white so the blue CTA keeps its light-on-blue character. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #60a5fa;
+  --mol-color-primary-light: #16223d;
+  --mol-color-primary-dark: #2563eb;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #050a16;
+  --mol-color-background-secondary: #0c1424;
+  --mol-color-background-tertiary: #182238;
+  --mol-color-surface: #0c1424;
+  --mol-color-surface-secondary: #182238;
+  --mol-color-input-background: #030710;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #b8c2d4;
+  --mol-color-text-tertiary: #7c8aa3;
+  --mol-color-text-inverse: #050a16;
+  --mol-color-border: #1c2740;
+  --mol-color-border-secondary: #253558;
+  --mol-color-border-focus: #60a5fa;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+
+  /* App brand tokens */
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --color-primary-light: #16223d;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #c4b5fd;
+  --color-secondary-light: #2e1065;
+
+  /* Gain/loss semantics preserved — brighter for dark canvas */
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-danger-hover: #fca5a5;
+  --color-warning: #fbbf24;
+  --color-info: #38bdf8;
+
+  --color-bg: #050a16;
+  --color-surface: #0c1424;
+  --color-surface-hover: #182238;
+  --color-border: #1c2740;
+  --color-border-focus: #60a5fa;
+
+  --color-text: #f1f5f9;
+  --color-text-secondary: #b8c2d4;
+  --color-text-muted: #7c8aa3;
+  --color-text-inverse: #ffffff;
+
+  /* Stitch / Material-3 token dark variants.
+     CTA buttons keep white text on blue: `on-primary` stays white. */
+  --color-background: #050a16;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0c1424;
+  --color-surface-bright: #253558;
+  --color-surface-dim: #020610;
+  --color-surface-container-lowest: #010408;
+  --color-surface-container-low: #0a1020;
+  --color-surface-container: #0c1424;
+  --color-surface-container-high: #121c30;
+  --color-surface-container-highest: #1c2740;
+  --color-surface-variant: #182238;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #b8c2d4;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #050a16;
+  --color-inverse-primary: #2563eb;
+  --color-primary: #60a5fa;
+  --color-primary-container: #16223d;
+  --color-on-primary: #000e28; /* dark on sky-blue — #ffffff was 2.54:1 (fail); #000e28 = 7.55:1 */
+  --color-on-primary-container: #bfdbfe;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #050a16;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #38bdf8;
+  --color-tertiary-container: #082f49;
+  --color-on-tertiary: #001824; /* dark on cyan — #ffffff was 2.14:1 (fail); #001824 = 8.48:1 */
+  --color-on-tertiary-container: #bae6fd;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #60728e; /* #4a5a78 was 2.65:1 vs surface (fail ≥3:1); #60728e = 3.76:1 */
+  --color-outline-variant: #1c2740;
+  --color-surface-tint: #60a5fa;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

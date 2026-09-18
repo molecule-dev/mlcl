@@ -1,0 +1,6 @@
+<g fill="__BRAND_COLOR__">
+  <rect x="4"  y="4"  width="10" height="10" rx="2" fill-opacity="1" />
+  <rect x="18" y="4"  width="10" height="10" rx="2" fill-opacity="0.45" />
+  <rect x="4"  y="18" width="10" height="10" rx="2" fill-opacity="0.45" />
+  <rect x="18" y="18" width="10" height="10" rx="2" fill-opacity="1" />
+</g>

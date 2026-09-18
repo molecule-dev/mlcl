@@ -1,0 +1,350 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #faf8ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #eef0ff;
+  --color-inverse-primary: #89ceff;
+  --color-inverse-surface: #283044;
+  --color-on-background: #131b2e;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #003751;
+  --color-on-primary-fixed: #001e2f;
+  --color-on-primary-fixed-variant: #004c6e;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #3d637d;
+  --color-on-secondary-fixed: #001e2f;
+  --color-on-secondary-fixed-variant: #234b64;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #3e4850;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #4d2b00;
+  --color-on-tertiary-fixed: #2c1600;
+  --color-on-tertiary-fixed-variant: #693c00;
+  --color-outline: #6e7881;
+  --color-outline-variant: #bec8d2;
+  --color-primary: #006591;
+  --color-primary-container: #0ea5e9;
+  --color-primary-fixed: #c9e6ff;
+  --color-primary-fixed-dim: #89ceff;
+  --color-secondary: #3c627d;
+  --color-secondary-container: #b8dffe;
+  --color-secondary-fixed: #c9e6ff;
+  --color-secondary-fixed-dim: #a5cbe9;
+  --color-surface: #faf8ff;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d2d9f4;
+  --color-surface-tint: #006591;
+  --color-surface-variant: #dae2fd;
+  --color-tertiary: #8a5100;
+  --color-tertiary-container: #de8712;
+  --color-tertiary-fixed: #ffdcbd;
+  --color-tertiary-fixed-dim: #ffb86e;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.5rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-space-x-2 -translate-y-1/2 2xl 3xl absolute active:scale-90 active:scale-95 antialiased appearance-none backdrop-blur-md bg-background bg-error bg-gradient-to-b bg-gradient-to-br bg-green-500 bg-outline-variant bg-outline-variant/30 bg-primary bg-primary-container bg-primary-container/10 bg-primary/40 bg-red-50 bg-secondary-container/30 bg-sky-100 bg-sky-50 bg-sky-500 bg-slate-100 bg-slate-100/50 bg-slate-200 bg-slate-200/50 bg-slate-300 bg-slate-50 bg-slate-50/50 bg-slate-900 bg-surface bg-surface-container bg-surface-container-high bg-surface-container-highest/30 bg-surface-container-low bg-surface-container-lowest bg-tertiary-container bg-tertiary-container/10 bg-transparent bg-white bg-white/10 bg-white/80 block body-md border border-2 border-b border-b-2 border-current border-dashed border-l border-l-2 border-l-4 border-none border-outline-variant/10 border-outline-variant/20");
+@source inline("border-outline-variant/30 border-primary border-primary-container border-primary/20 border-secondary-container border-sky-500 border-slate-100 border-slate-200 border-slate-200/50 border-slate-200/60 border-slate-50 border-surface-container-high/50 border-surface-container-lowest border-t border-tertiary-container/30 border-transparent border-white bottom-0 bottom-8 bottom-[-40px] cta-button cursor-not-allowed cursor-pointer dark:bg-sky-900/30 dark:bg-slate-700 dark:bg-slate-800 dark:bg-slate-800/50 dark:bg-slate-900 dark:bg-slate-950 dark:bg-slate-950/80 dark:border-slate-700 dark:border-slate-800 dark:border-slate-800/50 dark:hover:bg-slate-800 dark:shadow-none dark:text-sky-300 dark:text-sky-400 dark:text-slate-200 dark:text-slate-400 dark:text-slate-500 dark:text-white divider duration-200 fixed flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-primary/20 focus-within:shadow-md focus:bg-white focus:ring-0 focus:ring-2 focus:ring-primary/20 focus:ring-primary/30 font-black");
+@source inline("font-bold font-extrabold font-headline font-inter font-medium font-mono font-semibold footer-text forgot-link form-container from-primary from-secondary-container from-surface-container-high gap-1 gap-12 gap-2 gap-3 gap-4 gap-6 gap-8 gap-x-12 gap-y-8 glass-header grid grid-cols-1 grid-cols-2 group group-hover/reaction:text-primary group-hover/thread:underline group-hover:bg-primary group-hover:opacity-100 group-hover:opacity-70 group-hover:text-primary group-hover:text-white group/file group/reaction group/thread h-1 h-10 h-12 h-14 h-16 h-2 h-24 h-32 h-4 h-5 h-6 h-7 h-8 h-full h-px h-screen header-title hidden hover:bg-opacity-90 hover:bg-primary hover:bg-primary-container/10 hover:bg-secondary-container/50 hover:bg-slate-100");
+@source inline("hover:bg-slate-200 hover:bg-slate-200/70 hover:bg-slate-50 hover:bg-surface-container-high hover:bg-tertiary-container/20 hover:bg-white hover:bg-white/20 hover:bg-white/5 hover:border-primary-container hover:border-primary-container/20 hover:border-slate-200 hover:brightness-110 hover:opacity-100 hover:opacity-90 hover:scale-110 hover:shadow-lg hover:shadow-primary/5 hover:text-cyan-400 hover:text-on-surface hover:text-primary hover:text-sky-500 hover:text-slate-900 hover:text-white hover:translate-x-1 hover:underline inline-block input-field input-focus input-group inset-0 italic items-baseline items-center items-start justify-between justify-center justify-end label-sm leading-none leading-relaxed left-0 left-1 left-3 left-6 lg:block lg:flex login-card logo material-symbols-outlined max-w-4xl max-w-5xl max-w-[300px] max-w-lg max-w-md max-w-sm mb mb-1 mb-12 mb-2 mb-3");
+@source inline("mb-4 mb-6 mb-8 md md:col-span-3 md:col-span-9 md:flex md:grid-cols-12 md:grid-cols-2 md:ml-[260px] md:text-right message-hover min-h-screen min-w-0 min-w-[18px] ml-64 ml-[260px] ml-auto mt-0 mt-1 mt-3 mt-4 mt-6 mt-8 mt-auto mx-1 mx-auto no-scrollbar object-cover opacity-0 opacity-10 opacity-40 opacity-70 opacity-80 overflow-hidden overflow-x-auto overflow-y-auto p-1 p-12 p-2 p-3 p-4 p-5 p-6 p-8 pb-10 pb-8 pl-10 pl-4 placeholder:text-outline placeholder:text-outline/60 placeholder:text-slate-400 pointer-events-none pr-3 pr-4 pt-0 pt-4 px-1 px-12 px-2");
+@source inline("px-3 px-4 px-5 px-6 px-8 py py-1 py-10 py-2 py-3 py-4 py-5 py-6 py-8 relative resize-none right-0 right-1 right-3 right-8 rounded rounded-2xl rounded-full rounded-lg rounded-md rounded-xl scale-75 scale-95 select-none selection:bg-primary-container/30 shadow-2xl shadow-ambient shadow-inner shadow-lg shadow-md shadow-primary-container/20 shadow-primary/10 shadow-primary/20 shadow-primary/5 shadow-purple-900/20 shadow-sm shadow-xl sidebar-scroll sm sm:grid-cols-2 space-x-2 space-x-3 space-x-4 space-x-6 space-x-8 space-y-1 space-y-10 space-y-12 space-y-2 space-y-3 space-y-4 space-y-6 space-y-8 sticky subtitle");
+@source inline("text-2xl text-3xl text-4xl text-5xl text-8xl text-[10px] text-[11px] text-[12px] text-[13px] text-[18px] text-[20px] text-[32px] text-[8px] text-amber-300 text-base text-center text-emerald-400 text-error text-fuchsia-200/40 text-fuchsia-200/50 text-left text-lg text-on-background text-on-primary text-on-primary-container text-on-secondary-container text-on-surface text-on-surface-variant text-on-surface-variant/20 text-on-surface-variant/30 text-on-surface-variant/40 text-on-surface-variant/50 text-on-surface-variant/60 text-orange-300 text-outline text-primary text-purple-200/60 text-purple-200/70 text-red-500 text-secondary text-sky-400 text-sky-500 text-sky-600 text-sky-700 text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-900 text-sm text-tertiary-container text-white text-xl text-xs text-yellow-200 to-primary-container to-tertiary-fixed-dim to-transparent top-0");
+@source inline("top-1 top-1/2 top-16 tracking-tight tracking-wider tracking-widest transition-all transition-colors transition-opacity transition-transform truncate uppercase w-1 w-10 w-12 w-14 w-2 w-32 w-4 w-5 w-6 w-64 w-7 w-8 w-80 w-[260px] w-full w-px xl:col-span-2 xl:grid-cols-3 xs z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.message-hover:hover {
+  background-color: #f2f3ff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bec8d2;
+  border-radius: 10px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.login-card {
+  width: 420px;
+  background-color: #ffffff; /* surface_container_lowest */
+  border-radius: 0.75rem; /* xl */
+  box-shadow: 0 8px 24px rgba(48, 0, 51, 0.08); /* Ambient Shadow */
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #4a154b; /* primary_container */
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.05em;
+}
+
+.header-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.375rem; /* title-lg */
+  font-weight: 600;
+  color: #1f1a1e; /* on-surface */
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem; /* body-md */
+  color: #4f434c; /* on-surface-variant */
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+
+.input-field {
+  width: 100%;
+  background-color: #fff7fa; /* surface tonal shift from white card */
+  border: none;
+  border-radius: 0.5rem; /* lg */
+  padding: 0.9rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #1f1a1e;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 2px 0 0 #006781; /* cyan secondary glow bottom edge */
+}
+
+.input-field::placeholder {
+  color: #80737d; /* outline */
+}
+
+.forgot-link {
+  align-self: flex-end;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: #006781; /* secondary */
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: -0.5rem;
+}
+
+.forgot-link:hover {
+  opacity: 0.8;
+}
+
+.cta-button {
+  width: 100%;
+  background: linear-gradient(135deg, #4a154b 0%, #300033 100%); /* Signature Gradient */
+  color: #ffffff; /* on-primary */
+  border: none;
+  border-radius: 0.75rem; /* xl */
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0;
+  transition:
+    transform 0.1s ease,
+    opacity 0.2s ease;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: #d2c2cd; /* outline-variant */
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: #f6ebf0; /* surface-container */
+}
+
+.divider span {
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #80737d;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #4f434c; /* on-surface-variant */
+}
+
+.footer-text a {
+  color: #006781; /* secondary */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+.material-symbols-outlined {
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+/* Top Bar Branding (Shared Component Simulation) */
+.top-brand {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.font-headline {
+  font-family: 'Manrope', sans-serif;
+}
+
+.shadow-ambient {
+  box-shadow: 0 8px 24px rgba(48, 0, 51, 0.08);
+}
+
+.input-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4ad2fe;
+}
+
+.glass-header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/* polish-v2:stitch-styles:end */

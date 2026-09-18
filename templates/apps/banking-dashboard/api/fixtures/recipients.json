@@ -1,0 +1,7 @@
+[
+  { "id": "rcp_001", "name": "Mira Patel",         "kind": "ach",  "institution": "Wells Fargo",     "mask": "0421", "last_used_at": "2026-04-18T09:00:00Z" },
+  { "id": "rcp_002", "name": "Strata Properties",  "kind": "ach",  "institution": "JPMorgan Chase",  "mask": "9314", "last_used_at": "2026-04-01T08:00:00Z" },
+  { "id": "rcp_003", "name": "Holden Ferreira",    "kind": "wire", "institution": "Bank of America", "mask": "5512", "last_used_at": "2026-03-12T14:30:00Z" },
+  { "id": "rcp_004", "name": "Sycamore HOA",       "kind": "ach",  "institution": "Citizens Bank",   "mask": "1140", "last_used_at": "2026-04-01T09:00:00Z" },
+  { "id": "rcp_005", "name": "Ashland Pediatrics", "kind": "ach",  "institution": "PNC Bank",        "mask": "8842", "last_used_at": "2026-02-22T11:18:00Z" }
+]

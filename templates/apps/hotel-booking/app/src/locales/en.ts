@@ -1,0 +1,40 @@
+export default {
+  common: {
+    loading: 'Loading...',
+    save: 'Save',
+    cancel: 'Cancel',
+    back: 'Back',
+  },
+  search: {
+    title: 'Find Hotels',
+    placeholder: 'City, hotel name, or landmark...',
+    guests: 'Guests',
+    anyStars: 'Any Star Rating',
+    sortRating: 'Guest Rating',
+    sortPrice: 'Lowest Price',
+    sortStars: 'Star Rating',
+    reviews: 'reviews',
+    perNight: 'per night',
+  },
+  hotel: {
+    notFound: 'Hotel not found',
+    reviews: 'reviews',
+    about: 'About',
+    amenities: 'Hotel Amenities',
+    rooms: 'Room Options',
+    sqft: 'sq ft',
+    sleeps: 'Sleeps',
+    perNight: 'per night',
+    resortFee: 'resort fee',
+    reserve: 'Reserve',
+    policies: 'Hotel Policies',
+    checkIn: 'Check-in',
+    checkOut: 'Check-out',
+  },
+  room: {
+    notFound: 'Room not found',
+  },
+  reservation: {
+    notFound: 'Reservation not found',
+  },
+}

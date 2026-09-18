@@ -1,0 +1,8 @@
+[
+  { "id": "rv1", "property_id": "h1", "author": "Maya K.",   "date_iso": "2026-03-12T00:00:00Z", "rating": 5, "body": "The cedar bath alone is worth the trip. The kaiseki dinner was a quiet revelation." },
+  { "id": "rv2", "property_id": "h1", "author": "Tomás S.",  "date_iso": "2026-02-04T00:00:00Z", "rating": 5, "body": "Tucked away from the crowds — exactly what we needed. Staff anticipated everything." },
+  { "id": "rv3", "property_id": "h2", "author": "Amelia R.", "date_iso": "2026-04-08T00:00:00Z", "rating": 5, "body": "Rooftop is dreamy at sunset. Breakfast pastries from the bakery next door." },
+  { "id": "rv4", "property_id": "h3", "author": "Henrik L.", "date_iso": "2026-03-22T00:00:00Z", "rating": 5, "body": "Felt like staying with friends in their lake house. Boat ride at sunrise was unforgettable." },
+  { "id": "rv5", "property_id": "h4", "author": "Yara A.",   "date_iso": "2026-04-01T00:00:00Z", "rating": 4, "body": "Stunning tiles and the pool made the heat manageable. Souk noise carries a bit at night." },
+  { "id": "rv6", "property_id": "h6", "author": "Birgit J.", "date_iso": "2026-01-19T00:00:00Z", "rating": 5, "body": "We saw the aurora from the hot tub. The hosts brought us hot chocolate at midnight." }
+]

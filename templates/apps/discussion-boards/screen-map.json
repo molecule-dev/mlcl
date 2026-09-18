@@ -1,0 +1,159 @@
+{
+  "app": "discussion-boards",
+  "designProjectId": "17723169554991599990",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-landing.html",
+      "designScreenId": "f11911345aca4826bf918299e731af03"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-login.html",
+      "designScreenId": "e297ee7924d246d7b3ca8cf9d42d0fc6"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-discussion-boards-login.html",
+      "derivationNotes": "Same split layout as Login (category banner left + white form right) with First Name, Last Name, Email, Username, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-discussion-boards-login.html",
+      "derivationNotes": "Same split layout as Login with only the Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-discussion-boards-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "CategoriesList",
+      "templateFile": "app/pages/CategoriesList.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/c",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-categories-list.html",
+      "designScreenId": "3c58179518b941619a6aa3f5261ff363"
+    },
+    {
+      "name": "CategoryDetail",
+      "templateFile": "app/pages/CategoryDetail.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/c/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-category-detail.html",
+      "designScreenId": "6c6e598deef94b6abd10ff991a1722c0"
+    },
+    {
+      "name": "ThreadView",
+      "templateFile": "app/pages/ThreadView.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/t/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-thread-view.html",
+      "designScreenId": "c7d3673b3d7446bba821d1873de60b8a"
+    },
+    {
+      "name": "Compose",
+      "templateFile": "app/pages/Compose.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/compose",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-compose.html",
+      "designScreenId": "42047c6283344754aef90b29c9d08eb8"
+    },
+    {
+      "name": "UserProfile",
+      "templateFile": "app/pages/UserProfile.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/u/:username",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-user-profile.html",
+      "designScreenId": "d10b921210e04c1390565799bfa33d9c"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-settings.html",
+      "designScreenId": "7cea3a73e30545a8900577b1d5f2ce6e"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-search.html",
+      "designScreenId": "cb20efd801434d13baec3f29005557e7"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-notifications.html",
+      "designScreenId": "333aa96c7e0e43048e2287b7b7fc301a"
+    },
+    {
+      "name": "Bookmarks",
+      "templateFile": "app/pages/Bookmarks.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/bookmarks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-bookmarks.html",
+      "designScreenId": "0f3d376849344ecdb462d1a661bb070e"
+    },
+    {
+      "name": "ModerationQueue",
+      "templateFile": "app/pages/ModerationQueue.tsx",
+      "components": ["app/components/DiscussionBoardsLayout.tsx"],
+      "route": "/moderation",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-discussion-boards-moderation-queue.html",
+      "designScreenId": "5f32cdc3a13f49a2a895baa0e045f248"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "lc-spanish-a2",
+    "language_name": "Spanish",
+    "language_code": "es",
+    "flag": "🇪🇸",
+    "level": "A2",
+    "unit_count": 12,
+    "lesson_count": 84,
+    "description": "Conversational Spanish for travel, dining, and everyday life.",
+    "icon": "local_cafe",
+    "tone": "primary",
+    "progress_percent": 60
+  },
+  {
+    "id": "lc-french-b1",
+    "language_name": "French",
+    "language_code": "fr",
+    "flag": "🇫🇷",
+    "level": "B1",
+    "unit_count": 14,
+    "lesson_count": 96,
+    "description": "Past tense, narrative French, and storytelling for B1 learners.",
+    "icon": "history_edu",
+    "tone": "secondary",
+    "progress_percent": 35
+  },
+  {
+    "id": "lc-japanese-a1",
+    "language_name": "Japanese",
+    "language_code": "ja",
+    "flag": "🇯🇵",
+    "level": "A1",
+    "unit_count": 10,
+    "lesson_count": 64,
+    "description": "Hiragana, katakana, and survival phrases for first-time visitors.",
+    "icon": "restaurant",
+    "tone": "tertiary",
+    "progress_percent": 80
+  },
+  {
+    "id": "lc-korean-a1",
+    "language_name": "Korean",
+    "language_code": "ko",
+    "flag": "🇰🇷",
+    "level": "A1",
+    "unit_count": 8,
+    "lesson_count": 48,
+    "description": "Hangul reading, numbers, and polite forms.",
+    "icon": "pin",
+    "tone": "info",
+    "progress_percent": 25
+  }
+]

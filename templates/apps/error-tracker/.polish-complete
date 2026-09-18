@@ -1,0 +1,14 @@
+date: 2026-04-30
+brand: Faultline — "Catch what breaks"
+sibling: ci-cd-dashboard (developer-tools, dark terminal aesthetic)
+
+bespoke components: SeverityPill, FrequencySparkline, IssueRow,
+  StackTraceBlock, StatsCounterCard, FaultlineLayout
+pages: Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard,
+  Issues, IssueDetail, Alerts, AlertDetail, Releases, ReleaseDetail,
+  Discover, Performance, Notifications, Team, Profile, Settings,
+  Projects, NotFound, Pricing, PlanUpdated
+routes wired: 19 screen-map routes + Pricing/PlanUpdated through
+  FaultlineLayout (sidebar + topbar shell)
+chrome: AppHeader/AppFooter/RootErrorBoundary delegated to Sweep 1
+  packages

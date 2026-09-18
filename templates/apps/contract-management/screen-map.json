@@ -1,0 +1,159 @@
+{
+  "app": "contract-management",
+  "designProjectId": "14206344095840702053",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-contract-management-landing.html",
+      "designScreenId": "d855aa9374634fb3a91083ce4b18751a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-contract-management-login.html",
+      "designScreenId": "c36692fd7a3c44a888a56525b8f9bde7"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-contract-management-login.html",
+      "derivationNotes": "Same split layout with dark navy hero on left. Right card has First Name, Last Name, Work Email, Company, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-contract-management-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has only Email field. Heading 'Reset your password', subtext 'We will send a reset link to your work email.' Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-contract-management-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-dashboard.html",
+      "designScreenId": "4cb5c988ddde49659ebc8dab8674c108"
+    },
+    {
+      "name": "Contracts",
+      "templateFile": "app/pages/Contracts.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/contracts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-contracts.html",
+      "designScreenId": "a3b3e14bf12e4cbcaed0ffef3d37b02c"
+    },
+    {
+      "name": "ContractDetail",
+      "templateFile": "app/pages/ContractDetail.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/contracts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-contract-detail.html",
+      "designScreenId": "442f3e93038244d5a107a9b451e960bb"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-templates.html",
+      "designScreenId": "5ecc005251974406b87fbceec5eb2bce"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-settings.html",
+      "designScreenId": "9f768ec082e54cd6838b7cf4761f38f2"
+    },
+    {
+      "name": "NewContract",
+      "templateFile": "app/pages/NewContract.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/contracts/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-new-contract.html",
+      "designScreenId": "c41a9bb680b54b049e72136805d49d44"
+    },
+    {
+      "name": "TemplateEditor",
+      "templateFile": "app/pages/TemplateEditor.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-template-editor.html",
+      "designScreenId": "8ca42f58bc8541d08d1ed16706dc4b5c"
+    },
+    {
+      "name": "Counterparties",
+      "templateFile": "app/pages/Counterparties.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/counterparties",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-counterparties.html",
+      "designScreenId": "d99e66f9139a4f1683d918e54a210a9d"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-reports.html",
+      "designScreenId": "4f01d0f89b574c2fb9b36693890afd5a"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ContractManagementLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-contract-management-notifications.html",
+      "designScreenId": "b01cb37ceabc4dd79996c50f2114b804"
+    }
+  ]
+}

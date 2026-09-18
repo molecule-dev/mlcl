@@ -1,0 +1,10 @@
+polished: true
+date: 2026-04-28
+brand: Rendition — meaning without borders
+fonts: Inter, Source Serif 4, JetBrains Mono, Material Symbols Outlined
+sweep1_chrome: yes
+bespoke_components: 11 (RenditionLayout, AuthBrandHeader, AuthShell, LanguagePairBadge, ProjectStatusPill, TranslationStatsQuad, TranslationProjectCard, TranslationActivityTimeline, TranslationHeroCard, SegmentRow, PageHeading)
+pages_rewritten: Landing, Dashboard, Translate, Projects, ProjectDetail, NewProject, Glossary, Memory, Settings, Review, Profile, Notifications, Team, Billing, NotFound, Login, Signup, ForgotPassword, ResetPassword
+typecheck: 0 errors
+classmap_coverage: 100%
+rules_compliance: clean

@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="theme-color" content="#7c3aed" />
+    <meta
+      name="description"
+      content="Cinematic browser-based video editor — timeline, clips, transitions, export."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Rushes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rushes" />
+    <meta
+      property="og:description"
+      content="Cinematic browser-based video editor — timeline, clips, transitions, export."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rushes" />
+    <meta
+      name="twitter:description"
+      content="Cinematic browser-based video editor — timeline, clips, transitions, export."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+    <!--
+      mol:design-resources — every polished app uses Material Symbols Outlined
+      icon glyphs via `<span class="material-symbols-outlined">name</span>` and
+      Inter as the body font. Without these stylesheet links the icon `<span>`s
+      render as literal text ("shield", "menu_open", "search", …) instead of
+      glyphs. Per-app polish pipelines may REPLACE this entire block (see
+      mlcl/templates/apps/<app>/app/index-design-resources.html); the defaults
+      below are the safe fallback when no per-app override exists.
+    -->
+    <!-- mol:design-resources -->
+    <!-- /mol:design-resources -->
+    <!-- mol:fonts -->
+    <style>
+      @font-face {
+        font-family: 'Arimo';
+        src:
+          local('Arimo Regular'),
+          local('Arimo-Regular'),
+          url('/fonts/Arimo-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Arimo';
+        src:
+          local('Arimo Bold'),
+          local('Arimo-Bold'),
+          url('/fonts/Arimo-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src:
+          local('Inter Regular'),
+          local('Inter-Regular'),
+          url('/fonts/Inter-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src:
+          local('Inter Bold'),
+          local('Inter-Bold'),
+          url('/fonts/Inter-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src:
+          local('JetBrains Mono Regular'),
+          local('JetBrains Mono-Regular'),
+          url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src:
+          local('JetBrains Mono Bold'),
+          local('JetBrains Mono-Bold'),
+          url('/fonts/JetBrainsMono-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @supports (font-variation-settings: normal) {
+        @font-face {
+          font-family: 'Arimo';
+          src:
+            local('Arimo'),
+            local('Arimo VariableFont'),
+            local('Arimo-VariableFont'),
+            url('/fonts/Arimo-VariableFont_wght.ttf') format('truetype');
+          font-weight: 100 1000;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Inter';
+          src:
+            local('Inter'),
+            local('Inter VariableFont'),
+            local('Inter-VariableFont'),
+            url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+          font-weight: 100 900;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'JetBrains Mono';
+          src:
+            local('JetBrains Mono'),
+            local('JetBrains Mono VariableFont'),
+            local('JetBrains Mono-VariableFont'),
+            url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+          font-weight: 100 800;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Material Symbols Outlined';
+          src:
+            local('Material Symbols Outlined'),
+            local('Material Symbols Outlined VariableFont'),
+            local('Material Symbols Outlined-VariableFont'),
+            url('/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
+          font-weight: 100 700;
+          font-display: swap;
+        }
+      }
+      .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <!-- /mol:fonts -->
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1668x2224.svg" sizes="1668x2224" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1536x2048.svg" sizes="1536x2048" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1125x2436.svg" sizes="1125x2436" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1242x2208.svg" sizes="1242x2208" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-750x1334.svg" sizes="750x1334" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-640x1136.svg" sizes="640x1136" />
+    <title>Rushes — Cut. Create. Captivate.</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- mol:preview-bridge:start -->
+    <script>
+      // Signal the parent IDE when the app renders, crashes, or recovers.
+      // Used by PreviewPanel to manage the loading overlay.
+      ;(function () {
+        if (!window.parent || window.parent === window) return
+        var root = document.getElementById('root') || document.getElementById('app')
+        if (!root) return
+
+        // --- Rate-limiting to prevent infinite loop freezes ---
+        var transitions = [] // timestamps of recent ready↔error transitions
+        var WINDOW = 5000 // 5s sliding window
+        var MAX_TRANSITIONS = 12 // max transitions in window before suppressing
+        var suppressed = false
+        var errorCount = 0 // runtime errors since last reset
+        var MAX_ERRORS_PER_SEC = 20 // cap error messages per second
+        var errorResetTimer = null
+
+        function post(type, msg, extra) {
+          var data = { type: type }
+          if (msg) data.message = msg
+          if (extra) for (var k in extra) data[k] = extra[k]
+          window.parent.postMessage(data, '*')
+        }
+
+        function trackTransition() {
+          var now = Date.now()
+          transitions.push(now)
+          // Trim old entries
+          while (transitions.length > 0 && now - transitions[0] > WINDOW) transitions.shift()
+          if (transitions.length >= MAX_TRANSITIONS && !suppressed) {
+            suppressed = true
+            console.warn(
+              '[molecule:preview] Rapid ready/error cycle detected (' +
+                transitions.length +
+                ' in ' +
+                WINDOW +
+                'ms) — suppressing messages to prevent freeze',
+            )
+            // Auto-recover after the storm passes
+            setTimeout(function () {
+              suppressed = false
+              transitions = []
+            }, WINDOW)
+          }
+          return suppressed
+        }
+
+        // Catch runtime errors and unhandled rejections.
+        // Before render: show overlay via molecule:error.
+        // After render: forward to IDE chat via molecule:runtime-error (for AI auto-fix).
+        // Post-render crashes (empty #root) are detected by the MutationObserver below.
+        window.addEventListener('error', function (e) {
+          // Rate-limit error messages to prevent flood
+          errorCount++
+          if (errorCount > MAX_ERRORS_PER_SEC) {
+            if (errorCount === MAX_ERRORS_PER_SEC + 1) {
+              console.warn(
+                '[molecule:preview] Error flood detected (' +
+                  errorCount +
+                  ' errors) — suppressing further error messages',
+              )
+            }
+            return
+          }
+          if (!errorResetTimer) {
+            errorResetTimer = setTimeout(function () {
+              errorCount = 0
+              errorResetTimer = null
+            }, 1000)
+          }
+          if (!hadContent) {
+            post('molecule:error', e.message || 'Runtime error', {
+              source: e.filename || undefined,
+              line: e.lineno || undefined,
+              column: e.colno || undefined,
+            })
+          } else {
+            post('molecule:runtime-error', null, {
+              message: String(e.message || 'Runtime error'),
+              source: e.filename || undefined,
+              line: e.lineno || undefined,
+              column: e.colno || undefined,
+            })
+          }
+        })
+        window.addEventListener('unhandledrejection', function (e) {
+          errorCount++
+          if (errorCount > MAX_ERRORS_PER_SEC) return
+          if (!errorResetTimer) {
+            errorResetTimer = setTimeout(function () {
+              errorCount = 0
+              errorResetTimer = null
+            }, 1000)
+          }
+          var msg =
+            e.reason?.message ||
+            (typeof e.reason === 'string' ? e.reason : 'Unhandled promise rejection')
+          if (!hadContent) {
+            var stack = e.reason?.stack || ''
+            var srcMatch = stack.match(/(?:at\s+)?(?:\S+\s+)?\(?(\S+):(\d+):(\d+)\)?/)
+            post('molecule:error', msg, {
+              source: srcMatch ? srcMatch[1] : undefined,
+              line: srcMatch ? parseInt(srcMatch[2], 10) : undefined,
+              column: srcMatch ? parseInt(srcMatch[3], 10) : undefined,
+            })
+          } else {
+            post('molecule:runtime-error', null, {
+              message: String(msg),
+              source: 'unhandledrejection',
+            })
+          }
+        })
+        // Continuously watch #root — detect render, crash (empty), and recovery.
+        // HMR updates don't trigger iframe onLoad, so this is the only way to
+        // detect mid-session crashes from broken code written by the AI.
+        var hadContent = false
+        var pendingCheck = false
+        new MutationObserver(function () {
+          if (pendingCheck) return
+          pendingCheck = true
+          requestAnimationFrame(function () {
+            pendingCheck = false
+            var hasContent = root.children.length > 0
+            if (hasContent && !hadContent) {
+              hadContent = true
+              if (!trackTransition()) {
+                post('molecule:ready')
+                setTimeout(checkBlank, 2000)
+              }
+            } else if (!hasContent && hadContent) {
+              hadContent = false
+              if (!trackTransition())
+                post('molecule:error', 'App crashed during update', { crash: true })
+            }
+          })
+        }).observe(root, { childList: true })
+        // Detect Vite error overlay — catches compilation errors that don't fire window.onerror
+        new MutationObserver(function (mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            for (var j = 0; j < mutations[i].addedNodes.length; j++) {
+              var node = mutations[i].addedNodes[j]
+              if (node.tagName === 'VITE-ERROR-OVERLAY') {
+                // Extract error from Shadow DOM after a tick (populates async)
+                setTimeout(function () {
+                  var sr = node.shadowRoot
+                  if (!sr) return
+                  var msgEl = sr.querySelector('.message-body') || sr.querySelector('.message')
+                  var fileEl = sr.querySelector('.file')
+                  var frameEl = sr.querySelector('.frame')
+                  var message = (msgEl ? msgEl.textContent : '') || 'Vite compilation error'
+                  var file = fileEl ? fileEl.textContent : ''
+                  var frame = frameEl ? frameEl.textContent : ''
+                  post('molecule:runtime-error', null, {
+                    message: message.trim() + (file ? ' in ' + file.trim() : ''),
+                    source: file ? file.trim() : 'vite',
+                    detail: frame ? frame.trim() : undefined,
+                  })
+                }, 100)
+              }
+            }
+          }
+        }).observe(document.documentElement, { childList: true })
+        // Heartbeat — lets parent distinguish alive-but-broken from dead
+        setInterval(function () {
+          post('molecule:heartbeat')
+        }, 3000)
+        // Blank page detection — fires after render if page has no visible content
+        function checkBlank() {
+          if (!root.children.length) return
+          var text = root.innerText || ''
+          var rect = root.getBoundingClientRect()
+          if (text.trim().length === 0 && rect.height < 10) {
+            post('molecule:blank', 'Page rendered but appears blank (no visible text content)')
+          }
+        }
+        // Check initial state
+        if (root.children.length > 0) {
+          hadContent = true
+          post('molecule:ready')
+          setTimeout(checkBlank, 2000)
+        }
+        // Detect 5XX network errors from fetch and XMLHttpRequest.
+        // Debounced and deduplicated — reports each failing URL at most once per 10s.
+        var recentNetErrors = {} // url → timestamp
+        var netErrorBatch = []
+        var netErrorTimer = null
+        var NET_ERROR_DEDUP_MS = 10000
+        var NET_ERROR_DEBOUNCE_MS = 2000
+        var MAX_NET_ERRORS_PER_BATCH = 5
+        function reportNetError(status, url, method) {
+          var now = Date.now()
+          // Strip query string for dedup key
+          var key = (method || 'GET') + ' ' + url.replace(/\?.*$/, '')
+          if (recentNetErrors[key] && now - recentNetErrors[key] < NET_ERROR_DEDUP_MS) return
+          recentNetErrors[key] = now
+          if (netErrorBatch.length < MAX_NET_ERRORS_PER_BATCH) {
+            // Strip origin to get a readable path
+            var path = url
+            try {
+              path = new URL(url).pathname
+            } catch (e) {}
+            netErrorBatch.push({ status: status, method: method || 'GET', path: path })
+          }
+          if (netErrorTimer) clearTimeout(netErrorTimer)
+          netErrorTimer = setTimeout(function () {
+            if (netErrorBatch.length > 0) {
+              var lines = netErrorBatch.map(function (e) {
+                return e.method + ' ' + e.path + ' → ' + e.status
+              })
+              post('molecule:runtime-error', null, {
+                message: 'Server returned error responses:\n' + lines.join('\n'),
+                source: 'network',
+              })
+              netErrorBatch = []
+            }
+            netErrorTimer = null
+          }, NET_ERROR_DEBOUNCE_MS)
+        }
+        // Intercept fetch
+        var origFetch = window.fetch
+        window.fetch = function () {
+          var url = typeof arguments[0] === 'string' ? arguments[0] : arguments[0]?.url || ''
+          var method = arguments[1]?.method || 'GET'
+          return origFetch.apply(this, arguments).then(function (response) {
+            if (response.status >= 500) reportNetError(response.status, url, method)
+            return response
+          })
+        }
+        // Intercept XMLHttpRequest
+        var origXHROpen = XMLHttpRequest.prototype.open
+        var origXHRSend = XMLHttpRequest.prototype.send
+        XMLHttpRequest.prototype.open = function (method, url) {
+          this._molMethod = method
+          this._molUrl = url
+          return origXHROpen.apply(this, arguments)
+        }
+        XMLHttpRequest.prototype.send = function () {
+          var xhr = this
+          xhr.addEventListener('load', function () {
+            if (xhr.status >= 500)
+              reportNetError(xhr.status, xhr._molUrl || '', xhr._molMethod || 'GET')
+          })
+          return origXHRSend.apply(this, arguments)
+        }
+      })()
+    </script>
+    <!-- mol:preview-bridge:end -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "pay-1",
+    "invoice_id": "inv-1042",
+    "invoice_number": "INV-1042",
+    "client_name": "Aperture Studio",
+    "method": "stripe",
+    "reference": "pi_3RAa12L",
+    "amount": 4800,
+    "status": "completed",
+    "created_at": "2026-04-29T22:35:00Z"
+  },
+  {
+    "id": "pay-2",
+    "invoice_id": "inv-1034",
+    "invoice_number": "INV-1034",
+    "client_name": "Tide Surfboards",
+    "method": "bank",
+    "reference": "ACH-90142",
+    "amount": 6200,
+    "status": "completed",
+    "created_at": "2026-04-29T06:00:00Z"
+  },
+  {
+    "id": "pay-3",
+    "invoice_id": "inv-1032",
+    "invoice_number": "INV-1032",
+    "client_name": "Linchpin Logistics",
+    "method": "stripe",
+    "reference": "pi_3R9X02L",
+    "amount": 12450,
+    "status": "completed",
+    "created_at": "2026-04-28T12:00:00Z"
+  },
+  {
+    "id": "pay-4",
+    "invoice_id": "inv-1029",
+    "invoice_number": "INV-1029",
+    "client_name": "Mosaic Marketing",
+    "method": "paypal",
+    "reference": "PAY-7XK29",
+    "amount": 950,
+    "status": "pending",
+    "created_at": "2026-04-29T12:00:00Z"
+  },
+  {
+    "id": "pay-5",
+    "invoice_id": "inv-1027",
+    "invoice_number": "INV-1027",
+    "client_name": "Briar & Bloom",
+    "method": "manual",
+    "reference": "CASH-001",
+    "amount": 187,
+    "status": "completed",
+    "created_at": "2026-04-27T16:00:00Z"
+  },
+  {
+    "id": "pay-6",
+    "invoice_id": "inv-1018",
+    "invoice_number": "INV-1018",
+    "client_name": "Vega Print Group",
+    "method": "stripe",
+    "reference": "pi_3R6Q01L",
+    "amount": 1290,
+    "status": "failed",
+    "created_at": "2026-04-25T10:00:00Z"
+  }
+]

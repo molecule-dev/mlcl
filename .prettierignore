@@ -1,0 +1,9 @@
+dist/
+node_modules/
+*.sql
+*.json
+coverage/
+test-app/
+README.md
+CLAUDE.md
+templates/**/generated-visual-tokens.css

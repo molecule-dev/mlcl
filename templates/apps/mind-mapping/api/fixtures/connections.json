@@ -1,0 +1,42 @@
+[
+  {
+    "id": "conn-root-audience",
+    "map_id": "map-q4-brainstorm",
+    "source_node_id": "node-root",
+    "target_node_id": "node-audience",
+    "label": null,
+    "style": {},
+    "created_at": "2026-04-12T09:05:30Z",
+    "updated_at": "2026-04-12T09:05:30Z"
+  },
+  {
+    "id": "conn-root-pricing",
+    "map_id": "map-q4-brainstorm",
+    "source_node_id": "node-root",
+    "target_node_id": "node-pricing",
+    "label": null,
+    "style": {},
+    "created_at": "2026-04-12T09:06:30Z",
+    "updated_at": "2026-04-12T09:06:30Z"
+  },
+  {
+    "id": "conn-root-channels",
+    "map_id": "map-q4-brainstorm",
+    "source_node_id": "node-root",
+    "target_node_id": "node-channels",
+    "label": null,
+    "style": {},
+    "created_at": "2026-04-12T09:07:30Z",
+    "updated_at": "2026-04-12T09:07:30Z"
+  },
+  {
+    "id": "conn-root-risks",
+    "map_id": "map-q4-brainstorm",
+    "source_node_id": "node-root",
+    "target_node_id": "node-risks",
+    "label": null,
+    "style": {},
+    "created_at": "2026-04-12T09:08:30Z",
+    "updated_at": "2026-04-12T09:08:30Z"
+  }
+]

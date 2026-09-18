@@ -1,0 +1,37 @@
+[
+  {
+    "id": "evt-1",
+    "title": "Design Sync",
+    "time": "In 30 minutes",
+    "variant": "default",
+    "projectId": "proj-1"
+  },
+  {
+    "id": "evt-2",
+    "title": "Project Deadline",
+    "time": "In 2 days",
+    "variant": "deadline",
+    "projectId": "proj-1"
+  },
+  {
+    "id": "evt-3",
+    "title": "Marketing Review",
+    "time": "Tomorrow, 3:30 PM",
+    "variant": "success",
+    "projectId": "proj-1"
+  },
+  {
+    "id": "evt-4",
+    "title": "V2 Planning",
+    "time": "Next Week",
+    "variant": "default",
+    "projectId": "proj-1"
+  },
+  {
+    "id": "evt-5",
+    "title": "Sprint Retro",
+    "time": "Friday, 2:00 PM",
+    "variant": "default",
+    "projectId": "proj-1"
+  }
+]

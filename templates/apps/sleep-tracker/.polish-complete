@@ -1,0 +1,24 @@
+Polish complete: 2026-04-30T00:43:00Z
+Pipeline: polish-app.md via polish-app.mjs autonomous driver
+Cluster: health → sibling: habit-tracker (StreakHeroCard) + personal-finance (NetWorthCard) for hero treatment; secondary patterns from crm/StatsRow + project-management for triad/feed shapes
+Brand: Somnia — indigo/violet gradient (#6c5ce7 → #a78bfa), Inter + Material Symbols Outlined
+Components: 9 bespoke
+  - SleepScoreHeroCard      (gradient hero, 6xl tabular score, frosted-glass duration pill, 14-night sparkline)
+  - RecoveryRingsTriad      (three SVG progress rings — duration / deep-sleep % / resting HR)
+  - SleepStagesTimeline     (hypnogram with deep/light/REM/awake segments + stage legend)
+  - SleepTrendChart         (multi-period dual-axis chart — duration bars + score line)
+  - NightHistoryRow         (editorial row with date, score pill, stage shares bar, hover lift)
+  - SmartAlarmCard          (alarm card with wake-window range, days-of-week pills, sound chip)
+  - SettingsPanel           (sectioned settings with toggles, sliders, and themed accents)
+  - AuthShell               (split-pane auth layout with branded left panel + decorated right card)
+  - AuthInput               (icon-prefix floating-label input variant for AuthShell)
+Pages rewritten: Landing, Dashboard, Night, Trends, Coaching, CoachingDetail,
+  Devices, NightHistory, Notifications, Profile, Settings, SmartAlarm, PlanUpdated
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (all use AuthShell + AuthInput)
+Material 3 tokens: filled (0 missing per polish-status)
+Fonts: Inter + JetBrains Mono + Material Symbols Outlined wired via mol:design-resources slot
+Sweep 1 chrome: Header.tsx (delegates to AppHeader), Footer.tsx (delegates to AppFooter),
+  RootErrorBoundary.tsx (re-export from @molecule/app-root-error-boundary-react)
+Screen-map coverage: 16/16 wired (verified via check-screen-map-coverage.mjs)
+Typecheck: clean
+Compliance: 1 classmap-coverage violation (decorative gradients/blur in hero cards — within 4-violation budget)

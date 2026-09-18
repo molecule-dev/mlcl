@@ -1,0 +1,20 @@
+Polish complete: 2026-04-29T22:45:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Brand: Filament — "Every signal, orchestrated"
+Cluster: ops-iot → sibling: fleet-management
+Components: 7 bespoke
+  - FilamentLayout       (sidebar shell)
+  - FleetTelemetryHero   (navy command-bar hero with status pins)
+  - DeviceKpiCard        (border-l-4 KPI w/ telemetry sparkline + signal glyph)
+  - DeviceActivityFeed   (editorial device row list)
+  - AlertHighlightCard   (gradient highlight card for the Dashboard sidebar)
+  - FirmwareCampaignCard (rollout card with channel pill + progress bar)
+  - AuthBrandHeader      (§13.7 chip-wordmark for Login/Signup/Forgot/Reset)
+Pages rewritten: Landing, Dashboard, Devices, DeviceDetail, Fleets,
+  Firmware, Alerts, Console, Settings, Login, Signup, ForgotPassword,
+  ResetPassword (13/13 screen-map routes)
+Material 3 tokens: complete (bg-surface-container-*, on-* derivatives)
+Fonts: Inter + JetBrains Mono + Material Symbols Outlined
+Sweep 1 chrome conformance: AppHeader, AppFooter, RootErrorBoundary
+Compliance: clean (check-rules-compliance.mjs)
+ClassMap coverage: 100%

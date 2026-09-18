@@ -1,0 +1,149 @@
+{
+  "app": "ci-cd-dashboard",
+  "designProjectId": "10990561889272564165",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-landing.html",
+      "designScreenId": "70fda3336f4c4013b3dd48280c9a9d2d"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-login.html",
+      "designScreenId": "2ec9cddb62a04865b07103bfdf7a605d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ci-cd-dashboard-login.html",
+      "derivationNotes": "Same centered dark card as Login with Email, Password, Confirm Password fields. Heading 'Create your account'. Button 'Create account' solid emerald. Bottom link 'Already have an account? Sign In'. No Forgot Password link. Keep terminal status pill and version indicator."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ci-cd-dashboard-login.html",
+      "derivationNotes": "Same centered dark card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' solid emerald. Bottom link 'Back to Sign In'. No password field. Keep terminal status pill and version indicator."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ci-cd-dashboard-login.html",
+      "derivationNotes": "Same centered dark card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' solid emerald. Bottom link 'Back to Sign In'. Keep terminal status pill and version indicator."
+    },
+    {
+      "name": "Pipelines",
+      "templateFile": "app/pages/Pipelines.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/pipelines",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-pipelines.html",
+      "designScreenId": "cab1ce06132346ff8c5e3f7fa76d48c8"
+    },
+    {
+      "name": "PipelineDetail",
+      "templateFile": "app/pages/PipelineDetail.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/pipelines/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-pipeline-detail.html",
+      "designScreenId": "25dd8bcb2d8b44d6a419c5c54559de89"
+    },
+    {
+      "name": "Environments",
+      "templateFile": "app/pages/Environments.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/environments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-environments.html",
+      "designScreenId": "2537e2841ebf4d7b838267fe5a2aae44"
+    },
+    {
+      "name": "Artifacts",
+      "templateFile": "app/pages/Artifacts.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/artifacts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-artifacts.html",
+      "designScreenId": "027d6d7b6a434e11983bf6cc1879087c"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-settings.html",
+      "designScreenId": "c10be20d70634ebc9d6de503dbbb50dd"
+    },
+    {
+      "name": "Repositories",
+      "templateFile": "app/pages/Repositories.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/repositories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-repositories.html",
+      "designScreenId": "bdd3b0246d124c0b9e8483bc35af761a"
+    },
+    {
+      "name": "RepositoryDetail",
+      "templateFile": "app/pages/RepositoryDetail.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/repositories/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-repository-detail.html",
+      "designScreenId": "5dc6ea3a9c5340dd9c22f56ca60f0fbf"
+    },
+    {
+      "name": "Insights",
+      "templateFile": "app/pages/Insights.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/insights",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-insights.html",
+      "designScreenId": "828ac8ac4c004059b1d4a7c9c3f1a83c"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/CiCdDashboardLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ci-cd-dashboard-notifications.html",
+      "designScreenId": "ee10201200344f209c84a817d446bc5d"
+    }
+  ]
+}

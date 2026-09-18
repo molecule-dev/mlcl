@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Arakatu laguntza artikuluak',
+  'about.cta.signup': 'Probatu Courier doan',
+  'about.eyebrow': 'Courier-i buruz',
+  'about.principle.calm': 'Berez lasai.',
+  'about.principle.calm.desc':
+    'Ez garrasi egiten duten txaparik, ez eskatu ez dituzun jakinarazpenik, ez begirada bat eskatzen duten animaziorik.',
+  'about.principle.fast.desc':
+    'Ekintza guztiak tekla sakatze bakarrean daude. Sarrerako ontzia 200 ms baino gutxiagoan kargatzen da saioa berriro hasten denean.',
+  'about.principle.honest.desc':
+    'Datuen enkriptatzea bidean eta geldirik daudenean, atxikipen gardena eta klik bakarreko datuen esportazioa.',
+  'about.story': 'Zergatik eraiki genuen Courier',
+  'about.story.p1':
+    'Posta elektronikoko bezero gehienak interakziorako optimizatzen dira — atzera erakarriz, zure arreta zatituz, beste ukitu bat iradokiz. Courierek kontrakoa egiten du. Arrakasta zure sarrera-ontzian EZ igarotzen duzun denboraren arabera neurtzen dugu: azkar sailkatu, konfiantzaz atzeratu eta garrantzitsuena den lanari ekin.',
+  'about.subtitle':
+    'Courier hiru paneleko sarrera-ontzi lasaia da, informazioa erreakzionatu beharrean prozesatu nahi zuen talde txiki batek sortua.',
+  'about.team.body':
+    'Diseinatzaile eta ingeniari talde banatu bat gara, eta garai batean egunero ordu gehiegi postontzi zaratatsu batean ematen genuen. Courier da geuk erabili nahi genuen sarrera-ontzia.',
+  'about.title': 'Lanerako arreta jartzeko posta elektronikoa',
+  'help.cta.about': 'Courier-i buruz',
+  'help.cta.pricing': 'Ikusi prezioak',
+  'help.eyebrow': 'Laguntza zentroa',
+  'help.faq.compose.a':
+    'Egin klik alboko barran dagoen \\u201CConposatu\\u201D aukeran (edo sakatu \\u201Cc\\u201D sarrerako edozein ontziko ikuspegitan), idatzi gutxienez hartzaile bat, gaia eta testua, eta sakatu \\u201CSosatu\\u201D. Mezu berria berehala agertuko da Bidalitakoen karpetan.',
+  'help.faq.compose.q': 'Nola bidali dezaket nire lehen mezua?',
+  'help.faq.export.a':
+    'Bai. Ezarpenak \\u2192 Kontua \\u2192 Datuen esportazioak deskargatu daitekeen artxibo bat sortzen du (mbox + JSON) mezu, etiketa eta kontaktu guztiekin. Ez da premium mailarik behar.',
+  'help.faq.labels.a':
+    'Karpetak esklusiboak dira (mezu bakoitza bakar batean dago): Sarrerako ontzia, Bidalitakoak, Zirriborroak, Spama, Zaborrontzia, Artxiboa. Etiketak gehigarriak dira: mezu elektroniko bakar bati asko aplika diezazkiokezu eta bilaketa-barratik konbinazioen arabera iragazi.',
+  'help.faq.password.a':
+    'Erabili saioa hasteko orrialdean dagoen \\u201CPasahitza ahaztu duzu?\\u201D esteka. Ordubetez balio duen berrezartzeko esteka bat bidaliko dizugu zure kontuaren helbide elektronikora.',
+  'help.faq.shortcuts.a':
+    'Bai. \\u201Cj\\u201D / \\u201Ck\\u201D harien artean mugitu, \\u201Cs\\u201D izarra txandakatu, \\u201Ce\\u201D artxibatu, \\u201C#\\u201D zakarrontzira eraman eta \\u201C/\\u201D bilaketa-koadroa fokuratu. Lasterbideen dokumentazioa edozein sarrera-ontziko ikuspegitan egongo da ikusgai \\u201C?\\u201D sakatuz.',
+  'help.faq.support.a':
+    'Bidali mezu elektronikoa support@courier.example helbidera. Mezu guztiei lanegun bateko epean erantzuten diegu, lanegunetan 9:13 UTC-tik aurrera.',
+  'help.subtitle':
+    'Gehien entzuten ditugun galderei erantzun azkarrak. Zerbait falta al da? Ireki Ezarpenak eta erabili aplikazio barruko iritzi-formularioa, edo idatzi support@courier.example helbidera.',
+  'help.title': 'Nola lagundu dezakegu?',
+  'landing.brand.scrollTop': 'Gora itzuli',
+  'landing.ctaBody':
+    'Batu zaitez bazkaldu aurretik sarrera-ontzia amaitu duten milaka profesionalei.',
+  'landing.ctaTitle': 'Gehiago prozesatu, gutxiago erreakzionatu.',
+  'landing.eyebrow': 'Lanerako arreta jartzeko posta elektronikoa',
+  'landing.featuresBody': 'Utzi zure sarrera-ontzia kudeatzeari eta hasi lanean.',
+  'landing.featuresTitle': 'Lan sakonerako diseinatua.',
+  'landing.help': 'Laguntza',
+  'landing.heroDemo': 'Ikusi demoa',
+  'landing.heroSubtitle':
+    'Courier hiru paneleko sarrera-ontzi lasaia da, informazioa prozesatu nahi duten ezagutza-langileentzat eraikia, ez horri erreakzionatu nahi diotenentzat.',
+  'landing.proof': 'Mundu osoko talde espezializatuen konfiantza dute',
+  'landing.signIn': 'Hasi saioa',
+  'meridian.archive.empty': 'Artxiboa hutsik dago.',
+  'meridian.compose.addRecipient': 'Gehitu beste hartzaile bat',
+  'meridian.compose.bodyPlaceholder': 'Idatzi zure mezua…',
+  'meridian.compose.cc': 'CC',
+  'meridian.compose.ccPlaceholder': 'cc@adibidea.com',
+  'meridian.compose.discard': 'Baztertu zirriborroa',
+  'meridian.compose.invalidEmail': '" {{value}} " ez da baliozko helbide elektronikoa',
+  'meridian.compose.needRecipient': 'Gehitu gutxienez hartzaile bat lehenik.',
+  'meridian.compose.replyTo': 'Hari batean erantzun {{id}}',
+  'meridian.compose.savedAt': 'Zirriborroa gordeta hemen {{time}}',
+  'meridian.compose.sentWithError':
+    'Bidalitakoak atalean gorde da, baina bidalketa huts egin du: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': 'Gaia',
+  'meridian.compose.title': 'Mezu berria',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Jarraitu editatzen',
+  'meridian.drafts.count': '{{count}} mezuak',
+  'meridian.drafts.delete': 'Ezabatu zirriborroa',
+  'meridian.drafts.empty': 'Oraindik ez dago zirriborrorik — hasi idazten.',
+  'meridian.drafts.lastSaved': 'Gordeta {{at}}',
+  'meridian.drafts.noRecipients': '(hartzailerik ez oraindik)',
+  'meridian.drafts.selectDraft': 'Hautatu zirriborro bat aurreikusteko.',
+  'meridian.drafts.title': 'Zirriborroak',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Zirriborroa',
+  'meridian.folder.count': '{{count}} mezuak',
+  'meridian.folder.deleteForever': 'Ezabatu betiko',
+  'meridian.folder.restore': 'Sarrerako ontzira eraman',
+  'meridian.forgot.subtitle':
+    'Sartu zure sarrera-ontziarekin lotutako helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
+  'meridian.forgot.success':
+    'Helbide elektroniko hori duen kontu bat badago, berrezartzeko esteka bat bidean da.',
+  'meridian.inbox.empty': 'Ez dago mezurik hemen oraindik.',
+  'meridian.inbox.loading': 'Kargatzen…',
+  'meridian.inbox.next': 'Hurrengoa',
+  'meridian.inbox.noSubject': '(gairik gabe)',
+  'meridian.inbox.openCompose': 'Ireki idazketa',
+  'meridian.inbox.previous': 'Aurrekoa',
+  'meridian.inbox.replyFailed': 'Erantzuna gorde da baina bidalketa huts egin du: {{error}}',
+  'meridian.inbox.replySent': 'Erantzuna bidali da.',
+  'meridian.inbox.replyTo': 'Erantzun {{name}}',
+  'meridian.inbox.selectMessage': 'Hautatu mezu bat irakurtzeko',
+  'meridian.inbox.spam': 'Spama',
+  'meridian.inbox.viewThread': 'Ikusi haria',
+  'meridian.login.hidePassword': 'Ezkutatu pasahitza',
+  'meridian.login.noAccount': 'Ez duzu konturik?',
+  'meridian.login.showPassword': 'Erakutsi pasahitza',
+  'meridian.message.toLine': 'ra {{recipients}}',
+  'meridian.notFound.eyebrow': '404 errorea',
+  'meridian.notFound.title': 'Hari hau artxibatu egin da.',
+  'meridian.notFound.toInbox': 'Ireki nire sarrera-ontzia',
+  'meridian.reset.newLabel': 'Pasahitz berria',
+  'meridian.reset.showPassword': 'Erakutsi pasahitza',
+  'meridian.reset.subtitle': 'Aukeratu pasahitz sendo bat — gutxienez 8 karaktere dituena.',
+  'meridian.sent.empty': 'Oraindik ez duzu ezer bidali.',
+  'meridian.sent.title': 'Bidalia',
+  'meridian.settings.noName': '(izenik ez da ezarri)',
+  'meridian.settings.section.${section}': 'Pertsonalizatu zure {{aplikazioarenIzena}} esperientzia',
+  'meridian.settings.signature': 'Sinadura',
+  'meridian.settings.signatureSaved': 'Sinadura gordeta.',
+  'meridian.sidebar.compose': 'Idatzi',
+  'meridian.sidebar.labels': 'Etiketak',
+  'meridian.sidebar.noLabels': 'Oraindik ez dago etiketarik',
+  'meridian.sidebar.storage': 'Biltegiratzea',
+  'meridian.sidebar.storageLabel': '{{used}} -ren {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Sortu zure Courier sarrera-ontzia',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Erakutsi pasahitza',
+  'meridian.signup.subtitle': 'Bazkaldu aurretik zure sarrera-ontzia prozesatu.',
+  'meridian.spam.empty': 'Spam-ik ez.',
+  'meridian.spam.title': 'Spama',
+  'meridian.starred.empty': 'Ez dago izarrez markatutako mezurik.',
+  'meridian.starred.loading': 'Kargatzen…',
+  'meridian.starred.removeStar': 'Kendu izarra',
+  'meridian.starred.total': '{{count}} guztira',
+  'meridian.thread.back': 'Sarrerako ontzira itzuli',
+  'meridian.thread.empty': 'Ez dago mezurik hari honetan.',
+  'meridian.thread.eyebrow': 'Hariaren zenbakia {{id}}',
+  'meridian.thread.notFound': 'Haria ez da aurkitu.',
+  'meridian.thread.star': 'Gehitu izarra',
+  'meridian.thread.unstar': 'Kendu izarra',
+  'meridian.time.yesterday': 'Atzo',
+  'meridian.topBar.searchPlaceholder': 'Bilatu posta elektronikoa',
+  'meridian.trash.empty': 'Zaborra hutsik dago.',
+  'meridian.trash.title': 'Zaborra',
+  'nav.legal': 'Legezko',
+  'planUpdated.description':
+    'Zure harpidetza aktibo dago orain eta zure fakturazioa eguneratu da. Ongi etorri zure Courier sarrera-ontzi freskatura.',
+  'pricing.heading': 'zirriborroak',
+  'pricing.limit.emails': 'mezu elektronikoak',
+  'pricing.limit.folders': 'karpetak',
+  'pricing.limit.labels': 'etiketak',
+  'privacy.collect.account':
+    'Kontuaren datuak: izena, helbide elektronikoa, pasahitza hash bidez eta izena eman zenuen data.',
+  'privacy.intro':
+    'Pribatutasun-politika honek Courierek zer datu biltzen dituen azaltzen du, zergatik biltzen ditugun, nola gordetzen ditugun seguru eta zer aukera dituzun horien inguruan. Legalistak izan beharrean, zehatzak izatea dugu helburu; zerbait argi ez baduzu, idatzi privacy@courier.example helbidera.',
+  'privacy.lastUpdated': 'Azken eguneraketa: 2026ko apirilaren 1a',
+  'privacy.linkTerms': 'Irakurri gure Zerbitzu-baldintzak \\u2192',
+  'privacy.rights.body':
+    'Zure inguruan ditugun datu guztiak esporta ditzakezu Ezarpenak → Kontua → Datuen esportazioa ataletik, eta zure kontua klik bakarrarekin ezaba dezakezu: errenkada guztiak 24 orduko epean ezabatuko dira, auditoria-erregistroak 30 egun igaro ondoren garbituko dira.',
+  'privacy.security.body':
+    'Posta elektronikoaren edukia eta eranskinak AES-256 erabiliz enkriptatzen dira. Gure zerbitzurako eta gure zerbitzutik konexioek TLS 1.3 erabiltzen dute. Pasahitzak bcrypt-ekin hash egiten dira; ez ditugu inoiz testu arrunteko pasahitzik erregistratzen edo gordetzen. Ekoizpen-sarbidea txandako ingeniarietara mugatuta dago, hilero ikuskatuz.',
+  'privacy.share.body':
+    'Courier exekutatzeko behar ditugun azpiprozesadoreekin bakarrik partekatzen ditugu datuak (posta elektronikoa Mailgun bidez bidaltzea, Stripe bidez fakturatzea, AWS bidez ostatua ematea). Bakoitzak kontratuz behartuta dago zure datuak guretzat bere zerbitzua emateko soilik erabiltzera. Ez ditugu zure datuak inorekin saltzen, alokatzen edo trukatzen.',
+  'terms.acceptable.spam':
+    'Ez bidali nahi ez diren mezuak masiboki. Spam-a bidaltzen duten kontuak abisurik gabe itxiko ditugu.',
+  'terms.account.body':
+    'Zure pasahitzaren konfidentzialtasuna mantentzeaz eta zure kontuaren bidez gertatzen den edozein jardueraz arduratzen zara. Jakinarazi iezaguzu security@courier.example helbidera zure kontua arriskuan jarri dela uste baduzu.',
+  'terms.billing.body':
+    'Ordainpeko planak izena ematean aukeratutako kadentzian berritzen dira. Ezeztatu dezakezu Ezarpenak → Fakturazioa ataletik edozein unetan eta sarbidea mantenduko duzu fakturazio-aldiaren gainerakoan. SLA gainditzen duen zerbitzu-etenaldiaren kasuan, itzulketak egiten dira.',
+  'terms.intro':
+    'Baldintza hauek Courieren erabilera arautzen dute. Kontu bat sortuz edo gure bidez mezu elektroniko bat bidaliz gero, baldintza horiek betetzea onartzen duzu. Pertsona batek benetan jarrai ditzakeen arauak idazten saiatzen gara.',
+  'terms.lastUpdated': 'Indarrean: 2026ko apirilaren 1a',
+  'terms.termination.body':
+    'Edozein unetan ezaba dezakezu zure kontua. Baldintza hauek urratzen dituen kontu bat eten dezakegu; hala egiten badugu, arrazoia azalduko dizugu eta lehenik zure datuak esportatzen utziko dizugu.',
+  'terms.warranty.body':
+    'Zerbitzua dagoen bezala eskaintzen da. Gogor lan egiten dugu fidagarria eta segurua izan dadin, baina ezin dugu etenik gabeko sarbidea bermatu. Legeak baimentzen duen neurrian, gure erantzukizun osoa aurreko 12 hilabeteetan ordaindu diguzun zenbatekora mugatzen da.',
+}

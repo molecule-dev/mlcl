@@ -1,0 +1,17 @@
+[
+  { "id": "lg1",  "timestamp": "2026-04-30T13:42:01.182Z", "service": "api-gateway",   "severity": "fatal", "message": "panic: nil pointer dereference in handlers/checkout.go:142",                  "trace_id": "trc_b8d4f1a3c1" },
+  { "id": "lg2",  "timestamp": "2026-04-30T13:42:00.901Z", "service": "checkout",      "severity": "error", "message": "stripe: charge failed — card_declined",                                          "trace_id": "trc_b8d4f1a3c1" },
+  { "id": "lg3",  "timestamp": "2026-04-30T13:41:59.553Z", "service": "checkout",      "severity": "warn",  "message": "retrying upstream charge after backoff (attempt 3/5)",                          "trace_id": "trc_b8d4f1a3c1" },
+  { "id": "lg4",  "timestamp": "2026-04-30T13:41:58.214Z", "service": "auth-service",  "severity": "info",  "message": "session refreshed for user_id=usr_4f2e91a payload.iat=1714485518",               "trace_id": "trc_19e2c7da8b" },
+  { "id": "lg5",  "timestamp": "2026-04-30T13:41:57.811Z", "service": "search-index",  "severity": "info",  "message": "indexed 2,184 documents in 312ms (collection=products)",                        "trace_id": null },
+  { "id": "lg6",  "timestamp": "2026-04-30T13:41:56.420Z", "service": "billing",       "severity": "warn",  "message": "stripe webhook duplicate event evt_1NHzZbAj8Vb received — idempotent skip",     "trace_id": null },
+  { "id": "lg7",  "timestamp": "2026-04-30T13:41:55.001Z", "service": "edge-cdn",      "severity": "info",  "message": "cache MISS for /api/v2/products/p_392 status=200 ttl=300s",                     "trace_id": "trc_77a02bd9e3" },
+  { "id": "lg8",  "timestamp": "2026-04-30T13:41:53.882Z", "service": "checkout",      "severity": "error", "message": "exception: TimeoutError on /v1/charges (3.00s) — peer=stripe.com",              "trace_id": "trc_b8d4f1a3c1" },
+  { "id": "lg9",  "timestamp": "2026-04-30T13:41:52.301Z", "service": "auth-service",  "severity": "info",  "message": "oauth callback github code=AbC… exchanged successfully",                         "trace_id": "trc_19e2c7da8b" },
+  { "id": "lg10", "timestamp": "2026-04-30T13:41:51.604Z", "service": "data-pipeline", "severity": "debug", "message": "scheduled snapshot kafka.offset=72_104_882 lag=14ms",                            "trace_id": null },
+  { "id": "lg11", "timestamp": "2026-04-30T13:41:50.124Z", "service": "api-gateway",   "severity": "info",  "message": "GET /api/v2/orders 200 4ms ip=10.4.2.81 user_id=usr_8a01ed",                     "trace_id": "trc_661ab09cf2" },
+  { "id": "lg12", "timestamp": "2026-04-30T13:41:48.992Z", "service": "search-index",  "severity": "trace", "message": "shard rebalance complete (shard=02 replicas=3) duration=812ms",                  "trace_id": null },
+  { "id": "lg13", "timestamp": "2026-04-30T13:41:47.700Z", "service": "billing",       "severity": "info",  "message": "subscription renewed sub_91Gb… amount=$29.00 customer=cus_8e2a",                "trace_id": "trc_8a112d0ef9" },
+  { "id": "lg14", "timestamp": "2026-04-30T13:41:46.220Z", "service": "edge-cdn",      "severity": "info",  "message": "cache HIT /static/img/logo-dark.svg status=200 age=14s",                          "trace_id": null },
+  { "id": "lg15", "timestamp": "2026-04-30T13:41:44.014Z", "service": "auth-service",  "severity": "warn",  "message": "rate-limit threshold reached for ip=203.0.113.99 endpoint=/login",              "trace_id": null }
+]

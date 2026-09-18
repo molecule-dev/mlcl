@@ -1,0 +1,154 @@
+[
+  {
+    "id": "p1",
+    "name": "Casa Mirador Oaxaca",
+    "city": "Oaxaca",
+    "country": "Mexico",
+    "description": "Hand-carved wood villa terraced into a hillside above the Sierra Norte cloud forest, with three lookout terraces and a heated plunge pool.",
+    "rating": 4.9,
+    "review_count": 348,
+    "price_per_night_cents": 26900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p1/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p1a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p1b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p1c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p1d/800/600"
+    ],
+    "amenities": ["Plunge pool", "Mezcal cellar", "Free Wi-Fi", "Concierge", "Mountain trails"],
+    "badges": ["editor_pick", "rare_find"]
+  },
+  {
+    "id": "p2",
+    "name": "Atelier Saint-Émilion",
+    "city": "Saint-Émilion",
+    "country": "France",
+    "description": "Six-room maison built into the limestone cliffs above the Gironde — private vineyards, candlelit cellar tastings, and a cypress-lined pool.",
+    "rating": 4.8,
+    "review_count": 271,
+    "price_per_night_cents": 49500,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p2/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p2a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p2b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p2c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p2d/800/600"
+    ],
+    "amenities": ["Vineyard tours", "Wine cellar", "Pool", "Bicycles", "Breakfast included"],
+    "badges": ["editor_pick"]
+  },
+  {
+    "id": "p3",
+    "name": "The Faroe Hideaway",
+    "city": "Tórshavn",
+    "country": "Faroe Islands",
+    "description": "Three turf-roofed cabins on the basalt cliffs of Streymoy. Floor-to-ceiling glass, geothermal hot tubs, and aurora wake-up service.",
+    "rating": 4.9,
+    "review_count": 142,
+    "price_per_night_cents": 41200,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p3/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p3a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p3b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p3c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p3d/800/600"
+    ],
+    "amenities": ["Hot tub", "Aurora viewing", "Sauna", "Sea kayaks", "Restaurant"],
+    "badges": ["new"]
+  },
+  {
+    "id": "p4",
+    "name": "Riad Bahia Tangier",
+    "city": "Tangier",
+    "country": "Morocco",
+    "description": "Hand-painted zellige courtyards and a rooftop hammam overlooking the medina and the Strait of Gibraltar.",
+    "rating": 4.7,
+    "review_count": 489,
+    "price_per_night_cents": 16400,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p4/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p4a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p4b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p4c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p4d/800/600"
+    ],
+    "amenities": ["Hammam", "Rooftop terrace", "Pool", "Restaurant", "Free Wi-Fi", "Pet friendly"],
+    "badges": []
+  },
+  {
+    "id": "p5",
+    "name": "Ryokan Yufuin",
+    "city": "Yufuin",
+    "country": "Japan",
+    "description": "An eight-room ryokan with private cedar onsen baths, ten-course kaiseki dinners, and pre-dawn tea ceremonies on the wraparound deck.",
+    "rating": 4.9,
+    "review_count": 218,
+    "price_per_night_cents": 51800,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p5/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p5a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p5b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p5c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p5d/800/600"
+    ],
+    "amenities": ["Onsen", "Kaiseki dining", "Tea house", "Garden", "Concierge"],
+    "badges": ["editor_pick"]
+  },
+  {
+    "id": "p6",
+    "name": "Estancia Cumbre",
+    "city": "El Calafate",
+    "country": "Argentina",
+    "description": "Working ranch on the steppes of Patagonia — gauchos, glacier hikes, and a roaring open-fire dining hall every night.",
+    "rating": 4.6,
+    "review_count": 167,
+    "price_per_night_cents": 22800,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p6/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p6a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p6b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p6c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p6d/800/600"
+    ],
+    "amenities": ["Horseback riding", "Glacier tours", "Open fireplace", "Restaurant", "All-inclusive"],
+    "badges": []
+  },
+  {
+    "id": "p7",
+    "name": "Lighthouse Suites Cinque Terre",
+    "city": "Vernazza",
+    "country": "Italy",
+    "description": "Restored 17th-century lighthouse on a Ligurian headland — five suites, swimming cove, and a private boat to the neighboring villages.",
+    "rating": 4.8,
+    "review_count": 305,
+    "price_per_night_cents": 38900,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p7/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p7a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p7b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p7c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p7d/800/600"
+    ],
+    "amenities": ["Sea access", "Private boat", "Pool", "Restaurant", "Concierge"],
+    "badges": ["rare_find"]
+  },
+  {
+    "id": "p8",
+    "name": "Whitecap Wilderness Camp",
+    "city": "Banff",
+    "country": "Canada",
+    "description": "Insulated geodesic domes and a wood-fired sauna in a private valley — wolf trackers, helicopter glaciers, and stargazing every night.",
+    "rating": 4.7,
+    "review_count": 232,
+    "price_per_night_cents": 33500,
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-p8/800/600",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-p8a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-p8b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p8c/800/600",
+      "https://picsum.photos/seed/sojourn-tb-p8d/800/600"
+    ],
+    "amenities": ["Sauna", "Stargazing", "Hiking trails", "Wildlife tours", "All-inclusive"],
+    "badges": ["new"]
+  }
+]

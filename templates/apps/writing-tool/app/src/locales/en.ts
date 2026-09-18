@@ -1,0 +1,46 @@
+export default {
+  common: {
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    close: 'Close',
+    loading: 'Loading...',
+    error: 'Something went wrong',
+  },
+  dashboard: {
+    title: 'Documents',
+    folders: 'Folders',
+    allDocuments: 'All Documents',
+    addFolder: '+ Folder',
+    newDocument: 'New Document',
+    newFolder: 'New Folder',
+    untitled: 'Untitled',
+    searchPlaceholder: 'Search documents...',
+    wordCount: '{{count}} words',
+    readingTime: '{{minutes}} min read',
+    noResults: 'No documents match your search',
+    empty: 'No documents yet. Start writing!',
+  },
+  editor: {
+    save: 'Save',
+    focusMode: 'Focus Mode',
+    exitFocus: 'Exit Focus',
+    wordCount: '{{count}} words',
+    characters: '{{count}} characters',
+    readingTime: '{{minutes}} min read',
+    titlePlaceholder: 'Untitled',
+    contentPlaceholder: 'Start writing...',
+  },
+  documents: {
+    notFound: 'Document not found',
+    untitled: 'Untitled',
+  },
+  folders: {
+    notFound: 'Folder not found',
+    untitled: 'New Folder',
+  },
+  export: {
+    documentNotFound: 'Document not found',
+    documentRequired: 'Document ID is required',
+  },
+}

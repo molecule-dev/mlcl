@@ -1,0 +1,56 @@
+[
+  {
+    "id": "tm-1",
+    "name": "Avery Chen",
+    "role": "Head of CX",
+    "avatar_seed": "okr-avatar-1",
+    "active_objectives": 3,
+    "check_in_streak": 12,
+    "confidence": "on-track"
+  },
+  {
+    "id": "tm-2",
+    "name": "Marcus Lee",
+    "role": "VP Product",
+    "avatar_seed": "okr-avatar-2",
+    "active_objectives": 4,
+    "check_in_streak": 8,
+    "confidence": "at-risk"
+  },
+  {
+    "id": "tm-3",
+    "name": "Sara Okafor",
+    "role": "People Operations",
+    "avatar_seed": "okr-avatar-3",
+    "active_objectives": 2,
+    "check_in_streak": 14,
+    "confidence": "on-track"
+  },
+  {
+    "id": "tm-4",
+    "name": "Priya Shah",
+    "role": "CRO",
+    "avatar_seed": "okr-avatar-4",
+    "active_objectives": 5,
+    "check_in_streak": 5,
+    "confidence": "behind"
+  },
+  {
+    "id": "tm-5",
+    "name": "Devon Park",
+    "role": "Senior PM",
+    "avatar_seed": "okr-avatar-5",
+    "active_objectives": 2,
+    "check_in_streak": 9,
+    "confidence": "on-track"
+  },
+  {
+    "id": "tm-6",
+    "name": "Ines Vargas",
+    "role": "Engineering Lead",
+    "avatar_seed": "okr-avatar-6",
+    "active_objectives": 3,
+    "check_in_streak": 11,
+    "confidence": "on-track"
+  }
+]

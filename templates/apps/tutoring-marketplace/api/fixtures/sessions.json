@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ses-101",
+    "tutor_id": "demo-rivera",
+    "tutor_name": "Dr. Maya Rivera",
+    "subject": "AP Physics C",
+    "starts_at": "2026-04-29T15:00:00Z",
+    "ends_at": "2026-04-29T16:00:00Z",
+    "status": "scheduled",
+    "rate_per_hour_cents": 9500,
+    "notes": "Mechanics review — ramp & pulley systems."
+  },
+  {
+    "id": "ses-102",
+    "tutor_id": "demo-tanaka",
+    "tutor_name": "Kenji Tanaka",
+    "subject": "Algorithms",
+    "starts_at": "2026-05-02T18:30:00Z",
+    "ends_at": "2026-05-02T19:30:00Z",
+    "status": "scheduled",
+    "rate_per_hour_cents": 11000,
+    "notes": "Mock interview — graph traversal warm-up."
+  },
+  {
+    "id": "ses-103",
+    "tutor_id": "demo-okafor",
+    "tutor_name": "Adaeze Okafor",
+    "subject": "Common App essay",
+    "starts_at": "2026-04-22T20:00:00Z",
+    "ends_at": "2026-04-22T21:00:00Z",
+    "status": "completed",
+    "rate_per_hour_cents": 6000,
+    "notes": "Personal-statement workshop, second pass."
+  },
+  {
+    "id": "ses-104",
+    "tutor_id": "demo-thoma",
+    "tutor_name": "Eli Thoma",
+    "subject": "AP Macro",
+    "starts_at": "2026-04-15T17:00:00Z",
+    "ends_at": "2026-04-15T18:00:00Z",
+    "status": "completed",
+    "rate_per_hour_cents": 7500,
+    "notes": "Graphs of fiscal policy."
+  }
+]

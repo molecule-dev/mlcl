@@ -1,0 +1,211 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #0891b2;
+  --mol-color-background: #faf5ff;
+  --mol-color-background-secondary: #f5f0ff;
+  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf5ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e9d5ff;
+  --mol-color-border-secondary: #ddd6fe;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  /* === Material-3 bridge tokens (light) === */
+  --color-background: #faf5ff;
+  --color-on-background: #1e1b4b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e9d5ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f0ff;
+  --color-surface-container: #ede9fe;
+  --color-surface-container-high: #e9d5ff;
+  --color-surface-container-highest: #ddd6fe;
+  --color-surface-variant: #ede9fe;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #4b5563; /* was #6b7280 — 4.32:1 on the lavender user card #f5f0ff; gray-600 = 6.5:1 */
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #faf5ff;
+  --color-inverse-primary: #a78bfa;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #4c1d95;
+  --color-secondary: #0891b2;
+  --color-secondary-container: #cffafe;
+  --color-on-secondary: #001f29; /* #ffffff was 3.68:1 (fail); #001f29 = 4.64:1 */
+  --color-on-secondary-container: #083344;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #3b1a00; /* #ffffff was 3.19:1 (fail); #3b1a00 = 4.94:1 */
+  --color-on-tertiary-container: #78350f;
+  --color-error: #dc2626;
+  --color-error-container: #fef2f2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #757d8a; /* #9ca3af was 2.54:1 vs white (fail ≥3:1); #757d8a = 4.15:1 */
+  --color-outline-variant: #e9d5ff;
+  --color-surface-tint: #7c3aed;
+
+  /* === App-specific aliases === */
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #ede9fe;
+  --color-secondary-hover: #0e7490;
+  --color-secondary-light: #cffafe;
+  --color-success: #059669;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-warning: #d97706;
+  --color-info: #2563eb;
+
+  --color-bg: #faf5ff;
+  --color-surface-hover: #f5f3ff;
+  --color-border: #e9d5ff;
+  --color-border-focus: #7c3aed;
+
+  --color-text: #1e1b4b;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+}
+
+/* Dark mode — finance cool-slate dark.
+   Cool slate-blue surfaces (no plum tint — a budgeting tool reads more
+   trustworthy when its dark mode feels like a bank statement, not a
+   nightclub). Brand violet stays at the brand stop (#7c3aed) so the
+   primary CTA holds its identity across modes. `--color-on-primary`
+   STAYS white so the violet CTA buttons keep their light-on-violet
+   character. */
+[data-mol-mode='dark'] {
+  /* Brand violet — kept at the brand stop for parity with light mode */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #2e1065;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #94a3b8;
+  --mol-color-background: #0b1220;
+  --mol-color-background-secondary: #131c2e;
+  --mol-color-background-tertiary: #1c2538;
+  --mol-color-surface: #0b1220;
+  --mol-color-surface-secondary: #131c2e;
+  --mol-color-input-background: #0a111c;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #8b96a8;
+  --mol-color-text-inverse: #0b1220;
+  --mol-color-border: #29334a;
+  --mol-color-border-secondary: #3a4663;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  --color-primary: #7c3aed; /* keep brand violet at brand stop */
+  --color-primary-hover: #a78bfa;
+  --color-primary-light: #2e1065;
+  --color-secondary: #67e8f9;
+  --color-secondary-hover: #a5f3fc;
+  --color-secondary-light: #083344;
+
+  /* Status — punched up so income/expense/warning chips read on dark */
+  --color-success: #34d399;
+  --color-danger: #f87171;
+  --color-danger-hover: #fca5a5;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+
+  /* Surfaces — cool slate with deep-night base */
+  --color-bg: #0b1220;
+  --color-surface: #131c2e;
+  --color-surface-hover: #1c2538;
+  --color-border: #29334a;
+  --color-border-focus: #a78bfa;
+
+  /* Text */
+  --color-text: #e2e8f0;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #8b96a8;
+  --color-text-inverse: #0b1220;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block so
+     `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly. CTA
+     buttons keep white text on violet: on-primary stays white. */
+  --color-background: #0b1220;
+  --color-on-background: #e2e8f0;
+  --color-surface: #131c2e;
+  --color-surface-bright: #1c2538;
+  --color-surface-dim: #060b14;
+  --color-surface-container-lowest: #03060c;
+  --color-surface-container-low: #0f1727;
+  --color-surface-container: #131c2e;
+  --color-surface-container-high: #1c2538;
+  --color-surface-container-highest: #232e44;
+  --color-surface-variant: #1c2538;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #b6c0d0;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #131c2e;
+  --color-inverse-primary: #5b21b6;
+  --color-primary: #7c3aed; /* keep brand violet at brand stop */
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #ede9fe;
+  --color-primary-container: #4c1d95;
+  --color-secondary: #67e8f9;
+  --color-secondary-container: #083344;
+  --color-on-secondary: #042f3a;
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #67e8f9;
+  --color-tertiary-container: #155e75;
+  --color-on-tertiary: #042f3a;
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #627090; /* #5a667e was 2.95:1 vs surface (fail ≥3:1); #627090 = 3.44:1 */
+  --color-outline-variant: #29334a;
+  --color-surface-tint: #a78bfa;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

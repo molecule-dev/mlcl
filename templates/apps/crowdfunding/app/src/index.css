@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+
+  /* Stitch border-radius scale. */
+  --radius: 12px;
+  --radius-full: 9999px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: Inter, sans-serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-left-[9px] -mx-6 -translate-y-1/2 -z-10 2xl 3xl absolute active:opacity-70 active:scale-90 active:scale-95 antialiased appearance-none aspect-[16/9] aspect-video backdrop-blur backdrop-blur-md backdrop-blur-sm bg-accent bg-accent-50 bg-accent/10 bg-amber-100 bg-amber-500 bg-black/20 bg-black/40 bg-center bg-cover bg-cyan-100 bg-cyan-50 bg-cyan-50/50 bg-cyan-500 bg-cyan-500/10 bg-cyan-600 bg-cyan-600/10 bg-emerald-100 bg-emerald-50 bg-emerald-500 bg-gradient-to-br bg-gradient-to-r bg-green-50 bg-indigo-100 bg-indigo-50 bg-indigo-500 bg-navy bg-orange-100 bg-primary bg-primary-100 bg-primary-50 bg-primary-600 bg-primary-600/10 bg-rose-50 bg-rose-500 bg-slate-100 bg-slate-200 bg-slate-300 bg-slate-50 bg-slate-50/30 bg-slate-50/50 bg-slate-50/95 bg-slate-700 bg-slate-800/50");
+@source inline("bg-slate-900 bg-slate-950 bg-soft-bg bg-surface bg-teal-50 bg-transparent bg-violet-50 bg-violet-500 bg-white bg-white/10 bg-white/20 bg-white/80 bg-white/90 bg-white/95 bg-yellow-50 block border border-2 border-4 border-accent-200 border-amber-200 border-b border-b-0 border-b-2 border-cyan-100 border-cyan-300 border-cyan-500 border-cyan-600 border-dashed border-l border-l-2 border-l-4 border-none border-primary border-primary-500 border-r border-r-0 border-r-4 border-slate-100 border-slate-200 border-slate-300 border-slate-50 border-slate-700 border-slate-800 border-t border-transparent border-white border-white/20 border-yellow-200 bottom-0 campaign-card campaign-category campaign-cover campaign-grid campaign-meta card-hover clamp-2 col-span-4 col-span-8 cursor-not-allowed");
+@source inline("cursor-pointer dark:bg-black dark:bg-slate-800 dark:bg-slate-900 dark:bg-slate-900/80 dark:bg-slate-900/90 dark:bg-slate-900/95 dark:bg-slate-950 dark:bg-slate-950/80 dark:border-cyan-400 dark:border-slate-700 dark:border-slate-800 dark:border-slate-900 dark:hover:bg-slate-800 dark:hover:text-cyan-300 dark:hover:text-cyan-400 dark:text-cyan-400 dark:text-slate-200 dark:text-slate-300 dark:text-slate-400 dark:text-white decoration-cyan-500 disabled:opacity-50 divide-slate-100 divide-x-0 divide-y docked duration-100 duration-150 duration-200 duration-300 duration-500 ease-in-out error-message filters fixed flat flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus-within:border-primary focus-within:ring-1 focus-within:ring-primary focus:bg-white focus:border-cyan-500 focus:border-primary focus:border-primary-500 focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-cyan-500 focus:ring-cyan-500/20 focus:ring-offset-2 focus:ring-primary focus:ring-primary-500 font-black");
+@source inline("font-body font-bold font-headline font-medium font-sans font-semibold from-cyan-50 from-primary from-teal-100/40 full-width gap-1 gap-12 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-x-6 gap-y-2 gap-y-4 grid grid-cols-1 grid-cols-12 grid-cols-2 grid-cols-3 group group-focus-within:text-cyan-500 group-hover:bg-cyan-600 group-hover:bg-indigo-600 group-hover:bg-teal-600 group-hover:bg-violet-600 group-hover:border-slate-500 group-hover:opacity-100 group-hover:scale-105 group-hover:scale-110 group-hover:text-cyan-700 group-hover:text-white h-1 h-10 h-11 h-12 h-16 h-2 h-20 h-24 h-3 h-32 h-4 h-40 h-5 h-6 h-64 h-8 h-9 h-[160px] h-[320px] h-[44px] h-[48px] h-full");
+@source inline("h-screen hidden hide-scrollbar hover-lift hover:-translate-y-1 hover:bg-black/30 hover:bg-cyan-400 hover:bg-cyan-50 hover:bg-cyan-500 hover:bg-cyan-700 hover:bg-primary-700 hover:bg-primary-hover hover:bg-slate-100 hover:bg-slate-50 hover:bg-slate-50/80 hover:bg-slate-800 hover:bg-slate-800/50 hover:bg-slate-900 hover:bg-teal-50 hover:bg-white/20 hover:border-cyan-200 hover:border-cyan-500 hover:border-primary hover:border-slate-200 hover:border-slate-300 hover:opacity-90 hover:ring-2 hover:shadow-lg hover:shadow-md hover:shadow-sm hover:shadow-xl hover:text-cyan-400 hover:text-cyan-500 hover:text-cyan-600 hover:text-cyan-700 hover:text-primary hover:text-primary-700 hover:text-primary-dark hover:text-red-500 hover:text-slate-600 hover:text-slate-700 hover:text-slate-900 hover:text-white hover:underline inline-block inline-flex inset-0 inset-y-0 italic items-center items-end items-start justify-between justify-center justify-end leading-relaxed leading-tight left-0 left-3 left-4");
+@source inline("lg:col-span-2 lg:col-span-3 lg:col-span-4 lg:col-span-8 lg:flex lg:grid-cols-12 lg:grid-cols-3 lg:grid-cols-4 lg:grid-cols-5 lg:inline-block lg:mt-0 lg:mx-0 lg:px-0 lg:sticky lg:top-24 line-clamp-2 line-clamp-3 material-symbols-outlined max-w-2xl max-w-3xl max-w-6xl max-w-7xl max-w-[440px] max-w-md max-w-none max-w-screen-2xl max-w-xl mb mb-1 mb-10 mb-12 mb-2 mb-3 mb-4 mb-6 mb-8 md md:block md:divide-x md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:inline-block md:items-center md:justify-end md:ml-64 md:px-12 md:space-y-0 md:text-3xl md:text-5xl md:text-6xl md:text-left min-h-screen min-w-0 min-w-[280px] mix-blend-overlay ml-2 ml-3");
+@source inline("ml-4 ml-64 ml-[260px] ml-auto mr-1 mr-2 mt-1 mt-12 mt-16 mt-2 mt-20 mt-4 mt-6 mt-8 mt-auto mx-1 mx-2 mx-auto my-1 my-8 no no-scrollbar object-cover opacity-0 opacity-20 opacity-50 opacity-80 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-0 p-1 p-2 p-3 p-4 p-5 p-6 p-8 p-[40px] pagination pb-1 pb-2 pb-24 pb-3 pb-32 pb-4 peer pl-10 pl-3 pl-4 pl-6 pl-8 placeholder-slate-400 pointer-events-none pr-10 pr-4 pr-8 progress-bar prose");
+@source inline("prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:text-2xl prose-h2:text-slate-900 prose-p:leading-relaxed prose-p:text-slate-600 prose-slate pt-2 pt-24 pt-4 pt-6 pt-8 px-1 px-10 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-10 py-12 py-16 py-2 py-3 py-4 py-5 py-6 py-8 relative resize-none right-0 right-2 right-3 right-4 ring-1 ring-2 ring-cyan-600 ring-green-600/20 ring-inset ring-offset-2 ring-primary-500 rounded rounded-[12px] rounded-[16px] rounded-b-xl rounded-bl-[12px] rounded-bl-full rounded-full rounded-l-md rounded-lg rounded-md rounded-none rounded-r-md rounded-r-none rounded-t-none rounded-t-xl");
+@source inline("rounded-xl scale-95 scroll-smooth self-start shadow-2xl shadow-cyan-900/50 shadow-lg shadow-md shadow-sm shadow-xl shadows shrink-0 sm sm:flex-row sm:grid-cols-2 sm:inline-flex sm:justify-end sm:space-x-4 sm:space-y-0 sm:text-sm sm:w-auto space-x-2 space-x-3 space-x-4 space-x-6 space-x-8 space-y-1 space-y-2 space-y-20 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sr-only sticky tabular-nums text-2xl text-3xl text-4xl text-5xl text-[10px] text-[14px] text-[16px] text-[18px] text-[20px] text-accent text-accent-500 text-accent-700 text-amber-400 text-amber-800 text-base text-center text-cyan-400 text-cyan-500 text-cyan-600 text-cyan-800 text-cyan-900 text-emerald-500 text-emerald-600");
+@source inline("text-green-700 text-indigo-600 text-left text-lg text-navy text-orange-700 text-primary text-primary-400 text-primary-600 text-primary-700 text-right text-rose-600 text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-800 text-slate-900 text-sm text-teal-600 text-violet-500 text-violet-600 text-white text-xl text-xs text-yellow-700 tier-form tier-preview tier-preview-list to-navy to-primary-dark to-transparent top-0 top-1 top-1/2 top-12 top-16 top-2 top-24 top-3 top-4 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-shadow transition-transform truncate underline-offset-4 uppercase via-transparent w-1/2 w-10 w-16");
+@source inline("w-2 w-20 w-24 w-32 w-4 w-48 w-5 w-6 w-60 w-64 w-8 w-9 w-[260px] w-full w-px whitespace-nowrap xs z-0 z-10 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.hover-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+/* polish-v2:stitch-styles:end */

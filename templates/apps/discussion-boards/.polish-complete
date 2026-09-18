@@ -1,0 +1,22 @@
+Polish complete: 2026-04-30T01:18:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Brand: Stoa — "Where ideas converge"
+Cluster: content → sibling: blog
+Components: 7 bespoke
+  - DiscussionBoardsLayout  (sidebar shell + AppShellLayout)
+  - AuthShell               (two-panel branded auth wrapper)
+  - ForumHeroCard           (gradient hero with stats + CTAs)
+  - CategoryCard            (border-l-4 category card with counts)
+  - ThreadRow               (status pills + author + activity row)
+  - PostCard                (avatar/markdown/actions thread post)
+  - ReputationBadge         (tiered pill badge for users)
+Pages rewritten: Landing, CategoriesList, CategoryDetail, ThreadView,
+  Compose, UserProfile, Settings, Search, Notifications, Bookmarks,
+  ModerationQueue, NotFound, Login, Signup, ForgotPassword,
+  ResetPassword (15/15 screen-map routes + auth + 404)
+Material 3 tokens: complete (indigo/amber palette, bg-surface-container-*,
+  on-* derivatives)
+Fonts: Inter + Georgia (markdown body) + Material Symbols Outlined
+Sweep 1 chrome conformance: AppHeader, AppFooter, RootErrorBoundary
+Compliance: clean (check-rules-compliance.mjs)
+ClassMap coverage: 93%

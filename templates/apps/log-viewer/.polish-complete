@@ -1,0 +1,9 @@
+Polish complete: 2026-04-30T01:50:00Z
+Pipeline: polish-app.md via polish-log-viewer driver
+Cluster: dev-tools → sibling: ci-cd-dashboard (also pulled status-page patterns)
+Brand: Signalink — "Every signal, instantly traced." (dark console, cyan/violet accents, monospace data)
+Components: 7 bespoke (SeverityPill, LogVolumeSparkline, MetricStatCard,
+  LogLineRow, IncidentRow, ServiceCard, SignalinkLayout)
+Screen-map coverage: 18/18 (all wired through SignalinkLayout under AuthGuard)
+ClassMap coverage: 100%
+Compliance: clean (check-rules-compliance.mjs)

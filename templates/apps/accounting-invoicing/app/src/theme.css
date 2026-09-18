@@ -1,0 +1,196 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Provider bridge (--mol-color-*) — drives molecule packages in light mode */
+  --mol-color-primary: #1a3c6e;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #122a4d;
+  --mol-color-secondary: #4338ca;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #f1f5f9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #1a3c6e;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+
+  --color-primary: #1a3c6e;
+  --color-primary-hover: #2a5494;
+  --color-primary-light: #dbeafe;
+  --color-secondary: #4338ca;
+  --color-secondary-hover: #3730a3;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 14rem;
+
+  /* Accent gold — used for YTD profit badge and overdue text on the hero card */
+  --color-accent-gold: #c8960a;
+
+  /* Text-safe accent gold — same hue, darkened for small text on light
+     surfaces (#c5a047 was 2.47:1 on #ffffff; #8a6d1f = 4.9:1). Used by the
+     auth-page links (forgot password / start free trial / sign in). */
+  --color-accent-text: #8a6d1f;
+
+  /* Invoice status colors */
+  --color-status-draft: #94a3b8;
+  --color-status-sent: #3b82f6;
+  --color-status-paid: #22c55e;
+  --color-status-overdue: #ef4444;
+  --color-status-cancelled: #6b7280;
+
+  /* Financial colors */
+  --color-income: #16a34a;
+  --color-expense: #dc2626;
+
+  /* Accent gold opacity variants — used for gradient overlays and borders */
+  --color-accent-gold-subtle: rgba(200, 150, 10, 0.1);
+  --color-accent-gold-border: rgba(200, 150, 10, 0.2);
+  --color-accent-gold-border-faint: rgba(200, 150, 10, 0.12);
+  --color-accent-gold-bg: rgba(200, 150, 10, 0.18);
+}
+
+/* Dark mode — finance/banking cool slate palette.
+   Brand navy (#1a3c6e) stays at the brand stop; `--color-on-primary`
+   STAYS white so CTA buttons remain readable. Accent gold preserved
+   for status/highlight roles. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) — drives molecule packages */
+  --mol-color-primary: #1a3c6e;
+  --mol-color-primary-light: #1e3a5f;
+  --mol-color-primary-dark: #122a4d;
+  --mol-color-secondary: #c5a047;
+  --mol-color-background: #0f172a;
+  --mol-color-background-secondary: #1e293b;
+  --mol-color-background-tertiary: #334155;
+  --mol-color-surface: #0f172a;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-input-background: #0b1220;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-border: #334155;
+  --mol-color-border-secondary: #475569;
+  --mol-color-border-focus: #3b82f6;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Legacy app tokens kept for direct var() callers */
+  --color-primary-hover: #2a5494;
+  --color-primary-light: #1e3a5f;
+  --color-secondary-hover: #d4b85a;
+  --color-bg: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-muted: #8a8a8a;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block.
+     `--color-primary` STAYS at the brand stop (#1a3c6e); CTA buttons
+     keep white text via `--color-on-primary: #ffffff`. */
+  --color-background: #0f172a;
+  --color-on-background: #f5f5f5;
+  --color-surface: #1e293b;
+  --color-surface-bright: #334155;
+  --color-surface-dim: #0b1220;
+  --color-surface-container-lowest: #050d1a;
+  --color-surface-container-low: #131c2e;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #283449;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #283449;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0f172a;
+  --color-inverse-primary: #1a3c6e;
+  --color-primary: #1a3c6e; /* brand navy — stays at brand stop */
+  --color-primary-container: #1e3a5f;
+  --color-on-primary: #ffffff; /* white on navy — readable in both modes */
+  --color-on-primary-container: #c7d6f0;
+  --color-secondary: #c5a047; /* accent gold preserved */
+  --color-secondary-container: #4a3a16;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #fde9b8;
+  --color-tertiary: #5eead4;
+  --color-tertiary-container: #134e4a;
+  --color-on-tertiary: #0f172a;
+  --color-on-tertiary-container: #ccfbf1;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on light-red error chip — 6.4:1 contrast */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a6b85;
+  --color-outline-variant: #334155;
+  --color-surface-tint: #1a3c6e;
+
+  /* App-specific Stitch tokens */
+  --color-accent: #d4b85a;
+  --color-accent-gold: #f5d27a;
+  --color-accent-text: #d4b85a; /* bright gold reads fine on dark surfaces (7.5:1 on #1e293b) */
+
+  /* Accent gold opacity variants — dark-mode values (gold is brighter) */
+  --color-accent-gold-subtle: rgba(245, 210, 122, 0.1);
+  --color-accent-gold-border: rgba(245, 210, 122, 0.2);
+  --color-accent-gold-border-faint: rgba(245, 210, 122, 0.12);
+  --color-accent-gold-bg: rgba(245, 210, 122, 0.18);
+  --color-border: #334155;
+  --color-danger: #f87171;
+  --color-sidebar: #050d1a;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+
+  /* Invoice status colors — saturated for dark */
+  --color-status-draft: #94a3b8;
+  --color-status-sent: #60a5fa;
+  --color-status-paid: #4ade80;
+  --color-status-overdue: #f87171;
+  --color-status-cancelled: #6b7280;
+
+  /* Financial colors — bright positive/negative */
+  --color-income: #4ade80;
+  --color-expense: #f87171;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

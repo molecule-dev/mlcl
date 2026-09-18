@@ -1,0 +1,7 @@
+[
+  { "type": "pipeline_passed",  "title": "frontend-app · main",                  "body": "Pipeline succeeded in 5m 12s. Coverage 87.4%.",                          "href": "/pipelines",               "minutes_ago": 8,    "unread": true  },
+  { "type": "pipeline_failed",  "title": "api-gateway · fix/auth-leak",          "body": "Integration tests failed in 5m 12s. 1 of 63 tests failing.",            "href": "/pipelines",               "minutes_ago": 24,   "unread": true  },
+  { "type": "deploy_complete",  "title": "production · 8f3a91c",                 "body": "Edge deploy complete. Now serving 100% traffic.",                       "href": "/environments",            "minutes_ago": 6,    "unread": true  },
+  { "type": "review_request",   "title": "Sam T. requested your review",         "body": "feat/checkout-redesign: 18 files changed, +812/−234.",                  "href": "/repositories/frontend-app", "minutes_ago": 45,   "unread": false },
+  { "type": "mention",          "title": "Jordan M. mentioned you",              "body": "@you can you take a look at the integration test in api-gateway?",       "href": "/pipelines",               "minutes_ago": 22,   "unread": false }
+]

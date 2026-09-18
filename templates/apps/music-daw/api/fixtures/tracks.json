@@ -1,0 +1,5 @@
+[
+  {"id":"trk-1","projectId":"proj-1","name":"Drums","type":"audio","muted":false,"solo":false,"volume":0.8,"pan":0},
+  {"id":"trk-2","projectId":"proj-1","name":"Bass","type":"midi","muted":false,"solo":false,"volume":0.7,"pan":-0.1},
+  {"id":"trk-3","projectId":"proj-1","name":"Lead Synth","type":"midi","muted":false,"solo":false,"volume":0.65,"pan":0.2}
+]

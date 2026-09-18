@@ -1,0 +1,156 @@
+{
+  "app": "kanban-board",
+  "designProjectId": "10123276486559201181",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-landing.html",
+      "designScreenId": "5173786b5f9e43a8880f4adbad0951ab"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-login.html",
+      "designScreenId": "ea7986139e4147efbbee062b2bafc138"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-kanban-board-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Create account."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-kanban-board-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Request reset."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-kanban-board-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Set new password."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-dashboard.html",
+      "designScreenId": "efc4526524aa4c20bf2576660e11675c"
+    },
+    {
+      "name": "Boards",
+      "templateFile": "app/pages/Boards.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/boards",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-boards.html",
+      "designScreenId": "86ee7302828b4017bd0ef16801b196e0"
+    },
+    {
+      "name": "BoardDetail",
+      "templateFile": "app/pages/BoardDetail.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/boards/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-board-detail.html",
+      "designScreenId": "2aca4f135401475f986088f9d5e08219"
+    },
+    {
+      "name": "CardDetail",
+      "templateFile": "app/pages/CardDetail.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/cards/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-kanban-board-board-detail.html",
+      "derivationNotes": "Same Driftboard shell as BoardDetail. Card detail renders as a 320px right-side sidebar overlay (per DESIGN.md Card Detail Sidebar spec) on top of the kanban board: title, labels, assignees, due date, description, checklist, comments, activity. Reuse board layout; the focal element is the sidebar."
+    },
+    {
+      "name": "Backlog",
+      "templateFile": "app/pages/Backlog.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/backlog",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-backlog.html",
+      "designScreenId": "7154a3e4e32249bbb4c32ee15726c641"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-team.html",
+      "designScreenId": "1ab4b1c81bb34b16b0b1b15543ffc06b"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-settings.html",
+      "designScreenId": "31e9b3c4c14749d8a24e0a5097e4c4cb"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": [
+        "app/components/DriftboardLayout.tsx"
+      ],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-kanban-board-notifications.html",
+      "designScreenId": "481bd5809cdf462c980c1431a9549073"
+    }
+  ]
+}

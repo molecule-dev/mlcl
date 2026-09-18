@@ -1,0 +1,94 @@
+{
+  "label": "Workout Tracker",
+  "description": "Strong-like workout tracker with exercises, sets, reps, weight logging, and progress charts — with built-in Stripe-backed subscription tiers",
+  "cluster": "health-fitness",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-reporting-database",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-import-export-csv",
+    "@molecule/app-charts",
+    "@molecule/app-data-table",
+    "@molecule/app-calendar",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Workout Tracker"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications",
+      "required": true
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_WORKOUT_TRACKER_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_WORKOUT_TRACKER_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_WORKOUT_TRACKER_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_WORKOUT_TRACKER_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "notifications",
+    "charts",
+    "calendar",
+    "subscriptions"
+  ]
+}

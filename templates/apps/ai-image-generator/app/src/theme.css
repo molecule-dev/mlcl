@@ -1,0 +1,196 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand colors — light palette (off-white studio, pink/violet accent) */
+  --color-primary: #db2777;
+  --color-primary-hover: #be185d;
+  --color-primary-light: #fce7f3;
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
+
+  /* Accent */
+  --color-accent: #0891b2;
+  --color-accent-hover: #0e7490;
+
+  /* Status */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* Neutrals */
+  --color-bg: #fafafa;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f9fafb;
+  --color-border: #e5e5e5;
+  --color-border-focus: #db2777;
+
+  /* Text */
+  --color-text: #171717;
+  --color-text-secondary: #525252;
+  --color-text-muted: #a3a3a3;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Gallery */
+  --gallery-gap: 1rem;
+  --gallery-radius: 0.75rem;
+  --gallery-overlay-bg: rgba(0, 0, 0, 0.55);
+
+  /* Composer glow shadow (brand-tinted drop shadow beneath prompt box) */
+  --shadow-composer-glow: 0 20px 60px -20px rgba(219, 39, 119, 0.2);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12);
+
+  /* M3 / Stitch token light variants */
+  --color-background: #fafafa;
+  --color-on-background: #171717;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f5f5f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fafafa;
+  --color-surface-container: #f5f5f5;
+  --color-surface-container-high: #ebebeb;
+  --color-surface-container-highest: #e5e5e5;
+  --color-surface-variant: #f5f5f5;
+  --color-on-surface: #171717;
+  --color-on-surface-variant: #525252;
+  --color-inverse-surface: #171717;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #f9a8d4;
+  --color-surface-tint: #db2777;
+  --color-outline: #a3a3a3;
+  --color-outline-variant: #e5e5e5;
+  --color-primary-container: #fce7f3;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #500724;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary-container: #2e1065;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #451a03;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+}
+
+/* Dark mode overrides — creative studio dark palette (pink/violet on inky neutrals) */
+[data-mol-mode='dark'] {
+  /* Brand — pink/violet pop on dark canvas */
+  --color-primary: #f472b6;
+  --color-primary-hover: #ec4899;
+  --color-primary-light: #500724;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #8b5cf6;
+
+  /* Accent — cyan stays bright */
+  --color-accent: #22d3ee;
+  --color-accent-hover: #06b6d4;
+
+  /* Status — brighter for dark contrast */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* Neutrals — inky studio canvas, depth-layered */
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-bg-card: #1a1a1a;
+  --color-bg-sidebar: #0f0f0f;
+  --color-border: #2a2a2a;
+  --color-border-focus: #f472b6;
+
+  /* Text — light tiers */
+  --color-text: #fafafa;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #737373;
+  --color-text-inverse: #0a0a0a;
+
+  /* Gallery overlay deeper in dark */
+  --gallery-overlay-bg: rgba(0, 0, 0, 0.85);
+
+  /* Composer glow shadow — violet brand stop for dark canvas */
+  --shadow-composer-glow: 0 20px 60px -20px rgba(116, 47, 229, 0.35);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  /* @theme token dark variants — flip Stitch palette for data-mol-mode="dark" */
+  --color-background: #0a0a0a;
+  --color-on-background: #fafafa;
+  --color-surface: #0a0a0a;
+  --color-surface-bright: #262626;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #030303;
+  --color-surface-container-low: #141414;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #232323;
+  --color-surface-container-highest: #2c2c2c;
+  --color-surface-variant: #1f1f1f;
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #a3a3a3;
+  --color-inverse-surface: #f4f0f9;
+  --color-inverse-on-surface: #33313e;
+  --color-inverse-primary: #742fe5;
+  --color-surface-tint: #f472b6;
+  --color-outline: #8a8794;
+  --color-outline-variant: #3d3a48;
+  --color-primary: #f472b6;
+  --color-primary-container: #831843;
+  --color-primary-dim: #ec4899;
+  --color-on-primary: #500724; /* was #ffffff — 2.64:1 on pink-400 primary; pink-950 ink = 5.68:1 (M3: light primary pairs with dark on-primary) */
+  --color-on-primary-container: #fce7f3;
+  --color-primary-fixed: #ceb5ff;
+  --color-primary-fixed-dim: #c2a4ff;
+  --color-on-primary-fixed: #340078;
+  --color-on-primary-fixed-variant: #5800c2;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4c1d95;
+  --color-secondary-dim: #8b5cf6;
+  --color-on-secondary: #1a0a4d;
+  --color-on-secondary-container: #ddd6fe;
+  --color-secondary-fixed: #ffd9e4;
+  --color-secondary-fixed-dim: #ffc5d9;
+  --color-on-secondary-fixed: #7f004b;
+  --color-on-secondary-fixed-variant: #b00d6a;
+  --color-tertiary: #fcd34d;
+  --color-tertiary-container: #713f12;
+  --color-tertiary-dim: #facc15;
+  --color-on-tertiary: #211404;
+  --color-on-tertiary-container: #fef3c7;
+  --color-tertiary-fixed: #fdebd3;
+  --color-tertiary-fixed-dim: #efddc6;
+  --color-on-tertiary-fixed: #504533;
+  --color-on-tertiary-fixed-variant: #6d614e;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-error-dim: #ef4444;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #ffdad6;
+}

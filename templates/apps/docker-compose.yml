@@ -1,0 +1,50 @@
+# [X1-1] LOCAL DEVELOPMENT ONLY — do NOT deploy this file to production.
+#
+# Every port is bound to 127.0.0.1 (loopback) so these services are reachable
+# only from this machine, never from the LAN/internet even on an untrusted
+# network. The credentials below are intentionally trivial *because* nothing
+# off-host can reach them. In production use managed Postgres/Redis/Meilisearch
+# (or a separate, secret-injected compose) with strong, unique credentials and
+# MEILI_ENV=production — never these dev defaults.
+version: '3.8'
+
+services:
+  db:
+    image: postgres:17-alpine
+    ports:
+      - '127.0.0.1:5433:5432'
+    environment:
+      POSTGRES_USER: molecule
+      POSTGRES_PASSWORD: molecule
+      POSTGRES_DB: molecule_flagship
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U molecule']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '127.0.0.1:6380:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.12
+    ports:
+      - '127.0.0.1:7701:7700'
+    environment:
+      MEILI_ENV: development
+      MEILI_NO_ANALYTICS: true
+    volumes:
+      - meilidata:/meili_data
+
+volumes:
+  pgdata:
+  meilidata:

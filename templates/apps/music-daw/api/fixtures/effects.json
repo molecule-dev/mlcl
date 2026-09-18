@@ -1,0 +1,5 @@
+[
+  {"id":"fx-1","name":"Reverb","category":"Spatial","wet":0.3},
+  {"id":"fx-2","name":"Compressor","category":"Dynamics","ratio":4},
+  {"id":"fx-3","name":"EQ","category":"Filter","bands":4}
+]

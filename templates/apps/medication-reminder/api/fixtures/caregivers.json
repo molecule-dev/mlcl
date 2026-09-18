@@ -1,0 +1,7 @@
+[
+  { "id": "cgv_001", "name": "Henry Park",       "email": "henry.park@example.com", "relationship": "Spouse",     "permissions": ["view_schedule", "view_adherence", "receive_alerts", "view_records"], "notification_method": "both",  "invited_at": "2025-09-15T00:00:00Z", "status": "active"  },
+  { "id": "cgv_002", "name": "Dr. Mira Chen",    "email": "mira@solace.health",     "relationship": "Primary care","permissions": ["view_schedule", "view_adherence", "view_records"],                   "notification_method": "email", "invited_at": "2025-10-12T00:00:00Z", "status": "active"  },
+  { "id": "cgv_003", "name": "Sarah Park",       "email": "sarah.park@example.com", "relationship": "Daughter",   "permissions": ["receive_alerts"],                                                    "notification_method": "sms",   "invited_at": "2026-01-10T00:00:00Z", "status": "active"  },
+  { "id": "cgv_004", "name": "Mei Wong",         "email": "mei.w@example.com",      "relationship": "Caregiver",  "permissions": ["view_schedule", "receive_alerts"],                                  "notification_method": "both",  "invited_at": "2026-04-02T00:00:00Z", "status": "pending" },
+  { "id": "cgv_005", "name": "Robert Park",      "email": "rob.park@example.com",   "relationship": "Son",        "permissions": ["receive_alerts"],                                                    "notification_method": "email", "invited_at": "2026-04-15T00:00:00Z", "status": "pending" }
+]

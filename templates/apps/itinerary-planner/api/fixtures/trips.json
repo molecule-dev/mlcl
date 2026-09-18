@@ -1,0 +1,53 @@
+[
+  {
+    "id": "tr-2026-iceland",
+    "destination": "Reykjavík & the Ring Road",
+    "country": "Iceland",
+    "cover_url": "https://picsum.photos/seed/waypoint-iceland/1200/675",
+    "start_iso": "2026-06-12T08:00:00Z",
+    "end_iso": "2026-06-22T18:00:00Z",
+    "status": "confirmed",
+    "stop_count": 11,
+    "budget_used_cents": 184500,
+    "budget_total_cents": 420000,
+    "collaborators": [
+      { "id": "u1", "name": "Iris Larsen" },
+      { "id": "u2", "name": "Jonas Berg" },
+      { "id": "u3", "name": "Mira Patel" },
+      { "id": "u4", "name": "Theo Marin" }
+    ]
+  },
+  {
+    "id": "tr-2026-japan",
+    "destination": "Kyoto, Naoshima & Tokyo",
+    "country": "Japan",
+    "cover_url": "https://picsum.photos/seed/waypoint-japan/1200/675",
+    "start_iso": "2026-09-04T09:00:00Z",
+    "end_iso": "2026-09-19T20:00:00Z",
+    "status": "tentative",
+    "stop_count": 14,
+    "budget_used_cents": 32000,
+    "budget_total_cents": 580000,
+    "collaborators": [
+      { "id": "u1", "name": "Iris Larsen" },
+      { "id": "u2", "name": "Jonas Berg" }
+    ]
+  },
+  {
+    "id": "tr-2026-portugal",
+    "destination": "Lisbon → Porto coastal loop",
+    "country": "Portugal",
+    "cover_url": "https://picsum.photos/seed/waypoint-portugal/1200/675",
+    "start_iso": "2026-04-08T10:00:00Z",
+    "end_iso": "2026-04-18T16:00:00Z",
+    "status": "in_progress",
+    "stop_count": 8,
+    "budget_used_cents": 312000,
+    "budget_total_cents": 360000,
+    "collaborators": [
+      { "id": "u5", "name": "Henrik Olsen" },
+      { "id": "u6", "name": "Saoirse Quinn" },
+      { "id": "u7", "name": "Aiko Tanaka" }
+    ]
+  }
+]

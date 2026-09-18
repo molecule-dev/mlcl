@@ -1,0 +1,16 @@
+[
+  { "id": "mtg_001", "title": "Q3 Launch Planning",                "date": "2026-04-25", "time": "15:00", "duration_min": 47, "speaker_id": 1 },
+  { "id": "mtg_002", "title": "Eng 1:1 — Devon",                  "date": "2026-04-24", "time": "20:30", "duration_min": 28, "speaker_id": 2 },
+  { "id": "mtg_003", "title": "Acme QBR",                          "date": "2026-04-22", "time": "18:00", "duration_min": 52, "speaker_id": 4 },
+  { "id": "mtg_004", "title": "All-hands April",                   "date": "2026-04-15", "time": "17:00", "duration_min": 64, "speaker_id": 1 },
+  { "id": "ev_001",  "title": "Launch comms review",              "date": "2026-04-28", "time": "16:00", "duration_min": 30, "speaker_id": 1 },
+  { "id": "ev_002",  "title": "Wayne Enterprises QBR",           "date": "2026-04-29", "time": "15:00", "duration_min": 45, "speaker_id": 4 },
+  { "id": "ev_003",  "title": "Eng standup",                      "date": "2026-04-29", "time": "10:00", "duration_min": 15, "speaker_id": 3 },
+  { "id": "ev_004",  "title": "Eng standup",                      "date": "2026-04-30", "time": "10:00", "duration_min": 15, "speaker_id": 3 },
+  { "id": "ev_005",  "title": "Hooli partnership intro",          "date": "2026-04-30", "time": "14:00", "duration_min": 30, "speaker_id": 4 },
+  { "id": "ev_006",  "title": "Eng standup",                      "date": "2026-05-01", "time": "10:00", "duration_min": 15, "speaker_id": 3 },
+  { "id": "ev_007",  "title": "Acme roadmap commit follow-up",     "date": "2026-05-01", "time": "17:30", "duration_min": 30, "speaker_id": 1 },
+  { "id": "ev_008",  "title": "Q1 board prep",                    "date": "2026-05-04", "time": "16:00", "duration_min": 60, "speaker_id": 1 },
+  { "id": "ev_009",  "title": "May launch readiness review",      "date": "2026-05-08", "time": "15:00", "duration_min": 60, "speaker_id": 2 },
+  { "id": "ev_010",  "title": "Launch day standup",               "date": "2026-05-12", "time": "08:00", "duration_min": 30, "speaker_id": 1 }
+]

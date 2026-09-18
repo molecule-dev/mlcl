@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+
+  /* Stitch border-radius scale. */
+  --radius-12: 12px;
+  --radius: 0.5rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.5rem;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: Inter, sans-serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-sans: Inter, sans-serif;
+  --font-serif: Lora, serif;
+  --font-ui: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-10 -inset-1 -left-10 -mb-px -right-10 -right-4 -rotate-90 -top-10 -top-4 -translate-y-1/2 2xl 3xl absolute active:opacity-70 ai-text-selection antialiased appearance-none aspect-square backdrop-blur-md backdrop-blur-sm bg-accent bg-accent-light bg-accent/10 bg-amber-500 bg-blue-100 bg-blue-500 bg-emerald-100 bg-emerald-50 bg-emerald-500 bg-gradient-to-br bg-gradient-to-r bg-gradient-to-t bg-gray-100 bg-gray-200 bg-gray-300 bg-green-100 bg-green-500 bg-primary bg-primary-100 bg-primary-50 bg-primary-700 bg-primary-container bg-primary-container/20 bg-primary/20 bg-primary/40 bg-primary/5 bg-primary/60 bg-primary/80 bg-purple-500 bg-quote-pattern bg-semantic-success bg-sidebar bg-slate-100 bg-slate-200 bg-slate-300 bg-slate-50 bg-slate-50/50 bg-status-ai bg-status-draft bg-status-published");
+@source inline("bg-surface bg-surface-ai bg-surface-primary bg-surface-secondary bg-surface-secondary/50 bg-surface-sidebar bg-white bg-white/50 bg-white/60 bg-white/80 bg-white/90 bg-yellow-100 block blur-3xl blur-xl border border-2 border-accent border-accent-light border-b border-b-2 border-border border-border-light border-border/50 border-collapse border-emerald-200 border-gray-100 border-gray-100/50 border-gray-200 border-gray-50 border-l border-l-4 border-none border-primary border-primary/10 border-primary/20 border-primary/30 border-r border-slate-100 border-slate-200 border-slate-50 border-t border-transparent border-white bottom-0 bottom-10 cursor-pointer custom-scrollbar dark:bg-slate-900 dark:bg-slate-950/80 dark:border-slate-800 dark:text-slate-400 divide-slate-100 divide-y docked duration-200 duration-300 editor-body fill-icon fixed");
+@source inline("flat flex flex-1 flex-col flex-none flex-shrink-0 flex-wrap focus:bg-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-2 focus:ring-primary focus:ring-primary-500 focus:ring-primary/20 focus:ring-primary/50 font-black font-body font-bold font-editor font-headline font-light font-medium font-mono font-sans font-semibold font-serif font-ui from-accent-light/30 from-blue-50 from-emerald-50 from-primary from-primary-100/50 from-primary-50 from-primary/10 from-primary/5 from-slate-100 from-surface-secondary full-width gap-1 gap-10 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-x-8 gap-y-6 grid grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 grid-cols-7 group group-focus-within:text-primary group-focus-within:text-primary-500 group-hover:bg-primary-600 group-hover:block");
+@source inline("group-hover:opacity-100 group-hover:scale-100 group-hover:text-accent group-hover:text-blue-700 group-hover:text-emerald-700 group-hover:text-primary group-hover:text-primary-500 group-hover:text-primary-700 group-hover:text-text-primary group-hover:text-white group-hover:translate-x-1 h-1 h-10 h-12 h-14 h-16 h-2 h-24 h-28 h-32 h-4 h-40 h-5 h-6 h-7 h-8 h-[160px] h-[180px] h-[280px] h-[32px] h-[44px] h-[56px] h-[600px] h-full h-screen hidden hide-scrollbar hover:-translate-y-1 hover:bg-accent-hover hover:bg-accent-light hover:bg-accent/90 hover:bg-gray-200 hover:bg-gray-50 hover:bg-green-50 hover:bg-primary-800 hover:bg-primary-container hover:bg-primary-dark hover:bg-primary-hover hover:bg-primary-light hover:bg-primary/90 hover:bg-red-50 hover:bg-slate-100 hover:bg-slate-50 hover:bg-surface-ai hover:bg-surface-primary hover:bg-surface-secondary hover:bg-white hover:bg-white/50 hover:border-primary-200 hover:border-primary/30");
+@source inline("hover:border-slate-300 hover:opacity-80 hover:opacity-90 hover:ring-2 hover:ring-primary-100 hover:scale-110 hover:shadow-lg hover:shadow-md hover:text-primary hover:text-primary-800 hover:text-primary-hover hover:text-primary/80 hover:text-red-500 hover:text-text-primary hover:text-yellow-600 hover:translate-x-1 hover:underline inline-flex inset-0 italic items-baseline items-center items-end items-start justify-between justify-center leading-none leading-relaxed leading-snug leading-tight left-0 left-1 left-2 left-3 lg:block lg:grid-cols-3 line-clamp-1 line-clamp-2 line-clamp-3 line-clamp-4 line-through lora lora-italic material-symbols-outlined max-h-[400px] max-w-2xl max-w-3xl max-w-5xl max-w-7xl max-w-[1400px] max-w-[440px] max-w-[720px] max-w-md mb mb-1 mb-12 mb-16 mb-2 mb-3 mb-4");
+@source inline("mb-6 mb-8 md md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:hidden md:items-end md:items-start md:mb-0 md:p-16 md:p-8 md:text-2xl md:text-5xl md:text-[28px] md:text-[60px] md:text-left md:w-64 md:w-80 min-h-screen min-w-0 ml-2 ml-4 ml-64 ml-8 ml-[280px] ml-auto mr-1 mr-2 mt-1 mt-12 mt-2 mt-3 mt-4 mt-8 mt-auto mx-1 mx-2 mx-auto my-8 my-auto no object-cover opacity-0 opacity-100 opacity-50 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-0 p-1 p-10 p-2 p-3 p-4");
+@source inline("p-5 p-6 p-8 pb-1 pb-2 pb-24 pb-32 pb-6 pb-[1px] pl-10 pl-4 pl-6 pl-9 placeholder:text-text-secondary placeholder:text-text-secondary/50 pr-11 pr-2 pr-3 pr-4 pt-1 pt-24 pt-3 pt-4 pt-6 pt-8 px-1 px-10 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-10 py-12 py-16 py-2 py-20 py-3 py-4 py-6 py-8 relative resize-none right-0 right-10 right-2 right-3 ring-1 ring-2 ring-primary ring-primary/20 ring-transparent rounded rounded-12 rounded-[4px] rounded-[6px] rounded-full");
+@source inline("rounded-lg rounded-md rounded-r-lg rounded-sm rounded-xl scroll-smooth select-none selection:bg-primary-100 selection:text-primary-900 selection:text-primary-dark shadow-sm shadows shrink-0 sm sm:flex-row space-x-4 space-x-8 space-y-1 space-y-2 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sticky stroke-current tap-highlight-transparent text-2xl text-3xl text-4xl text-5xl text-[10px] text-[11px] text-[12px] text-[14px] text-[15px] text-[16px] text-[18px] text-[20px] text-[24px] text-[28px] text-[9px] text-accent text-base text-center text-emerald-600 text-gray-500 text-gray-600 text-green-500 text-green-600 text-green-700 text-green-800 text-left text-lg text-primary text-primary-300 text-primary-600 text-primary-700 text-primary-on text-red-600");
+@source inline("text-semantic-error text-semantic-info text-semantic-success text-semantic-warning text-seo-avg text-seo-good text-slate-100 text-slate-300 text-slate-500 text-slate-600 text-sm text-text-muted text-text-primary text-text-primary/80 text-text-secondary text-text-secondary/80 text-white text-xl text-xs text-yellow-800 to-accent-light/30 to-primary-light to-transparent to-white top-0 top-1 top-1/2 top-2 top-3 top-8 tracking-tight tracking-tighter tracking-wide tracking-wider transform transition-all transition-colors transition-opacity transition-shadow transition-transform translate-x-5 truncate uppercase via-transparent via-white w-1 w-10 w-11 w-12 w-2 w-24 w-28 w-4 w-40 w-5 w-6 w-60 w-64 w-7 w-8");
+@source inline("w-80 w-[1px] w-[280px] w-[380px] w-[3px] w-full w-px whitespace-nowrap xs z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.font-serif {
+  font-family: 'Lora', serif;
+}
+
+/* Truncation utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.editor-body {
+  font-family: 'Lora', serif;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #1e1b2e;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.fill-icon {
+  font-variation-settings: 'FILL' 1;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.ai-text-selection {
+  background-color: rgba(108, 71, 217, 0.1);
+  border-bottom: 2px dashed #6c47d9;
+}
+
+.bg-quote-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 25C25 30 20 35 15 35C10 35 5 30 5 25C5 20 10 15 15 15C17.5 15 20 16 22 18L25 15V25ZM55 25C55 30 50 35 45 35C40 35 35 30 35 25C35 20 40 15 45 15C47.5 15 50 16 52 18L55 15V25Z' fill='%23ede8fb' fill-opacity='0.5' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.font-editor {
+  font-family: 'Lora', serif;
+}
+
+.lora-italic {
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+/* polish-v2:stitch-styles:end */

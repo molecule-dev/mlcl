@@ -1,0 +1,5 @@
+[
+  {"id":"inst-1","name":"Grand Piano","category":"Keys","preset":"Concert","cpu":12},
+  {"id":"inst-2","name":"Analog Synth","category":"Synth","preset":"Lead","cpu":8},
+  {"id":"inst-3","name":"Studio Drums","category":"Drums","preset":"Rock Kit","cpu":15}
+]

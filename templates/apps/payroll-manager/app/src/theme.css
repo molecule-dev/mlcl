@@ -1,0 +1,181 @@
+/*
+ * Stipend — payroll-manager brand tokens.
+ * Derived from app/DESIGN.md.
+ *
+ * Primary: cyan/teal (#0e7490). Accent: emerald (#059669).
+ * Sidebar anchor: deep navy (#0c1f2e), brand-anchored across themes.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-hover: #22a3c4;
+  --mol-color-primary-dark: #0a5e75;
+  --mol-color-primary-light: #cffafe;
+
+  --mol-color-secondary: #059669;
+  --mol-color-secondary-hover: #34d399;
+  --mol-color-secondary-dark: #047857;
+  --mol-color-secondary-light: #dcfce7;
+
+  --mol-color-success: #15803d; /* was #16a34a — 3.0:1 as chip text on success-light (axe serious); green-700 = 4.57:1 on #dcfce7, 5.02:1 on white */
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #9a4a10; /* was #d97706 — 2.86:1 as chip text on warning-light (axe serious); #9a4a10 = 5.61:1 on #fef3c7, 6.25:1 on white */
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #0e7490;
+  --mol-color-info-light: #cffafe;
+
+  --mol-color-background: #f0f9ff;
+  --mol-color-background-secondary: #e0f2fe;
+  --mol-color-background-tertiary: #cffafe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f9ff;
+  --mol-color-input-background: #ffffff;
+
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-muted: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0e7490;
+
+  /* Brand-anchored sidebar — deep navy regardless of theme. */
+  --color-sidebar: #0c1f2e;
+  --color-sidebar-hover: #133347;
+  --color-sidebar-active: #1a4460;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-text-active: #ffffff;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Stitch / Material-3 light tokens — required so `bg-primary`, `text-on-surface`, etc.
+     resolve correctly before the dark-mode block overrides them. */
+  --color-background: #f0f9ff;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0f2fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f9ff;
+  --color-surface-container: #e0f2fe;
+  --color-surface-container-high: #cffafe;
+  --color-surface-container-highest: #a5f3fc;
+  --color-surface-variant: #cffafe;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f0f9ff;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe;
+  --color-on-primary: #ffffff; /* white on #0e7490 = 5.36:1 — pass */
+  --color-on-primary-container: #0a3f52;
+  --color-secondary: #059669;
+  --color-secondary-container: #dcfce7;
+  --color-on-secondary: #001a0f; /* #ffffff on #059669 was 3.77:1 (fail); #001a0f = 4.83:1 */
+  --color-on-secondary-container: #052e16;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff; /* white on #7c3aed = 5.25:1 — pass */
+  --color-on-tertiary-container: #3b0764;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 5.74:1 — pass */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* #64748b on #ffffff = 4.07:1 — pass ≥3:1 */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0e7490;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (Stipend: corporate finance, navy + cyan + emerald) */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-hover: #67e8f9;
+  --mol-color-primary-dark: #06b6d4;
+  --mol-color-primary-light: #083344;
+
+  --mol-color-secondary: #34d399;
+  --mol-color-secondary-hover: #6ee7b7;
+  --mol-color-secondary-dark: #10b981;
+  --mol-color-secondary-light: #064e3b;
+
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #22d3ee;
+  --mol-color-info-light: #083344;
+
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #0f172a;
+  --mol-color-background-tertiary: #1a2940;
+  --mol-color-surface: #152033;
+  --mol-color-surface-secondary: #1a2940;
+  --mol-color-input-background: #0a0f1c;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-muted: #64748b;
+  --mol-color-text-inverse: #0b1120;
+
+  --mol-color-border: #1e3a5f;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #22d3ee;
+
+  /* Sidebar stays brand-anchored deep navy in dark mode — slight tonal lift
+     so it doesn't disappear into the page background. */
+  --color-sidebar: #060f1a;
+  --color-sidebar-hover: #0c1f2e;
+  --color-sidebar-active: #133347;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on cyan: `on-primary` stays white. */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #152033;
+  --color-surface-bright: #233249;
+  --color-surface-dim: #070c17;
+  --color-surface-container-lowest: #040810;
+  --color-surface-container-low: #0e1829;
+  --color-surface-container: #152033;
+  --color-surface-container-high: #1c2b42;
+  --color-surface-container-highest: #253554;
+  --color-surface-variant: #1a2940;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #0e7490;
+  --color-primary: #22d3ee; /* brightened cyan for dark canvas */
+  --color-primary-container: #083344;
+  --color-on-primary: #07202a; /* #ffffff was 1.81:1 on #22d3ee (fail); #07202a = 9.30:1 */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #022c22;
+  --color-on-secondary-container: #dcfce7;
+  --color-tertiary: #67e8f9;
+  --color-tertiary-container: #083344;
+  --color-on-tertiary: #052b2f; /* #ffffff was 1.45:1 on #67e8f9 (fail); #052b2f = 10.40:1 */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* #ffffff was 2.77:1 on #f87171 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5d799f; /* #4a6080 was 2.55:1 vs surface, 2.94:1 vs bg (fail ≥3:1); #5d799f = 3.65:1/4.22:1 */
+  --color-outline-variant: #1e3a5f;
+  --color-surface-tint: #22d3ee;
+}

@@ -1,0 +1,213 @@
+:root {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2a4f7f;
+  --color-primary-dark: #142945;
+  --color-secondary: #2a5298;
+  --color-secondary-light: #4c7bd1;
+  --color-accent: #e86a2e;
+  --color-accent-light: #f07d45;
+  --color-accent-dark: #c85a22;
+  --color-background: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f4f7fb;
+  --color-surface-hover: #eef3fa;
+  --color-text: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  --color-cheapest: #16a34a;
+  --color-cheapest-light: #dcfce7;
+  --color-deal: #e86a2e;
+  --color-deal-light: #fff1e6;
+  --color-expensive: #dc2626;
+  --color-expensive-light: #fee2e2;
+  --color-nonstop: #0d9488;
+  --color-layover: #6b7280;
+  --color-tracked: #7c3aed;
+  --color-tracked-light: #ede9fe;
+
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #1e3a5f;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #142945;
+  --mol-color-secondary: #2a5298;
+  --mol-color-background: #f4f7fb;
+  --mol-color-background-secondary: #eef3fa;
+  --mol-color-background-tertiary: #e4ecf5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f4f7fb;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #374151;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #1e3a5f;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2a5298;
+
+  /* === M3 bridge tokens (light) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #111827;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8eef5;
+  --color-surface-container-lowest: #f8fafc;
+  --color-surface-container-low: #f4f7fb;
+  --color-surface-container: #eef3fa;
+  --color-surface-container-high: #e4ecf5;
+  --color-surface-container-highest: #dae3ef;
+  --color-surface-variant: #e4ecf5;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #374151;
+  --color-inverse-surface: #1e2a3a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #93c5fd;
+  --color-primary-container: #dbeafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a5f;
+  --color-secondary-container: #dbeafe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #142945;
+  --color-tertiary: #e86a2e;
+  --color-tertiary-container: #fff1e6;
+  --color-on-tertiary: #3d1000; /* dark on orange — 4.8:1 contrast (white only 3.1:1) */
+  --color-on-tertiary-container: #7a2e0e;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #9ca3af;
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #1e3a5f;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-price: '"DM Sans", -apple-system, sans-serif';
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.14);
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (twilight sky tones).
+   Midnight blue surfaces evoke a lit flight-search at night; the brand navy
+   lifts to sky blue (#60a5fa) for legibility, while the orange accent stays vivid.
+   `--color-on-primary` is dark navy (#0c1929) — sky blue L=0.38 makes white only 2.4:1. */
+[data-mol-mode='dark'] {
+  --color-primary: #60a5fa;
+  --color-primary-light: #93c5fd;
+  --color-primary-dark: #3b82f6;
+  --color-secondary: #7eb0e8;
+  --color-secondary-light: #a8c8f0;
+  --color-accent: #ff8a4a;
+  --color-accent-light: #ffa570;
+  --color-accent-dark: #e57135;
+
+  --color-background: #0c1929;
+  --color-surface: #162032;
+  --color-surface-secondary: #1c2a3e;
+  --color-surface-hover: #243349;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: #2a3f5a;
+
+  /* Fare/route tokens — brighter, semantic intent preserved */
+  --color-cheapest: #4ade80;
+  --color-cheapest-light: rgba(74, 222, 128, 0.18);
+  --color-deal: #ff8a4a;
+  --color-deal-light: rgba(255, 138, 74, 0.18);
+  --color-expensive: #f87171;
+  --color-expensive-light: rgba(248, 113, 113, 0.18);
+  --color-nonstop: #2dd4bf;
+  --color-layover: #94a3b8;
+  --color-tracked: #a78bfa;
+  --color-tracked-light: rgba(167, 139, 250, 0.2);
+
+  --color-error: #f87171;
+  --color-success: #4ade80;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #60a5fa;
+  --mol-color-primary-light: #1e3a5f;
+  --mol-color-primary-dark: #3b82f6;
+  --mol-color-secondary: #7eb0e8;
+  --mol-color-background: #0c1929;
+  --mol-color-background-secondary: #111f2e;
+  --mol-color-background-tertiary: #162032;
+  --mol-color-surface: #162032;
+  --mol-color-surface-secondary: #1c2a3e;
+  --mol-color-input-background: #0a1622;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #0c1929;
+  --mol-color-border: #2a3f5a;
+  --mol-color-border-secondary: #3a5070;
+  --mol-color-border-focus: #60a5fa;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #7eb0e8;
+
+  /* === M3 bridge tokens (dark) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #f1f5f9;
+  --color-surface-bright: #243349;
+  --color-surface-dim: #080f18;
+  --color-surface-container-lowest: #060c14;
+  --color-surface-container-low: #0c1929;
+  --color-surface-container: #111f2e;
+  --color-surface-container-high: #162032;
+  --color-surface-container-highest: #1c2a3e;
+  --color-surface-variant: #1c2a3e;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1929;
+  --color-inverse-primary: #1e3a5f;
+  --color-primary-container: #1e3a5f;
+  --color-on-primary: #0c1929; /* dark navy on sky blue — 7.5:1 contrast (white only 2.4:1) */
+  --color-on-primary-container: #bfdbfe;
+  --color-secondary-container: #1e3a5f;
+  --color-on-secondary: #0c1929;
+  --color-on-secondary-container: #bfdbfe;
+  --color-tertiary: #ff8a4a;
+  --color-tertiary-container: #431407;
+  --color-on-tertiary: #3d1000; /* dark on light orange — 8.0:1 contrast (white only 2.3:1) */
+  --color-on-tertiary-container: #fed7aa;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red error — 5.9:1 contrast (white only 2.8:1) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #4a6580;
+  --color-outline-variant: #2a3f5a;
+  --color-surface-tint: #60a5fa;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+}

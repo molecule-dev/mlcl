@@ -1,0 +1,34 @@
+[
+  {
+    "id": "s1",
+    "recipient_name": "Dr. Anika Patel",
+    "recipient_email": "apatel@brightcare.com",
+    "organization": "Brightcare Internal Medicine",
+    "variant": "provider",
+    "scope": ["Records", "Medications", "Labs"],
+    "granted_at": "2026-04-12T10:00:00Z",
+    "expires_at": "2027-04-12T10:00:00Z",
+    "status": "active"
+  },
+  {
+    "id": "s2",
+    "recipient_name": "Sara Khalil",
+    "recipient_email": "sara.khalil@family.com",
+    "variant": "caregiver",
+    "scope": ["Medications", "Visits"],
+    "granted_at": "2025-12-04T18:00:00Z",
+    "expires_at": null,
+    "status": "active"
+  },
+  {
+    "id": "s3",
+    "recipient_name": "Madison ER",
+    "recipient_email": "intake@madisonemergency.org",
+    "organization": "Madison Emergency Department",
+    "variant": "readonly",
+    "scope": ["Labs", "Medications"],
+    "granted_at": "2026-04-22T08:30:00Z",
+    "expires_at": "2026-05-30T23:59:00Z",
+    "status": "active"
+  }
+]

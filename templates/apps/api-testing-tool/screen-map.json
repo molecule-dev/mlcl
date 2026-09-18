@@ -1,0 +1,149 @@
+{
+  "app": "api-testing-tool",
+  "designProjectId": "17091163805423176708",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-landing.html",
+      "designScreenId": "d343c5d0363c4edabcb5d0c97de4f858"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-login.html",
+      "designScreenId": "204d95836c064b2ca62df8ee6f13bdcf"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-testing-tool-login.html",
+      "derivationNotes": "Same dark centered card with circuit-grid background and monospace request-log corners as Login, but with fields: Full Name, Email, Password, Confirm Password. Card heading changes to 'Create your account' with subtext 'Start firing requests in minutes'. Primary button text becomes 'Create Account' (green #10b981). Bottom link changes to 'Already have an account? Sign in'. Keep GitHub + Google social auth row. No Forgot Password link. Keep the command-palette hint at bottom."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-testing-tool-login.html",
+      "derivationNotes": "Same dark card layout and Pylon branding as Login, but with only email field. Heading changes to 'Reset your password' with subtext 'Enter your email and we will send you a reset link'. Button text changes to 'Send Reset Link' (green). Bottom link changes to 'Back to Sign In'. Remove password field, remember-me row, and social auth section. Keep command-palette hint."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-testing-tool-login.html",
+      "derivationNotes": "Same dark card layout and Pylon branding as Login, but with New Password + Confirm Password fields only. Heading changes to 'Set a new password'. Button text changes to 'Reset Password' (green). Bottom link changes to 'Back to Sign In'. Remove email field, remember-me row, and social auth section. Keep command-palette hint."
+    },
+    {
+      "name": "Workspace",
+      "templateFile": "app/pages/Workspace.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/workspace",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-workspace.html",
+      "designScreenId": "655af28b47bb4b0d967f4943852a91fa"
+    },
+    {
+      "name": "Collections",
+      "templateFile": "app/pages/Collections.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/collections",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-collections.html",
+      "designScreenId": "9a7de9ac08f449eb8f0051a1f638404c"
+    },
+    {
+      "name": "Environments",
+      "templateFile": "app/pages/Environments.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/environments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-environments.html",
+      "designScreenId": "a6f8dc5125c44be1adce69f25b289a64"
+    },
+    {
+      "name": "History",
+      "templateFile": "app/pages/History.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-history.html",
+      "designScreenId": "583c450545f1419d9cb843934bda143d"
+    },
+    {
+      "name": "Mocks",
+      "templateFile": "app/pages/Mocks.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/mocks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-mocks.html",
+      "designScreenId": "d33bed6c620a45b7a738213716709b35"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-settings.html",
+      "designScreenId": "06d2845aa41f471ca49f719fefd7a1c4"
+    },
+    {
+      "name": "TestRunner",
+      "templateFile": "app/pages/TestRunner.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/tests",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-test-runner.html",
+      "designScreenId": "b558fcecb4bb415c87b8d6f1f0a4eb05"
+    },
+    {
+      "name": "Monitors",
+      "templateFile": "app/pages/Monitors.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/monitors",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-monitors.html",
+      "designScreenId": "49a5618e715d4165a019c9deff5a7010"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ApiTestingToolLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-testing-tool-profile.html",
+      "designScreenId": "98616195654e4e348f965f128a58268e"
+    }
+  ]
+}

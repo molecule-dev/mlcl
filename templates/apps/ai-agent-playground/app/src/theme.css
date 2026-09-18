@@ -1,0 +1,274 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  /* Neuron brand: violet/purple primary palette */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #ddd6fe;
+  --mol-color-secondary-dark: #8b5cf6;
+
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #6366f1;
+
+  --mol-color-background: #faf7ff;
+  --mol-color-background-secondary: #f3eeff;
+  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f3ff;
+  --mol-color-input-background: #ffffff;
+
+  --mol-color-text: #1e0a3c;
+  --mol-color-text-secondary: #4c1d95;
+  --mol-color-text-tertiary: #6d28d9;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #ddd6fe;
+  --mol-color-border-secondary: #c4b5fd;
+  --mol-color-border-focus: #7c3aed;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* App-specific legacy tokens — agent/editor surfaces */
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #ede9fe;
+  --color-primary-muted: #ddd6fe;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #8b5cf6;
+  --color-accent: #c4b5fd;
+  --color-accent-hover: #a78bfa;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #6366f1;
+  --color-bg: #faf7ff;
+  --color-bg-secondary: #f3eeff;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f7f3ff;
+  --color-bg-input: #ffffff;
+  --color-border: #ddd6fe;
+  --color-border-focus: #7c3aed;
+  --color-border-subtle: #ede9fe;
+  --color-text: #1e0a3c;
+  --color-text-secondary: #5b21b6;
+  --color-text-muted: #7c3aed;
+  --color-text-inverse: #ffffff;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --editor-bg: #faf7ff;
+  --editor-border: #ddd6fe;
+  --editor-line-height: 1.65;
+  --editor-font-size: 0.9375rem;
+  --timeline-track: #ddd6fe;
+  --timeline-dot: #7c3aed;
+  --timeline-dot-success: #10b981;
+  --timeline-dot-error: #ef4444;
+  --timeline-dot-tool: #a78bfa;
+  --tool-call-bg: #f3eeff;
+  --tool-call-border: #c4b5fd;
+  --tool-result-bg: #ecfdf5;
+  --tool-result-border: #6ee7b7;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Shadows — light violet */
+  --shadow-sm: 0 1px 3px rgba(124, 58, 237, 0.08);
+  --shadow-md: 0 4px 12px rgba(124, 58, 237, 0.1);
+  --shadow-lg: 0 8px 24px rgba(124, 58, 237, 0.15);
+  --shadow-glow: 0 0 16px rgba(124, 58, 237, 0.2);
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     These feed bg-surface, text-on-surface, etc. in light mode. */
+  --color-background: #faf7ff;
+  --color-on-background: #1e0a3c;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f3eeff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf7ff;
+  --color-surface-container: #f7f3ff;
+  --color-surface-container-high: #f3eeff;
+  --color-surface-container-highest: #ede9fe;
+  --color-surface-variant: #f3eeff;
+  --color-on-surface: #1e0a3c;
+  --color-on-surface-variant: #4c1d95;
+  --color-inverse-surface: #1e0a3c;
+  --color-inverse-on-surface: #f5f3ff;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #2e1065;
+  --color-primary-fixed: #ede9fe;
+  --color-primary-fixed-dim: #c4b5fd;
+  --color-on-primary-fixed: #2e1065;
+  --color-on-primary-fixed-variant: #5b21b6;
+  --color-secondary-container: #ddd6fe;
+  /* #1e0a3c on #a78bfa = 6.63:1 — passes AA. White was 2.72:1 (fail). */
+  --color-on-secondary: #1e0a3c;
+  --color-on-secondary-container: #2e1065;
+  --color-secondary-fixed: #ddd6fe;
+  --color-secondary-fixed-dim: #a78bfa;
+  --color-on-secondary-fixed: #2e1065;
+  --color-on-secondary-fixed-variant: #4c1d95;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  /* #0a0014 on #8b5cf6 = 4.85:1 — passes AA. White was 4.23:1 (fail). */
+  --color-on-tertiary: #0a0014;
+  --color-on-tertiary-container: #2e1065;
+  --color-tertiary-fixed: #ede9fe;
+  --color-tertiary-fixed-dim: #c4b5fd;
+  --color-on-tertiary-fixed: #2e1065;
+  --color-on-tertiary-fixed-variant: #5b21b6;
+  --color-error: #dc2626;
+  --color-error-container: #fecaca;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #7c6aaf;
+  --color-outline-variant: #ddd6fe;
+  --color-surface-tint: #7c3aed;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette
+   (deep violet, agent-playground "terminal in a nebula" motif). Pins
+   the dark surface set regardless of OS-level color-scheme so the
+   theme toggle is authoritative. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #2e1f5e;
+  --mol-color-primary-dark: #6d28d9;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #3b1d8a;
+  --mol-color-secondary-dark: #8b5cf6;
+
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #818cf8;
+
+  --mol-color-background: #0f0a1e;
+  --mol-color-background-secondary: #1a1033;
+  --mol-color-background-tertiary: #1e1540;
+  --mol-color-surface: #0f0a1e;
+  --mol-color-surface-secondary: #150e2e;
+  --mol-color-input-background: #0d0920;
+
+  --mol-color-text: #f5f3ff;
+  --mol-color-text-secondary: #c4b5fd;
+  --mol-color-text-tertiary: #8b7cb9;
+  --mol-color-text-inverse: #0f0a1e;
+
+  --mol-color-border: #2e1f5e;
+  --mol-color-border-secondary: #3b1d8a;
+  --mol-color-border-focus: #8b5cf6;
+
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #2e1f5e;
+  --color-primary-muted: #3b1d8a;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #8b5cf6;
+  --color-accent: #c4b5fd;
+  --color-accent-hover: #a78bfa;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #818cf8;
+  --color-bg: #0f0a1e;
+  --color-bg-secondary: #1a1033;
+  --color-bg-card: #1e1540;
+  --color-bg-sidebar: #150e2e;
+  --color-bg-input: #0d0920;
+  --color-border: #2e1f5e;
+  --color-border-focus: #8b5cf6;
+  --color-border-subtle: #1e1540;
+  --color-text: #f5f3ff;
+  --color-text-secondary: #c4b5fd;
+  --color-text-muted: #8b7cb9;
+  --color-text-inverse: #0f0a1e;
+  --editor-bg: #0d0920;
+  --editor-border: #2e1f5e;
+  --timeline-track: #2e1f5e;
+  --timeline-dot: #8b5cf6;
+  --timeline-dot-success: #34d399;
+  --timeline-dot-error: #f87171;
+  --timeline-dot-tool: #a78bfa;
+  --tool-call-bg: #1a1033;
+  --tool-call-border: #3b1d8a;
+  --tool-result-bg: #0f1e1a;
+  --tool-result-border: #0d4433;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 24px rgba(139, 92, 246, 0.45);
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, etc. flip on data-mol-mode="dark".
+     Brand-shifted into the violet/nebula palette. */
+  --color-background: #0f0a1e;
+  --color-on-background: #f5f3ff;
+  --color-surface: #0f0a1e;
+  --color-surface-bright: #2e1f5e;
+  --color-surface-dim: #0a0716;
+  --color-surface-container-lowest: #07050f;
+  --color-surface-container-low: #150e2e;
+  --color-surface-container: #1a1033;
+  --color-surface-container-high: #1e1540;
+  --color-surface-container-highest: #2e1f5e;
+  --color-surface-variant: #1e1540;
+  --color-on-surface: #f5f3ff;
+  --color-on-surface-variant: #c4b5fd;
+  --color-inverse-surface: #f5f3ff;
+  --color-inverse-on-surface: #1e0a3c;
+  --color-inverse-primary: #5b21b6;
+  --color-primary: #7c3aed;
+  --color-primary-container: #3b1d8a;
+  /* white on #7c3aed = 5.70:1 — passes 4.5:1 AA */
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede9fe;
+  --color-primary-fixed: #ddd6fe;
+  --color-primary-fixed-dim: #8b5cf6;
+  --color-on-primary-fixed: #1e0a3c;
+  --color-on-primary-fixed-variant: #5b21b6;
+  --color-secondary-container: #4c1d95;
+  /* #1e0a3c on #a78bfa = 6.63:1 — passes AA. White was 2.72:1. */
+  --color-on-secondary: #1e0a3c;
+  --color-on-secondary-container: #ddd6fe;
+  --color-secondary-fixed: #ddd6fe;
+  --color-secondary-fixed-dim: #a78bfa;
+  --color-on-secondary-fixed: #1e0a3c;
+  --color-on-secondary-fixed-variant: #4c1d95;
+  --color-tertiary: #c4b5fd;
+  --color-tertiary-container: #5b21b6;
+  /* #1e0a3c on #c4b5fd = 9.77:1 — passes AA. White was 1.85:1. */
+  --color-on-tertiary: #1e0a3c;
+  --color-on-tertiary-container: #ede9fe;
+  --color-tertiary-fixed: #ede9fe;
+  --color-tertiary-fixed-dim: #c4b5fd;
+  --color-on-tertiary-fixed: #1e0a3c;
+  --color-on-tertiary-fixed-variant: #5b21b6;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  /* #3a0000 on #f87171 = 6.43:1 — passes AA. White was 2.77:1 (fail). */
+  --color-on-error: #3a0000;
+  --color-on-error-container: #fecaca;
+  --color-outline: #8b7cb9;
+  --color-outline-variant: #2e1f5e;
+  --color-surface-tint: #8b5cf6;
+}

@@ -1,0 +1,51 @@
+{
+  "label": "Static Site / Markdown Blog",
+  "description": "A prerendered static site of markdown posts with front matter: paginated index, post pages, tag pages, RSS + Atom feeds, sitemap, llms.txt, raw markdown per post, drafts — no API, no database; `npm run build` writes dist/ for any static host",
+  "cluster": "content-social",
+  "type": "static",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-content",
+    "@molecule/api-content-markdown",
+    "@molecule/api-feed-rss",
+    "@molecule/api-sitemap-xml",
+    "@molecule/app-header-react",
+    "@molecule/app-i18n",
+    "@molecule/app-markdown",
+    "@molecule/app-markdown-marked",
+    "@molecule/app-routing-react-router",
+    "@molecule/app-shell-layout-react",
+    "@molecule/app-theme-css-variables",
+    "@molecule/app-ui-tailwind"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Site name",
+      "default": "Field Notes"
+    },
+    "VITE_SITE_URL": {
+      "description": "Public origin of the site, for absolute URLs in feeds, sitemap and llms.txt",
+      "default": "http://localhost:3000"
+    },
+    "BASE_PATH": {
+      "description": "Sub-path the site is served from (build-time; `BASE_PATH=/my-site npm run build`)",
+      "default": "/"
+    }
+  },
+  "layout": "content",
+  "features": [
+    "markdown",
+    "front-matter",
+    "prerender",
+    "pagination",
+    "tags",
+    "rss",
+    "atom",
+    "sitemap",
+    "llms-txt",
+    "drafts",
+    "seo",
+    "theme",
+    "i18n"
+  ]
+}

@@ -1,0 +1,8 @@
+Polish complete: 2026-04-30T03:01:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Brand: Embark — "Your journey starts here" (teal #0d9488 + violet #8b5cf6)
+Cluster: business-saas → sibling: crm
+Components: 8 bespoke (EmployeeOnboardingLayout, ProgressRing, WelcomeHeroCard, ChecklistTaskCard, MilestoneTimeline, TeamMemberCard, StatTriad, EmbarkAuthShell)
+Screen-map coverage: 18/18
+ClassMap coverage: 80%
+Foundation: complete

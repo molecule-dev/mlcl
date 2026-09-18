@@ -1,0 +1,181 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #f7f9fb;
+  --color-custom-amber: #d97706;
+  --color-custom-gray: #94a3b8;
+  --color-custom-green: #16a34a;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #eff1f3;
+  --color-inverse-primary: #c3c0ff;
+  --color-inverse-surface: #2d3133;
+  --color-on-background: #191c1e;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #dad7ff;
+  --color-on-primary-fixed: #0f0069;
+  --color-on-primary-fixed-variant: #3323cc;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5c647a;
+  --color-on-secondary-fixed: #131b2e;
+  --color-on-secondary-fixed-variant: #3f465c;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #464555;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #b8e0ff;
+  --color-on-tertiary-fixed: #001e2f;
+  --color-on-tertiary-fixed-variant: #004c6e;
+  --color-outline: #777587;
+  --color-outline-variant: #c7c4d8;
+  --color-primary: #3525cd;
+  --color-primary-container: #4f46e5;
+  --color-primary-fixed: #e2dfff;
+  --color-primary-fixed-dim: #c3c0ff;
+  --color-secondary: #565e74;
+  --color-secondary-container: #dae2fd;
+  --color-secondary-fixed: #dae2fd;
+  --color-secondary-fixed-dim: #bec6e0;
+  --color-surface: #f7f9fb;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d8dadc;
+  --color-surface-tint: #4d44e3;
+  --color-surface-variant: #e0e3e5;
+  --color-tertiary: #004d70;
+  --color-tertiary-container: #006693;
+  --color-tertiary-fixed: #c9e6ff;
+  --color-tertiary-fixed-dim: #89ceff;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: Inter, sans-serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-top-8 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute active:scale-95 antialiased backdrop-blur-xl bg-amber-50 bg-amber-500 bg-amber-500/10 bg-background bg-emerald-50 bg-emerald-500 bg-emerald-600/10 bg-gradient-to-br bg-indigo-500/10 bg-inverse-surface bg-on-secondary-fixed bg-outline-variant/30 bg-primary bg-primary/10 bg-primary/40 bg-primary/50 bg-primary/70 bg-purple-50 bg-purple-500 bg-red-50 bg-red-500 bg-red-600/10 bg-slate-200 bg-surface bg-surface-container-high bg-surface-container-low bg-surface-container-lowest bg-white/80 block border border-0 border-[16px] border-amber-500 border-b border-b-2 border-collapse border-emerald-500 border-indigo-500 border-indigo-600 border-l-2 border-outline-variant border-outline-variant/30 border-purple-500 border-r-2 border-red-500 border-slate-100 border-slate-300 border-slate-800 border-surface-container-high border-t border-transparent");
+@source inline("bottom-0 cursor-pointer dark:bg-slate-900/80 dark:border-slate-800 divide-y-0 duration-150 flex flex-1 flex-col focus:border-primary focus:ring-0 font-black font-body font-bold font-headline font-inter font-label font-medium font-semibold from-primary from-primary-container from-primary/5 gap-1 gap-2 gap-3 gap-4 gap-6 grid grid-cols-1 grid-cols-2 group group-hover:opacity-100 h-1 h-16 h-2 h-3 h-3/4 h-40 h-48 h-5 h-8 h-[56px] h-full h-px h-screen hidden hover:bg-slate-800 hover:bg-surface-container-low hover:bg-surface-container-low/50 hover:opacity-80 hover:opacity-90 hover:text-indigo-500 hover:text-white hover:underline inline-block inline-flex inset-0 items-baseline items-center items-end");
+@source inline("items-start justify-between justify-center leading-relaxed leading-snug left-0 left-1/2 left-3 left-8 lg:col-span-1 lg:col-span-2 lg:flex lg:grid-cols-3 lg:grid-cols-4 lg:hidden lg:p-24 line-clamp-2 material-symbols-outlined max-w-7xl max-w-[400px] max-w-md mb mb-10 mb-2 mb-4 mb-6 md:block md:flex md:grid-cols-2 min-h-screen ml-2 mt-1 mt-12 mt-2 mt-3 mt-4 mt-6 mt-auto mx-2 mx-auto object-cover opacity-0 opacity-20 opacity-40 outline-none overflow-hidden overflow-x-auto p-12 p-2 p-6 p-8 pb-5 pl-10 placeholder:text-on-surface-variant/50 pointer-events-none pr-4 pt-4 px-2 px-4 px-6");
+@source inline("px-8 py py-1 py-2 py-3 py-4 py-5 py-6 relative right-0 rounded rounded-full rounded-lg rounded-sm rounded-t-sm selection:bg-primary-container selection:text-on-primary shadow-slate-200/50 shadow-sm sm sm:p-12 space-y-2 space-y-5 space-y-6 space-y-8 sticky text-2xl text-3xl text-[10px] text-[14px] text-[20px] text-amber-500 text-amber-600 text-amber-700 text-base text-center text-display-md text-emerald-600 text-emerald-700 text-indigo-600 text-inverse-on-surface text-left text-on-primary text-on-secondary-fixed-variant text-on-surface text-on-surface-variant text-primary text-primary-container/30 text-purple-700 text-red-600 text-red-700 text-right text-secondary-fixed-dim text-slate-400 text-slate-500 text-sm text-tertiary text-white text-xs to-primary-container");
+@source inline("to-transparent top-0 top-1/2 top-8 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transition-all transition-colors transition-opacity uppercase via-transparent w-1/2 w-1/3 w-12 w-2 w-3 w-3/4 w-40 w-5 w-64 w-8 w-[260px] w-full whitespace-nowrap xs z-0 z-10 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0;
+}
+
+.material-symbols-outlined[data-weight='fill'] {
+  font-variation-settings: 'FILL' 1;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.material-symbols-outlined.fill-icon {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Custom scrollbar for main area */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-container-highest);
+  border-radius: 4px;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.cta-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+
+.bg-glass {
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent);
+  backdrop-filter: blur(20px);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+/* polish-v2:stitch-styles:end */

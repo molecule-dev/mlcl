@@ -1,0 +1,69 @@
+[
+  {
+    "id": "ct_001", "number": "VEL-2026-0142", "title": "MSA — Acme / Northwind",         "counterparty": "Acme Corp",         "type": "msa",        "status": "active",   "amount_cents":  4800000, "effective_at": "2026-01-15", "expires_at": "2027-01-15", "owner_name": "Morgan Reyes",
+    "body_html": "<h2>Master Services Agreement</h2><p>This Master Services Agreement (\"Agreement\") is entered into as of January 15, 2026 (\"Effective Date\") between Northwind Traders LLC and Acme Corporation. The parties agree as follows:</p><h3>1. Scope of Services</h3><p>Services shall be described in one or more Statements of Work (\"SOW\") attached hereto and incorporated by reference.</p><h3>2. Compensation</h3><p>Client shall pay Provider the fees set forth in each SOW within thirty (30) days of receipt of an invoice.</p><h3>3. Term and Termination</h3><p>This Agreement shall remain in effect for a term of one (1) year from the Effective Date. Either party may terminate upon thirty (30) days' written notice.</p>",
+    "signers": [
+      { "name": "Morgan Reyes",   "email": "morgan@northwind.example", "status": "signed", "signed_at": "2026-01-15T14:42:00Z", "ip": "76.182.44.21"  },
+      { "name": "Margaret Cole",  "email": "ap@acme.example",          "status": "signed", "signed_at": "2026-01-15T16:18:00Z", "ip": "204.12.88.140" }
+    ],
+    "audit_log": [
+      { "id": "ae_1", "occurred_at": "2026-01-12T09:00:00Z", "actor": "Morgan Reyes",  "action": "created from template tpl_msa_v3" },
+      { "id": "ae_2", "occurred_at": "2026-01-12T11:18:00Z", "actor": "Morgan Reyes",  "action": "sent for signature" },
+      { "id": "ae_3", "occurred_at": "2026-01-15T14:42:00Z", "actor": "Morgan Reyes",  "action": "signed (IP 76.182.44.21)" },
+      { "id": "ae_4", "occurred_at": "2026-01-15T16:18:00Z", "actor": "Margaret Cole", "action": "signed (IP 204.12.88.140)" },
+      { "id": "ae_5", "occurred_at": "2026-01-15T16:18:01Z", "actor": "system",        "action": "marked active" }
+    ]
+  },
+  {
+    "id": "ct_002", "number": "VEL-2026-0141", "title": "SOW #4 — Acme Q2 engagement", "counterparty": "Acme Corp",         "type": "sow",        "status": "pending",  "amount_cents":  1842000, "effective_at": null,         "expires_at": null,         "owner_name": "Morgan Reyes",
+    "body_html": "<h2>Statement of Work #4</h2><p>This SOW is issued under the MSA between the parties dated January 15, 2026.</p><h3>Scope</h3><p>Provider shall deliver compression algorithm review and quarterly strategy retainer.</p><h3>Fees</h3><p>$18,420 net 30. Wire only.</p>",
+    "signers": [
+      { "name": "Morgan Reyes",   "email": "morgan@northwind.example", "status": "signed", "signed_at": "2026-04-22T10:30:00Z", "ip": "76.182.44.21" },
+      { "name": "Margaret Cole",  "email": "ap@acme.example",          "status": "viewed", "signed_at": null }
+    ],
+    "audit_log": [
+      { "id": "ae_1", "occurred_at": "2026-04-22T09:00:00Z", "actor": "Morgan Reyes",  "action": "created from template tpl_sow_v2" },
+      { "id": "ae_2", "occurred_at": "2026-04-22T10:30:00Z", "actor": "Morgan Reyes",  "action": "signed and sent" },
+      { "id": "ae_3", "occurred_at": "2026-04-22T16:48:00Z", "actor": "Margaret Cole", "action": "viewed" }
+    ]
+  },
+  {
+    "id": "ct_003", "number": "VEL-2026-0140", "title": "NDA — Hooli prospect call",  "counterparty": "Hooli LLC",         "type": "nda",        "status": "active",   "amount_cents":        0, "effective_at": "2026-04-12", "expires_at": "2028-04-12", "owner_name": "Devon Park",
+    "body_html": "<h2>Mutual Non-Disclosure Agreement</h2><p>The parties agree to hold confidential information received from each other in strict confidence for a period of two (2) years.</p>",
+    "signers": [
+      { "name": "Morgan Reyes", "email": "morgan@northwind.example", "status": "signed", "signed_at": "2026-04-12T13:42:00Z" },
+      { "name": "Gavin Belson", "email": "gavin@hooli.example",      "status": "signed", "signed_at": "2026-04-12T15:00:00Z" }
+    ],
+    "audit_log": [{ "id": "ae_1", "occurred_at": "2026-04-12T13:42:00Z", "actor": "Morgan Reyes", "action": "created and signed" }]
+  },
+  {
+    "id": "ct_004", "number": "VEL-2026-0139", "title": "Order — Stark widgets",      "counterparty": "Stark Industries",  "type": "order",      "status": "expiring", "amount_cents":  2400000, "effective_at": "2025-05-15", "expires_at": "2026-05-15", "owner_name": "Riley Banner",
+    "body_html": "<h2>Order Form</h2><p>This Order Form is governed by the terms of the MSA dated May 1, 2024.</p>",
+    "signers": [
+      { "name": "Morgan Reyes",   "email": "morgan@northwind.example", "status": "signed" },
+      { "name": "Pepper Potts",   "email": "ap@stark.example",         "status": "signed" }
+    ],
+    "audit_log": [{ "id": "ae_1", "occurred_at": "2025-05-15T09:00:00Z", "actor": "system", "action": "imported from legacy" }]
+  },
+  {
+    "id": "ct_005", "number": "VEL-2026-0138", "title": "Employment — A. Hall",       "counterparty": "Avery Hall (W-2)",  "type": "employment", "status": "active",   "amount_cents": 14400000, "effective_at": "2025-08-01", "expires_at": null,         "owner_name": "Morgan Reyes",
+    "body_html": "<h2>Offer of Employment</h2><p>Northwind Traders LLC is pleased to offer you the position of Senior Engineer.</p>",
+    "signers": [
+      { "name": "Morgan Reyes", "email": "morgan@northwind.example", "status": "signed" },
+      { "name": "Avery Hall",   "email": "avery@example.com",        "status": "signed" }
+    ],
+    "audit_log": [{ "id": "ae_1", "occurred_at": "2025-07-28T14:00:00Z", "actor": "Morgan Reyes", "action": "sent" }]
+  },
+  {
+    "id": "ct_006", "number": "VEL-2026-0137", "title": "MSA — Initech (legacy)",     "counterparty": "Initech",           "type": "msa",        "status": "expired",  "amount_cents":   880000, "effective_at": "2024-12-01", "expires_at": "2025-12-01", "owner_name": "Devon Park",
+    "audit_log": [],
+    "body_html": "<p>Expired contract. Renewal opportunity tagged.</p>",
+    "signers": []
+  },
+  {
+    "id": "ct_007", "number": "VEL-2026-0136", "title": "MSA — Soylent Corp",         "counterparty": "Soylent Corp",      "type": "msa",        "status": "draft",    "amount_cents":  3600000, "effective_at": null,         "expires_at": null,         "owner_name": "Morgan Reyes",
+    "body_html": "<p>Draft. Not yet sent.</p>",
+    "signers": [],
+    "audit_log": [{ "id": "ae_1", "occurred_at": "2026-04-25T16:00:00Z", "actor": "Morgan Reyes", "action": "created from template tpl_msa_v3" }]
+  }
+]

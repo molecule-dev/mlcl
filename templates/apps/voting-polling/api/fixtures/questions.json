@@ -1,0 +1,10 @@
+[
+  { "id": "q_001", "poll_id": "p_conf_keynote", "asker": "Maya Chen",      "asker_initial": "M", "body": "How will the new advisory board interact with the existing planning commission?", "votes": 87, "status": "promoted", "asked_at": "2026-04-27T15:01:00Z" },
+  { "id": "q_002", "poll_id": "p_conf_keynote", "asker": "Devon Park",     "asker_initial": "D", "body": "Will section 4.2 retroactively apply to votes already cast under the 70% threshold?", "votes": 64, "status": "asked",    "asked_at": "2026-04-27T15:08:00Z" },
+  { "id": "q_003", "poll_id": "p_conf_keynote", "asker": "Riley Banner",   "asker_initial": "R", "body": "Can you walk through the audit-log timeline for the charter vote?",                       "votes": 52, "status": "answered", "asked_at": "2026-04-27T14:52:00Z" },
+  { "id": "q_004", "poll_id": "p_conf_keynote", "asker": "Casey Wong",     "asker_initial": "C", "body": "Is there a public mirror of the results page for transparency reporting?",                "votes": 41, "status": "asked",    "asked_at": "2026-04-27T15:14:00Z" },
+  { "id": "q_005", "poll_id": "p_conf_keynote", "asker": "Sam Rivera",     "asker_initial": "S", "body": "When does the SSO + SAML rollout reach the Institutional plan in production?",            "votes": 33, "status": "asked",    "asked_at": "2026-04-27T15:18:00Z" },
+  { "id": "q_006", "poll_id": "p_conf_keynote", "asker": "Avery Kim",      "asker_initial": "A", "body": "How do you handle late-arriving ballots that fall within the certified window?",          "votes": 28, "status": "answered", "asked_at": "2026-04-27T14:48:00Z" },
+  { "id": "q_007", "poll_id": "p_conf_keynote", "asker": "Linnea Hartwell","asker_initial": "L", "body": "Could we get a session on weighted voting for shareholder use cases?",                    "votes": 22, "status": "asked",    "asked_at": "2026-04-27T15:22:00Z" },
+  { "id": "q_008", "poll_id": "p_conf_keynote", "asker": "Sara Polaris",   "asker_initial": "S", "body": "Is the notarized PDF receipt available on the Civic plan or only on Pro?",                "votes": 18, "status": "answered", "asked_at": "2026-04-27T14:30:00Z" }
+]

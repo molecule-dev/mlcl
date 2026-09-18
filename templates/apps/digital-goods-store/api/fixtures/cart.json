@@ -1,0 +1,35 @@
+{
+  "id": "cart_demo",
+  "items": [
+    {
+      "product_slug": "aurora-ui-kit",
+      "name": "Aurora UI Kit — Figma + Code",
+      "cover_image": "https://picsum.photos/seed/aurora-ui-kit/200/130",
+      "file_type": "FIGMA + ZIP",
+      "price_cents": 6900,
+      "original_price_cents": 9900,
+      "quantity": 1
+    },
+    {
+      "product_slug": "focus-handbook",
+      "name": "The Focus Handbook (eBook)",
+      "cover_image": "https://picsum.photos/seed/focus-handbook/200/130",
+      "file_type": "PDF + EPUB",
+      "price_cents": 1900,
+      "quantity": 1
+    },
+    {
+      "product_slug": "lumen-icon-set",
+      "name": "Lumen Icon Set — 540 Outline Icons",
+      "cover_image": "https://picsum.photos/seed/lumen-icons/200/130",
+      "file_type": "SVG ZIP",
+      "price_cents": 3200,
+      "quantity": 1
+    }
+  ],
+  "subtotal_cents": 12000,
+  "discount_code": "INDIE10",
+  "discount_cents": 1200,
+  "tax_cents": 0,
+  "total_cents": 10800
+}

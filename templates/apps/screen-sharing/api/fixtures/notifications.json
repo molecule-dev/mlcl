@@ -1,0 +1,54 @@
+[
+  {
+    "id": "n1",
+    "kind": "comment",
+    "actor": "Priya Bhatt",
+    "recordingTitle": "Sprint demo: comments timeline",
+    "recordingId": "rec-001",
+    "excerpt": "Love the timeline pin treatment — could we tune the orange?",
+    "timestamp": "Just now",
+    "isUnread": true
+  },
+  {
+    "id": "n2",
+    "kind": "mention",
+    "actor": "Diego Romero",
+    "recordingTitle": "API walkthrough: webhook signing",
+    "recordingId": "rec-007",
+    "excerpt": "@you — does this match the prod payload?",
+    "timestamp": "12m",
+    "isUnread": true
+  },
+  {
+    "id": "n3",
+    "kind": "view",
+    "actor": "4 viewers",
+    "recordingTitle": "Onboarding: where to find share links",
+    "recordingId": "rec-003",
+    "timestamp": "34m"
+  },
+  {
+    "id": "n4",
+    "kind": "reaction",
+    "actor": "Marisol Rivera",
+    "recordingTitle": "Sprint demo: comments timeline",
+    "recordingId": "rec-001",
+    "timestamp": "1h"
+  },
+  {
+    "id": "n5",
+    "kind": "share",
+    "actor": "Yuna Park",
+    "recordingTitle": "Customer interview — onboarding pain points",
+    "recordingId": "rec-006",
+    "excerpt": "Shared with the design crit channel",
+    "timestamp": "2h"
+  },
+  {
+    "id": "n6",
+    "kind": "invite",
+    "actor": "Kai Tanaka",
+    "recordingTitle": "workspace",
+    "timestamp": "Yesterday"
+  }
+]

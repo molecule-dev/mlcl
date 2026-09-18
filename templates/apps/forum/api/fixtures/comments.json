@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cmt-01",
+    "thread_id": "thr-01",
+    "parent_id": null,
+    "depth": 0,
+    "author_id": "u-grace",
+    "author_username": "grace.hopper",
+    "author_avatar_url": "https://i.pravatar.cc/96?u=grace",
+    "author_karma": 8924,
+    "body": "The cleanest fix is to make the helper a generic and pass the narrowed type through. Otherwise control-flow analysis is reset at the call boundary.",
+    "score": 88,
+    "is_op": false,
+    "is_resolved_answer": true,
+    "created_at": "2026-04-27T14:48:00Z"
+  },
+  {
+    "id": "cmt-02",
+    "thread_id": "thr-01",
+    "parent_id": "cmt-01",
+    "depth": 1,
+    "author_id": "u-ada",
+    "author_username": "ada.lovelace",
+    "author_avatar_url": "https://i.pravatar.cc/96?u=ada",
+    "author_karma": 12480,
+    "body": "Generic + a type predicate has been the cleanest combo for me. Assertion functions feel like a footgun when the helper grows.",
+    "score": 24,
+    "is_op": true,
+    "is_resolved_answer": false,
+    "created_at": "2026-04-27T15:02:00Z"
+  },
+  {
+    "id": "cmt-03",
+    "thread_id": "thr-01",
+    "parent_id": null,
+    "depth": 0,
+    "author_id": "u-linus",
+    "author_username": "linus.torvalds",
+    "author_avatar_url": "https://i.pravatar.cc/96?u=linus",
+    "author_karma": 21340,
+    "body": "Honest answer: don't extract that helper. Inline it. The amount of typing gymnastics to preserve narrowing is rarely worth the abstraction.",
+    "score": 41,
+    "is_op": false,
+    "is_resolved_answer": false,
+    "created_at": "2026-04-27T15:18:00Z"
+  }
+]

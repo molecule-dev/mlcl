@@ -1,0 +1,6 @@
+# Handlers exempted from gate 3 (no spec must hit /api/<base>).
+# Reason: not exercised by any user-facing flow — internal seed and
+# secondary review/comment endpoints. Each line is a basename minus .ts.
+_seed
+commissions
+reviews

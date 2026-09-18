@@ -1,0 +1,6 @@
+Polish complete: 2026-04-28T07:30:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: commerce → sibling: online-store
+Note: marker written retroactively on 2026-04-28 after the
+`.polish-complete` marker convention was introduced. All artifacts
+(bespoke components, screen-map coverage, screenshots) verified clean.

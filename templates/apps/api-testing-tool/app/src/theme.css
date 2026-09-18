@@ -1,0 +1,326 @@
+:root {
+  /* Brand colors */
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: #e0e7ff;
+
+  /* HTTP method colors */
+  --color-method-get: #22c55e;
+  --color-method-post: #f59e0b;
+  --color-method-put: #3b82f6;
+  --color-method-patch: #8b5cf6;
+  --color-method-delete: #ef4444;
+  --color-method-head: #06b6d4;
+  --color-method-options: #ec4899;
+
+  /* Status code colors */
+  --color-status-2xx: #22c55e;
+  --color-status-3xx: #3b82f6;
+  --color-status-4xx: #f59e0b;
+  --color-status-5xx: #ef4444;
+
+  /* Surfaces (dark default — Postman/Insomnia-inspired) */
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-elevated: #334155;
+  --color-border: #475569;
+
+  /* Text */
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  /* Feedback */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* === @theme bridge (dark default) === */
+  --mol-color-primary: #5d60e8; /* darkened from #6366f1 — white gave only 4.47:1 */
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #334155;
+  --mol-color-background: #0f172a;
+  --mol-color-background-secondary: #1e293b;
+  --mol-color-background-tertiary: #334155;
+  --mol-color-surface: #1e293b;
+  --mol-color-surface-secondary: #263347;
+  --mol-color-input-background: #0f172a;
+  --mol-color-border: #475569;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #6366f1;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-success: #22c55e;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* === M3 bridge tokens (dark default) === */
+  --color-on-background: #f1f5f9;
+  --color-surface-bright: #334155;
+  --color-surface-dim: #060c1a;
+  --color-surface-container-lowest: #020712;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #263347;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0f172a;
+  --color-inverse-primary: #4f46e5;
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #ffffff; /* #6366f1 gives 4.47:1 — close but fails; primary shifted to #5d60e8 in mol token */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #94a3b8;
+  --color-secondary-container: #1e293b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #f1f5f9;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #2e1a4a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e9d5ff;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3d0808; /* dark — white gives only 3.8:1 on red-500 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #64748b; /* #475569 fails 3:1 vs surface #1e293b (1.93) — lightened to pass */
+  --color-outline-variant: #334155;
+  --color-surface-tint: #6366f1;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 14px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders */
+  --border-radius: 6px;
+  --border-radius-lg: 10px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode overrides — devtools dark palette (Postman/Insomnia-inspired) */
+[data-mol-mode='dark'] {
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-light: #1e1b4b;
+
+  --color-method-get: #4ade80;
+  --color-method-post: #fbbf24;
+  --color-method-put: #60a5fa;
+  --color-method-patch: #a78bfa;
+  --color-method-delete: #f87171;
+  --color-method-head: #22d3ee;
+  --color-method-options: #f472b6;
+
+  --color-status-2xx: #4ade80;
+  --color-status-3xx: #60a5fa;
+  --color-status-4xx: #fbbf24;
+  --color-status-5xx: #f87171;
+
+  --color-background: #0a0e17;
+  --color-surface: #141923;
+  --color-surface-elevated: #1e2533;
+  --color-border: #2a3344;
+
+  --color-text: #e8eaed;
+  --color-text-muted: #9aa0a6;
+  --color-text-inverse: #0a0e17;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* @theme token dark variants */
+  --color-border-light: #2a3344;
+  --color-surface-secondary: #1e2533;
+  --color-text-primary: #e8eaed;
+  --color-text-secondary: #9aa0a6;
+  --color-status-error: #f87171;
+  --color-status-success: #4ade80;
+  --color-status-warning: #fbbf24;
+
+  /* === @theme bridge (dark) === */
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #6366f1;
+  --mol-color-secondary: #1e2533;
+  --mol-color-background: #0a0e17;
+  --mol-color-background-secondary: #141923;
+  --mol-color-background-tertiary: #1e2533;
+  --mol-color-surface: #141923;
+  --mol-color-surface-secondary: #1a2030;
+  --mol-color-input-background: #0a0e17;
+  --mol-color-border: #2a3344;
+  --mol-color-border-secondary: #1e2533;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-text: #e8eaed;
+  --mol-color-text-secondary: #9aa0a6;
+  --mol-color-text-tertiary: #5c6370;
+  --mol-color-text-inverse: #0a0e17;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* === M3 bridge tokens (dark) === */
+  --color-on-background: #e8eaed;
+  --color-surface-bright: #1e2533;
+  --color-surface-dim: #050810;
+  --color-surface-container-lowest: #020410;
+  --color-surface-container-low: #0a0e17;
+  --color-surface-container: #141923;
+  --color-surface-container-high: #1a2030;
+  --color-surface-container-highest: #1e2533;
+  --color-surface-variant: #141923;
+  --color-on-surface: #e8eaed;
+  --color-on-surface-variant: #9aa0a6;
+  --color-inverse-surface: #e8eaed;
+  --color-inverse-on-surface: #0a0e17;
+  --color-inverse-primary: #4f46e5;
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #1a1c45; /* dark indigo — white gives only 3.0:1 on periwinkle #818cf8 */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #9aa0a6;
+  --color-secondary-container: #1e2533;
+  --color-on-secondary: #0a0e17;
+  --color-on-secondary-container: #e8eaed;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #2e1a4a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e9d5ff;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #450a0a; /* dark — white gives only 2.8:1 on red-400 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #5d6b82; /* #2a3344 fails 3:1 vs surface #141923 (1.39) — lightened to pass */
+  --color-outline-variant: #1e2533;
+  --color-surface-tint: #818cf8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Light mode overrides — devtools light counterpart to the
+   Postman-inspired dark `:root` palette. Toggling [data-mol-mode="light"]
+   flips the dark defaults to a clean slate-on-white surface set. */
+[data-mol-mode='light'] {
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
+
+  --color-method-get: #16a34a;
+  --color-method-post: #d97706;
+  --color-method-put: #2563eb;
+  --color-method-patch: #7c3aed;
+  --color-method-delete: #dc2626;
+  --color-method-head: #0891b2;
+  --color-method-options: #db2777;
+
+  --color-status-2xx: #16a34a;
+  --color-status-3xx: #2563eb;
+  --color-status-4xx: #d97706;
+  --color-status-5xx: #dc2626;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f1f5f9;
+  --color-border: #cbd5e1;
+
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* @theme token light variants */
+  --color-border-light: #e2e8f0;
+  --color-surface-secondary: #f1f5f9;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-status-error: #dc2626;
+  --color-status-success: #16a34a;
+  --color-status-warning: #d97706;
+
+  /* === @theme bridge (light) === */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #f1f5f9;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f1f5f9;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #cbd5e1;
+  --mol-color-border-secondary: #e2e8f0;
+  --mol-color-border-focus: #4f46e5;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #64748b;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  /* === M3 bridge tokens (light) === */
+  --color-on-background: #0f172a;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8ecf0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e8ecf0;
+  --color-surface-container-highest: #e2e8f0;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #64748b;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #4f46e5;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #312e81;
+  --color-secondary: #334155;
+  --color-secondary-container: #f1f5f9;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0f172a;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #4c1d95;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7585; /* #94a3b8 fails 3:1 on white (2.56) — darkened to pass */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #4f46e5;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.1);
+}

@@ -1,0 +1,266 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #0061fe;
+  --mol-color-primary-light: #e8f0fe;
+  --mol-color-primary-dark: #003d99;
+  --mol-color-secondary: #636363;
+  --mol-color-background: #f7f5f2;
+  --mol-color-background-secondary: #f0f0ef;
+  --mol-color-background-tertiary: #e8e5e0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f5f2;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1b1b1b;
+  --mol-color-text-secondary: #636363;
+  --mol-color-text-tertiary: #a0a0a0;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e0e0e0;
+  --mol-color-border-secondary: #f0f0f0;
+  --mol-color-border-focus: #0061fe;
+  --mol-color-success: #0d652d;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #b06000;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #e8453c;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #0061fe;
+
+  /* === Material-3 bridge tokens (light) === */
+  --color-on-background: #1b1b1b;
+  --color-on-surface: #1b1b1b;
+  --color-on-surface-variant: #636363;
+  --color-inverse-surface: #1b1b1b;
+  --color-inverse-on-surface: #f7f5f2;
+  --color-inverse-primary: #5b9bff;
+  --color-on-primary: #ffffff; /* white — 7.51:1 on #0061fe (passes) */
+  --color-on-primary-container: #003d99;
+  --color-primary-container: #e8f0fe;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e8e5e0;
+  --color-on-secondary-container: #1b1b1b;
+  --color-tertiary: #6bd8cb;
+  --color-tertiary-container: #e0faf7;
+  --color-on-tertiary: #1b1b1b;
+  --color-on-tertiary-container: #00504a;
+  --color-surface-tint: #0061fe;
+  --color-outline: #666666; /* was #828282 — 3.84:1 as eyebrow text on white; = 5.74:1 */
+  --color-outline-variant: #e0e0e0;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8e5e0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f5f2;
+  --color-surface-container: #f0f0ef;
+  --color-surface-container-high: #e8e5e0;
+  --color-surface-container-highest: #dddad5;
+  --color-surface-variant: #f0f0ef;
+  --color-error-container: #fce8e7;
+  --color-on-error: #3a0000; /* dark red — 4.97:1 on #e8453c (was missing; #fff = 3.93:1 fail) */
+  --color-on-error-container: #410002;
+
+  /* Brand */
+  --color-primary: #0047cc; /* was #0061fe — 3.63:1 as text on the beige chip / 4.43:1 on the sidebar tint; = 5.43/6.62:1 */
+  --color-primary-hover: #004fcc;
+  --color-primary-light: #e8f0fe;
+  --color-primary-dark: #003d99;
+
+  /* Surface */
+  --color-background: #f7f5f2;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f4ff;
+  --color-surface-active: #e0eaff;
+
+  /* Sidebar */
+  --color-sidebar-bg: #f7f5f2;
+  --color-sidebar-hover: #eeebe6;
+  --color-sidebar-active: #e5e1db;
+  --color-sidebar-text: #1b1b1b;
+  --color-sidebar-text-muted: #828282;
+
+  /* Text */
+  --color-text: #1b1b1b;
+  --color-text-secondary: #636363;
+  --color-text-muted: #a0a0a0;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e0e0e0;
+  --color-border-light: #f0f0f0;
+  --color-border-focus: #0061fe;
+
+  /* File type colors */
+  --color-file-image: #0061fe;
+  --color-file-document: #1a73e8;
+  --color-file-spreadsheet: #0d652d;
+  --color-file-video: #e8453c;
+  --color-file-audio: #a142f4;
+
+  /* Status */
+  --color-success: #0d652d;
+  --color-warning: #b06000;
+  --color-error: #e8453c;
+  --color-info: #0061fe;
+
+  /* Typography */
+  --font-family: 'Atlas Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --sidebar-width: 256px;
+  --content-max-width: 1200px;
+
+  /* File grid */
+  --grid-file-min: 180px;
+  --grid-file-gap: 12px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-drag: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+}
+
+/* Dark mode — productivity cool-neutral surfaces (Dropbox-style).
+   Brand blue (#004ac6) stays at the brand stop. `--color-on-primary`
+   STAYS white so CTA buttons remain legible against the saturated blue. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #004ac6;
+  --mol-color-primary-light: #1e3a8a;
+  --mol-color-primary-dark: #002d7a;
+  --mol-color-secondary: #b4c5ff;
+  --mol-color-background: #101014;
+  --mol-color-background-secondary: #1c1c20;
+  --mol-color-background-tertiary: #2a2a30;
+  --mol-color-surface: #101014;
+  --mol-color-surface-secondary: #1c1c20;
+  --mol-color-input-background: #0a0a0e;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #101014;
+  --mol-color-border: #2a2a30;
+  --mol-color-border-secondary: #3a3a42;
+  --mol-color-border-focus: #5b9bff;
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14331f;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #3a2c0a;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #431414;
+  --mol-color-info: #60a5fa;
+
+  /* Legacy app tokens */
+  --color-primary-hover: #1e5fd9;
+  --color-primary-light: #1e3a8a;
+  --color-primary-dark: #002d7a;
+
+  --color-surface-hover: #1c1c20;
+  --color-surface-active: #2a2a30;
+
+  --color-sidebar-bg: #0a0a0e;
+  --color-sidebar-hover: #1c1c20;
+  --color-sidebar-active: #2a2a30;
+  --color-sidebar-text: #f5f5f5;
+  --color-sidebar-text-muted: #8a8a8a;
+
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-muted: #8a8a8a;
+  --color-text-inverse: #101014;
+
+  --color-border: #2a2a30;
+  --color-border-light: #1c1c20;
+  --color-border-focus: #5b9bff;
+
+  --color-file-image: #60a5fa;
+  --color-file-document: #5b9bff;
+  --color-file-spreadsheet: #4ade80;
+  --color-file-video: #fb7185;
+  --color-file-audio: #c084fc;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* Stitch / Material-3 token dark variants.
+     `--color-primary` STAYS at brand stop; `--color-on-primary` stays white. */
+  --color-background: #101014;
+  --color-on-background: #f5f5f5;
+  --color-surface: #1c1c20;
+  --color-surface-bright: #2a2a30;
+  --color-surface-dim: #0a0a0e;
+  --color-surface-container-lowest: #050507;
+  --color-surface-container-low: #15151a;
+  --color-surface-container: #1c1c20;
+  --color-surface-container-high: #25252c;
+  --color-surface-container-highest: #2f2f37;
+  --color-surface-variant: #25252c;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #101014;
+  --color-inverse-primary: #004ac6;
+  --color-primary: #004ac6; /* brand blue — stays at brand stop */
+  --color-primary-container: #1e3a8a;
+  --color-primary-fixed: #dbe1ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-on-primary: #ffffff; /* white on blue — readable always */
+  --color-on-primary-container: #dbe1ff;
+  --color-on-primary-fixed: #00174b;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-secondary: #b4c5ff;
+  --color-secondary-container: #31447b;
+  --color-secondary-fixed: #dbe1ff;
+  --color-secondary-fixed-dim: #b4c5ff;
+  --color-on-secondary: #101014;
+  --color-on-secondary-container: #dbe1ff;
+  --color-on-secondary-fixed: #00174b;
+  --color-on-secondary-fixed-variant: #31447b;
+  --color-tertiary: #6bd8cb;
+  --color-tertiary-container: #00504a;
+  --color-tertiary-fixed: #89f5e7;
+  --color-tertiary-fixed-dim: #6bd8cb;
+  --color-on-tertiary: #101014;
+  --color-on-tertiary-container: #b3fff3;
+  --color-on-tertiary-fixed: #00201d;
+  --color-on-tertiary-fixed-variant: #005049;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark red — 4.74:1 on #f87171 (was #fff = 2.77:1 fail) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a5a64;
+  --color-outline-variant: #2a2a30;
+  --color-surface-tint: #004ac6;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-drag: 0 12px 28px rgba(0, 0, 0, 0.7);
+}

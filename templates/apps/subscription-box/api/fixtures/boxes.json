@@ -1,0 +1,82 @@
+[
+  {
+    "id": "box-cozy-evenings",
+    "name": "Cozy Evenings",
+    "tagline": "Wrap up in warmth and small luxuries.",
+    "tier": "classic",
+    "price": 3900,
+    "image": "https://picsum.photos/seed/cozy-evenings/640/480",
+    "items_count": 6,
+    "status": "available",
+    "release_at": "2026-04-12T00:00:00Z",
+    "tags": ["bestseller", "winter"],
+    "items": [
+      "Hand-poured soy candle (cedarwood + amber)",
+      "Wool-blend throw, charcoal heather",
+      "Single-origin Ethiopian pour-over coffee",
+      "Glazed ceramic mug, terracotta",
+      "Wildflower honey, 3oz",
+      "Linen-bound pocket journal"
+    ]
+  },
+  {
+    "id": "box-summer-citrus",
+    "name": "Summer Citrus",
+    "tagline": "Bright, breezy, briefly perfect.",
+    "tier": "classic",
+    "price": 3900,
+    "image": "https://picsum.photos/seed/summer-citrus/640/480",
+    "items_count": 5,
+    "status": "available",
+    "release_at": "2026-06-03T00:00:00Z",
+    "tags": ["seasonal"],
+    "items": [
+      "Cold-pressed yuzu soda, 4-pack",
+      "Lemon-rosemary soap bar",
+      "Beach-bag tote, natural canvas",
+      "Mini sunscreen stick, SPF 50",
+      "Citrus + sea salt dark chocolate"
+    ]
+  },
+  {
+    "id": "box-quiet-mornings",
+    "name": "Quiet Mornings",
+    "tagline": "Slow rituals, sharper days.",
+    "tier": "premium",
+    "price": 5900,
+    "image": "https://picsum.photos/seed/quiet-mornings/640/480",
+    "items_count": 7,
+    "status": "available",
+    "release_at": "2026-05-08T00:00:00Z",
+    "tags": ["wellness", "premium"],
+    "items": [
+      "Stoneware drip kettle",
+      "Loose-leaf jasmine pearl tea, 4oz",
+      "Bamboo tea strainer",
+      "Linen-bound morning pages journal",
+      "Brass uniball pen",
+      "Eucalyptus pillow mist",
+      "Hand-thrown teacup, sand"
+    ]
+  },
+  {
+    "id": "box-trail-essentials",
+    "name": "Trail Essentials",
+    "tagline": "Pack light. Go far.",
+    "tier": "premium",
+    "price": 5900,
+    "image": "https://picsum.photos/seed/trail-essentials/640/480",
+    "items_count": 6,
+    "status": "available",
+    "release_at": "2026-07-14T00:00:00Z",
+    "tags": ["outdoors"],
+    "items": [
+      "Merino wool hiking socks",
+      "Stainless trail mug, 12oz",
+      "Wax-canvas zip pouch",
+      "Trail-mix variety pack, 4 flavors",
+      "Compact LED head torch",
+      "Field-notes pocket notebook"
+    ]
+  }
+]

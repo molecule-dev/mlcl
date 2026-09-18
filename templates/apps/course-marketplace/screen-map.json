@@ -1,0 +1,169 @@
+{
+  "app": "course-marketplace",
+  "designProjectId": "12775626253034539005",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-landing.html",
+      "designScreenId": "e4a81c1a73bd420bb6e571989205b25c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-login.html",
+      "designScreenId": "0008c74ed3964118b0d9d7f12820a165"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-course-marketplace-login.html",
+      "derivationNotes": "Same split layout with purple gradient hero on left. Right card has Full Name, Email, Password, Confirm Password fields plus 'I am a learner / instructor' toggle. Button text 'Start learning'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-course-marketplace-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has only Email field. Heading 'Forgot your password?', subtext 'Enter the email on your account and we will send a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-course-marketplace-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Browse",
+      "templateFile": "app/pages/Browse.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/browse",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-browse.html",
+      "designScreenId": "42bf9b5e3b4b477093a1a8f5626bad88"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/courses/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-course-detail.html",
+      "designScreenId": "1deb50e56aa14f9ca212d135ababea90"
+    },
+    {
+      "name": "Lesson",
+      "templateFile": "app/pages/Lesson.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/courses/:id/lessons/:lessonId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-lesson.html",
+      "designScreenId": "bbd1a6d85b0447649bf8d56f166dd4ec"
+    },
+    {
+      "name": "MyLearning",
+      "templateFile": "app/pages/MyLearning.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/my-learning",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-my-learning.html",
+      "designScreenId": "8016c5111db24872b60a5259fd2991ea"
+    },
+    {
+      "name": "InstructorDashboard",
+      "templateFile": "app/pages/InstructorDashboard.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/instructor",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-instructor-dashboard.html",
+      "designScreenId": "14671a8bd6fa449fbfe508c3c532c1ff"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-settings.html",
+      "designScreenId": "776840ed78b948c2a08e75dc755455d8"
+    },
+    {
+      "name": "Checkout",
+      "templateFile": "app/pages/Checkout.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/checkout",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-checkout.html",
+      "designScreenId": "69fbbce75dfb4b67af28dabc178f1213"
+    },
+    {
+      "name": "InstructorCourseEditor",
+      "templateFile": "app/pages/InstructorCourseEditor.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/instructor/courses/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-instructor-course-editor.html",
+      "designScreenId": "d700fd96b0604b04b99d7eb18326ac09"
+    },
+    {
+      "name": "InstructorProfile",
+      "templateFile": "app/pages/InstructorProfile.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/instructors/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-instructor-profile.html",
+      "designScreenId": "76f84a97037d4cc582ee78c539c61510"
+    },
+    {
+      "name": "Certificate",
+      "templateFile": "app/pages/Certificate.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/my-learning/:courseId/certificate",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-certificate.html",
+      "designScreenId": "a6b2997fbdaa4640a26d2c73d1c6c811"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/CourseMarketplaceLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-course-marketplace-notifications.html",
+      "designScreenId": "029a423060744229b6f4e3a99be9c785"
+    }
+  ]
+}

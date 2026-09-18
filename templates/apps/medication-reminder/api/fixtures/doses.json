@@ -1,0 +1,2662 @@
+[
+  {
+    "id": "dos_0001",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-03-27T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T06:06:06.219Z"
+  },
+  {
+    "id": "dos_0002",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-27T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T06:10:05.213Z"
+  },
+  {
+    "id": "dos_0003",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-27T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T18:13:10.239Z"
+  },
+  {
+    "id": "dos_0004",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-03-27T19:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T19:14:30.681Z"
+  },
+  {
+    "id": "dos_0005",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-03-27T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T06:17:54.405Z"
+  },
+  {
+    "id": "dos_0006",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-03-27T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T06:10:53.129Z"
+  },
+  {
+    "id": "dos_0007",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-03-27T04:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-27T04:40:34.123Z"
+  },
+  {
+    "id": "dos_0008",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-03-28T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T06:03:31.515Z"
+  },
+  {
+    "id": "dos_0009",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-28T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T06:02:37.919Z"
+  },
+  {
+    "id": "dos_0010",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-28T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T18:18:23.014Z"
+  },
+  {
+    "id": "dos_0011",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-03-28T19:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T19:17:03.022Z"
+  },
+  {
+    "id": "dos_0012",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-03-28T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T06:05:47.465Z"
+  },
+  {
+    "id": "dos_0013",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-03-28T06:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T06:18:04.356Z"
+  },
+  {
+    "id": "dos_0014",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-03-28T04:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-28T04:33:11.492Z"
+  },
+  {
+    "id": "dos_0015",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-03-29T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T05:26:44.752Z"
+  },
+  {
+    "id": "dos_0016",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-29T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T05:23:10.008Z"
+  },
+  {
+    "id": "dos_0017",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-29T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T17:17:14.422Z"
+  },
+  {
+    "id": "dos_0018",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-03-29T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T18:28:03.564Z"
+  },
+  {
+    "id": "dos_0019",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-03-29T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T05:05:45.111Z"
+  },
+  {
+    "id": "dos_0020",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-03-29T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T05:18:19.431Z"
+  },
+  {
+    "id": "dos_0021",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-03-29T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-29T03:51:27.934Z"
+  },
+  {
+    "id": "dos_0022",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-03-30T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T05:03:27.316Z"
+  },
+  {
+    "id": "dos_0023",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-30T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T05:19:44.989Z"
+  },
+  {
+    "id": "dos_0024",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-30T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T17:10:49.215Z"
+  },
+  {
+    "id": "dos_0025",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-03-30T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T18:20:17.421Z"
+  },
+  {
+    "id": "dos_0026",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-03-30T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T05:16:46.845Z"
+  },
+  {
+    "id": "dos_0027",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-03-30T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T05:08:53.741Z"
+  },
+  {
+    "id": "dos_0028",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-03-30T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-30T03:57:36.490Z"
+  },
+  {
+    "id": "dos_0029",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-03-31T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T05:22:10.290Z"
+  },
+  {
+    "id": "dos_0030",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-31T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T05:21:41.887Z"
+  },
+  {
+    "id": "dos_0031",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-03-31T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T17:03:58.084Z"
+  },
+  {
+    "id": "dos_0032",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-03-31T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T18:29:59.754Z"
+  },
+  {
+    "id": "dos_0033",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-03-31T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T05:06:10.927Z"
+  },
+  {
+    "id": "dos_0034",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-03-31T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T05:25:33.122Z"
+  },
+  {
+    "id": "dos_0035",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-03-31T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-03-31T03:38:29.829Z"
+  },
+  {
+    "id": "dos_0036",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-01T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T05:28:14.118Z"
+  },
+  {
+    "id": "dos_0037",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-01T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T05:25:13.979Z"
+  },
+  {
+    "id": "dos_0038",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-01T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T17:22:17.667Z"
+  },
+  {
+    "id": "dos_0039",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-01T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T18:06:47.321Z"
+  },
+  {
+    "id": "dos_0040",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-01T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T05:28:59.011Z"
+  },
+  {
+    "id": "dos_0041",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-01T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-01T05:18:58.172Z"
+  },
+  {
+    "id": "dos_0042",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-01T03:30:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0043",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-02T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T05:25:48.316Z"
+  },
+  {
+    "id": "dos_0044",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-02T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T05:24:22.023Z"
+  },
+  {
+    "id": "dos_0045",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-02T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T17:24:01.320Z"
+  },
+  {
+    "id": "dos_0046",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-02T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T18:15:07.209Z"
+  },
+  {
+    "id": "dos_0047",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-02T05:00:00.000Z",
+    "status": "skipped",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0048",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-02T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T05:20:13.194Z"
+  },
+  {
+    "id": "dos_0049",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-02T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-02T03:49:07.263Z"
+  },
+  {
+    "id": "dos_0050",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-03T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T05:26:22.076Z"
+  },
+  {
+    "id": "dos_0051",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-03T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T05:27:24.553Z"
+  },
+  {
+    "id": "dos_0052",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-03T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T17:04:28.762Z"
+  },
+  {
+    "id": "dos_0053",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-03T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T18:21:48.841Z"
+  },
+  {
+    "id": "dos_0054",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-03T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T05:23:07.176Z"
+  },
+  {
+    "id": "dos_0055",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-03T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-03T05:09:28.627Z"
+  },
+  {
+    "id": "dos_0056",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-03T03:30:00.000Z",
+    "status": "skipped",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0057",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-04T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T05:06:21.513Z"
+  },
+  {
+    "id": "dos_0058",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-04T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T05:01:36.524Z"
+  },
+  {
+    "id": "dos_0059",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-04T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T17:04:56.937Z"
+  },
+  {
+    "id": "dos_0060",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-04T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T18:00:20.637Z"
+  },
+  {
+    "id": "dos_0061",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-04T05:00:00.000Z",
+    "status": "skipped",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0062",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-04T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T05:04:36.933Z"
+  },
+  {
+    "id": "dos_0063",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-04T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-04T03:55:49.941Z"
+  },
+  {
+    "id": "dos_0064",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-05T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T05:01:49.173Z"
+  },
+  {
+    "id": "dos_0065",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-05T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T05:05:38.641Z"
+  },
+  {
+    "id": "dos_0066",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-05T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T17:02:38.680Z"
+  },
+  {
+    "id": "dos_0067",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-05T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T18:06:57.890Z"
+  },
+  {
+    "id": "dos_0068",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-05T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T05:11:05.045Z"
+  },
+  {
+    "id": "dos_0069",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-05T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0070",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-05T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-05T03:44:28.350Z"
+  },
+  {
+    "id": "dos_0071",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-06T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T05:25:54.207Z"
+  },
+  {
+    "id": "dos_0072",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-06T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T05:05:36.069Z"
+  },
+  {
+    "id": "dos_0073",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-06T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T17:17:50.138Z"
+  },
+  {
+    "id": "dos_0074",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-06T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T18:06:30.456Z"
+  },
+  {
+    "id": "dos_0075",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-06T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T05:15:02.120Z"
+  },
+  {
+    "id": "dos_0076",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-06T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-06T05:24:12.162Z"
+  },
+  {
+    "id": "dos_0077",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-06T03:30:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0078",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-07T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0079",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-07T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-07T05:25:50.974Z"
+  },
+  {
+    "id": "dos_0080",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-07T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-07T17:09:08.391Z"
+  },
+  {
+    "id": "dos_0081",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-07T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-07T18:13:18.041Z"
+  },
+  {
+    "id": "dos_0082",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-07T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-07T05:04:59.764Z"
+  },
+  {
+    "id": "dos_0083",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-07T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-07T05:24:55.290Z"
+  },
+  {
+    "id": "dos_0084",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-07T03:30:00.000Z",
+    "status": "skipped",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0085",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-08T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T05:17:00.420Z"
+  },
+  {
+    "id": "dos_0086",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-08T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0087",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-08T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T17:14:39.470Z"
+  },
+  {
+    "id": "dos_0088",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-08T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T18:02:36.288Z"
+  },
+  {
+    "id": "dos_0089",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-08T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T05:15:39.717Z"
+  },
+  {
+    "id": "dos_0090",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-08T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T05:28:33.208Z"
+  },
+  {
+    "id": "dos_0091",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-08T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-08T03:58:46.571Z"
+  },
+  {
+    "id": "dos_0092",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-09T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T05:18:52.752Z"
+  },
+  {
+    "id": "dos_0093",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-09T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T05:28:12.705Z"
+  },
+  {
+    "id": "dos_0094",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-09T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T17:22:14.190Z"
+  },
+  {
+    "id": "dos_0095",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-09T18:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0096",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-09T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T05:12:28.503Z"
+  },
+  {
+    "id": "dos_0097",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-09T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T05:20:36.113Z"
+  },
+  {
+    "id": "dos_0098",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-09T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-09T03:52:40.573Z"
+  },
+  {
+    "id": "dos_0099",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-10T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T05:24:30.069Z"
+  },
+  {
+    "id": "dos_0100",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-10T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T05:06:26.484Z"
+  },
+  {
+    "id": "dos_0101",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-10T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T17:10:50.351Z"
+  },
+  {
+    "id": "dos_0102",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-10T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T18:08:44.223Z"
+  },
+  {
+    "id": "dos_0103",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-10T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T05:28:00.464Z"
+  },
+  {
+    "id": "dos_0104",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-10T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T05:22:29.288Z"
+  },
+  {
+    "id": "dos_0105",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-10T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-10T03:46:11.934Z"
+  },
+  {
+    "id": "dos_0106",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-11T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T05:26:50.883Z"
+  },
+  {
+    "id": "dos_0107",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-11T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T05:26:45.520Z"
+  },
+  {
+    "id": "dos_0108",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-11T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T17:12:30.414Z"
+  },
+  {
+    "id": "dos_0109",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-11T18:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0110",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-11T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T05:23:16.837Z"
+  },
+  {
+    "id": "dos_0111",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-11T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T05:11:29.005Z"
+  },
+  {
+    "id": "dos_0112",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-11T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-11T03:58:45.128Z"
+  },
+  {
+    "id": "dos_0113",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-12T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T05:13:23.476Z"
+  },
+  {
+    "id": "dos_0114",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-12T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T05:20:34.081Z"
+  },
+  {
+    "id": "dos_0115",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-12T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T17:18:49.452Z"
+  },
+  {
+    "id": "dos_0116",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-12T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T18:06:03.063Z"
+  },
+  {
+    "id": "dos_0117",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-12T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T05:07:15.263Z"
+  },
+  {
+    "id": "dos_0118",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-12T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T05:10:39.617Z"
+  },
+  {
+    "id": "dos_0119",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-12T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-12T03:42:37.468Z"
+  },
+  {
+    "id": "dos_0120",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-13T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T05:15:36.666Z"
+  },
+  {
+    "id": "dos_0121",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-13T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T05:24:00.376Z"
+  },
+  {
+    "id": "dos_0122",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-13T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T17:28:38.431Z"
+  },
+  {
+    "id": "dos_0123",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-13T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T18:04:02.744Z"
+  },
+  {
+    "id": "dos_0124",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-13T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T05:06:05.547Z"
+  },
+  {
+    "id": "dos_0125",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-13T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T05:11:48.877Z"
+  },
+  {
+    "id": "dos_0126",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-13T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-13T03:47:55.024Z"
+  },
+  {
+    "id": "dos_0127",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-14T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0128",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-14T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0129",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-14T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-14T17:27:11.313Z"
+  },
+  {
+    "id": "dos_0130",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-14T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-14T18:22:35.206Z"
+  },
+  {
+    "id": "dos_0131",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-14T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-14T05:12:50.017Z"
+  },
+  {
+    "id": "dos_0132",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-14T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-14T05:07:48.389Z"
+  },
+  {
+    "id": "dos_0133",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-14T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-14T03:51:01.265Z"
+  },
+  {
+    "id": "dos_0134",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-15T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T05:09:47.729Z"
+  },
+  {
+    "id": "dos_0135",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-15T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T05:05:04.987Z"
+  },
+  {
+    "id": "dos_0136",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-15T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T17:00:45.408Z"
+  },
+  {
+    "id": "dos_0137",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-15T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T18:21:30.297Z"
+  },
+  {
+    "id": "dos_0138",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-15T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T05:23:57.338Z"
+  },
+  {
+    "id": "dos_0139",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-15T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T05:09:23.710Z"
+  },
+  {
+    "id": "dos_0140",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-15T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-15T03:36:55.314Z"
+  },
+  {
+    "id": "dos_0141",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-16T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T05:18:34.936Z"
+  },
+  {
+    "id": "dos_0142",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-16T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T05:22:29.630Z"
+  },
+  {
+    "id": "dos_0143",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-16T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T17:07:38.147Z"
+  },
+  {
+    "id": "dos_0144",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-16T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T18:04:37.877Z"
+  },
+  {
+    "id": "dos_0145",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-16T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T05:25:59.611Z"
+  },
+  {
+    "id": "dos_0146",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-16T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T05:22:45.194Z"
+  },
+  {
+    "id": "dos_0147",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-16T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-16T03:50:23.950Z"
+  },
+  {
+    "id": "dos_0148",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-17T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0149",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-17T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T05:19:45.763Z"
+  },
+  {
+    "id": "dos_0150",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-17T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T17:29:34.392Z"
+  },
+  {
+    "id": "dos_0151",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-17T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T18:08:59.770Z"
+  },
+  {
+    "id": "dos_0152",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-17T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T05:25:52.009Z"
+  },
+  {
+    "id": "dos_0153",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-17T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T05:00:54.313Z"
+  },
+  {
+    "id": "dos_0154",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-17T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-17T03:42:22.344Z"
+  },
+  {
+    "id": "dos_0155",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-18T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T05:03:51.910Z"
+  },
+  {
+    "id": "dos_0156",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-18T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T05:29:55.892Z"
+  },
+  {
+    "id": "dos_0157",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-18T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T17:08:47.874Z"
+  },
+  {
+    "id": "dos_0158",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-18T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T18:12:01.394Z"
+  },
+  {
+    "id": "dos_0159",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-18T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T05:20:32.837Z"
+  },
+  {
+    "id": "dos_0160",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-18T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T05:24:43.435Z"
+  },
+  {
+    "id": "dos_0161",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-18T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-18T03:42:09.056Z"
+  },
+  {
+    "id": "dos_0162",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-19T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T05:12:35.299Z"
+  },
+  {
+    "id": "dos_0163",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-19T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T05:22:54.703Z"
+  },
+  {
+    "id": "dos_0164",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-19T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T17:26:45.332Z"
+  },
+  {
+    "id": "dos_0165",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-19T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T18:21:10.002Z"
+  },
+  {
+    "id": "dos_0166",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-19T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T05:05:49.638Z"
+  },
+  {
+    "id": "dos_0167",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-19T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T05:12:00.972Z"
+  },
+  {
+    "id": "dos_0168",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-19T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-19T03:44:50.573Z"
+  },
+  {
+    "id": "dos_0169",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-20T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T05:08:51.504Z"
+  },
+  {
+    "id": "dos_0170",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-20T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T05:26:12.856Z"
+  },
+  {
+    "id": "dos_0171",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-20T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T17:02:52.892Z"
+  },
+  {
+    "id": "dos_0172",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-20T18:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0173",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-20T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T05:20:10.818Z"
+  },
+  {
+    "id": "dos_0174",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-20T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T05:16:11.016Z"
+  },
+  {
+    "id": "dos_0175",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-20T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-20T03:54:18.073Z"
+  },
+  {
+    "id": "dos_0176",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-21T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T05:29:32.648Z"
+  },
+  {
+    "id": "dos_0177",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-21T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T05:17:24.961Z"
+  },
+  {
+    "id": "dos_0178",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-21T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T17:24:40.226Z"
+  },
+  {
+    "id": "dos_0179",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-21T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T18:18:03.578Z"
+  },
+  {
+    "id": "dos_0180",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-21T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T05:01:24.315Z"
+  },
+  {
+    "id": "dos_0181",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-21T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T05:11:50.756Z"
+  },
+  {
+    "id": "dos_0182",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-21T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-21T03:51:14.677Z"
+  },
+  {
+    "id": "dos_0183",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-22T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T05:28:52.577Z"
+  },
+  {
+    "id": "dos_0184",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-22T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T05:09:37.374Z"
+  },
+  {
+    "id": "dos_0185",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-22T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T17:01:58.694Z"
+  },
+  {
+    "id": "dos_0186",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-22T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T18:02:06.072Z"
+  },
+  {
+    "id": "dos_0187",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-22T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0188",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-22T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T05:21:41.461Z"
+  },
+  {
+    "id": "dos_0189",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-22T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-22T03:32:53.250Z"
+  },
+  {
+    "id": "dos_0190",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-23T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T05:12:47.750Z"
+  },
+  {
+    "id": "dos_0191",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-23T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T05:11:40.870Z"
+  },
+  {
+    "id": "dos_0192",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-23T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T17:15:29.514Z"
+  },
+  {
+    "id": "dos_0193",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-23T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T18:13:17.572Z"
+  },
+  {
+    "id": "dos_0194",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-23T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T05:24:13.074Z"
+  },
+  {
+    "id": "dos_0195",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-23T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T05:00:43.554Z"
+  },
+  {
+    "id": "dos_0196",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-23T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-23T03:38:42.705Z"
+  },
+  {
+    "id": "dos_0197",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-24T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-24T05:23:25.817Z"
+  },
+  {
+    "id": "dos_0198",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-24T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-24T05:04:03.064Z"
+  },
+  {
+    "id": "dos_0199",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-24T17:00:00.000Z",
+    "status": "skipped",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0200",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-24T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-24T18:12:32.696Z"
+  },
+  {
+    "id": "dos_0201",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-24T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-24T05:19:46.154Z"
+  },
+  {
+    "id": "dos_0202",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-24T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-24T05:20:49.546Z"
+  },
+  {
+    "id": "dos_0203",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-24T03:30:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0204",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-25T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T05:17:51.164Z"
+  },
+  {
+    "id": "dos_0205",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-25T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T05:26:11.419Z"
+  },
+  {
+    "id": "dos_0206",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-25T17:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T17:10:38.697Z"
+  },
+  {
+    "id": "dos_0207",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-25T18:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T18:25:40.985Z"
+  },
+  {
+    "id": "dos_0208",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-25T05:00:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T05:05:21.904Z"
+  },
+  {
+    "id": "dos_0209",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-25T05:00:00.000Z",
+    "status": "missed",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0210",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-25T03:30:00.000Z",
+    "status": "taken",
+    "taken_at": "2026-04-25T03:56:39.201Z"
+  },
+  {
+    "id": "dos_0211",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-26T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0212",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-26T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0213",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-26T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0214",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-26T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0215",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-26T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0216",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-26T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0217",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-26T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0218",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-27T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0219",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-27T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0220",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-27T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0221",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-27T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0222",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-27T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0223",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-27T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0224",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-27T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0225",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-28T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0226",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-28T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0227",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-28T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0228",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-28T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0229",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-28T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0230",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-28T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0231",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-28T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0232",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-29T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0233",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-29T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0234",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-29T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0235",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-29T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0236",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-29T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0237",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-29T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0238",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-29T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0239",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-04-30T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0240",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-30T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0241",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-04-30T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0242",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-04-30T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0243",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-04-30T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0244",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-04-30T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0245",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-04-30T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0246",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-05-01T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0247",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-01T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0248",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-01T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0249",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-05-01T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0250",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-05-01T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0251",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-05-01T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0252",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-05-01T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0253",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-05-02T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0254",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-02T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0255",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-02T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0256",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-05-02T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0257",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-05-02T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0258",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-05-02T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0259",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-05-02T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0260",
+    "medication_id": "med_001",
+    "medication_name": "Lisinopril",
+    "dose_amount": "10 mg",
+    "pill_color": "blue",
+    "scheduled_at": "2026-05-03T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0261",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-03T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0262",
+    "medication_id": "med_002",
+    "medication_name": "Metformin",
+    "dose_amount": "500 mg",
+    "pill_color": "yellow",
+    "scheduled_at": "2026-05-03T17:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0263",
+    "medication_id": "med_003",
+    "medication_name": "Atorvastatin",
+    "dose_amount": "20 mg",
+    "pill_color": "green",
+    "scheduled_at": "2026-05-03T18:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0264",
+    "medication_id": "med_004",
+    "medication_name": "Sertraline",
+    "dose_amount": "50 mg",
+    "pill_color": "purple",
+    "scheduled_at": "2026-05-03T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0265",
+    "medication_id": "med_005",
+    "medication_name": "Vitamin D3",
+    "dose_amount": "2000 IU",
+    "pill_color": "orange",
+    "scheduled_at": "2026-05-03T05:00:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  },
+  {
+    "id": "dos_0266",
+    "medication_id": "med_007",
+    "medication_name": "Levothyroxine",
+    "dose_amount": "75 mcg",
+    "pill_color": "pink",
+    "scheduled_at": "2026-05-03T03:30:00.000Z",
+    "status": "upcoming",
+    "taken_at": null
+  }
+]

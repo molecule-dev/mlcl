@@ -1,0 +1,34 @@
+{
+  "fleet": {
+    "devices_total": 1248,
+    "devices_online": 1187,
+    "devices_warning": 32,
+    "devices_critical": 6,
+    "devices_offline": 23,
+    "active_alerts": 8,
+    "messages_per_min": 4218,
+    "firmware_pending": 2,
+    "uptime_pct": 99.62,
+    "as_of": "2026-04-27T16:00:00Z"
+  },
+  "throughput": {
+    "messages_per_min": 4218,
+    "messages_today": 6072192,
+    "ingest_p50_ms": 38,
+    "ingest_p95_ms": 124,
+    "ingest_p99_ms": 318,
+    "by_region": [
+      { "region": "eu-west-1",      "messages_per_min": 1612 },
+      { "region": "us-east-1",      "messages_per_min": 1284 },
+      { "region": "ap-southeast-1", "messages_per_min":  742 },
+      { "region": "us-west-2",      "messages_per_min":  281 },
+      { "region": "us-east-2",      "messages_per_min":  299 }
+    ],
+    "as_of": "2026-04-27T16:00:00Z"
+  },
+  "firmware/campaigns": [
+    { "id": "fw-stable-241", "version": "2.4.1",      "channel": "stable", "status": "rolling", "total_devices": 1248, "completed_devices": 1147, "failed_devices": 8, "released_at": "2026-04-22T12:00:00Z" },
+    { "id": "fw-beta-250",   "version": "2.5.0-beta", "channel": "beta",   "status": "pending", "total_devices":   64, "completed_devices":   12, "failed_devices": 0, "released_at": "2026-04-26T10:30:00Z" },
+    { "id": "fw-stable-237", "version": "2.3.7",      "channel": "stable", "status": "current", "total_devices": 1248, "completed_devices": 1240, "failed_devices": 0, "released_at": "2026-03-14T09:00:00Z" }
+  ]
+}

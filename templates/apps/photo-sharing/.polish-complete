@@ -1,0 +1,10 @@
+Polish complete: 2026-04-29T20:22:00Z
+Pipeline: polish-app.mjs operating manual (autonomous polish session)
+Cluster: content-social → siblings: music-streaming, podcast (auth + hero patterns), personal-finance (editorial table)
+Components: 7 bespoke (AuthBrandHeader, PhotoSharingLayout, FeaturedPhotoHeroCard, PhotoMasonry, AlbumCardGrid, ExifPanel, GalleryFeatureRow)
+Sweep 1 chrome: AppHeader + AppFooter + RootErrorBoundary delegated
+Pages rewritten: Landing, Login, Signup, ForgotPassword, ResetPassword
+Pages added: Explore, PhotoDetail, Albums, AlbumDetail, MyPhotos, Upload, Favorites, Galleries, Profile, Settings, NotFound
+Screen-map coverage: 15/15 routes wired through PhotoSharingLayout + AuthGuard
+Typecheck: clean (tsc --noEmit)
+Compliance: classmap-coverage at decorative-component tier (matches polished music-streaming/podcast); 1 acceptable violation per manual escalation rules

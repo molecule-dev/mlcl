@@ -1,0 +1,281 @@
+:root {
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #9f1239;
+  --mol-color-primary-light: #ffe4e6;
+  --mol-color-primary-dark: #7f0f2d;
+  --mol-color-secondary: #191414;
+  --mol-color-background: #121212;
+  --mol-color-background-secondary: #181818;
+  --mol-color-background-tertiary: #202020;
+  --mol-color-surface: #1e1e1e;
+  --mol-color-surface-secondary: #282828;
+  --mol-color-input-background: #181818;
+  --mol-color-border: #333333;
+  --mol-color-border-secondary: #3f3f3f;
+  --mol-color-border-focus: #9f1239;
+  --mol-color-text: #ffffff;
+  --mol-color-text-secondary: #b3b3b3;
+  --mol-color-text-tertiary: #727272;
+  --mol-color-text-inverse: #000000;
+  --mol-font-sans:
+    'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mol-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* ── App-specific tokens ── */
+  --color-primary-hover: #7f0f2d;
+  --color-surface-hover: #282828;
+  --color-text-on-primary: #ffffff;
+
+  /* Auth accent — gradient end-stop on auth page blobs and submit buttons */
+  --color-accent: #be185d;
+
+  /* Player */
+  --color-player-bg: #181818;
+  --color-player-progress: #9f1239;
+  --color-player-track: #4d4d4d;
+
+  /* Persistent now-playing dock — deliberately dark in BOTH modes
+     (NowPlayingBar renders white transport controls on it). */
+  --color-now-playing-bg: #181818;
+  --color-now-playing-text: #ffffff;
+
+  /* Cover-art placeholder gradients. The API derives `cover_index` as a
+     deterministic 0..11 hash per show/episode (see api handlers), and pages
+     paint covers with `var(--color-cover-<index>)`. Indexes 0-6 mirror the
+     gradients used by EpisodeHeroCard/ShowGrid/FeaturedShowsRow so the same
+     show gets the same cover art on every surface. Same in light and dark. */
+  --color-cover-0: linear-gradient(135deg, #e8540a 0%, #f97316 50%, #eab308 100%);
+  --color-cover-1: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f43f5e 100%);
+  --color-cover-2: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+  --color-cover-3: linear-gradient(135deg, #166534 0%, #16a34a 50%, #84cc16 100%);
+  --color-cover-4: linear-gradient(135deg, #991b1b 0%, #dc2626 50%, #f97316 100%);
+  --color-cover-5: linear-gradient(135deg, #4c1d95 0%, #7e22ce 50%, #c026d3 100%);
+  --color-cover-6: linear-gradient(135deg, #1c1917 0%, #44403c 50%, #78716c 100%);
+  --color-cover-7: linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #5eead4 100%);
+  --color-cover-8: linear-gradient(135deg, #9f1239 0%, #e11d48 50%, #fb7185 100%);
+  --color-cover-9: linear-gradient(135deg, #312e81 0%, #6366f1 50%, #a5b4fc 100%);
+  --color-cover-10: linear-gradient(135deg, #78350f 0%, #d97706 50%, #fbbf24 100%);
+  --color-cover-11: linear-gradient(135deg, #0f172a 0%, #334155 50%, #64748b 100%);
+
+  /* Typography sizes */
+  --font-size-xs: 0.6875rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Layout */
+  --content-width: 800px;
+  --page-width: 1200px;
+  --sidebar-width: 240px;
+  --player-height: 90px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* === Material-3 / Stitch bridge tokens — default (dark-first) === */
+  --color-background: #121212;
+  --color-on-background: #ffffff;
+  --color-surface: #1e1e1e;
+  --color-surface-bright: #282828;
+  --color-surface-dim: #080808;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #181818;
+  --color-surface-container-high: #202020;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-variant: #202020;
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #b3b3b3;
+  --color-inverse-surface: #f2f2f2;
+  --color-inverse-on-surface: #121212;
+  --color-inverse-primary: #7f0f2d;
+  --color-primary: #9f1239;
+  --color-primary-container: #3d0714;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffc5cc;
+  --color-secondary: #b3b3b3;
+  --color-secondary-container: #2a2a2a;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #f2f2f2;
+  --color-tertiary: #f97316;
+  --color-tertiary-container: #431407;
+  --color-on-tertiary: #3d1200; /* dark on orange — #ffffff was 2.80:1 (fail ≥4.5:1); #3d1200 = 5.83:1 */
+  --color-on-tertiary-container: #fed7aa;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 3.25:1 (fail ≥4.5:1); #3a0000 = 5.48:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* #5a5a5a was 2.42:1 vs surface (fail ≥3:1); #6e6e6e = 3.27:1 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #9f1239;
+}
+
+/* Dark mode overrides — deep broadcast-booth noir with rose-brightened primary */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #fb7185;
+  --mol-color-primary-light: #4a0e1e;
+  --mol-color-primary-dark: #9f1239;
+  --mol-color-secondary: #b3b3b3;
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #141414;
+  --mol-color-background-tertiary: #1c1c1c;
+  --mol-color-surface: #181818;
+  --mol-color-surface-secondary: #232323;
+  --mol-color-input-background: #121212;
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #383838;
+  --mol-color-border-focus: #fb7185;
+  --mol-color-text: #ffffff;
+  --mol-color-text-secondary: #c2c2c2;
+  --mol-color-text-tertiary: #808080;
+  --mol-color-text-inverse: #000000;
+
+  --color-primary-hover: #f43f5e;
+  --color-surface-hover: #232323;
+  --color-text-on-primary: #ffffff;
+  --color-accent: #d946a8;
+
+  --color-player-bg: #141414;
+  --color-player-progress: #fb7185;
+  --color-player-track: #4d4d4d;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.6);
+
+  /* Material-3 / Stitch bridge tokens */
+  --color-background: #0a0a0a;
+  --color-on-background: #ffffff;
+  --color-surface: #181818;
+  --color-surface-bright: #232323;
+  --color-surface-dim: #040404;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0e0e0e;
+  --color-surface-container: #141414;
+  --color-surface-container-high: #1c1c1c;
+  --color-surface-container-highest: #262626;
+  --color-surface-variant: #1c1c1c;
+  --color-on-surface: #f2f2f2;
+  --color-on-surface-variant: #b3b3b3;
+  --color-inverse-surface: #f2f2f2;
+  --color-inverse-on-surface: #121212;
+  --color-inverse-primary: #7f0f2d;
+  --color-primary: #fb7185;
+  --color-primary-container: #4a0e1e;
+  --color-on-primary: #1a0008; /* dark on rose — #ffffff was 2.69:1 (fail); #1a0008 = 7.45:1 */
+  --color-on-primary-container: #ffc5cc;
+  --color-secondary: #b3b3b3;
+  --color-secondary-container: #262626;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #f2f2f2;
+  --color-tertiary: #fb923c;
+  --color-tertiary-container: #431407;
+  --color-on-tertiary: #3d1200; /* dark on orange — #ffffff was 2.26:1 (fail); #3d1200 = 7.22:1 */
+  --color-on-tertiary-container: #fed7aa;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 3.25:1 (fail); #3a0000 = 5.48:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #787878; /* #5a5a5a was 2.57:1 vs surface (fail ≥3:1); #787878 = 4.02:1 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #fb7185;
+}
+
+/* Light mode overrides — warm off-white editorial feel with deepened burgundy */
+[data-mol-mode='light'] {
+  --mol-color-primary: #9f1239;
+  --mol-color-primary-light: #ffe4e6;
+  --mol-color-primary-dark: #7f0f2d;
+  --mol-color-secondary: #1a1a1a;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #eeeeee;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f7f7;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e4e4e4;
+  --mol-color-border-secondary: #d4d4d4;
+  --mol-color-border-focus: #9f1239;
+  --mol-color-text: #1a1a1a;
+  --mol-color-text-secondary: #4a4a4a;
+  --mol-color-text-tertiary: #7d7d7d;
+  --mol-color-text-inverse: #ffffff;
+
+  --color-primary-hover: #7f0f2d;
+  --color-surface-hover: #f0f0f0;
+  --color-text-on-primary: #ffffff;
+  --color-accent: #be185d;
+
+  --color-player-bg: #f2f2f2;
+  --color-player-progress: #9f1239;
+  --color-player-track: #c4c4c4;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.12);
+
+  /* Material-3 / Stitch bridge tokens */
+  --color-background: #fafafa;
+  --color-on-background: #1a1a1a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #eeeeee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f7f7;
+  --color-surface-container: #f2f2f2;
+  --color-surface-container-high: #ebebeb;
+  --color-surface-container-highest: #e4e4e4;
+  --color-surface-variant: #ebebeb;
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #4a4a4a;
+  --color-inverse-surface: #2a2a2a;
+  --color-inverse-on-surface: #f2f2f2;
+  --color-inverse-primary: #fb7185;
+  --color-primary: #9f1239;
+  --color-primary-container: #ffe4e6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #3d0714;
+  --color-secondary: #4a4a4a;
+  --color-secondary-container: #e4e4e4;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1a1a1a;
+  --color-tertiary: #c2410c;
+  --color-tertiary-container: #ffedd5;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #431407;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #7d7d7d;
+  --color-outline-variant: #e4e4e4;
+  --color-surface-tint: #9f1239;
+}

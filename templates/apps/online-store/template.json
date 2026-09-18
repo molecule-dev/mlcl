@@ -1,0 +1,123 @@
+{
+  "label": "Online Store",
+  "description": "Shopify-like storefront with product catalog, cart, checkout, and inventory management \u2014 including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-ai-openai",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-image-sharp",
+    "@molecule/api-oauth-github",
+    "@molecule/api-oauth-google",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-cart",
+    "@molecule/api-resource-inventory",
+    "@molecule/api-resource-order",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-product",
+    "@molecule/api-resource-review",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-data-table",
+    "@molecule/app-gallery",
+    "@molecule/app-shell-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Store name displayed in header and emails",
+      "default": "My Store"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key for client-side checkout",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_ONLINE_STORE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_ONLINE_STORE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_ONLINE_STORE_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_ONLINE_STORE_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MEILISEARCH_URL": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch admin API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for product images",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "AWS region for S3 bucket",
+      "default": "us-east-1"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key for S3",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key for S3",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for product recommendations",
+      "required": true
+    },
+    "STORE_CURRENCY": {
+      "description": "Default currency code",
+      "default": "USD"
+    },
+    "STORE_TAX_RATE": {
+      "description": "Default tax rate as decimal",
+      "default": "0.0"
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "payments",
+    "notifications",
+    "image-upload",
+    "subscriptions"
+  ]
+}

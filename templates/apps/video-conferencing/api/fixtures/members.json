@@ -1,0 +1,10 @@
+[
+  { "id": "u1", "name": "Sarah Kim",  "email": "sarah@acme.com", "role": "Owner",  "presence": "in_meeting", "last_active": "Now",         "title": "Head of Product" },
+  { "id": "u2", "name": "David Park", "email": "david@acme.com", "role": "Admin",  "presence": "in_meeting", "last_active": "Now",         "title": "Eng Lead" },
+  { "id": "u3", "name": "Maya Reyes", "email": "maya@acme.com",  "role": "Member", "presence": "online",     "last_active": "2 min ago",   "title": "Senior Designer" },
+  { "id": "u4", "name": "Jose Lopez", "email": "jose@acme.com",  "role": "Member", "presence": "online",     "last_active": "5 min ago",   "title": "Sales Lead" },
+  { "id": "u5", "name": "Asha Bose",  "email": "asha@acme.com",  "role": "Member", "presence": "away",       "last_active": "20 min ago",  "title": "PM" },
+  { "id": "u6", "name": "Ryan Tan",   "email": "ryan@acme.com",  "role": "Member", "presence": "offline",    "last_active": "3 hours ago", "title": "Backend Engineer" },
+  { "id": "u7", "name": "Mei Wang",   "email": "mei@acme.com",   "role": "Member", "presence": "online",     "last_active": "1 min ago",   "title": "Marketing" },
+  { "id": "u8", "name": "Liam Ortiz", "email": "liam@acme.com",  "role": "Guest",  "presence": "offline",    "last_active": "Yesterday",   "title": "Customer (Acme)" }
+]

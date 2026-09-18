@@ -1,0 +1,224 @@
+{
+  "app": "webhook-manager",
+  "designProjectId": "5247205215107948722",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-landing.html",
+      "designScreenId": "0f3b52c42fc445cbaada23aaf45107aa"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-login.html",
+      "designScreenId": "22f39aa71dc94d74ace159ba58721466"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-login.html",
+      "derivationNotes": "Same dark card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Remember me' / 'Forgot password' row, no GitHub SSO (or keep GitHub as alternative signup)."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-login.html",
+      "derivationNotes": "Same dark card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. No password, no social buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-login.html",
+      "derivationNotes": "Same dark card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. No email field, no social buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-dashboard.html",
+      "designScreenId": "0494cc9585cf49e08753f7be5fa4d04d"
+    },
+    {
+      "name": "Endpoints",
+      "templateFile": "app/pages/Endpoints.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/endpoints",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-endpoints.html",
+      "designScreenId": "e5807449600f4d04bf5b1b4259bf877c"
+    },
+    {
+      "name": "EndpointDetail",
+      "templateFile": "app/pages/EndpointDetail.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/endpoints/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-endpoint-detail.html",
+      "designScreenId": "60275e2e4f6346808d9902543c1e824d"
+    },
+    {
+      "name": "Deliveries",
+      "templateFile": "app/pages/Deliveries.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/deliveries",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-deliveries.html",
+      "designScreenId": "3ec08b757a1d4f008ebdc3e1510b2ace"
+    },
+    {
+      "name": "Events",
+      "templateFile": "app/pages/Events.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/events",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-events.html",
+      "designScreenId": "563048bb17c74bee8e2fda122c32441a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-settings.html",
+      "designScreenId": "2abc123983a549af9f0e491b6b067ad2"
+    },
+    {
+      "name": "DeliveryDetail",
+      "templateFile": "app/pages/DeliveryDetail.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/deliveries/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-delivery-detail.html",
+      "designScreenId": "c02a01989a0544d48c69a02a9806094f"
+    },
+    {
+      "name": "EventDetail",
+      "templateFile": "app/pages/EventDetail.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/events/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-event-detail.html",
+      "designScreenId": "f8b295f97c7c449c89e5049af0751d36"
+    },
+    {
+      "name": "NewEndpoint",
+      "templateFile": "app/pages/NewEndpoint.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/endpoints/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-new-endpoint.html",
+      "designScreenId": "9d477ae7940b4c12bf06526799561925"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-notifications.html",
+      "designScreenId": "c45bcbdb40734ee49dc7ba2cb5922fe5"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/audit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-webhook-manager-audit-log.html",
+      "designScreenId": "77fe597af4ba42c3bcdb864a0f7735ca"
+    },
+    {
+      "name": "APIKeys",
+      "templateFile": "app/pages/APIKeys.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/settings/api-keys",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-settings.html",
+      "derivationNotes": "Same Pylon dark sidebar + main surface as Settings, but the main panel becomes an API keys management view: header 'API keys' (Inter 24px bold) with subtitle 'Programmatic access tokens. Treat them like passwords.', primary 'Generate new key' emerald button top-right. Below: a table card with columns NAME, KEY (mono masked like 'pk_live_••••8a3f'), CREATED, LAST USED, SCOPES (pills), ACTIONS (eye / copy / revoke icons). 5 rows showing keys for terraform-prod, ci-pipeline, staging-tests, ops-dashboard, expired-key (revoked, struck-through). Bottom helper card 'Best practices' with 3 bullets in Inter — store in env vars, rotate every 90 days, scope keys minimally. All key values, dates, and scopes render in JetBrains Mono. Use the existing settings sidebar nav layout and tab strip; 'API keys' tab active emerald, other tabs (General / Team / Billing / Notifications) ghost."
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/settings/team",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-settings.html",
+      "derivationNotes": "Same Pylon dark sidebar + settings tab strip as Settings, but the main panel becomes a team members view: header 'Team' (Inter 24px bold) with subtitle 'Manage who can access endpoints, secrets, and audit logs.', primary 'Invite member' emerald button top-right. Below: card with member list — each row 56px tall: avatar circle, name (Inter), email (Inter secondary), role pill (admin emerald / developer indigo / viewer slate), last active timestamp (mono '2h ago'), three-dot menu. 7 members shown. Below the list: 'Pending invites (2)' subsection with email + role + 'Resend' / 'Revoke' ghost buttons. Right side or bottom: 'Roles' card describing 3 role tiers in Inter narrative with mono permission lists. 'Team' tab active emerald in settings tab strip."
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-settings.html",
+      "derivationNotes": "Same Pylon dark sidebar + settings tab strip as Settings, but the main panel becomes a billing view: header 'Billing' (Inter 24px bold) with subtitle 'Plan, usage, and payment methods.'. Top card 'Current plan': big plan name 'Scale' (Inter 28px bold) with emerald pill 'Active', mono price '$249/mo', renewal date mono, 'Change plan' ghost button right. Below: 3-column metric cards in Pylon stats-card style — 'Deliveries this month' (mono number 1.4M / 5M cap, sparkline emerald), 'Endpoints active' (mono 47), 'Avg cost per 1k deliveries' (mono $0.18). Next: usage chart card showing daily delivery volume bar chart for the last 30 days (emerald bars). Next: 'Payment method' card with mono masked card number 'Visa •••• 4242', expiry, billing email, 'Update card' ghost button. Final: 'Invoice history' table with 6 rows (date mono, amount mono, status pill 'paid' emerald, download icon). 'Billing' tab active emerald in settings tab strip."
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/WebhookManagerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-settings.html",
+      "derivationNotes": "Same Pylon dark sidebar + main surface as Settings, but the main panel becomes a personal profile view: header 'Profile' (Inter 24px bold) with subtitle 'Your account, preferences, and active sessions.'. Section 'Identity': avatar with 'Change avatar' link, fields First name / Last name / Display name / Email (read-only mono), 'Update' emerald button. Section 'Preferences': toggles for 'Default to dark theme' (on emerald), 'Compact log rows' (on emerald), 'Keyboard shortcuts hint bar' (on emerald), 'Email me on critical alerts' (on emerald). Section 'Active sessions': 3 rows — current session (Chrome on macOS, IP mono, 'Current' emerald pill), other 2 sessions with 'Revoke' ghost button. Section 'Danger zone': 1px red top border, 'Delete account' ghost red text button with confirmation note in tertiary text. No settings tab strip — this is a personal profile page distinct from team/workspace settings."
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "*",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-webhook-manager-landing.html",
+      "derivationNotes": "Same Pylon brand chrome as Landing (full-bleed dark background #0c1222, Pylon mono logo top-left, top nav Pricing / Docs / Status / Sign in / Sign up). Main content centered: large mono '404' display in emerald #10b981 (96px JetBrains Mono bold), subtitle in Inter 'This payload never reached its endpoint.' (24px secondary), small mono code block showing fake HTTP request 'GET https://pylon.dev/your-page · 404 Not Found · 12ms' (mono, 14px, secondary). Two CTA buttons: 'Back to dashboard' primary emerald, 'View status page' ghost outline. Subtle JSON-style decorative background behind the 404 with faint syntax-highlighted braces in tertiary opacity. Footer same as Landing."
+    }
+  ]
+}

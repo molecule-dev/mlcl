@@ -1,0 +1,76 @@
+[
+  {
+    "id": "rpt_001", "title": "Q3 Revenue Recap", "description": "Top-line revenue, by region and channel, for Q3 2025.",
+    "chart_type": "bar", "schedule": "monthly", "shared_with": ["mira@example.com"], "last_run_at": "2026-04-25T08:00:00Z",
+    "thumbnail_series": [82, 88, 95, 102, 91, 108, 124, 132],
+    "hero": { "type": "bar", "series": [
+      { "label": "us-east",  "value": 1842000 },
+      { "label": "us-west",  "value": 1240000 },
+      { "label": "eu-west",  "value":  984000 },
+      { "label": "ap-east",  "value":  624000 },
+      { "label": "latam",    "value":  342000 }
+    ] },
+    "kpis": [
+      { "label": "Total revenue", "value": "$50.3M", "delta_pct": 12.4 },
+      { "label": "AOV",           "value": "$2,734", "delta_pct":  4.2 },
+      { "label": "Refund rate",   "value": "2.1%",  "delta_pct": -0.8 },
+      { "label": "Repeat %",      "value": "38%",   "delta_pct":  3.1 }
+    ],
+    "sub_charts": [
+      { "title": "By channel",          "color": "#06b6d4", "series": [{ "label": "web",     "value": 2840000 }, { "label": "wholesale", "value": 1240000 }, { "label": "marketplace", "value": 720000 }] },
+      { "title": "Refund rate by SKU",  "color": "#ef4444", "series": [{ "label": "SKU-A",   "value":      18 }, { "label": "SKU-B",     "value":      12 }, { "label": "SKU-C",        "value":      8 }] },
+      { "title": "Day-of-week pattern", "color": "#10b981", "series": [{ "label": "Mon",     "value":     420 }, { "label": "Tue",       "value":     380 }, { "label": "Wed",          "value":    412 }, { "label": "Thu", "value": 421 }, { "label": "Fri", "value": 480 }, { "label": "Sat", "value": 320 }, { "label": "Sun", "value": 240 }] },
+      { "title": "Top 5 customers",     "color": "#4f46e5", "series": [{ "label": "Acme",    "value":  184200 }, { "label": "Wayne",     "value":  148200 }, { "label": "Stark",        "value": 124200 }, { "label": "Hooli", "value": 88400 }, { "label": "Initech", "value": 72400 }] }
+    ],
+    "ai_summary": "Q3 revenue grew 12.4% QoQ, led by web channel in us-east. Refund rate ticked down 0.8pp despite the Sept week 38 spike (2 SKUs). Wholesale grew faster than expected (+18%) — worth investigating supply assumptions for Q4.",
+    "data_table": [
+      { "col": "region",  "values": ["us-east",  "us-west",  "eu-west",  "ap-east", "latam"] },
+      { "col": "revenue", "values": [1842000,    1240000,    984000,     624000,   342000  ] }
+    ]
+  },
+  {
+    "id": "rpt_002", "title": "MRR Cohort Retention", "description": "12-month cohort retention curves with annotations.",
+    "chart_type": "line", "schedule": "weekly", "shared_with": ["eli@example.com"], "last_run_at": "2026-04-22T09:00:00Z",
+    "thumbnail_series": [100, 92, 86, 81, 78, 76, 75, 74, 74, 73, 73, 72],
+    "hero": { "type": "line", "series": [{ "label": "Mar", "value": 100 }, { "label": "Apr", "value": 92 }] },
+    "kpis": [{ "label": "12mo retention", "value": "72%" }, { "label": "Net revenue retention", "value": "118%", "delta_pct": 4.1 }],
+    "sub_charts": [],
+    "ai_summary": "Net revenue retention crossed 115% for the first time in 5 quarters. M3 cohort (Jan 2025) is the strongest cohort to date.",
+    "data_table": [
+      { "col": "month",     "values": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] },
+      { "col": "retention", "values": [100,    92,    86,    81,    78,    76,    75,    74,    74,    73,    73,    72] }
+    ]
+  },
+  {
+    "id": "rpt_003", "title": "Funnel Conversion Apr",  "description": "Acquisition funnel from visitor to paying customer.", "chart_type": "bar", "schedule": null, "shared_with": [], "last_run_at": "2026-04-26T07:00:00Z", "thumbnail_series": [80, 60, 30, 10],
+    "hero": { "type": "bar", "series": [{ "label": "Visitors", "value": 12400 }, { "label": "Signups", "value": 1240 }, { "label": "Trials", "value": 420 }, { "label": "Paid", "value": 84 }] },
+    "kpis": [{ "label": "Visit→Signup", "value": "10%" }, { "label": "Signup→Paid", "value": "6.8%" }],
+    "sub_charts": [],
+    "ai_summary": "Visit→Signup ratio dipped from 12% in March to 10% in April. Look at the redesigned hero — A/B test pending.",
+    "data_table": [{ "col": "stage", "values": ["Visitors", "Signups", "Trials", "Paid"] }, { "col": "count", "values": [12400, 1240, 420, 84] }]
+  },
+  {
+    "id": "rpt_004", "title": "Inventory at Risk",     "description": "SKUs at risk of stockout in next 14 days.",                "chart_type": "table", "schedule": "daily", "shared_with": ["sasha@example.com"], "last_run_at": "2026-04-26T03:00:00Z", "thumbnail_series": [12, 14, 18, 21, 28, 24, 18],
+    "hero": { "type": "bar", "series": [{ "label": "SKU-A", "value": 18 }, { "label": "SKU-B", "value": 12 }, { "label": "SKU-C", "value": 9 }] },
+    "kpis": [{ "label": "At-risk SKUs", "value": "21", "delta_pct": 18 }],
+    "sub_charts": [],
+    "ai_summary": "21 SKUs project stockout within 14 days; up 18% WoW. Top 3 are concentrated in warehouse wh_east.",
+    "data_table": [{ "col": "sku", "values": ["SKU-A", "SKU-B", "SKU-C"] }, { "col": "days_left", "values": [3, 5, 8] }]
+  },
+  {
+    "id": "rpt_005", "title": "NPS by Segment",        "description": "NPS score by customer segment.",                          "chart_type": "bar",  "schedule": "monthly", "shared_with": [],                       "last_run_at": "2026-04-08T10:00:00Z", "thumbnail_series": [42, 48, 52, 56, 58, 62, 64, 64],
+    "hero": { "type": "bar", "series": [{ "label": "Enterprise", "value": 71 }, { "label": "Mid-market", "value": 64 }, { "label": "SMB", "value": 58 }] },
+    "kpis": [{ "label": "Overall NPS", "value": "64", "delta_pct": 6 }],
+    "sub_charts": [],
+    "ai_summary": "Enterprise NPS rose to 71. Detractor segment is concentrated in SMB and centers on onboarding friction.",
+    "data_table": [{ "col": "segment", "values": ["Enterprise", "Mid-market", "SMB"] }, { "col": "nps", "values": [71, 64, 58] }]
+  },
+  {
+    "id": "rpt_006", "title": "Marketing Spend ROI",   "description": "ROI by channel for Q1 2026 marketing spend.",             "chart_type": "scatter", "schedule": "monthly", "shared_with": ["mira@example.com"], "last_run_at": "2026-04-12T14:00:00Z", "thumbnail_series": [4.2, 3.8, 2.4, 2.1, 1.9, 1.4],
+    "hero": { "type": "bar", "series": [{ "label": "Paid social", "value": 420 }, { "label": "Search", "value": 380 }, { "label": "Display", "value": 100 }] },
+    "kpis": [{ "label": "Blended ROI", "value": "3.4×", "delta_pct": 12 }],
+    "sub_charts": [],
+    "ai_summary": "Paid social ROI 4.2× display ROI for Q1. Reallocate ~20% of display spend to paid social — projected lift $84K.",
+    "data_table": [{ "col": "channel", "values": ["Paid social", "Search", "Display"] }, { "col": "roi", "values": ["4.2×", "3.8×", "1.0×"] }]
+  }
+]

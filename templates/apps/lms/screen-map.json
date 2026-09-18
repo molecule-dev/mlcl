@@ -1,0 +1,147 @@
+{
+  "app": "lms",
+  "designProjectId": "1990477942947729358",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TopNavBar.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-dashboard.html",
+      "designScreenId": "912135368d6d4b218dd8d8739fcb91b5",
+      "designScreenTitle": "Student Dashboard"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TopNavBar.tsx"
+      ],
+      "route": "/course/:courseId",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-course-detail.html",
+      "designScreenId": "a0fb1758353848968db8b2d16ef6fbd2",
+      "designScreenTitle": "Scholar: Course Detail - Neural Networks"
+    },
+    {
+      "name": "Assignments",
+      "templateFile": "app/pages/Assignments.tsx",
+      "components": [
+        "app/components/AssignmentsSideNavBar.tsx",
+        "app/components/AssignmentsTopNavBar.tsx"
+      ],
+      "route": "/assignments",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-assignments.html",
+      "designScreenId": "7f52acf443824c9da484b86985f9c50f",
+      "designScreenTitle": "Scholar Assignments Portal"
+    },
+    {
+      "name": "Discussions",
+      "templateFile": "app/pages/Discussions.tsx",
+      "components": [
+        "app/components/DiscussionsSideNavBar.tsx",
+        "app/components/DiscussionsHeader.tsx"
+      ],
+      "route": "/discussions",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-discussions.html",
+      "designScreenId": "5601b5610a9344c08a483b989c705195",
+      "designScreenTitle": "Discussions Forum"
+    },
+    {
+      "name": "Gradebook",
+      "templateFile": "app/pages/Gradebook.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/GradebookTopNavBar.tsx"
+      ],
+      "route": "/gradebook",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-gradebook.html",
+      "designScreenId": "91e22d76ee8c436a9d087ad875d2bcd9",
+      "designScreenTitle": "Academic Gradebook"
+    },
+    {
+      "name": "Lesson",
+      "templateFile": "app/pages/Lesson.tsx",
+      "components": [
+        "app/components/LessonTopNavBar.tsx"
+      ],
+      "route": "/course/:courseId/lesson/:lessonId",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-lms-lesson.html",
+      "designScreenId": "4712436bfedd498193d2cb3427376ce9",
+      "designScreenTitle": "Lesson View"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-lms-login.html",
+      "designScreenId": "c9b62d91e3c748fca1c90fdeb3f3e45e",
+      "generationPrompt": "Premium LMS Login page for Scholar. Centered white card on #f7f9fb surface. Scholar logo with graduation cap in primary blue #1a56db. 'Welcome back' heading in Plus Jakarta Sans. Email and password fields with surface-container-low fill, no borders. Remember me checkbox, forgot password link. Full-width primary gradient CTA 'Sign In'. Sign up link below. No hard borders, blue-tinted ambient shadow."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/SettingsTopNavBar.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-lms-settings.html",
+      "designScreenId": "3f4fbdaa1993457f9ab7924d4bb8e0a1",
+      "generationPrompt": "Premium LMS Settings page for Scholar with StudentLayout sidebar. Sections in white cards: Profile (avatar upload, name/email fields, bio), Notifications (toggle switches), Appearance (Light/Dark/System theme cards), Security (password change fields). Plus Jakarta Sans headings, Inter body. No hard borders, tonal depth only. Primary blue #1a56db gradient buttons."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-lms-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace 'Welcome back' heading with 'Create your account' and subtitle with 'Start your learning journey today'. Add a full name field above email. Keep email and password fields. Change CTA button text to 'Create Account'. Bottom text becomes 'Already have an account? Sign in' with Sign in as primary link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-lms-login.html",
+      "derivationNotes": "Same centered card layout as Login. Heading: 'Reset your password'. Subtitle: 'Enter your email and we'll send you a reset link'. Only email field — remove password field entirely. Remove remember me checkbox and forgot password link. CTA button: 'Send Reset Link'. Below button: 'Back to sign in' link in primary color."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-lms-login.html",
+      "derivationNotes": "Same centered card layout as Login. Heading: 'Set new password'. Subtitle: 'Choose a strong password for your account'. Two fields: New password and Confirm password (both with show/hide toggle). Remove remember me and forgot password row. CTA button: 'Reset Password'. Below button: 'Back to sign in' link in primary color."
+    }
+  ]
+}

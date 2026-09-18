@@ -1,0 +1,152 @@
+/*
+ * Chalk theme — Tutoring Marketplace.
+ * Wires the molecule color tokens (consumed by index.css @theme) to the
+ * brand palette declared in DESIGN.md (Indigo primary + Amber accent).
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #4f46e5; /* darkened from #6366f1: white on #6366f1 = 4.47:1 (fail); #4f46e5 = 6.29:1 */
+  --mol-color-primary-light: #818cf8;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #f59e0b;
+  --mol-color-secondary-light: #fbbf24;
+  --mol-color-secondary-dark: #d97706;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #556270; /* #64748b was 3.95:1 on surface-container #e9eaeb chips (fail); #556270 = 5.18:1 */
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #16a34a;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #6366f1;
+  --mol-color-info-light: #e0e7ff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #4f46e5;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-display:
+    'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Chalk-specific semantic tokens */
+  /* M3 semantic overrides for light mode — contrast corrections.
+     base.css defaults on-secondary to foreground-inverse (#ffffff);
+     amber (#f59e0b) at 2.15:1 with white fails WCAG AA. */
+  --color-on-secondary: #381f00; /* dark brown on amber: 7.17:1 */
+
+  --chalk-available: #16a34a;
+  --chalk-available-light: #dcfce7;
+  --chalk-booked: #6366f1;
+  --chalk-booked-light: #e0e7ff;
+  --chalk-in-session: #9333ea;
+  --chalk-in-session-light: #f3e8ff;
+  --chalk-verified: #0d9488;
+  --chalk-verified-light: #ccfbf1;
+  --chalk-top-rated: #b45309; /* #f59e0b was 2.14:1 as star icons on white (fail ≥3:1) and 2.86:1 as badge text on its light tint; #b45309 = 5.02:1 / 4.51:1 */
+  --chalk-top-rated-light: #fef3c7;
+  --chalk-cancelled: #dc2626;
+  --chalk-cancelled-light: #fee2e2;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #a5b4fc;
+  --mol-color-primary-dark: #6366f1;
+  --mol-color-secondary: #fbbf24;
+  --mol-color-secondary-light: #fcd34d;
+  --mol-color-secondary-dark: #f59e0b;
+
+  --mol-color-background: #0c0a1d;
+  --mol-color-background-secondary: #1a1733;
+  --mol-color-background-tertiary: #241f42;
+  --mol-color-surface: #1a1733;
+  --mol-color-surface-secondary: #241f42;
+
+  --mol-color-text: #f8fafc;
+  --mol-color-text-secondary: #a5b4fc;
+  --mol-color-text-tertiary: #cbd5e1;
+  --mol-color-text-inverse: #0c0a1d;
+
+  /* Semantic — brightened for dark */
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: rgba(74, 222, 128, 0.18);
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: rgba(251, 191, 36, 0.18);
+  --mol-color-error: #f87171;
+  --mol-color-error-light: rgba(248, 113, 113, 0.18);
+  --mol-color-info: #818cf8;
+  --mol-color-info-light: rgba(129, 140, 248, 0.18);
+
+  --mol-color-border: #312e54;
+  --mol-color-border-secondary: #3f3a6a;
+  --mol-color-border-focus: #818cf8;
+
+  /* Chalk semantic tokens — preserve hue, dim background tints */
+  --chalk-available: #4ade80;
+  --chalk-available-light: #052e16;
+  --chalk-booked: #818cf8;
+  --chalk-booked-light: #1e1b4b;
+  --chalk-in-session: #c084fc;
+  --chalk-in-session-light: #2e1065;
+  --chalk-verified: #2dd4bf;
+  --chalk-verified-light: rgba(45, 212, 191, 0.18);
+  --chalk-top-rated: #fbbf24;
+  --chalk-top-rated-light: rgba(251, 191, 36, 0.18);
+  --chalk-cancelled: #f87171;
+  --chalk-cancelled-light: rgba(248, 113, 113, 0.18);
+
+  /* Material-3 bridge tokens — dark variants.
+     Components using bg-background, text-on-surface, bg-primary etc. flip cleanly.
+     --color-on-primary stays white so indigo CTA buttons keep their white text. */
+  --color-background: #0c0a1d;
+  --color-on-background: #f8fafc;
+  --color-surface: #1a1733;
+  --color-surface-bright: #241f42;
+  --color-surface-dim: #060410;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #100e20;
+  --color-surface-container: #1a1733;
+  --color-surface-container-high: #241f42;
+  --color-surface-container-highest: #312e54;
+  --color-surface-variant: #241f42;
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #a5b4fc;
+  --color-inverse-surface: #f8fafc;
+  --color-inverse-on-surface: #0c0a1d;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #818cf8;
+  --color-primary-container: #312e54;
+  --color-on-primary: #0c0a1d; /* dark on indigo-300: 6.54:1 — replaces #ffffff which was 2.98:1 */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #fbbf24;
+  --color-secondary-container: #3f3a6a;
+  --color-on-secondary: #0c0a1d;
+  --color-on-secondary-container: #f8fafc;
+  --color-tertiary: #c084fc;
+  --color-tertiary-container: #3b0764;
+  --color-on-tertiary: #1a0041; /* dark purple on violet-400: 7.09:1 — replaces #ffffff which was 2.64:1 */
+  --color-on-tertiary-container: #e9d5ff;
+  --color-error: #f87171;
+  --color-error-container: #3a0c0c;
+  --color-on-error: #690005; /* dark on red-400: 4.74:1 — replaces #ffffff which was 2.77:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6366f1;
+  --color-outline-variant: #312e54;
+  --color-surface-tint: #818cf8;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--mol-font-display);
+  }
+}

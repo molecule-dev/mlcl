@@ -1,0 +1,189 @@
+{
+  "app": "wiki",
+  "designProjectId": "12288856612904453549",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-wiki-landing.html",
+      "designScreenId": "7d2ed1dd470946708337fa0d29d27f1c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-wiki-login.html",
+      "designScreenId": "9b7de564b6f64b49ae9b1cf22db0cf80"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-wiki-login.html",
+      "derivationNotes": "Same 55/45 editorial split layout as Login (left editorial panel, right form) with additional fields: First Name, Last Name, Email, Password, Confirm Password. Heading changes to 'Create your workspace', subheading 'Start stacking knowledge with your team'. Button text changes to 'Create Account'. Bottom link changes to 'Already have an account? Sign in'. No 'Forgot password?' link. Keep the workspace subdomain field."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-wiki-login.html",
+      "derivationNotes": "Same 55/45 editorial split layout as Login with only Email field. Heading changes to 'Reset your password', subtext 'Enter your email and we will send you a reset link'. Button text changes to 'Send reset link'. Bottom link changes to 'Back to sign in'. No password field, no SSO row, no divider."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-wiki-login.html",
+      "derivationNotes": "Same 55/45 editorial split layout as Login with only New Password and Confirm Password fields. Heading changes to 'Set a new password'. Button text changes to 'Reset password'. Bottom link changes to 'Back to sign in'. No email field, no SSO row, no divider."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-home.html",
+      "designScreenId": "03121851583b4cf29f387a90be0afcf8"
+    },
+    {
+      "name": "PageView",
+      "templateFile": "app/pages/PageView.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/page/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-page-view.html",
+      "designScreenId": "81c09f4f897b40fba349ed0a12bfc986"
+    },
+    {
+      "name": "PageEditor",
+      "templateFile": "app/pages/PageEditor.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/page/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-page-editor.html",
+      "designScreenId": "99ee1fde02c24a678b32b7b21b1118c8"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-search.html",
+      "designScreenId": "e75cd41360b7457990c6ffe338395ba9"
+    },
+    {
+      "name": "VersionHistory",
+      "templateFile": "app/pages/VersionHistory.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/page/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-version-history.html",
+      "designScreenId": "8b50e1c4b52a4b559ab232017056fdc0"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-settings.html",
+      "designScreenId": "c3ddebb3efb146bdb63a9c3793de0bee"
+    },
+    {
+      "name": "Spaces",
+      "templateFile": "app/pages/Spaces.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/spaces",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-spaces.html",
+      "designScreenId": "bfa4c9c52ec54747abeb4e9132f37c09"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-templates.html",
+      "designScreenId": "14156dd782964e7787faf127f1c58f05"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-notifications.html",
+      "designScreenId": "3d5673bcbd8e464ab2034e6a254901a3"
+    },
+    {
+      "name": "Comments",
+      "templateFile": "app/pages/Comments.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/comments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-comments.html",
+      "designScreenId": "2a7f58f0feaa444eb5dcec330e0591b1"
+    },
+    {
+      "name": "TeamMembers",
+      "templateFile": "app/pages/TeamMembers.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-team-members.html",
+      "designScreenId": "eb9fe4dd6af24fbb928c60e8ee6ea3a4"
+    },
+    {
+      "name": "Trash",
+      "templateFile": "app/pages/Trash.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/trash",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-trash.html",
+      "designScreenId": "c8eaf3c945c340e3a470ac44ba3ed4f9"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/WikiLayout.tsx"],
+      "route": "/profile/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-wiki-profile.html",
+      "designScreenId": "0c17be9c57a44ba39e99a307c106881d"
+    }
+  ]
+}

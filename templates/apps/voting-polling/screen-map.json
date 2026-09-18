@@ -1,0 +1,189 @@
+{
+  "app": "voting-polling",
+  "designProjectId": "9097048698879422564",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-landing.html",
+      "designScreenId": "dddd6c076e804402a7dd8d7eebac28f9"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-login.html",
+      "designScreenId": "4eb8394f270f4003a8318351e69ad4d4"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-voting-polling-login.html",
+      "derivationNotes": "Same centered civic card on cyan-wash background. Form adds First Name, Last Name, Organization name, Email, Password, Confirm Password fields. Cyan primary button becomes 'Create organization'. Bottom link becomes 'Already have an account? Sign in'. No Forgot Password link. Keep the data-grid decoration and audit-log footer."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-voting-polling-login.html",
+      "derivationNotes": "Same centered civic card on cyan-wash background. Form has only Email field. Heading becomes 'Reset your password', subtext 'Enter your email to receive a secure reset link'. Cyan primary button becomes 'Send reset link'. Bottom link becomes 'Back to sign in'. No password field. No SSO/provider buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-voting-polling-login.html",
+      "derivationNotes": "Same centered civic card on cyan-wash background. Form has New Password and Confirm Password fields. Heading becomes 'Set new password'. Cyan primary button becomes 'Reset password'. Bottom link becomes 'Back to sign in'. No email field. No SSO/provider buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-dashboard.html",
+      "designScreenId": "d452feda7e5d4d4c8bb35fd34eaeed1f"
+    },
+    {
+      "name": "CreatePoll",
+      "templateFile": "app/pages/CreatePoll.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/polls/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-create-poll.html",
+      "designScreenId": "ee4e6f23ad1f44d391a61d7218c6e517"
+    },
+    {
+      "name": "LiveResults",
+      "templateFile": "app/pages/LiveResults.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/polls/:id/live",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-live-results.html",
+      "designScreenId": "0741821f6b444d91b629d98ce8aabd67"
+    },
+    {
+      "name": "Ballot",
+      "templateFile": "app/pages/Ballot.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/vote/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-ballot.html",
+      "designScreenId": "62b502e76e6a40d08978aabd127453d2"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-analytics.html",
+      "designScreenId": "449f9249b5f5473baa55068213d1bc5d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-settings.html",
+      "designScreenId": "88c99ee247374f8587f1819dd99b7ba8"
+    },
+    {
+      "name": "PollDetail",
+      "templateFile": "app/pages/PollDetail.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/polls/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-poll-detail.html",
+      "designScreenId": "5d9d16e6b77f4135a82bcd82c916038f"
+    },
+    {
+      "name": "Voters",
+      "templateFile": "app/pages/Voters.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/voters",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-voters.html",
+      "designScreenId": "c0327dd8aa984824b153703802e5ba75"
+    },
+    {
+      "name": "AudienceQA",
+      "templateFile": "app/pages/AudienceQA.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/polls/:id/qa",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-audience-qa.html",
+      "designScreenId": "1fbd3a7c57d94d859487c36fe8c15800"
+    },
+    {
+      "name": "PresenterMode",
+      "templateFile": "app/pages/PresenterMode.tsx",
+      "components": [],
+      "route": "/polls/:id/present",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-presenter-mode.html",
+      "designScreenId": "083369dd5cb74f0889a6e935b72b25ed"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-notifications.html",
+      "designScreenId": "cce1c4c928544d59befdc6948eb332da"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-team.html",
+      "designScreenId": "495cc043bb3a4eb29e6972f13639b387"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/VotingPollingLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-voting-polling-billing.html",
+      "designScreenId": "bf2c534f872e4276a5872581393bc23e"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "alb_001",
+    "title": "Open Road, 2026",
+    "description": "Months of road-trip work — desert, dune, ridge, and salt. A travelogue stitched in light.",
+    "owner_id": "u_alex",
+    "cover_photo_id": "pho_001",
+    "photo_count": 38,
+    "created_at": "2026-01-04T12:00:00Z",
+    "updated_at": "2026-04-19T01:42:00Z"
+  },
+  {
+    "id": "alb_002",
+    "title": "Cities at Night",
+    "description": "Tokyo, New York, Berlin. Long walks, faster shutters, and very cold fingers.",
+    "owner_id": "u_mei",
+    "cover_photo_id": "pho_002",
+    "photo_count": 52,
+    "created_at": "2025-11-22T08:30:00Z",
+    "updated_at": "2026-04-15T14:18:00Z"
+  },
+  {
+    "id": "alb_003",
+    "title": "Studio Portraits — Spring '26",
+    "description": "Editorial portrait sessions for the spring lookbook collaboration with Lina K.",
+    "owner_id": "u_alex",
+    "cover_photo_id": "pho_003",
+    "photo_count": 22,
+    "created_at": "2026-03-04T09:14:00Z",
+    "updated_at": "2026-04-10T11:25:00Z"
+  },
+  {
+    "id": "alb_004",
+    "title": "Slow Mornings",
+    "description": "Coffee, fruit, the same window — an ongoing study of the same small kitchen at different hours.",
+    "owner_id": "u_jordan",
+    "cover_photo_id": "pho_006",
+    "photo_count": 31,
+    "created_at": "2025-09-12T07:45:00Z",
+    "updated_at": "2026-04-02T08:32:00Z"
+  },
+  {
+    "id": "alb_005",
+    "title": "Italy on Film, March '26",
+    "description": "Two weeks, mostly Cinque Terre. One Fujifilm X100V, two SD cards, no laptop.",
+    "owner_id": "u_lina",
+    "cover_photo_id": "pho_010",
+    "photo_count": 47,
+    "created_at": "2026-03-12T18:20:00Z",
+    "updated_at": "2026-03-30T22:00:00Z"
+  },
+  {
+    "id": "alb_006",
+    "title": "Concert Pit",
+    "description": "Three-song pit, eight rolls of light. Indie + folk in 2025–2026.",
+    "owner_id": "u_mei",
+    "cover_photo_id": "pho_012",
+    "photo_count": 64,
+    "created_at": "2025-06-30T22:18:00Z",
+    "updated_at": "2026-03-10T05:22:00Z"
+  }
+]

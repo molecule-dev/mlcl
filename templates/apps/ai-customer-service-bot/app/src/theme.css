@@ -1,0 +1,249 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #2563eb;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #1d4ed8;
+  --mol-color-secondary: #7c3aed;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f9fafb;
+  --mol-color-background-tertiary: #f3f4f6;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #2563eb;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  --color-primary: #1d4ed8; /* was #2563eb — 4.27:1 as chip text on bg-primary/10; blue-700 = 5.54:1 */
+  --color-primary-hover: #1e40af;
+  --color-primary-light: #dbeafe;
+  --color-secondary: #7c3aed;
+  --color-secondary-hover: #6d28d9;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-border-focus: #2563eb;
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --chat-user-bg: #2563eb;
+  --chat-user-text: #ffffff;
+  --chat-bot-bg: #f3f4f6;
+  --chat-bot-text: #111827;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* App-specific status tokens (inline styles + Tailwind arbitrary callers only) */
+  --color-status-escalated-bg: #fff7ed;
+  --color-status-escalated-text: #9a3412;
+  --color-status-resolved-accent: #16a34a;
+  --color-status-pending-accent: #eab308;
+  --color-feedback-positive: #16a34a;
+  --color-feedback-negative: #dc2626;
+  --color-star-accent: #fed7aa;
+  /* Confidence gradient: low → mid → high */
+  --color-confidence-low: #dc2626;
+  --color-confidence-mid: #eab308;
+  --color-confidence-high: #0d9488;
+  /* Chat bubble — hero card bot bubble overlay */
+  --color-hero-bot-bg: #0f766e;
+
+  /* Stitch / Material-3 light tokens — mirror of index.css @theme so
+     theme.css is the canonical source for both modes. */
+  --color-background: #f7f9fb;
+  --color-on-background: #0b1c30;
+  --color-surface: #f7f9fb;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #464555;
+  --color-inverse-surface: #213145;
+  --color-inverse-on-surface: #eaf1ff;
+  --color-inverse-primary: #1d4ed8;
+  --color-primary: #1d4ed8; /* match :root — chip-text contrast */
+  --color-primary-container: #1e3a8a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #dbeafe;
+  --color-secondary: #7c3aed;
+  --color-secondary-container: #4c1d95;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #2e1a00;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-outline: #6b6a7a; /* was #777587 — 4.48:1 on #ffffff stat cards; #6b6a7a = 5.29:1 */
+  --color-outline-variant: #c7c4d8;
+  --color-surface-tint: #2563eb;
+}
+
+/* Dark mode — AI-assistant conversational dark.
+   Cool deep-slate canvas (the brand is conversational AI, not pure
+   devtools — slate keeps it calm but with a tech edge). Brand blue
+   stays at the brand stop (#2563eb) at the @theme/--color-primary token
+   so the CTA reads as the same product color in both modes, while the
+   `--mol-color-primary` rises to a lighter sky tone for surface accents
+   (links, focus rings, chips). `--color-on-primary` STAYS white so the
+   blue CTA buttons keep their light-on-blue character. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge tokens — dark variants === */
+  --mol-color-primary: #60a5fa;
+  --mol-color-primary-light: #1e2a4a;
+  --mol-color-primary-dark: #2563eb;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0b1220;
+  --mol-color-background-secondary: #111a2c;
+  --mol-color-background-tertiary: #15203a;
+  --mol-color-surface: #0b1220;
+  --mol-color-surface-secondary: #111a2c;
+  --mol-color-input-background: #080e1a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #b8c2d4;
+  --mol-color-text-tertiary: #7c8aa3;
+  --mol-color-text-inverse: #0b1220;
+  --mol-color-border: #1f2a44;
+  --mol-color-border-secondary: #243153;
+  --mol-color-border-focus: #60a5fa;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --color-primary-light: #1e2a4a;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #c4b5fd;
+  --color-accent: #fbbf24;
+  --color-accent-hover: #fcd34d;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+  --color-bg: #0b1220;
+  --color-bg-secondary: #111a2c;
+  --color-bg-card: #15203a;
+  --color-bg-sidebar: #080e1a;
+  --color-border: #1f2a44;
+  --color-border-focus: #60a5fa;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #b8c2d4;
+  --color-text-muted: #7c8aa3;
+  --color-text-inverse: #0b1220;
+  --chat-user-bg: #2563eb;
+  --chat-user-text: #ffffff;
+  --chat-bot-bg: #15203a;
+  --chat-bot-text: #f1f5f9;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Stitch / Material-3 @theme token dark variants — override Tailwind's
+     static :root output so `bg-background`, `bg-surface-*`, `text-on-*`,
+     `border-outline*`, etc. flip on data-mol-mode="dark". CTA buttons
+     keep white text on the brand-blue: on-primary stays white. */
+  --color-background: #0b1220;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0b1220;
+  --color-surface-bright: #1c2740;
+  --color-surface-dim: #060b14;
+  --color-surface-container-lowest: #04080f;
+  --color-surface-container-low: #111a2c;
+  --color-surface-container: #15203a;
+  --color-surface-container-high: #1c2740;
+  --color-surface-container-highest: #243153;
+  --color-surface-variant: #1c2740;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #b8c2d4;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #15203a;
+  --color-inverse-primary: #1d4ed8;
+  --color-primary: #2563eb; /* keep brand blue at brand stop */
+  --color-primary-container: #1e3a8a;
+  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+  --color-on-primary-container: #dbeafe;
+  --color-primary-fixed: #bfdbfe;
+  --color-primary-fixed-dim: #60a5fa;
+  --color-on-primary-fixed: #001a3f;
+  --color-on-primary-fixed-variant: #1e3a5f;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4c1d95;
+  --color-on-secondary: #1a0a3a;
+  --color-on-secondary-container: #ede9fe;
+  --color-secondary-fixed: #ddd6fe;
+  --color-secondary-fixed-dim: #a78bfa;
+  --color-on-secondary-fixed: #1a0a3a;
+  --color-on-secondary-fixed-variant: #4c1d95;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #78350f;
+  --color-on-tertiary: #2e1a00;
+  --color-on-tertiary-container: #fef3c7;
+  --color-tertiary-fixed: #fde68a;
+  --color-tertiary-fixed-dim: #fbbf24;
+  --color-on-tertiary-fixed: #2e1a00;
+  --color-on-tertiary-fixed-variant: #78350f;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on light red — 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a6478;
+  --color-outline-variant: #1f2a44;
+  --color-surface-tint: #60a5fa;
+
+  /* App-specific status tokens — dark variants */
+  --color-status-escalated-bg: #3a1d0e;
+  --color-status-escalated-text: #fdba74;
+  --color-status-resolved-accent: #34d399;
+  --color-status-pending-accent: #fbbf24;
+  --color-feedback-positive: #34d399;
+  --color-feedback-negative: #f87171;
+  --color-star-accent: #fcd34d;
+  --color-confidence-low: #f87171;
+  --color-confidence-mid: #fbbf24;
+  --color-confidence-high: #2dd4bf;
+  --color-hero-bot-bg: #0f766e;
+}

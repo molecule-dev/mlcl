@@ -1,0 +1,80 @@
+[
+  {
+    "id": "map-q4-brainstorm",
+    "title": "Q4 Brainstorm",
+    "description": "Cross-functional planning for the next quarter",
+    "thumbnail_url": null,
+    "is_public": true,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 24,
+    "trashed_at": null,
+    "created_at": "2026-04-12T09:00:00Z",
+    "updated_at": "2026-04-29T16:42:00Z"
+  },
+  {
+    "id": "map-onboarding-swot",
+    "title": "Onboarding SWOT",
+    "description": "Strengths, weaknesses, opportunities, threats for new-user onboarding",
+    "thumbnail_url": null,
+    "is_public": false,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 16,
+    "trashed_at": null,
+    "created_at": "2026-04-08T11:00:00Z",
+    "updated_at": "2026-04-28T14:10:00Z"
+  },
+  {
+    "id": "map-customer-journey",
+    "title": "Customer Journey",
+    "description": "Awareness → consideration → activation → retention",
+    "thumbnail_url": null,
+    "is_public": true,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 32,
+    "trashed_at": null,
+    "created_at": "2026-03-22T08:30:00Z",
+    "updated_at": "2026-04-24T10:15:00Z"
+  },
+  {
+    "id": "map-product-north-star",
+    "title": "Product North-Star",
+    "description": "A single guiding metric, supporting branches",
+    "thumbnail_url": null,
+    "is_public": false,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 18,
+    "trashed_at": null,
+    "created_at": "2026-03-10T13:00:00Z",
+    "updated_at": "2026-04-17T11:50:00Z"
+  },
+  {
+    "id": "map-launch-checklist",
+    "title": "Launch Checklist",
+    "description": "Pre-launch, launch-day, and post-launch action items",
+    "thumbnail_url": null,
+    "is_public": true,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 27,
+    "trashed_at": null,
+    "created_at": "2026-02-28T09:45:00Z",
+    "updated_at": "2026-04-12T15:30:00Z"
+  },
+  {
+    "id": "map-design-rituals",
+    "title": "Design Rituals",
+    "description": "Weekly critiques, monthly retros, quarterly off-sites",
+    "thumbnail_url": null,
+    "is_public": false,
+    "is_shared": false,
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "node_count": 12,
+    "trashed_at": null,
+    "created_at": "2026-02-10T14:00:00Z",
+    "updated_at": "2026-03-30T12:00:00Z"
+  }
+]

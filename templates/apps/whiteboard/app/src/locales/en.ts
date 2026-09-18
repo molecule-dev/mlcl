@@ -1,0 +1,56 @@
+export default {
+  app: {
+    name: 'Whiteboard',
+    tagline: 'Collaborate visually in real time',
+  },
+  boardList: {
+    title: 'Whiteboards',
+    create: 'New Board',
+    noBoards: 'No boards yet',
+  },
+  boards: {
+    notFound: 'Board not found',
+    untitled: 'Untitled Board',
+    copy: 'Copy',
+    duplicate: 'Duplicate',
+    delete: 'Delete',
+    deleteConfirm: 'Are you sure you want to delete this board?',
+  },
+  canvas: {
+    back: 'All Boards',
+    share: 'Share',
+    collaborators: 'Collaborators',
+    tool: {
+      select: 'Select',
+      rectangle: 'Rectangle',
+      circle: 'Circle',
+      arrow: 'Arrow',
+      text: 'Text',
+      'sticky-note': 'Sticky Note',
+      draw: 'Draw',
+    },
+    zoomIn: 'Zoom In',
+    zoomOut: 'Zoom Out',
+    fitToScreen: 'Fit to Screen',
+    undo: 'Undo',
+    redo: 'Redo',
+    export: 'Export as Image',
+  },
+  elements: {
+    notFound: 'Element not found',
+    delete: 'Delete',
+    duplicate: 'Duplicate',
+    bringToFront: 'Bring to Front',
+    sendToBack: 'Send to Back',
+    editText: 'Edit Text',
+  },
+  collaborators: {
+    notFound: 'Collaborator not found',
+    inviteSubject: 'You have been invited to a whiteboard',
+    inviteBody: 'Join the whiteboard: {{title}}',
+    permission: {
+      view: 'Can view',
+      edit: 'Can edit',
+    },
+  },
+}

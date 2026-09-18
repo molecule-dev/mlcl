@@ -1,0 +1,9 @@
+[
+  { "id": "tb_001", "filing_status": "single", "min_income": 0,        "max_income": 11600,    "rate": 10, "year": 2026 },
+  { "id": "tb_002", "filing_status": "single", "min_income": 11600,    "max_income": 47150,    "rate": 12, "year": 2026 },
+  { "id": "tb_003", "filing_status": "single", "min_income": 47150,    "max_income": 100525,   "rate": 22, "year": 2026 },
+  { "id": "tb_004", "filing_status": "single", "min_income": 100525,   "max_income": 191950,   "rate": 24, "year": 2026 },
+  { "id": "tb_005", "filing_status": "single", "min_income": 191950,   "max_income": 243725,   "rate": 32, "year": 2026 },
+  { "id": "tb_006", "filing_status": "single", "min_income": 243725,   "max_income": 609350,   "rate": 35, "year": 2026 },
+  { "id": "tb_007", "filing_status": "single", "min_income": 609350,   "max_income": null,     "rate": 37, "year": 2026 }
+]

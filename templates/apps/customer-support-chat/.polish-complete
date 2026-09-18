@@ -1,0 +1,15 @@
+polished: 2026-04-28
+brand: Parlance — empathetic customer-support workspace
+palette: violet (#635bff) primary + cyan (#06b6d4) accent, light + dark
+fonts: Inter + JetBrains Mono + Material Symbols Outlined
+chrome: AppHeader, AppFooter, RootErrorBoundary (sweep-1 conformed)
+bespoke components: 8 (InboxHeroCard, StatusPill, KpiStatCard,
+  ConversationListItem, ChatBubble, CustomerProfilePanel, InboxLayout,
+  AuthShell)
+auth shell: branded gradient + sample chat preview
+pages rewritten: Landing, Inbox, ConversationDetail, Contacts, ContactDetail,
+  Reports, Automations, Settings, Notifications, NotFound, Login, Signup,
+  ForgotPassword, ResetPassword
+tsc --noEmit: 0 app-side errors
+classmap-coverage: 95.84% (threshold 90%)
+check-rules-compliance: clean (276 files, 0 issues)

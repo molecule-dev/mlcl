@@ -1,0 +1,41 @@
+[
+  {
+    "version": "3.2.0", "released_at": "2026-04-22T09:00:00Z",
+    "entries": [
+      { "kind": "added",      "text": "PATCH /v3/transactions/{id} for partial updates." },
+      { "kind": "added",      "text": "X-Environment header now accepted on all endpoints." },
+      { "kind": "changed",    "text": "Default page size raised from 20 to 25." },
+      { "kind": "deprecated", "text": "GET /v2/search (will be removed in v4)." }
+    ]
+  },
+  {
+    "version": "3.1.4", "released_at": "2026-03-18T14:00:00Z",
+    "entries": [
+      { "kind": "fixed",      "text": "Webhook signature verification accepts trailing-newline payloads correctly." },
+      { "kind": "fixed",      "text": "Account listing returns deterministic order under heavy concurrent writes." }
+    ]
+  },
+  {
+    "version": "3.1.3", "released_at": "2026-02-12T11:00:00Z",
+    "entries": [
+      { "kind": "added",      "text": "Idempotency-Key header support on POST /v3/transactions." },
+      { "kind": "fixed",      "text": "404 response format now consistent across all resources." }
+    ]
+  },
+  {
+    "version": "3.1.0", "released_at": "2025-11-08T12:00:00Z",
+    "entries": [
+      { "kind": "added",      "text": "Webhook subscriptions endpoint (POST /v3/webhooks)." },
+      { "kind": "added",      "text": "Bulk-create on POST /v3/accounts (max 100 per request)." },
+      { "kind": "removed",    "text": "Removed deprecated /v1/* endpoints (deprecated since 2024-06)." }
+    ]
+  },
+  {
+    "version": "3.0.0", "released_at": "2025-08-04T10:00:00Z",
+    "entries": [
+      { "kind": "changed",    "text": "Major version. Authentication moved to bearer tokens (was basic auth)." },
+      { "kind": "changed",    "text": "All amounts use *_cents suffix (was *_amount, mixed cents/dollars)." },
+      { "kind": "removed",    "text": "Removed /v2/exports — superseded by /v3/exports." }
+    ]
+  }
+]

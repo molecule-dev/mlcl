@@ -1,0 +1,10 @@
+Polish complete: 2026-04-29T22:50:00Z
+Pipeline: polish-app.mjs operating manual (autonomous polish session)
+Cluster: content-social → sibling: photo-sharing (gradient hero + masonry + auth pattern)
+Components: 6 bespoke (SocialMediaLayout, AuthBrandHeader, StoryRail, PostCard, SuggestionsRail, ProfileHeaderCard)
+Sweep 1 chrome: AppHeader + AppFooter + RootErrorBoundary delegated
+Pages rewritten: Landing, Feed, Profile, Explore, Login, Signup, ForgotPassword, ResetPassword, Pricing
+Pages added: PostDetail, Messages, Notifications, Settings, Search, NotFound
+Screen-map coverage: 14/14 routes wired through SocialMediaLayout + AuthGuard
+Typecheck: clean (tsc --noEmit)
+Compliance: clean (check-rules-compliance.mjs)

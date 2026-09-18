@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ntf-01",
+    "type": "reply",
+    "actor_username": "grace.hopper",
+    "actor_avatar_url": "https://i.pravatar.cc/96?u=grace",
+    "title": "Grace replied to your thread",
+    "snippet": "The cleanest fix is to make the helper a generic and pass the narrowed type through.",
+    "thread_id": "thr-01",
+    "is_read": false,
+    "created_at": "2026-04-27T14:48:00Z"
+  },
+  {
+    "id": "ntf-02",
+    "type": "mention",
+    "actor_username": "linus.torvalds",
+    "actor_avatar_url": "https://i.pravatar.cc/96?u=linus",
+    "title": "Linus mentioned you",
+    "snippet": "@you might have a strong opinion on barrel files.",
+    "thread_id": "thr-03",
+    "is_read": false,
+    "created_at": "2026-04-27T13:14:00Z"
+  },
+  {
+    "id": "ntf-03",
+    "type": "milestone",
+    "actor_username": null,
+    "actor_avatar_url": null,
+    "title": "You reached 10,000 karma",
+    "snippet": "Welcome to Veteran tier. Thanks for sticking around.",
+    "thread_id": null,
+    "is_read": true,
+    "created_at": "2026-04-26T09:30:00Z"
+  },
+  {
+    "id": "ntf-04",
+    "type": "award",
+    "actor_username": "margaret.hamilton",
+    "actor_avatar_url": "https://i.pravatar.cc/96?u=margaret",
+    "title": "Margaret awarded your comment",
+    "snippet": "Insightful — +250 karma.",
+    "thread_id": "thr-04",
+    "is_read": true,
+    "created_at": "2026-04-25T18:02:00Z"
+  },
+  {
+    "id": "ntf-05",
+    "type": "mod",
+    "actor_username": "agora-mods",
+    "actor_avatar_url": "https://i.pravatar.cc/96?u=agora",
+    "title": "Your thread was approved",
+    "snippet": "Reviewed by mod-team. Thanks for following community rules.",
+    "thread_id": "thr-02",
+    "is_read": true,
+    "created_at": "2026-04-25T11:00:00Z"
+  }
+]

@@ -1,0 +1,191 @@
+:root,
+[data-mol-mode='light'] {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #a78bfa;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #c026d3;
+  --mol-color-secondary-light: #e879f9;
+  --mol-color-secondary-dark: #9a1aab;
+  --mol-color-background: #faf5ff;
+  --mol-color-background-secondary: #f3e8ff;
+  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf5ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #4c1d95;
+  --mol-color-text-tertiary: #8b5cf6;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e9d5ff;
+  --mol-color-border-secondary: #ddd6fe;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f97316;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #0891b2;
+
+  /* Stitch / Material-3 bridge tokens — light mode */
+  --color-background: #faf5ff;
+  --color-on-background: #1e1b4b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e9d5ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf5ff;
+  --color-surface-container: #f3e8ff;
+  --color-surface-container-high: #ede9fe;
+  --color-surface-container-highest: #e9d5ff;
+  --color-surface-variant: #f3e8ff;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #4c1d95;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #faf5ff;
+  --color-inverse-primary: #a78bfa;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #2e1065;
+  --color-secondary: #c026d3;
+  --color-secondary-container: #fce7ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #4a0050;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #451a03;
+  --color-error: #ef4444;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #5a1818;
+  --color-outline: #8b5cf6;
+  --color-outline-variant: #e9d5ff;
+  --color-surface-tint: #7c3aed;
+
+  /* Legacy app-specific aliases (kept for inline-style compat) */
+  --color-primary-light: #a78bfa;
+  --color-primary-dark: #5b21b6;
+  --color-secondary-light: #e879f9;
+  --color-accent: #f59e0b;
+  --color-danger: #ef4444;
+  --color-warning: #f97316;
+  --color-success: #10b981;
+  --color-surface-alt: #f3e8ff;
+  --color-text: #1e1b4b;
+  --color-text-secondary: #4c1d95;
+  --color-text-muted: #8b5cf6;
+  --color-border: #e9d5ff;
+  --color-border-active: #7c3aed;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (civic clean).
+   Violet primary brightened for dark readability; on-primary stays white
+   so CTA buttons keep white text on violet. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #a78bfa;
+  --mol-color-primary-light: #c4b5fd;
+  --mol-color-primary-dark: #7c3aed;
+  --mol-color-secondary: #e879f9;
+  --mol-color-secondary-light: #f0abfc;
+  --mol-color-secondary-dark: #c026d3;
+  --mol-color-background: #0c0a1f;
+  --mol-color-background-secondary: #181232;
+  --mol-color-background-tertiary: #241845;
+  --mol-color-surface: #181232;
+  --mol-color-surface-secondary: #241845;
+  --mol-color-input-background: #0c0a1f;
+  --mol-color-text: #f5f3ff;
+  --mol-color-text-secondary: #d8cbff;
+  --mol-color-text-tertiary: #a78bfa;
+  --mol-color-text-inverse: #0c0a1f;
+  --mol-color-border: #3b2c6c;
+  --mol-color-border-secondary: #4d3a8a;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fb923c;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #0c0a1f;
+  --color-on-background: #f5f3ff;
+  --color-surface: #181232;
+  --color-surface-bright: #2d2060;
+  --color-surface-dim: #060412;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #110d28;
+  --color-surface-container: #181232;
+  --color-surface-container-high: #241845;
+  --color-surface-container-highest: #3b2c6c;
+  --color-surface-variant: #241845;
+  --color-on-surface: #f5f3ff;
+  --color-on-surface-variant: #d8cbff;
+  --color-inverse-surface: #f5f3ff;
+  --color-inverse-on-surface: #0c0a1f;
+  --color-inverse-primary: #7c3aed;
+  --color-primary: #a78bfa; /* brightened violet for dark */
+  --color-primary-container: #3b1f80;
+  --color-on-primary: #1a0050; /* dark on bright-violet — #ffffff was 2.72:1 (fail); #1a0050 = 6.65:1 */
+  --color-on-primary-container: #e9d5ff;
+  --color-secondary: #e879f9;
+  --color-secondary-container: #4a0050;
+  --color-on-secondary: #2a0050; /* dark on bright-pink — #ffffff was 2.46:1 (fail); #2a0050 = 7.03:1 */
+  --color-on-secondary-container: #fce7ff;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #451a03;
+  --color-on-tertiary: #3a1a00; /* dark on amber — #ffffff was 1.67:1 (fail); #3a1a00 = 9.48:1 */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6d5da8;
+  --color-outline-variant: #3b2c6c;
+  --color-surface-tint: #a78bfa;
+
+  /* Legacy app-specific aliases */
+  --color-primary: #a78bfa;
+  --color-primary-light: #c4b5fd;
+  --color-primary-dark: #7c3aed;
+  --color-secondary: #e879f9;
+  --color-secondary-light: #f0abfc;
+  --color-accent: #fbbf24;
+  --color-danger: #f87171;
+  --color-warning: #fb923c;
+  --color-success: #34d399;
+  --color-surface-alt: #241845;
+  --color-text: #f5f3ff;
+  --color-text-secondary: #d8cbff;
+  --color-text-muted: #a78bfa;
+  --color-border: #3b2c6c;
+  --color-border-active: #a78bfa;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}

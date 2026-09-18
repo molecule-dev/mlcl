@@ -1,0 +1,169 @@
+{
+  "app": "crowdfunding",
+  "designProjectId": "2299941445788521287",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-landing.html",
+      "designScreenId": "fba258cbacb84977abb588b20b4378a8"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-login.html",
+      "designScreenId": "583db3a06070485dbe4ab4ecbb441e1c"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crowdfunding-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crowdfunding-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crowdfunding-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Discover",
+      "templateFile": "app/pages/Discover.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/discover",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-discover.html",
+      "designScreenId": "67f199ddb6e14f558a70a089a836e753"
+    },
+    {
+      "name": "CampaignDetail",
+      "templateFile": "app/pages/CampaignDetail.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/campaign/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-campaign-detail.html",
+      "designScreenId": "706759f5f1ae4a12a8d02c4cb52df54c"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-dashboard.html",
+      "designScreenId": "e714dcfcc1344b99a655e6d6b6be3cff"
+    },
+    {
+      "name": "CampaignEditor",
+      "templateFile": "app/pages/CampaignEditor.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/campaign/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-campaign-editor.html",
+      "designScreenId": "a9251325d56e47d5b302af53ec941c77"
+    },
+    {
+      "name": "Backers",
+      "templateFile": "app/pages/Backers.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/backers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-backers.html",
+      "designScreenId": "22e7a1b002c3492e8a9e75d8825febb6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-settings.html",
+      "designScreenId": "f0b28283fd614b64b61d40857dcb67fa"
+    },
+    {
+      "name": "MyPledges",
+      "templateFile": "app/pages/MyPledges.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/my-pledges",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-my-pledges.html",
+      "designScreenId": "4bb030427e104acb86f500ea56f47d87"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/profile/:userId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-profile.html",
+      "designScreenId": "0c972297d8754e0db06c996c5d8031d9"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-notifications.html",
+      "designScreenId": "be9a32d2521e4864a0ee68b7fd4e615d"
+    },
+    {
+      "name": "PledgeCheckout",
+      "templateFile": "app/pages/PledgeCheckout.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/campaign/:id/pledge",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-pledge-checkout.html",
+      "designScreenId": "7014df07583243638fa1f05786ebb74c"
+    },
+    {
+      "name": "CampaignManage",
+      "templateFile": "app/pages/CampaignManage.tsx",
+      "components": ["app/components/CreatorSidebarLayout.tsx"],
+      "route": "/campaign/:id/manage",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crowdfunding-campaign-manage.html",
+      "designScreenId": "4d0d8eb439ab4efe9a459d1f7db3789b"
+    }
+  ]
+}

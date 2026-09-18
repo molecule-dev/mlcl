@@ -1,0 +1,9 @@
+[
+  { "id": "ntf_001", "type": "streak_at_risk", "title": "47-day streak runs out tonight",        "body": "Daily review goal: 32/50 done. 18 cards still due.",       "href": "/dashboard",      "created_at": "2026-04-26T18:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "milestone",      "title": "GRE vocabulary hit 80% retention",       "body": "Your hardest deck just crossed the threshold.",            "href": "/decks/dck_004",  "created_at": "2026-04-26T08:30:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "reminder",       "title": "Daily review — 14 cards due",            "body": "Five-minute session, then the day is yours.",              "href": "/dashboard",      "created_at": "2026-04-26T08:00:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "deck_shared",    "title": "Mira shared 'Greek roots — etymology'",  "body": "157 cards. Accept to add to your library.",                 "href": "/decks",          "created_at": "2026-04-25T14:32:00Z", "unread": false },
+  { "id": "ntf_005", "type": "milestone",      "title": "200 days using Engram",                  "body": "You've reviewed 4,832 cards across 10 decks.",              "href": "/stats",          "created_at": "2026-04-22T08:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "streak_broken",  "title": "Music theory streak ended at 12 days",   "body": "No worries. The cards are all still there.",                "href": "/decks/dck_007",  "created_at": "2026-04-21T23:59:00Z", "unread": false },
+  { "id": "ntf_007", "type": "system_message", "title": "Welcome to Engram",                      "body": "Start with a deck. Five cards per day, every day, beats fifty cards once a week.", "href": "/decks", "created_at": "2025-09-01T10:00:00Z", "unread": false }
+]

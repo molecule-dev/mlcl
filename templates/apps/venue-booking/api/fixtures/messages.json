@@ -1,0 +1,54 @@
+[
+  {
+    "id": "m_001",
+    "venue_id": "v_aerie",
+    "venue_name": "The Aerie Loft",
+    "venue_thumbnail_url": "https://picsum.photos/seed/alcove-aerie/1200/900",
+    "host_id": "h_maya",
+    "host_name": "Maya",
+    "host_avatar_url": "https://picsum.photos/seed/alcove-host-maya/200/200",
+    "last_message": "Sounds great — I'll have the freight elevator unlocked from 14:30 onward.",
+    "last_message_at_iso": "2026-04-28T17:42:00Z",
+    "unread_count": 2,
+    "tags": ["upcoming"]
+  },
+  {
+    "id": "m_002",
+    "venue_id": "v_garden",
+    "venue_name": "Hillstead Garden",
+    "venue_thumbnail_url": "https://picsum.photos/seed/alcove-garden/1200/900",
+    "host_id": "h_owen",
+    "host_name": "Owen",
+    "host_avatar_url": "https://picsum.photos/seed/alcove-host-owen/200/200",
+    "last_message": "Catering can pull power from the south outlet — circuit chart attached.",
+    "last_message_at_iso": "2026-04-26T11:08:00Z",
+    "unread_count": 0,
+    "tags": ["upcoming"]
+  },
+  {
+    "id": "m_003",
+    "venue_id": "v_studio",
+    "venue_name": "Casa Sun Studio",
+    "venue_thumbnail_url": "https://picsum.photos/seed/alcove-studio/1200/900",
+    "host_id": "h_jules",
+    "host_name": "Jules",
+    "host_avatar_url": "https://picsum.photos/seed/alcove-host-jules/200/200",
+    "last_message": "Your invoice is on the way — thanks again for working around the cyc cleanup.",
+    "last_message_at_iso": "2026-04-19T10:14:00Z",
+    "unread_count": 0,
+    "tags": ["completed"]
+  },
+  {
+    "id": "m_004",
+    "venue_id": "v_rooftop",
+    "venue_name": "Lantern Rooftop",
+    "venue_thumbnail_url": "https://picsum.photos/seed/alcove-rooftop/1200/900",
+    "host_id": "h_priya",
+    "host_name": "Priya",
+    "host_avatar_url": "https://picsum.photos/seed/alcove-host-priya/200/200",
+    "last_message": "Confirmed — you're on the books for May 14.",
+    "last_message_at_iso": "2026-04-15T15:29:00Z",
+    "unread_count": 1,
+    "tags": ["upcoming"]
+  }
+]

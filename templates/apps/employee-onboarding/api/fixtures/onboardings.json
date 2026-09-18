@@ -1,0 +1,55 @@
+[
+  {
+    "id": "ob01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "employee_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "template_id": "tpl01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "start_date": "2026-04-15T00:00:00Z",
+    "status": "active",
+    "buddy_id": "buddy01-7957-4874-f1b9-0865f9ed8c08",
+    "manager_id": "mgr001ab-7957-4874-f1b9-0865f9ed8c09",
+    "tasks": [
+      {
+        "id": "tsk01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+        "onboarding_id": "ob01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+        "title": "Sign your offer letter",
+        "description": "Counter-sign the offer letter and upload it to your employee record.",
+        "category": "documents",
+        "due_date": "2026-04-21T17:00:00Z",
+        "status": "complete",
+        "position": 1
+      },
+      {
+        "id": "tsk02b3c4-5d6e-4f7a-b8c9-d0e1f2a3b4c5",
+        "onboarding_id": "ob01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+        "title": "Set up your laptop & SSO",
+        "description": "Install the security profile, enable MFA, and join the company SSO.",
+        "category": "general",
+        "due_date": "2026-04-29T17:00:00Z",
+        "status": "in_progress",
+        "position": 2
+      },
+      {
+        "id": "tsk03c4d5-6e7f-4a8b-c9d0-e1f2a3b4c5d6",
+        "onboarding_id": "ob01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+        "title": "Coffee chat with your buddy",
+        "description": "Tue 10:00 AM — meet Devon Reeves, your assigned onboarding buddy.",
+        "category": "people",
+        "due_date": "2026-05-05T15:00:00Z",
+        "status": "pending",
+        "position": 3
+      },
+      {
+        "id": "tsk04d5e6-7f8a-4b9c-d0e1-f2a3b4c5d6e7",
+        "onboarding_id": "ob01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+        "title": "Complete handbook acknowledgement",
+        "description": "Read the employee handbook and sign the acknowledgement form.",
+        "category": "documents",
+        "due_date": "2026-05-08T17:00:00Z",
+        "status": "pending",
+        "position": 4
+      }
+    ],
+    "created_at": "2026-04-10T09:00:00Z",
+    "updated_at": "2026-04-29T11:30:00Z"
+  }
+]

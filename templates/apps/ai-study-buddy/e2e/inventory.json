@@ -1,0 +1,1659 @@
+{
+  "slug": "ai-study-buddy",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-billing",
+      "path": "/billing",
+      "component": "Billing",
+      "file": "app/src/pages/Billing.tsx"
+    },
+    {
+      "id": "page-courses",
+      "path": "/courses",
+      "component": "Courses",
+      "file": "app/src/pages/Courses.tsx"
+    },
+    {
+      "id": "page-coursedetail",
+      "path": "/courses/:id",
+      "component": "CourseDetail",
+      "file": "app/src/pages/CourseDetail.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-flashcards",
+      "path": "/flashcards",
+      "component": "Flashcards",
+      "file": "app/src/pages/Flashcards.tsx"
+    },
+    {
+      "id": "page-deckdetail",
+      "path": "/flashcards/:id",
+      "component": "DeckDetail",
+      "file": "app/src/pages/DeckDetail.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-profile",
+      "path": "/profile",
+      "component": "Profile",
+      "file": "app/src/pages/Profile.tsx"
+    },
+    {
+      "id": "page-progress",
+      "path": "/progress",
+      "component": "Progress",
+      "file": "app/src/pages/Progress.tsx"
+    },
+    {
+      "id": "page-quiz",
+      "path": "/quiz/:id",
+      "component": "Quiz",
+      "file": "app/src/pages/Quiz.tsx"
+    },
+    {
+      "id": "page-quizresults",
+      "path": "/quiz/:id/results",
+      "component": "QuizResults",
+      "file": "app/src/pages/QuizResults.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-search",
+      "path": "/search",
+      "component": "Search",
+      "file": "app/src/pages/Search.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-studysession",
+      "path": "/study/:id",
+      "component": "StudySession",
+      "file": "app/src/pages/StudySession.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-footer-40-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Footer.tsx",
+      "line": 40,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-footer-46-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Footer.tsx",
+      "line": 46,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-footer-52-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Footer.tsx",
+      "line": 52,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reviewqueuecard-71",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ReviewQueueCard.tsx",
+      "line": 71,
+      "label": "link at app/src/components/ReviewQueueCard.tsx:71",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-safelink-22",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SafeLink.tsx",
+      "line": 22,
+      "label": "link at app/src/components/SafeLink.tsx:22",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-subjectcard-113",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SubjectCard.tsx",
+      "line": 113,
+      "label": "link at app/src/components/SubjectCard.tsx:113",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-billing-131-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 131,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-203",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 203,
+      "label": "button at app/src/pages/Billing.tsx:203",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-109-play-arrow-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 109,
+      "label": "play_arrow , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-courses-132-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 132,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-courses-161",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 161,
+      "label": "input at app/src/pages/Courses.tsx:161",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-courses-175",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 175,
+      "label": "textarea at app/src/pages/Courses.tsx:175",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-courses-189-------t-courses-crea",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 189,
+      "label": ", ) : t(courses.create, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-courses-208",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 208,
+      "label": "link at app/src/pages/Courses.tsx:208",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-179-notifications",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 179,
+      "label": "notifications",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-268-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 268,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-309-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 309,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deckdetail-118-------t-deckdetail-a",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 118,
+      "label": ", ) : t(deckDetail.addCard, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckdetail-127-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 127,
+      "label": ", )}",
+      "href": "/flashcards",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-deckdetail-143",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 143,
+      "label": "textarea at app/src/pages/DeckDetail.tsx:143",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-deckdetail-154",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 154,
+      "label": "textarea at app/src/pages/DeckDetail.tsx:154",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deckdetail-166-------t-deckdetail-a",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 166,
+      "label": ", ) : t(deckDetail.addSubmit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deckdetail-216--flipped---t-deckdet",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 216,
+      "label": "{flipped ? t(deckDetail.answer,",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deckdetail-253",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 253,
+      "label": "button at app/src/pages/DeckDetail.tsx:253",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-flashcards-81-add-------t-flashcar",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Flashcards.tsx",
+      "line": 81,
+      "label": "add , ) : t(flashcards.create, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-flashcards-105",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Flashcards.tsx",
+      "line": 105,
+      "label": "input at app/src/pages/Flashcards.tsx:105",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-flashcards-120-------t-flashcards-c",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Flashcards.tsx",
+      "line": 120,
+      "label": ", ) : t(flashcards.createSubmit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-flashcards-153--div-classname----ro",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Flashcards.tsx",
+      "line": 153,
+      "label": "<div className=), rounde",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-62-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 62,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-98",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 98,
+      "label": "input at app/src/pages/ForgotPassword.tsx:98",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-123-------t-forgotpasswo",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 123,
+      "label": ", ) : t(forgotPassword.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-137-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 137,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-77-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 77,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-84-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-117-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 117,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-124-play-circle-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 124,
+      "label": "play_circle , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-60",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 60,
+      "label": "input at app/src/pages/Login.tsx:60",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-84-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": "/forgot-password",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-92",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 92,
+      "label": "input at app/src/pages/Login.tsx:92",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-103",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 103,
+      "label": "button at app/src/pages/Login.tsx:103",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-131-------t-login-submit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 131,
+      "label": ", ) : t(login.submit, , )} {isLoggingIn ? null : (",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-152-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 152,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-47-dashboard-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 47,
+      "label": "dashboard , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-56-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 56,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-130-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 130,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-142-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 142,
+      "label": ", , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-193-done",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 193,
+      "label": "done",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-28-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 28,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-29-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 29,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-quiz-157",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Quiz.tsx",
+      "line": 157,
+      "label": "button at app/src/pages/Quiz.tsx:157",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-quiz-185-arrow-back-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Quiz.tsx",
+      "line": 185,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-quiz-195-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Quiz.tsx",
+      "line": 195,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-quiz-205----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Quiz.tsx",
+      "line": 205,
+      "label": ", )",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-quiz-224-flag-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Quiz.tsx",
+      "line": 224,
+      "label": "flag , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-quizresults-102-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/QuizResults.tsx",
+      "line": 102,
+      "label": ", )}",
+      "href": "/quiz/${id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-119-------t-resetpasswor",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 119,
+      "label": ", ) : t(resetPassword.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-133-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 133,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-165",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 165,
+      "label": "input at app/src/pages/ResetPassword.tsx:165",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-205",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 205,
+      "label": "input at app/src/pages/ResetPassword.tsx:205",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-218",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 218,
+      "label": "button at app/src/pages/ResetPassword.tsx:218",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-search-119",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Search.tsx",
+      "line": 119,
+      "label": "input at app/src/pages/Search.tsx:119",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-search-128-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Search.tsx",
+      "line": 128,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-search-144-------type-label-opt",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Search.tsx",
+      "line": 144,
+      "label": ", ) : TYPE_LABEL(opt as SearchResult[type])}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-search-174--h3-classname--cm-cn",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Search.tsx",
+      "line": 174,
+      "label": "<h3 className={cm.cn(cm.textSize(lg), cm.fontWeight(bold), t",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-141-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 141,
+      "label": ", , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-183-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 183,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-191-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 191,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-229",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 229,
+      "label": "input at app/src/pages/Settings.tsx:229",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-260",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 260,
+      "label": "input at app/src/pages/Settings.tsx:260",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-294",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 294,
+      "label": "input at app/src/pages/Settings.tsx:294",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-336",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 336,
+      "label": "input at app/src/pages/Settings.tsx:336",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-375",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 375,
+      "label": "button at app/src/pages/Settings.tsx:375",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-88",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 88,
+      "label": "input at app/src/pages/Signup.tsx:88",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-100",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 100,
+      "label": "button at app/src/pages/Signup.tsx:100",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-128-------t-signup-submi",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 128,
+      "label": ", ) : t(signup.submit, , )} {isSign",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-149-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 149,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-185",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 185,
+      "label": "input at app/src/pages/Signup.tsx:185",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-studysession-181-------marking---t-st",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/StudySession.tsx",
+      "line": 181,
+      "label": ", ) : marking ? t(studySession.marking, , ) : t(studySession",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-studysession-301",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/StudySession.tsx",
+      "line": 301,
+      "label": "input at app/src/pages/StudySession.tsx:301",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-studysession-310-arrow-upward",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/StudySession.tsx",
+      "line": 310,
+      "label": "arrow_upward",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-courses-153",
+      "file": "app/src/pages/Courses.tsx",
+      "line": 153,
+      "label": "form at app/src/pages/Courses.tsx:153",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-deckdetail-136",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 136,
+      "label": "form at app/src/pages/DeckDetail.tsx:136",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "card-front",
+          "type": "text"
+        },
+        {
+          "name": "card-back",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "form-flashcards-97",
+      "file": "app/src/pages/Flashcards.tsx",
+      "line": 97,
+      "label": "form at app/src/pages/Flashcards.tsx:97",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-86",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 86,
+      "label": "form at app/src/pages/ForgotPassword.tsx:86",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-47",
+      "file": "app/src/pages/Login.tsx",
+      "line": 47,
+      "label": "form at app/src/pages/Login.tsx:47",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-54",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 54,
+      "label": "form at app/src/pages/ResetPassword.tsx:54",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-search-99",
+      "file": "app/src/pages/Search.tsx",
+      "line": 99,
+      "label": "form at app/src/pages/Search.tsx:99",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-signup-48",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 48,
+      "label": "form at app/src/pages/Signup.tsx:48",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-studysession-297",
+      "file": "app/src/pages/StudySession.tsx",
+      "line": 297,
+      "label": "form at app/src/pages/StudySession.tsx:297",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-decks--id",
+      "method": "DELETE",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 182,
+      "resource": "decks"
+    },
+    {
+      "id": "route-delete-decks--id-cards--cardid",
+      "method": "DELETE",
+      "mountedPath": "/decks/:id/cards/:cardId",
+      "rawPath": "/:id/cards/:cardId",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 313,
+      "resource": "decks"
+    },
+    {
+      "id": "route-delete-notifications--id",
+      "method": "DELETE",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 129,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-delete-quizzes--id",
+      "method": "DELETE",
+      "mountedPath": "/quizzes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 182,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-delete-topics--id",
+      "method": "DELETE",
+      "mountedPath": "/topics/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 197,
+      "resource": "topics"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-summary",
+      "method": "GET",
+      "mountedPath": "/billing/summary",
+      "rawPath": "/summary",
+      "handlerFile": "api/src/handlers/billing.ts",
+      "line": 43,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-dashboard-",
+      "method": "GET",
+      "mountedPath": "/dashboard",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/dashboard.ts",
+      "line": 63,
+      "resource": "dashboard"
+    },
+    {
+      "id": "route-get-decks-",
+      "method": "GET",
+      "mountedPath": "/decks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 55,
+      "resource": "decks"
+    },
+    {
+      "id": "route-get-decks--id",
+      "method": "GET",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 103,
+      "resource": "decks"
+    },
+    {
+      "id": "route-get-decks--id-cards",
+      "method": "GET",
+      "mountedPath": "/decks/:id/cards",
+      "rawPath": "/:id/cards",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 213,
+      "resource": "decks"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 35,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-profile-",
+      "method": "GET",
+      "mountedPath": "/profile",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 52,
+      "resource": "profile"
+    },
+    {
+      "id": "route-get-progress-",
+      "method": "GET",
+      "mountedPath": "/progress",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/progress.ts",
+      "line": 44,
+      "resource": "progress"
+    },
+    {
+      "id": "route-get-quizzes-",
+      "method": "GET",
+      "mountedPath": "/quizzes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 70,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-get-quizzes--id",
+      "method": "GET",
+      "mountedPath": "/quizzes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 95,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-get-quizzes--id-attempts",
+      "method": "GET",
+      "mountedPath": "/quizzes/:id/attempts",
+      "rawPath": "/:id/attempts",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 498,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-get-search-",
+      "method": "GET",
+      "mountedPath": "/search",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/search.ts",
+      "line": 49,
+      "resource": "search"
+    },
+    {
+      "id": "route-get-topics-",
+      "method": "GET",
+      "mountedPath": "/topics",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 68,
+      "resource": "topics"
+    },
+    {
+      "id": "route-get-topics--id",
+      "method": "GET",
+      "mountedPath": "/topics/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 94,
+      "resource": "topics"
+    },
+    {
+      "id": "route-get-topics--id-materials",
+      "method": "GET",
+      "mountedPath": "/topics/:id/materials",
+      "rawPath": "/:id/materials",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 232,
+      "resource": "topics"
+    },
+    {
+      "id": "route-patch-decks--id",
+      "method": "PATCH",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 156,
+      "resource": "decks"
+    },
+    {
+      "id": "route-patch-decks--id-cards--cardid",
+      "method": "PATCH",
+      "mountedPath": "/decks/:id/cards/:cardId",
+      "rawPath": "/:id/cards/:cardId",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 285,
+      "resource": "decks"
+    },
+    {
+      "id": "route-patch-quizzes--id",
+      "method": "PATCH",
+      "mountedPath": "/quizzes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 156,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-patch-topics--id",
+      "method": "PATCH",
+      "mountedPath": "/topics/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 145,
+      "resource": "topics"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-decks-",
+      "method": "POST",
+      "mountedPath": "/decks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 130,
+      "resource": "decks"
+    },
+    {
+      "id": "route-post-decks--id-cards",
+      "method": "POST",
+      "mountedPath": "/decks/:id/cards",
+      "rawPath": "/:id/cards",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 240,
+      "resource": "decks"
+    },
+    {
+      "id": "route-post-decks--id-cards--cardid-review",
+      "method": "POST",
+      "mountedPath": "/decks/:id/cards/:cardId/review",
+      "rawPath": "/:id/cards/:cardId/review",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 340,
+      "resource": "decks"
+    },
+    {
+      "id": "route-post-notifications-",
+      "method": "POST",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 66,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-notifications--id-read",
+      "method": "POST",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 90,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-notifications-read-all",
+      "method": "POST",
+      "mountedPath": "/notifications/read-all",
+      "rawPath": "/read-all",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 107,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-quizzes-",
+      "method": "POST",
+      "mountedPath": "/quizzes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 121,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-post-quizzes--id-submit",
+      "method": "POST",
+      "mountedPath": "/quizzes/:id/submit",
+      "rawPath": "/:id/submit",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 374,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-post-quizzes-generate",
+      "method": "POST",
+      "mountedPath": "/quizzes/generate",
+      "rawPath": "/generate",
+      "handlerFile": "api/src/handlers/quizzes.ts",
+      "line": 214,
+      "resource": "quizzes"
+    },
+    {
+      "id": "route-post-topics-",
+      "method": "POST",
+      "mountedPath": "/topics",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 116,
+      "resource": "topics"
+    },
+    {
+      "id": "route-post-topics--id-ask",
+      "method": "POST",
+      "mountedPath": "/topics/:id/ask",
+      "rawPath": "/:id/ask",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 300,
+      "resource": "topics"
+    },
+    {
+      "id": "route-post-topics--id-materials",
+      "method": "POST",
+      "mountedPath": "/topics/:id/materials",
+      "rawPath": "/:id/materials",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 261,
+      "resource": "topics"
+    },
+    {
+      "id": "route-put-topics--id",
+      "method": "PUT",
+      "mountedPath": "/topics/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/topics.ts",
+      "line": 171,
+      "resource": "topics"
+    }
+  ],
+  "totals": {
+    "pages": 23,
+    "elements": 93,
+    "forms": 11,
+    "routes": 41
+  }
+}

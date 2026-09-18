@@ -1,0 +1,85 @@
+{
+  "label": "Itinerary Planner",
+  "description": "TripIt-like trip planner with itineraries, activities, maps, collaboration, and sharing — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-permissions-custom",
+    "@molecule/app-maps",
+    "@molecule/app-calendar",
+    "@molecule/app-drag-drop",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-gallery",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Itinerary Planner"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for trip photos",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for sharing invites",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_ITINERARY_PLANNER_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_ITINERARY_PLANNER_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_ITINERARY_PLANNER_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_ITINERARY_PLANNER_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "maps",
+    "collaboration",
+    "sharing",
+    "subscriptions"
+  ]
+}

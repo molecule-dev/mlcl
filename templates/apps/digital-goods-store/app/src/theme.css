@@ -1,0 +1,250 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #e05a2d;
+  --mol-color-primary-light: #fff1ec;
+  --mol-color-primary-dark: #c24a22;
+  --mol-color-secondary: #1e1b4b;
+  --mol-color-background: #faf9f7;
+  --mol-color-background-secondary: #fffbf8;
+  --mol-color-background-tertiary: #f5f3ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf9f7;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a1a;
+  --mol-color-text-secondary: #57534e;
+  --mol-color-text-tertiary: #a8a29e;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e8e4df;
+  --mol-color-border-secondary: #d4cdc6;
+  --mol-color-border-focus: #e05a2d;
+  --mol-color-success: #15803d; /* was #16a34a (3.3:1 on white as 12px delta text); green-700 = 5.0:1 */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0d9488;
+
+  /* === Material-3 light tokens === */
+  --color-background: #faf9f7;
+  --color-on-background: #1a1a1a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f0ece7;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf9f7;
+  --color-surface-container: #f5f0eb;
+  --color-surface-container-high: #efe9e3;
+  --color-surface-container-highest: #e8e4df;
+  --color-surface-variant: #f5f3ff;
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #57534e;
+  --color-inverse-surface: #1a1a1a;
+  --color-inverse-on-surface: #faf9f7;
+  --color-inverse-primary: #f48c6a;
+  --color-on-primary: #2d0f00; /* 4.81:1 on #e05a2d light primary */
+  --color-primary-container: #fff1ec;
+  --color-on-primary-container: #5c1a06;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e8e6ff;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #16a34a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #dcfce7;
+  --color-on-tertiary-container: #14532d;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #a8a29e;
+  --color-outline-variant: #e8e4df;
+  --color-surface-tint: #e05a2d;
+
+  /* Brand — warm orange + violet (Trove indie-creator marketplace) */
+  --color-primary: #e05a2d;
+  --color-primary-hover: #c24a22;
+  --color-primary-light: #fff1ec;
+  --color-secondary: #1e1b4b;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-light: #f3f0ff;
+
+  /* Semantic */
+  --color-success: #15803d; /* see --mol-color-success */
+  --color-success-light: #dcfce7;
+  --color-warning: #f59e0b;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #0d9488;
+  --color-info-light: #ccfbf1;
+
+  /* Surfaces */
+  --color-bg: #faf9f7;
+  --color-bg-secondary: #fffbf8;
+  --color-bg-tertiary: #f5f3ff;
+  --color-surface: #ffffff;
+  --color-surface-hover: #faf9f7;
+  --color-border: #e8e4df;
+  --color-border-light: #f3f0ff;
+  --color-border-focus: #e05a2d;
+
+  /* Text */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #a8a29e;
+  --color-text-inverse: #ffffff;
+
+  /* Trove brand-specific */
+  --color-revenue: #16a34a;
+  --color-refund: #dc2626;
+  --color-licensed: #0d9488;
+  --color-license-key: #7c3aed;
+  --color-code-block: #1e1e2e;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 64px;
+
+  /* Product cards */
+  --product-card-min-width: 280px;
+  --cover-image-ratio: 16 / 10;
+}
+
+/* Dark mode — indie-creator marketplace warm-neutral dark.
+   Warm coffee surfaces (stone tones, not blue) keep the cozy indie
+   feel after dark. Brand orange lifts to #f48c6a for surface accents;
+   the brand stop #e05a2d is preserved for hero CTAs so white text
+   remains readable. Violet accent shifts to #a78bfa for license-key
+   pills and similar moments. */
+[data-mol-mode='dark'] {
+  --color-primary: #f48c6a;
+  --color-primary-hover: #f7a283;
+  --color-primary-light: #2c1812;
+  --color-secondary: #c4b5fd;
+  --color-accent: #a78bfa;
+  --color-accent-hover: #c4b5fd;
+  --color-accent-light: #1e1b3f;
+
+  --color-success: #4ade80;
+  --color-success-light: #14532d;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-error-light: #4c1d1d;
+  --color-info: #2dd4bf;
+  --color-info-light: #134e4a;
+
+  --color-bg: #15110e;
+  --color-bg-secondary: #1f1a16;
+  --color-bg-tertiary: #2a241f;
+  --color-surface: #1f1a16;
+  --color-surface-hover: #2a241f;
+  --color-border: #3a322b;
+  --color-border-light: #2a241f;
+  --color-border-focus: #f48c6a;
+
+  --color-text: #faf7f3;
+  --color-text-secondary: #d6cdc4;
+  --color-text-muted: #98897a;
+  --color-text-inverse: #15110e;
+
+  --color-revenue: #4ade80;
+  --color-refund: #f87171;
+  --color-licensed: #2dd4bf;
+  --color-license-key: #c4b5fd;
+  --color-code-block: #0c0810;
+
+  /* @theme bridge — provider tokens */
+  --mol-color-primary: #f48c6a;
+  --mol-color-primary-light: #2c1812;
+  --mol-color-primary-dark: #e05a2d;
+  --mol-color-secondary: #c4b5fd;
+  --mol-color-background: #15110e;
+  --mol-color-background-secondary: #1f1a16;
+  --mol-color-background-tertiary: #2a241f;
+  --mol-color-surface: #1f1a16;
+  --mol-color-surface-secondary: #2a241f;
+  --mol-color-input-background: #1a1510;
+  --mol-color-text: #faf7f3;
+  --mol-color-text-secondary: #d6cdc4;
+  --mol-color-text-tertiary: #98897a;
+  --mol-color-text-inverse: #15110e;
+  --mol-color-border: #3a322b;
+  --mol-color-border-secondary: #4a3f36;
+  --mol-color-border-focus: #f48c6a;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #2dd4bf;
+
+  /* Material-3 bridge tokens */
+  --color-background: #15110e;
+  --color-on-background: #faf7f3;
+  --color-surface: #1f1a16;
+  --color-surface-bright: #2a241f;
+  --color-surface-dim: #0e0b08;
+  --color-surface-container-lowest: #0c0907;
+  --color-surface-container-low: #1a1510;
+  --color-surface-container: #1f1a16;
+  --color-surface-container-high: #2a241f;
+  --color-surface-container-highest: #3a322b;
+  --color-surface-variant: #2a241f;
+  --color-on-surface: #faf7f3;
+  --color-on-surface-variant: #d6cdc4;
+  --color-inverse-surface: #faf7f3;
+  --color-inverse-on-surface: #15110e;
+  --color-inverse-primary: #e05a2d;
+  --color-primary: #f48c6a; /* lifted orange for surface accents */
+  --color-primary-container: #2c1812;
+  --color-on-primary: #3d1400; /* 6.78:1 on #f48c6a — dark on lifted orange */
+  --color-on-primary-container: #ffd5c2;
+  --color-secondary: #c4b5fd;
+  --color-secondary-container: #1e1b3f;
+  --color-on-secondary: #15110e;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #4ade80;
+  --color-tertiary-container: #14532d;
+  --color-on-tertiary: #000000; /* 12.05:1 on #4ade80 */
+  --color-on-tertiary-container: #dcfce7;
+  --color-error: #f87171;
+  --color-error-container: #4c1d1d;
+  --color-on-error: #690005; /* 4.74:1 on #f87171 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7a6455; /* 3.11:1 on #1f1a16 surface */
+  --color-outline-variant: #3a322b;
+  --color-surface-tint: #f48c6a;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

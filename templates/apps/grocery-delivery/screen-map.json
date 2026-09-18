@@ -1,0 +1,160 @@
+{
+  "app": "grocery-delivery",
+  "designProjectId": "2556383627596084959",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-landing.html",
+      "designScreenId": "753c0538d595433487114337f25aa1ab"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-login.html",
+      "designScreenId": "d1c0951a46a645c699f2794ebdbeae37"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-grocery-delivery-login.html",
+      "derivationNotes": "Same split layout as Login (left green-tint illustration panel with Bushel wordmark and tagline) but right form adds First Name, Last Name, and ZIP code fields above Email/Password. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Forgot password' link. Left value props list unchanged."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-grocery-delivery-login.html",
+      "derivationNotes": "Same split layout as Login but right form has only Email field. Heading 'Reset your password', subtitle 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. Left panel (Bushel wordmark, illustration, value props) unchanged."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-grocery-delivery-login.html",
+      "derivationNotes": "Same split layout as Login but right form has New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Left panel (Bushel wordmark, illustration, value props) unchanged."
+    },
+    {
+      "name": "Shop",
+      "templateFile": "app/pages/Shop.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/shop",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-shop.html",
+      "designScreenId": "e068aabca7f7473dbb247033c1c27d49"
+    },
+    {
+      "name": "ProductDetail",
+      "templateFile": "app/pages/ProductDetail.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/product/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-product-detail.html",
+      "designScreenId": "0888a9469dcc4263a123d5b199c4b104"
+    },
+    {
+      "name": "Cart",
+      "templateFile": "app/pages/Cart.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/cart",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-cart.html",
+      "designScreenId": "250cbd58c7af4caab8c408d981dedc97"
+    },
+    {
+      "name": "OrderTracking",
+      "templateFile": "app/pages/OrderTracking.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/order/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-order-tracking.html",
+      "designScreenId": "f4c6db932ab044b7851886e63734d3fe"
+    },
+    {
+      "name": "Orders",
+      "templateFile": "app/pages/Orders.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-orders.html",
+      "designScreenId": "1a95cd153b6c44a88f5c2d4a9beccb10"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-settings.html",
+      "designScreenId": "647d47b8b5a34f9c94fe41e212c2dd85"
+    },
+    {
+      "name": "Checkout",
+      "templateFile": "app/pages/Checkout.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/checkout",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-checkout.html",
+      "designScreenId": "237264381989419c80eec80acc906b65"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-search.html",
+      "designScreenId": "1c5e996e885247a89e3fd28b50f64c94"
+    },
+    {
+      "name": "Lists",
+      "templateFile": "app/pages/Lists.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/lists",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-grocery-delivery-lists.html",
+      "designScreenId": "b7313034e5334fb881eef0a51261b083"
+    },
+    {
+      "name": "OrderConfirmation",
+      "templateFile": "app/pages/OrderConfirmation.tsx",
+      "components": ["app/components/GroceryDeliveryLayout.tsx"],
+      "route": "/order/:id/confirmation",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-grocery-delivery-order-tracking.html",
+      "derivationNotes": "Same Bushel layout and palette as OrderTracking but reframed as the post-checkout success page. Replace the live map panel with a centered success hero: large primary green checkmark circle, headline 'Order placed!' (DM Sans 900, 4xl), subtitle 'Your groceries are on their way' (Inter muted lg), order number chip ('#BSH-48201'). Below hero: same 4-step progress stepper from OrderTracking (Confirmed step active, others pending). Right panel reuses the OrderTracking summary card (items list with substitution badges, delivery address, slot 'Sat, 2-3 PM') but hides the driver/ETA card. Footer two CTAs: primary 'Track order' button (links to /order/:id) and outlined 'Continue shopping'. Top nav unchanged."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "exp_001",
+    "image_id": "img_velvet_dusk",
+    "format": "jpg",
+    "quality": 92,
+    "width": 5472,
+    "height": 3648,
+    "size_bytes": 4823040,
+    "output_url": "/sample/exports/velvet-dusk-jpg-92.jpg",
+    "user_id": "usr_lustra_demo",
+    "status": "ready",
+    "created_at": "2026-04-27T22:18:00Z"
+  },
+  {
+    "id": "exp_002",
+    "image_id": "img_alpine_dawn",
+    "format": "webp",
+    "quality": 88,
+    "width": 3000,
+    "height": 2000,
+    "size_bytes": 1228800,
+    "output_url": "/sample/exports/alpine-dawn-webp-88.webp",
+    "user_id": "usr_lustra_demo",
+    "status": "ready",
+    "created_at": "2026-04-27T20:05:00Z"
+  }
+]

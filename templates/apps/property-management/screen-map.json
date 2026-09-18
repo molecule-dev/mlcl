@@ -1,0 +1,179 @@
+{
+  "app": "property-management",
+  "designProjectId": "15806823878614763733",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-property-management-landing.html",
+      "designScreenId": "c4238f153daa4c259f08b054edb893b4"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-property-management-login.html",
+      "designScreenId": "535c7318a8224cdfaad9b281dfd3ef03"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login with First Name, Last Name, Company Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-dashboard.html",
+      "designScreenId": "36d5623a3ce94479ba843131807fed6f"
+    },
+    {
+      "name": "Properties",
+      "templateFile": "app/pages/Properties.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/properties",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-properties.html",
+      "designScreenId": "1d8b96731bf44456ba1c551a0afbb784"
+    },
+    {
+      "name": "PropertyDetail",
+      "templateFile": "app/pages/PropertyDetail.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/properties/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-property-detail.html",
+      "designScreenId": "620a0200516d434e85fa5dab9d60d7aa"
+    },
+    {
+      "name": "Tenants",
+      "templateFile": "app/pages/Tenants.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/tenants",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-tenants.html",
+      "designScreenId": "f5bd1934628d4850b31a09ee601840fd"
+    },
+    {
+      "name": "Maintenance",
+      "templateFile": "app/pages/Maintenance.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/maintenance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-maintenance.html",
+      "designScreenId": "beab15b8d51c4a1c87e3f55761129e63"
+    },
+    {
+      "name": "Finances",
+      "templateFile": "app/pages/Finances.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/finances",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-finances.html",
+      "designScreenId": "e3df24d8374647819b04116f4308834e"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-settings.html",
+      "designScreenId": "a011004af425455d9803ee747ca2b9f1"
+    },
+    {
+      "name": "TenantDetail",
+      "templateFile": "app/pages/TenantDetail.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/tenants/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-tenant-detail.html",
+      "designScreenId": "09dab9bbbe83446f930e2783c21a6702"
+    },
+    {
+      "name": "MaintenanceDetail",
+      "templateFile": "app/pages/MaintenanceDetail.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/maintenance/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-maintenance-detail.html",
+      "designScreenId": "75261773c2bc421f843665d74e73ee0f"
+    },
+    {
+      "name": "Leases",
+      "templateFile": "app/pages/Leases.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/leases",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-leases.html",
+      "designScreenId": "bba154f2c82d4620bcea776e2fac8a3f"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-reports.html",
+      "designScreenId": "bcf5fbcc50fa4017b33a8ccae2e88d84"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/PropertyManagementLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-management-notifications.html",
+      "designScreenId": "582fee3cf5d44d89b09add868c9cfcd9"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "dashboard_stats": {
+    "net_worth_cents": 7172210,
+    "net_worth_change_30d_cents": 184220,
+    "cash_on_hand_cents": 2324310,
+    "credit_used_cents": 128450,
+    "credit_limit_cents": 1000000,
+    "spent_30d_cents": 318210,
+    "income_30d_cents": 825600,
+    "spending_by_category_30d": [
+      { "category": "Groceries",     "amount_cents": 48230 },
+      { "category": "Dining",        "amount_cents": 41200 },
+      { "category": "Travel",        "amount_cents": 71080 },
+      { "category": "Subscriptions", "amount_cents": 14820 },
+      { "category": "Utilities",     "amount_cents": 32200 },
+      { "category": "Transport",     "amount_cents": 16890 },
+      { "category": "Shopping",      "amount_cents": 38420 },
+      { "category": "Other",         "amount_cents": 55370 }
+    ],
+    "balance_history_30d": [
+      { "date": "2026-03-26", "net_worth_cents": 6987990 },
+      { "date": "2026-04-01", "net_worth_cents": 7012230 },
+      { "date": "2026-04-08", "net_worth_cents": 7058420 },
+      { "date": "2026-04-15", "net_worth_cents": 7124380 },
+      { "date": "2026-04-22", "net_worth_cents": 7148210 },
+      { "date": "2026-04-25", "net_worth_cents": 7172210 }
+    ]
+  }
+}

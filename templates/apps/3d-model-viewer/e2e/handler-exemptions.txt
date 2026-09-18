@@ -1,0 +1,6 @@
+# auth.ts is mounted under /api/users (router.use('/users', authRouter)) and
+# exposes POST /api/users/reset-password. The path-derived candidates the
+# coverage gate checks (/api/auth, /auth, /api/auths, /auths) do not match
+# this mount. The endpoint is exercised by reset-password.spec.ts via
+# /api/users/reset-password.
+auth

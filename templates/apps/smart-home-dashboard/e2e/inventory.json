@@ -1,0 +1,1435 @@
+{
+  "slug": "smart-home-dashboard",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-activity",
+      "path": "/activity",
+      "component": "Activity",
+      "file": "app/src/pages/Activity.tsx"
+    },
+    {
+      "id": "page-automations",
+      "path": "/automations",
+      "component": "Automations",
+      "file": "app/src/pages/Automations.tsx"
+    },
+    {
+      "id": "page-automationeditor",
+      "path": "/automations/:id/edit",
+      "component": "AutomationEditor",
+      "file": "app/src/pages/AutomationEditor.tsx"
+    },
+    {
+      "id": "page-devicedetail",
+      "path": "/devices/:id",
+      "component": "DeviceDetail",
+      "file": "app/src/pages/DeviceDetail.tsx"
+    },
+    {
+      "id": "page-adddevice",
+      "path": "/devices/add",
+      "component": "AddDevice",
+      "file": "app/src/pages/AddDevice.tsx"
+    },
+    {
+      "id": "page-energy",
+      "path": "/energy",
+      "component": "Energy",
+      "file": "app/src/pages/Energy.tsx"
+    },
+    {
+      "id": "page-floorplan",
+      "path": "/floorplan",
+      "component": "Floorplan",
+      "file": "app/src/pages/Floorplan.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-overview",
+      "path": "/overview",
+      "component": "Overview",
+      "file": "app/src/pages/Overview.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-rooms",
+      "path": "/rooms",
+      "component": "Rooms",
+      "file": "app/src/pages/Rooms.tsx"
+    },
+    {
+      "id": "page-roomdetail",
+      "path": "/rooms/:id",
+      "component": "RoomDetail",
+      "file": "app/src/pages/RoomDetail.tsx"
+    },
+    {
+      "id": "page-scenes",
+      "path": "/scenes",
+      "component": "Scenes",
+      "file": "app/src/pages/Scenes.tsx"
+    },
+    {
+      "id": "page-security",
+      "path": "/security",
+      "component": "Security",
+      "file": "app/src/pages/Security.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-automationrow-58--div-classname--cm-c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AutomationRow.tsx",
+      "line": 58,
+      "label": "<div className={cm.cn(cm.flex({ align: center, gap: sm, wrap",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-automationrow-100",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AutomationRow.tsx",
+      "line": 100,
+      "label": "button at app/src/components/AutomationRow.tsx:100",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-automationrow-123",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AutomationRow.tsx",
+      "line": 123,
+      "label": "button at app/src/components/AutomationRow.tsx:123",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-devicestatusrow-72--div-classname--cm-c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DeviceStatusRow.tsx",
+      "line": 72,
+      "label": "<div className={cm.cn( cm.w(12),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-devicestatusrow-131",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DeviceStatusRow.tsx",
+      "line": 131,
+      "label": "button at app/src/components/DeviceStatusRow.tsx:131",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-roomtriad-57--div-classname---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/RoomTriad.tsx",
+      "line": 57,
+      "label": "<div className=),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-scenecard-118",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SceneCard.tsx",
+      "line": 118,
+      "label": "button at app/src/components/SceneCard.tsx:118",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-187",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 187,
+      "label": "input at app/src/components/SettingsPanel.tsx:187",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-206",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 206,
+      "label": "button at app/src/components/SettingsPanel.tsx:206",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-253-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 253,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-265",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 265,
+      "label": "button at app/src/components/SettingsPanel.tsx:265",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-337",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 337,
+      "label": "button at app/src/components/SettingsPanel.tsx:337",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-358",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 358,
+      "label": "input at app/src/components/SettingsPanel.tsx:358",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-369",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 369,
+      "label": "input at app/src/components/SettingsPanel.tsx:369",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-378",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 378,
+      "label": "button at app/src/components/SettingsPanel.tsx:378",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-399",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 399,
+      "label": "input at app/src/components/SettingsPanel.tsx:399",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-407",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 407,
+      "label": "button at app/src/components/SettingsPanel.tsx:407",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-adddevice-107-chevron-left",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 107,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-adddevice-179",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 179,
+      "label": "input at app/src/pages/AddDevice.tsx:179",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-adddevice-209",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 209,
+      "label": "select at app/src/pages/AddDevice.tsx:209",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-adddevice-238",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 238,
+      "label": "input at app/src/pages/AddDevice.tsx:238",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-adddevice-268",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 268,
+      "label": "input at app/src/pages/AddDevice.tsx:268",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-adddevice-297",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 297,
+      "label": "input at app/src/pages/AddDevice.tsx:297",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-adddevice-327",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 327,
+      "label": "input at app/src/pages/AddDevice.tsx:327",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-adddevice-347-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 347,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-adddevice-360",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 360,
+      "label": "button at app/src/pages/AddDevice.tsx:360",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-automationeditor-226-chevron-left",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 226,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-automationeditor-311",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 311,
+      "label": "input at app/src/pages/AutomationEditor.tsx:311",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-automationeditor-341",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 341,
+      "label": "textarea at app/src/pages/AutomationEditor.tsx:341",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-automationeditor-370",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 370,
+      "label": "select at app/src/pages/AutomationEditor.tsx:370",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-automationeditor-387",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 387,
+      "label": "input at app/src/pages/AutomationEditor.tsx:387",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-automationeditor-417",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 417,
+      "label": "input at app/src/pages/AutomationEditor.tsx:417",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-automationeditor-435",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 435,
+      "label": "input at app/src/pages/AutomationEditor.tsx:435",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-automationeditor-458",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 458,
+      "label": "input at app/src/pages/AutomationEditor.tsx:458",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-automationeditor-471",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 471,
+      "label": "button at app/src/pages/AutomationEditor.tsx:471",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-automationeditor-489",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 489,
+      "label": "button at app/src/pages/AutomationEditor.tsx:489",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-automations-151",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Automations.tsx",
+      "line": 151,
+      "label": "button at app/src/pages/Automations.tsx:151",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-automations-171",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Automations.tsx",
+      "line": 171,
+      "label": "link at app/src/pages/Automations.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-devicedetail-131-chevron-left",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeviceDetail.tsx",
+      "line": 131,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-devicedetail-213",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeviceDetail.tsx",
+      "line": 213,
+      "label": "button at app/src/pages/DeviceDetail.tsx:213",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-70",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 70,
+      "label": "button at app/src/pages/ForgotPassword.tsx:70",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-80",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 80,
+      "label": "button at app/src/pages/ForgotPassword.tsx:80",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-101",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 101,
+      "label": "button at app/src/pages/ForgotPassword.tsx:101",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-111",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 111,
+      "label": "button at app/src/pages/ForgotPassword.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-59--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 59,
+      "label": "<span className={cm.cn( cm.w(8),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-83-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 83,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-93-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 93,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-161-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 161,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-175-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 175,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-377------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 377,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-88",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 88,
+      "label": "button at app/src/pages/Login.tsx:88",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-97",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 97,
+      "label": "button at app/src/pages/Login.tsx:97",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-114",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 114,
+      "label": "button at app/src/pages/Login.tsx:114",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-overview-250-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Overview.tsx",
+      "line": 250,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-overview-292-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Overview.tsx",
+      "line": 292,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pricing-51--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 51,
+      "label": "<span className={cm.cn( cm.w(8),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pricing-77-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 77,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pricing-87-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 87,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-101",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 101,
+      "label": "button at app/src/pages/ResetPassword.tsx:101",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-111",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 111,
+      "label": "button at app/src/pages/ResetPassword.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-roomdetail-151-chevron-left",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/RoomDetail.tsx",
+      "line": 151,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-rooms-198",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Rooms.tsx",
+      "line": 198,
+      "label": "button at app/src/pages/Rooms.tsx:198",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-rooms-240",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Rooms.tsx",
+      "line": 240,
+      "label": "input at app/src/pages/Rooms.tsx:240",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-rooms-258",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Rooms.tsx",
+      "line": 258,
+      "label": "button at app/src/pages/Rooms.tsx:258",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-scenes-195",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 195,
+      "label": "button at app/src/pages/Scenes.tsx:195",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-scenes-236",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 236,
+      "label": "input at app/src/pages/Scenes.tsx:236",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-scenes-263",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 263,
+      "label": "textarea at app/src/pages/Scenes.tsx:263",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-scenes-289",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 289,
+      "label": "select at app/src/pages/Scenes.tsx:289",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-scenes-307",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 307,
+      "label": "button at app/src/pages/Scenes.tsx:307",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-156",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 156,
+      "label": "link at app/src/pages/Settings.tsx:156",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 171,
+      "label": "button at app/src/pages/Settings.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-86",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 86,
+      "label": "button at app/src/pages/Signup.tsx:86",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-96",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 96,
+      "label": "button at app/src/pages/Signup.tsx:96",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-355",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "form at app/src/components/SettingsPanel.tsx:355",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-396",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 396,
+      "label": "form at app/src/components/SettingsPanel.tsx:396",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-adddevice-160",
+      "file": "app/src/pages/AddDevice.tsx",
+      "line": 160,
+      "label": "form at app/src/pages/AddDevice.tsx:160",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-automationeditor-292",
+      "file": "app/src/pages/AutomationEditor.tsx",
+      "line": 292,
+      "label": "form at app/src/pages/AutomationEditor.tsx:292",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-57",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 57,
+      "label": "form at app/src/pages/ForgotPassword.tsx:57",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-56",
+      "file": "app/src/pages/Login.tsx",
+      "line": 56,
+      "label": "form at app/src/pages/Login.tsx:56",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-59",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 59,
+      "label": "form at app/src/pages/ResetPassword.tsx:59",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-rooms-221",
+      "file": "app/src/pages/Rooms.tsx",
+      "line": 221,
+      "label": "form at app/src/pages/Rooms.tsx:221",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-scenes-218",
+      "file": "app/src/pages/Scenes.tsx",
+      "line": 218,
+      "label": "form at app/src/pages/Scenes.tsx:218",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-signup-54",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 54,
+      "label": "form at app/src/pages/Signup.tsx:54",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-automations--id",
+      "method": "DELETE",
+      "mountedPath": "/automations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 244,
+      "resource": "automations"
+    },
+    {
+      "id": "route-delete-devices--id",
+      "method": "DELETE",
+      "mountedPath": "/devices/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 196,
+      "resource": "devices"
+    },
+    {
+      "id": "route-delete-rooms--id",
+      "method": "DELETE",
+      "mountedPath": "/rooms/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 119,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-delete-scenes--id",
+      "method": "DELETE",
+      "mountedPath": "/scenes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 180,
+      "resource": "scenes"
+    },
+    {
+      "id": "route-get-activity-",
+      "method": "GET",
+      "mountedPath": "/activity",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/activity.ts",
+      "line": 21,
+      "resource": "activity"
+    },
+    {
+      "id": "route-get-automations-",
+      "method": "GET",
+      "mountedPath": "/automations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 55,
+      "resource": "automations"
+    },
+    {
+      "id": "route-get-automations--id",
+      "method": "GET",
+      "mountedPath": "/automations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 78,
+      "resource": "automations"
+    },
+    {
+      "id": "route-get-automations--id-log",
+      "method": "GET",
+      "mountedPath": "/automations/:id/log",
+      "rawPath": "/:id/log",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 187,
+      "resource": "automations"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-devices-",
+      "method": "GET",
+      "mountedPath": "/devices",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 47,
+      "resource": "devices"
+    },
+    {
+      "id": "route-get-devices--id",
+      "method": "GET",
+      "mountedPath": "/devices/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 64,
+      "resource": "devices"
+    },
+    {
+      "id": "route-get-devices-stats-overview",
+      "method": "GET",
+      "mountedPath": "/devices/stats/overview",
+      "rawPath": "/stats/overview",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 216,
+      "resource": "devices"
+    },
+    {
+      "id": "route-get-energy-current",
+      "method": "GET",
+      "mountedPath": "/energy/current",
+      "rawPath": "/current",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 122,
+      "resource": "energy"
+    },
+    {
+      "id": "route-get-energy-readings",
+      "method": "GET",
+      "mountedPath": "/energy/readings",
+      "rawPath": "/readings",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 59,
+      "resource": "energy"
+    },
+    {
+      "id": "route-get-energy-stats",
+      "method": "GET",
+      "mountedPath": "/energy/stats",
+      "rawPath": "/stats",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 161,
+      "resource": "energy"
+    },
+    {
+      "id": "route-get-energy-summary-daily",
+      "method": "GET",
+      "mountedPath": "/energy/summary/daily",
+      "rawPath": "/summary/daily",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 84,
+      "resource": "energy"
+    },
+    {
+      "id": "route-get-energy-summary-monthly",
+      "method": "GET",
+      "mountedPath": "/energy/summary/monthly",
+      "rawPath": "/summary/monthly",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 103,
+      "resource": "energy"
+    },
+    {
+      "id": "route-get-rooms-",
+      "method": "GET",
+      "mountedPath": "/rooms",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 40,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-get-rooms--id",
+      "method": "GET",
+      "mountedPath": "/rooms/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 57,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-get-scenes-",
+      "method": "GET",
+      "mountedPath": "/scenes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 46,
+      "resource": "scenes"
+    },
+    {
+      "id": "route-get-scenes--id",
+      "method": "GET",
+      "mountedPath": "/scenes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 63,
+      "resource": "scenes"
+    },
+    {
+      "id": "route-post-automations-",
+      "method": "POST",
+      "mountedPath": "/automations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 97,
+      "resource": "automations"
+    },
+    {
+      "id": "route-post-automations--id-disable",
+      "method": "POST",
+      "mountedPath": "/automations/:id/disable",
+      "rawPath": "/:id/disable",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 167,
+      "resource": "automations"
+    },
+    {
+      "id": "route-post-automations--id-enable",
+      "method": "POST",
+      "mountedPath": "/automations/:id/enable",
+      "rawPath": "/:id/enable",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 147,
+      "resource": "automations"
+    },
+    {
+      "id": "route-post-automations--id-trigger",
+      "method": "POST",
+      "mountedPath": "/automations/:id/trigger",
+      "rawPath": "/:id/trigger",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 213,
+      "resource": "automations"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-devices-",
+      "method": "POST",
+      "mountedPath": "/devices",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 83,
+      "resource": "devices"
+    },
+    {
+      "id": "route-post-devices--id-properties",
+      "method": "POST",
+      "mountedPath": "/devices/:id/properties",
+      "rawPath": "/:id/properties",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 165,
+      "resource": "devices"
+    },
+    {
+      "id": "route-post-devices--id-toggle",
+      "method": "POST",
+      "mountedPath": "/devices/:id/toggle",
+      "rawPath": "/:id/toggle",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 134,
+      "resource": "devices"
+    },
+    {
+      "id": "route-post-energy-readings",
+      "method": "POST",
+      "mountedPath": "/energy/readings",
+      "rawPath": "/readings",
+      "handlerFile": "api/src/handlers/energy.ts",
+      "line": 29,
+      "resource": "energy"
+    },
+    {
+      "id": "route-post-rooms-",
+      "method": "POST",
+      "mountedPath": "/rooms",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 76,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-post-scenes-",
+      "method": "POST",
+      "mountedPath": "/scenes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 82,
+      "resource": "scenes"
+    },
+    {
+      "id": "route-post-scenes--id-activate",
+      "method": "POST",
+      "mountedPath": "/scenes/:id/activate",
+      "rawPath": "/:id/activate",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 130,
+      "resource": "scenes"
+    },
+    {
+      "id": "route-put-automations--id",
+      "method": "PUT",
+      "mountedPath": "/automations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/automations.ts",
+      "line": 123,
+      "resource": "automations"
+    },
+    {
+      "id": "route-put-devices--id",
+      "method": "PUT",
+      "mountedPath": "/devices/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/devices.ts",
+      "line": 111,
+      "resource": "devices"
+    },
+    {
+      "id": "route-put-rooms--id",
+      "method": "PUT",
+      "mountedPath": "/rooms/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 99,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-put-scenes--id",
+      "method": "PUT",
+      "mountedPath": "/scenes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/scenes.ts",
+      "line": 106,
+      "resource": "scenes"
+    }
+  ],
+  "totals": {
+    "pages": 19,
+    "elements": 78,
+    "forms": 10,
+    "routes": 39
+  }
+}

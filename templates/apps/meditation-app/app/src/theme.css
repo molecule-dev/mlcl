@@ -1,0 +1,167 @@
+:root {
+  /* ── Bridge variables (feed into @theme) ── */
+  --mol-color-primary: #5b4fc7;
+  --mol-color-primary-light: #ede9f8;
+  --mol-color-secondary: #e09a5a;
+  --mol-color-secondary-light: #fbeedf;
+  --mol-color-success: #16a34a;
+  --mol-color-error: #ef4444;
+  --mol-color-warning: #f59e0b;
+  --mol-color-info: #0ea5e9;
+  --mol-color-background: #f5f3fa;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e0dced;
+  --mol-color-border-focus: #5b4fc7;
+  --mol-color-text: #1e1b35;
+  --mol-color-text-secondary: #6b6580;
+  --mol-color-text-tertiary: #4a4560;
+  --mol-color-text-inverse: #ffffff;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mol-color-accent: #e09a5a;
+  --mol-color-accent-container: #fbeedf;
+  --mol-color-on-accent: #2a1800; /* dark on warm amber — white was 2.35:1 (fail); #2a1800 = 7.27:1 */
+  --mol-color-on-accent-container: #5a3811;
+
+  /* ── App-specific brand colors ── */
+  --color-accent-hover: #c47f3e;
+  --color-streak-active: #e09a5a;
+  --color-streak-missed: #6b7280;
+  --color-session-locked: #9ca3af;
+
+  /* Hero gradient stops — brand violet deep/mid for hero card gradients */
+  --color-hero-from: #2d2370;
+  --color-hero-from-alt: #1f1652;
+  --color-hero-strip-from: #3d2f8c;
+
+  /* Category colors */
+  --color-cat-mindfulness: #7c6dd8;
+  --color-cat-sleep: #3b5bdb;
+  --color-cat-focus: #0ea5e9;
+  --color-cat-stress: #14b8a6;
+  --color-cat-body: #f97316;
+
+  /* Typography scale */
+  --font-family-mono: 'DM Mono', SFMono-Regular, Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 4px rgba(91, 79, 199, 0.06);
+  --shadow-md: 0 4px 16px rgba(91, 79, 199, 0.1);
+  --shadow-lg: 0 8px 32px rgba(91, 79, 199, 0.14);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+
+  /* Light-mode M3 on-error: white on #ef4444 = 3.76:1 (fail ≥4.5:1); dark = 6.43:1 */
+  --color-on-error: #3a0000;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+}
+
+/* Dark mode overrides — Calm-spa dark (health/meditation).
+   Warm-neutral near-black with violet undertones (spa/mindfulness
+   brand — calm, contemplative, never clinical). Brand violet is kept
+   at the brand stop (#5b4fc7) so CTA buttons keep their light-on-violet
+   character; surface accents (focus border, secondary text, category
+   chips) lift to brighter lavender for legibility on the dark chassis.
+   `--mol-color-text-inverse` (used on primary surfaces) stays white. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #5b4fc7;
+  --mol-color-primary-light: #2d2950;
+  --mol-color-secondary: #f0b880;
+  --mol-color-secondary-light: #3d2818;
+  --mol-color-success: #4ade80;
+  --mol-color-error: #f87171;
+  --mol-color-warning: #fbbf24;
+  --mol-color-info: #38bdf8;
+  --mol-color-background: #0c0a14;
+  --mol-color-surface: #15131f;
+  --mol-color-border: #28253a;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-text: #f0eef8;
+  --mol-color-text-secondary: #c8c0e0;
+  --mol-color-text-tertiary: #8a8398;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-accent: #f0b880;
+  --mol-color-accent-container: #3d2818;
+  --mol-color-on-accent: #1a1014;
+  --mol-color-on-accent-container: #f0b880;
+
+  --color-accent-hover: #e09a5a;
+  --color-streak-active: #f0b880;
+  --color-streak-missed: #4a4560;
+  --color-session-locked: #5a5470;
+
+  /* Hero gradient stops — dark mode lifts these slightly for warm shimmer */
+  --color-hero-from: #3a2e8a;
+  --color-hero-from-alt: #2a2070;
+  --color-hero-strip-from: #4a3aa0;
+
+  --color-cat-mindfulness: #a78bfa;
+  --color-cat-sleep: #6b8aff;
+  --color-cat-focus: #38bdf8;
+  --color-cat-stress: #2dd4bf;
+  --color-cat-body: #fb923c;
+
+  /* Stitch / Material-3 bridge tokens — so bg-surface, text-on-surface, etc.
+     flip correctly in dark mode. Brand violet kept at brand stop (#5b4fc7);
+     on-primary stays white so CTA buttons keep white text in both modes. */
+  --color-background: #0c0a14;
+  --color-on-background: #f0eef8;
+  --color-surface: #0c0a14;
+  --color-surface-bright: #211e30;
+  --color-surface-dim: #050408;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #100e1a;
+  --color-surface-container: #15131f;
+  --color-surface-container-high: #1e1b2c;
+  --color-surface-container-highest: #28253a;
+  --color-surface-variant: #1e1b2c;
+  --color-on-surface: #f0eef8;
+  --color-on-surface-variant: #c8c0e0;
+  --color-inverse-surface: #f0eef8;
+  --color-inverse-on-surface: #0c0a14;
+  --color-inverse-primary: #5b4fc7;
+  --color-primary: #5b4fc7; /* brand violet — stays at brand stop */
+  --color-primary-container: #2d2950;
+  --color-on-primary: #ffffff; /* white on violet — readable always */
+  --color-on-primary-container: #e0d9ff;
+  --color-secondary: #f0b880; /* warm amber secondary */
+  --color-secondary-container: #3d2818;
+  --color-on-secondary: #1a0e00;
+  --color-on-secondary-container: #fde8c8;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #2d2950;
+  --color-on-tertiary: #110d1a; /* dark on lavender — #ffffff was 2.72:1 (fail); #110d1a = 7.04:1 */
+  --color-on-tertiary-container: #e0d9ff;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #706888; /* #5a5470 was 2.75:1 vs surface (fail ≥3:1); #706888 = 3.76:1 */
+  --color-outline-variant: #28253a;
+  --color-surface-tint: #a78bfa;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.65);
+}

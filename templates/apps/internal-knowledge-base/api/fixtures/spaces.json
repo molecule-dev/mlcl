@@ -1,0 +1,74 @@
+[
+  {
+    "id": "space-engineering",
+    "key": "engineering",
+    "name": "Engineering",
+    "slug": "engineering",
+    "description": "Runbooks, on-call playbooks, postmortems, and architectural decisions for the platform.",
+    "icon": "engineering",
+    "accent_color": "#0f766e",
+    "article_count": 84,
+    "editor_count": 12,
+    "updated_at": "2026-04-30T00:55:00.000Z"
+  },
+  {
+    "id": "space-people-ops",
+    "key": "people-ops",
+    "name": "People Ops",
+    "slug": "people-ops",
+    "description": "Hiring loops, benefits, time-off policies, and the handbook nobody actually reads — until they need it.",
+    "icon": "group",
+    "accent_color": "#d97706",
+    "article_count": 52,
+    "editor_count": 7,
+    "updated_at": "2026-04-29T20:23:00.000Z"
+  },
+  {
+    "id": "space-product",
+    "key": "product",
+    "name": "Product",
+    "slug": "product",
+    "description": "Roadmaps, RFCs, decision records, and the rituals — RICE scores, DACI, the works.",
+    "icon": "lightbulb",
+    "accent_color": "#7c3aed",
+    "article_count": 41,
+    "editor_count": 9,
+    "updated_at": "2026-04-29T00:18:00.000Z"
+  },
+  {
+    "id": "space-security",
+    "key": "security",
+    "name": "Security",
+    "slug": "security",
+    "description": "SOC 2 evidence, incident playbooks, and the policies that keep the auditors happy.",
+    "icon": "shield",
+    "accent_color": "#b91c1c",
+    "article_count": 33,
+    "editor_count": 5,
+    "updated_at": "2026-04-27T23:42:00.000Z"
+  },
+  {
+    "id": "space-design",
+    "key": "design",
+    "name": "Design",
+    "slug": "design",
+    "description": "Design system tokens, component anatomy, and the brand voice that holds the product together.",
+    "icon": "palette",
+    "accent_color": "#0891b2",
+    "article_count": 27,
+    "editor_count": 6,
+    "updated_at": "2026-04-26T15:00:00.000Z"
+  },
+  {
+    "id": "space-data",
+    "key": "data",
+    "name": "Data Platform",
+    "slug": "data",
+    "description": "Warehouse schemas, dbt model conventions, the metrics layer, and on-call for the pipelines.",
+    "icon": "analytics",
+    "accent_color": "#2563eb",
+    "article_count": 38,
+    "editor_count": 8,
+    "updated_at": "2026-04-28T08:14:00.000Z"
+  }
+]

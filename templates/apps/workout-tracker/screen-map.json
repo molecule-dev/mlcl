@@ -1,0 +1,169 @@
+{
+  "app": "workout-tracker",
+  "designProjectId": "10343161890447683276",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-landing.html",
+      "designScreenId": "1514e8d04a6a430a899fa9f678e842b2"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-login.html",
+      "designScreenId": "5c400d178d774a39a8d95decc7a583f3"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-workout-tracker-login.html",
+      "derivationNotes": "Same 50/50 editorial split layout as Login (left charcoal editorial panel, right form) with additional fields: First Name, Last Name, Email, Password, Confirm Password. Heading changes to 'Forge your account', subhead 'Start logging sets today'. Button text changes to 'Create account'. Bottom link changes to 'Already lifting with us? Sign in'. No 'Forgot password?' link. Keep SSO row."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-workout-tracker-login.html",
+      "derivationNotes": "Same 50/50 editorial split layout as Login with only Email field. Heading changes to 'Reset your password', subtext 'Enter your email and we'll send you a reset link'. Button text changes to 'Send reset link'. Bottom link changes to 'Back to sign in'. No password field, no SSO row, no divider."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-workout-tracker-login.html",
+      "derivationNotes": "Same 50/50 editorial split layout as Login with only New Password and Confirm Password fields. Heading changes to 'Set a new password'. Button text changes to 'Reset password'. Bottom link changes to 'Back to sign in'. No email field, no SSO row, no divider."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-dashboard.html",
+      "designScreenId": "99e29c7b682a44e48692cf1fe5a905f0"
+    },
+    {
+      "name": "ActiveWorkout",
+      "templateFile": "app/pages/ActiveWorkout.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/workout/active",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-active-workout.html",
+      "designScreenId": "06e122ccd8f140fbb05aa72bd1a75acc"
+    },
+    {
+      "name": "Exercises",
+      "templateFile": "app/pages/Exercises.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/exercises",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-exercises.html",
+      "designScreenId": "7e34e276118f4c54bd6aa0c8ac640157"
+    },
+    {
+      "name": "ExerciseDetail",
+      "templateFile": "app/pages/ExerciseDetail.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/exercises/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-exercise-detail.html",
+      "designScreenId": "9727c473fd4c4e758079ed94653b014b"
+    },
+    {
+      "name": "History",
+      "templateFile": "app/pages/History.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-history.html",
+      "designScreenId": "cbb3b90663e143a08251cea983187a7c"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-templates.html",
+      "designScreenId": "0b9ca76027494967a7ada712c8fb6ef7"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-settings.html",
+      "designScreenId": "830eee991e1249d2a3f15f130e14649d"
+    },
+    {
+      "name": "TemplateEditor",
+      "templateFile": "app/pages/TemplateEditor.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/templates/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-template-editor.html",
+      "designScreenId": "0a577e7d4cc74fc8977eb8e8b4787fad"
+    },
+    {
+      "name": "WorkoutDetail",
+      "templateFile": "app/pages/WorkoutDetail.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/history/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-workout-detail.html",
+      "designScreenId": "8260b6f9b5344721a6005bba4d1c6b32"
+    },
+    {
+      "name": "BodyMeasurements",
+      "templateFile": "app/pages/BodyMeasurements.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/measurements",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-body-measurements.html",
+      "designScreenId": "e4baa2a851384404a06e5474a61ade30"
+    },
+    {
+      "name": "PersonalRecords",
+      "templateFile": "app/pages/PersonalRecords.tsx",
+      "components": ["app/components/WorkoutTrackerLayout.tsx"],
+      "route": "/records",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-workout-tracker-personal-records.html",
+      "designScreenId": "5d3767c131654146a17bb6a2b8725683"
+    }
+  ]
+}

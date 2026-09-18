@@ -1,0 +1,10 @@
+# Exempt handlers whose endpoints are exercised by indirection (the app
+# doesn't call them directly via /api/<handler>; the work happens via
+# composite endpoints or transitive calls), or whose surface is fully
+# covered by another spec under a different path.
+#
+# _audit — the writeAuditLog helper is exercised every time a mutation
+# in components/incidents/maintenance/subscribers/team/notifications
+# fires. It has no public route of its own; the read side is /api/audit
+# and is verified by 10-audit.spec.ts and 99-user-journey.spec.ts.
+_audit

@@ -1,0 +1,13 @@
+{
+  "now-playing": {
+    "episode_id": "ep_010",
+    "episode_title": "When clock skew broke our payment processor",
+    "show_title": "Edge Cases",
+    "cover_index": 3,
+    "duration_seconds": 3214,
+    "position_seconds": 1840,
+    "is_playing": true,
+    "speed": 1.25,
+    "chapter_title": "How NTP failed us"
+  }
+}

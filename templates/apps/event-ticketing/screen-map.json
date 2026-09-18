@@ -1,0 +1,171 @@
+{
+  "app": "event-ticketing",
+  "designProjectId": "6619218045054850688",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-landing.html",
+      "designScreenId": "2f9a4a7e930f4509aa69a7f135cecb18"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-login.html",
+      "designScreenId": "ee43e7d108eb462d85662d93d2785477"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-event-ticketing-login.html",
+      "derivationNotes": "Same split-screen with gradient left panel and form right. Add First Name, Last Name, Email, Password, Confirm Password. Button 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-event-ticketing-login.html",
+      "derivationNotes": "Same split-screen layout with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-event-ticketing-login.html",
+      "derivationNotes": "Same split-screen with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-dashboard.html",
+      "designScreenId": "cfb0bfd0fb214213b86197dd13cf6596"
+    },
+    {
+      "name": "EventList",
+      "templateFile": "app/pages/EventList.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/events",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-event-list.html",
+      "designScreenId": "bf85e537609f4b48a1d8e0e67720e780"
+    },
+    {
+      "name": "EventDetail",
+      "templateFile": "app/pages/EventDetail.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/events/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-event-detail.html",
+      "designScreenId": "209dbcee7a9943f2b01d21db9c82ced2"
+    },
+    {
+      "name": "Attendees",
+      "templateFile": "app/pages/Attendees.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/events/:id/attendees",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-attendees.html",
+      "designScreenId": "46a2576909744890bdc929fd59d6067b"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-settings.html",
+      "designScreenId": "84aa9edd6232445694ef7276d82de0f0"
+    },
+    {
+      "name": "CreateEvent",
+      "templateFile": "app/pages/CreateEvent.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/events/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-create-event.html",
+      "designScreenId": "37c59ab0651649debcf45b08623a5630"
+    },
+    {
+      "name": "EditEvent",
+      "templateFile": "app/pages/EditEvent.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/events/:id/edit",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-event-ticketing-create-event.html",
+      "derivationNotes": "Same two-column form as CreateEvent. Heading 'Edit Event' with subtitle 'Update event details and ticket tiers'. Banner shows current event image with 'Replace' button. All fields prefilled with existing values. Right sidebar adds a 'Danger Zone' card with 'Cancel Event' and 'Delete Event' destructive actions. Sticky footer shows 'Save Changes' (primary accent) instead of 'Publish Event'."
+    },
+    {
+      "name": "MyTickets",
+      "templateFile": "app/pages/MyTickets.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/my-tickets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-my-tickets.html",
+      "designScreenId": "be892c0ddb774dc8953a1c93d37eae0a"
+    },
+    {
+      "name": "OrderConfirmation",
+      "templateFile": "app/pages/OrderConfirmation.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/orders/:id/confirmation",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-order-confirmation.html",
+      "designScreenId": "0be5ed1902d04b0cbc92ebeb350fe473"
+    },
+    {
+      "name": "TicketDetail",
+      "templateFile": "app/pages/TicketDetail.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/tickets/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-event-ticketing-order-confirmation.html",
+      "derivationNotes": "Same perforated-ticket hero card layout as OrderConfirmation but without the celebration hero band. Replace 'You're in!' hero with a compact page header 'Ticket Details' + breadcrumb 'My Tickets / {Event Name}'. Drop the 'What's next' callout and order summary card. Keep the main ticket card (QR + details), action row (Apple/Google Wallet, Download PDF), and add a 'Transfer ticket' outline button + 'Request refund' link below the card."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/EventTicketingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-event-ticketing-notifications.html",
+      "designScreenId": "b12734b5b5bf4f9ab2b52f4d51ef3e0b"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+import { BrowserRouter, Route, Routes } from 'react-router'
+
+import { getClient as getHttpClient } from '@molecule/app-http'
+import { MoleculeProvider } from '@molecule/app-react'
+import { getProvider as getStorageProvider } from '@molecule/app-storage'
+
+import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import { AppLayout } from './components/AppLayout.js'
+import { AuthGuard } from './components/AuthGuard.js'
+import { About } from './pages/About.js'
+import { Applications } from './pages/Applications.js'
+import { Companies } from './pages/Companies.js'
+import { CompanyDetail } from './pages/CompanyDetail.js'
+import { Dashboard } from './pages/Dashboard.js'
+import { ForgotPassword } from './pages/ForgotPassword.js'
+import { JobApplicants } from './pages/JobApplicants.js'
+import { JobDetail } from './pages/JobDetail.js'
+import { Jobs } from './pages/Jobs.js'
+import { Landing } from './pages/Landing.js'
+import { Login } from './pages/Login.js'
+import { NotFound } from './pages/NotFound.js'
+import { Notifications } from './pages/Notifications.js'
+import { PlanUpdated } from './pages/PlanUpdated.js'
+import { PostJob } from './pages/PostJob.js'
+import { Pricing } from './pages/Pricing.js'
+import { Privacy } from './pages/Privacy.js'
+import { Profile } from './pages/Profile.js'
+import { ResetPassword } from './pages/ResetPassword.js'
+import { Settings } from './pages/Settings.js'
+import { Signup } from './pages/Signup.js'
+import { Terms } from './pages/Terms.js'
+
+export function App() {
+  return (
+    <BrowserRouter>
+      <MoleculeProvider
+        auth={authClient}
+        http={getHttpClient()}
+        theme={themeProvider}
+        storage={getStorageProvider()}
+        i18n={i18nProvider}
+      >
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route element={<AuthGuard />}>
+            <Route element={<AppLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/jobs" element={<Jobs />} />
+              <Route path="/jobs/:id" element={<JobDetail />} />
+              <Route path="/jobs/:id/applicants" element={<JobApplicants />} />
+              <Route path="/applications" element={<Applications />} />
+              <Route path="/companies" element={<Companies />} />
+              <Route path="/companies/:id" element={<CompanyDetail />} />
+              <Route path="/post-job" element={<PostJob />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/plan-updated" element={<PlanUpdated />} />
+            </Route>
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MoleculeProvider>
+    </BrowserRouter>
+  )
+}

@@ -1,0 +1,94 @@
+{
+  "label": "Messaging App",
+  "description": "WhatsApp-like 1:1 and group messaging with end-to-end encryption, read receipts, and media sharing — with built-in Stripe-backed subscription tiers",
+  "cluster": "communication",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-thread",
+    "@molecule/api-resource-reaction",
+    "@molecule/api-resource-notification",
+    "@molecule/api-encryption-aes",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-image-sharp",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-file-upload",
+    "@molecule/app-sidebar-layout-react",
+    "@molecule/app-notification-feed-react",
+    "@molecule/app-image-crop",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Messaging"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for media uploads",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "ENCRYPTION_KEY": {
+      "description": "AES encryption key for message encryption",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_MESSAGING_APP_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_MESSAGING_APP_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_MESSAGING_APP_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_MESSAGING_APP_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "chat",
+  "features": [
+    "auth",
+    "realtime",
+    "encryption",
+    "media",
+    "notifications",
+    "subscriptions"
+  ]
+}

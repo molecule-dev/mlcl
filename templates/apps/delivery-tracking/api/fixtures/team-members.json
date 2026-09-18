@@ -1,0 +1,9 @@
+[
+  { "id": "mem_001", "name": "Sam Reyes",          "email": "sam@parcel.io",     "role": "owner",    "joined_at": "2025-03-12T00:00:00Z", "last_active": "2026-04-26T08:14:00Z", "shipments_handled_30d": 1840 },
+  { "id": "mem_002", "name": "Mira Chen",           "email": "mira@parcel.io",    "role": "admin",    "joined_at": "2025-04-22T00:00:00Z", "last_active": "2026-04-26T09:32:00Z", "shipments_handled_30d": 1520 },
+  { "id": "mem_003", "name": "Devon Walsh",         "email": "devon@parcel.io",   "role": "operator", "joined_at": "2025-08-10T00:00:00Z", "last_active": "2026-04-26T10:18:00Z", "shipments_handled_30d": 942  },
+  { "id": "mem_004", "name": "Aisha Martin",        "email": "aisha@parcel.io",   "role": "operator", "joined_at": "2025-09-04T00:00:00Z", "last_active": "2026-04-25T18:48:00Z", "shipments_handled_30d": 814  },
+  { "id": "mem_005", "name": "Kenji Tanaka",        "email": "kenji@parcel.io",   "role": "operator", "joined_at": "2025-11-22T00:00:00Z", "last_active": "2026-04-26T07:32:00Z", "shipments_handled_30d": 712  },
+  { "id": "mem_006", "name": "Priya Desai",         "email": "priya@parcel.io",   "role": "viewer",   "joined_at": "2026-01-15T00:00:00Z", "last_active": "2026-04-22T14:00:00Z", "shipments_handled_30d": 0    },
+  { "id": "mem_007", "name": "Henry Park",          "email": "henry@brookline.com", "role": "viewer",   "joined_at": "2026-02-14T00:00:00Z", "last_active": "2026-04-19T16:30:00Z", "shipments_handled_30d": 0    }
+]

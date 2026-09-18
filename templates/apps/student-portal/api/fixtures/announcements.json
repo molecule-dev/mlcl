@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ann-1",
+    "icon": "campaign",
+    "title": "Spring assembly moved to Friday",
+    "body": "Hold period 7 for an all-school assembly in the gym. Buses run on the late bell.",
+    "time_label": "3 hr",
+    "tone": "info",
+    "category": "School news",
+    "created_at": "2026-04-30T06:00:00Z"
+  },
+  {
+    "id": "ann-2",
+    "icon": "calendar_month",
+    "title": "Course-selection window opens Monday",
+    "body": "Counsellors will preview next-year electives during advisory. Submit your top three by May 16.",
+    "time_label": "Yesterday",
+    "tone": "primary",
+    "category": "Counselling",
+    "created_at": "2026-04-29T08:00:00Z"
+  },
+  {
+    "id": "ann-3",
+    "icon": "savings",
+    "title": "Family plan renews May 14",
+    "body": "You’ll be charged $9.99/mo. Update payment in Settings → Billing if needed.",
+    "time_label": "2d",
+    "tone": "warning",
+    "category": "Billing",
+    "created_at": "2026-04-28T09:00:00Z"
+  }
+]

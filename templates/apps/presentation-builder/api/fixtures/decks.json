@@ -1,0 +1,54 @@
+[
+  {
+    "id": "lumen-series-b",
+    "title": "Lumen Capital, Series B",
+    "folder": "Pitch decks",
+    "slideCount": 14,
+    "visibility": "shared",
+    "themeColor": "#a78bfa",
+    "status": "editing",
+    "deckCode": "Q4 PITCH · v3",
+    "activeTheme": "Aurora Stage",
+    "activeCollaborators": 4,
+    "updatedAt": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "q4-board",
+    "title": "Q4 Board Update",
+    "folder": "Investor updates",
+    "slideCount": 22,
+    "visibility": "private",
+    "themeColor": "#ec4899",
+    "status": "reviewing",
+    "deckCode": "BOARD · v2",
+    "activeTheme": "Midnight Studio",
+    "activeCollaborators": 2,
+    "updatedAt": "2026-04-30T15:00:00Z"
+  },
+  {
+    "id": "design-system",
+    "title": "Design System v4 Keynote",
+    "folder": "Internal",
+    "slideCount": 31,
+    "visibility": "shared",
+    "themeColor": "#06b6d4",
+    "status": "ready",
+    "deckCode": "DSYS · v4",
+    "activeTheme": "Aurora Stage",
+    "activeCollaborators": 3,
+    "updatedAt": "2026-04-29T18:30:00Z"
+  },
+  {
+    "id": "sales-kickoff",
+    "title": "GTM Kickoff 2026",
+    "folder": "Sales",
+    "slideCount": 18,
+    "visibility": "public",
+    "themeColor": "#f59e0b",
+    "status": "ready",
+    "deckCode": "GTM 2026",
+    "activeTheme": "Sunrise Stage",
+    "activeCollaborators": 1,
+    "updatedAt": "2026-04-28T10:15:00Z"
+  }
+]

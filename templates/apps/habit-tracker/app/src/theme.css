@@ -1,0 +1,255 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #6c5ce7;
+  --mol-color-primary-light: #f0eeff;
+  --mol-color-primary-dark: #4a3db0;
+  --mol-color-secondary: #10b981;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f3ff;
+  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f3ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #555555;
+  --mol-color-text-tertiary: #999999;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e8e8e8;
+  --mol-color-border-secondary: #f0f0f0;
+  --mol-color-border-focus: #6c5ce7;
+  --mol-color-success: #00b894;
+  --mol-color-warning: #fdcb6e;
+  --mol-color-error: #e17055;
+  --mol-color-info: #74b9ff;
+
+  /* Brand */
+  --color-primary: #6c5ce7;
+  --color-primary-hover: #5a4bd1;
+  --color-primary-light: #f0eeff;
+  --color-primary-dark: #4a3db0;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #f0eeff;
+  --color-on-primary-container: #1a0050;
+  --color-secondary: #10b981;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary-container: #064e3b;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #451a03; /* 6.97:1 (was #fff = 2.15:1 FAIL) */
+  --color-on-tertiary-container: #451a03;
+  --color-background: #fafafa;
+  --color-on-background: #1a1a2e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #f5f3ff;
+  --color-surface-dim: #f0f0f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ff;
+  --color-surface-container: #ede9fe;
+  --color-surface-container-high: #e0dff8;
+  --color-surface-container-highest: #d4d2f0;
+  --color-surface-variant: #ede9fe;
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #555555;
+  --color-outline: #767676; /* 4.54:1 vs #fff (was #999 = 2.85:1 FAIL ≥3:1) */
+  --color-outline-variant: #e8e8e8;
+  --color-surface-tint: #6c5ce7;
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #f5f3ff;
+  --color-inverse-primary: #a29bfe;
+  --color-error: #e17055;
+  --color-error-container: #fde8e3;
+  --color-on-error: #3a0000; /* 5.64:1 (was #fff = 3.16:1 FAIL) */
+  --color-on-error-container: #5c1a0a;
+
+  /* Surface (aliases) */
+  --color-surface-hover: #f5f3ff;
+  --color-surface-active: #ede9fe;
+
+  /* Sidebar */
+  --color-sidebar-bg: #ffffff;
+  --color-sidebar-hover: #f5f3ff;
+  --color-sidebar-active: #ede9fe;
+  --color-sidebar-text: #1a1a2e;
+  --color-sidebar-text-muted: #999999;
+
+  /* Text (aliases) */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #555555;
+  --color-text-muted: #999999;
+  --color-text-inverse: #ffffff;
+
+  /* Borders (aliases) */
+  --color-border: #e8e8e8;
+  --color-border-light: #f0f0f0;
+  --color-border-focus: #6c5ce7;
+
+  /* Hero gradient — dark enough for white text in both modes */
+  --color-gradient-hero-start: #4a3db0; /* 5.62:1 vs white */
+  --color-gradient-hero-end: #087a55; /* 5.35:1 vs white */
+
+  /* Streaks and achievements */
+  --color-streak-active: #f9a825;
+  --color-streak-glow: #fff8e1;
+  --color-achievement: #ffd700;
+
+  /* Status */
+  --color-success: #00b894;
+  --color-warning: #fdcb6e;
+  --color-error: #e17055;
+  --color-info: #74b9ff;
+
+  /* Heatmap */
+  --color-heatmap-empty: #ebedf0;
+  --color-heatmap-level1: #c6e48b;
+  --color-heatmap-level2: #7bc96f;
+  --color-heatmap-level3: #239a3b;
+  --color-heatmap-level4: #196127;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-streak: 2.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --content-max-width: 700px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-round: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 2px 8px rgba(108, 92, 231, 0.08);
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-normal: 250ms ease;
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark mode overrides — brand-calibrated calming purple dark palette */
+[data-mol-mode='dark'] {
+  /* === @theme bridge === */
+  --mol-color-primary: #a29bfe;
+  --mol-color-primary-light: #2d2652;
+  --mol-color-primary-dark: #d4cfff;
+  --mol-color-secondary: #34d399;
+  --mol-color-background: #1a1a2e;
+  --mol-color-background-secondary: #222240;
+  --mol-color-background-tertiary: #2a2a4a;
+  --mol-color-surface: #222240;
+  --mol-color-surface-secondary: #2a2a4a;
+  --mol-color-input-background: #1a1a2e;
+  --mol-color-text: #e0e0f0;
+  --mol-color-text-secondary: #a0a0b0;
+  --mol-color-text-tertiary: #666680;
+  --mol-color-text-inverse: #1a1a2e;
+  --mol-color-border: #333360;
+  --mol-color-border-secondary: #2a2a4a;
+  --mol-color-border-focus: #a29bfe;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fcd34d;
+  --mol-color-error: #fb7185;
+  --mol-color-info: #93c5fd;
+
+  /* Brand */
+  --color-primary: #a29bfe;
+  --color-primary-hover: #b4adfe;
+  --color-primary-light: #2d2652;
+  --color-primary-dark: #d4cfff;
+  --color-on-primary: #0f0f20; /* 7.80:1 on #a29bfe (was #fff = 2.43:1 FAIL) */
+  --color-primary-container: #2d2652;
+  --color-on-primary-container: #e0d9ff;
+  --color-secondary: #34d399;
+  --color-on-secondary: #1a1a2e;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary-container: #a7f3d0;
+  --color-tertiary: #fcd34d;
+  --color-tertiary-container: #3a2f1a;
+  --color-on-tertiary: #1a1a2e;
+  --color-on-tertiary-container: #fef3c7;
+  --color-background: #1a1a2e;
+  --color-on-background: #e0e0f0;
+  --color-surface: #222240;
+  --color-surface-bright: #2a2a4a;
+  --color-surface-dim: #111124;
+  --color-surface-container-lowest: #0f0f20;
+  --color-surface-container-low: #1c1c35;
+  --color-surface-container: #222240;
+  --color-surface-container-high: #2a2a4a;
+  --color-surface-container-highest: #333360;
+  --color-surface-variant: #2a2a4a;
+  --color-on-surface: #e0e0f0;
+  --color-on-surface-variant: #a0a0b0;
+  --color-outline: #8888a0; /* 4.43:1 vs surface #222240 (was #666680 = 2.76:1 FAIL ≥3:1) */
+  --color-outline-variant: #333360;
+  --color-surface-tint: #a29bfe;
+  --color-inverse-surface: #e0e0f0;
+  --color-inverse-on-surface: #1a1a2e;
+  --color-inverse-primary: #6c5ce7;
+  --color-error: #fb7185;
+  --color-error-container: #3b0a14;
+  --color-on-error: #690005; /* 4.87:1 (was #fff = 2.69:1 FAIL) */
+  --color-on-error-container: #fecdd3;
+
+  --color-surface-hover: #2a2a4a;
+  --color-surface-active: #333360;
+
+  --color-sidebar-bg: #222240;
+  --color-sidebar-hover: #2a2a4a;
+  --color-sidebar-active: #333360;
+  --color-sidebar-text: #e0e0f0;
+  --color-sidebar-text-muted: #777790;
+
+  --color-text: #e0e0f0;
+  --color-text-secondary: #a0a0b0;
+  --color-text-muted: #666680;
+  --color-text-inverse: #1a1a2e;
+
+  --color-border: #333360;
+  --color-border-light: #2a2a4a;
+  --color-border-focus: #a29bfe;
+
+  /* Hero gradient — dark enough for white text */
+  --color-gradient-hero-start: #2d2652; /* 13.73:1 vs white */
+  --color-gradient-hero-end: #064e3b; /* 14.76:1 vs white */
+
+  /* Streaks and achievements — keep warm glow vivid */
+  --color-streak-active: #fbbf24;
+  --color-streak-glow: #3a2f1a;
+  --color-achievement: #fcd34d;
+
+  /* Status — brighter for dark contrast */
+  --color-success: #34d399;
+  --color-warning: #fcd34d;
+  --color-info: #93c5fd;
+
+  --color-heatmap-empty: #2a2a4a;
+  --color-heatmap-level1: #2d5016;
+  --color-heatmap-level2: #3d7a1e;
+  --color-heatmap-level3: #4da528;
+  --color-heatmap-level4: #5ece32;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
+}

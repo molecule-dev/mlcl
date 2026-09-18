@@ -1,0 +1,48 @@
+app: crowdfunding
+brand: Catapult — Launch what matters
+palette: cyan/teal (#0891b2 primary, #10b981 accent, #0f172a navy)
+fonts: Inter (display + body), JetBrains Mono, Material Symbols Outlined
+completed_at: 2026-04-28T15:14:51Z
+
+bespoke_components:
+  - AuthBrandHeader
+  - AuthShell
+  - BackerAvatarStack
+  - CampaignCard
+  - CampaignHeroBanner
+  - CampaignProgressBar
+  - CategoryFilterBar
+  - CreatorSidebarLayout
+  - KpiStatCard
+  - RewardTierCard
+
+chrome_packages:
+  - "@molecule/app-header-react -> Header"
+  - "@molecule/app-footer-react -> Footer"
+  - "@molecule/app-root-error-boundary-react -> RootErrorBoundary"
+
+pages_polished:
+  signed_in:
+    - Dashboard
+    - Discover
+    - CampaignDetail
+    - CampaignEditor
+    - CampaignManage
+    - Backers
+    - MyPledges
+    - Profile
+    - Notifications
+    - PledgeCheckout
+    - Settings
+  public:
+    - Landing
+    - Login
+    - Signup
+    - ForgotPassword
+    - ResetPassword
+    - NotFound
+
+gates:
+  typecheck_app: pass (npx tsc --noEmit, 0 errors)
+  rules_compliance: clean (check-rules-compliance.mjs, 0 violations across 280 files)
+  screenshots: skipped (Step 10 batched by main agent)

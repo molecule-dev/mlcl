@@ -1,0 +1,89 @@
+[
+  {
+    "id": "int-slack",
+    "name": "Slack",
+    "description": "Send cell updates and automation alerts to channels and DMs.",
+    "category": "Notifications",
+    "icon": "chat",
+    "color": "#4a154b",
+    "is_connected": true,
+    "connected_at": "2026-02-04T10:00:00Z",
+    "connected_by": "Avery Chen",
+    "scope": "channels:write",
+    "active_workbooks": 4
+  },
+  {
+    "id": "int-stripe",
+    "name": "Stripe",
+    "description": "Pull invoice and subscription data into AR aging workbooks.",
+    "category": "Finance",
+    "icon": "credit_card",
+    "color": "#635bff",
+    "is_connected": true,
+    "connected_at": "2026-03-15T09:00:00Z",
+    "connected_by": "Marcus Rivera",
+    "scope": "read:invoices",
+    "active_workbooks": 2
+  },
+  {
+    "id": "int-salesforce",
+    "name": "Salesforce",
+    "description": "Two-way sync opportunities and accounts into linked-record columns.",
+    "category": "CRM",
+    "icon": "cloud",
+    "color": "#00a1e0",
+    "is_connected": true,
+    "connected_at": "2026-01-22T14:00:00Z",
+    "connected_by": "Avery Chen",
+    "scope": "api",
+    "active_workbooks": 3
+  },
+  {
+    "id": "int-google-drive",
+    "name": "Google Drive",
+    "description": "Embed Calcite views inside Docs and import sheets into workbooks.",
+    "category": "Storage",
+    "icon": "cloud_upload",
+    "color": "#0f9d58",
+    "is_connected": false,
+    "scope": "drive.file",
+    "active_workbooks": 0
+  },
+  {
+    "id": "int-zapier",
+    "name": "Zapier",
+    "description": "Trigger Zaps on cell updates, webhook hits, and scheduled syncs.",
+    "category": "Automation",
+    "icon": "auto_fix_high",
+    "color": "#ff4a00",
+    "is_connected": true,
+    "connected_at": "2026-02-28T11:00:00Z",
+    "connected_by": "Priya Shah",
+    "scope": "triggers:read",
+    "active_workbooks": 6
+  },
+  {
+    "id": "int-notion",
+    "name": "Notion",
+    "description": "Embed live workbook views inside Notion pages.",
+    "category": "Docs",
+    "icon": "menu_book",
+    "color": "#000000",
+    "is_connected": false,
+    "scope": "blocks:write",
+    "active_workbooks": 0
+  },
+  {
+    "id": "int-snowflake",
+    "name": "Snowflake",
+    "description": "Materialize warehouse queries into refresh-on-open workbook tabs.",
+    "category": "Data",
+    "icon": "ac_unit",
+    "color": "#29b5e8",
+    "is_connected": true,
+    "connected_at": "2026-03-04T08:00:00Z",
+    "connected_by": "Priya Shah",
+    "scope": "query",
+    "active_workbooks": 5
+  }
+]

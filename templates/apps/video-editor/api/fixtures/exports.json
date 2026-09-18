@@ -1,0 +1,7 @@
+[
+  { "id": "x-001", "project_id": "p-skyline", "format": "mp4", "quality": "high", "resolution": "1080p", "status": "done", "progress": 100, "output_url": "https://cdn.example.com/renders/skyline-launch-reel.mp4", "created_at": "2026-04-27T13:42:00Z", "finished_at": "2026-04-27T13:51:00Z" },
+  { "id": "x-002", "project_id": "p-vertical", "format": "mp4", "quality": "high", "resolution": "1080p", "status": "rendering", "progress": 62, "output_url": null, "created_at": "2026-04-27T15:18:00Z", "finished_at": null },
+  { "id": "x-003", "project_id": "p-loop", "format": "mp4", "quality": "high", "resolution": "1080p", "status": "pending", "progress": 0, "output_url": null, "created_at": "2026-04-27T15:48:00Z", "finished_at": null },
+  { "id": "x-004", "project_id": "p-doc", "format": "mov", "quality": "high", "resolution": "4k", "status": "done", "progress": 100, "output_url": "https://cdn.example.com/renders/documentary-cold-open.mov", "created_at": "2026-04-26T22:00:00Z", "finished_at": "2026-04-26T22:48:00Z" },
+  { "id": "x-005", "project_id": "p-explainer", "format": "webm", "quality": "high", "resolution": "1080p", "status": "failed", "progress": 47, "output_url": null, "created_at": "2026-04-26T18:00:00Z", "finished_at": null }
+]

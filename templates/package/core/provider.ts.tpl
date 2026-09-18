@@ -1,0 +1,33 @@
+/**
+ * {{PASCAL_NAME}} provider singleton.
+ *
+ * Bond packages call set() during setup.
+ * Application code calls get()/require() at runtime.
+ *
+ * @module
+ */
+
+import type { {{PASCAL_NAME}}Provider } from './types.js'
+
+let _provider: {{PASCAL_NAME}}Provider | null = null
+
+export function setProvider(provider: {{PASCAL_NAME}}Provider): void {
+  _provider = provider
+}
+
+export function getProvider(): {{PASCAL_NAME}}Provider | null {
+  return _provider
+}
+
+export function hasProvider(): boolean {
+  return _provider !== null
+}
+
+export function requireProvider(): {{PASCAL_NAME}}Provider {
+  if (!_provider) {
+    throw new Error(
+      '{{PASCAL_NAME}} provider not configured. Bond a {{CLEAN_NAME}} provider first.',
+    )
+  }
+  return _provider
+}

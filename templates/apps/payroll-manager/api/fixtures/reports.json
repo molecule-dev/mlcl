@@ -1,0 +1,40 @@
+{
+  "payroll-summary": {
+    "period": { "start": "2026-01-01", "end": "2026-04-26" },
+    "total_gross": 4612200.00,
+    "total_net": 3315430.18,
+    "total_taxes": 1031420.82,
+    "total_deductions": 265349.00,
+    "average_pay_run": 188650.00,
+    "by_pay_run": [
+      { "pay_run_id": "pr_2026_04", "pay_date": "2026-02-20", "gross": 178640.00, "net": 128145.60 },
+      { "pay_run_id": "pr_2026_05", "pay_date": "2026-03-06", "gross": 178640.00, "net": 128210.92 },
+      { "pay_run_id": "pr_2026_06", "pay_date": "2026-03-20", "gross": 192120.00, "net": 137911.40 },
+      { "pay_run_id": "pr_2026_07", "pay_date": "2026-04-03", "gross": 192120.00, "net": 137844.80 },
+      { "pay_run_id": "pr_2026_08", "pay_date": "2026-04-17", "gross": 184250.00, "net": 132288.32 }
+    ]
+  },
+  "tax-liability": {
+    "quarter": 2,
+    "year": 2026,
+    "federal_income_tax": 198420.30,
+    "social_security": 76122.40,
+    "medicare": 17800.95,
+    "state_income_tax": 41280.45,
+    "futa": 4204.00,
+    "suta": 6612.50,
+    "total": 344440.60
+  },
+  "department-costs": {
+    "as_of": "2026-04-26",
+    "by_department": [
+      { "department": "Engineering",     "headcount": 4, "annualized_cost": 632000.00 },
+      { "department": "Design",          "headcount": 1, "annualized_cost": 138000.00 },
+      { "department": "Sales",           "headcount": 2, "annualized_cost": 220000.00 },
+      { "department": "Marketing",       "headcount": 2, "annualized_cost": 200000.00 },
+      { "department": "Operations",      "headcount": 2, "annualized_cost": 234000.00 },
+      { "department": "Finance",         "headcount": 2, "annualized_cost": 210000.00 },
+      { "department": "Customer Success","headcount": 2, "annualized_cost": 190000.00 }
+    ]
+  }
+}

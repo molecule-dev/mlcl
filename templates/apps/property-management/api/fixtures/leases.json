@@ -1,0 +1,54 @@
+[
+  {
+    "id": "lease-001",
+    "tenant_id": "ten-001",
+    "property_id": "prop-001",
+    "unit_id": "unit-101",
+    "start_date": "2024-03-01",
+    "end_date": "2026-08-31",
+    "rent_amount_cents": 165000,
+    "deposit_cents": 250000,
+    "status": "active",
+    "renewal_offered": false,
+    "created_at": "2024-02-20T10:00:00Z"
+  },
+  {
+    "id": "lease-005",
+    "tenant_id": "ten-005",
+    "property_id": "prop-001",
+    "unit_id": "unit-104",
+    "start_date": "2025-06-01",
+    "end_date": "2026-05-31",
+    "rent_amount_cents": 175000,
+    "deposit_cents": 260000,
+    "status": "active",
+    "renewal_offered": false,
+    "created_at": "2025-05-15T10:00:00Z"
+  },
+  {
+    "id": "lease-041",
+    "tenant_id": "ten-041",
+    "property_id": "prop-006",
+    "unit_id": "unit-512",
+    "start_date": "2024-05-01",
+    "end_date": "2026-04-30",
+    "rent_amount_cents": 220000,
+    "deposit_cents": 330000,
+    "status": "expiring",
+    "renewal_offered": true,
+    "created_at": "2024-04-15T14:00:00Z"
+  },
+  {
+    "id": "lease-027",
+    "tenant_id": "ten-027",
+    "property_id": "prop-003",
+    "unit_id": "unit-307",
+    "start_date": "2025-08-01",
+    "end_date": "2026-07-31",
+    "rent_amount_cents": 185000,
+    "deposit_cents": 280000,
+    "status": "active",
+    "renewal_offered": false,
+    "created_at": "2025-07-10T10:00:00Z"
+  }
+]

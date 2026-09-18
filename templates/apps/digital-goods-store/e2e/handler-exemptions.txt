@@ -1,0 +1,13 @@
+# Handler base names exempted from the per-handler "must be hit by a spec
+# network assertion" coverage gate (gate 3 in scripts/verify-app-coverage.mjs).
+#
+# Format: one base name per line (no .ts). Lines starting with # are comments.
+#
+# `licenses` — exposed via `/library` and `/orders` payloads (license_key
+# fields). Direct GET /api/licenses is verified at the API level by
+# /api/library and /api/orders, which carry the license rows inline.
+licenses
+# `purchases` — covered transitively via /api/orders + /api/sales which
+# serve purchase rows in normalized shape. The /api/purchases endpoint is
+# the raw resource for admin tooling.
+purchases

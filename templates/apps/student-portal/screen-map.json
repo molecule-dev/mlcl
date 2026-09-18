@@ -1,0 +1,189 @@
+{
+  "app": "student-portal",
+  "designProjectId": "10401665036244331513",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-student-portal-landing.html",
+      "designScreenId": "38c6f44273d545019c4838265107975f"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-student-portal-login.html",
+      "designScreenId": "180a4fc0159a4f388e55df5d5ced45ee"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-student-portal-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Email, Password, Confirm Password. Button 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-student-portal-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-student-portal-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-dashboard.html",
+      "designScreenId": "e0479d2fdae04370a06cfc90f715ee3f"
+    },
+    {
+      "name": "Schedule",
+      "templateFile": "app/pages/Schedule.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/schedule",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-schedule.html",
+      "designScreenId": "1d3c2dc74fc244b59cad8d3c0a20725c"
+    },
+    {
+      "name": "Grades",
+      "templateFile": "app/pages/Grades.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/grades",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-grades.html",
+      "designScreenId": "b2b05606712b433fb9735af92e7ff53c"
+    },
+    {
+      "name": "Assignments",
+      "templateFile": "app/pages/Assignments.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/assignments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-assignments.html",
+      "designScreenId": "c7b38cda15b04cd2a9965b07a8a17e65"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-calendar.html",
+      "designScreenId": "df9e45b60487479ebddf243d69004424"
+    },
+    {
+      "name": "Messages",
+      "templateFile": "app/pages/Messages.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/messages",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-messages.html",
+      "designScreenId": "5a2251a5c7634a128848ad2b961f83d9"
+    },
+    {
+      "name": "Attendance",
+      "templateFile": "app/pages/Attendance.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/attendance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-attendance.html",
+      "designScreenId": "6091245dd56f47a5bcc27b412f97aeba"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-settings.html",
+      "designScreenId": "33b34cbae58a4466b101ce05298d3442"
+    },
+    {
+      "name": "AssignmentDetail",
+      "templateFile": "app/pages/AssignmentDetail.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/assignments/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-assignment-detail.html",
+      "designScreenId": "ebff5eec15cc47f5a917168268d0c95c"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/courses/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-course-detail.html",
+      "designScreenId": "82a4220e69ed49aea0a4db7925e6a005"
+    },
+    {
+      "name": "MessageThread",
+      "templateFile": "app/pages/MessageThread.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/messages/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-message-thread.html",
+      "designScreenId": "c117328c4cc941cc90f3d433915af6f2"
+    },
+    {
+      "name": "ReportCard",
+      "templateFile": "app/pages/ReportCard.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/grades/report-card",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-report-card.html",
+      "designScreenId": "b90aafef2ad044b8a607d0ffe8df6e57"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/StudentPortalLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-student-portal-notifications.html",
+      "designScreenId": "e1d751a54879410fb7e9bb52c0690dd0"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "rv_001",
+    "venue_id": "v_aerie",
+    "author_name": "Anika R.",
+    "author_avatar_url": "https://picsum.photos/seed/alcove-rev-anika/200/200",
+    "rating": 5,
+    "event_type": "Photoshoot",
+    "comment": "Maya let us in early to set up and the natural light through those skylights is unreal. Bridal shoot wrapped two hours ahead of schedule.",
+    "created_at_iso": "2026-04-19T14:32:00Z",
+    "host_response": "Thank you Anika — your team left the loft spotless. Welcome back any time."
+  },
+  {
+    "id": "rv_002",
+    "venue_id": "v_aerie",
+    "author_name": "Marcus L.",
+    "author_avatar_url": "https://picsum.photos/seed/alcove-rev-marcus/200/200",
+    "rating": 5,
+    "event_type": "Workshop",
+    "comment": "Hosted a 35-person product workshop. Freight elevator, easy load-in, and the catering kitchen was a small miracle.",
+    "created_at_iso": "2026-03-30T09:11:00Z",
+    "host_response": null
+  },
+  {
+    "id": "rv_003",
+    "venue_id": "v_garden",
+    "author_name": "Yasmin O.",
+    "author_avatar_url": "https://picsum.photos/seed/alcove-rev-yasmin/200/200",
+    "rating": 5,
+    "event_type": "Wedding",
+    "comment": "The willow canopy at golden hour is something I will think about for years. Owen helped us with vendor logistics for weeks ahead of time.",
+    "created_at_iso": "2026-04-04T19:45:00Z",
+    "host_response": "It was a privilege. Sending you both the very best."
+  },
+  {
+    "id": "rv_004",
+    "venue_id": "v_studio",
+    "author_name": "Pace D.",
+    "author_avatar_url": "https://picsum.photos/seed/alcove-rev-pace/200/200",
+    "rating": 5,
+    "event_type": "Photoshoot",
+    "comment": "Fast turnaround, cyc was clean, strobes pre-checked. Booked twice already.",
+    "created_at_iso": "2026-04-12T07:22:00Z",
+    "host_response": null
+  }
+]

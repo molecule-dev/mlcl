@@ -1,0 +1,280 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #15803d; /* was #16a34a — 3.13:1 as nav/link text on white (axe serious); green-700 = 5.02:1 */
+  --mol-color-primary-light: #dcfce7;
+  --mol-color-primary-dark: #14532d;
+  --mol-color-secondary: #0f172a;
+  --mol-color-success: #15803d; /* keep in step with primary — used as text on white/light tints */
+  --mol-color-warning: #eab308;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0ea5e9;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #f1f5f9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #16a34a;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+  --color-bg-secondary: var(--color-background-secondary);
+  --color-bg-tertiary: var(--color-background-tertiary);
+
+  /* Stitch / Material-3 light tokens */
+  --color-background: #ffffff;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #4ade80;
+  --color-primary: #15803d;
+  --color-primary-container: #dcfce7;
+  --color-on-primary: #ffffff; /* white on green-700 primary = 5.02:1 ✓ (dark #052e16 fell to 2.97:1 after primary darkened) */
+  --color-on-primary-container: #14532d;
+  --color-secondary: #0f172a;
+  --color-secondary-container: #e2e8f0;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0f172a;
+  --color-tertiary: #b45309;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff; /* white on amber #b45309 = 4.75:1 ✓ */
+  --color-on-tertiary-container: #451a03;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 5.08:1 ✓ */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* #64748b on #ffffff = 4.55:1 ✓ (≥3:1 outline) */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #16a34a;
+
+  /* === App-specific tokens (inline styles only, NOT in @theme) === */
+
+  /* Brand hover states */
+  --color-primary-hover: #166534;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+
+  /* Surfaces */
+  --color-surface-hover: #f8fafc;
+  --color-border-light: #f1f5f9;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --sidebar-width: 280px;
+  --header-height: 64px;
+
+  /* Product grid */
+  --product-card-min-width: 240px;
+  --product-image-ratio: 1 / 1;
+
+  /* Status colors */
+  --color-status-confirmed: #2563eb;
+  --color-status-processing: #f59e0b;
+  --color-status-shipped: #8b5cf6;
+  --color-status-delivered: #16a34a;
+  --color-status-cancelled: #dc2626;
+  --color-status-refunded: #6b7280;
+
+  /* Rating */
+  --color-star: #f59e0b;
+  --color-star-empty: #e2e8f0;
+
+  /* Form + UI helpers */
+  --color-toggle-off: #cbd5e1;
+  --color-label-text: #374151;
+  --color-error-text: #991b1b;
+  --color-order-delivered-bg: #dcfce7;
+  --color-order-delivered-text: #15803d;
+  --color-order-shipped-bg: #dbeafe;
+  --color-order-shipped-text: #1d4ed8;
+  --color-order-processing-bg: #fef3c7;
+  --color-order-processing-text: #b45309;
+  --color-order-cancelled-bg: #fee2e2;
+  --color-order-cancelled-text: #b91c1c;
+  --color-order-default-bg: #f3f4f6;
+  --color-order-default-text: #6b7280;
+  --color-shipping-icon-bg: #fffbeb;
+  --color-wishlist-heart: #fea619;
+}
+
+/* Dark mode — Shopify-inspired retail dark.
+   Warm-neutral near-black canvas (e-commerce brand — boutique storefront
+   feel, premium product cards, not a cold tech terminal). Brand green
+   stays at the brand stop (#16a34a) for primary CTAs so the storefront
+   color reads consistently in both modes; surface accents (links, focus
+   rings, in-stock chips) use a brighter sage-green. Order status
+   semantics preserved across light/dark. `--mol-color-text-inverse`
+   stays white so the green CTA keeps its light-on-green character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #4ade80;
+  --mol-color-primary-light: #14352a;
+  --mol-color-primary-dark: #16a34a;
+  --mol-color-secondary: #d4d0c8;
+  --mol-color-background: #14110e;
+  --mol-color-background-secondary: #1d1a16;
+  --mol-color-background-tertiary: #26221d;
+  --mol-color-surface: #1a1714;
+  --mol-color-surface-secondary: #221e1a;
+  --mol-color-input-background: #100d0a;
+  --mol-color-text: #f0ecdf;
+  --mol-color-text-secondary: #c4bcaa;
+  --mol-color-text-tertiary: #8a8270;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #2c2620;
+  --mol-color-border-secondary: #3a342c;
+  --mol-color-border-focus: #4ade80;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Brand hover + accent (amber pop) */
+  --color-primary-hover: #6ee7a0;
+  --color-primary-light: #14352a;
+  --color-accent: #fbbf24;
+  --color-accent-hover: #fcd34d;
+
+  /* Surface helpers */
+  --color-surface-hover: #221e1a;
+  --color-border-light: #2c2620;
+
+  /* Order status — preserve semantics, brighter on dark */
+  --color-status-confirmed: #60a5fa;
+  --color-status-processing: #fbbf24;
+  --color-status-shipped: #c084fc;
+  --color-status-delivered: #4ade80;
+  --color-status-cancelled: #f87171;
+  --color-status-refunded: #b8b0a0;
+
+  /* Rating stars — amber on dark, empty visible */
+  --color-star: #fbbf24;
+  --color-star-empty: #3a342c;
+
+  /* Form + UI helpers — dark variants */
+  --color-toggle-off: #4a5568;
+  --color-label-text: #c4bcaa;
+  --color-error-text: #f87171;
+  --color-order-delivered-bg: #052718;
+  --color-order-delivered-text: #4ade80;
+  --color-order-shipped-bg: #0d1f3c;
+  --color-order-shipped-text: #93c5fd;
+  --color-order-processing-bg: #2d1b00;
+  --color-order-processing-text: #fbbf24;
+  --color-order-cancelled-bg: #2d0a0a;
+  --color-order-cancelled-text: #f87171;
+  --color-order-default-bg: #2c2620;
+  --color-order-default-text: #8a8079;
+  --color-shipping-icon-bg: #2d1b00;
+  --color-wishlist-heart: #fbbf24;
+
+  /* Material-3 / Stitch @theme bridge tokens — dark variants for index.css @theme --color-* tokens.
+     Ensures bg-surface, text-on-surface, bg-primary, bg-primary-container etc. flip cleanly.
+     --color-on-primary stays white so green CTA buttons keep readable contrast. */
+  --color-background: #14110e;
+  --color-on-background: #f0ecdf;
+  --color-surface: #1a1714;
+  --color-surface-bright: #2c2620;
+  --color-surface-dim: #0c0a08;
+  --color-surface-container-lowest: #080605;
+  --color-surface-container-low: #14110e;
+  --color-surface-container: #1a1714;
+  --color-surface-container-high: #221e1a;
+  --color-surface-container-highest: #2c2620;
+  --color-surface-variant: #221e1a;
+  --color-on-surface: #f0ecdf;
+  --color-on-surface-variant: #c4bcaa;
+  --color-inverse-surface: #f0ecdf;
+  --color-inverse-on-surface: #1a1714;
+  --color-inverse-primary: #16a34a;
+  --color-primary: #15803d; /* keep brand green at brand stop */
+  --color-primary-container: #14352a;
+  --color-on-primary: #ffffff; /* white on green-700 primary = 5.02:1 ✓ (dark #052e16 fell to 2.97:1 after primary darkened) */
+  --color-on-primary-container: #bbf7d0;
+  --color-secondary: #d4d0c8;
+  --color-secondary-container: #2c2620;
+  --color-on-secondary: #1a1714;
+  --color-on-secondary-container: #f0ecdf;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #422800;
+  --color-on-tertiary: #422800; /* dark on amber — white was 1.67:1 (fail); #422800 = 8.19:1 ✓ */
+  --color-on-tertiary-container: #fde68a;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 ✓ */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b6360;
+  --color-outline-variant: #2c2620;
+  --color-surface-tint: #4ade80;
+  --color-primary-dark: #15803d;
+  --color-accent-dark: #d97706;
+  --color-surface-secondary: #221e1a;
+  --color-text-primary: #f0ecdf;
+  --color-text-secondary: #c4bcaa;
+  --color-footer-bg: #0c0a08;
+  --color-in-stock: #4ade80;
+  --color-low-stock: #fbbf24;
+  --color-out-of-stock: #b8b0a0;
+  --color-price-original: #8a8270;
+  --color-price-sale: #f87171;
+  --color-sale-light: #3a1414;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

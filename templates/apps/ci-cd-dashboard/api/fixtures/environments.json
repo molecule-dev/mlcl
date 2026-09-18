@@ -1,0 +1,54 @@
+[
+  {
+    "name": "production",
+    "url": "https://app.example.com",
+    "status": "healthy",
+    "traffic_pct": 100,
+    "current_deploy": {
+      "sha": "8f3a91c2d7e4b6f105d2c3a8b4e6d9f1a2b3c4d5",
+      "branch": "main",
+      "status": "success",
+      "deployed_by": "Riley K.",
+      "minutes_ago": 8
+    },
+    "recent_deploys": [
+      { "sha": "8f3a91c2d7e4b6f105d2c3a8b4e6d9f1a2b3c4d5", "branch": "main",         "status": "success", "deployed_by": "Riley K.",  "minutes_ago": 8   },
+      { "sha": "9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c", "branch": "main",         "status": "success", "deployed_by": "Riley K.",  "minutes_ago": 96  },
+      { "sha": "0c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e", "branch": "main",         "status": "success", "deployed_by": "Casey D.",  "minutes_ago": 410 }
+    ]
+  },
+  {
+    "name": "staging",
+    "url": "https://staging.example.com",
+    "status": "degraded",
+    "traffic_pct": 100,
+    "current_deploy": {
+      "sha": "5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e",
+      "branch": "feat/checkout-redesign",
+      "status": "running",
+      "deployed_by": "Sam T.",
+      "minutes_ago": 2
+    },
+    "recent_deploys": [
+      { "sha": "5d7e9f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e", "branch": "feat/checkout-redesign", "status": "running", "deployed_by": "Sam T.",   "minutes_ago": 2   },
+      { "sha": "1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9b", "branch": "fix/auth-leak",         "status": "failed",  "deployed_by": "Jordan M.", "minutes_ago": 24  },
+      { "sha": "9b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c", "branch": "main",                  "status": "success", "deployed_by": "Riley K.",  "minutes_ago": 96  }
+    ]
+  },
+  {
+    "name": "preview",
+    "url": "https://preview.example.com",
+    "status": "healthy",
+    "traffic_pct": 0,
+    "current_deploy": {
+      "sha": "3e5f7a9b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f",
+      "branch": "main",
+      "status": "success",
+      "deployed_by": "Avery L.",
+      "minutes_ago": 320
+    },
+    "recent_deploys": [
+      { "sha": "3e5f7a9b1c3d5e7f9a1b3c5d7e9f1a3b5c7d9e1f", "branch": "main", "status": "success", "deployed_by": "Avery L.", "minutes_ago": 320 }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+Polish complete: 2026-04-28T13:25:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: finance → sibling: personal-finance
+Components: 5 bespoke
+  - PortfolioHeroCard (gradient hero w/ sparkline + change pill)
+  - AssetAllocationDonut (SVG donut + legend, center-stamped total)
+  - HoldingHighlightRow (asset-class avatar + value + delta pill)
+  - RebalanceDriftCard (KPI w/ target tick + border-l-4 action accent)
+  - ArgentAuthShell (split-screen brand panel auth chrome, §13.3)
+Pages rewritten: Landing, Dashboard, Rebalance (signature)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword
+Material 3 tokens filled: yes (prior commit 674ef050)
+Fonts added: yes (prior commit 5131c85f)
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary)
+Screen-map coverage: 14/14
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean

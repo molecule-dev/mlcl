@@ -1,0 +1,98 @@
+[
+  {
+    "id": "usr-sarah",
+    "name": "Sarah Chen",
+    "role": "Owner",
+    "title": "Product Designer",
+    "avatar": "https://i.pravatar.cc/96?img=1",
+    "presence": "online",
+    "boards_active": 4,
+    "cards_assigned": 12,
+    "cards_completed_week": 6,
+    "last_active": "2026-04-29T10:24:00Z"
+  },
+  {
+    "id": "usr-marcus",
+    "name": "Marcus Liu",
+    "role": "Admin",
+    "title": "Frontend Engineer",
+    "avatar": "https://i.pravatar.cc/96?img=12",
+    "presence": "online",
+    "boards_active": 3,
+    "cards_assigned": 9,
+    "cards_completed_week": 8,
+    "last_active": "2026-04-29T10:18:00Z"
+  },
+  {
+    "id": "usr-priya",
+    "name": "Priya Patel",
+    "role": "Member",
+    "title": "QA Lead",
+    "avatar": "https://i.pravatar.cc/96?img=5",
+    "presence": "online",
+    "boards_active": 5,
+    "cards_assigned": 7,
+    "cards_completed_week": 4,
+    "last_active": "2026-04-29T10:30:00Z"
+  },
+  {
+    "id": "usr-james",
+    "name": "James O'Connor",
+    "role": "Member",
+    "title": "Backend Engineer",
+    "avatar": "https://i.pravatar.cc/96?img=8",
+    "presence": "online",
+    "boards_active": 2,
+    "cards_assigned": 5,
+    "cards_completed_week": 3,
+    "last_active": "2026-04-29T10:31:00Z"
+  },
+  {
+    "id": "usr-diego",
+    "name": "Diego Alvarez",
+    "role": "Member",
+    "title": "Platform Engineer",
+    "avatar": "https://i.pravatar.cc/96?img=15",
+    "presence": "offline",
+    "boards_active": 3,
+    "cards_assigned": 8,
+    "cards_completed_week": 2,
+    "last_active": "2026-04-28T22:14:00Z"
+  },
+  {
+    "id": "usr-anya",
+    "name": "Anya Petrov",
+    "role": "Member",
+    "title": "Visual Designer",
+    "avatar": "https://i.pravatar.cc/96?img=20",
+    "presence": "offline",
+    "boards_active": 2,
+    "cards_assigned": 4,
+    "cards_completed_week": 5,
+    "last_active": "2026-04-28T19:46:00Z"
+  },
+  {
+    "id": "usr-rin",
+    "name": "Rin Takeda",
+    "role": "Member",
+    "title": "Growth PM",
+    "avatar": "https://i.pravatar.cc/96?img=32",
+    "presence": "online",
+    "boards_active": 2,
+    "cards_assigned": 3,
+    "cards_completed_week": 4,
+    "last_active": "2026-04-29T10:12:00Z"
+  },
+  {
+    "id": "usr-elena",
+    "name": "Elena Marchetti",
+    "role": "Viewer",
+    "title": "Customer Success",
+    "avatar": "https://i.pravatar.cc/96?img=44",
+    "presence": "offline",
+    "boards_active": 1,
+    "cards_assigned": 2,
+    "cards_completed_week": 1,
+    "last_active": "2026-04-28T15:22:00Z"
+  }
+]

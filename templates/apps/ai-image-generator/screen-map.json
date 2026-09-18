@@ -1,0 +1,190 @@
+{
+  "app": "ai-image-generator",
+  "designProjectId": "9265969762838650241",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-landing.html",
+      "designScreenId": "d99fd92ff6d54b79ab6f19a39d22e66a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-login.html",
+      "designScreenId": "57e29d2f76af486c832fbc00371151f4"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-image-generator-login.html",
+      "derivationNotes": "Same centered glassmorphic card on dreamy purple-pink gradient background as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account' with sparkle icon. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-image-generator-login.html",
+      "derivationNotes": "Same centered glassmorphic card on dreamy purple-pink gradient background as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' with purple-pink gradient. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-image-generator-login.html",
+      "derivationNotes": "Same centered glassmorphic card on dreamy purple-pink gradient background as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' with purple-pink gradient. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-dashboard.html",
+      "designScreenId": "2fce299f5717481da9108e6d3bb99a9e"
+    },
+    {
+      "name": "Generate",
+      "templateFile": "app/pages/Generate.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/generate",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-generate.html",
+      "designScreenId": "7efeaad88a784772974b80505e5c18b0"
+    },
+    {
+      "name": "Gallery",
+      "templateFile": "app/pages/Gallery.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/gallery",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-gallery.html",
+      "designScreenId": "53f46de949914df4a235d23e2f30cbbe"
+    },
+    {
+      "name": "ImageDetail",
+      "templateFile": "app/pages/ImageDetail.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/images/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-image-detail.html",
+      "designScreenId": "2f21b84ccb3441c387c36b08bb4f09e6"
+    },
+    {
+      "name": "Styles",
+      "templateFile": "app/pages/Styles.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/styles",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-styles.html",
+      "designScreenId": "687adb5d94234c9aabe0b0f428b8117b"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-settings.html",
+      "designScreenId": "1e946b3998ac4f4ca313506af50fbe6c"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/editor/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-editor.html",
+      "designScreenId": "2b3c95c2997d4c01814315f84297d653"
+    },
+    {
+      "name": "Collections",
+      "templateFile": "app/pages/Collections.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/collections",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-collections.html",
+      "designScreenId": "a3157ec3ffc144f79e865919584331d3"
+    },
+    {
+      "name": "CollectionDetail",
+      "templateFile": "app/pages/CollectionDetail.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/collections/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-image-generator-gallery.html",
+      "derivationNotes": "Same 4-column masonry grid layout as Gallery scoped to a single collection. Header above grid shows collection name as h1, description, image count, and Edit/Share/Delete action buttons. Filter and sort controls below header match Gallery."
+    },
+    {
+      "name": "Prompts",
+      "templateFile": "app/pages/Prompts.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/prompts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-prompts.html",
+      "designScreenId": "90244d772e98499fa2ce11a2c416eb18"
+    },
+    {
+      "name": "Models",
+      "templateFile": "app/pages/Models.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/models",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-models.html",
+      "designScreenId": "6fb6051c47b348be98b6e6c53652f15f"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-notifications.html",
+      "designScreenId": "227017d39ec543ea9383f8207b200abd"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/AiImageGeneratorLayout.tsx"],
+      "route": "/profile/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-image-generator-profile.html",
+      "designScreenId": "d9f4445109a84434aa28fdf2e6d8121e"
+    }
+  ]
+}

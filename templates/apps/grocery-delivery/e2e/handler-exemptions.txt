@@ -1,0 +1,2 @@
+# Handlers exempt from gate 3 (network-assertion coverage).
+# One handler basename per line. Use # for comments.

@@ -1,0 +1,19 @@
+app: inventory-management
+brand: Locus — every unit, accounted for
+date: 2026-04-30
+session: autonomous polish via scripts/polish-app.mjs
+
+bespoke components: 7
+  - AuthShell (auth split-screen with brand panel)
+  - InventoryHeroCard (gradient hero w/ sparkline)
+  - InventoryKpiCard (left-stripe KPI tile)
+  - InventoryManagementLayout (navy sidebar + frosted topbar)
+  - LowStockAlertCard (severity-tinted alert row)
+  - MovementRow (stock activity row)
+  - StockBadge (six-variant pill)
+
+screen-map: 17 / 17 routes wired in App.tsx
+classmap coverage: 99% (polish-status), 100% on the strict polish-v2 counter
+material 3 derivative tokens: filled (missingTokens: 0)
+chrome: Header / Footer / RootErrorBoundary delegating to Sweep 1 packages
+sibling references: online-store, property-listing, personal-finance

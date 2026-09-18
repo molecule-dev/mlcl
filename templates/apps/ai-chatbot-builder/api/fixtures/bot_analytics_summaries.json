@@ -1,0 +1,316 @@
+[
+  {
+    "total_conversations": 3812,
+    "total_messages": 27443,
+    "avg_response_time_ms": 843,
+    "satisfaction_rate": 0.91,
+    "resolution_rate": 0.78,
+    "daily_conversations": [
+      {
+        "date": "2026-03-10",
+        "count": 512
+      },
+      {
+        "date": "2026-03-11",
+        "count": 489
+      },
+      {
+        "date": "2026-03-12",
+        "count": 601
+      },
+      {
+        "date": "2026-03-13",
+        "count": 534
+      },
+      {
+        "date": "2026-03-14",
+        "count": 478
+      },
+      {
+        "date": "2026-03-15",
+        "count": 620
+      },
+      {
+        "date": "2026-03-16",
+        "count": 578
+      }
+    ],
+    "top_intents": [
+      {
+        "intent": "order_status",
+        "count": 1142,
+        "avg_confidence": 0.94
+      },
+      {
+        "intent": "product_inquiry",
+        "count": 876,
+        "avg_confidence": 0.89
+      },
+      {
+        "intent": "return_request",
+        "count": 654,
+        "avg_confidence": 0.85
+      },
+      {
+        "intent": "payment_issue",
+        "count": 431,
+        "avg_confidence": 0.81
+      }
+    ],
+    "channel_breakdown": [
+      {
+        "channel": "web_widget",
+        "count": 1924,
+        "percentage": 0.505
+      },
+      {
+        "channel": "mobile_app",
+        "count": 1147,
+        "percentage": 0.301
+      },
+      {
+        "channel": "whatsapp",
+        "count": 741,
+        "percentage": 0.194
+      }
+    ]
+  },
+  {
+    "total_conversations": 1047,
+    "total_messages": 6318,
+    "avg_response_time_ms": 2105,
+    "satisfaction_rate": 0.74,
+    "resolution_rate": 0.61,
+    "daily_conversations": [
+      {
+        "date": "2026-04-01",
+        "count": 142
+      },
+      {
+        "date": "2026-04-02",
+        "count": 158
+      },
+      {
+        "date": "2026-04-03",
+        "count": 121
+      },
+      {
+        "date": "2026-04-04",
+        "count": 167
+      },
+      {
+        "date": "2026-04-05",
+        "count": 139
+      },
+      {
+        "date": "2026-04-06",
+        "count": 175
+      },
+      {
+        "date": "2026-04-07",
+        "count": 145
+      }
+    ],
+    "top_intents": [
+      {
+        "intent": "appointment_booking",
+        "count": 389,
+        "avg_confidence": 0.88
+      },
+      {
+        "intent": "faq_general",
+        "count": 274,
+        "avg_confidence": 0.76
+      },
+      {
+        "intent": "insurance_query",
+        "count": 198,
+        "avg_confidence": 0.72
+      },
+      {
+        "intent": "cancel_appointment",
+        "count": 186,
+        "avg_confidence": 0.79
+      }
+    ],
+    "channel_breakdown": [
+      {
+        "channel": "web_widget",
+        "count": 598,
+        "percentage": 0.571
+      },
+      {
+        "channel": "sms",
+        "count": 283,
+        "percentage": 0.27
+      },
+      {
+        "channel": "facebook_messenger",
+        "count": 166,
+        "percentage": 0.159
+      }
+    ]
+  },
+  {
+    "total_conversations": 9254,
+    "total_messages": 74182,
+    "avg_response_time_ms": 390,
+    "satisfaction_rate": 0.96,
+    "resolution_rate": 0.88,
+    "daily_conversations": [
+      {
+        "date": "2026-01-20",
+        "count": 1301
+      },
+      {
+        "date": "2026-01-21",
+        "count": 1278
+      },
+      {
+        "date": "2026-01-22",
+        "count": 1355
+      },
+      {
+        "date": "2026-01-23",
+        "count": 1190
+      },
+      {
+        "date": "2026-01-24",
+        "count": 1422
+      },
+      {
+        "date": "2026-01-25",
+        "count": 1388
+      },
+      {
+        "date": "2026-01-26",
+        "count": 1320
+      }
+    ],
+    "top_intents": [
+      {
+        "intent": "account_balance",
+        "count": 3102,
+        "avg_confidence": 0.97
+      },
+      {
+        "intent": "transfer_funds",
+        "count": 2541,
+        "avg_confidence": 0.95
+      },
+      {
+        "intent": "card_block",
+        "count": 1876,
+        "avg_confidence": 0.93
+      },
+      {
+        "intent": "loan_inquiry",
+        "count": 1094,
+        "avg_confidence": 0.91
+      },
+      {
+        "intent": "branch_locator",
+        "count": 641,
+        "avg_confidence": 0.88
+      }
+    ],
+    "channel_breakdown": [
+      {
+        "channel": "mobile_app",
+        "count": 5552,
+        "percentage": 0.6
+      },
+      {
+        "channel": "web_widget",
+        "count": 2314,
+        "percentage": 0.25
+      },
+      {
+        "channel": "whatsapp",
+        "count": 925,
+        "percentage": 0.1
+      },
+      {
+        "channel": "slack",
+        "count": 463,
+        "percentage": 0.05
+      }
+    ]
+  },
+  {
+    "total_conversations": 462,
+    "total_messages": 2187,
+    "avg_response_time_ms": 3740,
+    "satisfaction_rate": 0.58,
+    "resolution_rate": 0.44,
+    "daily_conversations": [
+      {
+        "date": "2026-05-05",
+        "count": 58
+      },
+      {
+        "date": "2026-05-06",
+        "count": 71
+      },
+      {
+        "date": "2026-05-07",
+        "count": 49
+      },
+      {
+        "date": "2026-05-08",
+        "count": 84
+      },
+      {
+        "date": "2026-05-09",
+        "count": 63
+      },
+      {
+        "date": "2026-05-10",
+        "count": 77
+      },
+      {
+        "date": "2026-05-11",
+        "count": 60
+      }
+    ],
+    "top_intents": [
+      {
+        "intent": "technical_support",
+        "count": 198,
+        "avg_confidence": 0.69
+      },
+      {
+        "intent": "license_activation",
+        "count": 134,
+        "avg_confidence": 0.65
+      },
+      {
+        "intent": "bug_report",
+        "count": 87,
+        "avg_confidence": 0.71
+      },
+      {
+        "intent": "feature_request",
+        "count": 43,
+        "avg_confidence": 0.6
+      }
+    ],
+    "channel_breakdown": [
+      {
+        "channel": "web_widget",
+        "count": 277,
+        "percentage": 0.599
+      },
+      {
+        "channel": "email_integration",
+        "count": 139,
+        "percentage": 0.301
+      },
+      {
+        "channel": "slack",
+        "count": 46,
+        "percentage": 0.1
+      }
+    ]
+  }
+]

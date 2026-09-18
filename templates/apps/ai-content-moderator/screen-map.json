@@ -1,0 +1,157 @@
+{
+  "app": "ai-content-moderator",
+  "designProjectId": "12091737737690682329",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-login.html",
+      "designScreenId": "e7502dc34b9d40908694005d7a8abb6a"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-content-moderator-login.html",
+      "derivationNotes": "Same two-pane layout with dark slate #0f172a left and white right form. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-content-moderator-login.html",
+      "derivationNotes": "Same two-pane layout with dark slate #0f172a left and white right form. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-content-moderator-login.html",
+      "derivationNotes": "Same two-pane layout with dark slate #0f172a left and white right form. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-dashboard.html",
+      "designScreenId": "3c22982fbe8b45c79550d67c2391ef40"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-landing.html",
+      "designScreenId": "eadf2341df5d4b7aaadbca5917373783"
+    },
+    {
+      "name": "Queue",
+      "templateFile": "app/pages/Queue.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/queue",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-queue.html",
+      "designScreenId": "9b3c708649084c299f2a79df09784274"
+    },
+    {
+      "name": "ReviewDetail",
+      "templateFile": "app/pages/ReviewDetail.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/queue/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-review-detail.html",
+      "designScreenId": "28bc052e7cc74a41b3d808b137bf6132"
+    },
+    {
+      "name": "Rules",
+      "templateFile": "app/pages/Rules.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/rules",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-rules.html",
+      "designScreenId": "6823631db1ce41439284d1138962fd27"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-analytics.html",
+      "designScreenId": "3aa33b1208fa40ce9382459a9bce959d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-content-moderator-settings.html",
+      "designScreenId": "be4277ad3e504812aa886ebda7cc0a14"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-content-moderator-settings.html",
+      "derivationNotes": "Same dark sidebar + light content layout. Replace Settings tabs with profile fields: avatar upload, full name, email, role badge (Reviewer/Senior Moderator/Admin), timezone, notification preferences. Save button in indigo primary."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": [
+        "app/components/SiftLayout.tsx"
+      ],
+      "route": "/notifications",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-content-moderator-queue.html",
+      "derivationNotes": "Same dark sidebar + filter bar + table layout. Replace queue rows with notification rows: assignment events, escalations to you, mentions, rule-trigger alerts. Each row shows actor avatar, event type pill (assigned/escalated/mentioned/rule-fired), context snippet, timestamp, mark-read action. Header reads 'Notifications' with unread count pill."
+    }
+  ]
+}

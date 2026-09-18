@@ -1,0 +1,1925 @@
+{
+  "slug": "warehouse-fulfillment",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-inventory",
+      "path": "/inventory",
+      "component": "Inventory",
+      "file": "app/src/pages/Inventory.tsx"
+    },
+    {
+      "id": "page-inventorydetail",
+      "path": "/inventory/:sku",
+      "component": "InventoryDetail",
+      "file": "app/src/pages/InventoryDetail.tsx"
+    },
+    {
+      "id": "page-locations",
+      "path": "/locations",
+      "component": "Locations",
+      "file": "app/src/pages/Locations.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-orders",
+      "path": "/orders",
+      "component": "Orders",
+      "file": "app/src/pages/Orders.tsx"
+    },
+    {
+      "id": "page-orderdetail",
+      "path": "/orders/:id",
+      "component": "OrderDetail",
+      "file": "app/src/pages/OrderDetail.tsx"
+    },
+    {
+      "id": "page-picklist",
+      "path": "/pick/:id",
+      "component": "PickList",
+      "file": "app/src/pages/PickList.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-profile",
+      "path": "/profile",
+      "component": "Profile",
+      "file": "app/src/pages/Profile.tsx"
+    },
+    {
+      "id": "page-receiving",
+      "path": "/receiving",
+      "component": "Receiving",
+      "file": "app/src/pages/Receiving.tsx"
+    },
+    {
+      "id": "page-reports",
+      "path": "/reports",
+      "component": "Reports",
+      "file": "app/src/pages/Reports.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-returns",
+      "path": "/returns",
+      "component": "Returns",
+      "file": "app/src/pages/Returns.tsx"
+    },
+    {
+      "id": "page-scanner",
+      "path": "/scan",
+      "component": "Scanner",
+      "file": "app/src/pages/Scanner.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-shipments",
+      "path": "/shipments",
+      "component": "Shipments",
+      "file": "app/src/pages/Shipments.tsx"
+    },
+    {
+      "id": "page-shipmentdetail",
+      "path": "/shipments/:id",
+      "component": "ShipmentDetail",
+      "file": "app/src/pages/ShipmentDetail.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-authshell-62--span-classname----h",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AuthShell.tsx",
+      "line": 62,
+      "label": "<span className=), h-11 w-11 rounded-xl bg-gradient-to-br fr",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-authshell-141--span-classname----h",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AuthShell.tsx",
+      "line": 141,
+      "label": "<span className=), h-10 w-10 rounded-xl bg-gradient-to-br fr",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-authshell-175",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AuthShell.tsx",
+      "line": 175,
+      "label": "link at app/src/components/AuthShell.tsx:175",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-orderrow-158",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/OrderRow.tsx",
+      "line": 158,
+      "label": "link at app/src/components/OrderRow.tsx:158",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-picklistitem-53",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/PickListItem.tsx",
+      "line": 53,
+      "label": "button at app/src/components/PickListItem.tsx:53",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-warehousefulfillmentlayout-184",
+      "role": "link",
+      "tag": "NavLink",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 184,
+      "label": "link at app/src/components/WarehouseFulfillmentLayout.tsx:184",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-warehousefulfillmentlayout-237",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 237,
+      "label": "button at app/src/components/WarehouseFulfillmentLayout.tsx:237",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-warehousefulfillmentlayout-277",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 277,
+      "label": "input at app/src/components/WarehouseFulfillmentLayout.tsx:277",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-warehousefulfillmentlayout-305",
+      "role": "link",
+      "tag": "NavLink",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 305,
+      "label": "link at app/src/components/WarehouseFulfillmentLayout.tsx:305",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-warehousefulfillmentlayout-321",
+      "role": "link",
+      "tag": "NavLink",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 321,
+      "label": "link at app/src/components/WarehouseFulfillmentLayout.tsx:321",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-warehousefulfillmentlayout-342",
+      "role": "link",
+      "tag": "NavLink",
+      "file": "app/src/components/WarehouseFulfillmentLayout.tsx",
+      "line": 342,
+      "label": "link at app/src/components/WarehouseFulfillmentLayout.tsx:342",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-173",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 173,
+      "label": "link at app/src/pages/Dashboard.tsx:173",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-189",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 189,
+      "label": "link at app/src/pages/Dashboard.tsx:189",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dashboard-232",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 232,
+      "label": "button at app/src/pages/Dashboard.tsx:232",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-315-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 315,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-94--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 94,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-inventory-183",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Inventory.tsx",
+      "line": 183,
+      "label": "input at app/src/pages/Inventory.tsx:183",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-inventory-239",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Inventory.tsx",
+      "line": 239,
+      "label": "link at app/src/pages/Inventory.tsx:239",
+      "href": "/inventory/${row.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-inventorydetail-98-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 98,
+      "label": "← , )}",
+      "href": "/inventory",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-inventorydetail-115-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 115,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-inventorydetail-183",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 183,
+      "label": "button at app/src/pages/InventoryDetail.tsx:183",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-inventorydetail-206",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 206,
+      "label": "input at app/src/pages/InventoryDetail.tsx:206",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-inventorydetail-218",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 218,
+      "label": "input at app/src/pages/InventoryDetail.tsx:218",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-inventorydetail-225",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 225,
+      "label": "button at app/src/pages/InventoryDetail.tsx:225",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-62--span-classname----h",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 62,
+      "label": "<span className=), h-10 w-10 rounded-xl bg-gradient-to-br fr",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-78-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 78,
+      "label": ", )}",
+      "href": "#features",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-81-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 81,
+      "label": ", )}",
+      "href": "#proof",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-84-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": "#preview",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-89-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 89,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-95-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 95,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-145-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 145,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-160-play-circle",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 160,
+      "label": "play_circle",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-337-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 337,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-352-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 352,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-384-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 384,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-387-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 387,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-locations-98-------t-locations-ne",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 98,
+      "label": ", ) : t(locations.new, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-locations-118",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 118,
+      "label": "input at app/src/pages/Locations.tsx:118",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-locations-130",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 130,
+      "label": "select at app/src/pages/Locations.tsx:130",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-locations-143-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 143,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-85--isloggingin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 85,
+      "label": "{isLoggingIn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-143",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Login.tsx",
+      "line": 143,
+      "label": "link at app/src/pages/Login.tsx:143",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-162",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 162,
+      "label": "input at app/src/pages/Login.tsx:162",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-notfound-55-space-dashboard",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 55,
+      "label": "space_dashboard",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-70-----home----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 70,
+      "label": ", } home })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-146-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 146,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-151-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 151,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-160-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 160,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-orderdetail-127-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/OrderDetail.tsx",
+      "line": 127,
+      "label": "← , )}",
+      "href": "/orders",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-orderdetail-149-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/OrderDetail.tsx",
+      "line": 149,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-orderdetail-173",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/OrderDetail.tsx",
+      "line": 173,
+      "label": "button at app/src/pages/OrderDetail.tsx:173",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-orderdetail-194",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/OrderDetail.tsx",
+      "line": 194,
+      "label": "button at app/src/pages/OrderDetail.tsx:194",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-orders-106",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Orders.tsx",
+      "line": 106,
+      "label": "button at app/src/pages/Orders.tsx:106",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-picklist-160-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PickList.tsx",
+      "line": 160,
+      "label": "← , )}",
+      "href": "/orders",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-picklist-172-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PickList.tsx",
+      "line": 172,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-picklist-191",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PickList.tsx",
+      "line": 191,
+      "label": "button at app/src/pages/PickList.tsx:191",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-profile-166",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 166,
+      "label": "input at app/src/pages/Profile.tsx:166",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-profile-178",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 178,
+      "label": "input at app/src/pages/Profile.tsx:178",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-profile-190",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 190,
+      "label": "input at app/src/pages/Profile.tsx:190",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-profile-200-------t-profile-save",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 200,
+      "label": ", ) : t(profile.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-receiving-109",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 109,
+      "label": "button at app/src/pages/Receiving.tsx:109",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-receiving-135",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 135,
+      "label": "input at app/src/pages/Receiving.tsx:135",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-receiving-147",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 147,
+      "label": "input at app/src/pages/Receiving.tsx:147",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-receiving-159",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 159,
+      "label": "input at app/src/pages/Receiving.tsx:159",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-receiving-167",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 167,
+      "label": "button at app/src/pages/Receiving.tsx:167",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-receiving-255-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 255,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-103--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 103,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-returns-102",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Returns.tsx",
+      "line": 102,
+      "label": "button at app/src/pages/Returns.tsx:102",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-returns-128",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Returns.tsx",
+      "line": 128,
+      "label": "input at app/src/pages/Returns.tsx:128",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-returns-137",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Returns.tsx",
+      "line": 137,
+      "label": "button at app/src/pages/Returns.tsx:137",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-returns-235",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Returns.tsx",
+      "line": 235,
+      "label": "select at app/src/pages/Returns.tsx:235",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-scanner-143-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Scanner.tsx",
+      "line": 143,
+      "label": "arrow_back , )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-scanner-177",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Scanner.tsx",
+      "line": 177,
+      "label": "input at app/src/pages/Scanner.tsx:177",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-scanner-186-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Scanner.tsx",
+      "line": 186,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-scanner-231",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Scanner.tsx",
+      "line": 231,
+      "label": "link at app/src/pages/Scanner.tsx:231",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-113",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 113,
+      "label": "input at app/src/pages/Settings.tsx:113",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-settings-129",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 129,
+      "label": "select at app/src/pages/Settings.tsx:129",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-144",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 144,
+      "label": "input at app/src/pages/Settings.tsx:144",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-155",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 155,
+      "label": "input at app/src/pages/Settings.tsx:155",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-166",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 166,
+      "label": "input at app/src/pages/Settings.tsx:166",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-178-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 178,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-shipmentdetail-101-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ShipmentDetail.tsx",
+      "line": 101,
+      "label": "← , )}",
+      "href": "/shipments",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-shipmentdetail-116-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ShipmentDetail.tsx",
+      "line": 116,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shipmentdetail-157",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShipmentDetail.tsx",
+      "line": 157,
+      "label": "button at app/src/pages/ShipmentDetail.tsx:157",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shipments-108",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Shipments.tsx",
+      "line": 108,
+      "label": "button at app/src/pages/Shipments.tsx:108",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-shipments-136",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Shipments.tsx",
+      "line": 136,
+      "label": "select at app/src/pages/Shipments.tsx:136",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shipments-148",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Shipments.tsx",
+      "line": 148,
+      "label": "button at app/src/pages/Shipments.tsx:148",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-shipments-239",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Shipments.tsx",
+      "line": 239,
+      "label": "link at app/src/pages/Shipments.tsx:239",
+      "href": "/shipments/${row.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-90--issigningup",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 90,
+      "label": "{isSigningUp",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-67",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 67,
+      "label": "form at app/src/pages/ForgotPassword.tsx:67",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-inventorydetail-201",
+      "file": "app/src/pages/InventoryDetail.tsx",
+      "line": 201,
+      "label": "form at app/src/pages/InventoryDetail.tsx:201",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-locations-109",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 109,
+      "label": "form at app/src/pages/Locations.tsx:109",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-44",
+      "file": "app/src/pages/Login.tsx",
+      "line": 44,
+      "label": "form at app/src/pages/Login.tsx:44",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-receiving-126",
+      "file": "app/src/pages/Receiving.tsx",
+      "line": 126,
+      "label": "form at app/src/pages/Receiving.tsx:126",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-52",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 52,
+      "label": "form at app/src/pages/ResetPassword.tsx:52",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-returns-119",
+      "file": "app/src/pages/Returns.tsx",
+      "line": 119,
+      "label": "form at app/src/pages/Returns.tsx:119",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-scanner-164",
+      "file": "app/src/pages/Scanner.tsx",
+      "line": 164,
+      "label": "form at app/src/pages/Scanner.tsx:164",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-shipments-127",
+      "file": "app/src/pages/Shipments.tsx",
+      "line": 127,
+      "label": "form at app/src/pages/Shipments.tsx:127",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-44",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 44,
+      "label": "form at app/src/pages/Signup.tsx:44",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-inventory--id",
+      "method": "DELETE",
+      "mountedPath": "/inventory/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 236,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-delete-locations--id",
+      "method": "DELETE",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 138,
+      "resource": "locations"
+    },
+    {
+      "id": "route-delete-notifications--id",
+      "method": "DELETE",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 110,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-delete-zones--id",
+      "method": "DELETE",
+      "mountedPath": "/zones/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 182,
+      "resource": "zones"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-inventory-",
+      "method": "GET",
+      "mountedPath": "/inventory",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 41,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-get-inventory--id",
+      "method": "GET",
+      "mountedPath": "/inventory/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 88,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-get-inventory-stats",
+      "method": "GET",
+      "mountedPath": "/inventory/stats",
+      "rawPath": "/stats",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 62,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-get-locations-",
+      "method": "GET",
+      "mountedPath": "/locations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 31,
+      "resource": "locations"
+    },
+    {
+      "id": "route-get-locations--id",
+      "method": "GET",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 49,
+      "resource": "locations"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 27,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-orders-",
+      "method": "GET",
+      "mountedPath": "/orders",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 52,
+      "resource": "orders"
+    },
+    {
+      "id": "route-get-orders--id",
+      "method": "GET",
+      "mountedPath": "/orders/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 118,
+      "resource": "orders"
+    },
+    {
+      "id": "route-get-orders-stats-counts",
+      "method": "GET",
+      "mountedPath": "/orders/stats/counts",
+      "rawPath": "/stats/counts",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 81,
+      "resource": "orders"
+    },
+    {
+      "id": "route-get-packing-",
+      "method": "GET",
+      "mountedPath": "/packing",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/packing.ts",
+      "line": 30,
+      "resource": "packing"
+    },
+    {
+      "id": "route-get-packing--id",
+      "method": "GET",
+      "mountedPath": "/packing/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/packing.ts",
+      "line": 52,
+      "resource": "packing"
+    },
+    {
+      "id": "route-get-picks-",
+      "method": "GET",
+      "mountedPath": "/picks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/picks.ts",
+      "line": 36,
+      "resource": "picks"
+    },
+    {
+      "id": "route-get-picks--id",
+      "method": "GET",
+      "mountedPath": "/picks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/picks.ts",
+      "line": 60,
+      "resource": "picks"
+    },
+    {
+      "id": "route-get-receipts-",
+      "method": "GET",
+      "mountedPath": "/receipts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 40,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-get-receipts--id",
+      "method": "GET",
+      "mountedPath": "/receipts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 58,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-get-returns-",
+      "method": "GET",
+      "mountedPath": "/returns",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/returns.ts",
+      "line": 38,
+      "resource": "returns"
+    },
+    {
+      "id": "route-get-returns--id",
+      "method": "GET",
+      "mountedPath": "/returns/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/returns.ts",
+      "line": 56,
+      "resource": "returns"
+    },
+    {
+      "id": "route-get-shipments-",
+      "method": "GET",
+      "mountedPath": "/shipments",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/shipments.ts",
+      "line": 31,
+      "resource": "shipments"
+    },
+    {
+      "id": "route-get-shipments--id",
+      "method": "GET",
+      "mountedPath": "/shipments/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/shipments.ts",
+      "line": 55,
+      "resource": "shipments"
+    },
+    {
+      "id": "route-get-zones-",
+      "method": "GET",
+      "mountedPath": "/zones",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 36,
+      "resource": "zones"
+    },
+    {
+      "id": "route-get-zones--id",
+      "method": "GET",
+      "mountedPath": "/zones/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 54,
+      "resource": "zones"
+    },
+    {
+      "id": "route-patch-inventory--id",
+      "method": "PATCH",
+      "mountedPath": "/inventory/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 156,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-patch-locations--id",
+      "method": "PATCH",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 99,
+      "resource": "locations"
+    },
+    {
+      "id": "route-patch-notifications--id",
+      "method": "PATCH",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 74,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-patch-orders--id",
+      "method": "PATCH",
+      "mountedPath": "/orders/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 217,
+      "resource": "orders"
+    },
+    {
+      "id": "route-patch-receipts--id",
+      "method": "PATCH",
+      "mountedPath": "/receipts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 126,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-patch-returns--id",
+      "method": "PATCH",
+      "mountedPath": "/returns/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/returns.ts",
+      "line": 125,
+      "resource": "returns"
+    },
+    {
+      "id": "route-patch-zones--id",
+      "method": "PATCH",
+      "mountedPath": "/zones/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 146,
+      "resource": "zones"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-inventory-",
+      "method": "POST",
+      "mountedPath": "/inventory",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 117,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-post-inventory--id-adjust",
+      "method": "POST",
+      "mountedPath": "/inventory/:id/adjust",
+      "rawPath": "/:id/adjust",
+      "handlerFile": "api/src/handlers/inventory.ts",
+      "line": 195,
+      "resource": "inventory"
+    },
+    {
+      "id": "route-post-locations-",
+      "method": "POST",
+      "mountedPath": "/locations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 70,
+      "resource": "locations"
+    },
+    {
+      "id": "route-post-notifications-",
+      "method": "POST",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 45,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-orders-",
+      "method": "POST",
+      "mountedPath": "/orders",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 150,
+      "resource": "orders"
+    },
+    {
+      "id": "route-post-orders--id-cancel",
+      "method": "POST",
+      "mountedPath": "/orders/:id/cancel",
+      "rawPath": "/:id/cancel",
+      "handlerFile": "api/src/handlers/orders.ts",
+      "line": 264,
+      "resource": "orders"
+    },
+    {
+      "id": "route-post-packing-box",
+      "method": "POST",
+      "mountedPath": "/packing/box",
+      "rawPath": "/box",
+      "handlerFile": "api/src/handlers/packing.ts",
+      "line": 113,
+      "resource": "packing"
+    },
+    {
+      "id": "route-post-packing-start",
+      "method": "POST",
+      "mountedPath": "/packing/start",
+      "rawPath": "/start",
+      "handlerFile": "api/src/handlers/packing.ts",
+      "line": 77,
+      "resource": "packing"
+    },
+    {
+      "id": "route-post-picks-",
+      "method": "POST",
+      "mountedPath": "/picks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/picks.ts",
+      "line": 85,
+      "resource": "picks"
+    },
+    {
+      "id": "route-post-picks--id-complete",
+      "method": "POST",
+      "mountedPath": "/picks/:id/complete",
+      "rawPath": "/:id/complete",
+      "handlerFile": "api/src/handlers/picks.ts",
+      "line": 165,
+      "resource": "picks"
+    },
+    {
+      "id": "route-post-picks--id-lines--lineid-pick",
+      "method": "POST",
+      "mountedPath": "/picks/:id/lines/:lineId/pick",
+      "rawPath": "/:id/lines/:lineId/pick",
+      "handlerFile": "api/src/handlers/picks.ts",
+      "line": 130,
+      "resource": "picks"
+    },
+    {
+      "id": "route-post-receipts-",
+      "method": "POST",
+      "mountedPath": "/receipts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 83,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-post-receipts-items--id-receive",
+      "method": "POST",
+      "mountedPath": "/receipts/items/:id/receive",
+      "rawPath": "/items/:id/receive",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 161,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-post-returns-",
+      "method": "POST",
+      "mountedPath": "/returns",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/returns.ts",
+      "line": 81,
+      "resource": "returns"
+    },
+    {
+      "id": "route-post-setup-reset",
+      "method": "POST",
+      "mountedPath": "/setup/reset",
+      "rawPath": "/reset",
+      "handlerFile": "api/src/handlers/setup.ts",
+      "line": 303,
+      "resource": "setup"
+    },
+    {
+      "id": "route-post-setup-seed",
+      "method": "POST",
+      "mountedPath": "/setup/seed",
+      "rawPath": "/seed",
+      "handlerFile": "api/src/handlers/setup.ts",
+      "line": 74,
+      "resource": "setup"
+    },
+    {
+      "id": "route-post-shipments-",
+      "method": "POST",
+      "mountedPath": "/shipments",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/shipments.ts",
+      "line": 81,
+      "resource": "shipments"
+    },
+    {
+      "id": "route-post-shipments--id-status",
+      "method": "POST",
+      "mountedPath": "/shipments/:id/status",
+      "rawPath": "/:id/status",
+      "handlerFile": "api/src/handlers/shipments.ts",
+      "line": 128,
+      "resource": "shipments"
+    },
+    {
+      "id": "route-post-zones-",
+      "method": "POST",
+      "mountedPath": "/zones",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 80,
+      "resource": "zones"
+    },
+    {
+      "id": "route-post-zones--id-bins",
+      "method": "POST",
+      "mountedPath": "/zones/:id/bins",
+      "rawPath": "/:id/bins",
+      "handlerFile": "api/src/handlers/zones.ts",
+      "line": 108,
+      "resource": "zones"
+    }
+  ],
+  "totals": {
+    "pages": 23,
+    "elements": 105,
+    "forms": 12,
+    "routes": 56
+  }
+}

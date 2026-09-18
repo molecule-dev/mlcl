@@ -1,0 +1,13 @@
+<g stroke="__BRAND_COLOR__" stroke-width="1.6" stroke-linecap="round">
+  <line x1="16" y1="16" x2="6"  y2="6" />
+  <line x1="16" y1="16" x2="26" y2="6" />
+  <line x1="16" y1="16" x2="6"  y2="26" />
+  <line x1="16" y1="16" x2="26" y2="26" />
+</g>
+<g fill="__BRAND_COLOR__">
+  <circle cx="16" cy="16" r="3.6" />
+  <circle cx="6"  cy="6"  r="2.2" />
+  <circle cx="26" cy="6"  r="2.2" />
+  <circle cx="6"  cy="26" r="2.2" />
+  <circle cx="26" cy="26" r="2.2" />
+</g>

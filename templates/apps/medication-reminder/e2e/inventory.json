@@ -1,0 +1,1376 @@
+{
+  "slug": "medication-reminder",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-caregivers",
+      "path": "/caregivers",
+      "component": "Caregivers",
+      "file": "app/src/pages/Caregivers.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-medications",
+      "path": "/medications",
+      "component": "Medications",
+      "file": "app/src/pages/Medications.tsx"
+    },
+    {
+      "id": "page-medicationdetail",
+      "path": "/medications/:id",
+      "component": "MedicationDetail",
+      "file": "app/src/pages/MedicationDetail.tsx"
+    },
+    {
+      "id": "page-addmedication",
+      "path": "/medications/new",
+      "component": "AddMedication",
+      "file": "app/src/pages/AddMedication.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-profile",
+      "path": "/profile",
+      "component": "Profile",
+      "file": "app/src/pages/Profile.tsx"
+    },
+    {
+      "id": "page-refills",
+      "path": "/refills",
+      "component": "Refills",
+      "file": "app/src/pages/Refills.tsx"
+    },
+    {
+      "id": "page-adherencereport",
+      "path": "/reports",
+      "component": "AdherenceReport",
+      "file": "app/src/pages/AdherenceReport.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-schedule",
+      "path": "/schedule",
+      "component": "Schedule",
+      "file": "app/src/pages/Schedule.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-adherencetriad-162",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AdherenceTriad.tsx",
+      "line": 162,
+      "label": "link at app/src/components/AdherenceTriad.tsx:162",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-doserow-104",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DoseRow.tsx",
+      "line": 104,
+      "label": "button at app/src/components/DoseRow.tsx:104",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-refillalertcard-148-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/RefillAlertCard.tsx",
+      "line": 148,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-37-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 37,
+      "label": ", )}",
+      "href": "/profile",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-40-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 40,
+      "label": ", )}",
+      "href": "/settings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-43-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 43,
+      "label": ", )}",
+      "href": "/caregivers",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-47-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 47,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-addmedication-60-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 60,
+      "label": "← , )}",
+      "href": "/medications",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addmedication-80",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 80,
+      "label": "button at app/src/pages/AddMedication.tsx:80",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-addmedication-108-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 108,
+      "label": ", )}",
+      "href": "/medications",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addmedication-111-------t-addmedicatio",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 111,
+      "label": ", ) : t(addMedication.saveLabel, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addmedication-129",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 129,
+      "label": "input at app/src/pages/AddMedication.tsx:129",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addmedication-144",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 144,
+      "label": "input at app/src/pages/AddMedication.tsx:144",
+      "href": null,
+      "type": "checkbox",
+      "name": null
+    },
+    {
+      "id": "button-adherence-57-----days----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Adherence.tsx",
+      "line": 57,
+      "label": ", , days })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-caregivers-93--showinvite",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Caregivers.tsx",
+      "line": 93,
+      "label": "{showInvite",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-caregivers-131",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Caregivers.tsx",
+      "line": 131,
+      "label": "input at app/src/pages/Caregivers.tsx:131",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-caregivers-151",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Caregivers.tsx",
+      "line": 151,
+      "label": "input at app/src/pages/Caregivers.tsx:151",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-caregivers-182--submitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Caregivers.tsx",
+      "line": 182,
+      "label": "{submitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-148-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 148,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-203-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 203,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-213-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 213,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-71",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 71,
+      "label": "button at app/src/pages/ForgotPassword.tsx:71",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-81",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 81,
+      "label": "button at app/src/pages/ForgotPassword.tsx:81",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-102",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 102,
+      "label": "button at app/src/pages/ForgotPassword.tsx:102",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-112",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 112,
+      "label": "button at app/src/pages/ForgotPassword.tsx:112",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-66--span-classname---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 66,
+      "label": "<span className=),",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-90-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 90,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-96-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 96,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-159-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 159,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-171-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 171,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-351-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 351,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-408--------",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 408,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-86",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 86,
+      "label": "button at app/src/pages/Login.tsx:86",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-95",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 95,
+      "label": "button at app/src/pages/Login.tsx:95",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-112",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 112,
+      "label": "button at app/src/pages/Login.tsx:112",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-medicationdetail-159-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 159,
+      "label": "← , )}",
+      "href": "/medications",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-178-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 178,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-192",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 192,
+      "label": "button at app/src/pages/MedicationDetail.tsx:192",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-244-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 244,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-251-------t-medicationde",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 251,
+      "label": ", ) : t(medicationDetail.saveLabel, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-281-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 281,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-medicationdetail-289-------t-medicationde",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 289,
+      "label": ", ) : t(medicationDetail.confirmDeleteLabel, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-medicationdetail-389",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 389,
+      "label": "input at app/src/pages/MedicationDetail.tsx:389",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-medications-60-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Medications.tsx",
+      "line": 60,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-medications-79--div-classname----cm",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Medications.tsx",
+      "line": 79,
+      "label": "<div className=), cm.h(14), cm.w(14), rounded-full)} style={",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-88",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 88,
+      "label": "button at app/src/pages/Notifications.tsx:88",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-profile-175",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 175,
+      "label": "button at app/src/pages/Profile.tsx:175",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-profile-319--saving",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 319,
+      "label": "{saving",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-profile-424-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 424,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-profile-460--submitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 460,
+      "label": "{submitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-profile-475",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 475,
+      "label": "button at app/src/pages/Profile.tsx:475",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-profile-532",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 532,
+      "label": "input at app/src/pages/Profile.tsx:532",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-102",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 102,
+      "label": "button at app/src/pages/ResetPassword.tsx:102",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-112",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 112,
+      "label": "button at app/src/pages/ResetPassword.tsx:112",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-160",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 160,
+      "label": "button at app/src/pages/Settings.tsx:160",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-312--saving",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 312,
+      "label": "{saving",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-settings-364",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 364,
+      "label": "select at app/src/pages/Settings.tsx:364",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-407",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 407,
+      "label": "input at app/src/pages/Settings.tsx:407",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-433",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 433,
+      "label": "input at app/src/pages/Settings.tsx:433",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-84",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 84,
+      "label": "button at app/src/pages/Signup.tsx:84",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-94",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 94,
+      "label": "button at app/src/pages/Signup.tsx:94",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-addmedication-70",
+      "file": "app/src/pages/AddMedication.tsx",
+      "line": 70,
+      "label": "form at app/src/pages/AddMedication.tsx:70",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-caregivers-111",
+      "file": "app/src/pages/Caregivers.tsx",
+      "line": 111,
+      "label": "form at app/src/pages/Caregivers.tsx:111",
+      "onSubmit": false,
+      "fields": [
+        {
+          "name": "permission",
+          "type": "radio"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-58",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 58,
+      "label": "form at app/src/pages/ForgotPassword.tsx:58",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-54",
+      "file": "app/src/pages/Login.tsx",
+      "line": 54,
+      "label": "form at app/src/pages/Login.tsx:54",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-medicationdetail-212",
+      "file": "app/src/pages/MedicationDetail.tsx",
+      "line": 212,
+      "label": "form at app/src/pages/MedicationDetail.tsx:212",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-profile-203",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 203,
+      "label": "form at app/src/pages/Profile.tsx:203",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-profile-235",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 235,
+      "label": "form at app/src/pages/Profile.tsx:235",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-profile-269",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 269,
+      "label": "form at app/src/pages/Profile.tsx:269",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-profile-440",
+      "file": "app/src/pages/Profile.tsx",
+      "line": 440,
+      "label": "form at app/src/pages/Profile.tsx:440",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-60",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 60,
+      "label": "form at app/src/pages/ResetPassword.tsx:60",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-277",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 277,
+      "label": "form at app/src/pages/Settings.tsx:277",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-52",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 52,
+      "label": "form at app/src/pages/Signup.tsx:52",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-caregivers--id",
+      "method": "DELETE",
+      "mountedPath": "/caregivers/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/caregivers.ts",
+      "line": 150,
+      "resource": "caregivers"
+    },
+    {
+      "id": "route-delete-medications--id",
+      "method": "DELETE",
+      "mountedPath": "/medications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 499,
+      "resource": "medications"
+    },
+    {
+      "id": "route-delete-refills--id",
+      "method": "DELETE",
+      "mountedPath": "/refills/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 360,
+      "resource": "refills"
+    },
+    {
+      "id": "route-delete-schedules--id",
+      "method": "DELETE",
+      "mountedPath": "/schedules/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 232,
+      "resource": "schedules"
+    },
+    {
+      "id": "route-get-adherence-by-medication",
+      "method": "GET",
+      "mountedPath": "/adherence/by-medication",
+      "rawPath": "/by-medication",
+      "handlerFile": "api/src/handlers/adherence.ts",
+      "line": 72,
+      "resource": "adherence"
+    },
+    {
+      "id": "route-get-adherence-overview",
+      "method": "GET",
+      "mountedPath": "/adherence/overview",
+      "rawPath": "/overview",
+      "handlerFile": "api/src/handlers/adherence.ts",
+      "line": 32,
+      "resource": "adherence"
+    },
+    {
+      "id": "route-get-adherence-streak",
+      "method": "GET",
+      "mountedPath": "/adherence/streak",
+      "rawPath": "/streak",
+      "handlerFile": "api/src/handlers/adherence.ts",
+      "line": 121,
+      "resource": "adherence"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-caregivers-",
+      "method": "GET",
+      "mountedPath": "/caregivers",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/caregivers.ts",
+      "line": 47,
+      "resource": "caregivers"
+    },
+    {
+      "id": "route-get-caregivers--id",
+      "method": "GET",
+      "mountedPath": "/caregivers/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/caregivers.ts",
+      "line": 74,
+      "resource": "caregivers"
+    },
+    {
+      "id": "route-get-doses-",
+      "method": "GET",
+      "mountedPath": "/doses",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 151,
+      "resource": "doses"
+    },
+    {
+      "id": "route-get-doses--id",
+      "method": "GET",
+      "mountedPath": "/doses/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 209,
+      "resource": "doses"
+    },
+    {
+      "id": "route-get-doses-today",
+      "method": "GET",
+      "mountedPath": "/doses/today",
+      "rawPath": "/today",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 187,
+      "resource": "doses"
+    },
+    {
+      "id": "route-get-medications-",
+      "method": "GET",
+      "mountedPath": "/medications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 272,
+      "resource": "medications"
+    },
+    {
+      "id": "route-get-medications--id",
+      "method": "GET",
+      "mountedPath": "/medications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 337,
+      "resource": "medications"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 44,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-notifications--id",
+      "method": "GET",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 73,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-refills-",
+      "method": "GET",
+      "mountedPath": "/refills",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 66,
+      "resource": "refills"
+    },
+    {
+      "id": "route-get-refills--id",
+      "method": "GET",
+      "mountedPath": "/refills/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 207,
+      "resource": "refills"
+    },
+    {
+      "id": "route-get-refills-alerts",
+      "method": "GET",
+      "mountedPath": "/refills/alerts",
+      "rawPath": "/alerts",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 128,
+      "resource": "refills"
+    },
+    {
+      "id": "route-get-refills-due",
+      "method": "GET",
+      "mountedPath": "/refills/due",
+      "rawPath": "/due",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 92,
+      "resource": "refills"
+    },
+    {
+      "id": "route-get-reports-adherence",
+      "method": "GET",
+      "mountedPath": "/reports/adherence",
+      "rawPath": "/adherence",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 149,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-reports-today",
+      "method": "GET",
+      "mountedPath": "/reports/today",
+      "rawPath": "/today",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 88,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-schedules-",
+      "method": "GET",
+      "mountedPath": "/schedules",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 68,
+      "resource": "schedules"
+    },
+    {
+      "id": "route-get-schedules--id",
+      "method": "GET",
+      "mountedPath": "/schedules/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 97,
+      "resource": "schedules"
+    },
+    {
+      "id": "route-patch-caregivers--id",
+      "method": "PATCH",
+      "mountedPath": "/caregivers/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/caregivers.ts",
+      "line": 122,
+      "resource": "caregivers"
+    },
+    {
+      "id": "route-patch-doses--id",
+      "method": "PATCH",
+      "mountedPath": "/doses/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 360,
+      "resource": "doses"
+    },
+    {
+      "id": "route-patch-medications--id",
+      "method": "PATCH",
+      "mountedPath": "/medications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 435,
+      "resource": "medications"
+    },
+    {
+      "id": "route-patch-refills--id",
+      "method": "PATCH",
+      "mountedPath": "/refills/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 264,
+      "resource": "refills"
+    },
+    {
+      "id": "route-patch-schedules--id",
+      "method": "PATCH",
+      "mountedPath": "/schedules/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 162,
+      "resource": "schedules"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-caregivers-",
+      "method": "POST",
+      "mountedPath": "/caregivers",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/caregivers.ts",
+      "line": 96,
+      "resource": "caregivers"
+    },
+    {
+      "id": "route-post-doses-",
+      "method": "POST",
+      "mountedPath": "/doses",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 232,
+      "resource": "doses"
+    },
+    {
+      "id": "route-post-doses--id-skip",
+      "method": "POST",
+      "mountedPath": "/doses/:id/skip",
+      "rawPath": "/:id/skip",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 298,
+      "resource": "doses"
+    },
+    {
+      "id": "route-post-doses--id-snooze",
+      "method": "POST",
+      "mountedPath": "/doses/:id/snooze",
+      "rawPath": "/:id/snooze",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 329,
+      "resource": "doses"
+    },
+    {
+      "id": "route-post-doses--id-take",
+      "method": "POST",
+      "mountedPath": "/doses/:id/take",
+      "rawPath": "/:id/take",
+      "handlerFile": "api/src/handlers/doses.ts",
+      "line": 269,
+      "resource": "doses"
+    },
+    {
+      "id": "route-post-medications-",
+      "method": "POST",
+      "mountedPath": "/medications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 376,
+      "resource": "medications"
+    },
+    {
+      "id": "route-post-notifications-",
+      "method": "POST",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 95,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-notifications--id-read",
+      "method": "POST",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 122,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-refills-",
+      "method": "POST",
+      "mountedPath": "/refills",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 229,
+      "resource": "refills"
+    },
+    {
+      "id": "route-post-refills--id-request",
+      "method": "POST",
+      "mountedPath": "/refills/:id/request",
+      "rawPath": "/:id/request",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 326,
+      "resource": "refills"
+    },
+    {
+      "id": "route-post-schedules-",
+      "method": "POST",
+      "mountedPath": "/schedules",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 119,
+      "resource": "schedules"
+    },
+    {
+      "id": "route-put-medications--id",
+      "method": "PUT",
+      "mountedPath": "/medications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/medications.ts",
+      "line": 467,
+      "resource": "medications"
+    },
+    {
+      "id": "route-put-refills--id",
+      "method": "PUT",
+      "mountedPath": "/refills/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/refills.ts",
+      "line": 292,
+      "resource": "refills"
+    },
+    {
+      "id": "route-put-schedules--id",
+      "method": "PUT",
+      "mountedPath": "/schedules/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedules.ts",
+      "line": 197,
+      "resource": "schedules"
+    }
+  ],
+  "totals": {
+    "pages": 18,
+    "elements": 66,
+    "forms": 12,
+    "routes": 47
+  }
+}

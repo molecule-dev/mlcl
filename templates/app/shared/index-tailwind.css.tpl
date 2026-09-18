@@ -1,0 +1,219 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names. The scaffolder appends a */
+/* scan line after the framework line below for any selected ClassMap variant */
+/* bond whose utilities live only in its own dist (e.g. app-ui-tailwind-glass). */
+@source "{{NM_PREFIX}}/node_modules/@molecule/app-ui-tailwind/dist";
+@source "{{NM_PREFIX}}/node_modules/@molecule/app-styling-tailwind/dist";
+@source "{{NM_PREFIX}}/node_modules/@molecule/app-ui-{{FRAMEWORK}}/dist";{{EXTRA_UI_SOURCE_SCANS}}
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+@source inline("{p,px,py,pt,pb,pl,pr}-{0,1,2,3,4,5,6,8,10,12,16}");
+
+/* cm.sp('m'|'mx'|'my'|'mt'|'mb'|'ml'|'mr', scale) */
+@source inline("{m,mx,my,mt,mb,ml,mr}-{0,1,2,3,4,5,6,8,10,12,16}");
+
+/* cm.stack(scale) → flex flex-col + gap-{scale} (see @molecule/app-ui-tailwind classMap) */
+@source inline("gap-{0,1,2,3,4,5,6,8,10,12,16}");
+
+/* cm.textSize(scale) → text-{scale} */
+@source inline("text-{xs,sm,base,lg,xl,2xl,3xl,4xl}");
+
+/* cm.fontWeight(weight) → font-{weight} */
+@source inline("font-{normal,medium,semibold,bold}");
+
+/* cm.w(value) → w-{value} */
+@source inline("w-{full,auto,screen,1/2,1/3,2/3,1/4,3/4}");
+
+/* cm.h(value) → h-{value} */
+@source inline("h-{full,screen,auto}");
+
+/* cm.minH(value) → min-h-{value} */
+@source inline("min-h-{full,screen,0}");
+
+/* cm.maxW(scale) → max-w-{scale} */
+@source inline("max-w-{none,xs,sm,md,lg,xl,2xl,full}");
+
+/* cm.gridRows(n) → grid-rows-{n} */
+@source inline("grid-rows-{1,2,3,4,5,6}");
+
+/* Map molecule theme CSS variables to Tailwind color tokens */
+/* Fallback values use default light theme colors for initial paint */
+/* Templates set --mol-color-* in theme.css; runtime theme provider overrides via inline styles */
+@theme {
+  --font-sans: var(--mol-font-sans, system-ui, -apple-system, sans-serif);
+  --font-mono: var(--mol-font-mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  --color-primary: var(--mol-color-primary, #4070e0);
+  --color-primary-light: var(--mol-color-primary-light, #6090f0);
+  --color-primary-dark: var(--mol-color-primary-dark, #3060c0);
+  --color-secondary: var(--mol-color-secondary, #808080);
+  --color-secondary-light: var(--mol-color-secondary-light, #a0a0a0);
+  --color-secondary-dark: var(--mol-color-secondary-dark, #606060);
+  --color-background: var(--mol-color-background, #f6f6f6);
+  --color-background-secondary: var(--mol-color-background-secondary, #eeeeee);
+  --color-background-tertiary: var(--mol-color-background-tertiary, #e8e8e8);
+  --color-surface: var(--mol-color-surface, #ffffff);
+  --color-surface-secondary: var(--mol-color-surface-secondary, #f8f8f8);
+  --color-input-background: var(--mol-color-input-background, #ffffff);
+  --color-surface-hover: color-mix(in srgb, var(--color-surface) 90%, black);
+  --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, black);
+  --color-primary-active: color-mix(in srgb, var(--color-primary) 75%, black);
+  --color-secondary-hover: color-mix(in srgb, var(--color-secondary) 85%, black);
+  --color-secondary-active: color-mix(in srgb, var(--color-secondary) 75%, black);
+  --color-success-hover: color-mix(in srgb, var(--color-success) 85%, black);
+  --color-success-active: color-mix(in srgb, var(--color-success) 75%, black);
+  --color-error-hover: color-mix(in srgb, var(--color-error) 85%, black);
+  --color-error-active: color-mix(in srgb, var(--color-error) 75%, black);
+  --color-foreground: var(--mol-color-text, #333333);
+  --color-foreground-secondary: var(--mol-color-text-secondary, #686868);
+  --color-foreground-tertiary: var(--mol-color-text-tertiary, #555555);
+  --color-foreground-inverse: var(--mol-color-text-inverse, #ffffff);
+  --color-success: var(--mol-color-success, #309000);
+  --color-success-light: var(--mol-color-success-light, #dcfce7);
+  --color-warning: var(--mol-color-warning, #e0e040);
+  --color-warning-light: var(--mol-color-warning-light, #fef3c7);
+  --color-error: var(--mol-color-error, #d02000);
+  --color-error-light: var(--mol-color-error-light, #fee2e2);
+  --color-info: var(--mol-color-info, #17a2b8);
+  --color-info-light: var(--mol-color-info-light, #cffafe);
+  --color-border: var(--mol-color-border, #e0e0e0);
+  --color-border-secondary: var(--mol-color-border-secondary, #d0d0d0);
+  --color-border-focus: var(--mol-color-border-focus, #4070e0);
+  /* Button text colors on tinted (bg-<color>/25) backgrounds. The per-variant
+     base percentages are the HIGHEST values still passing WCAG AA 4.5:1 against
+     the light theme's 25%-tinted button backgrounds (computed over both #f6f6f6
+     and #ffffff) — raising one reintroduces an axe color-contrast failure.
+     Mixing with --color-foreground (not black) keeps dark mode correct: the
+     dark foreground lightens the text for dark tinted backgrounds. */
+  --color-primary-text: color-mix(in srgb, var(--color-primary) 61%, var(--color-foreground));
+  --color-secondary-text: color-mix(in srgb, var(--color-secondary) 55%, var(--color-foreground));
+  --color-success-text: color-mix(in srgb, var(--color-success) 57%, var(--color-foreground));
+  --color-warning-text: color-mix(in srgb, var(--color-warning) 34%, var(--color-foreground));
+  --color-error-text: color-mix(in srgb, var(--color-error) 70%, var(--color-foreground));
+}
+
+/* Global defaults — inside @layer base so Tailwind utilities can override */
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--mol-font-sans, system-ui, sans-serif);
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+  }
+
+  body {
+    overscroll-behavior: contain;
+  }
+
+  /* Honor the OS reduce-motion setting: collapse every animation/transition
+     to an instant. WCAG 2.3.3 — vestibular-trigger animations (button/toggle/
+     modal transitions, spinners) must be suppressible. 0.01ms (not 0) so
+     transitionend/animationend still fire for JS that waits on them. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  svg {
+    fill: currentColor;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  /* Thin scrollbars with subtle styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(128,128,128,0.35) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(128,128,128,0.35);
+    border-radius: 20px;
+    border: none;
+  }
+
+  /* Hide scrollbars on small mobile */
+  @media (max-width: 400px) {
+    html,
+    body,
+    #root {
+      scrollbar-width: none;
+      scrollbar-color: transparent;
+    }
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    #root::-webkit-scrollbar {
+      width: 0;
+    }
+    html::-webkit-scrollbar-thumb,
+    body::-webkit-scrollbar-thumb,
+    #root::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border: 0 solid transparent;
+    }
+  }
+
+  /* Autofill overrides — theme-aware background + text */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-background-tertiary) inset !important;
+    -webkit-text-fill-color: var(--color-foreground) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Hide number input spinners */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

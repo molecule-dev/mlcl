@@ -1,0 +1,90 @@
+[
+  {
+    "id": "asn01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "Build a Personal Portfolio Page",
+    "description": "Create a responsive personal portfolio page using HTML and CSS. Must include: navigation, hero section, projects grid, and contact form. Use semantic HTML elements throughout.",
+    "due_date": "2026-04-15T23:59:00Z",
+    "points": 100,
+    "type": "project",
+    "created_at": "2025-08-20T10:00:00Z",
+    "updated_at": "2026-03-10T09:00:00Z"
+  },
+  {
+    "id": "asn02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "JavaScript DOM Manipulation Quiz",
+    "description": "15 questions covering DOM selection, event handling, element creation, and attribute manipulation. Open book, 45-minute time limit.",
+    "due_date": "2026-04-08T23:59:00Z",
+    "points": 50,
+    "type": "quiz",
+    "created_at": "2025-08-22T10:00:00Z",
+    "updated_at": "2026-03-05T11:00:00Z"
+  },
+  {
+    "id": "asn03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "title": "Generic Type Challenges",
+    "description": "Implement a set of generic utility types from scratch: DeepPartial, DeepReadonly, TupleToUnion, and ChainedValidator. Must pass all provided test cases.",
+    "due_date": "2026-04-20T23:59:00Z",
+    "points": 100,
+    "type": "assignment",
+    "created_at": "2025-12-10T10:00:00Z",
+    "updated_at": "2026-03-15T14:00:00Z"
+  },
+  {
+    "id": "asn04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "title": "Design an E-Commerce Database Schema",
+    "description": "Design a normalized database schema for an e-commerce platform. Include: users, products, orders, payments, and reviews. Provide an ER diagram and SQL DDL statements.",
+    "due_date": "2026-04-12T23:59:00Z",
+    "points": 150,
+    "type": "project",
+    "created_at": "2025-10-15T10:00:00Z",
+    "updated_at": "2026-02-20T09:00:00Z"
+  },
+  {
+    "id": "asn05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "title": "SQL Query Optimization Lab",
+    "description": "Given a set of slow queries, use EXPLAIN ANALYZE to identify bottlenecks. Create appropriate indexes and rewrite queries to improve performance by at least 10x.",
+    "due_date": "2026-04-25T23:59:00Z",
+    "points": 75,
+    "type": "assignment",
+    "created_at": "2025-10-18T10:00:00Z",
+    "updated_at": "2026-03-01T11:00:00Z"
+  },
+  {
+    "id": "asn06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "Build a Task Manager App",
+    "description": "Create a full-featured task manager using React with Zustand for state management. Include: CRUD operations, drag-and-drop sorting, filtering, and local storage persistence.",
+    "due_date": "2026-04-30T23:59:00Z",
+    "points": 200,
+    "type": "project",
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-03-20T08:00:00Z"
+  },
+  {
+    "id": "asn07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "React Hooks Discussion",
+    "description": "Share your experience using React hooks. What custom hooks have you built? What patterns do you find most useful? Respond to at least two classmates.",
+    "due_date": "2026-04-05T23:59:00Z",
+    "points": 25,
+    "type": "discussion",
+    "created_at": "2026-01-16T10:00:00Z",
+    "updated_at": "2026-03-25T10:00:00Z"
+  },
+  {
+    "id": "asn08b9c-0d1e-4f2a-b3c4-d5e6f7a8b9c0",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "title": "Conditional Types Quiz",
+    "description": "20 questions on conditional types, infer keyword, distributive conditional types, and type narrowing. Closed book, 30-minute time limit.",
+    "due_date": "2026-04-10T23:59:00Z",
+    "points": 50,
+    "type": "quiz",
+    "created_at": "2025-12-15T10:00:00Z",
+    "updated_at": "2026-03-18T09:00:00Z"
+  }
+]

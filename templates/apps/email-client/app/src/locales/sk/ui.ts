@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Prezrieť články v nápovede',
+  'about.cta.signup': 'Vyskúšajte Courier zadarmo',
+  'about.eyebrow': 'O spoločnosti Courier',
+  'about.principle.calm': 'V predvolenom nastavení je nastavený režim „Calm“.',
+  'about.principle.calm.desc':
+    'Žiadne výrazné ikony, žiadne nevyžiadané upozornenia, žiadne animácie, ktoré si vyžadujú pozornosť.',
+  'about.principle.fast.desc':
+    'Každá akcia je vzdialená len jedno stlačenie klávesy. Doručená pošta sa pri novom prihlásení načíta za menej ako 200 ms.',
+  'about.principle.honest.desc':
+    'Šifrovanie pri prenose aj v úložisku, transparentné uchovávanie a export údajov jedným kliknutím.',
+  'about.story': 'Prečo sme vytvorili Courier',
+  'about.story.p1':
+    'Väčšina e-mailových klientov je navrhnutá tak, aby zvyšovala interakciu – neustále vás vťahuje späť, rozptyľuje vašu pozornosť a nabáda k ďalšiemu kliknutiu. Courier funguje presne naopak. Úspech meriame podľa času, ktorý nestrávite v doručenej pošte: rýchlo triedite správy, s istotou odkladáte tie menej dôležité a venujete sa práci, na ktorej naozaj záleží.',
+  'about.subtitle':
+    'Courier je prehľadná schránka s tromi oknami, ktorú vytvoril malý tím s cieľom spracovávať informácie namiesto toho, aby na ne len reagoval.',
+  'about.team.body':
+    'Sme tím dizajnérov a inžinierov pracujúcich na diaľku, ktorí kedysi trávili príliš veľa času každý deň v hlučnej schránke. Courier je schránka, ktorú sme chceli používať sami.',
+  'about.title': 'E-mail pre sústredenú prácu',
+  'help.cta.about': 'O spoločnosti Courier',
+  'help.cta.pricing': 'Zobraziť ceny',
+  'help.eyebrow': 'Centrum pomoci',
+  'help.faq.compose.a':
+    'Kliknite na tlačidlo „Napísať“ v bočnom paneli (alebo stlačte klávesu „C“ v akomkoľvek zobrazení doručenej pošty), zadajte aspoň jedného príjemcu, predmet a text správy a kliknite na tlačidlo „Odoslať“. Nová správa sa okamžite zobrazí v priečinku „Odoslané“.',
+  'help.faq.compose.q': 'Ako mám poslať svoju prvú správu?',
+  'help.faq.export.a':
+    'Áno. V ponuke Nastavenia \\u2192 Účet \\u2192 Export údajov sa vytvorí archív na stiahnutie (mbox + JSON), ktorý obsahuje všetky správy, štítky a kontakty. Nie je potrebné mať prémiové členstvo.',
+  'help.faq.labels.a':
+    'Zložky sú vzájomne vzájomne nezávislé (každá správa sa nachádza presne v jednej z nich): Doručená pošta, Odoslané, Koncepty, Spam, Koš, Archív. Štítky sa navzájom dopĺňajú – na jeden e-mail môžete priradiť viacero štítkov a vo vyhľadávacom riadku filtrovať podľa ich kombinácií.',
+  'help.faq.password.a':
+    'Na prihlasovacej stránke kliknite na odkaz „Zabudli ste heslo?“. Na e-mailovú adresu vášho účtu vám zašleme odkaz na obnovenie hesla, ktorý bude platný jednu hodinu.',
+  'help.faq.shortcuts.a':
+    'Áno. „j“ / „k“ prechádza medzi vláknami, „s“ zapína/vypína hviezdičku, „e“ archivuje, „#“ presúva do koša a „/“ zaostruje vyhľadávacie pole. Dokumentácia k skratkám je k dispozícii v každom zobrazení doručenej pošty po stlačení klávesy „?“.',
+  'help.faq.support.a':
+    'Napíšte nám na adresu support@courier.example. Na každú správu odpovieme do jedného pracovného dňa, a to v pracovných dňoch od 9:00 do 17:00 UTC.',
+  'help.subtitle':
+    'Rýchle odpovede na najčastejšie kladené otázky. Chýba tu niečo? Otvorte Nastavenia a využite formulár na zasielanie spätnej väzby priamo v aplikácii, alebo napíšte na adresu support@courier.example.',
+  'help.title': 'Ako môžeme pomôcť?',
+  'landing.brand.scrollTop': 'Späť na začiatok',
+  'landing.ctaBody':
+    'Pridajte sa k tisícom profesionálov, ktorí si vybavili poštu ešte pred obedom.',
+  'landing.ctaTitle': 'Viac konajte, menej reagujte.',
+  'landing.eyebrow': 'E-mail pre sústredenú prácu',
+  'landing.featuresBody':
+    'Prestaňte sa zaoberať správou svojej schránky a začnite skutočne pracovať.',
+  'landing.featuresTitle': 'Určené pre sústredenú prácu',
+  'landing.help': 'Pomocník',
+  'landing.heroDemo': 'Pozrite si ukážku',
+  'landing.heroSubtitle':
+    'Courier je prehľadná schránka s tromi oknami určená pre pracovníkov v oblasti vedomostných činností, ktorí chcú informácie spracovávať, a nie na ne len reagovať.',
+  'landing.proof': 'Dôverujú nám špecializované tímy po celom svete',
+  'landing.signIn': 'Prihlásiť sa',
+  'meridian.archive.empty': 'Archív je prázdny.',
+  'meridian.compose.addRecipient': 'Pridať ďalšieho príjemcu',
+  'meridian.compose.bodyPlaceholder': 'Napíšte správu…',
+  'meridian.compose.cc': 'Kópia',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Zrušiť koncept',
+  'meridian.compose.invalidEmail': '„{{value}}“ nie je platná e-mailová adresa',
+  'meridian.compose.needRecipient': 'Najskôr pridajte aspoň jedného príjemcu.',
+  'meridian.compose.replyTo': 'Odpovedať v téme {{id}}',
+  'meridian.compose.savedAt': 'Návrh uložený na adrese {{time}}',
+  'meridian.compose.sentWithError': 'Uložené do odoslaných, ale doručenie sa nepodarilo: {{error}}',
+  'meridian.compose.subject': 'Predmet',
+  'meridian.compose.subjectPlaceholder': 'Predmet',
+  'meridian.compose.title': 'Nová správa',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Pokračovať v úpravách',
+  'meridian.drafts.count': '{{count}} správy',
+  'meridian.drafts.delete': 'Odstrániť koncept',
+  'meridian.drafts.empty': 'Zatiaľ žiadne návrhy – začnite písať.',
+  'meridian.drafts.lastSaved': 'Uložené {{at}}',
+  'meridian.drafts.noRecipients': '(zatiaľ žiadni príjemcovia)',
+  'meridian.drafts.selectDraft': 'Vyberte návrh, ktorý chcete zobraziť v náhľade.',
+  'meridian.drafts.title': 'Návrhy',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Návrh',
+  'meridian.folder.count': '{{count}} správy',
+  'meridian.folder.deleteForever': 'Trvalo odstrániť',
+  'meridian.folder.restore': 'Presunúť do doručenej pošty',
+  'meridian.forgot.subtitle':
+    'Zadajte e-mailovú adresu, ktorá je priradená k vašej schránke, a my vám pošleme odkaz na obnovenie hesla.',
+  'meridian.forgot.success':
+    'Ak existuje účet s touto e-mailovou adresou, odosielame vám odkaz na obnovenie hesla.',
+  'meridian.inbox.empty': 'Zatiaľ tu nie sú žiadne správy.',
+  'meridian.inbox.loading': 'Načítava sa…',
+  'meridian.inbox.next': 'Ďalej',
+  'meridian.inbox.noSubject': '(bez predmetu)',
+  'meridian.inbox.openCompose': 'Otvoriť okno na písanie správy',
+  'meridian.inbox.previous': 'Predchádzajúce',
+  'meridian.inbox.replyFailed': 'Odpoveď bola uložená, ale doručenie sa nepodarilo: {{error}}',
+  'meridian.inbox.replySent': 'Odpoveď bola odoslaná.',
+  'meridian.inbox.replyTo': 'Odpovedať na {{name}}',
+  'meridian.inbox.selectMessage': 'Vyberte správu, ktorú chcete prečítať',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Zobraziť vlákno',
+  'meridian.login.hidePassword': 'Skryť heslo',
+  'meridian.login.noAccount': 'Nemáte účet?',
+  'meridian.login.showPassword': 'Zobraziť heslo',
+  'meridian.message.toLine': 'na stránku {{recipients}}',
+  'meridian.notFound.eyebrow': 'Chyba 404',
+  'meridian.notFound.title': 'Toto vlákno bolo archivované.',
+  'meridian.notFound.toInbox': 'Otvoriť doručenú poštu',
+  'meridian.reset.newLabel': 'Nové heslo',
+  'meridian.reset.showPassword': 'Zobraziť heslo',
+  'meridian.reset.subtitle': 'Zvoľte si silné heslo – aspoň 8 znakov.',
+  'meridian.sent.empty': 'Zatiaľ ste nič neposlali.',
+  'meridian.sent.title': 'Odoslané',
+  'meridian.settings.noName': '(bez názvu)',
+  'meridian.settings.section.${section}': 'Prispôsobte si svoje prostredie na stránke {{appName}}',
+  'meridian.settings.signature': 'Podpis',
+  'meridian.settings.signatureSaved': 'Podpis bol uložený.',
+  'meridian.sidebar.compose': 'Napísať',
+  'meridian.sidebar.labels': 'Štítky',
+  'meridian.sidebar.noLabels': 'Zatiaľ žiadne štítky',
+  'meridian.sidebar.storage': 'Skladovanie',
+  'meridian.sidebar.storageLabel': '{{used}} z {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Vytvorte si svoju schránku Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Zobraziť heslo',
+  'meridian.signup.subtitle': 'Spracujte si doručenú poštu ešte pred obedom.',
+  'meridian.spam.empty': 'Žiaden spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Žiadne správy s hviezdičkou.',
+  'meridian.starred.loading': 'Načítava sa…',
+  'meridian.starred.removeStar': 'Odstrániť hviezdičku',
+  'meridian.starred.total': '{{count}} celkom',
+  'meridian.thread.back': 'Späť do doručenej pošty',
+  'meridian.thread.empty': 'V tejto diskusii nie sú žiadne príspevky.',
+  'meridian.thread.eyebrow': 'Téma č.{{id}}',
+  'meridian.thread.notFound': 'Téma nebola nájdená.',
+  'meridian.thread.star': 'Pridať hviezdičku',
+  'meridian.thread.unstar': 'Odstrániť hviezdičku',
+  'meridian.time.yesterday': 'Včera',
+  'meridian.topBar.searchPlaceholder': 'Vyhľadávať v e-mailoch',
+  'meridian.trash.empty': 'Koš je prázdny.',
+  'meridian.trash.title': 'Koš',
+  'nav.legal': 'Právne',
+  'planUpdated.description':
+    'Vaše predplatné je teraz aktívne a vaše fakturačné údaje boli aktualizované. Vitajte vo vašej obnovenej schránke Courier.',
+  'pricing.heading': 'prievany',
+  'pricing.limit.emails': 'e-maily',
+  'pricing.limit.folders': 'zložky',
+  'pricing.limit.labels': 'štítky',
+  'privacy.collect.account':
+    'Údaje o účte: meno, e-mailová adresa, hash hesla a dátum registrácie.',
+  'privacy.intro':
+    'V týchto zásadách ochrany osobných údajov vysvetľujeme, aké údaje spoločnosť Courier zhromažďuje, prečo ich zhromažďujeme, ako ich chránime a aké možnosti máte v súvislosti s nimi. Snažíme sa vyjadrovať konkrétne a nie právnickým jazykom; ak vám niečo nie je jasné, napíšte nám na adresu privacy@courier.example.',
+  'privacy.lastUpdated': 'Posledná aktualizácia: 1. apríla 2026',
+  'privacy.linkTerms': 'Prečítajte si naše podmienky používania \\u2192',
+  'privacy.rights.body':
+    'Všetky údaje, ktoré o vás uchovávame, si môžete exportovať v časti Nastavenia → Účet → Export údajov a svoj účet môžete zmazať jedným kliknutím – všetky záznamy budú vymazané do 24 hodín, kontrolné protokoly budú odstránené po 30 dňoch.',
+  'privacy.security.body':
+    'Obsah e-mailov a prílohy sú v neaktívnom stave šifrované pomocou algoritmu AES-256. Pripojenia k našej službe a z nej využívajú protokol TLS 1.3. Heslá sú hashované pomocou bcrypt; heslá v čitateľnej podobe nikdy nezaznamenávame ani neukladáme. Prístup k produkčnému prostrediu je obmedzený na technikov v pohotovostnej službe a je mesačne kontrolovaný.',
+  'privacy.share.body':
+    'Údaje zdieľame iba s subdodávateľmi, ktorých služby potrebujeme na prevádzku Courieru (zasielanie e-mailov prostredníctvom Mailgun, fakturácia prostredníctvom Stripe, hosting prostredníctvom AWS). Každý z nich je zmluvne zaviazaný používať vaše údaje výlučne na účely poskytovania služieb pre nás. Vaše údaje nikomu nepredávame, neprenajímame ani s nimi neobchodujeme.',
+  'terms.acceptable.spam':
+    'Žiadne hromadné nevyžiadané správy. Účty, z ktorých sa rozosiela spam, bez varovania zrušíme.',
+  'terms.account.body':
+    'Zodpovedáte za zachovanie dôvernosti svojho hesla a za akúkoľvek činnosť vykonávanú prostredníctvom vášho účtu. Ak máte podozrenie, že došlo k zneužitiu vášho účtu, informujte nás na adrese security@courier.example.',
+  'terms.billing.body':
+    'Platené tarify sa obnovujú v intervale, ktorý ste si zvolili pri registrácii. Službu môžete kedykoľvek zrušiť v časti Nastavenia → Fakturácia a prístup vám zostane zachovaný až do konca aktuálneho fakturačného obdobia. Vrátenie peňazí sa poskytuje v prípade výpadku služby, ktorý presahuje limity stanovené v SLA.',
+  'terms.intro':
+    'Tieto podmienky upravujú vaše používanie služby Courier. Vytvorením účtu alebo odoslaním e-mailu prostredníctvom našej služby súhlasíte s tým, že sa nimi budete riadiť. Snažíme sa vytvárať pravidlá, ktoré sú pre používateľov skutočne zrozumiteľné.',
+  'terms.lastUpdated': 'Platnosť: 1. apríla 2026',
+  'terms.termination.body':
+    'Svoj účet môžete kedykoľvek zrušiť. Účet, ktorý porušuje tieto podmienky, môžeme pozastaviť; v takom prípade vám vysvetlíme dôvod a najskôr vám umožníme exportovať vaše údaje.',
+  'terms.warranty.body':
+    'Služba sa poskytuje tak, ako je. Snažíme sa zabezpečiť jej spoľahlivosť a bezpečnosť, nemôžeme však zaručiť nepretržitý prístup. V rozsahu povolenom zákonom je naša celková zodpovednosť obmedzená na sumu, ktorú ste nám zaplatili za predchádzajúcich 12 mesiacov.',
+}

@@ -1,0 +1,9 @@
+[
+  { "id": "sch-p1-mon", "period_id": "p1", "period_label": "Period 1", "start": "08:15", "end": "09:05", "day": 0, "weekday": "Mon", "subject": "math", "course_id": "crs-algebra-2", "course_name": "Algebra II", "teacher": "Ms. Tran", "room": "204" },
+  { "id": "sch-p2-mon", "period_id": "p2", "period_label": "Period 2", "start": "09:15", "end": "10:05", "day": 0, "weekday": "Mon", "subject": "science", "course_id": "crs-ap-bio", "course_name": "AP Biology", "teacher": "Mr. Okafor", "room": "Lab 3" },
+  { "id": "sch-p3-mon", "period_id": "p3", "period_label": "Period 3", "start": "10:15", "end": "11:05", "day": 0, "weekday": "Mon", "subject": "english", "course_id": "crs-english-lit", "course_name": "English Lit", "teacher": "Dr. Park", "room": "112" },
+  { "id": "sch-p4-mon", "period_id": "p4", "period_label": "Period 4", "start": "11:15", "end": "12:05", "day": 0, "weekday": "Mon", "subject": "history", "course_id": "crs-world-history", "course_name": "World History", "teacher": "Ms. Reyes", "room": "305" },
+  { "id": "sch-lunch-mon", "period_id": "lunch", "period_label": "Lunch", "start": "12:05", "end": "12:55", "day": 0, "weekday": "Mon", "subject": "lunch", "course_id": null, "course_name": "Lunch", "teacher": null, "room": "Cafeteria" },
+  { "id": "sch-p5-mon", "period_id": "p5", "period_label": "Period 5", "start": "13:00", "end": "13:50", "day": 0, "weekday": "Mon", "subject": "art", "course_id": "crs-studio-art", "course_name": "Studio Art", "teacher": "Mx. Bell", "room": "Studio A" },
+  { "id": "sch-p6-mon", "period_id": "p6", "period_label": "Period 6", "start": "14:00", "end": "14:50", "day": 0, "weekday": "Mon", "subject": "math", "course_id": "crs-algebra-2", "course_name": "Math Tutoring", "teacher": "Ms. Tran", "room": "204" }
+]

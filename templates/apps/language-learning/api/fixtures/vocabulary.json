@@ -1,0 +1,8 @@
+[
+  { "id": "v1", "word": "desayuno",        "pronunciation": "/de.saˈʝu.no/",      "translation": "breakfast",                "example": "El desayuno está listo en la cocina.",            "mastery": 4, "next_review_iso": "2026-05-01" },
+  { "id": "v2", "word": "biblioteca",      "pronunciation": "/bi.βljoˈte.ka/",   "translation": "library",                  "example": "Estudio en la biblioteca todos los sábados.",     "mastery": 2, "next_review_iso": "2026-04-30" },
+  { "id": "v3", "word": "imprescindible",  "pronunciation": "/im.pɾes.θinˈdi.βle/", "translation": "essential, indispensable", "example": "Una buena pronunciación es imprescindible.",     "mastery": 1, "next_review_iso": "2026-04-30" },
+  { "id": "v4", "word": "amistad",         "pronunciation": "/a.misˈtað/",       "translation": "friendship",               "example": "La amistad sincera no se rompe con la distancia.","mastery": 5, "next_review_iso": "2026-05-12" },
+  { "id": "v5", "word": "sorprender",      "pronunciation": "/soɾ.pɾenˈdeɾ/",    "translation": "to surprise",              "example": "Quería sorprender a mi madre con un viaje.",       "mastery": 3, "next_review_iso": "2026-05-03" },
+  { "id": "v6", "word": "crecimiento",     "pronunciation": "/kɾe.θiˈmjen.to/",  "translation": "growth",                   "example": "El crecimiento personal lleva tiempo.",            "mastery": 2, "next_review_iso": "2026-05-01" }
+]

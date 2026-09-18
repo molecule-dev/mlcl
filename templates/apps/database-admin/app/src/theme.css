@@ -1,0 +1,255 @@
+/* App-specific theme overrides — see DESIGN.md for source of truth.
+ *
+ * Quarry is a database-admin power-user tool. Dark IS the default theme.
+ * Tokens below extend the molecule base set with the brand palette
+ * (Quarry green/cyan), terminal surfaces, semantic SQL syntax colours,
+ * and per-database accent colours.
+ */
+
+/* Light palette — Quarry is dark-by-default but light mode must work.
+   Warm-white background, emerald primary, neutral grays. */
+:root {
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #06b6d4;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #06b6d4;
+  --mol-color-accent: #06b6d4;
+
+  /* Material-3 bridge — light values */
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #e2e8f0;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #34d399;
+  --color-primary: #10b981;
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #0f172a; /* dark text on emerald — 7.04:1 WCAG AA */
+  --color-on-primary-container: #065f46;
+  --color-secondary: #06b6d4;
+  --color-secondary-container: #cffafe;
+  --color-on-secondary: #0f172a; /* dark text on cyan — 7.35:1 WCAG AA */
+  --color-on-secondary-container: #164e63;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #1e0a4a; /* dark on violet — 4.14:1 WCAG AA */
+  --color-on-tertiary-container: #4c1d95;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* 4.83:1 on white — was #94a3b8 (2.56:1 FAIL) */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #10b981;
+}
+
+@theme {
+  /* ── Quarry brand fonts (loaded in index.html) ───────────── */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ── Bespoke Quarry palette aliases for the catalog tokens ── */
+  /* Map short names used throughout the Phase-1 baselines to molecule tokens. */
+  --color-text: var(--color-foreground);
+  --color-muted: var(--color-foreground-secondary);
+  --color-bg: var(--color-background);
+  --color-surface2: var(--color-surface-secondary);
+  --color-accent: var(--mol-color-accent, #06b6d4);
+
+  /* ── Quarry-prefixed surface/border aliases (used in SchemaExplorer) ── */
+  --color-quarry-bg: var(--color-background);
+  --color-quarry-surface: var(--color-surface);
+  --color-quarry-surface2: var(--color-surface-secondary);
+  --color-quarry-border: var(--color-border);
+
+  /* ── Database-type accents ─────────────────────────────── */
+  --color-db-postgres: #4f8cdb;
+  --color-db-mysql: #f29111;
+  --color-db-redis: #d82c20;
+  --color-db-mongo: #00684a;
+  --color-db-sqlite: #003b57;
+  /* dotted variants used in the design baselines */
+  --color-dbPostgres: var(--color-db-postgres);
+  --color-dbMysql: var(--color-db-mysql);
+  --color-dbRedis: var(--color-db-redis);
+  --color-dbMongo: var(--color-db-mongo);
+
+  /* ── Schema-cell accents ───────────────────────────────── */
+  --color-pk: #f59e0b; /* primary-key amber */
+  --color-fk: #8b5cf6; /* foreign-key purple */
+  --color-nullval: #6b7280;
+  --color-warn: var(--mol-color-warning, #f59e0b);
+  --color-warning-bright: #f59e0b;
+
+  /* ── SQL syntax colours (DESIGN.md "SQL Syntax Highlighting") ── */
+  --color-sql-keyword: #ff7b72;
+  --color-sql-string: #a5d6ff;
+  --color-sql-number: #79c0ff;
+  --color-sql-function: #d2a8ff;
+  --color-sql-table: #ffa657;
+  --color-sql-alias: #7ee787;
+  --color-sql-column: #e6edf3;
+
+  /* ── Connection state colours (DESIGN.md "Connection Badge") ── */
+  --color-connected: var(--mol-color-success, #10b981);
+  --color-disconnected: var(--mol-color-error, #ef4444);
+
+  /* Brand palette + dark surfaces are applied at runtime by the JS theme
+   * provider (see `bonds/app-theme-css-variables.ts`). The theme provider
+   * sets `--mol-color-*` inline on :root, which would override any values
+   * we tried to set here, so we keep this file for non-color tokens only. */
+
+  /* ── Bespoke Quarry safe-list mirror tokens (Tailwind theme requires
+   *    each colour to be declared if used as a `text-X` / `bg-X` class) ── */
+  --color-amber: #f59e0b;
+  --color-red: #ef4444;
+  --color-emerald: #10b981;
+
+  /* Legacy `text-textPrimary` / `text-textSecondary` / `text-textMuted`
+   * shorthands used in the Phase-1 stitch baselines — alias to molecule. */
+  --color-textPrimary: var(--color-foreground);
+  --color-textSecondary: var(--color-foreground-secondary);
+  --color-textMuted: var(--color-foreground-tertiary);
+
+  /* Tabular-nums helper font already provided by @molecule. */
+}
+
+/* Quarry has no light-mode counterpart — the app is dark-by-default and
+ * the JS theme provider only ships the `quarry-dark` theme. */
+
+/* Dark mode overrides — Quarry dark (developer-tools, terminal-coherent).
+   Pure-neutral slate/charcoal chassis (no warm/cool tint) — devtools
+   brand identity. Brand emerald is kept at the brand stop (#10b981) for
+   the Material-3 `--color-primary` bridge so CTA buttons keep their
+   light-on-emerald character; surface accents (links, status badges)
+   lift to brighter mint for legibility on the deep-slate chassis.
+   `--color-on-primary` stays white. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: #064e3b;
+  --mol-color-primary-dark: #10b981;
+  --mol-color-secondary: #06b6d4;
+  --mol-color-background: #010409;
+  --mol-color-background-secondary: #0d1117;
+  --mol-color-background-tertiary: #161b22;
+  --mol-color-surface: #0d1117;
+  --mol-color-surface-secondary: #161b22;
+  --mol-color-input-background: #010409;
+  --mol-color-text: #e6edf3;
+  --mol-color-text-secondary: #8b949e;
+  --mol-color-text-tertiary: #6e7681;
+  --mol-color-text-inverse: #010409;
+  --mol-color-border: #21262d;
+  --mol-color-border-secondary: #30363d;
+  --mol-color-border-focus: #06b6d4;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+  --mol-color-accent: #06b6d4;
+
+  /* Material-3 @theme bridge — override the @theme block so `bg-surface`,
+     `text-on-surface`, `bg-primary` etc. flip cleanly in dark mode.
+     Brand emerald kept at brand stop; `--color-on-primary` is dark (contrast fix). */
+  --color-background: #010409;
+  --color-on-background: #e6edf3;
+  --color-surface: #0d1117;
+  --color-surface-bright: #1c2128;
+  --color-surface-dim: #010409;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #090e16;
+  --color-surface-container: #0d1117;
+  --color-surface-container-high: #161b22;
+  --color-surface-container-highest: #21262d;
+  --color-surface-variant: #161b22;
+  --color-on-surface: #e6edf3;
+  --color-on-surface-variant: #8b949e;
+  --color-inverse-surface: #e6edf3;
+  --color-inverse-on-surface: #010409;
+  --color-inverse-primary: #059669;
+  --color-primary: #10b981; /* keep brand emerald at brand stop */
+  --color-on-primary: #0d1117; /* dark text on emerald — 7.46:1 (was #fff 2.54:1 FAIL) */
+  --color-primary-container: #064e3b;
+  --color-on-primary-container: #bbf7d0;
+  --color-secondary: #06b6d4;
+  --color-secondary-container: #083344;
+  --color-on-secondary: #0f172a; /* dark text on cyan — 7.35:1 WCAG AA */
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #3b0764;
+  --color-on-tertiary: #1e0a4a; /* dark on violet — 6.44:1 WCAG AA */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark text on #f87171 — 4.74:1 WCAG AA */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b7280; /* 3.91:1 on #0d1117 — was #484f58 (2.28:1 FAIL) */
+  --color-outline-variant: #21262d;
+  --color-surface-tint: #34d399;
+
+  /* Quarry-prefixed aliases stay in sync with the dark surfaces */
+  --color-quarry-bg: #010409;
+  --color-quarry-surface: #0d1117;
+  --color-quarry-surface2: #161b22;
+  --color-quarry-border: #21262d;
+
+  /* Domain accents — keep semantic identity but lift saturation for dark contrast */
+  --color-db-postgres: #6ea8e0;
+  --color-db-mysql: #ffaa33;
+  --color-db-redis: #ff5a4d;
+  --color-db-mongo: #1ea672;
+  --color-db-sqlite: #2a7a9a;
+  --color-dbPostgres: var(--color-db-postgres);
+  --color-dbMysql: var(--color-db-mysql);
+  --color-dbRedis: var(--color-db-redis);
+  --color-dbMongo: var(--color-db-mongo);
+
+  /* Schema-cell + status — brighter for dark surfaces */
+  --color-pk: #fbbf24;
+  --color-fk: #a78bfa;
+  --color-nullval: #8b949e;
+  --color-warn: #fbbf24;
+  --color-warning-bright: #fbbf24;
+  --color-connected: #34d399;
+  --color-disconnected: #f87171;
+
+  /* SQL syntax (already dark-suited GitHub palette — keep) */
+  --color-sql-keyword: #ff7b72;
+  --color-sql-string: #a5d6ff;
+  --color-sql-number: #79c0ff;
+  --color-sql-function: #d2a8ff;
+  --color-sql-table: #ffa657;
+  --color-sql-alias: #7ee787;
+  --color-sql-column: #e6edf3;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

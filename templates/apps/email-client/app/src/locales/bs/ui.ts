@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Pregledajte članke pomoći',
+  'about.cta.signup': 'Isprobajte Courier besplatno',
+  'about.eyebrow': 'O Courieru',
+  'about.principle.calm': 'Mirno po defaultu.',
+  'about.principle.calm.desc':
+    'Nema znački koje vrište, nema obavještenja koja niste tražili, nema animacija koje zahtijevaju pogled.',
+  'about.principle.fast.desc':
+    'Svaka radnja je udaljena samo jedan pritisak tipke. Inbox se učitava za manje od 200 ms nakon nove prijave.',
+  'about.principle.honest.desc':
+    'Šifriranje tokom prenosa i u mirovanju, transparentno zadržavanje i izvoz podataka jednim klikom.',
+  'about.story': 'Zašto smo izgradili Courier',
+  'about.story.p1':
+    'Većina email klijenata optimizuje interakciju - odvlačeći vas, fragmentirajući vašu pažnju, predlažući vam još jedan dodir. Courier radi suprotno. Mi mjerimo uspjeh vremenom koje NE provodite u inboxu: brzo trijažirajte, odgađajte s povjerenjem i bacite se na posao koji je važan.',
+  'about.subtitle':
+    'Courier je smireni inbox s tri panela koji je izgradio mali tim koji je želio obrađivati informacije umjesto reagirati na njih.',
+  'about.team.body':
+    'Mi smo distribuirani tim dizajnera i inženjera koji je nekada provodio previše sati svakog dana u bučnom poštanskom sandučiću. Courier je inbox koji smo i sami željeli koristiti.',
+  'about.title': 'E-pošta za fokusiran rad',
+  'help.cta.about': 'O Courieru',
+  'help.cta.pricing': 'Pogledajte cijene',
+  'help.eyebrow': 'Centar za pomoć',
+  'help.faq.compose.a':
+    'Kliknite na \\u201CCompose\\u201D sa bočne trake (ili pritisnite \\u201Cc\\u201D u bilo kojem prikazu pristigle pošte), unesite barem jednog primaoca, predmet i tijelo poruke, a zatim pritisnite \\u201CSend\\u201D. Nova poruka će se odmah pojaviti u vašoj mapi Poslano.',
+  'help.faq.compose.q': 'Kako da pošaljem svoju prvu poruku?',
+  'help.faq.export.a':
+    'Da. Postavke \\u2192 Račun \\u2192 Izvoz podataka kreira arhivu za preuzimanje (mbox + JSON) sa svakom porukom, oznakom i kontaktom. Nije potreban premium paket.',
+  'help.faq.labels.a':
+    'Mape su ekskluzivne (poruka se nalazi u tačno jednoj): Pristigla pošta, Poslano, Nacrti, Neželjena pošta, Otpad, Arhiva. Oznake su aditivne - možete primijeniti više njih na jednu e-poštu i filtrirati ih po kombinacijama iz trake za pretragu.',
+  'help.faq.password.a':
+    'Koristite link "Zaboravljena lozinka?" na stranici za prijavu. Poslat ćemo vam link za resetiranje koji vrijedi jedan sat na vašu e-mail adresu.',
+  'help.faq.shortcuts.a':
+    'Da. \\u201Cj\\u201D / \\u201Ck\\u201D premještanje između niti, \\u201Cs\\u201D prebacuje zvjezdicu, \\u201Ce\\u201D arhivira, \\u201C#\\u201D premješta u smeće, a \\u201C/\\u201D fokusira polje za pretragu. Dokumentacija prečica dostupna je u bilo kojem prikazu pristigle pošte pritiskom na \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Pošaljite e-poštu na support@courier.example. Na svaku poruku odgovaramo u roku od jednog radnog dana, radnim danima od 9 do 20:13 UTC.',
+  'help.subtitle':
+    'Brzi odgovori na pitanja koja najčešće čujemo. Da li nešto nedostaje? Otvorite Postavke i koristite obrazac za povratne informacije u aplikaciji ili pišite na support@courier.example.',
+  'help.title': 'Kako vam možemo pomoći?',
+  'landing.brand.scrollTop': 'Nazad na vrh',
+  'landing.ctaBody':
+    'Pridružite se hiljadama profesionalaca koji su završili s pristiglom poštom prije ručka.',
+  'landing.ctaTitle': 'Više obrađujte, manje reagirajte.',
+  'landing.eyebrow': 'E-pošta za fokusiran rad',
+  'landing.featuresBody': 'Prestanite upravljati pristiglom poštom i počnite obavljati posao.',
+  'landing.featuresTitle': 'Dizajnirano za duboki rad',
+  'landing.help': 'Pomoć',
+  'landing.heroDemo': 'Pogledajte demo',
+  'landing.heroSubtitle':
+    'Courier je smireni inbox s tri panela napravljen za radnike koji rade sa znanjem i koji žele obrađivati informacije, a ne reagovati na njih.',
+  'landing.proof': 'Vjeruju nam fokusirani timovi širom svijeta',
+  'landing.signIn': 'Prijava',
+  'meridian.archive.empty': 'Arhiva je prazna.',
+  'meridian.compose.addRecipient': 'Dodaj još jednog primaoca',
+  'meridian.compose.bodyPlaceholder': 'Napišite svoju poruku…',
+  'meridian.compose.cc': 'Kopija',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Odbaci nacrt',
+  'meridian.compose.invalidEmail': '" {{value}} " nije važeća e-mail adresa',
+  'meridian.compose.needRecipient': 'Prvo dodajte barem jednog primaoca.',
+  'meridian.compose.replyTo': 'Odgovori u nizu {{id}}',
+  'meridian.compose.savedAt': 'Nacrt sačuvan u {{time}}',
+  'meridian.compose.sentWithError': 'Sačuvano u Poslano, ali dostava nije uspjela: {{error}}',
+  'meridian.compose.subject': 'Predmet',
+  'meridian.compose.subjectPlaceholder': 'Predmet',
+  'meridian.compose.title': 'Nova poruka',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Nastavi uređivanje',
+  'meridian.drafts.count': '{{count}} poruke',
+  'meridian.drafts.delete': 'Izbriši nacrt',
+  'meridian.drafts.empty': 'Još nema nacrta - počnite sa pisanjem.',
+  'meridian.drafts.lastSaved': 'Sačuvano {{at}}',
+  'meridian.drafts.noRecipients': '(još nema primalaca)',
+  'meridian.drafts.selectDraft': 'Odaberite nacrt za pregled.',
+  'meridian.drafts.title': 'Nacrti',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Nacrt',
+  'meridian.folder.count': '{{count}} poruke',
+  'meridian.folder.deleteForever': 'Trajno izbriši',
+  'meridian.folder.restore': 'Premjesti u pristiglu poštu',
+  'meridian.forgot.subtitle':
+    'Unesite e-mail povezan s vašim inboxom i poslat ćemo vam link za resetiranje.',
+  'meridian.forgot.success':
+    'Ako račun s tom e-mail adresom postoji, link za resetiranje je na putu.',
+  'meridian.inbox.empty': 'Ovdje još nema poruka.',
+  'meridian.inbox.loading': 'Učitavanje…',
+  'meridian.inbox.next': 'Sljedeće',
+  'meridian.inbox.noSubject': '(bez predmeta)',
+  'meridian.inbox.openCompose': 'Otvori pisanje',
+  'meridian.inbox.previous': 'Prethodno',
+  'meridian.inbox.replyFailed': 'Odgovor sačuvan, ali dostava nije uspjela: {{error}}',
+  'meridian.inbox.replySent': 'Odgovor poslan.',
+  'meridian.inbox.replyTo': 'Odgovor na {{name}}',
+  'meridian.inbox.selectMessage': 'Odaberite poruku za čitanje',
+  'meridian.inbox.spam': 'Neželjena pošta',
+  'meridian.inbox.viewThread': 'Pogledaj nit',
+  'meridian.login.hidePassword': 'Sakrij lozinku',
+  'meridian.login.noAccount': 'Nemate račun?',
+  'meridian.login.showPassword': 'Prikaži lozinku',
+  'meridian.message.toLine': 'do {{recipients}}',
+  'meridian.notFound.eyebrow': 'Greška 404',
+  'meridian.notFound.title': 'Ova tema je arhivirana.',
+  'meridian.notFound.toInbox': 'Otvori moj inbox',
+  'meridian.reset.newLabel': 'Nova lozinka',
+  'meridian.reset.showPassword': 'Prikaži lozinku',
+  'meridian.reset.subtitle': 'Odaberite jaku lozinku - najmanje 8 znakova.',
+  'meridian.sent.empty': 'Još ništa niste poslali.',
+  'meridian.sent.title': 'Poslano',
+  'meridian.settings.noName': '(nije postavljeno ime)',
+  'meridian.settings.section.${section}': 'Prilagodite svoje {{appName}} iskustvo',
+  'meridian.settings.signature': 'Potpis',
+  'meridian.settings.signatureSaved': 'Potpis sačuvan.',
+  'meridian.sidebar.compose': 'Napiši',
+  'meridian.sidebar.labels': 'Oznake',
+  'meridian.sidebar.noLabels': 'Još nema oznaka',
+  'meridian.sidebar.storage': 'Skladištenje',
+  'meridian.sidebar.storageLabel': '{{used}} od {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Kreirajte svoju Courier inbox',
+  'meridian.signup.namePlaceholder': 'Morgan Čen',
+  'meridian.signup.showPassword': 'Prikaži lozinku',
+  'meridian.signup.subtitle': 'Obradite inbox prije ručka.',
+  'meridian.spam.empty': 'Nema neželjene pošte.',
+  'meridian.spam.title': 'Neželjena pošta',
+  'meridian.starred.empty': 'Nema poruka označenih zvjezdicom.',
+  'meridian.starred.loading': 'Učitavanje…',
+  'meridian.starred.removeStar': 'Ukloni zvjezdicu',
+  'meridian.starred.total': '{{count}} ukupno',
+  'meridian.thread.back': 'Nazad u pristiglu poštu',
+  'meridian.thread.empty': 'Nema poruka u ovoj temi.',
+  'meridian.thread.eyebrow': 'Broj teme {{id}}',
+  'meridian.thread.notFound': 'Tema nije pronađena.',
+  'meridian.thread.star': 'Dodaj zvjezdicu',
+  'meridian.thread.unstar': 'Ukloni zvjezdicu',
+  'meridian.time.yesterday': 'Jučer',
+  'meridian.topBar.searchPlaceholder': 'Pretraži poštu',
+  'meridian.trash.empty': 'Smeće je prazno.',
+  'meridian.trash.title': 'Smeće',
+  'nav.legal': 'Pravno',
+  'planUpdated.description':
+    'Vaša pretplata je sada aktivna i vaša naplata je ažurirana. Dobrodošli u vašu osvježenu Courier pristiglu poštu.',
+  'pricing.heading': 'nacrti',
+  'pricing.limit.emails': 'e-poruke',
+  'pricing.limit.folders': 'mape',
+  'pricing.limit.labels': 'oznake',
+  'privacy.collect.account':
+    'Podaci o računu: ime, adresa e-pošte, heširana lozinka i datum registracije.',
+  'privacy.intro':
+    'Ova politika privatnosti objašnjava koje podatke Courier prikuplja, zašto ih prikupljamo, kako ih čuvamo na sigurnom i koje izbore imate u vezi s njima. Cilj nam je biti konkretniji, a ne pravnički; ako nešto nije jasno, pišite na privacy@courier.example.',
+  'privacy.lastUpdated': 'Posljednje ažuriranje: 1. april 2026.',
+  'privacy.linkTerms': 'Pročitajte naše Uslove korištenja usluge \\u2192',
+  'privacy.rights.body':
+    'Sve podatke koje imamo o vama možete izvesti iz Postavke → Račun → Izvoz podataka, a svoj račun možete izbrisati jednim klikom — svi redovi se brišu u roku od 24 sata, a zapisnici revizije se brišu nakon 30 dana.',
+  'privacy.security.body':
+    'Sadržaj pošte i prilozi su šifrirani u stanju mirovanja pomoću AES-256 protokola. Veze do i od naše usluge koriste TLS 1.3. Lozinke se heširaju pomoću bcrypt-a; nikada ne evidentiramo niti pohranjujemo lozinke u običnom tekstu. Pristup produkciji je ograničen na dežurne inženjere, a revidira se mjesečno.',
+  'privacy.share.body':
+    'Podatke dijelimo samo s pod-proizvođačima koji su nam potrebni za pokretanje Couriera (dostava e-pošte putem Mailguna, naplata putem Stripea, hosting putem AWS-a). Svaki od njih je ugovorno obavezan da koristi vaše podatke samo za obavljanje svoje usluge za nas. Ne prodajemo, ne iznajmljujemo niti trgujemo vašim podacima ni sa kim.',
+  'terms.acceptable.spam':
+    'Zabranjeno je slanje neželjenih poruka u većem obimu. Račune koji šalju neželjenu poštu zatvorit ćemo bez upozorenja.',
+  'terms.account.body':
+    'Odgovorni ste za održavanje povjerljivosti svoje lozinke i za bilo koju aktivnost koja se odvija putem vašeg računa. Obavijestite nas na security@courier.example ako smatrate da je vaš račun kompromitovan.',
+  'terms.billing.body':
+    'Plaćeni planovi se obnavljaju prema ritmu odabranom prilikom registracije. Pretplatu možete otkazati u bilo kojem trenutku iz Postavke → Naplata i zadržavate pristup do kraja obračunskog perioda. Povrat novca se vrši za prekid usluge koji prelazi SLA.',
+  'terms.intro':
+    'Ovi uslovi regulišu vaše korištenje Couriera. Kreiranjem računa ili slanjem e-pošte putem nas, slažete se da ćete biti obavezani njima. Trudimo se da napišemo pravila kojih se osoba može zaista pridržavati.',
+  'terms.lastUpdated': 'Stupa na snagu: 1. aprila 2026.',
+  'terms.termination.body':
+    'Svoj račun možete izbrisati u bilo kojem trenutku. Možemo suspendirati račun koji krši ove uvjete; ako to učinimo, objasnit ćemo razlog i prvo vam omogućiti izvoz podataka.',
+  'terms.warranty.body':
+    'Usluga se pruža "kakva jeste". Trudimo se da je održimo pouzdanom i sigurnom, ali ne možemo garantovati neprekidan pristup. U mjeri u kojoj je to dozvoljeno zakonom, naša ukupna odgovornost je ograničena na iznos koji ste nam platili u prethodnih 12 mjeseci.',
+}

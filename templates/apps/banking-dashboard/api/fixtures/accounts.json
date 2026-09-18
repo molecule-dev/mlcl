@@ -1,0 +1,66 @@
+[
+  {
+    "id": "acc_001",
+    "kind": "checking",
+    "name": "Everyday Checking",
+    "institution": "Sterling Bank",
+    "mask": "8821",
+    "balance_cents": 482310,
+    "available_cents": 478910,
+    "currency": "USD",
+    "status": "active",
+    "opened_at": "2022-03-12T00:00:00Z"
+  },
+  {
+    "id": "acc_002",
+    "kind": "savings",
+    "name": "High-Yield Savings",
+    "institution": "Sterling Bank",
+    "mask": "4290",
+    "balance_cents": 1842000,
+    "available_cents": 1842000,
+    "currency": "USD",
+    "status": "active",
+    "opened_at": "2022-03-12T00:00:00Z",
+    "apy_bps": 425
+  },
+  {
+    "id": "acc_003",
+    "kind": "credit",
+    "name": "Sterling Sapphire",
+    "institution": "Sterling Bank",
+    "mask": "1147",
+    "balance_cents": -128450,
+    "available_cents": 871550,
+    "credit_limit_cents": 1000000,
+    "currency": "USD",
+    "status": "active",
+    "opened_at": "2023-08-04T00:00:00Z",
+    "apr_bps": 1899
+  },
+  {
+    "id": "acc_004",
+    "kind": "investment",
+    "name": "Brokerage",
+    "institution": "Sterling Trust Co.",
+    "mask": "8211",
+    "balance_cents": 4218090,
+    "available_cents": 4218090,
+    "currency": "USD",
+    "status": "active",
+    "opened_at": "2024-01-22T00:00:00Z"
+  },
+  {
+    "id": "acc_005",
+    "kind": "loan",
+    "name": "Auto Loan",
+    "institution": "Sterling Bank",
+    "mask": "5503",
+    "balance_cents": -1842090,
+    "available_cents": 0,
+    "currency": "USD",
+    "status": "active",
+    "opened_at": "2024-06-18T00:00:00Z",
+    "apr_bps": 624
+  }
+]

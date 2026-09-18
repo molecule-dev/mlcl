@@ -1,0 +1,15 @@
+{
+  "summary": [
+    { "project_id": "proj-1", "total_seconds": 27000, "billable_seconds": 27000, "entries_count": 4 },
+    { "project_id": "proj-2", "total_seconds": 18900, "billable_seconds": 18900, "entries_count": 3 },
+    { "project_id": "proj-3", "total_seconds": 5400,  "billable_seconds": 0,     "entries_count": 2 },
+    { "project_id": "proj-4", "total_seconds": 16200, "billable_seconds": 16200, "entries_count": 2 }
+  ],
+  "daily": [
+    { "date": "2026-04-23", "total_seconds": 10800, "total_hours": 3.0 },
+    { "date": "2026-04-24", "total_seconds": 12600, "total_hours": 3.5 },
+    { "date": "2026-04-25", "total_seconds": 12600, "total_hours": 3.5 },
+    { "date": "2026-04-26", "total_seconds": 17100, "total_hours": 4.75 },
+    { "date": "2026-04-27", "total_seconds": 14400, "total_hours": 4.0 }
+  ]
+}

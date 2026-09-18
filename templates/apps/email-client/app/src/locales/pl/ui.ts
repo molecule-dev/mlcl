@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Przeglądaj artykuły pomocy',
+  'about.cta.signup': 'Wypróbuj Courier za darmo',
+  'about.eyebrow': 'O Courier',
+  'about.principle.calm': 'Spokojnie z domyślnie.',
+  'about.principle.calm.desc':
+    'Żadnych krzyczących odznak, żadnych powiadomień, o które Pan/Pani nie prosił, żadnych animacji domagających się uwagi.',
+  'about.principle.fast.desc':
+    'Każde działanie to jedno naciśnięcie klawisza. Skrzynka odbiorcza ładuje się w mniej niż 200ms po świeżym zalogowaniu.',
+  'about.principle.honest.desc':
+    'Szyfrowanie podczas transmisji i w spoczynku, przejrzysta retencja oraz eksport danych jednym kliknięciem.',
+  'about.story': 'Dlaczego stworzyliśmy Courier',
+  'about.story.p1':
+    'Większość klientów poczty optymalizuje pod kątem zaangażowania — wciągając Pana/Panią z powrotem, rozpraszając uwagę, sugerując kolejne dotknięcie. Courier robi odwrotnie. Sukces mierzymy czasem, jaki Pan/Pani spędza POZA skrzynką: szybko segregować, z pewnością odkładać i wrócić do pracy, która ma znaczenie.',
+  'about.subtitle':
+    'Courier to spokojna trójpanelowa skrzynka odbiorcza stworzona przez mały zespół, który chciał przetwarzać informacje, zamiast na nie reagować.',
+  'about.team.body':
+    'Jesteśmy rozproszonym zespołem projektantów i inżynierów, którzy kiedyś spędzali za dużo godzin każdego dnia w hałaśliwej skrzynce. Courier to skrzynka, której sami chcieliśmy używać.',
+  'about.title': 'Poczta do skupionej pracy',
+  'help.cta.about': 'O Courier',
+  'help.cta.pricing': 'Zobacz cennik',
+  'help.eyebrow': 'Centrum pomocy',
+  'help.faq.compose.a':
+    'Kliknij „Utwórz” na pasku bocznym (lub naciśnij „Cc” w dowolnym widoku skrzynki odbiorczej), wprowadź co najmniej jednego odbiorcę, temat i treść wiadomości, a następnie kliknij „Wyślij”. Nowa wiadomość natychmiast pojawi się w folderze Wysłane.',
+  'help.faq.compose.q': 'Jak wysłać swoją pierwszą wiadomość?',
+  'help.faq.export.a':
+    'Tak. Ustawienia → Konto → Eksport danych tworzy archiwum do pobrania (mbox + JSON) ze wszystkimi wiadomościami, etykietami i kontaktami. Plan premium nie jest wymagany.',
+  'help.faq.labels.a':
+    'Foldery są wyłączne (wiadomość znajduje się dokładnie w jednym): Odebrane, Wysłane, Robocze, Spam, Kosz, Archiwum. Etykiety są dodatkowe — można zastosować wiele do jednej wiadomości i filtrować według kombinacji z paska wyszukiwania.',
+  'help.faq.password.a':
+    'Proszę użyć linku „Nie pamiętam hasła?" na stronie logowania. Wyślemy link do resetowania ważny przez godzinę na adres e-mail konta.',
+  'help.faq.shortcuts.a':
+    'Tak. „j" / „k" przechodzą między wątkami, „s" przełącza gwiazdkę, „e" archiwizuje, „#" przenosi do kosza, a „/" ustawia fokus na pasku wyszukiwania. Dokumentacja skrótów jest dostępna w każdym widoku skrzynki po naciśnięciu „?".',
+  'help.faq.support.a':
+    'Proszę wysłać wiadomość na support@courier.example. Odpowiadamy na każdą wiadomość w ciągu jednego dnia roboczego, w dni powszednie 9–17 UTC.',
+  'help.subtitle':
+    'Szybkie odpowiedzi na pytania, które słyszymy najczęściej. Czegoś brakuje? Proszę otworzyć Ustawienia i skorzystać z formularza opinii w aplikacji lub napisać na support@courier.example.',
+  'help.title': 'Jak możemy pomóc?',
+  'landing.brand.scrollTop': 'Wróć na górę',
+  'landing.ctaBody':
+    'Proszę dołączyć do tysięcy profesjonalistów, którzy kończą swoją skrzynkę przed lunchem.',
+  'landing.ctaTitle': 'Więcej przetwarzaj, mniej reaguj.',
+  'landing.eyebrow': 'Poczta do skupionej pracy',
+  'landing.featuresBody': 'Proszę przestać zarządzać skrzynką i zacząć faktycznie pracować.',
+  'landing.featuresTitle': 'Zaprojektowane do głębokiej pracy',
+  'landing.help': 'Pomoc',
+  'landing.heroDemo': 'Obejrzyj demo',
+  'landing.heroSubtitle':
+    'Courier to spokojna trójpanelowa skrzynka odbiorcza stworzona dla pracowników wiedzy, którzy chcą przetwarzać informacje, a nie na nie reagować.',
+  'landing.proof': 'Zaufały nam skupione zespoły na całym świecie',
+  'landing.signIn': 'Zaloguj się',
+  'meridian.archive.empty': 'Archiwum jest puste.',
+  'meridian.compose.addRecipient': 'Dodaj kolejnego odbiorcę',
+  'meridian.compose.bodyPlaceholder': 'Proszę napisać wiadomość…',
+  'meridian.compose.cc': 'DW',
+  'meridian.compose.ccPlaceholder': 'dw@example.com',
+  'meridian.compose.discard': 'Odrzuć wersję roboczą',
+  'meridian.compose.invalidEmail': '"{{value}}" to nieprawidłowy adres e-mail',
+  'meridian.compose.needRecipient': 'Proszę najpierw dodać co najmniej jednego odbiorcę.',
+  'meridian.compose.replyTo': 'Odpowiedz w wątku {{id}}',
+  'meridian.compose.savedAt': 'Wersja robocza zapisana o {{time}}',
+  'meridian.compose.sentWithError':
+    'Zapisano w Wysłanych, ale dostarczenie nie powiodło się: {{error}}',
+  'meridian.compose.subject': 'Tem',
+  'meridian.compose.subjectPlaceholder': 'Temat',
+  'meridian.compose.title': 'Nowa wiadomość',
+  'meridian.compose.to': 'Do',
+  'meridian.drafts.continue': 'Kontynuuj edycję',
+  'meridian.drafts.count': '{{count}} wiadomości',
+  'meridian.drafts.delete': 'Usuń wersję roboczą',
+  'meridian.drafts.empty': 'Brak wersji roboczych — proszę zacząć tworzyć.',
+  'meridian.drafts.lastSaved': 'Zapisano {{at}}',
+  'meridian.drafts.noRecipients': '(brak odbiorców)',
+  'meridian.drafts.selectDraft': 'Proszę wybrać wersję roboczą do podglądu.',
+  'meridian.drafts.title': 'Robocze',
+  'meridian.drafts.to': 'Do',
+  'meridian.drafts.watermark': 'Wersja robocza',
+  'meridian.folder.count': '{{count}} wiadomości',
+  'meridian.folder.deleteForever': 'Usuń trwale',
+  'meridian.folder.restore': 'Przenieś do odebranych',
+  'meridian.forgot.subtitle':
+    'Proszę wpisać e-mail przypisany do skrzynki, a wyślemy link do resetowania.',
+  'meridian.forgot.success':
+    'Jeśli konto z tym adresem e-mail istnieje, link do resetowania jest już w drodze.',
+  'meridian.inbox.empty': 'Brak wiadomości.',
+  'meridian.inbox.loading': 'Ładowanie…',
+  'meridian.inbox.next': 'Następna',
+  'meridian.inbox.noSubject': '(brak tematu)',
+  'meridian.inbox.openCompose': 'Otwórz tworzenie',
+  'meridian.inbox.previous': 'Poprzednia',
+  'meridian.inbox.replyFailed': 'Odpowiedź zapisana, ale dostarczenie nie powiodło się: {{error}}',
+  'meridian.inbox.replySent': 'Odpowiedź wysłana.',
+  'meridian.inbox.replyTo': 'Odpowiedz do {{name}}',
+  'meridian.inbox.selectMessage': 'Proszę wybrać wiadomość do przeczytania',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Zobacz wątek',
+  'meridian.login.hidePassword': 'Ukryj hasło',
+  'meridian.login.noAccount': 'Nie ma Pan/Pani konta?',
+  'meridian.login.showPassword': 'Pokaż hasło',
+  'meridian.message.toLine': 'do {{recipients}}',
+  'meridian.notFound.eyebrow': 'Błąd 404',
+  'meridian.notFound.title': 'Ten wątek został zarchiwizowany.',
+  'meridian.notFound.toInbox': 'Otwórz moją skrzynkę',
+  'meridian.reset.newLabel': 'Nowe hasło',
+  'meridian.reset.showPassword': 'Pokaż hasło',
+  'meridian.reset.subtitle': 'Proszę wybrać silne hasło — co najmniej 8 znaków.',
+  'meridian.sent.empty': 'Nie wysłał Pan/Pani jeszcze żadnej wiadomości.',
+  'meridian.sent.title': 'Wysłane',
+  'meridian.settings.noName': '(brak ustawionej nazwy)',
+  'meridian.settings.section.${section}': 'Dostosuj swój {{nazwa aplikacji}} doświadczenie',
+  'meridian.settings.signature': 'Podpis',
+  'meridian.settings.signatureSaved': 'Podpis zapisany.',
+  'meridian.sidebar.compose': 'Utwórz',
+  'meridian.sidebar.labels': 'Etykiety',
+  'meridian.sidebar.noLabels': 'Brak etykiet',
+  'meridian.sidebar.storage': 'Pamięć',
+  'meridian.sidebar.storageLabel': '{{used}} z {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@firma.com',
+  'meridian.signup.heading': 'Utwórz swoją skrzynkę Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Pokaż hasło',
+  'meridian.signup.subtitle': 'Proszę przetworzyć skrzynkę przed lunchem.',
+  'meridian.spam.empty': 'Brak spamu.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Brak wiadomości z gwiazdką.',
+  'meridian.starred.loading': 'Ładowanie…',
+  'meridian.starred.removeStar': 'Usuń gwiazdkę',
+  'meridian.starred.total': 'łącznie {{count}}',
+  'meridian.thread.back': 'Powrót do Odebranych',
+  'meridian.thread.empty': 'Brak wiadomości w tym wątku.',
+  'meridian.thread.eyebrow': 'Wątek #{{id}}',
+  'meridian.thread.notFound': 'Nie znaleziono wątku.',
+  'meridian.thread.star': 'Dodaj gwiazdkę',
+  'meridian.thread.unstar': 'Usuń gwiazdkę',
+  'meridian.time.yesterday': 'Wczoraj',
+  'meridian.topBar.searchPlaceholder': 'Szukaj w poczcie',
+  'meridian.trash.empty': 'Kosz jest pusty.',
+  'meridian.trash.title': 'Kosz',
+  'nav.legal': 'Prawne',
+  'planUpdated.description':
+    'Subskrypcja jest teraz aktywna, a rozliczenie zostało zaktualizowane. Witamy w odświeżonej skrzynce Courier.',
+  'pricing.heading': 'warcaby',
+  'pricing.limit.emails': 'wiadomości',
+  'pricing.limit.folders': 'foldery',
+  'pricing.limit.labels': 'etykiety',
+  'privacy.collect.account':
+    'Dane konta: imię i nazwisko, adres e-mail, zhashowane hasło i data rejestracji.',
+  'privacy.intro':
+    'Niniejsza polityka prywatności wyjaśnia, jakie dane Courier zbiera, dlaczego je zbieramy, jak je chronimy i jakie ma Pan/Pani wybory w ich zakresie. Staramy się być konkretni zamiast legalistyczni; jeśli coś jest niejasne, proszę napisać na privacy@courier.example.',
+  'privacy.lastUpdated': 'Ostatnia aktualizacja: 1 kwietnia 2026',
+  'privacy.linkTerms': 'Przeczytaj nasz Regulamin →',
+  'privacy.rights.body':
+    'Może Pan/Pani wyeksportować wszystkie dane, które o Panu/Pani posiadamy, z Ustawienia → Konto → Eksport danych, oraz usunąć konto jednym kliknięciem — wszystkie wiersze są wymazywane w ciągu 24 godzin, dzienniki audytu czyszczone po 30 dniach.',
+  'privacy.security.body':
+    'Treść wiadomości i załączniki są szyfrowane w spoczynku przy użyciu AES-256. Połączenia do i z naszej usługi używają TLS 1.3. Hasła są hashowane bcryptem; nigdy nie logujemy ani nie przechowujemy haseł w postaci jawnej. Dostęp produkcyjny jest ograniczony do inżynierów dyżurujących, audytowany co miesiąc.',
+  'privacy.share.body':
+    'Dane udostępniamy tylko podwykonawcom potrzebnym do prowadzenia Courier (dostarczanie wiadomości przez Mailgun, rozliczenia przez Stripe, hosting przez AWS). Każdy z nich jest umownie zobowiązany do używania Pana/Pani danych wyłącznie w celu świadczenia usługi dla nas. Nigdy nie sprzedajemy, nie wynajmujemy ani nie wymieniamy Pana/Pani danych z nikim.',
+  'terms.acceptable.spam':
+    'Brak masowej, niezamówionej wysyłki wiadomości. Zamkniemy bez ostrzeżenia konta wysyłające spam.',
+  'terms.account.body':
+    'Jest Pan/Pani odpowiedzialny za zachowanie poufności hasła i wszelkie działania, które odbywają się przez konto. Proszę powiadomić nas pod adresem security@courier.example, jeśli uzna Pan/Pani, że konto zostało naruszone.',
+  'terms.billing.body':
+    'Plany płatne odnawiają się w cyklu wybranym przy rejestracji. Można anulować z Ustawienia → Rozliczenia w dowolnym momencie i zachować dostęp do końca okresu rozliczeniowego. Zwroty wystawiane są za przestoje usługi przekraczające SLA.',
+  'terms.intro':
+    'Niniejszy regulamin reguluje korzystanie z Courier. Tworząc konto lub wysyłając przez nas wiadomości, zgadza się Pan/Pani być nim związany. Staramy się pisać zasady, których człowiek faktycznie może przestrzegać.',
+  'terms.lastUpdated': 'Obowiązuje od: 1 kwietnia 2026',
+  'terms.termination.body':
+    'Może Pan/Pani usunąć konto w dowolnym momencie. Możemy zawiesić konto, które narusza ten regulamin; jeśli to zrobimy, wyjaśnimy powód i pozwolimy najpierw wyeksportować dane.',
+  'terms.warranty.body':
+    'Usługa świadczona jest w stanie, w jakim jest. Ciężko pracujemy, aby była niezawodna i bezpieczna, ale nie możemy zagwarantować nieprzerwanego dostępu. W zakresie dozwolonym przez prawo nasza łączna odpowiedzialność jest ograniczona do kwoty zapłaconej nam w ciągu poprzednich 12 miesięcy.',
+}

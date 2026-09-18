@@ -1,0 +1,7 @@
+Polish complete: 2026-04-30T01:55:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: ops → sibling: inventory-management
+Components: 7 bespoke (FulfillmentHeroCard, FulfillmentKpiCard, OrderRow, OrderStatusBadge, PickListItem, AuthShell, WarehouseFulfillmentLayout)
+Screen-map coverage: 21/21
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "trash-001",
+    "page_id": "page-archived-001",
+    "title": "Old Microservices RFC (superseded)",
+    "deleted_by_id": "user-marcus",
+    "deleted_by_name": "Marcus Tan",
+    "deleted_at": "2026-04-15T14:00:00Z",
+    "expires_at": "2026-05-15T14:00:00Z",
+    "space_name": "Engineering"
+  },
+  {
+    "id": "trash-002",
+    "page_id": "page-archived-002",
+    "title": "Q1 Planning — Goals (closed)",
+    "deleted_by_id": "user-leo",
+    "deleted_by_name": "Leo Park",
+    "deleted_at": "2026-04-04T09:30:00Z",
+    "expires_at": "2026-05-04T09:30:00Z",
+    "space_name": "Leadership"
+  },
+  {
+    "id": "trash-003",
+    "page_id": "page-archived-003",
+    "title": "Legacy onboarding doc (replaced)",
+    "deleted_by_id": "user-sara",
+    "deleted_by_name": "Sara Voss",
+    "deleted_at": "2026-03-30T11:15:00Z",
+    "expires_at": "2026-04-30T11:15:00Z",
+    "space_name": "People & Culture"
+  }
+]

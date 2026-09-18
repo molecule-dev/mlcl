@@ -1,0 +1,13 @@
+# Handler-coverage gate exemptions.
+#
+# `_seed.ts` and `decorators.ts` are NOT mounted Express routers — they are
+# internal helpers used by other handlers. They have no API surface to
+# exercise, so the URL-based gate cannot apply.
+#
+# `profile.ts` is mounted at `/api/me` (not `/api/profile`), so the
+# convention-based path probe `/api/profile` won't match. The endpoints
+# are exercised by the Settings spec via PUT /api/me + the user-journey
+# spec via the same route.
+_seed
+decorators
+profile

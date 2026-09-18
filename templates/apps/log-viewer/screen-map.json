@@ -1,0 +1,189 @@
+{
+  "app": "log-viewer",
+  "designProjectId": "9660140802211913726",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-landing.html",
+      "designScreenId": "21cf98d068d046ef98183b332746ecf5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-login.html",
+      "designScreenId": "d743f5c0d60849eda6a68a8f5d5466cd"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-log-viewer-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-log-viewer-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-log-viewer-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-dashboard.html",
+      "designScreenId": "f0c137d4af8a4df8a718399ca8531d64"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-search.html",
+      "designScreenId": "235c0a8388d8409fa6a626c86e6b00b2"
+    },
+    {
+      "name": "Traces",
+      "templateFile": "app/pages/Traces.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/traces",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-traces.html",
+      "designScreenId": "afeb2f347ac54de2a7bdee88d541c354"
+    },
+    {
+      "name": "Streams",
+      "templateFile": "app/pages/Streams.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/streams",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-streams.html",
+      "designScreenId": "f5ca4dcf2eee4b0891623d4f6e6fbd52"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-alerts.html",
+      "designScreenId": "a5e0328ca76a4518a519de8cd343d822"
+    },
+    {
+      "name": "Saved",
+      "templateFile": "app/pages/Saved.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/saved",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-saved.html",
+      "designScreenId": "c284eacef4cf486c8542bcd338db0ea6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-settings.html",
+      "designScreenId": "6ecd1313b9444c4db9eed2ad73194ddd"
+    },
+    {
+      "name": "TraceDetail",
+      "templateFile": "app/pages/TraceDetail.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/traces/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-trace-detail.html",
+      "designScreenId": "de5efae94fd34a94b2ee27a4eb5b02b9"
+    },
+    {
+      "name": "StreamDetail",
+      "templateFile": "app/pages/StreamDetail.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/streams/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-stream-detail.html",
+      "designScreenId": "6f5da6b59ad945c0a8b90a955eceef47"
+    },
+    {
+      "name": "AlertDetail",
+      "templateFile": "app/pages/AlertDetail.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/alerts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-alert-detail.html",
+      "designScreenId": "3b1f72c8f61a46128e717f7606062e1d"
+    },
+    {
+      "name": "Incidents",
+      "templateFile": "app/pages/Incidents.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/incidents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-incidents.html",
+      "designScreenId": "669eb37c4d7e497db1fd9d700151ede7"
+    },
+    {
+      "name": "IncidentDetail",
+      "templateFile": "app/pages/IncidentDetail.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/incidents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-incident-detail.html",
+      "designScreenId": "f75671159c74462ebfb656dca06025e8"
+    },
+    {
+      "name": "Services",
+      "templateFile": "app/pages/Services.tsx",
+      "components": ["app/components/LogViewerLayout.tsx"],
+      "route": "/services",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-log-viewer-services.html",
+      "designScreenId": "1f52264667cc4b47aed25dbfb00c6a03"
+    }
+  ]
+}

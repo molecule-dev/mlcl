@@ -1,0 +1,139 @@
+{
+  "app": "expense-report",
+  "designProjectId": "8802246022636425337",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-expense-report-login.html",
+      "designScreenId": "b8674e8a4f584ecb9893bfb9ba4a4954"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-expense-report-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-expense-report-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-expense-report-login.html",
+      "derivationNotes": "Same centered card with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-dashboard.html",
+      "designScreenId": "782bceb475ce4b79aed06574bad7008c"
+    },
+    {
+      "name": "Expenses",
+      "templateFile": "app/pages/Expenses.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/expenses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-expenses.html",
+      "designScreenId": "80178d4c81284a7ab1149b7bd6ce5b6f"
+    },
+    {
+      "name": "NewExpense",
+      "templateFile": "app/pages/NewExpense.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/expenses/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-new-expense.html",
+      "designScreenId": "6f9380edce76400db7d72e4e9baaa979"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-reports.html",
+      "designScreenId": "0ecbd6bcf0694c08802be0eb27ddf07b"
+    },
+    {
+      "name": "Approvals",
+      "templateFile": "app/pages/Approvals.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/approvals",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-approvals.html",
+      "designScreenId": "f66dee1fd4df4ddbb0d70da15b9c2c2e"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-settings.html",
+      "designScreenId": "625cdbd8f76543aca7275b8eff767a1d"
+    },
+    {
+      "name": "ReportsList",
+      "templateFile": "app/pages/ReportsList.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/reports/list",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-reports-list.html",
+      "designScreenId": "7d60789f7f9b411abaa49e4017a3e5e0"
+    },
+    {
+      "name": "NewReport",
+      "templateFile": "app/pages/NewReport.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/reports/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-new-report.html",
+      "designScreenId": "703d03557fba49b183dfa339e828afdf"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ExpenseReportLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-expense-report-notifications.html",
+      "designScreenId": "6491527bbe224b34b6b3461eac543717"
+    }
+  ]
+}

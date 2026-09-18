@@ -1,0 +1,634 @@
+import { access, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+
+import * as p from '@clack/prompts'
+import { Command, Flags } from '@oclif/core'
+import chalk from 'chalk'
+import { execa } from 'execa'
+
+import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
+import { collectSecrets, resolveLocalePackages } from '../lib/features.js'
+import { formatGeneratedFiles } from '../lib/format.js'
+import { t } from '../lib/i18n.js'
+import {
+  executeInjection,
+  type InjectionPlan,
+  planInjection,
+  resolveDefaultProvidersFromPlans,
+  synthesizeAppProjectFiles,
+  synthesizeProjectFiles,
+} from '../lib/injector.js'
+import {
+  detectAppFramework,
+  getAppFrameworkDeps,
+  getPackageStack,
+  getSharedCodeDir,
+  loadAppFrameworks,
+  loadRegistry,
+} from '../lib/registry.js'
+import { syncProjectAssets } from '../lib/scaffold.js'
+import { validateInjectionOutput } from '../lib/validator.js'
+
+export default class Inject extends Command {
+  static override description = t('commands.inject.description')
+
+  static override examples = [
+    '<%= config.bin %> <%= command.id %>',
+    '<%= config.bin %> <%= command.id %> --dry-run',
+    '<%= config.bin %> <%= command.id %> -m @molecule/api-resource-user',
+    '<%= config.bin %> <%= command.id %> --no-install',
+  ]
+
+  static override flags = {
+    'dry-run': Flags.boolean({
+      description: t('commands.inject.flags.dryRun'),
+      default: false,
+    }),
+    force: Flags.boolean({
+      char: 'f',
+      description: t('commands.inject.flags.force'),
+      default: false,
+    }),
+    molecule: Flags.string({
+      char: 'm',
+      description: t('commands.inject.flags.molecule'),
+    }),
+    path: Flags.string({
+      char: 'p',
+      description: t('commands.inject.flags.path'),
+      default: '.',
+    }),
+    install: Flags.boolean({
+      description: t('commands.inject.flags.install'),
+      default: true,
+      allowNo: true,
+    }),
+    test: Flags.boolean({
+      description: t('commands.inject.flags.test'),
+      default: true,
+      allowNo: true,
+    }),
+    format: Flags.boolean({
+      description: 'Format generated code with Prettier',
+      default: true,
+      allowNo: true,
+    }),
+    ai: Flags.boolean({
+      description: 'Use AI for code generation (falls back to heuristics when disabled)',
+      default: true,
+      allowNo: true,
+    }),
+  }
+
+  public async run(): Promise<void> {
+    const { flags } = await this.parse(Inject)
+
+    // Disable AI code generation when --no-ai is passed (fast heuristic fallback)
+    if (!flags.ai) {
+      const { disableAI } = await import('../lib/ai.js')
+      disableAI()
+    }
+
+    p.intro(chalk.bgCyan(` ${t('commands.inject.labels.intro')} `))
+
+    const spinner = p.spinner()
+
+    const projectPath = flags.path === '.' ? process.cwd() : flags.path
+
+    // Step 1: Find molecules to inject
+    spinner.start(t('commands.inject.spinners.finding'))
+
+    const molecules = flags.molecule
+      ? [flags.molecule]
+      : await this.findPendingMolecules(projectPath)
+
+    spinner.stop(t('commands.inject.spinners.found', { count: molecules.length }))
+
+    if (molecules.length === 0) {
+      p.outro(chalk.yellow(t('commands.inject.messages.noMolecules')))
+      this.log('')
+      this.log(
+        t('commands.inject.messages.addHint', {
+          command: chalk.cyan('mlcl add @molecule/api-resource-user'),
+        }),
+      )
+      return
+    }
+
+    // Step 2: Detect project type and framework
+    const isAppProject = await this.detectAppProject(projectPath)
+
+    // Detect app framework to determine shared code directory (e.g. 'lib' for SvelteKit)
+    const projectPkg = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf-8'))
+    const projectDeps = { ...projectPkg.dependencies, ...projectPkg.devDependencies }
+    const framework = detectAppFramework(projectDeps, projectPkg.molecule)
+    const sharedSubdir = framework ? getSharedCodeDir(framework) : undefined
+    const bondsBase = sharedSubdir
+      ? join(projectPath, 'src', sharedSubdir, 'bonds')
+      : join(projectPath, 'src', 'bonds')
+
+    // Step 3: Generate per-molecule injection plans
+    spinner.start(t('commands.inject.spinners.planning'))
+
+    const plans: InjectionPlan[] = []
+    for (const molecule of molecules) {
+      const plan = await planInjection(molecule, projectPath, sharedSubdir)
+      plans.push(plan)
+    }
+
+    // Resolve default providers for core packages pulled in via peer deps
+    const defaultProviderMolecules = await resolveDefaultProvidersFromPlans(
+      plans,
+      molecules,
+      projectPath,
+    )
+    for (const dp of defaultProviderMolecules) {
+      if (!molecules.includes(dp)) {
+        molecules.push(dp)
+        plans.push(await planInjection(dp, projectPath, sharedSubdir))
+      }
+    }
+
+    // Resolve locale packages for all selected molecules
+    const registryForLocales = loadRegistry()
+    if (registryForLocales) {
+      const localeMolecules = resolveLocalePackages(molecules, registryForLocales)
+      for (const lp of localeMolecules) {
+        if (!molecules.includes(lp)) {
+          molecules.push(lp)
+          plans.push(await planInjection(lp, projectPath, sharedSubdir))
+        }
+      }
+    }
+
+    // Filter excluded peer dependencies (e.g. react-native aliased to DOM shim)
+    if (framework) {
+      const excludedPeers = loadAppFrameworks()[framework]?.excludePeerDependencies
+      if (excludedPeers?.length) {
+        for (const plan of plans) {
+          plan.dependencies = plan.dependencies.filter(
+            (dep) => dep.type !== 'peerDependency' || !excludedPeers.includes(dep.name),
+          )
+        }
+      }
+    }
+
+    // Synthesize holistic project files (router.ts, server.ts, wrappers, bonds)
+    // Remove individual bonds/index.ts modify operations — synthesize handles it
+    const bondsIndexPath = join(bondsBase, 'index.ts')
+    for (const plan of plans) {
+      plan.files = plan.files.filter(
+        (f) => f.targetPath !== bondsIndexPath || f.action !== 'modify',
+      )
+    }
+
+    const registryPackages = loadRegistry()
+    const skipServiceWorker = framework
+      ? loadAppFrameworks()[framework]?.skipCustomServiceWorker === true
+      : false
+    const syntheticFiles = isAppProject
+      ? synthesizeAppProjectFiles(
+          plans,
+          molecules,
+          projectPath,
+          registryPackages,
+          sharedSubdir,
+          skipServiceWorker,
+        )
+      : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages)
+
+    // Add build tooling devDependencies when a service worker was generated
+    if (syntheticFiles.some((f) => f.targetPath.endsWith('service-worker.ts'))) {
+      // Find the plan whose package generates the service worker (registry-driven)
+      const swPlan = plans.find((p) => {
+        const regPkg = registryPackages?.find((rp) => rp.name === p.molecule)
+        return regPkg?.molecule?.generates?.includes('service-worker')
+      })
+      const targetPlan = swPlan ?? plans[0]
+      if (targetPlan) {
+        const regPkg = registryPackages?.find((rp) => rp.name === targetPlan.molecule)
+        const devDeps = regPkg?.molecule?.buildTooling?.devDependencies
+        if (devDeps) {
+          for (const [name, version] of Object.entries(devDeps)) {
+            targetPlan.dependencies.push({ name, version, type: 'devDependency' })
+          }
+        }
+      }
+    }
+
+    spinner.stop(t('commands.inject.spinners.planned'))
+
+    // Step 4: Show preview
+    this.log('')
+    this.log(chalk.bold(t('commands.inject.labels.injectionPlan')))
+    this.log('')
+
+    // Show per-molecule plans (bond files, middleware files, migrations, deps)
+    for (const plan of plans) {
+      this.log(chalk.cyan(`  ${plan.molecule}`))
+
+      if (plan.moleculePackage) {
+        this.log(
+          chalk.gray(
+            `    ${t('commands.inject.labels.type', { type: plan.moleculePackage.type })}`,
+          ),
+        )
+      }
+
+      if (plan.files.length > 0) {
+        this.log(chalk.gray(`    ${t('commands.inject.labels.files')}`))
+        for (const file of plan.files) {
+          const icon =
+            file.action === 'create'
+              ? chalk.green('+')
+              : file.action === 'modify'
+                ? chalk.yellow('~')
+                : file.action === 'transform'
+                  ? chalk.magenta('⟳')
+                  : chalk.blue('→')
+          this.log(`      ${icon} ${file.targetPath}`)
+          this.log(chalk.gray(`        ${file.description}`))
+        }
+      }
+
+      if (plan.dependencies.length > 0) {
+        this.log(chalk.gray(`    ${t('commands.inject.labels.dependencies')}`))
+        for (const dep of plan.dependencies) {
+          this.log(`      ${chalk.blue('+')} ${dep.name}@${dep.version}`)
+        }
+      }
+
+      if (plan.migrations.length > 0) {
+        this.log(chalk.gray(`    ${t('commands.inject.labels.migrations')}`))
+        for (const migration of plan.migrations) {
+          this.log(`      ${chalk.magenta('+')} ${migration.name} (table: ${migration.tableName})`)
+        }
+      }
+
+      if (plan.moleculePackage?.routes && plan.moleculePackage.routes.length > 0) {
+        this.log(chalk.gray(`    ${t('commands.inject.labels.routes')}`))
+        for (const route of plan.moleculePackage.routes) {
+          this.log(
+            `      ${chalk.cyan(route.method.toUpperCase().padEnd(6))} ${route.path}${route.optional ? chalk.gray(` [${route.optional}]`) : ''}`,
+          )
+        }
+      }
+
+      if (plan.bondSetup) {
+        this.log(chalk.gray(`    ${t('commands.inject.labels.bondSetup')}`))
+        this.log(
+          `      ${chalk.green('⚡')} ${plan.bondSetup.providerPackage} → ${plan.bondSetup.interfacePackage}`,
+        )
+      }
+
+      if (plan.conflicts.length > 0) {
+        this.log(chalk.yellow(`    ${t('commands.inject.labels.conflicts')}`))
+        for (const conflict of plan.conflicts) {
+          this.log(`      ${chalk.yellow('!')} ${conflict.path}: ${conflict.message}`)
+        }
+      }
+
+      this.log('')
+    }
+
+    // Show synthesized holistic files
+    if (syntheticFiles.length > 0) {
+      this.log(chalk.cyan(`  ${t('commands.inject.labels.generatedFiles')}`))
+      this.log(chalk.gray(`    ${t('commands.inject.labels.files')}`))
+      for (const file of syntheticFiles) {
+        this.log(`      ${chalk.green('+')} ${file.targetPath}`)
+        this.log(chalk.gray(`        ${file.description}`))
+      }
+      this.log('')
+    }
+
+    // Check for blocking conflicts
+    const blockingConflicts = plans.flatMap((p) =>
+      p.conflicts.filter((c) => !c.resolution || c.resolution === 'skip'),
+    )
+
+    if (blockingConflicts.length > 0 && !flags.force) {
+      this.log(
+        chalk.yellow(
+          t('commands.inject.messages.conflictsFound', { count: blockingConflicts.length }),
+        ),
+      )
+    }
+
+    // Step 5: Execute (or dry-run)
+    if (flags['dry-run']) {
+      // Preview the .env append too — the real run appends the injected
+      // packages' missing secrets, so the dry-run must show them.
+      try {
+        const rawName: unknown = projectPkg.name
+        const projectName =
+          typeof rawName === 'string' && rawName.length > 0
+            ? (rawName.split('/').pop() ?? rawName)
+            : 'my-app'
+        const envPreview = await appendSecretsToEnvFile(
+          projectPath,
+          collectSecrets(plans.map((plan) => plan.moleculePackage).filter(Boolean)),
+          isAppProject ? 'app' : 'api',
+          projectName,
+          { dryRun: true },
+        )
+        if (envPreview.appended.length > 0) {
+          this.log(chalk.cyan(`  ${t('commands.inject.labels.envDryRun')}`))
+          for (const secret of envPreview.appended) {
+            const note = secret.generated
+              ? chalk.green(t('commands.inject.messages.envGenerated'))
+              : chalk.yellow(t('commands.inject.messages.envNeedsSetup'))
+            this.log(`    ${chalk.green('+')} ${secret.name} ${chalk.gray('—')} ${note}`)
+          }
+          if (envPreview.skipped.length > 0) {
+            this.log(
+              chalk.gray(
+                `    ${t('commands.inject.messages.envAlreadyPresent', { keys: envPreview.skipped.join(', ') })}`,
+              ),
+            )
+          }
+          this.log('')
+        }
+      } catch (error) {
+        this.warn(`Could not preview .env changes: ${error}`)
+      }
+      p.outro(chalk.blue(t('commands.inject.messages.dryRunComplete')))
+      return
+    }
+
+    // Confirm
+    if (!flags.force) {
+      const proceed = await p.confirm({
+        message: t('commands.inject.prompts.proceed'),
+      })
+
+      if (p.isCancel(proceed) || !proceed) {
+        p.cancel(t('commands.inject.prompts.cancelled'))
+        process.exit(0)
+      }
+    }
+
+    spinner.start(t('commands.inject.spinners.executing'))
+
+    let totalCreated = 0
+    let totalModified = 0
+    const errors: string[] = []
+    const warnings: string[] = []
+
+    // Execute per-molecule plans (bond files, middleware files, migrations, deps)
+    for (const plan of plans) {
+      const result = await executeInjection(plan, projectPath, {
+        dryRun: flags['dry-run'],
+        force: flags.force,
+        autoInstall: false, // Defer npm install to after all plans
+      })
+
+      totalCreated += result.filesCreated.length
+      totalModified += result.filesModified.length
+      errors.push(...result.errors)
+      warnings.push(...result.warnings)
+    }
+
+    // Execute synthesized holistic files (router.ts, server.ts, wrappers, bonds/index.ts)
+    const synthesizedFiles: string[] = []
+    for (const file of syntheticFiles) {
+      try {
+        if (file.content) {
+          await mkdir(dirname(file.targetPath), { recursive: true })
+          await writeFile(file.targetPath, file.content)
+          synthesizedFiles.push(file.targetPath)
+          totalCreated++
+        }
+      } catch (error) {
+        // Rollback all synthesized files written so far
+        for (const written of synthesizedFiles) {
+          try {
+            await rm(written, { force: true })
+          } catch (_error) {
+            /* rollback best-effort — rm uses { force: true } so ENOENT is already suppressed;
+               any remaining error (e.g. permissions) is safely ignorable during rollback */
+          }
+        }
+        errors.push(`Failed to write ${file.targetPath}: ${error}`)
+        break
+      }
+    }
+
+    spinner.stop(t('commands.inject.spinners.complete'))
+
+    // Append the injected packages' secrets to the project's .env — a user
+    // adding e.g. Stripe to an existing app gets the same commented
+    // credential guidance (label / instructions / setup URL / example) that
+    // `mlcl create` scaffolds. Existing keys are NEVER overwritten or
+    // duplicated, so re-running inject appends nothing new.
+    let envResult: EnvAppendResult | null = null
+    try {
+      const rawName: unknown = projectPkg.name
+      const projectName =
+        typeof rawName === 'string' && rawName.length > 0
+          ? (rawName.split('/').pop() ?? rawName)
+          : 'my-app'
+      envResult = await appendSecretsToEnvFile(
+        projectPath,
+        collectSecrets(plans.map((plan) => plan.moleculePackage).filter(Boolean)),
+        isAppProject ? 'app' : 'api',
+        projectName,
+      )
+    } catch (error) {
+      warnings.push(`Could not append secrets to .env: ${error}`)
+    }
+
+    if (envResult && envResult.appended.length > 0) {
+      this.log('')
+      this.log(
+        chalk.cyan(
+          `  ${t(envResult.created ? 'commands.inject.labels.envCreated' : 'commands.inject.labels.envUpdated')}`,
+        ),
+      )
+      for (const secret of envResult.appended) {
+        const note = secret.generated
+          ? chalk.green(t('commands.inject.messages.envGenerated'))
+          : chalk.yellow(t('commands.inject.messages.envNeedsSetup'))
+        this.log(`    ${chalk.green('+')} ${secret.name} ${chalk.gray('—')} ${note}`)
+      }
+      if (envResult.skipped.length > 0) {
+        this.log(
+          chalk.gray(
+            `    ${t('commands.inject.messages.envAlreadyPresent', { keys: envResult.skipped.join(', ') })}`,
+          ),
+        )
+      }
+    }
+
+    // Sync static assets (font files, HTML font block) from installed packages
+    if (isAppProject) {
+      spinner.start(t('commands.inject.spinners.syncing'))
+      try {
+        await syncProjectAssets(projectPath)
+        spinner.stop(t('commands.inject.spinners.synced'))
+      } catch (error) {
+        this.warn(`Asset sync skipped: ${error}`)
+        spinner.stop(chalk.gray(t('commands.inject.spinners.syncSkipped')))
+      }
+    }
+
+    // Post-injection validation
+    spinner.start(t('commands.inject.spinners.validating'))
+    const validation = await validateInjectionOutput(projectPath)
+    spinner.stop(
+      validation.valid
+        ? t('commands.inject.spinners.validated')
+        : chalk.yellow(t('commands.inject.spinners.validationIssues')),
+    )
+
+    warnings.push(...validation.warnings)
+    errors.push(...validation.errors)
+
+    // Format generated code with Prettier
+    if (flags.format && validation.valid) {
+      spinner.start(t('commands.inject.spinners.formatting'))
+      try {
+        await formatGeneratedFiles(projectPath)
+        spinner.stop(t('commands.inject.spinners.formatted'))
+      } catch (error) {
+        this.warn(`Formatting skipped: ${error}`)
+        spinner.stop(chalk.gray(t('commands.inject.spinners.formattingSkipped')))
+      }
+    }
+
+    // Run smoke tests
+    let testsPassed = false
+    if (flags.test && validation.valid) {
+      const hasTests = await this.hasTestFiles(projectPath)
+      if (hasTests) {
+        spinner.start(t('commands.inject.spinners.testing'))
+        const testResult = await this.runTests(projectPath)
+        if (testResult.success) {
+          testsPassed = true
+          spinner.stop(
+            chalk.green(t('commands.inject.spinners.testsPassed', { summary: testResult.summary })),
+          )
+        } else {
+          spinner.stop(chalk.yellow(t('commands.inject.spinners.testsFailed')))
+          if (testResult.output) {
+            errors.push(`Smoke tests failed:\n${testResult.output}`)
+          }
+        }
+      }
+    }
+
+    if (warnings.length > 0) {
+      this.log('')
+      this.log(chalk.yellow(t('commands.inject.labels.warnings')))
+      for (const warning of warnings) {
+        this.log(`  ${chalk.yellow('!')} ${warning}`)
+      }
+    }
+
+    if (errors.length > 0) {
+      this.log('')
+      this.log(chalk.red(t('commands.inject.labels.errors')))
+      for (const error of errors) {
+        this.log(`  ${chalk.red('•')} ${error}`)
+      }
+    }
+
+    p.outro(
+      chalk.green(
+        t('commands.inject.messages.summary', { created: totalCreated, modified: totalModified }),
+      ),
+    )
+
+    this.log('')
+    this.log(t('commands.inject.messages.nextSteps'))
+    let stepNum = 1
+    if (!flags.install) {
+      this.log(
+        `  ${t('commands.inject.messages.runInstall', { num: stepNum++, command: chalk.cyan('npm install') })}`,
+      )
+    }
+    this.log(
+      `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
+    )
+    if (!testsPassed) {
+      this.log(
+        `  ${t('commands.inject.messages.runTest', { num: stepNum, command: chalk.cyan('npm test') })}`,
+      )
+    }
+  }
+
+  private async hasTestFiles(projectPath: string): Promise<boolean> {
+    try {
+      await access(join(projectPath, 'src', '__tests__', 'server.test.ts'))
+      return true
+    } catch (_error) {
+      // access() throws when the test file is absent — that is the expected signal; return false
+      return false
+    }
+  }
+
+  private async runTests(
+    projectPath: string,
+  ): Promise<{ success: boolean; summary: string; output?: string }> {
+    try {
+      const result = await execa('npx', ['vitest', 'run', '--reporter=verbose'], {
+        cwd: projectPath,
+        stdio: 'pipe',
+        timeout: 60_000,
+      })
+
+      // Extract summary from vitest output (e.g. "Tests  3 passed (3)")
+      const summaryMatch = result.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)
+      const summary = summaryMatch ? summaryMatch[0] : 'all passed'
+
+      return { success: true, summary }
+    } catch (error: unknown) {
+      const execError = error as { stdout?: string; stderr?: string }
+      const output = [execError.stdout, execError.stderr].filter(Boolean).join('\n').slice(-500)
+      return { success: false, summary: 'failed', output }
+    }
+  }
+
+  /**
+   * Detect if this is an App (frontend) project by checking package.json.
+   * Looks for molecule.projectType field, or framework dependencies.
+   */
+  private async detectAppProject(projectPath: string): Promise<boolean> {
+    try {
+      const packageJsonPath = join(projectPath, 'package.json')
+      const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+
+      // Explicit marker from mlcl create
+      if (packageJson.molecule?.projectType === 'app') return true
+
+      // Detect by framework dependencies (derived from registry)
+      const deps = { ...packageJson.dependencies, ...packageJson.devDependencies }
+      const frameworkDeps = getAppFrameworkDeps()
+      if (frameworkDeps.some((d) => d in deps) && !('express' in deps)) return true
+
+      // Detect by @molecule/app-* packages (vs @molecule/api-*)
+      const moleculeDeps = Object.keys(deps).filter((d) => d.startsWith('@molecule/'))
+      const hasAppPkgs = moleculeDeps.some((d) => getPackageStack(d) === 'app')
+      const hasApiPkgs = moleculeDeps.some((d) => getPackageStack(d) === 'api')
+      if (hasAppPkgs && !hasApiPkgs) return true
+
+      return false
+    } catch (_error) {
+      // package.json unreadable or unparseable — treat as non-app project
+      return false
+    }
+  }
+
+  private async findPendingMolecules(path: string): Promise<string[]> {
+    try {
+      const packageJsonPath = join(path, 'package.json')
+      const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+      const deps = { ...packageJson.dependencies, ...packageJson.devDependencies }
+
+      return Object.keys(deps).filter((dep) => dep.startsWith('@molecule/'))
+    } catch (_error) {
+      // package.json absent or unreadable — no molecules to inject
+      return []
+    }
+  }
+}

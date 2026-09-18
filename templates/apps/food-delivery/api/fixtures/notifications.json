@@ -1,0 +1,56 @@
+[
+  {
+    "id": "n1",
+    "type": "order_status",
+    "title": "Order delivered",
+    "body": "Your Sakura Sushi order arrived.",
+    "href": "/orders/order-12345",
+    "created_at": "2026-04-25T20:18:00.000Z",
+    "unread": false
+  },
+  {
+    "id": "n2",
+    "type": "driver_message",
+    "title": "Marcus sent a message",
+    "body": "I'm at the lobby — coming up now.",
+    "href": "/order/order-12011",
+    "created_at": "2026-04-26T19:42:00.000Z",
+    "unread": true
+  },
+  {
+    "id": "n3",
+    "type": "promo",
+    "title": "20% off your next order",
+    "body": "Use code FEAST20 at checkout. Expires Sunday.",
+    "href": "/restaurants",
+    "created_at": "2026-04-24T09:00:00.000Z",
+    "unread": true
+  },
+  {
+    "id": "n4",
+    "type": "account",
+    "title": "New device sign-in",
+    "body": "A new device signed in to your account from Chrome on macOS.",
+    "href": "/settings",
+    "created_at": "2026-04-23T18:42:00.000Z",
+    "unread": false
+  },
+  {
+    "id": "n5",
+    "type": "order_status",
+    "title": "Driver is on the way",
+    "body": "Your Sakura Sushi order is out for delivery — ETA 14 min.",
+    "href": "/order/order-12011",
+    "created_at": "2026-04-26T19:32:00.000Z",
+    "unread": true
+  },
+  {
+    "id": "n6",
+    "type": "promo",
+    "title": "Free delivery this weekend",
+    "body": "Orders over $20 — Saturday and Sunday only.",
+    "href": "/restaurants",
+    "created_at": "2026-04-22T08:00:00.000Z",
+    "unread": false
+  }
+]

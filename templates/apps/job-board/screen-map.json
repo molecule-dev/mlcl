@@ -1,0 +1,169 @@
+{
+  "app": "job-board",
+  "designProjectId": "12544280050216536462",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-job-board-landing.html",
+      "designScreenId": "064d5595a6aa4edda2785dd81c7ef8d5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-job-board-login.html",
+      "designScreenId": "0defa2ef99e84e1db8a88fb2b697f5f5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-job-board-login.html",
+      "derivationNotes": "Same split-screen layout as Login (navy left, white right). Right form keeps role toggle (Job Seeker / Employer), adds First Name, Last Name, Email, Password, Confirm Password. Header 'Create your Placement account'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Remember me, no Forgot password link, no SSO."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-job-board-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has only Email field. Header 'Reset your password', subtext 'Enter your email to receive a reset link'. Button text 'Send reset link'. Bottom link 'Back to Sign In'. No role toggle, no password field, no Remember me, no SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-job-board-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has New Password and Confirm Password fields. Header 'Set new password'. Button text 'Reset password'. Bottom link 'Back to Sign In'. No role toggle, no email field, no SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-dashboard.html",
+      "designScreenId": "6b4fe75cb5ea40a8b6d1f76db4f3e057"
+    },
+    {
+      "name": "Jobs",
+      "templateFile": "app/pages/Jobs.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/jobs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-jobs.html",
+      "designScreenId": "b2f912f9551b45a98676dfc0a4ae3b9e"
+    },
+    {
+      "name": "JobDetail",
+      "templateFile": "app/pages/JobDetail.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/jobs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-job-detail.html",
+      "designScreenId": "5b8a44d9f9504a89a77a0cee779aae01"
+    },
+    {
+      "name": "Applications",
+      "templateFile": "app/pages/Applications.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/applications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-applications.html",
+      "designScreenId": "fb0144adab4642cda89e0cbd9e3622f2"
+    },
+    {
+      "name": "Companies",
+      "templateFile": "app/pages/Companies.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/companies",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-companies.html",
+      "designScreenId": "b8c86c1bab3d418c9df981f8d1b704d7"
+    },
+    {
+      "name": "CompanyDetail",
+      "templateFile": "app/pages/CompanyDetail.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/companies/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-company-detail.html",
+      "designScreenId": "c1e418e6a4334e52b99b3457a3e24105"
+    },
+    {
+      "name": "PostJob",
+      "templateFile": "app/pages/PostJob.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/post-job",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-post-job.html",
+      "designScreenId": "d479b61240b94216b4f0a68baf7431ea"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-profile.html",
+      "designScreenId": "0e0354158ceb4b5b9777b6798f6cc105"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-settings.html",
+      "designScreenId": "3a871f48252e4d9686d92044d2038048"
+    },
+    {
+      "name": "JobApplicants",
+      "templateFile": "app/pages/JobApplicants.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/jobs/:id/applicants",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-job-applicants.html",
+      "designScreenId": "0e93c846036e446f9648ddb261b523ee"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/JobBoardLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-job-board-notifications.html",
+      "designScreenId": "65322a8cbe414b21a8580e2d48b9ebe1"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "n-mention-1",
+    "type": "mention",
+    "actor_id": "u-jamie-park",
+    "actor_name": "Jamie Park",
+    "actor_avatar": "JP",
+    "workbook_id": "ws-q4-revenue-2026",
+    "workbook_name": "Q4 Revenue Forecast",
+    "cell_ref": "Pipeline!E412",
+    "preview": "@Avery — confirm this is the right close-date for Northwind?",
+    "is_read": false,
+    "created_at": "2026-04-29T20:11:00Z"
+  },
+  {
+    "id": "n-comment-1",
+    "type": "comment",
+    "actor_id": "u-priya-shah",
+    "actor_name": "Priya Shah",
+    "actor_avatar": "PS",
+    "workbook_id": "ws-product-roadmap",
+    "workbook_name": "Product Roadmap & OKRs",
+    "cell_ref": "Roadmap!C18",
+    "preview": "Bumping confidence to 75% — eng signed off this morning.",
+    "is_read": false,
+    "created_at": "2026-04-29T18:42:00Z"
+  },
+  {
+    "id": "n-share-1",
+    "type": "share",
+    "actor_id": "u-marcus-rivera",
+    "actor_name": "Marcus Rivera",
+    "actor_avatar": "MR",
+    "workbook_id": "ws-ar-aging",
+    "workbook_name": "AR Aging & Collections",
+    "preview": "Marcus shared AR Aging & Collections with you.",
+    "is_read": true,
+    "created_at": "2026-04-29T15:30:00Z"
+  },
+  {
+    "id": "n-automation-1",
+    "type": "automation",
+    "actor_id": "system",
+    "actor_name": "Calcite",
+    "actor_avatar": "C",
+    "workbook_id": "ws-vendor-contracts",
+    "workbook_name": "Vendor Contracts Tracker",
+    "preview": "30-day renewal warning fired for 3 contracts.",
+    "is_read": false,
+    "created_at": "2026-04-29T08:00:00Z"
+  },
+  {
+    "id": "n-mention-2",
+    "type": "mention",
+    "actor_id": "u-avery-chen",
+    "actor_name": "Avery Chen",
+    "actor_avatar": "AC",
+    "workbook_id": "ws-headcount-fy26",
+    "workbook_name": "FY26 Headcount Plan",
+    "cell_ref": "Roster!H42",
+    "preview": "@Priya — flagging this requisition for your review.",
+    "is_read": true,
+    "created_at": "2026-04-28T22:08:00Z"
+  },
+  {
+    "id": "n-share-2",
+    "type": "share",
+    "actor_id": "u-jamie-park",
+    "actor_name": "Jamie Park",
+    "actor_avatar": "JP",
+    "workbook_id": "ws-marketing-spend",
+    "workbook_name": "Marketing Spend & ROI",
+    "preview": "Jamie made you an editor on Marketing Spend & ROI.",
+    "is_read": true,
+    "created_at": "2026-04-28T16:21:00Z"
+  },
+  {
+    "id": "n-automation-2",
+    "type": "automation",
+    "actor_id": "system",
+    "actor_name": "Calcite",
+    "actor_avatar": "C",
+    "workbook_id": "ws-q4-revenue-2026",
+    "workbook_name": "Q4 Revenue Forecast",
+    "preview": "Hourly Waterfall recalc completed — 7 sheets, 42 ranges.",
+    "is_read": true,
+    "created_at": "2026-04-29T20:00:00Z"
+  }
+]

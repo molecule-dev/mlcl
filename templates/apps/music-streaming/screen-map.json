@@ -1,0 +1,180 @@
+{
+  "app": "music-streaming",
+  "designProjectId": "4243397833859579696",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-landing.html",
+      "designScreenId": "973cfcde586d4ff2ac469a863ae84590"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-login.html",
+      "designScreenId": "69c1d762d19740ba8ecba094d8661d51"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-home.html",
+      "designScreenId": "244f58d0463c4df68f1d9a7f4ae5d476"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-search.html",
+      "designScreenId": "3ef43ed5f74c4d4385d9ab526eb39db2"
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-library.html",
+      "designScreenId": "db13c7ac1a2f481ea10add3f6afde6b7"
+    },
+    {
+      "name": "PlaylistDetail",
+      "templateFile": "app/pages/PlaylistDetail.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/playlists/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-playlist-detail.html",
+      "designScreenId": "b44b16162b0a446387bab38098c04dc2"
+    },
+    {
+      "name": "ArtistDetail",
+      "templateFile": "app/pages/ArtistDetail.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/artists/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-artist-detail.html",
+      "designScreenId": "afb3f716be3544dfbab00a9ee49d469e"
+    },
+    {
+      "name": "Radio",
+      "templateFile": "app/pages/Radio.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/radio",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-radio.html",
+      "designScreenId": "5850fe9c2aed4d319061232b38004449"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-settings.html",
+      "designScreenId": "b42a0e3c54c04d14ad190038d6f0a46b"
+    },
+    {
+      "name": "AlbumDetail",
+      "templateFile": "app/pages/AlbumDetail.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/albums/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-album-detail.html",
+      "designScreenId": "09f74dce42e94031a9bc4e376e9bc3dd"
+    },
+    {
+      "name": "NowPlaying",
+      "templateFile": "app/pages/NowPlaying.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/now-playing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-now-playing.html",
+      "designScreenId": "242073051e074c2086fe6c68dad7f04d"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/profile/:handle",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-profile.html",
+      "designScreenId": "69c79610d21045faadda88ff66fd5917"
+    },
+    {
+      "name": "Subscription",
+      "templateFile": "app/pages/Subscription.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/subscription",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-streaming-subscription.html",
+      "designScreenId": "3b64a0df674f4055876c8bfef5570560"
+    },
+    {
+      "name": "LikedSongs",
+      "templateFile": "app/pages/LikedSongs.tsx",
+      "components": ["app/components/MusicStreamingLayout.tsx"],
+      "route": "/library/liked",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-streaming-playlist-detail.html",
+      "derivationNotes": "Same playlist detail layout but with a violet-to-rose gradient header (no cover image — replace with a heart icon SVG), title 'Liked Songs', description hidden, stats 'X liked songs'. Track list shows all liked tracks, each with the heart icon filled rose by default."
+    }
+  ]
+}

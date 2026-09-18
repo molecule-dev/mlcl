@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-border-light: #1e2433;
+  --color-method-delete: #ef4444;
+  --color-method-get: #10b981;
+  --color-method-patch: #a78bfa;
+  --color-method-post: #3b82f6;
+  --color-method-put: #f59e0b;
+  --color-status-error: #ef4444;
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-surface-secondary: #1e2433;
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+
+  /* Stitch border-radius scale. */
+  --radius: 8px;
+  --radius-full: 9999px;
+  --radius-lg: 8px;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+  --radius-xl: 8px;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-display: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+  --font-mono: 'JetBrains Mono';
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-1 -left-[20px] -mr-1 -right-2 -right-4 -top-2 -top-4 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute active:opacity-80 antialiased backdrop-blur-md backdrop-blur-sm before:absolute before:bg-surface-secondary before:bottom-2 before:left-[7px] before:top-2 before:w-px bg-accent bg-accent/10 bg-accent/5 bg-amber bg-background bg-bg bg-bg/50 bg-black/20 bg-blue/10 bg-brand bg-brand-bg bg-brand-bg/50 bg-brand-border bg-brand-method-delete bg-brand-method-delete/20 bg-brand-method-delete/5 bg-brand-method-get bg-brand-method-get/10 bg-brand-muted bg-brand-surface bg-brand-surface2 bg-brand-surface2/50 bg-delete/10 bg-editor bg-elevated bg-elevated/30 bg-get bg-gradient-to-br bg-gradient-to-l bg-gradient-to-r bg-gradient-to-tr bg-grid-pattern bg-patch bg-post bg-primary bg-primary/20 bg-put bg-put/10");
+@source inline("bg-secondary bg-status-error/10 bg-status-info bg-status-success bg-status-success/10 bg-status-warning bg-surface bg-surface-secondary bg-transparent bg-white block blur-[120px] blur-xl border border-b border-b-2 border-blue/20 border-border border-brand-border border-brand-border/50 border-brand-method-delete/20 border-brand-method-delete/30 border-collapse border-dashed border-delete/20 border-elevated border-l border-l-2 border-l-4 border-none border-primary border-primary/30 border-put/50 border-r border-r-2 border-surface-secondary border-t border-t-2 border-t-post border-transparent bottom-0 bottom-4 break-all col-span-2 cursor-pointer decoration-surface-secondary divide-surface-secondary divide-x divide-y duration-100 duration-150 duration-200 duration-75 ease-in-out fixed flex flex-1 flex-col flex-shrink-0 flex-wrap");
+@source inline("focus-within:border-post focus-within:border-primary focus-within:text-text-primary focus:border-brand focus:border-primary focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-border focus:ring-brand focus:ring-offset-0 focus:ring-offset-2 focus:ring-offset-background focus:ring-primary focus:ring-put font-black font-body font-bold font-headline font-medium font-mono font-sans font-semibold from-accent/50 from-primary from-primary/20 from-primary/50 from-status-info/50 from-status-warning/50 from-surface-secondary gap-1 gap-12 gap-2 gap-3 gap-4 gap-6 gap-8 gap-x-1 glow-text grid grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4 group group-hover:bg-primary/30 group-hover:border-surface-secondary group-hover:opacity-100 group-hover:text-brand-text group-hover:text-primary group-hover:text-text-primary group-hover:text-white h-1 h-10 h-12 h-14 h-16 h-2 h-3");
+@source inline("h-4 h-48 h-5 h-6 h-7 h-8 h-[120px] h-[2px] h-[36px] h-[44px] h-[600px] h-[700px] h-full h-px h-screen hidden hover:bg-brand-method-delete/10 hover:bg-brand-secondary hover:bg-brand-surface hover:bg-brand-surface2 hover:bg-elevated hover:bg-elevated/50 hover:bg-opacity-90 hover:bg-primary-hover hover:bg-primary/90 hover:bg-red/10 hover:bg-secondary hover:bg-surface hover:bg-surface-secondary hover:bg-surface-secondary/50 hover:border-brand-border hover:border-delete/50 hover:border-elevated hover:border-primary/50 hover:border-text-secondary hover:border-text-secondary/50 hover:decoration-text-secondary hover:opacity-90 hover:text-brand-text hover:text-opacity-80 hover:text-primary-hover hover:text-primary/80 hover:text-text-primary hover:text-white hover:underline inline-block inline-flex inset-0 inset-y-0 italic items-baseline items-center items-end items-start justify-between justify-center leading-relaxed leading-tight left-0 left-1/2");
+@source inline("left-3 left-4 lg:block lg:grid-cols-3 lg:w-[320px] lg:w-[380px] line-clamp-2 line-through lowercase m-0 material-symbols-outlined max-w-2xl max-w-3xl max-w-4xl max-w-5xl max-w-7xl max-w-[1440px] max-w-[150px] max-w-[180px] max-w-[200px] max-w-[440px] max-w-md max-w-sm max-w-xs mb mb-1 mb-10 mb-12 mb-16 mb-2 mb-3 mb-32 mb-4 mb-6 mb-8 md md:col-span-1 md:flex md:flex-row md:grid-cols-2 md:justify-between md:mt-0 md:text-7xl md:text-left min-h-0 min-h-screen min-w-0 min-w-[200px] min-w-full min-w-max ml-1 ml-2 ml-4 ml-[280px] ml-auto mr-1 mr-2 mr-3 mr-4 mt-1");
+@source inline("mt-12 mt-2 mt-4 mt-6 mt-8 mt-auto mx-1 mx-2 mx-6 mx-auto my-2 object-cover opacity-0 opacity-20 opacity-50 opacity-70 opacity-80 outline-none overflow-auto overflow-hidden overflow-x-auto overflow-y-auto p-0 p-1 p-2 p-3 p-4 p-5 p-6 p-8 p-[40px] pb-1 pb-2 pb-24 pb-32 pb-4 pb-8 pl-10 pl-2 pl-3 pl-4 pl-9 pl-[280px] placeholder-brand-muted placeholder-text-secondary placeholder-text-secondary/50 placeholder:font-body placeholder:text-surface-secondary pointer-events-none pr-10 pr-2 pr-3 pr-4 pt-0 pt-1 pt-2 pt-32 pt-4 px-1 px-2");
+@source inline("px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-3 py-4 py-6 py-8 relative right-0 right-2 right-4 ring-4 ring-bg rounded rounded-full rounded-l-md rounded-lg rounded-md rounded-r-md rounded-sm rounded-xl scrollbar-none select-none selection:text-white shadow-2xl shadow-emerald-950/20 shadow-inner shadow-primary/20 shadow-sm shadow-xl shrink-0 sm sm:leading-6 sm:text-sm space-x-1 space-x-2 space-x-3 space-x-4 space-x-6 space-y-1 space-y-2 space-y-3 space-y-4 space-y-5 space-y-6 space-y-[2px] sr-only sticky text-2xl text-3xl text-6xl text-[10px] text-[11px] text-[12px]");
+@source inline("text-[13px] text-[14px] text-[15px] text-[16px] text-[18px] text-[20px] text-[22px] text-[24px] text-[28px] text-accent text-amber text-background text-base text-bg text-blue text-blue-400 text-brand-accent text-brand-bg text-brand-method-delete text-brand-method-get text-brand-method-patch text-brand-method-post text-brand-muted text-brand-text text-center text-delete text-editor text-get text-left text-lg text-method-delete text-method-get text-method-patch text-method-post text-patch text-post text-primary text-put text-red text-right text-sm text-status-error text-status-info text-status-success text-status-warning text-surface-secondary text-text-primary text-text-secondary text-text-secondary/60 text-transparent text-violet text-white text-xl text-xs to-accent to-transparent top-0 top-1 top-1/2 top-4");
+@source inline("tracking-tight tracking-tighter tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-transform translate-x-5 truncate underline uppercase w-1 w-1/2 w-1/4 w-10 w-12 w-16 w-2 w-20 w-24 w-3 w-32 w-4 w-5 w-6 w-64 w-7 w-8 w-80 w-9 w-[1px] w-[220px] w-[280px] w-[2px] w-[320px] w-[600px] w-full w-max w-px w-screen whitespace-nowrap whitespace-pre xl:block xl:flex xs z-10 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2433;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.glow-border {
+  box-shadow:
+    0 0 0 1px #10b981,
+    0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(51, 65, 85, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 65, 85, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+  font-size: 18px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e293b;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.bg-surface {
+  background-color: #161b26;
+}
+
+.bg-surface-secondary {
+  background-color: #1e2433;
+}
+
+.bg-secondary {
+  background-color: #111621;
+}
+
+.text-secondary {
+  color: #94a3b8;
+}
+
+.border-subtle {
+  border-color: #1e293b;
+}
+
+.method-get {
+  color: #10b981;
+}
+
+.method-post {
+  color: #3b82f6;
+}
+
+.method-put {
+  color: #f59e0b;
+}
+
+.method-patch {
+  color: #a78bfa;
+}
+
+.method-delete {
+  color: #ef4444;
+}
+
+.status-2xx {
+  color: #10b981;
+}
+
+.status-3xx {
+  color: #3b82f6;
+}
+
+.status-4xx {
+  color: #f59e0b;
+}
+
+.status-5xx {
+  color: #ef4444;
+}
+
+.time-fast {
+  color: #10b981;
+}
+
+.time-normal {
+  color: #f59e0b;
+}
+
+.time-slow {
+  color: #ef4444;
+}
+/* polish-v2:stitch-styles:end */

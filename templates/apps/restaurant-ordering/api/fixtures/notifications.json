@@ -1,0 +1,8 @@
+[
+  { "id": "n01", "kind": "rush",          "title": "Rush flagged: Table 7",        "body": "Server pressed Rush — Margherita + Caesar are first up.",  "isoTime": "2026-04-30T17:45:00Z" },
+  { "id": "n02", "kind": "order_ready",   "title": "Order #1039 ready for pickup", "body": "Chicken parm sandwich + side salad. Bell rung 2 min ago.", "isoTime": "2026-04-30T17:42:00Z" },
+  { "id": "n03", "kind": "kitchen_alert", "title": "Bistecca, Table 12",           "body": "Steak hit 12-min hold; expedite suggested.",                "isoTime": "2026-04-30T17:38:00Z" },
+  { "id": "n04", "kind": "low_stock",     "title": "Low stock: Caesar dressing",   "body": "3 portions remaining. Restock before dinner service.",     "isoTime": "2026-04-30T17:25:00Z", "read": true },
+  { "id": "n05", "kind": "mention",       "title": "Mira mentioned you in a note", "body": "\"Save the Park reservation, Devon is a regular.\"",       "isoTime": "2026-04-30T17:10:00Z", "read": true },
+  { "id": "n06", "kind": "reservation",   "title": "Howe (2) seated at Table 4",   "body": "Confirmed reservation seated 6 min ago.",                  "isoTime": "2026-04-30T17:00:00Z", "read": true }
+]

@@ -1,0 +1,150 @@
+{
+  "app": "3d-model-viewer",
+  "designProjectId": "14419108828502168733",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-landing.html",
+      "designScreenId": "990727b9788c4c7e89291be4afe8b70e"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-login.html",
+      "designScreenId": "a51b8f888fa4409c941b6d9c83533f26"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-3d-model-viewer-login.html",
+      "derivationNotes": "Same glassmorphic centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-3d-model-viewer-login.html",
+      "derivationNotes": "Same glassmorphic centered card as Login with only email field. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button text 'Send Reset Link'. Bottom link 'Back to Sign In'. No password field."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-3d-model-viewer-login.html",
+      "derivationNotes": "Same glassmorphic centered card as Login with New Password and Confirm Password fields only. Heading 'Set New Password'. Button text 'Reset Password'. Bottom link 'Back to Sign In'. No email field."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-dashboard.html",
+      "designScreenId": "a6c3bb669d784b59b649583db6ec7138"
+    },
+    {
+      "name": "ModelLibrary",
+      "templateFile": "app/pages/ModelLibrary.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/models",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-model-library.html",
+      "designScreenId": "dba85ebe4c4e47c2b8be1b621ecc5ab2"
+    },
+    {
+      "name": "ModelViewer",
+      "templateFile": "app/pages/ModelViewer.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/models/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-model-viewer.html",
+      "designScreenId": "b7a86925f0414474b715af32d90df819"
+    },
+    {
+      "name": "Upload",
+      "templateFile": "app/pages/Upload.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/upload",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-upload.html",
+      "designScreenId": "54143c7adbce4dc3a813849df4905734"
+    },
+    {
+      "name": "Embed",
+      "templateFile": "app/pages/Embed.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/models/:id/embed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-embed.html",
+      "designScreenId": "a4692f4ed0194f36b1b556198c8045af"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-settings.html",
+      "designScreenId": "964a4d8e6abd4dca872d71e2c3b27b04"
+    },
+    {
+      "name": "Annotations",
+      "templateFile": "app/pages/Annotations.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/models/:id/annotations",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-3d-model-viewer-model-viewer.html",
+      "derivationNotes": "Same dark viewport layout as ModelViewer but with the right side replaced by a dedicated 360px-wide threaded annotation review panel (white surface, list of annotation threads with #1, #2 amber pins, author avatar, timestamp, body text, reply button, resolved/unresolved chip). Floating viewport toolbar still present. Inspector sidebar hidden. Active annotation pin shows connector dashed line into thread."
+    },
+    {
+      "name": "ModelEdit",
+      "templateFile": "app/pages/ModelEdit.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/models/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-model-edit.html",
+      "designScreenId": "14e88dbf8888472c990a841d19696945"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/TesseraLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-3d-model-viewer-notifications.html",
+      "designScreenId": "c38ff470aded4f1ab9d66cdf34ca8169"
+    }
+  ]
+}

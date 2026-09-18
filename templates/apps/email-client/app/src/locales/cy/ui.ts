@@ -1,0 +1,171 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Pori erthyglau cymorth',
+  'about.cta.signup': 'Rhowch gynnig ar Courier am ddim',
+  'about.eyebrow': 'Ynglŷn â Courier',
+  'about.principle.calm': 'Tawelwch yn ddiofyn.',
+  'about.principle.calm.desc':
+    "Dim bathodynnau sy'n sgrechian, dim hysbysiadau na ofynnoch chi amdanynt, dim animeiddiadau sy'n mynnu cipolwg.",
+  'about.principle.fast.desc':
+    "Mae pob gweithred un ergyd allwedd i ffwrdd. Mae'r mewnflwch yn llwytho mewn llai na 200ms ar ôl mewngofnodi newydd.",
+  'about.principle.honest.desc':
+    'Amgryptio wrth ei gludo ac yn ei orffwys, cadw tryloyw, ac allforio data gydag un clic.',
+  'about.story': 'Pam wnaethon ni adeiladu Courier',
+  'about.story.p1':
+    "Mae'r rhan fwyaf o gleientiaid e-bost yn optimeiddio ar gyfer ymgysylltiad — gan eich tynnu'n ôl, rhannu'ch sylw, awgrymu un tap arall. Mae Courier yn gwneud y gwrthwyneb. Rydym yn mesur llwyddiant yn ôl yr amser rydych chi'n ei dreulio NAD ydych chi'n ei dreulio yn eich mewnflwch: dosbarthu'n gyflym, gohirio gyda hyder, a mynd ymlaen â'r gwaith sy'n bwysig.",
+  'about.subtitle':
+    'Mae Courier yn flwch derbyn tawel, tair cwarel, a adeiladwyd gan dîm bach a oedd eisiau prosesu gwybodaeth yn lle ymateb iddi.',
+  'about.team.body':
+    "Tîm dosbarthedig o ddylunwyr a pheirianwyr ydym ni a dreuliodd ormod o oriau bob dydd mewn blwch post swnllyd ar un adeg. Courier yw'r blwch post yr oeddem ni eisiau ei ddefnyddio ein hunain.",
+  'about.title': 'E-bost ar gyfer gwaith ffocws',
+  'help.cta.about': 'Ynglŷn â Courier',
+  'help.cta.pricing': 'Gweld prisiau',
+  'help.eyebrow': 'Canolfan gymorth',
+  'help.faq.compose.a':
+    "Cliciwch \\u201CCyfansoddi\\u201D o'r bar ochr (neu pwyswch \\u201Cc\\u201D ar unrhyw olygfa blwch derbyn), nodwch o leiaf un derbynnydd, pwnc, a chorff, a tharo \\u201CSanfon\\u201D. Mae'r neges newydd yn ymddangos yn eich ffolder Anfonwyd ar unwaith.",
+  'help.faq.compose.q': "Sut ydw i'n anfon fy neges gyntaf?",
+  'help.faq.export.a':
+    'Ydw. Mae Gosodiadau \\u2192 Cyfrif \\u2192 Allforio data yn creu archif y gellir ei lawrlwytho (mbox + JSON) gyda phob neges, label a chyswllt. Nid oes angen haen premiwm.',
+  'help.faq.labels.a':
+    "Mae ffolderi'n unigryw (mae neges yn byw mewn un yn union): Blwch Derbyn, Anfonwyd, Drafftiau, Sbam, Sbwriel, Archif. Mae labeli'n ychwanegol \\u2014 gallwch gymhwyso llawer i un e-bost a hidlo trwy gyfuniadau o'r bar chwilio.",
+  'help.faq.password.a':
+    "Defnyddiwch y ddolen \\u201CWedi anghofio'ch cyfrinair?\\u201D ar y dudalen mewngofnodi. Byddwn yn anfon dolen ailosod sy'n ddilys am awr i gyfeiriad e-bost eich cyfrif.",
+  'help.faq.shortcuts.a':
+    "Ie. Mae \\u201Cj\\u201D / \\u201Ck\\u201D yn symud rhwng edafedd, mae \\u201Cs\\u201D yn toglo seren, mae \\u201Ce\\u201D yn archifo, mae \\u201C#\\u201D yn symud i'r sbwriel, ac mae \\u201C/\\u201D yn ffocysu'r blwch chwilio. Mae dogfennaeth llwybrau byr yn fyw mewn unrhyw olygfa mewnflwch trwy wasgu \\u201C?\\u201D.",
+  'help.faq.support.a':
+    "Anfonwch e-bost at support@courier.example. Rydym yn ateb pob neges o fewn un diwrnod busnes, ar ddiwrnodau'r wythnos 9\\u201317 UTC.",
+  'help.subtitle':
+    "Atebion cyflym i'r cwestiynau rydyn ni'n eu clywed amlaf. Unrhyw beth ar goll? Agorwch y Gosodiadau a defnyddiwch y ffurflen adborth yn yr ap, neu ysgrifennwch at support@courier.example.",
+  'help.title': 'Sut allwn ni helpu?',
+  'landing.brand.scrollTop': "Yn ôl i'r brig",
+  'landing.ctaBody':
+    'Ymunwch â miloedd o weithwyr proffesiynol a orffennodd eu mewnflwch cyn cinio.',
+  'landing.ctaTitle': 'Prosesu mwy, ymateb llai.',
+  'landing.eyebrow': 'E-bost ar gyfer gwaith ffocws',
+  'landing.featuresBody': 'Stopiwch reoli eich mewnflwch a dechreuwch wneud gwaith.',
+  'landing.featuresTitle': "Wedi'i gynllunio ar gyfer gwaith dwfn",
+  'landing.help': 'Cymorth',
+  'landing.heroDemo': 'Gwylio demo',
+  'landing.heroSubtitle':
+    "Mae Courier yn flwch derbyn tair panel tawel sydd wedi'i adeiladu ar gyfer gweithwyr gwybodaeth sydd eisiau prosesu gwybodaeth, nid ymateb iddi.",
+  'landing.proof': 'Ymddiriedir gan dimau ffocws ledled y byd',
+  'landing.signIn': 'Mewngofnodi',
+  'meridian.archive.empty': "Mae'r archif yn wag.",
+  'meridian.compose.addRecipient': 'Ychwanegu derbynnydd arall',
+  'meridian.compose.bodyPlaceholder': 'Ysgrifennwch eich neges…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Gwaredu drafft',
+  'meridian.compose.needRecipient': 'Ychwanegwch o leiaf un derbynnydd yn gyntaf.',
+  'meridian.compose.replyTo': 'Ateb yn yr edau {{id}}',
+  'meridian.compose.savedAt': "Drafft wedi'i gadw yn {{time}}",
+  'meridian.compose.sentWithError': "Wedi'i gadw i Anfonwyd, ond methodd y danfoniad: {{error}}",
+  'meridian.compose.subject': 'Pwnc',
+  'meridian.compose.subjectPlaceholder': 'Pwnc',
+  'meridian.compose.title': 'Neges newydd',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Parhau i olygu',
+  'meridian.drafts.count': '{{count}} negeseuon',
+  'meridian.drafts.delete': 'Dileu drafft',
+  'meridian.drafts.empty': 'Dim drafftiau eto — dechreuwch gyfansoddi.',
+  'meridian.drafts.lastSaved': "Wedi'i gadw {{at}}",
+  'meridian.drafts.noRecipients': '(dim derbynwyr eto)',
+  'meridian.drafts.selectDraft': "Dewiswch ddrafft i'w ragweld.",
+  'meridian.drafts.title': 'Drafftiau',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Drafft',
+  'meridian.folder.count': '{{count}} negeseuon',
+  'meridian.folder.deleteForever': "Dileu'n barhaol",
+  'meridian.folder.restore': "Symud i'r blwch derbyn",
+  'meridian.forgot.subtitle':
+    "Rhowch yr e-bost sy'n gysylltiedig â'ch mewnflwch a byddwn yn anfon dolen ailosod atoch.",
+  'meridian.forgot.success':
+    "Os oes cyfrif gyda'r cyfeiriad e-bost hwnnw'n bodoli, mae dolen ailosod ar ei ffordd.",
+  'meridian.inbox.empty': 'Dim negeseuon yma eto.',
+  'meridian.inbox.loading': 'Yn llwytho…',
+  'meridian.inbox.next': 'Nesaf',
+  'meridian.inbox.noSubject': '(dim pwnc)',
+  'meridian.inbox.openCompose': 'Agor cyfansoddi',
+  'meridian.inbox.previous': 'Blaenorol',
+  'meridian.inbox.replyFailed': "Ateb wedi'i gadw ond methodd y danfoniad: {{error}}",
+  'meridian.inbox.replySent': "Ateb wedi'i anfon.",
+  'meridian.inbox.replyTo': 'Ateb i {{name}}',
+  'meridian.inbox.selectMessage': "Dewiswch neges i'w darllen",
+  'meridian.inbox.spam': 'Sbam',
+  'meridian.inbox.viewThread': 'Gweld yr edau',
+  'meridian.login.hidePassword': "Cuddio'r cyfrinair",
+  'meridian.login.noAccount': 'Dim cyfrif gennych chi?',
+  'meridian.login.showPassword': 'Dangos cyfrinair',
+  'meridian.message.toLine': 'i {{recipients}}',
+  'meridian.notFound.eyebrow': 'Gwall 404',
+  'meridian.notFound.title': 'Cafodd yr edau hon ei harchifo.',
+  'meridian.notFound.toInbox': 'Agor fy mewnflwch',
+  'meridian.reset.newLabel': 'Cyfrinair newydd',
+  'meridian.reset.showPassword': 'Dangos cyfrinair',
+  'meridian.reset.subtitle': 'Dewiswch gyfrinair cryf — o leiaf 8 nod.',
+  'meridian.sent.empty': 'Dydych chi ddim wedi anfon unrhyw beth eto.',
+  'meridian.sent.title': 'Anfonwyd',
+  'meridian.settings.noName': "(dim enw wedi'i osod)",
+  'meridian.settings.section.${section}': "Addaswch eich {{Enw'r ap}} profiad",
+  'meridian.settings.signature': 'Llofnod',
+  'meridian.settings.signatureSaved': "Llofnod wedi'i gadw.",
+  'meridian.sidebar.compose': 'Cyfansoddi',
+  'meridian.sidebar.labels': 'Labeli',
+  'meridian.sidebar.noLabels': 'Dim labeli eto',
+  'meridian.sidebar.storage': 'Storio',
+  'meridian.sidebar.storageLabel': '{{used}} o {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Creu eich mewnflwch Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Dangos cyfrinair',
+  'meridian.signup.subtitle': 'Proseswch eich mewnflwch cyn cinio.',
+  'meridian.spam.empty': 'Dim sbam.',
+  'meridian.spam.title': 'Sbam',
+  'meridian.starred.empty': 'Dim negeseuon â seren.',
+  'meridian.starred.loading': 'Yn llwytho…',
+  'meridian.starred.removeStar': 'Tynnu seren',
+  'meridian.starred.total': '{{count}} cyfanswm',
+  'meridian.thread.back': "Yn ôl i'r Blwch Derbyn",
+  'meridian.thread.empty': 'Dim negeseuon yn yr edau hon.',
+  'meridian.thread.eyebrow': 'Edau # {{id}}',
+  'meridian.thread.notFound': 'Ni chanfuwyd yr edau.',
+  'meridian.thread.star': 'Ychwanegu seren',
+  'meridian.thread.unstar': 'Tynnu seren',
+  'meridian.time.yesterday': 'Ddoe',
+  'meridian.topBar.searchPlaceholder': 'Chwilio post',
+  'meridian.trash.empty': "Mae'r sbwriel yn wag.",
+  'meridian.trash.title': 'Sbwriel',
+  'nav.legal': 'Cyfreithiol',
+  'planUpdated.description':
+    "Mae eich tanysgrifiad bellach yn weithredol ac mae eich biliau wedi'u diweddaru. Croeso i'ch mewnflwch Courier wedi'i adnewyddu.",
+  'pricing.heading': 'drafftiau',
+  'pricing.limit.emails': 'e-byst',
+  'pricing.limit.folders': 'ffolderi',
+  'pricing.limit.labels': 'labeli',
+  'privacy.collect.account':
+    "Data cyfrif: enw, cyfeiriad e-bost, cyfrinair wedi'i hasio, a'r dyddiad y gwnaethoch gofrestru.",
+  'privacy.intro':
+    "Mae'r polisi preifatrwydd hwn yn esbonio pa ddata y mae Courier yn ei gasglu, pam rydym yn ei gasglu, sut rydym yn ei gadw'n ddiogel, a pha ddewisiadau sydd gennych drosto. Ein nod yw bod yn benodol yn hytrach na chyfreithiol; os oes unrhyw beth yn aneglur, ysgrifennwch at privacy@courier.example.",
+  'privacy.lastUpdated': 'Diweddarwyd ddiwethaf: 1 Ebrill, 2026',
+  'privacy.linkTerms': 'Darllenwch ein Telerau Gwasanaeth \\u2192',
+  'privacy.rights.body':
+    'Gallwch allforio pob darn o ddata sydd gennym amdanoch chi o Gosodiadau → Cyfrif → Allforio data, a gallwch ddileu eich cyfrif gydag un clic — caiff pob rhes ei dileu o fewn 24 awr, caiff logiau archwilio eu clirio ar ôl 30 diwrnod.',
+  'privacy.security.body':
+    "Mae cynnwys ac atodiadau post wedi'u hamgryptio wrth orffwys gan ddefnyddio AES-256. Mae cysylltiadau i'n gwasanaeth ac oddi yno yn defnyddio TLS 1.3. Mae cyfrineiriau'n cael eu hasio gyda bcrypt; nid ydym byth yn cofnodi nac yn storio cyfrineiriau testun plaen. Mae mynediad cynhyrchu wedi'i gyfyngu i beirianwyr ar alwad, ac fe'i harchwilir yn fisol.",
+  'privacy.share.body':
+    "Dim ond gyda'r is-broseswyr sydd eu hangen arnom i redeg Courier yr ydym yn rhannu data (dosbarthu e-bost trwy Mailgun, bilio trwy Stripe, cynnal trwy AWS). Mae pob un wedi'i rwymo'n gytundebol i ddefnyddio'ch data dim ond i gyflawni eu gwasanaeth i ni. Nid ydym yn gwerthu, rhentu na masnachu'ch data gydag unrhyw un.",
+  'terms.acceptable.spam':
+    "Dim negeseuon digroeso swmp. Byddwn yn cau cyfrifon sy'n anfon sbam heb rybudd.",
+  'terms.account.body':
+    "Rydych chi'n gyfrifol am gynnal cyfrinachedd eich cyfrinair ac am unrhyw weithgaredd sy'n digwydd trwy eich cyfrif. Rhowch wybod i ni yn security@courier.example os ydych chi'n credu bod eich cyfrif wedi'i beryglu.",
+  'terms.billing.body':
+    "Mae cynlluniau taledig yn adnewyddu ar y cyflymder a ddewisir wrth gofrestru. Gallwch ganslo o Gosodiadau → Bilio ar unrhyw adeg a byddwch yn cadw mynediad am weddill y cyfnod bilio. Rhoddir ad-daliadau am amser segur y gwasanaeth sy'n fwy na'r SLA.",
+  'terms.intro':
+    "Mae'r telerau hyn yn llywodraethu eich defnydd o Courier. Drwy greu cyfrif neu anfon e-bost trwom ni rydych chi'n cytuno i fod yn rhwym iddynt. Rydym yn ceisio ysgrifennu rheolau y gall person eu dilyn mewn gwirionedd.",
+  'terms.lastUpdated': 'Yn effeithiol: 1 Ebrill, 2026',
+  'terms.termination.body':
+    "Gallwch ddileu eich cyfrif unrhyw bryd. Efallai y byddwn yn atal cyfrif sy'n torri'r telerau hyn; os gwnawn hynny, byddwn yn egluro'r rheswm ac yn gadael i chi allforio eich data yn gyntaf.",
+  'terms.warranty.body':
+    "Darperir y gwasanaeth fel y mae. Rydym yn gweithio'n galed i'w gadw'n ddibynadwy ac yn ddiogel, ond ni allwn warantu mynediad di-dor. I'r graddau y caniateir gan y gyfraith, mae ein hatebolrwydd cyfanredol wedi'i gapio ar y swm a dalwyd gennych i ni yn y 12 mis blaenorol.",
+}

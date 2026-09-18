@@ -1,0 +1,139 @@
+{
+  "app": "energy-monitoring",
+  "designProjectId": "7457660196846312868",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-login.html",
+      "designScreenId": "fbe106c2622c423eab86511dbcd1b68b"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-energy-monitoring-login.html",
+      "derivationNotes": "Same dark centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-energy-monitoring-login.html",
+      "derivationNotes": "Same dark centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-energy-monitoring-login.html",
+      "derivationNotes": "Same dark centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-dashboard.html",
+      "designScreenId": "41dc65cd5d7045f699ff4eddb328dfee"
+    },
+    {
+      "name": "Devices",
+      "templateFile": "app/pages/Devices.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/devices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-devices.html",
+      "designScreenId": "57eb34b42e634e7f89390ecdf413e87d"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-reports.html",
+      "designScreenId": "23d6df00f01d4a91af6a5dcf886d1a36"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-alerts.html",
+      "designScreenId": "0101d7dcaf75425fb9bee950329bd8e0"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-settings.html",
+      "designScreenId": "ea2f83fc45814e1e8b5689565b7fe876"
+    },
+    {
+      "name": "DeviceDetail",
+      "templateFile": "app/pages/DeviceDetail.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/devices/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-device-detail.html",
+      "designScreenId": "a130f0044a7847788a80c31ec5e91893"
+    },
+    {
+      "name": "AlertRule",
+      "templateFile": "app/pages/AlertRule.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/alerts/rules/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-alert-rule.html",
+      "designScreenId": "e62ae4b5d3c14fa1861c7b1ab95a22de"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-profile.html",
+      "designScreenId": "3e4868bb1fec4e22bf039cec73afc0bb"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/EnergyMonitoringLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-energy-monitoring-billing.html",
+      "designScreenId": "c16c3acce51d40ceab9d2a81e6729e1f"
+    }
+  ]
+}

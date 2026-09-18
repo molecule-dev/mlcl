@@ -1,0 +1,19 @@
+cloud-file-manager polished per prompts/polish-app.md.
+
+Steps completed:
+- Brand fonts (Inter + JetBrains Mono + Material Symbols) wired via index.html
+- Sweep 1 chrome conformance (Header / Footer / RootErrorBoundary / AppShellLayout)
+- 9 bespoke Nimbus brand components (NimbusBrandMark, NimbusStorageMeter,
+  NimbusFileTypeIcon, NimbusFileGridCard, NimbusFileRow, NimbusActivityRow,
+  NimbusSideNav, NimbusFilesLayout, AuthShell)
+- Signed-in pages rewritten (MyFiles, FileDetail, SharedWithMe, Starred,
+  Trash, Upload, Settings, Recent, SearchResults, Storage)
+- Landing rewritten with branded hero + features + CTA
+- Auth pages (Login / Signup / ForgotPassword / ResetPassword) rebuilt
+  on the branded AuthShell
+- 404 page (NotFound) added and wired as wildcard route
+- npx tsc --noEmit passes from app/ with 0 app-side errors
+- node scripts/check-rules-compliance.mjs reference/flagship-apps/cloud-file-manager
+  is clean (classmap coverage 81.8%, all other rules pass)
+
+Step 10 (screenshots) intentionally skipped — handled by main agent batch.

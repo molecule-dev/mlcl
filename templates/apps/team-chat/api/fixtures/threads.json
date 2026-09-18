@@ -1,0 +1,92 @@
+[
+  {
+    "id": "reply-001",
+    "message_id": "msg-001",
+    "channel_id": "ch-001",
+    "user_id": "u-002",
+    "user_name": "Marcus Rivera",
+    "avatar": "https://ui-avatars.com/api/?name=Marcus+Rivera&background=006781&color=fff",
+    "content": "Looks great Sarah — I had a question about the engineering targets in Q3. Mind if I add a comment to the doc?",
+    "created_at": "2026-04-20T13:35:00Z"
+  },
+  {
+    "id": "reply-002",
+    "message_id": "msg-001",
+    "channel_id": "ch-001",
+    "user_id": "u-001",
+    "user_name": "Sarah Chen",
+    "avatar": "https://ui-avatars.com/api/?name=Sarah+Chen&background=4a154b&color=fff",
+    "content": "Of course — please do. I'll review tomorrow morning.",
+    "created_at": "2026-04-20T13:48:00Z"
+  },
+  {
+    "id": "reply-003",
+    "message_id": "msg-001",
+    "channel_id": "ch-001",
+    "user_id": "u-004",
+    "user_name": "Jake Thompson",
+    "avatar": "https://ui-avatars.com/api/?name=Jake+Thompson&background=2eb67d&color=fff",
+    "content": "Adding a couple of product line items as well. Should sync up well with the engineering targets.",
+    "created_at": "2026-04-20T14:02:00Z"
+  },
+  {
+    "id": "reply-004",
+    "message_id": "msg-004",
+    "channel_id": "ch-002",
+    "user_id": "u-005",
+    "user_name": "Yuki Tanaka",
+    "avatar": "https://ui-avatars.com/api/?name=Yuki+Tanaka&background=ecb22e&color=fff",
+    "content": "Pulling now. Will test the Google OAuth flow on a clean profile.",
+    "created_at": "2026-04-20T13:25:00Z"
+  },
+  {
+    "id": "reply-005",
+    "message_id": "msg-004",
+    "channel_id": "ch-002",
+    "user_id": "u-006",
+    "user_name": "Priya Sharma",
+    "avatar": "https://ui-avatars.com/api/?name=Priya+Sharma&background=36c5f0&color=fff",
+    "content": "Frontend looks good on my end — the new redirect is smooth.",
+    "created_at": "2026-04-20T13:42:00Z"
+  },
+  {
+    "id": "reply-006",
+    "message_id": "msg-005",
+    "channel_id": "ch-002",
+    "user_id": "u-008",
+    "user_name": "Alex Okafor",
+    "avatar": "https://ui-avatars.com/api/?name=Alex+Okafor&background=006781&color=fff",
+    "content": "CI pipeline passed. All green ✅",
+    "created_at": "2026-04-20T14:10:00Z"
+  },
+  {
+    "id": "reply-007",
+    "message_id": "msg-007",
+    "channel_id": "ch-003",
+    "user_id": "u-004",
+    "user_name": "Jake Thompson",
+    "avatar": "https://ui-avatars.com/api/?name=Jake+Thompson&background=2eb67d&color=fff",
+    "content": "Love the new tab layout. Can we add a keyboard shortcut for switching?",
+    "created_at": "2026-04-20T13:01:00Z"
+  },
+  {
+    "id": "reply-008",
+    "message_id": "msg-009",
+    "channel_id": "ch-004",
+    "user_id": "u-003",
+    "user_name": "Aisha Patel",
+    "avatar": "https://ui-avatars.com/api/?name=Aisha+Patel&background=e91e8c&color=fff",
+    "content": "Design has bandwidth. Can we sync Thursday to align on success metrics?",
+    "created_at": "2026-04-20T12:08:00Z"
+  },
+  {
+    "id": "reply-009",
+    "message_id": "msg-009",
+    "channel_id": "ch-004",
+    "user_id": "u-002",
+    "user_name": "Marcus Rivera",
+    "avatar": "https://ui-avatars.com/api/?name=Marcus+Rivera&background=006781&color=fff",
+    "content": "Engineering can commit to two of the four big bets — happy to discuss tradeoffs.",
+    "created_at": "2026-04-20T12:32:00Z"
+  }
+]

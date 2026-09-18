@@ -1,0 +1,38 @@
+[
+  {
+    "id": "n-1",
+    "icon": "fact_check",
+    "tone": "primary",
+    "title": "Weekly check-in due",
+    "body": "Score progress on your 4 objectives before Friday 5 PM.",
+    "received_at": "2026-04-29T16:48:00Z",
+    "unread": true
+  },
+  {
+    "id": "n-2",
+    "icon": "forum",
+    "tone": "neutral",
+    "title": "Marcus mentioned you on KR-2-3",
+    "body": "\u201cPinging you on the Acme integration \u2014 owner ambiguity?\u201d",
+    "received_at": "2026-04-29T15:50:00Z",
+    "unread": true
+  },
+  {
+    "id": "n-3",
+    "icon": "trending_up",
+    "tone": "success",
+    "title": "KR moved to On track",
+    "body": "Setup wizard completion is back above 88% \u2014 nice climb.",
+    "received_at": "2026-04-29T13:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n-4",
+    "icon": "rate_review",
+    "tone": "warning",
+    "title": "Q2 review opens in 3 weeks",
+    "body": "Start drafting reflections; the form locks Apr 28.",
+    "received_at": "2026-04-28T17:00:00Z",
+    "unread": false
+  }
+]

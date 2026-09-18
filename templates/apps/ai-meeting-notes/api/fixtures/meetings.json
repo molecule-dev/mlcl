@@ -1,0 +1,122 @@
+[
+  {
+    "id": "mtg_001",
+    "title": "Q3 Launch Planning",
+    "recorded_at": "2026-04-25T15:00:00Z",
+    "duration_minutes": 47,
+    "attendees": ["Sasha Kim", "Mira Patel", "Devon Park", "Riley Banner"],
+    "attendee_initials": ["SK", "MP", "DP", "RB"],
+    "primary_speaker": 1,
+    "ai_summary": "Decided to push Q3 launch from May 5 to May 12 to give ops time to staff. Dashboard redesign split into a follow-up release on May 26. 4 action items.",
+    "action_count": 4,
+    "unread": true,
+    "speakers": [
+      { "id": 1, "name": "Sasha Kim" },
+      { "id": 2, "name": "Mira Patel" },
+      { "id": 3, "name": "Devon Park" },
+      { "id": 4, "name": "Riley Banner" }
+    ],
+    "transcript": [
+      { "ts": "00:01", "speaker_id": 1, "text": "OK let's start. Quick recap from yesterday — we agreed to push launch to May 12." },
+      { "ts": "00:08", "speaker_id": 2, "text": "Right. The open question was whether to bundle the dashboard redesign." },
+      { "ts": "00:18", "speaker_id": 3, "text": "I'd say split. The dashboard isn't code-complete and bundling it adds risk." },
+      { "ts": "00:24", "speaker_id": 1, "text": "Agreed. Ship the launch on May 12 and target the dashboard for May 26." },
+      { "ts": "00:31", "speaker_id": 4, "text": "I'll loop in support and finance. They need a heads-up on the new date for inventory and billing tooling." },
+      { "ts": "00:42", "speaker_id": 2, "text": "And I'll write the launch runbook draft by Wednesday so we can review next standup." }
+    ],
+    "ai_tldr": "Launch pushed from May 5 to May 12 to give ops staffing room. Dashboard redesign split off to May 26. Riley loops in support + finance; Mira drafts runbook by Wednesday.",
+    "ai_decisions": [
+      "Launch date moved from May 5 → May 12",
+      "Dashboard redesign split into May 26 release",
+      "Mira owns the launch runbook draft"
+    ],
+    "ai_followups": [
+      "Confirm new date with support staffing (Riley)",
+      "Update billing tooling rollout schedule (Riley)",
+      "Review runbook draft at Wed standup (Mira → All)",
+      "Re-circulate revised marketing timeline (Sasha)"
+    ],
+    "action_items": [
+      { "id": "ai_1", "text": "Notify support + finance of May 12 date",        "owner": "Riley Banner", "due_date": "2026-04-28", "status": "open" },
+      { "id": "ai_2", "text": "Draft launch runbook",                            "owner": "Mira Patel",   "due_date": "2026-04-29", "status": "in_progress" },
+      { "id": "ai_3", "text": "Schedule dashboard May 26 release",               "owner": "Devon Park",   "due_date": "2026-05-05", "status": "open" },
+      { "id": "ai_4", "text": "Re-circulate revised marketing timeline",         "owner": "Sasha Kim",    "due_date": "2026-04-30", "status": "open" }
+    ]
+  },
+  {
+    "id": "mtg_002",
+    "title": "Engineering 1:1 — Devon ↔ Mira",
+    "recorded_at": "2026-04-24T20:30:00Z",
+    "duration_minutes": 28,
+    "attendees": ["Mira Patel", "Devon Park"],
+    "attendee_initials": ["MP", "DP"],
+    "primary_speaker": 2,
+    "ai_summary": "Devon flagged tech-debt risk in the auth service. Mira agreed to slot a refactor week into Q2. 2 action items.",
+    "action_count": 2,
+    "unread": true,
+    "speakers": [{ "id": 1, "name": "Mira Patel" }, { "id": 2, "name": "Devon Park" }],
+    "transcript": [
+      { "ts": "00:01", "speaker_id": 2, "text": "Heads up — auth service is starting to hurt. Two incidents this month and the on-call burden is real." },
+      { "ts": "00:14", "speaker_id": 1, "text": "OK. What does a focused refactor week look like?" },
+      { "ts": "00:21", "speaker_id": 2, "text": "Probably 4-5 days. Rip out the legacy session middleware and consolidate onto JWT." }
+    ],
+    "ai_tldr": "Auth service tech-debt is starting to hurt — 2 incidents in April, on-call load up. Devon proposed a focused refactor week (4-5 days, JWT consolidation). Mira agreed to slot it into Q2.",
+    "ai_decisions": ["Auth refactor week scheduled for Q2"],
+    "ai_followups": ["Devon writes the refactor scope doc this week", "Mira confirms timing with platform team"],
+    "action_items": [
+      { "id": "ai_1", "text": "Write auth refactor scope doc", "owner": "Devon Park", "due_date": "2026-04-29", "status": "in_progress" },
+      { "id": "ai_2", "text": "Confirm Q2 refactor timing with platform team", "owner": "Mira Patel", "due_date": "2026-05-02", "status": "open" }
+    ]
+  },
+  {
+    "id": "mtg_003",
+    "title": "Customer call — Acme Corp QBR",
+    "recorded_at": "2026-04-22T18:00:00Z",
+    "duration_minutes": 52,
+    "attendees": ["Sasha Kim", "Riley Banner", "Margaret Cole (Acme)"],
+    "attendee_initials": ["SK", "RB", "MC"],
+    "primary_speaker": 4,
+    "ai_summary": "Acme is happy with Q1 outcomes. Two new asks: SSO integration and audit-log export to Splunk. They want a roadmap commitment by EOM.",
+    "action_count": 3,
+    "unread": false,
+    "speakers": [
+      { "id": 1, "name": "Sasha Kim" },
+      { "id": 2, "name": "Riley Banner" },
+      { "id": 3, "name": "Margaret Cole (Acme)" }
+    ],
+    "transcript": [
+      { "ts": "00:02", "speaker_id": 3, "text": "Q1 outcomes hit our targets — your team really delivered. Two asks for Q2: SSO integration and audit-log export to Splunk." },
+      { "ts": "00:24", "speaker_id": 1, "text": "Both are on the roadmap. SSO is committed for Q2; audit-log export likely Q3." },
+      { "ts": "00:38", "speaker_id": 3, "text": "Can we have a roadmap commit by EOM?" }
+    ],
+    "ai_tldr": "Acme satisfied with Q1. Two new asks: SSO (committed Q2) + audit-log Splunk export (Q3). Acme wants a roadmap commit by EOM.",
+    "ai_decisions": ["SSO committed for Q2", "Audit-log Splunk export targeted for Q3"],
+    "ai_followups": ["Send written roadmap commit by EOM"],
+    "action_items": [
+      { "id": "ai_1", "text": "Send Acme a written roadmap commit", "owner": "Sasha Kim", "due_date": "2026-04-30", "status": "open" },
+      { "id": "ai_2", "text": "Spec SSO integration scope",         "owner": "Devon Park", "due_date": "2026-05-04", "status": "open" },
+      { "id": "ai_3", "text": "Confirm Splunk export feasibility",   "owner": "Mira Patel", "due_date": "2026-05-04", "status": "open" }
+    ]
+  },
+  {
+    "id": "mtg_004",
+    "title": "All-hands — April",
+    "recorded_at": "2026-04-15T17:00:00Z",
+    "duration_minutes": 64,
+    "attendees": ["Sasha Kim", "Mira Patel", "Devon Park", "Riley Banner", "Morgan Reyes", "and 12 others"],
+    "attendee_initials": ["SK", "MP", "DP", "RB", "MR"],
+    "primary_speaker": 1,
+    "ai_summary": "Q1 metrics hit — ARR up 14%, NPS 64. April priorities: Q3 launch, fairness audit, and SOC 2 prep. 1 action item logged.",
+    "action_count": 1, "unread": false,
+    "speakers": [{ "id": 1, "name": "Sasha Kim" }],
+    "transcript": [
+      { "ts": "00:01", "speaker_id": 1, "text": "Welcome everyone. Quick numbers from Q1, then April priorities." }
+    ],
+    "ai_tldr": "Q1 hit targets (ARR +14%, NPS 64). April focus: Q3 launch, fairness audit, SOC 2 prep.",
+    "ai_decisions": [],
+    "ai_followups": ["Submit Q1 board deck (Sasha)"],
+    "action_items": [
+      { "id": "ai_1", "text": "Submit Q1 board deck", "owner": "Sasha Kim", "due_date": "2026-04-22", "status": "done" }
+    ]
+  }
+]

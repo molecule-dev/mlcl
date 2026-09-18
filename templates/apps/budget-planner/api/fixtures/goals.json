@@ -1,0 +1,6 @@
+[
+  { "id": "goal_001", "name": "Emergency fund (3 months)", "target_cents": 1500000, "saved_cents":  894200, "monthly_contribution_cents": 60000, "target_date": "2026-12-31", "category_name": "Emergency fund" },
+  { "id": "goal_002", "name": "Vacation to Japan",         "target_cents":  500000, "saved_cents":  124000, "monthly_contribution_cents": 30000, "target_date": "2026-09-15", "category_name": "Vacation 2026" },
+  { "id": "goal_003", "name": "New laptop (M4 Pro)",       "target_cents":  300000, "saved_cents":   48000, "monthly_contribution_cents": 25000, "target_date": "2026-08-01", "category_name": "New laptop" },
+  { "id": "goal_004", "name": "Auto maintenance buffer",   "target_cents":  100000, "saved_cents":   85000, "monthly_contribution_cents":  5000, "target_date": null,         "category_name": "Auto maintenance" }
+]

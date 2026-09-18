@@ -1,0 +1,1121 @@
+{
+  "slug": "weather-dashboard",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-alerts",
+      "path": "/alerts",
+      "component": "Alerts",
+      "file": "app/src/pages/Alerts.tsx"
+    },
+    {
+      "id": "page-billing",
+      "path": "/billing",
+      "component": "Billing",
+      "file": "app/src/pages/Billing.tsx"
+    },
+    {
+      "id": "page-compare",
+      "path": "/compare",
+      "component": "Compare",
+      "file": "app/src/pages/Compare.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-locationdetail",
+      "path": "/location/:id",
+      "component": "LocationDetail",
+      "file": "app/src/pages/LocationDetail.tsx"
+    },
+    {
+      "id": "page-locations",
+      "path": "/locations",
+      "component": "Locations",
+      "file": "app/src/pages/Locations.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-radar",
+      "path": "/radar",
+      "component": "Radar",
+      "file": "app/src/pages/Radar.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-trends",
+      "path": "/trends",
+      "component": "Trends",
+      "file": "app/src/pages/Trends.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "button-alertbanner-185",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AlertBanner.tsx",
+      "line": 185,
+      "label": "button at app/src/components/AlertBanner.tsx:185",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-locationcard-154",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/LocationCard.tsx",
+      "line": 154,
+      "label": "button at app/src/components/LocationCard.tsx:154",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-locationcard-182",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/LocationCard.tsx",
+      "line": 182,
+      "label": "button at app/src/components/LocationCard.tsx:182",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-locationcard-212",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LocationCard.tsx",
+      "line": 212,
+      "label": "link at app/src/components/LocationCard.tsx:212",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-192",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 192,
+      "label": "input at app/src/components/SettingsPanel.tsx:192",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-211",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 211,
+      "label": "button at app/src/components/SettingsPanel.tsx:211",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-249",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 249,
+      "label": "button at app/src/components/SettingsPanel.tsx:249",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-311",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "button at app/src/components/SettingsPanel.tsx:311",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-314",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "button at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-335",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 335,
+      "label": "input at app/src/components/SettingsPanel.tsx:335",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-346",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 346,
+      "label": "input at app/src/components/SettingsPanel.tsx:346",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-355",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "button at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-376",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 376,
+      "label": "input at app/src/components/SettingsPanel.tsx:376",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-384",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 384,
+      "label": "button at app/src/components/SettingsPanel.tsx:384",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-alerts-323",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Alerts.tsx",
+      "line": 323,
+      "label": "button at app/src/pages/Alerts.tsx:323",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-358",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 358,
+      "label": "button at app/src/pages/Billing.tsx:358",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-464",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 464,
+      "label": "button at app/src/pages/Billing.tsx:464",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-compare-241-add-location-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Compare.tsx",
+      "line": 241,
+      "label": "add_location , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-241-add-location-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 241,
+      "label": "add_location , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-365-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 365,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-403-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 403,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-439-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 439,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-70",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 70,
+      "label": "button at app/src/pages/ForgotPassword.tsx:70",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-80",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 80,
+      "label": "button at app/src/pages/ForgotPassword.tsx:80",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-101",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 101,
+      "label": "button at app/src/pages/ForgotPassword.tsx:101",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-111",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 111,
+      "label": "button at app/src/pages/ForgotPassword.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-69--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 69,
+      "label": "<span className={cm.cn( cm.w(8),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-98-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 98,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-108-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 108,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-182-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 182,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-196-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 196,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-450-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 450,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-locationdetail-247-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/LocationDetail.tsx",
+      "line": 247,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-locationdetail-270-arrow-back",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/LocationDetail.tsx",
+      "line": 270,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-locations-197",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 197,
+      "label": "input at app/src/pages/Locations.tsx:197",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-locations-213",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 213,
+      "label": "button at app/src/pages/Locations.tsx:213",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-locations-247",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 247,
+      "label": "input at app/src/pages/Locations.tsx:247",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-locations-269",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 269,
+      "label": "input at app/src/pages/Locations.tsx:269",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-locations-286",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 286,
+      "label": "input at app/src/pages/Locations.tsx:286",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-locations-300-------t-locations-ad",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 300,
+      "label": ", ) : t(locations.add.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-91",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 91,
+      "label": "button at app/src/pages/Login.tsx:91",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-100",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 100,
+      "label": "button at app/src/pages/Login.tsx:100",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-117",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 117,
+      "label": "button at app/src/pages/Login.tsx:117",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-radar-122",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Radar.tsx",
+      "line": 122,
+      "label": "button at app/src/pages/Radar.tsx:122",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-radar-180-add-location-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Radar.tsx",
+      "line": 180,
+      "label": "add_location , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-radar-272",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Radar.tsx",
+      "line": 272,
+      "label": "link at app/src/pages/Radar.tsx:272",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-101",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 101,
+      "label": "button at app/src/pages/ResetPassword.tsx:101",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-111",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 111,
+      "label": "button at app/src/pages/ResetPassword.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-226",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 226,
+      "label": "button at app/src/pages/Settings.tsx:226",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-305",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 305,
+      "label": "button at app/src/pages/Settings.tsx:305",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-343",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 343,
+      "label": "button at app/src/pages/Settings.tsx:343",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-86",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 86,
+      "label": "button at app/src/pages/Signup.tsx:86",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-96",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 96,
+      "label": "button at app/src/pages/Signup.tsx:96",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-trends-227",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Trends.tsx",
+      "line": 227,
+      "label": "button at app/src/pages/Trends.tsx:227",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-trends-333",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Trends.tsx",
+      "line": 333,
+      "label": "button at app/src/pages/Trends.tsx:333",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-trends-384-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Trends.tsx",
+      "line": 384,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-332",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 332,
+      "label": "form at app/src/components/SettingsPanel.tsx:332",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-373",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 373,
+      "label": "form at app/src/components/SettingsPanel.tsx:373",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-57",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 57,
+      "label": "form at app/src/pages/ForgotPassword.tsx:57",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-locations-234",
+      "file": "app/src/pages/Locations.tsx",
+      "line": 234,
+      "label": "form at app/src/pages/Locations.tsx:234",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-login-59",
+      "file": "app/src/pages/Login.tsx",
+      "line": 59,
+      "label": "form at app/src/pages/Login.tsx:59",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-59",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 59,
+      "label": "form at app/src/pages/ResetPassword.tsx:59",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-54",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 54,
+      "label": "form at app/src/pages/Signup.tsx:54",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-locations--id",
+      "method": "DELETE",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 224,
+      "resource": "locations"
+    },
+    {
+      "id": "route-get-alerts-",
+      "method": "GET",
+      "mountedPath": "/alerts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 31,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-alerts--id",
+      "method": "GET",
+      "mountedPath": "/alerts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 130,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-alerts-location--locationid",
+      "method": "GET",
+      "mountedPath": "/alerts/location/:locationId",
+      "rawPath": "/location/:locationId",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 89,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-alerts-preferences--locationid",
+      "method": "GET",
+      "mountedPath": "/alerts/preferences/:locationId",
+      "rawPath": "/preferences/:locationId",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 276,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-forecasts-current--locationid",
+      "method": "GET",
+      "mountedPath": "/forecasts/current/:locationId",
+      "rawPath": "/current/:locationId",
+      "handlerFile": "api/src/handlers/forecasts.ts",
+      "line": 246,
+      "resource": "forecasts"
+    },
+    {
+      "id": "route-get-forecasts-daily--locationid",
+      "method": "GET",
+      "mountedPath": "/forecasts/daily/:locationId",
+      "rawPath": "/daily/:locationId",
+      "handlerFile": "api/src/handlers/forecasts.ts",
+      "line": 303,
+      "resource": "forecasts"
+    },
+    {
+      "id": "route-get-forecasts-hourly--locationid",
+      "method": "GET",
+      "mountedPath": "/forecasts/hourly/:locationId",
+      "rawPath": "/hourly/:locationId",
+      "handlerFile": "api/src/handlers/forecasts.ts",
+      "line": 277,
+      "resource": "forecasts"
+    },
+    {
+      "id": "route-get-history--locationid",
+      "method": "GET",
+      "mountedPath": "/history/:locationId",
+      "rawPath": "/:locationId",
+      "handlerFile": "api/src/handlers/history.ts",
+      "line": 96,
+      "resource": "history"
+    },
+    {
+      "id": "route-get-history--locationid-precipitation",
+      "method": "GET",
+      "mountedPath": "/history/:locationId/precipitation",
+      "rawPath": "/:locationId/precipitation",
+      "handlerFile": "api/src/handlers/history.ts",
+      "line": 162,
+      "resource": "history"
+    },
+    {
+      "id": "route-get-history--locationid-temperature",
+      "method": "GET",
+      "mountedPath": "/history/:locationId/temperature",
+      "rawPath": "/:locationId/temperature",
+      "handlerFile": "api/src/handlers/history.ts",
+      "line": 136,
+      "resource": "history"
+    },
+    {
+      "id": "route-get-history--locationid-wind",
+      "method": "GET",
+      "mountedPath": "/history/:locationId/wind",
+      "rawPath": "/:locationId/wind",
+      "handlerFile": "api/src/handlers/history.ts",
+      "line": 187,
+      "resource": "history"
+    },
+    {
+      "id": "route-get-locations-",
+      "method": "GET",
+      "mountedPath": "/locations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 50,
+      "resource": "locations"
+    },
+    {
+      "id": "route-get-locations--id",
+      "method": "GET",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 99,
+      "resource": "locations"
+    },
+    {
+      "id": "route-get-locations-default",
+      "method": "GET",
+      "mountedPath": "/locations/default",
+      "rawPath": "/default",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 73,
+      "resource": "locations"
+    },
+    {
+      "id": "route-post-alerts-",
+      "method": "POST",
+      "mountedPath": "/alerts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 165,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-post-alerts--id-dismiss",
+      "method": "POST",
+      "mountedPath": "/alerts/:id/dismiss",
+      "rawPath": "/:id/dismiss",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 311,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-post-alerts-expire",
+      "method": "POST",
+      "mountedPath": "/alerts/expire",
+      "rawPath": "/expire",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 337,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-forecasts-refresh--locationid",
+      "method": "POST",
+      "mountedPath": "/forecasts/refresh/:locationId",
+      "rawPath": "/refresh/:locationId",
+      "handlerFile": "api/src/handlers/forecasts.ts",
+      "line": 334,
+      "resource": "forecasts"
+    },
+    {
+      "id": "route-post-forecasts-stale--locationid",
+      "method": "POST",
+      "mountedPath": "/forecasts/stale/:locationId",
+      "rawPath": "/stale/:locationId",
+      "handlerFile": "api/src/handlers/forecasts.ts",
+      "line": 366,
+      "resource": "forecasts"
+    },
+    {
+      "id": "route-post-history--locationid",
+      "method": "POST",
+      "mountedPath": "/history/:locationId",
+      "rawPath": "/:locationId",
+      "handlerFile": "api/src/handlers/history.ts",
+      "line": 250,
+      "resource": "history"
+    },
+    {
+      "id": "route-post-locations-",
+      "method": "POST",
+      "mountedPath": "/locations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 118,
+      "resource": "locations"
+    },
+    {
+      "id": "route-post-locations-geocode",
+      "method": "POST",
+      "mountedPath": "/locations/geocode",
+      "rawPath": "/geocode",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 256,
+      "resource": "locations"
+    },
+    {
+      "id": "route-put-alerts-preferences--locationid",
+      "method": "PUT",
+      "mountedPath": "/alerts/preferences/:locationId",
+      "rawPath": "/preferences/:locationId",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 207,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-put-locations--id",
+      "method": "PUT",
+      "mountedPath": "/locations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/locations.ts",
+      "line": 186,
+      "resource": "locations"
+    }
+  ],
+  "totals": {
+    "pages": 15,
+    "elements": 62,
+    "forms": 7,
+    "routes": 29
+  }
+}

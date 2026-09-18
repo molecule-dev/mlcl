@@ -1,0 +1,164 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #a435f0;
+  --mol-color-primary-light: #ede0ff;
+  --mol-color-primary-dark: #5624d0;
+  --mol-color-secondary: #5624d0;
+  --mol-color-success: #1e6c4a;
+  --mol-color-warning: #b4690e;
+  --mol-color-error: #c4302b;
+  --mol-color-info: #0284c7;
+  --mol-color-background: #f7f9fa;
+  --mol-color-background-secondary: #f0f2f5;
+  --mol-color-background-tertiary: #e5e7ea;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #d1d7dc;
+  --mol-color-text: #1c1d1f;
+  --mol-color-text-secondary: #6a6f73;
+  --mol-color-text-tertiary: #a0a4a8;
+  --mol-color-text-inverse: #ffffff;
+
+  --market-primary: #a435f0;
+  --market-primary-hover: #8710d8;
+  --market-secondary: #5624d0;
+  --market-secondary-hover: #401b9c;
+  --market-accent: #f69c08;
+  --market-background: #f7f9fa;
+  --market-surface: #ffffff;
+  --market-surface-hover: #f0f2f5;
+  --market-border: #d1d7dc;
+  --market-text: #1c1d1f;
+  --market-text-muted: #6a6f73;
+  --market-text-light: #a0a4a8;
+  --market-success: #1e6c4a;
+  --market-warning: #b4690e;
+  --market-danger: #c4302b;
+  --market-star: #e59819;
+  --market-price: #1c1d1f;
+  --market-sale: #a435f0;
+  --market-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --market-radius: 4px;
+  --market-radius-sm: 2px;
+  --market-radius-lg: 8px;
+  --market-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --market-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+  /* === Domain accent tokens (gold seal + enrolled-green + video well) — light values === */
+  --color-video-well: #0a0a0a;
+  --color-lectura-gold: #b4690e;
+  --color-lectura-gold-bg: #fef9e7;
+  --color-lectura-green: #1e6c4a;
+  --color-lectura-green-bg: #dcfce7;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode — Lectura course marketplace dark.
+   Warm-neutral near-black canvas (education brand — feels like an
+   evening reading shell, not a cold tech surface). Brand violet stays
+   at the brand stop (#a435f0) for primary CTAs so the marketplace's
+   purple identity reads consistently in both modes; surface accents
+   (links, sale chips) use a slightly brighter lavender. `--color-on-primary`
+   STAYS white so the violet CTA keeps its light-on-violet character.
+   Gold star/accent preserved for ratings. */
+[data-mol-mode='dark'] {
+  /* Brand — surface-accent violet (links, chips, hover) */
+  --market-primary: #c084fc;
+  --market-primary-hover: #d8b4fe;
+  --market-secondary: #a78bfa;
+  --market-secondary-hover: #c4b5fd;
+  --market-accent: #fbbf24;
+
+  /* Surfaces — warm-neutral depth stack */
+  --market-background: #131113;
+  --market-surface: #1c1a1d;
+  --market-surface-hover: #28252a;
+  --market-border: #322f35;
+
+  /* Text — tiered for legibility */
+  --market-text: #f4f1f5;
+  --market-text-muted: #a8a1ac;
+  --market-text-light: #74707a;
+
+  /* Status / Domain — brighter for dark */
+  --market-success: #34d399;
+  --market-warning: #fbbf24;
+  --market-danger: #f87171;
+  --market-star: #facc15;
+  --market-price: #f4f1f5;
+  --market-sale: #c084fc;
+
+  /* Shadows — deeper for warm-black canvas */
+  --market-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --market-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.65);
+
+  /* Stitch / Material-3 @theme token dark variants — override the @theme
+     block from index.css so `bg-surface`, `text-on-surface`, `bg-primary`
+     etc. flip cleanly. CTA buttons keep white text on violet: on-primary
+     stays white. */
+  --color-background: #131113;
+  --color-on-background: #f4f1f5;
+  --color-surface: #131113;
+  --color-surface-bright: #28252a;
+  --color-surface-dim: #0c0a0d;
+  --color-surface-container-lowest: #060507;
+  --color-surface-container-low: #18161a;
+  --color-surface-container: #1c1a1d;
+  --color-surface-container-high: #252327;
+  --color-surface-container-highest: #2e2b30;
+  --color-surface-variant: #252327;
+  --color-on-surface: #f4f1f5;
+  --color-on-surface-variant: #c0b9c5;
+  --color-inverse-surface: #f4f1f5;
+  --color-inverse-on-surface: #1c1a1d;
+  --color-inverse-primary: #5624d0;
+  --color-primary: #a435f0; /* keep brand violet at brand stop */
+  --color-primary-container: #5a1ad6;
+  --color-primary-fixed: #e7deff;
+  --color-primary-fixed-dim: #ccbdff;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #ede0ff;
+  --color-on-primary-fixed: #1f0060;
+  --color-on-primary-fixed-variant: #4d10cb;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4b3b83;
+  --color-secondary-fixed: #e7deff;
+  --color-secondary-fixed-dim: #ccbdff;
+  --color-on-secondary: #1e0856;
+  --color-on-secondary-container: #ede0ff;
+  --color-on-secondary-fixed: #1e0856;
+  --color-on-secondary-fixed-variant: #4b3b83;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #5a3f00;
+  --color-tertiary-fixed: #ffdeaa;
+  --color-tertiary-fixed-dim: #febb35;
+  --color-on-tertiary: #1c1000; /* darkened: white on #fbbf24 = 1.67:1 (fail); #1c1000 = 11.20:1 */
+  --color-on-tertiary-container: #ffcd76;
+  --color-on-tertiary-fixed: #271900;
+  --color-on-tertiary-fixed-variant: #5f4100;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* darkened: white on #f87171 = 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6a6470;
+  --color-outline-variant: #322f35;
+  --color-surface-tint: #c084fc;
+
+  /* Domain accents — preserve identity, brighten for dark canvas */
+  --color-video-well: #050505;
+  --color-code-bg: #0a0810;
+  --color-lectura-gold: #fbbf24;
+  --color-lectura-gold-bg: #2d2000;
+  --color-lectura-green: #34d399;
+  --color-lectura-green-bg: #052718;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

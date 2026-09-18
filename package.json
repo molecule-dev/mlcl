@@ -1,0 +1,170 @@
+{
+  "name": "mlcl",
+  "version": "2.0.0",
+  "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from hundreds of composable, swappable @molecule/* packages",
+  "author": "Molecule Dev, Inc. (https://molecule.dev)",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "molecule",
+    "molecule-dev",
+    "scaffold",
+    "generator",
+    "boilerplate",
+    "fullstack",
+    "typescript",
+    "cli",
+    "ai",
+    "ai-agent",
+    "code-generation"
+  ],
+  "homepage": "https://molecule.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molecule-dev/mlcl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/molecule-dev/mlcl/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "mlcl": "./bin/run.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/bin",
+    "/dist",
+    "/templates",
+    "/oclif.manifest.json"
+  ],
+  "oclif": {
+    "bin": "mlcl",
+    "dirname": "mlcl",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "molecule": {
+        "description": "Manage molecules in your project"
+      },
+      "stage": {
+        "description": "Manage staging environments (up, down, status, logs)"
+      }
+    }
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "dev": "tsc -b --watch",
+    "docs:check": "node bin/run.js sync-docs --check",
+    "docs:check:ci": "node scripts/docs-check-ci.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "gen:template-catalog": "node scripts/generate-template-catalog.mjs",
+    "gen:template-catalog:check": "node scripts/generate-template-catalog.mjs --check",
+    "lint": "eslint src/ scripts/ --max-warnings 0",
+    "lint:fix": "eslint src/ --fix --max-warnings 0",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepublishOnly": "node scripts/prepublish-verify.mjs",
+    "prepare": "husky",
+    "registry:check": "node bin/run.js sync-registry --check",
+    "sync-docs:changed": "tsx scripts/regen-molecule-docs.mjs --changed",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:watch": "vitest",
+    "verify:auth-form-state": "node scripts/verify-auth-form-state.mjs",
+    "verify:external-state": "node scripts/check-external-state-coverage.mjs",
+    "verify:registry-exports": "tsx scripts/check-registry-exports.mjs",
+    "verify:template-e2e-demo-data": "node scripts/verify-template-e2e-demo-data.mjs",
+    "verify:template-lint": "node scripts/verify-template-lint.mjs",
+    "verify:template-locales": "node scripts/check-template-locale-placeholders.js",
+    "verify:template-types": "node scripts/verify-template-types.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.115.0",
+    "@clack/prompts": "1.7.0",
+    "@oclif/core": "4.13.2",
+    "@oclif/plugin-help": "6.2.55",
+    "chalk": "6.0.0",
+    "execa": "10.0.0",
+    "ora": "9.4.1",
+    "prettier": "3.9.6",
+    "ts-morph": "28.0.0",
+    "zod": "4.4.3",
+    "@molecule/api-staging": "1.0.1",
+    "@molecule/api-staging-state": "1.0.1",
+    "@molecule/api-ci-github-actions": "1.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@molecule/api-activity": "1.0.1",
+    "@molecule/api-activity-http": "1.0.1",
+    "@molecule/api-bond": "1.0.1",
+    "@molecule/api-channel": "1.0.1",
+    "@molecule/api-channel-capture": "1.0.2",
+    "@molecule/api-emails": "1.0.1",
+    "@molecule/api-emails-capture": "1.0.2",
+    "@molecule/api-i18n": "1.0.2",
+    "@molecule/api-logger": "1.0.1",
+    "@molecule/api-push-capture": "1.0.2",
+    "@molecule/api-push-notifications": "1.0.1",
+    "@molecule/api-secrets": "1.0.1",
+    "@molecule/api-sms": "1.0.1",
+    "@molecule/api-sms-capture": "1.0.2",
+    "@molecule/api-webhook": "1.0.1",
+    "@molecule/api-webhook-capture": "1.0.2",
+    "@molecule/app-ai-chat": "1.4.0",
+    "@molecule/app-ai-models": "1.3.0",
+    "@molecule/app-auth": "1.1.0",
+    "@molecule/app-auth-shell-react": "1.0.1",
+    "@molecule/app-bond": "1.0.1",
+    "@molecule/app-code-editor": "1.0.1",
+    "@molecule/app-device": "1.0.1",
+    "@molecule/app-forms": "1.0.1",
+    "@molecule/app-http": "1.0.1",
+    "@molecule/app-i18n": "1.0.1",
+    "@molecule/app-ide": "1.0.1",
+    "@molecule/app-lifecycle": "1.0.1",
+    "@molecule/app-live-preview": "1.0.1",
+    "@molecule/app-logger": "1.0.1",
+    "@molecule/app-platform": "1.0.1",
+    "@molecule/app-push": "1.0.1",
+    "@molecule/app-react": "1.5.0",
+    "@molecule/app-routing": "1.0.1",
+    "@molecule/app-state": "1.0.1",
+    "@molecule/app-storage": "1.0.1",
+    "@molecule/app-theme": "1.0.2",
+    "@molecule/app-ui": "1.1.0",
+    "@molecule/app-utilities": "1.0.1",
+    "@molecule/app-version": "1.0.2",
+    "@oclif/test": "4.1.21",
+    "@playwright/test": "1.62.0",
+    "@types/node": "26.1.2",
+    "eslint": "10.8.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-simple-import-sort": "14.0.0",
+    "husky": "9.1.7",
+    "jsdom": "30.0.1",
+    "oclif": "4.23.29",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router": "8.3.0",
+    "shx": "0.4.0",
+    "tsx": "4.23.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0",
+    "vitest": "4.1.11"
+  },
+  "overrides": {
+    "brace-expansion": "5.0.9"
+  }
+}

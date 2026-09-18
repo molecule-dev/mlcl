@@ -1,0 +1,38 @@
+[
+  {
+    "id": "notebook-personal",
+    "name": "Personal",
+    "icon": "auto_stories",
+    "color": "#8b5cf6",
+    "page_count": 24,
+    "updated_at": "2026-04-29T08:00:00Z",
+    "created_at": "2026-01-12T10:00:00Z"
+  },
+  {
+    "id": "notebook-work",
+    "name": "Work",
+    "icon": "work",
+    "color": "#0891b2",
+    "page_count": 38,
+    "updated_at": "2026-04-28T14:00:00Z",
+    "created_at": "2026-01-12T10:00:00Z"
+  },
+  {
+    "id": "notebook-writing",
+    "name": "Writing",
+    "icon": "edit_note",
+    "color": "#3b5fc0",
+    "page_count": 17,
+    "updated_at": "2026-04-29T08:30:00Z",
+    "created_at": "2026-01-12T10:00:00Z"
+  },
+  {
+    "id": "notebook-reading",
+    "name": "Reading log",
+    "icon": "menu_book",
+    "color": "#2da563",
+    "page_count": 9,
+    "updated_at": "2026-04-21T20:00:00Z",
+    "created_at": "2026-02-01T10:00:00Z"
+  }
+]

@@ -1,0 +1,223 @@
+:root {
+  /* Brand colors — warm amber/brown restaurant palette */
+  --color-primary: #b45309;
+  --color-primary-hover: #92400e;
+  --color-primary-light: #fef3c7;
+  --color-secondary: #292524;
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
+
+  /* Semantic colors */
+  --color-success: #16a34a;
+  --color-warning: #eab308;
+  --color-error: #dc2626;
+  --color-info: #0ea5e9;
+
+  /* Surfaces */
+  --color-bg: #fffbeb;
+  --color-bg-secondary: #fef3c7;
+  --color-bg-tertiary: #fde68a;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fffbeb;
+  --color-border: #d6d3d1;
+  --color-border-light: #e7e5e4;
+
+  /* Text */
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #78716c; /* lifted from #a8a29e (2.43:1 fail) → 4.63:1 on #fffbeb */
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --sidebar-width: 280px;
+  --header-height: 64px;
+
+  /* Menu grid */
+  --menu-card-min-width: 280px;
+  --menu-image-ratio: 4 / 3;
+
+  /* Order status colors */
+  --color-status-pending: #eab308;
+  --color-status-preparing: #f97316;
+  --color-status-ready: #16a34a;
+  --color-status-served: #0ea5e9;
+  --color-status-cancelled: #dc2626;
+  --color-status-paid: #8b5cf6;
+
+  /* Table status colors */
+  --color-table-available: #16a34a;
+  --color-table-occupied: #b45309;
+  --color-table-reserved: #0ea5e9;
+  --color-table-cleaning: #a8a29e;
+
+  /* Kitchen display */
+  --kitchen-card-width: 320px;
+  --kitchen-urgent-bg: #fef2f2;
+  --kitchen-urgent-border: #dc2626;
+
+  /* Material-3 bridge — light mode tokens so bg-primary, text-on-surface etc.
+     work correctly in both modes without relying on the dark-only block. */
+  --color-background: #fffbeb;
+  --color-on-background: #1c1917;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #57534e;
+  --color-surface-variant: #fef3c7;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #fde68a;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fffbeb;
+  --color-surface-container: #fef3c7;
+  --color-surface-container-high: #fde68a;
+  --color-surface-container-highest: #fcd34d;
+  --color-inverse-surface: #1c1917;
+  --color-inverse-on-surface: #fffbeb;
+  --color-inverse-primary: #fef3c7;
+  --color-primary-container: #fef3c7;
+  --color-on-primary: #ffffff; /* white on amber #b45309 = 5.02:1 */
+  --color-on-primary-container: #451a03;
+  --color-secondary: #292524;
+  --color-secondary-container: #e7e5e4;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1c1917;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #2a1200; /* dark on amber — #ffffff was 3.19:1 (fail); #2a1200 = 5.56:1 */
+  --color-on-tertiary-container: #451a03;
+  --color-error-container: #fecaca;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #a8a29e;
+  --color-outline-variant: #e7e5e4;
+  --color-surface-tint: #b45309;
+}
+
+/* Dark mode overrides — warm food/coffee dark.
+   Warm near-black coffee/brown chassis (food/hospitality brand —
+   warm, appetising, never cold). Brand amber is kept at the brand
+   stop (#b45309) so CTA buttons keep their light-on-amber character;
+   focus border + status accents lift to brighter amber/coral for
+   legibility on the coffee-dark chassis. `--color-text-inverse`
+   (used on primary surfaces) stays white. */
+[data-mol-mode='dark'] {
+  --color-primary: #b45309;
+  --color-primary-hover: #d97706;
+  --color-primary-light: #422006;
+  --color-secondary: #d6d3d1;
+  --color-accent: #f87171;
+  --color-accent-hover: #fca5a5;
+
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-error: #f87171;
+  --color-info: #38bdf8;
+
+  --color-bg: #14100c;
+  --color-bg-secondary: #1d1813;
+  --color-bg-tertiary: #2a221b;
+  --color-surface: #14100c;
+  --color-surface-hover: #1d1813;
+  --color-border: #2a221b;
+  --color-border-light: #3a2e24;
+
+  --color-text: #faf5e9;
+  --color-text-secondary: #c4b89e;
+  --color-text-muted: #8a7e6a;
+  --color-text-inverse: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Order status colors — brighter for dark bg, semantics preserved */
+  --color-status-pending: #facc15;
+  --color-status-preparing: #fb923c;
+  --color-status-ready: #4ade80;
+  --color-status-served: #38bdf8;
+  --color-status-cancelled: #f87171;
+  --color-status-paid: #a78bfa;
+
+  /* Table status colors */
+  --color-table-available: #4ade80;
+  --color-table-occupied: #fbbf24;
+  --color-table-reserved: #38bdf8;
+  --color-table-cleaning: #a8a29e;
+
+  /* Kitchen display */
+  --kitchen-urgent-bg: #3a1010;
+  --kitchen-urgent-border: #f87171;
+
+  /* Material-3 bridge tokens — dark variants.
+     Components that use `bg-background`, `text-on-surface`, `bg-primary`, etc.
+     will flip correctly when [data-mol-mode='dark'] is active.
+     `--color-on-primary` stays white so amber CTA buttons keep white text. */
+  --color-background: #14100c;
+  --color-on-background: #faf5e9;
+  --color-surface: #14100c;
+  --color-surface-bright: #2a221b;
+  --color-surface-dim: #0a0806;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #16120e;
+  --color-surface-container: #1d1813;
+  --color-surface-container-high: #2a221b;
+  --color-surface-container-highest: #3a2e24;
+  --color-surface-variant: #2a221b;
+  --color-on-surface: #faf5e9;
+  --color-on-surface-variant: #c4b89e;
+  --color-inverse-surface: #faf5e9;
+  --color-inverse-on-surface: #14100c;
+  --color-inverse-primary: #92400e;
+  --color-primary: #b45309;
+  --color-primary-container: #422006;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fde68a;
+  --color-secondary: #d6d3d1;
+  --color-secondary-container: #3a2e24;
+  --color-on-secondary: #14100c;
+  --color-on-secondary-container: #faf5e9;
+  --color-tertiary: #fb923c;
+  --color-tertiary-container: #3a1a06;
+  --color-on-tertiary: #3a1200; /* dark on amber-orange — #ffffff was 2.26:1 (fail); #3a1200 = 7.33:1 */
+  --color-on-tertiary-container: #fed7aa;
+  --color-error: #f87171;
+  --color-error-container: #3a1010;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #8a7e6a;
+  --color-outline-variant: #3a2e24;
+  --color-surface-tint: #d97706;
+}

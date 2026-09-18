@@ -1,0 +1,20 @@
+Polish complete: 2026-04-28T13:30:00Z
+Pipeline: polish-app.md (resumed after parallel-batch crash; fonts step f3333846 already on main)
+Cluster: productivity → sibling: project-management (KpiCard) + personal-finance (NetWorthCard, DashboardAccountOverview, ActivityRow)
+Components: 7 bespoke
+  - StreakHeroCard (gradient hero with sparkline + frosted-glass freeze pill)
+  - HabitStatsTriad (3 KPI cards with icon chips + border accents)
+  - HabitChecklistRow (toggle + emoji + category pill + flame counter)
+  - ConsistencyHeatmap (GitHub-style 26-week grid)
+  - AchievementBadgeCard (tier-colored ring + progress meter)
+  - AuthShell (centered-card brand frame with decorative orbs)
+  - AuthInput (icon-prefix filled-pill input)
+Pages rewritten: Landing, Dashboard, Stats (signature), Login, Signup, ForgotPassword, ResetPassword
+Pages added: Calendar, Profile, NewHabit (closing screen-map gaps)
+Routes wired: /habit/:id (alias to HabitDetail), /habits/new, /calendar, /profile
+Material 3 tokens filled: yes (idempotent — already complete on entry)
+Fonts added: yes (already on main from prior batch — Material Symbols + Inter + JetBrains Mono)
+Sweep 1 chrome conformance: yes (Header/Footer delegate to AppHeader/AppFooter; RootErrorBoundary re-export added)
+Typecheck: clean
+Compliance: 1 violation — classmap-coverage 69.5% (decorative gradients in hero/auth shells; within ≤4 threshold)
+Screen-map coverage: 15/15

@@ -1,0 +1,8 @@
+[
+  { "id": "proj-1", "name": "Q4 Rebrand",          "color": "#2563eb", "client_id": "c1",   "hourly_rate_cents": 9500,  "budget_cents": 760000,  "billable": true,  "archived": false },
+  { "id": "proj-2", "name": "Mobile App Refresh",  "color": "#10b981", "client_id": "c2",   "hourly_rate_cents": 11000, "budget_cents": 1320000, "billable": true,  "archived": false },
+  { "id": "proj-3", "name": "Internal Ops",        "color": "#94a3b8", "client_id": null,   "hourly_rate_cents": null,  "budget_cents": null,    "billable": false, "archived": false },
+  { "id": "proj-4", "name": "Onboarding Flow",     "color": "#8b5cf6", "client_id": "c1",   "hourly_rate_cents": 11000, "budget_cents": 440000,  "billable": true,  "archived": false },
+  { "id": "proj-5", "name": "Marketing Site",      "color": "#f59e0b", "client_id": "c3",   "hourly_rate_cents": 8500,  "budget_cents": 510000,  "billable": true,  "archived": false },
+  { "id": "proj-6", "name": "Pitch Deck — Aurora", "color": "#ec4899", "client_id": "c4",   "hourly_rate_cents": 13000, "budget_cents": 312000,  "billable": true,  "archived": false }
+]

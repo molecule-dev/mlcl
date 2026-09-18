@@ -1,0 +1,36 @@
+Polish complete: 2026-04-29
+Pipeline: prompts/polish-app.md (manual session)
+Cluster: productivity → polished sibling: project-management
+Brand: Driftboard — primary #2563eb, "Move work forward, effortlessly"
+
+Components: 5 bespoke
+  - BoardHeroCard (gradient hero, sparkline; from personal-finance NetWorthCard)
+  - KpiTile (4-up KPIs with accent border-l-4; from project-management KpiCard)
+  - DriftboardKanbanCard (cover strip + priority strip; from project-management KanbanTaskCard)
+  - ActivityFeedItem (timeline row with verb chip; from crm ActivityFeed)
+  - DriftboardAuthShell (catalog §13.3 brand-panel auth shell)
+  Plus DriftboardLayout sidebar shell wrapping @molecule/app-sidebar-layout-react.
+
+Screen-map coverage: 13/13 + 404 + 2 extras (Pricing, PlanUpdated)
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegations)
+Material 3 derivative tokens: 48 added to index.css
+Material Symbols Outlined fonts: present (no inject needed)
+
+Fixtures (api/fixtures/): boards (6), columns (5), cards (10), members (8),
+  activity (8), notifications (6), backlog (7).
+
+Compliance: 1 classmap-coverage rollup violation (decorative-only — gradients,
+  blurred orbs, frosted glass, custom radii). Within the ≤4 acceptable threshold.
+Typecheck: clean (`npx tsc --noEmit` passes).
+
+Commits (10):
+  d8a608ac chore(kanban-board): fill Material 3 derivative token ladder
+  5e428184 feat(kanban-board): conform chrome to Sweep 1 packages
+  20cd3548 feat(kanban-board): scaffold api/fixtures from DESIGN.md kanban model
+  39611a99 feat(kanban-board): rebrand as Driftboard with sidebar layout + 5 bespoke components
+  ab4c3ab7 feat(kanban-board): rewrite Landing with Driftboard hero + features + CTA
+  e7c9fa5d feat(kanban-board): rewrite Dashboard with Driftboard hero + KPI quad + activity feed
+  f803cc3f feat(kanban-board): rewrite BoardDetail (kanban) and CardDetail screens
+  a3a0cac8 feat(kanban-board): add Boards, Backlog, Team, Settings, Notifications, NotFound
+  5c2181ef feat(kanban-board): brand auth pages with Driftboard auth shell
+  e235a7c7 feat(kanban-board): wire all 13 screen-map routes + 404 catchall

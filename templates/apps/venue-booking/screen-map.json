@@ -1,0 +1,189 @@
+{
+  "app": "venue-booking",
+  "designProjectId": "6943832077008226566",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-landing.html",
+      "designScreenId": "9c8865381f924ef4bd6384153983ba3d"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-login.html",
+      "designScreenId": "340d94286e4c478e82adb303ab44bbe5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-venue-booking-login.html",
+      "derivationNotes": "Same 50/50 split layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Create your Alcove account'. Button text 'Create Account' (forest primary). Bottom link 'Already have an account? Sign In' with Sign In copper link. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-venue-booking-login.html",
+      "derivationNotes": "Same 50/50 split as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email and we will send a reset link'. Button 'Send reset link' forest. Bottom link 'Back to Sign In'. No password, no OAuth buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-venue-booking-login.html",
+      "derivationNotes": "Same 50/50 split as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password' forest. Bottom link 'Back to Sign In'. No email, no OAuth buttons."
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-search.html",
+      "designScreenId": "46966886134c4088b502593938fd7a98"
+    },
+    {
+      "name": "VenueDetail",
+      "templateFile": "app/pages/VenueDetail.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/venue/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-venue-detail.html",
+      "designScreenId": "fa4693af4e024de29376acf963189b81"
+    },
+    {
+      "name": "Booking",
+      "templateFile": "app/pages/Booking.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/book/:venueId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-booking.html",
+      "designScreenId": "a00312bef35d473384231ff0aff79855"
+    },
+    {
+      "name": "Reservations",
+      "templateFile": "app/pages/Reservations.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/reservations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-reservations.html",
+      "designScreenId": "f5adbe684959445eabc37636ce5ddc1a"
+    },
+    {
+      "name": "Favorites",
+      "templateFile": "app/pages/Favorites.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/favorites",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-favorites.html",
+      "designScreenId": "c76bf86e653f4f83a27a164c1204fdda"
+    },
+    {
+      "name": "Account",
+      "templateFile": "app/pages/Account.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/account",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-account.html",
+      "designScreenId": "dbca07d073d84e7e8fa15bef973ff779"
+    },
+    {
+      "name": "ReservationDetail",
+      "templateFile": "app/pages/ReservationDetail.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/reservations/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-reservation-detail.html",
+      "designScreenId": "178dba3cce4e4ac4911e49ae1cf373e6"
+    },
+    {
+      "name": "BookingConfirmation",
+      "templateFile": "app/pages/BookingConfirmation.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/booking/confirmation/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-booking-confirmation.html",
+      "designScreenId": "03af7fd3fa904a19a203fbc12a4828aa"
+    },
+    {
+      "name": "Messages",
+      "templateFile": "app/pages/Messages.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/messages",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-messages.html",
+      "designScreenId": "53b77467be164c17ade41ce1168c0085"
+    },
+    {
+      "name": "MessageThread",
+      "templateFile": "app/pages/MessageThread.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/messages/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-message-thread.html",
+      "designScreenId": "fa81ffff8b6941d2a9abfa54b27ed728"
+    },
+    {
+      "name": "HostDashboard",
+      "templateFile": "app/pages/HostDashboard.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/host",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-host-dashboard.html",
+      "designScreenId": "1675aa6f78c1446f847cb9241e359b95"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-notifications.html",
+      "designScreenId": "1ee35240813f4bfc9f8cec1251775180"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VenueBookingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-venue-booking-settings.html",
+      "designScreenId": "4cf9b109a5b94a44be295a5fc1bb7d0e"
+    }
+  ]
+}

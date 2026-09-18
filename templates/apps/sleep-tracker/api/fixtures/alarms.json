@@ -1,0 +1,5 @@
+[
+  { "id": "alm_001", "user_id": "u_demo", "alarm_time": "06:30", "label": "Weekday wake",   "days_of_week": [1, 2, 3, 4, 5], "smart_window_minutes": 30, "sound": "sunrise", "enabled": true,  "created_at": "2026-04-15T00:00:00Z" },
+  { "id": "alm_002", "user_id": "u_demo", "alarm_time": "08:30", "label": "Weekend lie-in", "days_of_week": [0, 6],          "smart_window_minutes": 20, "sound": "gentle",  "enabled": true,  "created_at": "2026-04-15T00:00:00Z" },
+  { "id": "alm_003", "user_id": "u_demo", "alarm_time": "05:15", "label": "Run morning",    "days_of_week": [2, 4],          "smart_window_minutes": 15, "sound": "birdsong","enabled": false, "created_at": "2026-04-22T00:00:00Z" }
+]

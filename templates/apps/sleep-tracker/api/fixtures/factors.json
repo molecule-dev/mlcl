@@ -1,0 +1,9 @@
+[
+  { "id": "f_caffeine",  "key": "caffeine-after-2pm",  "label": "Caffeine after 2 PM",  "icon": "local_cafe",         "category": "stimulant",   "default_intensity": "low" },
+  { "id": "f_screen",    "key": "screen-free-hour",    "label": "Screen-free hour",     "icon": "no_photography",     "category": "wind-down",   "default_intensity": "kept" },
+  { "id": "f_walk",      "key": "evening-walk",        "label": "Evening walk",         "icon": "directions_walk",    "category": "movement",    "default_intensity": "kept" },
+  { "id": "f_dinner",    "key": "late-dinner",         "label": "Late dinner (≤ 2h)",   "icon": "restaurant",         "category": "diet",        "default_intensity": "mid" },
+  { "id": "f_temp",      "key": "room-temp",           "label": "Room ≤ 19°C",          "icon": "thermostat",         "category": "environment", "default_intensity": "kept" },
+  { "id": "f_alcohol",   "key": "alcohol-evening",     "label": "Alcohol in evening",   "icon": "local_bar",          "category": "diet",        "default_intensity": "high" },
+  { "id": "f_workout",   "key": "intense-workout",     "label": "Late intense workout", "icon": "fitness_center",     "category": "movement",    "default_intensity": "mid" }
+]

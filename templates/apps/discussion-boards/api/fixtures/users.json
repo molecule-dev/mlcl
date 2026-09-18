@@ -1,0 +1,54 @@
+[
+  {
+    "id": "u1",
+    "username": "helena.k",
+    "display_name": "Helena Kovacs",
+    "bio": "Late-night philosophy reader. Threads about Stoicism, virtue ethics, and the slow web.",
+    "reputation": 4820,
+    "role": "moderator",
+    "joined_at": "2024-01-15T10:00:00Z",
+    "post_count": 412,
+    "thread_count": 38,
+    "follower_count": 1240,
+    "tier": "elder"
+  },
+  {
+    "id": "u2",
+    "username": "arch.r",
+    "display_name": "Arch Reyes",
+    "bio": "Designer reading philosophy on the side. I write longform on practice and meaning.",
+    "reputation": 1240,
+    "role": "member",
+    "joined_at": "2024-08-12T10:00:00Z",
+    "post_count": 96,
+    "thread_count": 8,
+    "follower_count": 220,
+    "tier": "regular"
+  },
+  {
+    "id": "u3",
+    "username": "mia.v",
+    "display_name": "Mia Vergara",
+    "bio": "Editor. Long threads, careful reading lists, slow conclusions.",
+    "reputation": 2780,
+    "role": "member",
+    "joined_at": "2024-04-01T10:00:00Z",
+    "post_count": 218,
+    "thread_count": 14,
+    "follower_count": 410,
+    "tier": "regular"
+  },
+  {
+    "id": "u4",
+    "username": "mod.alex",
+    "display_name": "Alex Park",
+    "bio": "Moderator. Here to keep the conversation slow and intentional.",
+    "reputation": 5420,
+    "role": "moderator",
+    "joined_at": "2023-10-12T10:00:00Z",
+    "post_count": 612,
+    "thread_count": 42,
+    "follower_count": 980,
+    "tier": "elder"
+  }
+]

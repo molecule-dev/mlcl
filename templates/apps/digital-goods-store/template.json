@@ -1,0 +1,113 @@
+{
+  "label": "Digital Goods Store",
+  "description": "Gumroad-like digital downloads with license keys, download links, and analytics — with built-in Stripe-backed subscription tiers",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-product",
+    "@molecule/api-resource-order",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-reporting-database",
+    "@molecule/api-image-sharp",
+    "@molecule/app-data-table",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-file-upload",
+    "@molecule/api-resource-payment",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Store name",
+      "default": "My Digital Store"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key",
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for digital assets",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "AWS region",
+      "default": "us-east-1"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch API key",
+      "required": true
+    },
+    "LICENSE_KEY_PREFIX": {
+      "description": "Prefix for generated license keys",
+      "default": "DG"
+    },
+    "DOWNLOAD_LINK_EXPIRY_HOURS": {
+      "description": "Hours before download links expire",
+      "default": "24"
+    },
+    "STRIPE_DIGITAL_GOODS_STORE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_DIGITAL_GOODS_STORE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_DIGITAL_GOODS_STORE_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_DIGITAL_GOODS_STORE_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "payments",
+    "notifications",
+    "file-upload",
+    "subscriptions"
+  ]
+}

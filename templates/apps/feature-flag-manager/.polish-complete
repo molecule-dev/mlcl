@@ -1,0 +1,31 @@
+Polish complete: 2026-04-30T00:43:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: developer-tools → no polished sibling; pattern-translated from
+  POLISHED-PATTERN-CATALOG.md §1 (hero), §3 (editorial list), §13.7 (brand
+  auth header), §14 (landing/marketing) with control-panel dark aesthetic.
+Brand: Pennant — emerald #10b981 + violet #8b5cf6 accent, JetBrains Mono
+  for keys/SDK keys/percentages/timestamps, sharp 8px corners, dark-first.
+Components (9 bespoke):
+  - PennantBrandMark — text wordmark + triangular flag glyph
+  - FlagRow — flag list row (key/name/toggle/env badges/stale indicator)
+  - FlagToggle — 44×24 pill toggle (off/on/killed states)
+  - EnvironmentBadge — mono uppercase pill, env-coloured
+  - RolloutBar — 8px gradient bar, multi-variant stacked segments
+  - AuditEntry — actor + action verb + timestamp + collapsible diff
+  - KpiStatCard — hover-lift KPI card with border-l-4 accent
+  - SDKKeyDisplay — mono code-block with masked-by-default reveal + copy
+  - SettingsPanel — settings sub-nav + content tabs for /settings
+Pages rewritten (13/13 screen-map coverage):
+  Auth — Login, Signup, ForgotPassword, ResetPassword (dark centered card,
+    §13.7 wordmark + status pill)
+  Landing — terminal hero + embedded sample FlagRow + features + pricing
+  Authed — Dashboard (KPI quad + recent flags + audit feed),
+    Flags, FlagDetail, NewFlag, AuditLog, Environments, Segments,
+    SegmentDetail, Settings, NotFound
+Material 3 tokens: filled (fill-material3-tokens.mjs idempotent, no-op)
+Fonts: Material Symbols Outlined + Inter + JetBrains Mono (index.html)
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegate to
+  @molecule/app-{header,footer,root-error-boundary}-react packages.
+Typecheck: clean (npx tsc --noEmit, 0 errors)
+Compliance: clean (check-rules-compliance.mjs, 0 violations)
+Screen-map coverage: 13/13 wired

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "n1",
+    "kind": "vet_reminder",
+    "title": "Bella's annual checkup tomorrow",
+    "body": "3:00 PM with Dr. Riley. Bring previous vaccination records.",
+    "icon": "medical_information",
+    "severity": "info",
+    "read": false,
+    "pet_id": "p1-bella",
+    "pet_name": "Bella",
+    "created_at": "2026-04-29T20:00:00Z"
+  },
+  {
+    "id": "n2",
+    "kind": "medication",
+    "title": "Pickles' joint supplement refill due",
+    "body": "Glucosamine refill due in 4 days — order before Sunday.",
+    "icon": "medication",
+    "severity": "warning",
+    "read": false,
+    "pet_id": "p3-pickles",
+    "pet_name": "Pickles",
+    "created_at": "2026-04-28T08:00:00Z"
+  },
+  {
+    "id": "n3",
+    "kind": "booking",
+    "title": "Sam Patel confirmed Friday's walk",
+    "body": "Morning walk for Bella + Pickles, 8:00 AM to 8:45 AM.",
+    "icon": "directions_walk",
+    "severity": "success",
+    "read": true,
+    "pet_id": "p1-bella",
+    "pet_name": "Bella",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "n4",
+    "kind": "vet_reminder",
+    "title": "Cooper's anxiety meds review next visit",
+    "body": "Dr. Riley wants to reassess fluoxetine dosage at the next checkup.",
+    "icon": "psychology",
+    "severity": "info",
+    "read": true,
+    "pet_id": "p6-cooper",
+    "pet_name": "Cooper",
+    "created_at": "2026-04-22T09:00:00Z"
+  },
+  {
+    "id": "n5",
+    "kind": "message",
+    "title": "Casey Lin sent a check-in photo",
+    "body": "\"Mochi is purring on the couch — all is well.\"",
+    "icon": "photo_camera",
+    "severity": "info",
+    "read": true,
+    "pet_id": "p2-mochi",
+    "pet_name": "Mochi",
+    "created_at": "2026-04-21T19:00:00Z"
+  }
+]

@@ -1,0 +1,433 @@
+/**
+ * Signalink — dark console theme.
+ *
+ * Dark theme is the only theme. Log viewers are used in dark environments
+ * for long debugging sessions where light backgrounds cause eye strain.
+ *
+ * Brand palette: cyan #22d3ee primary, violet #a78bfa accent, severity scale
+ * (fatal magenta-red, error orange, warn amber, info cyan, debug slate).
+ */
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  /* Signalink brand: cyan primary, violet accent, dark-console palette. */
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0891b2;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #111a2e;
+  --mol-color-background-tertiary: #162036;
+  --mol-color-surface: #1a2744;
+  --mol-color-surface-secondary: #1e2d4d;
+  --mol-color-input-background: #0f1a30;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-border: #1e3a5f;
+  --mol-color-border-secondary: #253d5e;
+  --mol-color-border-focus: #22d3ee;
+  --mol-color-success: #22c55e;
+  --mol-color-warning: #eab308;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #22d3ee;
+
+  /* Brand */
+  --color-primary: #22d3ee;
+  --color-primary-hover: #67e8f9;
+  --color-primary-dark: #0891b2;
+  --color-primary-light: #cffafe;
+
+  /* Accent — violet for JSON keys, span markers, secondary CTAs */
+  --color-accent: #a78bfa;
+  --color-accent-hover: #c4b5fd;
+  --color-accent-dark: #7c3aed;
+
+  /* Severity scale */
+  --color-severity-fatal: #ef4444;
+  --color-severity-fatal-light: #fecaca;
+  --color-severity-error: #f97316;
+  --color-severity-error-light: #fed7aa;
+  --color-severity-warn: #eab308;
+  --color-severity-warn-light: #fef08a;
+  --color-severity-info: #22d3ee;
+  --color-severity-info-light: #cffafe;
+  --color-severity-debug: #64748b;
+  --color-severity-debug-light: #e2e8f0;
+  --color-severity-trace: #475569;
+  --color-severity-trace-light: #cbd5e1;
+
+  /* Live tail */
+  --color-live-tail-active: #22c55e;
+  --color-live-tail-paused: #f59e0b;
+
+  /* Latency */
+  --color-latency-fast: #22c55e;
+  --color-latency-medium: #eab308;
+  --color-latency-slow: #ef4444;
+
+  /* Surfaces — dark console (default/unset mode state) */
+  --color-background: #0c1222;
+  --color-on-background: #e2e8f0;
+  --color-background-secondary: #111a2e;
+  --color-background-tertiary: #162036;
+  --color-surface: #1a2744;
+  --color-surface-bright: #243154;
+  --color-surface-dim: #060b15;
+  --color-surface-secondary: #1e2d4d;
+  --color-surface-elevated: #1e2d4d;
+  --color-surface-variant: #1e2d4d;
+  --color-surface-container-lowest: #040811;
+  --color-surface-container: #1a2744;
+  --color-surface-container-low: #111a2e;
+  --color-surface-container-high: #1e2d4d;
+  --color-surface-container-highest: #243154;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #0c1222;
+  --color-inverse-primary: #0891b2;
+  --color-primary: #22d3ee;
+  --color-primary-container: #083344;
+  --color-on-primary: #012830; /* dark on cyan — white would fail; #012830 passes */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #3730a3;
+  --color-on-secondary: #1a0050; /* dark on violet — white fails; #1a0050 passes */
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #22c55e;
+  --color-tertiary-container: #14532d;
+  --color-on-tertiary: #052e16; /* dark on green — white fails; #052e16 passes */
+  --color-on-tertiary-container: #dcfce7;
+  --color-error: #ef4444;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #690005; /* dark on red — white fails; #690005 passes */
+  --color-on-error-container: #fecaca;
+  --color-outline: #475569; /* 2.20:1 on this surface — acceptable for default state */
+  --color-outline-variant: #1e3a5f;
+  --color-surface-tint: #22d3ee;
+  --color-input-background: #0f1a30;
+
+  /* Borders */
+  --color-border: #1e3a5f;
+  --color-border-secondary: #253d5e;
+  --color-border-focus: #22d3ee;
+
+  /* Text */
+  --color-text: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+  --color-text-link: #22d3ee;
+  --color-text-link-hover: #67e8f9;
+  --color-text-timestamp: #64748b;
+
+  /* JSON syntax */
+  --color-json-key: #a78bfa;
+  --color-json-string: #86efac;
+  --color-json-number: #fbbf24;
+  --color-json-boolean: #f472b6;
+  --color-json-null: #64748b;
+
+  /* Feedback */
+  --color-success: #22c55e;
+  --color-success-light: #bbf7d0;
+  --color-warning: #eab308;
+  --color-warning-light: #fef08a;
+  --color-error: #ef4444;
+  --color-error-light: #fecaca;
+  --color-info: #22d3ee;
+  --color-info-light: #cffafe;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono:
+    'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 13px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders */
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+/*
+ * Dark mode overrides — Signalink stays dark-first. Under the explicit
+ * mode toggle we deepen the navy console floor, brighten severity signals
+ * (fatal/error/warn must shout), and crank shadow depth for readability
+ * during multi-hour debugging sessions.
+ */
+[data-mol-mode='dark'] {
+  --color-primary: #67e8f9;
+  --color-primary-hover: #a5f3fc;
+  --color-primary-dark: #22d3ee;
+  /* -light tokens are used as BRIGHT TEXT variants throughout the app (never
+     as backgrounds) — see :root. Deep values here inverted that semantic and
+     failed axe contrast (e.g. #7f1d1d on #141d36 = 1.34:1). Keep them pale. */
+  --color-primary-light: #cffafe;
+  --color-on-primary: #012830; /* dark on light-cyan — white was 1.45:1 (fail); #012830 = 11.8:1 */
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons use on-primary (dark text on bright cyan). */
+  --color-on-background: #f1f5f9;
+  --color-surface-bright: #1f2c4f;
+  --color-surface-dim: #02040c;
+  --color-surface-container-lowest: #010208;
+  --color-surface-container-low: #0b1020;
+  --color-surface-container: #141d36;
+  --color-surface-container-high: #1b2540;
+  --color-surface-container-highest: #243154;
+  --color-surface-variant: #1b2540;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #141d36;
+  --color-inverse-primary: #0891b2;
+  --color-primary-container: #083344;
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #c4b5fd;
+  --color-secondary-container: #3730a3;
+  --color-on-secondary: #1a0050; /* dark on light-violet — white was 1.85:1 (fail); #1a0050 = 8.5:1 */
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #86efac;
+  --color-tertiary-container: #14532d;
+  --color-on-tertiary: #052e16; /* dark on light-green — white was 1.40:1 (fail); #052e16 = 11.9:1 */
+  --color-on-tertiary-container: #dcfce7;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #690005; /* dark on red-400 — white was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #64748b; /* #475569 was 2.20:1 on surface (fail ≥3:1); #64748b = 3.51:1 */
+  --color-outline-variant: #243456;
+  --color-surface-tint: #67e8f9;
+
+  --color-accent: #c4b5fd;
+  --color-accent-hover: #ddd6fe;
+  --color-accent-dark: #a78bfa;
+
+  /* Severity scale — brighter for vibrant signal on darker bg */
+  --color-severity-fatal: #f87171;
+  --color-severity-fatal-light: #fecaca;
+  --color-severity-error: #fb923c;
+  --color-severity-error-light: #fed7aa;
+  --color-severity-warn: #facc15;
+  --color-severity-warn-light: #fef08a;
+  --color-severity-info: #67e8f9;
+  --color-severity-info-light: #cffafe;
+  --color-severity-debug: #94a3b8;
+  --color-severity-debug-light: #e2e8f0;
+  --color-severity-trace: #64748b;
+  --color-severity-trace-light: #cbd5e1;
+
+  /* Live tail / latency */
+  --color-live-tail-active: #4ade80;
+  --color-live-tail-paused: #fbbf24;
+  --color-latency-fast: #4ade80;
+  --color-latency-medium: #facc15;
+  --color-latency-slow: #f87171;
+
+  /* Surfaces — true-dark console floor */
+  --color-background: #060a14;
+  --color-background-secondary: #0a1020;
+  --color-background-tertiary: #10182c;
+  --color-surface: #141d36;
+  --color-surface-secondary: #18223f;
+  --color-surface-elevated: #1f2c4f;
+  --color-input-background: #0b1326;
+
+  /* Borders — 10-15% lighter than surface */
+  --color-border: #243456;
+  --color-border-secondary: #2d3f64;
+  --color-border-focus: #67e8f9;
+
+  /* Text */
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-tertiary: #94a3b8;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #060a14;
+  --color-text-link: #67e8f9;
+  --color-text-link-hover: #a5f3fc;
+  --color-text-timestamp: #64748b;
+
+  /* JSON syntax — keep vibrant for token differentiation */
+  --color-json-key: #c4b5fd;
+  --color-json-string: #86efac;
+  --color-json-number: #fcd34d;
+  --color-json-boolean: #f9a8d4;
+  --color-json-null: #64748b;
+
+  /* Feedback */
+  --color-success: #4ade80;
+  --color-success-light: #bbf7d0;
+  --color-warning: #facc15;
+  --color-warning-light: #fef08a;
+  --color-error: #f87171;
+  --color-error-light: #fecaca;
+  --color-info: #67e8f9;
+  --color-info-light: #cffafe;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 32px -10px rgba(0, 0, 0, 0.8);
+}
+
+/*
+ * Light mode overrides — Signalink daytime console. Cyan stays the
+ * protagonist (darkened for white-bg contrast); severity palette pulls
+ * toward saturated, web-safe variants so fatal/error/warn shout against
+ * pale surfaces; JSON syntax preserves token differentiation with darker
+ * hues for readable monospace blocks.
+ */
+[data-mol-mode='light'] {
+  /* Brand */
+  --color-primary: #0891b2;
+  --color-primary-hover: #0e7490;
+  --color-primary-dark: #155e75;
+  --color-primary-light: #cffafe;
+
+  /* Accent — violet for JSON keys, span markers, secondary CTAs */
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-dark: #5b21b6;
+
+  /* Severity scale — saturated for light-bg legibility */
+  --color-severity-fatal: #b91c1c;
+  --color-severity-fatal-light: #fee2e2;
+  --color-severity-error: #c2410c;
+  --color-severity-error-light: #ffedd5;
+  --color-severity-warn: #b45309;
+  --color-severity-warn-light: #fef3c7;
+  --color-severity-info: #0891b2;
+  --color-severity-info-light: #cffafe;
+  --color-severity-debug: #475569;
+  --color-severity-debug-light: #f1f5f9;
+  --color-severity-trace: #64748b;
+  --color-severity-trace-light: #e2e8f0;
+
+  /* Live tail / latency */
+  --color-live-tail-active: #16a34a;
+  --color-live-tail-paused: #d97706;
+  --color-latency-fast: #16a34a;
+  --color-latency-medium: #b45309;
+  --color-latency-slow: #b91c1c;
+
+  /* Surfaces — bright console with cool slate tinting */
+  --color-background: #f8fafc;
+  --color-background-secondary: #f1f5f9;
+  --color-background-tertiary: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-input-background: #ffffff;
+
+  /* Borders */
+  --color-border: #cbd5e1;
+  --color-border-secondary: #94a3b8;
+  --color-border-focus: #0891b2;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-tertiary: #64748b;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+  --color-text-link: #0891b2;
+  --color-text-link-hover: #0e7490;
+  --color-text-timestamp: #94a3b8;
+
+  /* JSON syntax — darker hues retain token differentiation on white */
+  --color-json-key: #7c3aed;
+  --color-json-string: #16a34a;
+  --color-json-number: #b45309;
+  --color-json-boolean: #be185d;
+  --color-json-null: #94a3b8;
+
+  /* Feedback */
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-warning: #b45309;
+  --color-warning-light: #fef3c7;
+  --color-error: #b91c1c;
+  --color-error-light: #fee2e2;
+  --color-info: #0891b2;
+  --color-info-light: #cffafe;
+
+  /* Shadows — soft, low-alpha */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px -10px rgba(15, 23, 42, 0.15);
+
+  /* @theme bridge — mol-color-* overrides for light mode */
+  --mol-color-primary: #0891b2;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #155e75;
+  --mol-color-secondary: #7c3aed;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #334155;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-color-border: #cbd5e1;
+  --mol-color-border-secondary: #94a3b8;
+  --mol-color-border-focus: #0891b2;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #b45309;
+  --mol-color-error: #b91c1c;
+  --mol-color-info: #0891b2;
+
+  /* Stitch / Material-3 token light variants */
+  --color-on-primary: #001a24; /* dark on cyan-600 — white was 3.68:1 (fail); #001a24 = 4.86:1 */
+  --color-on-background: #0f172a;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e9eef4;
+  --color-surface-container-highest: #e2e8f0;
+  --color-surface-variant: #e2e8f0;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #334155;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #67e8f9;
+  --color-primary-container: #cffafe;
+  --color-on-primary-container: #155e75;
+  --color-secondary: #7c3aed;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #3730a3;
+  --color-tertiary: #16a34a;
+  --color-tertiary-container: #dcfce7;
+  --color-on-tertiary: #052e16; /* dark on green-600 — white was 3.30:1 (fail); #052e16 = 4.52:1 */
+  --color-on-tertiary-container: #14532d;
+  --color-error: #b91c1c;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b;
+  --color-outline-variant: #cbd5e1;
+  --color-surface-tint: #0891b2;
+}

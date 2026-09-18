@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBC8OCoF9VbFGtoCBTYnDy9bIivolggi8tiN606wAGg6M60Y34-_vL4gRji0TFtrN70voNJXJWanI5Jv9w2LVZ4ztLEEifESMSP3CBnYtTzXl9gKOj9o7nmAOs8c5j4V8hZ5MwYEP9mWwJfFOAmstwAKt_QKeYds4YIx7f7NMQu3UN1SJTKbSvcKKSOe06ZidWJ8j7EatLqvDNgVPYh2q37FUKNNOvwotlEnjVsHdWziT_-qJWFaGeCl-e_fyfiTiuvfbnNRZgMFRjb",
+    "imageAlt": "Luxury Villa",
+    "price": "$12,450,000",
+    "status": "Active",
+    "name": "The Obsidian Estate",
+    "address": "742 Evergreen Terrace, Beverly Hills, CA",
+    "beds": 6,
+    "baths": 8.5,
+    "sqft": 12400,
+    "days_on_market": 12
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCABOD-zQQj_X3SUJSIfKh90Q21HDWoYHh_rtD-5092DFpptjRxlZhcJAU-AUDMcuV5gfwViAZkvm-ycyud7rDVtRMxiSoMpeuy_MzB9Dr1lpbNJFn51Udl0nY942Lwbw1SjXA1PsnnE7jcqnKxCV84zr-WS6EcfdX01EU35SHjHm1twruzAazgsMakKRS_n8dxnpm1lQ67BzjlavCSIl6j-MBjwaRMKmUdE31IH9l4QI6yqoRqHKVMEyjwwepjxHedRaNsVRfhQTis",
+    "imageAlt": "Penthouse View",
+    "price": "$8,200,000",
+    "status": "Pending",
+    "name": "Azure Sky Penthouse",
+    "address": "400 Park Avenue, Suite 62B, NY",
+    "beds": 3,
+    "baths": 4,
+    "sqft": 4850,
+    "days_on_market": 28
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuD-41rbtr7vCytHaCJXLrwkcbcuAaI-oqRMBbXjFUqC2bpKbrnT96a0NBD5x7ni_mViCesRnH6cyLuSwL5FddFL0PPuHyPq8IpV3NctTE8i7hjUEJ1GjdGp7fg7eWYDXuSCJK_uvTPfwr4OzbivMe7tq-pRXC-TbWk0_P6UG2m6mR3LRXZUp6kIPB-WkL9jRrtW3n9t6nD6yKuAw2fjFV4MMVezxiyk5KESUwoGiuUGKBb1M6EZfkpsOmNljnum7i9K_LVOFxUNXaQX",
+    "imageAlt": "Coastal Mansion",
+    "price": "$18,900,000",
+    "status": "Active",
+    "name": "La Mer Sanctuary",
+    "address": "Cliffview Drive, Malibu, CA",
+    "beds": 8,
+    "baths": 10,
+    "sqft": 15000,
+    "days_on_market": 7
+  },
+  {
+    "id": "4",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAGN12GfdbGTHNdeW7AvU0r84rV-rR7WLpPQxfQu2JAGyEnrlgmKpSBuSEFXpH9J8tfbg-hmV6bFWA3i7n7aCwNqP8KDqMmh3bAEbuyQM4H06iAvyabAnsopfj_hMMuweCeYGda6u0qXgL2r14jfLBxm0i7x81jAsNf8qG0Y3j-yGgw5QPRQEOOeMHGKdVWUvTZoUC79LUMa8xu0ZKdhKt7VxXqobFrCPI54-eKUZifUdPoQxNSSV5ifIwFrv9K4L3rjVMmx386Wsy",
+    "imageAlt": "Forest Retreat",
+    "price": "$4,500,000",
+    "status": "Draft",
+    "name": "Echo Wood Lodge",
+    "address": "888 Timberline Pass, Aspen, CO",
+    "beds": 4,
+    "baths": 3.5,
+    "sqft": 4500,
+    "days_on_market": 45
+  },
+  {
+    "id": "listing-1",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBrVRl4efJByZk-PTDtmEzqSbp8HlGSuswP0EbR_2p1yVWKlwyDm6Sj7Rhfojz-EXZebtcIqmyZlvtYyn9jQVClYZ59IeHPKZ5ERWCph0CHj7KqAbHkcD_Brn9TSYBViZ69JPWOQvVSr2XYt_96lipR-Sncdo1r8V3CHC0o3BqalaNrIDTs9uXBgZR7EFxXF8mUBhBSSsqt7k_00TWR9nm8B-I5a2-uJej8sT3uDh4g8qr4fyBVjL83O1tmCnsmPbAqZNxmvZBuCNdt",
+    "imageAlt": "Modern Residence",
+    "price": "$425,000",
+    "status": "Active",
+    "name": "1242 Cedar Hollow Lane",
+    "address": "West Hills, Portland, OR",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 2150,
+    "days_on_market": 18
+  },
+  {
+    "id": "listing-2",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA5QgP-X9CJtYhQ_DE34lls8bXwS_RoEFUwOFTnwhaj63fj_rc23Zr_GvvavZF6kJWclT8nAM7axwwL1FW0fw8eBgkiKsZYMQvynlKBpDNrnuyHP_JF4HX2DI076TbBiu8oOunBgVb5252p2aH5meBDSRk162CstyQoSUsNlLdvgPvcW6S2fcKykmTw8wzL9avzQggU7tJjhxejcHpn2jvJfBBXdCTjZiuoaIt_AL3r6zR1VqWwbuDEQBXtPUjcmSeh6ZH2c2YVsPxC",
+    "imageAlt": "Luxury Estate",
+    "price": "$612,000",
+    "status": "Active",
+    "name": "889 Skyline Boulevard",
+    "address": "Forest Park, Portland, OR",
+    "beds": 4,
+    "baths": 3,
+    "sqft": 3400,
+    "days_on_market": 33
+  },
+  {
+    "id": "listing-3",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuAszIYnbtTPucKNeACHbL2WmHN6eaoi8FzgGRVGcKIHOUJAiO5URi37s7U0otQPJM4nX5Bv90wM3jSu1CgIJqHjae08UBJ5y4LBLDhpadYQVV5IVYJq5PU9zdUGW2Uf5Ir5SAUm3DCozqk_3B1b99UTeapQje-1tkD5qaJAnW8_yWDQLIAuGetx_pzDKsXRJrr0sO07CT1zSk7jDM8Sy98fu6_FNNnFHJNtN82tIvuiJlYWJO1OxC-TIYDjgU-65q2cMOqrrfFV6JQ4",
+    "imageAlt": "Urban Loft",
+    "price": "$530,000",
+    "status": "Active",
+    "name": "210 Pearl District #4B",
+    "address": "Pearl District, Portland, OR",
+    "beds": 2,
+    "baths": 2,
+    "sqft": 1820,
+    "days_on_market": 9
+  }
+]

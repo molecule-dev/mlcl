@@ -1,0 +1,92 @@
+[
+  {
+    "id": "u-1",
+    "name": "Adaeze Onuoha",
+    "email": "adaeze@northwindlabs.com",
+    "username": null,
+    "role": "Chief Executive Officer",
+    "isAdmin": true,
+    "isMe": false
+  },
+  {
+    "id": "u-2",
+    "name": "Renata Bauer",
+    "email": "renata@northwindlabs.com",
+    "username": null,
+    "role": "Chief Information Security Officer",
+    "isAdmin": true,
+    "isMe": false
+  },
+  {
+    "id": "u-3",
+    "name": "Sasha Patel",
+    "email": "sasha@northwindlabs.com",
+    "username": null,
+    "role": "Head of People",
+    "isAdmin": true,
+    "isMe": false
+  },
+  {
+    "id": "u-4",
+    "name": "Devon Akinola",
+    "email": "devon@northwindlabs.com",
+    "username": null,
+    "role": "Eng Lead, Studio",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-5",
+    "name": "Hana Yusuf",
+    "email": "hana@northwindlabs.com",
+    "username": null,
+    "role": "Senior PM",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-6",
+    "name": "Mira Kowalski",
+    "email": "mira@northwindlabs.com",
+    "username": null,
+    "role": "Lead Designer",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-7",
+    "name": "Lourdes Vega",
+    "email": "lourdes@northwindlabs.com",
+    "username": null,
+    "role": "Operations",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-8",
+    "name": "Kenji Watanabe",
+    "email": "kenji@northwindlabs.com",
+    "username": null,
+    "role": "Staff Engineer",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-9",
+    "name": "Amir Sharif",
+    "email": "amir@northwindlabs.com",
+    "username": null,
+    "role": "SRE",
+    "isAdmin": false,
+    "isMe": false
+  },
+  {
+    "id": "u-10",
+    "name": "Jovan Petrov",
+    "email": "jovan@northwindlabs.com",
+    "username": null,
+    "role": "Backend Engineer",
+    "isAdmin": false,
+    "isMe": false
+  }
+]

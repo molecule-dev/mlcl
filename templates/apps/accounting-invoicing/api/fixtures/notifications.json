@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "invoice_overdue",  "title": "Wayne Enterprises invoice 12 days overdue", "body": "INV-2026-0141 for $8,029 remains unpaid past due date.",                "href": "/invoices/inv_002",   "created_at": "2026-04-25T08:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "payment_received", "title": "Pied Piper paid $13,020",                   "body": "INV-2026-0140 marked paid via ACH.",                                     "href": "/invoices/inv_003",   "created_at": "2026-04-25T11:30:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "expense_pending",  "title": "Delta Airlines expense unmatched",          "body": "$421.80 expense from 2026-04-22 hasn't matched a bank-feed transaction.","href": "/expenses/exp_002",  "created_at": "2026-04-23T10:00:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "invoice_paid",     "title": "Stark Industries paid $9,678",              "body": "INV-2026-0139 marked paid via wire.",                                    "href": "/invoices/inv_004",   "created_at": "2026-04-22T15:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "tax_deadline",     "title": "Q1 2026 sales tax due in 14 days",          "body": "Sales tax filing for Q1 (Jan–Mar) is due 2026-04-30.",                   "href": "/taxes",              "created_at": "2026-04-16T09:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",   "title": "Bank feed reconnected",                     "body": "Stripe connection restored. Last sync: just now.",                       "href": "/settings",           "created_at": "2026-04-12T13:00:00Z", "unread": false }
+]

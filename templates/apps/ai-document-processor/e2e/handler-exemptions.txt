@@ -1,0 +1,10 @@
+# Handler exemptions for the coverage gate.
+# One handler basename per line (matches files in api/src/handlers/<base>.ts).
+# Rationale must accompany each entry.
+
+# folders is an API-only surface. The Rules page uses freeform string
+# destinations ("/Inbox/Invoices") that don't require backend folder
+# rows. The CRUD surface is reserved for a future Drive-style folder
+# tree; at present no UI affordance exposes it. Exempt until that UI
+# lands.
+folders

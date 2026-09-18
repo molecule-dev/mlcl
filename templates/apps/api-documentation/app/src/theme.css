@@ -1,0 +1,177 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #047857;
+  --mol-color-secondary: #0c1222;
+
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e5e5e5;
+  --mol-color-border-secondary: #d4d4d4;
+  --mol-color-border-focus: #10b981;
+
+  --mol-color-text: #0c1222;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #64748b; /* was #94a3b8 — 2.45-2.56:1 on white/#fafafa auth card; slate-500 = 4.6:1 */
+  /* Brand emerald as TEXT (auth links) — #10b981 was 2.5:1 on the light card */
+  --color-brand-text: #047857;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* === M3 bridge tokens (light — Prism doc canvas) === */
+  --color-background: #fafafa;
+  --color-on-background: #0c1222;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f0f0f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #f0f0f0;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e0e0e0;
+  --color-surface-variant: #e5e5e5;
+  --color-on-surface: #0c1222;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0c1222;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #10b981;
+  --color-primary: #047857; /* was #10b981 — 2.43:1 as text on #fafafa; emerald-700 = 5.2:1 */
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #ffffff; /* white on emerald-700 primary = 5.48:1 (ink was 2.76:1 after primary darkened) */
+  --color-on-primary-container: #064e3b;
+  --color-secondary: #0c1222;
+  --color-secondary-container: #e5e5e5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0c1222;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #4c1d95;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6e7786; /* #94a3b8 fails 3:1 on white (2.56) — darkened to pass */
+  --color-outline-variant: #e5e5e5;
+  --color-surface-tint: #10b981;
+
+  /* App-specific tokens — HTTP method colors */
+  --color-method-get: #10b981;
+  --color-method-get-bg: #d1fae5;
+  --color-method-post: #2563eb;
+  --color-method-post-bg: #dbeafe;
+  --color-method-put: #d97706;
+  --color-method-put-bg: #fef3c7;
+  --color-method-delete: #dc2626;
+  --color-method-delete-bg: #fee2e2;
+  --color-method-patch: #8b5cf6;
+  --color-method-patch-bg: #ede9fe;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode — Stripe/Linear-inspired devtools dark.
+   Pure neutral surfaces (no blue tint — this is API reference docs, the
+   brand is technical precision). Emerald brand stays at its brand stop
+   (#10b981) for primary CTAs, with `--mol-color-primary` shifted to a
+   slightly brighter mint for surface accents (links, method GET badges).
+   `--color-on-primary` stays white so the emerald CTA keeps its
+   light-on-emerald character. HTTP method colors keep their REST
+   semantics, brightened for the dark canvas. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: #0b3d2d;
+  --mol-color-primary-dark: #10b981;
+  --mol-color-secondary: #cbd5e1;
+
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #141414;
+  --mol-color-background-tertiary: #1c1c1c;
+  --color-brand-text: #34d399; /* bright emerald links on dark surfaces */
+  --mol-color-surface: #0f0f0f;
+  --mol-color-surface-secondary: #141414;
+  --mol-color-input-background: #0a0a0a;
+  --mol-color-border: #262626;
+  --mol-color-border-secondary: #1c1c1c;
+  --mol-color-border-focus: #34d399;
+
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #b8b8b8;
+  --mol-color-text-tertiary: #7a7a7a;
+  --mol-color-text-inverse: #0a0a0a;
+
+  /* HTTP method colors — preserve REST semantics, brighter on dark canvas. */
+  --color-method-get: #34d399;
+  --color-method-get-bg: #0b3d2d;
+  --color-method-post: #60a5fa;
+  --color-method-post-bg: #15234a;
+  --color-method-put: #fbbf24;
+  --color-method-put-bg: #4a2d05;
+  --color-method-delete: #f87171;
+  --color-method-delete-bg: #4a1414;
+  --color-method-patch: #c084fc;
+  --color-method-patch-bg: #2e1a4a;
+
+  /* === M3 bridge tokens (dark) === */
+  --color-background: #0a0a0a;
+  --color-on-background: #f5f5f5;
+  --color-surface: #0f0f0f;
+  --color-surface-bright: #1c1c1c;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0f0f0f;
+  --color-surface-container: #141414;
+  --color-surface-container-high: #1c1c1c;
+  --color-surface-container-highest: #262626;
+  --color-surface-variant: #1c1c1c;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #b8b8b8;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0a0a0a;
+  --color-inverse-primary: #10b981;
+  --color-primary: #34d399;
+  --color-primary-container: #0b3d2d;
+  --color-on-primary: #022c22; /* dark green — white gives only 1.9:1 on mint-400 */
+  --color-on-primary-container: #a7f3d0;
+  --color-secondary: #cbd5e1;
+  --color-secondary-container: #1c1c1c;
+  --color-on-secondary: #0a0a0a;
+  --color-on-secondary-container: #f5f5f5;
+  --color-tertiary: #c084fc;
+  --color-tertiary-container: #2e1a4a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e9d5ff;
+  --color-error: #f87171;
+  --color-error-container: #4a1414;
+  --color-on-error: #450a0a; /* dark — white gives only 2.8:1 on red-400 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6e6e6e; /* #525252 fails 3:1 on near-black (2.45) — lightened to pass */
+  --color-outline-variant: #262626;
+  --color-surface-tint: #34d399;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

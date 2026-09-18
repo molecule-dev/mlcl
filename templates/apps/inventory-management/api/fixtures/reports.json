@@ -1,0 +1,67 @@
+{
+  "valuation": {
+    "total_value": 4862400,
+    "by_category": [
+      { "category": "Electronics", "value": 1850300 },
+      { "category": "Furniture", "value": 880600 },
+      { "category": "Outdoor", "value": 612400 },
+      { "category": "Textiles", "value": 540900 },
+      { "category": "Stationery", "value": 412800 },
+      { "category": "Hardware", "value": 286200 },
+      { "category": "Drinkware", "value": 162000 },
+      { "category": "Food & Drink", "value": 117200 }
+    ],
+    "as_of": "2026-04-29T18:00:00Z"
+  },
+  "movements": {
+    "period": "2026-04-23 → 2026-04-29",
+    "totals": {
+      "inbound": 348,
+      "outbound": 186,
+      "adjustments": 5,
+      "net_change": 167
+    },
+    "daily": [
+      { "date": "2026-04-23", "inbound": 0, "outbound": 14, "adjustments": 0 },
+      { "date": "2026-04-24", "inbound": 0, "outbound": 28, "adjustments": 0 },
+      { "date": "2026-04-25", "inbound": 240, "outbound": 0, "adjustments": 0 },
+      { "date": "2026-04-26", "inbound": 0, "outbound": 24, "adjustments": 0 },
+      { "date": "2026-04-27", "inbound": 0, "outbound": 0, "adjustments": 3 },
+      { "date": "2026-04-28", "inbound": 0, "outbound": 42, "adjustments": 0 },
+      { "date": "2026-04-29", "inbound": 108, "outbound": 78, "adjustments": 2 }
+    ]
+  },
+  "turnover": {
+    "period": "Q2 2026 (to date)",
+    "average_days": 28,
+    "by_category": [
+      { "category": "Drinkware", "days": 14, "rotations": 6.4 },
+      { "category": "Food & Drink", "days": 18, "rotations": 5.0 },
+      { "category": "Electronics", "days": 24, "rotations": 3.8 },
+      { "category": "Stationery", "days": 32, "rotations": 2.8 },
+      { "category": "Textiles", "days": 41, "rotations": 2.2 },
+      { "category": "Furniture", "days": 58, "rotations": 1.5 },
+      { "category": "Hardware", "days": 64, "rotations": 1.4 },
+      { "category": "Outdoor", "days": 72, "rotations": 1.2 }
+    ]
+  },
+  "aging": {
+    "buckets": [
+      { "label": "0–30 days", "value": 2840100, "percentage": 58 },
+      { "label": "31–60 days", "value": 1232800, "percentage": 25 },
+      { "label": "61–90 days", "value": 511000, "percentage": 11 },
+      { "label": "91+ days", "value": 278500, "percentage": 6 }
+    ],
+    "as_of": "2026-04-29T18:00:00Z"
+  },
+  "forecast": {
+    "horizon_days": 30,
+    "projected_outbound": 4820,
+    "projected_inbound": 5100,
+    "projected_stockouts": [
+      { "sku": "MTL-CUP-077", "product": "Insulated Travel Mug — Slate", "days_to_stockout": 0 },
+      { "sku": "HW-BRSH-045", "product": "Brass Door Pull — Antique", "days_to_stockout": 4 },
+      { "sku": "TBL-OAK-018", "product": "Heritage Oak Side Table", "days_to_stockout": 9 }
+    ]
+  }
+}

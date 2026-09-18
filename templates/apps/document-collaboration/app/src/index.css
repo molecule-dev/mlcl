@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+
+  /* Stitch border-radius scale. */
+  --radius-12: 12px;
+  --radius: 0.5rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Stitch font families. */
+  --font-body: Charter, Georgia, serif;
+  --font-display: Inter;
+  --font-editor: Charter, Georgia, serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-serif: Charter, serif;
+  --font-serif-doc: Charter, Georgia, serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-left-1 -left-2 -left-3 -left-[17px] -mb-4 -mb-[10px] -mx-4 -right-2 -right-4 -space-x-2 -space-x-3 -top-1 -top-6 -top-7 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute active:opacity-80 active:scale-95 active:scale-98 align-middle animate-fade-in-up animate-ping animate-pulse antialiased backdrop-blur backdrop-blur-md before:absolute before:bg-slate-200 before:inset-y-0 before:w-px bg-accent-50 bg-amber-100 bg-amber-400 bg-amber-50 bg-amber-500 bg-black/40 bg-blue-50 bg-clip-text bg-cyan-100 bg-cyan-50 bg-cyan-500 bg-emerald-50 bg-emerald-500 bg-gradient-to-b bg-gradient-to-br bg-gradient-to-r bg-gradient-to-t bg-green-100 bg-green-50 bg-green-600 bg-indigo-100 bg-indigo-400 bg-indigo-50 bg-indigo-50/30 bg-indigo-50/50 bg-indigo-500 bg-indigo-600");
+@source inline("bg-opacity-90 bg-primary bg-primary-50/50 bg-primary-600 bg-red-100 bg-red-50 bg-rose-100 bg-rose-400 bg-rose-500 bg-slate-100 bg-slate-200 bg-slate-200/50 bg-slate-300 bg-slate-50 bg-slate-900 bg-surface bg-surface-container-lowest bg-tertiary-fixed bg-transparent bg-violet-500 bg-white bg-white/80 bg-white/90 block blur-3xl border border-0 border-2 border-accent-100 border-amber-100 border-amber-400 border-amber-600 border-b border-b-2 border-border border-cyan-200 border-emerald-100 border-emerald-600 border-gray-100 border-indigo-100 border-indigo-200 border-indigo-500 border-indigo-600 border-l border-l-2 border-l-4 border-none border-outline-variant border-outline-variant/30 border-primary-600 border-primary-container border-r border-red-200 border-rose-600 border-slate-100 border-slate-200 border-slate-200/60 border-slate-300 border-slate-50 border-t");
+@source inline("border-transparent border-violet-600 border-white border-y bottom-0 bottom-6 bottom-8 cursor-pointer cursor-text dark:bg-indigo-900/30 dark:bg-slate-800 dark:bg-slate-900 dark:bg-slate-950 dark:bg-slate-950/80 dark:bg-slate-950/90 dark:border-slate-800 dark:border-slate-800/60 dark:border-slate-900 dark:hover:bg-slate-800/50 dark:hover:bg-slate-900 dark:hover:text-cyan-400 dark:hover:text-indigo-300 dark:hover:text-indigo-400 dark:hover:text-slate-100 dark:ring-slate-800 dark:text-indigo-400 dark:text-slate-100 dark:text-slate-300 dark:text-slate-400 dark:text-slate-50 dark:text-slate-500 decoration-red-500/50 docked duration-100 duration-200 duration-300 ease-in-out fixed flat flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus:border-indigo-500 focus:border-primary focus:border-primary-500 focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-indigo-500 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-primary-500/20 font-black font-body font-bold font-editor");
+@source inline("font-extrabold font-headline font-label font-medium font-newsreader font-sans font-semibold font-serif font-serif-doc from-indigo-600 from-primary from-primary-container from-transparent from-white full-width gap-1 gap-10 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-y-1 grayscale grid grid-cols-1 group group-hover:bg-slate-100 group-hover:opacity-100 group-hover:text-indigo-600 group-hover:text-indigo-700 group-hover:text-primary-600 h-1 h-10 h-12 h-16 h-2 h-20 h-3 h-32 h-4 h-5 h-56 h-6 h-7 h-8 h-[140px] h-[44px] h-[52px] h-full h-screen hidden highlight-active highlight-amber hover:bg-gray-50 hover:bg-green-50 hover:bg-green-700 hover:bg-indigo-700 hover:bg-primary-700");
+@source inline("hover:bg-red-50 hover:bg-slate-100 hover:bg-slate-200 hover:bg-slate-200/50 hover:bg-slate-50 hover:bg-surface-container-low hover:bg-white hover:border-primary-200 hover:border-slate-200 hover:border-slate-300 hover:opacity-100 hover:opacity-90 hover:scale-110 hover:shadow-md hover:shadow-soft hover:text-cyan-600 hover:text-cyan-700 hover:text-green-600 hover:text-indigo-500 hover:text-indigo-600 hover:text-indigo-800 hover:text-on-background hover:text-primary-500 hover:text-primary-container hover:text-red-600 hover:text-slate-600 hover:text-slate-700 hover:text-slate-800 hover:text-slate-900 inline-block inline-flex inset-0 inset-y-0 italic items-baseline items-center items-start justify-between justify-center justify-end leading-relaxed leading-tight left-0 left-1/2 left-3 left-4 lg:-right-24 lg:block lg:flex lg:grid-cols-2 lg:grid-cols-3 lg:my-8 lg:px-16 lg:px-24 lg:px-8 lg:rounded-xl lg:text-5xl line-clamp-1 line-through material-symbols-outlined");
+@source inline("max-w-2xl max-w-3xl max-w-4xl max-w-6xl max-w-7xl max-w-[1400px] max-w-[1600px] max-w-[400px] max-w-[720px] max-w-[800px] max-w-[900px] max-w-md max-w-xl max-w-xs mb mb-1 mb-10 mb-12 mb-2 mb-24 mb-3 mb-4 mb-6 mb-8 md md:-right-12 md:block md:flex md:flex-row md:gap-16 md:grid-cols-2 md:hidden md:inline md:items-end md:ml-64 md:mx-0 md:p-12 md:p-16 md:px-0 md:px-12 md:px-8 md:self-end md:text-4xl md:text-7xl md:text-left md:text-xl min-h-[500px] min-h-full min-h-screen min-w-0 ml-1 ml-2 ml-4 ml-[200px] ml-auto mr-2 mr-4 mt-1 mt-10 mt-12");
+@source inline("mt-16 mt-2 mt-24 mt-3 mt-4 mt-6 mt-8 mt-auto mx-1 mx-4 mx-8 mx-auto my-0 my-10 my-8 no no-scrollbar object-cover opacity-0 opacity-20 opacity-50 opacity-60 opacity-70 opacity-75 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-1 p-12 p-2 p-3 p-4 p-5 p-6 p-8 pb-1 pb-16 pb-2 pb-20 pb-24 pb-32 pb-4 pl-10 pl-2 pl-3 pl-4 pl-5 pl-6 pl-8 placeholder-slate-400 placeholder:text-outline pointer-events-auto pointer-events-none pr-10 pr-12 pr-2 pr-3");
+@source inline("pr-4 pr-6 pt-12 pt-2 pt-24 pt-4 pt-8 pt-[52px] px-0 px-1 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-10 py-12 py-16 py-2 py-3 py-4 py-6 py-8 relative resize-none right-0 right-1 right-3 right-6 ring-1 ring-2 ring-4 ring-indigo-600 ring-offset-2 ring-slate-200 ring-slate-50 ring-white rounded rounded-12 rounded-2xl rounded-b-xl rounded-full rounded-lg rounded-md rounded-none rounded-r rounded-r-lg rounded-sm rounded-t-xl rounded-xl selection:bg-indigo-100 selection:text-indigo-900 self-start serif-preview shadow-2xl shadow-indigo-200");
+@source inline("shadow-lg shadow-sm shadow-soft shadow-softer shadows shrink-0 sm sm:block sm:flex-row sm:items-center sm:ml-4 sm:mt-0 sm:w-auto space-y-1 space-y-12 space-y-2 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sticky text-2xl text-3xl text-4xl text-5xl text-[10px] text-[12px] text-[14px] text-[16px] text-[17px] text-[18px] text-[20px] text-[8px] text-accent-700 text-amber-500 text-amber-600 text-base text-blue-600 text-center text-cyan-600 text-emerald-600 text-gray-400 text-green-600 text-green-800 text-indigo-500 text-indigo-600 text-indigo-700 text-indigo-900 text-lg text-on-background text-on-primary text-on-primary-container text-on-surface-variant text-outline text-primary text-primary-600 text-red-500 text-red-600 text-red-800");
+@source inline("text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-800 text-slate-900 text-sm text-transparent text-white text-xl text-xs to-cyan-500 to-primary-container to-tertiary-fixed-dim to-transparent top-0 top-1 top-1/2 top-14 top-3 top-32 top-4 top-6 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transition-all transition-colors transition-opacity transition-transform truncate underline underline-offset-4 uppercase via-white w-1 w-1/2 w-1/3 w-10 w-11 w-2 w-2/3 w-20 w-3 w-3/4 w-4 w-4/6 w-48 w-5 w-5/6 w-6 w-64 w-7 w-72 w-8 w-[200px] w-[240px]");
+@source inline("w-[2px] w-[340px] w-[420px] w-full w-max w-px whitespace-nowrap whitespace-pre-wrap xl:px-32 xs z-0 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+/* Fallback for serif font since Charter is a system font typically, Georgia is widely available */
+.font-editor {
+  font-family: 'Charter', 'Georgia', serif;
+  line-height: 1.8;
+}
+
+.highlight-amber {
+  border-bottom: 2px dashed #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  cursor: pointer;
+}
+
+.highlight-active {
+  background-color: rgba(79, 70, 229, 0.2);
+  position: relative;
+}
+
+.highlight-active::after {
+  content: 'add_comment';
+  font-family: 'Material Symbols Outlined';
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 9999px;
+  padding: 4px;
+  font-size: 16px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.serif-preview {
+  font-family: 'Charter', 'Georgia', serif;
+}
+
+/* Hide scrollbar for continue reading row */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.font-editor {
+  font-family: 'Charter', Georgia, serif;
+}
+
+.font-newsreader {
+  font-family: 'Newsreader', serif;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.font-editor {
+  font-family: 'Charter', 'Georgia', serif;
+}
+/* polish-v2:stitch-styles:end */

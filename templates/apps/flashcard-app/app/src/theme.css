@@ -1,0 +1,243 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Serif face for flashcard content (DESIGN.md: cards render in
+     Source Serif 4, loaded in index.html; Georgia is the fallback). */
+  --mol-font-serif: 'Source Serif 4', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #6d28d9;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #d97706;
+  --mol-color-background: #f0f4f8;
+  --mol-color-background-secondary: #e8eef5;
+  --mol-color-background-tertiary: #dde4ed;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f8fb;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a202c;
+  --mol-color-text-secondary: #475569; /* was #718096 (4.0:1 on white, 3.2:1 on tints — fails 4.5:1); slate-600 = 7.6:1 */
+  --mol-color-text-tertiary: #a0aec0;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d1d9e6;
+  --mol-color-border-secondary: #c3cdd9;
+  --mol-color-border-focus: #6d28d9;
+  --mol-color-success: #276749; /* was #38a169 (2.6:1 as icon on #d9ebe6 tint); green-700 = 5.4:1 */
+  --mol-color-warning: #dd6b20;
+  --mol-color-error: #e53e3e;
+  --mol-color-info: #2563eb;
+
+  /* === Deck category accent tokens (both modes) === */
+  --color-category-language: #6d28d9;
+  --color-category-science: #0891b2;
+  --color-category-humanities: #d97706;
+  --color-category-professional: #059669;
+  --color-category-personal: #db2777;
+
+  /* === Card state chart tokens === */
+  --color-state-new: #0284c7;
+  --color-state-learning: #f59e0b;
+  --color-state-review: #10b981;
+  --color-state-relearning: #dc2626;
+
+  /* === Streak accent token === */
+  --color-streak: #f59e0b;
+
+  /* === Card editor preview tokens (front/back tint) === */
+  --color-card-front: #f5f3ff;
+  --color-card-back: #fffbeb;
+
+  /* === M3 @theme tokens (light mode) === */
+  --color-background: #f0f4f8;
+  --color-on-background: #1a202c;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #dde4ed;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f4f8;
+  --color-surface-container: #e8eef5;
+  --color-surface-container-high: #dde4ed;
+  --color-surface-container-highest: #d1d9e6;
+  --color-surface-variant: #e8eef5;
+  --color-on-surface: #1a202c;
+  --color-on-surface-variant: #475569; /* see --mol-color-text-secondary */
+  --color-inverse-surface: #1a202c;
+  --color-inverse-on-surface: #f0f4f8;
+  --color-inverse-primary: #6d28d9;
+  --color-primary: #6d28d9;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* white on deep purple #6d28d9 — 7.10:1 ✓ */
+  --color-on-primary-container: #2e1065;
+  --color-secondary: #d97706;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary: #2d1600; /* dark on amber — 5.38:1 */
+  --color-on-secondary-container: #451a03;
+  --color-tertiary: #047857; /* deepened for white on-tertiary 5.48:1 */
+  --color-tertiary-container: #d1fae5;
+  --color-on-tertiary: #ffffff; /* white on #047857 = 5.48:1 ✓ */
+  --color-on-tertiary-container: #064e3b;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 ✓ */
+  --color-on-error-container: #690005; /* dark on light error-container = 10.73:1 ✓ */
+  --color-outline: #718096;
+  --color-outline-variant: #d1d9e6;
+  --color-surface-tint: #6d28d9;
+
+  --flash-primary: #2563eb;
+  --flash-primary-hover: #1d4ed8;
+  --flash-secondary: #8b5cf6;
+  --flash-secondary-hover: #7c3aed;
+  --flash-accent: #f59e0b;
+  --flash-background: #f0f4f8;
+  --flash-surface: #ffffff;
+  --flash-surface-hover: #eef2f7;
+  --flash-border: #d1d9e6;
+  --flash-text: #1a202c;
+  --flash-text-muted: #475569; /* see --mol-color-text-secondary */
+  --flash-text-light: #a0aec0;
+  --flash-success: #276749;
+  --flash-warning: #dd6b20;
+  --flash-danger: #e53e3e;
+  --flash-again: #e53e3e;
+  --flash-hard: #dd6b20;
+  --flash-good: #276749;
+  --flash-easy: #2563eb;
+  --flash-new: #8b5cf6;
+  --flash-learning: #dd6b20;
+  --flash-review: #276749;
+  --flash-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --flash-radius: 12px;
+  --flash-radius-sm: 6px;
+  --flash-radius-lg: 16px;
+  --flash-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --flash-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode — education/learning warm-neutral night.
+   Warm near-black surfaces for focused study sessions. The violet brand
+   stays violet (lifted one stop for dark-surface contrast); CTA buttons
+   keep white text. Review-rating colors stay vivid for at-a-glance
+   recognition. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #4c1d95;
+  --mol-color-primary-dark: #6d28d9;
+  --mol-color-secondary: #f59e0b;
+  --mol-color-background: #100f0e;
+  --mol-color-background-secondary: #1a1817;
+  --mol-color-background-tertiary: #242220;
+  --mol-color-surface: #100f0e;
+  --mol-color-surface-secondary: #1a1817;
+  --mol-color-input-background: #0a0908;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #100f0e;
+  --mol-color-border: #2e2c2a;
+  --mol-color-border-secondary: #3e3c3a;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* App-specific aliases — flashcard study shell */
+  --flash-primary: #7c3aed;
+  --flash-primary-hover: #8b5cf6;
+  --flash-secondary: #8b5cf6;
+  --flash-secondary-hover: #a78bfa;
+  --flash-accent: #f59e0b;
+
+  --flash-background: #100f0e;
+  --flash-surface: #1a1817;
+  --flash-surface-hover: #242220;
+  --flash-border: #2e2c2a;
+
+  --flash-text: #f5f5f5;
+  --flash-text-muted: #c4c4c4;
+  --flash-text-light: #8a8a8a;
+
+  --flash-success: #34d058;
+  --flash-warning: #f5b400;
+  --flash-danger: #f25c5c;
+
+  /* Review rating colors — vivid on dark */
+  --flash-again: #f25c5c;
+  --flash-hard: #fb923c;
+  --flash-good: #34d058;
+  --flash-easy: #3b82f6;
+
+  /* Card state colors */
+  --flash-new: #8b5cf6;
+  --flash-learning: #fb923c;
+  --flash-review: #34d058;
+
+  /* @theme token dark variants */
+  --color-background: #100f0e;
+  --color-on-background: #f5f5f5;
+  --color-surface: #100f0e;
+  --color-surface-bright: #242220;
+  --color-surface-dim: #0a0908;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #161413;
+  --color-surface-container: #1a1817;
+  --color-surface-container-high: #242220;
+  --color-surface-container-highest: #2e2c2a;
+  --color-surface-variant: #242220;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #100f0e;
+  --color-inverse-primary: #6d28d9;
+  --color-primary: #7c3aed;
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff; /* white on violet #7c3aed — 5.40:1 ✓ */
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #f59e0b;
+  --color-secondary-container: #5a3a08;
+  --color-on-secondary: #2d1700; /* dark on amber — 7.92:1 */
+  --color-on-secondary-container: #fed7aa;
+  --color-tertiary: #34d058;
+  --color-tertiary-container: #14532d;
+  --color-on-tertiary: #052e16; /* dark on green #34d058 — 7.3:1 */
+  --color-on-tertiary-container: #d1fae5;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #5a0004; /* dark on light-red — 4.50:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #807e7b; /* raised for 4.73:1 on #100f0e */
+  --color-outline-variant: #2e2c2a;
+  --color-surface-tint: #8b5cf6;
+
+  /* Deck category accent tokens — vivid on warm-dark surface */
+  --color-category-language: #a78bfa;
+  --color-category-science: #22d3ee;
+  --color-category-humanities: #fbbf24;
+  --color-category-professional: #34d058;
+  --color-category-personal: #f472b6;
+
+  /* Card state chart tokens — vivid on dark */
+  --color-state-new: #38bdf8;
+  --color-state-learning: #fbbf24;
+  --color-state-review: #34d058;
+  --color-state-relearning: #f25c5c;
+
+  /* Streak accent token */
+  --color-streak: #fbbf24;
+
+  /* Card editor preview tokens (front/back tint on warm-dark) */
+  --color-card-front: #1c162b;
+  --color-card-back: #241c10;
+
+  /* Shadows */
+  --flash-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --flash-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

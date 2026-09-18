@@ -1,0 +1,249 @@
+:root {
+  /* ── Bridge variables (feed into @theme) — Remit brand: dark teal + accent coral ── */
+  --mol-color-primary: #0d7377;
+  --mol-color-primary-light: #f0f9f9;
+  --mol-color-secondary: #e86c3a;
+  --mol-color-secondary-light: #fef3c7;
+  --mol-color-success: #16804a;
+  --mol-color-error: #c42b2b;
+  --mol-color-warning: #d97706;
+  --mol-color-info: #0891b2;
+  --mol-color-background: #f0f9f9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7fafa;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-focus: #0d7377;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #475569; /* was #64748b — 4.44:1 on the #f0f9f9 hero (axe serious); slate-600 = 7.1:1 */
+  --mol-color-text-tertiary: #64748b; /* raised from #94a3b8 (2.56:1 fail vs white) → #64748b = 4.76:1 */
+  --mol-color-text-inverse: #ffffff;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #0f9199;
+  --color-primary-dark: #0a5c5f;
+  /* Accent orange darkened (#e86c3a → orange-700): white CTA text on it was
+     3.16:1 (axe serious on landing/login/dashboard CTAs); #c2410c = 5.2:1 and
+     also passes as accent TEXT on the light surfaces (5.2:1 on white). */
+  --color-accent: #c2410c;
+  --color-accent-hover: #e86c3a; /* hover one step brighter than the darkened base */
+  --color-accent-dark: #9a3412; /* stays a step darker than the new base */
+  --color-accent-shadow: rgba(194, 65, 12, 0.35); /* accent glow — ref via var() in inline styles */
+  --color-auth-gradient-end: #134e4a; /* auth panel gradient terminus (deep teal) */
+  --color-sidebar: #0a5c5f;
+  --color-sidebar-hover: #0d7377;
+  --color-sidebar-text: #c0e8e9;
+  --color-sidebar-text-active: #ffffff;
+  --color-paid: #16804a;
+  --color-paid-light: #dcfce7;
+  --color-unpaid: #d97706;
+  --color-unpaid-light: #fef3c7;
+  --color-overdue: #c42b2b;
+  --color-overdue-light: #fee2e2;
+  --color-draft: #6b7280;
+  --color-draft-light: #f3f4f6;
+  --color-partial: #7c3aed;
+  --color-partial-light: #ede9fe;
+  --color-recurring: #0891b2;
+  --color-recurring-light: #cffafe;
+  --color-sent: #92400e;
+  --color-sent-light: #fef3c7;
+  --color-viewed: #1e40af;
+  --color-viewed-light: #eff6ff;
+  --color-void: #6b7280;
+  --color-void-light: #f3f4f6;
+  --color-amount-due: #e86c3a;
+  --color-amount-positive: #16804a;
+  --color-amount-negative: #c42b2b;
+  --color-kpi-revenue-border: #16804a;
+  --color-kpi-revenue-chip: #dcfce7;
+  --color-kpi-revenue-icon-bg: #ecfdf5;
+  --color-kpi-outstanding-border: #e86c3a;
+  --color-kpi-outstanding-chip: #ffe4d6;
+  --color-kpi-outstanding-icon-bg: #fff1e7;
+  --color-kpi-overdue-border: #c42b2b;
+  --color-kpi-overdue-chip: #fee2e2;
+  --color-kpi-overdue-icon-bg: #fef2f2;
+  --color-kpi-collected-border: #0d7377;
+  --color-kpi-collected-chip: #ccfbf1;
+  --color-kpi-collected-icon-bg: #f0f9f9;
+  --color-kpi-neutral-border: #94a3b8;
+  --color-kpi-neutral-chip: #f1f5f9;
+  --color-kpi-neutral-icon-bg: #f8fafc;
+  --color-payment-stripe-bg: #eef2ff;
+  --color-payment-stripe-fg: #4338ca;
+  --color-payment-bank-bg: #f0f9f9;
+  --color-payment-bank-fg: #0a5c5f;
+  --color-payment-paypal-bg: #dbeafe;
+  --color-payment-paypal-fg: #1e40af;
+  --color-payment-manual-bg: #f1f5f9;
+  --color-payment-manual-fg: #475569;
+
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+  --color-danger: var(--color-error);
+  --color-danger-hover: #b91c1c;
+}
+
+/* Dark mode overrides — Remit dark (finance-grade cool slate).
+   Cool near-black slate chassis (finance brand — restrained, not warm).
+   Brand dark teal is kept at the brand stop (#0d7377) so CTA buttons
+   keep their light-on-teal character; surface accents (focus border,
+   secondary text) lift to brighter teal for legibility on slate.
+   Sidebar deepens below bg for depth. `--mol-color-text-inverse` (used
+   on primary surfaces) stays white so primary CTAs read clean. */
+[data-mol-mode='dark'] {
+  /* Bridge variables — primary pinned at brand stop */
+  --mol-color-primary: #0d7377;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-secondary: #fb923c;
+  --mol-color-secondary-light: #1f2937;
+  --mol-color-success: #34d399;
+  --mol-color-error: #f87171;
+  --mol-color-warning: #fbbf24;
+  --mol-color-info: #22d3ee;
+  --mol-color-background: #0a1322;
+  --mol-color-surface: #121b2d;
+  --mol-color-surface-secondary: #19243a;
+  --mol-color-border: #243049;
+  --mol-color-border-focus: #2dd4bf;
+  --mol-color-text: #f0f4fa;
+  --mol-color-text-secondary: #b3becf;
+  --mol-color-text-tertiary: #8993a8;
+  --mol-color-text-inverse: #ffffff;
+
+  /* App-specific */
+  --color-primary-hover: #14b8a6;
+  --color-primary-dark: #0a5c5f;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+  --color-accent-dark: #f97316;
+  --color-accent-shadow: rgba(251, 146, 60, 0.35); /* brighter orange in dark mode */
+
+  /* Sidebar — deeper than bg for depth */
+  --color-sidebar: #060c17;
+  --color-sidebar-hover: #121b2d;
+  --color-sidebar-text: #a7b8d4;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Status — semantics preserved, brightened for dark */
+  --color-paid: #34d399;
+  --color-paid-light: #064e3b;
+  --color-unpaid: #fbbf24;
+  --color-unpaid-light: #422006;
+  --color-overdue: #f87171;
+  --color-overdue-light: #4a1414;
+  --color-draft: #94a3b8;
+  --color-draft-light: #1e293b;
+  --color-partial: #a78bfa;
+  --color-partial-light: #2e1f56;
+  --color-recurring: #22d3ee;
+  --color-recurring-light: #083344;
+  --color-sent: #fcd34d;
+  --color-sent-light: #422006;
+  --color-viewed: #60a5fa;
+  --color-viewed-light: #1e3a5f;
+  --color-void: #9ca3af;
+  --color-void-light: #1e293b;
+  --color-amount-due: #fb923c;
+  --color-amount-positive: #34d399;
+  --color-amount-negative: #f87171;
+  --color-kpi-revenue-border: #34d399;
+  --color-kpi-revenue-chip: #064e3b;
+  --color-kpi-revenue-icon-bg: #022c22;
+  --color-kpi-outstanding-border: #fb923c;
+  --color-kpi-outstanding-chip: #431407;
+  --color-kpi-outstanding-icon-bg: #2a0d04;
+  --color-kpi-overdue-border: #f87171;
+  --color-kpi-overdue-chip: #4a1414;
+  --color-kpi-overdue-icon-bg: #2d0d0d;
+  --color-kpi-collected-border: #2dd4bf;
+  --color-kpi-collected-chip: #134e4a;
+  --color-kpi-collected-icon-bg: #0a2e2c;
+  --color-kpi-neutral-border: #64748b;
+  --color-kpi-neutral-chip: #1e293b;
+  --color-kpi-neutral-icon-bg: #151e2b;
+  --color-payment-stripe-bg: #1e1b4b;
+  --color-payment-stripe-fg: #a5b4fc;
+  --color-payment-bank-bg: #134e4a;
+  --color-payment-bank-fg: #2dd4bf;
+  --color-payment-paypal-bg: #1e3a5f;
+  --color-payment-paypal-fg: #60a5fa;
+  --color-payment-manual-bg: #1e293b;
+  --color-payment-manual-fg: #94a3b8;
+
+  /* Aliases */
+  --color-danger-hover: #fca5a5;
+
+  /* M3 / Stitch bridge tokens — flip bg-surface, text-on-surface, etc. */
+  --color-background: #0a1322;
+  --color-on-background: #f0f4fa;
+  --color-surface: #121b2d;
+  --color-surface-bright: #19243a;
+  --color-surface-dim: #050b14;
+  --color-surface-container-lowest: #020610;
+  --color-surface-container-low: #0d1628;
+  --color-surface-container: #121b2d;
+  --color-surface-container-high: #19243a;
+  --color-surface-container-highest: #243049;
+  --color-surface-variant: #19243a;
+  --color-on-surface: #f0f4fa;
+  --color-on-surface-variant: #8993a8;
+  --color-inverse-surface: #f0f4fa;
+  --color-inverse-on-surface: #0a1322;
+  --color-inverse-primary: #0a5c5f;
+  --color-primary: #0d7377; /* keep brand teal at brand stop */
+  --color-primary-container: #134e4a;
+  --color-on-primary: #ffffff; /* white on teal — readable in both modes */
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #fb923c;
+  --color-secondary-container: #1f2937;
+  --color-on-secondary: #1a0800; /* dark on orange — #ffffff was 2.26:1 (fail); #1a0800 = 8.60:1 */
+  --color-on-secondary-container: #fed7aa;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #083344;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #607292; /* #4a5a7a was 2.49:1 vs surface (fail ≥3:1); #607292 = 3.54:1 */
+  --color-outline-variant: #243049;
+  --color-surface-tint: #2dd4bf;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "sale_4811",
+    "product_name": "Aurora UI Kit — Figma + Code",
+    "product_slug": "aurora-ui-kit",
+    "customer_name": "Priya Subramanian",
+    "customer_email": "priya@studio.co",
+    "customer_avatar": "https://i.pravatar.cc/64?img=47",
+    "amount_cents": 6900,
+    "occurred_at": "2026-04-29T14:21:00Z",
+    "status": "licensed",
+    "license_key": "DG-AUR0-LIC1-PRYA"
+  },
+  {
+    "id": "sale_4810",
+    "product_name": "The Focus Handbook (eBook)",
+    "product_slug": "focus-handbook",
+    "customer_name": "Marcus Bennett",
+    "customer_email": "m.bennett@gmail.com",
+    "customer_avatar": "https://i.pravatar.cc/64?img=12",
+    "amount_cents": 1900,
+    "occurred_at": "2026-04-29T11:02:00Z",
+    "status": "licensed",
+    "license_key": "DG-FOCS-LIC2-MRCS"
+  },
+  {
+    "id": "sale_4809",
+    "product_name": "Lumen Icon Set — 540 Outline Icons",
+    "product_slug": "lumen-icon-set",
+    "customer_name": "Hana Yamamoto",
+    "customer_email": "hana@iconlab.io",
+    "customer_avatar": "https://i.pravatar.cc/64?img=32",
+    "amount_cents": 3200,
+    "occurred_at": "2026-04-28T18:45:00Z",
+    "status": "licensed",
+    "license_key": "DG-LUMN-LIC3-HANA"
+  },
+  {
+    "id": "sale_4808",
+    "product_name": "Aurora UI Kit — Figma + Code",
+    "product_slug": "aurora-ui-kit",
+    "customer_name": "Ben Coleman",
+    "customer_email": "ben@coleman.dev",
+    "customer_avatar": "https://i.pravatar.cc/64?img=15",
+    "amount_cents": 6900,
+    "occurred_at": "2026-04-28T08:31:00Z",
+    "status": "refunded",
+    "license_key": "DG-AUR0-LIC4-BENC"
+  },
+  {
+    "id": "sale_4807",
+    "product_name": "Everyday Brushpack — Procreate",
+    "product_slug": "everyday-brushpack",
+    "customer_name": "Tomás Ruiz",
+    "customer_email": "tomas@inkstudio.es",
+    "customer_avatar": "https://i.pravatar.cc/64?img=33",
+    "amount_cents": 2400,
+    "occurred_at": "2026-04-27T22:00:00Z",
+    "status": "licensed",
+    "license_key": "DG-BRSH-LIC5-TMAS"
+  },
+  {
+    "id": "sale_4806",
+    "product_name": "Signal — Variable Display Typeface",
+    "product_slug": "signal-typeface",
+    "customer_name": "Riley Okafor",
+    "customer_email": "riley@studioo.com",
+    "customer_avatar": "https://i.pravatar.cc/64?img=23",
+    "amount_cents": 4900,
+    "occurred_at": "2026-04-27T15:14:00Z",
+    "status": "pending"
+  }
+]

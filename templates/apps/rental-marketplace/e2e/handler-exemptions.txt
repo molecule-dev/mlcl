@@ -1,0 +1,7 @@
+# Handlers that are internal (not mounted as routes — wired into other
+# routers or used for bootstrap). These intentionally have no e2e
+# network-assertion of their own.
+
+_aliases       # mounts /api/reservations + /api/host-listings on top of bookings/listings; covered by host_reservations.spec.ts
+_decorate      # decorator helpers used by listings.ts to embed host info
+_seed          # demo data seed; runs on first authenticated request, covered transitively

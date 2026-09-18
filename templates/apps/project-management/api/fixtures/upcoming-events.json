@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Team Sync",
+    "time": "10:00 AM Today",
+    "dotColor": "bg-primary",
+    "icon": "schedule"
+  },
+  {
+    "id": "2",
+    "title": "Client Presentation",
+    "time": "March 12, 2:00 PM",
+    "dotColor": "bg-tertiary-container",
+    "icon": "event"
+  },
+  {
+    "id": "3",
+    "title": "Project Deadline",
+    "time": "In 2 days",
+    "dotColor": "bg-error",
+    "icon": "warning",
+    "borderColor": "border-l-4 border-error"
+  },
+  {
+    "id": "4",
+    "title": "Marketing Review",
+    "time": "Tomorrow, 3:30 PM",
+    "dotColor": "bg-[#22c55e]",
+    "icon": "group"
+  },
+  {
+    "id": "5",
+    "title": "V2 Planning",
+    "time": "Next Week",
+    "dotColor": "bg-outline",
+    "icon": "calendar_today"
+  }
+]

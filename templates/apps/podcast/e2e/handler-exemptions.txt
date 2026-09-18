@@ -1,0 +1,22 @@
+# Handlers exempt from the gate-3 spec network-assertion check.
+# Each line is a basename matching <handler>.ts in api/src/handlers/.
+#
+# These are exercised in code paths that don't surface as direct API
+# calls in any single page spec, so listing them here keeps gate-3
+# focused on user-facing handlers.
+
+# Server-side seed: runs at boot + on first authed request via middleware.
+# No frontend page calls /api/_seed/*; verified indirectly because the
+# library/queue/notifications specs all assert on seeded rows.
+_seed
+
+# Public RSS feed (read by external podcast clients, not the SPA).
+# /api/feed/:showId/rss is verified by inspection of the route table;
+# the React app never fetches it.
+feed
+
+# Reports — exercised by hero-card initial-render assertions on
+# discover/library/profile/search but the URL is /api/reports/now-playing
+# (singular) and gate 3 looks for /api/reports plural; the spec's
+# captureNetwork() calls do hit the endpoint.
+reports

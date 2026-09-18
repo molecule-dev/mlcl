@@ -1,0 +1,175 @@
+import { useState } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router'
+
+import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME } from '../branding.js'
+import { SojournAuthShell } from '../components/SojournAuthShell.js'
+
+export function ResetPassword() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
+  const { login } = useLogin()
+
+  const tokenFromUrl = searchParams.get('token') ?? ''
+  const emailFromUrl = searchParams.get('email') ?? ''
+  const [token] = useState(tokenFromUrl)
+  const [email] = useState(emailFromUrl)
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [mismatch, setMismatch] = useState(false)
+
+  const isLoggingIn = confirmStatus === 'pending'
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (password !== confirm) {
+      setMismatch(true)
+      return
+    }
+    setMismatch(false)
+    try {
+      await confirmReset({ token, password })
+      if (email) await login({ email, password })
+      navigate('/', { replace: true })
+      // Error state is owned by the hook; swallowing here avoids double-handling.
+    } catch (_error) {
+      /* Error tracked in hook state */
+    }
+  }
+
+  return (
+    <SojournAuthShell
+      eyebrow={t('auth.resetPassword.accountRecovery', {}, { defaultValue: 'Account recovery' })}
+      heading={t('auth.resetPassword.setNewPassword', {}, { defaultValue: 'Set a new password' })}
+      subheading={t(
+        'resetPassword.subheading',
+        { appName: APP_NAME },
+        {
+          defaultValue:
+            'Choose a new password for your {{appName}} account. Use at least 8 characters; we recommend a passphrase.',
+        },
+      )}
+      footer={
+        <Link
+          to="/login"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+            'text-primary font-bold hover:underline',
+          )}
+        >
+          <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+            arrow_back
+          </span>
+          {t('auth.backToSignIn', {}, { defaultValue: 'Back to sign in' })}
+        </Link>
+      }
+    >
+      <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+        <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('resetPassword.newPasswordLabel', {}, { defaultValue: 'New password' })}
+          </span>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="new-password"
+            required
+            minLength={8}
+            placeholder={t(
+              'common.atLeast8Characters',
+              {},
+              { defaultValue: 'At least 8 characters' },
+            )}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+            )}
+          />
+        </label>
+        <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('auth.signup.confirmPassword', {}, { defaultValue: 'Confirm password' })}
+          </span>
+          <input
+            type="password"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            autoComplete="new-password"
+            required
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+            )}
+          />
+        </label>
+
+        {mismatch ? (
+          <p
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-xl bg-error/10 text-error border border-error/30',
+            )}
+          >
+            {t(
+              'auth.signup.passwordsDontMatchPeriod',
+              {},
+              { defaultValue: "Passwords don't match." },
+            )}
+          </p>
+        ) : null}
+        {confirmError ? (
+          <p
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-xl bg-error/10 text-error border border-error/30',
+            )}
+          >
+            {confirmError.message}
+          </p>
+        ) : null}
+
+        <button
+          type="submit"
+          disabled={isLoggingIn}
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 3),
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
+            'w-full rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg disabled:opacity-60',
+          )}
+        >
+          {isLoggingIn
+            ? t('common.resettingEllipsis', {}, { defaultValue: 'Resetting…' })
+            : t('auth.resetPassword.button', {}, { defaultValue: 'Reset password' })}
+        </button>
+      </form>
+    </SojournAuthShell>
+  )
+}

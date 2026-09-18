@@ -1,0 +1,3 @@
+# Exempt private helper modules — these export reusable functions
+# imported by other handlers, not Express routers themselves.
+_streaks

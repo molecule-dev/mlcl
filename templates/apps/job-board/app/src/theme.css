@@ -1,0 +1,213 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  /* Conduit brand: cyan primary (trust/connectivity), navy depth, emerald accent. */
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0c4a6e;
+  --mol-color-secondary: #0c1a2e;
+
+  /* green-700. Rendered as status text on #d1fae5, emerald-500 measured
+     2.23:1 — under the 4.5 floor. #047857 is 5.48:1 there. */
+  --mol-color-success: #047857;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #06b6d4;
+
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e2e8f0;
+
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* App-specific tokens — application status pipeline (seeker view). */
+  --color-status-applied: #6366f1;
+  --color-status-applied-bg: #e0e7ff;
+  --color-status-reviewing: #0891b2;
+  --color-status-reviewing-bg: #cffafe;
+  --color-status-interviewing: #f59e0b;
+  --color-status-interviewing-bg: #fef3c7;
+  --color-status-offered: #10b981;
+  --color-status-offered-bg: #d1fae5;
+  --color-status-rejected: #ef4444;
+  --color-status-rejected-bg: #fee2e2;
+  --color-status-closed: #6b7280;
+  --color-status-closed-bg: #f3f4f6;
+
+  /* Job-listing semantic tokens (employer view). */
+  --color-listing-active: #10b981;
+  --color-listing-active-bg: #d1fae5;
+  --color-listing-urgent: #f59e0b;
+  --color-listing-urgent-bg: #fef3c7;
+  --color-listing-new: #0891b2;
+  --color-listing-new-bg: #cffafe;
+
+  /* Salary text + company brand strokes (DESIGN.md). */
+  --color-salary: #059669;
+  --color-company: #0e7490;
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     These feed bg-surface, text-on-surface, etc. in light mode.
+     Required so [data-mol-mode='dark'] overrides have a light baseline to revert from. */
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #e2e8f0;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #22d3ee;
+  /* #0e7490 with white = 5.36:1 — passes AA. #0891b2 was 3.68:1 (fail). */
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #0c4a6e;
+  --color-primary-fixed: #cffafe;
+  --color-primary-fixed-dim: #0891b2;
+  --color-on-primary-fixed: #0c4a6e;
+  --color-on-primary-fixed-variant: #0e7490;
+  --color-secondary: #0c1a2e;
+  --color-secondary-container: #e2e8f0;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0f172a;
+  --color-secondary-fixed: #e2e8f0;
+  --color-secondary-fixed-dim: #475569;
+  --color-on-secondary-fixed: #0f172a;
+  --color-on-secondary-fixed-variant: #1e293b;
+  /* #047857 with white = 5.48:1 — passes AA. #059669 was 3.77:1 (fail). */
+  --color-tertiary: #047857;
+  --color-tertiary-container: #d1fae5;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #064e3b;
+  --color-tertiary-fixed: #d1fae5;
+  --color-tertiary-fixed-dim: #10b981;
+  --color-on-tertiary-fixed: #064e3b;
+  --color-on-tertiary-fixed-variant: #065f46;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #94a3b8;
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0e7490;
+}
+
+/* Dark mode — cool-neutral Conduit dark (career terminal).
+   Productivity tone: cool-navy near-black surfaces, brand cyan at
+   the brand stop (#0e7490) for badges and surface accents.
+   Secondary shifted to dark navy (#1c3a5e) so hero gradient
+   `from-primary to-secondary` keeps white text in both modes (was light
+   slate #94a3b8 = 2.56:1 with white, fail).
+   `--color-on-primary` STAYS white so cyan CTA buttons keep
+   their light-on-cyan character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #164e63;
+  --mol-color-primary-dark: #22d3ee;
+  --mol-color-secondary: #1c3a5e;
+
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  --mol-color-background: #08111f;
+  --mol-color-background-secondary: #0d182b;
+  --mol-color-background-tertiary: #14223c;
+  --mol-color-surface: #101c33;
+  --mol-color-border: #1c2d4a;
+
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #b3bccd;
+  --mol-color-text-tertiary: #6b7793;
+  --mol-color-text-inverse: #08111f;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on cyan: `on-primary` stays white. */
+  --color-background: #08111f;
+  --color-on-background: #e2e8f0;
+  --color-surface: #08111f;
+  --color-surface-bright: #1a2740;
+  --color-surface-dim: #040810;
+  --color-surface-container-lowest: #02050c;
+  --color-surface-container-low: #0c172a;
+  --color-surface-container: #101c33;
+  --color-surface-container-high: #1a2740;
+  --color-surface-container-highest: #24345a;
+  --color-surface-variant: #1a2740;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #b3bccd;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #101c33;
+  --color-inverse-primary: #0891b2;
+  /* #0e7490 with white = 5.36:1 — passes AA. #0891b2 was 3.68:1. */
+  --color-primary: #0e7490;
+  --color-primary-container: #164e63;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #cffafe;
+  /* #1c3a5e with white = 11.56:1 — hero gradient safe (was #94a3b8 = 2.56:1, fail). */
+  --color-secondary: #1c3a5e;
+  --color-secondary-container: #2a3553;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #e2e8f0;
+  --color-tertiary: #6ee7b7;
+  --color-tertiary-container: #065f46;
+  /* #022c22 on #6ee7b7 = 9.94:1 — passes AA. White was 1.52:1 (fail). */
+  --color-on-tertiary: #022c22;
+  --color-on-tertiary-container: #d1fae5;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  /* #2c0000 on #f87171 = 6.86:1 — passes AA. White was 2.77:1. */
+  --color-on-error: #2c0000;
+  --color-on-error-container: #ffdad6;
+  /* #7a8ba4 on surface #08111f = 5.45:1 — passes 3:1 border threshold. Was 3.32:1. */
+  --color-outline: #7a8ba4;
+  --color-outline-variant: #1c2d4a;
+  --color-surface-tint: #22d3ee;
+
+  --color-status-applied: #818cf8;
+  --color-status-applied-bg: #1e1b4b;
+  --color-status-reviewing: #22d3ee;
+  --color-status-reviewing-bg: #164e63;
+  --color-status-interviewing: #fbbf24;
+  --color-status-interviewing-bg: #451a03;
+  --color-status-offered: #34d399;
+  --color-status-offered-bg: #064e3b;
+  --color-status-rejected: #f87171;
+  --color-status-rejected-bg: #450a0a;
+  --color-status-closed: #9ca3af;
+  --color-status-closed-bg: #1f2937;
+
+  --color-listing-active: #34d399;
+  --color-listing-active-bg: #064e3b;
+  --color-listing-urgent: #fbbf24;
+  --color-listing-urgent-bg: #451a03;
+  --color-listing-new: #22d3ee;
+  --color-listing-new-bg: #164e63;
+
+  --color-salary: #34d399;
+  --color-company: #67e8f9;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

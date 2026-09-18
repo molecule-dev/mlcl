@@ -1,0 +1,7 @@
+polish-complete: true
+polished-at: 2026-04-28
+recipe: prompts/polish-app.md
+classmap-coverage: 99%
+bespoke-components: 7
+typecheck: clean
+rules-compliance: clean

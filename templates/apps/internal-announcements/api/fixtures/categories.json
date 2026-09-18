@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ch-company",
+    "slug": "company",
+    "name": "company",
+    "description": "Town halls, exec memos, and the announcements every team needs to read.",
+    "color": "#4f46e5",
+    "icon": "apartment",
+    "members": 412,
+    "unread": 3
+  },
+  {
+    "id": "ch-product",
+    "slug": "product",
+    "name": "product",
+    "description": "Launch notes, RFC summaries, and shipping calendar updates.",
+    "color": "#0e7490",
+    "icon": "lightbulb",
+    "members": 168,
+    "unread": 1
+  },
+  {
+    "id": "ch-people",
+    "slug": "people",
+    "name": "people",
+    "description": "New hires, role changes, benefits updates, and people-ops memos.",
+    "color": "#7c3aed",
+    "icon": "volunteer_activism",
+    "members": 412,
+    "unread": 0
+  },
+  {
+    "id": "ch-security",
+    "slug": "security",
+    "name": "security",
+    "description": "Required reading: security incidents, policy updates, training reminders.",
+    "color": "#b91c1c",
+    "icon": "shield",
+    "members": 412,
+    "unread": 2
+  },
+  {
+    "id": "ch-culture",
+    "slug": "culture",
+    "name": "culture",
+    "description": "Wins, anniversaries, off-sites — the room where we cheer.",
+    "color": "#b45309",
+    "icon": "celebration",
+    "members": 412,
+    "unread": 0
+  },
+  {
+    "id": "ch-remote",
+    "slug": "remote",
+    "name": "remote",
+    "description": "Distributed-team rituals, time-zone tips, in-person meetup planning.",
+    "color": "#047857",
+    "icon": "home_work",
+    "members": 264,
+    "unread": 0
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "dashboard_stats": {
+    "open_jobs":             6,
+    "active_candidates":   142,
+    "interviews_this_week":  9,
+    "hires_mtd":             2,
+    "funnel": [
+      { "stage": "Sourced",   "count": 124, "color": "#8b5cf6" },
+      { "stage": "Screening", "count":  62, "color": "#6366f1" },
+      { "stage": "Interview", "count":  28, "color": "#0d9488" },
+      { "stage": "Offer",     "count":   4, "color": "#d97706" },
+      { "stage": "Hired",     "count":   2, "color": "#16a34a" }
+    ]
+  },
+  "full": {
+    "kpi": [
+      { "label": "Open jobs",          "value":  "6"   },
+      { "label": "Time to hire (avg)", "value": "32d", "sub": "down 8d MoM" },
+      { "label": "Offers extended",    "value":  "8",  "sub": "+3 vs last month" },
+      { "label": "Acceptance rate",    "value": "82%"  }
+    ],
+    "funnel_conversion": [
+      { "from": "Sourced",   "to": "Screening", "rate_pct": 50 },
+      { "from": "Screening", "to": "Interview", "rate_pct": 45 },
+      { "from": "Interview", "to": "Offer",     "rate_pct": 14 },
+      { "from": "Offer",     "to": "Hired",     "rate_pct": 82 }
+    ],
+    "time_in_stage": [
+      { "stage": "Sourced",   "days":  4.2 },
+      { "stage": "Screening", "days":  6.8 },
+      { "stage": "Interview", "days": 11.4 },
+      { "stage": "Offer",     "days":  4.1 }
+    ],
+    "source_breakdown": [
+      { "source": "LinkedIn",    "count": 58, "color": "#0ea5e9" },
+      { "source": "Referral",    "count": 38, "color": "#16a34a" },
+      { "source": "Greenhouse",  "count": 22, "color": "#6366f1" },
+      { "source": "Cold outreach","count": 18, "color": "#8b5cf6" },
+      { "source": "GitHub Jobs", "count": 12, "color": "#374151" },
+      { "source": "AngelList",   "count":  6, "color": "#ec4899" }
+    ],
+    "by_department": [
+      { "department": "Engineering", "hires": 4 },
+      { "department": "Product",     "hires": 1 },
+      { "department": "Design",      "hires": 1 },
+      { "department": "GTM",         "hires": 0 },
+      { "department": "Customer",    "hires": 0 },
+      { "department": "Data",        "hires": 0 }
+    ],
+    "top_jobs": [
+      { "title": "Senior Backend Engineer", "applicants": 42, "days_open": 18 },
+      { "title": "Staff Frontend Engineer", "applicants": 38, "days_open": 24 },
+      { "title": "Data Scientist II",       "applicants": 31, "days_open": 21 },
+      { "title": "Product Designer (Senior)","applicants": 27, "days_open": 12 }
+    ],
+    "fairness": [
+      { "stage": "Screening", "pass_rate_majority_pct": 48, "pass_rate_underrep_pct": 51 },
+      { "stage": "Interview", "pass_rate_majority_pct": 14, "pass_rate_underrep_pct": 12 },
+      { "stage": "Offer",     "pass_rate_majority_pct": 82, "pass_rate_underrep_pct": 80 }
+    ]
+  }
+}

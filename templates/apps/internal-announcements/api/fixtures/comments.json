@@ -1,0 +1,42 @@
+[
+  {
+    "id": "c-1",
+    "announcement_id": "a-1",
+    "parent_id": null,
+    "author_id": "u-4",
+    "body": "Thanks for putting this together — the clarity on the storage SLA commitment is the part Studio Ops will lean on most. Happy to demo the new dashboards in our Tuesday eng-leads sync.",
+    "edited_at": null,
+    "created_at": "2026-04-30T07:14:00Z",
+    "updated_at": "2026-04-30T07:14:00Z"
+  },
+  {
+    "id": "c-1-1",
+    "announcement_id": "a-1",
+    "parent_id": "c-1",
+    "author_id": "u-1",
+    "body": "Yes please — let's slot it in for 30 min. I'll bring the Q3 forecast.",
+    "edited_at": null,
+    "created_at": "2026-04-30T08:00:00Z",
+    "updated_at": "2026-04-30T08:00:00Z"
+  },
+  {
+    "id": "c-2",
+    "announcement_id": "a-1",
+    "parent_id": null,
+    "author_id": "u-5",
+    "body": "Can we publish the metric definitions in the wiki this week? The 'active workspace' definition is still being interpreted differently by Sales and Eng, and I'd rather lock it before October planning.",
+    "edited_at": null,
+    "created_at": "2026-04-30T04:00:00Z",
+    "updated_at": "2026-04-30T04:00:00Z"
+  },
+  {
+    "id": "c-3",
+    "announcement_id": "a-1",
+    "parent_id": null,
+    "author_id": "u-2",
+    "body": "Reminder: the security commitment listed here pairs with the Q3 awareness module — please complete it by Friday so we can close that thread.",
+    "edited_at": null,
+    "created_at": "2026-04-30T03:00:00Z",
+    "updated_at": "2026-04-30T03:00:00Z"
+  }
+]

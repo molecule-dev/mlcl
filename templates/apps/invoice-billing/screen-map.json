@@ -1,0 +1,165 @@
+{
+  "app": "invoice-billing",
+  "designProjectId": "7548649029882477941",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-landing.html",
+      "designScreenId": "b0c4c3c5bd094253aa6495c661b9f25a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-login.html",
+      "designScreenId": "316151313c684bbb9b42cf0ef5094521"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-login.html",
+      "derivationNotes": "Same centered card layout as Login but with First Name, Last Name, Email, Password, Confirm Password fields. Button text: 'Create Account'. Bottom link: 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-login.html",
+      "derivationNotes": "Same centered card as Login but email-only field. Heading: 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button: 'Send Reset Link'. Bottom link: 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-login.html",
+      "derivationNotes": "Same centered card as Login but with New Password and Confirm Password fields only. Heading: 'Set New Password'. Button: 'Reset Password'. Bottom link: 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-dashboard.html",
+      "designScreenId": "779fd609bc194bd391da340c13e0db04"
+    },
+    {
+      "name": "Invoices",
+      "templateFile": "app/pages/Invoices.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/invoices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-invoices.html",
+      "designScreenId": "f8aafc8c312c403c9c77e72640f7955d"
+    },
+    {
+      "name": "InvoiceEditor",
+      "templateFile": "app/pages/InvoiceEditor.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/invoices/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-invoice-editor.html",
+      "designScreenId": "b96c45247ef04ceba752e7bd73c6d9e9"
+    },
+    {
+      "name": "InvoiceDetail",
+      "templateFile": "app/pages/InvoiceDetail.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/invoices/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-invoice-billing-invoice-detail.html",
+      "designScreenId": "6fb234466cc14e5792f49ab2f7ec3b35"
+    },
+    {
+      "name": "Clients",
+      "templateFile": "app/pages/Clients.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/clients",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-invoices.html",
+      "derivationNotes": "Use same sidebar+topbar+filter-bar+data-table structure as Invoices. Summary row with '124 Clients', '$12,840 Outstanding' coral, '$287k Lifetime Revenue' teal. Grid of client cards (3 cols): avatar initials, client name, company, email teal link, outstanding coral right-aligned tabular-nums bold, invoice count badge, last activity relative time."
+    },
+    {
+      "name": "ClientDetail",
+      "templateFile": "app/pages/ClientDetail.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/clients/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-invoice-detail.html",
+      "derivationNotes": "Use same layout shell as InvoiceDetail. Header card shows client name xl, company, email teal link, outstanding balance coral 2xl tabular-nums. Left 2/3: Recent Invoices table (Invoice #, Date, Amount, Status). Right 1/3: Contact info card, Payment methods card, Activity timeline card."
+    },
+    {
+      "name": "Payments",
+      "templateFile": "app/pages/Payments.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/payments",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-invoices.html",
+      "derivationNotes": "Use same list/table shell. Summary cards: Total Collected (green), Pending (amber), Failed (red). Payment rows: 56px height with payment method icon (32px, 4px radius, card/bank/PayPal), Date, Invoice link, Client, Reference (mono xs), Amount (green, tabular-nums, right-aligned), Status dot (green/yellow/red 6px)."
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-dashboard.html",
+      "derivationNotes": "Use same sidebar shell. Top bar has period selector pill group (Monthly/Quarterly/Annual) and Export outline button. Grid of chart cards: Revenue Overview (line chart 300px), Invoice Aging (stacked bar), Top Clients (leaderboard table), Tax Summary (collected vs owed bars), Payment Methods breakdown (donut), Cash Flow trend (area chart). Chart palette uses Series 1-8 from DESIGN.md. Report Chart Card 12px corners shadow-md padding 24px."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-dashboard.html",
+      "derivationNotes": "Renders inside the same RemitLayout shell. Single max-w-3xl column: heading with unread count + 'Mark all read' pill button, then a list of notification rows (icon disc keyed to event kind, title, message, amount in tabular-nums, relative time; unread rows tinted primary-light). Reached from the topbar bell icon."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/RemitLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-invoice-billing-dashboard.html",
+      "derivationNotes": "Use same sidebar shell. Page: left settings nav (Profile, Business Info, Branding, Payment Methods, Tax Rates, Team, Notifications, Billing); right content shows Profile section first with logo upload, form fields, Save Changes coral button. Tax Rates sub-page shows editable table of tax rates."
+    }
+  ]
+}

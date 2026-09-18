@@ -1,0 +1,10 @@
+Polish complete: 2026-04-28T18:08:00Z
+Pipeline: polish-app.md (paused mid-batch on 2026-04-28, resumed same day)
+Brand: Nosh — teal primary (#0d9488) + warm orange accent (#f97316), Inter + Material Symbols Outlined
+Sweep 1 chrome: AppHeader, AppFooter, RootErrorBoundary
+Bespoke components: 9 (NoshSidebar, NoshTopBar, NoshAppShell, NoshAuthShell, NoshTextField, CalorieRingCard, MacrosCard, MealSection, StreakCard)
+Pages rewritten: 16 (Landing, NotFound, Login, Signup, ForgotPassword, ResetPassword, Today, LogFood, FoodDetail, Progress, Goals, Settings, Recipes, RecipeDetail, WeightTracking, Onboarding)
+Screen-map coverage: clean
+ClassMap coverage: 98.7%
+Typecheck: 0 errors (npx tsc --noEmit from app/)
+Compliance: clean (check-rules-compliance.mjs)

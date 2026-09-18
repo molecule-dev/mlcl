@@ -1,0 +1,139 @@
+{
+  "app": "language-learning",
+  "designProjectId": "6843149239235827492",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-language-learning-landing.html",
+      "designScreenId": "73ce0c87104b4654ae4e8be767032d83"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-language-learning-login.html",
+      "designScreenId": "9ef4d54c130e42a08c3e6beb54039c01"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-language-learning-login.html",
+      "derivationNotes": "Same split-screen layout as Login (purple gradient left, white right). Right form adds First Name, Last Name, Email, Password, Confirm Password, and a language-selection hint. Header 'Join Parlance'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Remember me, no Forgot password link, no SSO."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-language-learning-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has only Email field. Header 'Reset your password', subtext 'Enter your email to receive a reset link'. Button text 'Send reset link'. Bottom link 'Back to Sign In'. No password field, no Remember me, no SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-language-learning-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has New Password and Confirm Password fields. Header 'Set new password'. Button text 'Reset password'. Bottom link 'Back to Sign In'. No email field, no SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-dashboard.html",
+      "designScreenId": "07f976a066764db5933478785077215a"
+    },
+    {
+      "name": "Lessons",
+      "templateFile": "app/pages/Lessons.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/lessons",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-lessons.html",
+      "designScreenId": "bbb09bf8c5bd4e1ab4dc31a1b895f8be"
+    },
+    {
+      "name": "LessonDetail",
+      "templateFile": "app/pages/LessonDetail.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/lessons/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-lesson-detail.html",
+      "designScreenId": "d26f9c34469646bd88ec8102f27f448f"
+    },
+    {
+      "name": "Vocabulary",
+      "templateFile": "app/pages/Vocabulary.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/vocabulary",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-vocabulary.html",
+      "designScreenId": "a4f4434341d84697bcd5ebe7c8e7bd3f"
+    },
+    {
+      "name": "Practice",
+      "templateFile": "app/pages/Practice.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/practice",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-practice.html",
+      "designScreenId": "3c623c630c8f47fcaa607cbe787f01ba"
+    },
+    {
+      "name": "Leaderboard",
+      "templateFile": "app/pages/Leaderboard.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/leaderboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-leaderboard.html",
+      "designScreenId": "d3170476d045439cb6262a7c47bf1be3"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-profile.html",
+      "designScreenId": "d27ff7b0ab934f0dbe75cb9e13489219"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/LanguageLearningLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-language-learning-settings.html",
+      "designScreenId": "27498236e7214737a0b55d97b7142fc5"
+    }
+  ]
+}

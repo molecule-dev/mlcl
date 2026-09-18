@@ -1,0 +1,2 @@
+# travel-booking has no private/helper-only handlers — every entry in
+# api/src/handlers/ exports a real Express router mounted at /api/<base>.

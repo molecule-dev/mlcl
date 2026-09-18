@@ -1,0 +1,218 @@
+:root {
+  --color-primary: #0d9488;
+  --color-primary-light: #14b8a6;
+  --color-primary-dark: #0f766e;
+  --color-secondary: #e07052;
+  --color-secondary-light: #eb8a70;
+  --color-secondary-dark: #c85a3e;
+  --color-accent: #e07052;
+
+  --color-background: #f8faf9;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f4;
+  --color-text: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-star: #111827;
+
+  --color-instant-book: #7c3aed;
+  --color-instant-book-light: #ede9fe;
+  --color-superhost: #d97706;
+  --color-superhost-light: #fef3c7;
+  --color-deal: #dc2626;
+  --color-deal-light: #fee2e2;
+
+  --font-family:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading:
+    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-tabular: 'Inter', 'Tabular Nums', -apple-system, sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 8px 28px rgba(15, 23, 42, 0.12);
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #0d9488;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #e07052;
+  --mol-color-background: #f8faf9;
+  --mol-color-background-secondary: #f1f5f4;
+  --mol-color-background-tertiary: #e6f0ee;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f1f5f4;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #4b5563;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #0d9488;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #3b82f6;
+
+  /* Stitch / Material-3 tokens — light mode defaults */
+  --color-on-primary: #111827; /* dark on teal — white was 3.74:1 (fail); #111827 = 4.74:1 */
+  --color-on-secondary: #111827; /* dark on coral */
+  --color-on-tertiary: #111827; /* dark on amber */
+  --color-on-error: #ffffff; /* white on light-mode red #dc2626 = 4.83:1 (dark maxes 4.35 — white wins) */
+  --color-primary-container: #ccfbf1;
+  --color-on-primary-container: #0a3d38;
+  --color-secondary-container: #fde8e4;
+  --color-on-secondary-container: #4a1a10;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary-container: #4a2e00;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #5a0000;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8faf9;
+  --color-surface-container: #f1f5f4;
+  --color-surface-container-high: #e6f0ee;
+  --color-surface-container-highest: #d8e8e5;
+  --color-surface-variant: #e6f0ee;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #374151;
+  --color-on-background: #111827;
+  --color-inverse-surface: #111827;
+  --color-inverse-on-surface: #f8faf9;
+  --color-inverse-primary: #99f6e4;
+  --color-outline: #737a77; /* ≥3:1 vs surface white; #737a77 = 4.19:1 on #f8faf9 */
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #0d9488;
+}
+
+/* The molecule theme bond toggles `data-mol-mode` (and `data-mol-theme`)
+ * on <html>, so dark-mode rules need to react to those attributes — not
+ * the legacy `data-theme` selector. */
+/* Dark mode overrides — warm hospitality dark.
+   Warm-neutral near-black chassis (hospitality/travel brand — warm,
+   inviting, never cold corporate). Brand teal is kept at the brand
+   stop (#0d9488) so CTA buttons keep their light-on-teal character;
+   focus border + secondary text lift to brighter teal for legibility.
+   Coral accent + host/deal semantics preserved. `--color-text-inverse`
+   stays white (primary CTAs read light-on-teal in both modes). */
+[data-mol-mode='dark'] {
+  --color-primary: #0d9488;
+  --color-primary-light: #134e4a;
+  --color-primary-dark: #0f766e;
+  --color-secondary: #f0917d;
+  --color-secondary-light: #f7ad9d;
+  --color-secondary-dark: #e07052;
+  --color-accent: #f0917d;
+
+  --color-background: #100e0c;
+  --color-surface: #181614;
+  --color-surface-hover: #20201d;
+  --color-text: #f5f4f2;
+  --color-text-secondary: #c4c2bd;
+  --color-text-muted: #8a8783;
+  --color-border: #2a2826;
+
+  --color-error: #f87171;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-star: #fbbf24;
+
+  /* Marketplace badge semantics — brightened, low-alpha backgrounds for dark */
+  --color-instant-book: #a78bfa;
+  --color-instant-book-light: #2e1f56;
+  --color-superhost: #fbbf24;
+  --color-superhost-light: #422006;
+  --color-deal: #f87171;
+  --color-deal-light: #4a1414;
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #0d9488;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #f0917d;
+  --mol-color-background: #100e0c;
+  --mol-color-background-secondary: #181614;
+  --mol-color-background-tertiary: #20201d;
+  --mol-color-surface: #100e0c;
+  --mol-color-surface-secondary: #181614;
+  --mol-color-input-background: #0b0a08;
+  --mol-color-text: #f5f4f2;
+  --mol-color-text-secondary: #c4c2bd;
+  --mol-color-text-tertiary: #8a8783;
+  --mol-color-text-inverse: #100e0c;
+  --mol-color-border: #2a2826;
+  --mol-color-border-secondary: #3a3734;
+  --mol-color-border-focus: #14b8a6;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons use dark text on teal: `on-primary` is near-black in both modes. */
+  --color-on-primary: #100e0c; /* dark on teal — white was 3.74:1 (fail); #100e0c = 5.14:1 */
+  --color-on-background: #f5f4f2;
+  --color-on-surface: #f5f4f2;
+  --color-on-surface-variant: #c4c2bd;
+  --color-surface-bright: #20201d;
+  --color-surface-dim: #080706;
+  --color-surface-container-lowest: #050403;
+  --color-surface-container-low: #131210;
+  --color-surface-container: #181614;
+  --color-surface-container-high: #20201d;
+  --color-surface-container-highest: #2a2826;
+  --color-surface-variant: #20201d;
+  --color-inverse-surface: #f5f4f2;
+  --color-inverse-on-surface: #100e0c;
+  --color-inverse-primary: #0d9488;
+  --color-primary-container: #134e4a;
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary-container: #5c2d22;
+  --color-on-secondary: #100e0c;
+  --color-on-secondary-container: #fde8e4;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #422006;
+  --color-on-tertiary: #100e0c;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6b68; /* lifted from #5a5755 — was 2.52:1 (fail ≥3:1); #6e6b68 = 3.41:1 */
+  --color-outline-variant: #2a2826;
+  --color-surface-tint: #0d9488;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.65);
+}

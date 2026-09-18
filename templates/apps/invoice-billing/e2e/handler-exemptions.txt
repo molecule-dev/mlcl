@@ -1,0 +1,4 @@
+# Handler files exempt from gate 3.
+# These are shared internal modules that don't expose a top-level `/api/<base>` mount.
+_decorate    # internal row-decoration helpers shared across handlers (no HTTP surface)
+_seed        # private demo-seed module called from server bootstrap (no HTTP route)

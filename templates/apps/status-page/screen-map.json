@@ -1,0 +1,200 @@
+{
+  "app": "status-page",
+  "designProjectId": "17634211239350142943",
+  "screens": [
+    {
+      "name": "PublicStatus",
+      "templateFile": "app/pages/PublicStatus.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-status-page-public-status.html",
+      "designScreenId": "f555cf7d5d7b43ff8d5d86918ce40d11"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-status-page-login.html",
+      "designScreenId": "0acee176ab3a4e9bac9fd8a2973206af"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-status-page-login.html",
+      "derivationNotes": "Same centered 440px card on dark bg with scan-line texture as Login. Card adds First Name, Last Name, Email, Password, Confirm Password, Company name (for workspace) fields. Heading changes to 'Request access to Vigil'. Subtext 'Every second, accounted for'. Primary button 'Request access' emerald solid. Bottom link 'Already have an account? Sign in' emerald. No Forgot Password link. Keep SSO buttons (Google, GitHub, SAML) and the status pill footer."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-status-page-login.html",
+      "derivationNotes": "Same centered 440px card on dark bg with scan-line texture as Login. Card shows only Email input. Heading 'Reset your password'. Subtext 'Enter your email and we will send a reset link'. Primary button 'Send reset link' emerald solid. Bottom link 'Back to sign in' emerald. No password, no SSO, no remember-me. Keep the status pill footer."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-status-page-login.html",
+      "derivationNotes": "Same centered 440px card on dark bg with scan-line texture as Login. Card shows New Password and Confirm Password fields with eye toggles. Heading 'Set a new password'. Subtext 'Choose a password of at least 12 characters'. Primary button 'Reset password' emerald solid. Bottom link 'Back to sign in' emerald. No email, no SSO. Keep the status pill footer."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-dashboard.html",
+      "designScreenId": "396252053b7747deb397b4ee380dfe4e"
+    },
+    {
+      "name": "IncidentList",
+      "templateFile": "app/pages/IncidentList.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/incidents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-incident-list.html",
+      "designScreenId": "f33139560dea46caa4bfb66293be4acb"
+    },
+    {
+      "name": "IncidentDetail",
+      "templateFile": "app/pages/IncidentDetail.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/incidents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-incident-detail.html",
+      "designScreenId": "c5529b8c68a940308a15674604442b9a"
+    },
+    {
+      "name": "Components",
+      "templateFile": "app/pages/Components.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/components",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-components.html",
+      "designScreenId": "601f902788d147a097b6a2786b4e7ee2"
+    },
+    {
+      "name": "Subscribers",
+      "templateFile": "app/pages/Subscribers.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/subscribers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-subscribers.html",
+      "designScreenId": "e4edb1c377af4c4eb05ccded368a43b1"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-settings.html",
+      "designScreenId": "a43fbf9a87f64a6a82d8d8e0f8370ab4"
+    },
+    {
+      "name": "IncidentForm",
+      "templateFile": "app/pages/IncidentForm.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/incidents/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-incident-form.html",
+      "designScreenId": "15e9d246cb33403fa836b1e9853741a1"
+    },
+    {
+      "name": "ComponentDetail",
+      "templateFile": "app/pages/ComponentDetail.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/components/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-component-detail.html",
+      "designScreenId": "8e673f2555634b43a856f301d94ec0c3"
+    },
+    {
+      "name": "MaintenanceList",
+      "templateFile": "app/pages/MaintenanceList.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/maintenance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-maintenance-list.html",
+      "designScreenId": "27727b900a3e49e4800a644dd7a00c26"
+    },
+    {
+      "name": "MaintenanceDetail",
+      "templateFile": "app/pages/MaintenanceDetail.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/maintenance/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-status-page-incident-detail.html",
+      "derivationNotes": "Same StatusPageLayout shell, breadcrumb, header, and timeline structure as IncidentDetail. Replace severity badge with a maintenance pill (indigo bg, indigo text, 'SCHEDULED MAINTENANCE'). Replace severity-colored left border with maintenance indigo. Header subtitle shows scheduled window 'YYYY-MM-DD HH:MM UTC -> HH:MM UTC' in mono with a duration pill. Affected components row identical. Timeline updates use the maintenance status chain (Scheduled / In Progress / Verifying / Completed) instead of incident chain (Investigating / Identified / Monitoring / Resolved); status dot colors map: Scheduled=maintenance indigo, In Progress=degraded amber, Verifying=accent indigo, Completed=operational emerald. No 'Post update' draft area when status is Completed. Right rail stays the same metadata sidebar but replaces 'Severity' with 'Type: Planned maintenance' and 'Created by' with 'Scheduled by'. All other tokens, borders, fonts, badges identical."
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-profile.html",
+      "designScreenId": "f6e23d7d641e417c9001d494a28ef589"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-notifications.html",
+      "designScreenId": "d5cd2a92f9f24ff192ad96ef805d4ea5"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-team.html",
+      "designScreenId": "b63ee07703934d688d911c9bc19d7095"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/StatusPageLayout.tsx"],
+      "route": "/audit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-status-page-audit-log.html",
+      "designScreenId": "77eab24223bb4578819a7506d327c8f0"
+    }
+  ]
+}

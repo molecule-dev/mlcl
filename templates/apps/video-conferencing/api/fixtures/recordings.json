@@ -1,0 +1,8 @@
+[
+  { "id": "r1", "title": "Pricing kickoff with Acme Corp", "host_name": "Sarah Kim", "recorded_at_label": "Yesterday", "duration_minutes": 42, "shared_with_count": 8 },
+  { "id": "r2", "title": "Q3 retro & planning", "host_name": "David Park", "recorded_at_label": "2 days ago", "duration_minutes": 58, "shared_with_count": 12 },
+  { "id": "r3", "title": "Design review — Mobile shell", "host_name": "Maya Reyes", "recorded_at_label": "3 days ago", "duration_minutes": 31, "shared_with_count": 5 },
+  { "id": "r4", "title": "Customer onboarding walkthrough", "host_name": "Jose Lopez", "recorded_at_label": "4 days ago", "duration_minutes": 27, "shared_with_count": 3 },
+  { "id": "r5", "title": "Weekly all-hands", "host_name": "Sarah Kim", "recorded_at_label": "1 week ago", "duration_minutes": 64, "shared_with_count": 42 },
+  { "id": "r6", "title": "Engineering office hours", "host_name": "David Park", "recorded_at_label": "1 week ago", "duration_minutes": 35, "shared_with_count": 6 }
+]

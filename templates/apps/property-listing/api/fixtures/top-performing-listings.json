@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuCzY9u25sxuscvrmG9BEwhDcdMm_7gAV41dtLtITRlhMzrY0YWOKeHHhbrHA8PQcueAOWuwZoUYKOMwiiJFrjfrzgwKnTkb63XqU0xCk5R30OnG2Uke2pXadC82oNFVkiIBtpr5HnIMf8u97SRQLa4tvpWXvqRnF9tGfSKHyPc92N1ClOetYtY4yzT5zg5NO1ZU6yQmuJL0aFaSgd1lrFSqurlMlFev8rqgoCRbTZKhLRjd5Cozk29CWx9KMcCcnGgqbI1htUlDhzPp",
+    "imageAlt": "ultra-modern glass villa with cantilevered architecture at twilight reflecting in infinity pool",
+    "name": "The Obsidian Ridge",
+    "address": "142 Sky Terrace, Aspen CO",
+    "views": "12,402",
+    "leads": "48",
+    "status": "Active",
+    "statusBgClass": "bg-primary-fixed",
+    "statusTextClass": "text-on-primary-fixed-variant"
+  },
+  {
+    "id": "2",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDZYI0OASvjEqox7TrwzCAbVBX1PvHUhrkObDGsoD7DBBE7x6UmiuGFtTevDeivnLZxKSoWg3uoKAH15LCO_GX5ZfATbVIxr7CEpiNJFya-jZ6dTXNb1jjCfoARTucz3lyQXbXnUHaBP6iZkHfyQOCfZBDpAEXNi6FSaVKUHtzA-yTBw8ZbNAAs6UGhGPMJeZ_hDA3p70gX3qIjp-NjnzQ2gKt23sDdotMJzGNK6_Zd5q1v37x__MWixAwp8aiArfo61gQLD3vN3V47",
+    "imageAlt": "minimalist white architectural estate with clean lines and geometric concrete pillars in bright daylight",
+    "name": "Azure Waterfront Estate",
+    "address": "902 Harbor Way, Miami FL",
+    "views": "8,110",
+    "leads": "32",
+    "status": "Pending",
+    "statusBgClass": "bg-secondary-container",
+    "statusTextClass": "text-on-secondary-fixed-variant"
+  },
+  {
+    "id": "3",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuDj8QcHRBPQAYVIzr8Chy8hn0z1-BcSB7WHkiIK8YmTB9CDeAJaczJtaUkOA7sVBJXNshEy3EJbOVb5qz2C5TREIrMnTFrCAY_QnRZNEN3px0xJNj4DUHSMfZ-eI7qQd31c4Ep1-AWbKvA3FRgQehgjs5MHRS4IN8iJXgwbfjHKkajPLbnr52zi1jM54i4h2LgqEdfQJVwEip-01JwII6JWQ8KVCFoX2sFq2CdMMD2zHvuiWIhbYSB6KaQLUmGG592KLcJAUqNtNkfY",
+    "imageAlt": "monolithic luxury loft with exposed black steel beams and floor-to-ceiling windows overlooking a rainy cityscape",
+    "name": "Steel & Glass Loft",
+    "address": "Penthouse B, Tribeca NY",
+    "views": "4,950",
+    "leads": "14",
+    "status": "Sold",
+    "statusBgClass": "bg-surface-container-high",
+    "statusTextClass": "text-on-surface-variant"
+  }
+]

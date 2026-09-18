@@ -1,0 +1,12 @@
+{
+  "dashboard/overview": {
+    "total_rent_collected_cents": 47300000,
+    "rent_change_30d_cents": 1240000,
+    "rent_history_12mo": [42000000, 42500000, 43000000, 42800000, 44000000, 44500000, 45000000, 45500000, 46200000, 47000000, 47500000, 47300000],
+    "occupied_units": 132,
+    "total_units": 148,
+    "vacant_units": 16,
+    "overdue_count": 4,
+    "lease_expiring_count": 9
+  }
+}

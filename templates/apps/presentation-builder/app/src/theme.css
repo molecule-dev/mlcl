@@ -1,0 +1,266 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Overture brand — drives Tailwind's --color-primary chain via index.css. */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #8b5cf6;
+  --mol-color-primary-dark: #6d28d9;
+  --mol-color-secondary: #ec4899;
+  --mol-color-secondary-light: #f472b6;
+  --mol-color-secondary-dark: #db2777;
+  --mol-color-success: #06b6d4;
+  --mol-color-success-light: #cffafe;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #06b6d4;
+  --mol-color-info-light: #cffafe;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #636779; /* #9ca3af was 2.37:1 vs light bg (fail ≥4.5:1); #636779 = 5.22:1 */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-background: #faf5ff;
+  --mol-color-background-secondary: #f3eaff;
+  --mol-color-background-tertiary: #ede0ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f4ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e5e1f0;
+  --mol-color-border-secondary: #d6d0e8;
+  --mol-color-border-focus: #7c3aed;
+
+  /* Slide editor palette — kept for backwards compat with legacy Slide widgets. */
+  --slides-primary: #7c3aed;
+  --slides-primary-hover: #6d28d9;
+  --slides-secondary: #ec4899;
+  --slides-accent: #06b6d4;
+  --slides-danger: #dc2626;
+
+  --slides-background: #faf5ff;
+  --slides-surface: #ffffff;
+  --slides-surface-elevated: #f8f4ff;
+  --slides-border: #e5e1f0;
+
+  --slides-text: #1e1b4b;
+  --slides-text-secondary: #6b7280;
+  --slides-text-muted: #9ca3af;
+
+  --slides-slide-bg: #ffffff;
+  --slides-selection: #7c3aed;
+  --slides-grid: rgba(124, 58, 237, 0.06);
+
+  --slides-toolbar-bg: #ffffff;
+  --slides-sidebar-bg: #faf5ff;
+  --slides-sidebar-width: 220px;
+
+  --slides-radius-sm: 4px;
+  --slides-radius-md: 8px;
+  --slides-radius-lg: 12px;
+
+  --slides-font-sans: 'Inter', system-ui, sans-serif;
+  --slides-font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --slides-font-size-xs: 11px;
+  --slides-font-size-sm: 13px;
+  --slides-font-size-md: 15px;
+
+  /* Slide canvas tokens — the presentation stage is intentionally dark
+     in both light and dark app modes (slides are designed on a dark stage).
+     Light mode uses a slightly warmer near-black; dark mode goes pure rich-black. */
+  --color-slide-canvas: #0f172a;
+  --color-slide-canvas-deep: #1e1b4b;
+  --color-slide-editor-bg: #1e1e2e;
+  --color-slide-text-dim: #6b7280;
+
+  /* === Material-3 / Stitch bridge tokens — light mode defaults === */
+  --color-background: #faf5ff;
+  --color-on-background: #1e1b4b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ede0ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8f4ff;
+  --color-surface-container: #f3eaff;
+  --color-surface-container-high: #ede0ff;
+  --color-surface-container-highest: #e5d8ff;
+  --color-surface-variant: #ede0ff;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #4a4560;
+  --color-inverse-surface: #2d2b45;
+  --color-inverse-on-surface: #f5f0ff;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #2d1b69;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #fce7f3;
+  --color-on-secondary: #2d0019; /* dark on pink — #ffffff was 3.53:1 (fail); #2d0019 = 5.29:1 */
+  --color-on-secondary-container: #4a0030;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #cffafe;
+  --color-on-tertiary: #002329; /* dark on cyan — #ffffff was 2.43:1 (fail); #002329 = 6.80:1 */
+  --color-on-tertiary-container: #001c22;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #4a0000;
+  --color-outline: #7c7589; /* sufficient contrast vs light surfaces ≥3:1 */
+  --color-outline-variant: #e5e1f0;
+  --color-surface-tint: #7c3aed;
+}
+
+/* Dark mode — Overture stage-ready rich-black canvas.
+   Brand violet (#7c3aed) STAYS at the brand stop so slide preview chrome
+   matches printed/exported deck. `--color-on-primary` STAYS white so
+   playbar / present-mode CTAs remain readable. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #4c1d95;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #ec4899;
+  --mol-color-secondary-light: #831843;
+  --mol-color-secondary-dark: #db2777;
+
+  --mol-color-success: #06b6d4;
+  --mol-color-success-light: #164e63;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #451a03;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #06b6d4;
+  --mol-color-info-light: #164e63;
+
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0a0a0a;
+
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #1a1a1a;
+  --mol-color-background-tertiary: #2a2a2a;
+  --mol-color-surface: #0a0a0a;
+  --mol-color-surface-secondary: #1a1a1a;
+  --mol-color-input-background: #050505;
+
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #a78bfa;
+
+  /* Stitch / Material-3 bridge — brand stop preserved, on-primary white. */
+  --color-background: #0a0a0a;
+  --color-on-background: #f5f5f5;
+  --color-surface: #1a1a1a;
+  --color-surface-bright: #2a2a2a;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #232323;
+  --color-surface-container-highest: #2d2d2d;
+  --color-surface-variant: #232323;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0a0a0a;
+  --color-inverse-primary: #7c3aed;
+  --color-primary: #7c3aed; /* brand violet — stays at brand stop */
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff; /* white on violet — readable always */
+  --color-on-primary-container: #ddd6fe;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #5a1a35;
+  --color-on-secondary: #2d0019; /* dark on pink — #ffffff was 3.53:1 (fail); #2d0019 = 5.29:1 */
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #134e4a;
+  --color-on-tertiary: #002329; /* dark on cyan — #ffffff was 2.43:1 (fail); #002329 = 6.80:1 */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* #5a5a5a was 2.52:1 vs surface (fail ≥3:1); #6e6e6e = 3.41:1 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #7c3aed;
+
+  /* Slide editor palette (legacy) */
+  --slides-primary: #7c3aed;
+  --slides-primary-hover: #8b5cf6;
+  --slides-secondary: #ec4899;
+  --slides-accent: #06b6d4;
+  --slides-danger: #f87171;
+
+  --slides-background: #0a0a0a;
+  --slides-surface: #1a1a1a;
+  --slides-surface-elevated: #232323;
+  --slides-border: #2a2a2a;
+
+  --slides-text: #f5f5f5;
+  --slides-text-secondary: #c4c4c4;
+  --slides-text-muted: #8a8a8a;
+
+  --slides-slide-bg: #1a1a1a;
+  --slides-selection: #a78bfa;
+  --slides-grid: rgba(167, 139, 250, 0.12);
+
+  --slides-toolbar-bg: #131313;
+  --slides-sidebar-bg: #0a0a0a;
+
+  /* Shadows — deeper for stage canvas */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Slide canvas tokens — go even deeper in app dark mode */
+  --color-slide-canvas: #080c14;
+  --color-slide-canvas-deep: #14112e;
+  --color-slide-editor-bg: #141420;
+  --color-slide-text-dim: #4b5563;
+}
+
+/* Per-slide enter transitions applied by the Present view (Present.tsx maps the
+   slide's stored `transition` — fade / slide / zoom — to one of these). */
+@keyframes present-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes present-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(6%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes present-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes present-flip {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(12deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0);
+  }
+}

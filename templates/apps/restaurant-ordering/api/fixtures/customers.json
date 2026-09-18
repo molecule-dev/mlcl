@@ -1,0 +1,8 @@
+[
+  { "id": "c01", "name": "Amelia Howe",     "email": "amelia@example.com", "phone": "+1 (212) 555-0184", "visits": 14, "lifetimeCents": 184000, "lastVisit": "2026-04-29", "preferredSeating": "Booth",   "vip": true },
+  { "id": "c02", "name": "Benjamin Otieno", "email": "ben.o@example.com",  "phone": "+1 (212) 555-0102", "visits": 8,  "lifetimeCents": 96000,  "lastVisit": "2026-04-26", "preferredSeating": "Window" },
+  { "id": "c03", "name": "Camille Reyes",   "email": "cam@example.com",    "phone": "+1 (212) 555-0166", "visits": 5,  "lifetimeCents": 51000,  "lastVisit": "2026-04-22" },
+  { "id": "c04", "name": "Devon Park",      "email": "devon@example.com",  "visits": 22, "lifetimeCents": 312000, "lastVisit": "2026-04-30", "vip": true, "preferredSeating": "Bar" },
+  { "id": "c05", "name": "Emiliano Costa",  "email": "em@example.com",     "visits": 3,  "lifetimeCents": 28000,  "lastVisit": "2026-04-12" },
+  { "id": "c06", "name": "Fenna Visser",    "email": "fenna@example.com",  "visits": 11, "lifetimeCents": 142000, "lastVisit": "2026-04-28", "preferredSeating": "Patio" }
+]

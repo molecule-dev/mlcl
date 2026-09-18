@@ -1,0 +1,35 @@
+/**
+ * Bookmarks endpoint — wraps `@molecule/api-resource-bookmark` request
+ * handlers for the forum.
+ *
+ * The mlcl scaffolder's router synthesizer wires Device + User but not
+ * the bookmark resource (no `Resource/Bookmark/index.ts` wrapper is
+ * generated). Mounting the canonical handler map directly under
+ * `/bookmarks` here keeps bookmark CRUD wired-up in scaffolded forum
+ * projects without depending on the synthesizer.
+ *
+ * Routes (all require an authenticated session — `verifyMiddleware()`
+ * runs at the top of router.ts):
+ *
+ *   POST   /bookmarks
+ *   GET    /bookmarks
+ *   GET    /bookmarks/folders
+ *   GET    /bookmarks/check/:resourceType/:resourceId
+ *   DELETE /bookmarks/:resourceType/:resourceId
+ *
+ * @module
+ */
+
+import { Router } from 'express'
+
+import { requestHandlerMap } from '@molecule/api-resource-bookmark'
+
+const router = Router()
+
+router.post('/', requestHandlerMap.create)
+router.get('/', requestHandlerMap.list)
+router.get('/folders', requestHandlerMap.folders)
+router.get('/check/:resourceType/:resourceId', requestHandlerMap.check)
+router.delete('/:resourceType/:resourceId', requestHandlerMap.del)
+
+export default router

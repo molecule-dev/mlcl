@@ -1,0 +1,67 @@
+{
+  "dashboard": {
+    "in_transit": 4218,
+    "in_transit_change_pct": 8.4,
+    "delivered_today": 472,
+    "delivered_today_change_pct": 12.1,
+    "exception_rate": 1.8,
+    "on_time_rate": 0.94,
+    "active_carriers": 7
+  },
+  "analytics": {
+    "on_time_rate_overall": 0.94,
+    "on_time_rate_change": 1.2,
+    "exception_rate_overall": 0.018,
+    "exception_rate_change": -0.4,
+    "avg_transit_hours": 56,
+    "total_shipments_30d": 17094,
+    "by_carrier": [
+      { "carrier": "FedEx",           "on_time_rate": 0.96, "exception_rate": 0.014, "shipments": 3192 },
+      { "carrier": "UPS",             "on_time_rate": 0.94, "exception_rate": 0.018, "shipments": 4218 },
+      { "carrier": "OnTrac",          "on_time_rate": 0.93, "exception_rate": 0.019, "shipments": 624  },
+      { "carrier": "Australia Post",  "on_time_rate": 0.92, "exception_rate": 0.022, "shipments": 218  },
+      { "carrier": "DHL",             "on_time_rate": 0.91, "exception_rate": 0.031, "shipments": 1480 },
+      { "carrier": "USPS",            "on_time_rate": 0.89, "exception_rate": 0.024, "shipments": 6840 },
+      { "carrier": "LaserShip",       "on_time_rate": 0.87, "exception_rate": 0.038, "shipments": 482  }
+    ],
+    "by_status_30d": [
+      { "status": "delivered",        "count": 14820, "pct": 0.867 },
+      { "status": "in_transit",       "count": 1840,  "pct": 0.108 },
+      { "status": "out_for_delivery", "count": 187,   "pct": 0.011 },
+      { "status": "exception",        "count": 207,   "pct": 0.012 },
+      { "status": "pending",          "count": 40,    "pct": 0.002 }
+    ],
+    "daily_volume": [
+      { "date": "2026-03-28", "volume": 612, "on_time_volume": 580 },
+      { "date": "2026-03-29", "volume": 524, "on_time_volume": 498 },
+      { "date": "2026-03-30", "volume": 628, "on_time_volume": 590 },
+      { "date": "2026-03-31", "volume": 614, "on_time_volume": 580 },
+      { "date": "2026-04-01", "volume": 642, "on_time_volume": 612 },
+      { "date": "2026-04-02", "volume": 598, "on_time_volume": 564 },
+      { "date": "2026-04-03", "volume": 504, "on_time_volume": 478 },
+      { "date": "2026-04-04", "volume": 412, "on_time_volume": 392 },
+      { "date": "2026-04-05", "volume": 378, "on_time_volume": 358 },
+      { "date": "2026-04-06", "volume": 624, "on_time_volume": 590 },
+      { "date": "2026-04-07", "volume": 642, "on_time_volume": 614 },
+      { "date": "2026-04-08", "volume": 658, "on_time_volume": 626 },
+      { "date": "2026-04-09", "volume": 614, "on_time_volume": 580 },
+      { "date": "2026-04-10", "volume": 524, "on_time_volume": 498 },
+      { "date": "2026-04-11", "volume": 412, "on_time_volume": 388 },
+      { "date": "2026-04-12", "volume": 384, "on_time_volume": 360 },
+      { "date": "2026-04-13", "volume": 612, "on_time_volume": 580 },
+      { "date": "2026-04-14", "volume": 642, "on_time_volume": 612 },
+      { "date": "2026-04-15", "volume": 624, "on_time_volume": 594 },
+      { "date": "2026-04-16", "volume": 614, "on_time_volume": 580 },
+      { "date": "2026-04-17", "volume": 524, "on_time_volume": 498 },
+      { "date": "2026-04-18", "volume": 412, "on_time_volume": 388 },
+      { "date": "2026-04-19", "volume": 378, "on_time_volume": 360 },
+      { "date": "2026-04-20", "volume": 612, "on_time_volume": 584 },
+      { "date": "2026-04-21", "volume": 658, "on_time_volume": 624 },
+      { "date": "2026-04-22", "volume": 642, "on_time_volume": 612 },
+      { "date": "2026-04-23", "volume": 614, "on_time_volume": 584 },
+      { "date": "2026-04-24", "volume": 598, "on_time_volume": 568 },
+      { "date": "2026-04-25", "volume": 504, "on_time_volume": 478 },
+      { "date": "2026-04-26", "volume": 472, "on_time_volume": 448 }
+    ]
+  }
+}

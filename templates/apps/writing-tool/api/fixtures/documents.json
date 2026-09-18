@@ -1,0 +1,67 @@
+[
+  {
+    "id": "doc-chapter-3-a-quiet-hour-before-sunrise",
+    "title": "Chapter Three — A Quiet Hour Before Sunrise",
+    "excerpt": "The kettle finally settled, and the words came in the order they had been waiting for. She set the page down once, twice — then trusted the line and let it stand.",
+    "collection": "Manuscripts / Quiet Hour",
+    "tags": ["novel", "chapter-3"],
+    "word_count": 2482,
+    "reading_minutes": 12,
+    "status": "draft",
+    "pinned": true,
+    "updated_at": "2026-04-29T09:14:00Z",
+    "created_at": "2026-03-04T10:00:00Z"
+  },
+  {
+    "id": "doc-chapter-2-the-second-room",
+    "title": "Chapter Two — The Second Room",
+    "excerpt": "Two doorways, one slightly ajar; the difference between intention and motion measured in the breadth of a finger.",
+    "collection": "Manuscripts / Quiet Hour",
+    "tags": ["novel", "chapter-2"],
+    "word_count": 3104,
+    "reading_minutes": 15,
+    "status": "draft",
+    "pinned": false,
+    "updated_at": "2026-04-28T16:42:00Z",
+    "created_at": "2026-02-18T10:00:00Z"
+  },
+  {
+    "id": "doc-chapter-1-leaving-the-station",
+    "title": "Chapter One — Leaving the Station",
+    "excerpt": "A name spoken twice in two languages — and then, on the platform, just the wind. We had agreed not to look back; one of us forgot.",
+    "collection": "Manuscripts / Quiet Hour",
+    "tags": ["novel", "chapter-1"],
+    "word_count": 2881,
+    "reading_minutes": 14,
+    "status": "published",
+    "pinned": false,
+    "updated_at": "2026-04-25T09:00:00Z",
+    "created_at": "2026-01-30T10:00:00Z"
+  },
+  {
+    "id": "doc-on-letting-drafts-breathe",
+    "title": "On letting drafts breathe",
+    "excerpt": "A second pass tomorrow always reads better than a first pass tonight. Park the rough cut in the deep-work folder and revisit before the morning standup.",
+    "collection": "Essays / Process",
+    "tags": ["craft", "editing"],
+    "word_count": 612,
+    "reading_minutes": 3,
+    "status": "published",
+    "pinned": false,
+    "updated_at": "2026-04-24T08:00:00Z",
+    "created_at": "2026-04-20T10:00:00Z"
+  },
+  {
+    "id": "doc-cut-the-windup",
+    "title": "Cut the windup",
+    "excerpt": "Almost every paragraph I draft starts with a sentence that I should delete. The actual idea begins one breath later — usually two.",
+    "collection": "Essays / Process",
+    "tags": ["craft"],
+    "word_count": 312,
+    "reading_minutes": 2,
+    "status": "published",
+    "pinned": false,
+    "updated_at": "2026-04-18T08:00:00Z",
+    "created_at": "2026-04-15T10:00:00Z"
+  }
+]

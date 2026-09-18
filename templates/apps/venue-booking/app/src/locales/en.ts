@@ -1,0 +1,38 @@
+export default {
+  common: {
+    loading: 'Loading...',
+    back: 'Back',
+  },
+  search: {
+    title: 'Find Your Venue',
+    placeholder: 'Search venues...',
+    allTypes: 'All Types',
+    conference: 'Conference Room',
+    banquet: 'Banquet Hall',
+    studio: 'Studio',
+    rooftop: 'Rooftop',
+    garden: 'Garden',
+    loft: 'Loft',
+    minCapacity: 'Min guests',
+  },
+  venue: {
+    notFound: 'Venue not found',
+    capacity: 'Up to',
+    guests: 'guests',
+    perHour: '/hr',
+    about: 'About This Space',
+    amenities: 'Amenities',
+    rules: 'Space Rules',
+    reviews: 'Reviews',
+    minimumHours: 'Minimum',
+    hours: 'hours',
+  },
+  booking: {
+    notFound: 'Booking not found',
+    date: 'Date',
+    startTime: 'Start Time',
+    endTime: 'End Time',
+    total: 'Total',
+    requestBooking: 'Request to Book',
+  },
+}

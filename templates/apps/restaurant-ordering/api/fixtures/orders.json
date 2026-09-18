@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1042",
+    "number": "1042",
+    "table": "Table 7",
+    "placedAt": "2026-04-30T17:41:00Z",
+    "elapsedMinutes": 4,
+    "status": "new",
+    "rush": true,
+    "totalCents": 5840,
+    "items": [
+      { "qty": 2, "name": "Margherita pizza" },
+      { "qty": 1, "name": "Caesar salad", "note": "no anchovies" },
+      { "qty": 2, "name": "Sparkling water" }
+    ]
+  },
+  {
+    "id": "1041",
+    "number": "1041",
+    "table": "Table 12",
+    "placedAt": "2026-04-30T17:37:00Z",
+    "elapsedMinutes": 8,
+    "status": "preparing",
+    "totalCents": 8420,
+    "items": [
+      { "qty": 1, "name": "Bistecca alla fiorentina", "note": "medium rare" },
+      { "qty": 1, "name": "Roasted root vegetables" },
+      { "qty": 2, "name": "House Chianti, glass" }
+    ]
+  },
+  {
+    "id": "1040",
+    "number": "1040",
+    "table": "Table 3",
+    "placedAt": "2026-04-30T17:33:00Z",
+    "elapsedMinutes": 12,
+    "status": "preparing",
+    "totalCents": 4250,
+    "items": [
+      { "qty": 2, "name": "Spaghetti carbonara" },
+      { "qty": 1, "name": "Garlic bread" }
+    ]
+  },
+  {
+    "id": "1039",
+    "number": "1039",
+    "table": "Pickup",
+    "placedAt": "2026-04-30T17:31:00Z",
+    "elapsedMinutes": 14,
+    "status": "ready",
+    "totalCents": 3520,
+    "items": [
+      { "qty": 1, "name": "Chicken parmigiana sandwich" },
+      { "qty": 1, "name": "Side salad" },
+      { "qty": 1, "name": "Lemonade" }
+    ]
+  },
+  {
+    "id": "1038",
+    "number": "1038",
+    "table": "Table 5",
+    "placedAt": "2026-04-30T17:23:00Z",
+    "elapsedMinutes": 22,
+    "status": "ready",
+    "totalCents": 9620,
+    "items": [
+      { "qty": 1, "name": "Tasting menu (4-course)" },
+      { "qty": 1, "name": "Wine pairing" }
+    ]
+  },
+  {
+    "id": "1037",
+    "number": "1037",
+    "table": "Table 9",
+    "placedAt": "2026-04-30T17:07:00Z",
+    "elapsedMinutes": 38,
+    "status": "served",
+    "totalCents": 6280,
+    "items": [
+      { "qty": 2, "name": "Linguine alle vongole" },
+      { "qty": 1, "name": "Tiramisu" },
+      { "qty": 2, "name": "Espresso" }
+    ]
+  },
+  {
+    "id": "1036",
+    "number": "1036",
+    "table": "Table 14",
+    "placedAt": "2026-04-30T16:54:00Z",
+    "elapsedMinutes": 51,
+    "status": "served",
+    "totalCents": 4180,
+    "items": [
+      { "qty": 1, "name": "Risotto ai funghi" },
+      { "qty": 1, "name": "Panna cotta" }
+    ]
+  }
+]

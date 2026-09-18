@@ -1,0 +1,41 @@
+[
+  {
+    "id": "env_prod",
+    "key": "production",
+    "name": "Production",
+    "description": "Live customer traffic — change with care",
+    "color": "#ef4444",
+    "sdk_key": "sdk-prod-9f3e2a1c8b4d7e6f1234567890abcdef",
+    "client_key": "client-prod-1a2b3c4d5e6f7890",
+    "flag_count": 38,
+    "active_flag_count": 22,
+    "created_at": "2025-08-01T12:00:00Z",
+    "updated_at": "2026-04-30T15:48:00Z"
+  },
+  {
+    "id": "env_stg",
+    "key": "staging",
+    "name": "Staging",
+    "description": "Pre-production rollout testing",
+    "color": "#f59e0b",
+    "sdk_key": "sdk-stg-7c8d9e0f1a2b3c4d5e6f7890abcdefab",
+    "client_key": "client-stg-9e8d7c6b5a4f3e2d",
+    "flag_count": 36,
+    "active_flag_count": 24,
+    "created_at": "2025-08-01T12:00:00Z",
+    "updated_at": "2026-04-30T15:24:00Z"
+  },
+  {
+    "id": "env_dev",
+    "key": "development",
+    "name": "Development",
+    "description": "Local development and integration tests",
+    "color": "#10b981",
+    "sdk_key": "sdk-dev-2b3c4d5e6f7890abcdef1234567890ab",
+    "client_key": "client-dev-4d3c2b1a0f9e8d7c",
+    "flag_count": 41,
+    "active_flag_count": 28,
+    "created_at": "2025-08-01T12:00:00Z",
+    "updated_at": "2026-04-30T15:54:00Z"
+  }
+]

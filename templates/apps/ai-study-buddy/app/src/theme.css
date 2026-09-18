@@ -1,0 +1,217 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand colors — green/emerald, friendly and focused */
+  --color-primary: #047857; /* was #10b981 — 2.53:1 as link/label text on white; emerald-700 = 5.23:1, white-on-primary = 5.48:1 */
+  --color-primary-hover: #059669;
+  --color-primary-light: #d1fae5;
+  --color-secondary: #065f46; /* was #34d399 — 1.53-1.92:1 as text on white/tan; emerald-800 = 6.14:1 on #f1e4d4 */
+  --color-secondary-hover: #10b981;
+
+  /* Accent */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Neutrals */
+  --color-bg: #f0fdf4;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f0fdf4;
+  --color-border: #d1fae5;
+  --color-border-focus: #10b981;
+
+  /* Text */
+  --color-text: #111827;
+  --color-text-secondary: #374151;
+  /* Bridge for molecule packages (cm.textMuted -> --mol-color-text-secondary).
+     Unset it fell back to #808080 = 3.77:1 on #f5fbf9 in the shared sidebar. */
+  --mol-color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Mastery progress */
+  --mastery-track-bg: #d1fae5;
+  --mastery-fill-bg: #10b981;
+  --mastery-fill-expert: #059669;
+
+  /* Quiz */
+  --quiz-option-bg: #f9fafb;
+  --quiz-option-hover: #d1fae5;
+  --quiz-option-selected: #10b981;
+  --quiz-option-selected-text: #ffffff;
+  --quiz-correct-bg: #d1fae5;
+  --quiz-correct-border: #10b981;
+  --quiz-incorrect-bg: #fee2e2;
+  --quiz-incorrect-border: #ef4444;
+
+  /* Chat */
+  --chat-user-bg: #10b981;
+  --chat-user-text: #ffffff;
+  --chat-assistant-bg: #ffffff;
+  --chat-assistant-border: #d1fae5;
+
+  /* Explanation panel */
+  --explanation-bg: #f0fdf4;
+  --explanation-border: #a7f3d0;
+
+  /* Stepper */
+  --step-inactive-bg: #d1fae5;
+  --step-active-bg: #10b981;
+  --step-completed-bg: #059669;
+
+  /* Mastery ring segment colors */
+  --color-mastery-mastered: #16a34a;
+  --color-mastery-reviewing: #0d9488;
+  --color-mastery-learning: #6366f1;
+  --color-mastery-not-started: #9ca3af;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --shadow-lg: 0 10px 15px -3px color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+/* Dark mode — Quizlet/Duolingo-style educational dark.
+   Warm-neutral near-black surfaces with a hint of green to echo the
+   study-focused brand. Brand emerald is kept at the brand stop
+   (#10b981) for the Material-3 `--color-primary` bridge so CTA buttons
+   keep their light-on-emerald character. App-domain accents (mastery,
+   quiz, chat, explanation) lift to brighter mints for legibility on the
+   dark forest chassis. `--color-on-primary` stays white. */
+[data-mol-mode='dark'] {
+  --color-primary-hover: #6ee7b7;
+  --color-primary-light: #064e3b;
+  --color-secondary: #6ee7b7;
+  --color-secondary-hover: #34d399;
+
+  --color-accent: #fbbf24;
+  --color-accent-hover: #f59e0b;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #22d3ee;
+
+  --color-bg: #0e1411;
+  --color-bg-secondary: #161e1a;
+  --color-bg-card: #1d2722;
+  --color-bg-sidebar: #0a100d;
+  --color-border: #2a3531;
+  --color-border-focus: #34d399;
+
+  --color-text: #ecfdf5;
+  --color-text-secondary: #c4d4cc;
+  --mol-color-text-secondary: #c4d4cc; /* bridge — see :root note */
+  --color-text-muted: #8aa097;
+  --color-text-inverse: #0e1411;
+
+  --mastery-track-bg: #1d2722;
+  --mastery-fill-bg: #34d399;
+  --mastery-fill-expert: #6ee7b7;
+
+  --quiz-option-bg: #161e1a;
+  --quiz-option-hover: #1d2722;
+  --quiz-option-selected: #34d399;
+  --quiz-option-selected-text: #0e1411;
+  --quiz-correct-bg: #15362a;
+  --quiz-correct-border: #34d399;
+  --quiz-incorrect-bg: #3b0d0d;
+  --quiz-incorrect-border: #f87171;
+
+  --chat-user-bg: #10b981;
+  --chat-user-text: #ffffff;
+  --chat-assistant-bg: #1d2722;
+  --chat-assistant-border: #2a3531;
+
+  --explanation-bg: #161e1a;
+  --explanation-border: #2a3531;
+
+  --step-inactive-bg: #1d2722;
+  --step-active-bg: #34d399;
+  --step-completed-bg: #6ee7b7;
+
+  /* Mastery ring segment colors — brighter mints/indigos for dark surfaces */
+  --color-mastery-mastered: #34d399;
+  --color-mastery-reviewing: #2dd4bf;
+  --color-mastery-learning: #818cf8;
+  --color-mastery-not-started: #6b7280;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Material-3 token dark variants — override the @theme block so
+     `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons: `on-primary` is dark forest (#052e16) in dark mode since emerald #10b981 is too bright for white text. */
+  --color-background: #0e1411;
+  --color-on-background: #ecfdf5;
+  --color-surface: #0e1411;
+  --color-surface-bright: #1d2722;
+  --color-surface-dim: #060a08;
+  --color-surface-container-lowest: #030504;
+  --color-surface-container-low: #101613; /* was #12181480 (alpha-suffix hack) — opaque equivalent at 50% on #0e1411 */
+  --color-surface-container: #161e1a;
+  --color-surface-container-high: #1d2722;
+  --color-surface-container-highest: #2a3531;
+  --color-surface-variant: #1d2722;
+  --color-on-surface: #ecfdf5;
+  --color-on-surface-variant: #b3c4bc;
+  --color-inverse-surface: #ecfdf5;
+  --color-inverse-on-surface: #0e1411;
+  --color-inverse-primary: #10b981;
+  --color-primary: #10b981; /* keep brand emerald at brand stop */
+  --color-primary-container: #064e3b;
+  --color-on-primary: #052e16; /* dark forest on emerald — emerald #10b981 is too bright for white (2.54:1); #052e16 gives 5.88:1 */
+  --color-on-primary-container: #bbf7d0;
+  --color-primary-fixed: #bbf7d0;
+  --color-primary-fixed-dim: #34d399;
+  --color-on-primary-fixed: #052e16;
+  --color-on-primary-fixed-variant: #064e3b;
+  --color-secondary-container: #2a3531;
+  --color-on-secondary: #0e1411;
+  --color-on-secondary-container: #ecfdf5;
+  --color-secondary-fixed: #bbf7d0;
+  --color-secondary-fixed-dim: #6ee7b7;
+  --color-on-secondary-fixed: #052e16;
+  --color-on-secondary-fixed-variant: #064e3b;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #5a3a00;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fde68a;
+  --color-tertiary-fixed: #fde68a;
+  --color-tertiary-fixed-dim: #fbbf24;
+  --color-on-tertiary-fixed: #2a1a00;
+  --color-on-tertiary-fixed-variant: #5a3a00;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* M3 canonical dark on-error — #f87171 is too light for white (2.77:1); #690005 gives 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a6a64;
+  --color-outline-variant: #2a3531;
+  --color-surface-tint: #34d399;
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "adj_velvet_active",
+    "image_id": "img_velvet_dusk",
+    "exposure": 0,
+    "contrast": 18,
+    "highlights": -8,
+    "shadows": 12,
+    "saturation": -8,
+    "vibrance": 14,
+    "temperature": -6,
+    "hue": 0,
+    "grain": 12,
+    "user_id": "usr_lustra_demo",
+    "created_at": "2026-04-27T22:00:00Z",
+    "updated_at": "2026-04-27T22:15:30Z"
+  }
+]

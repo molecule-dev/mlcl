@@ -1,0 +1,189 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #4f46e5; /* #6366f1 was 4.46:1 as text on white / 3.84:1 on tints (fail); #4f46e5 = 6.29:1 / 5.42:1 */
+  --mol-color-primary-light: #eef2ff;
+  --mol-color-secondary: #0e7490; /* #06b6d4 was 2.42:1 as link text on white (fail); #0e7490 = 5.36:1, same cyan hue */
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-focus: #6366f1;
+  --mol-color-success: #22c55e;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #06b6d4;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* === Backward-compat aliases === */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-bg: var(--color-background);
+
+  /* === App-specific tokens (inline styles only) === */
+
+  --color-primary-hover: #6366f1; /* hover step re-based on the darkened primary */
+  --color-primary-dark: #4338ca;
+  --color-accent: #0e7490; /* matches --mol-color-secondary contrast fix */
+  --color-accent-hover: #22d3ee;
+  --color-accent-dark: #0891b2;
+
+  /* Status colors */
+  --color-live: #22c55e;
+  --color-live-light: #dcfce7;
+  --color-recording: #ef4444;
+  --color-recording-light: #fee2e2;
+  --color-screen-share: #06b6d4;
+  --color-screen-share-light: #cffafe;
+  --color-hand-raised: #f59e0b;
+  --color-hand-raised-light: #fef3c7;
+  --color-offline: #6b7280;
+  --color-offline-light: #f3f4f6;
+
+  /* In-meeting dark surfaces */
+  --color-video-grid: #0f172a;
+  --color-participant-tile: #1e293b;
+  --color-controls-bar: #0f172a;
+  --color-on-video: #ffffff;
+  --color-on-video-secondary: #cbd5e1;
+  --color-timestamp: #94a3b8;
+
+  /* Borders */
+  --color-border-light: #f1f5f9;
+  --color-border-panel: #e2e8f0;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --controls-height: 72px;
+  --top-bar-height: 48px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+  /* M3 semantic overrides for light mode — contrast corrections.
+     base.css defaults on-secondary/on-error to foreground-inverse (#ffffff).
+     Cyan #06b6d4 = 2.43:1 and red #ef4444 = 3.76:1 with white both fail WCAG AA. */
+  --color-on-secondary: #ffffff; /* secondary darkened to #0e7490 — white now 5.36:1 (dark ink fell below 4.5) */
+  --color-on-error: #390000; /* dark on #ef4444: 4.75:1 */
+
+  /* base.css derives on-surface-variant too light (#9199a5 = 2.87:1 under the
+     20px-bold logo wall, fail ≥3:1; and <4.5:1 for small text). Pin it. */
+  --color-on-surface-variant: #556270; /* 5.5:1 on white, 5.18:1 on light containers */
+}
+
+/* Dark mode overrides — meeting-room dark, indigo+cyan glow on near-black */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #312e81;
+  --mol-color-secondary: #22d3ee;
+  --mol-color-background: #020617;
+  --mol-color-background-secondary: #0b1226;
+  --mol-color-surface: #0f172a;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-text: #f8fafc;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-border: #1e293b;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #67e8f9;
+
+  --color-primary-hover: #a5b4fc;
+  --color-primary-dark: #6366f1;
+  --color-primary-light: #312e81;
+  --color-accent: #22d3ee;
+  --color-accent-hover: #67e8f9;
+  --color-accent-dark: #0e7490;
+
+  /* Status — brighter on dark, deeper tinted bg */
+  --color-live: #4ade80;
+  --color-live-light: #14532d;
+  --color-recording: #f87171;
+  --color-recording-light: #7f1d1d;
+  --color-screen-share: #22d3ee;
+  --color-screen-share-light: #083344;
+  --color-hand-raised: #fbbf24;
+  --color-hand-raised-light: #5b3a0d;
+  --color-offline: #64748b;
+  --color-offline-light: #1f2937;
+
+  /* In-meeting surfaces — meeting room stays near-black even in dark mode */
+  --color-video-grid: #000000;
+  --color-participant-tile: #0a0f1e;
+  --color-controls-bar: #000000;
+  --color-on-video: #ffffff;
+  --color-on-video-secondary: #cbd5e1;
+  --color-timestamp: #94a3b8;
+
+  /* Borders */
+  --color-border-light: #1e293b;
+  --color-border-panel: #2d3a52;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65);
+
+  /* Material-3 bridge tokens — dark variants.
+     Without these, bg-primary/text-on-primary etc. pull @theme color-mix() defaults
+     computed from the dark --mol-color-* values, which can still produce fails. */
+  --color-background: #020617;
+  --color-on-background: #f8fafc;
+  --color-surface: #0f172a;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #010409;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0b1226;
+  --color-surface-container: #0f172a;
+  --color-surface-container-high: #1e293b;
+  --color-surface-container-highest: #2d3a52;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f8fafc;
+  --color-inverse-on-surface: #020617;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #818cf8;
+  --color-primary-container: #312e81;
+  --color-on-primary: #020617; /* dark on indigo-300: 6.76:1 — replaces #ffffff which was 2.98:1 */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #22d3ee;
+  --color-secondary-container: #083344;
+  --color-on-secondary: #002630; /* dark on cyan-300: 8.80:1 — replaces #ffffff which was 1.81:1 */
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #1e1b4b;
+  --color-on-tertiary: #120038; /* dark on violet-400: ≥7:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #3a0c0c;
+  --color-on-error: #690005; /* dark on red-400: 4.74:1 — replaces #ffffff which was 2.77:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #64748b; /* slate-500: 3.75:1 vs surface #0f172a (≥3:1) */
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #818cf8;
+}

@@ -1,0 +1,33 @@
+internal-announcements polish complete
+
+Date: 2026-04-30
+Sibling reference: forum (single-column, content-heavy comms layout)
+Brand: Clarion ("Signal above the noise"), Northwind Labs
+
+Bespoke components (5):
+- AuthShell.tsx       — split-pane auth layout (gradient hero + form)
+- PriorityPill.tsx    — priority badge: urgent / pinned / normal / fyi
+- AcknowledgmentBar.tsx — progress bar for ack-required announcements
+- AnnouncementCard.tsx — feed card (priority border + author + body + ack)
+- InternalAnnouncementsLayout.tsx — sidebar shell for authenticated routes
+
+Routes covered (14): Landing, Login, Signup, ForgotPassword,
+ResetPassword, Feed, AnnouncementDetail, Composer, MyAcknowledgments,
+Analytics, Settings, Profile, Notifications, Search, TeamDirectory +
+catch-all NotFound (15 wired in App.tsx).
+
+Coverage metrics:
+- bespokeComponentCount: 5 (>=3 ✓)
+- classmapCoveragePct:   96 (>=70 ✓)
+- missingTokens:         0
+- foundationComplete:    yes (DESIGN.md, screen-map.json, template.json)
+
+Visual richness: priority-coded left borders, gradient hero banners on
+Landing/Detail/Profile, channel chips with brand-tinted backgrounds,
+ack-progress bars, role/admin badges, threaded comments, KPI quad +
+sparkline + per-channel ack table on Analytics, departmental filter
+chips + person grid on TeamDirectory.
+
+Sample data lives in components/SampleData.ts (Northwind Labs roster,
+6 announcements, 3 threaded comment chains, 5 notifications, 10 team
+members, 3 search-result groups, 4 analytics KPIs).

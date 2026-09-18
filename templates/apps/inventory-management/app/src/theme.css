@@ -1,0 +1,185 @@
+:root {
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0a5a70;
+  /* Secondary emerald darkened (#10b981 → emerald-700): 2.29:1 as landing check
+     icons on #f0f4f8 and 2.53:1 under white on bg-secondary buttons (axe serious). */
+  --mol-color-secondary: #047857;
+  --mol-color-secondary-light: #d1fae5;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #0ea5e9;
+  --mol-color-background: #f0f4f8;
+  --mol-color-background-secondary: #e8eef4;
+  --mol-color-background-tertiary: #dce4ed;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f9fb;
+  --mol-color-border: #d1d9e6;
+  --mol-color-border-secondary: #c3cdd9;
+  --mol-color-border-focus: #0e7490;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #4b5563; /* was #6b7280 — 4.37:1 on #f0f4f8 and 4.15:1 on the #fee9e9 alert rows (axe serious); gray-600 = 6.5-6.8:1 */
+  --mol-color-text-tertiary: #4b5563;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+  /* ── App-specific tokens (raw inline styles only) ── */
+  --color-primary-hover: #22a3bf;
+  --color-accent: #10b981;
+  --color-accent-hover: #34d399;
+  --color-sidebar: #0f1729;
+  --color-sidebar-hover: #1a2744;
+  --color-hero-gradient-mid: #064e57; /* hero card teal-to-sidebar gradient midpoint */
+  --color-auth-gradient-mid: #103459; /* auth panel sidebar-to-primary-dark gradient midpoint */
+  --color-sidebar-active: rgba(14, 116, 144, 0.15);
+  --color-sku: #0e7490;
+  /* Stock-status foregrounds render as small bold text on their -bg pastels AND
+     on white rows; the 500-weight originals were 2.0-3.8:1 (axe serious on
+     /dashboard). Each stepped to the same hue ~one shade darker (≥4.5:1 both ways). */
+  --color-stock-in: #047857; /* was #10b981 (2.23:1 on #d1fae5) */
+  --color-stock-in-bg: #d1fae5;
+  --color-stock-low: #b45309; /* was #f59e0b (1.99:1 on #fef7d8) */
+  --color-stock-low-bg: #fef3c7;
+  --color-stock-out: #b91c1c; /* was #ef4444 (3.23:1 on #fee9e9, 3.76:1 on white) */
+  --color-stock-out-bg: #fee2e2;
+  --color-stock-overstock: #6d28d9; /* was #8b5cf6 (3.9:1 on white) */
+  --color-stock-overstock-bg: #ede9fe;
+  --color-stock-incoming: #0369a1; /* was #0ea5e9 (2.77:1 on white) */
+  --color-stock-incoming-bg: #e0f2fe;
+  --color-stock-reserved: #4b5563; /* was #6b7280 (4.2:1 on #f3f4f6) */
+  --color-stock-reserved-bg: #f3f4f6;
+
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-metric-value: 2rem;
+  --font-size-metric-label: 0.75rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 41, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 41, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 41, 0.1);
+
+  --max-width: 1440px;
+  --sidebar-width: 256px;
+  --sidebar-width-collapsed: 72px;
+  --top-bar-height: 56px;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+  --color-danger: var(--color-error);
+}
+
+/* Dark mode — warehouse-ops cool-neutral dark.
+   Cool slate-blue surfaces evoke an after-hours operations center;
+   cyan brand pops against the neutral chrome without competing for
+   attention. Primary lifts to #22d3ee for surface accents; brand
+   stop #0e7490 is preserved as primary-dark for hero CTAs so white
+   text stays the on-primary contrast. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-light: #155e75;
+  --mol-color-primary-dark: #0891b2;
+  --mol-color-secondary: #34d399;
+  --mol-color-secondary-light: #064e3b;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+  --mol-color-background: #0a1018;
+  --mol-color-background-secondary: #121a26;
+  --mol-color-background-tertiary: #1c2532;
+  --mol-color-surface: #121a26;
+  --mol-color-surface-secondary: #1c2532;
+  --mol-color-input-background: #07101a;
+  --mol-color-text: #eef2f7;
+  --mol-color-text-secondary: #9aa6b8;
+  --mol-color-text-tertiary: #6a7790;
+  --mol-color-text-inverse: #0a1018;
+  --mol-color-border: #233248;
+  --mol-color-border-secondary: #2f4060;
+  --mol-color-border-focus: #22d3ee;
+
+  --color-primary-hover: #67e8f9;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+  --color-sidebar: #05090f;
+  --color-sidebar-hover: #1a2640;
+  --color-sidebar-active: rgba(34, 211, 238, 0.18);
+  --color-sku: #22d3ee;
+
+  /* Stock status — brighter foregrounds, darkened backgrounds */
+  --color-stock-in: #34d399;
+  --color-stock-in-bg: #064e3b;
+  --color-stock-low: #fbbf24;
+  --color-stock-low-bg: #422006;
+  --color-stock-out: #f87171;
+  --color-stock-out-bg: #450a0a;
+  --color-stock-overstock: #a78bfa;
+  --color-stock-overstock-bg: #2e1b5b;
+  --color-stock-incoming: #38bdf8;
+  --color-stock-incoming-bg: #082f49;
+  --color-stock-reserved: #94a3b8;
+  --color-stock-reserved-bg: #1c2532;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Stitch / Material-3 bridge — keep brand cyan at brand stop, on-primary white. */
+  --color-background: #0a1018;
+  --color-on-background: #eef2f7;
+  --color-surface: #0a1018;
+  --color-surface-bright: #1c2532;
+  --color-surface-dim: #050a10;
+  --color-surface-container-lowest: #030609;
+  --color-surface-container-low: #0d1620;
+  --color-surface-container: #121a26;
+  --color-surface-container-high: #192030;
+  --color-surface-container-highest: #1c2532;
+  --color-surface-variant: #1c2532;
+  --color-on-surface: #eef2f7;
+  --color-on-surface-variant: #9aa6b8;
+  --color-inverse-surface: #eef2f7;
+  --color-inverse-on-surface: #0a1018;
+  --color-inverse-primary: #0e7490;
+  --color-primary: #0e7490; /* keep brand cyan at brand stop */
+  --color-primary-container: #155e75;
+  --color-on-primary: #ffffff; /* white on cyan — readable in both modes */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #022c22;
+  --color-on-secondary-container: #a7f3d0;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #2e1b5b;
+  --color-on-tertiary: #1e003a; /* dark on violet — #ffffff was 2.72:1 (fail); #1e003a = 6.91:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a7088; /* #4a5e74 was 2.86:1 vs surface (fail ≥3:1); #5a7088 = 3.73:1 */
+  --color-outline-variant: #233248;
+  --color-surface-tint: #22d3ee;
+}

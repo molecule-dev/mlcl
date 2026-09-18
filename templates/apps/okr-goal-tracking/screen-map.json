@@ -1,0 +1,190 @@
+{
+  "app": "okr-goal-tracking",
+  "designProjectId": "9800469918072847553",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-landing.html",
+      "designScreenId": "d0bdf722f5d24791a7410da9291e6da1"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-login.html",
+      "designScreenId": "8d199e3efbe046ba95c3ced05ca8a0dc"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-okr-goal-tracking-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane changes to account creation: First Name, Last Name, Email, Password, Confirm Password. Workspace field becomes 'Choose your workspace URL'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-okr-goal-tracking-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane: heading 'Reset your password', subtext 'Enter your email to receive a reset link', only Email field. Button 'Send reset link'. Bottom link 'Back to Sign In'. No workspace or password fields."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-okr-goal-tracking-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane: heading 'Set new password', New Password and Confirm Password fields. Button 'Reset password'. Bottom link 'Back to Sign In'. No email or workspace fields."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-dashboard.html",
+      "designScreenId": "7e7d3a7d11ef47a7a59c23f64dbd34bb"
+    },
+    {
+      "name": "Objectives",
+      "templateFile": "app/pages/Objectives.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/objectives",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-objectives.html",
+      "designScreenId": "955b60c188f74f67b0c5292fb816fd0c"
+    },
+    {
+      "name": "ObjectiveDetail",
+      "templateFile": "app/pages/ObjectiveDetail.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/objectives/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-objective-detail.html",
+      "designScreenId": "f77d17c15ba54d57af6f1c59eb956ef2"
+    },
+    {
+      "name": "CheckIn",
+      "templateFile": "app/pages/CheckIn.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/check-in",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-check-in.html",
+      "designScreenId": "78a43e4ddd574f969d85ed892dd76688"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-team.html",
+      "designScreenId": "f26f8c2a37db4f2eb4128986cffdb8c2"
+    },
+    {
+      "name": "Reviews",
+      "templateFile": "app/pages/Reviews.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/reviews",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-reviews.html",
+      "designScreenId": "f5a75e851c1e472a9fdbf12f2201f521"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-settings.html",
+      "designScreenId": "6cf07b60d06f444bbbd445ed4abb0b02"
+    },
+    {
+      "name": "NewObjective",
+      "templateFile": "app/pages/NewObjective.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/objectives/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-new-objective.html",
+      "designScreenId": "875f77157b284b45a2f77d9e47c26e10"
+    },
+    {
+      "name": "EditObjective",
+      "templateFile": "app/pages/EditObjective.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/objectives/:id/edit",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-okr-goal-tracking-new-objective.html",
+      "derivationNotes": "Same multi-section form layout as NewObjective. Page header changes to 'Edit objective' with subtitle 'Update the outcome, KRs, alignment, or cadence.' Title input pre-filled with current objective title. KR rows show existing KRs with current values and progress (not 0%). Primary button text 'Save changes' instead of 'Save objective'. Add destructive 'Archive objective' ghost button next to Cancel. Helper sidebar swaps 'Examples from your team' for 'Recent edits' (showing audit trail entries: who changed what, when)."
+    },
+    {
+      "name": "ReviewDetail",
+      "templateFile": "app/pages/ReviewDetail.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/reviews/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-review-detail.html",
+      "designScreenId": "829641c53a154d2f838e5b748567b2e6"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-notifications.html",
+      "designScreenId": "2a067b145e51477e956db1dd3fc9c053"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-profile.html",
+      "designScreenId": "b3cb64d8f3134fcca8d8446e1dc28c2b"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/OkrGoalTrackingLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-okr-goal-tracking-billing.html",
+      "designScreenId": "c1e1ce20927e47969d495c707104a19d"
+    }
+  ]
+}

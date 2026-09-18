@@ -1,0 +1,209 @@
+/*
+ * Hearthstone — Property Management brand tokens
+ *
+ * Established, dependable, orderly. Navy primary anchors the
+ * professional aesthetic, terracotta accent adds call-to-action warmth.
+ *
+ * Polish session 2026-04-30 — derived from app/DESIGN.md.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand */
+  --mol-color-primary: #1e3a5f;
+  --mol-color-primary-light: #2a4f7f;
+  --mol-color-primary-dark: #152a47;
+  --mol-color-secondary: #c57b3c;
+  --mol-color-secondary-light: #d4914f;
+  --mol-color-secondary-dark: #a86630;
+
+  /* Surfaces */
+  --mol-color-background: #f8fafb;
+  --mol-color-background-secondary: #eef3f7;
+  --mol-color-background-tertiary: #e2eaf1;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafb;
+  --mol-color-input-background: #ffffff;
+
+  /* Text */
+  --mol-color-text: #1a2332;
+  --mol-color-text-secondary: #5b6a82; /* was #64748b — 4.43:1 on #f4f7fa (axe serious); #5b6a82 = 5.10:1 */
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic */
+  --mol-color-success: #16a34a;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #9a4a10; /* was #f59e0b — 2.15:1 as stat/chip text (axe serious); #9a4a10 = 5.61:1 on #fef3c7, 6.25:1 on white */
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #1e3a5f;
+  --mol-color-info-light: #dbeafe;
+
+  /* Borders */
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #1e3a5f;
+
+  /* Sidebar (dark navy) */
+  --hs-sidebar: #0f1f33;
+  --hs-sidebar-hover: #1a2f4d;
+  --hs-sidebar-text: #c8d6e5;
+  --hs-sidebar-active: #ffffff;
+
+  /* Status palettes for badges */
+  --hs-occupied: #16a34a;
+  --hs-occupied-light: #dcfce7;
+  --hs-vacant: #f59e0b;
+  --hs-vacant-light: #fef3c7;
+  --hs-overdue: #dc2626;
+  --hs-overdue-light: #fee2e2;
+  --hs-maintenance: #e06c2e;
+  --hs-maintenance-light: #fff1e6;
+  --hs-lease-expiring: #8b5cf6;
+  --hs-lease-expiring-light: #ede9fe;
+
+  /* Type */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ── Stitch / Material-3 light tokens ── */
+  --color-background: #f8fafb;
+  --color-on-background: #1a2332;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8eff6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f7fa;
+  --color-surface-container: #eef3f7;
+  --color-surface-container-high: #e2eaf1;
+  --color-surface-container-highest: #d4dde8;
+  --color-surface-variant: #e2eaf1;
+  --color-on-surface: #1a2332;
+  --color-on-surface-variant: #5b6a82; /* keep in step with --mol-color-text-secondary (axe contrast fix) */
+  --color-inverse-surface: #1a2332;
+  --color-inverse-on-surface: #f0f5f9;
+  --color-inverse-primary: #5b9bd5;
+  --color-primary: #1e3a5f;
+  --color-primary-container: #dbeafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #0c1e35;
+  --color-primary-fixed: #dbeafe;
+  --color-primary-fixed-dim: #93c5fd;
+  --color-on-primary-fixed: #0c1e35;
+  --color-on-primary-fixed-variant: #1e3a5f;
+  --color-secondary: #c57b3c;
+  --color-secondary-container: #fde8d0;
+  --color-on-secondary: #3a1000; /* dark on terracotta — #ffffff was 3.35:1 (fail); #3a1000 = 5.00:1 */
+  --color-on-secondary-container: #3a1000;
+  --color-secondary-fixed: #fde8d0;
+  --color-secondary-fixed-dim: #e8a86e;
+  --color-on-secondary-fixed: #3a1000;
+  --color-on-secondary-fixed-variant: #8a3f10;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #2e1065;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #690005;
+  --color-outline: #64748b;
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #1e3a5f;
+}
+
+/* Dark mode overrides — Hearthstone professional dark (navy depth + warm terracotta) */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #5b9bd5;
+  --mol-color-primary-light: #7fb3df;
+  --mol-color-primary-dark: #3978b5;
+  --mol-color-secondary: #d4914f;
+  --mol-color-secondary-light: #e0a76b;
+  --mol-color-secondary-dark: #a86630;
+
+  --mol-color-background: #0c1421;
+  --mol-color-background-secondary: #131c2e;
+  --mol-color-background-tertiary: #1a2538;
+  --mol-color-surface: #162032;
+  --mol-color-surface-secondary: #1c2a40;
+  --mol-color-input-background: #1c2a40;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #cbd5e1;
+  --mol-color-text-inverse: #0c1421;
+
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #5b9bd5;
+  --mol-color-info-light: #1e3a5f;
+
+  --mol-color-border: #2d3f56;
+  --mol-color-border-secondary: #3d4f66;
+  --mol-color-border-focus: #5b9bd5;
+
+  /* Sidebar — deeper navy floor for dark canvas */
+  --hs-sidebar: #080e18;
+  --hs-sidebar-hover: #131c2e;
+  --hs-sidebar-text: #c8d6e5;
+  --hs-sidebar-active: #ffffff;
+
+  /* Status palettes — brighter foreground, darker tonal background */
+  --hs-occupied: #4ade80;
+  --hs-occupied-light: #14532d;
+  --hs-vacant: #fbbf24;
+  --hs-vacant-light: #422006;
+  --hs-overdue: #f87171;
+  --hs-overdue-light: #450a0a;
+  --hs-maintenance: #fb923c;
+  --hs-maintenance-light: #431d09;
+  --hs-lease-expiring: #a78bfa;
+  --hs-lease-expiring-light: #2e2854;
+
+  /* @theme / Material-3 bridge tokens — dark variants so bg-surface,
+     text-on-surface, bg-primary etc. flip cleanly with the toggle.
+     Navy primary lifts to periwinkle for legibility; on-primary stays
+     white so navy/sky CTA buttons keep white text. */
+  --color-background: #0c1421;
+  --color-on-background: #f1f5f9;
+  --color-surface: #162032;
+  --color-surface-bright: #1a2538;
+  --color-surface-dim: #080e18;
+  --color-surface-container-lowest: #050a12;
+  --color-surface-container-low: #0f1a28;
+  --color-surface-container: #131c2e;
+  --color-surface-container-high: #1a2538;
+  --color-surface-container-highest: #2d3f56;
+  --color-surface-variant: #1a2538;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1421;
+  --color-inverse-primary: #1e3a5f;
+  --color-primary: #5b9bd5;
+  --color-primary-container: #1e3a5f;
+  --color-on-primary: #062847; /* dark on sky-blue — #ffffff was 2.96:1 (fail); #062847 = 5.06:1 */
+  --color-on-primary-container: #dbeafe;
+  --color-secondary: #d4914f;
+  --color-secondary-container: #3a2010;
+  --color-on-secondary: #2a1200; /* dark on terracotta — #ffffff was 2.64:1 (fail); #2a1200 = 6.72:1 */
+  --color-on-secondary-container: #fde8d0;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #2e2854;
+  --color-on-tertiary: #2e1065; /* dark on lavender — #ffffff was 2.72:1 (fail); #2e1065 = 5.60:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #607595; /* raised from #4d6280 — was 2.62:1 (fail ≥3:1); #607595 = 3.48:1 */
+  --color-outline-variant: #2d3f56;
+  --color-surface-tint: #5b9bd5;
+}

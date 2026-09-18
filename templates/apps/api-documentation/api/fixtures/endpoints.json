@@ -1,0 +1,76 @@
+[
+  {
+    "id": "ep_accounts_list",   "method": "GET",    "path": "/v3/accounts",                "summary": "List accounts",          "resource": "Accounts", "deprecated": false,
+    "description": "Returns a paginated list of accounts. Supports filtering by status, currency, and creation date.",
+    "parameters": [
+      { "name": "limit",  "location": "query", "type": "integer", "required": false, "description": "Page size (1-100, default 25)." },
+      { "name": "page",   "location": "query", "type": "integer", "required": false, "description": "Page number, 1-indexed." },
+      { "name": "status", "location": "query", "type": "string",  "required": false, "description": "Filter by account status." },
+      { "name": "X-Environment","location": "header","type": "string", "required": false, "description": "test or live (default test)." }
+    ],
+    "responses": [
+      { "status": 200, "description": "OK",            "body": "{\n  \"data\": [\n    { \"id\": \"acc_a8421\", \"name\": \"Acme Corp\", \"balance_cents\": 824200 }\n  ],\n  \"page\": 1,\n  \"limit\": 25,\n  \"total\": 642\n}" },
+      { "status": 401, "description": "Unauthorized",   "body": "{ \"error\": \"missing_authorization\", \"message\": \"Authorization header required.\" }" }
+    ],
+    "samples": [
+      { "language": "curl",   "code": "curl https://api.example.com/v3/accounts?limit=25 \\\n  -H \"Authorization: Bearer prsm_••••\"" },
+      { "language": "node",   "code": "import { Prism } from '@example/prism'\nconst client = new Prism('prsm_••••')\nconst { data } = await client.accounts.list({ limit: 25 })" },
+      { "language": "python", "code": "import prism\nclient = prism.Prism(api_key='prsm_••••')\naccounts = client.accounts.list(limit=25)" },
+      { "language": "go",     "code": "client := prism.New(\"prsm_••••\")\naccounts, _ := client.Accounts.List(prism.AccountListParams{Limit: 25})" },
+      { "language": "ruby",   "code": "Prism.api_key = 'prsm_••••'\naccounts = Prism::Account.list(limit: 25)" },
+      { "language": "php",    "code": "$prism = new Prism\\Client('prsm_••••');\n$accounts = $prism->accounts->list(['limit' => 25]);" }
+    ]
+  },
+  {
+    "id": "ep_accounts_create", "method": "POST",   "path": "/v3/accounts",                "summary": "Create account",         "resource": "Accounts", "deprecated": false,
+    "description": "Creates a new account.",
+    "parameters": [
+      { "name": "name",     "location": "body", "type": "string", "required": true,  "description": "Account display name." },
+      { "name": "currency", "location": "body", "type": "string", "required": true,  "description": "ISO-4217 currency code." }
+    ],
+    "responses": [{ "status": 201, "description": "Created", "body": "{ \"id\": \"acc_b94f2\", \"name\": \"New Co\", \"balance_cents\": 0 }" }],
+    "samples": [{ "language": "curl", "code": "curl https://api.example.com/v3/accounts \\\n  -H \"Authorization: Bearer prsm_••••\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"name\":\"New Co\",\"currency\":\"USD\"}'" }]
+  },
+  {
+    "id": "ep_accounts_get",    "method": "GET",    "path": "/v3/accounts/{id}",           "summary": "Get account",            "resource": "Accounts", "deprecated": false,
+    "description": "Returns a single account by id.",
+    "parameters": [{ "name": "id", "location": "path", "type": "string", "required": true, "description": "Account id." }],
+    "responses": [
+      { "status": 200, "description": "OK",        "body": "{ \"id\": \"acc_a8421\", \"name\": \"Acme Corp\" }" },
+      { "status": 404, "description": "Not found", "body": "{ \"error\": \"not_found\" }" }
+    ],
+    "samples": [{ "language": "curl", "code": "curl https://api.example.com/v3/accounts/acc_a8421 \\\n  -H \"Authorization: Bearer prsm_••••\"" }]
+  },
+  {
+    "id": "ep_accounts_update", "method": "PUT",    "path": "/v3/accounts/{id}",           "summary": "Update account",         "resource": "Accounts", "deprecated": false,
+    "description": "Updates an existing account.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_accounts_delete", "method": "DELETE", "path": "/v3/accounts/{id}",           "summary": "Delete account",         "resource": "Accounts", "deprecated": false,
+    "description": "Deletes an account. Soft-delete; recoverable for 30 days.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_tx_list",         "method": "GET",    "path": "/v3/transactions",           "summary": "List transactions",      "resource": "Transactions", "deprecated": false,
+    "description": "Returns a paginated list of transactions.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_tx_create",       "method": "POST",   "path": "/v3/transactions",           "summary": "Create transaction",     "resource": "Transactions", "deprecated": false,
+    "description": "Creates a new transaction.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_tx_patch",        "method": "PATCH",  "path": "/v3/transactions/{id}",      "summary": "Patch transaction",      "resource": "Transactions", "deprecated": false,
+    "description": "Partially updates a transaction.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_webhooks_list",   "method": "GET",    "path": "/v3/webhooks",                "summary": "List webhooks",          "resource": "Webhooks", "deprecated": false,
+    "description": "Returns all webhook subscriptions.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_webhooks_create", "method": "POST",   "path": "/v3/webhooks",                "summary": "Subscribe to webhook",   "resource": "Webhooks", "deprecated": false,
+    "description": "Subscribes a URL to receive event payloads.", "parameters": [], "responses": [], "samples": []
+  },
+  {
+    "id": "ep_legacy_search",   "method": "GET",    "path": "/v2/search",                  "summary": "Legacy search",          "resource": "Legacy",  "deprecated": true,
+    "description": "Legacy search endpoint. Removed in v4. Use /v3/search instead.", "parameters": [], "responses": [], "samples": []
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "summary": {
+    "total_value_cents": 10342251,
+    "cost_basis_cents": 8266200,
+    "total_pnl_cents": 2076051,
+    "total_pnl_pct": 25.12,
+    "day_change_cents": 28412,
+    "day_change_pct": 0.28,
+    "cash_cents": 124800,
+    "history_30d": [
+      { "date": "2026-03-26", "value_cents":  9420000 },
+      { "date": "2026-03-30", "value_cents":  9512000 },
+      { "date": "2026-04-02", "value_cents":  9684000 },
+      { "date": "2026-04-06", "value_cents":  9821000 },
+      { "date": "2026-04-10", "value_cents":  9942000 },
+      { "date": "2026-04-15", "value_cents": 10092000 },
+      { "date": "2026-04-18", "value_cents": 10184000 },
+      { "date": "2026-04-22", "value_cents": 10248000 },
+      { "date": "2026-04-25", "value_cents": 10342251 }
+    ],
+    "allocation": [
+      { "label": "US Equity",      "value_cents": 5132598, "pct": 49.6, "color": "#0d9488" },
+      { "label": "Fixed Income",   "value_cents": 2616477, "pct": 25.3, "color": "#6366f1" },
+      { "label": "Intl Equity",    "value_cents": 1504524, "pct": 14.5, "color": "#f59e0b" },
+      { "label": "Real Estate",    "value_cents":  629888, "pct":  6.1, "color": "#0ea5e9" },
+      { "label": "Commodities",    "value_cents":  379764, "pct":  3.7, "color": "#a855f7" },
+      { "label": "Cash",           "value_cents":  124800, "pct":  1.2, "color": "#94a3b8" }
+    ]
+  },
+  "rebalance": [
+    { "category": "US Equity",    "target_pct": 45, "current_pct": 49.6, "drift_pct":  4.6, "tolerance_pct": 3, "current_value_cents": 5132598, "target_value_cents": 4654013, "trade_action": "sell", "trade_amount_cents":  478585 },
+    { "category": "Fixed Income", "target_pct": 25, "current_pct": 25.3, "drift_pct":  0.3, "tolerance_pct": 3, "current_value_cents": 2616477, "target_value_cents": 2585563, "trade_action": "hold", "trade_amount_cents":       0 },
+    { "category": "Intl Equity",  "target_pct": 18, "current_pct": 14.5, "drift_pct": -3.5, "tolerance_pct": 3, "current_value_cents": 1504524, "target_value_cents": 1861605, "trade_action": "buy",  "trade_amount_cents":  357081 },
+    { "category": "Real Estate",  "target_pct":  6, "current_pct":  6.1, "drift_pct":  0.1, "tolerance_pct": 2, "current_value_cents":  629888, "target_value_cents":  620535, "trade_action": "hold", "trade_amount_cents":       0 },
+    { "category": "Commodities",  "target_pct":  4, "current_pct":  3.7, "drift_pct": -0.3, "tolerance_pct": 2, "current_value_cents":  379764, "target_value_cents":  413690, "trade_action": "hold", "trade_amount_cents":       0 },
+    { "category": "Cash",         "target_pct":  2, "current_pct":  1.2, "drift_pct": -0.8, "tolerance_pct": 1, "current_value_cents":  124800, "target_value_cents":  206845, "trade_action": "hold", "trade_amount_cents":       0 }
+  ],
+  "full": {
+    "performance": [
+      { "period": "1M",   "portfolio_pct":  3.42, "benchmark_pct":  2.81 },
+      { "period": "3M",   "portfolio_pct":  8.42, "benchmark_pct":  7.18 },
+      { "period": "YTD",  "portfolio_pct": 12.18, "benchmark_pct": 10.42 },
+      { "period": "1Y",   "portfolio_pct": 24.18, "benchmark_pct": 21.84 },
+      { "period": "3Y",   "portfolio_pct": 11.21, "benchmark_pct": 10.42 },
+      { "period": "5Y",   "portfolio_pct":  9.84, "benchmark_pct":  9.18 }
+    ],
+    "attribution": [
+      { "factor": "Allocation: US Equity",   "contribution_cents": 1240000, "contribution_pct":  6.2 },
+      { "factor": "Allocation: Intl Equity", "contribution_cents":  342000, "contribution_pct":  1.8 },
+      { "factor": "Selection: AAPL",         "contribution_cents":  248400, "contribution_pct":  1.4 },
+      { "factor": "Selection: MSFT",         "contribution_cents":  421800, "contribution_pct":  2.1 },
+      { "factor": "Allocation: Fixed Income","contribution_cents": -184500, "contribution_pct": -0.9 },
+      { "factor": "FX impact",               "contribution_cents":  -84210, "contribution_pct": -0.4 }
+    ],
+    "realized_unrealized": [
+      { "year": 2026, "realized_short_cents":  84200, "realized_long_cents": 248400, "unrealized_cents": 1843451, "dividends_cents":  78444, "total_cents": 2254495 },
+      { "year": 2025, "realized_short_cents":  12420, "realized_long_cents": 421800, "unrealized_cents":  984000, "dividends_cents": 248400, "total_cents": 1666620 },
+      { "year": 2024, "realized_short_cents":  -8400, "realized_long_cents": 184500, "unrealized_cents":  642000, "dividends_cents": 184200, "total_cents": 1002300 }
+    ],
+    "tax_documents": [
+      { "year": 2025, "type": "1099-DIV",      "status": "Ready",     "url": "/api/reports/tax/2025-1099-div.pdf" },
+      { "year": 2025, "type": "1099-B",        "status": "Ready",     "url": "/api/reports/tax/2025-1099-b.pdf"   },
+      { "year": 2025, "type": "1099-INT",      "status": "Ready",     "url": "/api/reports/tax/2025-1099-int.pdf" },
+      { "year": 2024, "type": "1099-DIV",      "status": "Ready",     "url": "/api/reports/tax/2024-1099-div.pdf" },
+      { "year": 2024, "type": "1099-B",        "status": "Ready",     "url": "/api/reports/tax/2024-1099-b.pdf"   },
+      { "year": 2024, "type": "1099-INT",      "status": "Ready",     "url": "/api/reports/tax/2024-1099-int.pdf" }
+    ]
+  }
+}

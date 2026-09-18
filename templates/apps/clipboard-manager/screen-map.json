@@ -1,0 +1,129 @@
+{
+  "app": "clipboard-manager",
+  "designProjectId": "3770257755016736239",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-landing.html",
+      "designScreenId": "4037d15a4c35431b9b478019fd0b3289"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-login.html",
+      "designScreenId": "82c994a1410e4e20bae6bc249bcc440e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-clipboard-manager-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Create your Yank account'. Button 'Create account' solid periwinkle. Bottom link 'Already have an account? Sign In'. Keep pro-tip floating card and version label."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-clipboard-manager-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' periwinkle. Bottom link 'Back to Sign In'. Keep pro-tip card and version label."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-clipboard-manager-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' periwinkle. Bottom link 'Back to Sign In'. Keep pro-tip card and version label."
+    },
+    {
+      "name": "Clips",
+      "templateFile": "app/pages/Clips.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/clips",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-clips.html",
+      "designScreenId": "69689b0234c34d57b07ebff3586cc564"
+    },
+    {
+      "name": "CommandPalette",
+      "templateFile": "app/pages/CommandPalette.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/command-palette",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-command-palette.html",
+      "designScreenId": "a96b484c689f4ce4870c2ba68990091d"
+    },
+    {
+      "name": "Categories",
+      "templateFile": "app/pages/Categories.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/categories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-categories.html",
+      "designScreenId": "595e82c2abb645a58ffc8c0e40b2a7cc"
+    },
+    {
+      "name": "Devices",
+      "templateFile": "app/pages/Devices.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/devices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-devices.html",
+      "designScreenId": "aff6af72589545daa13a32c11dcc5bf8"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-settings.html",
+      "designScreenId": "5205ad24a83e449aafccc4c46707c621"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-profile.html",
+      "designScreenId": "04923e57cdac461ca298679229ea1fbc"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ClipboardManagerLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-clipboard-manager-billing.html",
+      "designScreenId": "66cfb7d0dc7d4dfaa423012e0dcffb74"
+    }
+  ]
+}

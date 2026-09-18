@@ -1,0 +1,74 @@
+[
+  {
+    "id": "post_dawn_river",
+    "author_id": "u_aria",
+    "caption": "Five minutes of usable light over the Sumida — the camera barely caught it.",
+    "media_urls": ["/img/posts/dawn_river.jpg"],
+    "tags": ["cityscape", "goldenhour", "tokyo"],
+    "location": "Sumida River, Tokyo",
+    "like_count": 12402,
+    "comment_count": 318,
+    "share_count": 86,
+    "created_at": "2026-04-29T05:18:00Z"
+  },
+  {
+    "id": "post_studio_jam",
+    "author_id": "u_kelvin",
+    "caption": "Day three at the studio. We re-cut the bridge twice. I think it's done.",
+    "media_urls": ["/img/posts/studio_jam.jpg"],
+    "tags": ["music", "behindthescenes"],
+    "location": "Brava HQ, Lagos",
+    "like_count": 9881,
+    "comment_count": 542,
+    "share_count": 121,
+    "created_at": "2026-04-29T01:42:00Z"
+  },
+  {
+    "id": "post_studio_floor",
+    "author_id": "u_sienna",
+    "caption": "Floor-day. Three rolls of film, six bruised knees, one decent self-portrait.",
+    "media_urls": ["/img/posts/studio_floor.jpg"],
+    "tags": ["portrait", "film"],
+    "location": "Seoul",
+    "like_count": 4220,
+    "comment_count": 142,
+    "share_count": 22,
+    "created_at": "2026-04-28T22:10:00Z"
+  },
+  {
+    "id": "post_croissants",
+    "author_id": "u_amelie",
+    "caption": "Lamination day. Ninety-six layers, very serious.",
+    "media_urls": ["/img/posts/croissants.jpg"],
+    "tags": ["baking", "food", "pastry"],
+    "location": "Pâtisserie Lefèvre, Lyon",
+    "like_count": 21050,
+    "comment_count": 1020,
+    "share_count": 415,
+    "created_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "post_skate_curb",
+    "author_id": "u_dominic",
+    "caption": "First curb of the season. Teeth-rattling. 10/10 would do again.",
+    "media_urls": ["/img/posts/skate_curb.jpg"],
+    "tags": ["skate", "film", "sandiego"],
+    "location": "San Diego",
+    "like_count": 1412,
+    "comment_count": 88,
+    "share_count": 12,
+    "created_at": "2026-04-28T11:25:00Z"
+  },
+  {
+    "id": "post_studio_paint",
+    "author_id": "u_jade",
+    "caption": "Studio open Sat. Six new pieces. Cobalt phase officially over (probably).",
+    "media_urls": ["/img/posts/studio_paint.jpg"],
+    "tags": ["art", "studio"],
+    "location": "Williamsburg, BK",
+    "like_count": 3980,
+    "comment_count": 207,
+    "share_count": 45,
+    "created_at": "2026-04-28T08:00:00Z"
+  }
+]

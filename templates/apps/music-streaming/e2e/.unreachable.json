@@ -1,0 +1,63 @@
+[
+  {
+    "verb": "POST",
+    "path": "/api/billing/cancel",
+    "reason": "billing — covered by billing-webhook.spec.ts and BillingPage UI tests post-MVP"
+  },
+  {
+    "path": "/albums/{}",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/artists/{}",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/forgot-password",
+    "reason": "auth recovery landing — email-driven, covered post-MVP"
+  },
+  {
+    "path": "/library",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/library/liked",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/login",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/playlists/{}",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/profile/{}",
+    "reason": "TODO: write spec — settings/profile UI"
+  },
+  {
+    "path": "/radio",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/reset-password",
+    "reason": "auth recovery landing — email-driven, covered post-MVP"
+  },
+  {
+    "path": "/search",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/settings",
+    "reason": "TODO: write spec — settings/profile UI"
+  },
+  {
+    "path": "/signup",
+    "reason": "TODO: write spec"
+  },
+  {
+    "path": "/subscription",
+    "reason": "TODO: write spec"
+  }
+]

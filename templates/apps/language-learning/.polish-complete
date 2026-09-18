@@ -1,0 +1,33 @@
+Polish complete: 2026-04-30T01:30:00Z
+Pipeline: polish-app.md autonomous session
+Cluster: education → sibling: lms (with banking-dashboard for Sweep 1 chrome + auth pattern)
+Brand: Parlance — purple-violet (#6c3ce0 primary, #f59e0b secondary)
+
+Components: 7 bespoke
+- AuthBrandHeader.tsx (§13.7 gradient chip wordmark)
+- StreakHeroCard.tsx (gradient hero, 7-day sparkline; from BalanceHeroCard)
+- DailyStatsTriad.tsx (hearts/words/minutes KPI row)
+- LessonRecommendationCard.tsx (tone-keyed accent + dot ladder; from CourseCard)
+- LeaderboardPanel.tsx (podium gradient ranks; from LeaderboardCard)
+- VocabReviewCard.tsx (5-dot mastery + audio; new pattern)
+- ParlanceLayout.tsx (delegates to @molecule/app-sidebar-layout-react)
+
+Sweep 1 chrome: Header → AppHeader, Footer → AppFooter, RootErrorBoundary → re-export.
+
+Pages rewritten / built (13/13 covered):
+- Landing (marketing hero + sample streak card + languages strip + features)
+- Dashboard (StreakHero + LeaderboardPanel + DailyStatsTriad + LessonRec grid)
+- Lessons (level-pill grid)
+- LessonDetail (fill-blank exercise, hearts, gradient progress bar)
+- Vocabulary (KPI chips + filter pills + VocabReviewCard grid)
+- Practice (signature speaking stage with waveform + score feedback)
+- Leaderboard (friends/global tabs + reward strip)
+- Profile (gradient header card + per-language progress + achievements)
+- Settings (target-language picker + daily-goal tier + notification toggles)
+- Login / Signup / ForgotPassword / ResetPassword (centered card §13.1 + corner-orb §13.4)
+
+Material 3 tokens: filled (idempotent fill-material3-tokens.mjs).
+Fonts: Material Symbols Outlined + Inter loaded.
+Screen-map coverage: 13/13 (verified via check-screen-map-coverage.mjs).
+Compliance: clean (check-rules-compliance.mjs).
+Typecheck: clean (npx tsc --noEmit).

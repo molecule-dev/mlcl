@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Căutați articole de ajutor',
+  'about.cta.signup': 'Încearcă Courier gratuit',
+  'about.eyebrow': 'Despre Courier',
+  'about.principle.calm': 'Implicit, starea este „Calm”.',
+  'about.principle.calm.desc':
+    'Fără pictograme care să sară în ochi, fără notificări pe care nu le-ai solicitat, fără animații care să-ți atragă atenția.',
+  'about.principle.fast.desc':
+    'Orice acțiune se face cu o singură apăsare de tastă. Cutia de intrare se încarcă în mai puțin de 200 ms la prima conectare.',
+  'about.principle.honest.desc':
+    'Criptare în timpul transferului și în starea de repaus, păstrare transparentă și export de date cu un singur clic.',
+  'about.story': 'De ce am creat Courier',
+  'about.story.p1':
+    'Majoritatea clienților de e-mail sunt concepuți pentru a stimula interacțiunea — atrăgându-ți atenția, distrăgându-ți concentrarea și încurajându-te să mai dai încă un clic. Courier face exact opusul. Noi măsurăm succesul prin timpul pe care NU îl petreci în căsuța de e-mail: triezi rapid mesajele, amâni cu încredere și te apuci de treaba care contează cu adevărat.',
+  'about.subtitle':
+    'Courier este o căsuță de e-mail simplă, cu trei panouri, creată de o echipă mică care dorea să proceseze informațiile în loc să reacționeze la ele.',
+  'about.team.body':
+    'Suntem o echipă dispersată de designeri și ingineri care, odată, petreceau prea multe ore pe zi într-o căsuță poștală zgomotoasă. Courier este căsuța de e-mail pe care ne-am dorit să o folosim noi înșine.',
+  'about.title': 'E-mail pentru concentrare la muncă',
+  'help.cta.about': 'Despre Courier',
+  'help.cta.pricing': 'Vizualizați prețurile',
+  'help.eyebrow': 'Centru de ajutor',
+  'help.faq.compose.a':
+    'Dă clic pe „Compose” (Compunere) din bara laterală (sau apasă tasta „c” în orice vizualizare a căsuței de primire), introdu cel puțin un destinatar, un subiect și textul mesajului, apoi apasă pe „Send” (Trimite). Noul mesaj va apărea imediat în dosarul „Sent” (Trimise).',
+  'help.faq.compose.q': 'Cum trimit primul meu mesaj?',
+  'help.faq.export.a':
+    'Da. Opțiuni \\u2192 Cont \\u2192 Export date creează o arhivă care poate fi descărcată (mbox + JSON) conținând toate mesajele, etichetele și contactele. Nu este necesar un abonament premium.',
+  'help.faq.labels.a':
+    'Dosarele sunt exclusive (un mesaj poate fi găsit într-un singur dosar): Mesaje primite, Mesaje trimise, Ciorne, Spam, Coș de gunoi, Arhivă. Etichetele sunt cumulative – poți aplica mai multe etichete unui singur e-mail și poți filtra după combinații de etichete folosind bara de căutare.',
+  'help.faq.password.a':
+    'Folosește linkul „Ai uitat parola?” de pe pagina de conectare. Îți vom trimite pe adresa de e-mail asociată contului tău un link de resetare valabil o oră.',
+  'help.faq.shortcuts.a':
+    'Da. „j” / „k” se deplasează între firele de discuție, „s” activează/dezactivează o stea, „e” arhivează, „#” mută în coșul de gunoi, iar „/” focalizează caseta de căutare. Documentația privind comenzile rapide este disponibilă în orice vizualizare a căsuței de e-mail apăsând „?”',
+  'help.faq.support.a':
+    'Trimiteți un e-mail la support@courier.example. Răspundem la fiecare mesaj în termen de o zi lucrătoare, în zilele lucrătoare între orele 9:00 și 17:00 UTC.',
+  'help.subtitle':
+    'Răspunsuri rapide la cele mai frecvente întrebări. Lipsește ceva? Deschideți secțiunea Setări și folosiți formularul de feedback din aplicație sau scrieți la support@courier.example.',
+  'help.title': 'Cum putem ajuta?',
+  'landing.brand.scrollTop': 'Înapoi sus',
+  'landing.ctaBody':
+    'Alătură-te miilor de profesioniști care și-au rezolvat toate mesajele din căsuța de e-mail înainte de prânz.',
+  'landing.ctaTitle': 'Acționează mai mult, reacționează mai puțin.',
+  'landing.eyebrow': 'E-mail pentru concentrare la muncă',
+  'landing.featuresBody': 'Nu te mai ocupa de căsuța de e-mail și treci la treabă.',
+  'landing.featuresTitle': 'Conceput pentru concentrare profundă',
+  'landing.help': 'Ajutor',
+  'landing.heroDemo': 'Vizionați demo',
+  'landing.heroSubtitle':
+    'Courier este o căsuță de e-mail simplă, cu trei panouri, concepută pentru profesioniștii din domeniul cunoașterii care doresc să proceseze informațiile, nu doar să reacționeze la ele.',
+  'landing.proof': 'Alegerea echipelor specializate din întreaga lume',
+  'landing.signIn': 'Autentificați-vă',
+  'meridian.archive.empty': 'Arhiva este goală.',
+  'meridian.compose.addRecipient': 'Adaugă un alt destinatar',
+  'meridian.compose.bodyPlaceholder': 'Scrie-ți mesajul…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Anulează schița',
+  'meridian.compose.invalidEmail': '„{{value}}” nu este o adresă de e-mail validă',
+  'meridian.compose.needRecipient': 'Mai întâi, adaugă cel puțin un destinatar.',
+  'meridian.compose.replyTo': 'Răspunde în acest fir de discuție {{id}}',
+  'meridian.compose.savedAt': 'Schita salvată la adresa {{time}}',
+  'meridian.compose.sentWithError': 'Salvat în „Trimise”, dar livrarea a eșuat: {{error}}',
+  'meridian.compose.subject': 'Subiect',
+  'meridian.compose.subjectPlaceholder': 'Subiect',
+  'meridian.compose.title': 'Mesaj nou',
+  'meridian.compose.to': 'Către',
+  'meridian.drafts.continue': 'Continuă editarea',
+  'meridian.drafts.count': '{{count}} mesaje',
+  'meridian.drafts.delete': 'Șterge schița',
+  'meridian.drafts.empty': 'Nu există încă schițe — începe să scrii.',
+  'meridian.drafts.lastSaved': 'Salvat pe {{at}}',
+  'meridian.drafts.noRecipients': '(nu există încă destinatari)',
+  'meridian.drafts.selectDraft': 'Selectează o schiță pentru a o previzualiza.',
+  'meridian.drafts.title': 'Schițe',
+  'meridian.drafts.to': 'Către',
+  'meridian.drafts.watermark': 'Ciornă',
+  'meridian.folder.count': '{{count}} mesaje',
+  'meridian.folder.deleteForever': 'Șterge definitiv',
+  'meridian.folder.restore': 'Mutați în inbox',
+  'meridian.forgot.subtitle':
+    'Introdu adresa de e-mail asociată contului tău și îți vom trimite un link de resetare.',
+  'meridian.forgot.success':
+    'Dacă există un cont asociat cu această adresă de e-mail, îți vom trimite în curând un link de resetare.',
+  'meridian.inbox.empty': 'Nu există încă mesaje aici.',
+  'meridian.inbox.loading': 'Se încarcă…',
+  'meridian.inbox.next': 'Următorul',
+  'meridian.inbox.noSubject': '(fără subiect)',
+  'meridian.inbox.openCompose': 'Deschide fereastra de redactare',
+  'meridian.inbox.previous': 'Anteriorul',
+  'meridian.inbox.replyFailed': 'Răspunsul a fost salvat, dar livrarea a eșuat: {{error}}',
+  'meridian.inbox.replySent': 'Răspunsul a fost trimis.',
+  'meridian.inbox.replyTo': 'Răspunde la {{name}}',
+  'meridian.inbox.selectMessage': 'Selectează un mesaj pentru a-l citi',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Vizualizați firul de discuție',
+  'meridian.login.hidePassword': 'Ascundeți parola',
+  'meridian.login.noAccount': 'Nu aveți cont?',
+  'meridian.login.showPassword': 'Afișați parola',
+  'meridian.message.toLine': 'către {{recipients}}',
+  'meridian.notFound.eyebrow': 'Eroare 404',
+  'meridian.notFound.title': 'Acest fir de discuție a fost arhivat.',
+  'meridian.notFound.toInbox': 'Deschide-mi căsuța de e-mail',
+  'meridian.reset.newLabel': 'Parolă nouă',
+  'meridian.reset.showPassword': 'Afișați parola',
+  'meridian.reset.subtitle': 'Alege o parolă puternică — cel puțin 8 caractere.',
+  'meridian.sent.empty': 'Încă nu ai trimis nimic.',
+  'meridian.sent.title': 'Trimis',
+  'meridian.settings.noName': '(fără nume)',
+  'meridian.settings.section.${section}': 'Personalizează-ți experiența pe {{appName}}',
+  'meridian.settings.signature': 'Semnătură',
+  'meridian.settings.signatureSaved': 'Semnătura a fost salvată.',
+  'meridian.sidebar.compose': 'Compuneți',
+  'meridian.sidebar.labels': 'Etichete',
+  'meridian.sidebar.noLabels': 'Nu există încă etichete',
+  'meridian.sidebar.storage': 'Stocare',
+  'meridian.sidebar.storageLabel': '{{used}} de pe {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Creează-ți căsuța de e-mail Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Afișați parola',
+  'meridian.signup.subtitle': 'Verifică-ți căsuța de e-mail înainte de prânz.',
+  'meridian.spam.empty': 'Fără spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Nu există mesaje marcate cu steluță.',
+  'meridian.starred.loading': 'Se încarcă…',
+  'meridian.starred.removeStar': 'Elimină steaua',
+  'meridian.starred.total': '{{count}} total',
+  'meridian.thread.back': 'Înapoi la Mesaje primite',
+  'meridian.thread.empty': 'Nu există mesaje în acest fir de discuție.',
+  'meridian.thread.eyebrow': 'Subiectul nr. {{id}}',
+  'meridian.thread.notFound': 'Subiectul nu a fost găsit.',
+  'meridian.thread.star': 'Adaugă la favorite',
+  'meridian.thread.unstar': 'Elimină steaua',
+  'meridian.time.yesterday': 'Ieri',
+  'meridian.topBar.searchPlaceholder': 'Căutare în e-mail',
+  'meridian.trash.empty': 'Coșul de gunoi este gol.',
+  'meridian.trash.title': 'Coș de gunoi',
+  'nav.legal': 'Legal',
+  'planUpdated.description':
+    'Abonamentul dumneavoastră este acum activ, iar datele de facturare au fost actualizate. Bine ați venit în căsuța de e-mail Courier, cu un aspect reînnoit.',
+  'pricing.heading': 'ciorne',
+  'pricing.limit.emails': 'e-mailuri',
+  'pricing.limit.folders': 'dosare',
+  'pricing.limit.labels': 'etichete',
+  'privacy.collect.account':
+    'Datele contului: numele, adresa de e-mail, parola criptată și data înscrierii.',
+  'privacy.intro':
+    'Prezenta politică de confidențialitate explică ce date colectează Courier, de ce le colectăm, cum le protejăm și ce opțiuni aveți în legătură cu acestea. Ne propunem să fim clari, nu să folosim un limbaj juridic; dacă ceva nu este clar, scrieți-ne la privacy@courier.example.',
+  'privacy.lastUpdated': 'Ultima actualizare: 1 aprilie 2026',
+  'privacy.linkTerms': 'Citiți Termenii și condițiile noastre \\u2192',
+  'privacy.rights.body':
+    'Poți exporta toate datele pe care le deținem despre tine din Setări → Cont → Export date, iar contul tău poate fi șters cu un singur clic — toate înregistrările vor fi șterse în termen de 24 de ore, iar jurnalele de audit vor fi șterse după 30 de zile.',
+  'privacy.security.body':
+    'Conținutul mesajelor și atașamentele sunt criptate în stoc folosind standardul AES-256. Conexiunile către și dinspre serviciul nostru utilizează protocolul TLS 1.3. Parolele sunt criptate cu algoritmul bcrypt; nu înregistrăm și nu stocăm niciodată parolele în format text simplu. Accesul la mediul de producție este limitat la inginerii de gardă, care sunt supuși unui audit lunar.',
+  'privacy.share.body':
+    'Împărtășim date numai cu sub-procesatorii de care avem nevoie pentru a opera Courier (trimiterea de e-mailuri prin Mailgun, facturarea prin Stripe, găzduirea prin AWS). Fiecare dintre aceștia are obligația contractuală de a utiliza datele dumneavoastră exclusiv în scopul prestării serviciilor pe care ni le furnizează. Nu vindem, nu închiriem și nu schimbăm datele dumneavoastră cu nimeni.',
+  'terms.acceptable.spam':
+    'Nu se acceptă trimiterea de mesaje în masă nesolicitate. Conturile care trimit spam vor fi închise fără avertisment.',
+  'terms.account.body':
+    'Sunteți responsabil pentru păstrarea confidențialității parolei dumneavoastră și pentru orice activitate desfășurată prin intermediul contului dumneavoastră. Vă rugăm să ne contactați la adresa security@courier.example dacă bănuiți că contul dumneavoastră a fost compromis.',
+  'terms.billing.body':
+    'Abonamentele cu plată se reînnoiesc la intervalul ales la înscriere. Poți anula abonamentul din secțiunea Setări → Facturare în orice moment, păstrându-ți accesul până la sfârșitul perioadei de facturare. Se acordă rambursări pentru perioadele de indisponibilitate a serviciului care depășesc termenele prevăzute în SLA.',
+  'terms.intro':
+    'Aceste condiții reglementează utilizarea serviciului Courier. Prin crearea unui cont sau prin trimiterea unui e-mail prin intermediul nostru, sunteți de acord să respectați aceste condiții. Ne străduim să elaborăm reguli pe care utilizatorii le pot respecta cu adevărat.',
+  'terms.lastUpdated': 'Intră în vigoare la 1 aprilie 2026',
+  'terms.termination.body':
+    'Îți poți șterge contul în orice moment. Ne rezervăm dreptul de a suspenda un cont care încalcă acești termeni; în acest caz, îți vom explica motivul și îți vom permite să îți exportezi datele înainte de a face acest lucru.',
+  'terms.warranty.body':
+    'Serviciul este furnizat „așa cum este”. Depunem eforturi susținute pentru a asigura fiabilitatea și securitatea acestuia, dar nu putem garanta accesul neîntrerupt. În măsura permisă de lege, răspunderea noastră totală este limitată la suma pe care ne-ați plătit-o în ultimele 12 luni.',
+}

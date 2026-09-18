@@ -1,0 +1,25 @@
+Polish complete: 2026-04-30T01:55:00Z
+Pipeline: scripts/polish-app.mjs (driven from molecule-workspace root)
+Cluster: education → sibling: lms
+Brand: Aula — indigo/violet (#5b4dc7) lavender-on-white palette, Plus Jakarta Sans display + Inter body
+Components: 10 bespoke
+  - LiveClassHeroCard (gradient hero with frosted-glass live pill + decorative orbs)
+  - CourseTileCard (course catalogue tile with progress + level eyebrow)
+  - ScheduleItem (timeline row for upcoming classes)
+  - AssignmentRow (status-chipped row for due/submitted/graded work)
+  - StatPill (4-tone KPI card for the dashboard quad)
+  - ClassroomStage (full-bleed video grid + active-speaker accents)
+  - VirtualClassroomLayout (Aula chrome shell)
+  - AulaTopBar (top control bar w/ search + class-clock)
+  - AulaSideNav (lavender sidenav rail)
+  - AulaAuthShell (split-panel brand + form for auth pages)
+Pages rewritten:
+  - Landing (marketing hero + LiveClassHeroCard preview + CourseTileCard preview + feature triad/quad)
+  - Dashboard (live-class hero + stat quad + course tiles + assignment list + schedule rail)
+  - Classroom (full-bleed video stage + 340px side panel for chat/participants)
+  - Whiteboard (floating tool rail + canvas placeholder)
+  - Courses, CourseDetail, Assignments, AssignmentDetail, Calendar, Grades, Profile, Notifications, Settings
+Auth branded: Login + Signup + ForgotPassword + ResetPassword via AulaAuthShell
+Screen-map coverage: 17/17 routes wired in App.tsx
+Compliance: clean (check-rules-compliance.mjs) — classmap-coverage 100%
+Fixtures: classes/courses/assignments/participants stubs added so the mock-server boots for screenshots

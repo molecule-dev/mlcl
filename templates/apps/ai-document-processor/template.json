@@ -1,0 +1,100 @@
+{
+  "label": "AI Document Processor",
+  "description": "OCR, intelligent extraction, classification, and automated filing of scanned documents and PDFs with AI — with built-in Stripe-backed subscription tiers",
+  "cluster": "ai-first",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-classification",
+    "@molecule/api-ai-classification-llm",
+    "@molecule/api-ai-summarization",
+    "@molecule/api-ai-summarization-llm",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-import-export-csv",
+    "@molecule/app-file-upload",
+    "@molecule/app-data-table",
+    "@molecule/app-ai-assistant",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "AI Document Processor"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for Claude (OCR, extraction, classification, summarization)",
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key for S3 document storage",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key for S3 document storage",
+      "required": true
+    },
+    "AWS_REGION": {
+      "description": "AWS region for S3 bucket",
+      "default": "us-east-1"
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket name for uploaded documents",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_AI_DOCUMENT_PROCESSOR_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_DOCUMENT_PROCESSOR_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_AI_DOCUMENT_PROCESSOR_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_DOCUMENT_PROCESSOR_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "file-upload",
+    "ai-extraction",
+    "ai-classification",
+    "ai-summarization",
+    "data-table",
+    "export",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,121 @@
+import { Link } from 'react-router'
+
+import { ContentPageShell } from '@molecule/app-legal-pages-react'
+import { useTranslation, useVerifyPaymentReturn } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+import { Button, Flex, Spinner } from '@molecule/app-ui-react'
+
+import { Footer } from '../components/Footer.js'
+import { Header } from '../components/Header.js'
+
+export function PlanUpdated() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  // The checkout provider returns the buyer here with the payment id in the
+  // query (`?provider=…&sessionId=…`). Confirming it from THIS origin, where
+  // the session cookie applies, is what actually grants the plan.
+  const verification = useVerifyPaymentReturn()
+
+  if (verification.status === 'verifying') {
+    return (
+      <ContentPageShell
+        dataMolId="page-plan-updated"
+        header={<Header />}
+        footer={<Footer />}
+        eyebrow={t('settings.billing', {}, { defaultValue: 'Billing' })}
+        title={t('planUpdated.verifying', {}, { defaultValue: 'Confirming your payment…' })}
+      >
+        <Flex align="center" justify="center" className={cm.sp('py', 12)}>
+          <Spinner />
+        </Flex>
+      </ContentPageShell>
+    )
+  }
+
+  if (verification.status === 'failed') {
+    return (
+      <ContentPageShell
+        dataMolId="page-plan-updated"
+        header={<Header />}
+        footer={<Footer />}
+        eyebrow={t('settings.billing', {}, { defaultValue: 'Billing' })}
+        title={t(
+          'planUpdated.verifyFailed',
+          {},
+          { defaultValue: 'We could not confirm your payment yet.' },
+        )}
+      >
+        <div className={cm.cn(cm.textCenter, cm.stack(4))} data-mol-id="plan-updated-error">
+          <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
+            {t(
+              'planUpdated.verifyFailedBody',
+              {},
+              { defaultValue: 'Your payment may still be processing. Try again in a moment.' },
+            )}
+          </p>
+          <Button onClick={verification.retry} data-mol-id="plan-updated-retry">
+            {t('planUpdated.retry', {}, { defaultValue: 'Try again' })}
+          </Button>
+        </div>
+      </ContentPageShell>
+    )
+  }
+
+  return (
+    <ContentPageShell
+      dataMolId="page-plan-updated"
+      header={<Header />}
+      footer={<Footer />}
+      eyebrow={t('settings.billing', {}, { defaultValue: 'Billing' })}
+      title={t('planUpdated.message', {}, { defaultValue: 'Your subscription is active.' })}
+      subtitle={t(
+        'planUpdated.thankYou',
+        {},
+        { defaultValue: 'Thanks for upgrading — your higher limits are live.' },
+      )}
+    >
+      <div className={cm.cn(cm.textCenter, cm.stack(4))}>
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'mx-auto h-16 w-16 rounded-full bg-primary/10 text-primary',
+          )}
+          aria-hidden="true"
+        >
+          <span className={cm.cn('material-symbols-outlined')} style={{ fontSize: '2rem' }}>
+            verified
+          </span>
+        </span>
+        <div
+          className={cm.cn(cm.flex({ gap: 'sm', justify: 'center' }), cm.sp('mt', 2), 'flex-wrap')}
+        >
+          <Link
+            to="/dashboard"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.fontWeight('bold'),
+              'rounded-xl bg-primary text-on-primary hover:bg-primary-hover transition-colors',
+            )}
+            data-testid="plan-updated-dashboard-link"
+          >
+            {t('planUpdated.toDashboard', {}, { defaultValue: 'Go to dashboard' })}
+          </Link>
+          <Link
+            to="/settings"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.fontWeight('bold'),
+              'rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors',
+            )}
+          >
+            {t('planUpdated.settings', {}, { defaultValue: 'Open settings' })}
+          </Link>
+        </div>
+      </div>
+    </ContentPageShell>
+  )
+}
+
+export default PlanUpdated

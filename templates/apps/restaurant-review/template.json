@@ -1,0 +1,96 @@
+{
+  "label": "Restaurant Review",
+  "description": "Yelp-like restaurant review platform with ratings, photos, maps, and menus — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-image-sharp",
+    "@molecule/api-middleware-validation",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-comment",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-reaction",
+    "@molecule/api-resource-review",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-gallery",
+    "@molecule/app-maps",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Restaurant Review"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for restaurant and review photos",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_RESTAURANT_REVIEW_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_RESTAURANT_REVIEW_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_RESTAURANT_REVIEW_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_RESTAURANT_REVIEW_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "maps",
+    "bookmarks",
+    "reviews",
+    "subscriptions"
+  ]
+}

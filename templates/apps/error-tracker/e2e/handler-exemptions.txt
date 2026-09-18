@@ -1,0 +1,5 @@
+# Handlers exempted from gate 3 (handler covered by spec network assertion).
+#
+# Each line is a handler basename (i.e. `api/src/handlers/<name>.ts`).
+# Lines starting with `#` and blank lines are ignored.
+_seed

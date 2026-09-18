@@ -1,0 +1,159 @@
+{
+  "app": "calorie-counter",
+  "designProjectId": "4255119341100433061",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-landing.html",
+      "designScreenId": "1e01e3daf1ed4155b41710be3228efb7"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-login.html",
+      "designScreenId": "ff19851721f744eab8ff9bf4eafff21d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-calorie-counter-login.html",
+      "derivationNotes": "Same split layout as Login (teal gradient left with Nosh wordmark and decorative food emojis, form card right). Extend form: add Full name field at the top and Confirm password below password. Heading becomes 'Create your account'. Primary button becomes 'Create account' (orange pill). Social labels become 'Sign up with Google' / 'Sign up with Apple'. Footer link becomes 'Already have an account? Sign in' in teal. Remove 'Keep me signed in' and 'Forgot password?' row."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-calorie-counter-login.html",
+      "derivationNotes": "Same split layout as Login. Replace form with a single Email input. Heading becomes 'Reset your password' with subtitle 'Enter the email on your account and we will send a reset link.' Primary button becomes 'Send reset link' (orange pill). Remove password field, social buttons, keep-me-signed-in row, and sign-up link. Add a 'Back to sign in' text link in teal below the button."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-calorie-counter-login.html",
+      "derivationNotes": "Same split layout as Login. Replace form with two password fields: 'New password' and 'Confirm new password' (both with show/hide toggles). Heading becomes 'Set a new password' with subtitle 'Your new password must be at least 8 characters.' Primary button becomes 'Reset password' (orange pill). Remove email, social buttons, keep-me-signed-in row. Footer becomes a 'Back to sign in' text link in teal."
+    },
+    {
+      "name": "Today",
+      "templateFile": "app/pages/Today.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/today",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-today.html",
+      "designScreenId": "5ba8d4534672436cbbd68a09d8f23545"
+    },
+    {
+      "name": "LogFood",
+      "templateFile": "app/pages/LogFood.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/log",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-log-food.html",
+      "designScreenId": "e7b31bb25fd54a2ba6cee7c572b7189f"
+    },
+    {
+      "name": "FoodDetail",
+      "templateFile": "app/pages/FoodDetail.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/food/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-food-detail.html",
+      "designScreenId": "5754b5112d0545c2be14f4e807475686"
+    },
+    {
+      "name": "Progress",
+      "templateFile": "app/pages/Progress.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/progress",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-progress.html",
+      "designScreenId": "99d4bb54fe7e4f53bc1ab572bbed6d6f"
+    },
+    {
+      "name": "Goals",
+      "templateFile": "app/pages/Goals.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/goals",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-goals.html",
+      "designScreenId": "0458c441a9af4d51a069498bb8387973"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-settings.html",
+      "designScreenId": "83d2e66f4f6646eba1048e2b4f468fc2"
+    },
+    {
+      "name": "Recipes",
+      "templateFile": "app/pages/Recipes.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/recipes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-recipes.html",
+      "designScreenId": "e5af6086ae0744779c5dad36b4c8cc65"
+    },
+    {
+      "name": "RecipeDetail",
+      "templateFile": "app/pages/RecipeDetail.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/recipes/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-recipe-detail.html",
+      "designScreenId": "c429d3b2cc154fd4a96f6e7af6f8b701"
+    },
+    {
+      "name": "WeightTracking",
+      "templateFile": "app/pages/WeightTracking.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/weight",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-weight-tracking.html",
+      "designScreenId": "6d6b5b4299dc45acbbb6fea0c040a357"
+    },
+    {
+      "name": "Onboarding",
+      "templateFile": "app/pages/Onboarding.tsx",
+      "components": ["app/components/CalorieCounterLayout.tsx"],
+      "route": "/onboarding",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-calorie-counter-onboarding.html",
+      "designScreenId": "dc498527b43f44a99d69fbc2f1e9c2fb"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+/* Scan molecule packages for Tailwind class names.
+ * Path is relative to this file (src/index.css) → ../node_modules/… */
+@source "../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../node_modules/@molecule/app-styling-tailwind/dist";
+
+/* Map molecule theme CSS variables to Tailwind color tokens */
+/* Fallback values use default dark theme colors for initial paint */
+@theme {
+  --font-sans: var(--mol-font-sans, system-ui, -apple-system, sans-serif);
+  --font-mono: var(--mol-font-mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  --color-primary: var(--mol-color-primary, #4070e0);
+  --color-primary-light: var(--mol-color-primary-light, #6090f0);
+  --color-primary-dark: var(--mol-color-primary-dark, #3060c0);
+  --color-secondary: var(--mol-color-secondary, #808080);
+  --color-secondary-light: var(--mol-color-secondary-light, #a0a0a0);
+  --color-secondary-dark: var(--mol-color-secondary-dark, #606060);
+  --color-background: var(--mol-color-background, #222222);
+  --color-background-secondary: var(--mol-color-background-secondary, #1a1a1a);
+  --color-background-tertiary: var(--mol-color-background-tertiary, #191919);
+  --color-surface: var(--mol-color-surface, #292929);
+  --color-surface-secondary: var(--mol-color-surface-secondary, #333333);
+  --color-input-background: var(--mol-color-input-background, #191919);
+  --color-surface-hover: color-mix(in srgb, var(--color-surface) 90%, black);
+  --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, black);
+  --color-primary-active: color-mix(in srgb, var(--color-primary) 75%, black);
+  --color-secondary-hover: color-mix(in srgb, var(--color-secondary) 85%, black);
+  --color-secondary-active: color-mix(in srgb, var(--color-secondary) 75%, black);
+  --color-success-hover: color-mix(in srgb, var(--color-success) 85%, black);
+  --color-success-active: color-mix(in srgb, var(--color-success) 75%, black);
+  --color-error-hover: color-mix(in srgb, var(--color-error) 85%, black);
+  --color-error-active: color-mix(in srgb, var(--color-error) 75%, black);
+  --color-foreground: var(--mol-color-text, #e0e0e0);
+  --color-foreground-secondary: var(--mol-color-text-secondary, #aaaaaa);
+  --color-foreground-tertiary: var(--mol-color-text-tertiary, #bebebe);
+  --color-foreground-inverse: var(--mol-color-text-inverse, #222222);
+  --color-success: var(--mol-color-success, #309000);
+  --color-success-light: var(--mol-color-success-light, #1e4620);
+  --color-warning: var(--mol-color-warning, #e0e040);
+  --color-warning-light: var(--mol-color-warning-light, #4d3800);
+  --color-error: var(--mol-color-error, #d02000);
+  --color-error-light: var(--mol-color-error-light, #4d1a1f);
+  --color-info: var(--mol-color-info, #17a2b8);
+  --color-info-light: var(--mol-color-info-light, #0d3d47);
+  --color-border: var(--mol-color-border, #191919);
+  --color-border-secondary: var(--mol-color-border-secondary, #292929);
+  --color-border-focus: var(--mol-color-border-focus, #4070e0);
+  /* Button text colors — mix semantic colors with foreground for higher contrast */
+  --color-primary-text: color-mix(in srgb, var(--color-primary) 75%, var(--color-foreground));
+  --color-secondary-text: color-mix(in srgb, var(--color-secondary) 65%, var(--color-foreground));
+  --color-success-text: color-mix(in srgb, var(--color-success) 75%, var(--color-foreground));
+  --color-warning-text: color-mix(in srgb, var(--color-warning) 75%, var(--color-foreground));
+  --color-error-text: color-mix(in srgb, var(--color-error) 75%, var(--color-foreground));
+}
+
+*,
+*:before,
+*:after,
+::placeholder {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--mol-font-sans, system-ui, sans-serif);
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "entry-1",
+    "date": "2026-04-30T07:30:00Z",
+    "title": "A quiet morning walk",
+    "preview": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.",
+    "body": "I noticed the way the light moved through the leaves today. There was a small bird I had never seen before — a tiny moment of wonder before the day got loud.\n\nI am trying to do this more often: notice the small things before the noise of doing arrives. The walks help. The journal helps. Even the quiet ten minutes after, where I do nothing in particular, helps.",
+    "mood": "radiant",
+    "tags": ["gratitude", "nature", "morning"],
+    "word_count": 142
+  },
+  {
+    "id": "entry-2",
+    "date": "2026-04-29T19:45:00Z",
+    "title": "A hard conversation, but honest",
+    "preview": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter. We do not talk enough about the small heavy things.",
+    "body": "Talked with my sister about how I have been feeling lately. It was uncomfortable to admit but afterwards I felt lighter.\n\nWe do not talk enough about the small heavy things. I forget how much honesty actually helps until I practice it.",
+    "mood": "good",
+    "tags": ["family", "honesty", "connection"],
+    "word_count": 218
+  },
+  {
+    "id": "entry-3",
+    "date": "2026-04-28T22:10:00Z",
+    "title": "Tired but okay",
+    "preview": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+    "body": "A long day at work that ended in nothing dramatic. I am learning that \"okay\" is a perfectly acceptable mood. Not every entry needs an epiphany.",
+    "mood": "neutral",
+    "tags": ["work", "rest"],
+    "word_count": 96
+  },
+  {
+    "id": "entry-4",
+    "date": "2026-04-27T20:00:00Z",
+    "title": "Cold and a little lonely",
+    "preview": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week.",
+    "body": "The apartment felt too quiet. I am noticing I do better when I plan one small social thing each week. Tomorrow I'll text Maya and ask if she wants to grab coffee.",
+    "mood": "low",
+    "tags": ["loneliness", "self-care"],
+    "word_count": 132
+  },
+  {
+    "id": "entry-5",
+    "date": "2026-04-26T18:15:00Z",
+    "title": "Therapy session — something clicked",
+    "preview": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous.",
+    "body": "We talked about the way I tend to apologize before stating what I actually want. Naming it out loud felt enormous. I have homework: practice asking for one thing this week, plainly, without the cushion.",
+    "mood": "good",
+    "tags": ["therapy", "breakthrough"],
+    "word_count": 304
+  }
+]

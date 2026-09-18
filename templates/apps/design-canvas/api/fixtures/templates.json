@@ -1,0 +1,74 @@
+[
+  {
+    "id": "tpl-001",
+    "title": "SaaS Pricing Page",
+    "category": "marketing",
+    "thumbnail_color": "#7c3aed",
+    "accent_color": "#ec4899",
+    "uses": 2680,
+    "stars": 412,
+    "is_pro": false,
+    "author": "Atelier Studio",
+    "created_at": "2026-02-12T10:00:00Z"
+  },
+  {
+    "id": "tpl-002",
+    "title": "Dashboard Analytics",
+    "category": "product",
+    "thumbnail_color": "#06b6d4",
+    "accent_color": "#7c3aed",
+    "uses": 1924,
+    "stars": 318,
+    "is_pro": true,
+    "author": "Northwind Design",
+    "created_at": "2026-02-26T11:30:00Z"
+  },
+  {
+    "id": "tpl-003",
+    "title": "Mobile Onboarding Flow",
+    "category": "mobile",
+    "thumbnail_color": "#10b981",
+    "accent_color": "#06b6d4",
+    "uses": 1480,
+    "stars": 264,
+    "is_pro": false,
+    "author": "Atelier Studio",
+    "created_at": "2026-03-05T14:15:00Z"
+  },
+  {
+    "id": "tpl-004",
+    "title": "Empty-State Illustration Set",
+    "category": "illustration",
+    "thumbnail_color": "#f59e0b",
+    "accent_color": "#ec4899",
+    "uses": 1840,
+    "stars": 296,
+    "is_pro": false,
+    "author": "Aiko Nakamura",
+    "created_at": "2026-03-19T09:42:00Z"
+  },
+  {
+    "id": "tpl-005",
+    "title": "Email Lifecycle Bundle",
+    "category": "marketing",
+    "thumbnail_color": "#a855f7",
+    "accent_color": "#06b6d4",
+    "uses": 1112,
+    "stars": 198,
+    "is_pro": true,
+    "author": "Sam Patel",
+    "created_at": "2026-04-02T16:08:00Z"
+  },
+  {
+    "id": "tpl-006",
+    "title": "Component Library Starter",
+    "category": "system",
+    "thumbnail_color": "#ec4899",
+    "accent_color": "#7c3aed",
+    "uses": 3210,
+    "stars": 552,
+    "is_pro": false,
+    "author": "Atelier Studio",
+    "created_at": "2026-01-15T11:00:00Z"
+  }
+]

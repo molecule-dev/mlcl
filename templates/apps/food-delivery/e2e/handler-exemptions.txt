@@ -1,0 +1,8 @@
+# Handler files that are not HTTP routes and therefore not exercised by
+# spec network assertions. One name per line (basename without `.ts`).
+# Lines starting with `#` are comments.
+
+# Internal idempotent seed module used by users.ts on signup
+# (seedGlobalCatalogIfEmpty + seedDemoForUser). Not a router; nothing
+# to exercise from a spec.
+_seed

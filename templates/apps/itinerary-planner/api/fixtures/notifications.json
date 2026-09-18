@@ -1,0 +1,29 @@
+[
+  {
+    "id": "n-01",
+    "kind": "booking",
+    "title": "Sky Lagoon · entry confirmed",
+    "body": "Your Sky Pass for 8 PM on June 14 is confirmed for all four travelers.",
+    "occurred_iso": "2026-04-29T16:42:00Z",
+    "read": false,
+    "trip_id": "tr-2026-iceland"
+  },
+  {
+    "id": "n-02",
+    "kind": "collaborator",
+    "title": "Mira Patel commented on Day 4",
+    "body": "Should we swap the glacier walk for a Vatnajökull boat tour? I added a link to the notes.",
+    "occurred_iso": "2026-04-29T11:08:00Z",
+    "read": false,
+    "trip_id": "tr-2026-iceland"
+  },
+  {
+    "id": "n-03",
+    "kind": "price_alert",
+    "title": "Tokyo → Kyoto fare dropped 18%",
+    "body": "JR Central has a Green Car deal on your Sept 8 connection — book by Sunday.",
+    "occurred_iso": "2026-04-28T22:15:00Z",
+    "read": false,
+    "trip_id": "tr-2026-japan"
+  }
+]

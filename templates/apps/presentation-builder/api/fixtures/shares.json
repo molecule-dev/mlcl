@@ -1,0 +1,35 @@
+[
+  {
+    "id": "share-1",
+    "deckId": "lumen-series-b",
+    "deckTitle": "Lumen Capital, Series B",
+    "audience": "Lumen Capital partners",
+    "scope": "view",
+    "viewerCount": 18,
+    "lastViewedAt": "2026-04-30T15:42:00Z",
+    "expiresAt": "2026-05-15T23:59:00Z",
+    "passwordProtected": true
+  },
+  {
+    "id": "share-2",
+    "deckId": "design-system",
+    "deckTitle": "Design System v4 Keynote",
+    "audience": "Design org",
+    "scope": "comment",
+    "viewerCount": 42,
+    "lastViewedAt": "2026-04-30T11:30:00Z",
+    "expiresAt": null,
+    "passwordProtected": false
+  },
+  {
+    "id": "share-3",
+    "deckId": "sales-kickoff",
+    "deckTitle": "GTM Kickoff 2026",
+    "audience": "Sales kickoff attendees",
+    "scope": "view",
+    "viewerCount": 124,
+    "lastViewedAt": "2026-04-30T09:18:00Z",
+    "expiresAt": "2026-05-08T23:59:00Z",
+    "passwordProtected": false
+  }
+]

@@ -1,0 +1,159 @@
+{
+  "app": "forum",
+  "designProjectId": "13630997199566369182",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-forum-landing.html",
+      "designScreenId": "f1ba4f80fca64f458e0d74bd10b840ef"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-forum-login.html",
+      "designScreenId": "68d4c91ac9d64e3588e13c10edfbea8b"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-forum-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link. Agora wordmark and tagline preserved."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-forum-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'. Agora wordmark preserved."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-forum-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'. Agora wordmark preserved."
+    },
+    {
+      "name": "Feed",
+      "templateFile": "app/pages/Feed.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/feed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-feed.html",
+      "designScreenId": "cff5ac78464c43f79fe99c493f2b9160"
+    },
+    {
+      "name": "Categories",
+      "templateFile": "app/pages/Categories.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/categories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-categories.html",
+      "designScreenId": "1f08715af31840958ac0173cbb3b410f"
+    },
+    {
+      "name": "ThreadView",
+      "templateFile": "app/pages/ThreadView.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/thread/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-thread-view.html",
+      "designScreenId": "cbd860469d6b4f1796a67c5155582473"
+    },
+    {
+      "name": "Compose",
+      "templateFile": "app/pages/Compose.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/compose",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-compose.html",
+      "designScreenId": "14458be230164b369f0c705ea60a58f3"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/u/:username",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-profile.html",
+      "designScreenId": "121ec4e2d2f944a1b26343f9bc926c69"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-settings.html",
+      "designScreenId": "1f760e23103c4f65b79213d0582e6114"
+    },
+    {
+      "name": "CategoryDetail",
+      "templateFile": "app/pages/CategoryDetail.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/c/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-category-detail.html",
+      "designScreenId": "5be1f2a703dd4a2498939cade67cb1b3"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-search.html",
+      "designScreenId": "7bd747d88ac7411c81aada4ce6094c70"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-notifications.html",
+      "designScreenId": "a559e33e30e9435fad5f2c5d7b70555a"
+    },
+    {
+      "name": "ModQueue",
+      "templateFile": "app/pages/ModQueue.tsx",
+      "components": ["app/components/ForumLayout.tsx"],
+      "route": "/mod",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-forum-mod-queue.html",
+      "designScreenId": "27596fa4cd684f60a2bcbe30f22350be"
+    }
+  ]
+}

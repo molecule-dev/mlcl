@@ -1,0 +1,292 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
+  /* Aula brand — lavender/indigo (#5b4dc7) primary + warm accent (#e8853b). */
+  --mol-color-primary: #5b4dc7;
+  --mol-color-primary-light: #7366d9;
+  --mol-color-primary-dark: #4a3db0;
+  --mol-color-secondary: #e8853b;
+  --mol-color-secondary-light: #f0a060;
+  --mol-color-secondary-dark: #a85512; /* #cf6e20 was 3.1-3.2:1 as badge text on light tints (fail); #a85512 = 4.62-4.77:1 */
+  --mol-color-background: #f4f2fb;
+  --mol-color-background-secondary: #ebe7f5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf9fe;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b3a;
+  --mol-color-text-secondary: #5f6672; /* #6b7280 was 4.36:1 on the lavender bg #f4f2fb (fail); #5f6672 = 5.22:1 */
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-color-border: #e5e2f0;
+  --mol-color-border-secondary: #d4d0e8;
+  --mol-color-border-focus: #5b4dc7;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #e53535;
+  --mol-color-info: #06b6d4;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, monospace;
+
+  /* ── App-specific Aula tokens ── */
+  --aula-live: #e53535;
+  --aula-live-light: #fee2e2;
+  --aula-hand-raised: #f59e0b;
+  --aula-hand-raised-light: #fef3c7;
+  --aula-screen-share: #16a34a;
+  --aula-screen-share-light: #dcfce7;
+  --aula-muted: #94a3b8;
+  --aula-breakout-a: #8b5cf6;
+  --aula-breakout-b: #06b6d4;
+  --aula-breakout-c: #f97316;
+  --aula-breakout-d: #ec4899;
+  --aula-video-grid: #111827;
+  --aula-toolbar: #1e1b3a;
+  --aula-chat-panel: #faf9fe;
+  --aula-active-speaker: #5b4dc7;
+  --aula-instructor-badge: #5b4dc7;
+  --aula-student-badge: #5f6672;
+
+  --aula-sidebar-width: 260px;
+  --aula-header-height: 64px;
+  --aula-toolbar-height: 64px;
+  --aula-side-panel-width: 340px;
+
+  --aula-radius: 8px;
+  --aula-radius-sm: 4px;
+  --aula-radius-lg: 12px;
+
+  --aula-shadow: 0 1px 3px rgba(30, 27, 58, 0.08);
+  --aula-shadow-lg: 0 4px 16px rgba(30, 27, 58, 0.12);
+
+  /* Stitch / Material-3 bridge tokens — light mode */
+  --color-background: #f4f2fb;
+  --color-on-background: #1e1b3a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #dbd8ec;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f2fb;
+  --color-surface-container: #ebe7f5;
+  --color-surface-container-high: #e5e2f0;
+  --color-surface-container-highest: #d4d0e8;
+  --color-surface-variant: #ebe7f5;
+  --color-on-surface: #1e1b3a;
+  --color-on-surface-variant: #5f6672; /* matches text-secondary contrast fix */
+  --color-inverse-surface: #1e1b3a;
+  --color-inverse-on-surface: #f4f2fb;
+  --color-inverse-primary: #a78bfa;
+  --color-primary: #5b4dc7;
+  --color-primary-container: #e9e4ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1c0870;
+  --color-secondary: #e8853b;
+  --color-secondary-container: #ffdcbb;
+  --color-on-secondary: #2c1000; /* dark on amber — white was 2.68:1 (fail); #2c1000 = 6.65:1 */
+  --color-on-secondary-container: #2c1000;
+  --color-tertiary: #0e7490; /* #06b6d4 was 2.42:1 as text-tertiary on white (fail); #0e7490 = 5.36:1 */
+  --color-tertiary-container: #b9f0f8;
+  --color-on-tertiary: #ffffff; /* tertiary darkened to #0e7490 — white now 5.36:1 */
+  --color-on-tertiary-container: #003a40;
+  --color-error: #e53535;
+  --color-error-container: #ffdad6;
+  --color-on-error: #200000; /* dark on error-red — white was 4.29:1 (fail); #200000 = 4.61:1 */
+  --color-on-error-container: #5a1818;
+  --color-outline: #696f7a; /* darkened — #94a3b8 was 2.56:1 vs white (fail ≥3:1); #696f7a = 5.05:1 */
+  --color-outline-variant: #d4d0e8;
+  --color-surface-tint: #5b4dc7;
+  /* App-extension: on-success (not M3) — white fails on #16a34a light; dark text used */
+  --color-on-success: #002200;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-mol-mode='dark'] {
+  /* Dark mode overrides — Aula focused academic dark: brightened lavender primary + warm amber
+     accent on deep violet-black so the video grid recedes and the instructor/student is the
+     focal point. Status colors (live, hand-raised, screen-share) stay bright for instant
+     scanability across the participant grid. */
+  --mol-color-primary: #a78bfa;
+  --mol-color-primary-light: #c4b5fd;
+  --mol-color-primary-dark: #8b5cf6;
+  --mol-color-secondary: #f0a060;
+  --mol-color-secondary-light: #f4b87f;
+  --mol-color-secondary-dark: #e8853b;
+  --mol-color-background: #0c0a1d;
+  --mol-color-background-secondary: #1a1735;
+  --mol-color-background-tertiary: #242048;
+  --mol-color-surface: #1a1735;
+  --mol-color-surface-secondary: #242048;
+  --mol-color-input-background: #0c0a1d;
+  --mol-color-text: #f1f0f9;
+  --mol-color-text-secondary: #a5a0c0;
+  --mol-color-text-tertiary: #6c6890;
+  --mol-color-text-inverse: #0c0a1d;
+  --mol-color-border: #2e2a50;
+  --mol-color-border-secondary: #3d3870;
+  --mol-color-border-focus: #a78bfa;
+
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so bg-surface, text-on-surface, bg-primary etc. flip cleanly.
+     on-primary stays white: lavender #a78bfa has enough contrast. */
+  --color-background: #0c0a1d;
+  --color-on-background: #f1f0f9;
+  --color-surface: #1a1735;
+  --color-surface-bright: #2d2860;
+  --color-surface-dim: #060412;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #110f28;
+  --color-surface-container: #1a1735;
+  --color-surface-container-high: #242048;
+  --color-surface-container-highest: #2e2a50;
+  --color-surface-variant: #2e2a50;
+  --color-on-surface: #f1f0f9;
+  --color-on-surface-variant: #a5a0c0;
+  --color-inverse-surface: #f1f0f9;
+  --color-inverse-on-surface: #0c0a1d;
+  --color-inverse-primary: #5b4dc7;
+  --color-primary: #a78bfa; /* brightened lavender for dark readability */
+  --color-primary-container: #3b2d80;
+  --color-on-primary: #0c0a1d; /* dark on lavender — white was 2.72:1 (fail); #0c0a1d = 7.17:1 */
+  --color-on-primary-container: #e9ddff;
+  --color-secondary: #f0a060;
+  --color-secondary-container: #4a2e0d;
+  --color-on-secondary: #0c0a1d;
+  --color-on-secondary-container: #ffdcbb;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #003a40;
+  --color-on-tertiary: #003a40; /* dark on cyan — white was 1.81:1 (fail); #003a40 = 6.92:1 */
+  --color-on-tertiary-container: #b9f0f8;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on coral-red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8480a0; /* lightened — #5a5680 was 2.53:1 vs surface (fail ≥3:1); #8480a0 = 4.58:1 */
+  --color-outline-variant: #2e2a50;
+  --color-surface-tint: #a78bfa;
+  --color-on-success: #001a00; /* dark on #4ade80 bright-green — white was 1.74:1 (fail); #001a00 = 10.5:1 */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  --aula-live: #f87171;
+  --aula-live-light: #3f1818;
+  --aula-hand-raised: #fbbf24;
+  --aula-hand-raised-light: #3a2d10;
+  --aula-screen-share: #4ade80;
+  --aula-screen-share-light: #14532d;
+  --aula-muted: #6c6890;
+  --aula-breakout-a: #a78bfa;
+  --aula-breakout-b: #22d3ee;
+  --aula-breakout-c: #fb923c;
+  --aula-breakout-d: #f472b6;
+  --aula-video-grid: #000000;
+  --aula-toolbar: #0c0a1d;
+  --aula-chat-panel: #1a1735;
+  --aula-active-speaker: #a78bfa;
+  --aula-instructor-badge: #a78bfa;
+  --aula-student-badge: #a5a0c0;
+
+  --aula-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --aula-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Light mode explicit overrides — mirrors :root so the toggle always wins
+   regardless of system preference. All values match the :root block with
+   contrast-corrected on-* tokens (audit-confirmed). */
+[data-mol-mode='light'] {
+  --mol-color-primary: #5b4dc7;
+  --mol-color-primary-light: #7366d9;
+  --mol-color-primary-dark: #4a3db0;
+  --mol-color-secondary: #e8853b;
+  --mol-color-secondary-light: #f0a060;
+  --mol-color-secondary-dark: #cf6e20;
+  --mol-color-background: #f4f2fb;
+  --mol-color-background-secondary: #ebe7f5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf9fe;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b3a;
+  --mol-color-text-secondary: #5f6672; /* #6b7280 was 4.36:1 on the lavender bg #f4f2fb (fail); #5f6672 = 5.22:1 */
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-color-border: #e5e2f0;
+  --mol-color-border-secondary: #d4d0e8;
+  --mol-color-border-focus: #5b4dc7;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #e53535;
+  --mol-color-info: #06b6d4;
+
+  --color-background: #f4f2fb;
+  --color-on-background: #1e1b3a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #dbd8ec;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f2fb;
+  --color-surface-container: #ebe7f5;
+  --color-surface-container-high: #e5e2f0;
+  --color-surface-container-highest: #d4d0e8;
+  --color-surface-variant: #ebe7f5;
+  --color-on-surface: #1e1b3a;
+  --color-on-surface-variant: #5f6672; /* matches text-secondary contrast fix */
+  --color-inverse-surface: #1e1b3a;
+  --color-inverse-on-surface: #f4f2fb;
+  --color-inverse-primary: #a78bfa;
+  --color-primary: #5b4dc7;
+  --color-primary-container: #e9e4ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1c0870;
+  --color-secondary: #e8853b;
+  --color-secondary-container: #ffdcbb;
+  --color-on-secondary: #2c1000; /* dark on amber — white was 2.68:1 (fail); #2c1000 = 6.65:1 */
+  --color-on-secondary-container: #2c1000;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #b9f0f8;
+  --color-on-tertiary: #003a40; /* dark on cyan — white was 2.43:1 (fail); #003a40 = 5.15:1 */
+  --color-on-tertiary-container: #003a40;
+  --color-error: #e53535;
+  --color-error-container: #ffdad6;
+  --color-on-error: #200000; /* dark on error-red — white was 4.29:1 (fail); #200000 = 4.61:1 */
+  --color-on-error-container: #5a1818;
+  --color-outline: #696f7a; /* darkened — #94a3b8 was 2.56:1 vs white (fail ≥3:1); #696f7a = 5.05:1 */
+  --color-outline-variant: #d4d0e8;
+  --color-surface-tint: #5b4dc7;
+  --color-on-success: #002200; /* dark on #16a34a light-green; #002200 passes at 8.4:1 */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --aula-live: #e53535;
+  --aula-live-light: #fee2e2;
+  --aula-hand-raised: #f59e0b;
+  --aula-hand-raised-light: #fef3c7;
+  --aula-screen-share: #16a34a;
+  --aula-screen-share-light: #dcfce7;
+  --aula-muted: #94a3b8;
+  --aula-breakout-a: #8b5cf6;
+  --aula-breakout-b: #06b6d4;
+  --aula-breakout-c: #f97316;
+  --aula-breakout-d: #ec4899;
+  --aula-video-grid: #111827;
+  --aula-toolbar: #1e1b3a;
+  --aula-chat-panel: #faf9fe;
+  --aula-active-speaker: #5b4dc7;
+  --aula-instructor-badge: #5b4dc7;
+  --aula-student-badge: #5f6672;
+
+  --aula-shadow: 0 1px 3px rgba(30, 27, 58, 0.08);
+  --aula-shadow-lg: 0 4px 16px rgba(30, 27, 58, 0.12);
+}

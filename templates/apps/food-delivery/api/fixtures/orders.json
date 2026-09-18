@@ -1,0 +1,103 @@
+[
+  {
+    "id": "order-12345",
+    "restaurant_id": "r1",
+    "restaurant_name": "Sakura Sushi",
+    "status": "delivered",
+    "placed_at": "2026-04-25T19:42:00.000Z",
+    "delivered_at": "2026-04-25T20:18:00.000Z",
+    "eta_minutes": 0,
+    "address": "742 Evergreen Terrace, Springfield 54321",
+    "driver_name": "Marcus T.",
+    "driver_vehicle": "Honda Civic · 8KGS342",
+    "items": [
+      { "name": "Spicy Tuna Roll", "qty": 2, "price_cents": 1299 },
+      { "name": "Salmon Sashimi (5pc)", "qty": 1, "price_cents": 1499 },
+      { "name": "Miso Soup", "qty": 1, "price_cents": 499 }
+    ],
+    "subtotal_cents": 5596,
+    "delivery_fee_cents": 299,
+    "tax_cents": 376,
+    "total_cents": 6271
+  },
+  {
+    "id": "order-12298",
+    "restaurant_id": "r2",
+    "restaurant_name": "Bella Italia",
+    "status": "delivered",
+    "placed_at": "2026-04-22T18:15:00.000Z",
+    "delivered_at": "2026-04-22T18:54:00.000Z",
+    "eta_minutes": 0,
+    "address": "742 Evergreen Terrace, Springfield 54321",
+    "driver_name": "Imani S.",
+    "driver_vehicle": "Toyota Prius · 7XBV991",
+    "items": [
+      { "name": "Margherita Pizza", "qty": 1, "price_cents": 1599 },
+      { "name": "Caprese Salad", "qty": 1, "price_cents": 1099 }
+    ],
+    "subtotal_cents": 2698,
+    "delivery_fee_cents": 199,
+    "tax_cents": 213,
+    "total_cents": 3110
+  },
+  {
+    "id": "order-12180",
+    "restaurant_id": "r3",
+    "restaurant_name": "Spice Route",
+    "status": "delivered",
+    "placed_at": "2026-04-18T20:01:00.000Z",
+    "delivered_at": "2026-04-18T20:37:00.000Z",
+    "eta_minutes": 0,
+    "address": "742 Evergreen Terrace, Springfield 54321",
+    "driver_name": "Devon R.",
+    "driver_vehicle": "Honda Fit · 4LMQ725",
+    "items": [
+      { "name": "Chicken Tikka Masala", "qty": 1, "price_cents": 1499 },
+      { "name": "Garlic Naan", "qty": 2, "price_cents": 399 }
+    ],
+    "subtotal_cents": 2297,
+    "delivery_fee_cents": 0,
+    "tax_cents": 191,
+    "total_cents": 2488
+  },
+  {
+    "id": "order-12099",
+    "restaurant_id": "r5",
+    "restaurant_name": "Burger Republic",
+    "status": "cancelled",
+    "placed_at": "2026-04-15T19:23:00.000Z",
+    "delivered_at": null,
+    "eta_minutes": 0,
+    "address": "742 Evergreen Terrace, Springfield 54321",
+    "driver_name": null,
+    "driver_vehicle": null,
+    "items": [
+      { "name": "Double Stack", "qty": 1, "price_cents": 1399 },
+      { "name": "Hand-cut Fries", "qty": 1, "price_cents": 499 }
+    ],
+    "subtotal_cents": 1898,
+    "delivery_fee_cents": 0,
+    "tax_cents": 158,
+    "total_cents": 2056
+  },
+  {
+    "id": "order-12011",
+    "restaurant_id": "r1",
+    "restaurant_name": "Sakura Sushi",
+    "status": "on_the_way",
+    "placed_at": "2026-04-26T19:30:00.000Z",
+    "delivered_at": null,
+    "eta_minutes": 14,
+    "address": "742 Evergreen Terrace, Springfield 54321",
+    "driver_name": "Marcus T.",
+    "driver_vehicle": "Honda Civic · 8KGS342",
+    "items": [
+      { "name": "Dragon Roll", "qty": 1, "price_cents": 1599 },
+      { "name": "Edamame", "qty": 1, "price_cents": 599 }
+    ],
+    "subtotal_cents": 2198,
+    "delivery_fee_cents": 299,
+    "tax_cents": 184,
+    "total_cents": 2681
+  }
+]

@@ -1,0 +1,24 @@
+Polish complete: 2026-04-30T00:25:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: real-estate-travel → sibling: hotel-booking
+Brand: Morsel — crimson #c0392b + saffron #d4a017
+Components: 8 bespoke
+  - StarRating (saffron-gold five-star primitive)
+  - PriceLevel (four-glyph $$$$ indicator)
+  - MorselHeroSearchCard (gradient hero + frosted search bar)
+  - RestaurantListingCard (16:10 photo card with bookmark + distance)
+  - CuisineDiscoveryCard (full-bleed cuisine tile with scrim)
+  - ReviewExcerptCard (Lora pull-quote + photo strip + helpful chip)
+  - RestaurantReviewLayout (TopNavLayout shell)
+  - MorselAuthShell (brand-panel auth with food photography)
+Pages rewritten: 15/15 screen-map routes
+  Landing, Login, Signup, ForgotPassword, ResetPassword,
+  Discover, RestaurantDetail, WriteReview, MyReviews, Favorites,
+  Settings, Profile, Notifications, Lists, EditReview
+Material 3 tokens filled: yes (48 tokens via fill-material3-tokens)
+Fonts added: yes (DM Serif Display + Lora + Inter + Material Symbols)
+Sweep 1 chrome conformance: RootErrorBoundary delegated; Header/Footer
+  retained as in hotel-booking sibling pattern
+Compliance: clean (check-rules-compliance.mjs)
+Screen-map coverage: 15/15
+Typecheck: clean

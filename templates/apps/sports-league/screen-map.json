@@ -1,0 +1,189 @@
+{
+  "app": "sports-league",
+  "designProjectId": "7865866058999084110",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-sports-league-landing.html",
+      "designScreenId": "0d6c3b2cbd0a415a94fb92c96a0217ed"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-sports-league-login.html",
+      "designScreenId": "0d07619f2f304cc5b3a0aea8f0bc77b4"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sports-league-login.html",
+      "derivationNotes": "Same split layout with centered card and navy scoreboard illustration. Right card adds First Name, Last Name, Email, Password, Confirm Password fields. Heading changes to 'Create your Pennant account'. Subtext 'Start tracking standings today'. Primary button 'Create account' teal solid. Bottom link 'Already have an account? Sign in'. No Forgot Password link. Keep SSO options."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sports-league-login.html",
+      "derivationNotes": "Same split layout with centered card and navy scoreboard illustration. Right card shows only Email field. Heading 'Reset your password'. Subtext 'Enter your email to receive a reset link'. Primary button 'Send reset link' teal solid. Bottom link 'Back to sign in'. No password, no SSO, no remember-me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sports-league-login.html",
+      "derivationNotes": "Same split layout with centered card and navy scoreboard illustration. Right card shows New Password and Confirm Password fields with eye toggles. Heading 'Set new password'. Subtext 'Choose a strong password of at least 12 characters'. Primary button 'Reset password' teal solid. Bottom link 'Back to sign in'. No email, no SSO, no remember-me."
+    },
+    {
+      "name": "Standings",
+      "templateFile": "app/pages/Standings.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/standings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-standings.html",
+      "designScreenId": "61c6181f885a4f2c980510db7d380fb9"
+    },
+    {
+      "name": "Teams",
+      "templateFile": "app/pages/Teams.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/teams",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-teams.html",
+      "designScreenId": "c7f5bcb04731429790141b8bc26b6eed"
+    },
+    {
+      "name": "TeamDetail",
+      "templateFile": "app/pages/TeamDetail.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/teams/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-team-detail.html",
+      "designScreenId": "9f16625c0117478bb31df517f9a4a0c2"
+    },
+    {
+      "name": "Matches",
+      "templateFile": "app/pages/Matches.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/matches",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-matches.html",
+      "designScreenId": "219023c02ae7474891dfb97987ab32f0"
+    },
+    {
+      "name": "MatchDetail",
+      "templateFile": "app/pages/MatchDetail.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/matches/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-match-detail.html",
+      "designScreenId": "d2a6caf94cbe4e3da6aafa9b342960c3"
+    },
+    {
+      "name": "PlayerDetail",
+      "templateFile": "app/pages/PlayerDetail.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/players/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-player-detail.html",
+      "designScreenId": "e7455e5009d445328d2681bfc497de9f"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-settings.html",
+      "designScreenId": "132fbbb8828b451297151ae6612278dc"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-dashboard.html",
+      "designScreenId": "79784e740f8c44f8abe700c1cbc591b9"
+    },
+    {
+      "name": "Players",
+      "templateFile": "app/pages/Players.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/players",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-players.html",
+      "designScreenId": "32f40d68baab4439a67ebf9ab0af405a"
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-stats.html",
+      "designScreenId": "5e6194264d754384804d6cc0ef5579e8"
+    },
+    {
+      "name": "Schedule",
+      "templateFile": "app/pages/Schedule.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/schedule",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-schedule.html",
+      "designScreenId": "08b7589637f345bf910ccb8e6259c20f"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-profile.html",
+      "designScreenId": "150a28a89579433891b8e0e8145fc0a2"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SportsLeagueLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sports-league-notifications.html",
+      "designScreenId": "65620b7dae5e47fb95e7bbd578b64d4f"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+:root {
+  /* Brand — Versal violet (DESIGN.md primary #7c3aed) */
+  --color-primary: #7c3aed;
+  --color-primary-hover: #8b5cf6;
+  --color-primary-active: #6d28d9;
+  --color-primary-light: #ede9fe;
+  --color-primary-dark: #6d28d9;
+
+  --color-secondary: #e879a0;
+  --color-secondary-hover: #f0a0b8;
+  --color-secondary-active: #d05080;
+
+  /* Surfaces — quiet literary off-white */
+  --color-background: #faf9fc;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #faf9fc;
+  --color-surface-hover: #f3f0f9;
+  --color-surface-active: #ede9fe;
+  --color-input-background: #ffffff;
+
+  /* Sidebar — slightly tinted serif sidebar */
+  --color-sidebar-bg: #f8f7fb;
+  --color-sidebar-hover: #f3f0f9;
+  --color-sidebar-active: #ede9fe;
+  --color-sidebar-text: #1a1625;
+  --color-sidebar-text-muted: #9b9aa7;
+
+  /* Text */
+  --color-text: #1a1625;
+  --color-text-secondary: #6e6a7a;
+  --color-text-muted: #6e6a7e; /* #9b9aa7 was 2.64:1 vs bg (fail); #6e6a7e = 4.97:1 */
+  --color-text-inverse: #ffffff;
+  /* Bridge for shared @molecule components (SidebarLayout nav, etc.): without
+     this they fall back to base.css's #808080 (3.94:1 on white — axe serious
+     on the /library nav). Mirrors --color-text-secondary above (5.24:1). */
+  --mol-color-text: #1a1625;
+  --mol-color-text-secondary: #6e6a7a;
+
+  /* Borders */
+  --color-border: #e8e5f0;
+  --color-border-secondary: #d8d4e2;
+  --color-border-focus: #7c3aed;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-warning: #d69e2e;
+  --color-warning-light: #fef3c7;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #7c3aed;
+  --color-info-light: #ede9fe;
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     Feeds bg-surface, text-on-surface, bg-primary etc. in light mode.
+     on-primary stays white (#fff on #7c3aed = 5.70:1 — passes AA). */
+  --color-background: #faf9fc;
+  --color-on-background: #1a1625;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8e5f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf9fc;
+  --color-surface-container: #f3f0f9;
+  --color-surface-container-high: #ede9fe;
+  --color-surface-container-highest: #e0daf5;
+  --color-surface-variant: #f3f0f9;
+  --color-on-surface: #1a1625;
+  --color-on-surface-variant: #6e6a7a;
+  --color-inverse-surface: #1a1625;
+  --color-inverse-on-surface: #faf9fc;
+  --color-inverse-primary: #a78bfa;
+  --color-surface-tint: #7c3aed;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* white on #7c3aed = 5.70:1 — passes AA */
+  --color-on-primary-container: #2e1065;
+  --color-secondary: #e879a0;
+  --color-secondary-container: #fce7f3;
+  /* #1a000d on #e879a0 = 7.31:1 — passes AA. White was 2.74:1 (fail). */
+  --color-on-secondary: #1a000d;
+  --color-on-secondary-container: #831843;
+  --color-tertiary: #d69e2e;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #1a0c00; /* dark on amber — passes AA */
+  --color-on-tertiary-container: #6b3d00;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 — passes AA */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6e6a7a; /* on surface #fff = 5.01:1 — passes 3:1 outline */
+  --color-outline-variant: #e8e5f0;
+
+  /* Editor surface — the writing canvas */
+  --color-editor-bg: #ffffff;
+  --color-editor-focus-bg: #fdfcff;
+  --color-editor-selection: #7c3aed20;
+  --color-editor-placeholder: #b0adb8;
+
+  /* Typography */
+  --font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-editor: 'Charter', 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+  --font-family-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Editor type scale (DESIGN.md) */
+  --writing-body-size: 1.125rem;
+  --writing-title-size: 2.25rem;
+  --writing-line-height: 1.8;
+  --writing-paragraph-spacing: 1.25em;
+}
+
+[data-mol-mode='dark'] {
+  /* Dark mode overrides — Versal distraction-free dark: brightened violet primary on near-black
+     literary canvas. Editor surfaces are subtly tinted (not pure black) to reduce eye strain
+     during long writing sessions; selection highlight stays violet to preserve flow.
+     `--color-on-primary` STAYS white so primary CTA buttons keep their light-on-violet character. */
+  --color-primary: #a78bfa;
+  --color-primary-hover: #c4b5fd;
+  --color-primary-active: #8b5cf6;
+  --color-primary-light: #312e4d;
+  --color-primary-dark: #c4b5fd;
+
+  --color-secondary: #f0a0b8;
+  --color-secondary-hover: #f4b6c8;
+  --color-secondary-active: #e879a0;
+
+  --color-background: #0e0b18;
+  --color-surface: #1a1528;
+  --color-surface-secondary: #221d32;
+  --color-surface-hover: #2a2440;
+  --color-surface-active: #332d4f;
+  --color-input-background: #1a1528;
+
+  --color-sidebar-bg: #12101e;
+  --color-sidebar-hover: #221d32;
+  --color-sidebar-active: #2a2440;
+  --color-sidebar-text: #ece8f4;
+  --color-sidebar-text-muted: #6c6788;
+
+  --color-text: #ece8f4;
+  --color-text-secondary: #9890a8;
+  --color-text-muted: #6c6788;
+  --color-text-inverse: #1a1528;
+  /* dark-mode values for the shared-component bridge (see light block) */
+  --mol-color-text: #ece8f4;
+  --mol-color-text-secondary: #9890a8;
+
+  --color-border: #2e2844;
+  --color-border-secondary: #3a3458;
+  --color-border-focus: #a78bfa;
+
+  --color-success: #4ade80;
+  --color-success-light: #14532d;
+  --color-warning: #fbbf24;
+  --color-warning-light: #3a2d10;
+  --color-error: #f87171;
+  --color-error-light: #3f1818;
+  --color-info: #a78bfa;
+  --color-info-light: #312e4d;
+
+  --color-editor-bg: #16122a;
+  --color-editor-focus-bg: #1a1530;
+  --color-editor-selection: #7c3aed30;
+  --color-editor-placeholder: #4a4460;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block so
+     `bg-background`, `text-on-surface`, `bg-primary`, `bg-primary-container`,
+     `bg-surface-container-*`, `border-outline-variant`, etc. all flip cleanly.
+     Brand violet #7c3aed is kept at the brand stop; on-primary STAYS white so
+     primary CTA buttons remain readable in both modes. */
+  --color-on-background: #ece8f4;
+  --color-surface-bright: #2a2440;
+  --color-surface-dim: #080611;
+  --color-surface-container-lowest: #070510;
+  --color-surface-container-low: #130f20;
+  --color-surface-container: #1a1528;
+  --color-surface-container-high: #221d32;
+  --color-surface-container-highest: #2e2844;
+  --color-surface-variant: #221d32;
+  --color-on-surface: #ece8f4;
+  --color-on-surface-variant: #9890a8;
+  --color-inverse-surface: #ece8f4;
+  --color-inverse-on-surface: #0e0b18;
+  --color-inverse-primary: #7c3aed;
+  --color-surface-tint: #a78bfa;
+  --color-primary: #7c3aed; /* keep brand violet at brand stop */
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #ede9fe;
+  --color-primary-fixed: #f5f3ff;
+  --color-primary-fixed-dim: #ddd6fe;
+  --color-on-primary-fixed: #2e1065;
+  --color-on-primary-fixed-variant: #5b21b6;
+  --color-secondary: #f0a0b8;
+  --color-secondary-container: #831843;
+  /* #1a000d on #f0a0b8 = 9.92:1 — passes AA. White was 2.01:1 (fail). */
+  --color-on-secondary: #1a000d;
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #78350f;
+  /* #1a0c00 on #fbbf24 = 11.47:1 — passes AA. White was 1.67:1 (fail). */
+  --color-on-tertiary: #1a0c00;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  /* #3a0000 on #f87171 = 6.43:1 — passes AA. White was 2.77:1 (fail). */
+  --color-on-error: #3a0000;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #736a90; /* #5a5272 was 2.44:1 vs surface (fail ≥3:1); #736a90 = 3.55:1 */
+  --color-outline-variant: #2e2844;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

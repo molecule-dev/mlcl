@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "new_release",     "title": "Tessa Mira just released a new single",  "body": "\"Cardinal\" — listen now.",                                  "href": "/artists/art_002", "created_at": "2026-04-26T09:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "playlist_update", "title": "Discover Weekly refreshed",              "body": "30 fresh tracks. Tap play to dive in.",                        "href": "/playlists/pl_004", "created_at": "2026-04-26T08:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "follow",          "title": "Devon followed you",                      "body": "Now sharing playlists with each other.",                       "href": "/library",          "created_at": "2026-04-25T14:32:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "concert",         "title": "Helio Brace tickets — Brooklyn",          "body": "May 18 at Brooklyn Steel. Tickets on sale Friday.",           "href": "/artists/art_001",  "created_at": "2026-04-24T11:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "recap",           "title": "Your week in music",                      "body": "Top genre: indie pop. Top artist: Tessa Mira. 14 hours played.","href": "/library",          "created_at": "2026-04-21T18:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",  "title": "Welcome to Reverb",                       "body": "Follow some artists to start getting personalized picks.",     "href": "/search",           "created_at": "2025-08-10T10:00:00Z", "unread": false }
+]

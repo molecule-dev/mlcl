@@ -1,0 +1,123 @@
+{
+  "label": "Health Records",
+  "description": "MyChart-like personal health records with conditions, medications, labs, vitals, immunizations, and document management — with built-in Stripe-backed subscription tiers",
+  "cluster": "health-fitness",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-middleware-validation",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-encryption-aes",
+    "@molecule/api-permissions-custom",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-reporting-database",
+    "@molecule/api-pdf-pdfkit",
+    "@molecule/api-import-export-csv",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-charts",
+    "@molecule/app-data-table",
+    "@molecule/app-file-upload",
+    "@molecule/app-timeline",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Health Records"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "ENCRYPTION_KEY": {
+      "description": "AES encryption key for PHI data",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications",
+      "required": true
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for email notifications",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for medical documents",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "S3_ACCESS_KEY_ID": {
+      "description": "S3 access key ID",
+      "required": true
+    },
+    "S3_SECRET_ACCESS_KEY": {
+      "description": "S3 secret access key",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_HEALTH_RECORDS_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_HEALTH_RECORDS_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_HEALTH_RECORDS_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_HEALTH_RECORDS_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "notifications",
+    "file-upload",
+    "permissions",
+    "encryption",
+    "reporting",
+    "pdf-export",
+    "subscriptions"
+  ]
+}

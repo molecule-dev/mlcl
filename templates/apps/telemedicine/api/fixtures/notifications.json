@@ -1,0 +1,9 @@
+[
+  { "id": "ntf_001", "type": "patient_at_risk", "title": "Priya Desai — A1C trended up to 7.4%", "body": "Lab result reviewed. Recommend medication adjustment (Rx queued).",      "href": "/patients?id=pat_008", "created_at": "2026-04-26T08:30:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "appointment",     "title": "Gabriela Rosas — visit starting in 5 minutes", "body": "Pre-pregnancy counseling consult, 30 min.",                         "href": "/consult/apt_004",     "created_at": "2026-04-26T10:55:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "lab_result",      "title": "Aisha Martin — labs received",          "body": "CBC + CMP normal. Vit D low at 22.",                                      "href": "/records?patient_id=pat_002", "created_at": "2026-04-26T07:14:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "rx_filled",       "title": "Henry Park's Lisinopril filled",         "body": "CVS Madison Ave confirmed pickup at 3:42pm.",                              "href": "/prescriptions",       "created_at": "2026-04-25T15:42:00Z", "unread": false },
+  { "id": "ntf_005", "type": "message",         "title": "Aisha Martin sent a follow-up message",  "body": "Sumatriptan working as expected — 7/10 → 3/10 in 30 min.",                  "href": "/messages",            "created_at": "2026-04-26T15:42:00Z", "unread": false },
+  { "id": "ntf_006", "type": "appointment",     "title": "Owen Nakamura cancelled",                 "body": "Patient ill. Reschedule via admin.",                                       "href": "/appointments",        "created_at": "2026-04-25T09:00:00Z", "unread": false },
+  { "id": "ntf_007", "type": "system_message",  "title": "License renewal reminder — NJ",          "body": "Renew by May 18. CME at 18/25.",                                          "href": "/settings",            "created_at": "2026-04-25T08:30:00Z", "unread": false }
+]

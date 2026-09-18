@@ -1,0 +1,12 @@
+[
+  { "id": "tx_001", "occurred_at": "2026-04-25T14:22:00Z", "kind": "buy",          "symbol": "btc",  "amount":   0.0500, "price_usd": 68400, "total_usd": 3420.00, "fee_usd":  1.20, "exchange": "Coinbase",  "notes": "DCA"           },
+  { "id": "tx_002", "occurred_at": "2026-04-22T09:18:00Z", "kind": "buy",          "symbol": "eth",  "amount":   0.5000, "price_usd": 3780,  "total_usd": 1890.00, "fee_usd":  0.85, "exchange": "Coinbase",  "notes": "DCA"           },
+  { "id": "tx_003", "occurred_at": "2026-04-19T13:42:00Z", "kind": "sell",         "symbol": "doge", "amount":  -2000.0, "price_usd": 0.142, "total_usd":  284.00, "fee_usd":  0.42, "exchange": "Kraken",    "notes": "Trim"          },
+  { "id": "tx_004", "occurred_at": "2026-04-15T20:00:00Z", "kind": "transfer_in",  "symbol": "sol",  "amount":  10.0000, "price_usd": 172,   "total_usd": 1720.00, "fee_usd":  0,    "exchange": "Phantom",   "notes": "From cold wallet" },
+  { "id": "tx_005", "occurred_at": "2026-04-12T11:08:00Z", "kind": "reward",       "symbol": "ada",  "amount":  42.0000, "price_usd": 0.47,  "total_usd":   19.74, "fee_usd":  0,    "exchange": "Lace",      "notes": "Staking reward" },
+  { "id": "tx_006", "occurred_at": "2026-04-10T08:24:00Z", "kind": "buy",          "symbol": "link", "amount":  20.0000, "price_usd": 17.4,  "total_usd":  348.00, "fee_usd":  1.05, "exchange": "Coinbase",  "notes": ""              },
+  { "id": "tx_007", "occurred_at": "2026-04-08T16:30:00Z", "kind": "sell",         "symbol": "matic","amount": -1200.00, "price_usd": 0.74,  "total_usd":  888.00, "fee_usd":  2.40, "exchange": "Kraken",    "notes": "Stop loss"     },
+  { "id": "tx_008", "occurred_at": "2026-04-04T19:42:00Z", "kind": "transfer_out", "symbol": "btc",  "amount":  -0.1000, "price_usd": 62400, "total_usd": 6240.00, "fee_usd": 12.50, "exchange": "Coinbase",  "notes": "To cold wallet" },
+  { "id": "tx_009", "occurred_at": "2026-04-01T10:00:00Z", "kind": "buy",          "symbol": "btc",  "amount":   0.0800, "price_usd": 60800, "total_usd": 4864.00, "fee_usd":  1.80, "exchange": "Coinbase",  "notes": "DCA"           },
+  { "id": "tx_010", "occurred_at": "2026-03-28T13:18:00Z", "kind": "buy",          "symbol": "sol",  "amount":  20.0000, "price_usd": 152,   "total_usd": 3040.00, "fee_usd":  3.10, "exchange": "Coinbase",  "notes": ""              }
+]

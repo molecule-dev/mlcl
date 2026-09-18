@@ -1,0 +1,156 @@
+/* Herald theme — drives molecule's --color-* tokens via --mol-color-*. */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #eef2ff;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #06b6d4;
+  --mol-color-secondary-light: #cffafe;
+  --mol-color-secondary-dark: #0e7490;
+
+  /* Surfaces */
+  --mol-color-background: #f1f5f9;
+  --mol-color-background-secondary: #e2e8f0;
+  --mol-color-background-tertiary: #cbd5e1;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+
+  /* Text */
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #5c6b78; /* darkened from #64748b (was 4.34:1 on bg — fail); #5c6b78 = 5.01:1 ✓ */
+  --mol-color-text-tertiary: #94a3b8;
+  /* Light on-surface-variant — base @theme mix computed #6c7a85 (4.4:1 on white); reuse the contrast-fixed secondary */
+  --color-on-surface-variant: #5c6b78;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic */
+  --mol-color-success: #047857; /* aligned with acknowledged */
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #b45309; /* aligned with priority-pinned (2.9:1 on amber-50 chips) */
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #4f46e5;
+  --mol-color-info-light: #eef2ff;
+
+  /* Borders */
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #4f46e5;
+
+  /* Type */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* App-local Herald semantic colors (used by status pills / left-border accents). */
+  --color-priority-urgent: #dc2626;
+  --color-priority-urgent-light: #fee2e2;
+  --color-priority-pinned: #b45309; /* was #d97706 (2.9:1 on #fef3c7 pill); amber-700 = 4.5:1 */
+  --color-priority-pinned-light: #fef3c7;
+  --color-priority-normal: #4f46e5;
+  --color-priority-normal-light: #eef2ff;
+  --color-priority-fyi: #94a3b8;
+  --color-priority-fyi-light: #f1f5f9;
+  --color-acknowledged: #047857; /* was #059669 (3.8:1 as 10px bold %); emerald-700 = 5.5:1 */
+  --color-acknowledged-light: #d1fae5;
+  --color-mention: #7c3aed;
+  --color-mention-light: #ede9fe;
+}
+
+/* Dark mode — Herald rich-neutral surfaces.
+   Brand indigo (#4f46e5) STAYS at the brand stop; `--color-on-primary`
+   STAYS white so announcement CTAs / priority pills read cleanly. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #312e81;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #06b6d4;
+  --mol-color-secondary-light: #083344;
+  --mol-color-secondary-dark: #67e8f9;
+
+  --mol-color-background: #0c0c0d;
+  --mol-color-background-secondary: #18181b;
+  --mol-color-background-tertiary: #27272a;
+  --mol-color-surface: #0c0c0d;
+  --mol-color-surface-secondary: #18181b;
+  --mol-color-input-background: #08080a;
+
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0c0c0d;
+
+  --mol-color-success: #34d399;
+  --mol-color-success-light: rgba(52, 211, 153, 0.18);
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: rgba(251, 191, 36, 0.18);
+  --mol-color-error: #f87171;
+  --mol-color-error-light: rgba(248, 113, 113, 0.18);
+  --mol-color-info: #818cf8;
+  --mol-color-info-light: rgba(129, 140, 248, 0.18);
+
+  --mol-color-border: #27272a;
+  --mol-color-border-secondary: #3a3a3f;
+  --mol-color-border-focus: #818cf8;
+
+  /* Stitch / Material-3 bridge — keep brand at brand stop, on-primary white. */
+  --color-background: #0c0c0d;
+  --color-on-background: #f5f5f5;
+  --color-surface: #18181b;
+  --color-surface-bright: #2a2a2e;
+  --color-surface-dim: #08080a;
+  --color-surface-container-lowest: #050506;
+  --color-surface-container-low: #131316;
+  --color-surface-container: #18181b;
+  --color-surface-container-high: #1f1f23;
+  --color-surface-container-highest: #27272a;
+  --color-surface-variant: #1f1f23;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0c0c0d;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #4f46e5; /* brand indigo — stays at brand stop */
+  --color-primary-container: #312e81;
+  --color-on-primary: #ffffff; /* white on indigo #4f46e5 = 6.29:1 ✓ */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #06b6d4;
+  --color-secondary-container: #083344;
+  --color-on-secondary: #001e26; /* dark on cyan #06b6d4 = 7.13:1 ✓ (white was 2.43:1 — fail) */
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #3b1e5e;
+  --color-on-tertiary: #1a0a3d; /* dark on lavender #a78bfa = 6.68:1 ✓ (white was 2.72:1 — fail) */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #5a0000; /* dark on red #f87171 = 5.29:1 ✓ (white was 2.77:1 — fail) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #828288; /* #828288 on #18181b = 4.64:1 ✓ (outline needs ≥3:1; #5a5a60 was 2.59:1 — fail) */
+  --color-outline-variant: #27272a;
+  --color-surface-tint: #4f46e5;
+
+  /* Priority pills — keep saturated semantic identity */
+  --color-priority-urgent: #f87171;
+  --color-priority-urgent-light: rgba(248, 113, 113, 0.18);
+  --color-priority-pinned: #fbbf24;
+  --color-priority-pinned-light: rgba(251, 191, 36, 0.18);
+  --color-priority-normal: #818cf8;
+  --color-priority-normal-light: rgba(129, 140, 248, 0.18);
+  --color-priority-fyi: #cbd5e1;
+  --color-priority-fyi-light: rgba(203, 213, 225, 0.12);
+  --color-acknowledged: #34d399;
+  --color-acknowledged-light: rgba(52, 211, 153, 0.18);
+  --color-mention: #a78bfa;
+  --color-mention-light: rgba(167, 139, 250, 0.18);
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

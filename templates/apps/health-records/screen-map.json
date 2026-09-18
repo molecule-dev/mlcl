@@ -1,0 +1,221 @@
+{
+  "app": "health-records",
+  "designProjectId": "1801311037053061365",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-health-records-landing.html",
+      "designScreenId": "cb97a1f6001c49a2aeba35af1958da14"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-health-records-login.html",
+      "designScreenId": "cfe36051908a446c972615619a3cae6e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-health-records-login.html",
+      "derivationNotes": "Same split layout as Login (left panel with Meridian wordmark, medical motif, trust strip) with First Name, Last Name, Date of Birth, Email, Password, Confirm Password fields on the right. Heading 'Create your secure account'. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link. Keep encryption footer note."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-health-records-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field on right. Heading 'Reset your password', subtitle 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign in'. No magic link button. Keep encryption trust note."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-health-records-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields on right (with strength indicator). Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign in'. Keep encryption trust note."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-dashboard.html",
+      "designScreenId": "4f07fd0ec31e4c83a973ec15b9601aa7"
+    },
+    {
+      "name": "Records",
+      "templateFile": "app/pages/Records.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/records",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-records.html",
+      "designScreenId": "9d19c5beb8384d25906fa6e521984fa5"
+    },
+    {
+      "name": "Medications",
+      "templateFile": "app/pages/Medications.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/medications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-medications.html",
+      "designScreenId": "9220f6130f6440ccaf00d133b432c9f8"
+    },
+    {
+      "name": "LabResults",
+      "templateFile": "app/pages/LabResults.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/labs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-lab-results.html",
+      "designScreenId": "dc50375a0e13486d969ce9a6344b63bd"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-documents.html",
+      "designScreenId": "4a0726bc3ff542c4b12369f15190ebf5"
+    },
+    {
+      "name": "Sharing",
+      "templateFile": "app/pages/Sharing.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/sharing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-sharing.html",
+      "designScreenId": "1a33ed01eaf64d8f8cb142702b919c7c"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-settings.html",
+      "designScreenId": "e10f17be0d584f149460f193033db1f3"
+    },
+    {
+      "name": "RecordDetail",
+      "templateFile": "app/pages/RecordDetail.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/records/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-record-detail.html",
+      "designScreenId": "296344fb23a5411488b22ee1fd414418"
+    },
+    {
+      "name": "MedicationDetail",
+      "templateFile": "app/pages/MedicationDetail.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/medications/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-medication-detail.html",
+      "designScreenId": "c685e41bf8c2406cb2fb27e0427cab0c"
+    },
+    {
+      "name": "LabResultDetail",
+      "templateFile": "app/pages/LabResultDetail.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/labs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-lab-result-detail.html",
+      "designScreenId": "cfc67aa090764992bef55d45c0d463b7"
+    },
+    {
+      "name": "Immunizations",
+      "templateFile": "app/pages/Immunizations.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/immunizations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-immunizations.html",
+      "designScreenId": "ff65175d21c84f7ebb6862ef1d360063"
+    },
+    {
+      "name": "Visits",
+      "templateFile": "app/pages/Visits.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/visits",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-visits.html",
+      "designScreenId": "229e887db30b4c25823c25cce6d73676"
+    },
+    {
+      "name": "VisitDetail",
+      "templateFile": "app/pages/VisitDetail.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/visits/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-health-records-record-detail.html",
+      "derivationNotes": "Same single-entry detail layout as RecordDetail. Header shows visit date + provider name + clinic location instead of record title. Sections: Visit Summary (chief complaint, assessment, plan), Vitals Captured (BP, HR, Temp, Weight in clinical font), Diagnoses (condition list with ICD codes as small badges), Medications Prescribed (medication cards), Orders Placed (lab/imaging/referrals), Follow-up (next appointment date + tasks). Right rail: Provider info card, Attachments list, Related Records. Permission badges + encryption indicators preserved."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-notifications.html",
+      "designScreenId": "55bead4a31f64723be9138cac8f22bca"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-health-records-profile.html",
+      "designScreenId": "619b687af58245cfa0f831aa2bc0b118"
+    },
+    {
+      "name": "InviteShare",
+      "templateFile": "app/pages/InviteShare.tsx",
+      "components": ["app/components/HealthRecordsLayout.tsx"],
+      "route": "/sharing/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-health-records-sharing.html",
+      "derivationNotes": "Same Meridian shell + sidebar nav + Sharing-style headline area. Body becomes a centered form card (max-width 720px) titled 'Invite someone to your records'. Fields: Recipient role (segmented control: Provider / Caregiver / Read-only viewer), Recipient name, Email, Phone (optional), Permission scope (multi-select chips: Records, Medications, Labs, Documents, Visits, Immunizations), Date range (start/end with 'No expiration' toggle), Personal message (textarea). Right rail or footer shows live preview of the permission badge that will be issued. Footer actions: Cancel + 'Send invitation' (primary). Encryption note pinned at bottom."
+    }
+  ]
+}

@@ -1,0 +1,1912 @@
+{
+  "slug": "course-marketplace",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-browse",
+      "path": "/browse",
+      "component": "Browse",
+      "file": "app/src/pages/Browse.tsx"
+    },
+    {
+      "id": "page-checkout",
+      "path": "/checkout",
+      "component": "Checkout",
+      "file": "app/src/pages/Checkout.tsx"
+    },
+    {
+      "id": "page-checkout",
+      "path": "/checkout/return",
+      "component": "Checkout",
+      "file": "app/src/pages/Checkout.tsx"
+    },
+    {
+      "id": "page-coursedetail",
+      "path": "/courses/:id",
+      "component": "CourseDetail",
+      "file": "app/src/pages/CourseDetail.tsx"
+    },
+    {
+      "id": "page-lesson",
+      "path": "/courses/:id/lessons/:lessonId",
+      "component": "Lesson",
+      "file": "app/src/pages/Lesson.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-help",
+      "path": "/help",
+      "component": "Help",
+      "file": "app/src/pages/Help.tsx"
+    },
+    {
+      "id": "page-instructordashboard",
+      "path": "/instructor",
+      "component": "InstructorDashboard",
+      "file": "app/src/pages/InstructorDashboard.tsx"
+    },
+    {
+      "id": "page-instructorcourseeditor",
+      "path": "/instructor/courses/:id/edit",
+      "component": "InstructorCourseEditor",
+      "file": "app/src/pages/InstructorCourseEditor.tsx"
+    },
+    {
+      "id": "page-instructorprofile",
+      "path": "/instructors/:id",
+      "component": "InstructorProfile",
+      "file": "app/src/pages/InstructorProfile.tsx"
+    },
+    {
+      "id": "page-lesson",
+      "path": "/lesson/:id",
+      "component": "Lesson",
+      "file": "app/src/pages/Lesson.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-mylearning",
+      "path": "/my-learning",
+      "component": "MyLearning",
+      "file": "app/src/pages/MyLearning.tsx"
+    },
+    {
+      "id": "page-certificate",
+      "path": "/my-learning/:courseId/certificate",
+      "component": "Certificate",
+      "file": "app/src/pages/Certificate.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-categorybubble-24--div-classname--cm-c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoryBubble.tsx",
+      "line": 24,
+      "label": "<div className={cm.cn( cm.w(20), cm.h(20),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-courseherobanner-57-arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CourseHeroBanner.tsx",
+      "line": 57,
+      "label": "arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursetile-77--img-alt--classname-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CourseTile.tsx",
+      "line": 77,
+      "label": "<img alt= className={cm.cn(w-full h-full object-cover group-",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-enrolledcoursecard-123-workspace-premium---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/EnrolledCourseCard.tsx",
+      "line": 123,
+      "label": "workspace_premium , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-enrolledcoursecard-135-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/EnrolledCourseCard.tsx",
+      "line": 135,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-enrolledcoursecard-143-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/EnrolledCourseCard.tsx",
+      "line": 143,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-instructoravatarcard-46--img-src--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/InstructorAvatarCard.tsx",
+      "line": 46,
+      "label": "<img src=}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-lessonrow-42",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LessonRow.tsx",
+      "line": 42,
+      "label": "link at app/src/components/LessonRow.tsx:42",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-browse-161",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 161,
+      "label": "button at app/src/pages/Browse.tsx:161",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-browse-186",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 186,
+      "label": "input at app/src/pages/Browse.tsx:186",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-browse-209",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 209,
+      "label": "input at app/src/pages/Browse.tsx:209",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-browse-241",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 241,
+      "label": "select at app/src/pages/Browse.tsx:241",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-browse-300-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 300,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-browse-310",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 310,
+      "label": "button at app/src/pages/Browse.tsx:310",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-browse-325-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Browse.tsx",
+      "line": 325,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-certificate-162-download-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Certificate.tsx",
+      "line": 162,
+      "label": "download , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-certificate-173-print-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Certificate.tsx",
+      "line": 173,
+      "label": "print , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-certificate-184-link-----defaultvalu",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Certificate.tsx",
+      "line": 184,
+      "label": "link , { defaultValue: Link copi",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-certificate-228-------t-certificate-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Certificate.tsx",
+      "line": 228,
+      "label": ", ) : t(certificate.tryIssue, , { defaultValue: Try issuing ",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-certificate-241-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Certificate.tsx",
+      "line": 241,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-checkout-109-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Checkout.tsx",
+      "line": 109,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-checkout-139-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Checkout.tsx",
+      "line": 139,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-checkout-228-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Checkout.tsx",
+      "line": 228,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-checkout-236-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Checkout.tsx",
+      "line": 236,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-205-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 205,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-305",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 305,
+      "label": "link at app/src/pages/CourseDetail.tsx:305",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-335-play-arrow",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 335,
+      "label": "play_arrow",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-coursedetail-371-------enrolllabel-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 371,
+      "label": ", ) : enrollLabel}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-391-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 391,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-coursedetail-475--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 475,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-537",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 537,
+      "label": "link at app/src/pages/CourseDetail.tsx:537",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coursedetail-629--img-src-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CourseDetail.tsx",
+      "line": 629,
+      "label": "<img src=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-61-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 61,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-91-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 91,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-125",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 125,
+      "label": "input at app/src/pages/ForgotPassword.tsx:125",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-136-------t-forgot-sendl",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 136,
+      "label": ", ) : t(forgot.sendLink, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-225-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 225,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-instructorcourseeditor-279-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 279,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-286-------ispublished---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 286,
+      "label": ", ) : isPublished ? t(instructorEditor",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-303",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 303,
+      "label": "button at app/src/pages/InstructorCourseEditor.tsx:303",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-389-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 389,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-412",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 412,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:412",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-425",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 425,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:425",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-435",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 435,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:435",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-445-------t-instructored",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 445,
+      "label": ", ) : t(instructorEditor.addLesson, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-467",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 467,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:467",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-instructorcourseeditor-479",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 479,
+      "label": "textarea at app/src/pages/InstructorCourseEditor.tsx:479",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-491",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 491,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:491",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-499-------t-instructored",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 499,
+      "label": ", ) : t(instructorEditor.saveDetails, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-instructorcourseeditor-519",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 519,
+      "label": "input at app/src/pages/InstructorCourseEditor.tsx:519",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-instructorcourseeditor-529-------t-instructored",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorCourseEditor.tsx",
+      "line": 529,
+      "label": ", ) : t(instructorEditor.savePricing, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-instructordashboard-177-------t-instructorda",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/InstructorDashboard.tsx",
+      "line": 177,
+      "label": ", ) : t(instructorDashboard.becomeCta, , { defaultValue:",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-instructordashboard-288-add-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InstructorDashboard.tsx",
+      "line": 288,
+      "label": "add , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-instructordashboard-327",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InstructorDashboard.tsx",
+      "line": 327,
+      "label": "link at app/src/pages/InstructorDashboard.tsx:327",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-instructorprofile-109-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/InstructorProfile.tsx",
+      "line": 109,
+      "label": ", )}",
+      "href": "/browse",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-70",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 70,
+      "label": "link at app/src/pages/Landing.tsx:70",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-79",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 79,
+      "label": "link at app/src/pages/Landing.tsx:79",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-89-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 89,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-96-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 96,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-landing-137",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 137,
+      "label": "input at app/src/pages/Landing.tsx:137",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-landing-155-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 155,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-168",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 168,
+      "label": "link at app/src/pages/Landing.tsx:168",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-317------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 317,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-434------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 434,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-lesson-181-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 181,
+      "label": ", )}",
+      "href": "/my-learning",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-lesson-197-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 197,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-lesson-230",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 230,
+      "label": "button at app/src/pages/Lesson.tsx:230",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-lesson-261--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 261,
+      "label": "<span className={cm.cn(material-symbols-outlined text-4xl te",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-lesson-297",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 297,
+      "label": "button at app/src/pages/Lesson.tsx:297",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-lesson-330",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 330,
+      "label": "textarea at app/src/pages/Lesson.tsx:330",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-lesson-365-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 365,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-lesson-377------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Lesson.tsx",
+      "line": 377,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-55-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 55,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-85",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 85,
+      "label": "input at app/src/pages/Login.tsx:85",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-login-110",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 110,
+      "label": "input at app/src/pages/Login.tsx:110",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-119",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 119,
+      "label": "button at app/src/pages/Login.tsx:119",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-136",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 136,
+      "label": "input at app/src/pages/Login.tsx:136",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-146-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 146,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-153-------t-login-signin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 153,
+      "label": ", ) : t(login.signIn, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mylearning-208",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MyLearning.tsx",
+      "line": 208,
+      "label": "button at app/src/pages/MyLearning.tsx:208",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mylearning-254-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MyLearning.tsx",
+      "line": 254,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-45-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 45,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-52-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 52,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-117-done-all----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 117,
+      "label": "done_all , )",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-231",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 231,
+      "label": "link at app/src/pages/Notifications.tsx:231",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-73-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-122",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 122,
+      "label": "input at app/src/pages/ResetPassword.tsx:122",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-136",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 136,
+      "label": "button at app/src/pages/ResetPassword.tsx:136",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-167",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 167,
+      "label": "input at app/src/pages/ResetPassword.tsx:167",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-183-------t-reset-update",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 183,
+      "label": ", ) : t(reset.updatePassword, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-68-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 68,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-101",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 101,
+      "label": "input at app/src/pages/Signup.tsx:101",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-126",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 126,
+      "label": "input at app/src/pages/Signup.tsx:126",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-151",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 151,
+      "label": "input at app/src/pages/Signup.tsx:151",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-161",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 161,
+      "label": "button at app/src/pages/Signup.tsx:161",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-186",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 186,
+      "label": "input at app/src/pages/Signup.tsx:186",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-194-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 194,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-198-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 198,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-204-------t-signup-creat",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 204,
+      "label": ", ) : t(signup.createAccount, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-101",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 101,
+      "label": "form at app/src/pages/ForgotPassword.tsx:101",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-61",
+      "file": "app/src/pages/Login.tsx",
+      "line": 61,
+      "label": "form at app/src/pages/Login.tsx:61",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-82",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 82,
+      "label": "form at app/src/pages/ResetPassword.tsx:82",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-77",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 77,
+      "label": "form at app/src/pages/Signup.tsx:77",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-catalog--id",
+      "method": "DELETE",
+      "mountedPath": "/catalog/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 356,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-delete-enrollments--id",
+      "method": "DELETE",
+      "mountedPath": "/enrollments/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/enrollments.ts",
+      "line": 182,
+      "resource": "enrollments"
+    },
+    {
+      "id": "route-delete-lessons--id",
+      "method": "DELETE",
+      "mountedPath": "/lessons/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 286,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-delete-reviews--id",
+      "method": "DELETE",
+      "mountedPath": "/reviews/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 192,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-catalog-",
+      "method": "GET",
+      "mountedPath": "/catalog",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 126,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-get-catalog--id",
+      "method": "GET",
+      "mountedPath": "/catalog/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 203,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-get-catalog-categories",
+      "method": "GET",
+      "mountedPath": "/catalog/categories",
+      "rawPath": "/categories",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 98,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-get-catalog-featured",
+      "method": "GET",
+      "mountedPath": "/catalog/featured",
+      "rawPath": "/featured",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 79,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-get-certificates-",
+      "method": "GET",
+      "mountedPath": "/certificates",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/certificates.ts",
+      "line": 45,
+      "resource": "certificates"
+    },
+    {
+      "id": "route-get-certificates--id-download",
+      "method": "GET",
+      "mountedPath": "/certificates/:id/download",
+      "rawPath": "/:id/download",
+      "handlerFile": "api/src/handlers/certificates.ts",
+      "line": 158,
+      "resource": "certificates"
+    },
+    {
+      "id": "route-get-certificates-course--courseid",
+      "method": "GET",
+      "mountedPath": "/certificates/course/:courseId",
+      "rawPath": "/course/:courseId",
+      "handlerFile": "api/src/handlers/certificates.ts",
+      "line": 70,
+      "resource": "certificates"
+    },
+    {
+      "id": "route-get-checkout-session--sessionid",
+      "method": "GET",
+      "mountedPath": "/checkout/session/:sessionId",
+      "rawPath": "/session/:sessionId",
+      "handlerFile": "api/src/handlers/checkout.ts",
+      "line": 342,
+      "resource": "checkout"
+    },
+    {
+      "id": "route-get-enrollments-",
+      "method": "GET",
+      "mountedPath": "/enrollments",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/enrollments.ts",
+      "line": 46,
+      "resource": "enrollments"
+    },
+    {
+      "id": "route-get-enrollments--id",
+      "method": "GET",
+      "mountedPath": "/enrollments/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/enrollments.ts",
+      "line": 80,
+      "resource": "enrollments"
+    },
+    {
+      "id": "route-get-instructors-",
+      "method": "GET",
+      "mountedPath": "/instructors",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 52,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-instructors--id",
+      "method": "GET",
+      "mountedPath": "/instructors/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 133,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-instructors--id-courses",
+      "method": "GET",
+      "mountedPath": "/instructors/:id/courses",
+      "rawPath": "/:id/courses",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 151,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-instructors--id-earnings",
+      "method": "GET",
+      "mountedPath": "/instructors/:id/earnings",
+      "rawPath": "/:id/earnings",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 184,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-instructors--id-stats",
+      "method": "GET",
+      "mountedPath": "/instructors/:id/stats",
+      "rawPath": "/:id/stats",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 234,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-instructors-me",
+      "method": "GET",
+      "mountedPath": "/instructors/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 75,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-get-lessons--id",
+      "method": "GET",
+      "mountedPath": "/lessons/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 150,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-get-lessons-course--courseid",
+      "method": "GET",
+      "mountedPath": "/lessons/course/:courseId",
+      "rawPath": "/course/:courseId",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 87,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 40,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-notifications-unread-count",
+      "method": "GET",
+      "mountedPath": "/notifications/unread-count",
+      "rawPath": "/unread-count",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 68,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-reviews-course--courseid",
+      "method": "GET",
+      "mountedPath": "/reviews/course/:courseId",
+      "rawPath": "/course/:courseId",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 74,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-patch-catalog--id",
+      "method": "PATCH",
+      "mountedPath": "/catalog/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 270,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-patch-lessons--id",
+      "method": "PATCH",
+      "mountedPath": "/lessons/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 244,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-patch-reviews--id",
+      "method": "PATCH",
+      "mountedPath": "/reviews/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 153,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-catalog-",
+      "method": "POST",
+      "mountedPath": "/catalog",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 230,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-post-certificates-",
+      "method": "POST",
+      "mountedPath": "/certificates",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/certificates.ts",
+      "line": 102,
+      "resource": "certificates"
+    },
+    {
+      "id": "route-post-certificates--id-regenerate",
+      "method": "POST",
+      "mountedPath": "/certificates/:id/regenerate",
+      "rawPath": "/:id/regenerate",
+      "handlerFile": "api/src/handlers/certificates.ts",
+      "line": 222,
+      "resource": "certificates"
+    },
+    {
+      "id": "route-post-checkout-create-session",
+      "method": "POST",
+      "mountedPath": "/checkout/create-session",
+      "rawPath": "/create-session",
+      "handlerFile": "api/src/handlers/checkout.ts",
+      "line": 132,
+      "resource": "checkout"
+    },
+    {
+      "id": "route-post-checkout-simulate",
+      "method": "POST",
+      "mountedPath": "/checkout/simulate",
+      "rawPath": "/simulate",
+      "handlerFile": "api/src/handlers/checkout.ts",
+      "line": 298,
+      "resource": "checkout"
+    },
+    {
+      "id": "route-post-checkout-webhook",
+      "method": "POST",
+      "mountedPath": "/checkout/webhook",
+      "rawPath": "/webhook",
+      "handlerFile": "api/src/handlers/checkout.ts",
+      "line": 244,
+      "resource": "checkout"
+    },
+    {
+      "id": "route-post-enrollments-",
+      "method": "POST",
+      "mountedPath": "/enrollments",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/enrollments.ts",
+      "line": 110,
+      "resource": "enrollments"
+    },
+    {
+      "id": "route-post-instructors-me-become",
+      "method": "POST",
+      "mountedPath": "/instructors/me/become",
+      "rawPath": "/me/become",
+      "handlerFile": "api/src/handlers/instructors.ts",
+      "line": 100,
+      "resource": "instructors"
+    },
+    {
+      "id": "route-post-lessons-",
+      "method": "POST",
+      "mountedPath": "/lessons",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 192,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-post-lessons--id-progress",
+      "method": "POST",
+      "mountedPath": "/lessons/:id/progress",
+      "rawPath": "/:id/progress",
+      "handlerFile": "api/src/handlers/lessons.ts",
+      "line": 323,
+      "resource": "lessons"
+    },
+    {
+      "id": "route-post-notifications-read-all",
+      "method": "POST",
+      "mountedPath": "/notifications/read-all",
+      "rawPath": "/read-all",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 121,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-reset-password-",
+      "method": "POST",
+      "mountedPath": "/reset_password",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reset_password.ts",
+      "line": 33,
+      "resource": "reset_password"
+    },
+    {
+      "id": "route-post-reviews-",
+      "method": "POST",
+      "mountedPath": "/reviews",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 99,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-put-catalog--id",
+      "method": "PUT",
+      "mountedPath": "/catalog/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/catalog.ts",
+      "line": 313,
+      "resource": "catalog"
+    },
+    {
+      "id": "route-put-notifications--id-read",
+      "method": "PUT",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 90,
+      "resource": "notifications"
+    }
+  ],
+  "totals": {
+    "pages": 24,
+    "elements": 115,
+    "forms": 6,
+    "routes": 47
+  }
+}

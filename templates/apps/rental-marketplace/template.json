@@ -1,0 +1,101 @@
+{
+  "label": "Rental Marketplace",
+  "description": "Airbnb-like rental marketplace with listings, booking, reviews, and messaging — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-booking",
+    "@molecule/api-resource-review",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-comment",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-realtime-socketio",
+    "@molecule/app-maps",
+    "@molecule/app-gallery",
+    "@molecule/app-calendar",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-realtime-socketio",
+    "@molecule/api-resource-payment",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Rental Marketplace"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe API secret key for payments",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for listing photos",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for notifications",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_RENTAL_MARKETPLACE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_RENTAL_MARKETPLACE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_RENTAL_MARKETPLACE_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_RENTAL_MARKETPLACE_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "maps",
+    "bookmarks",
+    "reviews",
+    "payments",
+    "messaging",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "label": "Database Admin",
+  "description": "pgAdmin-like database manager with schema browser, query runner, and data visualization — with built-in Stripe-backed subscription tiers",
+  "cluster": "developer-tools",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-database-remote",
+    "@molecule/api-middleware-validation",
+    "@molecule/api-resource-user",
+    "@molecule/api-encryption-aes",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-import-export-csv",
+    "@molecule/api-audit-database",
+    "@molecule/app-code-editor-monaco",
+    "@molecule/app-data-table",
+    "@molecule/app-tree-view",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/app-charts",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Database Admin"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ENCRYPTION_KEY": {
+      "description": "Master encryption key for stored database connection credentials",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_DATABASE_ADMIN_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_DATABASE_ADMIN_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_DATABASE_ADMIN_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_DATABASE_ADMIN_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "keyboard-shortcuts",
+    "subscriptions"
+  ]
+}

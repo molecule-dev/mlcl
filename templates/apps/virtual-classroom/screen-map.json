@@ -1,0 +1,179 @@
+{
+  "app": "virtual-classroom",
+  "designProjectId": "9241303631155156007",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-landing.html",
+      "designScreenId": "9721e01479764936b14b60602d58a8aa"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-login.html",
+      "designScreenId": "80ba37c02bee47d7b740d30ba4a5d89f"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-virtual-classroom-login.html",
+      "derivationNotes": "Same split layout with indigo gradient left panel. Right form adds First Name, Last Name, Email, Password, Confirm Password, and Role dropdown (Student / Instructor). Indigo primary button becomes 'Create account'. Bottom link becomes 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-virtual-classroom-login.html",
+      "derivationNotes": "Same split layout with indigo gradient left panel. Right form has only Email field. Heading becomes 'Reset your password', subtext 'Enter your email to receive a reset link'. Indigo primary button becomes 'Send reset link'. Bottom link becomes 'Back to sign in'. No password field. No provider buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-virtual-classroom-login.html",
+      "derivationNotes": "Same split layout with indigo gradient left panel. Right form has New Password and Confirm Password fields only. Heading becomes 'Set new password'. Indigo primary button becomes 'Reset password'. Bottom link becomes 'Back to sign in'. No email field. No provider buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-dashboard.html",
+      "designScreenId": "6cfdf612c5fa416e9847ef9d242c342d"
+    },
+    {
+      "name": "Classroom",
+      "templateFile": "app/pages/Classroom.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/class/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-classroom.html",
+      "designScreenId": "8dab7f332331453aa3148e0407b67bbe"
+    },
+    {
+      "name": "Assignments",
+      "templateFile": "app/pages/Assignments.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/assignments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-assignments.html",
+      "designScreenId": "beea74effecc43f9a25f0b1c315eda61"
+    },
+    {
+      "name": "Courses",
+      "templateFile": "app/pages/Courses.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/courses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-courses.html",
+      "designScreenId": "633ca0f1530d4a77b4c031cfef227e38"
+    },
+    {
+      "name": "Whiteboard",
+      "templateFile": "app/pages/Whiteboard.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/whiteboard/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-whiteboard.html",
+      "designScreenId": "264c9758e8f0429fbc50d69e462db834"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-settings.html",
+      "designScreenId": "4fee19a474f04b14b9f4cb8ef8f12ac4"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/courses/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-course-detail.html",
+      "designScreenId": "c0b7cb1e4bd8432689c20d5031fb41d7"
+    },
+    {
+      "name": "AssignmentDetail",
+      "templateFile": "app/pages/AssignmentDetail.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/assignments/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-assignment-detail.html",
+      "designScreenId": "fb3e3f9fd77d494d8c3b6fe561f8e704"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-calendar.html",
+      "designScreenId": "557b25700de241f099c5dd9452e52194"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/profile/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-profile.html",
+      "designScreenId": "528caf3d4b514521b580f41f14f2b294"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-notifications.html",
+      "designScreenId": "170f25287d4843558a2f62be05011ace"
+    },
+    {
+      "name": "Grades",
+      "templateFile": "app/pages/Grades.tsx",
+      "components": ["app/components/VirtualClassroomLayout.tsx"],
+      "route": "/grades",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-virtual-classroom-grades.html",
+      "designScreenId": "ce74c0f8e35d4b0b8fd27d9d6738f2a5"
+    }
+  ]
+}

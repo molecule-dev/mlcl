@@ -1,0 +1,150 @@
+{
+  "app": "ai-voice-assistant",
+  "designProjectId": "13742097149785288231",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-landing.html",
+      "designScreenId": "34a259b2bdfb4488a2245e710c22acdb"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-login.html",
+      "designScreenId": "893522d0b40e4deeb453d3aff9f04c0a"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-voice-assistant-login.html",
+      "derivationNotes": "Same centered dark card layout as Login but with additional fields: Full Name, Email, Password, Confirm Password. Button text changes to 'Create Account'. Bottom link changes to 'Already have an account? Sign In'. Keep the ambient gradient background and glowing violet/cyan effects. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-voice-assistant-login.html",
+      "derivationNotes": "Same centered dark card layout as Login but with only email field. Heading changes to 'Reset your password' with subtext 'Enter your email and we'll send you a reset link'. Button text changes to 'Send Reset Link'. Bottom link changes to 'Back to Sign In'. No password field, no social buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-voice-assistant-login.html",
+      "derivationNotes": "Same centered dark card layout as Login but with New Password and Confirm Password fields only. Heading changes to 'Set a new password'. Button text changes to 'Update Password'. Bottom link changes to 'Back to Sign In'. No email field, no social buttons."
+    },
+    {
+      "name": "Conversation",
+      "templateFile": "app/pages/Conversation.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/conversation",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-conversation.html",
+      "designScreenId": "8ae3455c2dd34e95b1c35701c8048522"
+    },
+    {
+      "name": "History",
+      "templateFile": "app/pages/History.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-history.html",
+      "designScreenId": "238d49baa88d41838fafd9e12da59295"
+    },
+    {
+      "name": "ConversationDetail",
+      "templateFile": "app/pages/ConversationDetail.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/history/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-conversation-detail.html",
+      "designScreenId": "e4fac765f6454b9eb6199cddc219fb53"
+    },
+    {
+      "name": "Agents",
+      "templateFile": "app/pages/Agents.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/agents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-agents.html",
+      "designScreenId": "c4d9d98f7b1b4f149ad89885374f8556"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-settings.html",
+      "designScreenId": "de76711cadd84da0ab9859c03a49681f"
+    },
+    {
+      "name": "AgentDetail",
+      "templateFile": "app/pages/AgentDetail.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/agents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-agent-detail.html",
+      "designScreenId": "58bc0f891c0b4d5b96b377d803966ba6"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-billing.html",
+      "designScreenId": "901b5cf0c427401297d4214bd7d9e909"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-voice-assistant-search.html",
+      "designScreenId": "ba5d06b3bec944969edf6d9044a02a64"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ParlanceLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-voice-assistant-settings.html",
+      "derivationNotes": "Same dark sidebar + sub-tabs layout as Settings, but main panel shows: avatar upload (96px circular with violet glow ring + 'Change' overlay), display name input, username (@handle) input, bio textarea (4 rows), public-profile toggle, and a 'Save profile' primary button. Drop voice/privacy/notification panels — replace with a single 'Profile' panel layout."
+    }
+  ]
+}

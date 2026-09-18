@@ -1,0 +1,197 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #16a34a;
+  --mol-color-primary-light: #4ade80;
+  --mol-color-primary-dark: #15803d;
+  --mol-color-secondary: #0f766e; /* synced with --color-secondary fix */
+  --mol-color-background: #f0fdf4;
+  --mol-color-background-secondary: #ecfdf5;
+  --mol-color-background-tertiary: #d1fae5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0fdf4;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #052e16;
+  --mol-color-text-secondary: #365314;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d1fae5;
+  --mol-color-border-secondary: #bbf7d0;
+  --mol-color-border-focus: #16a34a;
+  --mol-color-success: #15803d; /* aligned with --color-success (see below) */
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0f766e; /* synced with secondary fix */
+
+  /* === Material-3 bridge === */
+  --color-primary: #15803d; /* darkened from #16a34a → white text ≥4.5:1 (5.02:1) */
+  --color-primary-light: #4ade80;
+  --color-primary-dark: #14532d;
+  --color-on-primary: #ffffff;
+  --color-primary-text: #14532d; /* soft Button text — base mix was 4.45:1 on bg-primary/25; green-900 = 6.2:1 */
+  --color-success-text: #14532d; /* soft Button text — base mix was 2.7:1 on bg-success/25; green-900 = 5.9:1 */
+  --color-primary-container: #dcfce7;
+  --color-on-primary-container: #052e16;
+  --color-secondary: #0f766e; /* darkened from #0d9488 → white text ≥4.5:1 (5.47:1) */
+  --color-secondary-light: #5eead4;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ccfbf1;
+  --color-on-secondary-container: #042f2e;
+  --color-background: #f0fdf4;
+  --color-on-background: #052e16;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ecfdf5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0fdf4;
+  --color-surface-container: #dcfce7;
+  --color-surface-container-high: #bbf7d0;
+  --color-surface-container-highest: #86efac;
+  --color-surface-variant: #ecfdf5;
+  --color-surface-alt: #ecfdf5;
+  --color-on-surface: #052e16;
+  --color-on-surface-variant: #365314;
+  --color-inverse-surface: #052e16;
+  --color-inverse-on-surface: #f0fdf4;
+  --color-inverse-primary: #4ade80;
+  --color-surface-tint: #16a34a;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #451a03; /* dark amber on amber → 6.97:1; white was 2.15:1 fail */
+  --color-on-tertiary-container: #451a03;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #6b7280;
+  --color-outline-variant: #d1fae5;
+  --color-accent: #f59e0b;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #15803d; /* was #22c55e (2.3:1 as 24px landing icon on white); green-700 = 5.0:1 */
+  --color-solar: #eab308;
+  --color-solar-light: #fde047;
+  --color-grid: #6366f1;
+  --color-grid-light: #a5b4fc;
+  --color-battery: #06b6d4;
+  --color-battery-light: #67e8f9;
+  --color-text: #052e16;
+  --color-text-secondary: #365314;
+  --color-text-muted: #6b7280;
+  --color-border: #d1fae5;
+  --color-border-active: #16a34a;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Dark mode — devtools/utility-dashboard pure neutral.
+   Pure neutral grey surfaces (grid-control-room aesthetic — no green
+   tint; data dashboards read cleanest when the chrome is colour-neutral
+   so chart colours pop). Brand green stays at the brand stop (#16a34a)
+   for KPIs, links, and focus rings; `--color-on-primary` STAYS white so
+   green primary buttons keep their light-on-green character. The solar
+   / grid / battery domain tokens are punched to their dark-mode
+   equivalents. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge === */
+  --mol-color-primary: #4ade80;
+  --mol-color-primary-light: #86efac;
+  --mol-color-primary-dark: #16a34a;
+  --mol-color-secondary: #2dd4bf;
+  --mol-color-background: #0d0d0d;
+  --mol-color-background-secondary: #171717;
+  --mol-color-background-tertiary: #1f1f1f;
+  --mol-color-surface: #171717;
+  --mol-color-surface-secondary: #1f1f1f;
+  --mol-color-input-background: #0d0d0d;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0d0d0d;
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #4ade80;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fb923c;
+  --mol-color-error: #f87171;
+  --mol-color-info: #2dd4bf;
+
+  /* === Material-3 bridge === */
+  --color-primary: #16a34a; /* keep brand green at brand stop */
+  --color-primary-light: #4ade80;
+  --color-primary-dark: #14532d;
+  --color-on-primary: #052e16; /* dark on bright green — 4.52:1; white was 3.3:1 fail */
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #bbf7d0;
+  --color-secondary: #2dd4bf;
+  --color-secondary-light: #5eead4;
+  --color-on-secondary: #0d0d0d;
+  --color-secondary-container: #042f2e;
+  --color-on-secondary-container: #99f6e4;
+  --color-accent: #fbbf24;
+  --color-danger: #f87171;
+  --color-warning: #fb923c;
+  --color-success: #4ade80;
+  --color-solar: #facc15;
+  --color-solar-light: #fde047;
+  --color-grid: #818cf8;
+  --color-grid-light: #a5b4fc;
+  --color-battery: #22d3ee;
+  --color-battery-light: #67e8f9;
+  --color-background: #0d0d0d;
+  --color-on-background: #f5f5f5;
+  --color-surface: #171717;
+  --color-surface-bright: #2a2a2a;
+  --color-surface-dim: #080808;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #111111;
+  --color-surface-container: #171717;
+  --color-surface-container-high: #1f1f1f;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-variant: #1f1f1f;
+  --color-surface-alt: #1f1f1f;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0d0d0d;
+  --color-inverse-primary: #16a34a;
+  --color-surface-tint: #4ade80;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #451a03;
+  --color-on-tertiary: #0d0d0d;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red — 4.74:1; white was 2.77:1 fail */
+  --color-on-error-container: #fecdd3;
+  --color-outline: #8a8a8a;
+  --color-outline-variant: #2a2a2a;
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-muted: #8a8a8a;
+  --color-border: #2a2a2a;
+  --color-border-active: #4ade80;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}

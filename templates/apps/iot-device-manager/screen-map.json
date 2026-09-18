@@ -1,0 +1,156 @@
+{
+  "app": "iot-device-manager",
+  "designProjectId": "5004038059927287690",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-iot-device-manager-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar) as the reference. Page content: Marketing home with platform capabilities and ROI."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-login.html",
+      "designScreenId": "6c4118e2cb484d70861b6247801d2e10"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-iot-device-manager-login.html",
+      "derivationNotes": "Use same centered card layout as Login but adapted for Create account."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-iot-device-manager-login.html",
+      "derivationNotes": "Use same centered card layout as Login but adapted for Request reset."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-iot-device-manager-login.html",
+      "derivationNotes": "Use same centered card layout as Login but adapted for Set new password."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-dashboard.html",
+      "designScreenId": "b800dcba5cca4dfe8251c7aa4c2e7b96"
+    },
+    {
+      "name": "Devices",
+      "templateFile": "app/pages/Devices.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/devices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-devices.html",
+      "designScreenId": "91153b8dda1440c38c817d4ef74b0874"
+    },
+    {
+      "name": "DeviceDetail",
+      "templateFile": "app/pages/DeviceDetail.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/devices/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-device-detail.html",
+      "designScreenId": "e2a2dadc762847b8a6889be0fc450fa2"
+    },
+    {
+      "name": "Fleets",
+      "templateFile": "app/pages/Fleets.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/fleets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-fleets.html",
+      "designScreenId": "1884d876f0a744dbb49c515b86902adc"
+    },
+    {
+      "name": "Firmware",
+      "templateFile": "app/pages/Firmware.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/firmware",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-firmware.html",
+      "designScreenId": "2847ac67c6384938ba4c4db56e75d7f3"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-alerts.html",
+      "designScreenId": "10998c7749664fdabc40bdce535fd6b8"
+    },
+    {
+      "name": "Console",
+      "templateFile": "app/pages/Console.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/console",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-console.html",
+      "designScreenId": "e77216b2a2b5458cb2bbb5ed170fb848"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/FilamentLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-iot-device-manager-settings.html",
+      "designScreenId": "5bb0e473bfeb4ccab420b960a8f29d34"
+    }
+  ]
+}

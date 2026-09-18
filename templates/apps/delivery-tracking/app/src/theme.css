@@ -1,0 +1,166 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #1e40af;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #1e3a8a;
+  --mol-color-secondary: #f59e0b;
+
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #ea580c;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e5e5e5;
+  --mol-color-border-secondary: #d4d4d4;
+  --mol-color-border-focus: #1e40af;
+
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Material-3 bridge — light values */
+  --color-background: #fafafa;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f5f5f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fafafa;
+  --color-surface-container: #f5f5f5;
+  --color-surface-container-high: #e5e5e5;
+  --color-surface-container-highest: #d4d4d4;
+  --color-surface-variant: #e5e5e5;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #3b82f6;
+  --color-primary: #1e40af;
+  --color-primary-container: #dbeafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a8a;
+  --color-secondary: #f59e0b;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary: #451a03; /* dark text on amber — 6.97:1 (was #fff 2.15:1 FAIL) */
+  --color-on-secondary-container: #78350f;
+  --color-tertiary: #16a34a;
+  --color-tertiary-container: #dcfce7;
+  --color-on-tertiary: #052e16; /* dark text on green — 4.52:1 (was #fff 3.30:1 FAIL) */
+  --color-on-tertiary-container: #14532d;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* 4.83:1 on white — was #94a3b8 (2.56:1 FAIL) */
+  --color-outline-variant: #e5e5e5;
+  --color-surface-tint: #1e40af;
+
+  /* App-specific tokens — shipment statuses + map */
+  --color-status-in-transit: #1e40af;
+  --color-status-out-delivery: #f59e0b;
+  --color-status-delivered: #16a34a;
+  --color-status-exception: #dc2626;
+  --color-status-pending: #94a3b8;
+
+  --color-map-bg: #1e293b;
+  --color-map-route: #f59e0b;
+
+  --color-navy: #0c1629;
+  --color-navy-light: #1e293b;
+}
+
+/* Dark mode — logistics/dispatch cool-slate night.
+   Deep navy slate surfaces evoke a control-room/operations feel. Brand
+   navy preserved at brand stop; CTA buttons keep white text. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #3b82f6;
+  --mol-color-primary-light: #1e3a8a;
+  --mol-color-primary-dark: #1e40af;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #0c1629;
+  --mol-color-background-secondary: #131f3a;
+  --mol-color-background-tertiary: #1c2a47;
+  --mol-color-surface: #0c1629;
+  --mol-color-surface-secondary: #131f3a;
+  --mol-color-input-background: #080f1c;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #c4cdd9;
+  --mol-color-text-tertiary: #8a96aa;
+  --mol-color-text-inverse: #0c1629;
+  --mol-color-border: #2a3a5c;
+  --mol-color-border-secondary: #3a4a70;
+  --mol-color-border-focus: #3b82f6;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* Status semantics — brightened for dark visibility on shipment rows */
+  --color-status-in-transit: #60a5fa;
+  --color-status-out-delivery: #fbbf24;
+  --color-status-delivered: #4ade80;
+  --color-status-exception: #f87171;
+  --color-status-pending: #94a3b8;
+
+  --color-map-bg: #050b18;
+  --color-map-route: #fbbf24;
+
+  --color-navy: #050b18;
+  --color-navy-light: #131f3a;
+
+  /* @theme token dark variants */
+  --color-background: #0c1629;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0c1629;
+  --color-surface-bright: #1c2a47;
+  --color-surface-dim: #080f1c;
+  --color-surface-container-lowest: #050b18;
+  --color-surface-container-low: #0f1a30;
+  --color-surface-container: #131f3a;
+  --color-surface-container-high: #1c2a47;
+  --color-surface-container-highest: #2a3a5c;
+  --color-surface-variant: #1c2a47;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #c4cdd9;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1629;
+  --color-inverse-primary: #1e3a8a;
+  --color-primary: #3b82f6;
+  --color-primary-container: #1e3a8a;
+  --color-on-primary: #000e30; /* dark text on blue — 5.16:1 (was #fff 3.68:1 FAIL) */
+  --color-on-primary-container: #dbeafe;
+  --color-secondary: #f59e0b;
+  --color-secondary-container: #5a3a08;
+  --color-on-secondary: #451a03; /* dark text on amber — 6.97:1 (was #fff 2.15:1 FAIL) */
+  --color-on-secondary-container: #fed7aa;
+  --color-tertiary: #34d058;
+  --color-tertiary-container: #0a3a14;
+  --color-on-tertiary: #052e16; /* dark text on green — 7.32:1 (was #fff 2.04:1 FAIL) */
+  --color-on-tertiary-container: #bbf7d0;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #4d0000; /* dark text on #f25c5c — 4.91:1 (was #fff 3.25:1 FAIL) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a6a82;
+  --color-outline-variant: #2a3a5c;
+  --color-surface-tint: #60a5fa;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

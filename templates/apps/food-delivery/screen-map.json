@@ -1,0 +1,169 @@
+{
+  "app": "food-delivery",
+  "designProjectId": "10460557155764425536",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-landing.html",
+      "designScreenId": "23d5c79f57284cca82071d6c6d10d600"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-login.html",
+      "designScreenId": "0964fab9f7044bb299be6f7d47464d95"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-food-delivery-login.html",
+      "derivationNotes": "Same split layout as Login with photo collage on left. Form card on right has First Name, Last Name, Email, Password, Confirm Password. Button 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-food-delivery-login.html",
+      "derivationNotes": "Same split layout as Login with photo collage on left. Form card on right has only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-food-delivery-login.html",
+      "derivationNotes": "Same split layout as Login with photo collage on left. Form card on right has New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Restaurants",
+      "templateFile": "app/pages/Restaurants.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/restaurants",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-restaurants.html",
+      "designScreenId": "9ac1c06f174743cc97c57d3e04963ee2"
+    },
+    {
+      "name": "RestaurantMenu",
+      "templateFile": "app/pages/RestaurantMenu.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/restaurant/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-restaurant-menu.html",
+      "designScreenId": "31fb909e290b4f27993d69b98fdd5e1b"
+    },
+    {
+      "name": "Checkout",
+      "templateFile": "app/pages/Checkout.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/checkout",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-checkout.html",
+      "designScreenId": "65bceabed64a4e4b8b70bd74ecf41739"
+    },
+    {
+      "name": "OrderTracking",
+      "templateFile": "app/pages/OrderTracking.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/order/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-order-tracking.html",
+      "designScreenId": "0027b7e756fd45bf8eafb1fa07f17636"
+    },
+    {
+      "name": "Orders",
+      "templateFile": "app/pages/Orders.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-orders.html",
+      "designScreenId": "d506ab3c7c1d4dc6b45f43b19c70fe3c"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-settings.html",
+      "designScreenId": "82180c71d2e846edaa5de17dd5d90a1e"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-search.html",
+      "designScreenId": "1b2208f2680241b783f913b679f560c0"
+    },
+    {
+      "name": "Favorites",
+      "templateFile": "app/pages/Favorites.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/favorites",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-favorites.html",
+      "designScreenId": "0bbf29273ec9436ea1cf60af0702ab84"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-notifications.html",
+      "designScreenId": "61b1ebf602424db8ac0e2af622fc029a"
+    },
+    {
+      "name": "OrderConfirmation",
+      "templateFile": "app/pages/OrderConfirmation.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/checkout/confirmation/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-order-confirmation.html",
+      "designScreenId": "edc68948716d4df6a46f1a877378e2c9"
+    },
+    {
+      "name": "OrderDetail",
+      "templateFile": "app/pages/OrderDetail.tsx",
+      "components": ["app/components/FoodDeliveryLayout.tsx"],
+      "route": "/orders/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-food-delivery-order-detail.html",
+      "designScreenId": "1360ed30eed4448d9398b9533981e536"
+    }
+  ]
+}

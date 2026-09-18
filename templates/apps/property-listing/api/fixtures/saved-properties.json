@@ -1,0 +1,110 @@
+[
+  {
+    "id": "sp-001",
+    "title": "The Obsidian Estate",
+    "address": "742 Evergreen Terrace",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "zip_code": "90210",
+    "price": 12450000,
+    "bedrooms": 6,
+    "bathrooms": 8,
+    "square_feet": 12400,
+    "property_type": "Single Family",
+    "status": "active",
+    "photos": [
+      "https://picsum.photos/seed/saved-001a/800/500",
+      "https://picsum.photos/seed/saved-001b/800/500"
+    ]
+  },
+  {
+    "id": "sp-002",
+    "title": "Azure Sky Penthouse",
+    "address": "400 Park Avenue, Suite 62B",
+    "city": "New York",
+    "state": "NY",
+    "zip_code": "10022",
+    "price": 8200000,
+    "bedrooms": 3,
+    "bathrooms": 4,
+    "square_feet": 4850,
+    "property_type": "Condo",
+    "status": "pending",
+    "photos": [
+      "https://picsum.photos/seed/saved-002a/800/500",
+      "https://picsum.photos/seed/saved-002b/800/500"
+    ]
+  },
+  {
+    "id": "sp-003",
+    "title": "La Mer Sanctuary",
+    "address": "Cliffview Drive",
+    "city": "Malibu",
+    "state": "CA",
+    "zip_code": "90265",
+    "price": 18900000,
+    "bedrooms": 8,
+    "bathrooms": 10,
+    "square_feet": 18200,
+    "property_type": "Single Family",
+    "status": "active",
+    "photos": [
+      "https://picsum.photos/seed/saved-003a/800/500",
+      "https://picsum.photos/seed/saved-003b/800/500"
+    ]
+  },
+  {
+    "id": "sp-004",
+    "title": "Chestnut Hill Townhome",
+    "address": "121 Chestnut Hill Lane",
+    "city": "Boston",
+    "state": "MA",
+    "zip_code": "02130",
+    "price": 2850000,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "square_feet": 3200,
+    "property_type": "Townhouse",
+    "status": "active",
+    "photos": [
+      "https://picsum.photos/seed/saved-004a/800/500",
+      "https://picsum.photos/seed/saved-004b/800/500"
+    ]
+  },
+  {
+    "id": "sp-005",
+    "title": "Modern Loft on Mission",
+    "address": "1812 Mission Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "zip_code": "94103",
+    "price": 1450000,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "square_feet": 1820,
+    "property_type": "Loft",
+    "status": "active",
+    "photos": [
+      "https://picsum.photos/seed/saved-005a/800/500",
+      "https://picsum.photos/seed/saved-005b/800/500"
+    ]
+  },
+  {
+    "id": "sp-006",
+    "title": "Lakeside Craftsman",
+    "address": "9 Lakeshore Drive",
+    "city": "Lake Tahoe",
+    "state": "CA",
+    "zip_code": "96150",
+    "price": 4250000,
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "square_feet": 4900,
+    "property_type": "Single Family",
+    "status": "active",
+    "photos": [
+      "https://picsum.photos/seed/saved-006a/800/500",
+      "https://picsum.photos/seed/saved-006b/800/500"
+    ]
+  }
+]

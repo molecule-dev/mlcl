@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-right-8 -top-8 -translate-y-1/2 2xl 3xl absolute antialiased bg-background bg-gradient-to-r bg-primary-container bg-primary-fixed bg-primary/5 bg-secondary-fixed bg-secondary/5 bg-surface-container-high bg-surface-container-low bg-surface-container-lowest bg-surface-variant blur-2xl border border-0 border-l-4 border-l-[3px] border-none border-primary border-secondary-container border-surface-variant border-t border-transparent bottom-0 bottom-6 cursor-pointer dark:bg-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-slate-400 duration-200 fixed flex flex-1 flex-col focus:border-secondary focus:ring-0 focus:ring-2 focus:ring-secondary/50 font-body font-bold font-extrabold font-headline font-label font-medium font-semibold from-primary gap-1 gap-2 gap-3 gap-4 gap-6 gap-8 glass-panel");
+@source inline("grid grid-cols-1 group group-hover:bg-primary/10 group-hover:bg-secondary/10 group-hover:opacity-100 h-10 h-20 h-32 h-5 h-64 h-full h-screen hover:bg-surface-container hover:bg-surface-container-highest hover:bg-surface-container-low hover:opacity-90 hover:text-on-surface hover:text-primary-container hover:text-secondary-container inline-flex inset-y-0 items-center items-end items-start justify-between justify-center justify-end left-0 left-4 left-8 lg:col-span-2 lg:grid-cols-3 line-clamp-1 line-clamp-2 material-symbols-outlined max-w-6xl max-w-[420px] max-w-md mb mb-10 mb-2 mb-3 mb-4 mb-6 mb-8 md:grid-cols-3 md:grid-cols-4 md:p-10 min-h-screen ml-1 ml-4 ml-[280px] ml-auto mr-3 mt-1 mt-10 mt-2 mt-auto mx-auto");
+@source inline("my-8 object-cover opacity-0 outline-none overflow-hidden overflow-y-auto p-2 p-4 p-6 p-8 pb-20 pl-12 placeholder-outline-variant placeholder:text-on-surface-variant pr-12 pr-4 pt-1 pt-4 px-2 px-4 px-8 py py-1 py-2 py-3 py-4 py-8 relative right-0 rounded-2xl rounded-3xl rounded-full rounded-lg rounded-xl scale-95 shadow-ambient sm space-x-4 space-y-1 space-y-12 space-y-3 space-y-4 space-y-6 sr-only sticky text-2xl text-3xl text-4xl text-[10px] text-[12px] text-[16px] text-[18px] text-base text-center text-lg text-on-primary text-on-primary-container text-on-primary-fixed-variant text-on-secondary-fixed-variant text-on-surface");
+@source inline("text-on-surface-variant text-outline text-primary text-primary-container text-secondary text-secondary-container text-slate-500 text-slate-600 text-sm text-xl text-xs to-primary-container top-0 top-1/2 tracking-tight tracking-tighter tracking-wider tracking-widest transition-all transition-colors transition-opacity transition-shadow truncate uppercase w-10 w-32 w-5 w-96 w-[280px] w-full whitespace-nowrap xs z-0 z-10 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.cloud-shadow {
+  box-shadow: 0 12px 40px rgba(66, 52, 182, 0.06);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #4234b6 0%, #5b4fcf 100%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #4234b6, #5b4fcf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-georgia {
+  font-family: Georgia, serif;
+}
+
+/* Custom ambient shadow from Design System */
+.shadow-ambient {
+  box-shadow: 0 12px 40px rgba(66, 52, 182, 0.06);
+}
+
+.glass-panel {
+  background: rgba(253, 248, 252, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.slate-input:focus-within {
+  border-left: 2px solid var(--color-secondary);
+}
+/* polish-v2:stitch-styles:end */

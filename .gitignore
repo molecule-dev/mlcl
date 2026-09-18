@@ -1,0 +1,38 @@
+# dependencies
+node_modules
+
+# build output
+dist
+*.tsbuildinfo
+oclif.manifest.json
+
+# testing
+coverage
+test-app
+.playwright-results
+templates/apps/*/test-results/
+templates/apps/*/playwright-report/
+
+# misc
+.DS_Store
+.env*
+.vscode
+
+# scaffold temp artifacts (if mlcl create is run from within mlcl/)
+var/
+.tmp/
+
+# logs
+*.log
+npm-debug.log*
+
+# keys
+.keys
+
+# AI agent scratch (logs, reports, tmp work)
+.agents/Users/
+.agents/logs/
+.verify-tmp/
+tmp/
+templates/apps/*/e2e/results.json
+templates/apps/*/e2e/observations/_artifacts/

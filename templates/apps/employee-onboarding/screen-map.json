@@ -1,0 +1,190 @@
+{
+  "app": "employee-onboarding",
+  "designProjectId": "15757456776275829084",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-login.html",
+      "designScreenId": "c45b0e5339034fe89a3823dfc4e2ab5d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-employee-onboarding-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-employee-onboarding-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-employee-onboarding-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-dashboard.html",
+      "designScreenId": "8f4b1a3333ca4f449457cdce83f3244c"
+    },
+    {
+      "name": "Checklist",
+      "templateFile": "app/pages/Checklist.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/checklist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-checklist.html",
+      "designScreenId": "62fc19668b0246a9b64ba5db862aac09"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-documents.html",
+      "designScreenId": "055a26975dc14da5a36502631099eae8"
+    },
+    {
+      "name": "TeamDirectory",
+      "templateFile": "app/pages/TeamDirectory.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-team-directory.html",
+      "designScreenId": "e941aa0ae21f470ea1cd23fd088d7367"
+    },
+    {
+      "name": "Timeline",
+      "templateFile": "app/pages/Timeline.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/timeline",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-timeline.html",
+      "designScreenId": "d0fa8ede0b824269a24ef997725c3184"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-settings.html",
+      "designScreenId": "e197ef020e2345d787ac693a387055e4"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-landing.html",
+      "designScreenId": "36196d6ccd4a4fdb96fb7721969ea07e"
+    },
+    {
+      "name": "TaskDetail",
+      "templateFile": "app/pages/TaskDetail.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/checklist/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-task-detail.html",
+      "designScreenId": "60a66c9f616a42c6bc60302475fb4a43"
+    },
+    {
+      "name": "DocumentViewer",
+      "templateFile": "app/pages/DocumentViewer.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/documents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-document-viewer.html",
+      "designScreenId": "a6e5162ef6d54aa9a031dd39fa18e8db"
+    },
+    {
+      "name": "TeamMemberProfile",
+      "templateFile": "app/pages/TeamMemberProfile.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/team/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-team-member-profile.html",
+      "designScreenId": "a5d8beaca805418d83264470d83fe5e9"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-notifications.html",
+      "designScreenId": "fc2a34c11892425dbf8a8b8d0481878d"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-employee-onboarding-team-member-profile.html",
+      "derivationNotes": "Same profile layout as TeamMemberProfile but for the current user — header avatar, name, role, manager, start date, bio. Replace 'Send message' / 'Schedule 1:1' actions with 'Edit profile' button. Add an 'Onboarding progress' card showing the user's overall completion percentage with progress ring."
+    },
+    {
+      "name": "Training",
+      "templateFile": "app/pages/Training.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/training",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-training.html",
+      "designScreenId": "b60e1894a1984cc795c22f490daebca3"
+    },
+    {
+      "name": "TrainingModule",
+      "templateFile": "app/pages/TrainingModule.tsx",
+      "components": ["app/components/EmployeeOnboardingLayout.tsx"],
+      "route": "/training/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-employee-onboarding-training-module.html",
+      "designScreenId": "00183c4b1ac340c9b08c2784a3277dac"
+    }
+  ]
+}

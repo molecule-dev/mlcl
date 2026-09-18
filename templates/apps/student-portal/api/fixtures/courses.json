@@ -1,0 +1,114 @@
+[
+  {
+    "id": "crs-algebra-2",
+    "name": "Algebra II",
+    "subject": "math",
+    "teacher": "Ms. Tran",
+    "teacher_email": "tran@bayside.edu",
+    "period": "Period 1",
+    "room": "204",
+    "current_grade_letter": "B",
+    "current_grade_pct": 86,
+    "trend": "up",
+    "syllabus":
+      "Algebra II builds on the rigour of Algebra I with quadratics, exponential functions, polynomial division, sequences and series, and an intro to logarithms. Problem-solving fluency is graded weekly.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-ap-bio",
+    "name": "AP Biology",
+    "subject": "science",
+    "teacher": "Mr. Okafor",
+    "teacher_email": "okafor@bayside.edu",
+    "period": "Period 2",
+    "room": "Lab 3",
+    "current_grade_letter": "A",
+    "current_grade_pct": 93,
+    "trend": "up",
+    "syllabus":
+      "AP Biology covers cellular processes, genetics, evolution, and ecology with a strong laboratory emphasis. Lab work is exemplary; aim for tighter conclusions.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-english-lit",
+    "name": "English Lit",
+    "subject": "english",
+    "teacher": "Dr. Park",
+    "teacher_email": "park@bayside.edu",
+    "period": "Period 3",
+    "room": "112",
+    "current_grade_letter": "A",
+    "current_grade_pct": 95,
+    "trend": "flat",
+    "syllabus":
+      "Close-reading and analytical writing across American and British literary traditions. Push topic sentences in essays.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-world-history",
+    "name": "World History",
+    "subject": "history",
+    "teacher": "Ms. Reyes",
+    "teacher_email": "reyes@bayside.edu",
+    "period": "Period 4",
+    "room": "305",
+    "current_grade_letter": "B",
+    "current_grade_pct": 88,
+    "trend": "down",
+    "syllabus":
+      "Survey of world civilizations from antiquity to the modern era. Solid analysis. Cite primary sources more often.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-studio-art",
+    "name": "Studio Art",
+    "subject": "art",
+    "teacher": "Mx. Bell",
+    "teacher_email": "bell@bayside.edu",
+    "period": "Period 5",
+    "room": "Studio A",
+    "current_grade_letter": "A",
+    "current_grade_pct": 97,
+    "trend": "up",
+    "syllabus":
+      "Foundational drawing, painting, and mixed-media studio practice with end-of-term portfolio. Outstanding portfolio cohesion.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-spanish-3",
+    "name": "Spanish III",
+    "subject": "language",
+    "teacher": "Sra. Diaz",
+    "teacher_email": "diaz@bayside.edu",
+    "period": "Period 3",
+    "room": "118",
+    "current_grade_letter": "C",
+    "current_grade_pct": 78,
+    "trend": "down",
+    "syllabus":
+      "Conversational fluency, irregular verb mastery, and short-form composition. Conversational fluency improving; review irregular verbs.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  },
+  {
+    "id": "crs-pe",
+    "name": "PE / Health",
+    "subject": "pe",
+    "teacher": "Coach Hill",
+    "teacher_email": "hill@bayside.edu",
+    "period": "Period 5",
+    "room": "Gym",
+    "current_grade_letter": "A",
+    "current_grade_pct": 99,
+    "trend": "flat",
+    "syllabus":
+      "Cardio, strength, team sports, and adolescent health curriculum. Excellent participation and team leadership.",
+    "created_at": "2026-01-08T08:00:00Z",
+    "updated_at": "2026-04-28T16:00:00Z"
+  }
+]

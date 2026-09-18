@@ -1,0 +1,10 @@
+Polish complete: 2026-04-29T21:34:00Z
+Pipeline: polish-app.md (manual session, /tmp/polish-meeting-scheduler.md)
+Cluster: productivity → sibling: project-management (also drew from banking-dashboard for hero card pattern)
+Brand: Meridian — "Where schedules align" (#4f46e5 indigo + #0ea5e9 sky)
+Components: 6 bespoke (AuthBrandHeader, MeridianLayout, TodayHeroCard, EventTypeCard, BookingListItem, TimeSlotPicker)
+Screen-map coverage: 18/18 routes wired through App.tsx (MeridianLayout shell + AuthGuard)
+Pages rewritten: Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard, EventTypes
+Pages added: Bookings, MeetingDetail, BookingPage, BookingConfirmation, Calendar, EventTypeEditor, Availability, Integrations, Settings, Notifications, Billing
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (tsc --noEmit)

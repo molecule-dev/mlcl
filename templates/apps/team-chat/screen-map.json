@@ -1,0 +1,96 @@
+{
+  "app": "team-chat",
+  "designProjectId": "14200967383594345851",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ChatLayout.tsx"],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-team-chat-dashboard.html",
+      "designScreenId": "0017cd9c18d04106a80a425aa1333ed4",
+      "designScreenTitle": "Pulse - Dashboard (No Channel)"
+    },
+    {
+      "name": "Channel",
+      "templateFile": "app/pages/Channel.tsx",
+      "components": ["app/components/ChatLayout.tsx"],
+      "route": "/channels/:channelId",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-team-chat-channel.html",
+      "designScreenId": "1954892483964e188730779390547b5f",
+      "designScreenTitle": "Pulse - #general Channel View"
+    },
+    {
+      "name": "Thread",
+      "templateFile": "app/pages/Thread.tsx",
+      "components": ["app/components/ChatLayout.tsx"],
+      "route": "/channels/:channelId/threads/:messageId",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-team-chat-thread.html",
+      "designScreenId": "3616dc1f74d5402786ef8af2d4790255",
+      "designScreenTitle": "Pulse - #engineering Thread View"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-team-chat-login.html",
+      "designScreenId": "34cf468303994e6c8860065905e74611",
+      "designScreenTitle": "Pulse - Login Page",
+      "generationPrompt": "Standalone desktop login page for Pulse team chat. Centered card (420px) on #fff7fa surface. White card with brand-tinted ambient shadow. Pulse logo (Manrope, #4a154b), 'Welcome back' heading, email/password inputs (no borders, cyan focus glow), 'Forgot password?' link (#006781), full-width gradient Sign In button (#4a154b→#300033 at 135deg), 'or' divider, and 'Don't have an account? Sign up' footer link."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-team-chat-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace 'Welcome back' with 'Create your account', subtitle 'Get started with Pulse'. Add Display Name field above email. Add Confirm Password field below password. Remove 'Forgot password?' link. Change button to 'Create Account'. Footer becomes 'Already have an account? Sign in'."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-team-chat-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace heading with 'Reset your password', subtitle 'Enter your email and we'll send you a reset link'. Only email input field (no password). Button text 'Send Reset Link'. Remove 'or' divider. Footer becomes 'Remember your password? Sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-team-chat-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace heading with 'Set new password', subtitle 'Enter your new password below'. Two fields: New Password and Confirm Password (no email). Button text 'Reset Password'. Remove 'or' divider. Footer becomes 'Back to Sign in' link."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ChatLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-team-chat-settings.html",
+      "designScreenId": "6e38642f66504feeb4255d2b1f3d0e59",
+      "designScreenTitle": "Pulse - Settings",
+      "generationPrompt": "Settings page inside Pulse chat layout (purple sidebar #4a154b on left). Main content on #fff7fa surface. Sections in white cards with brand-tinted shadows. Profile section (avatar, display name, email, bio), Notifications (toggle switches for desktop/email/sound/@mention), Appearance (Light/Dark/System segmented control, language dropdown), Account (Change Password ghost button, Sign Out error button, Delete Account link)."
+    }
+  ]
+}

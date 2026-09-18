@@ -1,0 +1,9 @@
+[
+  { "id": "n-1001", "kind": "incident",  "title": "INC-0421 acknowledged by Asha Rahman", "message": "Webhook delivery latency — investigation began at 19:42 UTC.",       "severity": "warning", "created_at": "2026-04-26T19:42:30.000Z", "read": false },
+  { "id": "n-1002", "kind": "incident",  "title": "INC-0420 status changed → identified", "message": "Search index reindex failure — corrective deploy in flight.",        "severity": "error",   "created_at": "2026-04-26T18:42:00.000Z", "read": false },
+  { "id": "n-1003", "kind": "subscriber","title": "12 subscribers paged for INC-0420",     "message": "Email + webhook + SMS dispatched to all components=all subscribers.","severity": "info",    "created_at": "2026-04-26T18:06:10.000Z", "read": false },
+  { "id": "n-1004", "kind": "maintenance","title": "Maintenance MN-0042 scheduled",        "message": "Postgres primary failover drill — eu-west · 2026-05-02 02:00 UTC.",   "severity": "info",    "created_at": "2026-04-26T16:12:00.000Z", "read": true },
+  { "id": "n-1005", "kind": "incident",  "title": "INC-0419 resolved",                     "message": "Auth refresh tokens recovered after 17 minutes.",                     "severity": "success", "created_at": "2026-04-25T22:28:00.000Z", "read": true },
+  { "id": "n-1006", "kind": "audit",     "title": "Diego Park changed billing plan",       "message": "Plan upgraded from Team to Pro on 2026-04-25.",                       "severity": "info",    "created_at": "2026-04-25T17:01:00.000Z", "read": true },
+  { "id": "n-1007", "kind": "subscriber","title": "New subscriber qa@stratafy.com",        "message": "Pending email confirmation; expires in 47 hours.",                    "severity": "info",    "created_at": "2026-04-26T09:14:30.000Z", "read": false }
+]

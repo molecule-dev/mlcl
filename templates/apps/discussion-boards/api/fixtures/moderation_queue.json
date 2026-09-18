@@ -1,0 +1,70 @@
+[
+  {
+    "id": "mq1",
+    "type": "flag",
+    "reason": "off-topic",
+    "target": {
+      "type": "post",
+      "id": "p_flagged_1",
+      "thread_id": "t1",
+      "thread_title": "Is \"the obstacle is the way\" actually Stoic? — A close reading",
+      "author": { "username": "drift.42", "reputation": 18 },
+      "excerpt": "Off topic but did anyone catch the new podcast on this? Link in bio."
+    },
+    "reporter": { "username": "mia.v", "reputation": 2780 },
+    "created_at": "2026-04-29T23:00:00Z",
+    "status": "open",
+    "priority": "low"
+  },
+  {
+    "id": "mq2",
+    "type": "report",
+    "reason": "spam",
+    "target": {
+      "type": "thread",
+      "id": "t_flagged_2",
+      "thread_title": "10 best meditations 🔥 limited offer 🔥",
+      "author": { "username": "promo.bot", "reputation": 4 },
+      "excerpt": "Click here for the best meditation course of 2026 — limited time only!"
+    },
+    "reporter": { "username": "helena.k", "reputation": 4820 },
+    "created_at": "2026-04-29T22:00:00Z",
+    "status": "open",
+    "priority": "high"
+  },
+  {
+    "id": "mq3",
+    "type": "flag",
+    "reason": "harassment",
+    "target": {
+      "type": "post",
+      "id": "p_flagged_3",
+      "thread_id": "t4",
+      "thread_title": "Reframing apatheia for modern emotional landscapes",
+      "author": { "username": "anon.user", "reputation": 38 },
+      "excerpt": "Honestly anyone who reads Stoicism in 2026 is just performing. Get over yourselves."
+    },
+    "reporter": { "username": "jules.t", "reputation": 632 },
+    "created_at": "2026-04-29T20:00:00Z",
+    "status": "in_review",
+    "priority": "medium",
+    "assigned_to": "mod.alex"
+  },
+  {
+    "id": "mq4",
+    "type": "report",
+    "reason": "duplicate",
+    "target": {
+      "type": "thread",
+      "id": "t_flagged_4",
+      "thread_title": "Reading list for Stoicism — anyone have one?",
+      "author": { "username": "newcomer.n", "reputation": 24 },
+      "excerpt": "Where should I start? Sorry if asked before."
+    },
+    "reporter": { "username": "noor.b", "reputation": 1890 },
+    "created_at": "2026-04-29T18:00:00Z",
+    "status": "resolved",
+    "resolution": "merged_with_t3",
+    "priority": "low"
+  }
+]

@@ -1,0 +1,5 @@
+# Handlers verified via the canonical coverage specs:
+#   01-browse.spec.ts hits /api/properties, /api/agents, /api/mortgage/calculate
+#   05-leads.spec.ts hits /api/leads
+#   admin_showings.spec.ts hits /api/showings
+# No handlers are exempted — every handler is exercised by at least one spec.

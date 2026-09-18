@@ -1,0 +1,37 @@
+{
+  "summary": {
+    "live_watts": 5644,
+    "live_solar_watts": 3840,
+    "net_grid_watts": 1804,
+    "today_kwh": 38.4,
+    "today_solar_kwh": 22.7,
+    "today_cost": 4.92,
+    "today_budget": 9.0,
+    "today_peak_kwh": 17.2,
+    "today_offpeak_kwh": 21.2,
+    "trend_24h_watts": [
+      420, 380, 360, 340, 320, 300, 280, 260,
+      240, 380, 1240, 2480, 3120, 4560, 5840, 6240,
+      5640, 4880, 3920, 3120, 2480, 1840, 1240, 820
+    ],
+    "month_kwh_to_date": 612,
+    "month_kwh_goal": 720,
+    "month_cost_to_date": 84.40,
+    "month_budget": 130
+  },
+  "daily": [
+    { "date": "2026-04-29", "consumption_kwh": 38.4, "production_kwh": 22.7, "cost_usd": 4.92 },
+    { "date": "2026-04-28", "consumption_kwh": 41.1, "production_kwh": 19.4, "cost_usd": 5.61 },
+    { "date": "2026-04-27", "consumption_kwh": 36.8, "production_kwh": 24.2, "cost_usd": 4.21 },
+    { "date": "2026-04-26", "consumption_kwh": 32.4, "production_kwh": 25.1, "cost_usd": 3.42 },
+    { "date": "2026-04-25", "consumption_kwh": 39.7, "production_kwh": 21.8, "cost_usd": 5.18 },
+    { "date": "2026-04-24", "consumption_kwh": 44.2, "production_kwh": 18.6, "cost_usd": 6.02 },
+    { "date": "2026-04-23", "consumption_kwh": 42.8, "production_kwh": 20.4, "cost_usd": 5.71 }
+  ],
+  "monthly": [
+    { "month": "2026-04", "consumption_kwh": 612, "production_kwh": 318, "cost_usd": 84.40 },
+    { "month": "2026-03", "consumption_kwh": 698, "production_kwh": 262, "cost_usd": 102.18 },
+    { "month": "2026-02", "consumption_kwh": 712, "production_kwh": 198, "cost_usd": 118.42 },
+    { "month": "2026-01", "consumption_kwh": 814, "production_kwh": 142, "cost_usd": 138.90 }
+  ]
+}

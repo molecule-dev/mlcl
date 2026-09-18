@@ -1,0 +1,10 @@
+Polish complete: 2026-04-28T13:08:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: deal-discovery → siblings: online-store, personal-finance
+Components: 6 bespoke (TotalSavingsHero, DealCard, SavingsKpiGrid, CouponCodeBlock, HotDealsRow, SnagrAuthShell + AuthFormAtoms)
+Pages rewritten: Landing, Dashboard, DealDetail, Login, Signup, ForgotPassword, ResetPassword
+Chrome conformance: Header/Footer delegate to @molecule/app-header-react / app-footer-react; RootErrorBoundary uses @molecule/app-root-error-boundary-react
+Screen-map coverage: 14/14
+Compliance: clean (check-rules-compliance.mjs); ClassMap coverage 94.6%
+Typecheck: tsc --noEmit clean
+Note: this run picked up the working tree clean after the previous parallel-batch crash; pre-stash work was discarded and Steps 3-9 re-executed from scratch. Step 10 (screenshots) skipped per parent-agent ownership.

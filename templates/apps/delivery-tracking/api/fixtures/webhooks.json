@@ -1,0 +1,6 @@
+[
+  { "id": "whk_001", "url": "https://api.acme-shop.com/v1/parcel-events",        "events": ["shipment.created", "shipment.in_transit", "shipment.delivered", "shipment.exception"], "active": true,  "created_at": "2025-08-12T00:00:00Z", "last_delivery": "2026-04-26T09:48:00Z" },
+  { "id": "whk_002", "url": "https://hooks.slack.com/services/T01/B02/abcd1234efgh","events": ["shipment.exception", "shipment.customs_hold"],                                                "active": true,  "created_at": "2025-09-30T00:00:00Z", "last_delivery": "2026-04-26T07:00:00Z" },
+  { "id": "whk_003", "url": "https://api.acme-fulfillment.com/wp-events",          "events": ["shipment.delivered"],                                                                            "active": true,  "created_at": "2025-11-04T00:00:00Z", "last_delivery": "2026-04-26T09:48:00Z" },
+  { "id": "whk_004", "url": "https://retool.acme-shop.com/v1/parcel-staging",    "events": ["shipment.in_transit", "shipment.delivered"],                                                     "active": false, "created_at": "2026-02-14T00:00:00Z", "last_delivery": "2026-03-12T11:00:00Z" }
+]

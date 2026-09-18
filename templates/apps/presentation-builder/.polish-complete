@@ -1,0 +1,11 @@
+Polish complete: 2026-04-30T00:49:00Z
+Pipeline: polish-app.mjs (verification + finalize pass)
+Cluster: design (no polished sibling — design-canvas patterns + personal-finance hero chrome)
+Components: 8 bespoke (ActivityFeedItem, AnalyticsStatTile, AuthShell, CollaboratorStack, DeckCard, DeckHeroCard, SettingsPanel, TemplateCard)
+Pages: 15 .tsx (Landing, Decks, Editor, Present, Templates, Analytics, Shared, Notifications, Settings, Pricing, PlanUpdated, Login, Signup, ForgotPassword, ResetPassword)
+Screen-map coverage: 13/13 (check-screen-map-coverage.mjs)
+Material 3 derivative tokens: complete (fill-material3-tokens.mjs reports already complete)
+Fonts: Material Symbols Outlined + Inter + Plus Jakarta Sans + JetBrains Mono in index.html
+Typecheck: clean (after dropping orphan app-bonds.ts and unused Theme import)
+Compliance: clean (check-rules-compliance.mjs — 277 files, 0 violations)
+ClassMap coverage: 100%

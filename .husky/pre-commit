@@ -1,0 +1,74 @@
+# Fast secret scan — blocks a commit that introduces a high-confidence secret
+# (staged added lines only). Runs first so a leaked key fails before the slower
+# format/lint pass. Bypass a reviewed false positive with: git commit --no-verify
+node scripts/precommit-secret-scan.mjs || exit 1
+
+# Secret-scanner drift (cross-repo). BOTH copies here are vendored from the
+# workspace canonical (../scripts/precommit-secret-scan.mjs): the hook's own
+# scanner, and templates/shared/*.tpl — which mlcl create copies VERBATIM into
+# every scaffolded user project, so a stale template ships its false positives
+# to every user. Only checked when a copy is staged; skipped in a standalone clone.
+if git diff --cached --name-only --diff-filter=ACM |
+  grep -qE '^(scripts/precommit-secret-scan\.mjs|templates/shared/precommit-secret-scan\.mjs\.tpl)$'; then
+  if [ -f ../scripts/sync-secret-scanner.mjs ]; then
+    (cd .. && node scripts/sync-secret-scanner.mjs --check) || exit 1
+  fi
+fi
+
+# Template e2e must not name the template's own demo data. `mlcl create` ships
+# these specs verbatim and the user replaces the demo content, so a spec that
+# asserts on a seeded row's name fails on a CORRECT app. Scoped to the templates
+# this commit touches — on EITHER side, because a seed rename can coincide with
+# a spec that already names the new value. The full fleet runs in CI (<1s).
+E2E_SLUGS=$(git diff --cached --name-only --diff-filter=ACM |
+  grep -E '^templates/apps/[^/]+/(e2e/|api/(fixtures/|.*[Ss]eed))' |
+  cut -d/ -f3 | sort -u)
+if [ -n "$E2E_SLUGS" ]; then
+  # shellcheck disable=SC2086
+  node scripts/verify-template-e2e-demo-data.mjs $E2E_SLUGS || exit 1
+fi
+
+# Format + lint, SCOPED TO STAGED FILES — the same commands `npm run
+# format:check` / `npm run lint` run, with the same rigor, over the files this
+# commit actually touches.
+#
+# Until 2026-09-15 this line was `npm run format:check && npm run lint`, i.e.
+# `prettier --check .` over the WHOLE repo: 32,024 files after .prettierignore
+# (mlcl carries templates/apps/**, 133 flagship apps), on every commit, for a
+# one-line registry.json sync. molecule and molecule-dev have both been
+# staged-scoped for months; mlcl was the outlier.
+#
+# Nothing is lost by scoping: mlcl's GitHub CI runs the full `npm run lint` and
+# `npm run format:check` on every push, so config-driven drift (a new rule, a
+# plugin bump, a generator change — the class a staged-file hook structurally
+# cannot see) is still caught there, and by the lint-health cron. What the hook
+# owes is that THIS commit is clean, which is what it now checks.
+#
+# `--max-warnings 0` is LOAD-BEARING, not decoration: bare `eslint <files>`
+# exits 0 on warnings, and this config reports almost everything as a warning.
+# Dropping it is how 732 warnings once accumulated behind a green hook in
+# molecule (workspace CLAUDE.md, Behavioral Rule 23). The hook must run the same
+# command as `npm run lint` or it is not the same gate.
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$STAGED" ] && exit 0
+
+# Prettier: everything it formats, minus what .prettierignore excludes (*.json
+# and *.sql are ignored there on purpose — registry.json and the locale data are
+# machine-written). `--ignore-unknown` keeps an unmatched extension from failing.
+# Symlinks are dropped from the list: prettier hard-errors on an explicitly
+# passed symlink (CLAUDE.md→AGENTS.md, per-app generated-visual-tokens.css)
+# before .prettierignore is consulted, and a symlink has no formattable content.
+FMT=$(echo "$STAGED" | grep -E '\.(ts|tsx|js|jsx|mjs|cjs|md|css|scss|html|yaml|yml)$' || true)
+FMT=$(printf '%s\n' "$FMT" | while IFS= read -r f; do [ -L "$f" ] || printf '%s\n' "$f"; done)
+if [ -n "$FMT" ]; then
+  echo "$FMT" | xargs npx --no-install prettier --check --ignore-unknown
+fi
+
+# ESLint: the same two trees `npm run lint` covers (src/, scripts/). Templates
+# are linted by their OWN config via `npm run verify:template-lint` — linting
+# them from here makes typescript-eslint see multiple TSConfig roots and emit
+# tens of thousands of fatal parse errors (CLAUDE.md, Rule 23).
+LINT=$(echo "$STAGED" | grep -E '^(src|scripts)/.*\.(ts|tsx|js|jsx|mjs|cjs)$' || true)
+if [ -n "$LINT" ]; then
+  echo "$LINT" | xargs npx --no-install eslint --no-error-on-unmatched-pattern --max-warnings 0
+fi

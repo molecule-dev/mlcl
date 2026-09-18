@@ -1,0 +1,20 @@
+Polish complete: 2026-04-29T21:30:00Z
+Pipeline: polish-app.mjs (autonomous polish session)
+Cluster: productivity → sibling: project-management
+Brand: Tessera (indigo #5b5bf7 primary + teal #00c4a8 accent + violet
+  #a855f7 canvas accent, Inter UI face)
+Tagline: Where ideas converge
+Components: 7 bespoke (BoardHeroCard, BoardCard, CollaboratorStack,
+  TemplateCard, ActivityFeedItem, WhiteboardLayout, AuthShell)
+Pages rewritten: Landing, Boards, BoardCanvas, Templates,
+  TemplateDetail, Shared, VersionHistory, PresentationMode, Workspace,
+  Profile, Settings, Billing, Notifications +
+  Login/Signup/ForgotPassword/ResetPassword
+Screen-map coverage: 17/17 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs)
+ClassMap coverage: 100%
+Sweep 1 chrome conformance: yes (Header/Footer/AppLayout/RootErrorBoundary delegate)
+Material 3 tokens filled: yes
+Fonts: Material Symbols Outlined + Inter
+Fixtures: boards.json + collaborators.json + elements.json
+Screenshots: 17/17 routes captured (no blanks)

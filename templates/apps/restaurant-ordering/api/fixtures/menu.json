@@ -1,0 +1,14 @@
+[
+  { "id": "i01", "name": "Margherita pizza",         "category": "Mains",     "priceCents": 1600, "description": "Wood-fired Naples-style with San Marzano tomato, fresh mozzarella, and basil.",       "dietary": ["vegetarian"] },
+  { "id": "i02", "name": "Bistecca alla fiorentina", "category": "Mains",     "priceCents": 5400, "description": "Dry-aged porterhouse, grilled rare over coals, with rosemary and lemon.",            "dietary": [] },
+  { "id": "i03", "name": "Linguine alle vongole",    "category": "Pasta",     "priceCents": 2800, "description": "Hand-rolled linguine with manila clams, white wine, and garlic.",                    "dietary": [] },
+  { "id": "i04", "name": "Spaghetti carbonara",      "category": "Pasta",     "priceCents": 2200, "description": "Egg yolk, guanciale, pecorino, black pepper. No cream — ever.",                      "dietary": ["allergen"] },
+  { "id": "i05", "name": "Caesar salad",             "category": "Starters",  "priceCents": 1400, "description": "Little gem hearts, parmigiano, anchovy dressing, sourdough croutons.",               "dietary": ["vegetarian", "allergen"] },
+  { "id": "i06", "name": "Risotto ai funghi",        "category": "Pasta",     "priceCents": 2600, "description": "Creamy carnaroli rice with porcini, chanterelles, and truffle oil.",                  "dietary": ["vegetarian", "gluten_free"] },
+  { "id": "i07", "name": "Tiramisu",                 "category": "Desserts",  "priceCents": 1100, "description": "Espresso-soaked savoiardi, mascarpone cream, dusted with cocoa.",                    "dietary": ["vegetarian", "allergen"] },
+  { "id": "i08", "name": "Panna cotta",              "category": "Desserts",  "priceCents": 1000, "discountCents": 800, "description": "Vanilla bean cream with seasonal berry compote.",                  "dietary": ["vegetarian", "gluten_free"] },
+  { "id": "i09", "name": "Garden salad",             "category": "Starters",  "priceCents": 1200, "description": "Mixed greens, heirloom tomato, cucumber, lemon vinaigrette.",                        "dietary": ["vegan", "gluten_free"] },
+  { "id": "i10", "name": "Chicken parmigiana sandwich","category": "Mains",   "priceCents": 1800, "description": "Buttermilk fried chicken, marinara, mozzarella, on a brioche roll.",                  "dietary": ["spicy"] },
+  { "id": "i11", "name": "Diavola pizza",            "category": "Mains",     "priceCents": 1900, "description": "Spicy 'nduja, calabrian chili, mozzarella, pickled chili.",                          "dietary": ["spicy"] },
+  { "id": "i12", "name": "Cacio e pepe",             "category": "Pasta",     "priceCents": 2400, "description": "Tonnarelli, pecorino romano, freshly cracked black pepper.",                         "dietary": ["vegetarian"] }
+]

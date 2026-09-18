@@ -1,0 +1,152 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #22a3c4;
+  --mol-color-primary-dark: #0c5f75;
+  --mol-color-secondary: #f97316;
+  --mol-color-background: #f8fafb;
+  --mol-color-surface: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-muted: #64748b;
+  --mol-color-border: #e2e8f0;
+  --mol-color-error: #dc2626;
+  --mol-color-success: #166534; /* was #16a34a — 3.0:1 as chip text on bg-success-light #dcfce7 (axe serious); green-800 = 6.5:1 */
+  --mol-color-warning: #92400e; /* was #f59e0b — 1.92:1 as chip text on bg-warning-light #fef3c7 (axe serious); amber-800 = 6.4:1 */
+  --mol-color-info: #0e7490;
+
+  --color-primary: #0e7490;
+  --color-primary-light: #22a3c4;
+  --color-primary-dark: #0c5f75;
+  --color-secondary: #f97316;
+  --color-secondary-light: #fb923c;
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  --color-background: #f8fafb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-error: #dc2626;
+  --color-success: #166534; /* keep in sync with --mol-color-success above (contrast fix) */
+
+  /* Itinerary-specific category colors (used by activity timeline). */
+  --color-category-accommodation: #0e7490;
+  --color-category-food: #ea580c;
+  --color-category-sightseeing: #8b5cf6;
+  --color-category-transport: #6b7280;
+  --color-category-activity: #16a34a;
+  --color-category-shopping: #ec4899;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-sm: 0 1px 3px rgba(14, 116, 144, 0.06);
+  --shadow-md: 0 4px 12px rgba(14, 116, 144, 0.1);
+  --shadow-lg: 0 8px 24px rgba(14, 116, 144, 0.14);
+}
+
+/* Dark mode overrides — twilight travel palette (deep teal + sunset accent) */
+[data-mol-mode='dark'] {
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #38bdf8;
+  --mol-color-primary-light: #67e8f9;
+  --mol-color-secondary: #fb923c;
+  --mol-color-background: #0b1620;
+  --mol-color-surface: #142231;
+  --mol-color-text: #e6edf5;
+  --mol-color-text-secondary: #b4c2d0;
+  --mol-color-text-muted: #8597a8;
+  --mol-color-border: #2a3a4d;
+
+  --color-primary: #38bdf8;
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #0e7490;
+  --color-secondary: #fb923c;
+  --color-secondary-light: #fdba74;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+  --color-background: #0b1620;
+  --color-surface: #142231;
+  --color-surface-hover: #1d3043;
+  --color-text: #e6edf5;
+  --color-text-secondary: #b4c2d0;
+  --color-text-muted: #8597a8;
+  --color-border: #2a3a4d;
+  --color-error: #f87171;
+  --color-success: #4ade80;
+
+  /* Itinerary-specific category colors — brightened for dark surfaces. */
+  --color-category-accommodation: #38bdf8;
+  --color-category-food: #fb923c;
+  --color-category-sightseeing: #c4b5fd;
+  --color-category-transport: #9ca3af;
+  --color-category-activity: #4ade80;
+  --color-category-shopping: #f9a8d4;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     `--color-on-primary` stays white so teal/sky CTA buttons keep white text. */
+  --color-on-background: #e6edf5;
+  --color-surface-bright: #1d3043;
+  --color-surface-dim: #070f18;
+  --color-surface-container-lowest: #040b12;
+  --color-surface-container-low: #0f1e2d;
+  --color-surface-container: #142231;
+  --color-surface-container-high: #1d3043;
+  --color-surface-container-highest: #243a52;
+  --color-surface-variant: #1d3043;
+  --color-on-surface: #e6edf5;
+  --color-on-surface-variant: #b4c2d0;
+  --color-inverse-surface: #e6edf5;
+  --color-inverse-on-surface: #142231;
+  --color-inverse-primary: #0e7490;
+  --color-primary-container: #0c3d50;
+  /* #0b1620 on #38bdf8 = 8.53:1 — passes AA. White was 2.14:1 (fail). */
+  --color-on-primary: #0b1620;
+  --color-on-primary-container: #b9e8f8;
+  --color-secondary-container: #7c3b10;
+  /* #1a0a00 on #fb923c = 8.53:1 — passes AA. White was 2.26:1 (fail). */
+  --color-on-secondary: #1a0a00;
+  --color-on-secondary-container: #fddcc4;
+  --color-tertiary: #c4b5fd;
+  --color-tertiary-container: #4c1d95;
+  /* #21003d on #c4b5fd = 10.05:1 — passes AA. White was 1.85:1 (fail). */
+  --color-on-tertiary: #21003d;
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  /* #690005 on #f87171 = 4.74:1 — passes AA. White was 2.77:1 (fail). */
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a7080;
+  --color-outline-variant: #2a3a4d;
+  --color-surface-tint: #38bdf8;
+}

@@ -1,0 +1,1761 @@
+{
+  "slug": "workout-tracker",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-exercises",
+      "path": "/exercises",
+      "component": "Exercises",
+      "file": "app/src/pages/Exercises.tsx"
+    },
+    {
+      "id": "page-exercisedetail",
+      "path": "/exercises/:id",
+      "component": "ExerciseDetail",
+      "file": "app/src/pages/ExerciseDetail.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-history",
+      "path": "/history",
+      "component": "History",
+      "file": "app/src/pages/History.tsx"
+    },
+    {
+      "id": "page-workoutdetail",
+      "path": "/history/:id",
+      "component": "WorkoutDetail",
+      "file": "app/src/pages/WorkoutDetail.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-bodymeasurements",
+      "path": "/measurements",
+      "component": "BodyMeasurements",
+      "file": "app/src/pages/BodyMeasurements.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-personalrecords",
+      "path": "/records",
+      "component": "PersonalRecords",
+      "file": "app/src/pages/PersonalRecords.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-templates",
+      "path": "/templates",
+      "component": "Templates",
+      "file": "app/src/pages/Templates.tsx"
+    },
+    {
+      "id": "page-templateeditor",
+      "path": "/templates/:id/edit",
+      "component": "TemplateEditor",
+      "file": "app/src/pages/TemplateEditor.tsx"
+    },
+    {
+      "id": "page-activeworkout",
+      "path": "/workout/active",
+      "component": "ActiveWorkout",
+      "file": "app/src/pages/ActiveWorkout.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-forjaauthshell-65-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ForjaAuthShell.tsx",
+      "line": 65,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forjaauthshell-75-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ForjaAuthShell.tsx",
+      "line": 75,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forjasidebar-50",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ForjaSidebar.tsx",
+      "line": 50,
+      "label": "link at app/src/components/ForjaSidebar.tsx:50",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forjasidebar-84-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ForjaSidebar.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forjatextfield-35",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/ForjaTextField.tsx",
+      "line": 35,
+      "label": "input at app/src/components/ForjaTextField.tsx:35",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forjatextfield-48",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ForjaTextField.tsx",
+      "line": 48,
+      "label": "button at app/src/components/ForjaTextField.tsx:48",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-setrow-100",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SetRow.tsx",
+      "line": 100,
+      "label": "button at app/src/components/SetRow.tsx:100",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-workouthistoryrow-45--span-classname-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/WorkoutHistoryRow.tsx",
+      "line": 45,
+      "label": "<span className=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-activeworkout-266",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 266,
+      "label": "button at app/src/pages/ActiveWorkout.tsx:266",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-activeworkout-326",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 326,
+      "label": "button at app/src/pages/ActiveWorkout.tsx:326",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-activeworkout-363",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 363,
+      "label": "select at app/src/pages/ActiveWorkout.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-activeworkout-387",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 387,
+      "label": "input at app/src/pages/ActiveWorkout.tsx:387",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-activeworkout-405",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 405,
+      "label": "input at app/src/pages/ActiveWorkout.tsx:405",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-activeworkout-420",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 420,
+      "label": "button at app/src/pages/ActiveWorkout.tsx:420",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-activeworkout-523-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 523,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bodymeasurements-195",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BodyMeasurements.tsx",
+      "line": 195,
+      "label": "button at app/src/pages/BodyMeasurements.tsx:195",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-bodymeasurements-231",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/BodyMeasurements.tsx",
+      "line": 231,
+      "label": "input at app/src/pages/BodyMeasurements.tsx:231",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-bodymeasurements-253--creating",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BodyMeasurements.tsx",
+      "line": 253,
+      "label": "{creating",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bodymeasurements-268",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BodyMeasurements.tsx",
+      "line": 268,
+      "label": "button at app/src/pages/BodyMeasurements.tsx:268",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-235",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 235,
+      "label": "link at app/src/pages/Dashboard.tsx:235",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-276-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 276,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-exercisedetail-210-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ExerciseDetail.tsx",
+      "line": 210,
+      "label": "← , )}",
+      "href": "/exercises",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-exercisedetail-226",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ExerciseDetail.tsx",
+      "line": 226,
+      "label": "link at app/src/pages/ExerciseDetail.tsx:226",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-exercises-140",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 140,
+      "label": "button at app/src/pages/Exercises.tsx:140",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-exercises-175",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 175,
+      "label": "input at app/src/pages/Exercises.tsx:175",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-exercises-187",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 187,
+      "label": "select at app/src/pages/Exercises.tsx:187",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-exercises-203",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 203,
+      "label": "input at app/src/pages/Exercises.tsx:203",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-exercises-217--creating",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 217,
+      "label": "{creating",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-exercises-232",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 232,
+      "label": "button at app/src/pages/Exercises.tsx:232",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-exercises-262",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 262,
+      "label": "input at app/src/pages/Exercises.tsx:262",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-exercises-273",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 273,
+      "label": "button at app/src/pages/Exercises.tsx:273",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-exercises-303--h3-classname--cm-cn",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 303,
+      "label": "<h3 className={cm.cn(text-lg font-bold text-on-surface group",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-34-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 34,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-63-------t-forja-forgot",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 63,
+      "label": ", ) : t(forja.forgot.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-history-173",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/History.tsx",
+      "line": 173,
+      "label": "button at app/src/pages/History.tsx:173",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-55-fitness-center",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 55,
+      "label": "fitness_center",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-62-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 62,
+      "label": ", )}",
+      "href": "#features",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-65-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 65,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-68-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 68,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-103-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 103,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-109-play-circle-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 109,
+      "label": "play_circle , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-190-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 190,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-214-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 214,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-217-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 217,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-40-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 40,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-70",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 70,
+      "label": "input at app/src/pages/Login.tsx:70",
+      "href": null,
+      "type": "checkbox",
+      "name": null
+    },
+    {
+      "id": "link-login-75-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 75,
+      "label": ", )}",
+      "href": "/forgot-password",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-86-------t-forja-login-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 86,
+      "label": ", ) : t(forja.login.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/NotFound.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-39-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 39,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-45-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 45,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-personalrecords-131",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PersonalRecords.tsx",
+      "line": 131,
+      "label": "button at app/src/pages/PersonalRecords.tsx:131",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-personalrecords-158",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PersonalRecords.tsx",
+      "line": 158,
+      "label": "button at app/src/pages/PersonalRecords.tsx:158",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-64-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 64,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-75-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 75,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-47-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 47,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-103-------t-forja-reset-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 103,
+      "label": ", ) : t(forja.reset.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-194",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 194,
+      "label": "button at app/src/pages/Settings.tsx:194",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-settings-237",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 237,
+      "label": "select at app/src/pages/Settings.tsx:237",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-settings-261",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 261,
+      "label": "select at app/src/pages/Settings.tsx:261",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-settings-285",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 285,
+      "label": "select at app/src/pages/Settings.tsx:285",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-367-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 367,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-375-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 375,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-417",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 417,
+      "label": "input at app/src/pages/Settings.tsx:417",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-433-------t-forja-settin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 433,
+      "label": ", ) : t(forja.settings.danger.confirmDelete, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-443-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 443,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-491",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 491,
+      "label": "input at app/src/pages/Settings.tsx:491",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-47-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 47,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-110-------t-forja-signup",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 110,
+      "label": ", ) : t(forja.signup.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-templateeditor-205-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 205,
+      "label": "← , )}",
+      "href": "/templates",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templateeditor-224",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 224,
+      "label": "button at app/src/pages/TemplateEditor.tsx:224",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-templateeditor-310",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 310,
+      "label": "input at app/src/pages/TemplateEditor.tsx:310",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-templateeditor-326",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 326,
+      "label": "input at app/src/pages/TemplateEditor.tsx:326",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-templateeditor-344",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 344,
+      "label": "textarea at app/src/pages/TemplateEditor.tsx:344",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templateeditor-356",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 356,
+      "label": "button at app/src/pages/TemplateEditor.tsx:356",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-templateeditor-393",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 393,
+      "label": "select at app/src/pages/TemplateEditor.tsx:393",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-templateeditor-411",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 411,
+      "label": "input at app/src/pages/TemplateEditor.tsx:411",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-templateeditor-425",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 425,
+      "label": "input at app/src/pages/TemplateEditor.tsx:425",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-templateeditor-439",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 439,
+      "label": "button at app/src/pages/TemplateEditor.tsx:439",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templateeditor-516-delete-outline",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 516,
+      "label": "delete_outline",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templates-178",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 178,
+      "label": "button at app/src/pages/Templates.tsx:178",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-templates-213",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 213,
+      "label": "input at app/src/pages/Templates.tsx:213",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-templates-225",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 225,
+      "label": "input at app/src/pages/Templates.tsx:225",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-templates-242",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 242,
+      "label": "button at app/src/pages/Templates.tsx:242",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templates-258",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 258,
+      "label": "button at app/src/pages/Templates.tsx:258",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templates-313",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 313,
+      "label": "button at app/src/pages/Templates.tsx:313",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-templates-365-edit",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 365,
+      "label": "edit",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templates-402",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 402,
+      "label": "button at app/src/pages/Templates.tsx:402",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-templates-418-delete-outline",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 418,
+      "label": "delete_outline",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-workoutdetail-218-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/WorkoutDetail.tsx",
+      "line": 218,
+      "label": "← , )}",
+      "href": "/history",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-workoutdetail-230",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/WorkoutDetail.tsx",
+      "line": 230,
+      "label": "button at app/src/pages/WorkoutDetail.tsx:230",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-workoutdetail-339",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/WorkoutDetail.tsx",
+      "line": 339,
+      "label": "link at app/src/pages/WorkoutDetail.tsx:339",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-activeworkout-358",
+      "file": "app/src/pages/ActiveWorkout.tsx",
+      "line": 358,
+      "label": "form at app/src/pages/ActiveWorkout.tsx:358",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-bodymeasurements-216",
+      "file": "app/src/pages/BodyMeasurements.tsx",
+      "line": 216,
+      "label": "form at app/src/pages/BodyMeasurements.tsx:216",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-exercises-161",
+      "file": "app/src/pages/Exercises.tsx",
+      "line": 161,
+      "label": "form at app/src/pages/Exercises.tsx:161",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-47",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 47,
+      "label": "form at app/src/pages/ForgotPassword.tsx:47",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-46",
+      "file": "app/src/pages/Login.tsx",
+      "line": 46,
+      "label": "form at app/src/pages/Login.tsx:46",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-52",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 52,
+      "label": "form at app/src/pages/ResetPassword.tsx:52",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-399",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 399,
+      "label": "form at app/src/pages/Settings.tsx:399",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-53",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 53,
+      "label": "form at app/src/pages/Signup.tsx:53",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-templateeditor-282",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 282,
+      "label": "form at app/src/pages/TemplateEditor.tsx:282",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-templateeditor-385",
+      "file": "app/src/pages/TemplateEditor.tsx",
+      "line": 385,
+      "label": "form at app/src/pages/TemplateEditor.tsx:385",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-templates-199",
+      "file": "app/src/pages/Templates.tsx",
+      "line": 199,
+      "label": "form at app/src/pages/Templates.tsx:199",
+      "onSubmit": false,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-exercises--id",
+      "method": "DELETE",
+      "mountedPath": "/exercises/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/exercises.ts",
+      "line": 200,
+      "resource": "exercises"
+    },
+    {
+      "id": "route-delete-measurements--id",
+      "method": "DELETE",
+      "mountedPath": "/measurements/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/measurements.ts",
+      "line": 155,
+      "resource": "measurements"
+    },
+    {
+      "id": "route-delete-routines--id",
+      "method": "DELETE",
+      "mountedPath": "/routines/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 247,
+      "resource": "routines"
+    },
+    {
+      "id": "route-delete-routines--id-exercises--exerciseid",
+      "method": "DELETE",
+      "mountedPath": "/routines/:id/exercises/:exerciseId",
+      "rawPath": "/:id/exercises/:exerciseId",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 318,
+      "resource": "routines"
+    },
+    {
+      "id": "route-delete-workouts--id",
+      "method": "DELETE",
+      "mountedPath": "/workouts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 288,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-delete-workouts--id-sets--setid",
+      "method": "DELETE",
+      "mountedPath": "/workouts/:id/sets/:setId",
+      "rawPath": "/:id/sets/:setId",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 400,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-exercises-",
+      "method": "GET",
+      "mountedPath": "/exercises",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/exercises.ts",
+      "line": 55,
+      "resource": "exercises"
+    },
+    {
+      "id": "route-get-exercises--id",
+      "method": "GET",
+      "mountedPath": "/exercises/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/exercises.ts",
+      "line": 109,
+      "resource": "exercises"
+    },
+    {
+      "id": "route-get-measurements-",
+      "method": "GET",
+      "mountedPath": "/measurements",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/measurements.ts",
+      "line": 50,
+      "resource": "measurements"
+    },
+    {
+      "id": "route-get-measurements--id",
+      "method": "GET",
+      "mountedPath": "/measurements/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/measurements.ts",
+      "line": 76,
+      "resource": "measurements"
+    },
+    {
+      "id": "route-get-progress-personal-records",
+      "method": "GET",
+      "mountedPath": "/progress/personal-records",
+      "rawPath": "/personal-records",
+      "handlerFile": "api/src/handlers/progress.ts",
+      "line": 83,
+      "resource": "progress"
+    },
+    {
+      "id": "route-get-progress-streak",
+      "method": "GET",
+      "mountedPath": "/progress/streak",
+      "rawPath": "/streak",
+      "handlerFile": "api/src/handlers/progress.ts",
+      "line": 158,
+      "resource": "progress"
+    },
+    {
+      "id": "route-get-progress-summary",
+      "method": "GET",
+      "mountedPath": "/progress/summary",
+      "rawPath": "/summary",
+      "handlerFile": "api/src/handlers/progress.ts",
+      "line": 40,
+      "resource": "progress"
+    },
+    {
+      "id": "route-get-progress-volume-over-time",
+      "method": "GET",
+      "mountedPath": "/progress/volume-over-time",
+      "rawPath": "/volume-over-time",
+      "handlerFile": "api/src/handlers/progress.ts",
+      "line": 108,
+      "resource": "progress"
+    },
+    {
+      "id": "route-get-records-",
+      "method": "GET",
+      "mountedPath": "/records",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/records.ts",
+      "line": 39,
+      "resource": "records"
+    },
+    {
+      "id": "route-get-routines-",
+      "method": "GET",
+      "mountedPath": "/routines",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 106,
+      "resource": "routines"
+    },
+    {
+      "id": "route-get-routines--id",
+      "method": "GET",
+      "mountedPath": "/routines/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 136,
+      "resource": "routines"
+    },
+    {
+      "id": "route-get-workouts-",
+      "method": "GET",
+      "mountedPath": "/workouts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 84,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-get-workouts--id",
+      "method": "GET",
+      "mountedPath": "/workouts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 138,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-get-workouts-active",
+      "method": "GET",
+      "mountedPath": "/workouts/active",
+      "rawPath": "/active",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 116,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-patch-exercises--id",
+      "method": "PATCH",
+      "mountedPath": "/exercises/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/exercises.ts",
+      "line": 170,
+      "resource": "exercises"
+    },
+    {
+      "id": "route-patch-measurements--id",
+      "method": "PATCH",
+      "mountedPath": "/measurements/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/measurements.ts",
+      "line": 128,
+      "resource": "measurements"
+    },
+    {
+      "id": "route-patch-routines--id",
+      "method": "PATCH",
+      "mountedPath": "/routines/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 218,
+      "resource": "routines"
+    },
+    {
+      "id": "route-patch-workouts--id",
+      "method": "PATCH",
+      "mountedPath": "/workouts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 211,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-patch-workouts--id-sets--setid",
+      "method": "PATCH",
+      "mountedPath": "/workouts/:id/sets/:setId",
+      "rawPath": "/:id/sets/:setId",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 364,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-exercises-",
+      "method": "POST",
+      "mountedPath": "/exercises",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/exercises.ts",
+      "line": 138,
+      "resource": "exercises"
+    },
+    {
+      "id": "route-post-measurements-",
+      "method": "POST",
+      "mountedPath": "/measurements",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/measurements.ts",
+      "line": 98,
+      "resource": "measurements"
+    },
+    {
+      "id": "route-post-records-",
+      "method": "POST",
+      "mountedPath": "/records",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/records.ts",
+      "line": 65,
+      "resource": "records"
+    },
+    {
+      "id": "route-post-routines-",
+      "method": "POST",
+      "mountedPath": "/routines",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 167,
+      "resource": "routines"
+    },
+    {
+      "id": "route-post-routines--id-exercises",
+      "method": "POST",
+      "mountedPath": "/routines/:id/exercises",
+      "rawPath": "/:id/exercises",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 275,
+      "resource": "routines"
+    },
+    {
+      "id": "route-post-routines--id-exercises-reorder",
+      "method": "POST",
+      "mountedPath": "/routines/:id/exercises/reorder",
+      "rawPath": "/:id/exercises/reorder",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 346,
+      "resource": "routines"
+    },
+    {
+      "id": "route-post-routines--id-start",
+      "method": "POST",
+      "mountedPath": "/routines/:id/start",
+      "rawPath": "/:id/start",
+      "handlerFile": "api/src/handlers/routines.ts",
+      "line": 377,
+      "resource": "routines"
+    },
+    {
+      "id": "route-post-workouts-",
+      "method": "POST",
+      "mountedPath": "/workouts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 168,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-post-workouts--id-complete",
+      "method": "POST",
+      "mountedPath": "/workouts/:id/complete",
+      "rawPath": "/:id/complete",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 239,
+      "resource": "workouts"
+    },
+    {
+      "id": "route-post-workouts--id-sets",
+      "method": "POST",
+      "mountedPath": "/workouts/:id/sets",
+      "rawPath": "/:id/sets",
+      "handlerFile": "api/src/handlers/workouts.ts",
+      "line": 316,
+      "resource": "workouts"
+    }
+  ],
+  "totals": {
+    "pages": 18,
+    "elements": 106,
+    "forms": 13,
+    "routes": 39
+  }
+}

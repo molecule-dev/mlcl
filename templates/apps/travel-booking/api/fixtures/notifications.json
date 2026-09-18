@@ -1,0 +1,8 @@
+[
+  { "id": "n1", "type": "booking_update",   "title": "Itinerary confirmed",                  "body": "Your stay at Lighthouse Suites Cinque Terre is confirmed for June 12.",          "href": "/trips/t1",     "created_at": "2026-04-26T10:00:00.000Z", "unread": true  },
+  { "id": "n2", "type": "host_message",     "title": "Giulia sent a message",                "body": "We can have the boat ready for sunset on the 13th — let me know if that works.", "href": "/trips/t1",     "created_at": "2026-04-26T11:32:00.000Z", "unread": true  },
+  { "id": "n3", "type": "price_drop",       "title": "Price dropped on a saved property",    "body": "Casa Mirador Oaxaca dropped 18% for your saved September dates.",                "href": "/property/p1",  "created_at": "2026-04-25T08:00:00.000Z", "unread": true  },
+  { "id": "n4", "type": "trip_reminder",    "title": "Banff trip in 6 weeks",                "body": "Whitecap Wilderness Camp is coming up. Time to pack and check the gear list.",   "href": "/trips/t2",     "created_at": "2026-04-23T09:00:00.000Z", "unread": false },
+  { "id": "n5", "type": "security_alert",   "title": "New sign-in from Lisbon",              "body": "If this wasn't you, change your password immediately.",                          "href": "/account",      "created_at": "2026-04-21T15:00:00.000Z", "unread": false },
+  { "id": "n6", "type": "loyalty_milestone", "title": "Halfway to Wanderer tier",            "body": "You've earned 4,280 of 7,500 points — Wanderer unlocks early access stays.",     "href": "/account",      "created_at": "2026-04-19T15:00:00.000Z", "unread": false }
+]

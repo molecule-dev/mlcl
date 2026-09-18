@@ -1,0 +1,79 @@
+[
+  {
+    "id": "ntf-001",
+    "user_id": "usr-001",
+    "type": "order_shipped",
+    "title": "Your Mira & Co. order has shipped",
+    "body": "Order #1042 (Stoneware Breakfast Bowl + Espresso Cups) is on its way via USPS Priority. Expected May 2.",
+    "icon": "local_shipping",
+    "link": "/orders/ord-1042",
+    "read": false,
+    "created_at": "2026-04-26T09:02:00Z"
+  },
+  {
+    "id": "ntf-002",
+    "user_id": "usr-001",
+    "type": "review_request",
+    "title": "How was your Yirgacheffe?",
+    "body": "Tell North Pine Coffee what you thought of your last delivery. Reviews stay on our minds — and theirs.",
+    "icon": "star_rate",
+    "link": "/orders/ord-1044",
+    "read": false,
+    "created_at": "2026-04-22T14:00:00Z"
+  },
+  {
+    "id": "ntf-003",
+    "user_id": "usr-001",
+    "type": "vendor_drop",
+    "title": "Atlas Textiles dropped a new collection",
+    "body": "12 new hand-loomed pieces just landed from your favourite vendor.",
+    "icon": "new_releases",
+    "link": "/vendors/atlas-textiles",
+    "read": true,
+    "created_at": "2026-04-20T08:30:00Z"
+  },
+  {
+    "id": "ntf-004",
+    "user_id": "usr-001",
+    "type": "payout_paid",
+    "title": "Your April 1–15 payout was sent",
+    "body": "$1,033.84 deposited to Chase ••4218. View the breakdown in your vendor dashboard.",
+    "icon": "payments",
+    "link": "/vendor/payouts",
+    "read": true,
+    "created_at": "2026-04-17T09:01:00Z"
+  },
+  {
+    "id": "ntf-005",
+    "user_id": "usr-001",
+    "type": "order_delivered",
+    "title": "Your Ember Leather order was delivered",
+    "body": "Order #1042 (Bridle Leather Bifold) was left at your front door at 3:42pm.",
+    "icon": "check_circle",
+    "link": "/orders/ord-1042",
+    "read": true,
+    "created_at": "2026-04-15T15:42:00Z"
+  },
+  {
+    "id": "ntf-006",
+    "user_id": "usr-001",
+    "type": "price_drop",
+    "title": "A favourite is on sale",
+    "body": "Field Tote — Saddle Tan dropped 15% — only 22 left in stock.",
+    "icon": "local_offer",
+    "link": "/products/prd-005",
+    "read": true,
+    "created_at": "2026-04-14T11:00:00Z"
+  },
+  {
+    "id": "ntf-007",
+    "user_id": "usr-001",
+    "type": "vendor_message",
+    "title": "Mira replied to your question",
+    "body": "Hi Helena! Yes, the bowl is microwave-safe — please use a low setting and avoid reheating dry foods.",
+    "icon": "chat_bubble",
+    "link": "/orders/ord-1042",
+    "read": true,
+    "created_at": "2026-04-13T13:20:00Z"
+  }
+]

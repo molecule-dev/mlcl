@@ -1,0 +1,191 @@
+{
+  "app": "applicant-tracking",
+  "designProjectId": "15366045667289215286",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-landing.html",
+      "designScreenId": "04ca0f99e2c44601a3fa639d851c4c2c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-login.html",
+      "designScreenId": "3e0da0dbd69444e0aa7d2909361147a8"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-applicant-tracking-login.html",
+      "derivationNotes": "Same split-panel layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading changes to 'Create your account'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-applicant-tracking-login.html",
+      "derivationNotes": "Same split-panel layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-applicant-tracking-login.html",
+      "derivationNotes": "Same split-panel layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-dashboard.html",
+      "designScreenId": "8349dec3b5bd4b368b060216994cf373"
+    },
+    {
+      "name": "Pipeline",
+      "templateFile": "app/pages/Pipeline.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/pipeline",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-pipeline.html",
+      "designScreenId": "3019a5d860e44ebcaa471e5ba9561d9b"
+    },
+    {
+      "name": "CandidateDetail",
+      "templateFile": "app/pages/CandidateDetail.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/candidates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-candidate-detail.html",
+      "designScreenId": "1d0fca109f3f4afb9d435714dd252621"
+    },
+    {
+      "name": "Jobs",
+      "templateFile": "app/pages/Jobs.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/jobs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-jobs.html",
+      "designScreenId": "1c8996c76f1643c3ac7042141d46e26f"
+    },
+    {
+      "name": "Interviews",
+      "templateFile": "app/pages/Interviews.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/interviews",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-interviews.html",
+      "designScreenId": "58e69a55a4824d8993696df65700ab0a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-settings.html",
+      "designScreenId": "d2ca849eb26d45f08d0f93d7de8a85c4"
+    },
+    {
+      "name": "JobDetail",
+      "templateFile": "app/pages/JobDetail.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/jobs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-job-detail.html",
+      "designScreenId": "52696865b90747bfa2505062cf26ef3e"
+    },
+    {
+      "name": "NewJob",
+      "templateFile": "app/pages/NewJob.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/jobs/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-new-job.html",
+      "designScreenId": "4def385c86864cc99d7b68a99c01d4fc"
+    },
+    {
+      "name": "Candidates",
+      "templateFile": "app/pages/Candidates.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/candidates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-candidates.html",
+      "designScreenId": "7200414f680a4396ba17e3d847d2df3d"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-reports.html",
+      "designScreenId": "6953fae4ce914652944cef07c256bbf6"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-applicant-tracking-notifications.html",
+      "designScreenId": "436da532eee04150b3ac2c2ba9028ec7"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-applicant-tracking-settings.html",
+      "derivationNotes": "Reuses Settings shell (sidebar + top bar). Replace settings sections with single profile card: 96px avatar + name + role + bio textarea, hiring focus area chips (Engineering, Design, Product, etc.), recent-hires list (last 5 candidates the recruiter moved to Hired stage), public profile toggle. Save button bottom-right."
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ApplicantTrackingLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-applicant-tracking-settings.html",
+      "derivationNotes": "Reuses Settings shell. Replace settings sections with: current plan card (Pro tier, $99/seat/mo, 5 seats), usage gauges (active jobs 12/unlimited, AI screens this month 840/2000), invoices table (date, amount, status, download), payment method card (Visa **** 4242, expiry, edit). Upgrade plan link in top-right of plan card."
+    }
+  ]
+}

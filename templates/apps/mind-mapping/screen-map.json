@@ -1,0 +1,179 @@
+{
+  "app": "mind-mapping",
+  "designProjectId": "16861248117072687064",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-landing.html",
+      "designScreenId": "dfc4a2ffc32b4a528e102bd0f4520d4a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-login.html",
+      "designScreenId": "69b5b5af6f684053b0f5e5fa70f0c060"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mind-mapping-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right-side card adds First Name, Last Name, Email, Password, Confirm Password. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Forgot password?' link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mind-mapping-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right-side card with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mind-mapping-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right-side card with New Password and Confirm Password fields only. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-dashboard.html",
+      "designScreenId": "5aa4395abbed4866874e90896fc29a8a"
+    },
+    {
+      "name": "Maps",
+      "templateFile": "app/pages/Maps.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/maps",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-maps.html",
+      "designScreenId": "38ca424250bc4a5991359cd4c17f451a"
+    },
+    {
+      "name": "MapEditor",
+      "templateFile": "app/pages/MapEditor.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/maps/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-map-editor.html",
+      "designScreenId": "f35f21e09a224021b2b4a648c19b2548"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-templates.html",
+      "designScreenId": "757e659ccffd488ba61ac5c3caad5e82"
+    },
+    {
+      "name": "Share",
+      "templateFile": "app/pages/Share.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/maps/:id/share",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-share.html",
+      "designScreenId": "40fd8938cf1f44e7814b994f63566735"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-settings.html",
+      "designScreenId": "3671858287494dd88d68948007a9eec2"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-profile.html",
+      "designScreenId": "73ab87cff3c94440879e411f90e93470"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-notifications.html",
+      "designScreenId": "06c9d4cae30a483198e065a303d4a537"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-billing.html",
+      "designScreenId": "76befd1e2c3347609c94c8ec39a54af9"
+    },
+    {
+      "name": "VersionHistory",
+      "templateFile": "app/pages/VersionHistory.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/maps/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-version-history.html",
+      "designScreenId": "dad796d8d36a4bfa909f810ddb2d578e"
+    },
+    {
+      "name": "TemplateDetail",
+      "templateFile": "app/pages/TemplateDetail.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-template-detail.html",
+      "designScreenId": "ddbcaf9eaec4430da19b910f20dd48ca"
+    },
+    {
+      "name": "Trash",
+      "templateFile": "app/pages/Trash.tsx",
+      "components": ["app/components/MindMappingLayout.tsx"],
+      "route": "/trash",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mind-mapping-trash.html",
+      "designScreenId": "dc8917b6f9cb48f9b13a83bafa0acf82"
+    }
+  ]
+}

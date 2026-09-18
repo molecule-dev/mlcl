@@ -1,0 +1,9 @@
+# Handlers exempt from gate 3 (network-assertion coverage).
+#
+# _seed is a per-user idempotent seeding utility imported by other
+# handlers (notifications.ts, polls.ts) on first GET. It is never
+# mounted as an Express route — it cannot be exercised by a network
+# call. Its behaviour is verified transitively by the dashboard /
+# notifications / voters tests, which all assert that the seeded
+# fixtures appear after a fresh signup.
+_seed

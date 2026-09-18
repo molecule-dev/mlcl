@@ -1,0 +1,167 @@
+{
+  "app": "ai-customer-service-bot",
+  "designProjectId": "2884182924724256826",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-login.html",
+      "designScreenId": "6ae49fcc69f948958c025f9f978d63e5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-customer-service-bot-login.html",
+      "derivationNotes": "Same centered card layout as Login. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-customer-service-bot-login.html",
+      "derivationNotes": "Same centered card layout as Login. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-customer-service-bot-login.html",
+      "derivationNotes": "Same centered card layout as Login. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-dashboard.html",
+      "designScreenId": "07a1c9c90043460590a384cfc60b02b0"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-landing.html",
+      "designScreenId": "e18d59e1468f434f8103285ef9eb4d18"
+    },
+    {
+      "name": "Conversations",
+      "templateFile": "app/pages/Conversations.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/conversations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-conversations.html",
+      "designScreenId": "804ec4532b794b649f7c60a0f39501c5"
+    },
+    {
+      "name": "ConversationDetail",
+      "templateFile": "app/pages/ConversationDetail.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/conversations/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-conversation-detail.html",
+      "designScreenId": "f79510d7c2eb46b1a510d9c5e1b483be"
+    },
+    {
+      "name": "KnowledgeBase",
+      "templateFile": "app/pages/KnowledgeBase.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/knowledge",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-knowledge-base.html",
+      "designScreenId": "6d023befe1954784aa81fb5f8598641a"
+    },
+    {
+      "name": "KnowledgeArticleDetail",
+      "templateFile": "app/pages/KnowledgeArticleDetail.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/knowledge/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-knowledge-article-detail.html",
+      "designScreenId": "621ea4c8753e48e8a553a2a8b83d947f"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-analytics.html",
+      "designScreenId": "ba4ce204a6734e24818323b3fe109ce9"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-settings.html",
+      "designScreenId": "dcf788738fca41ee8613ac29664dee9a"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-profile.html",
+      "designScreenId": "83fcb5a1233b4077b851e3f739322019"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": [
+        "app/components/RapportLayout.tsx"
+      ],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-customer-service-bot-notifications.html",
+      "designScreenId": "464ae22eab494cd0b126bde3079fec15"
+    }
+  ]
+}

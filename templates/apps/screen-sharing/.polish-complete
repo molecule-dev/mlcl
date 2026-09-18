@@ -1,0 +1,9 @@
+Polish complete: 2026-04-29T23:40:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: communications → sibling: team-chat
+Brand: Glint — purple→cyan gradient (#7c3aed → #06b6d4), Inter + Inter Tight + JetBrains Mono
+Components: 6 bespoke (RecordingCard, ActivityFeedRow, LibraryStatsHero, RecordingIndicator, ShareLinkCard, ScreenSharingLayout)
+Pages: 16 wired (Landing, Login, Signup, ForgotPassword, ResetPassword, Library, RecordingDetail, Record, Shared, Settings, Analytics, PublicShare, Notifications, Team, Billing, Profile)
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit, app/)

@@ -1,0 +1,8 @@
+Polish complete: 2026-04-30T01:16:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: finance → siblings: personal-finance, crm, banking-dashboard
+Brand: Recoup — "Every receipt, recovered" (#0d7377 teal)
+Bespoke components: ExpenseReportLayout, RecoveredAmountHeroCard,
+StatusKpiCard, ApprovalBadge, ApprovalTimeline, ExpenseRow,
+AuthBrandHeader (7 total).
+Coverage: 13/13 screens wired, classmap 100%, M3 tokens filled.

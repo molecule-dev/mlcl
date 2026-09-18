@@ -1,0 +1,318 @@
+:root {
+  /* === @theme bridge === */
+  --mol-color-primary: #6366f1;
+  --mol-color-primary-light: #eef2ff;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #059669;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #eeeffc;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #fafafa;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #4a4a68;
+  --mol-color-text-tertiary: #8888a8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e0e0e8;
+  --mol-color-border-secondary: #f0f0f5;
+  --mol-color-border-focus: #6366f1;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #6366f1;
+
+  /* === Material-3 bridge tokens (light) === */
+  --color-background: #fafafa;
+  --color-on-background: #1a1a2e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0e0e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #eeeffc;
+  --color-surface-container-high: #e0e0e8;
+  --color-surface-container-highest: #d0d0e0;
+  --color-surface-variant: #eeeffc;
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #4a4a68;
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #818cf8;
+  --color-primary: #4f46e5; /* was #6366f1 — 4.46:1 both as text on white and under white button text; indigo-600 = 6.29:1 */
+  --color-primary-container: #eef2ff;
+  --color-on-primary: #ffffff; /* primary darkened to indigo-600 — white = 6.29:1 (the old near-black pairing fell to 3.33:1) */
+  --color-on-primary-container: #3730a3;
+  --color-secondary: #059669;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #064e3b;
+  --color-tertiary: #2563eb;
+  --color-tertiary-container: #dbeafe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1e3a5f;
+  --color-error: #dc2626;
+  --color-error-container: #fef2f2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #8888a8;
+  --color-outline-variant: #e0e0e8;
+  --color-surface-tint: #6366f1;
+
+  /* === Brand — clean, minimal clipboard palette === */
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: #eef2ff;
+  --color-primary-dark: #4338ca;
+
+  /* Surface */
+  --color-surface-hover: #f5f5f5;
+  --color-surface-active: #eeeffc;
+
+  /* Sidebar */
+  --color-sidebar-bg: #1e1e2e;
+  --color-sidebar-hover: #2a2a3e;
+  --color-sidebar-active: #36365a;
+  --color-sidebar-text: #e0e0ef;
+  --color-sidebar-text-muted: #8888a8;
+
+  /* Text */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4a4a68;
+  --color-text-muted: #8888a8;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e0e0e8;
+  --color-border-light: #f0f0f5;
+  --color-border-focus: #6366f1;
+
+  /* Clip type indicators */
+  --color-type-text: #6366f1;
+  --color-type-code: #059669;
+  --color-type-link: #2563eb;
+  --color-type-image: #d946ef;
+
+  /* Status */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-info: #6366f1;
+
+  /* Pin/Favorite */
+  --color-pinned: #f59e0b;
+  --color-favorite: #ef4444;
+
+  /* Category pill tints — light mode */
+  --color-cat-code-bg: #dbeafe;
+  --color-cat-code-fg: #1d4ed8; /* was #2563eb — 4.23:1 on its chip tint; blue-700 = 5.49:1 */
+  --color-cat-text-bg: #e0e7ff;
+  --color-cat-text-fg: #4f46e5;
+  --color-cat-url-bg: #ccfbf1;
+  --color-cat-url-fg: #0f766e; /* was #0d9488 — 3.32:1 on its chip tint; teal-700 = 4.86:1 */
+  --color-cat-image-bg: #fce7f3;
+  --color-cat-image-fg: #db2777;
+  --color-cat-credential-bg: #ede9fe;
+  --color-cat-credential-fg: #7c3aed;
+
+  /* Device status tints — light mode */
+  --color-device-online-bg: #d1fae5;
+  --color-device-online-fg: #047857;
+  --color-device-syncing-bg: #fef3c7;
+  --color-device-syncing-fg: #b45309;
+  --color-device-offline-bg: #f1f5f9;
+  --color-device-offline-fg: #64748b;
+
+  /* Icon accent colors */
+  --color-icon-lock: #8b5cf6;
+  --color-icon-pin: #f59e0b;
+  --color-icon-neutral: #94a3b8;
+  --color-icon-success: #10b981;
+
+  /* Typography — monospace-forward for code clips */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.75rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1.25rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --content-max-width: 900px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-round: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-focus: 0 0 0 2px rgba(99, 102, 241, 0.25);
+
+  /* Transitions */
+  --transition-fast: 80ms ease;
+  --transition-normal: 150ms ease;
+}
+
+/* Dark mode — devtools/utility neutral dark (GitHub-dark style).
+   Pure neutral surfaces, slight cool-indigo tint only at the lowest
+   sidebar tier. Brand indigo preserved at brand stop; CTA buttons keep
+   white text. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #6366f1;
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #0a0a0c;
+  --mol-color-background-secondary: #16161a;
+  --mol-color-background-tertiary: #1e1e24;
+  --mol-color-surface: #0a0a0c;
+  --mol-color-surface-secondary: #16161a;
+  --mol-color-input-background: #06060a;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a92;
+  --mol-color-text-inverse: #0a0a0c;
+  --mol-color-border: #2a2a30;
+  --mol-color-border-secondary: #3a3a42;
+  --mol-color-border-focus: #6366f1;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* App-specific aliases — clipboard utility shell */
+  --color-primary: #6366f1;
+  --color-primary-hover: #818cf8;
+  --color-primary-light: #1e1b4b;
+  --color-primary-dark: #4f46e5;
+
+  --color-background: #0a0a0c;
+  --color-surface: #16161a;
+  --color-surface-hover: #1e1e24;
+  --color-surface-active: #2a2a30;
+
+  --color-sidebar-bg: #060608;
+  --color-sidebar-hover: #16161a;
+  --color-sidebar-active: #1e1b4b;
+  --color-sidebar-text: #e0e0ef;
+  --color-sidebar-text-muted: #8a8a92;
+
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-muted: #8a8a92;
+  --color-text-inverse: #0a0a0c;
+
+  --color-border: #2a2a30;
+  --color-border-light: #1e1e24;
+  --color-border-focus: #6366f1;
+
+  /* Clip type indicators — brighter on dark for readability */
+  --color-type-text: #818cf8;
+  --color-type-code: #34d058;
+  --color-type-link: #5ec0ff;
+  --color-type-image: #e879f9;
+
+  --color-success: #34d058;
+  --color-warning: #f5b400;
+  --color-error: #f25c5c;
+  --color-info: #6366f1;
+
+  --color-pinned: #f5b400;
+  --color-favorite: #f25c5c;
+
+  --shadow-focus: 0 0 0 2px rgba(99, 102, 241, 0.35);
+
+  /* @theme token dark variants */
+  --color-on-background: #f5f5f5;
+  --color-surface-bright: #1e1e24;
+  --color-surface-dim: #050507;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #111114;
+  --color-surface-container: #16161a;
+  --color-surface-container-high: #1e1e24;
+  --color-surface-container-highest: #2a2a30;
+  --color-surface-variant: #1e1e24;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0a0a0c;
+  --color-inverse-primary: #1e1b4b;
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #ffffff; /* white on indigo */
+  --color-on-primary-container: #dbe0ff;
+  --color-primary-fixed: #1e1b4b;
+  --color-primary-fixed-dim: #818cf8;
+  --color-on-primary-fixed: #dbe0ff;
+  --color-on-primary-fixed-variant: #a5b4fc;
+  --color-secondary: #34d058;
+  --color-secondary-container: #0a3a14;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #bbf7d0;
+  --color-secondary-fixed: #0a3a14;
+  --color-secondary-fixed-dim: #4ade80;
+  --color-on-secondary-fixed: #bbf7d0;
+  --color-on-secondary-fixed-variant: #86efac;
+  --color-tertiary: #5ec0ff;
+  --color-tertiary-container: #0a2a4a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #bee2ff;
+  --color-tertiary-fixed: #0a2a4a;
+  --color-tertiary-fixed-dim: #7dd3fc;
+  --color-on-tertiary-fixed: #bee2ff;
+  --color-on-tertiary-fixed-variant: #bae6fd;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark red — 5.48:1 on #f25c5c (was #fff = 3.25:1 fail) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a5a64;
+  --color-outline-variant: #2a2a30;
+  --color-surface-tint: #818cf8;
+
+  /* Category pill tints — dark mode */
+  --color-cat-code-bg: #1e3a5f;
+  --color-cat-code-fg: #60a5fa;
+  --color-cat-text-bg: #1e1b4b;
+  --color-cat-text-fg: #818cf8;
+  --color-cat-url-bg: #0a3a2a;
+  --color-cat-url-fg: #34d058;
+  --color-cat-image-bg: #3b0a2a;
+  --color-cat-image-fg: #e879f9;
+  --color-cat-credential-bg: #2e1065;
+  --color-cat-credential-fg: #a78bfa;
+
+  /* Device status tints — dark mode */
+  --color-device-online-bg: #0a3a14;
+  --color-device-online-fg: #34d058;
+  --color-device-syncing-bg: #451a03;
+  --color-device-syncing-fg: #fbbf24;
+  --color-device-offline-bg: #1e1e24;
+  --color-device-offline-fg: #8a8a92;
+
+  /* Icon accent colors — dark mode */
+  --color-icon-lock: #a78bfa;
+  --color-icon-pin: #f5b400;
+  --color-icon-neutral: #8a8a92;
+  --color-icon-success: #34d058;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5);
+}

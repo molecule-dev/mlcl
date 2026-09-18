@@ -1,0 +1,6 @@
+Polish complete (backfilled): 2026-04-25
+Pipeline: polish-app.md (today-9 batch — pre-marker era)
+Note: marker backfilled 2026-04-28 — this app was polished before the
+`.polish-complete` marker convention was introduced. Polish artifacts
+verified by inspecting bespoke component count + screen-map coverage +
+git log.

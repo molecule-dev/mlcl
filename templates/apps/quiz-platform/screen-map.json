@@ -1,0 +1,169 @@
+{
+  "app": "quiz-platform",
+  "designProjectId": "1731707176053661259",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-landing.html",
+      "designScreenId": "d894228a62a14edaa8651b1fdf4ae62b"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-login.html",
+      "designScreenId": "d08cc7cdeeac483ba3613f39fa0c1fac"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-quiz-platform-login.html",
+      "derivationNotes": "Same centered card layout as Login. Fields: Username, Email, Password, Confirm Password. Heading 'Join the quizmasters!'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-quiz-platform-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password'. Subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'. Remove the Streak pill since this is a recovery flow."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-quiz-platform-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'. Remove the Streak pill."
+    },
+    {
+      "name": "Discover",
+      "templateFile": "app/pages/Discover.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/discover",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-discover.html",
+      "designScreenId": "f7cab74e4fcf4036b20f0e7a02b536cd"
+    },
+    {
+      "name": "QuizPlay",
+      "templateFile": "app/pages/QuizPlay.tsx",
+      "components": [],
+      "route": "/quiz/:id/play",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-quiz-play.html",
+      "designScreenId": "0a52b20acce14e868639d2f4a6e7c099"
+    },
+    {
+      "name": "QuizBuilder",
+      "templateFile": "app/pages/QuizBuilder.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/quiz/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-quiz-builder.html",
+      "designScreenId": "6b784a9d198d448c9129d601f2aca625"
+    },
+    {
+      "name": "MyQuizzes",
+      "templateFile": "app/pages/MyQuizzes.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/my-quizzes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-my-quizzes.html",
+      "designScreenId": "8413f9f259804af28d2eed1d506bed98"
+    },
+    {
+      "name": "Results",
+      "templateFile": "app/pages/Results.tsx",
+      "components": [],
+      "route": "/quiz/:id/results",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-results.html",
+      "designScreenId": "b849cfa6c58743db925668b39a2a7bc0"
+    },
+    {
+      "name": "Leaderboard",
+      "templateFile": "app/pages/Leaderboard.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/leaderboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-leaderboard.html",
+      "designScreenId": "255dc8abcd64458f9548c4ea8966a4c2"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-settings.html",
+      "designScreenId": "d300e33518224975aaebc8dc7a5b9e73"
+    },
+    {
+      "name": "QuizDetail",
+      "templateFile": "app/pages/QuizDetail.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/quiz/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-quiz-detail.html",
+      "designScreenId": "dfef2168d4da4df0ab1a991677cb1ce0"
+    },
+    {
+      "name": "HostLobby",
+      "templateFile": "app/pages/HostLobby.tsx",
+      "components": [],
+      "route": "/quiz/:id/lobby",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-host-lobby.html",
+      "designScreenId": "df18af3d85ca46649ea1c97a457e8b42"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/u/:username",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-profile.html",
+      "designScreenId": "979e7abe947346e0beea4f7b4b456cf4"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/QuizPlatformLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-quiz-platform-notifications.html",
+      "designScreenId": "1a0ce5b3e8bc467dbcb86d1bf6e8c201"
+    }
+  ]
+}

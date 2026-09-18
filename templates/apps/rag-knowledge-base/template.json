@@ -1,0 +1,107 @@
+{
+  "label": "RAG Knowledge Base",
+  "description": "Upload documents, semantic search, and AI-powered Q&A — with built-in Stripe-backed subscription tiers",
+  "cluster": "ai-first",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-rag",
+    "@molecule/api-ai-rag-llm",
+    "@molecule/api-ai-embeddings-openai",
+    "@molecule/api-ai-vector-store-pgvector",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-search-meilisearch",
+    "@molecule/app-ai-assistant",
+    "@molecule/app-file-upload",
+    "@molecule/app-data-table",
+    "@molecule/app-markdown",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "RAG Knowledge Base"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for Claude",
+      "required": true
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for embeddings",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key for S3",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key for S3",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for document storage",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_RAG_KNOWLEDGE_BASE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_RAG_KNOWLEDGE_BASE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_RAG_KNOWLEDGE_BASE_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_RAG_KNOWLEDGE_BASE_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "document-upload",
+    "semantic-search",
+    "ai-qa",
+    "rag",
+    "subscriptions"
+  ]
+}

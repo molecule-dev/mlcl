@@ -1,0 +1,179 @@
+{
+  "app": "video-streaming",
+  "designProjectId": "2743330473102546078",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-landing.html",
+      "designScreenId": "0c733c79f8004c6e8b7158ca05875c06"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-login.html",
+      "designScreenId": "18ace5c70109407a9b52a45c54beaf23"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Gradient pill becomes 'Create Account'. Bottom link becomes 'Already have an account? Sign In'. No Forgot Password link. Keep identical radial gradient aura backdrop."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with only Email field. Heading becomes 'Reset your password', subtext 'Enter your email to receive a reset link'. Gradient pill becomes 'Send reset link'. Bottom link becomes 'Back to Sign In'. No password field. No provider buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-streaming-login.html",
+      "derivationNotes": "Same centered dark card as Login with New Password and Confirm Password fields. Heading becomes 'Set new password'. Gradient pill becomes 'Reset password'. Bottom link becomes 'Back to Sign In'. No email field. No provider buttons."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-home.html",
+      "designScreenId": "be46293f2d074dbca48363b2ee34cef6"
+    },
+    {
+      "name": "Watch",
+      "templateFile": "app/pages/Watch.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/watch/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-watch.html",
+      "designScreenId": "0c15de68ee624a1bbf013614427bb081"
+    },
+    {
+      "name": "Channel",
+      "templateFile": "app/pages/Channel.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/channel/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-channel.html",
+      "designScreenId": "ddbf9be6bb0d4712876ff6443022fd9a"
+    },
+    {
+      "name": "Subscriptions",
+      "templateFile": "app/pages/Subscriptions.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/subscriptions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-subscriptions.html",
+      "designScreenId": "e17d222f56ce423d9d507958304ce71e"
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-library.html",
+      "designScreenId": "f2d31c95b580426399a0315fe864630c"
+    },
+    {
+      "name": "Upload",
+      "templateFile": "app/pages/Upload.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/upload",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-upload.html",
+      "designScreenId": "f22fbf34dbde407b9a84f475f94b9f48"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-settings.html",
+      "designScreenId": "ff1e06d14623474e9782d7668232ff67"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-search.html",
+      "designScreenId": "a525c9e8bb26483abdeb2b0d2d9a8bb5"
+    },
+    {
+      "name": "Trending",
+      "templateFile": "app/pages/Trending.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/trending",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-trending.html",
+      "designScreenId": "d17166d8c6774760b2497175b6cdd366"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-notifications.html",
+      "designScreenId": "1a8fc0131ac648c0a6efdfcba8627a6e"
+    },
+    {
+      "name": "Studio",
+      "templateFile": "app/pages/Studio.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/studio",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-studio.html",
+      "designScreenId": "75c7eb84bac248a1bf152271052cd8eb"
+    },
+    {
+      "name": "PlaylistDetail",
+      "templateFile": "app/pages/PlaylistDetail.tsx",
+      "components": ["app/components/VideoStreamingLayout.tsx"],
+      "route": "/playlist/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-streaming-playlist-detail.html",
+      "designScreenId": "2946a883d4264ab8aa8da8b8827fdf45"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "m1",
+    "title": "Q4 Strategy Sync",
+    "scheduled_at": "Today, 2:00 PM",
+    "starts_in_minutes": 3,
+    "duration_minutes": 60,
+    "status": "upcoming",
+    "host_name": "Sarah Kim",
+    "is_recurring": false,
+    "day_label": "Mon Apr 29",
+    "starts_at_label": "2:00 PM",
+    "attendees": [
+      { "id": "u1", "name": "Sarah Kim" },
+      { "id": "u2", "name": "David Park" },
+      { "id": "u3", "name": "Maya Reyes" },
+      { "id": "u4", "name": "Jose Lopez" },
+      { "id": "u5", "name": "Asha Bose" },
+      { "id": "u6", "name": "Ryan Tan" },
+      { "id": "u7", "name": "Mei Wang" },
+      { "id": "u8", "name": "Liam Ortiz" }
+    ]
+  },
+  {
+    "id": "m2",
+    "title": "Design crit — Onboarding flow",
+    "scheduled_at": "Today, 3:30 PM",
+    "duration_minutes": 45,
+    "status": "upcoming",
+    "host_name": "Maya Reyes",
+    "day_label": "Mon Apr 29",
+    "starts_at_label": "3:30 PM",
+    "attendees": [
+      { "id": "u3", "name": "Maya Reyes" },
+      { "id": "u9", "name": "Priya Shah" },
+      { "id": "u10", "name": "Tom Becker" }
+    ]
+  },
+  {
+    "id": "m3",
+    "title": "Weekly engineering standup",
+    "scheduled_at": "Tomorrow, 9:00 AM",
+    "duration_minutes": 30,
+    "status": "recurring",
+    "is_recurring": true,
+    "host_name": "David Park",
+    "day_label": "Tue Apr 30",
+    "starts_at_label": "9:00 AM",
+    "attendees": [
+      { "id": "u2", "name": "David Park" },
+      { "id": "u4", "name": "Jose Lopez" },
+      { "id": "u11", "name": "Naomi Park" },
+      { "id": "u12", "name": "Yuri Sato" },
+      { "id": "u13", "name": "Ben Chen" }
+    ]
+  },
+  {
+    "id": "m4",
+    "title": "Customer kickoff — Acme Corp",
+    "scheduled_at": "Tue Apr 30, 4:00 PM",
+    "duration_minutes": 60,
+    "status": "upcoming",
+    "host_name": "Sarah Kim",
+    "day_label": "Tue Apr 30",
+    "starts_at_label": "4:00 PM",
+    "attendees": [
+      { "id": "u1", "name": "Sarah Kim" },
+      { "id": "u13", "name": "Ben Chen" }
+    ]
+  },
+  {
+    "id": "m5",
+    "title": "Quarterly all-hands",
+    "scheduled_at": "Thu May 02, 10:00 AM",
+    "duration_minutes": 90,
+    "status": "upcoming",
+    "host_name": "Sarah Kim",
+    "day_label": "Thu May 02",
+    "starts_at_label": "10:00 AM",
+    "attendees": [
+      { "id": "u1", "name": "Sarah Kim" },
+      { "id": "u2", "name": "David Park" },
+      { "id": "u3", "name": "Maya Reyes" },
+      { "id": "u4", "name": "Jose Lopez" },
+      { "id": "u5", "name": "Asha Bose" },
+      { "id": "u6", "name": "Ryan Tan" }
+    ]
+  }
+]

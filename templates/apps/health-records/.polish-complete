@@ -1,0 +1,33 @@
+polish-session: 2026-04-29
+brand: Meridian — clinical teal #0f766e + indigo accents, "Your complete health story"
+sibling: medication-reminder + telemedicine (health-fitness cluster)
+
+bespoke-components: 10
+- VitalsHeroCard       (clinical-teal gradient hero + heartbeat polyline + vitals chips)
+- HealthSummaryTriad   (conditions / medications / labs KPI triad)
+- LabResultRow         (H/L flag + reference range + sparkline)
+- MedicationCard       (dose + refill state + interaction badge)
+- EncryptedDocumentCard (file-type icon + encryption + category chips)
+- ImmunizationRow      (vaccine + dose-number badge)
+- VisitTimelineEntry   (date gutter + connector + provider summary)
+- PermissionBadge      (owner / caregiver / provider / readonly)
+- AuthBrandHeader      (gradient health-and-safety chip + headline + tagline)
+- MeridianLayout       (sidebar shell on @molecule/app-sidebar-layout-react)
+
+screens: 21 / 21 wired (Landing, Login, Signup, ForgotPassword, ResetPassword,
+  Dashboard, Records, RecordDetail, Medications, MedicationDetail, LabResults,
+  LabResultDetail, Immunizations, Visits, VisitDetail, Documents, Sharing,
+  InviteShare, Notifications, Profile, Settings)
+
+verification:
+- npx tsc --noEmit                            : pass
+- check-rules-compliance                      : clean
+- check-screen-map-coverage                   : 21 / 21 wired
+- classmap-coverage                           : 99%
+
+typography rule honoured: SF Mono via --mol-font-mono on every vital and lab
+numeric (Dashboard hero, LabResultRow, MedicationCard dose, MedicationDetail
+hero supply, LabResultDetail hero value, VisitDetail vitals strip).
+
+auth pages branded per catalog §13.3 (decorated card) + §13.7 Variant A
+(gradient logo chip + giant headline + tagline) with HIPAA footer note.

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "aud_001",
+    "actor": "Jordan Lee",
+    "actor_email": "jordan@acme",
+    "action": "rollout_changed",
+    "target": "onboarding-revamp-v3",
+    "created_at": "2026-04-30T15:48:00Z",
+    "occurred_at": "2026-04-30T15:48:00Z",
+    "message": "Rollout 50% → 75% in production"
+  },
+  {
+    "id": "aud_002",
+    "actor": "Sasha Patel",
+    "actor_email": "sasha@acme",
+    "action": "targeting_changed",
+    "target": "pricing-test-q4",
+    "created_at": "2026-04-30T12:00:00Z",
+    "occurred_at": "2026-04-30T12:00:00Z",
+    "message": "Added rule: country in [US, CA, UK]",
+    "diff": ["- \"country\" in []", "+ \"country\" in [\"US\",\"CA\",\"UK\"]"]
+  },
+  {
+    "id": "aud_003",
+    "actor": "Riley Chen",
+    "actor_email": "riley@acme",
+    "action": "killed",
+    "target": "killswitch-checkout",
+    "created_at": "2026-04-28T16:10:00Z",
+    "occurred_at": "2026-04-28T16:10:00Z",
+    "message": "Killed checkout v2 — fallback to v1"
+  },
+  {
+    "id": "aud_004",
+    "actor": "Mira Brooks",
+    "actor_email": "mira@acme",
+    "action": "created",
+    "target": "beta-cohort-search",
+    "created_at": "2026-04-24T09:00:00Z",
+    "occurred_at": "2026-04-24T09:00:00Z",
+    "message": "New flag for beta_testers segment"
+  },
+  {
+    "id": "aud_005",
+    "actor": "Taylor Singh",
+    "actor_email": "taylor@acme",
+    "action": "toggled_off",
+    "target": "legacy-export-pdf",
+    "created_at": "2026-03-29T10:00:00Z",
+    "occurred_at": "2026-03-29T10:00:00Z",
+    "message": "Disabled legacy PDF export everywhere"
+  },
+  {
+    "id": "aud_006",
+    "actor": "Kai Nakamura",
+    "actor_email": "kai@acme",
+    "action": "toggled_on",
+    "target": "dark-mode-rollout",
+    "created_at": "2026-04-30T15:54:00Z",
+    "occurred_at": "2026-04-30T15:54:00Z",
+    "message": "Enabled dark-mode-rollout in development"
+  },
+  {
+    "id": "aud_007",
+    "actor": "Jordan Lee",
+    "actor_email": "jordan@acme",
+    "action": "updated",
+    "target": "onboarding-revamp-v3",
+    "created_at": "2026-04-29T08:12:00Z",
+    "occurred_at": "2026-04-29T08:12:00Z",
+    "message": "Description copy updated"
+  },
+  {
+    "id": "aud_008",
+    "actor": "Sasha Patel",
+    "actor_email": "sasha@acme",
+    "action": "created",
+    "target": "pricing-test-q4",
+    "created_at": "2026-04-02T10:00:00Z",
+    "occurred_at": "2026-04-02T10:00:00Z",
+    "message": "Created multivariate experiment with 3 variants"
+  }
+]

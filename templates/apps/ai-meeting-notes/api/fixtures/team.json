@@ -1,0 +1,11 @@
+[
+  { "id": "tm_001", "name": "Sasha Kim",     "email": "sasha@example.com",   "initial": "SK", "role": "Owner",  "speaker_color": 1, "last_active": "2026-04-26T08:00:00Z", "joined_at": "2024-08-01", "pending": false },
+  { "id": "tm_002", "name": "Mira Patel",    "email": "mira@example.com",    "initial": "MP", "role": "Admin",  "speaker_color": 2, "last_active": "2026-04-25T22:14:00Z", "joined_at": "2024-08-15", "pending": false },
+  { "id": "tm_003", "name": "Devon Park",    "email": "devon@example.com",   "initial": "DP", "role": "Member", "speaker_color": 3, "last_active": "2026-04-26T07:42:00Z", "joined_at": "2024-09-04", "pending": false },
+  { "id": "tm_004", "name": "Riley Banner",  "email": "riley@example.com",   "initial": "RB", "role": "Member", "speaker_color": 4, "last_active": "2026-04-25T18:00:00Z", "joined_at": "2025-01-12", "pending": false },
+  { "id": "tm_005", "name": "Morgan Reyes",  "email": "morgan@example.com",  "initial": "MR", "role": "Admin",  "speaker_color": 5, "last_active": "2026-04-25T11:00:00Z", "joined_at": "2025-03-20", "pending": false },
+  { "id": "tm_006", "name": "Jordan Cole",   "email": "jordan@example.com",  "initial": "JC", "role": "Member", "speaker_color": 1, "last_active": "2026-03-01T00:00:00Z", "joined_at": "2026-02-12", "pending": false },
+  { "id": "tm_007", "name": "Avery Hall",    "email": "avery@example.com",   "initial": "AH", "role": "Guest",  "speaker_color": 2, "last_active": "2026-04-15T10:00:00Z", "joined_at": "2026-04-08", "pending": false },
+  { "id": "tm_008", "name": "Tasha Brown",   "email": "tasha@example.com",   "initial": "TB", "role": "Member", "speaker_color": 3, "last_active": "2026-04-26T07:00:00Z", "joined_at": "2026-04-22", "pending": true  },
+  { "id": "tm_009", "name": "Kai Nakamura",  "email": "kai@example.com",     "initial": "KN", "role": "Member", "speaker_color": 4, "last_active": "2026-04-22T00:00:00Z", "joined_at": "2026-04-22", "pending": true  }
+]

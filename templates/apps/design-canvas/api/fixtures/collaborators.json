@@ -1,0 +1,62 @@
+[
+  {
+    "id": "usr-001",
+    "name": "You",
+    "email": "you@atelier.design",
+    "avatar_color": "#7c3aed",
+    "initials": "YO",
+    "role": "owner",
+    "is_online": true,
+    "last_seen_at": "2026-04-29T15:42:00Z"
+  },
+  {
+    "id": "usr-002",
+    "name": "Mara Vieira",
+    "email": "mara@atelier.design",
+    "avatar_color": "#ec4899",
+    "initials": "MV",
+    "role": "editor",
+    "is_online": true,
+    "last_seen_at": "2026-04-29T15:38:00Z"
+  },
+  {
+    "id": "usr-003",
+    "name": "Iris Cho",
+    "email": "iris@atelier.design",
+    "avatar_color": "#06b6d4",
+    "initials": "IC",
+    "role": "editor",
+    "is_online": true,
+    "last_seen_at": "2026-04-29T15:35:00Z"
+  },
+  {
+    "id": "usr-004",
+    "name": "Diego Ramos",
+    "email": "diego@atelier.design",
+    "avatar_color": "#10b981",
+    "initials": "DR",
+    "role": "editor",
+    "is_online": false,
+    "last_seen_at": "2026-04-29T13:21:00Z"
+  },
+  {
+    "id": "usr-005",
+    "name": "Aiko Nakamura",
+    "email": "aiko@atelier.design",
+    "avatar_color": "#f59e0b",
+    "initials": "AN",
+    "role": "viewer",
+    "is_online": false,
+    "last_seen_at": "2026-04-29T11:08:00Z"
+  },
+  {
+    "id": "usr-006",
+    "name": "Sam Patel",
+    "email": "sam@atelier.design",
+    "avatar_color": "#a855f7",
+    "initials": "SP",
+    "role": "editor",
+    "is_online": true,
+    "last_seen_at": "2026-04-29T15:30:00Z"
+  }
+]

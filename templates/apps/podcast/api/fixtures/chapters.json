@@ -1,0 +1,21 @@
+[
+  { "id": "ch_001", "episode_id": "ep_010", "title": "Cold open: the symptom",                       "start_seconds": 0    },
+  { "id": "ch_002", "episode_id": "ep_010", "title": "What we know about clock skew",                 "start_seconds": 240  },
+  { "id": "ch_003", "episode_id": "ep_010", "title": "The investigation: 4am pager call",             "start_seconds": 612  },
+  { "id": "ch_004", "episode_id": "ep_010", "title": "How NTP failed us",                              "start_seconds": 1184 },
+  { "id": "ch_005", "episode_id": "ep_010", "title": "The fix: monotonic clocks all the way down",     "start_seconds": 1928 },
+  { "id": "ch_006", "episode_id": "ep_010", "title": "Lessons learned + listener questions",           "start_seconds": 2742 },
+
+  { "id": "ch_010", "episode_id": "ep_020", "title": "Cold open + intro",                              "start_seconds": 0    },
+  { "id": "ch_011", "episode_id": "ep_020", "title": "Year zero — the first six months",              "start_seconds": 312  },
+  { "id": "ch_012", "episode_id": "ep_020", "title": "Why we didn't raise a Series A",                 "start_seconds": 942  },
+  { "id": "ch_013", "episode_id": "ep_020", "title": "The 2022 hiring decision",                        "start_seconds": 1840 },
+  { "id": "ch_014", "episode_id": "ep_020", "title": "Profitability vs growth tradeoff",                "start_seconds": 2618 },
+  { "id": "ch_015", "episode_id": "ep_020", "title": "What's next for Sundial",                         "start_seconds": 3942 },
+  { "id": "ch_016", "episode_id": "ep_020", "title": "Listener Q&A",                                    "start_seconds": 4380 },
+
+  { "id": "ch_020", "episode_id": "ep_001", "title": "What's a container?",                             "start_seconds": 0    },
+  { "id": "ch_021", "episode_id": "ep_001", "title": "Where rates were a month ago",                    "start_seconds": 218  },
+  { "id": "ch_022", "episode_id": "ep_001", "title": "Why this is different from the 2021 spike",      "start_seconds": 612  },
+  { "id": "ch_023", "episode_id": "ep_001", "title": "Who pays — first, second, third order effects",   "start_seconds": 942  }
+]

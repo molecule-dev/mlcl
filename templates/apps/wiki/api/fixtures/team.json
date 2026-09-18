@@ -1,0 +1,86 @@
+[
+  {
+    "id": "user-anya",
+    "name": "Anya Sokolov",
+    "email": "anya@cairn.example",
+    "role": "Editor",
+    "title": "Staff Engineer",
+    "avatar_url": "https://i.pravatar.cc/96?u=anya",
+    "page_count": 18,
+    "comment_count": 64,
+    "joined_at": "2025-08-12T09:00:00Z",
+    "active_at": "2026-04-23T11:00:00Z"
+  },
+  {
+    "id": "user-marcus",
+    "name": "Marcus Tan",
+    "email": "marcus@cairn.example",
+    "role": "Owner",
+    "title": "Engineering Manager",
+    "avatar_url": "https://i.pravatar.cc/96?u=marcus",
+    "page_count": 11,
+    "comment_count": 92,
+    "joined_at": "2025-06-03T08:30:00Z",
+    "active_at": "2026-04-23T10:45:00Z"
+  },
+  {
+    "id": "user-sara",
+    "name": "Sara Voss",
+    "email": "sara@cairn.example",
+    "role": "Editor",
+    "title": "People Operations",
+    "avatar_url": "https://i.pravatar.cc/96?u=sara",
+    "page_count": 9,
+    "comment_count": 31,
+    "joined_at": "2025-09-22T10:00:00Z",
+    "active_at": "2026-04-22T16:30:00Z"
+  },
+  {
+    "id": "user-priya",
+    "name": "Priya Iyer",
+    "email": "priya@cairn.example",
+    "role": "Editor",
+    "title": "Senior SRE",
+    "avatar_url": "https://i.pravatar.cc/96?u=priya",
+    "page_count": 14,
+    "comment_count": 47,
+    "joined_at": "2025-07-18T09:00:00Z",
+    "active_at": "2026-04-23T08:15:00Z"
+  },
+  {
+    "id": "user-leo",
+    "name": "Leo Park",
+    "email": "leo@cairn.example",
+    "role": "Owner",
+    "title": "Head of Engineering",
+    "avatar_url": "https://i.pravatar.cc/96?u=leo",
+    "page_count": 7,
+    "comment_count": 128,
+    "joined_at": "2025-05-10T08:00:00Z",
+    "active_at": "2026-04-23T09:50:00Z"
+  },
+  {
+    "id": "user-tara",
+    "name": "Tara Chen",
+    "email": "tara@cairn.example",
+    "role": "Editor",
+    "title": "Lead Designer",
+    "avatar_url": "https://i.pravatar.cc/96?u=tara",
+    "page_count": 22,
+    "comment_count": 53,
+    "joined_at": "2025-08-01T09:30:00Z",
+    "active_at": "2026-04-23T11:30:00Z"
+  },
+  {
+    "id": "user-jordan",
+    "name": "Jordan Avery",
+    "email": "jordan@cairn.example",
+    "role": "Viewer",
+    "title": "Customer Success",
+    "avatar_url": "https://i.pravatar.cc/96?u=jordan",
+    "page_count": 0,
+    "comment_count": 8,
+    "joined_at": "2026-01-15T10:00:00Z",
+    "active_at": "2026-04-22T14:00:00Z"
+  }
+]

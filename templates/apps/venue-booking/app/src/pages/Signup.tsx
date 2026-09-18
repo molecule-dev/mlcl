@@ -1,0 +1,302 @@
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
+
+import { useAuthFormState } from '@molecule/app-auth-shell-react'
+import { LegalModalLinks } from '@molecule/app-legal-pages-react'
+import { useSignup, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME } from '../branding.js'
+import { AlcoveAuthShell } from '../components/AlcoveAuthShell.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
+import { loadContent } from '../config.js'
+
+/**
+ * Signup page — wraps the editorial AlcoveAuthShell (Catalog §13.3
+ * Decorated-Card with Brand Panel). Per screen-map.json derivation:
+ * First Name, Last Name, Email, Password, Confirm Password fields,
+ * heading "Create your Alcove account", forest-primary CTA, bottom
+ * link to Sign In.
+ *
+ * Translated from hotel-booking's Signup.tsx — same editorial shell
+ * with Alcove copy.
+ */
+export function Signup() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const { status, error, signup } = useSignup()
+  // Cross-view auth form persistence via the shared @molecule hook: the
+  // non-secret identity fields (email, firstName, lastName) are shared across the auth
+  // views (Login/Signup/Forgot/Reset) and cleared on success. Secrets
+  // (password) are deliberately kept in LOCAL state, never shared — see
+  // useAuthFormState's docs for the rationale.
+  const {
+    fields: authFormFields,
+    setField: setAuthFormField,
+    clear: clearAuthForm,
+  } = useAuthFormState()
+  const email = authFormFields.email ?? ''
+  const setEmail = (value: string): void => setAuthFormField('email', value)
+  const firstName = authFormFields.firstName ?? ''
+  const setFirstName = (value: string): void => setAuthFormField('firstName', value)
+  const lastName = authFormFields.lastName ?? ''
+  const setLastName = (value: string): void => setAuthFormField('lastName', value)
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [mismatch, setMismatch] = useState(false)
+
+  const isSigningUp = status === 'pending'
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (password !== confirm) {
+      setMismatch(true)
+      return
+    }
+    setMismatch(false)
+    const fullName = `${firstName} ${lastName}`.trim()
+    try {
+      await signup({ email, password, name: fullName || undefined })
+      clearAuthForm()
+      navigate('/', { replace: true })
+    } catch (_error) {
+      // Error state is tracked inside the signup hook — no action needed here.
+    }
+  }
+
+  return (
+    <AlcoveAuthShell
+      eyebrow={t('signup.eyebrow', {}, { defaultValue: 'Become a member' })}
+      heading={t(
+        'signup.heading',
+        { appName: APP_NAME },
+        { defaultValue: 'Create your {{appName}} account' },
+      )}
+      subheading={t(
+        'signup.subheading',
+        { appName: APP_NAME },
+        {
+          defaultValue:
+            'Join {{appName}} to save favorite spaces, message hosts, and unlock instant confirmation on most venues.',
+        },
+      )}
+      footer={
+        <>
+          <span className="text-on-surface-variant">
+            {t(
+              'auth.login.alreadyHaveAccount',
+              {},
+              { defaultValue: 'Already have an account?' },
+            )}{' '}
+          </span>
+          <Link to="/login" className={'text-primary font-bold hover:underline'}>
+            {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+          </Link>
+        </>
+      }
+    >
+      <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
+        <div className={cm.cn('grid grid-cols-2 gap-3')}>
+          <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t('form.firstName', {}, { defaultValue: 'First name' })}
+            </span>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              autoComplete="given-name"
+              required
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.fontWeight('semibold'),
+                'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+              )}
+            />
+          </label>
+          <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {t('form.lastName', {}, { defaultValue: 'Last name' })}
+            </span>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              autoComplete="family-name"
+              required
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.fontWeight('semibold'),
+                'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+              )}
+            />
+          </label>
+        </div>
+        <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
+          </span>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+            required
+            placeholder={t(
+              'auth.passwordPlaceholderEmail',
+              {},
+              { defaultValue: 'you@example.com' },
+            )}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+            )}
+          />
+        </label>
+        <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('auth.login.password', {}, { defaultValue: 'Password' })}
+          </span>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="new-password"
+            required
+            minLength={8}
+            placeholder={t(
+              'common.atLeast8Characters',
+              {},
+              { defaultValue: 'At least 8 characters' },
+            )}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+            )}
+          />
+        </label>
+        <label className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <span
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('auth.signup.confirmPassword', {}, { defaultValue: 'Confirm password' })}
+          </span>
+          <input
+            type="password"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            autoComplete="new-password"
+            required
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.fontWeight('semibold'),
+              'bg-surface-container-low rounded-xl border border-outline-variant focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors',
+            )}
+          />
+        </label>
+
+        {mismatch ? (
+          <p
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-xl bg-error/10 text-error border border-error/30',
+            )}
+          >
+            {t(
+              'auth.signup.passwordsDontMatchPeriod',
+              {},
+              { defaultValue: "Passwords don't match." },
+            )}
+          </p>
+        ) : null}
+        {error ? (
+          <p
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-xl bg-error/10 text-error border border-error/30',
+            )}
+          >
+            {error.message}
+          </p>
+        ) : null}
+
+        <button
+          type="submit"
+          disabled={isSigningUp}
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 3),
+            cm.fontWeight('bold'),
+            cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
+            'w-full rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-lg disabled:opacity-60',
+          )}
+        >
+          {isSigningUp
+            ? t('common.creatingAccountEllipsis', {}, { defaultValue: 'Creating account…' })
+            : t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
+          <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+            arrow_forward
+          </span>
+        </button>
+      </form>
+
+      <OAuthButtons />
+
+      <div
+        className={cm.cn(
+          cm.sp('mt', 6),
+          cm.flex({ align: 'center', justify: 'center', wrap: 'wrap', gap: 'sm' }),
+          cm.textSize('xs'),
+          'text-on-surface-variant',
+        )}
+      >
+        <span>{t('auth.legalAgree', {}, { defaultValue: 'By continuing, you agree to our' })}</span>
+        <LegalModalLinks
+          linkClassName={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+          appName={APP_NAME}
+          loadContent={loadContent}
+        />
+      </div>
+    </AlcoveAuthShell>
+  )
+}

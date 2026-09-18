@@ -1,0 +1,107 @@
+[
+  {
+    "id": "c_001", "name": "Maya Chen",         "role": "Senior Backend Engineer",  "job_title": "Senior Backend Engineer", "job_id": "job_001", "email": "maya.chen@example.com", "phone": "+1 (415) 555-0101", "location": "Oakland, CA",
+    "stage": "interview", "ai_score": 92, "source": "LinkedIn", "days_in_stage": 4, "applied_at": "2026-04-12", "avatar_initial": "M",
+    "ai_breakdown": [
+      { "criterion": "Relevant experience", "score": 95, "comment": "8y at distributed-systems shops; matches stack." },
+      { "criterion": "Technical signals",   "score": 92, "comment": "Open-source contribs to Postgres + Kafka ecosystems." },
+      { "criterion": "Communication",       "score": 88, "comment": "Strong cover letter — articulate, concrete." }
+    ],
+    "resume_summary": [
+      "8 years backend experience (Stripe, Plaid)",
+      "Led migration of legacy monolith to event-driven services",
+      "Mentor for two interns who became full-time"
+    ],
+    "interviews": [
+      { "id": "iv_1", "scheduled_at": "2026-04-22T14:00:00Z", "panel": ["Devon Park", "Riley Banner"], "outcome": "completed", "notes": "Strong systems thinking. Asked about WAL replication.", "score": 90 },
+      { "id": "iv_2", "scheduled_at": "2026-04-28T15:00:00Z", "panel": ["Morgan Reyes"],               "outcome": "scheduled" }
+    ],
+    "activity": [
+      { "id": "ev_1", "occurred_at": "2026-04-12T09:18:00Z", "actor": "system",       "action": "applied via LinkedIn" },
+      { "id": "ev_2", "occurred_at": "2026-04-13T10:00:00Z", "actor": "Riley Banner", "action": "advanced to screening" },
+      { "id": "ev_3", "occurred_at": "2026-04-19T13:30:00Z", "actor": "Riley Banner", "action": "advanced to interview" }
+    ],
+    "notes": ["Riley Banner: very impressed; recommend skipping take-home", "Devon Park: solid systems instincts"]
+  },
+  {
+    "id": "c_002", "name": "Jordan Patel",       "role": "Senior Backend Engineer",  "job_title": "Senior Backend Engineer", "job_id": "job_001", "email": "jpatel@example.com",     "phone": "+1 (212) 555-0102", "location": "New York, NY",
+    "stage": "screening", "ai_score": 84, "source": "Referral · Devon Park", "days_in_stage": 2, "applied_at": "2026-04-22", "avatar_initial": "J",
+    "ai_breakdown": [
+      { "criterion": "Relevant experience", "score": 88, "comment": "6y at fintech + adtech." },
+      { "criterion": "Technical signals",   "score": 80, "comment": "Some Python, mostly Java; team is Go-heavy." }
+    ],
+    "resume_summary": ["6 years backend (Square, AppNexus)", "Led on-call rotation redesign at AppNexus"],
+    "interviews": [], "activity": [{ "id": "ev_1", "occurred_at": "2026-04-22T11:00:00Z", "actor": "system", "action": "applied via referral" }], "notes": []
+  },
+  {
+    "id": "c_003", "name": "Avery Kim",          "role": "Senior Backend Engineer",  "job_title": "Senior Backend Engineer", "job_id": "job_001", "email": "avery@example.com",      "phone": null, "location": "Remote (Toronto, ON)",
+    "stage": "offer", "ai_score": 88, "source": "LinkedIn", "days_in_stage": 1, "applied_at": "2026-03-28", "avatar_initial": "A",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 90, "comment": "10y at scale" }],
+    "resume_summary": ["Sr. Eng @ Shopify", "Distributed systems / DBs"],
+    "interviews": [
+      { "id": "iv_1", "scheduled_at": "2026-04-08T15:00:00Z", "panel": ["Devon Park"],          "outcome": "completed", "score": 88 },
+      { "id": "iv_2", "scheduled_at": "2026-04-14T15:00:00Z", "panel": ["Riley", "Morgan"],     "outcome": "completed", "score": 92 }
+    ],
+    "activity": [{ "id": "ev_1", "occurred_at": "2026-04-25T16:00:00Z", "actor": "Riley Banner", "action": "extended offer" }],
+    "notes": ["Verbal accept pending — needs 2 weeks to wrap up at Shopify"]
+  },
+  {
+    "id": "c_004", "name": "Sam Rivera",          "role": "Staff Frontend Engineer",  "job_title": "Staff Frontend Engineer", "job_id": "job_002", "email": "sam.r@example.com",      "phone": "+1 (650) 555-0104", "location": "Berkeley, CA",
+    "stage": "interview", "ai_score": 91, "source": "Greenhouse", "days_in_stage": 3, "applied_at": "2026-04-08", "avatar_initial": "S",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 92, "comment": "Staff at Figma, design systems lead" }],
+    "resume_summary": ["Staff @ Figma", "Built Figma's design tokens system"],
+    "interviews": [{ "id": "iv_1", "scheduled_at": "2026-04-21T15:00:00Z", "panel": ["Devon Park"], "outcome": "completed", "score": 90 }],
+    "activity": [], "notes": []
+  },
+  {
+    "id": "c_005", "name": "Priya Reddy",         "role": "Product Designer",         "job_title": "Product Designer (Senior)", "job_id": "job_003", "email": "priya@example.com",     "phone": null, "location": "Mexico City, MX",
+    "stage": "screening", "ai_score": 86, "source": "Dribbble", "days_in_stage": 5, "applied_at": "2026-04-15", "avatar_initial": "P",
+    "ai_breakdown": [{ "criterion": "Portfolio strength", "score": 88, "comment": "Strong end-to-end fintech work" }],
+    "resume_summary": ["Senior @ Brex", "Led savings product redesign"],
+    "interviews": [], "activity": [], "notes": []
+  },
+  {
+    "id": "c_006", "name": "Casey Wong",          "role": "Sales Engineer",           "job_title": "Sales Engineer",           "job_id": "job_005", "email": "casey@example.com",      "phone": "+1 (303) 555-0106", "location": "Denver, CO",
+    "stage": "sourced",   "ai_score": 78, "source": "Cold outreach", "days_in_stage": 1, "applied_at": "2026-04-24", "avatar_initial": "C",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 80, "comment": "5y SE at Datadog" }],
+    "resume_summary": ["SE @ Datadog"], "interviews": [], "activity": [], "notes": []
+  },
+  {
+    "id": "c_007", "name": "Marcus Lee",          "role": "Sales Engineer",           "job_title": "Sales Engineer",           "job_id": "job_005", "email": "marcus@example.com",     "phone": null, "location": "Atlanta, GA",
+    "stage": "sourced",   "ai_score": 72, "source": "GitHub Jobs",   "days_in_stage": 2, "applied_at": "2026-04-23", "avatar_initial": "M",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 70, "comment": "AE background, less SE" }],
+    "resume_summary": ["AE → SE transition"], "interviews": [], "activity": [], "notes": []
+  },
+  {
+    "id": "c_008", "name": "Elena Kovacs",        "role": "Data Scientist",           "job_title": "Data Scientist II",        "job_id": "job_004", "email": "elena@example.com",      "phone": null, "location": "Brooklyn, NY",
+    "stage": "interview", "ai_score": 89, "source": "Referral · Morgan Reyes", "days_in_stage": 6, "applied_at": "2026-04-04", "avatar_initial": "E",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 92, "comment": "PhD + 4y industry" }],
+    "resume_summary": ["PhD Stats, Columbia", "DS @ Spotify (recsys)"],
+    "interviews": [{ "id": "iv_1", "scheduled_at": "2026-04-19T16:00:00Z", "panel": ["Riley", "Devon"], "outcome": "completed", "score": 88 }],
+    "activity": [], "notes": []
+  },
+  {
+    "id": "c_009", "name": "Tasha Brown",         "role": "Data Scientist",           "job_title": "Data Scientist II",        "job_id": "job_004", "email": "tasha@example.com",      "phone": null, "location": "Chicago, IL",
+    "stage": "screening", "ai_score": 81, "source": "LinkedIn",       "days_in_stage": 3, "applied_at": "2026-04-19", "avatar_initial": "T",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 82, "comment": "3y ML at startups" }],
+    "resume_summary": ["DS @ Stitchfix"], "interviews": [], "activity": [], "notes": []
+  },
+  {
+    "id": "c_010", "name": "Henry Cho",           "role": "Senior Backend Engineer",  "job_title": "Senior Backend Engineer", "job_id": "job_001", "email": "henry@example.com",      "phone": null, "location": "Seoul, KR (UTC+9)",
+    "stage": "hired",     "ai_score": 95, "source": "Referral · Avery Kim", "days_in_stage": 1, "applied_at": "2026-02-28", "avatar_initial": "H",
+    "ai_breakdown": [{ "criterion": "Overall", "score": 95, "comment": "Hired — joined April 21" }],
+    "resume_summary": ["Sr Eng @ Coupang"], "interviews": [], "activity": [], "notes": ["Started 2026-04-21, joined platform team"]
+  },
+  {
+    "id": "c_011", "name": "Lin Wei",             "role": "Senior Backend Engineer",  "job_title": "Senior Backend Engineer", "job_id": "job_001", "email": "lin@example.com",        "phone": null, "location": "Vancouver, BC",
+    "stage": "rejected",  "ai_score": 58, "source": "LinkedIn",       "days_in_stage": 0, "applied_at": "2026-04-08", "avatar_initial": "L",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 55, "comment": "Frontend-heavy background" }],
+    "resume_summary": [], "interviews": [], "activity": [], "notes": []
+  },
+  {
+    "id": "c_012", "name": "Rosa Diaz",           "role": "Customer Success Manager", "job_title": "Customer Success Manager", "job_id": "job_006", "email": "rosa@example.com",      "phone": null, "location": "Miami, FL",
+    "stage": "interview", "ai_score": 87, "source": "AngelList",     "days_in_stage": 4, "applied_at": "2026-04-12", "avatar_initial": "R",
+    "ai_breakdown": [{ "criterion": "Relevant experience", "score": 88, "comment": "5y CS at SaaS" }],
+    "resume_summary": ["Sr CSM @ Notion"], "interviews": [], "activity": [], "notes": []
+  }
+]

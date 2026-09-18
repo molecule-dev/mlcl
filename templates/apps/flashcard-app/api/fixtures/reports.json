@@ -1,0 +1,60 @@
+{
+  "today": {
+    "date": "2026-04-26",
+    "total_due": 104,
+    "reviewed_today": 32,
+    "daily_goal": 50,
+    "current_streak": 47,
+    "motivational_message": "Memory rewards consistency, not effort."
+  },
+  "overview": {
+    "total_reviews": 1284,
+    "reviews_change_percent": 8.7,
+    "current_streak": 47,
+    "longest_streak": 89,
+    "retention_rate": 0.92,
+    "daily_minutes_avg": 14,
+    "cards_mature": 1168,
+    "cards_young": 432,
+    "cards_new": 124,
+    "by_state": [
+      { "state": "review",     "count": 1168, "pct": 0.65 },
+      { "state": "young",      "count": 432,  "pct": 0.24 },
+      { "state": "learning",   "count": 124,  "pct": 0.07 },
+      { "state": "new",        "count": 52,   "pct": 0.03 },
+      { "state": "relearning", "count": 18,   "pct": 0.01 }
+    ],
+    "daily_reviews": [
+      { "date": "2026-03-28", "count": 38 },
+      { "date": "2026-03-29", "count": 42 },
+      { "date": "2026-03-30", "count": 51 },
+      { "date": "2026-03-31", "count": 47 },
+      { "date": "2026-04-01", "count": 39 },
+      { "date": "2026-04-02", "count": 44 },
+      { "date": "2026-04-03", "count": 48 },
+      { "date": "2026-04-04", "count": 32 },
+      { "date": "2026-04-05", "count": 0  },
+      { "date": "2026-04-06", "count": 56 },
+      { "date": "2026-04-07", "count": 49 },
+      { "date": "2026-04-08", "count": 45 },
+      { "date": "2026-04-09", "count": 51 },
+      { "date": "2026-04-10", "count": 40 },
+      { "date": "2026-04-11", "count": 42 },
+      { "date": "2026-04-12", "count": 38 },
+      { "date": "2026-04-13", "count": 50 },
+      { "date": "2026-04-14", "count": 47 },
+      { "date": "2026-04-15", "count": 49 },
+      { "date": "2026-04-16", "count": 44 },
+      { "date": "2026-04-17", "count": 38 },
+      { "date": "2026-04-18", "count": 35 },
+      { "date": "2026-04-19", "count": 41 },
+      { "date": "2026-04-20", "count": 47 },
+      { "date": "2026-04-21", "count": 53 },
+      { "date": "2026-04-22", "count": 44 },
+      { "date": "2026-04-23", "count": 38 },
+      { "date": "2026-04-24", "count": 41 },
+      { "date": "2026-04-25", "count": 46 },
+      { "date": "2026-04-26", "count": 32 }
+    ]
+  }
+}

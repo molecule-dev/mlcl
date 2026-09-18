@@ -1,0 +1,225 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #eef2ff;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #92400e; /* keep in sync with --color-secondary below (contrast fix) */
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #f1f5f9;
+  --mol-color-surface: #f8fafc;
+  --mol-color-surface-secondary: #f1f5f9;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #64748b;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #4f46e5;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  /* Brand colors — Cairn (indigo + amber) per DESIGN.md */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #eef2ff;
+  /* Amber accent darkened (#d97706 → amber-800): as avatar-chip text on its own
+     bg-secondary/15 it was 2.71:1 (axe serious on /home). #92400e = 5.3:1 there
+     and 6.5+:1 on flat surfaces; white on gradient tiles only improves. */
+  --color-secondary: #92400e;
+  --color-secondary-hover: #b45309;
+  --color-secondary-light: #fef3c7;
+
+  /* Surfaces */
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  /* Text */
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-tertiary: #94a3b8;
+  --color-text-on-primary: #ffffff;
+
+  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
+  --color-on-background: #1e293b;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e8edf4;
+  --color-surface-container-highest: #dde3ec;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #1e293b;
+  --color-on-surface-variant: #64748b;
+  --color-inverse-surface: #1e293b;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #818cf8;
+  --color-primary-container: #eef2ff;
+  --color-on-primary: #ffffff; /* white on indigo — 6.29:1 ✓ */
+  --color-on-primary-container: #1e1b4b;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary: #422006; /* dark on amber — 4.57:1 (white 3.19 FAIL) */
+  --color-on-secondary-container: #451a03;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff; /* white on violet — 7.72:1 ✓ */
+  --color-on-tertiary-container: #2e1065;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on red — 4.83:1 ✓ */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* 4.76:1 vs white */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #4f46e5;
+
+  /* Wiki-specific */
+  --color-link: #2563eb;
+  --color-link-visited: #7c3aed;
+  --color-version-badge: #059669;
+
+  /* Typography */
+  --font-family-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-serif: 'Georgia', 'Charter', serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Layout */
+  --content-width: 720px;
+  --page-width: 1100px;
+  --sidebar-width: 260px;
+  --tree-indent: 1.25rem;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 10px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode overrides — reading-friendly dark (low-contrast paper-on-ink).
+   Indigo brand kept at brand stop for surface accents; shifted slightly
+   brighter (#818cf8) for hero buttons so white text reads cleanly.
+   `--color-on-primary` stays white in both modes so indigo CTAs keep
+   their light-on-indigo character. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge overrides === */
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #fbbf24;
+  --mol-color-background: #14161c;
+  --mol-color-background-secondary: #1c1f27;
+  --mol-color-background-tertiary: #262a35;
+  --mol-color-surface: #1c1f27;
+  --mol-color-surface-secondary: #262a35;
+  --mol-color-input-background: #111318;
+  --mol-color-text: #e8e9ed;
+  --mol-color-text-secondary: #a0a4b0;
+  --mol-color-text-tertiary: #6b7080;
+  --mol-color-text-inverse: #14161c;
+  --mol-color-border: #2e3340;
+  --mol-color-border-secondary: #3a3f50;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #7dd3fc;
+
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-light: #1e1b4b;
+  --color-secondary: #fbbf24;
+  --color-secondary-hover: #fcd34d;
+  --color-secondary-light: #422006;
+
+  --color-background: #14161c;
+  --color-surface: #1c1f27;
+  --color-surface-hover: #262a35;
+  --color-border: #2e3340;
+
+  --color-text: #e8e9ed;
+  --color-text-secondary: #a0a4b0;
+  --color-text-tertiary: #6b7080;
+  --color-text-on-primary: #ffffff; /* white on indigo — readable in both modes */
+
+  /* Wiki-specific — links must stay legible on dark paper */
+  --color-link: #7dd3fc;
+  --color-link-visited: #c4b5fd;
+  --color-version-badge: #34d399;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on indigo: `on-primary` stays white. */
+  --color-on-background: #e8e9ed;
+  --color-surface-bright: #262a35;
+  --color-surface-dim: #0c0e14;
+  --color-surface-container-lowest: #0a0c12;
+  --color-surface-container-low: #141720;
+  --color-surface-container: #1c1f27;
+  --color-surface-container-high: #262a35;
+  --color-surface-container-highest: #2e3340;
+  --color-surface-variant: #262a35;
+  --color-on-surface: #e8e9ed;
+  --color-on-surface-variant: #a0a4b0;
+  --color-inverse-surface: #e8e9ed;
+  --color-inverse-on-surface: #14161c;
+  --color-inverse-primary: #4f46e5;
+  --color-on-primary: #0f0f17; /* dark on indigo — 6.39:1 (was white 2.98 FAIL) */
+  --color-primary-container: #1e1b4b;
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary-container: #422006;
+  --color-on-secondary: #14161c;
+  --color-on-secondary-container: #fef3c7;
+  --color-tertiary: #c4b5fd;
+  --color-tertiary-container: #2e1065;
+  --color-on-tertiary: #160040; /* dark on lavender — 10.26:1 (was white 1.85 FAIL) */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* dark on red — 6.43:1 (was white 2.77 FAIL) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6b7280; /* 3.41:1 vs surface (was #4a5060 2.05 FAIL) */
+  --color-outline-variant: #2e3340;
+  --color-surface-tint: #818cf8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

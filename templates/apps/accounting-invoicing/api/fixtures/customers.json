@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cust_001", "company": "Acme Corp",         "contact_name": "Margaret Cole",  "contact_email": "ap@acme.example",    "contact_phone": "+1 (617) 555-0142", "address": ["Acme Corp", "100 Industrial Ave", "Boston, MA 02101"],
+    "payment_terms": "Net 30", "tags": ["Enterprise", "Retainer"],
+    "outstanding_cents":  651000, "ytd_billed_cents": 2400000, "avg_days_to_pay": 18, "total_billed_cents": 8400000, "last_invoice_at": "2026-04-01"
+  },
+  {
+    "id": "cust_002", "company": "Wayne Enterprises", "contact_name": "Lucius Fox",     "contact_email": "ar@wayne.example",   "contact_phone": "+1 (212) 555-1007", "address": ["Wayne Enterprises", "1007 Mountain Drive", "Gotham, NJ 07101"],
+    "payment_terms": "Net 30", "tags": ["Enterprise"],
+    "outstanding_cents":  802900, "ytd_billed_cents": 4200000, "avg_days_to_pay": 24, "total_billed_cents": 18400000, "last_invoice_at": "2026-03-28"
+  },
+  {
+    "id": "cust_003", "company": "Pied Piper",        "contact_name": "Richard Hendricks", "contact_email": "richard@pp.example", "contact_phone": "+1 (650) 555-0742", "address": ["Pied Piper Inc.", "742 Evergreen Ter", "Palo Alto, CA 94301"],
+    "payment_terms": "Net 30", "tags": ["Startup"],
+    "outstanding_cents":       0, "ytd_billed_cents": 1200000, "avg_days_to_pay": 21, "total_billed_cents":  3600000, "last_invoice_at": "2026-03-15"
+  },
+  {
+    "id": "cust_004", "company": "Stark Industries",  "contact_name": "Pepper Potts",   "contact_email": "ap@stark.example",   "contact_phone": "+1 (212) 555-0200", "address": ["Stark Industries", "200 Park Ave", "Manhattan, NY 10166"],
+    "payment_terms": "Net 30", "tags": ["Enterprise", "Strategic"],
+    "outstanding_cents":       0, "ytd_billed_cents": 1850000, "avg_days_to_pay": 14, "total_billed_cents":  9200000, "last_invoice_at": "2026-03-10"
+  },
+  {
+    "id": "cust_005", "company": "Initech",           "contact_name": "Bill Lumbergh",  "contact_email": "bill@initech.example", "contact_phone": "+1 (512) 555-4120", "address": ["Initech", "4120 Freedom Blvd", "Austin, TX 78704"],
+    "payment_terms": "Net 30", "tags": ["SMB"],
+    "outstanding_cents":       0, "ytd_billed_cents":  220000, "avg_days_to_pay": 30, "total_billed_cents":   880000, "last_invoice_at": "2026-03-01"
+  },
+  {
+    "id": "cust_006", "company": "Hooli",             "contact_name": "Gavin Belson",   "contact_email": "gavin@hooli.example",  "contact_phone": "+1 (650) 555-0001", "address": ["Hooli LLC", "1 Hooli Plaza", "Mountain View, CA 94043"],
+    "payment_terms": "Net 30", "tags": ["Enterprise"],
+    "outstanding_cents": 2007250, "ytd_billed_cents": 2007250, "avg_days_to_pay": 28, "total_billed_cents": 14200000, "last_invoice_at": "2026-04-04"
+  }
+]

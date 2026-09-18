@@ -1,0 +1,7 @@
+{
+  "blood_pressure": { "vital_type": "blood_pressure", "value": 118, "secondary_value": 76, "unit": "mmHg", "recorded_at": "2026-04-29T09:14:00Z" },
+  "heart_rate":      { "vital_type": "heart_rate",      "value": 64,                     "unit": "bpm",   "recorded_at": "2026-04-29T09:14:00Z" },
+  "temperature":     { "vital_type": "temperature",     "value": 98.4,                   "unit": "°F",    "recorded_at": "2026-04-29T09:14:00Z" },
+  "oxygen":          { "vital_type": "oxygen",          "value": 98,                     "unit": "%",     "recorded_at": "2026-04-29T09:14:00Z" },
+  "weight":          { "vital_type": "weight",          "value": 168,                    "unit": "lb",    "recorded_at": "2026-04-29T09:14:00Z" }
+}

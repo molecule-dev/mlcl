@@ -1,0 +1,82 @@
+{
+  "label": "CI/CD Dashboard",
+  "description": "GitHub Actions-like CI/CD with pipelines, build logs, artifacts, and status badges \u2014 with built-in Stripe-backed subscription tiers",
+  "cluster": "developer-tools",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-notifications-webhook",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-realtime-sse",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-project",
+    "@molecule/api-resource-activity-feed",
+    "@molecule/api-resource-notification",
+    "@molecule/api-resource-payment",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-badge",
+    "@molecule/app-billing-react",
+    "@molecule/app-command-palette",
+    "@molecule/app-data-table",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/app-notification-feed-react",
+    "@molecule/app-timeline",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "CI/CD Dashboard"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_CI_CD_DASHBOARD_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_CI_CD_DASHBOARD_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_CI_CD_DASHBOARD_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_CI_CD_DASHBOARD_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "notifications",
+    "search",
+    "realtime",
+    "subscriptions"
+  ]
+}

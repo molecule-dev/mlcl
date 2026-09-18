@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+
+<g fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round">
+  <polygon points="16,4 28,24 4,24" fill="#10b981" fill-opacity="0.18" />
+  <polygon points="16,12 24,24 8,24" fill="#10b981" fill-opacity="0.35" />
+  <polygon points="16,18 21,24 11,24" fill="#10b981" stroke="none" />
+</g>
+
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#333333">Conduit</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#888888">Monitor builds, deployments, and environments across every repository.</text>
+</svg>

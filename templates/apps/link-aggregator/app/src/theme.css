@@ -1,0 +1,245 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #6d28d9;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #ea580c;
+  --mol-color-secondary-light: #ffedd5;
+  --mol-color-secondary-dark: #c2410c;
+  --mol-color-background: #faf8ff;
+  --mol-color-background-secondary: #f3eeff;
+  --mol-color-background-tertiary: #ede5ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf8ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1f1235;
+  --mol-color-text-secondary: #5b537a;
+  --mol-color-text-tertiary: #8a82a3;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7defb;
+  --mol-color-border-secondary: #d2c5f0;
+  --mol-color-border-focus: #6d28d9;
+  --mol-color-success: #15803d;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'IBM Plex Mono', 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-tertiary: var(--color-foreground-tertiary);
+  --color-text-on-primary: var(--color-foreground-inverse);
+  --color-primary-hover: #7c3aed;
+
+  /* === App-specific tokens (Cairn/link-aggregator domain) === */
+  --color-primary-deep: #4f1d8a;
+  --color-upvote: #ea580c;
+  --color-upvote-active: #f97316;
+  --color-downvote: #6366f1;
+  --color-downvote-active: #818cf8;
+  --color-karma: #d97706;
+  --color-karma-light: #fef3c7;
+  --color-hot: #dc2626;
+  --color-hot-light: #fee2e2;
+  --color-saved: #6d28d9;
+  --color-saved-light: #ede9fe;
+  --color-comment-indent: #f5f3ff;
+  --color-submission-highlight: #fffbeb;
+
+  /* Typography */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'IBM Plex Mono', 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Layout */
+  --content-width: 860px;
+  --page-width: 1180px;
+  --sidebar-width: 280px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(31, 18, 53, 0.06);
+  --shadow-md: 0 4px 12px rgba(31, 18, 53, 0.08);
+  --shadow-lg: 0 12px 32px rgba(31, 18, 53, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     Required so [data-mol-mode='dark'] overrides have a light baseline to
+     revert from. Brand violet (#6d28d9) at 7.10:1 on white — white on-primary
+     always passes. Orange secondary at 3.56:1 with white fails — use dark text. */
+  --color-background: #faf8ff;
+  --color-on-background: #1f1235;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f3eeff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf8ff;
+  --color-surface-container: #f3eeff;
+  --color-surface-container-high: #ede5ff;
+  --color-surface-container-highest: #e4d9fc;
+  --color-surface-variant: #ede5ff;
+  --color-on-surface: #1f1235;
+  --color-on-surface-variant: #5b537a;
+  --color-inverse-surface: #1f1235;
+  --color-inverse-on-surface: #f3eeff;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #6d28d9;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* white on #6d28d9 = 7.10:1 — passes AA */
+  --color-on-primary-container: #2e1065;
+  --color-primary-fixed: #ede9fe;
+  --color-primary-fixed-dim: #c4b5fd;
+  --color-on-primary-fixed: #2e1065;
+  --color-on-primary-fixed-variant: #5b21b6;
+  --color-secondary: #ea580c;
+  --color-secondary-container: #ffedd5;
+  /* #1c0f00 on #ea580c = 5.28:1 — passes AA. White was 3.56:1 (fail). */
+  --color-on-secondary: #1c0f00;
+  --color-on-secondary-container: #431403;
+  --color-secondary-fixed: #ffedd5;
+  --color-secondary-fixed-dim: #ea580c;
+  --color-on-secondary-fixed: #431403;
+  --color-on-secondary-fixed-variant: #9a3412;
+  --color-tertiary: #ea580c;
+  --color-tertiary-container: #ffedd5;
+  /* #1c0f00 on #ea580c = 5.28:1 — passes AA. */
+  --color-on-tertiary: #1c0f00;
+  --color-on-tertiary-container: #431403;
+  --color-tertiary-fixed: #ffedd5;
+  --color-tertiary-fixed-dim: #ea580c;
+  --color-on-tertiary-fixed: #431403;
+  --color-on-tertiary-fixed-variant: #9a3412;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 — passes AA */
+  --color-on-error-container: #450a0a;
+  /* #706882 on white = 5.26:1 — passes 3:1 outline threshold */
+  --color-outline: #706882;
+  --color-outline-variant: #ede5ff;
+  --color-surface-tint: #6d28d9;
+}
+
+/* Dark mode — community/social rich-neutral surfaces (Cairn).
+   Brand violet (#6d28d9) STAYS at the brand stop; orange accent
+   preserved. `--color-on-primary` STAYS white so upvote/save CTAs and
+   karma highlights read cleanly. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #6d28d9;
+  --mol-color-primary-light: #4c1d95;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #ea580c;
+  --mol-color-secondary-light: #7c2d12;
+  --mol-color-secondary-dark: #c2410c;
+  --mol-color-background: #0c0c0d;
+  --mol-color-background-secondary: #18181b;
+  --mol-color-background-tertiary: #27272a;
+  --mol-color-surface: #0c0c0d;
+  --mol-color-surface-secondary: #18181b;
+  --mol-color-input-background: #08080a;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0c0c0d;
+  --mol-color-border: #27272a;
+  --mol-color-border-secondary: #3a3a3f;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Stitch / Material-3 bridge — brand stop preserved, on-primary white. */
+  --color-background: #0c0c0d;
+  --color-on-background: #f5f5f5;
+  --color-surface: #18181b;
+  --color-surface-bright: #2a2a2e;
+  --color-surface-dim: #08080a;
+  --color-surface-container-lowest: #050506;
+  --color-surface-container-low: #131316;
+  --color-surface-container: #18181b;
+  --color-surface-container-high: #1f1f23;
+  --color-surface-container-highest: #27272a;
+  --color-surface-variant: #1f1f23;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0c0c0d;
+  --color-inverse-primary: #6d28d9;
+  --color-primary: #6d28d9; /* brand violet — stays at brand stop */
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff; /* white on violet — readable always */
+  --color-on-primary-container: #ddd6fe;
+  --color-secondary: #ea580c;
+  --color-secondary-container: #7c2d12;
+  /* #1c0f00 on #ea580c = 5.28:1 — passes AA. White was 3.56:1 (fail). */
+  --color-on-secondary: #1c0f00;
+  --color-on-secondary-container: #fed7aa;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #5a3a08;
+  --color-on-tertiary: #0c0c0d;
+  --color-on-tertiary-container: #fde9b8;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  /* #2c0000 on #f87171 = 6.86:1 — passes AA. White was 2.77:1 (fail). */
+  --color-on-error: #2c0000;
+  --color-on-error-container: #ffdad6;
+  /* #6e6e74 on #18181b = 3.50:1 — passes 3:1 border threshold. Was 2.59:1. */
+  --color-outline: #6e6e74;
+  --color-outline-variant: #27272a;
+  --color-surface-tint: #6d28d9;
+
+  /* App-specific tokens */
+  --color-primary-deep: #7b3fd0;
+  --color-primary-hover: #7c3aed;
+  --color-upvote: #fb923c;
+  --color-upvote-active: #fdba74;
+  --color-downvote: #a5b4fc;
+  --color-downvote-active: #c7d2fe;
+  --color-karma: #fbbf24;
+  --color-karma-light: #422006;
+  --color-hot: #f87171;
+  --color-hot-light: #450a0a;
+  --color-saved: #a78bfa;
+  --color-saved-light: #312e81;
+  --color-comment-indent: #1e1b4b;
+  --color-submission-highlight: #2a2010;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

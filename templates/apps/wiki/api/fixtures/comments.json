@@ -1,0 +1,57 @@
+[
+  {
+    "id": "comment-001",
+    "page_id": "page-002",
+    "page_title": "Engineering — System Architecture Overview",
+    "author_id": "user-anya",
+    "author_name": "Anya Sokolov",
+    "body": "Should we split the auth section into its own page now that it's getting longer? Happy to take that on.",
+    "resolved": false,
+    "parent_id": null,
+    "created_at": "2026-04-21T14:22:00Z"
+  },
+  {
+    "id": "comment-002",
+    "page_id": "page-002",
+    "page_title": "Engineering — System Architecture Overview",
+    "author_id": "user-marcus",
+    "author_name": "Marcus Tan",
+    "body": "Yes — call it `auth-architecture`, link from here under \"See also\".",
+    "resolved": false,
+    "parent_id": "comment-001",
+    "created_at": "2026-04-21T15:01:00Z"
+  },
+  {
+    "id": "comment-003",
+    "page_id": "page-004",
+    "page_title": "Database Migration Runbook",
+    "author_id": "user-priya",
+    "author_name": "Priya Iyer",
+    "body": "The rollback step assumes a transactional migration — should we note when that's not the case?",
+    "resolved": false,
+    "parent_id": null,
+    "created_at": "2026-04-22T09:15:00Z"
+  },
+  {
+    "id": "comment-004",
+    "page_id": "page-003",
+    "page_title": "Onboarding Playbook for New Engineers",
+    "author_id": "user-leo",
+    "author_name": "Leo Park",
+    "body": "Day-2 buddy pairing has been working really well. Let's keep emphasizing that.",
+    "resolved": true,
+    "parent_id": null,
+    "created_at": "2026-04-19T11:40:00Z"
+  },
+  {
+    "id": "comment-005",
+    "page_id": "sample-1",
+    "page_title": "Sample Page — Cairn Style Guide",
+    "author_id": "user-tara",
+    "author_name": "Tara Chen",
+    "body": "Can we add an example of a callout / admonition box to this guide?",
+    "resolved": false,
+    "parent_id": null,
+    "created_at": "2026-04-23T08:30:00Z"
+  }
+]

@@ -1,0 +1,208 @@
+:root {
+  /* UA-rendered surfaces (form controls, scrollbars) follow the active
+     app theme — flipped to `dark` by the [data-mol-mode='dark'] block. */
+  color-scheme: light;
+
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #5b5de5; /* matches --color-primary; darkened for white-text contrast */
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #8b5cf6;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f3f4f6;
+  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #4b5563; /* was #6b7280 — 3.94:1 as chip/button text on bg-surface-container #e7e8e9; gray-600 = 6.16:1 */
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #5b5de5;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* Brand colors */
+  /* #5454dd. Was #6366f1, then #5b5de5 for white-on-primary (5.07:1) — but
+     link text renders on the #efeffc primary tint, where #5b5de5 measures
+     4.45:1, under the 4.5 floor. #5454dd is 4.99:1 on the tint and 5.69:1
+     under white text, so both directions clear. */
+  --color-primary: #5454dd;
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: #e0e7ff;
+  --color-secondary: #7c3aed; /* was #8b5cf6 — 4.23:1 under white button text; violet-600 = 5.7:1 */
+  --color-secondary-hover: #7c3aed;
+
+  /* Accent */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+
+  /* Status */
+  --color-success: #047857; /* was #10b981 — 2.53:1 icon on white (needs 3:1); emerald-700 = 5.23:1 */
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Neutrals */
+  --color-bg: #fafafa;
+  --color-bg-secondary: #f3f4f6;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-focus: #5b5de5;
+
+  /* Text */
+  --color-text: #111827;
+  --color-text-secondary: #4b5563; /* match --mol-color-text-secondary contrast fix */
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+
+  /* Editor */
+  --editor-bg: #ffffff;
+  --editor-line-height: 1.75;
+  --editor-font-size: 1.125rem;
+  --editor-max-width: 48rem;
+
+  /* AI Panel */
+  --ai-panel-bg: #f3f4f6;
+  --ai-panel-border: #e5e7eb;
+  --ai-suggestion-bg: #eff6ff;
+  --ai-suggestion-border: #bfdbfe;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode — writing-focused warm near-black.
+   Editorial calm: no blue tint, paper-like contrast inversion. Brand
+   indigo (#6366f1) stays at the brand stop; amber accent preserved.
+   `--color-on-primary` STAYS white so CTA buttons read cleanly. */
+[data-mol-mode='dark'] {
+  color-scheme: dark;
+
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #5b5de5; /* matches dark --color-primary */
+  --mol-color-primary-light: #2a2745;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #f59e0b;
+  --mol-color-background: #0d0d0d;
+  --mol-color-background-secondary: #171717;
+  --mol-color-background-tertiary: #1f1f1f;
+  --mol-color-surface: #0d0d0d;
+  --mol-color-surface-secondary: #171717;
+  --mol-color-input-background: #0a0a0a;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0d0d0d;
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Legacy app tokens kept for direct var() callers */
+  --color-primary-hover: #4f46e5;
+  --color-primary-light: #2a2745;
+  --color-secondary-hover: #d97706;
+  --color-accent-hover: #fcd34d;
+  --color-bg: #0d0d0d;
+  --color-bg-secondary: #171717;
+  --color-bg-card: #171717;
+  --color-bg-sidebar: #0a0a0a;
+  --color-border-focus: #818cf8;
+  --color-text-inverse: #0d0d0d;
+
+  /* Stitch / Material-3 token dark variants.
+     `--color-primary` STAYS at brand indigo; `--color-on-primary` stays
+     white for readable CTA buttons in both modes. */
+  --color-background: #0d0d0d;
+  --color-on-background: #f5f5f5;
+  --color-surface: #0d0d0d;
+  --color-surface-bright: #1f1f1f;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #171717;
+  --color-surface-container-high: #1f1f1f;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-variant: #1f1f1f;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0d0d0d;
+  --color-inverse-primary: #5b5de5;
+  --color-primary: #5b5de5; /* dark-mode primary — darkened so white text clears 4.5:1 (5.07:1) */
+  --color-primary-container: #2a2745;
+  --color-on-primary: #ffffff; /* white on indigo */
+  --color-on-primary-container: #c7c9f5;
+  --color-secondary: #f59e0b; /* amber accent preserved */
+  --color-secondary-container: #4a3416;
+  --color-on-secondary: #0d0d0d;
+  --color-on-secondary-container: #fde9b8;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #3b1e5e;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e9d5ff;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on bright-red — 4.74:1 vs #f87171 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #666666; /* 3.38:1 vs surface #0d0d0d — up from 2.82 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #5b5de5;
+
+  /* App-specific tokens */
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-muted: #8a8a8a;
+  --color-border: #2a2a2a;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+  --color-accent: #fbbf24;
+
+  /* Editor — soft warm-dark page for long-form writing */
+  --editor-bg: #131313;
+
+  /* AI panel */
+  --ai-panel-bg: #171717;
+  --ai-panel-border: #2a2a2a;
+  --ai-suggestion-bg: #1e2a3a;
+  --ai-suggestion-border: #3b5b8c;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,257 @@
+:root {
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0c4a6e;
+  --mol-color-secondary: #10b981;
+  --mol-color-secondary-light: #d1fae5;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+  --mol-color-background: #f1f5f9;
+  --mol-color-background-secondary: #e2e8f0;
+  --mol-color-background-tertiary: #cbd5e1;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0e7490;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #556270; /* #64748b was 4.34:1 on #f1f5f9 (fail); #556270 = 5.5:1 */
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+  /* ── App-specific tokens (raw inline styles only) ── */
+  --color-primary-hover: #06b6d4;
+  --color-accent: #10b981;
+  --color-accent-hover: #34d399;
+  --color-accent-dark: #059669;
+  --color-navy: #0f172a;
+  --color-sidebar: #0f172a;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: rgba(14, 116, 144, 0.18);
+  --color-sku: #475569;
+  --color-zone: #06b6d4;
+
+  /* Order lifecycle */
+  --color-order-pending: #f59e0b;
+  --color-order-pending-bg: #fef3c7;
+  --color-order-picking: #3b82f6;
+  --color-order-picking-bg: #dbeafe;
+  --color-order-packed: #0e7490;
+  --color-order-packed-bg: #cffafe;
+  --color-order-shipped: #10b981;
+  --color-order-shipped-bg: #d1fae5;
+  --color-order-delivered: #047857;
+  --color-order-delivered-bg: #a7f3d0;
+  --color-order-returned: #ef4444;
+  --color-order-returned-bg: #fee2e2;
+  --color-order-cancelled: #6b7280;
+  --color-order-cancelled-bg: #f3f4f6;
+
+  /* Inventory */
+  --color-stock-in: #10b981;
+  --color-stock-in-bg: #d1fae5;
+  --color-stock-low: #f59e0b;
+  --color-stock-low-bg: #fef3c7;
+  --color-stock-out: #ef4444;
+  --color-stock-out-bg: #fee2e2;
+  --color-stock-backorder: #8b5cf6;
+  --color-stock-backorder-bg: #ede9fe;
+
+  /* Priority */
+  --color-priority-rush: #dc2626;
+  --color-priority-rush-bg: #fee2e2;
+  --color-priority-express: #f59e0b;
+  --color-priority-express-bg: #fef3c7;
+  --color-priority-standard: #6b7280;
+  --color-priority-standard-bg: #f3f4f6;
+
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+
+  --max-width: 1440px;
+  --sidebar-width: 256px;
+  --sidebar-width-collapsed: 72px;
+  --top-bar-height: 56px;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+  --color-danger: var(--color-error);
+
+  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
+  --color-background: #f1f5f9;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #e2e8f0;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #556270; /* matches text-secondary contrast fix */
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #164e63;
+  --color-secondary: #10b981;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #052e22; /* dark on mid-green — #ffffff was 2.54:1 (fail); #052e22 = 5.83:1 */
+  --color-on-secondary-container: #064e3b;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #130035; /* dark on violet — #ffffff was 4.23:1 (fail); #130035 = 4.60:1 */
+  --color-on-tertiary-container: #4c1d95;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #2d0000; /* dark on red — #ffffff was 3.76:1 (fail); #2d0000 = 5.02:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* #94a3b8 was 2.56:1 vs white (fail ≥3:1); #6b7280 = 4.83:1 */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0e7490;
+}
+
+/* Dark mode overrides — high-contrast warehouse ops console */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #22d3ee;
+  --mol-color-primary-light: #155e75;
+  --mol-color-primary-dark: #0891b2;
+  --mol-color-secondary: #34d399;
+  --mol-color-secondary-light: #064e3b;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+  --mol-color-background: #020617;
+  --mol-color-background-secondary: #0f172a;
+  --mol-color-background-tertiary: #1e293b;
+  --mol-color-surface: #0f172a;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-input-background: #020617;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #020617;
+  --mol-color-border: #1e293b;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #22d3ee;
+
+  --color-primary-hover: #67e8f9;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+  --color-accent-dark: #10b981;
+  --color-navy: #020617;
+  --color-sidebar: #020617;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: rgba(34, 211, 238, 0.22);
+  --color-sku: #22d3ee;
+  --color-zone: #38bdf8;
+
+  /* Order lifecycle — brightened pigments on translucent dark bg chips */
+  --color-order-pending: #fbbf24;
+  --color-order-pending-bg: rgba(251, 191, 36, 0.16);
+  --color-order-picking: #60a5fa;
+  --color-order-picking-bg: rgba(96, 165, 250, 0.16);
+  --color-order-packed: #22d3ee;
+  --color-order-packed-bg: rgba(34, 211, 238, 0.16);
+  --color-order-shipped: #34d399;
+  --color-order-shipped-bg: rgba(52, 211, 153, 0.16);
+  --color-order-delivered: #6ee7b7;
+  --color-order-delivered-bg: rgba(110, 231, 183, 0.16);
+  --color-order-returned: #f87171;
+  --color-order-returned-bg: rgba(248, 113, 113, 0.16);
+  --color-order-cancelled: #94a3b8;
+  --color-order-cancelled-bg: rgba(148, 163, 184, 0.14);
+
+  /* Inventory */
+  --color-stock-in: #34d399;
+  --color-stock-in-bg: rgba(52, 211, 153, 0.16);
+  --color-stock-low: #fbbf24;
+  --color-stock-low-bg: rgba(251, 191, 36, 0.16);
+  --color-stock-out: #f87171;
+  --color-stock-out-bg: rgba(248, 113, 113, 0.16);
+  --color-stock-backorder: #a78bfa;
+  --color-stock-backorder-bg: rgba(167, 139, 250, 0.16);
+
+  /* Priority */
+  --color-priority-rush: #f87171;
+  --color-priority-rush-bg: rgba(248, 113, 113, 0.18);
+  --color-priority-express: #fbbf24;
+  --color-priority-express-bg: rgba(251, 191, 36, 0.16);
+  --color-priority-standard: #94a3b8;
+  --color-priority-standard-bg: rgba(148, 163, 184, 0.14);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  /* ── Material-3 / Stitch bridge tokens (dark overrides) ── */
+  --color-background: #020617;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0f172a;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #020617;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0a1020;
+  --color-surface-container: #0f172a;
+  --color-surface-container-high: #1e293b;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #020617;
+  --color-inverse-primary: #0e7490;
+  --color-primary: #22d3ee;
+  --color-primary-container: #155e75;
+  --color-on-primary: #001f2b; /* dark on bright-cyan — #ffffff was 1.81:1 (fail); #001f2b = 9.44:1 */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #022c22;
+  --color-on-secondary-container: #d1fae5;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #4c1d95;
+  --color-on-tertiary: #150040; /* dark on bright-violet — #ffffff was 2.72:1 (fail); #150040 = 6.98:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #64748b; /* #475569 was 2.36:1 vs surface (fail ≥3:1); #64748b = 3.75:1 */
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #22d3ee;
+}

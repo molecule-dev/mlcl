@@ -1,0 +1,116 @@
+{
+  "label": "Auction Platform",
+  "description": "eBay-like bidding platform with bid system, countdown timers, and auto-extend — with built-in Stripe-backed subscription tiers",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-product",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-data-table",
+    "@molecule/app-gallery",
+    "@molecule/app-kpi-card-react",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-realtime-socketio",
+    "@molecule/api-resource-payment",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Platform name",
+      "default": "My Auctions"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret key",
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook secret",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for listing images",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "AWS region",
+      "default": "us-east-1"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain",
+      "required": true
+    },
+    "AUTO_EXTEND_MINUTES": {
+      "description": "Minutes to extend auction when bid placed near end",
+      "default": "5"
+    },
+    "BID_INCREMENT_PERCENT": {
+      "description": "Minimum bid increment as decimal",
+      "default": "0.05"
+    },
+    "STRIPE_AUCTION_PLATFORM_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_AUCTION_PLATFORM_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_AUCTION_PLATFORM_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_AUCTION_PLATFORM_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "payments",
+    "notifications",
+    "realtime",
+    "image-upload",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "tpl_msa_v3",  "name": "Master Service Agreement",   "category": "msa",        "description": "Standard MSA template covering scope, compensation, IP, indemnification, and termination.", "version": "3.2", "updated_at": "2026-04-12T10:00:00Z", "used_count": 24,
+    "clauses": [
+      { "id": "cl_1", "title": "1. Scope of Services",          "body_text": "Services shall be described in one or more Statements of Work (\"SOW\") attached hereto and incorporated by reference. Each SOW shall include the project description, deliverables, timeline, and acceptance criteria.", "variables": ["client_name"] },
+      { "id": "cl_2", "title": "2. Compensation",                "body_text": "Client shall pay Provider the fees set forth in each SOW within {{payment_terms}} days of receipt of an invoice. Late payments shall accrue interest at the rate of 1.5% per month.", "variables": ["payment_terms"] },
+      { "id": "cl_3", "title": "3. Term and Termination",        "body_text": "This Agreement shall remain in effect for a term of {{term_years}} year(s) from the Effective Date. Either party may terminate upon thirty (30) days' written notice.", "variables": ["term_years"] },
+      { "id": "cl_4", "title": "4. Confidentiality",             "body_text": "Each party shall hold confidential information received from the other in strict confidence for a period of two (2) years following the termination of this Agreement.", "variables": [] },
+      { "id": "cl_5", "title": "5. Indemnification",             "body_text": "Each party shall indemnify, defend, and hold the other harmless from any third-party claims arising from the indemnifying party's gross negligence or willful misconduct.", "variables": [] },
+      { "id": "cl_6", "title": "6. Governing Law",               "body_text": "This Agreement shall be governed by the laws of the State of {{governing_state}}, without regard to its conflict-of-laws principles.", "variables": ["governing_state"] }
+    ],
+    "version_history": [
+      { "version": "3.2", "saved_at": "2026-04-12T10:00:00Z", "saved_by": "Morgan Reyes", "notes": "Updated payment terms language" },
+      { "version": "3.1", "saved_at": "2026-02-08T11:24:00Z", "saved_by": "Morgan Reyes", "notes": "Added IP assignment carve-out" },
+      { "version": "3.0", "saved_at": "2025-11-30T15:00:00Z", "saved_by": "Morgan Reyes", "notes": "Major revision — adopted new corporate template" },
+      { "version": "2.4", "saved_at": "2025-06-12T09:00:00Z", "saved_by": "Devon Park",   "notes": "Tightened indemnification clause" }
+    ]
+  },
+  { "id": "tpl_sow_v2", "name": "Statement of Work",          "category": "sow",        "description": "Standard SOW under our MSA, with project scope, deliverables, fees, and acceptance criteria.", "version": "2.1", "updated_at": "2026-03-04T14:00:00Z", "used_count": 41,
+    "clauses": [{ "id": "cl_1", "title": "Project description", "body_text": "Provider shall perform the services described in this Statement of Work.", "variables": [] }],
+    "version_history": [{ "version": "2.1", "saved_at": "2026-03-04T14:00:00Z", "saved_by": "Morgan Reyes", "notes": "Initial revision" }]
+  },
+  { "id": "tpl_nda_v2", "name": "Mutual NDA",                 "category": "nda",        "description": "Two-year mutual NDA, suitable for prospect calls and partnership discussions.",                  "version": "2.0", "updated_at": "2025-12-08T09:00:00Z", "used_count": 87,
+    "clauses": [{ "id": "cl_1", "title": "Confidential information", "body_text": "Confidential Information means any non-public information disclosed by either party.", "variables": [] }],
+    "version_history": [{ "version": "2.0", "saved_at": "2025-12-08T09:00:00Z", "saved_by": "Morgan Reyes", "notes": "Two-year term standardized" }]
+  },
+  { "id": "tpl_order_v1", "name": "Order Form",               "category": "order",      "description": "Standard order form referencing an existing MSA. Fees and quantity per line.", "version": "1.4", "updated_at": "2026-01-22T12:00:00Z", "used_count": 33,
+    "clauses": [{ "id": "cl_1", "title": "Order details", "body_text": "Quantity, unit price, and total per line item.", "variables": [] }],
+    "version_history": [{ "version": "1.4", "saved_at": "2026-01-22T12:00:00Z", "saved_by": "Riley Banner", "notes": "Added net-terms checkbox" }]
+  },
+  { "id": "tpl_emp_v1", "name": "Employment Offer Letter",   "category": "employment", "description": "At-will employment offer letter with role, compensation, equity, and benefits sections.", "version": "1.2", "updated_at": "2025-09-30T10:00:00Z", "used_count": 12,
+    "clauses": [{ "id": "cl_1", "title": "Role and start date", "body_text": "Position and start date here.", "variables": [] }],
+    "version_history": [{ "version": "1.2", "saved_at": "2025-09-30T10:00:00Z", "saved_by": "Morgan Reyes", "notes": "Updated equity language" }]
+  },
+  { "id": "tpl_dpa_v1", "name": "Data Processing Addendum",  "category": "other",      "description": "GDPR/CCPA-compliant DPA appended to MSA.",                                  "version": "1.0", "updated_at": "2025-08-04T11:00:00Z", "used_count": 18,
+    "clauses": [{ "id": "cl_1", "title": "Roles", "body_text": "Identifies controller and processor.", "variables": [] }],
+    "version_history": [{ "version": "1.0", "saved_at": "2025-08-04T11:00:00Z", "saved_by": "Morgan Reyes", "notes": "Initial version" }]
+  }
+]

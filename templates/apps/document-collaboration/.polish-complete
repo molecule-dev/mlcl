@@ -1,0 +1,5 @@
+polished: 2026-04-28T21:05:00+03:00
+brand: Quillon — collaborative writing studio (indigo #4f46e5 / cyan #06b6d4)
+typecheck: clean (npx tsc --noEmit, 0 errors)
+compliance: clean (check-rules-compliance.mjs, 0 violations, classmap-coverage 100%)
+screenshots: skipped (per main agent instructions)

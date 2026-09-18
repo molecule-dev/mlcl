@@ -1,0 +1,235 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Brand colors — unchanged across modes */
+  --photo-primary: #ff6b35;
+  --photo-primary-hover: #e85a28;
+  --photo-secondary: #00b4d8;
+  --photo-secondary-hover: #0096b4;
+  --photo-accent: #9b5de5;
+  --photo-danger: #ef476f;
+  --photo-warning: #ffd166;
+
+  /* Light-mode surfaces */
+  --photo-background: #f7f7fa;
+  --photo-surface: #ffffff;
+  --photo-surface-elevated: #f0f0f5;
+  --photo-border: #d4d4e0;
+
+  /* Light-mode text */
+  --photo-text: #1a1a2e;
+  --photo-text-secondary: #4a4a6a;
+  --photo-text-muted: #585880; /* was #8888a8 — 3.0:1 on panel/white bgs, 3.3 on hero tint (axe serious); #585880 = 4.65:1 even on #e0d0f5 */
+
+  /* Light-mode canvas / chrome */
+  --photo-canvas-bg: #e8e8f0;
+  --photo-canvas-checker: #d0d0de;
+  --photo-slider-track: #ccccdd;
+  --photo-slider-fill: #ff6b35;
+
+  --photo-toolbar-bg: #ebebf0;
+  --photo-sidebar-bg: #f0f0f5;
+  --photo-sidebar-width: 300px;
+
+  /* Export / auth panel chrome — light-mode mapped to surface tones */
+  --photo-panel-bg: #f0f0f5;
+  --photo-panel-border: #d4d4e0;
+  --photo-panel-text: #1a1a2e;
+  --photo-panel-text-muted: #6a6a88;
+  --photo-panel-text-accent: #5b21b6; /* was #7c3aed — 3.9:1 as 12px eyebrow on #e0d0f5 (axe serious); #5b21b6 = 6.21:1 */
+  --photo-panel-text-highlight: #6d28d9;
+  --photo-panel-text-cyan: #0891b2;
+  --photo-input-bg: #ffffff;
+  --photo-input-border: #d4d4e0;
+  --photo-input-border-focus: #ff6b35;
+  --photo-input-text: #1a1a2e;
+  --photo-input-placeholder: #8888a8;
+
+  /* Hero / decorative gradient stop tokens */
+  --photo-hero-from: #ede9fe;
+  --photo-hero-via: #c4b5fd;
+  --photo-hero-to: #fbcfe8;
+
+  --photo-radius-sm: 4px;
+  --photo-radius-md: 8px;
+  --photo-radius-lg: 12px;
+
+  --photo-font-sans: 'Inter', system-ui, sans-serif;
+  --photo-font-size-xs: 11px;
+  --photo-font-size-sm: 13px;
+  --photo-font-size-md: 14px;
+
+  /* mol-color bridge tokens (light) */
+  --mol-color-primary: #ff6b35;
+  --mol-color-primary-light: #fde8e0;
+  --mol-color-primary-dark: #c4471c;
+  --mol-color-secondary: #00b4d8;
+  --mol-color-background: #f7f7fa;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #d4d4e0;
+  --mol-color-border-focus: #ff6b35;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #4a4a6a;
+  --mol-color-text-tertiary: #585880; /* keep in step with --photo-text-muted (same axe fix) */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #ffd166;
+  --mol-color-error: #ef476f;
+  --mol-color-info: #00b4d8;
+
+  /* Material-3 / Stitch bridge tokens (light palette) */
+  --color-background: #f7f7fa;
+  --color-on-background: #1a1a2e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #eeeef5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f7fa;
+  --color-surface-container: #f0f0f5;
+  --color-surface-container-high: #e8e8f0;
+  --color-surface-container-highest: #dddde8;
+  --color-surface-variant: #eeeef5;
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #4a4a6a;
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #f7f7fa;
+  --color-inverse-primary: #ff8559;
+  --color-primary: #ff6b35;
+  --color-primary-container: #fde8e0;
+  --color-on-primary: #1a0a00; /* dark on orange — white was 2.84:1 (fail); #1a0a00 = 6.81:1 */
+  --color-on-primary-container: #7a2000;
+  --color-secondary: #9b5de5;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary: #12003a; /* dark on purple — white was 4.13:1 (fail); #12003a = 4.68:1 */
+  --color-on-secondary-container: #4c1d95;
+  --color-tertiary: #ec4899;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary: #3a0020; /* dark on pink — white was 3.53:1 (fail); #3a0020 = 4.96:1 */
+  --color-on-tertiary-container: #831843;
+  --color-error: #ef476f;
+  --color-error-container: #fee2e2;
+  --color-on-error: #2d0015; /* dark on error pink — white was 3.62:1 (fail); #2d0015 = 5.17:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #8888a8; /* 3.42:1 on white — passes ≥3:1 for outline */
+  --color-outline-variant: #d4d4e0;
+  --color-surface-tint: #ff6b35;
+}
+
+/* Dark mode — creative-tools rich black.
+   Rich near-pure-black chassis with a slight cool tint (Lightroom /
+   Affinity / Capture One feel — colour-correct work demands a near-
+   neutral dark chrome so it doesn't bias eyeball perception of the
+   image). Brand orange stays at the brand stop (#FF6B35) so the
+   primary CTA matches across modes; `--color-on-primary` is dark
+   (#1a0a00) for contrast compliance — orange mid-value fails white. */
+[data-mol-mode='dark'] {
+  /* Brand — kept at the brand stop for parity with light mode */
+  --photo-primary: #ff6b35; /* keep brand orange at brand stop */
+  --photo-primary-hover: #ff8559;
+  --photo-secondary: #00b4d8;
+  --photo-secondary-hover: #38cfe8;
+  --photo-accent: #9b5de5;
+  --photo-danger: #f56a8c;
+  --photo-warning: #ffdb8a;
+
+  /* Chassis — near-pure rich black for colour-correct viewing */
+  --photo-background: #0e0e10;
+  --photo-surface: #16161a;
+  --photo-surface-elevated: #1f1f24;
+  --photo-border: #2a2a30;
+
+  /* Text */
+  --photo-text: #f0f0f5;
+  --photo-text-secondary: #b8b8c8;
+  --photo-text-muted: #7a7a88;
+
+  /* Canvas — neutral near-black for colour-accurate viewing */
+  --photo-canvas-bg: #050507;
+  --photo-canvas-checker: #101014;
+  --photo-slider-track: #3a3a44;
+  --photo-slider-fill: #ff6b35;
+
+  --photo-toolbar-bg: #0a0a0c;
+  --photo-sidebar-bg: #101013;
+
+  /* Export / auth panel chrome — dark values */
+  --photo-panel-bg: #16161a;
+  --photo-panel-border: #2a2a30;
+  --photo-panel-text: #f0f0f5;
+  --photo-panel-text-muted: #7a7a88;
+  --photo-panel-text-accent: #a78bfa;
+  --photo-panel-text-highlight: #c4b5fd;
+  --photo-panel-text-cyan: #22d3ee;
+  --photo-input-bg: #1f1f24;
+  --photo-input-border: #2a2a30;
+  --photo-input-border-focus: #9b5de5;
+  --photo-input-text: #f0f0f5;
+  --photo-input-placeholder: #7a7a88;
+
+  /* Hero / decorative gradient stop tokens (dark) */
+  --photo-hero-from: #16161a;
+  --photo-hero-via: #2e1065;
+  --photo-hero-to: #500724;
+
+  /* mol-color bridge tokens (dark) */
+  --mol-color-primary: #ff6b35;
+  --mol-color-primary-light: #3a1a0a;
+  --mol-color-primary-dark: #c4471c;
+  --mol-color-secondary: #38cfe8;
+  --mol-color-background: #0e0e10;
+  --mol-color-surface: #16161a;
+  --mol-color-border: #2a2a30;
+  --mol-color-border-focus: #ff8559;
+  --mol-color-text: #f0f0f5;
+  --mol-color-text-secondary: #b8b8c8;
+  --mol-color-text-tertiary: #7a7a88;
+  --mol-color-text-inverse: #0e0e10;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #ffdb8a;
+  --mol-color-error: #f56a8c;
+  --mol-color-info: #38cfe8;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so bg-surface, text-on-surface etc. flip on data-mol-mode="dark". */
+  --color-background: #0e0e10;
+  --color-on-background: #f0f0f5;
+  --color-surface: #0e0e10;
+  --color-surface-bright: #1f1f24;
+  --color-surface-dim: #060608;
+  --color-surface-container-lowest: #020203;
+  --color-surface-container-low: #111114;
+  --color-surface-container: #16161a;
+  --color-surface-container-high: #1f1f24;
+  --color-surface-container-highest: #2a2a30;
+  --color-surface-variant: #1f1f24;
+  --color-on-surface: #f0f0f5;
+  --color-on-surface-variant: #b8b8c8;
+  --color-inverse-surface: #f0f0f5;
+  --color-inverse-on-surface: #0e0e10;
+  --color-inverse-primary: #c4471c;
+  --color-primary: #ff6b35; /* keep brand orange at brand stop */
+  --color-primary-container: #3a1a0a;
+  --color-on-primary: #1a0a00; /* dark on orange — white was 2.84:1 (fail); #1a0a00 = 6.81:1 */
+  --color-on-primary-container: #fde8e0;
+  --color-secondary: #c4b5fd;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #0e0e10;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #f9a8d4;
+  --color-tertiary-container: #500724;
+  --color-on-tertiary: #1a0010; /* dark on pastel pink — white was 1.81:1 (fail); #1a0010 = 11.01:1 */
+  --color-on-tertiary-container: #fce7f3;
+  --color-error: #f56a8c;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* dark on error pink — white was 2.87:1 (fail); #3a0000 = 6.21:1 */
+  --color-on-error-container: #fee2e2;
+  --color-outline: #7a7a88;
+  --color-outline-variant: #2a2a30;
+  --color-surface-tint: #ff8559;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

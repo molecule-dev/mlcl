@@ -1,0 +1,169 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #1a8917;
+  --mol-color-primary-light: #e6f5e6;
+  --mol-color-primary-dark: #126611;
+  --mol-color-secondary: #292929;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #fafafa;
+  --mol-color-background-tertiary: #f5f5f5;
+  --mol-color-surface: #fafafa;
+  --mol-color-surface-secondary: #f2f2f2;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #292929;
+  --mol-color-text-secondary: #6b6b6b; /* #757575 was 4.15:1 on #f4f3f0 (fail); #6b6b6b = 4.8:1 */
+  --mol-color-text-tertiary: #b3b3b3;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e6e6e6;
+  --mol-color-border-secondary: #d4d4d4;
+  --mol-color-border-focus: #1a8917;
+  /* #177a15, not the brand green #1a8917: the success badge renders this on
+     bg-success-light (#dcfce7) at 12px, where #1a8917 measures 4.13:1 — under
+     the 4.5:1 WCAG AA floor for normal text. #177a15 measures 4.99:1. The brand
+     accent itself (--mol-color-border-focus) keeps the original green. */
+  --mol-color-success: #177a15;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #3b82f6;
+  --mol-font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--mol-color-text);
+  --color-text-secondary: var(--mol-color-text-secondary);
+  --color-text-tertiary: var(--mol-color-text-tertiary);
+  --color-text-on-primary: var(--mol-color-text-inverse);
+  --color-primary-hover: #156d12;
+
+  /* === App-specific tokens (inline styles only, NOT in @theme) === */
+  --color-status-draft: #f59e0b;
+  --color-status-published: #1a8917;
+  --color-status-scheduled: #3b82f6;
+
+  /* Typography */
+  --font-family-serif: 'Georgia', 'Charter', 'Bitstream Charter', 'Cambria', serif;
+  --font-family-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Layout */
+  --content-width: 680px;
+  --page-width: 1200px;
+  --sidebar-width: 280px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode — Medium-inspired editorial dark.
+   Warm near-black surfaces (no blue tint — blog brand is editorial, not
+   tech). Brand green is kept as-is at the brand stop (#1a8917) for surface
+   accents (links, badges) and shifted slightly brighter for hero buttons so
+   white text reads cleanly. `--color-on-primary` STAYS white in both modes
+   so the green CTA buttons keep their light-on-green character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #34d058;
+  --mol-color-primary-light: #1a4731;
+  --mol-color-primary-dark: #1a8917;
+  --mol-color-secondary: #c9c9c9;
+  --mol-color-background: #0d0d0d;
+  --mol-color-background-secondary: #171717;
+  --mol-color-background-tertiary: #1f1f1f;
+  --mol-color-surface: #0d0d0d;
+  --mol-color-surface-secondary: #171717;
+  --mol-color-input-background: #0a0a0a;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0d0d0d;
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #34d058;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  --color-primary-hover: #2bb84a;
+  --color-primary-light: #1a4731;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on green: `on-primary` stays white. */
+  --color-background: #0d0d0d;
+  --color-on-background: #f2f2f2;
+  --color-surface: #0d0d0d;
+  --color-surface-bright: #1f1f1f;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #171717;
+  --color-surface-container-high: #1f1f1f;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-variant: #1f1f1f;
+  --color-on-surface: #f2f2f2;
+  --color-on-surface-variant: #b3b3b3;
+  --color-inverse-surface: #f2f2f2;
+  --color-inverse-on-surface: #0d0d0d;
+  --color-inverse-primary: #1a8917;
+  --color-primary: #1a8917; /* keep brand green at brand stop */
+  --color-primary-container: #1a4731;
+  --color-on-primary: #ffffff; /* white on green — readable in both modes */
+  --color-on-primary-container: #bbf7d0;
+  --color-secondary: #c9c9c9;
+  --color-secondary-container: #2a2a2a;
+  --color-on-secondary: #0d0d0d;
+  --color-on-secondary-container: #f2f2f2;
+  --color-tertiary: #ff8fb0;
+  --color-tertiary-container: #5a1a35;
+  --color-on-tertiary: #3e0022; /* dark on pink — #ffffff was 2.14:1 (fail); #3e0022 = 7.99:1 */
+  --color-on-tertiary-container: #ffd9e4;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 3.25:1 (fail); #3a0000 = 5.48:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* #5a5a5a was 2.82:1 vs surface (fail ≥3:1); #6e6e6e = 3.81:1 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #34d058;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

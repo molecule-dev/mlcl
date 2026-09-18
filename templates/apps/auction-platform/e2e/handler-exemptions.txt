@@ -1,0 +1,7 @@
+# auth-reset-password is mounted under /api/users/reset-password by index.ts
+# (the molecule users resource owns the /api/users base path; this handler
+# attaches the reset-password sub-route). The path-derived candidates the
+# coverage gate checks (/api/auth-reset-password, /auth-reset-password)
+# don't match this mount, so we exempt the handler — its endpoint is
+# already exercised by reset-password.spec.ts via /api/users/reset-password.
+auth-reset-password

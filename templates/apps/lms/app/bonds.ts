@@ -1,0 +1,14 @@
+import { bond } from '@molecule/app-bond'
+import { provider as dataTable } from '@molecule/app-data-table-tanstack'
+import { provider as fileUpload } from '@molecule/app-file-upload-filepond'
+import { provider as markdown } from '@molecule/app-markdown-react-markdown'
+import { provider as calendar } from '@molecule/app-calendar-fullcalendar'
+import { provider as virtualScroll } from '@molecule/app-virtual-scroll-tanstack'
+import { provider as commandPalette } from '@molecule/app-command-palette-cmdk'
+
+bond('data-table', dataTable)
+bond('file-upload', fileUpload)
+bond('markdown', markdown)
+bond('calendar', calendar)
+bond('virtual-scroll', virtualScroll)
+bond('command-palette', commandPalette)

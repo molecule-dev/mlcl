@@ -1,0 +1,8 @@
+/* App-specific theme overrides — see DESIGN.md */
+
+:root {
+  /* Base #808080 fails WCAG AA small-text contrast on this app's light
+     surfaces (3.65:1 on #f6f6f6, 3.94:1 on #ffffff — axe serious).
+     #6b6b6b = 4.93:1 on #f6f6f6, 5.33:1 on #ffffff. */
+  --mol-color-text-secondary: #6b6b6b;
+}

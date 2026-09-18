@@ -1,0 +1,112 @@
+[
+  {
+    "id": "msg-001",
+    "channel_id": "ch-001",
+    "user_id": "u-001",
+    "author_name": "Sarah Chen",
+    "content": "Hey team, I've updated the quarterly roadmap docs in the shared folder. Take a look when you get a chance.",
+    "created_at": "2026-04-20T13:25:00Z",
+    "thread_count": 3,
+    "reactions": [{ "emoji": "👍", "count": 4 }, { "emoji": "🚀", "count": 2 }]
+  },
+  {
+    "id": "msg-002",
+    "channel_id": "ch-001",
+    "user_id": "u-004",
+    "author_name": "Jake Thompson",
+    "content": "Thanks Sarah — I'll review this morning and ping you with feedback.",
+    "created_at": "2026-04-20T13:32:00Z",
+    "thread_count": 0,
+    "reactions": []
+  },
+  {
+    "id": "msg-003",
+    "channel_id": "ch-001",
+    "user_id": "u-003",
+    "author_name": "Aisha Patel",
+    "content": "Quick reminder: All-hands tomorrow at 10:00 ET. Agenda is in the calendar invite.",
+    "created_at": "2026-04-20T14:05:00Z",
+    "thread_count": 1,
+    "reactions": [{ "emoji": "📅", "count": 6 }]
+  },
+  {
+    "id": "msg-004",
+    "channel_id": "ch-002",
+    "user_id": "u-002",
+    "author_name": "Marcus Rivera",
+    "content": "Checking the pipeline logs now — looks like the deployment was successful. Will keep an eye on error rates.",
+    "created_at": "2026-04-20T13:18:00Z",
+    "thread_count": 2,
+    "reactions": [{ "emoji": "✅", "count": 3 }]
+  },
+  {
+    "id": "msg-005",
+    "channel_id": "ch-002",
+    "user_id": "u-006",
+    "author_name": "Priya Sharma",
+    "content": "I noticed the new auth middleware is logging warnings on token refresh — opening a PR with the fix.",
+    "created_at": "2026-04-20T13:40:00Z",
+    "thread_count": 5,
+    "reactions": [{ "emoji": "🔧", "count": 2 }]
+  },
+  {
+    "id": "msg-006",
+    "channel_id": "ch-002",
+    "user_id": "u-008",
+    "author_name": "Alex Okafor",
+    "content": "Staging is green. I'll cut the 2.6 release tag once Priya's PR lands.",
+    "created_at": "2026-04-20T14:12:00Z",
+    "thread_count": 0,
+    "reactions": [{ "emoji": "🎉", "count": 4 }]
+  },
+  {
+    "id": "msg-007",
+    "channel_id": "ch-003",
+    "user_id": "u-003",
+    "author_name": "Aisha Patel",
+    "content": "New social copy is ready for review. Anyone has time to take a quick look?",
+    "created_at": "2026-04-20T12:50:00Z",
+    "thread_count": 1,
+    "reactions": []
+  },
+  {
+    "id": "msg-008",
+    "channel_id": "ch-003",
+    "user_id": "u-006",
+    "author_name": "Priya Sharma",
+    "content": "Looks great — left a couple of small notes inline.",
+    "created_at": "2026-04-20T13:10:00Z",
+    "thread_count": 0,
+    "reactions": [{ "emoji": "❤️", "count": 1 }]
+  },
+  {
+    "id": "msg-009",
+    "channel_id": "ch-004",
+    "user_id": "u-004",
+    "author_name": "Jake Thompson",
+    "content": "Drafted next quarter's priorities — would love eng + design input before Friday.",
+    "created_at": "2026-04-20T11:55:00Z",
+    "thread_count": 4,
+    "reactions": [{ "emoji": "👀", "count": 5 }]
+  },
+  {
+    "id": "msg-010",
+    "channel_id": "ch-005",
+    "user_id": "u-007",
+    "author_name": "Daniel Kim",
+    "content": "Coffee chat at 3? Anyone in NYC office down to grab one?",
+    "created_at": "2026-04-20T14:00:00Z",
+    "thread_count": 2,
+    "reactions": [{ "emoji": "☕", "count": 7 }]
+  },
+  {
+    "id": "msg-011",
+    "channel_id": "ch-005",
+    "user_id": "u-005",
+    "author_name": "Yuki Tanaka",
+    "content": "I'm in! See you at the kitchen.",
+    "created_at": "2026-04-20T14:08:00Z",
+    "thread_count": 0,
+    "reactions": []
+  }
+]

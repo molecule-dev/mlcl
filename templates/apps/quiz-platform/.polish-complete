@@ -1,0 +1,29 @@
+Polish complete: 2026-04-30T00:35:00Z
+Pipeline: polish-app.mjs (autonomous polish session)
+Cluster: education → sibling: lms
+Brand: Sparq — Ignite every answer (primary #7c3aed, accent gold #f59e0b)
+
+Bespoke components (6):
+- SparqLogo: typographic wordmark with gold lightning "q"
+- QuizCard: gradient-thumbnail card with category, plays, difficulty pill
+- QuizStatsRow: KPI triad with coloured left accent + delta pills
+- LeaderboardRow: medal rank + streak pill + delta indicator
+- ScoreBreakdownCard: gradient hero with circular accuracy ring
+- JoinCodeHero: multiplayer lobby with monospace code + QR + avatars
+
+Pages rewritten / added (16/16 screen-map coverage):
+- Public: Landing, Login, Signup, ForgotPassword, ResetPassword
+- Auth: Discover, MyQuizzes, Leaderboard, Settings, Notifications,
+        Profile, QuizDetail, QuizBuilder
+- Full-screen game: QuizPlay, HostLobby, Results
+
+Chrome conformance: Header → AppHeader, Footer → AppFooter,
+RootErrorBoundary re-export. Added @molecule/app-{header,footer,
+root-error-boundary}-react to app/package.json.
+
+Material 3 tokens: 48 derivatives filled via fill-material3-tokens.mjs.
+Fonts: Inter + Material Symbols Outlined already wired in index.html.
+
+Compliance: clean (check-rules-compliance.mjs).
+Typecheck: clean (tsc --noEmit).
+Screen-map coverage: 16/16.

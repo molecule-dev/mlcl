@@ -1,0 +1,55 @@
+[
+  {
+    "id": "ntf_001",
+    "user_id": "user_1",
+    "type": "endpoint.failing",
+    "severity": "warning",
+    "title": "Northwind payments retry budget exceeded",
+    "body": "ep_2c11 has retried 332 deliveries in the last 24h.",
+    "endpoint_id": "ep_2c11",
+    "is_read": false,
+    "created_at": "2026-04-26T15:35:00Z"
+  },
+  {
+    "id": "ntf_002",
+    "user_id": "user_1",
+    "type": "endpoint.degraded",
+    "severity": "warning",
+    "title": "Kepler events latency degraded",
+    "body": "p95 latency on ep_5e33 is now 612ms (threshold 400ms).",
+    "endpoint_id": "ep_5e33",
+    "is_read": false,
+    "created_at": "2026-04-26T14:18:00Z"
+  },
+  {
+    "id": "ntf_003",
+    "user_id": "user_1",
+    "type": "endpoint.recovered",
+    "severity": "info",
+    "title": "Helix identity recovered",
+    "body": "ep_4d22 returned to live state after a 4 minute outage.",
+    "endpoint_id": "ep_4d22",
+    "is_read": true,
+    "created_at": "2026-04-26T11:02:00Z"
+  },
+  {
+    "id": "ntf_004",
+    "user_id": "user_1",
+    "type": "billing",
+    "severity": "info",
+    "title": "Monthly invoice paid",
+    "body": "Invoice inv_2049 paid in full ($249.00).",
+    "is_read": true,
+    "created_at": "2026-04-25T09:14:00Z"
+  },
+  {
+    "id": "ntf_005",
+    "user_id": "user_1",
+    "type": "team",
+    "severity": "info",
+    "title": "Priya Desai joined the team",
+    "body": "Invited by Alex Park · role: developer.",
+    "is_read": true,
+    "created_at": "2026-04-24T18:42:00Z"
+  }
+]

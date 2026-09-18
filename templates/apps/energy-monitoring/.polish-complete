@@ -1,0 +1,12 @@
+Polish complete: 2026-04-29T22:20:00Z
+Pipeline: polish-app.md via polish-fleet
+Cluster: operations-iot — sibling pattern source: smart-home-dashboard + personal-finance
+Brand: Voltrace — "See every watt, save every cent"
+Components: 7 bespoke (PowerHeroCard, DailyCostMeter, EnergyKpiTriad,
+            DeviceWattageRow, AlertCard, AuthBrandHeader,
+            EnergyMonitoringLayout) + Sweep-1 chrome (Header/Footer/RootErrorBoundary)
+Screen-map coverage: 13/13 (Landing, Login, Signup, ForgotPassword,
+            ResetPassword, Dashboard, Devices, DeviceDetail, Reports,
+            Alerts, AlertRule, Profile, Billing, Settings)
+Typecheck: 0 errors (npx tsc --noEmit from app/)
+Compliance: clean (classmap-coverage 98%)

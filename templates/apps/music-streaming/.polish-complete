@@ -1,0 +1,10 @@
+Polish complete: 2026-04-28T16:21:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: content-social → siblings: podcast (auth + hero), personal-finance (editorial table)
+Components: 5 bespoke (NowPlayingHeroCard, PlaylistGrid, FeaturedAlbumsRow, TrackTable, AuthBrandHeader)
+Sweep 1 chrome: AppHeader + AppFooter + RootErrorBoundary delegated
+Pages rewritten: Landing, Home, Library, Login, Signup, ForgotPassword, ResetPassword
+Pages added: NowPlaying, Radio, Profile, Subscription, LikedSongs
+Screen-map coverage: 17/17 (check-screen-map-coverage.mjs)
+Typecheck: clean (tsc --noEmit)
+Compliance: 1 classmap-coverage violation (decorative gradients/blur; matches polished podcast tier)

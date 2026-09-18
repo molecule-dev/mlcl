@@ -1,0 +1,64 @@
+[
+  {
+    "id": "11d2fc85-d19a-4386-ffbb-de13c7884743",
+    "product_id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+    "product": {
+      "id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+      "name": "Wireless Noise-Canceling Headphones",
+      "description": "Premium over-ear headphones with active noise cancellation and 30-hour battery life.",
+      "price": 29900,
+      "category": "Electronics",
+      "sku": "WNC-001",
+      "status": "active",
+      "featured": true,
+      "total_sold": 342,
+      "images": [
+        "https://picsum.photos/seed/wnc001/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/wnc001/200/200"
+      ],
+      "tags": [
+        "bestseller",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2025-08-15T10:00:00Z",
+      "updated_at": "2026-03-28T14:00:00Z"
+    },
+    "quantity": 1,
+    "variant_id": null,
+    "created_at": "2026-03-28T10:00:00Z"
+  },
+  {
+    "id": "198b05c4-1049-4f78-81c7-42d68e43dab8",
+    "product_id": "d5b57299-0340-4c59-2eb9-5459d62b9c49",
+    "product": {
+      "id": "d5b57299-0340-4c59-2eb9-5459d62b9c49",
+      "name": "Bamboo Cutting Board Set",
+      "description": "Set of 3 premium bamboo cutting boards in small, medium, and large sizes.",
+      "price": 5400,
+      "category": "Home & Kitchen",
+      "sku": "BCB-500",
+      "status": "active",
+      "featured": false,
+      "total_sold": 445,
+      "images": [
+        "https://picsum.photos/seed/bcb500/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/bcb500/200/200"
+      ],
+      "tags": [
+        "eco-friendly",
+        "popular"
+      ],
+      "variants": [],
+      "created_at": "2025-10-15T13:00:00Z",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    "quantity": 2,
+    "variant_id": null,
+    "created_at": "2026-03-28T10:05:00Z"
+  }
+]

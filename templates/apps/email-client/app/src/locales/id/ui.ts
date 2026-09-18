@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Jelajahi artikel bantuan',
+  'about.cta.signup': 'Coba Courier gratis',
+  'about.eyebrow': 'Tentang Courier',
+  'about.principle.calm': 'Tenang secara default.',
+  'about.principle.calm.desc':
+    'Tidak ada lencana yang berteriak, tidak ada notifikasi yang tidak Anda minta, tidak ada animasi yang menuntut perhatian Anda.',
+  'about.principle.fast.desc':
+    'Setiap tindakan hanya satu ketukan tombol. Kotak masuk dimuat dalam kurang dari 200ms pada masuk baru.',
+  'about.principle.honest.desc':
+    'Enkripsi saat transit dan saat istirahat, retensi transparan, dan ekspor data satu klik.',
+  'about.story': 'Mengapa kami membangun Courier',
+  'about.story.p1':
+    'Sebagian besar klien email mengoptimalkan untuk keterlibatan — menarik Anda kembali, memecah perhatian Anda, menyarankan satu ketukan lagi. Courier melakukan kebalikannya. Kami mengukur kesuksesan berdasarkan waktu yang Anda habiskan BUKAN di kotak masuk: triase cepat, tunda dengan percaya diri, dan lanjutkan pekerjaan yang penting.',
+  'about.subtitle':
+    'Courier adalah kotak masuk tiga panel yang tenang, dibangun oleh tim kecil yang ingin memproses informasi daripada bereaksi terhadapnya.',
+  'about.team.body':
+    'Kami adalah tim desainer dan insinyur terdistribusi yang dulunya menghabiskan terlalu banyak jam setiap hari di kotak surat yang berisik. Courier adalah kotak masuk yang ingin kami gunakan sendiri.',
+  'about.title': 'Email untuk pekerjaan yang fokus',
+  'help.cta.about': 'Tentang Courier',
+  'help.cta.pricing': 'Lihat harga',
+  'help.eyebrow': 'Pusat bantuan',
+  'help.faq.compose.a':
+    'Klik "Tulis" dari bilah sisi (atau tekan "c" pada tampilan kotak masuk mana pun), masukkan setidaknya satu penerima, subjek, dan isi pesan, lalu tekan "Kirim". Pesan baru akan langsung muncul di folder Terkirim Anda.',
+  'help.faq.compose.q': 'Bagaimana cara mengirim pesan pertama saya?',
+  'help.faq.export.a':
+    'Ya. Pengaturan → Akun → Ekspor data membuat arsip yang dapat diunduh (mbox + JSON) dengan setiap pesan, label, dan kontak. Tidak diperlukan tingkat premium.',
+  'help.faq.labels.a':
+    'Folder bersifat eksklusif (sebuah pesan berada tepat di satu): Kotak Masuk, Terkirim, Draf, Spam, Sampah, Arsip. Label bersifat aditif — Anda dapat menerapkan banyak ke satu email dan memfilter berdasarkan kombinasi dari bilah pencarian.',
+  'help.faq.password.a':
+    'Gunakan tautan “Lupa kata sandi?” di halaman masuk. Kami akan mengirim tautan reset yang berlaku selama satu jam ke email akun Anda.',
+  'help.faq.shortcuts.a':
+    'Ya. “j” / “k” berpindah antar utas, “s” menyalakan/mematikan bintang, “e” mengarsipkan, “#” memindahkan ke sampah, dan “/” memfokuskan kotak pencarian. Dokumentasi pintasan tersedia di tampilan kotak masuk mana pun dengan menekan “?”.',
+  'help.faq.support.a':
+    'Kirim email ke support@courier.example. Kami menjawab setiap pesan dalam satu hari kerja, hari kerja 9–17 UTC.',
+  'help.subtitle':
+    'Jawaban cepat untuk pertanyaan yang paling sering kami dengar. Ada yang kurang? Buka Pengaturan dan gunakan formulir umpan balik dalam aplikasi, atau tulis ke support@courier.example.',
+  'help.title': 'Bagaimana kami bisa membantu?',
+  'landing.brand.scrollTop': 'Kembali ke atas',
+  'landing.ctaBody':
+    'Bergabunglah dengan ribuan profesional yang menyelesaikan kotak masuk mereka sebelum makan siang.',
+  'landing.ctaTitle': 'Proses lebih banyak, reaksi lebih sedikit.',
+  'landing.eyebrow': 'Email untuk pekerjaan yang fokus',
+  'landing.featuresBody': 'Berhenti mengelola kotak masuk Anda dan mulai menyelesaikan pekerjaan.',
+  'landing.featuresTitle': 'Dirancang untuk kerja mendalam',
+  'landing.help': 'Bantuan',
+  'landing.heroDemo': 'Tonton demo',
+  'landing.heroSubtitle':
+    'Courier adalah kotak masuk tiga panel yang tenang, dibangun untuk pekerja pengetahuan yang ingin memproses informasi, bukan bereaksi terhadapnya.',
+  'landing.proof': 'Dipercaya oleh tim yang fokus di seluruh dunia',
+  'landing.signIn': 'Masuk',
+  'meridian.archive.empty': 'Arsip kosong.',
+  'meridian.compose.addRecipient': 'Tambah penerima lain',
+  'meridian.compose.bodyPlaceholder': 'Tulis pesan Anda…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Buang draf',
+  'meridian.compose.invalidEmail': '"{{value}}" bukan email yang valid',
+  'meridian.compose.needRecipient': 'Tambah setidaknya satu penerima terlebih dahulu.',
+  'meridian.compose.replyTo': 'Balas di utas {{id}}',
+  'meridian.compose.savedAt': 'Draf disimpan pukul {{time}}',
+  'meridian.compose.sentWithError': 'Disimpan ke Terkirim, tetapi pengiriman gagal: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': 'Subjek',
+  'meridian.compose.title': 'Pesan baru',
+  'meridian.compose.to': 'Kepada',
+  'meridian.drafts.continue': 'Lanjutkan mengedit',
+  'meridian.drafts.count': '{{count}} pesan',
+  'meridian.drafts.delete': 'Hapus draf',
+  'meridian.drafts.empty': 'Belum ada draf — mulai menulis.',
+  'meridian.drafts.lastSaved': 'Disimpan {{at}}',
+  'meridian.drafts.noRecipients': '(belum ada penerima)',
+  'meridian.drafts.selectDraft': 'Pilih draf untuk pratinjau.',
+  'meridian.drafts.title': 'Draf',
+  'meridian.drafts.to': 'Kepada',
+  'meridian.drafts.watermark': 'Draf',
+  'meridian.folder.count': '{{count}} pesan',
+  'meridian.folder.deleteForever': 'Hapus permanen',
+  'meridian.folder.restore': 'Pindahkan ke kotak masuk',
+  'meridian.forgot.subtitle':
+    'Masukkan email yang terkait dengan kotak masuk Anda dan kami akan mengirim tautan reset.',
+  'meridian.forgot.success':
+    'Jika ada akun dengan email itu, tautan reset sedang dalam perjalanan.',
+  'meridian.inbox.empty': 'Belum ada pesan di sini.',
+  'meridian.inbox.loading': 'Memuat…',
+  'meridian.inbox.next': 'Berikutnya',
+  'meridian.inbox.noSubject': '(tanpa subjek)',
+  'meridian.inbox.openCompose': 'Buka tulis',
+  'meridian.inbox.previous': 'Sebelumnya',
+  'meridian.inbox.replyFailed': 'Balasan disimpan tetapi pengiriman gagal: {{error}}',
+  'meridian.inbox.replySent': 'Balasan terkirim.',
+  'meridian.inbox.replyTo': 'Balas kepada {{name}}',
+  'meridian.inbox.selectMessage': 'Pilih pesan untuk dibaca',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Lihat utas',
+  'meridian.login.hidePassword': 'Sembunyikan kata sandi',
+  'meridian.login.noAccount': 'Belum punya akun?',
+  'meridian.login.showPassword': 'Tampilkan kata sandi',
+  'meridian.message.toLine': 'kepada {{recipients}}',
+  'meridian.notFound.eyebrow': 'Galat 404',
+  'meridian.notFound.title': 'Utas ini telah diarsipkan.',
+  'meridian.notFound.toInbox': 'Buka kotak masuk saya',
+  'meridian.reset.newLabel': 'Kata sandi baru',
+  'meridian.reset.showPassword': 'Tampilkan kata sandi',
+  'meridian.reset.subtitle': 'Pilih kata sandi yang kuat — minimal 8 karakter.',
+  'meridian.sent.empty': 'Anda belum mengirim apa pun.',
+  'meridian.sent.title': 'Terkirim',
+  'meridian.settings.noName': '(tidak ada nama)',
+  'meridian.settings.section.${section}': 'Sesuaikan milik Anda {{appName}} pengalaman',
+  'meridian.settings.signature': 'Tanda tangan',
+  'meridian.settings.signatureSaved': 'Tanda tangan disimpan.',
+  'meridian.sidebar.compose': 'Tulis',
+  'meridian.sidebar.labels': 'Label',
+  'meridian.sidebar.noLabels': 'Belum ada label',
+  'meridian.sidebar.storage': 'Penyimpanan',
+  'meridian.sidebar.storageLabel': '{{used}} dari {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Buat kotak masuk Courier Anda',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Tampilkan kata sandi',
+  'meridian.signup.subtitle': 'Proses kotak masuk Anda sebelum makan siang.',
+  'meridian.spam.empty': 'Tidak ada spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Tidak ada pesan berbintang.',
+  'meridian.starred.loading': 'Memuat…',
+  'meridian.starred.removeStar': 'Hapus bintang',
+  'meridian.starred.total': 'total {{count}}',
+  'meridian.thread.back': 'Kembali ke Kotak Masuk',
+  'meridian.thread.empty': 'Tidak ada pesan di utas ini.',
+  'meridian.thread.eyebrow': 'Utas #{{id}}',
+  'meridian.thread.notFound': 'Utas tidak ditemukan.',
+  'meridian.thread.star': 'Tambah bintang',
+  'meridian.thread.unstar': 'Hapus bintang',
+  'meridian.time.yesterday': 'Kemarin',
+  'meridian.topBar.searchPlaceholder': 'Cari surat',
+  'meridian.trash.empty': 'Sampah kosong.',
+  'meridian.trash.title': 'Sampah',
+  'nav.legal': 'Hukum',
+  'planUpdated.description':
+    'Langganan Anda sekarang aktif dan tagihan Anda telah diperbarui. Selamat datang di kotak masuk Courier Anda yang diperbarui.',
+  'pricing.heading': 'draf',
+  'pricing.limit.emails': 'email',
+  'pricing.limit.folders': 'folder',
+  'pricing.limit.labels': 'label',
+  'privacy.collect.account':
+    'Data akun: nama, alamat email, kata sandi yang di-hash, dan tanggal Anda mendaftar.',
+  'privacy.intro':
+    'Kebijakan privasi ini menjelaskan data apa yang dikumpulkan Courier, mengapa kami mengumpulkannya, bagaimana kami menjaganya tetap aman, dan pilihan apa yang Anda miliki atasnya. Kami berusaha untuk spesifik daripada legalistik; jika ada yang tidak jelas, tulis ke privacy@courier.example.',
+  'privacy.lastUpdated': 'Terakhir diperbarui: 1 April 2026',
+  'privacy.linkTerms': 'Baca Ketentuan Layanan kami →',
+  'privacy.rights.body':
+    'Anda dapat mengekspor setiap data yang kami miliki tentang Anda dari Pengaturan → Akun → Ekspor data, dan Anda dapat menghapus akun dengan satu klik — semua baris dihapus dalam 24 jam, log audit dibersihkan setelah 30 hari.',
+  'privacy.security.body':
+    'Konten email dan lampiran dienkripsi saat istirahat menggunakan AES-256. Koneksi ke dan dari layanan kami menggunakan TLS 1.3. Kata sandi di-hash dengan bcrypt; kami tidak pernah mencatat atau menyimpan kata sandi teks biasa. Akses produksi dibatasi untuk insinyur on-call, diaudit setiap bulan.',
+  'privacy.share.body':
+    'Kami membagikan data hanya dengan sub-prosesor yang kami butuhkan untuk menjalankan Courier (pengiriman email melalui Mailgun, penagihan melalui Stripe, hosting melalui AWS). Masing-masing terikat secara kontrak untuk menggunakan data Anda hanya untuk melakukan layanan mereka bagi kami. Kami tidak menjual, menyewakan, atau menukar data Anda kepada siapa pun.',
+  'terms.acceptable.spam':
+    'Tidak ada pesan massal yang tidak diminta. Kami akan menutup akun yang mengirim spam tanpa peringatan.',
+  'terms.account.body':
+    'Anda bertanggung jawab untuk menjaga kerahasiaan kata sandi Anda dan untuk setiap aktivitas yang terjadi melalui akun Anda. Beri tahu kami di security@courier.example jika Anda yakin akun Anda telah disusupi.',
+  'terms.billing.body':
+    'Paket berbayar diperpanjang sesuai dengan irama yang dipilih saat pendaftaran. Anda dapat membatalkan dari Pengaturan → Penagihan kapan saja dan Anda tetap memiliki akses untuk sisa periode penagihan. Pengembalian dana diberikan untuk waktu henti layanan yang melebihi SLA.',
+  'terms.intro':
+    'Ketentuan ini mengatur penggunaan Courier oleh Anda. Dengan membuat akun atau mengirim email melalui kami, Anda setuju untuk terikat olehnya. Kami berusaha menulis aturan yang benar-benar dapat diikuti oleh seseorang.',
+  'terms.lastUpdated': 'Berlaku: 1 April 2026',
+  'terms.termination.body':
+    'Anda dapat menghapus akun Anda kapan saja. Kami dapat menangguhkan akun yang melanggar ketentuan ini; jika kami melakukannya, kami akan menjelaskan alasannya dan membiarkan Anda mengekspor data Anda terlebih dahulu.',
+  'terms.warranty.body':
+    'Layanan disediakan apa adanya. Kami bekerja keras untuk menjaganya tetap andal dan aman, tetapi kami tidak dapat menjamin akses tanpa gangguan. Sejauh yang diizinkan oleh hukum, tanggung jawab agregat kami dibatasi pada jumlah yang Anda bayarkan kepada kami dalam 12 bulan sebelumnya.',
+}

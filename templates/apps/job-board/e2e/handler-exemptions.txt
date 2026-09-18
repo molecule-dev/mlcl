@@ -1,0 +1,9 @@
+# Handlers that are intentionally not exercised by the UI yet.
+#
+# `categories` exposes CRUD on the categories table for taxonomy
+# editing in a future v2 dashboard. Today the Jobs flow lets seekers
+# search and filter by free-form tags rather than a pre-curated taxonomy,
+# so the categories handler ships as a build-out hook (the table exists,
+# the routes work) but no page calls it. Tested via the resource-tag
+# molecule package's own tests.
+categories

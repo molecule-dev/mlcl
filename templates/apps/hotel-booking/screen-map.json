@@ -1,0 +1,149 @@
+{
+  "app": "hotel-booking",
+  "designProjectId": "17837667646152124878",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-landing.html",
+      "designScreenId": "51716f13eb14499daae3ef4a16b6050e"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-login.html",
+      "designScreenId": "a496afff354f451682612748b5f3eada"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hotel-booking-login.html",
+      "derivationNotes": "Same split layout as Login with editorial photo left and form right. Card contents become First Name, Last Name, Email, Password, Confirm Password. H1 changes to 'Create your account', subhead 'Join Sojourn to unlock members-only rates'. Button label 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hotel-booking-login.html",
+      "derivationNotes": "Same split layout as Login but with only Email field. H1 changes to 'Reset your password', subhead 'Enter your email and we'll send you a reset link'. Button label 'Send reset link'. Bottom link 'Back to sign in'. No password field, no OAuth options."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hotel-booking-login.html",
+      "derivationNotes": "Same split layout as Login with only New Password and Confirm Password fields. H1 changes to 'Set a new password'. Button label 'Reset password'. Bottom link 'Back to sign in'. No email field, no OAuth options."
+    },
+    {
+      "name": "SearchResults",
+      "templateFile": "app/pages/SearchResults.tsx",
+      "components": [],
+      "route": "/search",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-search-results.html",
+      "designScreenId": "3ac7fe3602f44ca7b75dd520a2eb32c9"
+    },
+    {
+      "name": "PropertyDetail",
+      "templateFile": "app/pages/PropertyDetail.tsx",
+      "components": [],
+      "route": "/property/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-property-detail.html",
+      "designScreenId": "ded463e357f34ac38e9d387790eb4aa6"
+    },
+    {
+      "name": "BookingCheckout",
+      "templateFile": "app/pages/BookingCheckout.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/booking/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-booking-checkout.html",
+      "designScreenId": "885651578cce42dc991491eced0fc3ac"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/trips",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-trips.html",
+      "designScreenId": "74caa989ec734c64950f377526d559d2"
+    },
+    {
+      "name": "Favorites",
+      "templateFile": "app/pages/Favorites.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/favorites",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-favorites.html",
+      "designScreenId": "e768498d5b7e40aabca5c40099c7cdd9"
+    },
+    {
+      "name": "Account",
+      "templateFile": "app/pages/Account.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/account",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-account.html",
+      "designScreenId": "e834fb7e0e794b999cd6dd6c97260d70"
+    },
+    {
+      "name": "BookingConfirmation",
+      "templateFile": "app/pages/BookingConfirmation.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/booking/:id/confirmation",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-booking-confirmation.html",
+      "designScreenId": "ca4dd2928595451395ccf8b2d39f813f"
+    },
+    {
+      "name": "TripDetail",
+      "templateFile": "app/pages/TripDetail.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/trips/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-trip-detail.html",
+      "designScreenId": "8ba66dc80e064cf1b8aac17e16b67dff"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/HotelBookingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hotel-booking-notifications.html",
+      "designScreenId": "83e9c97de4ec435b919a6dda07d6baa8"
+    }
+  ]
+}

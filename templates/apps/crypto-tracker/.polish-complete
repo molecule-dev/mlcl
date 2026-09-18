@@ -1,0 +1,24 @@
+crypto-tracker — polish complete
+date: 2026-04-28
+agent: Claude Opus 4.7 (1M context)
+sibling-translations:
+  - personal-finance/NetWorthCard       → PortfolioHeroCard
+  - personal-finance/AccountSummaryBar  → MarketKpiQuad
+  - personal-finance/AccountRecentTransactions → CoinSparklineRow row pattern
+  - crm/StatsRow                        → MarketKpiQuad tile composition
+  - project-management/StatsRow         → AlertConditionCard status pill pattern
+  - polish-catalog §13.3 (Decorated Card with Brand Panel) → SigilAuthShell
+chrome-conformance:
+  - @molecule/app-header-react
+  - @molecule/app-footer-react
+  - @molecule/app-root-error-boundary-react
+bespoke-components: 6 (PortfolioHeroCard, MarketKpiQuad, CoinSparklineRow,
+  NewsSignalCard, AlertConditionCard, SigilAuthShell)
+pages-rewritten: 11 (Dashboard, Markets, Portfolio, CoinDetail, News,
+  Alerts, Login, Signup, ForgotPassword, ResetPassword, NotFound)
+fonts-wired: Inter, JetBrains Mono, Material Symbols Outlined
+typecheck: app passes (npx tsc --noEmit, 0 errors)
+notes:
+  - Step 10 (re-screenshot) intentionally skipped — owned by parent agent.
+  - Pre-existing api/ TypeScript errors in scaffold handlers are out of
+    scope for this polish session and were not modified.

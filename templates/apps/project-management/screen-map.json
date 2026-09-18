@@ -1,0 +1,105 @@
+{
+  "app": "project-management",
+  "designProjectId": "5011587486271908529",
+  "screens": [
+    {
+      "name": "Board",
+      "templateFile": "app/pages/Board.tsx",
+      "components": ["app/components/ProjectLayout.tsx"],
+      "route": "/projects/:projectId/board",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-project-management-board.html",
+      "designScreenId": "0b7ef04218284ad28b1591aa5519e8c3",
+      "designScreenTitle": "Kanban Board - Project Manager"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ProjectLayout.tsx"],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-project-management-dashboard.html",
+      "designScreenId": "0d51248ec84e454ea2930cdecf3b74e3",
+      "designScreenTitle": "Forge Dashboard"
+    },
+    {
+      "name": "TaskList",
+      "templateFile": "app/pages/TaskList.tsx",
+      "components": ["app/components/ProjectLayout.tsx"],
+      "route": "/projects/:projectId/tasks",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-project-management-task-list.html",
+      "designScreenId": "d5a51da65a3a449d81be62a36c6d04dd",
+      "designScreenTitle": "My Tasks - List View"
+    },
+    {
+      "name": "Timeline",
+      "templateFile": "app/pages/Timeline.tsx",
+      "components": ["app/components/ProjectLayout.tsx"],
+      "route": "/projects/:projectId/timeline",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-project-management-timeline.html",
+      "designScreenId": "25f5e7db764941a7bf6e1baee5e2de58",
+      "designScreenTitle": "Calendar View - Project Manager"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ProjectLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-project-management-settings.html",
+      "designScreenId": "b4c95a13c5e34b618627b9705b69e0c3",
+      "generationPrompt": "Settings page for Forge project management app. Left sidebar (280px, #f2f3ff) with navigation. Main content with sections on white cards: Profile (avatar, name, email, bio), Notifications (toggles for email/push/assignments/updates), Appearance (theme toggle, language selector), Account (change password, delete account danger zone). Indigo gradient primary buttons, Inter font, no 1px borders — tonal layering only."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-project-management-login.html",
+      "designScreenId": "47e7e7ff4d794f979b426e7b24dede24",
+      "generationPrompt": "Login page for Forge project management app. Centered white card on #faf8ff background with ambient shadow. Forge logo in display typography. Email and password inputs with #f2f3ff fill. Primary indigo gradient Sign In button. Forgot password and Sign up links. No hard borders — ghost borders and tonal layering only. Inter font, 1280px desktop viewport."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-project-management-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace title with 'Create Account'. Add full name field above email. Add confirm password field below password. Change primary button to 'Create Account'. Change bottom link to 'Already have an account? Sign in'. Remove 'Forgot password?' link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-project-management-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace title with 'Reset Password'. Add subtitle text explaining a reset link will be sent. Only email field (remove password field). Change primary button to 'Send Reset Link'. Change bottom link to 'Back to Sign In'. Remove 'Forgot password?' link."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-project-management-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace title with 'Set New Password'. Remove email field. Show new password and confirm password fields. Change primary button to 'Reset Password'. Change bottom link to 'Back to Sign In'. Remove 'Forgot password?' link."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Handlers exempted from gate 3 (handler-exercised-by-spec).
+# Format: one base name per line (matching api/src/handlers/<base>.ts).
+# Comments start with #.
+
+# users-me.ts mounts under /api/users (not /api/users-me) and exposes
+# /me/* endpoints. The verify-app-coverage gate's candidate list checks
+# /api/users-me / /api/users-mes / /users-me / /users-mes — none of
+# which match the actual mounted path /api/users/me. settings.spec.ts +
+# 99-user-journey.spec.ts both hit /api/users/me directly via
+# captureNetwork() and a request.get assertion, so this handler IS
+# tested — the gate just can't auto-derive the path.
+users-me
+
+# _test.ts is the dev-only e2e setup router (POST /api/_test/promote-admin),
+# 404 in production unless ENABLE_E2E_TEST_ENDPOINTS=true. It IS exercised —
+# the shared promoteToAdmin() helper in e2e/_helpers.ts POSTs it, and that
+# helper is called from tickets / macros-and-sla / knowledge-base /
+# knowledge-and-reports / 99-user-journey specs before driving operator-only
+# writes. The gate scans only *.spec.ts (not _helpers.ts), so the URL literal
+# living in the helper isn't auto-discoverable — hence this explicit exemption.
+_test

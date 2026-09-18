@@ -1,0 +1,16 @@
+# Handlers exempt from gate-3 (no spec network assertion required).
+#
+# _decorate is a pure helper that decorates raw Campaign/Pledge rows with
+# computed fields (cents, progress, days_left, creator_name, etc.). It is
+# imported by campaigns.ts and pledges.ts handlers — every test that calls
+# /api/campaigns or /api/pledges/:id exercises it transitively. Verified
+# in campaign-detail.spec.ts which asserts on the decorated shape
+# (creator_name, goal_cents, progress, tiers[].current_backers).
+_decorate
+#
+# _seed is a startup helper called from api/src/server.ts that seeds the
+# 6 demo campaigns + tiers + pledges + updates on first boot. Not exposed
+# as an HTTP endpoint. Verified by discover.spec.ts ("at least 5 active
+# seeded rows"), campaign-detail.spec.ts (loads ErgoFocus by stable id),
+# and notifications.spec.ts (consumes seeded campaign_updates).
+_seed

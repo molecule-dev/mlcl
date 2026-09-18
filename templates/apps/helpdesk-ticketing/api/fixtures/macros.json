@@ -1,0 +1,78 @@
+[
+  {
+    "id": "mac01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "name": "Acknowledge & Assign",
+    "description": "Acknowledges receipt of the ticket and sets it to pending while the team investigates.",
+    "actions": [
+      { "type": "set_status", "value": "pending" },
+      { "type": "set_priority", "value": "medium" }
+    ],
+    "reply_template": "Thank you for reaching out. We've received your request and a team member will investigate shortly. We'll update you within 24 hours.",
+    "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-08-01T10:00:00Z",
+    "updated_at": "2026-01-15T09:00:00Z"
+  },
+  {
+    "id": "mac02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "name": "Escalate to Engineering",
+    "description": "Escalates the ticket to the engineering team for investigation of technical issues.",
+    "actions": [
+      { "type": "set_priority", "value": "high" },
+      { "type": "set_category", "value": "Engineering Escalation" },
+      { "type": "set_assignee", "value": "278da854-7c49-4ccb-10a7-098f78344dd6" }
+    ],
+    "reply_template": "I've escalated this to our engineering team for a deeper investigation. They'll prioritize this and we'll provide an update as soon as we have more information.",
+    "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-08-01T10:30:00Z",
+    "updated_at": "2026-02-10T11:00:00Z"
+  },
+  {
+    "id": "mac03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "name": "Request More Information",
+    "description": "Asks the requester for additional details needed to troubleshoot the issue.",
+    "actions": [
+      { "type": "set_status", "value": "pending" }
+    ],
+    "reply_template": "Thanks for reporting this. To help us investigate further, could you provide:\n\n1. Your browser and operating system version\n2. Steps to reproduce the issue\n3. Any error messages you're seeing\n4. Screenshots if available\n\nThis will help us resolve your issue more quickly.",
+    "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-09-01T09:00:00Z",
+    "updated_at": "2025-12-01T14:00:00Z"
+  },
+  {
+    "id": "mac04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "name": "Resolve - Issue Fixed",
+    "description": "Marks the ticket as resolved and notifies the requester that the fix has been deployed.",
+    "actions": [
+      { "type": "set_status", "value": "resolved" }
+    ],
+    "reply_template": "Good news! The issue you reported has been fixed and the change has been deployed. Please verify on your end and let us know if you experience any further problems. We'll close this ticket automatically in 48 hours if we don't hear back.",
+    "created_by": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "created_at": "2025-09-15T10:00:00Z",
+    "updated_at": "2026-01-20T09:00:00Z"
+  },
+  {
+    "id": "mac05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "name": "Billing Correction",
+    "description": "Acknowledges billing issue and routes to the billing team for correction.",
+    "actions": [
+      { "type": "set_category", "value": "Account & Billing" },
+      { "type": "set_status", "value": "pending" }
+    ],
+    "reply_template": "Thank you for bringing this billing discrepancy to our attention. I've routed this to our billing team who will review your account and issue any necessary corrections. You should receive an updated invoice within 2-3 business days.",
+    "created_by": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "created_at": "2025-10-01T11:00:00Z",
+    "updated_at": "2026-03-01T10:00:00Z"
+  },
+  {
+    "id": "mac06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "name": "Close - No Response",
+    "description": "Closes the ticket after the requester hasn't responded to follow-up requests.",
+    "actions": [
+      { "type": "set_status", "value": "closed" }
+    ],
+    "reply_template": "We haven't heard back from you regarding this ticket. We're closing it for now, but feel free to reopen it or create a new ticket if you still need assistance. We're always here to help!",
+    "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-11-01T09:00:00Z",
+    "updated_at": "2026-02-15T10:00:00Z"
+  }
+]

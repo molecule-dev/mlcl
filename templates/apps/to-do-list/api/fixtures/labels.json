@@ -1,0 +1,8 @@
+[
+  { "id": "lbl_001", "name": "work",   "task_count": 8 },
+  { "id": "lbl_002", "name": "urgent", "task_count": 2 },
+  { "id": "lbl_003", "name": "health", "task_count": 1 },
+  { "id": "lbl_004", "name": "learn",  "task_count": 1 },
+  { "id": "lbl_005", "name": "home",   "task_count": 0 },
+  { "id": "lbl_006", "name": "errand", "task_count": 0 }
+]

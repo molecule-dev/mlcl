@@ -1,0 +1,10 @@
+{
+  "dashboard_stats": {
+    "kpis": [
+      { "key": "queries", "label": "Queries this month", "value":  "184", "delta_pct":  12.4, "sparkline": [12, 14, 18, 21, 28, 24, 32, 28] },
+      { "key": "datasets","label": "Active datasets",     "value":   "12", "delta_pct":   0,   "sparkline": [10, 11, 11, 11, 12, 12, 12, 12] },
+      { "key": "insights","label": "Insights surfaced",   "value":   "42", "delta_pct":  18.2, "sparkline": [ 4,  6,  8, 12, 18, 24, 32, 42] },
+      { "key": "shared",  "label": "Shared reports",      "value":    "8", "delta_pct":   4.0, "sparkline": [ 2,  3,  4,  4,  6,  6,  7,  8] }
+    ]
+  }
+}

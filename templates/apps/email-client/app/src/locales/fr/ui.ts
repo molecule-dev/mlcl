@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': "Parcourir les articles d'aide",
+  'about.cta.signup': 'Essayer Courier gratuitement',
+  'about.eyebrow': 'À propos de Courier',
+  'about.principle.calm': 'Calme par défaut.',
+  'about.principle.calm.desc':
+    "Pas de badges qui crient, pas de notifications que vous n'avez pas demandées, pas d'animations qui exigent un coup d'œil.",
+  'about.principle.fast.desc':
+    'Chaque action est à une touche de distance. La boîte de réception se charge en moins de 200 ms après connexion.',
+  'about.principle.honest.desc':
+    'Chiffrement en transit et au repos, conservation transparente et exportation des données en un clic.',
+  'about.story': 'Pourquoi nous avons créé Courier',
+  'about.story.p1':
+    "La plupart des clients de messagerie optimisent l'engagement — ils vous ramènent, fragmentent votre attention, suggèrent un toucher de plus. Courier fait l'inverse. Nous mesurons le succès au temps que vous passez HORS de votre boîte : triez vite, reportez avec confiance, et poursuivez le travail qui compte.",
+  'about.subtitle':
+    "Courier est une boîte de réception calme à trois volets, créée par une petite équipe qui voulait traiter l'information au lieu d'y réagir.",
+  'about.team.body':
+    "Nous sommes une équipe distribuée de designers et d'ingénieurs qui avons passé trop d'heures chaque jour dans une boîte bruyante. Courier est la boîte que nous voulions utiliser nous-mêmes.",
+  'about.title': "L'e-mail pour un travail concentré",
+  'help.cta.about': 'À propos de Courier',
+  'help.cta.pricing': 'Voir les tarifs',
+  'help.eyebrow': "Centre d'aide",
+  'help.faq.compose.a':
+    'Cliquez sur « Nouveau message » dans la barre latérale (ou appuyez sur « Cc » dans n’importe quelle vue de boîte de réception), saisissez au moins un destinataire, un objet et un corps de message, puis appuyez sur « Envoyer ». Le nouveau message apparaît immédiatement dans votre dossier « Messages envoyés ».',
+  'help.faq.compose.q': 'Comment envoyer mon premier message ?',
+  'help.faq.export.a':
+    "Oui. Réglages → Compte → Exportation des données crée une archive téléchargeable (mbox + JSON) contenant chaque message, libellé et contact. Aucun palier premium n'est requis.",
+  'help.faq.labels.a':
+    'Les dossiers sont exclusifs (un message se trouve dans exactement un) : Boîte de réception, Envoyés, Brouillons, Spam, Corbeille, Archive. Les libellés sont additifs — vous pouvez en appliquer plusieurs à un même e-mail et filtrer par combinaisons depuis la barre de recherche.',
+  'help.faq.password.a':
+    "Utilisez le lien « Mot de passe oublié ? » sur la page de connexion. Nous enverrons un lien de réinitialisation valable une heure à l'adresse de votre compte.",
+  'help.faq.shortcuts.a':
+    "Oui. « j » / « k » déplacent entre les fils, « s » bascule une étoile, « e » archive, « # » déplace vers la corbeille et « / » met le focus sur la barre de recherche. La documentation des raccourcis s'affiche depuis toute vue de boîte en appuyant sur « ? ».",
+  'help.faq.support.a':
+    'Écrivez à support@courier.example. Nous répondons à chaque message sous un jour ouvré, en semaine de 9 h à 17 h UTC.',
+  'help.subtitle':
+    'Réponses rapides aux questions que nous recevons le plus. Quelque chose manque ? Ouvrez les Réglages et utilisez le formulaire de retour intégré, ou écrivez à support@courier.example.',
+  'help.title': 'Comment pouvons-nous vous aider ?',
+  'landing.brand.scrollTop': 'Retour en haut',
+  'landing.ctaBody':
+    'Rejoignez des milliers de professionnels qui ont terminé leur boîte avant le déjeuner.',
+  'landing.ctaTitle': 'Traitez plus, réagissez moins.',
+  'landing.eyebrow': "L'e-mail pour un travail concentré",
+  'landing.featuresBody': 'Cessez de gérer votre boîte et commencez à faire le travail.',
+  'landing.featuresTitle': 'Conçu pour le travail profond',
+  'landing.help': 'Aide',
+  'landing.heroDemo': 'Voir la démo',
+  'landing.heroSubtitle':
+    "Courier est une boîte de réception calme à trois volets, conçue pour les travailleurs du savoir qui veulent traiter l'information, pas y réagir.",
+  'landing.proof': 'Plébiscité par des équipes concentrées dans le monde entier',
+  'landing.signIn': 'Se connecter',
+  'meridian.archive.empty': "L'archive est vide.",
+  'meridian.compose.addRecipient': 'Ajouter un autre destinataire',
+  'meridian.compose.bodyPlaceholder': 'Rédigez votre message…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Abandonner le brouillon',
+  'meridian.compose.invalidEmail': "« {{value}} » n'est pas un e-mail valide",
+  'meridian.compose.needRecipient': "Ajoutez d'abord au moins un destinataire.",
+  'meridian.compose.replyTo': 'Répondre dans le fil {{id}}',
+  'meridian.compose.savedAt': 'Brouillon enregistré à {{time}}',
+  'meridian.compose.sentWithError': "Enregistré dans Envoyés, mais l'envoi a échoué : {{error}}",
+  'meridian.compose.subject': 'Objet',
+  'meridian.compose.subjectPlaceholder': 'Objet',
+  'meridian.compose.title': 'Nouveau message',
+  'meridian.compose.to': 'À',
+  'meridian.drafts.continue': 'Continuer la modification',
+  'meridian.drafts.count': '{{count}} messages',
+  'meridian.drafts.delete': 'Supprimer le brouillon',
+  'meridian.drafts.empty': "Aucun brouillon pour l'instant — commencez à rédiger.",
+  'meridian.drafts.lastSaved': 'Enregistré {{at}}',
+  'meridian.drafts.noRecipients': "(aucun destinataire pour l'instant)",
+  'meridian.drafts.selectDraft': "Sélectionnez un brouillon pour l'aperçu.",
+  'meridian.drafts.title': 'Brouillons',
+  'meridian.drafts.to': 'À',
+  'meridian.drafts.watermark': 'Brouillon',
+  'meridian.folder.count': '{{count}} messages',
+  'meridian.folder.deleteForever': 'Supprimer définitivement',
+  'meridian.folder.restore': 'Déplacer vers la boîte',
+  'meridian.forgot.subtitle':
+    "Saisissez l'e-mail associé à votre boîte et nous vous enverrons un lien de réinitialisation.",
+  'meridian.forgot.success':
+    'Si un compte avec cet e-mail existe, un lien de réinitialisation est en route.',
+  'meridian.inbox.empty': "Aucun message ici pour l'instant.",
+  'meridian.inbox.loading': 'Chargement…',
+  'meridian.inbox.next': 'Suivant',
+  'meridian.inbox.noSubject': '(sans objet)',
+  'meridian.inbox.openCompose': 'Ouvrir la rédaction',
+  'meridian.inbox.previous': 'Précédent',
+  'meridian.inbox.replyFailed': 'Réponse enregistrée mais envoi échoué : {{error}}',
+  'meridian.inbox.replySent': 'Réponse envoyée.',
+  'meridian.inbox.replyTo': 'Répondre à {{name}}',
+  'meridian.inbox.selectMessage': 'Sélectionnez un message à lire',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Voir le fil',
+  'meridian.login.hidePassword': 'Masquer le mot de passe',
+  'meridian.login.noAccount': "Vous n'avez pas de compte ?",
+  'meridian.login.showPassword': 'Afficher le mot de passe',
+  'meridian.message.toLine': 'à {{recipients}}',
+  'meridian.notFound.eyebrow': 'Erreur 404',
+  'meridian.notFound.title': 'Ce fil a été archivé.',
+  'meridian.notFound.toInbox': 'Ouvrir ma boîte',
+  'meridian.reset.newLabel': 'Nouveau mot de passe',
+  'meridian.reset.showPassword': 'Afficher le mot de passe',
+  'meridian.reset.subtitle': 'Choisissez un mot de passe robuste — au moins 8 caractères.',
+  'meridian.sent.empty': "Vous n'avez encore rien envoyé.",
+  'meridian.sent.title': 'Envoyés',
+  'meridian.settings.noName': '(aucun nom défini)',
+  'meridian.settings.section.${section}': 'Personnalisez votre {{appName}} expérience',
+  'meridian.settings.signature': 'Signature',
+  'meridian.settings.signatureSaved': 'Signature enregistrée.',
+  'meridian.sidebar.compose': 'Rédiger',
+  'meridian.sidebar.labels': 'Libellés',
+  'meridian.sidebar.noLabels': "Aucun libellé pour l'instant",
+  'meridian.sidebar.storage': 'Stockage',
+  'meridian.sidebar.storageLabel': '{{used}} sur {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Créez votre boîte Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Afficher le mot de passe',
+  'meridian.signup.subtitle': 'Traitez votre boîte avant le déjeuner.',
+  'meridian.spam.empty': 'Aucun spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Aucun message suivi.',
+  'meridian.starred.loading': 'Chargement…',
+  'meridian.starred.removeStar': "Retirer l'étoile",
+  'meridian.starred.total': '{{count}} au total',
+  'meridian.thread.back': 'Retour à la boîte',
+  'meridian.thread.empty': 'Aucun message dans ce fil.',
+  'meridian.thread.eyebrow': 'Fil n° {{id}}',
+  'meridian.thread.notFound': 'Fil introuvable.',
+  'meridian.thread.star': 'Ajouter une étoile',
+  'meridian.thread.unstar': "Retirer l'étoile",
+  'meridian.time.yesterday': 'Hier',
+  'meridian.topBar.searchPlaceholder': 'Rechercher dans le courrier',
+  'meridian.trash.empty': 'La corbeille est vide.',
+  'meridian.trash.title': 'Corbeille',
+  'nav.legal': 'Mentions légales',
+  'planUpdated.description':
+    'Votre abonnement est désormais actif et votre facturation a été mise à jour. Bienvenue dans votre boîte Courier renouvelée.',
+  'pricing.heading': 'brouillons',
+  'pricing.limit.emails': 'e-mails',
+  'pricing.limit.folders': 'dossiers',
+  'pricing.limit.labels': 'libellés',
+  'privacy.collect.account':
+    "Données de compte : nom, adresse e-mail, mot de passe haché et date d'inscription.",
+  'privacy.intro':
+    "Cette politique de confidentialité explique quelles données Courier collecte, pourquoi nous les collectons, comment nous les protégeons et les choix qui vous reviennent. Nous cherchons à être précis plutôt que légalistes ; si quelque chose n'est pas clair, écrivez à privacy@courier.example.",
+  'privacy.lastUpdated': 'Dernière mise à jour : 1er avril 2026',
+  'privacy.linkTerms': 'Lire nos Conditions de service →',
+  'privacy.rights.body':
+    "Vous pouvez exporter toutes les données que nous détenons sur vous depuis Réglages → Compte → Exportation des données, et vous pouvez supprimer votre compte en un clic — toutes les lignes sont effacées sous 24 heures, les journaux d'audit purgés après 30 jours.",
+  'privacy.security.body':
+    "Le contenu des e-mails et les pièces jointes sont chiffrés au repos avec AES-256. Les connexions vers et depuis notre service utilisent TLS 1.3. Les mots de passe sont hachés avec bcrypt ; nous ne consignons ni ne stockons jamais de mots de passe en clair. L'accès à la production est limité aux ingénieurs d'astreinte, audité chaque mois.",
+  'privacy.share.body':
+    "Nous ne partageons les données qu'avec les sous-traitants dont nous avons besoin pour faire fonctionner Courier (envoi d'e-mails via Mailgun, facturation via Stripe, hébergement via AWS). Chacun est contractuellement tenu d'utiliser vos données uniquement pour exécuter son service pour nous. Nous ne vendons, ne louons ni n'échangeons jamais vos données avec quiconque.",
+  'terms.acceptable.spam':
+    'Aucune messagerie de masse non sollicitée. Nous fermerons sans avertissement les comptes qui envoient du spam.',
+  'terms.account.body':
+    'Vous êtes responsable de la confidentialité de votre mot de passe et de toute activité réalisée via votre compte. Avertissez-nous à security@courier.example si vous pensez que votre compte a été compromis.',
+  'terms.billing.body':
+    "Les forfaits payants se renouvellent selon la cadence choisie à l'inscription. Vous pouvez résilier depuis Réglages → Facturation à tout moment et conservez l'accès jusqu'à la fin de la période facturée. Des remboursements sont émis pour les indisponibilités dépassant le SLA.",
+  'terms.intro':
+    "Ces conditions régissent votre utilisation de Courier. En créant un compte ou en envoyant un e-mail via nos services, vous acceptez d'y être lié. Nous essayons d'écrire des règles qu'une personne peut réellement suivre.",
+  'terms.lastUpdated': 'En vigueur : 1er avril 2026',
+  'terms.termination.body':
+    'Vous pouvez supprimer votre compte à tout moment. Nous pouvons suspendre un compte qui enfreint ces conditions ; le cas échéant, nous en expliquerons la raison et vous laisserons exporter vos données au préalable.',
+  'terms.warranty.body':
+    'Le service est fourni tel quel. Nous travaillons dur pour le maintenir fiable et sécurisé, mais ne pouvons garantir un accès ininterrompu. Dans la mesure permise par la loi, notre responsabilité totale est plafonnée au montant que vous nous avez versé au cours des 12 derniers mois.',
+}

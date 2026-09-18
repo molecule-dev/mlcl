@@ -1,0 +1,82 @@
+[
+  {
+    "rank": 1,
+    "user_id": "u-priya",
+    "display_name": "Priya Sharma",
+    "handle": "priya",
+    "score": 18420,
+    "streak_days": 47,
+    "delta": 0,
+    "country_emoji": "🇮🇳"
+  },
+  {
+    "rank": 2,
+    "user_id": "u-amelia",
+    "display_name": "Amelia Park",
+    "handle": "amelia",
+    "score": 17680,
+    "streak_days": 32,
+    "delta": 1,
+    "country_emoji": "🇦🇺"
+  },
+  {
+    "rank": 3,
+    "user_id": "u-rohan",
+    "display_name": "Rohan Krishnan",
+    "handle": "rohan",
+    "score": 17220,
+    "streak_days": 28,
+    "delta": -1,
+    "country_emoji": "🇨🇦"
+  },
+  {
+    "rank": 4,
+    "user_id": "u-mira",
+    "display_name": "Mira Tanaka",
+    "handle": "mira",
+    "score": 16450,
+    "streak_days": 19,
+    "delta": 2,
+    "country_emoji": "🇯🇵"
+  },
+  {
+    "rank": 5,
+    "user_id": "u-jordan",
+    "display_name": "Jordan Reeves",
+    "handle": "jordan",
+    "score": 15910,
+    "streak_days": 24,
+    "delta": -1,
+    "country_emoji": "🇺🇸"
+  },
+  {
+    "rank": 6,
+    "user_id": "u-current",
+    "display_name": "You",
+    "handle": "you",
+    "score": 15240,
+    "streak_days": 12,
+    "delta": 3,
+    "country_emoji": "🌍"
+  },
+  {
+    "rank": 7,
+    "user_id": "u-leo",
+    "display_name": "Leo Marchetti",
+    "handle": "leo",
+    "score": 14820,
+    "streak_days": 9,
+    "delta": -2,
+    "country_emoji": "🇮🇹"
+  },
+  {
+    "rank": 8,
+    "user_id": "u-sana",
+    "display_name": "Sana Al-Hassan",
+    "handle": "sana",
+    "score": 14210,
+    "streak_days": 14,
+    "delta": 0,
+    "country_emoji": "🇦🇪"
+  }
+]

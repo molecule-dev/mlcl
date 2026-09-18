@@ -1,0 +1,13 @@
+# Handlers exempted from gate-3 (per-handler network-assertion coverage).
+# These exist in api/src/handlers/ but are NOT mounted as standalone HTTP
+# routes — they're either internal helpers or are exercised indirectly
+# through other endpoints' specs.
+#
+# When the corresponding endpoint becomes user-facing, remove the line and
+# add a spec that drives it through the rendered surface.
+
+# _seed: not an HTTP route — invoked from dashboard.ts and vocabulary.ts
+# during request handling to lazily seed catalog/starter rows. Coverage
+# is implicit via the dashboard.spec.ts and vocabulary.spec.ts assertions
+# that depend on seeded data.
+_seed

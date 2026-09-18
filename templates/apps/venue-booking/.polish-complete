@@ -1,0 +1,11 @@
+Polish complete: 2026-04-30T00:53Z
+Pipeline: polish-app.mjs (autonomous polish session)
+Cluster: hospitality → polished sibling: hotel-booking (Sojourn → Alcove)
+Brand: Alcove ("Every space, a story") — forest #2b7a6f / copper #c47d3f
+Components: 6 bespoke (AlcoveAuthShell, AlcoveLayout, AlcoveHeroSearchCard, VenueListingCard, ReservationRow, CategoryTile)
+Display font: DM Sans (added to mol:design-resources slot)
+Screen-map coverage: 18/18 (Landing, Login, Signup, ForgotPassword, ResetPassword, Search, VenueDetail, Booking, Reservations, ReservationDetail, BookingConfirmation, Favorites, Account, Messages, MessageThread, HostDashboard, Notifications, Settings)
+Auth pages: Login + Signup + ForgotPassword + ResetPassword wrapped in AlcoveAuthShell (Catalog §13.3 brand-panel)
+Compliance: clean (check-rules-compliance.mjs, 280 files)
+Typecheck: clean (npx tsc --noEmit)
+Screenshots: 18/18 captured to reference/.app-screenshots/venue-booking/, no blanks

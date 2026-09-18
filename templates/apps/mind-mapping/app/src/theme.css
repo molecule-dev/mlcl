@@ -1,0 +1,605 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #4060ec;
+  --mol-color-primary-light: #eef2ff;
+  --mol-color-primary-dark: #2d4ad0;
+  --mol-color-secondary: #5e6c84;
+  --mol-color-background: #f8f9fb;
+  --mol-color-background-secondary: #f0f2f5;
+  --mol-color-background-tertiary: #e5e8ed;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f2f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #172b4d;
+  --mol-color-text-secondary: #5e6c84;
+  --mol-color-text-tertiary: #637483;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #dfe1e6;
+  --mol-color-border-secondary: #ebecf0;
+  --mol-color-border-focus: #4060ec;
+  --mol-color-success: #36b37e;
+  --mol-color-warning: #ffab00;
+  --mol-color-error: #c93b20;
+  --mol-color-info: #0065ff;
+
+  /* Brand */
+  --color-primary: #4060ec;
+  --color-primary-hover: #3b5de7;
+  --color-primary-light: #eef2ff;
+  --color-primary-dark: #2d4ad0;
+
+  /* Surface */
+  --color-background: #f8f9fb;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f2f5;
+  --color-surface-active: #e5e8ed;
+
+  /* Canvas */
+  --color-canvas-bg: #fafbfc;
+  --color-grid-dot: #d0d5dd;
+  --color-connection: #5e6c84;
+  --color-selection: #4060ec;
+  --color-selection-ring: rgba(64, 96, 236, 0.3);
+
+  /* Node defaults */
+  --color-node-bg: rgba(64, 96, 236, 0.1);
+  --color-node-border: #4060ec;
+  --color-node-text: #172b4d;
+  --color-node-selected-shadow: 0 0 0 3px var(--color-selection-ring);
+
+  /* Sidebar */
+  --color-sidebar-bg: #1e2a3a;
+  --color-sidebar-hover: #2a3a4e;
+  --color-sidebar-active: #364d66;
+  --color-sidebar-text: #e2e8f0;
+  --color-sidebar-text-muted: #8896a6;
+
+  /* Text */
+  --color-text: #172b4d;
+  --color-text-secondary: #5e6c84;
+  --color-text-muted: #637483; /* #a5adba was 2.15:1 on #f8f9fb (fail); #637483 = 4.58:1 */
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #dfe1e6;
+  --color-border-light: #ebecf0;
+  --color-border-focus: #4060ec;
+
+  /* Status */
+  --color-success: #36b37e;
+  --color-warning: #ffab00;
+  --color-error: #c93b20; /* #ff5630 was 3.17:1 on white (fail); #c93b20 = 5.08:1, on-error white passes */
+  --color-info: #0065ff;
+
+  /* Node palette */
+  --color-node-blue: #0079bf;
+  --color-node-green: #61bd4f;
+  --color-node-yellow: #f2d600;
+  --color-node-orange: #ff9f1a;
+  --color-node-red: #eb5a46;
+  --color-node-purple: #c377e0;
+  --color-node-pink: #ff80ce;
+  --color-node-cyan: #00c2e0;
+  --color-node-teal: #51e898;
+  --color-node-navy: #344563;
+  --color-node-gray: #64748b;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+
+  /* Canvas layout */
+  --toolbar-height: 48px;
+  --properties-width: 240px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(9, 30, 66, 0.08);
+  --shadow-md: 0 4px 8px rgba(9, 30, 66, 0.12);
+  --shadow-lg: 0 8px 16px rgba(9, 30, 66, 0.15);
+  --shadow-node: 0 1px 3px rgba(9, 30, 66, 0.12);
+  --shadow-node-drag: 0 8px 24px rgba(9, 30, 66, 0.2);
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* Dark mode — productivity / mind-mapping cool-neutral dark.
+   Cool slate near-black canvas (analytical, not warm). Brand indigo-blue
+   kept at brand stop (#4a6cf7) for nodes, selection, and CTAs; on-primary
+   stays white so primary surfaces keep their light-on-blue character.
+   Node palette is brightened so the rainbow swatches stay saturated on
+   the dark canvas. */
+[data-mol-mode='dark'] {
+  --color-primary: #4060ec; /* brand indigo — on-primary white is 5.12:1 */
+  --color-primary-hover: #6b8aff;
+  --color-primary-light: #1c2545;
+  --color-primary-dark: #2d4ad0;
+
+  --color-background: #0f131c;
+  --color-surface: #181d27;
+  --color-surface-hover: #232838;
+  --color-surface-active: #2c3245;
+
+  --color-canvas-bg: #131722;
+  --color-grid-dot: #2a3046;
+  --color-connection: #8896a6;
+  --color-selection: #4060ec;
+  --color-selection-ring: rgba(64, 96, 236, 0.35);
+
+  --color-node-bg: rgba(64, 96, 236, 0.14);
+  --color-node-border: #4060ec;
+  --color-node-text: #e6eaf2;
+
+  --color-sidebar-bg: #0c1018;
+  --color-sidebar-hover: #181d27;
+  --color-sidebar-active: #232838;
+  --color-sidebar-text: #e6eaf2;
+  --color-sidebar-text-muted: #6b7c8f;
+
+  --color-text: #e6eaf2;
+  --color-text-secondary: #b0b8c8;
+  --color-text-muted: #6b7c8f;
+  --color-text-inverse: #ffffff; /* white on brand-blue primary surfaces */
+
+  --color-border: #232a3c;
+  --color-border-light: #1c2230;
+  --color-border-focus: #4060ec;
+
+  /* Status — brighter for dark surfaces */
+  --color-success: #4dd99a;
+  --color-warning: #ffc01f;
+  --color-error: #ce3818; /* #ff7758 was 2.61:1 with white (fail); #ce3818 = 5.00:1 */
+  --color-info: #4d8fff;
+
+  /* Node palette — brighter, saturated for dark canvases */
+  --color-node-blue: #4da6e3;
+  --color-node-green: #7ad55c;
+  --color-node-yellow: #ffe14d;
+  --color-node-orange: #ffb44d;
+  --color-node-red: #ff7464;
+  --color-node-purple: #d290ed;
+  --color-node-pink: #ff9ed6;
+  --color-node-cyan: #4ddaf2;
+  --color-node-teal: #6cf2ac;
+  --color-node-navy: #5e7194;
+  --color-node-gray: #94a3b8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-node: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-node-drag: 0 8px 24px rgba(0, 0, 0, 0.65);
+
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #4060ec; /* on-primary white 5.12:1 */
+  --mol-color-primary-light: #1c2545;
+  --mol-color-primary-dark: #2d4ad0;
+  --mol-color-secondary: #b0b8c8;
+  --mol-color-background: #0f131c;
+  --mol-color-background-secondary: #181d27;
+  --mol-color-background-tertiary: #232838;
+  --mol-color-surface: #181d27;
+  --mol-color-surface-secondary: #232838;
+  --mol-color-input-background: #0c1018;
+  --mol-color-text: #e6eaf2;
+  --mol-color-text-secondary: #b0b8c8;
+  --mol-color-text-tertiary: #6b7c8f;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #232a3c;
+  --mol-color-border-secondary: #1c2230;
+  --mol-color-border-focus: #4060ec;
+  --mol-color-success: #4dd99a;
+  --mol-color-warning: #ffc01f;
+  --mol-color-error: #ce3818; /* #ff7758 was 2.61:1 with white (fail) */
+  --mol-color-info: #4d8fff;
+
+  /* Stitch / Material-3 bridge — brand stop preserved, on-primary white. */
+  --color-background: #0f131c;
+  --color-on-background: #e6eaf2;
+  --color-surface: #181d27;
+  --color-surface-bright: #2c3245;
+  --color-surface-dim: #090c12;
+  --color-surface-container-lowest: #080b10;
+  --color-surface-container-low: #131822;
+  --color-surface-container: #181d27;
+  --color-surface-container-high: #232838;
+  --color-surface-container-highest: #2c3245;
+  --color-surface-variant: #232838;
+  --color-on-surface: #e6eaf2;
+  --color-on-surface-variant: #b0b8c8;
+  --color-inverse-surface: #e6eaf2;
+  --color-inverse-on-surface: #0f131c;
+  --color-inverse-primary: #2d4ad0;
+  --color-primary: #4060ec; /* brand indigo — on-primary white 5.12:1 */
+  --color-primary-container: #1c2545;
+  --color-on-primary: #ffffff; /* white on indigo — 5.12:1 */
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary: #b0b8c8;
+  --color-secondary-container: #232a3c;
+  --color-on-secondary: #0f131c;
+  --color-on-secondary-container: #e6eaf2;
+  --color-tertiary: #4dd99a;
+  --color-tertiary-container: #0f3b25;
+  --color-on-tertiary: #0f3b25; /* #ffffff was 1.79:1 on #4dd99a (fail); dark = 7.00:1 */
+  --color-on-tertiary-container: #b7f5d8;
+  --color-error: #ce3818; /* #ff7758 was 2.61:1 with white (fail); #ce3818 = 5.00:1 */
+  --color-error-container: #5a1818;
+  --color-on-error: #ffffff; /* on #ce3818 = 5.00:1 ✓ */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5c6b7e; /* #4a5568 was 2.24:1 vs surface (fail ≥3:1); #5c6b7e = 3.10:1 */
+  --color-outline-variant: #232a3c;
+  --color-surface-tint: #4060ec;
+}
+
+/* ---- Editor layout ---- */
+
+.mm-editor {
+  display: grid;
+  grid-template-rows: var(--toolbar-height) 1fr;
+  grid-template-columns: 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-canvas-bg);
+}
+
+.mm-toolbar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: 0 var(--spacing-lg);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+.mm-toolbar-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mm-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.mm-toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+  margin: 0 var(--spacing-xs);
+}
+
+.mm-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.mm-tool-btn:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-border-focus);
+}
+
+.mm-tool-btn--active {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.mm-tool-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mm-zoom-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ---- Canvas ---- */
+
+.mm-canvas {
+  grid-column: 1;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.mm-canvas-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mm-canvas-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+
+.mm-connections-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.mm-connections-layer g {
+  pointer-events: stroke;
+}
+
+.mm-connections-layer path:hover {
+  stroke-width: 4;
+}
+
+.mm-connection-label {
+  font-size: var(--font-size-xs);
+  fill: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+/* ---- Nodes ---- */
+
+.mm-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transition: box-shadow var(--transition-fast);
+}
+
+.mm-node:active {
+  cursor: grabbing;
+}
+
+.mm-node--selected {
+  box-shadow: var(--color-node-selected-shadow);
+  border-radius: var(--radius-md);
+  z-index: 5;
+}
+
+.mm-node-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mm-node-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-node-text);
+  text-align: center;
+  word-break: break-word;
+  width: 100%;
+}
+
+.mm-node-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: center;
+  padding: 0;
+}
+
+.mm-node-text {
+  line-height: 1.4;
+}
+
+/* ---- Properties panel ---- */
+
+.mm-properties {
+  grid-column: 2;
+  width: var(--properties-width);
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.mm-properties-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.mm-properties-label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.mm-color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.mm-color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.mm-color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.mm-color-swatch--active {
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 2px var(--color-surface);
+}
+
+.mm-shape-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.mm-shape-btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.mm-shape-btn:hover {
+  background: var(--color-surface-hover);
+}
+
+.mm-shape-btn--active {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ---- Dashboard ---- */
+
+.mm-search-bar {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mm-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition:
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.mm-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-focus);
+}
+
+.mm-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mm-card-preview {
+  height: 120px;
+  background: var(--color-canvas-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.mm-card-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mm-card-placeholder {
+  opacity: 0.3;
+}
+
+.mm-card-placeholder-icon {
+  width: 64px;
+  height: 48px;
+  fill: var(--color-text-muted);
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5;
+}
+
+.mm-card-body {
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.mm-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.mm-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+}

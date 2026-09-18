@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ss01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "quiz_id": "qz01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "user_id": "u-current",
+    "score": 1740,
+    "correct_count": 18,
+    "total_count": 20,
+    "rank": 12,
+    "duration_seconds": 248,
+    "completed_at": "2026-04-29T18:30:00Z",
+    "started_at": "2026-04-29T18:25:50Z"
+  },
+  {
+    "id": "ss02b3c4-5d6e-4f7a-b8c9-d0e1f2a3b4c5",
+    "quiz_id": "qz03c4d5-6e7f-4a8b-c9d0-e1f2a3b4c5d6",
+    "user_id": "u-current",
+    "score": 2410,
+    "correct_count": 24,
+    "total_count": 25,
+    "rank": 4,
+    "duration_seconds": 320,
+    "completed_at": "2026-04-28T14:10:00Z",
+    "started_at": "2026-04-28T14:04:40Z"
+  },
+  {
+    "id": "ss03c4d5-6e7f-4a8b-c9d0-e1f2a3b4c5d6",
+    "quiz_id": "qz05e6f7-8a9b-4c0d-e1f2-a3b4c5d6e7f8",
+    "user_id": "u-current",
+    "score": 1380,
+    "correct_count": 9,
+    "total_count": 12,
+    "rank": 47,
+    "duration_seconds": 510,
+    "completed_at": "2026-04-25T09:15:00Z",
+    "started_at": "2026-04-25T09:06:30Z"
+  }
+]

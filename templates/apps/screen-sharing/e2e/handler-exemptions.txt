@@ -1,0 +1,10 @@
+# Handlers not exercised by the per-page e2e suite. Each entry must be
+# justified — these are not "we forgot to test" but "there is no UI page
+# that drives them".
+#
+# folders — recording folders backend exists for future organisational
+# UI; no current page surfaces folder CRUD.
+folders
+# share-links — granular per-link share metadata; current UI uses the
+# recording's built-in share_token only.
+share-links

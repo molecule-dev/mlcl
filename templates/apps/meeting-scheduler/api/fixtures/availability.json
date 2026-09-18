@@ -1,0 +1,42 @@
+[
+  {
+    "id": "avr01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "day_of_week": 1,
+    "timezone": "America/Los_Angeles",
+    "start_minute": 540,
+    "end_minute": 1020
+  },
+  {
+    "id": "avr02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "day_of_week": 2,
+    "timezone": "America/Los_Angeles",
+    "start_minute": 540,
+    "end_minute": 1020
+  },
+  {
+    "id": "avr03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "day_of_week": 3,
+    "timezone": "America/Los_Angeles",
+    "start_minute": 540,
+    "end_minute": 1020
+  },
+  {
+    "id": "avr04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "day_of_week": 4,
+    "timezone": "America/Los_Angeles",
+    "start_minute": 540,
+    "end_minute": 1020
+  },
+  {
+    "id": "avr05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "day_of_week": 5,
+    "timezone": "America/Los_Angeles",
+    "start_minute": 600,
+    "end_minute": 960
+  }
+]

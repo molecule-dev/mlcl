@@ -1,0 +1,74 @@
+[
+  {
+    "id": "page-on-letting-drafts-breathe",
+    "title": "On letting drafts breathe",
+    "excerpt": "Some thoughts only land when they've been left alone for a day. The unfinished isn't a failure — it's a draft sleeping with its eyes open.",
+    "notebook_id": "notebook-writing",
+    "tags": "[\"writing\",\"process\",\"drafts\"]",
+    "word_count": 642,
+    "is_favorite": true,
+    "is_pinned": true,
+    "updated_at": "2026-04-29T08:30:00Z",
+    "created_at": "2026-04-22T11:15:00Z"
+  },
+  {
+    "id": "page-q2-research-questions",
+    "title": "Q2 research questions",
+    "excerpt": "Five questions to live with this quarter. The good ones are still embarrassing to say out loud.",
+    "notebook_id": "notebook-work",
+    "tags": "[\"work\",\"research\",\"q2\"]",
+    "word_count": 318,
+    "is_favorite": true,
+    "is_pinned": false,
+    "updated_at": "2026-04-28T14:22:00Z",
+    "created_at": "2026-04-15T09:00:00Z"
+  },
+  {
+    "id": "page-morning-reading-rituals",
+    "title": "Morning reading rituals",
+    "excerpt": "Coffee, then a paper book, then the inbox. The order matters more than the contents.",
+    "notebook_id": "notebook-personal",
+    "tags": "[\"reading\",\"habits\",\"personal\"]",
+    "word_count": 412,
+    "is_favorite": true,
+    "is_pinned": false,
+    "updated_at": "2026-04-27T07:14:00Z",
+    "created_at": "2026-04-10T07:30:00Z"
+  },
+  {
+    "id": "page-voice-vs-style",
+    "title": "Voice vs style",
+    "excerpt": "Style is the surface. Voice is the way the surface holds together when nothing else does.",
+    "notebook_id": "notebook-writing",
+    "tags": "[\"writing\",\"craft\"]",
+    "word_count": 287,
+    "is_favorite": false,
+    "is_pinned": false,
+    "updated_at": "2026-04-26T19:45:00Z",
+    "created_at": "2026-04-12T15:00:00Z"
+  },
+  {
+    "id": "page-shipping-checklist",
+    "title": "Shipping checklist",
+    "excerpt": "What we ask before we publish. Tested for tone, voice, and a good night's sleep.",
+    "notebook_id": "notebook-work",
+    "tags": "[\"work\",\"shipping\",\"checklist\"]",
+    "word_count": 521,
+    "is_favorite": false,
+    "is_pinned": true,
+    "updated_at": "2026-04-25T16:00:00Z",
+    "created_at": "2026-04-08T10:00:00Z"
+  },
+  {
+    "id": "page-verso-principles",
+    "title": "Verso principles",
+    "excerpt": "Notes that age well. Words that stay. The page is patient.",
+    "notebook_id": "notebook-personal",
+    "tags": "[\"verso\",\"principles\"]",
+    "word_count": 198,
+    "is_favorite": true,
+    "is_pinned": true,
+    "updated_at": "2026-04-24T09:00:00Z",
+    "created_at": "2026-03-30T08:00:00Z"
+  }
+]

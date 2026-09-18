@@ -1,0 +1,74 @@
+[
+  {
+    "id": "w-001",
+    "name": "Push Day A",
+    "date": "2026-04-29",
+    "dateLabel": "Yesterday",
+    "totalVolume": 8420,
+    "unit": "kg",
+    "durationMin": 64,
+    "sets": 22,
+    "newPRs": 1,
+    "muscleGroups": ["chest", "shoulders", "arms"]
+  },
+  {
+    "id": "w-002",
+    "name": "Pull Day A",
+    "date": "2026-04-27",
+    "dateLabel": "Mon, Apr 27",
+    "totalVolume": 7980,
+    "unit": "kg",
+    "durationMin": 58,
+    "sets": 20,
+    "newPRs": 0,
+    "muscleGroups": ["back", "arms"]
+  },
+  {
+    "id": "w-003",
+    "name": "Leg Day Heavy",
+    "date": "2026-04-25",
+    "dateLabel": "Sat, Apr 25",
+    "totalVolume": 11250,
+    "unit": "kg",
+    "durationMin": 72,
+    "sets": 18,
+    "newPRs": 2,
+    "muscleGroups": ["legs", "core"]
+  },
+  {
+    "id": "w-004",
+    "name": "Push Day B",
+    "date": "2026-04-22",
+    "dateLabel": "Wed, Apr 22",
+    "totalVolume": 7640,
+    "unit": "kg",
+    "durationMin": 55,
+    "sets": 19,
+    "newPRs": 0,
+    "muscleGroups": ["chest", "shoulders"]
+  },
+  {
+    "id": "w-005",
+    "name": "Pull Day B",
+    "date": "2026-04-20",
+    "dateLabel": "Mon, Apr 20",
+    "totalVolume": 8100,
+    "unit": "kg",
+    "durationMin": 61,
+    "sets": 21,
+    "newPRs": 1,
+    "muscleGroups": ["back", "arms", "core"]
+  },
+  {
+    "id": "w-006",
+    "name": "Leg Day Tempo",
+    "date": "2026-04-18",
+    "dateLabel": "Sat, Apr 18",
+    "totalVolume": 9420,
+    "unit": "kg",
+    "durationMin": 66,
+    "sets": 17,
+    "newPRs": 0,
+    "muscleGroups": ["legs"]
+  }
+]

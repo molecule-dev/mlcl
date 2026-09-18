@@ -1,0 +1,149 @@
+{
+  "app": "design-canvas",
+  "designProjectId": "7590201588177295858",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-landing.html",
+      "designScreenId": "39bd0689cfe545c09a018535f7744625"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-login.html",
+      "designScreenId": "e131156b25a744edbf991b4da01c9385"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-design-canvas-login.html",
+      "derivationNotes": "Same split layout as Login (canvas left + white form right) with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-design-canvas-login.html",
+      "derivationNotes": "Same split layout as Login with only the Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-design-canvas-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-dashboard.html",
+      "designScreenId": "8fdbaff0aad74d8e928c06623d7f8a3d"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/editor/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-editor.html",
+      "designScreenId": "ca3386bb2a164baf82448400050a0932"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-templates.html",
+      "designScreenId": "4a43ae160a3f4042ac79f32a20844dff"
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-library.html",
+      "designScreenId": "62f635fc2b304baa8f1ab3ed20271b9b"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-settings.html",
+      "designScreenId": "92e2f8991afa453cb8554e183d32a377"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-profile.html",
+      "designScreenId": "2ef8cc75e1ba42cdbe471a3e16e51576"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-team.html",
+      "designScreenId": "b216e195477b44b8865a924071146f98"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-notifications.html",
+      "designScreenId": "ab2acabb6e58468c95572b18e2acb0e3"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/DesignCanvasLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-design-canvas-search.html",
+      "designScreenId": "6a510259c45d4448848d670366344df2"
+    }
+  ]
+}

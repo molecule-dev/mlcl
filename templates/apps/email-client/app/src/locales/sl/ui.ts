@@ -1,0 +1,175 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Preglej članke s pomočjo',
+  'about.cta.signup': 'Preizkusite Courier brezplačno',
+  'about.eyebrow': 'O podjetju Courier',
+  'about.principle.calm': 'Privzeto je v mirnem stanju.',
+  'about.principle.calm.desc':
+    'Brez kričečih ikon, brez obvestil, ki si jih nisi želel, brez animacij, ki zahtevajo tvoj pogled.',
+  'about.principle.fast.desc':
+    'Vsako dejanje je oddaljeno le en pritisk na tipko. Pri novi prijavi se predal za prejete e-pošte naloži v manj kot 200 milisekundah.',
+  'about.principle.honest.desc':
+    'Šifriranje podatkov med prenosom in v mirovanju, pregledno shranjevanje ter izvoz podatkov z enim klikom.',
+  'about.story': 'Zakaj smo ustvarili Courier',
+  'about.story.p1':
+    'Večina e-poštnih odjemalcev je zasnovana tako, da spodbuja interakcijo – vas zadržuje, razpršuje vašo pozornost in vas vabi k še enemu kliku. Courier deluje ravno nasprotno. Uspeh merimo po času, ki ga NE preživite v nabiralniku: hitro preglejte sporočila, jih brez skrbi odložite in se lotite dela, ki je res pomembno.',
+  'about.subtitle':
+    'Courier je preprost predal za prejemno pošto s tremi okni, ki ga je razvila majhna ekipa, ki si je želela informacije obdelovati, namesto da bi se nanje le odzivala.',
+  'about.team.body':
+    'Smo razpršena ekipa oblikovalcev in inženirjev, ki smo nekoč vsak dan preživeli preveč ur v hrupnem poštnem predalu. Courier je poštni predal, ki smo ga želeli uporabljati sami.',
+  'about.title': 'E-pošta za osredotočeno delo',
+  'help.cta.about': 'O podjetju Courier',
+  'help.cta.pricing': 'Oglejte si cene',
+  'help.eyebrow': 'Center za pomoč',
+  'help.faq.compose.a':
+    'V stranskem meniju kliknite »Napiši« (ali v katerem koli pogledu na prejeto pošto pritisnite tipko »c«), vnesite vsaj enega prejemnika, zadevo in besedilo ter kliknite »Pošlji«. Novo sporočilo se takoj prikaže v mapi »Poslano«.',
+  'help.faq.compose.q': 'Kako pošljem prvo sporočilo?',
+  'help.faq.export.a':
+    'Da. V meniju Nastavitve \\u2192 Račun \\u2192 Izvoz podatkov se ustvari arhiv (mbox + JSON) za prenos, ki vsebuje vsa sporočila, oznake in stike. Za to ni potrebna nobena plačljiva naročnina.',
+  'help.faq.labels.a':
+    'Mape so izključne (vsako sporočilo je lahko shranjeno le v eni): Prejeto, Poslano, Osnutki, Nezaželeno, Koš, Arhiv. Oznake so kumulativne – na eno e-poštno sporočilo lahko dodate več oznak in jih filtrirate po kombinacijah v iskalni vrstici.',
+  'help.faq.password.a':
+    'Na strani za prijavo kliknite povezavo »Ste pozabili geslo?«. Na e-poštni naslov, povezan z vašim računom, vam bomo poslali povezavo za ponastavitev gesla, ki bo veljavna eno uro.',
+  'help.faq.shortcuts.a':
+    'Da. „j“ / „k“ preklaplja med niti, „s“ vklopi/izklopi zvezdico, „e“ arhivira, „#“ premakne v koš, „/“ pa osredotoči iskalno polje. Dokumentacija o bližnjicah je na voljo v vsakem pogledu na prejeto pošto s pritiskom na \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Pošljite e-pošto na naslov support@courier.example. Na vsako sporočilo odgovorimo v enem delovnem dnevu, in sicer med delovniki od 9. do 17. ure po UTC.',
+  'help.subtitle':
+    'Hitri odgovori na najpogostejša vprašanja. Kaj manjka? Odpri Nastavitve in uporabi obrazec za povratne informacije v aplikaciji ali piši na support@courier.example.',
+  'help.title': 'Kako lahko pomagamo?',
+  'landing.brand.scrollTop': 'Nazaj na vrh',
+  'landing.ctaBody':
+    'Pridružite se tisočem strokovnjakov, ki so še pred kosilom opravili z delom v svojem nabiralniku.',
+  'landing.ctaTitle': 'Več delaj, manj se odzivaj.',
+  'landing.eyebrow': 'E-pošta za osredotočeno delo',
+  'landing.featuresBody':
+    'Nehajte se ukvarjati z upravljanjem svojega nabiralnika in začnite opravljati delo.',
+  'landing.featuresTitle': 'Namenjeno za poglobljeno delo',
+  'landing.help': 'Pomoč',
+  'landing.heroDemo': 'Oglejte si predstavitev',
+  'landing.heroSubtitle':
+    'Courier je preprost predal za prejemno pošto s tremi okni, namenjen strokovnim delavcem, ki želijo informacije obdelovati, ne pa se nanje zgolj odzivati.',
+  'landing.proof': 'Zaupanje usmerjenih ekip po vsem svetu',
+  'landing.signIn': 'Prijava',
+  'meridian.archive.empty': 'Arhiv je prazen.',
+  'meridian.compose.addRecipient': 'Dodaj še enega prejemnika',
+  'meridian.compose.bodyPlaceholder': 'Napiši svoje sporočilo…',
+  'meridian.compose.cc': 'v vednost',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Zavrzi osnutek',
+  'meridian.compose.invalidEmail': '»{{value}}« ni veljaven e-poštni naslov',
+  'meridian.compose.needRecipient': 'Najprej dodajte vsaj enega prejemnika.',
+  'meridian.compose.replyTo': 'Odgovori v temi {{id}}',
+  'meridian.compose.savedAt': 'Osnutek shranjen na {{time}}',
+  'meridian.compose.sentWithError':
+    'Shranjeno v mapi »Poslano«, vendar dostava ni uspela: {{error}}',
+  'meridian.compose.subject': 'Zadeva',
+  'meridian.compose.subjectPlaceholder': 'Zadeva',
+  'meridian.compose.title': 'Novo sporočilo',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Nadaljuj z urejanjem',
+  'meridian.drafts.count': '{{count}} sporočila',
+  'meridian.drafts.delete': 'Izbriši osnutek',
+  'meridian.drafts.empty': 'Še ni osnutkov – začni pisati.',
+  'meridian.drafts.lastSaved': 'Shranjeno {{at}}',
+  'meridian.drafts.noRecipients': '(še ni prejemnikov)',
+  'meridian.drafts.selectDraft': 'Izberite osnutek za predogled.',
+  'meridian.drafts.title': 'Osnutki',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Osnutek',
+  'meridian.folder.count': '{{count}} sporočila',
+  'meridian.folder.deleteForever': 'Trajno izbriši',
+  'meridian.folder.restore': 'Premakni v predal za prejete sporočila',
+  'meridian.forgot.subtitle':
+    'Vnesite e-poštni naslov, povezan z vašim predalom za prejete e-pošte, in poslali vam bomo povezavo za ponastavitev gesla.',
+  'meridian.forgot.success':
+    'Če obstaja račun s tem e-poštnim naslovom, vam bomo kmalu poslali povezavo za ponastavitev gesla.',
+  'meridian.inbox.empty': 'Tu še ni nobenih sporočil.',
+  'meridian.inbox.loading': 'Nalaganje …',
+  'meridian.inbox.next': 'Naprej',
+  'meridian.inbox.noSubject': '(brez zadeve)',
+  'meridian.inbox.openCompose': 'Odpri okno za pisanje',
+  'meridian.inbox.previous': 'Prejšnji',
+  'meridian.inbox.replyFailed': 'Odgovor je shranjen, vendar se pošiljanje ni uspelo: {{error}}',
+  'meridian.inbox.replySent': 'Odgovor je bil poslan.',
+  'meridian.inbox.replyTo': 'Odgovori na {{name}}',
+  'meridian.inbox.selectMessage': 'Izberite sporočilo, ki ga želite prebrati',
+  'meridian.inbox.spam': 'Nezaželena pošta',
+  'meridian.inbox.viewThread': 'Ogled niti',
+  'meridian.login.hidePassword': 'Skrij geslo',
+  'meridian.login.noAccount': 'Še nimate računa?',
+  'meridian.login.showPassword': 'Pokaži geslo',
+  'meridian.message.toLine': 'na {{recipients}}',
+  'meridian.notFound.eyebrow': 'Napaka 404',
+  'meridian.notFound.title': 'Ta nit je bila arhivirana.',
+  'meridian.notFound.toInbox': 'Odpri moj predal za prejete sporočila',
+  'meridian.reset.newLabel': 'Novo geslo',
+  'meridian.reset.showPassword': 'Pokaži geslo',
+  'meridian.reset.subtitle': 'Izberite močno geslo – najmanj 8 znakov.',
+  'meridian.sent.empty': 'Še nisi poslal ničesar.',
+  'meridian.sent.title': 'Poslano',
+  'meridian.settings.noName': '(ime ni določeno)',
+  'meridian.settings.section.${section}':
+    'Prilagodite si svojo izkušnjo na spletnem mestu {{appName}}',
+  'meridian.settings.signature': 'Podpis',
+  'meridian.settings.signatureSaved': 'Podpis je shranjen.',
+  'meridian.sidebar.compose': 'Napiši',
+  'meridian.sidebar.labels': 'Oznake',
+  'meridian.sidebar.noLabels': 'Še ni oznak',
+  'meridian.sidebar.storage': 'Shranjevanje',
+  'meridian.sidebar.storageLabel': '{{used}} iz knjige »{{quota}}«',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Ustvarite svoj Courierov predal za prejete sporočila',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Pokaži geslo',
+  'meridian.signup.subtitle': 'Preverite svoj predal za prejete e-pošte še pred kosilom.',
+  'meridian.spam.empty': 'Brez neželene pošte.',
+  'meridian.spam.title': 'Nezaželena pošta',
+  'meridian.starred.empty': 'Ni sporočil z zvezdico.',
+  'meridian.starred.loading': 'Nalaganje …',
+  'meridian.starred.removeStar': 'Odstrani zvezdico',
+  'meridian.starred.total': '{{count}} skupaj',
+  'meridian.thread.back': 'Nazaj v prejeto pošto',
+  'meridian.thread.empty': 'V tej temi ni nobenih sporočil.',
+  'meridian.thread.eyebrow': 'Tema št. {{id}}',
+  'meridian.thread.notFound': 'Nit ni bila najdena.',
+  'meridian.thread.star': 'Dodaj zvezdico',
+  'meridian.thread.unstar': 'Odstrani zvezdico',
+  'meridian.time.yesterday': 'Včeraj',
+  'meridian.topBar.searchPlaceholder': 'Iskanje po pošti',
+  'meridian.trash.empty': 'Koš je prazen.',
+  'meridian.trash.title': 'Koš',
+  'nav.legal': 'Pravno',
+  'planUpdated.description':
+    'Vaša naročnina je zdaj aktivna, podatki za zaračunavanje pa so bili posodobljeni. Dobrodošli v prenovljenem Courierovem nabiralniku.',
+  'pricing.heading': 'osnutki',
+  'pricing.limit.emails': 'elektronska sporočila',
+  'pricing.limit.folders': 'mape',
+  'pricing.limit.labels': 'nalepke',
+  'privacy.collect.account':
+    'Podatki o računu: ime, e-poštni naslov, šifrirano geslo in datum registracije.',
+  'privacy.intro':
+    'Ta politika zasebnosti pojasnjuje, katere podatke zbira Courier, zakaj jih zbiramo, kako jih varujemo in kakšne možnosti imate v zvezi z njimi. Želimo biti konkretni in ne le pravniško natančni; če vam kaj ni jasno, nam pišite na privacy@courier.example.',
+  'privacy.lastUpdated': 'Zadnja posodobitev: 1. april 2026',
+  'privacy.linkTerms': 'Preberite naše pogoje uporabe \\u2192',
+  'privacy.rights.body':
+    'Vse podatke, ki jih hranimo o vas, lahko izvozite v meniju Nastavitve → Račun → Izvoz podatkov, račun pa lahko izbrišete z enim klikom – vsi zapisi se izbrišejo v 24 urah, revizijski dnevniki pa po 30 dneh.',
+  'privacy.security.body':
+    'Vsebina e-pošte in priloge so v mirovanju šifrirane z algoritmom AES-256. Povezave z našo storitvijo potekajo prek protokola TLS 1.3. Gesla so šifrirana z algoritmom bcrypt; gesel v obliki navadnega besedila nikoli ne beležimo niti ne shranjujemo. Dostop do produkcijskega okolja je omejen na inženirje, ki so na razpolago v dežurstvu, kar se mesečno preverja.',
+  'privacy.share.body':
+    'Podatke posredujemo le podizvajalcem, ki jih potrebujemo za delovanje Couriera (pošiljanje e-pošte prek Mailguna, zaračunavanje prek Stripa, gostovanje prek AWS). Vsi so pogodbeno zavezani, da vaše podatke uporabljajo izključno za izvajanje storitev v našem imenu. Vaših podatkov ne prodajamo, ne oddajamo v najem in z njimi ne trgujemo z nikomer.',
+  'terms.acceptable.spam':
+    'Prepovedano je množično pošiljanje neželenih sporočil. Račune, s katerih se pošilja spam, bomo brez opozorila zaprli.',
+  'terms.account.body':
+    'Odgovorni ste za varovanje zaupnosti svojega gesla ter za vse dejavnosti, ki potekajo prek vašega računa. Če menite, da je bil vaš račun ogrožen, nas obvestite na naslov security@courier.example.',
+  'terms.billing.body':
+    'Plačljivi paketi se podaljšujejo v skladu z obdobjem, izbranim ob prijavi. Naročnino lahko kadarkoli prekinete v meniju Nastavitve → Zaračunavanje, dostop pa vam ostane do konca tekočega obračunskega obdobja. V primeru izpada storitve, ki presega pogoje iz sporazuma o ravni storitev (SLA), vam bomo vrnili denar.',
+  'terms.intro':
+    'Ti pogoji urejajo vašo uporabo storitve Courier. Z odprtjem računa ali pošiljanjem e-pošte prek naše storitve se strinjate, da vas ti pogoji zavezujejo. Prizadevamo si, da bi pravila oblikovali tako, da jih je mogoče dejansko upoštevati.',
+  'terms.lastUpdated': 'Velja od: 1. aprila 2026',
+  'terms.termination.body':
+    'Račun lahko kadarkoli izbrišete. Račun, ki krši te pogoje, lahko začasno onemogočimo; v tem primeru vam bomo pojasnili razlog in vam omogočili, da najprej izvozite svoje podatke.',
+  'terms.warranty.body':
+    'Storitev se zagotavlja takšna, kakršna je. Trudimo se, da bi zagotovili njeno zanesljivost in varnost, vendar ne moremo jamčiti za neprekinjen dostop. V obsegu, ki ga dopušča zakon, je naša skupna odgovornost omejena na znesek, ki ste nam ga plačali v preteklih 12 mesecih.',
+}

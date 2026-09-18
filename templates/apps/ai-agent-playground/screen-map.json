@@ -1,0 +1,193 @@
+{
+  "app": "ai-agent-playground",
+  "designProjectId": "1760697626526556897",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-login.html",
+      "designScreenId": "84a831623e464324ae827864b915356f"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-agent-playground-login.html",
+      "derivationNotes": "Same centered dark card on #0c0e14 background with terminal pattern. Form varies per derivation. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-agent-playground-login.html",
+      "derivationNotes": "Same centered dark card on #0c0e14 background with terminal pattern. Form varies per derivation. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-agent-playground-login.html",
+      "derivationNotes": "Same centered dark card on #0c0e14 background with terminal pattern. Form varies per derivation. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/NeuronLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-dashboard.html",
+      "designScreenId": "c9b98468413742b9bc98d69e7f1496a2"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-landing.html",
+      "designScreenId": "a0e5819898384ac4a7c9078cf5beff2b"
+    },
+    {
+      "name": "AgentBuilder",
+      "templateFile": "app/pages/AgentBuilder.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/agents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-agent-builder.html",
+      "designScreenId": "fbc32eeed12b416bac8c77dab7a48aee"
+    },
+    {
+      "name": "ExecutionTrace",
+      "templateFile": "app/pages/ExecutionTrace.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/runs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-execution-trace.html",
+      "designScreenId": "7fd180e1a54a4888b6d1e1a723c7f2e2"
+    },
+    {
+      "name": "ToolLibrary",
+      "templateFile": "app/pages/ToolLibrary.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/tools",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-tool-library.html",
+      "designScreenId": "ec2ff85aa3a74132a8e8254e29bc61c6"
+    },
+    {
+      "name": "PromptEditor",
+      "templateFile": "app/pages/PromptEditor.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/agents/:id/prompt",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-prompt-editor.html",
+      "designScreenId": "53e1c70e42f249adaf5139c1798082af"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-settings.html",
+      "designScreenId": "69f68ce5972340e5ba70a8db0ba125e7"
+    },
+    {
+      "name": "Agents",
+      "templateFile": "app/pages/Agents.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/agents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-agents.html",
+      "designScreenId": "753e41ff09264754aadf27c9947137ea"
+    },
+    {
+      "name": "RunHistory",
+      "templateFile": "app/pages/RunHistory.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/runs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-run-history.html",
+      "designScreenId": "6964658f0f65423888b69e44428b2d84"
+    },
+    {
+      "name": "Datasets",
+      "templateFile": "app/pages/Datasets.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/datasets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-datasets.html",
+      "designScreenId": "5a3ab828d47346da825cf03fb3561f4c"
+    },
+    {
+      "name": "KnowledgeBases",
+      "templateFile": "app/pages/KnowledgeBases.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/knowledge-bases",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-knowledge-bases.html",
+      "designScreenId": "ff4f43f9a72141628ac2b69a08ce3287"
+    },
+    {
+      "name": "Models",
+      "templateFile": "app/pages/Models.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/models",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-agent-playground-models.html",
+      "designScreenId": "f9fa8a9747554d729ee288b595c2f559"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-agent-playground-settings.html",
+      "derivationNotes": "Same dark sidebar layout. Single panel center with avatar block (circle 96px, mono uppercase initials, orange #e04820 ring), then a profile-edit form: Display Name, Email, Bio, Default Provider (Anthropic/OpenAI/Google chip selector), Default Model dropdown (mono font), Timezone, API Token (mono masked value with copy/regen). Footer with Save (orange primary) + Cancel buttons. No API keys grid — that lives on Settings."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/NeuronLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": "design-ai-agent-playground-run-history.html",
+      "deriveFrom": "design-ai-agent-playground-run-history.html",
+      "derivationNotes": "Reuse RunHistory's dense table shell. Replace top metrics with Unread/Read tabs. Rows are notification events: status dot in semantic color (failed run = red, success = green, tool-call alert = purple, info = cyan), event message ('Run run_8e4f… failed: tool timeout' in JetBrains Mono for the run-id portion), agent chip, timestamp (mono), and a 'Mark read' / kebab menu action. Drop the 'Live tail' toggle. Add a 'Mark all as read' secondary button in top bar."
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "app": "meeting-scheduler",
+  "designProjectId": "11329794124868229584",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-landing.html",
+      "designScreenId": "83c4eebd75074f06a10f1d9626f31f91"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-login.html",
+      "designScreenId": "ba0ec17607bf4d61a71fecec410f7979"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meeting-scheduler-login.html",
+      "derivationNotes": "Same split layout as Login with First Name, Last Name, Email, Password, Confirm Password fields in the left card. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link. Right-side decorative booking preview panel stays identical."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meeting-scheduler-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field in the left card. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'. Right-side panel stays identical."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meeting-scheduler-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields in the left card. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'. Right-side panel stays identical."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-dashboard.html",
+      "designScreenId": "5edb4a4dc9344be49a0da376c653bef1"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-calendar.html",
+      "designScreenId": "4f8846660d004a09958d4009975609f8"
+    },
+    {
+      "name": "EventTypes",
+      "templateFile": "app/pages/EventTypes.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/event-types",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-event-types.html",
+      "designScreenId": "e1997b0316cb4fc98b278a7b748d709c"
+    },
+    {
+      "name": "EventTypeEditor",
+      "templateFile": "app/pages/EventTypeEditor.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/event-types/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-event-type-editor.html",
+      "designScreenId": "4c354f635f7f4c958cdde2ad53854fa2"
+    },
+    {
+      "name": "BookingPage",
+      "templateFile": "app/pages/BookingPage.tsx",
+      "components": [],
+      "route": "/book/:slug",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-booking-page.html",
+      "designScreenId": "52207390f5ca4bc19e8bc27f72a9531a"
+    },
+    {
+      "name": "Availability",
+      "templateFile": "app/pages/Availability.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/availability",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-availability.html",
+      "designScreenId": "335f77d0a2244e4db263fb70f37c0b96"
+    },
+    {
+      "name": "Integrations",
+      "templateFile": "app/pages/Integrations.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/integrations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-integrations.html",
+      "designScreenId": "74dd452ae8a348678ef1a7a8fffbf7e8"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-settings.html",
+      "designScreenId": "6b540b6541af4d5795fb260cea1c14a3"
+    },
+    {
+      "name": "Bookings",
+      "templateFile": "app/pages/Bookings.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/bookings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-bookings.html",
+      "designScreenId": "457a0d6b05c241f9920256c34b1e96f0"
+    },
+    {
+      "name": "MeetingDetail",
+      "templateFile": "app/pages/MeetingDetail.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/bookings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-meeting-detail.html",
+      "designScreenId": "d920bd0da80241e9993673fa0eced5fe"
+    },
+    {
+      "name": "BookingConfirmation",
+      "templateFile": "app/pages/BookingConfirmation.tsx",
+      "components": [],
+      "route": "/book/:slug/confirmed",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-booking-confirmation.html",
+      "designScreenId": "f311720826c64a63bc686da28e34a0cc"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-notifications.html",
+      "designScreenId": "a084bc3a6f3e4b54af45848623e64549"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/MeridianLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meeting-scheduler-billing.html",
+      "designScreenId": "e85cb8dbb82a446c9ee68fb237a4bd96"
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Provider bridge (--mol-color-*) — dark-first defaults (GitHub Dark).
+     --color-primary in dark mode is green (#3fb950) per [data-mol-mode='dark'];
+     mol-color-primary reflects the dark stop used by molecule packages. */
+  --mol-color-primary: #3fb950;
+  --mol-color-primary-light: #0f2a18;
+  --mol-color-primary-dark: #1a7f37;
+  --mol-color-secondary: #79b8ff;
+  --mol-color-background: #0d1117;
+  --mol-color-background-secondary: #161b22;
+  --mol-color-background-tertiary: #1c2128;
+  --mol-color-surface: #0d1117;
+  --mol-color-surface-secondary: #161b22;
+  --mol-color-input-background: #0d1117;
+  --mol-color-text: #e6edf3;
+  --mol-color-text-secondary: #8b949e;
+  --mol-color-text-tertiary: #6e7681;
+  --mol-color-text-inverse: #0d1117;
+  --mol-color-border: #30363d;
+  --mol-color-border-secondary: #21262d;
+  --mol-color-border-focus: #58a6ff;
+  --mol-color-success: #3fb950;
+  --mol-color-warning: #d29922;
+  --mol-color-error: #f85149;
+  --mol-color-info: #58a6ff;
+
+  /* Brand colors */
+  --color-primary: #22c55e;
+  --color-primary-hover: #16a34a;
+  --color-primary-light: #dcfce7;
+  --color-secondary: #3b82f6;
+  --color-secondary-hover: #2563eb;
+
+  /* Accent */
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+
+  /* Status / Severity */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Neutrals */
+  --color-bg: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-card: #161b22;
+  --color-bg-sidebar: #0d1117;
+  --color-border: #30363d;
+  --color-border-focus: #58a6ff;
+
+  /* Text */
+  --color-text: #c9d1d9;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  --color-text-inverse: #0d1117;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Code */
+  --code-bg: #0d1117;
+  --code-border: #30363d;
+  --code-addition-bg: rgba(46, 160, 67, 0.15);
+  --code-deletion-bg: rgba(248, 81, 73, 0.15);
+  --code-line-number-color: #6e7681;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Shadows — dark-first defaults (0.5/0.55/0.65 per quality bar) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Auth-page surface tokens — the terminal-dark panel used on Login /
+     Signup / ForgotPassword / ResetPassword / NotFound.
+     :root defaults are the dark-first GitHub Dark values; overridden to
+     light in [data-mol-mode='light'] below. */
+  --color-auth-dark: #0d1117;
+  --color-auth-link: #a78bfa; /* violet-400 — brand-violet links on the dark auth panel (#630ed4 was 2.3:1; this = 6.4:1) */
+  --color-auth-panel: #161b22;
+  --color-auth-border: #30363d;
+  --color-auth-input: #0d1117;
+  --color-auth-text: #e6edf3;
+  --color-auth-muted: #8b949e;
+
+  /* Score ring tokens — semantic traffic-light for AI quality scores */
+  --color-score-high: #22c55e;
+  --color-score-mid: #eab308;
+  --color-score-low: #dc2626;
+
+  /* Severity badge tokens for code review annotations */
+  --color-severity-high: #dc2626;
+  --color-severity-medium: #ea580c;
+  --color-severity-low: #7c3aed;
+  --color-severity-warning: #ea580c;
+  --color-severity-info: #06b6d4;
+
+  /* Chart primary stroke — violet accent for trend charts */
+  --color-chart-primary: #7c3aed;
+
+  /* Brand accent cyan — used in avatar gradients and auth-page glow */
+  --color-brand-accent: #06b6d4;
+
+  /* Always-dark ink panel — landing feature cards + review-preview mock carry
+     hardcoded white text, so this must NOT flip with mode (var(--color-text)
+     used to be the bg and became near-white in dark mode: 1.18:1). */
+  --color-ink-panel: #0d1117;
+
+  /* Companion ink tokens (also never flip with mode):
+     - ink-panel-bright: dashboard PullRequestHero base + gradient start
+       (original #1e1e2e — var(--color-text) regressed it to near-white
+       in dark mode, breaking the hardcoded white hero text).
+     - ink-deep: hero gradient end + terminal-mock card background
+       (original #11111b — var(--color-bg) regressed it to white in
+       light mode).
+     - ink-text: default text color on ink surfaces (landing page body). */
+  --color-ink-panel-bright: #1e1e2e;
+  --color-ink-deep: #11111b;
+  --color-ink-text: #e6edf3;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (GitHub Dark inspired) */
+[data-mol-mode='dark'] {
+  /* Brand colors — brighter for prominence on dark */
+  --color-primary: #3fb950;
+  --color-primary-hover: #56d364;
+  --color-primary-light: #0f2a18;
+  --color-secondary: #58a6ff;
+  --color-secondary-hover: #79b8ff;
+
+  /* Accent */
+  --color-accent: #ff9a3c;
+  --color-accent-hover: #ffb866;
+
+  /* Status / Severity */
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-error: #f85149;
+  --color-info: #58a6ff;
+
+  /* Neutrals — depth layered dark surfaces */
+  --color-bg: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-card: #1c2128;
+  --color-bg-sidebar: #010409;
+  --color-border: #30363d;
+  --color-border-focus: #58a6ff;
+
+  /* Text */
+  --color-text: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+  --color-text-inverse: #0d1117;
+
+  /* Code */
+  --code-bg: #0d1117;
+  --code-border: #30363d;
+  --code-addition-bg: rgba(63, 185, 80, 0.18);
+  --code-deletion-bg: rgba(248, 81, 73, 0.18);
+  --code-line-number-color: #6e7681;
+
+  /* Shadows — deeper for dark surfaces (0.5/0.55/0.65 per quality bar) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     in index.css so bg-surface, text-on-background, etc. flip on
+     [data-mol-mode="dark"]. GitHub-dark inspired palette. */
+  --color-background: #0d1117;
+  --color-on-background: #e6edf3;
+  --color-surface: #0d1117;
+  --color-surface-bright: #1c2128;
+  --color-surface-dim: #010409;
+  --color-surface-container-lowest: #010409;
+  --color-surface-container-low: #161b22;
+  --color-surface-container: #1c2128;
+  --color-surface-container-high: #21262d;
+  --color-surface-container-highest: #30363d;
+  --color-surface-variant: #1c2128;
+  --color-on-surface: #e6edf3;
+  --color-on-surface-variant: #8b949e;
+  --color-inverse-surface: #e6edf3;
+  --color-inverse-on-surface: #0d1117;
+  --color-inverse-primary: #0f2a18;
+  --color-primary: #3fb950;
+  --color-primary-container: #0f2a18;
+  --color-on-primary: #ffffff; /* white on green — readable in both modes */
+  --color-on-primary-container: #b8f2c1;
+  --color-primary-fixed: #0f2a18;
+  --color-primary-fixed-dim: #1f5232;
+  --color-on-primary-fixed: #b8f2c1;
+  --color-on-primary-fixed-variant: #56d364;
+  --color-secondary: #79b8ff;
+  --color-secondary-container: #0c2a4d;
+  --color-on-secondary: #001b3d;
+  --color-on-secondary-container: #cfe5ff;
+  --color-secondary-fixed: #0c2a4d;
+  --color-secondary-fixed-dim: #1a4a82;
+  --color-on-secondary-fixed: #cfe5ff;
+  --color-on-secondary-fixed-variant: #58a6ff;
+  --color-tertiary: #ffb866;
+  --color-tertiary-container: #4a2200;
+  --color-on-tertiary: #2c0f00;
+  --color-on-tertiary-container: #ffdcba;
+  --color-tertiary-fixed: #4a2200;
+  --color-tertiary-fixed-dim: #7a3a00;
+  --color-on-tertiary-fixed: #ffdcba;
+  --color-on-tertiary-fixed-variant: #ff9a3c;
+  --color-error: #f85149;
+  --color-error-container: #4a0e10;
+  --color-on-error: #2c0000;
+  --color-on-error-container: #ffd6d4;
+  --color-outline: #6e7681;
+  --color-outline-variant: #30363d;
+  --color-surface-tint: #3fb950;
+
+  /* Auth-page surface tokens — dark mode values */
+  --color-auth-dark: #0d1117;
+  --color-auth-link: #a78bfa;
+  --color-auth-panel: #161b22;
+  --color-auth-border: #30363d;
+  --color-auth-input: #0d1117;
+  --color-auth-text: #e6edf3;
+  --color-auth-muted: #8b949e;
+
+  /* Score ring — bright for dark bg */
+  --color-score-high: #3fb950;
+  --color-score-mid: #d29922;
+  --color-score-low: #f85149;
+
+  /* Severity badge tokens — bright for dark bg */
+  --color-severity-high: #f85149;
+  --color-severity-medium: #fb8f44;
+  --color-severity-low: #a78bfa;
+  --color-severity-warning: #fb8f44;
+  --color-severity-info: #22d3ee;
+
+  /* Chart primary stroke */
+  --color-chart-primary: #a78bfa;
+
+  /* Brand accent cyan — brighter for dark bg */
+  --color-brand-accent: #22d3ee;
+}
+
+/* Light mode overrides — GitHub-Light inspired counterpart to the
+   GitHub-Dark default `:root` palette. Toggling [data-mol-mode="light"]
+   flips the dark defaults to the day surface set. */
+[data-mol-mode='light'] {
+  /* Provider bridge — light overrides so molecule packages get correct light values */
+  --mol-color-primary: #630ed4;
+  --mol-color-primary-light: #eaddff;
+  --mol-color-primary-dark: #3e0091;
+  --mol-color-secondary: #00687a;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f6f8fa;
+  --mol-color-background-tertiary: #f1f3f5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f6f8fa;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1f2328;
+  --mol-color-text-secondary: #656d76;
+  --mol-color-text-tertiary: #8c959f;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d0d7de;
+  --mol-color-border-secondary: #eaeef2;
+  --mol-color-border-focus: #630ed4;
+  --mol-color-success: #1a7f37;
+  --mol-color-warning: #9a6700;
+  --mol-color-error: #cf222e;
+  --mol-color-info: #0969da;
+
+  --color-primary: #1a7f37;
+  --color-primary-hover: #116329;
+  --color-primary-light: #dcfce7;
+  --color-secondary: #0969da;
+  --color-secondary-hover: #0550ae;
+
+  --color-accent: #bc4c00;
+  --color-accent-hover: #953800;
+
+  --color-success: #1a7f37;
+  --color-warning: #9a6700;
+  --color-error: #cf222e;
+  --color-info: #0969da;
+
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f6f8fa;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #f6f8fa;
+  --color-border: #d0d7de;
+  --color-border-focus: #0969da;
+
+  --color-text: #1f2328;
+  --color-text-secondary: #656d76;
+  --color-text-muted: #8c959f;
+  --color-text-inverse: #ffffff;
+
+  --code-bg: #f6f8fa;
+  --code-border: #d0d7de;
+  --code-addition-bg: rgba(46, 160, 67, 0.1);
+  --code-deletion-bg: rgba(207, 34, 46, 0.1);
+  --code-line-number-color: #8c959f;
+
+  --shadow-sm: 0 1px 2px rgba(31, 35, 40, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(31, 35, 40, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(31, 35, 40, 0.12);
+
+  /* Stitch / Material-3 token light variants — flip @theme palette
+     on data-mol-mode="light". GitHub-Light inspired surfaces. */
+  --color-background: #ffffff;
+  --color-on-background: #1f2328;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f6f8fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f8fa;
+  --color-surface-container: #f1f3f5;
+  --color-surface-container-high: #eaeef2;
+  --color-surface-container-highest: #d0d7de;
+  --color-surface-variant: #f6f8fa;
+  --color-on-surface: #1f2328;
+  --color-on-surface-variant: #656d76;
+  --color-inverse-surface: #1f2328;
+  --color-inverse-on-surface: #e6edf3;
+  --color-inverse-primary: #b8f2c1;
+  --color-primary-container: #dcfce7;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #03130a;
+  --color-primary-fixed: #dcfce7;
+  --color-primary-fixed-dim: #86efac;
+  --color-on-primary-fixed: #03130a;
+  --color-on-primary-fixed-variant: #116329;
+  --color-secondary-container: #ddf4ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #002155;
+  --color-secondary-fixed: #ddf4ff;
+  --color-secondary-fixed-dim: #80ccff;
+  --color-on-secondary-fixed: #002155;
+  --color-on-secondary-fixed-variant: #0550ae;
+  --color-tertiary: #bc4c00;
+  --color-tertiary-container: #fff1e5;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #4a1a00;
+  --color-tertiary-fixed: #fff1e5;
+  --color-tertiary-fixed-dim: #ffb866;
+  --color-on-tertiary-fixed: #4a1a00;
+  --color-on-tertiary-fixed-variant: #953800;
+  --color-error-container: #ffebe9;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #82071e;
+  --color-outline: #8c959f;
+  --color-outline-variant: #d0d7de;
+  --color-surface-tint: #1a7f37;
+
+  /* Auth-page surface tokens — light mode values */
+  --color-auth-dark: #f6f8fa;
+  --color-auth-link: #630ed4; /* brand violet — 8.4:1 on the white panel */
+  --color-auth-panel: #ffffff;
+  --color-auth-border: #d0d7de;
+  --color-auth-input: #f6f8fa;
+  --color-auth-text: #1f2328;
+  --color-auth-muted: #656d76;
+
+  /* Score ring — adjusted for light bg */
+  --color-score-high: #1a7f37;
+  --color-score-mid: #9a6700;
+  --color-score-low: #cf222e;
+
+  /* Severity badge tokens — adjusted for light bg */
+  --color-severity-high: #cf222e;
+  --color-severity-medium: #bc4c00;
+  --color-severity-low: #7c3aed;
+  --color-severity-warning: #bc4c00;
+  --color-severity-info: #0969da;
+
+  /* Chart primary stroke */
+  --color-chart-primary: #7c3aed;
+
+  /* Brand accent cyan */
+  --color-brand-accent: #0891b2;
+}

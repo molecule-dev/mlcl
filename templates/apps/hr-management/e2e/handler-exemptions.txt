@@ -1,0 +1,30 @@
+# Handlers that have no end-to-end e2e coverage at this layer because
+# they are exercised either by other test layers or are non-mutating
+# admin-only routes that the demo doesn't surface.
+#
+# verify-app-coverage.mjs matches by the source file basename
+# (e.g. `_seed.ts` → `_seed`). Internal helpers and routes mounted
+# under a path that doesn't match the convention `/api/<basename>` go
+# here.
+#
+# Format: one entry per line — either a basename (for the verify gate)
+# or a full route path (for documentation).
+_decorate
+_seed
+reset-password
+GET /api/reports/headcount
+GET /api/reports/by-department
+GET /api/reports/pto-summary
+POST /api/billing/checkout
+POST /api/billing/cancel
+POST /api/users/payment-notification
+DELETE /api/devices
+DELETE /api/devices/:id
+POST /api/users/forgot-password
+POST /api/users/reset-password
+POST /api/users/two-factor
+PATCH /api/users/two-factor
+DELETE /api/users/two-factor
+PATCH /api/users/password
+PATCH /api/users/plan
+DELETE /api/users

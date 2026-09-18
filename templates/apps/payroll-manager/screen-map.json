@@ -1,0 +1,200 @@
+{
+  "app": "payroll-manager",
+  "designProjectId": "6156950733092839703",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-landing.html",
+      "designScreenId": "c5dcaeed961f4acdb7a0ba65cc2a2bdc"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-login.html",
+      "designScreenId": "6cc3769cca3e45f09f83be4a45291b23"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-payroll-manager-login.html",
+      "derivationNotes": "Same two-column layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-payroll-manager-login.html",
+      "derivationNotes": "Same two-column layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-payroll-manager-login.html",
+      "derivationNotes": "Same two-column layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-dashboard.html",
+      "designScreenId": "fcd5ec1a6e6d4f8ab77c2889431d4a7a"
+    },
+    {
+      "name": "Employees",
+      "templateFile": "app/pages/Employees.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/employees",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-employees.html",
+      "designScreenId": "dfae8177ad9a49e4aa75122b5902e840"
+    },
+    {
+      "name": "EmployeeDetail",
+      "templateFile": "app/pages/EmployeeDetail.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/employees/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-employee-detail.html",
+      "designScreenId": "8d60af8894ad4eb8875f4609e997fd09"
+    },
+    {
+      "name": "PayRuns",
+      "templateFile": "app/pages/PayRuns.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/pay-runs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-pay-runs.html",
+      "designScreenId": "7b75660166444be7a41fc1cc1e10d052"
+    },
+    {
+      "name": "RunPayroll",
+      "templateFile": "app/pages/RunPayroll.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/run-payroll",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-run-payroll.html",
+      "designScreenId": "1988a4625fd74709a83a0c06d4c993e2"
+    },
+    {
+      "name": "PayStub",
+      "templateFile": "app/pages/PayStub.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/pay-stub/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-pay-stub.html",
+      "designScreenId": "01013dfbe4e64fb681b47c52f8aafa0f"
+    },
+    {
+      "name": "TaxCenter",
+      "templateFile": "app/pages/TaxCenter.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/taxes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-tax-center.html",
+      "designScreenId": "63ac18e3b1054f04b88c7254d7c45ef1"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-reports.html",
+      "designScreenId": "87279cb48b4b426398453da4777918d3"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-settings.html",
+      "designScreenId": "f5b3e8bed83d4704a8535c427885b37f"
+    },
+    {
+      "name": "PayRunDetail",
+      "templateFile": "app/pages/PayRunDetail.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/pay-runs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-pay-run-detail.html",
+      "designScreenId": "ab93acfb6fc8412caca5af3311b1dfa2"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/audit-log",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-audit-log.html",
+      "designScreenId": "461d76d0b75a456fb1f5d41514d2b22d"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-notifications.html",
+      "designScreenId": "3cfe004f023a4899801e2c4d3d0e2bb2"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-payroll-manager-billing.html",
+      "designScreenId": "e6558ab14e00436e8a0818d24ddcf62f"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/PayrollManagerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-payroll-manager-settings.html",
+      "derivationNotes": "Same sidebar+top-bar shell and section-card layout as Settings. Replace the company-level form sections with personal-profile sections: Profile photo + name + role, Contact info (email, phone), Password & security (change password, 2FA toggle), Notification preferences (email/push toggles per category), Sessions (active devices list with revoke). Save button bottom-right. Sidebar nav highlights user-avatar area instead of Settings."
+    }
+  ]
+}

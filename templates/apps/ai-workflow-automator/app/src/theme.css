@@ -1,0 +1,536 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand — amber/orange primary on dark background */
+  --color-primary: #f59e0b;
+  --color-primary-hover: #d97706;
+  --color-primary-light: #fef3c7;
+  --color-secondary: #ea580c;
+  --color-secondary-hover: #c2410c;
+
+  /* Accent */
+  --color-accent: #fb923c;
+  --color-accent-hover: #f97316;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Dark backgrounds */
+  --color-bg: #0c0a09;
+  --color-bg-secondary: #1c1917;
+  --color-bg-card: #1c1917;
+  --color-bg-sidebar: #0c0a09;
+  --color-border: #292524;
+  --color-border-focus: #f59e0b;
+
+  /* Text */
+  --color-text: #fafaf9;
+  --color-text-secondary: #a8a29e;
+  --color-text-muted: #78716c;
+  --color-text-inverse: #0c0a09;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Shadows — warm glow for dark theme */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 12px rgba(245, 158, 11, 0.25);
+
+  /* Workflow-specific status tokens */
+  --color-status-success: #10b981;
+  --color-status-failure: #ef4444;
+  --color-status-skipped: #78716c;
+  --color-status-running: #f59e0b;
+
+  /* Workflow node type colors */
+  --color-node-trigger: #7c3aed;
+  --color-node-condition: #06b6d4;
+  --color-node-action: #16a34a;
+
+  /* App-specific semantic surface tokens */
+  --color-surface-input: #ffffff;
+  --color-text-dark-invert: #1e1b4b;
+  --color-accent-violet-light: #a5b4fc;
+  --color-accent-violet: #7c3aed;
+  /* Filled-button violet — stays at the strong stop in EVERY mode (dark mode
+     lifts --color-accent-violet to #a78bfa, where white button text = 2.72:1). */
+  --color-accent-violet-strong: #7c3aed;
+
+  /* Badge tokens for template status pills */
+  --color-status-success-bg: #dcfce7;
+  --color-status-success-fg: #166534;
+  --color-status-warning-fg: #92400e;
+  --color-status-error-bg: #fee2e2;
+  --color-status-error-fg: #b91c1c;
+  --color-status-muted-fg: #6b7280;
+
+  /* Run-state badge tokens */
+  --color-run-running-bg: #cffafe;
+  --color-run-running-fg: #0891b2;
+  --color-run-running-dot: #06b6d4;
+  --color-run-completed-bg: #dcfce7;
+  --color-run-completed-fg: #15803d;
+  --color-run-completed-dot: #16a34a;
+  --color-run-failed-bg: #fee2e2;
+  --color-run-failed-fg: #b91c1c;
+  --color-run-failed-dot: #dc2626;
+  --color-run-queued-bg: #fef3c7;
+  --color-run-queued-fg: #b45309;
+  --color-run-queued-dot: #f59e0b;
+  --color-run-paused-bg: #f3f4f6;
+  --color-run-paused-fg: #4b5563;
+  --color-run-paused-dot: #6b7280;
+  --color-run-skipped-bg: #f1f5f9;
+  --color-run-skipped-fg: #475569;
+  --color-run-skipped-dot: #94a3b8;
+
+  /* Workflow node surface backgrounds */
+  --color-node-trigger-bg: #f5f3ff;
+  --color-node-condition-bg: #ecfeff;
+  --color-node-action-bg: #f0fdf4;
+
+  /* Execution log terminal (always dark — monospace indigo surface).
+     Success/error/warn stay fixed in BOTH modes: the surface never flips,
+     so mode-dependent fg tokens would go unreadable in light mode. */
+  --color-terminal-bg: #1e1b4b;
+  --color-terminal-text: #e0e7ff;
+  --color-terminal-accent: #818cf8;
+  --color-terminal-step: #a5b4fc;
+  --color-terminal-divider: #312e81;
+  --color-terminal-success: #4ade80;
+  --color-terminal-error: #f87171;
+  --color-terminal-warn: #fbbf24;
+
+  /* Step accent */
+  --color-step-border: #292524;
+  --color-step-bg: #231f1e;
+
+  /* Sidebar surface (always-dark indigo regardless of mode in :root) */
+  --color-sidebar: #1e1b4b;
+  --color-sidebar-text: #e0e7ff;
+  --color-sidebar-text-muted: #a5b4fc;
+  --color-sidebar-eyebrow: #818cf8;
+  --color-sidebar-active-bg: #312e81;
+  --color-sidebar-active-stripe: #a78bfa;
+  --color-sidebar-status-dot: #22d3ee;
+  --color-sidebar-border: rgba(255, 255, 255, 0.06);
+
+  /* Canvas / workflow builder */
+  --color-canvas: #f8f7ff;
+  --color-canvas-dot: #ddd8ff;
+
+  /* Integration card status badge colors */
+  --color-integration-connected-bg: #dcfce7;
+  --color-integration-connected-fg: #15803d;
+  --color-integration-available-bg: #ede9fe;
+  --color-integration-available-fg: #6d28d9;
+  --color-integration-coming-bg: #f3f4f6;
+  --color-integration-coming-fg: #6b7280;
+  --color-integration-connect-btn: #7c3aed;
+  --color-integration-connected-border: #16a34a;
+  --color-integration-connected-text: #15803d;
+
+  /* Success feedback (green text/border for status messages) */
+  --color-feedback-success-text: #065f46;
+  --color-feedback-success-border: #a7f3d0;
+
+  /* Danger zone card border and text */
+  --color-danger-border: #fecaca;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #b91c1c;
+  --color-danger-btn: #dc2626;
+
+  /* White-surface overlays (toolbars, demo cards on light pages) */
+  --color-panel-bg: rgba(255, 255, 255, 0.85);
+  --color-panel-border: #e5e7eb;
+  --color-panel-text: #1e1b4b;
+  --color-panel-text-muted: #4b5563;
+  --color-panel-text-faint: #6b7280;
+}
+
+/* Dark mode overrides — brand-calibrated amber-on-stone dark palette.
+   `--color-on-primary` is DARK (#0c0a09) — amber (#fbbf24) is too light for
+   white text (1.67:1). CTAs use dark text on amber fill (11.83:1). */
+[data-mol-mode='dark'] {
+  --color-primary: #fbbf24;
+  --color-primary-hover: #f59e0b;
+  --color-primary-light: #2a1f0a;
+  --color-secondary: #fb923c;
+  --color-secondary-hover: #f97316;
+
+  --color-accent: #fdba74;
+  --color-accent-hover: #fb923c;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  --color-bg: #0c0a09;
+  --color-bg-secondary: #1c1917;
+  --color-bg-card: #1c1917;
+  --color-bg-sidebar: #0c0a09;
+  --color-border: #292524;
+  --color-border-focus: #fbbf24;
+
+  --color-text: #fafaf9;
+  --color-text-secondary: #d6d3d1;
+  --color-text-muted: #a8a29e;
+  --color-text-inverse: #0c0a09;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 12px rgba(251, 191, 36, 0.3);
+
+  --color-status-success: #4ade80;
+  --color-status-failure: #f87171;
+  --color-status-skipped: #a8a29e;
+  --color-status-running: #fbbf24;
+
+  --color-step-border: #292524;
+  --color-step-bg: #231f1e;
+
+  /* Workflow node type colors — stay vibrant in dark */
+  --color-node-trigger: #a78bfa;
+  --color-node-condition: #22d3ee;
+  --color-node-action: #4ade80;
+
+  /* App-specific semantic surface tokens */
+  --color-surface-input: #1c1917;
+  --color-text-dark-invert: #f5f0ea;
+  --color-accent-violet-light: #a78bfa;
+  --color-accent-violet: #a78bfa;
+
+  /* Badge tokens for template status pills */
+  --color-status-success-bg: #0f3a1a;
+  --color-status-success-fg: #4ade80;
+  --color-status-warning-fg: #fbbf24;
+  --color-status-error-bg: #3f1818;
+  --color-status-error-fg: #f87171;
+  --color-status-muted-fg: #a8a29e;
+
+  /* Run-state badge tokens — dark */
+  --color-run-running-bg: #0c3040;
+  --color-run-running-fg: #22d3ee;
+  --color-run-running-dot: #22d3ee;
+  --color-run-completed-bg: #0f3a1a;
+  --color-run-completed-fg: #4ade80;
+  --color-run-completed-dot: #4ade80;
+  --color-run-failed-bg: #3f1818;
+  --color-run-failed-fg: #f87171;
+  --color-run-failed-dot: #f87171;
+  --color-run-queued-bg: #4a2f10;
+  --color-run-queued-fg: #fbbf24;
+  --color-run-queued-dot: #fbbf24;
+  --color-run-paused-bg: #292524;
+  --color-run-paused-fg: #a8a29e;
+  --color-run-paused-dot: #a8a29e;
+  --color-run-skipped-bg: #1c1917;
+  --color-run-skipped-fg: #78716c;
+  --color-run-skipped-dot: #57534e;
+
+  /* Workflow node surface backgrounds — dark */
+  --color-node-trigger-bg: #1e1040;
+  --color-node-condition-bg: #051a1f;
+  --color-node-action-bg: #052014;
+
+  /* Execution log terminal (stays same in dark — already dark surface) */
+  --color-terminal-bg: #0d0b2e;
+  --color-terminal-text: #e0e7ff;
+  --color-terminal-accent: #818cf8;
+  --color-terminal-step: #a5b4fc;
+  --color-terminal-divider: #312e81;
+  --color-terminal-success: #4ade80;
+  --color-terminal-error: #f87171;
+  --color-terminal-warn: #fbbf24;
+
+  /* Sidebar (stays dark in dark mode — same indigo surface) */
+  --color-sidebar: #0d0b2e;
+  --color-sidebar-text: #e0e7ff;
+  --color-sidebar-text-muted: #a5b4fc;
+  --color-sidebar-eyebrow: #818cf8;
+  --color-sidebar-active-bg: #1e1b4b;
+  --color-sidebar-active-stripe: #a78bfa;
+  --color-sidebar-status-dot: #22d3ee;
+  --color-sidebar-border: rgba(255, 255, 255, 0.06);
+
+  /* Canvas / workflow builder — dark */
+  --color-canvas: #0c0a09;
+  --color-canvas-dot: #2a2522;
+
+  /* Integration card status badge colors — dark */
+  --color-integration-connected-bg: #0f3a1a;
+  --color-integration-connected-fg: #4ade80;
+  --color-integration-available-bg: #1e1040;
+  --color-integration-available-fg: #a78bfa;
+  --color-integration-coming-bg: #292524;
+  --color-integration-coming-fg: #a8a29e;
+  --color-integration-connect-btn: #a78bfa;
+  --color-integration-connected-border: #4ade80;
+  --color-integration-connected-text: #4ade80;
+
+  /* Success feedback — dark */
+  --color-feedback-success-text: #4ade80;
+  --color-feedback-success-border: #0f3a1a;
+
+  /* Danger zone — dark */
+  --color-danger-border: #5a1818;
+  --color-danger-bg: #3f1818;
+  --color-danger-text: #f87171;
+  --color-danger-btn: #f87171;
+
+  /* White-surface overlays — dark flips to stone surfaces */
+  --color-panel-bg: rgba(28, 25, 23, 0.92);
+  --color-panel-border: #292524;
+  --color-panel-text: #fafaf9;
+  --color-panel-text-muted: #d6d3d1;
+  --color-panel-text-faint: #a8a29e;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     Amber brand CTA buttons keep white text: `on-primary` stays white. */
+  --color-background: #0c0a09;
+  --color-on-background: #fafaf9;
+  --color-surface: #0c0a09;
+  --color-surface-bright: #2a2522;
+  --color-surface-dim: #050402;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #111009;
+  --color-surface-container: #1c1917;
+  --color-surface-container-high: #231f1e;
+  --color-surface-container-highest: #292524;
+  --color-surface-variant: #231f1e;
+  --color-on-surface: #fafaf9;
+  --color-on-surface-variant: #a8a29e;
+  --color-inverse-surface: #fafaf9;
+  --color-inverse-on-surface: #0c0a09;
+  --color-inverse-primary: #d97706;
+  --color-primary: #fbbf24; /* amber brightened slightly for dark */
+  --color-primary-container: #2a1f0a;
+  --color-on-primary: #0c0a09; /* dark on amber — 11.83:1; amber is too light for white text */
+  --color-on-primary-container: #fef3c7;
+  --color-secondary: #fb923c;
+  --color-secondary-container: #3a1a08;
+  --color-on-secondary: #0c0a09;
+  --color-on-secondary-container: #fde8d4;
+  --color-tertiary: #4ade80;
+  --color-tertiary-container: #0f3a1a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #bbf7d0;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on bright-red — 4.74:1 vs #f87171 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b6560;
+  --color-outline-variant: #292524;
+  --color-surface-tint: #fbbf24;
+  --color-surface-hover: #2a2522;
+}
+
+/* Light mode overrides — amber-on-cream counterpart to the
+   dark stone `:root`. Toggling [data-mol-mode="light"] flips
+   the defaults to a warm daytime palette. */
+[data-mol-mode='light'] {
+  --color-primary: #d97706;
+  --color-primary-hover: #b45309;
+  --color-primary-light: #fef3c7;
+  --color-secondary: #c2410c;
+  --color-secondary-hover: #9a3412;
+
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  --color-bg: #fffbeb;
+  --color-bg-secondary: #fef3c7;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #fffbeb;
+  --color-border: #fde68a;
+  --color-border-focus: #d97706;
+
+  --color-text: #1c1917;
+  --color-text-secondary: #44403c;
+  --color-text-muted: #78716c;
+  --color-text-inverse: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(120, 53, 15, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(120, 53, 15, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(120, 53, 15, 0.12);
+  --shadow-glow: 0 0 12px rgba(217, 119, 6, 0.18);
+
+  --color-status-success: #059669;
+  --color-status-failure: #dc2626;
+  --color-status-skipped: #78716c;
+  --color-status-running: #d97706;
+
+  --color-step-border: #fde68a;
+  --color-step-bg: #fffbeb;
+
+  --color-surface-hover: #fef3c7;
+
+  /* Workflow node type colors */
+  --color-node-trigger: #7c3aed;
+  --color-node-condition: #0891b2;
+  --color-node-action: #15803d;
+
+  /* App-specific semantic surface tokens */
+  --color-surface-input: #ffffff;
+  --color-text-dark-invert: #1e1b4b;
+  --color-accent-violet-light: #a5b4fc;
+  --color-accent-violet: #7c3aed;
+
+  /* Badge tokens for template status pills */
+  --color-status-success-bg: #dcfce7;
+  --color-status-success-fg: #166534;
+  --color-status-warning-fg: #92400e;
+  --color-status-error-bg: #fee2e2;
+  --color-status-error-fg: #b91c1c;
+  --color-status-muted-fg: #6b7280;
+
+  /* M3 bridge tokens for light mode */
+  --color-background: #fffbeb;
+  --color-on-background: #1c1917;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f5f0e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fef9f0;
+  --color-surface-container: #fef3c7;
+  --color-surface-container-high: #fde68a;
+  --color-surface-container-highest: #fcd34d;
+  --color-surface-variant: #fef3c7;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #44403c;
+  --color-inverse-surface: #1c1917;
+  --color-inverse-on-surface: #fafaf9;
+  --color-inverse-primary: #fbbf24;
+  --color-primary: #d97706;
+  --color-primary-container: #fef3c7;
+  --color-on-primary: #1c1917; /* dark on amber — 5.49:1; amber is too light for white text */
+  --color-on-primary-container: #78350f;
+  --color-secondary: #c2410c;
+  --color-secondary-container: #fde8d4;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #7c2d12;
+  --color-tertiary: #059669;
+  --color-tertiary-container: #d1fae5;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #064e3b;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #78716c;
+  --color-outline-variant: #fde68a;
+  --color-surface-tint: #d97706;
+
+  /* Run-state badge tokens — light */
+  --color-run-running-bg: #cffafe;
+  --color-run-running-fg: #0891b2;
+  --color-run-running-dot: #06b6d4;
+  --color-run-completed-bg: #dcfce7;
+  --color-run-completed-fg: #15803d;
+  --color-run-completed-dot: #16a34a;
+  --color-run-failed-bg: #fee2e2;
+  --color-run-failed-fg: #b91c1c;
+  --color-run-failed-dot: #dc2626;
+  --color-run-queued-bg: #fef3c7;
+  --color-run-queued-fg: #b45309;
+  --color-run-queued-dot: #f59e0b;
+  --color-run-paused-bg: #f3f4f6;
+  --color-run-paused-fg: #4b5563;
+  --color-run-paused-dot: #6b7280;
+  --color-run-skipped-bg: #f1f5f9;
+  --color-run-skipped-fg: #475569;
+  --color-run-skipped-dot: #94a3b8;
+
+  /* Workflow node type colors — light */
+  --color-node-trigger: #7c3aed;
+  --color-node-condition: #0891b2;
+  --color-node-action: #15803d;
+
+  /* Node surface backgrounds — light */
+  --color-node-trigger-bg: #f5f3ff;
+  --color-node-condition-bg: #ecfeff;
+  --color-node-action-bg: #f0fdf4;
+
+  /* Accent violet — light */
+  --color-accent-violet: #7c3aed;
+  --color-accent-violet-light: #a5b4fc;
+  --color-text-dark-invert: #1e1b4b;
+
+  /* Badge tokens */
+  --color-status-success-bg: #dcfce7;
+  --color-status-success-fg: #166534;
+  --color-status-warning-fg: #92400e;
+  --color-status-error-bg: #fee2e2;
+  --color-status-error-fg: #b91c1c;
+  --color-status-muted-fg: #6b7280;
+
+  /* Sidebar — light mode sidebar stays indigo */
+  --color-sidebar: #1e1b4b;
+  --color-sidebar-text: #e0e7ff;
+  --color-sidebar-text-muted: #a5b4fc;
+  --color-sidebar-eyebrow: #818cf8;
+  --color-sidebar-active-bg: #312e81;
+  --color-sidebar-active-stripe: #a78bfa;
+  --color-sidebar-status-dot: #22d3ee;
+  --color-sidebar-border: rgba(255, 255, 255, 0.06);
+
+  /* Canvas — light */
+  --color-canvas: #f8f7ff;
+  --color-canvas-dot: #ddd8ff;
+
+  /* Integration card status badge colors — light */
+  --color-integration-connected-bg: #dcfce7;
+  --color-integration-connected-fg: #15803d;
+  --color-integration-available-bg: #ede9fe;
+  --color-integration-available-fg: #6d28d9;
+  --color-integration-coming-bg: #f3f4f6;
+  --color-integration-coming-fg: #6b7280;
+  --color-integration-connect-btn: #7c3aed;
+  --color-integration-connected-border: #16a34a;
+  --color-integration-connected-text: #15803d;
+
+  /* Success feedback — light */
+  --color-feedback-success-text: #065f46;
+  --color-feedback-success-border: #a7f3d0;
+
+  /* Danger zone — light */
+  --color-danger-border: #fecaca;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #b91c1c;
+  --color-danger-btn: #dc2626;
+
+  /* White-surface overlays — light */
+  --color-panel-bg: rgba(255, 255, 255, 0.85);
+  --color-panel-border: #e5e7eb;
+  --color-panel-text: #1e1b4b;
+  --color-panel-text-muted: #4b5563;
+  --color-panel-text-faint: #6b7280;
+}

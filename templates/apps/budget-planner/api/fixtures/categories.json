@@ -1,0 +1,25 @@
+[
+  { "id": "cat_001", "name": "Rent",            "group": "Bills",            "archived": false },
+  { "id": "cat_002", "name": "Electric",        "group": "Bills",            "archived": false },
+  { "id": "cat_003", "name": "Internet",        "group": "Bills",            "archived": false },
+  { "id": "cat_004", "name": "Phone",           "group": "Bills",            "archived": false },
+  { "id": "cat_005", "name": "Renters insurance","group": "Bills",           "archived": false },
+
+  { "id": "cat_010", "name": "Groceries",       "group": "Frequent",         "archived": false },
+  { "id": "cat_011", "name": "Dining",          "group": "Frequent",         "archived": false },
+  { "id": "cat_012", "name": "Coffee",          "group": "Frequent",         "archived": false },
+  { "id": "cat_013", "name": "Transport",       "group": "Frequent",         "archived": false },
+
+  { "id": "cat_020", "name": "Subscriptions",   "group": "Non-monthly",      "archived": false },
+  { "id": "cat_021", "name": "Gifts",           "group": "Non-monthly",      "archived": false },
+  { "id": "cat_022", "name": "Auto maintenance","group": "Non-monthly",      "archived": false },
+  { "id": "cat_023", "name": "Medical",         "group": "Non-monthly",      "archived": false },
+
+  { "id": "cat_030", "name": "Emergency fund",  "group": "Savings goals",    "archived": false },
+  { "id": "cat_031", "name": "Vacation 2026",   "group": "Savings goals",    "archived": false },
+  { "id": "cat_032", "name": "New laptop",      "group": "Savings goals",    "archived": false },
+
+  { "id": "cat_040", "name": "Shopping",        "group": "Quality of life",  "archived": false },
+  { "id": "cat_041", "name": "Entertainment",   "group": "Quality of life",  "archived": false },
+  { "id": "cat_042", "name": "Hobbies",         "group": "Quality of life",  "archived": false }
+]

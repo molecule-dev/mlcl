@@ -1,0 +1,122 @@
+[
+  {
+    "id": "tkt01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "subject": "Unable to export reports to CSV",
+    "description": "When I click the 'Export to CSV' button on the analytics dashboard, nothing happens. I've tried in Chrome and Firefox. The button appears clickable but no download starts. This is blocking our monthly reporting.",
+    "status": "open",
+    "priority": "high",
+    "category": "Bug Report",
+    "assignee_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "requester_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-03-28T09:15:00Z",
+    "updated_at": "2026-03-28T09:15:00Z"
+  },
+  {
+    "id": "tkt02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "subject": "SSO login failing with SAML error",
+    "description": "Our team members are getting a 'SAML Response validation failed' error when trying to log in via Okta SSO. Started happening after Okta updated their certificates yesterday. Approximately 50 users affected.",
+    "status": "pending",
+    "priority": "urgent",
+    "category": "Authentication",
+    "assignee_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "requester_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-03-28T07:30:00Z",
+    "updated_at": "2026-03-28T10:45:00Z"
+  },
+  {
+    "id": "tkt03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "subject": "Request to increase API rate limit",
+    "description": "We're hitting the 1000 requests/minute rate limit during peak hours (9-11 AM EST). Our integration processes webhook events and needs a higher throughput. Current plan: Professional. Would like to discuss increasing to 5000/minute.",
+    "status": "on_hold",
+    "priority": "medium",
+    "category": "Account & Billing",
+    "assignee_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "requester_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "created_at": "2026-03-27T14:00:00Z",
+    "updated_at": "2026-03-28T08:00:00Z"
+  },
+  {
+    "id": "tkt04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "subject": "Dashboard loading slowly for large datasets",
+    "description": "Our analytics dashboard takes 30+ seconds to load when viewing data for more than 10,000 records. It used to load in under 5 seconds. We haven't changed anything on our end. Started about a week ago.",
+    "status": "open",
+    "priority": "medium",
+    "category": "Performance",
+    "assignee_id": null,
+    "requester_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "created_at": "2026-03-28T11:00:00Z",
+    "updated_at": "2026-03-28T11:00:00Z"
+  },
+  {
+    "id": "tkt05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "subject": "How to set up webhook for order notifications",
+    "description": "I'd like to receive real-time notifications when orders are placed in our store. I've read the docs but I'm unclear on the authentication flow for webhook endpoints. Can you walk me through the setup?",
+    "status": "resolved",
+    "priority": "low",
+    "category": "How-To Question",
+    "assignee_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "requester_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-03-25T10:00:00Z",
+    "updated_at": "2026-03-26T09:30:00Z"
+  },
+  {
+    "id": "tkt06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "subject": "Billing discrepancy on March invoice",
+    "description": "Our March invoice shows $499/month but we should be on the annual plan at $399/month. We signed the annual agreement on January 5th. Invoice #INV-2026-0342. Please correct and issue a credit.",
+    "status": "resolved",
+    "priority": "medium",
+    "category": "Account & Billing",
+    "assignee_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "requester_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "created_at": "2026-03-22T08:00:00Z",
+    "updated_at": "2026-03-24T16:00:00Z"
+  },
+  {
+    "id": "tkt07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "subject": "Feature request: Dark mode for admin panel",
+    "description": "Our team works late hours and the bright white admin panel is straining. Would love a dark mode option in the admin settings. This has been requested by multiple team members.",
+    "status": "closed",
+    "priority": "low",
+    "category": "Feature Request",
+    "assignee_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "requester_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "created_at": "2026-03-10T11:00:00Z",
+    "updated_at": "2026-03-18T14:00:00Z"
+  },
+  {
+    "id": "tkt08b9c-0d1e-4f2a-b3c4-d5e6f7a8b9c0",
+    "subject": "Data import failing for CSV files over 10MB",
+    "description": "Attempting to import a 15MB CSV file with 50,000 contacts. The upload appears to complete but then shows 'Import failed: timeout'. Smaller files (under 5MB) work fine. Need this for our migration.",
+    "status": "pending",
+    "priority": "high",
+    "category": "Bug Report",
+    "assignee_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "requester_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-03-26T09:00:00Z",
+    "updated_at": "2026-03-27T11:00:00Z"
+  },
+  {
+    "id": "tkt09c0d-1e2f-4a3b-c4d5-e6f7a8b9c0d1",
+    "subject": "Two-factor authentication not sending codes",
+    "description": "When I try to log in with 2FA, the SMS code never arrives. I've verified my phone number is correct. Tried both SMS and authenticator app options. This started after I updated my phone number yesterday.",
+    "status": "open",
+    "priority": "urgent",
+    "category": "Authentication",
+    "assignee_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "requester_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-03-28T08:45:00Z",
+    "updated_at": "2026-03-28T08:45:00Z"
+  },
+  {
+    "id": "tkt10d1e-2f3a-4b4c-d5e6-f7a8b9c0d1e2",
+    "subject": "API documentation for batch operations",
+    "description": "The API docs don't mention batch create/update endpoints. We need to process 1000+ records at a time. Is there a bulk API, or should we loop through individual requests? Looking for guidance on the best approach.",
+    "status": "resolved",
+    "priority": "low",
+    "category": "How-To Question",
+    "assignee_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "requester_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "created_at": "2026-03-20T13:00:00Z",
+    "updated_at": "2026-03-22T10:00:00Z"
+  }
+]

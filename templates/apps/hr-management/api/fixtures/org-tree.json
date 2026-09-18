@@ -1,0 +1,59 @@
+{
+  "id": "emp_007",
+  "name": "Devon Park",
+  "title": "VP of Engineering",
+  "department": "Engineering",
+  "initial": "D",
+  "children": [
+    {
+      "id": "emp_003",
+      "name": "Avery Kim",
+      "title": "Engineering Manager",
+      "department": "Engineering",
+      "initial": "A",
+      "children": [
+        { "id": "emp_001", "name": "Maya Chen",   "title": "Senior Backend Engineer", "department": "Engineering", "initial": "M", "children": [] },
+        { "id": "emp_008", "name": "Lena Okafor", "title": "Frontend Engineer",       "department": "Engineering", "initial": "L", "children": [] },
+        { "id": "emp_011","name": "Theo Nakamura", "title": "Data Engineer",           "department": "Engineering", "initial": "T", "children": [] }
+      ]
+    },
+    {
+      "id": "emp_006",
+      "name": "Sasha Wright",
+      "title": "VP of Customer Experience",
+      "department": "Customer Success",
+      "initial": "S",
+      "children": [
+        { "id": "emp_004", "name": "Noah Singh", "title": "Customer Success Lead", "department": "Customer Success", "initial": "N", "children": [] }
+      ]
+    },
+    {
+      "id": "emp_009",
+      "name": "Riley Banner",
+      "title": "Head of Design",
+      "department": "Design",
+      "initial": "R",
+      "children": [
+        { "id": "emp_002", "name": "Jordan Patel", "title": "Product Designer", "department": "Design", "initial": "J", "children": [] }
+      ]
+    },
+    {
+      "id": "emp_005",
+      "name": "Priya Iyer",
+      "title": "People Operations Lead",
+      "department": "People",
+      "initial": "P",
+      "children": [
+        { "id": "emp_012", "name": "Imani Brooks", "title": "Recruiter", "department": "People", "initial": "I", "children": [] }
+      ]
+    },
+    {
+      "id": "emp_010",
+      "name": "Morgan Reyes",
+      "title": "Marketing Manager",
+      "department": "Marketing",
+      "initial": "M",
+      "children": []
+    }
+  ]
+}

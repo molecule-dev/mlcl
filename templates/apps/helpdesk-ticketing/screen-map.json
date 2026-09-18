@@ -1,0 +1,134 @@
+{
+  "app": "helpdesk-ticketing",
+  "designProjectId": "16368100739812250582",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TopNavBar.tsx"
+      ],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-helpdesk-ticketing-dashboard.html",
+      "designScreenId": "4759b1575d4f4bf08e89c9fc09010d9f",
+      "designScreenTitle": "Zenith Support Dashboard"
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-helpdesk-ticketing-login.html",
+      "derivationNotes": "Same centered card layout as Login but with only an email field, a 'Send Reset Link' primary CTA button, and a 'Back to sign in' link. Remove password field, social login section, and signup footer."
+    },
+    {
+      "name": "KnowledgeBase",
+      "templateFile": "app/pages/KnowledgeBase.tsx",
+      "components": [
+        "app/components/SideNav.tsx",
+        "app/components/KnowledgeTopNavBar.tsx"
+      ],
+      "route": "/knowledge-base",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-helpdesk-ticketing-knowledge-base.html",
+      "designScreenId": "410a46b12a6d41b3bce465a1a08ebf5e",
+      "designScreenTitle": "Knowledge Base Dashboard"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-helpdesk-ticketing-login.html",
+      "designScreenId": "9d4337122e974e21993c16fa1d769e08",
+      "generationPrompt": "Full-page centered card login screen for 'Zenith Support'. Background: surface (#faf8ff). Card: surface_container_lowest (#ffffff) with ambient shadow. Logo with primary gradient, 'Welcome back' headline (display-sm), email and password inputs, 'Forgot password?' link, gradient 'Sign in' CTA, 'or continue with' divider, social login row (Google, GitHub, GitLab), and 'Don't have an account? Sign up' footer. Inter typography, no 1px borders, Precision Architect design system."
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TopAppBar.tsx"
+      ],
+      "route": "/reports",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-helpdesk-ticketing-reports.html",
+      "designScreenId": "1ac6c31c48d0422e80408425fa6de287",
+      "designScreenTitle": "Reports"
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-helpdesk-ticketing-login.html",
+      "derivationNotes": "Same centered card layout as Login but with 'Reset your password' headline, 'New password' and 'Confirm password' fields with show/hide toggles, and a 'Reset Password' primary CTA button. Remove email field, social login section, forgot password link, and signup footer. Add 'Back to sign in' link."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/SettingsTopBar.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-helpdesk-ticketing-settings.html",
+      "designScreenId": "3e1a1dd787944584b57aa451217a869c",
+      "generationPrompt": "Settings page for 'Zenith Support' with sidebar navigation layout. Sections: Profile Settings (avatar, name, email, job title, timezone), Notification Preferences (email/push toggles, digest frequency), Appearance (theme, language, compact mode), Security (change password, 2FA, active sessions), Team & Permissions (role, team preview). Cards with surface_container_lowest background, ambient shadows. Primary gradient buttons. Inter typography, Precision Architect design system."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-helpdesk-ticketing-login.html",
+      "derivationNotes": "Same centered card layout as Login but with 'Create your account' headline, additional 'Full name' field above email, 'Confirm password' field below password, 'Create account' primary CTA instead of 'Sign in', and footer changed to 'Already have an account? Sign in'. Keep social login section."
+    },
+    {
+      "name": "TicketDetail",
+      "templateFile": "app/pages/TicketDetail.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TicketDetailTopNavBar.tsx"
+      ],
+      "route": "/tickets/:id",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-helpdesk-ticketing-ticket-detail.html",
+      "designScreenId": "0fe2396174bf40f98f7d74144023d5a6",
+      "designScreenTitle": "Zenith Support: Ticket TICK-1234 Detail View"
+    },
+    {
+      "name": "Tickets",
+      "templateFile": "app/pages/Tickets.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/TicketsTopNavBar.tsx"
+      ],
+      "route": "/tickets",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-helpdesk-ticketing-tickets.html",
+      "designScreenId": "8b6ce931a5704554a1d59d8c0441b566",
+      "designScreenTitle": "Ticket List / Queue"
+    }
+  ]
+}

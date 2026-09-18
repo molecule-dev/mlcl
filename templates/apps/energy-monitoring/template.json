@@ -1,0 +1,91 @@
+{
+  "label": "Energy Monitoring",
+  "description": "Sense-like energy monitoring with usage tracking, solar production, cost analysis, alerts, and consumption trends — with built-in Stripe-backed subscription tiers",
+  "cluster": "operations-iot",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-reporting-database",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-charts",
+    "@molecule/app-data-table",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Energy Monitor"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for alert emails",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications"
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications"
+    },
+    "DEFAULT_CURRENCY": {
+      "description": "Currency for cost display",
+      "default": "USD"
+    },
+    "HIGH_USAGE_THRESHOLD_KWH": {
+      "description": "Default high usage alert threshold in kWh",
+      "default": "50"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_ENERGY_MONITORING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_ENERGY_MONITORING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_ENERGY_MONITORING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_ENERGY_MONITORING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "reporting",
+    "alerts",
+    "charts",
+    "date-range",
+    "push-notifications",
+    "subscriptions"
+  ]
+}

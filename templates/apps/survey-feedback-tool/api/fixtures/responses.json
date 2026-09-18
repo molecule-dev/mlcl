@@ -1,0 +1,120 @@
+[
+  {
+    "id": "rsp_1042",
+    "survey_id": "q4-product-nps",
+    "respondent_id": "usr_maya_reyes",
+    "respondent_name": "Maya Reyes",
+    "respondent_email": "maya@northwind.test",
+    "answers": {
+      "qst_001": 10,
+      "qst_002": "The new dashboard saves my whole team an hour every Friday.",
+      "qst_003": "New dashboard",
+      "qst_004": 5,
+      "qst_005": "Saved views per teammate would be huge."
+    },
+    "completion_seconds": 138,
+    "submitted_at": "2026-04-27T15:42:00Z"
+  },
+  {
+    "id": "rsp_1041",
+    "survey_id": "q4-product-nps",
+    "respondent_id": "usr_devon_park",
+    "respondent_name": "Devon Park",
+    "respondent_email": "devon@spruce.test",
+    "answers": {
+      "qst_001": 9,
+      "qst_002": "Sharing roles finally make sense — much easier to onboard a new analyst.",
+      "qst_003": "Sharing & roles",
+      "qst_004": 5,
+      "qst_005": "Slack notifications on response milestones."
+    },
+    "completion_seconds": 162,
+    "submitted_at": "2026-04-27T13:18:00Z"
+  },
+  {
+    "id": "rsp_1040",
+    "survey_id": "q4-product-nps",
+    "respondent_id": "usr_sarah_jung",
+    "respondent_name": "Sarah Jung",
+    "respondent_email": "sarah@avocet.test",
+    "answers": {
+      "qst_001": 8,
+      "qst_002": "Reliable, fast, and the analytics view is finally usable.",
+      "qst_003": "Analytics export",
+      "qst_004": 4,
+      "qst_005": "Per-question conditional logic."
+    },
+    "completion_seconds": 144,
+    "submitted_at": "2026-04-27T11:02:00Z"
+  },
+  {
+    "id": "rsp_1039",
+    "survey_id": "q4-product-nps",
+    "respondent_id": "usr_lin_qian",
+    "respondent_name": "Lin Qian",
+    "respondent_email": "lin@hexagon.test",
+    "answers": {
+      "qst_001": 7,
+      "qst_002": "Solid product, but mobile still feels like an afterthought.",
+      "qst_003": "Mobile app",
+      "qst_004": 4,
+      "qst_005": "Better mobile editing of responses."
+    },
+    "completion_seconds": 121,
+    "submitted_at": "2026-04-26T20:51:00Z"
+  },
+  {
+    "id": "rsp_1038",
+    "survey_id": "q4-product-nps",
+    "respondent_id": "usr_alex_dembek",
+    "respondent_name": "Alex Dembek",
+    "respondent_email": "alex@meridian.test",
+    "answers": {
+      "qst_001": 9,
+      "qst_002": "Great new dashboard. Filters are tight.",
+      "qst_003": "New dashboard",
+      "qst_004": 5,
+      "qst_005": "API access to raw responses."
+    },
+    "completion_seconds": 110,
+    "submitted_at": "2026-04-26T18:14:00Z"
+  },
+  {
+    "id": "rsp_2014",
+    "survey_id": "employee-pulse",
+    "respondent_id": "usr_anon_team_a",
+    "respondent_name": "Anonymous · Team A",
+    "respondent_email": null,
+    "answers": {
+      "qst_010": 4,
+      "qst_011": 5
+    },
+    "completion_seconds": 38,
+    "submitted_at": "2026-04-26T16:00:00Z"
+  },
+  {
+    "id": "rsp_2013",
+    "survey_id": "employee-pulse",
+    "respondent_id": "usr_anon_team_b",
+    "respondent_name": "Anonymous · Team B",
+    "respondent_email": null,
+    "answers": {
+      "qst_010": 3,
+      "qst_011": 4
+    },
+    "completion_seconds": 41,
+    "submitted_at": "2026-04-26T15:38:00Z"
+  },
+  {
+    "id": "rsp_3007",
+    "survey_id": "onboarding-csat",
+    "respondent_id": "usr_jordan_lee",
+    "respondent_name": "Jordan Lee",
+    "respondent_email": "jordan@kestrel.test",
+    "answers": {
+      "qst_020": 5
+    },
+    "completion_seconds": 22,
+    "submitted_at": "2026-04-25T09:14:00Z"
+  }
+]

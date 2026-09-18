@@ -1,0 +1,74 @@
+[
+  {
+    "id": "n1",
+    "type": "booking_request",
+    "title": "New booking request from Emil B.",
+    "body": "7 nights at Sunlit Cliffside Cabin · Jul 12 – Jul 19 · 4 guests · expires in 24h",
+    "href": "/host/reservations",
+    "created_at": "2026-04-29T22:14:00Z",
+    "unread": true
+  },
+  {
+    "id": "n2",
+    "type": "host_message",
+    "title": "Maren O. replied",
+    "body": "Looking forward to having you in June! I'll leave the trail map on the kitchen counter.",
+    "href": "/messages/m1",
+    "created_at": "2026-04-29T18:42:00Z",
+    "unread": true
+  },
+  {
+    "id": "n3",
+    "type": "price_drop",
+    "title": "Price drop on a saved stay",
+    "body": "Glass House on the Cliffs — Faroe Islands — dropped 12% for September dates.",
+    "href": "/listings/l6",
+    "created_at": "2026-04-28T09:01:00Z",
+    "unread": true
+  },
+  {
+    "id": "n4",
+    "type": "booking_confirmed",
+    "title": "You're booked: Riad with Tiled Courtyard",
+    "body": "Sep 22 – Sep 28 · 6 guests · Confirmation ROOST-2L9-RIAD-9201",
+    "href": "/bookings/b2",
+    "created_at": "2026-04-22T17:12:00Z",
+    "unread": false
+  },
+  {
+    "id": "n5",
+    "type": "review_received",
+    "title": "Hannah W. left a 5-star review",
+    "body": "\"The most peaceful four nights I've had in years.\"",
+    "href": "/host/listings/hl1",
+    "created_at": "2026-03-22T11:14:00Z",
+    "unread": false
+  },
+  {
+    "id": "n6",
+    "type": "payout",
+    "title": "Payout sent: $4,420.00",
+    "body": "Sunlit Cliffside Cabin · April earnings · scheduled to arrive Apr 30.",
+    "href": "/host",
+    "created_at": "2026-04-26T08:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n7",
+    "type": "trip_reminder",
+    "title": "Big Sur trip in 6 days",
+    "body": "Pack a warm layer — fog rolls in cold. Maren has check-in instructions ready.",
+    "href": "/bookings/b1",
+    "created_at": "2026-04-25T07:30:00Z",
+    "unread": false
+  },
+  {
+    "id": "n8",
+    "type": "security_alert",
+    "title": "New device signed in",
+    "body": "Chrome on macOS · Brooklyn, NY · If this wasn't you, secure your account.",
+    "href": "/settings",
+    "created_at": "2026-04-24T19:45:00Z",
+    "unread": false
+  }
+]

@@ -1,0 +1,160 @@
+{
+  "app": "habit-tracker",
+  "designProjectId": "13240861152765455995",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-landing.html",
+      "designScreenId": "b2756e7f5fc14a5b931a9b96a9746fb5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-login.html",
+      "designScreenId": "8f332e59c61147a7abcd1d751a5e9810"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-habit-tracker-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Start your streak'. Button text 'Create account' keeps the indigo→emerald gradient. Bottom link 'Already have an account? Sign in'. Streak wordmark and tagline preserved."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-habit-tracker-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtitle 'Enter your email to receive a reset link'. Gradient button 'Send reset link'. Bottom link 'Back to Sign in'. Streak wordmark preserved."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-habit-tracker-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Gradient button 'Reset password'. Bottom link 'Back to Sign in'. Streak wordmark preserved."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-dashboard.html",
+      "designScreenId": "3fb80f4efbad4b1c8959a611191c48c3"
+    },
+    {
+      "name": "Habits",
+      "templateFile": "app/pages/Habits.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/habits",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-habits.html",
+      "designScreenId": "cd7d6d53479e4c5bae8f95e0d97a1b70"
+    },
+    {
+      "name": "HabitDetail",
+      "templateFile": "app/pages/HabitDetail.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/habits/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-habit-detail.html",
+      "designScreenId": "51f7afc98f5346ee93e6fd4d4d2df467"
+    },
+    {
+      "name": "Achievements",
+      "templateFile": "app/pages/Achievements.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/achievements",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-achievements.html",
+      "designScreenId": "0ac65775732743029a7f19013e64d78a"
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-stats.html",
+      "designScreenId": "e7221f06c1d0436184c4a5c048e3a7c3"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-settings.html",
+      "designScreenId": "809cf9dde52949e295289c25d3aa6ed1"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-calendar.html",
+      "designScreenId": "cb0f1c51e3744cf29781e1deb61b85cb"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-profile.html",
+      "designScreenId": "65689267e76a4aa78c4aa2bbbc2974a4"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-habit-tracker-notifications.html",
+      "designScreenId": "254cde57aa2144218f98445557f6aa0d"
+    },
+    {
+      "name": "NewHabit",
+      "templateFile": "app/pages/NewHabit.tsx",
+      "components": ["app/components/HabitTrackerLayout.tsx"],
+      "route": "/habits/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-habit-tracker-habit-detail.html",
+      "derivationNotes": "Same layout chrome as HabitDetail (sidebar, header, content max 1120px) but in form-creation mode. Replace the heatmap/history panels with a single centered Habit form card containing: Name (text input), Category (select with category color dot pills: Health/Fitness/Learning/Mindfulness/Productivity/Social/Custom), Frequency (Daily / Weekly / Custom days with M T W T F S S toggle pills), Target time (optional time picker + 'Reminders' toggle), Color accent swatch row, Notes (textarea). Heading 'New habit'. Primary button 'Create habit' uses the indigo→emerald gradient. Secondary 'Cancel' link returns to /habits. No streak counter or history sections — they only appear after creation in HabitDetail."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "insight_detected",   "title": "Anomaly: refund spike in Q3 Orders",         "body": "4.1× the rolling-90 baseline. Concentrated in 2 SKUs.",                "href": "/datasets/ds_001",  "created_at": "2026-04-25T11:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "report_ready",        "title": "Q3 Revenue Recap report ran",                "body": "Monthly schedule completed. New AI summary attached.",                  "href": "/reports/rpt_001",  "created_at": "2026-04-25T08:01:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "dataset_processed",   "title": "Web Traffic Apr 2026 ready",                  "body": "421,840 rows · 14 cols · ready to query.",                              "href": "/datasets/ds_003",  "created_at": "2026-04-25T08:32:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "query_shared",        "title": "Mira Patel shared “Top 10 customers Q3”",     "body": "Saved to your shared library. Open to view.",                           "href": "/query",            "created_at": "2026-04-23T15:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "insight_detected",   "title": "Trend: Enterprise LTV up 14% YoY",            "body": "Crossed $50K average for the first time in March.",                     "href": "/datasets/ds_002",  "created_at": "2026-04-22T15:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",      "title": "Welcome to Clarion",                          "body": "Upload a CSV in /upload, then ask questions in /query — that's the loop.", "href": "/upload",         "created_at": "2026-04-15T10:00:00Z", "unread": false }
+]

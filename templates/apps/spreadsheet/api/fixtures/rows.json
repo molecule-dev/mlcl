@@ -1,0 +1,100 @@
+[
+  {
+    "id": "r-summary-amer",
+    "sheet_id": "sh-q4-summary",
+    "position": 0,
+    "values": {
+      "Region": "AMER",
+      "Pipeline": 4280000,
+      "Booked": 1864000,
+      "% Attainment": 0.62,
+      "Trend": [62, 71, 80, 84, 76, 88, 91]
+    },
+    "updated_at": "2026-04-29T17:42:00Z",
+    "updated_by": "u-avery-chen"
+  },
+  {
+    "id": "r-summary-emea",
+    "sheet_id": "sh-q4-summary",
+    "position": 1,
+    "values": {
+      "Region": "EMEA",
+      "Pipeline": 2980000,
+      "Booked": 1422000,
+      "% Attainment": 0.71,
+      "Trend": [55, 64, 70, 78, 81, 79, 84]
+    },
+    "updated_at": "2026-04-29T17:31:00Z",
+    "updated_by": "u-jamie-park"
+  },
+  {
+    "id": "r-summary-apac",
+    "sheet_id": "sh-q4-summary",
+    "position": 2,
+    "values": {
+      "Region": "APAC",
+      "Pipeline": 1640000,
+      "Booked": 768000,
+      "% Attainment": 0.46,
+      "Trend": [42, 38, 51, 46, 52, 49, 58]
+    },
+    "updated_at": "2026-04-29T17:18:00Z",
+    "updated_by": "u-priya-shah"
+  },
+  {
+    "id": "r-summary-latam",
+    "sheet_id": "sh-q4-summary",
+    "position": 3,
+    "values": {
+      "Region": "LATAM",
+      "Pipeline": 920000,
+      "Booked": 401000,
+      "% Attainment": 0.58,
+      "Trend": [38, 41, 45, 52, 48, 55, 62]
+    },
+    "updated_at": "2026-04-29T16:55:00Z",
+    "updated_by": "u-marcus-rivera"
+  },
+  {
+    "id": "r-pipeline-northwind",
+    "sheet_id": "sh-q4-pipeline",
+    "position": 0,
+    "values": {
+      "Account": "Northwind Co.",
+      "Stage": "Negotiation",
+      "Amount": 184000,
+      "Close Date": "2026-06-12",
+      "Confidence": 0.8
+    },
+    "updated_at": "2026-04-29T15:11:00Z",
+    "updated_by": "u-avery-chen"
+  },
+  {
+    "id": "r-pipeline-acme",
+    "sheet_id": "sh-q4-pipeline",
+    "position": 1,
+    "values": {
+      "Account": "Acme Industrial",
+      "Stage": "Proposal",
+      "Amount": 96500,
+      "Close Date": "2026-05-30",
+      "Confidence": 0.55
+    },
+    "updated_at": "2026-04-28T22:01:00Z",
+    "updated_by": "u-jamie-park"
+  },
+  {
+    "id": "r-pipeline-helios",
+    "sheet_id": "sh-q4-pipeline",
+    "position": 2,
+    "values": {
+      "Account": "Helios Aerospace",
+      "Stage": "Closed-Won",
+      "Amount": 312000,
+      "Close Date": "2026-04-22",
+      "Confidence": 1.0
+    },
+    "updated_at": "2026-04-22T19:42:00Z",
+    "updated_by": "u-priya-shah"
+  }
+]

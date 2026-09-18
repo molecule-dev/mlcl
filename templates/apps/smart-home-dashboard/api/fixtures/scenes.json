@@ -1,0 +1,91 @@
+[
+  {
+    "id": "scn-001",
+    "name": "Good Morning",
+    "description": "Warm light, raise blinds, brew coffee",
+    "icon": "wb_sunny",
+    "device_states": [
+      { "device_id": "dev-001", "is_on": true, "properties": { "brightness": 60, "color_temp": 3000 } },
+      { "device_id": "dev-003", "is_on": true, "properties": { "target_temp_f": 70 } },
+      { "device_id": "dev-004", "is_on": true }
+    ],
+    "last_activated": "2026-04-29T07:14:00Z",
+    "activation_count": 184,
+    "created_at": "2026-01-12T09:30:00Z",
+    "updated_at": "2026-04-29T07:14:00Z"
+  },
+  {
+    "id": "scn-002",
+    "name": "Movie Night",
+    "description": "Dim ambient lights, fire up the TV",
+    "icon": "movie",
+    "device_states": [
+      { "device_id": "dev-001", "is_on": true, "properties": { "brightness": 18 } },
+      { "device_id": "dev-007", "is_on": true, "properties": { "brightness": 12 } },
+      { "device_id": "dev-010", "is_on": true }
+    ],
+    "last_activated": "2026-04-27T20:48:00Z",
+    "activation_count": 47,
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-27T20:48:00Z"
+  },
+  {
+    "id": "scn-003",
+    "name": "Goodnight",
+    "description": "Lock up, lights off, thermostat eco",
+    "icon": "bedtime",
+    "device_states": [
+      { "device_id": "dev-001", "is_on": false },
+      { "device_id": "dev-002", "is_on": false },
+      { "device_id": "dev-005", "is_on": true, "properties": { "locked": true } },
+      { "device_id": "dev-003", "is_on": true, "properties": { "target_temp_f": 65 } }
+    ],
+    "last_activated": "2026-04-28T22:50:00Z",
+    "activation_count": 211,
+    "created_at": "2026-01-12T22:00:00Z",
+    "updated_at": "2026-04-28T22:50:00Z"
+  },
+  {
+    "id": "scn-004",
+    "name": "Away Mode",
+    "description": "Lock doors, cameras armed, eco temp",
+    "icon": "lock",
+    "device_states": [
+      { "device_id": "dev-005", "is_on": true, "properties": { "locked": true } },
+      { "device_id": "dev-006", "is_on": true, "properties": { "recording": true } },
+      { "device_id": "dev-003", "is_on": true, "properties": { "target_temp_f": 62 } }
+    ],
+    "last_activated": "2026-04-26T08:15:00Z",
+    "activation_count": 38,
+    "created_at": "2026-01-18T13:00:00Z",
+    "updated_at": "2026-04-26T08:15:00Z"
+  },
+  {
+    "id": "scn-005",
+    "name": "Dinner Party",
+    "description": "Warm pendants, kitchen on, music ready",
+    "icon": "restaurant",
+    "device_states": [
+      { "device_id": "dev-001", "is_on": true, "properties": { "brightness": 45, "color_temp": 2700 } },
+      { "device_id": "dev-004", "is_on": true },
+      { "device_id": "dev-012", "is_on": true, "properties": { "brightness": 80 } }
+    ],
+    "last_activated": "2026-04-20T19:00:00Z",
+    "activation_count": 9,
+    "created_at": "2026-02-01T18:00:00Z",
+    "updated_at": "2026-04-20T19:00:00Z"
+  },
+  {
+    "id": "scn-006",
+    "name": "Focus Time",
+    "description": "Office bright, silence notifications",
+    "icon": "psychology",
+    "device_states": [
+      { "device_id": "dev-008", "is_on": true, "properties": { "fan_speed": 2 } }
+    ],
+    "last_activated": "2026-04-29T09:30:00Z",
+    "activation_count": 64,
+    "created_at": "2026-02-10T11:00:00Z",
+    "updated_at": "2026-04-29T09:30:00Z"
+  }
+]

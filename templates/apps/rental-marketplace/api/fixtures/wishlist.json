@@ -1,0 +1,67 @@
+[
+  {
+    "id": "w1",
+    "listing_id": "l6",
+    "listing_title": "Glass House on the Cliffs",
+    "city": "Faroe Islands",
+    "country": "Faroe Islands",
+    "thumbnail_url": "https://picsum.photos/seed/roost-l6/800/600",
+    "rating": 4.99,
+    "review_count": 88,
+    "price_per_night_cents": 41200,
+    "saved_at": "2026-04-12T19:24:00Z",
+    "collection": "Daydreams"
+  },
+  {
+    "id": "w2",
+    "listing_id": "l3",
+    "listing_title": "Riad with Tiled Courtyard",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "thumbnail_url": "https://picsum.photos/seed/roost-l3/800/600",
+    "rating": 4.97,
+    "review_count": 522,
+    "price_per_night_cents": 24500,
+    "saved_at": "2026-04-08T14:11:00Z",
+    "collection": "September trip"
+  },
+  {
+    "id": "w3",
+    "listing_id": "l5",
+    "listing_title": "A-Frame on the Inlet",
+    "city": "Ucluelet",
+    "country": "Canada",
+    "thumbnail_url": "https://picsum.photos/seed/roost-l5/800/600",
+    "rating": 4.91,
+    "review_count": 264,
+    "price_per_night_cents": 28400,
+    "saved_at": "2026-03-30T22:48:00Z",
+    "collection": "Daydreams"
+  },
+  {
+    "id": "w4",
+    "listing_id": "l1",
+    "listing_title": "Sunlit Cliffside Cabin",
+    "city": "Big Sur",
+    "country": "United States",
+    "thumbnail_url": "https://picsum.photos/seed/roost-l1/800/600",
+    "rating": 4.94,
+    "review_count": 287,
+    "price_per_night_cents": 31800,
+    "saved_at": "2026-03-22T09:14:00Z",
+    "collection": "September trip"
+  },
+  {
+    "id": "w5",
+    "listing_id": "l7",
+    "listing_title": "Vineyard Stone Cottage",
+    "city": "Saint-Émilion",
+    "country": "France",
+    "thumbnail_url": "https://picsum.photos/seed/roost-l7/800/600",
+    "rating": 4.85,
+    "review_count": 173,
+    "price_per_night_cents": 26800,
+    "saved_at": "2026-03-14T11:02:00Z",
+    "collection": "Daydreams"
+  }
+]

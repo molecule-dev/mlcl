@@ -1,0 +1,85 @@
+{
+  "label": "Medication Reminder",
+  "description": "Medisafe-like medication reminder with schedules, dose tracking, refill alerts, and adherence reports — with built-in Stripe-backed subscription tiers",
+  "cluster": "health-fitness",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-reporting-database",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-import-export-csv",
+    "@molecule/app-charts",
+    "@molecule/app-calendar",
+    "@molecule/app-data-table",
+    "@molecule/app-command-palette",
+    "@molecule/app-sidebar-layout-react",
+    "@molecule/app-notification-feed-react",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Medication Reminder"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications",
+      "required": true
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for email notifications",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_MEDICATION_REMINDER_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_MEDICATION_REMINDER_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_MEDICATION_REMINDER_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_MEDICATION_REMINDER_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "notifications",
+    "reporting",
+    "reminders",
+    "subscriptions"
+  ]
+}

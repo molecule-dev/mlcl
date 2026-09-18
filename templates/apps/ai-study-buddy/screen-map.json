@@ -1,0 +1,199 @@
+{
+  "app": "ai-study-buddy",
+  "designProjectId": "5469770833361392405",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-landing.html",
+      "designScreenId": "99f8539bad5b4fc79c87022271b47c00"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-login.html",
+      "designScreenId": "2a6a0b5280de420997ecca749f81c0ba"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-study-buddy-login.html",
+      "derivationNotes": "Same centered card with teal primary on surface-secondary background as Login. Add First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account' (teal). Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-study-buddy-login.html",
+      "derivationNotes": "Same centered card with teal primary as Login, with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' (teal). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-study-buddy-login.html",
+      "derivationNotes": "Same centered card with teal primary as Login, with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' (teal). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-dashboard.html",
+      "designScreenId": "817eeeafb7f843e78591a39e64dc3316"
+    },
+    {
+      "name": "StudySession",
+      "templateFile": "app/pages/StudySession.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/study/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-study-session.html",
+      "designScreenId": "d480339add124fd7a00d44a2bf84ce67"
+    },
+    {
+      "name": "Flashcards",
+      "templateFile": "app/pages/Flashcards.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/flashcards",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-flashcards.html",
+      "designScreenId": "73e6ba3b6c67447b9a7d792ae5e67047"
+    },
+    {
+      "name": "Quiz",
+      "templateFile": "app/pages/Quiz.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/quiz/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-quiz.html",
+      "designScreenId": "cbfbf7b5e6ca4f259c236d2247c86cf9"
+    },
+    {
+      "name": "Courses",
+      "templateFile": "app/pages/Courses.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/courses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-courses.html",
+      "designScreenId": "d08ae3570e4a4d01b6d6375f77c96c6d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-settings.html",
+      "designScreenId": "78f36b95614d4d3498f2cc7358bfcc94"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/courses/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-course-detail.html",
+      "designScreenId": "ba2407de7cb546478588ab1ff83f5dbc"
+    },
+    {
+      "name": "DeckDetail",
+      "templateFile": "app/pages/DeckDetail.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/flashcards/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-deck-detail.html",
+      "designScreenId": "b5fbad18a8384bc69d88bb82bd1bb0b6"
+    },
+    {
+      "name": "QuizResults",
+      "templateFile": "app/pages/QuizResults.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/quiz/:id/results",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-quiz-results.html",
+      "designScreenId": "05b8202a2b44474e90fa5cc778d63df8"
+    },
+    {
+      "name": "Progress",
+      "templateFile": "app/pages/Progress.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/progress",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-progress.html",
+      "designScreenId": "5239b9636855474db2783b3d712ed6b3"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-profile.html",
+      "designScreenId": "c4a235a68eb547218ec5fa2e51713c9c"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-notifications.html",
+      "designScreenId": "1cdeba00b5c74e22b74d30e9f353a997"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-billing.html",
+      "designScreenId": "7a3f1ae6db8c4c948ee3af181c6600e9"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/AiStudyBuddyLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-study-buddy-search.html",
+      "designScreenId": "3fa1a3401e534d03a7ec09ad9f9ac6f2"
+    }
+  ]
+}

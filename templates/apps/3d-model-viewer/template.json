@@ -1,0 +1,32 @@
+{
+  "label": "3D Model Viewer",
+  "description": "Sketchfab-like 3D model viewer with WebGL, rotate, annotate, and embed",
+  "cluster": "creative-tools",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-resource-tag",
+    "@molecule/api-resource-comment",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-image-sharp",
+    "@molecule/app-file-upload",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/app-command-palette",
+    "@molecule/app-data-table",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-gallery",
+    "@molecule/app-kpi-card-react"
+  ],
+  "env": {
+    "APP_NAME": { "description": "Application name", "default": "3D Model Viewer" },
+    "DATABASE_URL": { "description": "PostgreSQL connection string", "required": true },
+    "S3_BUCKET": { "description": "S3 bucket for model storage", "required": true },
+    "S3_REGION": { "description": "S3 region", "default": "us-east-1" },
+    "MEILISEARCH_URL": { "description": "MeiliSearch URL for model search", "default": "http://localhost:7700" }
+  },
+  "layout": "dashboard",
+  "features": ["auth", "webgl", "annotations", "embed", "search", "comments"]
+}

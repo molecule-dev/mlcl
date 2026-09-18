@@ -1,0 +1,211 @@
+{
+  "app": "budget-planner",
+  "designProjectId": "2889877753393092604",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-landing.html",
+      "designScreenId": "9abeef2477fc41e8938bbd533fc029a6"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-login.html",
+      "designScreenId": "148917983c214a0cb11c167fcbff7866"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-budget-planner-login.html",
+      "derivationNotes": "Same split layout as Login (teal gradient left, form card right). Extend form: add Full name at top and Confirm password below password. Heading becomes 'Create your account'. Primary button becomes 'Create account'. Social labels become 'Sign up with Google' / 'Sign up with Apple'. Footer becomes 'Already have an account? Sign in'. Remove 'Keep me signed in' and 'Forgot password?' row."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-budget-planner-login.html",
+      "derivationNotes": "Same split layout as Login. Replace form with a single Email input. Heading becomes 'Reset your password' with subtitle 'Enter the email on your account and we will send a reset link.' Primary button becomes 'Send reset link'. Remove password field, social buttons, keep-me-signed-in row, signup link. Add a 'Back to sign in' text link in teal below the button."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-budget-planner-login.html",
+      "derivationNotes": "Same split layout as Login. Replace form with two password fields: 'New password' and 'Confirm new password' (both with show/hide toggles). Heading becomes 'Set a new password' with subtitle 'Your new password must be at least 8 characters.' Primary button becomes 'Reset password'. Remove email field, social buttons, keep-me-signed-in row. Footer becomes 'Back to sign in' text link."
+    },
+    {
+      "name": "Budget",
+      "templateFile": "app/pages/Budget.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/budget",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-budget.html",
+      "designScreenId": "e8717c4f6cc34d0697bb01fd24a36c2d"
+    },
+    {
+      "name": "Accounts",
+      "templateFile": "app/pages/Accounts.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/accounts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-accounts.html",
+      "designScreenId": "1817c22b32764569b4b445adbedd33c1"
+    },
+    {
+      "name": "Transactions",
+      "templateFile": "app/pages/Transactions.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/transactions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-transactions.html",
+      "designScreenId": "7cbe6b4cd456487688a58ff09cad6e83"
+    },
+    {
+      "name": "Goals",
+      "templateFile": "app/pages/Goals.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/goals",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-goals.html",
+      "designScreenId": "cb8c436fc8404044ab949ec048e0df0f"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-reports.html",
+      "designScreenId": "cd2687cd5bb24788818fb1f25bf95475"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-settings.html",
+      "designScreenId": "f18c8286c6ae4e33a2003fe2647d62a0"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-dashboard.html",
+      "designScreenId": "63d649afb7fc48a08c7d3adce76e9a13"
+    },
+    {
+      "name": "AccountDetail",
+      "templateFile": "app/pages/AccountDetail.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/accounts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-account-detail.html",
+      "designScreenId": "7e30bc4ded8f4e91a92be99a0e8b4609"
+    },
+    {
+      "name": "TransactionDetail",
+      "templateFile": "app/pages/TransactionDetail.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/transactions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-transaction-detail.html",
+      "designScreenId": "748d5a616b3445dfac3056ba9722227d"
+    },
+    {
+      "name": "GoalDetail",
+      "templateFile": "app/pages/GoalDetail.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/goals/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-goal-detail.html",
+      "designScreenId": "61c759f11e034e7c937fc9e70e154d9e"
+    },
+    {
+      "name": "Categories",
+      "templateFile": "app/pages/Categories.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/categories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-categories.html",
+      "designScreenId": "95fbcc077e04452d86fc0aff43f6b776"
+    },
+    {
+      "name": "AddTransaction",
+      "templateFile": "app/pages/AddTransaction.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/transactions/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-add-transaction.html",
+      "designScreenId": "4fff673dfbe544dcabcf40da82c79cb6"
+    },
+    {
+      "name": "ImportTransactions",
+      "templateFile": "app/pages/ImportTransactions.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/import",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-budget-planner-import-transactions.html",
+      "designScreenId": "a7da84b5e2bd4ccf9118736413646eb4"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/settings/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-budget-planner-settings.html",
+      "derivationNotes": "Same shell (sidebar + month selector + main panel) as Settings. Replace center content with a Profile form: avatar uploader at top, then fields Full name, Email, Phone, Time zone, Currency. Below: 'Change password' card (current/new/confirm). Below: 'Household members' card listing members with role chips and an 'Invite member' primary button. Keep the secondary settings sub-nav on the left highlighting 'Profile'."
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/CofferLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-budget-planner-settings.html",
+      "derivationNotes": "Same shell as Settings. Replace center content with a Billing layout: 'Current plan' card showing plan name (Coffer Pro), price, renewal date, 'Manage plan' button. Below: 'Payment method' card showing card brand + last 4, expiry, 'Update' button. Below: 'Invoices' table with columns Date / Description / Amount / Status / Download. Keep the secondary settings sub-nav highlighting 'Billing'."
+    }
+  ]
+}

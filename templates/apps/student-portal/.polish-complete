@@ -1,0 +1,13 @@
+Polish complete: 2026-04-30T01:55:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Brand: Chalk — supportive school portal for middle/high schoolers
+Cluster: education → sibling: lms
+Components: 8 bespoke (AnnouncementsFeed, AssignmentRow, AuthBrandHeader,
+GpaHeroCard, GradeBadge, SettingsPanel, SubjectStatsTriad, TodayScheduleStrip)
++ AppLayout/StudentPortalLayout shell
+Screen-map coverage: 18/18 (Landing, Login, Signup, ForgotPassword,
+ResetPassword, Dashboard, Schedule, Grades, Assignments, Calendar, Messages,
+Attendance, Settings, AssignmentDetail, CourseDetail, MessageThread,
+ReportCard, Notifications)
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

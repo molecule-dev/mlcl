@@ -1,0 +1,159 @@
+{
+  "app": "music-daw",
+  "designProjectId": "1305266321593398944",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-music-daw-landing.html",
+      "designScreenId": "75dee7cc62d44eab85cb71d91145c7b5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-music-daw-login.html",
+      "designScreenId": "b3fe8a51719746ed808df7bfb65c7b0a"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-daw-login.html",
+      "derivationNotes": "Same two-panel dark layout as Login. Right card adds First Name, Last Name, Email, Password, Confirm Password and an optional 'Producer name / handle' field. Button text 'Create account'. Bottom link 'Already jamming with us? Sign in'. No 'Forgot password?' link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-daw-login.html",
+      "derivationNotes": "Same two-panel dark layout as Login. Right card with only Email field. Heading 'Recover access', subtext 'We'll send a reset link to your inbox'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-music-daw-login.html",
+      "derivationNotes": "Same two-panel dark layout as Login. Right card with New Password and Confirm Password only. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-dashboard.html",
+      "designScreenId": "6c4a90b966e349d1a28f73adcc0babf6"
+    },
+    {
+      "name": "Projects",
+      "templateFile": "app/pages/Projects.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/projects",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-projects.html",
+      "designScreenId": "4d3aa00bdb864159b74106e75582fa96"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/projects/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-editor.html",
+      "designScreenId": "9c0504934dc04ffe9f172155768b3349"
+    },
+    {
+      "name": "Samples",
+      "templateFile": "app/pages/Samples.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/samples",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-samples.html",
+      "designScreenId": "d0f4b951358a4b3abf552b39db2f52ec"
+    },
+    {
+      "name": "Mixing",
+      "templateFile": "app/pages/Mixing.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/projects/:id/mix",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-mixing.html",
+      "designScreenId": "8719fafc604342f7afe933aee5922fb1"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-settings.html",
+      "designScreenId": "803c0f759abe4ff1afc74005e5a1748b"
+    },
+    {
+      "name": "PianoRoll",
+      "templateFile": "app/pages/PianoRoll.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/projects/:id/clips/:clipId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-piano-roll.html",
+      "designScreenId": "59d07fe7bb7c4d25a9b0802e71b93728"
+    },
+    {
+      "name": "SampleDetail",
+      "templateFile": "app/pages/SampleDetail.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/samples/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-sample-detail.html",
+      "designScreenId": "e64499c6af7f4f0d81fde7de0a4752f7"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/profile/:handle",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-profile.html",
+      "designScreenId": "774408786dd94101ade0c8a3c539905b"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/FugueLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-music-daw-billing.html",
+      "designScreenId": "6635923b5cb14d67ac027d32bae2170a"
+    }
+  ]
+}

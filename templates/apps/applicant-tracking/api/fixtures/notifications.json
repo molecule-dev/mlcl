@@ -1,0 +1,14 @@
+[
+  { "id": "ntf_001", "type": "stage_advanced",       "title": "Maya Chen advanced to Interview",         "body": "Senior Backend Engineer",                                     "href": "/candidates/c_001",  "created_at": "2026-04-19T13:30:00Z", "unread": true,
+    "actor": "Riley Banner",  "candidate_name": "Maya Chen",      "job_title": "Senior Backend Engineer", "action": "advanced to interview", "occurred_at": "2026-04-19T13:30:00Z" },
+  { "id": "ntf_002", "type": "interview_scheduled", "title": "Interview: Sam Rivera at 5:00 PM",         "body": "Staff Frontend Engineer with Devon Park (45 min)",             "href": "/interviews",         "created_at": "2026-04-26T08:00:00Z", "unread": true,
+    "actor": "system",        "candidate_name": "Sam Rivera",     "job_title": "Staff Frontend Engineer", "action": "interview scheduled",   "occurred_at": "2026-04-26T08:00:00Z" },
+  { "id": "ntf_003", "type": "application_received", "title": "Casey Wong applied — Sales Engineer",     "body": "AI score 78 · Cold outreach",                                  "href": "/candidates/c_006",   "created_at": "2026-04-24T10:18:00Z", "unread": true,
+    "actor": "system",        "candidate_name": "Casey Wong",     "job_title": "Sales Engineer",          "action": "applied",                "occurred_at": "2026-04-24T10:18:00Z" },
+  { "id": "ntf_004", "type": "urgent_followup",     "title": "Avery Kim offer — verbal accept follow-up","body": "Verbal accept; written offer to be sent EOD.",                 "href": "/candidates/c_003",   "created_at": "2026-04-25T16:00:00Z", "unread": false,
+    "actor": "Riley Banner",  "candidate_name": "Avery Kim",      "job_title": "Senior Backend Engineer", "action": "extended offer",         "occurred_at": "2026-04-25T16:00:00Z" },
+  { "id": "ntf_005", "type": "mention",             "title": "Devon mentioned you on Henry Cho",         "body": "\"@riley confirm Henry's start date is locked at 4/21\"",      "href": "/candidates/c_010",   "created_at": "2026-04-15T11:00:00Z", "unread": false,
+    "actor": "Devon Park",    "candidate_name": "Henry Cho",      "job_title": "Senior Backend Engineer", "action": "mentioned you",          "occurred_at": "2026-04-15T11:00:00Z" },
+  { "id": "ntf_006", "type": "system_message",      "title": "Job posting published",                    "body": "Sales Engineer is now live on LinkedIn + Greenhouse.",         "href": "/jobs/job_005",       "created_at": "2026-04-18T09:00:00Z", "unread": false,
+    "actor": "system",        "job_title": "Sales Engineer",      "action": "published",              "occurred_at": "2026-04-18T09:00:00Z" }
+]

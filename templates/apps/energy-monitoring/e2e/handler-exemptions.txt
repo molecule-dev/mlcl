@@ -1,0 +1,7 @@
+# Handlers that are NOT mounted as HTTP endpoints and therefore cannot
+# be exercised by spec network assertions. Add one base name per line
+# (the filename without `.ts`).
+
+# Internal seed module called by other handlers' lazy demo provisioning;
+# never mounted at /api/_seed.
+_seed

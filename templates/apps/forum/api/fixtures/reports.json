@@ -1,0 +1,54 @@
+[
+  {
+    "id": "rep-01",
+    "target_type": "thread",
+    "target_id": "thr-99",
+    "reason": "Spam",
+    "reporter_username": "ada.lovelace",
+    "reporter_count": 4,
+    "snippet": "Buy crypto deals... limited time only!!!",
+    "category_name": "TypeScript",
+    "status": "open",
+    "auto_score": 0.91,
+    "created_at": "2026-04-27T19:24:00Z"
+  },
+  {
+    "id": "rep-02",
+    "target_type": "comment",
+    "target_id": "cmt-99",
+    "reason": "Harassment",
+    "reporter_username": "grace.hopper",
+    "reporter_count": 2,
+    "snippet": "Personal attack against another member, removed for review.",
+    "category_name": "Meta",
+    "status": "open",
+    "auto_score": 0.74,
+    "created_at": "2026-04-27T17:02:00Z"
+  },
+  {
+    "id": "rep-03",
+    "target_type": "thread",
+    "target_id": "thr-88",
+    "reason": "Misinformation",
+    "reporter_username": "margaret.hamilton",
+    "reporter_count": 1,
+    "snippet": "Claim that React has been deprecated — incorrect, requires correction.",
+    "category_name": "React",
+    "status": "open",
+    "auto_score": 0.42,
+    "created_at": "2026-04-27T12:18:00Z"
+  },
+  {
+    "id": "rep-04",
+    "target_type": "comment",
+    "target_id": "cmt-88",
+    "reason": "Off-topic",
+    "reporter_username": "mae.jemison",
+    "reporter_count": 1,
+    "snippet": "Comment is unrelated to the design-systems topic of the thread.",
+    "category_name": "Design Systems",
+    "status": "resolved",
+    "auto_score": 0.18,
+    "created_at": "2026-04-26T10:08:00Z"
+  }
+]

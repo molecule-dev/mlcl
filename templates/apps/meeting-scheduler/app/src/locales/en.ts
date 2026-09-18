@@ -1,0 +1,241 @@
+/**
+ * Meeting Scheduler — English copy. Keys are nested by feature namespace and
+ * resolved through `@molecule/app-i18n`'s dot-separated lookup.
+ *
+ * Most pages also pass `defaultValue` to every `t()` call, so this file is
+ * authoritative but not strictly required for English builds — it exists so
+ * the i18n bond has a manifest of the strings shipped with the app.
+ */
+export default {
+  app: {
+    name: 'Meridian',
+    description: 'Beautiful scheduling without the back-and-forth.',
+  },
+  auth: {
+    unauthorized: 'Sign in to continue.',
+  },
+  errors: {
+    internalServer: 'Something went wrong. Please try again.',
+    notFound: 'Not found.',
+  },
+  nav: {
+    dashboard: 'Dashboard',
+    calendar: 'Calendar',
+    eventTypes: 'Event Types',
+    availability: 'Availability',
+    bookings: 'Bookings',
+    integrations: 'Integrations',
+    notifications: 'Notifications',
+    settings: 'Settings',
+    billing: 'Billing',
+  },
+  common: {
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    edit: 'Edit',
+    loading: 'Loading…',
+    submit: 'Submit',
+    back: 'Back',
+    yes: 'Yes',
+    no: 'No',
+  },
+  dashboard: {
+    title: 'Schedule',
+    eyebrow: 'Today',
+  },
+  calendar: {
+    eyebrow: 'Schedule grid',
+    today: 'Today',
+    prevWeek: 'Previous week',
+    nextWeek: 'Next week',
+  },
+  eventTypes: {
+    title: 'Event types',
+    eyebrow: 'Bookable links',
+    create: 'New event type',
+    loading: 'Loading event types…',
+  },
+  eventType: {
+    name: 'Name',
+    slug: 'Link',
+    duration: 'Duration',
+    active: 'Active',
+    notFound: 'Event type not found',
+  },
+  eventTypeEditor: {
+    back: 'Back to event types',
+    save: 'Save changes',
+    active: 'Active',
+    paused: 'Paused',
+    fields: {
+      name: 'Name',
+      slug: 'Booking link slug',
+      duration: 'Duration',
+      description: 'Description',
+    },
+    preview: {
+      heading: 'Booking link preview',
+      copy: 'Copy link',
+    },
+    availability: {
+      heading: 'Weekly availability',
+      unavailable: 'Unavailable',
+    },
+    questions: {
+      heading: 'Booking form',
+    },
+    reminders: {
+      heading: 'Reminders',
+    },
+  },
+  availability: {
+    title: 'Availability',
+    notFound: 'Rule not found',
+  },
+  bookings: {
+    title: 'Bookings',
+    eyebrow: 'Schedule',
+    subtitle: 'Every meeting on your calendar — confirmed, pending, and historical.',
+    loading: 'Loading bookings…',
+    filter: {
+      upcoming: 'Upcoming',
+      past: 'Past',
+      cancelled: 'Cancelled',
+    },
+    empty: {
+      title: 'Nothing here yet',
+      body: 'Bookings show up here as invitees pick a slot.',
+    },
+  },
+  booking: {
+    notFound: 'Booking not found',
+  },
+  bookingPage: {
+    eyebrow: 'Book a meeting',
+    host: 'Hosted by',
+    hostName: '{{slug}}',
+    pickDay: 'Pick a day',
+    pickTime: 'Pick a time',
+    confirm: 'Confirm booking',
+  },
+  bookingConfirmation: {
+    eyebrow: 'You’re booked',
+    scheduledFor: 'Scheduled for',
+    timezone: '{{tz}}',
+    addToCalendar: 'Add to calendar',
+    bookAnother: 'Book another time',
+  },
+  meetingDetail: {
+    loading: 'Loading meeting…',
+    notFound: 'This meeting no longer exists.',
+    back: 'Back to bookings',
+    defaultEventType: 'Meeting',
+    startsAt: 'Starts',
+    endsAt: 'Ends',
+    agenda: 'Agenda',
+    notes: 'Invitee notes',
+    actions: 'Actions',
+    joinCall: 'Join video call',
+    reschedule: 'Reschedule',
+    cancel: 'Cancel meeting',
+  },
+  integrations: {
+    title: 'Integrations',
+    eyebrow: 'Connections',
+    connected: 'Connected',
+    notConnected: 'Not connected',
+    connect: 'Connect',
+    disconnect: 'Disconnect',
+  },
+  notifications: {
+    title: 'Notifications',
+    eyebrow: 'Activity',
+    feedHeading: 'Recent activity',
+    channels: 'Channels',
+    reminders: 'Reminders',
+  },
+  settings: {
+    title: 'Settings',
+    eyebrow: 'Account',
+    tab: {
+      billing: 'Billing',
+    },
+    profile: {
+      heading: 'Profile',
+      fullName: 'Full name',
+      email: 'Email',
+      handle: 'Booking handle',
+      timezone: 'Timezone',
+    },
+    preferences: {
+      heading: 'Booking defaults',
+      requireConfirmation: 'Require my confirmation before bookings are final',
+      allowReschedule: 'Let invitees reschedule up to 1 hour before',
+      brandedConfirmation: 'Branded confirmation emails',
+    },
+    security: {
+      heading: 'Security',
+      twoFactor: 'Two-factor authentication',
+      suspiciousLogins: 'Email me about suspicious logins',
+      signOutEverywhere: 'Sign out everywhere',
+    },
+  },
+  pricing: {
+    heading: 'Choose your plan',
+    limits: {
+      availability: 'availability',
+      bookings: 'bookings',
+      eventTypes: 'event-types',
+      advanced: 'Advanced features',
+      export: 'Data export',
+    },
+  },
+  signup: {
+    heading: 'Create your account',
+    nameLabel: 'Display name',
+    emailLabel: 'Work email',
+    passwordLabel: 'Password',
+    submit: 'Create account',
+    submitting: 'Creating your booking link…',
+    haveAccount: 'Already have an account?',
+    signIn: 'Sign in',
+  },
+  login: {
+    emailLabel: 'Email address',
+    emailPlaceholder: 'name@example.com',
+    passwordLabel: 'Password',
+    passwordPlaceholder: '••••••••',
+    forgot: 'Forgot password?',
+    submit: 'Sign in',
+    submitting: 'Signing in…',
+    noAccount: "Don't have an account?",
+    signUp: 'Sign up',
+    showPassword: 'Show password',
+    hidePassword: 'Hide password',
+  },
+  forgotPassword: {
+    heading: 'Reset your password',
+    successHeading: 'Check your inbox',
+    emailLabel: 'Email address',
+    submit: 'Send reset link',
+    submitting: 'Sending…',
+    backToSignIn: 'Back to sign in',
+    remember: 'Remembered it?',
+    signIn: 'Sign in',
+  },
+  resetPassword: {
+    heading: 'Set a new password',
+    emailLabel: 'Email address',
+    tokenLabel: 'Reset code',
+    passwordLabel: 'New password',
+    submit: 'Reset password',
+    submitting: 'Resetting…',
+    backToSignIn: '← Back to sign in',
+  },
+  landing: {
+    signIn: 'Sign in',
+    getStarted: 'Start scheduling',
+    heroCta: 'Create your booking link',
+  },
+} as const

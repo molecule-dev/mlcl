@@ -1,0 +1,57 @@
+[
+  {
+    "id": "notif-1",
+    "kind": "mention",
+    "title": "Maya Patel mentioned you",
+    "body": "@you can you take a pass at the on-call rotation runbook before Friday?",
+    "article_id": "oncall-rotation",
+    "actor_name": "Maya Patel",
+    "actor_initials": "MP",
+    "read": false,
+    "created_at": "2026-04-30T00:42:00.000Z"
+  },
+  {
+    "id": "notif-2",
+    "kind": "review-request",
+    "title": "Review requested on Q4 pricing RFC",
+    "body": "Rosa Salazar asked for your review before the Friday cutoff.",
+    "article_id": "q4-pricing-rfc",
+    "actor_name": "Rosa Salazar",
+    "actor_initials": "RS",
+    "read": false,
+    "created_at": "2026-04-29T17:11:00.000Z"
+  },
+  {
+    "id": "notif-3",
+    "kind": "publish",
+    "title": "Postgres failover updated",
+    "body": "Jules Reyes published a new version of the Postgres failover quick reference.",
+    "article_id": "postgres-failover",
+    "actor_name": "Jules Reyes",
+    "actor_initials": "JR",
+    "read": true,
+    "created_at": "2026-04-29T11:48:00.000Z"
+  },
+  {
+    "id": "notif-4",
+    "kind": "comment",
+    "title": "Tomás replied to your comment",
+    "body": "On the incident comms doc — \"good call, will fold this into the next revision.\"",
+    "article_id": "incident-comms",
+    "actor_name": "Tomás Llewellyn",
+    "actor_initials": "TL",
+    "read": true,
+    "created_at": "2026-04-28T20:23:00.000Z"
+  },
+  {
+    "id": "notif-5",
+    "kind": "bookmark",
+    "title": "Article you bookmarked was updated",
+    "body": "Parental leave: the policy and the spirit of it has new content in the Ramp back section.",
+    "article_id": "parental-leave",
+    "actor_name": "Aiyana Klein",
+    "actor_initials": "AK",
+    "read": true,
+    "created_at": "2026-04-27T08:14:00.000Z"
+  }
+]

@@ -1,0 +1,974 @@
+{
+  "slug": "crypto-tracker",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-navigate",
+      "path": "/",
+      "component": "Navigate",
+      "file": null
+    },
+    {
+      "id": "page-notfound",
+      "path": "/404",
+      "component": "NotFound",
+      "file": "app/src/pages/NotFound.tsx"
+    },
+    {
+      "id": "page-alerts",
+      "path": "/alerts",
+      "component": "Alerts",
+      "file": "app/src/pages/Alerts.tsx"
+    },
+    {
+      "id": "page-alertnew",
+      "path": "/alerts/new",
+      "component": "AlertNew",
+      "file": "app/src/pages/AlertNew.tsx"
+    },
+    {
+      "id": "page-coindetail",
+      "path": "/coin/:symbol",
+      "component": "CoinDetail",
+      "file": "app/src/pages/CoinDetail.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-markets",
+      "path": "/markets",
+      "component": "Markets",
+      "file": "app/src/pages/Markets.tsx"
+    },
+    {
+      "id": "page-news",
+      "path": "/news",
+      "component": "News",
+      "file": "app/src/pages/News.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-portfolio",
+      "path": "/portfolio",
+      "component": "Portfolio",
+      "file": "app/src/pages/Portfolio.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-transactions",
+      "path": "/transactions",
+      "component": "Transactions",
+      "file": "app/src/pages/Transactions.tsx"
+    },
+    {
+      "id": "page-watchlist",
+      "path": "/watchlist",
+      "component": "Watchlist",
+      "file": "app/src/pages/Watchlist.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "button-alertconditioncard-163-delete-outline",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AlertConditionCard.tsx",
+      "line": 163,
+      "label": "delete_outline",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coinsparklinerow-48--span-classname---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CoinSparklineRow.tsx",
+      "line": 48,
+      "label": "<span className=),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-newssignalcard-86",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/components/NewsSignalCard.tsx",
+      "line": 86,
+      "label": "link at app/src/components/NewsSignalCard.tsx:86",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-sigilauthshell-186-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SigilAuthShell.tsx",
+      "line": 186,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-35-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 35,
+      "label": ", )}",
+      "href": "/settings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-38-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 38,
+      "label": ", )}",
+      "href": "/alerts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-42-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 42,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-alertnew-32-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 32,
+      "label": "← , )}",
+      "href": "/alerts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-alertnew-44",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 44,
+      "label": "input at app/src/pages/AlertNew.tsx:44",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-alertnew-58",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 58,
+      "label": "select at app/src/pages/AlertNew.tsx:58",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-alertnew-75",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 75,
+      "label": "input at app/src/pages/AlertNew.tsx:75",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-alertnew-86-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 86,
+      "label": ", )}",
+      "href": "/alerts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-alertnew-89-------t-alertnew-cre",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 89,
+      "label": ", ) : t(alertNew.createCta, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-alerts-98-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Alerts.tsx",
+      "line": 98,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coindetail-96-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CoinDetail.tsx",
+      "line": 96,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-coindetail-159-star",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CoinDetail.tsx",
+      "line": 159,
+      "label": "star",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coindetail-173-notifications-active",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CoinDetail.tsx",
+      "line": 173,
+      "label": "notifications_active , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-coindetail-364",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/CoinDetail.tsx",
+      "line": 364,
+      "label": "link at app/src/pages/CoinDetail.tsx:364",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-121-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 121,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-175-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 175,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-228-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 228,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-41-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 41,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-98-------t-forgotpasswo",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 98,
+      "label": ", ) : t(forgotPassword.sendCta, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-46-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 46,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-83-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 83,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-94----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 94,
+      "label": ", )",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-markets-91",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Markets.tsx",
+      "line": 91,
+      "label": "input at app/src/pages/Markets.tsx:91",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-news-110",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/News.tsx",
+      "line": 110,
+      "label": "button at app/src/pages/News.tsx:110",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-65-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 65,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-76-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 76,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-portfolio-93-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Portfolio.tsx",
+      "line": 93,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-portfolio-172--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Portfolio.tsx",
+      "line": 172,
+      "label": "<span className={cm.cn( cm.w(8), cm.h(8),",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-46-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 46,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-105-------t-resetpasswor",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 105,
+      "label": ", ) : t(resetPassword.resetCta, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-24",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 24,
+      "label": "button at app/src/pages/Settings.tsx:24",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-73-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-86-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 86,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-90-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 90,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-106",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 106,
+      "label": "input at app/src/pages/Settings.tsx:106",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-50-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 50,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-121-------t-signup-creat",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 121,
+      "label": ", ) : t(signup.createCta, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactions-71-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Transactions.tsx",
+      "line": 71,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-watchlist-61-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Watchlist.tsx",
+      "line": 61,
+      "label": ", )}",
+      "href": "/markets",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-watchlist-88",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Watchlist.tsx",
+      "line": 88,
+      "label": "link at app/src/pages/Watchlist.tsx:88",
+      "href": "/coin/${r.symbol}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-watchlist-96-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Watchlist.tsx",
+      "line": 96,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-alertnew-39",
+      "file": "app/src/pages/AlertNew.tsx",
+      "line": 39,
+      "label": "form at app/src/pages/AlertNew.tsx:39",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-75",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 75,
+      "label": "form at app/src/pages/ForgotPassword.tsx:75",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-55",
+      "file": "app/src/pages/Login.tsx",
+      "line": 55,
+      "label": "form at app/src/pages/Login.tsx:55",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-64",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 64,
+      "label": "form at app/src/pages/ResetPassword.tsx:64",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-59",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 59,
+      "label": "form at app/src/pages/Signup.tsx:59",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-alerts--id",
+      "method": "DELETE",
+      "mountedPath": "/alerts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 94,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-delete-portfolio--id",
+      "method": "DELETE",
+      "mountedPath": "/portfolio/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/portfolio.ts",
+      "line": 137,
+      "resource": "portfolio"
+    },
+    {
+      "id": "route-delete-transactions--id",
+      "method": "DELETE",
+      "mountedPath": "/transactions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 91,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-delete-watchlist--id",
+      "method": "DELETE",
+      "mountedPath": "/watchlist/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/watchlist.ts",
+      "line": 65,
+      "resource": "watchlist"
+    },
+    {
+      "id": "route-get-alerts-",
+      "method": "GET",
+      "mountedPath": "/alerts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 28,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-markets-",
+      "method": "GET",
+      "mountedPath": "/markets",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/markets.ts",
+      "line": 36,
+      "resource": "markets"
+    },
+    {
+      "id": "route-get-markets--id",
+      "method": "GET",
+      "mountedPath": "/markets/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/markets.ts",
+      "line": 69,
+      "resource": "markets"
+    },
+    {
+      "id": "route-get-markets--id-history",
+      "method": "GET",
+      "mountedPath": "/markets/:id/history",
+      "rawPath": "/:id/history",
+      "handlerFile": "api/src/handlers/markets.ts",
+      "line": 85,
+      "resource": "markets"
+    },
+    {
+      "id": "route-get-markets-search",
+      "method": "GET",
+      "mountedPath": "/markets/search",
+      "rawPath": "/search",
+      "handlerFile": "api/src/handlers/markets.ts",
+      "line": 58,
+      "resource": "markets"
+    },
+    {
+      "id": "route-get-news-",
+      "method": "GET",
+      "mountedPath": "/news",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/news.ts",
+      "line": 23,
+      "resource": "news"
+    },
+    {
+      "id": "route-get-news--id",
+      "method": "GET",
+      "mountedPath": "/news/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/news.ts",
+      "line": 37,
+      "resource": "news"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 17,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-portfolio-",
+      "method": "GET",
+      "mountedPath": "/portfolio",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/portfolio.ts",
+      "line": 42,
+      "resource": "portfolio"
+    },
+    {
+      "id": "route-get-portfolio-summary",
+      "method": "GET",
+      "mountedPath": "/portfolio/summary",
+      "rawPath": "/summary",
+      "handlerFile": "api/src/handlers/portfolio.ts",
+      "line": 58,
+      "resource": "portfolio"
+    },
+    {
+      "id": "route-get-reports-portfolio-stats",
+      "method": "GET",
+      "mountedPath": "/reports/portfolio_stats",
+      "rawPath": "/portfolio_stats",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 18,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-transactions-",
+      "method": "GET",
+      "mountedPath": "/transactions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 35,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-get-transactions--id",
+      "method": "GET",
+      "mountedPath": "/transactions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 51,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-get-watchlist-",
+      "method": "GET",
+      "mountedPath": "/watchlist",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/watchlist.ts",
+      "line": 32,
+      "resource": "watchlist"
+    },
+    {
+      "id": "route-post-alerts-",
+      "method": "POST",
+      "mountedPath": "/alerts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 44,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-portfolio-",
+      "method": "POST",
+      "mountedPath": "/portfolio",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/portfolio.ts",
+      "line": 83,
+      "resource": "portfolio"
+    },
+    {
+      "id": "route-post-transactions-",
+      "method": "POST",
+      "mountedPath": "/transactions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 67,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-post-watchlist-",
+      "method": "POST",
+      "mountedPath": "/watchlist",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/watchlist.ts",
+      "line": 48,
+      "resource": "watchlist"
+    },
+    {
+      "id": "route-put-alerts--id-toggle",
+      "method": "PUT",
+      "mountedPath": "/alerts/:id/toggle",
+      "rawPath": "/:id/toggle",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 74,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-put-portfolio--id",
+      "method": "PUT",
+      "mountedPath": "/portfolio/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/portfolio.ts",
+      "line": 110,
+      "resource": "portfolio"
+    }
+  ],
+  "totals": {
+    "pages": 19,
+    "elements": 50,
+    "forms": 5,
+    "routes": 28
+  }
+}

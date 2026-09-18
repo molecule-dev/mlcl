@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Duba labaran taimako',
+  'about.cta.signup': 'Gwada Courier kyauta',
+  'about.eyebrow': 'Game da Courier',
+  'about.principle.calm': 'Kwantar da hankali ta hanyar tsoho.',
+  'about.principle.calm.desc':
+    'Babu alamun da ke ihu, babu sanarwar da ba ka nema ba, babu abubuwan da ke nuna motsin rai da ke buƙatar kallo.',
+  'about.principle.fast.desc':
+    'Kowane aiki yana da ɗan gajeren maɓalli. Akwatin shiga yana ɗaukar ƙasa da 200ms a sabon shiga.',
+  'about.principle.honest.desc':
+    'Ƙirƙirar bayanai a cikin hanyar wucewa da kuma a lokacin hutu, riƙe bayanai a bayyane, da kuma fitar da bayanai ta dannawa ɗaya.',
+  'about.story': 'Me yasa muka gina Courier',
+  'about.story.p1':
+    'Yawancin abokan cinikin imel suna inganta hulɗa — suna jan hankalinka, suna raba hankalinka, suna ba da shawarar sake dannawa. Courier yana yin akasin haka. Muna auna nasara ta hanyar lokacin da ba ka yi amfani da shi ba a cikin akwatin saƙonka: yi bincike cikin sauri, jinkirta da kwarin gwiwa, kuma ci gaba da aikin da ya fi muhimmanci.',
+  'about.subtitle':
+    'Courier akwatin saƙo ne mai natsuwa, mai fane uku wanda ƙaramin ƙungiya ta gina wanda ke son sarrafa bayanai maimakon mayar da martani a kai.',
+  'about.team.body':
+    "Mu ƙungiya ce mai rarraba ta masu zane-zane da injiniyoyi waɗanda a da suke ɓatar da sa'o'i da yawa a kowace rana a cikin akwatin saƙo mai hayaniya. Courier ita ce akwatin saƙon da muke son amfani da shi da kanmu.",
+  'about.title': 'Imel don aikin da aka mayar da hankali a kai',
+  'help.cta.about': 'Game da Courier',
+  'help.cta.pricing': 'Duba farashi',
+  'help.eyebrow': 'Cibiyar taimako',
+  'help.faq.compose.a':
+    'Danna \\u201CCompose\\u201D daga gefen gefe (ko danna \\u201Cc\\u201D akan duk wani akwatin saƙo), shigar da aƙalla mai karɓa ɗaya, batu, da jiki, sannan danna \\u201CAika\\u201D. Sabon saƙon zai bayyana nan take a cikin babban fayil ɗin da aka Aika.',
+  'help.faq.compose.q': 'Ta yaya zan aika saƙo na farko?',
+  'help.faq.export.a':
+    'Eh. Saituna \\u2192 Asusu \\u2192 Fitar da bayanai yana ƙirƙirar rumbun adana bayanai da za a iya saukewa (mbox + JSON) tare da kowane saƙo, lakabi, da lambar sadarwa. Babu buƙatar matakin ƙimar kuɗi.',
+  'help.faq.labels.a':
+    'Fayilolin suna da keɓantattu (saƙo yana rayuwa a cikin ɗaya): Akwatin Saƙo, Aika, Zane-zane, Spam, Shara, Taskar Labarai. Lakabi ƙari ne \\u2014 zaka iya amfani da yawa a cikin imel ɗaya kuma ka tace ta hanyar haɗuwa daga sandar bincike.',
+  'help.faq.password.a':
+    'Yi amfani da hanyar haɗin \\u201CKa manta kalmar sirri?\\u201D akan shafin shiga. Za mu aika hanyar haɗin sake saitawa mai aiki na tsawon awa ɗaya zuwa imel ɗin asusunka.',
+  'help.faq.shortcuts.a':
+    'Eh. \\u201Cj\\u201D / \\u201Ck\\u201D yana motsawa tsakanin zaren, \\u201Cs\\u201D yana kunna tauraro, \\u201Ce\\u201D yana adana bayanai, \\u201C#\\u201D yana motsa zuwa shara, kuma \\u201C/\\u201D yana mai da hankali kan akwatin bincike. Takardun gajeriyar hanya suna rayuwa a kowane kallon akwatin saƙo ta hanyar danna \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Aika wasiƙa zuwa support@courier.example. Muna amsa kowace saƙo a cikin rana ɗaya ta kasuwanci, ranakun mako 9\\u201317 UTC.',
+  'help.subtitle':
+    "Amsoshi cikin sauri ga tambayoyin da muka fi ji. Akwai wani abu da ya ɓace? Buɗe Saituna kuma yi amfani da fom ɗin ra'ayoyin cikin manhaja, ko rubuta zuwa support@courier.example.",
+  'help.title': 'Ta yaya za mu iya taimakawa?',
+  'landing.brand.scrollTop': 'Komawa sama',
+  'landing.ctaBody':
+    'Shiga dubban ƙwararru waɗanda suka gama akwatin saƙonsu kafin cin abincin rana.',
+  'landing.ctaTitle': 'Sarrafa abubuwa da yawa, rage amsawa.',
+  'landing.eyebrow': 'Imel don aikin da aka mayar da hankali a kai',
+  'landing.featuresBody': 'Ka daina sarrafa akwatin saƙonka ka fara aikin.',
+  'landing.featuresTitle': 'An tsara shi don aiki mai zurfi',
+  'landing.help': 'Taimako',
+  'landing.heroDemo': 'Kalli gwajin gwaji',
+  'landing.heroSubtitle':
+    "Courier akwatin saƙo ne mai sassa uku masu natsuwa wanda aka gina don ma'aikatan ilimi waɗanda ke son sarrafa bayanai, ba su mayar da martani a kai ba.",
+  'landing.proof': 'Ƙungiyoyin da aka mayar da hankali a kansu a duk duniya sun amince da su',
+  'landing.signIn': 'Shiga',
+  'meridian.archive.empty': 'Rumbun adana bayanai babu komai a ciki.',
+  'meridian.compose.addRecipient': 'Ƙara wani mai karɓa',
+  'meridian.compose.bodyPlaceholder': 'Rubuta saƙonka…',
+  'meridian.compose.cc': 'Babban Shafi',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'A jefar da daftarin',
+  'meridian.compose.invalidEmail': '" {{value}} "ba ingantaccen imel ba ne',
+  'meridian.compose.needRecipient': 'A fara ƙara aƙalla mai karɓa ɗaya.',
+  'meridian.compose.replyTo': 'Amsa a cikin zaren {{id}}',
+  'meridian.compose.savedAt': 'An adana daftarin a {{time}}',
+  'meridian.compose.sentWithError': 'An adana zuwa Aika, amma isarwa ta gaza: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': "Maudu'i",
+  'meridian.compose.title': 'Sabon saƙo',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Ci gaba da gyarawa',
+  'meridian.drafts.count': '{{count}} saƙonni',
+  'meridian.drafts.delete': 'Share daftarin aiki',
+  'meridian.drafts.empty': 'Babu daftarin aiki tukuna — fara rubutawa.',
+  'meridian.drafts.lastSaved': 'An adana {{at}}',
+  'meridian.drafts.noRecipients': '(babu wanda aka karɓa tukuna)',
+  'meridian.drafts.selectDraft': 'Zaɓi daftarin da za a yi samfoti a kai.',
+  'meridian.drafts.title': 'Zane-zane',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Daftarin daftarin',
+  'meridian.folder.count': '{{count}} saƙonni',
+  'meridian.folder.deleteForever': 'Sharewa har abada',
+  'meridian.folder.restore': 'Matsar zuwa akwatin saƙo',
+  'meridian.forgot.subtitle':
+    'Shigar da imel ɗin da ke da alaƙa da akwatin saƙonka kuma za mu aika hanyar haɗin sake saitawa.',
+  'meridian.forgot.success':
+    'Idan akwai asusu mai wannan imel ɗin, hanyar sake saitawa tana kan hanya.',
+  'meridian.inbox.empty': 'Babu saƙonni a nan tukuna.',
+  'meridian.inbox.loading': 'Ana lodawa…',
+  'meridian.inbox.next': 'Na gaba',
+  'meridian.inbox.noSubject': '(babu wani batu)',
+  'meridian.inbox.openCompose': 'Buɗe rubutawa',
+  'meridian.inbox.previous': 'Na Baya',
+  'meridian.inbox.replyFailed': 'An adana amsa amma isarwa ta gaza: {{error}}',
+  'meridian.inbox.replySent': 'An aika da amsa.',
+  'meridian.inbox.replyTo': 'Amsa zuwa {{name}}',
+  'meridian.inbox.selectMessage': 'Zaɓi saƙon da za a karanta',
+  'meridian.inbox.spam': 'Wasikun banza',
+  'meridian.inbox.viewThread': 'Duba zaren tattaunawar',
+  'meridian.login.hidePassword': 'Ɓoye kalmar sirri',
+  'meridian.login.noAccount': 'Ba ka da asusu?',
+  'meridian.login.showPassword': 'Nuna kalmar sirri',
+  'meridian.message.toLine': 'zuwa {{recipients}}',
+  'meridian.notFound.eyebrow': 'Kuskure 404',
+  'meridian.notFound.title': 'An adana wannan zaren.',
+  'meridian.notFound.toInbox': 'Bude akwatin saƙo na',
+  'meridian.reset.newLabel': 'Sabuwar kalmar sirri',
+  'meridian.reset.showPassword': 'Nuna kalmar sirri',
+  'meridian.reset.subtitle': 'Zaɓi kalmar sirri mai ƙarfi — aƙalla haruffa 8.',
+  'meridian.sent.empty': 'Ba ka aika komai ba tukuna.',
+  'meridian.sent.title': 'An aika',
+  'meridian.settings.noName': '(ba a saita suna ba)',
+  'meridian.settings.section.${section}': 'Keɓance naka {{Sunan app}} kwarewa',
+  'meridian.settings.signature': 'Sa hannu',
+  'meridian.settings.signatureSaved': 'An adana sa hannu.',
+  'meridian.sidebar.compose': 'Rubuta Wasiƙa',
+  'meridian.sidebar.labels': 'Lakabi',
+  'meridian.sidebar.noLabels': 'Babu lakabi tukuna',
+  'meridian.sidebar.storage': 'Ajiya',
+  'meridian.sidebar.storageLabel': '{{used}} na {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Ƙirƙiri akwatin saƙon Courier ɗinku',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Nuna kalmar sirri',
+  'meridian.signup.subtitle': 'Shirya akwatin saƙonka kafin cin abincin rana.',
+  'meridian.spam.empty': 'Babu wasikun banza.',
+  'meridian.spam.title': 'Wasikun banza',
+  'meridian.starred.empty': 'Babu saƙonnin da aka yiwa tauraro.',
+  'meridian.starred.loading': 'Ana lodawa…',
+  'meridian.starred.removeStar': 'Cire tauraro',
+  'meridian.starred.total': '{{count}} jimilla',
+  'meridian.thread.back': 'Komawa zuwa Akwatin Saƙo',
+  'meridian.thread.empty': 'Babu saƙonni a cikin wannan zaren.',
+  'meridian.thread.eyebrow': 'Zaren # {{id}}',
+  'meridian.thread.notFound': 'Ba a sami zaren ba.',
+  'meridian.thread.star': 'Ƙara tauraro',
+  'meridian.thread.unstar': 'Cire tauraro',
+  'meridian.time.yesterday': 'Jiya',
+  'meridian.topBar.searchPlaceholder': 'Bincika wasiku',
+  'meridian.trash.empty': 'Shara babu komai a ciki.',
+  'meridian.trash.title': 'Shara',
+  'nav.legal': "Shari'a",
+  'planUpdated.description':
+    'Biyan kuɗin ku yana aiki yanzu kuma an sabunta lissafin kuɗin ku. Barka da zuwa akwatin saƙon ku da aka sabunta na Courier.',
+  'pricing.heading': 'daftarin aiki',
+  'pricing.limit.emails': 'imel',
+  'pricing.limit.folders': 'manyan fayiloli',
+  'pricing.limit.labels': 'lakabi',
+  'privacy.collect.account':
+    'Bayanan asusu: suna, adireshin imel, kalmar sirri mai hashed, da kuma ranar da kuka yi rajista.',
+  'privacy.intro':
+    'Wannan manufar tsare sirri tana bayyana irin bayanan da Courier ke tattarawa, dalilin da yasa muke tattarawa, yadda muke kiyaye shi lafiya, da kuma irin zaɓin da kuke da shi a kai. Muna da nufin yin takamaiman bayani maimakon yin dokoki; idan wani abu bai bayyana ba, rubuta zuwa ga privacy@courier.example.',
+  'privacy.lastUpdated': 'An sabunta shi na ƙarshe: 1 ga Afrilu, 2026',
+  'privacy.linkTerms': 'Karanta Sharuɗɗan Sabis ɗinmu \\u2192',
+  'privacy.rights.body':
+    'Za ka iya fitar da kowace bayanai da muke riƙewa game da kai daga Saituna → Asusu → Fitar da bayanai, kuma za ka iya share asusunka a dannawa ɗaya - duk layuka an goge su cikin awanni 24, an tsaftace rajistar binciken bayan kwana 30.',
+  'privacy.security.body':
+    'Ana ɓoye abubuwan da ke cikin wasiku da abubuwan da aka makala a lokaci guda ta amfani da AES-256. Haɗi zuwa da kuma daga sabis ɗinmu yana amfani da TLS 1.3. Ana haɗa kalmomin shiga da bcrypt; ba ma yin rajista ko adana kalmomin shiga marasa rubutu. Samun damar samarwa ya takaita ga injiniyoyin da ke kan kira, waɗanda ake duba su kowane wata.',
+  'privacy.share.body':
+    "Muna raba bayanai ne kawai ga ƙananan na'urori masu sarrafawa da muke buƙata don gudanar da Courier (isar da imel ta hanyar Mailgun, biyan kuɗi ta hanyar Stripe, karɓar baƙi ta hanyar AWS). Kowannensu yana da alhakin kwangila don amfani da bayananka kawai don yin hidimarsu a gare mu. Ba ma sayarwa, haya, ko musayar bayananka da kowa.",
+  'terms.acceptable.spam':
+    'Babu aika saƙonnin da ba a buƙata ba. Za mu rufe asusun da ke aika saƙonnin banza ba tare da gargaɗi ba.',
+  'terms.account.body':
+    'Kai ne ke da alhakin kiyaye sirrin kalmar sirrinka da kuma duk wani aiki da ya faru ta hanyar asusunka. Sanar da mu a security@courier.example idan ka yi imanin an yi wa asusunka kutse.',
+  'terms.billing.body':
+    'Tsare-tsaren da aka biya suna sabuntawa a lokacin da aka zaɓa a lokacin yin rajista. Kuna iya sokewa daga Saituna → Biyan Kuɗi a kowane lokaci kuma kuna ci gaba da samun dama har zuwa sauran lokacin biyan kuɗi. Ana bayar da kuɗi don lokacin hutun sabis wanda ya wuce SLA.',
+  'terms.intro':
+    "Waɗannan sharuɗɗan suna sarrafa yadda kake amfani da Courier. Ta hanyar ƙirƙirar asusu ko aika imel ta hanyarmu, ka yarda ka bi su. Muna ƙoƙarin rubuta ƙa'idodi da mutum zai iya bi.",
+  'terms.lastUpdated': 'Mai Inganci: 1 ga Afrilu, 2026',
+  'terms.termination.body':
+    'Za ka iya share asusunka a kowane lokaci. Za mu iya dakatar da asusun da ya karya waɗannan sharuɗɗan; idan muka yi, za mu bayyana dalilin kuma mu bar ka ka fara fitar da bayananka.',
+  'terms.warranty.body':
+    'Ana bayar da sabis ɗin kamar yadda yake. Muna aiki tuƙuru don tabbatar da cewa an amince da shi kuma an tsare shi, amma ba za mu iya tabbatar da samun damar shiga ba tare da katsewa ba. Gwargwadon yadda doka ta tanada, jimillar nauyin da ke kanmu ya takaita ne ga adadin da kuka biya mana a cikin watanni 12 da suka gabata.',
+}

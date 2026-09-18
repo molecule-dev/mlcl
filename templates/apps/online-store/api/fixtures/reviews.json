@@ -1,0 +1,52 @@
+[
+  {
+    "id": "15905d1f-9ff2-45c8-a36d-772852ca6ff6",
+    "product_id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+    "user_id": "59511585-e449-4bde-f2c2-99136a888a9b",
+    "rating": 5,
+    "title": "Best headphones I have ever owned",
+    "body": "The noise cancellation is incredible. Battery lasts forever. Worth every penny.",
+    "status": "approved",
+    "created_at": "2026-03-01T10:00:00Z"
+  },
+  {
+    "id": "26531fd2-84f4-4db3-a777-693d63a8e1de",
+    "product_id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+    "user_id": "0dabc9ae-aa81-4bd3-99e6-7d8bc2b62a95",
+    "rating": 4,
+    "title": "Great sound, slightly heavy",
+    "body": "Audio quality is top-notch. My only complaint is they get a bit heavy after a few hours.",
+    "status": "approved",
+    "created_at": "2026-03-05T14:00:00Z"
+  },
+  {
+    "id": "2fe235e6-7da8-447d-263c-4291d38731f8",
+    "product_id": "7a66b990-9e1b-451b-1188-c707b52fe44e",
+    "user_id": "5279e6c4-0101-4906-0cd5-02b2eb4ec976",
+    "rating": 5,
+    "title": "So soft and comfortable",
+    "body": "The organic cotton feels amazing. Already ordered more in different colors.",
+    "status": "approved",
+    "created_at": "2026-02-20T11:00:00Z"
+  },
+  {
+    "id": "f42d7671-b985-4b5b-e5b0-25fa5ac30354",
+    "product_id": "b4c742d4-aa96-4e42-3813-fda967e4804d",
+    "user_id": "284daf21-65d3-4250-02d5-1e8edb59a094",
+    "rating": 5,
+    "title": "Beautiful craftsmanship",
+    "body": "The leather quality is exceptional. Slim profile but holds everything I need.",
+    "status": "approved",
+    "created_at": "2026-03-10T09:00:00Z"
+  },
+  {
+    "id": "532dbb7a-f289-433f-194b-f8e32875c874",
+    "product_id": "6e54961f-e497-4402-8093-a2c4593d0b04",
+    "user_id": "a4d16226-15ab-42c2-2e32-45033d090c5b",
+    "rating": 4,
+    "title": "Impressive speaker for the size",
+    "body": "Took it camping and the waterproofing held up perfectly. Bass could be a bit deeper.",
+    "status": "approved",
+    "created_at": "2026-03-15T16:00:00Z"
+  }
+]

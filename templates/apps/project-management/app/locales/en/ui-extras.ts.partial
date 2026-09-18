@@ -1,0 +1,23 @@
+  // Dashboard KPI cards (project-management polish)
+  'kpiCard.metricName': 'Active Projects',
+  'kpiCard.metricValue': '{{value}}',
+  'kpiCard.weeklyChange': '{{change}} this week',
+  'kpi.priorityFocus': 'Priority focus',
+  'kpi.tasksDueLabel': 'Tasks Due Today',
+  'kpi.tasksDueCount': '{{count}}',
+  'kpi.status.needsAction': 'Needs Action',
+  'kpi.overdueTasksLabel': 'Overdue Tasks',
+  'kpi.overdueCount': '{{count}}',
+  'kpi.teamStatus': 'All online',
+  'kpi.teamMembersLabel': 'Team Members',
+  'kpi.teamCount': '{{count}}',
+  // Task list page
+  'taskList.title': 'My Tasks',
+  'taskList.subtitle': '{{date}} — {{count}} tasks remaining',
+  'taskList.loadError': 'Failed to load tasks',
+  'taskList.deleteError': 'Failed to delete task',
+  'taskList.assigneeAvatarAlt': 'Assignee',
+  'common.confirmDelete': 'Delete this task?',
+  'common.retry': 'Retry',
+  // Signup page
+  'signup.emailPlaceholder': 'name@company.com',

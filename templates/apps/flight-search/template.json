@@ -1,0 +1,88 @@
+{
+  "label": "Flight Search",
+  "description": "Kayak-like flight search with routes, price comparison, alerts, and multi-city trips — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-cache-redis",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-http-axios",
+    "@molecule/app-data-table",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Flight Search"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "REDIS_URL": {
+      "description": "Redis URL for caching",
+      "default": "redis://localhost:6379"
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for price alerts",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_FLIGHT_SEARCH_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_FLIGHT_SEARCH_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_FLIGHT_SEARCH_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_FLIGHT_SEARCH_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "bookmarks",
+    "notifications",
+    "subscriptions"
+  ]
+}

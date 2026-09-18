@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "expiring",     "title": "Threadly 20% expires in 4 days",         "body": "Use it before April 30 — code THREAD20.",                                "href": "/deals/deal_003",   "created_at": "2026-04-26T08:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "hot_deal",     "title": "🔥 Hot: $15 pizza + drinks at Slice Time","body": "488 people saved this in the last 24 hours.",                            "href": "/deals/deal_008",   "created_at": "2026-04-25T14:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "redeemed",     "title": "Climbing day-pass redeemed",             "body": "Your VERT20 coupon was scanned at Vertical Edge.",                       "href": "/my-coupons",       "created_at": "2026-04-15T18:42:00Z", "unread": false },
+  { "id": "ntf_004", "type": "new_merchant", "title": "New merchant nearby: Tranquil Touch Spa", "body": "Spa offers in Manhattan now showing on Near Me.",                        "href": "/merchants/m_004",  "created_at": "2026-04-12T10:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "expiring",     "title": "Lotus Studio yoga card expired",         "body": "5-class card from January expired April 1.",                             "href": "/my-coupons",       "created_at": "2026-04-02T09:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message","title": "Welcome to Snagr",                       "body": "Browse local deals in /deals or check Near Me to find what's around you.","href": "/dashboard",        "created_at": "2026-01-08T08:00:00Z", "unread": false }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "lsn-es-cafe",        "course_id": "lc-spanish-a2",  "title": "Ordering coffee in a Madrid café",   "duration_min": 5, "lessons_remaining": 4, "progress_percent": 60, "icon": "local_cafe",    "level": "A2", "language": "Spanish",  "flag": "🇪🇸", "tone": "primary"   },
+  { "id": "lsn-fr-past-irreg",  "course_id": "lc-french-b1",   "title": "Past tense of irregular verbs",      "duration_min": 8, "lessons_remaining": 7, "progress_percent": 35, "icon": "history_edu",   "level": "B1", "language": "French",   "flag": "🇫🇷", "tone": "secondary" },
+  { "id": "lsn-ja-food",        "course_id": "lc-japanese-a1", "title": "Hiragana review — drinks & food",    "duration_min": 6, "lessons_remaining": 3, "progress_percent": 80, "icon": "restaurant",    "level": "A1", "language": "Japanese", "flag": "🇯🇵", "tone": "tertiary"  },
+  { "id": "lsn-ko-numbers",     "course_id": "lc-korean-a1",   "title": "Counting from 1 to 100",             "duration_min": 4, "lessons_remaining": 2, "progress_percent": 25, "icon": "pin",           "level": "A1", "language": "Korean",   "flag": "🇰🇷", "tone": "info"      }
+]

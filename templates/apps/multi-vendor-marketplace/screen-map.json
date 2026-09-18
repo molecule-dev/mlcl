@@ -1,0 +1,209 @@
+{
+  "app": "multi-vendor-marketplace",
+  "designProjectId": "8411417880350364708",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-landing.html",
+      "designScreenId": "39fbc11c93724734aaacbb3a04dde115"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-login.html",
+      "designScreenId": "7fd5a4517bb24425b078de73448da685"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-multi-vendor-marketplace-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right card adds First Name, Last Name, Email, Password, Confirm Password. Keep the Shopper/Vendor segmented toggle. Button text 'Join the marketplace'. Bottom link 'Already have an account? Sign in'. No 'Forgot password?' link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-multi-vendor-marketplace-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right card with only Email field. Remove Shopper/Vendor toggle. Heading 'Reset your password', subtext 'Enter your email and we'll send a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-multi-vendor-marketplace-login.html",
+      "derivationNotes": "Same two-panel layout as Login. Right card with New Password and Confirm Password only. Remove Shopper/Vendor toggle. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Catalog",
+      "templateFile": "app/pages/Catalog.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/catalog",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-catalog.html",
+      "designScreenId": "1f54026f8e804055b9785afad1ade922"
+    },
+    {
+      "name": "ProductDetail",
+      "templateFile": "app/pages/ProductDetail.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/products/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-product-detail.html",
+      "designScreenId": "97b1aaffc92a42988cbc40567052f2c1"
+    },
+    {
+      "name": "VendorStorefront",
+      "templateFile": "app/pages/VendorStorefront.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendors/:slug",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-storefront.html",
+      "designScreenId": "140a7ef6d7a340d2918791681597a1f0"
+    },
+    {
+      "name": "Cart",
+      "templateFile": "app/pages/Cart.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/cart",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-cart.html",
+      "designScreenId": "73714202862f4c91a8fac25cfe51b43f"
+    },
+    {
+      "name": "VendorDashboard",
+      "templateFile": "app/pages/VendorDashboard.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendor/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-dashboard.html",
+      "designScreenId": "5c649618887543d08612e7b95961c402"
+    },
+    {
+      "name": "Orders",
+      "templateFile": "app/pages/Orders.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-orders.html",
+      "designScreenId": "8b7b15caf10e47a0b2609da5a812aa9a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-settings.html",
+      "designScreenId": "f419172ad26746169c08352467b419d3"
+    },
+    {
+      "name": "Checkout",
+      "templateFile": "app/pages/Checkout.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/checkout",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-checkout.html",
+      "designScreenId": "108abae9aa9a4ddc9240a865565a2c0c"
+    },
+    {
+      "name": "OrderDetail",
+      "templateFile": "app/pages/OrderDetail.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/orders/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-order-detail.html",
+      "designScreenId": "528cba7a940f44d3829e9e92adfeb94b"
+    },
+    {
+      "name": "VendorProducts",
+      "templateFile": "app/pages/VendorProducts.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendor/products",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-products.html",
+      "designScreenId": "bb3488ec384047bd857bc542147ee2f8"
+    },
+    {
+      "name": "VendorProductForm",
+      "templateFile": "app/pages/VendorProductForm.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendor/products/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-product-form.html",
+      "designScreenId": "4212a881b7b74c74871927a7ce58c082"
+    },
+    {
+      "name": "VendorOrders",
+      "templateFile": "app/pages/VendorOrders.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendor/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-orders.html",
+      "designScreenId": "d0d0caaeb59e4850a94478e5a4261fff"
+    },
+    {
+      "name": "VendorPayouts",
+      "templateFile": "app/pages/VendorPayouts.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/vendor/payouts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-payouts.html",
+      "designScreenId": "e2a9670ea7b24c879d9a69fbce3ee55b"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MultiVendorMarketplaceLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-notifications.html",
+      "designScreenId": "9d22c0e3aa954307b0d5ae153302659a"
+    },
+    {
+      "name": "VendorOnboarding",
+      "templateFile": "app/pages/VendorOnboarding.tsx",
+      "components": [],
+      "route": "/vendor/apply",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-multi-vendor-marketplace-vendor-onboarding.html",
+      "designScreenId": "91f972fa52b84588944362360ac42e7c"
+    }
+  ]
+}

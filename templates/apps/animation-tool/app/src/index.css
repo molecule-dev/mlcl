@@ -1,0 +1,212 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: Inter;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-1 -left-1 -left-2 -left-[5px] -ml-8 -mt-8 -right-1 -space-x-1 -space-x-2 -top-1 -top-2 -top-5 -top-6 -top-[24px] -top-[30px] -translate-x-1/2 -translate-y-1/2 -translate-y-4 2xl 3xl absolute accent-violet-500 active:scale-95 after:absolute after:bg-white after:border after:border-gray-300 after:h-4 after:left-[2px] after:rounded-full after:top-[2px] after:transition-all after:w-4 animate-pulse antialiased appearance-none aspect-square backdrop-blur backdrop-blur-[2px] backdrop-blur-md backdrop-blur-sm bg-accent bg-accent/20 bg-accent/60 bg-bg-canvas bg-bg-panel bg-bg-surface bg-bg-timeline bg-black/60 bg-brand-magenta/20 bg-brand-violet bg-brand-violet/20 bg-canvas bg-clip-text bg-gradient-to-br bg-gradient-to-r bg-gradient-to-t bg-gradient-to-tr bg-gray-500/20 bg-green-500/80");
+@source inline("bg-grid bg-magenta-500 bg-panel bg-playhead bg-primary bg-primary/10 bg-primary/20 bg-primary/30 bg-primary/5 bg-red-500/80 bg-surface bg-timeline bg-transparent bg-violet-500 bg-vivace-accent bg-vivace-canvas bg-vivace-muted/30 bg-vivace-panel bg-vivace-primary bg-vivace-primary/10 bg-vivace-primary/20 bg-vivace-surface bg-vivace-timeline bg-white bg-yellow-500/80 block border border-2 border-accent border-b border-b-2 border-bg-surface border-border-color border-border-vivace-timeline border-brand-magenta/30 border-brand-violet/30 border-dashed border-gray-300 border-gray-500/30 border-l border-l-2 border-l-4 border-l-[5px] border-l-[8px] border-l-transparent border-none border-panel border-playhead border-primary border-primary/20 border-primary/30 border-r border-r-2 border-r-[5px] border-r-[8px] border-r-transparent border-surface border-t border-t-2 border-t-[6px]");
+@source inline("border-t-[8px] border-t-playhead border-transparent border-violet-500 border-vivace-panel border-vivace-primary border-vivace-primary/10 border-vivace-primary/30 border-vivace-timeline border-white border-white/20 bottom-0 bottom-1 bottom-4 card-glow col-span-2 cursor-ew-resize cursor-pointer custom-scrollbar delay-100 disabled:opacity-30 docked duration-1000 duration-150 duration-200 duration-300 duration-500 duration-700 ease-in-out fill fill-none fixed flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus:border-brand-violet focus:border-primary focus:border-violet-500 focus:border-vivace-primary/50 focus:outline-none focus:ring-0 focus:ring-1 focus:ring-brand-violet focus:ring-offset-2 focus:ring-offset-surface focus:ring-primary focus:ring-violet-500 focus:ring-vivace-primary/50 font-black font-body font-bold font-extrabold font-headline font-medium font-mono font-sans font-semibold");
+@source inline("from-accent from-bg-panel from-bg-surface from-brand-violet from-gray-700 from-primary from-violet-500 gap-1 gap-2 gap-3 gap-4 gap-6 gap-8 gradient-brand grayscale grid grid-cols-1 grid-cols-2 grid-cols-3 group group-hover:bg-primary/40 group-hover:border-primary group-hover:border-vivace-primary/50 group-hover:flex group-hover:opacity-100 group-hover:rotate-45 group-hover:scale-105 group-hover:scale-110 group-hover:text-accent group-hover:text-primary group-hover:text-vivace-primary group-hover:text-white group-hover:translate-x-12 group-hover:translate-y-0 group-hover:w-3/4 group-hover:w-full h-0 h-1 h-10 h-12 h-14 h-16 h-2 h-24 h-3 h-4 h-5 h-6 h-64 h-7 h-8 h-9 h-[140px] h-[160px] h-[1px] h-[240px] h-[260px] h-[2px] h-[32px] h-[400px]");
+@source inline("h-[44px] h-[48px] h-[6px] h-[700px] h-fit h-full h-px h-screen hidden hover:bg-accent/90 hover:bg-canvas hover:bg-panel/80 hover:bg-primary/20 hover:bg-primary/90 hover:bg-surface hover:bg-surface/50 hover:bg-violet-400 hover:bg-vivace-primary hover:bg-vivace-primary/90 hover:border-accent/50 hover:border-brand-violet/50 hover:border-primary/50 hover:border-violet-400 hover:from-primary/90 hover:from-violet-400 hover:opacity-100 hover:opacity-80 hover:opacity-90 hover:scale-125 hover:scale-95 hover:shadow-accent/40 hover:text-accent hover:text-brand-magenta hover:text-primary hover:text-text-primary hover:text-vivace-text hover:text-white hover:to-accent/90 hover:to-magenta-400 hover:underline inline-flex inset-0 italic items-baseline items-center items-end items-start justify-between justify-center keyframe-diamond kinetic-bg left-0 left-1 left-1/2 left-2 left-3 left-[0px] left-[200px] left-[240px] left-[360px]");
+@source inline("left-[40px] left-[46px] left-[80px] left-[86px] lg:block lg:flex lg:grid-cols-3 lg:grid-cols-4 lg:grid-cols-6 lg:pl-[244px] line-clamp-1 m-auto material-symbols-outlined max-w-2xl max-w-3xl max-w-4xl max-w-[1440px] max-w-[440px] max-w-md mb mb-1 mb-10 mb-12 mb-16 mb-2 mb-3 mb-4 mb-6 mb-8 mb-auto md md:col-span-2 md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:hidden md:items-center md:left-[280px] md:mt-0 md:text-4xl md:text-7xl md:text-xl min-h-screen min-w-0 ml-1 ml-2 ml-4 ml-auto mono mr-1 mr-2 mt-1 mt-10 mt-14 mt-2 mt-3 mt-4 mt-6 mt-auto");
+@source inline("mx-1 mx-2 mx-4 mx-auto my-2 my-6 my-auto nav-item-active no-scrollbar object-cover opacity-0 opacity-10 opacity-100 opacity-20 opacity-30 opacity-50 opacity-60 opacity-80 outline-none overflow-hidden overflow-visible overflow-x-auto overflow-y-auto overflow-y-hidden p-0 p-1 p-10 p-2 p-3 p-4 p-5 p-6 pattern-dots pb-2 pb-24 pb-3 pb-4 pb-8 pb-[6px] pb-[8px] peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-violet-500 peer-focus:outline-none pl-10 pl-3 pl-4 pl-6 pl-8 pl-9 pl-[68px] placeholder-text-secondary/50 placeholder:text-vivace-muted/60 pointer-events-none pr-10 pr-12 pr-2 pr-3 pr-4");
+@source inline("pr-6 pt-2 pt-24 pt-4 px-1 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-20 py-3 py-4 py-6 relative right-0 right-1 right-2 right-3 right-4 rotate-12 rotate-45 rounded rounded-[1px] rounded-full rounded-lg rounded-md rounded-r-md rounded-sm rounded-t-[2px] rounded-xl scale-100 scale-105 scale-110 scroll-smooth select-none selected selection:bg-primary/30 selection:bg-vivace-primary/30 shadow shadow-2xl shadow-accent/20 shadow-lg shadow-md shadow-primary/20 shadow-sm shrink-0 sm sm:block sm:flex sm:flex-row sm:grid-cols-2 sm:grid-cols-6 space-x-1");
+@source inline("space-x-2 space-x-3 space-x-4 space-x-6 space-y-1 space-y-2 space-y-4 space-y-5 space-y-6 sr-only sticky stroke-accent stroke-none stroke-primary text-2xl text-3xl text-4xl text-5xl text-[10px] text-[11px] text-[12px] text-[13px] text-[14px] text-[15px] text-[16px] text-[18px] text-[20px] text-[28px] text-[8px] text-[9px] text-amber-500 text-brand-magenta text-brand-violet text-center text-gray-400 text-left text-lg text-magenta-500 text-primary text-right text-sm text-text-primary text-text-secondary text-transparent text-violet-400 text-violet-500 text-vivace-muted text-vivace-primary text-vivace-text text-white text-xl text-xs to-accent to-bg-timeline to-brand-magenta to-gray-900 to-magenta-500 to-primary to-purple-500 to-transparent");
+@source inline("top-0 top-1/2 top-2 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-shadow transition-transform translate-y-2 truncate uppercase w-0 w-1/2 w-1/3 w-1/4 w-10 w-12 w-16 w-2 w-2/3 w-20 w-24 w-3 w-4 w-40 w-48 w-5 w-6 w-64 w-7 w-8 w-80 w-9 w-[1000px] w-[11px] w-[154px] w-[160px] w-[1px] w-[220px] w-[240px] w-[264px] w-[274px] w-[280px] w-[300px] w-[320px] w-full w-px w-screen whitespace-nowrap whitespace-pre xl:flex xl:grid-cols-3 xl:grid-cols-4 xs");
+@source inline("z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Custom scrollbar for dark IDE look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12122a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a4a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f6a;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar for a clean IDE look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+}
+
+.keyframe-diamond {
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background-color: #8b5cf6;
+}
+
+.keyframe-diamond.selected {
+  background-color: #ec4899;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.bg-grid {
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle, rgba(139, 92, 246, 0.15) 1px, transparent 1px);
+}
+
+.kinetic-bg {
+  background:
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.1), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.1), transparent 25%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #16162a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1f1f3a;
+}
+
+/* Custom scrollbar for dark IDE feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0f0f24;
+}
+
+/* Specific override for active states mapped to json */
+.nav-item-active {
+  background-color: #16162a;
+  color: #a78bfa;
+  border-left-width: 4px;
+  border-left-color: #8b5cf6;
+  box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.1);
+}
+
+.grid-pattern {
+  background-image: radial-gradient(#0f0f24 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bezier-line {
+  fill: none;
+  stroke: #a09cb5;
+  stroke-width: 2;
+}
+
+.bezier-line-active {
+  fill: none;
+  stroke: #ec4899;
+  stroke-width: 2;
+}
+/* polish-v2:stitch-styles:end */

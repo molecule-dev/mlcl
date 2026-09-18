@@ -1,0 +1,213 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #0ea5e9;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #eef2ff;
+  --mol-color-surface: #f8fafc;
+  --mol-color-surface-secondary: #eef2ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #4f46e5;
+  --mol-color-success: #22c55e;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #06b6d4;
+
+  /* Stitch / Material-3 light tokens */
+  --color-background: #ffffff;
+  --color-on-background: #0f172a;
+  --color-surface: #f8fafc;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #eef2ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #eef2ff;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #818cf8;
+  --color-primary: #4f46e5;
+  --color-on-primary: #ffffff; /* white on #4f46e5 = 6.29:1 ✓ */
+  --color-primary-container: #e0e7ff;
+  --color-on-primary-container: #1e1b4b;
+  --color-secondary: #0ea5e9;
+  --color-secondary-container: #e0f2fe;
+  --color-on-secondary: #1e1b4b; /* #1e1b4b on #0ea5e9 = 5.77:1 ✓ — white was 2.77:1 (fail) */
+  --color-on-secondary-container: #0c4a6e;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #e0f7fa;
+  --color-on-tertiary: #082f49; /* dark on cyan — white was 2.43:1 (fail); #082f49 = 5.72:1 ✓ */
+  --color-on-tertiary-container: #083344;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #370000; /* dark on red — white was 3.76:1 (fail); #370000 = 4.80:1 ✓ */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* #94a3b8 was 2.45:1 vs surface (fail ≥3:1); #64748b = 4.55:1 ✓ */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #4f46e5;
+
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
+  --color-secondary: #0ea5e9;
+  --color-secondary-hover: #0284c7;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #06b6d4;
+
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #eef2ff;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 15rem;
+
+  --color-status-on-track: #22c55e;
+  --color-status-at-risk: #f59e0b;
+  --color-status-behind: #ef4444;
+  --color-status-completed: #7c3aed;
+
+  /* Nav / heading deep-indigo — the brand's darkest surface stop */
+  --color-nav-bg: #1e1b4b;
+  --color-heading-ink: #1e1b4b;
+}
+
+/* Dark mode — productivity cool-neutral.
+   Cool slate surfaces (Linear/Asana goal-tracker feel — neutral cool
+   greys so the indigo brand and the semantic status colours read
+   crisply). Brand indigo stays at the brand stop (#4f46e5) so primary
+   CTAs match across modes; `--color-on-primary` STAYS white so the
+   indigo CTA buttons keep their light-on-indigo character. */
+[data-mol-mode='dark'] {
+  /* Brand — kept at the brand stop for parity with light mode */
+  --color-primary: #4f46e5; /* keep brand indigo at brand stop */
+  --color-primary-hover: #6366f1;
+  --color-primary-light: #1e1b4b;
+  --color-secondary: #38bdf8;
+  --color-secondary-hover: #7dd3fc;
+  --color-on-primary: #ffffff; /* white on indigo — readable in both modes */
+
+  /* Status colors — brighter for dark */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #22d3ee;
+
+  /* Neutrals — depth-layered cool slate */
+  --color-bg: #0b1120;
+  --color-bg-secondary: #131a2e;
+  --color-bg-tertiary: #1c2440;
+  --color-border: #2a3354;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #8b96a8;
+
+  /* Goal status — preserve semantics (on-track green, at-risk amber, behind red) */
+  --color-status-on-track: #4ade80;
+  --color-status-at-risk: #fbbf24;
+  --color-status-behind: #f87171;
+  --color-status-completed: #a78bfa;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Auth hero panel — deeper midnight blue-indigo for dark surfaces,
+     so the gradient is still brand-faithful but reads as dark-mode. */
+  --color-auth-hero-grad: linear-gradient(135deg, #0d0b1f 0%, #1e1b4b 50%, #062035 100%);
+
+  /* Nav / heading tokens flip in dark mode — sidebar uses dark surface,
+     headings use light foreground text instead of the deep indigo */
+  --color-nav-bg: #0d1626;
+  --color-heading-ink: #f1f5f9;
+
+  /* === @theme bridge — dark overrides === */
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #38bdf8;
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #131a2e;
+  --mol-color-background-tertiary: #1c2440;
+  --mol-color-surface: #0b1120;
+  --mol-color-surface-secondary: #131a2e;
+  --mol-color-input-background: #0b1120;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #8b96a8;
+  --mol-color-text-inverse: #0b1120;
+  --mol-color-border: #2a3354;
+  --mol-color-border-secondary: #1e293b;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0b1120;
+  --color-surface-bright: #1c2440;
+  --color-surface-dim: #060b14;
+  --color-surface-container-lowest: #040810;
+  --color-surface-container-low: #0d1626;
+  --color-surface-container: #131a2e;
+  --color-surface-container-high: #1c2440;
+  --color-surface-container-highest: #2a3354;
+  --color-surface-variant: #1c2440;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #4f46e5;
+  --color-on-primary: #ffffff; /* white on #4f46e5 = 6.29:1 ✓ */
+  --color-primary-container: #1e1b4b;
+  --color-on-primary-container: #c7d2fe;
+  --color-secondary-container: #0c4a6e;
+  --color-on-secondary: #062035; /* dark on sky-blue — white was 2.14:1 (fail); #062035 = 7.74:1 ✓ */
+  --color-on-secondary-container: #e0f2fe;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #083344;
+  --color-on-tertiary: #042f2e; /* dark on cyan — white was 1.81:1 (fail); #042f2e = 8.01:1 ✓ */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #4a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 ✓ */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8b96a8;
+  --color-outline-variant: #2a3354;
+  --color-surface-tint: #818cf8;
+}

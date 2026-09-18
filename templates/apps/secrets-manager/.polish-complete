@@ -1,0 +1,8 @@
+Polish complete: 2026-04-30T00:35:00Z
+Pipeline: polish-app.mjs autonomous session
+Cluster: developer-tools → sibling: database-admin
+Components: 6 bespoke (ArcanumBrandMark, AuthShell, SecretStatusPill, VaultCard, SecretRow, SecretsManagerLayout)
+Screen-map coverage: 16/16 (incl. NotFound catch-all)
+Compliance: clean (check-rules-compliance.mjs)
+Brand: Arcanum — emerald primary #00d992, violet accent #a78bfa, deep navy surfaces (#0c1222), JetBrains Mono for values + Inter for chrome (DESIGN.md)
+Typography: Material Symbols Outlined + Inter + JetBrains Mono (mol:design-resources slot)

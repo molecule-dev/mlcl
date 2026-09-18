@@ -1,0 +1,118 @@
+[
+  {
+    "id": "66945014-eb14-4148-2980-1046f5837b0f",
+    "product_id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+    "product": {
+      "id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+      "name": "Wireless Noise-Canceling Headphones",
+      "description": "Premium over-ear headphones with active noise cancellation and 30-hour battery life.",
+      "price": 29900,
+      "category": "Electronics",
+      "sku": "WNC-001",
+      "status": "active",
+      "featured": true,
+      "total_sold": 342,
+      "images": [
+        "https://picsum.photos/seed/wnc001/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/wnc001/200/200"
+      ],
+      "tags": [
+        "bestseller",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2025-08-15T10:00:00Z",
+      "updated_at": "2026-03-28T14:00:00Z"
+    },
+    "created_at": "2026-03-20T10:00:00Z"
+  },
+  {
+    "id": "46a26a27-d105-4ccb-ad47-dac445276faf",
+    "product_id": "b4c742d4-aa96-4e42-3813-fda967e4804d",
+    "product": {
+      "id": "b4c742d4-aa96-4e42-3813-fda967e4804d",
+      "name": "Handcrafted Leather Wallet",
+      "description": "Full-grain Italian leather bifold wallet with RFID protection.",
+      "price": 8900,
+      "category": "Accessories",
+      "sku": "HLW-200",
+      "status": "active",
+      "featured": true,
+      "total_sold": 567,
+      "images": [
+        "https://picsum.photos/seed/hlw200/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/hlw200/200/200"
+      ],
+      "tags": [
+        "handmade",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2025-09-10T11:00:00Z",
+      "updated_at": "2026-03-25T09:00:00Z"
+    },
+    "created_at": "2026-03-22T14:00:00Z"
+  },
+  {
+    "id": "d84ed190-3927-42dd-7dd8-b117836d2fa1",
+    "product_id": "9f01131e-b493-4093-dc40-0acaa9d7d0f3",
+    "product": {
+      "id": "9f01131e-b493-4093-dc40-0acaa9d7d0f3",
+      "name": "Minimalist Analog Watch",
+      "description": "Japanese movement quartz watch with genuine leather strap and sapphire crystal glass.",
+      "price": 15900,
+      "category": "Accessories",
+      "sku": "MAW-400",
+      "status": "active",
+      "featured": true,
+      "total_sold": 234,
+      "images": [
+        "https://picsum.photos/seed/maw400/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/maw400/200/200"
+      ],
+      "tags": [
+        "premium",
+        "new"
+      ],
+      "variants": [],
+      "created_at": "2025-11-01T09:00:00Z",
+      "updated_at": "2026-03-18T11:00:00Z"
+    },
+    "created_at": "2026-03-25T09:00:00Z"
+  },
+  {
+    "id": "ef4d2b0f-47d3-43c5-fd1d-3f7adac5ff48",
+    "product_id": "6e54961f-e497-4402-8093-a2c4593d0b04",
+    "product": {
+      "id": "6e54961f-e497-4402-8093-a2c4593d0b04",
+      "name": "Portable Bluetooth Speaker",
+      "description": "Waterproof IPX7 speaker with 360-degree sound and 20-hour playtime.",
+      "price": 7900,
+      "category": "Electronics",
+      "sku": "PBS-700",
+      "status": "active",
+      "featured": true,
+      "total_sold": 512,
+      "images": [
+        "https://picsum.photos/seed/pbs700/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/pbs700/200/200"
+      ],
+      "tags": [
+        "bestseller",
+        "new"
+      ],
+      "variants": [],
+      "created_at": "2025-12-01T10:00:00Z",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "created_at": "2026-03-27T11:00:00Z"
+  }
+]

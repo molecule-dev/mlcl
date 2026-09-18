@@ -1,0 +1,86 @@
+[
+  {
+    "id": "grd01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "assignment_id": "asn01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "score": 92,
+    "max_score": 100,
+    "letter_grade": "A",
+    "feedback": "Excellent portfolio page! Clean semantic HTML, responsive design works well across breakpoints. Minor suggestion: add more descriptive alt text to project images.",
+    "graded_at": "2026-01-10T14:00:00Z",
+    "updated_at": "2026-01-10T14:00:00Z"
+  },
+  {
+    "id": "grd02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "assignment_id": "asn02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "score": 45,
+    "max_score": 50,
+    "letter_grade": "A",
+    "feedback": "Strong understanding of DOM concepts. Missed the question about event delegation — review the bubbling/capturing section.",
+    "graded_at": "2026-01-05T10:00:00Z",
+    "updated_at": "2026-01-05T10:00:00Z"
+  },
+  {
+    "id": "grd03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "assignment_id": "asn02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "score": 38,
+    "max_score": 50,
+    "letter_grade": "B",
+    "feedback": "Good effort overall. Review querySelector vs querySelectorAll differences and practice with createElement workflows.",
+    "graded_at": "2026-03-10T11:00:00Z",
+    "updated_at": "2026-03-10T11:00:00Z"
+  },
+  {
+    "id": "grd04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "assignment_id": "asn03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "score": 85,
+    "max_score": 100,
+    "letter_grade": "B+",
+    "feedback": "DeepPartial and TupleToUnion implementations are excellent. DeepReadonly has an edge case with arrays that needs fixing. ChainedValidator works but could be more type-safe.",
+    "graded_at": "2026-03-20T15:00:00Z",
+    "updated_at": "2026-03-20T15:00:00Z"
+  },
+  {
+    "id": "grd05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "assignment_id": "asn04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "score": 140,
+    "max_score": 150,
+    "letter_grade": "A",
+    "feedback": "Outstanding schema design. Good use of foreign keys and constraints. The ER diagram is clear and well-organized. Only missed points for not including indexes on frequently queried columns.",
+    "graded_at": "2026-03-01T09:00:00Z",
+    "updated_at": "2026-03-01T09:00:00Z"
+  },
+  {
+    "id": "grd06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "assignment_id": "asn08b9c-0d1e-4f2a-b3c4-d5e6f7a8b9c0",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "score": 42,
+    "max_score": 50,
+    "letter_grade": "B+",
+    "feedback": "Solid understanding of conditional types. The questions on distributive behavior tripped you up — review the section on naked type parameters.",
+    "graded_at": "2026-03-22T10:00:00Z",
+    "updated_at": "2026-03-22T10:00:00Z"
+  },
+  {
+    "id": "grd07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "assignment_id": "asn07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "score": 23,
+    "max_score": 25,
+    "letter_grade": "A",
+    "feedback": "Thoughtful discussion post with great examples of custom hooks. Your useDebounce implementation was particularly well-explained.",
+    "graded_at": "2026-03-28T09:00:00Z",
+    "updated_at": "2026-03-28T09:00:00Z"
+  }
+]

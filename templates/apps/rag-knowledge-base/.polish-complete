@@ -1,0 +1,45 @@
+# rag-knowledge-base — polish-complete marker
+
+App: rag-knowledge-base (Engram)
+Polished: 2026-04-29
+Pipeline: scripts/polish-app.mjs (autonomous subagent run)
+
+## Provenance
+
+- Sibling translation source: ai-document-processor (Parcela) — for
+  AuthShell + AuthBrandHeader + dashboard hero/metric patterns; with
+  RAG-specific divergence (CitationChip, RelevancePill, AnswerCard).
+- Bespoke branded components: 10 new — EngramLayout (sidebar shell),
+  AuthBrandHeader, AuthShell, EngramHeroCard, EngramMetricTile,
+  RelevancePill (pill + ring variants), CitationChip (hover tooltip),
+  AnswerCard (paragraph + inline-citation rendering),
+  DocumentCard, SourceConnectorCard. Plus RootErrorBoundary re-export
+  and lib/unwrap.ts utility.
+- Sweep 1 chrome adopted: @molecule/app-header-react,
+  @molecule/app-footer-react, @molecule/app-root-error-boundary-react,
+  @molecule/app-sidebar-layout-react.
+- Pages rewritten / created: 17 (Landing, Login, Signup, ForgotPassword,
+  ResetPassword, Ask, Documents, DocumentDetail, Sources, SourceDetail,
+  Analytics, History, KnowledgeGraph, Members, Notifications, Billing,
+  Settings, NotFound). Every screen-map.json route is wired in App.tsx
+  inside AuthGuard + EngramLayout for authenticated screens.
+- Auth pages branded with shared AuthShell wrapper (gradient orbs +
+  AuthBrandHeader purple-gradient chip + rounded-3xl card + Footer).
+- 404 page added (NotFound.tsx) and wired as catch-all in App.tsx.
+- Brand: Engram, "Instant knowledge recall" tagline. Primary #5b47e0
+  with #4636b8 → #5b47e0 → #7c6af0 retrieval-purple gradient. Inter
+  (primary) + JetBrains Mono (citations/code) + Material Symbols.
+- Material 3 token derivative-fill: inherited from prior workspace
+  derivative-fill commit; theme.css adds RAG-specific semantic colors
+  (--color-cited, --color-code-block, --color-code-text).
+
+## Verification
+
+- App-side typecheck: `npx tsc --noEmit` from app/ → 0 errors.
+- ClassMap coverage: 100.0% (well above 70% gate) — every native
+  className is routed through `cm.cn(...)`.
+- Compliance gate: `node scripts/check-rules-compliance.mjs
+  mlcl/templates/apps/rag-knowledge-base` → clean.
+- Screen-map coverage: `node scripts/check-screen-map-coverage.mjs
+  rag-knowledge-base` → 17 screens, all wired.
+- Bespoke component count (per polish-status): 10 (gate: ≥3).

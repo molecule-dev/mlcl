@@ -1,0 +1,199 @@
+{
+  "app": "spreadsheet",
+  "designProjectId": "17178491632374158336",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-landing.html",
+      "designScreenId": "7067d02513dc4545838805b527de325a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-login.html",
+      "designScreenId": "108c79b18966487a87ac30a076467d67"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-spreadsheet-login.html",
+      "derivationNotes": "Same centered card on grid-patterned background as Login. Card adds First Name, Last Name, Email, Password, Confirm Password, and a workspace URL input. Heading changes to 'Create your Calcite workspace'. Subtext 'Start structuring your data in minutes'. Primary button 'Create workspace' blue solid. Bottom link 'Already have a workspace? Sign in'. No Forgot Password link. Keep SSO buttons."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-spreadsheet-login.html",
+      "derivationNotes": "Same centered card on grid-patterned background as Login. Card shows only Email field. Heading 'Reset your password'. Subtext 'We\u2019ll send a reset link to your email'. Primary button 'Send reset link' blue solid. Bottom link 'Back to sign in'. No workspace URL, no password, no SSO, no remember-me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-spreadsheet-login.html",
+      "derivationNotes": "Same centered card on grid-patterned background as Login. Card shows New Password and Confirm Password fields with eye toggles. Heading 'Set a new password'. Subtext 'Use at least 12 characters with a mix of letters, numbers, and symbols'. Primary button 'Reset password' blue solid. Bottom link 'Back to sign in'. No email, no workspace URL, no SSO."
+    },
+    {
+      "name": "Workbooks",
+      "templateFile": "app/pages/Workbooks.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/workbooks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-workbooks.html",
+      "designScreenId": "06fbeb48ade149589514b12e3f06bf99"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/workbooks/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-editor.html",
+      "designScreenId": "c644e7b3a8d244a3a1541b4edbd68c04"
+    },
+    {
+      "name": "Charts",
+      "templateFile": "app/pages/Charts.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/workbooks/:id/charts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-charts.html",
+      "designScreenId": "bf3938f1f7784470973e3de1656dbb93"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-templates.html",
+      "designScreenId": "450e77b128b64afd90fb35554f1c9b01"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-settings.html",
+      "designScreenId": "0178ff9e19af4a0d95cc35965fd51aa9"
+    },
+    {
+      "name": "TemplatePreview",
+      "templateFile": "app/pages/TemplatePreview.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-template-preview.html",
+      "designScreenId": "b806032a601f4b839854c997ad9ae62a"
+    },
+    {
+      "name": "Automations",
+      "templateFile": "app/pages/Automations.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/automations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-automations.html",
+      "designScreenId": "b4febd9ed9584f1293caddc6c781dec0"
+    },
+    {
+      "name": "Integrations",
+      "templateFile": "app/pages/Integrations.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/integrations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-integrations.html",
+      "designScreenId": "e95dcd8c1dde4da6a4ee69e126df6d5a"
+    },
+    {
+      "name": "History",
+      "templateFile": "app/pages/History.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/workbooks/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-history.html",
+      "designScreenId": "3eb3eae14aba42e1995023b505901d9e"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-notifications.html",
+      "designScreenId": "a3738f78885240bd9088e4886b63f710"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-team.html",
+      "designScreenId": "08a8aaa3593e4028a88be10be1bcaf5f"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-profile.html",
+      "designScreenId": "a15ceef0a10e464e83bacad755ebb687"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/SpreadsheetLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-billing.html",
+      "designScreenId": "c7e60bab7cf44cebbd3d9783d56f8471"
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "/*",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-spreadsheet-not-found.html",
+      "designScreenId": "7c9e4253a3224cdaa98e18f0b532ba9d"
+    }
+  ]
+}

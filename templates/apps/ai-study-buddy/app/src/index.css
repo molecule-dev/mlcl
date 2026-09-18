@@ -1,0 +1,285 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #f5fbf9;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-success: #16a34a;
+  --color-inverse-on-surface: #ecf2f0;
+  --color-inverse-primary: #6bd8cb;
+  --color-inverse-surface: #2b3231;
+  --color-on-background: #171d1c;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #f4fffc;
+  --color-on-primary-fixed: #00201d;
+  --color-on-primary-fixed-variant: #005049;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #663500;
+  --color-on-secondary-fixed: #2f1500;
+  --color-on-secondary-fixed-variant: #6e3900;
+  --color-on-surface: #171d1c;
+  --color-on-surface-variant: #3d4947;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-on-tertiary-fixed: #2f1500;
+  --color-on-tertiary-fixed-variant: #6e3900;
+  --color-outline: #6d7a77;
+  --color-outline-variant: #bcc9c6;
+  --color-primary: #00685f;
+  --color-primary-container: #008378;
+  --color-primary-fixed: #89f5e7;
+  --color-primary-fixed-dim: #6bd8cb;
+  --color-secondary: #904d00;
+  --color-secondary-container: #fe932c;
+  --color-secondary-fixed: #ffdcc3;
+  --color-secondary-fixed-dim: #ffb77d;
+  --color-surface: #f5fbf9;
+  --color-surface-bright: #f5fbf9;
+  --color-surface-container: #e9efed;
+  --color-surface-container-high: #e3e9e8;
+  --color-surface-container-highest: #dee4e2;
+  --color-surface-container-low: #eff5f3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d5dbd9;
+  --color-surface-tint: #006a61;
+  --color-surface-variant: #dee4e2;
+  --color-tertiary: #8d4b00;
+  --color-tertiary-container: #b15f00;
+  --color-tertiary-fixed: #ffdcc3;
+  --color-tertiary-fixed-dim: #ffb77d;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Newsreader, serif;
+  --font-display: Inter, sans-serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-serif: Merriweather, serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-1 -left-1 -left-12 -left-20 -left-[30px] -mr-40 -mt-40 -right-1 -right-24 -right-4 -rotate-90 -top-1 -top-20 -top-24 -top-4 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute accent-primary active:scale-95 after:absolute after:bg-white after:border after:border-gray-300 after:h-5 after:left-[2px] after:rounded-full after:transition-all after:w-5 ambient-shadow animate-ping animate-pulse antialiased appearance-none aspect-[16/9] aspect-square backdrop-blur-[24px] backdrop-blur-lg backdrop-blur-md backdrop-blur-sm backdrop-blur-xl bg-clip-text bg-emerald-100/50 bg-emerald-50/50 bg-emerald-500 bg-gradient-to-b bg-gradient-to-br bg-gradient-to-l bg-gradient-to-r bg-gradient-to-t bg-on-surface/70 bg-opacity-70 bg-outline-variant/30 bg-primary bg-primary-container/10 bg-primary-container/20 bg-primary-container/5 bg-primary-fixed");
+@source inline("bg-primary-fixed/20 bg-primary/10 bg-primary/5 bg-secondary bg-secondary-container bg-secondary-container/10 bg-secondary-fixed bg-secondary-fixed-dim/20 bg-secondary-fixed-dim/30 bg-secondary/10 bg-surface bg-surface-bright bg-surface-container bg-surface-container-high bg-surface-container-highest bg-surface-container-low bg-surface-container-lowest bg-surface-container-lowest/80 bg-surface-container-lowest/90 bg-surface/50 bg-surface/90 bg-teal-50 bg-tertiary-fixed/30 bg-transparent bg-white/20 bg-white/80 bg-white/90 block blur-2xl blur-3xl blur-[100px] blur-[120px] border border-2 border-4 border-b border-b-2 border-dashed border-l border-l-0 border-l-2 border-l-4 border-none border-outline-variant border-outline-variant/10 border-outline-variant/20 border-outline-variant/30 border-outline-variant/40 border-primary border-primary/30 border-r-0 border-r-4 border-secondary-container border-secondary/10 border-surface-container-high border-surface-container-high/50 border-surface-container-highest border-surface-container-lowest border-surface-variant/30 border-surface-variant/50");
+@source inline("border-t border-t-0 border-teal-100 border-teal-600 border-teal-700 border-tertiary-fixed-dim/30 border-transparent border-y bottom-0 bottom-6 cursor-pointer dark:bg-slate-800 dark:bg-slate-800/50 dark:bg-slate-900 dark:bg-slate-900/50 dark:bg-slate-900/80 dark:bg-slate-900/90 dark:bg-slate-950 dark:bg-slate-950/80 dark:bg-teal-800/30 dark:bg-teal-900 dark:bg-teal-900/30 dark:border-slate-800 dark:border-teal-400 dark:border-teal-900 dark:hover:bg-slate-700/40 dark:hover:bg-slate-800 dark:hover:bg-teal-800/30 dark:hover:bg-teal-900/20 dark:hover:text-teal-200 dark:hover:text-teal-300 dark:text-slate-400 dark:text-teal-100 dark:text-teal-200 dark:text-teal-300 dark:text-teal-400 dark:text-teal-50 dark:text-teal-500 dark:text-teal-500/70 dark:text-white decoration-2 delay-300 docked duration-1000 duration-150 duration-200 duration-300 duration-500 duration-700 ease-in-out ease-out editorial-gradient fill filled fixed flat flex flex-1 flex-col flex-grow");
+@source inline("flex-shrink-0 flex-wrap focus-within:ring-2 focus-within:ring-primary/20 focus:bg-surface-container-highest focus:border-b-2 focus:border-b-primary focus:border-primary focus:border-teal-700 focus:outline-none focus:ring-0 focus:ring-primary focus:rounded-b-none font-black font-body font-bold font-extrabold font-headline font-label font-medium font-mono font-normal font-sans font-semibold from from-black/40 from-primary from-primary/5 from-surface-container-low/50 from-surface-container-lowest full-width gap-1 gap-10 gap-12 gap-16 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gradient-primary gradient-text grid grid-cols-1 grid-cols-2 group group-focus-within:text-teal-600 group-hover:bg-primary-container/20 group-hover:bg-primary-container/5 group-hover:bg-secondary-container/20 group-hover:border-outline-variant/30 group-hover:border-primary group-hover:opacity-100 group-hover:scale-105 group-hover:scale-110 group-hover:text-on-surface group-hover:text-primary group-hover:translate-x-1 h-10");
+@source inline("h-12 h-16 h-2 h-24 h-3 h-4 h-48 h-5 h-6 h-64 h-8 h-[48px] h-[500px] h-[600px] h-[800px] h-[88px] h-auto h-full h-px h-screen hidden hide-scrollbar hover:-translate-y-1 hover:bg-emerald-100/30 hover:bg-emerald-50 hover:bg-opacity-100 hover:bg-primary-container hover:bg-primary/20 hover:bg-surface hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-low hover:bg-teal-50 hover:bg-teal-50/50 hover:bg-white/40 hover:border-primary/30 hover:border-surface-container-highest hover:opacity-90 hover:scale-110 hover:shadow-ambient hover:shadow-md hover:shadow-sm hover:text-on-surface hover:text-primary hover:text-primary-container hover:text-teal-600 hover:text-teal-700 hover:text-teal-800 hover:text-teal-900 inline-flex inset-0 italic items-baseline items-center items-end items-start justify-between justify-center justify-end leading-relaxed");
+@source inline("leading-snug leading-tight left-0 left-1/2 left-3 left-4 left-[27px] lg:block lg:flex-row lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 lg:p-10 lg:px-12 lg:px-24 lg:sticky lg:text-4xl lg:w-[380px] line-clamp-1 line-clamp-2 material-symbols-outlined max-h-32 max-w-2xl max-w-3xl max-w-7xl max-w-[1400px] max-w-[1600px] max-w-[440px] max-w-[720px] max-w-[800px] max-w-md max-w-xl max-w-xs mb mb-1 mb-10 mb-12 mb-16 mb-2 mb-3 mb-4 mb-5 mb-6 mb-8 md md:block md:col-span-2 md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:hidden md:inline md:items-end md:left-64 md:left-[260px] md:ml-64 md:ml-[260px] md:p-10");
+@source inline("md:pb-0 md:px-12 md:px-8 md:py-12 md:text-3xl md:text-5xl md:w-64 min-h-[240px] min-h-screen min-w-0 min-w-[280px] min-w-[320px] mix-blend-multiply ml-0 ml-1 ml-10 ml-3 ml-4 ml-[260px] ml-auto mr-4 mt-1 mt-10 mt-12 mt-16 mt-2 mt-20 mt-4 mt-6 mt-8 mt-auto mx-2 mx-4 mx-auto my-10 my-8 no no-border no-scrollbar object-cover opacity-0 opacity-10 opacity-20 opacity-30 opacity-50 opacity-70 opacity-75 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto overflow-x-hidden overflow-y-auto p-2 p-3 p-4 p-5 p-6 p-8");
+@source inline("pb-2 pb-20 pb-24 pb-3 pb-32 pb-4 pb-6 peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-secondary-container pl-10 pl-12 pl-4 pl-5 pl-6 placeholder-slate-500 placeholder:text-outline placeholder:text-outline/70 pointer-events-none pr-4 prose prose-lg pt-2 pt-24 pt-4 pt-6 pt-8 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-16 py-2 py-24 py-3 py-4 py-6 py-8 relative resize-none right-0 right-2 right-4 rotate-45 rounded rounded-2xl rounded-[20px] rounded-[24px] rounded-[2rem] rounded-[32px] rounded-full rounded-l-full rounded-lg");
+@source inline("rounded-md rounded-r-full rounded-r-lg rounded-r-xl rounded-t-3xl rounded-t-lg rounded-t-xl rounded-tl-sm rounded-tr-sm rounded-xl scale-90 scale-95 scroll-smooth scrollbar-hide selection:bg-primary selection:bg-primary-container selection:bg-primary/20 selection:text-on-primary selection:text-on-primary-container selection:text-primary serif-text shadow-ambient shadow-inner shadow-sm shadows shift shrink-0 sm sm:block sm:flex-row sm:p-10 sm:w-64 snap-start snap-x space-y-1 space-y-10 space-y-12 space-y-2 space-y-3 space-y-4 space-y-6 space-y-8 sr-only sticky surface surface-container-low tabular-nums text-2xl text-3xl text-4xl text-8xl text-[10px] text-[11px] text-[14px] text-[16px] text-[18px] text-[20px] text-[22px] text-base text-center");
+@source inline("text-emerald-600 text-glow-secondary text-left text-lg text-on-primary text-on-primary-container text-on-secondary-container text-on-surface text-on-surface-variant text-on-surface-variant/60 text-on-surface-variant/70 text-outline text-outline-variant text-primary text-primary-container text-secondary text-secondary-container text-slate-400 text-slate-500 text-slate-600 text-sm text-teal-500 text-teal-600 text-teal-600/70 text-teal-700 text-teal-800 text-teal-900 text-tertiary text-transparent text-white text-xl text-xs to to-inverse-primary to-primary-container to-surface to-surface-bright to-transparent tonal top-0 top-1 top-1/2 top-1/4 top-16 top-2 top-4 top-[120px] tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-shadow transition-transform translate-x-[18px] translate-y-[10px]");
+@source inline("underline underline-offset-4 uppercase via-transparent w-1/2 w-10 w-11 w-12 w-16 w-2 w-24 w-3 w-4 w-48 w-5 w-6 w-60 w-64 w-8 w-[260px] w-[500px] w-[600px] w-[800px] w-auto w-full w-px whitespace-nowrap xl:block xl:grid-cols-3 xs z-0 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.shadow-ambient {
+  box-shadow: 0 12px 40px rgba(0, 106, 97, 0.06);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #008378 0%, #00685f 100%);
+}
+
+.glass-streak {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.icon-fill {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.glass-streak {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.text-glow-secondary {
+  text-shadow: 0 0 10px rgba(144, 77, 0, 0.3);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #00685f 0%, #008378 100%);
+}
+
+.font-body {
+  font-family: 'Newsreader', serif;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.ghost-border {
+  border: 1px solid var(--color-outline-variant);
+  opacity: 0.2;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+}
+
+.serif-text {
+  font-family: 'Newsreader', serif;
+}
+
+/* Subtle shadow for floating elements */
+.ambient-shadow {
+  box-shadow: 0 12px 40px rgba(0, 106, 97, 0.06);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-shadow {
+  box-shadow: 0 12px 40px rgba(0, 106, 97, 0.06);
+}
+
+.bg-teal-gradient {
+  background: linear-gradient(135deg, #00685f 0%, #008378 100%);
+}
+
+.streak-glow {
+  text-shadow: 0 0 12px rgba(144, 77, 0, 0.3);
+}
+
+.fill-icon {
+  font-variation-settings: 'FILL' 1;
+}
+
+.font-serif {
+  font-family: 'Merriweather', serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Circular Progress Bar CSS */
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #e9f6f3;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00685f, #008378);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Editorial Gradient */
+.editorial-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--tw-colors-primary) 0%,
+    var(--tw-colors-primary-container) 100%
+  );
+}
+/* polish-v2:stitch-styles:end */

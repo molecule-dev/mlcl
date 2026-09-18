@@ -1,0 +1,129 @@
+{
+  "app": "flight-search",
+  "designProjectId": "7780582295674331981",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-flight-search-landing.html",
+      "designScreenId": "c0f862018fc34a858035d1f66dc96931"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-flight-search-login.html",
+      "designScreenId": "5e55c5315e5f429ca57e8414d2a8868e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flight-search-login.html",
+      "derivationNotes": "Same split layout as Login with gradient panel on left. Form card on right has First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flight-search-login.html",
+      "derivationNotes": "Same split layout as Login with gradient panel on left. Form card on right has only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flight-search-login.html",
+      "derivationNotes": "Same split layout as Login with gradient panel on left. Form card on right has New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Results",
+      "templateFile": "app/pages/Results.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-results.html",
+      "designScreenId": "f567cacba5ee46a4ba0288d71cbba576"
+    },
+    {
+      "name": "FlightDetail",
+      "templateFile": "app/pages/FlightDetail.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/flight/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-flight-detail.html",
+      "designScreenId": "92b816d06e7342b29884225c70e6b2d6"
+    },
+    {
+      "name": "Booking",
+      "templateFile": "app/pages/Booking.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/book/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-booking.html",
+      "designScreenId": "77eef9b1f339449f8be53901f96598f1"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/trips",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-trips.html",
+      "designScreenId": "887a8290169a435e89ea1ccea7ccd362"
+    },
+    {
+      "name": "PriceAlerts",
+      "templateFile": "app/pages/PriceAlerts.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-price-alerts.html",
+      "designScreenId": "738d4e38338c4cbdb99ca9f9ef0ec0b6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-settings.html",
+      "designScreenId": "47b1cf2b119e4f67815683e670de357e"
+    },
+    {
+      "name": "TripDetail",
+      "templateFile": "app/pages/TripDetail.tsx",
+      "components": ["app/components/FlightSearchLayout.tsx"],
+      "route": "/trips/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flight-search-trip-detail.html",
+      "designScreenId": "f8f3c813027b449f9cce51d577c91b0c"
+    }
+  ]
+}

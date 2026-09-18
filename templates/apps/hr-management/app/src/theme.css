@@ -1,0 +1,211 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #0d9488;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #0f766e;
+
+  /* Phase-2 contrast fix: white-on-#0d9488 = 3.74:1 (fail ≥4.5:1).
+     Override on-primary with deep teal-ink so the light-mode primary
+     CTA buttons pass. #001a18 on #0d9488 = 4.83:1 ✓ */
+  --color-on-primary: #001a18;
+  --mol-color-secondary: #7c3aed;
+
+  --mol-color-success: #166534; /* was #16a34a (2.95:1 as text on bg-success/10 chips, axe serious); green-800 = 6.1:1 */
+  --mol-color-warning: #92400e; /* was #d97706 (2.71:1 as text on bg-warning/15 chips, axe serious); amber-800 = 5.6:1 */
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+
+  --mol-color-background: #f8fafb;
+  --mol-color-background-secondary: #f0fdfa;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e2e8f0;
+
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #475569; /* was #64748b (4.3:1 on #f4f4f5); slate-600 = 6.9:1 */
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* App-specific tokens — employee status colors */
+  --color-status-active: #0d9488;
+  --color-status-active-bg: #ccfbf1;
+  --color-status-on-leave: #7c3aed;
+  --color-status-on-leave-bg: #ede9fe;
+  --color-status-probation: #ea580c;
+  --color-status-probation-bg: #fff7ed;
+  --color-status-terminated: #6b7280;
+  --color-status-terminated-bg: #f3f4f6;
+
+  /* PTO request status colors — strict per DESIGN.md */
+  --color-pto-approved: #16a34a;
+  --color-pto-approved-bg: #dcfce7;
+  --color-pto-pending: #d97706;
+  --color-pto-pending-bg: #fef3c7;
+  --color-pto-denied: #dc2626;
+  --color-pto-denied-bg: #fee2e2;
+
+  /* PTO type colors (calendar block fills) */
+  --color-pto-vacation: #0d9488;
+  --color-pto-sick: #ea580c;
+  --color-pto-personal: #7c3aed;
+  --color-pto-bereavement: #6b7280;
+  --color-pto-holiday: #2563eb;
+
+  /* Document type icon colors */
+  --color-doc-pdf: #dc2626;
+  --color-doc-word: #2563eb;
+  --color-doc-excel: #16a34a;
+  --color-doc-image: #7c3aed;
+
+  /* Org chart connector */
+  --color-orgchart-connector: #a5b4fc;
+
+  /* Headcount chart — 5 categorical series (Engineering, Customer Success, Sales, Marketing, Design) */
+  --color-chart-cat-1: #0d9488;
+  --color-chart-cat-2: #2563eb;
+  --color-chart-cat-3: #7c3aed;
+  --color-chart-cat-4: #d97706;
+  --color-chart-cat-5: #ea580c;
+
+  /* Department bar colors — emitted by the API's /dashboard-stats
+     headcount_by_dept payload (api/src/handlers/dashboard.ts DEPT_COLORS)
+     and rendered via inline backgroundColor by HeadcountHeroCard. */
+  --color-dept-engineering: #0d9488;
+  --color-dept-design: #7c3aed;
+  --color-dept-sales: #2563eb;
+  --color-dept-marketing: #d97706;
+  --color-dept-support: #ea580c;
+  --color-dept-people: #16a34a;
+  --color-dept-finance: #6b7280;
+  --color-dept-other: #94a3b8;
+  /* Light on-surface-variant — base @theme mix computed #909cad (2.7:1 on #f8fafb); slate-600 = 6.4:1 */
+  --color-on-surface-variant: #475569;
+}
+
+/* Dark mode — corporate/HR cool-slate professional.
+   Deep slate-blue surfaces (formal, finance-adjacent). Brand teal
+   preserved at brand stop; CTA buttons keep white text. All semantic
+   status colors preserved with brighter foreground + deep-tint bg. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #14b8a6;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0d9488;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #0c1322;
+  --mol-color-background-secondary: #131c30;
+  --mol-color-background-tertiary: #1c2740;
+  --mol-color-surface: #0c1322;
+  --mol-color-surface-secondary: #131c30;
+  --mol-color-input-background: #080d1a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #c4cdd9;
+  --mol-color-text-tertiary: #8a94a8;
+  --mol-color-text-inverse: #0c1322;
+  --mol-color-border: #2a3a52;
+  --mol-color-border-secondary: #3a4a68;
+  --mol-color-border-focus: #14b8a6;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* Employee status — preserve semantics, brighter fg + deep bg */
+  --color-status-active: #14b8a6;
+  --color-status-active-bg: #0f3a36;
+  --color-status-on-leave: #a78bfa;
+  --color-status-on-leave-bg: #2e1a52;
+  --color-status-probation: #fb923c;
+  --color-status-probation-bg: #3d1f0a;
+  --color-status-terminated: #94a3b8;
+  --color-status-terminated-bg: #1f2937;
+
+  /* PTO request status — preserve semantics */
+  --color-pto-approved: #4ade80;
+  --color-pto-approved-bg: #0f3a1f;
+  --color-pto-pending: #fbbf24;
+  --color-pto-pending-bg: #3a2a0a;
+  --color-pto-denied: #f87171;
+  --color-pto-denied-bg: #3a1414;
+
+  /* PTO type colors (calendar block fills) */
+  --color-pto-vacation: #14b8a6;
+  --color-pto-sick: #fb923c;
+  --color-pto-personal: #a78bfa;
+  --color-pto-bereavement: #94a3b8;
+  --color-pto-holiday: #60a5fa;
+
+  /* Document type icons */
+  --color-doc-pdf: #f87171;
+  --color-doc-word: #60a5fa;
+  --color-doc-excel: #4ade80;
+  --color-doc-image: #a78bfa;
+
+  /* Org chart connector */
+  --color-orgchart-connector: #6366f1;
+
+  /* Department bar colors (brighter dark variants) */
+  --color-dept-engineering: #14b8a6;
+  --color-dept-design: #a78bfa;
+  --color-dept-sales: #60a5fa;
+  --color-dept-marketing: #fbbf24;
+  --color-dept-support: #fb923c;
+  --color-dept-people: #4ade80;
+  --color-dept-finance: #94a3b8;
+  --color-dept-other: #64748b;
+
+  /* @theme token dark variants */
+  --color-background: #0c1322;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0c1322;
+  --color-surface-bright: #1c2740;
+  --color-surface-dim: #080d1a;
+  --color-surface-container-lowest: #050912;
+  --color-surface-container-low: #0f1828;
+  --color-surface-container: #131c30;
+  --color-surface-container-high: #1c2740;
+  --color-surface-container-highest: #2a3a52;
+  --color-surface-variant: #1c2740;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #c4cdd9;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1322;
+  --color-inverse-primary: #134e4a;
+  --color-primary: #14b8a6; /* teal at brand stop */
+  --color-primary-container: #134e4a;
+  --color-on-primary: #0c1322; /* dark ink on teal #14b8a6 = 7.45:1 ✓ (white was 2.49:1 — fail) */
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #7c3aed;
+  --color-secondary-container: #2a1052;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #ede0ff;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #5a3a08;
+  --color-on-tertiary: #1c0f00; /* dark on amber #f59e0b = 8.75:1 ✓ (white was 2.15:1 — fail) */
+  --color-on-tertiary-container: #fed7aa;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red #f25c5c = 5.48:1 ✓ (white was 3.25:1 — fail ≥4.5:1) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a6478;
+  --color-outline-variant: #2a3a52;
+  --color-surface-tint: #2dd4bf;
+
+  /* Headcount chart — brighter for dark teal hero surface */
+  --color-chart-cat-1: #2dd4bf;
+  --color-chart-cat-2: #60a5fa;
+  --color-chart-cat-3: #a78bfa;
+  --color-chart-cat-4: #fbbf24;
+  --color-chart-cat-5: #fb923c;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,9 @@
+[
+  { "id": "ch-001", "name": "general", "description": "Company-wide announcements and updates", "type": "public", "created_by": "u-001", "member_count": 42, "unread_count": 3, "last_message_at": "2026-04-09T14:30:00Z", "created_at": "2025-01-15T09:00:00Z" },
+  { "id": "ch-002", "name": "engineering", "description": "Engineering team discussions", "type": "public", "created_by": "u-002", "member_count": 18, "unread_count": 7, "last_message_at": "2026-04-09T14:25:00Z", "created_at": "2025-01-15T09:05:00Z" },
+  { "id": "ch-003", "name": "design", "description": "Design reviews and feedback", "type": "public", "created_by": "u-003", "member_count": 12, "unread_count": 0, "last_message_at": "2026-04-09T13:45:00Z", "created_at": "2025-02-01T10:00:00Z" },
+  { "id": "ch-004", "name": "product", "description": "Product roadmap and feature discussions", "type": "public", "created_by": "u-001", "member_count": 15, "unread_count": 1, "last_message_at": "2026-04-09T12:00:00Z", "created_at": "2025-01-20T11:00:00Z" },
+  { "id": "ch-005", "name": "random", "description": "Non-work banter and fun stuff", "type": "public", "created_by": "u-004", "member_count": 38, "unread_count": 12, "last_message_at": "2026-04-09T14:28:00Z", "created_at": "2025-01-15T09:10:00Z" },
+  { "id": "ch-006", "name": "hiring", "description": "Recruiting pipeline and candidate discussions", "type": "private", "created_by": "u-001", "member_count": 6, "unread_count": 0, "last_message_at": "2026-04-08T16:00:00Z", "created_at": "2025-03-10T14:00:00Z" },
+  { "id": "ch-007", "name": "incidents", "description": "Production incidents and postmortems", "type": "public", "created_by": "u-002", "member_count": 20, "unread_count": 0, "last_message_at": "2026-04-07T09:30:00Z", "created_at": "2025-04-01T08:00:00Z" }
+]

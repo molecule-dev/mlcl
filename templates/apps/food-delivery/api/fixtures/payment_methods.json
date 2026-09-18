@@ -1,0 +1,18 @@
+[
+  {
+    "id": "p1",
+    "brand": "visa",
+    "last4": "4242",
+    "exp_month": 11,
+    "exp_year": 2028,
+    "is_default": true
+  },
+  {
+    "id": "p2",
+    "brand": "mastercard",
+    "last4": "5555",
+    "exp_month": 4,
+    "exp_year": 2027,
+    "is_default": false
+  }
+]

@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Waypoint accent (sunset orange) — registering these as Tailwind theme keys
+ * is what makes the `bg-accent` / `text-accent` / `border-l-accent` /
+ * `hover:bg-accent-hover` utilities exist at all. The runtime values are
+ * overridden by theme.css (`:root` / `[data-mol-mode='dark']`), which wins
+ * over this @theme block's layered output.
+ */
+@theme {
+  --color-accent: #f97316;
+  --color-accent-hover: #ea580c;
+  /* Both of these must live HERE, not in theme.css: Tailwind generates
+     utilities from @theme, so a token declared only in :root overrides an
+     existing utility's value but never creates `text-on-accent`. Declaring
+     them there first looked like it worked — the unknown class simply dropped
+     the colour and the element inherited a passing one. */
+
+  /* Text ON the accent fill. The accent CTAs used --color-on-primary (white),
+     right against the teal primary but 2.80:1 on orange-500. orange-950 is
+     5.58:1 and keeps the CTA vivid instead of darkening the brand button. */
+  --color-on-accent: #431407;
+  /* The accent as TEXT on the dark primary band, where orange-500 measures
+     1.91:1 — the landing CTA eyebrow was effectively invisible. orange-100 is
+     4.68:1 and stays warm rather than going plain white. */
+  --color-accent-on-primary: #ffedd5;
+}

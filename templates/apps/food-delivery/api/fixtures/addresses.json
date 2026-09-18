@@ -1,0 +1,22 @@
+[
+  {
+    "id": "a1",
+    "label": "Home",
+    "line1": "742 Evergreen Terrace",
+    "line2": null,
+    "city": "Springfield",
+    "state": "IL",
+    "zip": "54321",
+    "is_default": true
+  },
+  {
+    "id": "a2",
+    "label": "Work",
+    "line1": "500 Market St",
+    "line2": "Suite 1200",
+    "city": "Springfield",
+    "state": "IL",
+    "zip": "54322",
+    "is_default": false
+  }
+]

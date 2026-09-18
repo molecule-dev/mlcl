@@ -1,0 +1,12 @@
+[
+  { "id": "att-2026-04-28", "date": "2026-04-28", "weekday": "Mon", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-25", "date": "2026-04-25", "weekday": "Fri", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-24", "date": "2026-04-24", "weekday": "Thu", "status": "tardy", "classes": 7, "note": "Period 1 — bus delay" },
+  { "id": "att-2026-04-23", "date": "2026-04-23", "weekday": "Wed", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-22", "date": "2026-04-22", "weekday": "Tue", "status": "absent", "classes": 0, "note": "Sick — note on file" },
+  { "id": "att-2026-04-21", "date": "2026-04-21", "weekday": "Mon", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-18", "date": "2026-04-18", "weekday": "Fri", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-17", "date": "2026-04-17", "weekday": "Thu", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-16", "date": "2026-04-16", "weekday": "Wed", "status": "present", "classes": 7, "note": null },
+  { "id": "att-2026-04-15", "date": "2026-04-15", "weekday": "Tue", "status": "present", "classes": 7, "note": null }
+]

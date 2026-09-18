@@ -1,0 +1,52 @@
+# ai-document-processor — polish-complete marker
+
+App: ai-document-processor (Parcela)
+Polished: 2026-04-28 (resumed)
+Pipeline: prompts/polish-app.md (subagent run, paused + resumed once)
+
+## Provenance
+
+- Sibling translations: 74 (en + 73 locale dirs under app/src/locales)
+- Bespoke branded components: 11 new (AuthBrandHeader, AuthShell,
+  ConfidencePill, DocumentCard, DocumentTypeBadge, DocumentTypeBreakdown,
+  ParcelaHeroCard, ParcelaLayout, ParcelaMetricTile, RootErrorBoundary,
+  UploadDropZone). 21 component files total in app/src/components/.
+- Sweep 1 chrome adopted: @molecule/app-shell-default (via
+  @molecule/app-sidebar-layout-react), @molecule/app-header-react,
+  @molecule/app-footer-react, @molecule/app-root-error-boundary-react,
+  @molecule/app-data-table-ui-react, @molecule/app-empty-state-react,
+  @molecule/app-kpi-card-react, @molecule/app-page-chrome-react.
+- Pages rewritten: 12 (Landing, Login, Signup, ForgotPassword,
+  ResetPassword, Dashboard, Documents, DocumentDetail, Upload, Rules,
+  Settings, NotFound).
+- Auth pages branded with shared AuthShell wrapper (gradient orbs +
+  AuthBrandHeader + rounded-3xl card + Footer).
+- 404 page added (NotFound.tsx) and wired as catch-all in App.tsx.
+- Brand fonts wired: Inter (primary), Source Serif 4 (display headings),
+  JetBrains Mono (code/numerics), Material Symbols Outlined (icons) —
+  loaded via index.html Google Fonts and surfaced through theme.css.
+- Material 3 token derivative-fill: inherited from
+  `chore(unpolished-apps): fill missing Material 3 derivative tokens`.
+
+## Verification
+
+- App-side typecheck: `npx tsc --noEmit` from app/ → 0 errors.
+- ClassMap coverage: 100.0% (well above 80% gate) — every native className
+  is routed through `cm.cn(...)` so the styling bond owns every class.
+- Compliance gate: `node scripts/check-rules-compliance.mjs
+  reference/flagship-apps/ai-document-processor` → clean (277 files).
+- Step 10 (screenshots) deliberately skipped per orchestrator instructions
+  (the parent agent batches screenshots after all parallel polish jobs).
+
+## Commits (in order, on `reference/` repo)
+
+1. `1c66ec1f` — wire Inter + Material Symbols + JetBrains Mono + Source Serif 4 fonts
+2. `1fe54ab3` — conform chrome to sweep 1 packages + brand identity
+3. `cea00b7a` — add bespoke branded components
+4. `2cc350f8` — rewrite landing + add branded 404
+5. `dc1ecf8f` — rewrite signed-in pages on bespoke components
+6. `fd90d5b4` — brand auth pages with AuthShell wrapper
+7. `8474a7e4` — wrap raw classNames in cm.cn for ClassMap coverage
+8. `ef1ab0ae` — earlier (premature) polish-complete marker, rolled back by `5e4e28ec`
+9. `5e4e28ec` — wip(ai-document-processor): paused mid-polish, resume later
+10. (this commit) — polish complete after resume verification

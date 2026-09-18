@@ -1,0 +1,189 @@
+{
+  "app": "fleet-management",
+  "designProjectId": "2317171612365858945",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-landing.html",
+      "designScreenId": "55cc5ad9beba480b9cfd0ea0542c7a75"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-login.html",
+      "designScreenId": "a4ec1450c3fc4d648bec8294ac902101"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-fleet-management-login.html",
+      "derivationNotes": "Same split layout as Login with First Name, Last Name, Work email, Company name, Fleet size select, Password, Confirm Password fields. Heading 'Request access'. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. Keep dark navy ops atmosphere panel on left. Remove Forgot password and Remember device."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-fleet-management-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field. Heading 'Reset your password', subtext 'We\u2019ll send you a reset link.' Button 'Send reset link'. Bottom link 'Back to sign in'. Remove Remember device and SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-fleet-management-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Remove Remember device, Forgot password, and SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-dashboard.html",
+      "designScreenId": "3f4b6da5017547f180632422691bfe89"
+    },
+    {
+      "name": "Vehicles",
+      "templateFile": "app/pages/Vehicles.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/vehicles",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-vehicles.html",
+      "designScreenId": "499ccf4fa1bd47f2b89cd41d3be19ee5"
+    },
+    {
+      "name": "VehicleDetail",
+      "templateFile": "app/pages/VehicleDetail.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/vehicles/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-vehicle-detail.html",
+      "designScreenId": "c48332618fb94afda584dc3444d9d0f5"
+    },
+    {
+      "name": "Drivers",
+      "templateFile": "app/pages/Drivers.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/drivers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-drivers.html",
+      "designScreenId": "9aa9b03b24084a13bd1ef2cb169be8a9"
+    },
+    {
+      "name": "Maintenance",
+      "templateFile": "app/pages/Maintenance.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/maintenance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-maintenance.html",
+      "designScreenId": "7ec0386d9c9f4d20a5cb4d1c131977f0"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-alerts.html",
+      "designScreenId": "75bbbe380bd14de69495ce384a402ea0"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-reports.html",
+      "designScreenId": "8c2f28f5006046269bcb01bf5894f011"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-settings.html",
+      "designScreenId": "e9ecf6da789241e8a7c251a957d3d99e"
+    },
+    {
+      "name": "DriverDetail",
+      "templateFile": "app/pages/DriverDetail.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/drivers/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-driver-detail.html",
+      "designScreenId": "5a54fd6e5e8f4b2a81e5367cd7cb6060"
+    },
+    {
+      "name": "Routes",
+      "templateFile": "app/pages/Routes.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/routes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-routes.html",
+      "designScreenId": "8b517773f8604c879e1b1e2e892768b1"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/trips",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-trips.html",
+      "designScreenId": "6e73714b8e094d0c9e4a821532d4bc4d"
+    },
+    {
+      "name": "Geofences",
+      "templateFile": "app/pages/Geofences.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/geofences",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-geofences.html",
+      "designScreenId": "662c5637d8a54907aa5a9b40c3f39f3d"
+    },
+    {
+      "name": "MaintenanceDetail",
+      "templateFile": "app/pages/MaintenanceDetail.tsx",
+      "components": ["app/components/FleetManagementLayout.tsx"],
+      "route": "/maintenance/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-fleet-management-maintenance-detail.html",
+      "designScreenId": "07d8409e286b43df846625fdef5133da"
+    }
+  ]
+}

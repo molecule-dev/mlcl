@@ -1,0 +1,9 @@
+[
+  { "id": "trc_b8d4f1a3c1", "root_service": "api-gateway", "operation": "POST /v1/checkout",        "duration_ms": 3122, "status": "error",   "started_at": "2026-04-30T13:41:55.001Z", "span_count": 14, "error_count": 3 },
+  { "id": "trc_19e2c7da8b", "root_service": "auth-service","operation": "POST /oauth/callback",     "duration_ms": 412,  "status": "ok",      "started_at": "2026-04-30T13:41:52.301Z", "span_count": 6,  "error_count": 0 },
+  { "id": "trc_77a02bd9e3", "root_service": "edge-cdn",   "operation": "GET /api/v2/products/p_392","duration_ms": 18,   "status": "ok",      "started_at": "2026-04-30T13:41:54.992Z", "span_count": 2,  "error_count": 0 },
+  { "id": "trc_661ab09cf2", "root_service": "api-gateway", "operation": "GET /api/v2/orders",        "duration_ms": 142,  "status": "ok",      "started_at": "2026-04-30T13:41:50.124Z", "span_count": 9,  "error_count": 0 },
+  { "id": "trc_8a112d0ef9", "root_service": "billing",    "operation": "subscription.renew",        "duration_ms": 891,  "status": "ok",      "started_at": "2026-04-30T13:41:47.700Z", "span_count": 11, "error_count": 0 },
+  { "id": "trc_aa120d4cf3", "root_service": "search-index","operation": "POST /index/products",      "duration_ms": 1812, "status": "warning", "started_at": "2026-04-30T13:41:30.220Z", "span_count": 7,  "error_count": 1 },
+  { "id": "trc_d44e218a91", "root_service": "checkout",   "operation": "stripe.charges.create",     "duration_ms": 3001, "status": "error",   "started_at": "2026-04-30T13:41:18.444Z", "span_count": 4,  "error_count": 1 }
+]

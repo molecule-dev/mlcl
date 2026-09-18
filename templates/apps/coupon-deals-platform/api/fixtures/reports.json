@@ -1,0 +1,20 @@
+{
+  "dashboard_stats": {
+    "total_savings_cents": 18420,
+    "saved_count": 5,
+    "redeemed_count": 12,
+    "expiring_count": 2,
+    "top_merchants": [
+      { "name": "Vertical Edge",      "savings_cents": 4000 },
+      { "name": "Tranquil Touch Spa", "savings_cents": 4500 },
+      { "name": "Sunny Side Cafe",    "savings_cents": 3000 },
+      { "name": "Slice Time",         "savings_cents": 1500 },
+      { "name": "Studio 18 Salon",    "savings_cents": 3000 }
+    ],
+    "recent_activity": [
+      { "id": "act_1", "text": "Redeemed VERT20 at Vertical Edge", "ts": "2026-04-15T18:42:00Z" },
+      { "id": "act_2", "text": "Saved THREAD20 from Threadly",      "ts": "2026-04-20T11:18:00Z" },
+      { "id": "act_3", "text": "Saved SUNNY60 from Sunny Side",      "ts": "2026-04-22T08:42:00Z" }
+    ]
+  }
+}

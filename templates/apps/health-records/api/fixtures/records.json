@@ -1,0 +1,6 @@
+[
+  { "id": "c1", "type": "condition", "title": "Type 2 Diabetes Mellitus", "date": "2024-08-12", "status": "active", "detail": "Diet-managed · A1C 6.8% on most recent draw · Metformin 500 mg" },
+  { "id": "c2", "type": "condition", "title": "Hypertension", "date": "2022-05-04", "status": "active", "detail": "Controlled on Lisinopril 20 mg" },
+  { "id": "a1", "type": "allergy", "title": "Penicillin", "date": "2014-06-22", "status": "severe", "detail": "Anaphylaxis — epinephrine prescribed for emergency use" },
+  { "id": "p1", "type": "procedure", "title": "Colonoscopy — screening", "date": "2025-08-18", "status": "completed", "detail": "Three benign polyps removed · 10-year follow-up" }
+]

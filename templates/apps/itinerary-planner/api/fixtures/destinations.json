@@ -1,0 +1,29 @@
+[
+  {
+    "id": "dest-iceland-ring",
+    "name": "Reykjavík & the Ring Road",
+    "region": "Iceland · North Atlantic",
+    "blurb": "Black-sand beaches, geothermal lagoons, and the open road around an entire country in eight unhurried days.",
+    "thumbnail": "https://picsum.photos/seed/waypoint-iceland-orb/1200/900",
+    "pill": "Editor pick",
+    "trip_count": 2
+  },
+  {
+    "id": "dest-faroe",
+    "name": "Faroe Islands",
+    "region": "North Atlantic",
+    "blurb": "Turf-roofed villages on basalt cliffs, sea-bird colonies, and remote hikes between fjord-bound hamlets.",
+    "thumbnail": "https://picsum.photos/seed/waypoint-faroe-orb/1200/900",
+    "pill": "Rare find",
+    "trip_count": 1
+  },
+  {
+    "id": "dest-japan",
+    "name": "Kyoto & Naoshima",
+    "region": "Japan · Kansai",
+    "blurb": "Temple gardens, kaiseki dinners, and an art-island side-quest reached by a slow ferry.",
+    "thumbnail": "https://picsum.photos/seed/waypoint-japan-orb/1200/900",
+    "pill": "Slow travel",
+    "trip_count": 1
+  }
+]

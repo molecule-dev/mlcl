@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Ver artigos de ajuda',
+  'about.cta.signup': 'Experimente o Courier grátis',
+  'about.eyebrow': 'Sobre o Courier',
+  'about.principle.calm': 'Calmo por padrão.',
+  'about.principle.calm.desc':
+    'Sem selos que gritam, sem notificações que você não pediu, sem animações que exigem sua atenção.',
+  'about.principle.fast.desc':
+    'Cada ação está a uma tecla de distância. A caixa de entrada carrega em menos de 200 ms logo após o login.',
+  'about.principle.honest.desc':
+    'Criptografia em trânsito e em repouso, retenção transparente e exportação de dados com um clique.',
+  'about.story': 'Por que criamos o Courier',
+  'about.story.p1':
+    'A maioria dos clientes de e-mail otimiza pelo engajamento — puxa você de volta, fragmenta sua atenção, sugere mais um toque. O Courier faz o oposto. Medimos o sucesso pelo tempo que você passa FORA da sua caixa: triagem rápida, adiamento confiante e foco no trabalho que importa.',
+  'about.subtitle':
+    'O Courier é uma caixa de entrada calma de três painéis, criada por uma equipe pequena que queria processar informação em vez de reagir a ela.',
+  'about.team.body':
+    'Somos uma equipe distribuída de designers e engenheiros que já passou horas demais por dia numa caixa de entrada barulhenta. O Courier é a caixa que queríamos usar nós mesmos.',
+  'about.title': 'E-mail para o trabalho concentrado',
+  'help.cta.about': 'Sobre o Courier',
+  'help.cta.pricing': 'Ver preços',
+  'help.eyebrow': 'Central de ajuda',
+  'help.faq.compose.a':
+    'Clique em “Escrever” na barra lateral (ou pressione “c” em qualquer visualização da caixa de entrada), insira pelo menos um destinatário, um assunto e o corpo da mensagem e clique em “Enviar”. A nova mensagem aparecerá imediatamente na sua pasta Itens Enviados.',
+  'help.faq.compose.q': 'Como envio minha primeira mensagem?',
+  'help.faq.export.a':
+    'Sim. Em Ajustes → Conta → Exportar dados, geramos um arquivo para download (mbox + JSON) com todas as mensagens, marcadores e contatos. Não é necessário plano premium.',
+  'help.faq.labels.a':
+    'As pastas são exclusivas (uma mensagem fica em exatamente uma): Caixa de entrada, Enviados, Rascunhos, Spam, Lixeira, Arquivo. Os marcadores são aditivos — você pode aplicar vários a um mesmo e-mail e filtrar por combinações na barra de busca.',
+  'help.faq.password.a':
+    'Use o link «Esqueceu a senha?» na página de login. Enviaremos um link de redefinição válido por uma hora para o e-mail da conta.',
+  'help.faq.shortcuts.a':
+    'Sim. «j» / «k» navegam entre conversas, «s» alterna a estrela, «e» arquiva, «#» envia para a lixeira e «/» foca a barra de busca. A documentação dos atalhos aparece em qualquer visualização da caixa pressionando «?».',
+  'help.faq.support.a':
+    'Escreva para support@courier.example. Respondemos cada mensagem em até um dia útil, de segunda a sexta, das 9 às 17 (UTC).',
+  'help.subtitle':
+    'Respostas rápidas para as dúvidas que mais recebemos. Faltou algo? Abra Ajustes e use o formulário de feedback no app, ou escreva para support@courier.example.',
+  'help.title': 'Como podemos ajudar?',
+  'landing.brand.scrollTop': 'Voltar ao topo',
+  'landing.ctaBody':
+    'Junte-se a milhares de profissionais que terminaram a caixa de entrada antes do almoço.',
+  'landing.ctaTitle': 'Processe mais, reaja menos.',
+  'landing.eyebrow': 'E-mail para o trabalho concentrado',
+  'landing.featuresBody': 'Pare de gerenciar sua caixa de entrada e comece a entregar trabalho.',
+  'landing.featuresTitle': 'Projetado para trabalho profundo',
+  'landing.help': 'Ajuda',
+  'landing.heroDemo': 'Ver demonstração',
+  'landing.heroSubtitle':
+    'O Courier é uma caixa de entrada calma de três painéis, feita para profissionais do conhecimento que querem processar informação, não reagir a ela.',
+  'landing.proof': 'Com a confiança de equipes concentradas no mundo todo',
+  'landing.signIn': 'Entrar',
+  'meridian.archive.empty': 'O arquivo está vazio.',
+  'meridian.compose.addRecipient': 'Adicionar outro destinatário',
+  'meridian.compose.bodyPlaceholder': 'Escreva sua mensagem…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Descartar rascunho',
+  'meridian.compose.invalidEmail': '«{{value}}» não é um e-mail válido',
+  'meridian.compose.needRecipient': 'Adicione ao menos um destinatário primeiro.',
+  'meridian.compose.replyTo': 'Responder na conversa {{id}}',
+  'meridian.compose.savedAt': 'Rascunho salvo às {{time}}',
+  'meridian.compose.sentWithError': 'Salvo em Enviados, mas a entrega falhou: {{error}}',
+  'meridian.compose.subject': 'Ass.',
+  'meridian.compose.subjectPlaceholder': 'Assunto',
+  'meridian.compose.title': 'Nova mensagem',
+  'meridian.compose.to': 'Para',
+  'meridian.drafts.continue': 'Continuar editando',
+  'meridian.drafts.count': '{{count}} mensagens',
+  'meridian.drafts.delete': 'Excluir rascunho',
+  'meridian.drafts.empty': 'Nenhum rascunho ainda — comece a redigir.',
+  'meridian.drafts.lastSaved': 'Salvo {{at}}',
+  'meridian.drafts.noRecipients': '(sem destinatários ainda)',
+  'meridian.drafts.selectDraft': 'Selecione um rascunho para visualizar.',
+  'meridian.drafts.title': 'Rascunhos',
+  'meridian.drafts.to': 'Para',
+  'meridian.drafts.watermark': 'Rascunho',
+  'meridian.folder.count': '{{count}} mensagens',
+  'meridian.folder.deleteForever': 'Excluir permanentemente',
+  'meridian.folder.restore': 'Mover para a caixa de entrada',
+  'meridian.forgot.subtitle':
+    'Informe o e-mail vinculado à sua caixa de entrada e enviaremos um link de redefinição.',
+  'meridian.forgot.success':
+    'Se existir uma conta com esse e-mail, o link de redefinição está a caminho.',
+  'meridian.inbox.empty': 'Ainda não há mensagens aqui.',
+  'meridian.inbox.loading': 'Carregando…',
+  'meridian.inbox.next': 'Próxima',
+  'meridian.inbox.noSubject': '(sem assunto)',
+  'meridian.inbox.openCompose': 'Abrir composição',
+  'meridian.inbox.previous': 'Anterior',
+  'meridian.inbox.replyFailed': 'Resposta salva, mas a entrega falhou: {{error}}',
+  'meridian.inbox.replySent': 'Resposta enviada.',
+  'meridian.inbox.replyTo': 'Responder a {{name}}',
+  'meridian.inbox.selectMessage': 'Selecione uma mensagem para ler',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Ver o tópico',
+  'meridian.login.hidePassword': 'Ocultar senha',
+  'meridian.login.noAccount': 'Não tem uma conta?',
+  'meridian.login.showPassword': 'Mostrar senha',
+  'meridian.message.toLine': 'para {{recipients}}',
+  'meridian.notFound.eyebrow': 'Erro 404',
+  'meridian.notFound.title': 'Esta conversa foi arquivada.',
+  'meridian.notFound.toInbox': 'Abrir minha caixa de entrada',
+  'meridian.reset.newLabel': 'Nova senha',
+  'meridian.reset.showPassword': 'Mostrar senha',
+  'meridian.reset.subtitle': 'Escolha uma senha forte — pelo menos 8 caracteres.',
+  'meridian.sent.empty': 'Você ainda não enviou nada.',
+  'meridian.sent.title': 'Enviados',
+  'meridian.settings.noName': '(sem nome definido)',
+  'meridian.settings.section.${section}': 'Personalize o seu {{appName}} experiência',
+  'meridian.settings.signature': 'Assinatura',
+  'meridian.settings.signatureSaved': 'Assinatura salva.',
+  'meridian.sidebar.compose': 'Compor',
+  'meridian.sidebar.labels': 'Marcadores',
+  'meridian.sidebar.noLabels': 'Sem marcadores ainda',
+  'meridian.sidebar.storage': 'Armazenamento',
+  'meridian.sidebar.storageLabel': '{{used}} de {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Crie sua caixa do Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Mostrar senha',
+  'meridian.signup.subtitle': 'Processe sua caixa de entrada antes do almoço.',
+  'meridian.spam.empty': 'Sem spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Sem mensagens com estrela.',
+  'meridian.starred.loading': 'Carregando…',
+  'meridian.starred.removeStar': 'Remover estrela',
+  'meridian.starred.total': '{{count}} no total',
+  'meridian.thread.back': 'Voltar para a caixa de entrada',
+  'meridian.thread.empty': 'Nenhuma mensagem nesta conversa.',
+  'meridian.thread.eyebrow': 'Conversa nº {{id}}',
+  'meridian.thread.notFound': 'Conversa não encontrada.',
+  'meridian.thread.star': 'Adicionar estrela',
+  'meridian.thread.unstar': 'Remover estrela',
+  'meridian.time.yesterday': 'Ontem',
+  'meridian.topBar.searchPlaceholder': 'Buscar e-mails',
+  'meridian.trash.empty': 'A lixeira está vazia.',
+  'meridian.trash.title': 'Lixeira',
+  'nav.legal': 'Jurídico',
+  'planUpdated.description':
+    'Sua assinatura está ativa e a cobrança foi atualizada. Bem-vindo à sua caixa Courier renovada.',
+  'pricing.heading': 'rascunhos',
+  'pricing.limit.emails': 'e-mails',
+  'pricing.limit.folders': 'pastas',
+  'pricing.limit.labels': 'marcadores',
+  'privacy.collect.account':
+    'Dados da conta: nome, endereço de e-mail, senha em hash e a data do seu cadastro.',
+  'privacy.intro':
+    'Esta política de privacidade explica quais dados o Courier coleta, por que coletamos, como os protegemos e quais escolhas você tem sobre eles. Buscamos ser específicos em vez de jurídicos; se algo não estiver claro, escreva para privacy@courier.example.',
+  'privacy.lastUpdated': 'Última atualização: 1º de abril de 2026',
+  'privacy.linkTerms': 'Leia nossos Termos de Serviço →',
+  'privacy.rights.body':
+    'Você pode exportar tudo o que mantemos sobre você em Ajustes → Conta → Exportar dados, e pode excluir sua conta em um clique — todas as linhas são apagadas em até 24 horas e os logs de auditoria são purgados após 30 dias.',
+  'privacy.security.body':
+    'O conteúdo do e-mail e os anexos são criptografados em repouso com AES-256. As conexões com nosso serviço usam TLS 1.3. As senhas são processadas com bcrypt; nunca registramos ou armazenamos senhas em texto puro. O acesso em produção é restrito a engenheiros de plantão e auditado mensalmente.',
+  'privacy.share.body':
+    'Compartilhamos dados apenas com os subprocessadores necessários para operar o Courier (envio de e-mails via Mailgun, cobrança via Stripe, hospedagem via AWS). Cada um é contratualmente obrigado a usar seus dados apenas para prestar o serviço a nós. Não vendemos, alugamos nem trocamos seus dados com ninguém.',
+  'terms.acceptable.spam':
+    'Sem envio em massa não solicitado. Encerraremos sem aviso contas que enviarem spam.',
+  'terms.account.body':
+    'Você é responsável por manter a confidencialidade da sua senha e por toda atividade que ocorrer através da sua conta. Avise em security@courier.example caso suspeite que sua conta foi comprometida.',
+  'terms.billing.body':
+    'Os planos pagos renovam no ciclo escolhido no cadastro. Você pode cancelar em Ajustes → Cobrança a qualquer momento e mantém o acesso até o fim do período cobrado. Reembolsos são emitidos para indisponibilidades que excedam o SLA.',
+  'terms.intro':
+    'Estes termos regem o uso do Courier. Ao criar uma conta ou enviar e-mail por meio do nosso serviço, você concorda com eles. Tentamos escrever regras que uma pessoa realmente consiga seguir.',
+  'terms.lastUpdated': 'Vigência: 1º de abril de 2026',
+  'terms.termination.body':
+    'Você pode excluir sua conta a qualquer momento. Podemos suspender uma conta que infrinja estes termos; se o fizermos, explicaremos o motivo e permitiremos que você exporte seus dados antes.',
+  'terms.warranty.body':
+    'O serviço é fornecido «como está». Trabalhamos para mantê-lo confiável e seguro, mas não podemos garantir acesso ininterrupto. Na extensão permitida por lei, nossa responsabilidade agregada é limitada ao valor pago por você nos 12 meses anteriores.',
+}

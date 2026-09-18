@@ -1,0 +1,69 @@
+# gitleaks configuration for mlcl.
+#
+# CI scans the working tree (`--no-git`) so a credential is caught before it is
+# even committed. It reported 33 findings, every one a false positive. Verified
+# 2026-08-03 — the three shapes, all from the flagship template fleet and mlcl's
+# own tests:
+#
+#   • PEM header text inside test ASSERTIONS about RUNTIME-generated keys — the
+#     assertion checks that a written .env starts with a JWT_PRIVATE_KEY line;
+#     no key material is present
+#   • deliberately bogus fixtures in e2e specs, e.g. `?token=knownbogus1234567`
+#   • locale data — high-entropy prose the generic-api-key rule cannot tell from
+#     a token. The French UI string 'Afficher/masquer le mot de passe'
+#     ("show/hide the password") was flagged as an API key.
+#
+# Why allowlist rather than leave the job red: a gate that fires on translated
+# UI copy is one people learn to click through, which is how a real key
+# eventually walks past it. That lesson is recorded twice in the workspace
+# AGENTS.md (the deleted command-string egress hook; the secret-scanner copies
+# that drifted into three versions). Scope is narrow — tests, e2e specs, locale
+# data, and generated scratch dirs. Template and CLI source is still fully
+# scanned, and every commit also passes `scripts/precommit-secret-scan.mjs`,
+# which checks staged lines regardless of path.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test assertions, e2e fixtures, locale prose, scratch dirs — verified non-secret"
+paths = [
+  '''(^|/)__tests__/''',
+  '''\.test\.(ts|tsx|js|jsx|mjs|cjs)$''',
+  '''\.spec\.(ts|tsx|js|jsx|mjs|cjs)$''',
+  '''(^|/)e2e/''',
+  # Locale bundles are translated PROSE, not configuration.
+  '''(^|/)locales/''',
+  # Mock API data served by the fixtures server — invented records, not config.
+  '''(^|/)fixtures/''',
+  # Generated scratch: scaffold output from tests/CLI runs. Gitignored, so CI
+  # never sees these; listed so a LOCAL run is clean too and nobody learns to
+  # ignore the output.
+  '''^\.tmp/''',
+  '''^\.smoke-apps/''',
+]
+
+# Specific literals in template SOURCE that the generic-api-key heuristic cannot
+# distinguish from a token. Listed individually rather than exempting template
+# source wholesale, so a real credential pasted into a flagship still fails.
+regexes = [
+  # i18n message keys and feature-flag names — identifiers, not secrets.
+  '''^browse\.price\.50to100$''',
+  '''^pricing-test-q4$''',
+  # i18n key on a landing-page chip. The rule captures the KEY, not the label.
+  '''^landing\.chips\.[a-z0-9]+$''',
+  # Invented demo identifiers in flagship sample data.
+  '''^DG-[A-Z0-9]{4}-LIC[0-9]-[A-Z]{4}$''',
+  '''^glnt-[a-z0-9-]+$''',
+]
+
+# Matched as a SUBSTRING of the detected secret. Used here for Stripe's own
+# published documentation sample, which the secrets-manager landing page displays
+# to illustrate what the product protects — it appears verbatim in Stripe's docs
+# and grants nothing. Only the distinctive tail is listed, deliberately: writing
+# the full literal (prefix included) would make this config itself trip both
+# gitleaks and the repo's own pre-commit secret scanner, which is exactly what
+# happened on the first attempt.
+stopwords = [
+  "4eC39HqLyjWDarjtT1zdp7dc",
+]

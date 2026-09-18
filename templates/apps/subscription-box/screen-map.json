@@ -1,0 +1,129 @@
+{
+  "app": "subscription-box",
+  "designProjectId": "14979204546409625252",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-landing.html",
+      "designScreenId": "e75a6d93967b4b8082505de6ed56d288"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-login.html",
+      "designScreenId": "b2997607381446f2bb1c76c864316524"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-subscription-box-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password. Button 'Start Your Box'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-subscription-box-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-subscription-box-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-dashboard.html",
+      "designScreenId": "e681d0c4d0b548aba3251973b41b1ac1"
+    },
+    {
+      "name": "Boxes",
+      "templateFile": "app/pages/Boxes.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/boxes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-boxes.html",
+      "designScreenId": "22cbda6dd4be4d838e0adf01dd0aeffd"
+    },
+    {
+      "name": "Customize",
+      "templateFile": "app/pages/Customize.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/customize",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-customize.html",
+      "designScreenId": "00874f809f854a1e81ebf8d69feb7732"
+    },
+    {
+      "name": "Shipments",
+      "templateFile": "app/pages/Shipments.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/shipments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-shipments.html",
+      "designScreenId": "f04780cfd94342b49d5574cdd7bc8c89"
+    },
+    {
+      "name": "BoxDetail",
+      "templateFile": "app/pages/BoxDetail.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/boxes/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-box-detail.html",
+      "designScreenId": "11b9731bae214b60be30f4bf2be5711c"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-billing.html",
+      "designScreenId": "a65dc80d1e1e4a5ea21dd058d79d2b7e"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SubscriptionBoxLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-subscription-box-settings.html",
+      "designScreenId": "a8eb0aabf9084647ba0a96e318d0e274"
+    }
+  ]
+}

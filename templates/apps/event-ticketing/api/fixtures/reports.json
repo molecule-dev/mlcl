@@ -1,0 +1,50 @@
+{
+  "dashboard/summary": {
+    "kpis": {
+      "tickets_sold": 412,
+      "tickets_total": 600,
+      "revenue_cents": 2018400,
+      "upcoming_events": 3,
+      "attendance_rate_pct": 92
+    },
+    "trend": {
+      "tickets_sold_7d": [38, 42, 51, 47, 60, 72, 102],
+      "revenue_cents_7d": [142000, 188000, 240000, 211000, 305000, 392000, 540400]
+    },
+    "featured_event_id": "evt-001"
+  },
+  "events/evt-001/tiers": [
+    {
+      "id": "tier-1",
+      "name": "General Admission",
+      "description": "Standing access to all stages and lounges.",
+      "price_cents": 4900,
+      "available": 188,
+      "total": 400
+    },
+    {
+      "id": "tier-2",
+      "name": "Front Row",
+      "description": "Reserved standing in the first 3 rows + drink ticket.",
+      "price_cents": 9900,
+      "available": 0,
+      "total": 80,
+      "sold_out": true
+    },
+    {
+      "id": "tier-3",
+      "name": "VIP Lounge",
+      "description": "Private balcony, complimentary bar, meet-and-greet.",
+      "price_cents": 18900,
+      "available": 12,
+      "total": 30
+    }
+  ],
+  "events/evt-001/attendees": [
+    { "id": "att-1", "name": "Mia Tanaka", "email": "mia.t@example.com", "tier": "VIP Lounge", "checked_in": true,  "purchased_at": "2026-03-04T19:00:00Z" },
+    { "id": "att-2", "name": "Owen Park",  "email": "owen.p@example.com", "tier": "Front Row",   "checked_in": false, "purchased_at": "2026-03-12T22:42:11Z" },
+    { "id": "att-3", "name": "Lina Costa", "email": "lina.c@example.com", "tier": "GA",          "checked_in": false, "purchased_at": "2026-04-02T10:15:33Z" },
+    { "id": "att-4", "name": "Sam Wright", "email": "sam.w@example.com",  "tier": "GA",          "checked_in": true,  "purchased_at": "2026-04-08T08:30:21Z" },
+    { "id": "att-5", "name": "Aria Patel", "email": "aria.p@example.com", "tier": "VIP Lounge",  "checked_in": false, "purchased_at": "2026-04-12T15:45:00Z" }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "bots/analytics": {
+    "total_conversations": 1247,
+    "total_messages": 8934,
+    "avg_response_time_ms": 1200,
+    "satisfaction_rate": 0.87,
+    "resolution_rate": 0.73,
+    "daily_conversations": [
+      { "date": "2026-04-05", "count": 156 },
+      { "date": "2026-04-06", "count": 189 },
+      { "date": "2026-04-07", "count": 142 },
+      { "date": "2026-04-08", "count": 201 },
+      { "date": "2026-04-09", "count": 178 },
+      { "date": "2026-04-10", "count": 195 },
+      { "date": "2026-04-11", "count": 186 }
+    ],
+    "top_intents": [
+      { "name": "order_status", "count": 312, "pct": 0.25 },
+      { "name": "return_policy", "count": 198, "pct": 0.16 },
+      { "name": "shipping_info", "count": 176, "pct": 0.14 },
+      { "name": "product_question", "count": 154, "pct": 0.12 },
+      { "name": "greeting", "count": 142, "pct": 0.11 }
+    ],
+    "channel_breakdown": [
+      { "channel": "website", "count": 623, "pct": 0.50 },
+      { "channel": "slack", "count": 312, "pct": 0.25 },
+      { "channel": "api", "count": 187, "pct": 0.15 },
+      { "channel": "discord", "count": 125, "pct": 0.10 }
+    ]
+  },
+  "bots/settings": {
+    "name": "Customer Support Bot",
+    "model": "claude-sonnet-4-6",
+    "temperature": 0.7,
+    "max_tokens": 2048,
+    "system_prompt": "You are a helpful customer support assistant for Botforge. Answer questions about orders, returns, shipping, and products. Be concise and friendly.",
+    "welcome_message": "Hi! I'm here to help. What can I assist you with today?",
+    "fallback_message": "I'm not sure I understand. Could you rephrase that, or would you like to speak with a human agent?",
+    "language": "en",
+    "timezone": "America/New_York",
+    "business_hours": { "start": "09:00", "end": "18:00", "days": ["mon", "tue", "wed", "thu", "fri"] },
+    "handoff_enabled": true,
+    "handoff_email": "support@botforge.ai"
+  },
+  "bots/deploy": {
+    "status": "deployed",
+    "channels": [
+      { "name": "Website Widget", "type": "website", "status": "active", "url": "https://botforge.ai", "installed_at": "2026-03-01T10:00:00Z" },
+      { "name": "Slack Workspace", "type": "slack", "status": "active", "workspace": "Botforge Team", "installed_at": "2026-03-05T14:00:00Z" },
+      { "name": "Discord Server", "type": "discord", "status": "active", "server": "Botforge Community", "installed_at": "2026-03-10T09:00:00Z" },
+      { "name": "REST API", "type": "api", "status": "active", "api_key": "sk-bf-••••••••", "installed_at": "2026-02-15T08:00:00Z" }
+    ],
+    "embed_code": "<script src=\"https://cdn.botforge.ai/widget.js\" data-bot-id=\"bot-001\"></script>",
+    "api_endpoint": "https://api.botforge.ai/v1/chat"
+  },
+  "bots/integrations": [
+    { "id": "int-001", "name": "Zendesk", "type": "ticketing", "status": "connected", "last_sync": "2026-04-11T12:00:00Z", "events_synced": 1456 },
+    { "id": "int-002", "name": "Shopify", "type": "ecommerce", "status": "connected", "last_sync": "2026-04-11T11:30:00Z", "events_synced": 892 },
+    { "id": "int-003", "name": "HubSpot", "type": "crm", "status": "disconnected", "last_sync": "2026-04-05T09:00:00Z", "events_synced": 234 },
+    { "id": "int-004", "name": "Google Analytics", "type": "analytics", "status": "connected", "last_sync": "2026-04-11T12:15:00Z", "events_synced": 3210 }
+  ],
+  "bots/test": {
+    "bot_id": "bot-001",
+    "name": "Customer Support Bot",
+    "status": "online",
+    "model": "claude-sonnet-4-6",
+    "sample_messages": [
+      { "role": "user", "content": "What's your return policy?" },
+      { "role": "assistant", "content": "We offer a 30-day return policy for all unused items in their original packaging. To start a return, go to your order history and click 'Return Item'. Would you like help with a specific order?" },
+      { "role": "user", "content": "Yes, order #12345" },
+      { "role": "assistant", "content": "I found order #12345 placed on March 15th. It contains 2 items: Wireless Headphones ($299) and Phone Case ($29). Which item would you like to return?" }
+    ]
+  },
+  "dashboard": {
+    "total_bots": 6,
+    "active_bots": 4,
+    "total_conversations_today": 186,
+    "total_messages_today": 1247,
+    "avg_satisfaction": 0.87,
+    "recent_conversations": [
+      { "id": "conv-001", "bot_name": "Customer Support Bot", "user": "John D.", "last_message": "Thanks for the help!", "timestamp": "2026-04-11T14:30:00Z", "status": "resolved" },
+      { "id": "conv-002", "bot_name": "Sales Assistant", "user": "Sarah M.", "last_message": "Can you tell me more about pricing?", "timestamp": "2026-04-11T14:25:00Z", "status": "active" },
+      { "id": "conv-003", "bot_name": "FAQ Bot", "user": "Mike R.", "last_message": "How do I reset my password?", "timestamp": "2026-04-11T14:20:00Z", "status": "resolved" }
+    ]
+  }
+}

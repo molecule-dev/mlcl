@@ -1,0 +1,60 @@
+{
+  "dashboard_stats": {
+    "total_contracts":   42,
+    "pending_signature":  5,
+    "active":            28,
+    "expiring_30d":       3,
+    "total_value_cents": 38400000,
+    "cycle_time_days":   12
+  },
+  "expiring_soon": [
+    { "id": "ct_004", "title": "Order — Stark widgets",   "counterparty": "Stark Industries", "expires_at": "2026-05-15", "amount_cents":  2400000 },
+    { "id": "ct_009", "title": "Order — Hooli SaaS",      "counterparty": "Hooli LLC",        "expires_at": "2026-05-22", "amount_cents":  1200000 },
+    { "id": "ct_012", "title": "MSA — Globex Corp",       "counterparty": "Globex Corp",      "expires_at": "2026-05-28", "amount_cents":  1240000 }
+  ],
+  "full": {
+    "throughput_history": [
+      { "month": "May", "sent":  4, "signed":  3 },
+      { "month": "Jun", "sent":  5, "signed":  4 },
+      { "month": "Jul", "sent":  3, "signed":  3 },
+      { "month": "Aug", "sent":  6, "signed":  5 },
+      { "month": "Sep", "sent":  4, "signed":  4 },
+      { "month": "Oct", "sent":  7, "signed":  6 },
+      { "month": "Nov", "sent":  5, "signed":  4 },
+      { "month": "Dec", "sent":  9, "signed":  8 },
+      { "month": "Jan", "sent":  6, "signed":  5 },
+      { "month": "Feb", "sent":  7, "signed":  6 },
+      { "month": "Mar", "sent":  8, "signed":  7 },
+      { "month": "Apr", "sent": 12, "signed":  9 }
+    ],
+    "cycle_time_days": [
+      { "quarter": "Q2 2025", "days": 18.4 },
+      { "quarter": "Q3 2025", "days": 16.2 },
+      { "quarter": "Q4 2025", "days": 14.1 },
+      { "quarter": "Q1 2026", "days": 12.8 },
+      { "quarter": "Q2 2026", "days": 11.4 }
+    ],
+    "value_by_type": [
+      { "type": "msa",        "total_cents": 14400000 },
+      { "type": "order",      "total_cents":  9600000 },
+      { "type": "sow",        "total_cents":  8400000 },
+      { "type": "employment", "total_cents":  4800000 },
+      { "type": "nda",        "total_cents":        0 },
+      { "type": "other",      "total_cents":  1200000 }
+    ],
+    "renewal_pipeline": [
+      { "counterparty": "Globex Corp",      "count": 2, "total_cents": 6240000 },
+      { "counterparty": "Stark Industries", "count": 1, "total_cents": 2400000 },
+      { "counterparty": "Acme Corp",        "count": 1, "total_cents": 1240000 },
+      { "counterparty": "Hooli LLC",        "count": 1, "total_cents": 1200000 }
+    ],
+    "status_mix": [
+      { "status": "draft",    "count":  4 },
+      { "status": "pending",  "count":  5 },
+      { "status": "active",   "count": 28 },
+      { "status": "expiring", "count":  3 },
+      { "status": "expired",  "count":  1 },
+      { "status": "voided",   "count":  1 }
+    ]
+  }
+}

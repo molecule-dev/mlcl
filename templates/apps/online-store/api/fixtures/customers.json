@@ -1,0 +1,38 @@
+[
+  {
+    "id": "a830c424-7d56-4187-9750-b2a91e283089",
+    "name": "Emma Smith",
+    "email": "emma@example.com",
+    "orders_count": 5,
+    "total_spent": 48900,
+    "status": "active",
+    "created_at": "2025-06-15T10:00:00Z"
+  },
+  {
+    "id": "fcddfc6c-777c-483a-9cea-1d8a46255d1b",
+    "name": "Liam Johnson",
+    "email": "liam@example.com",
+    "orders_count": 3,
+    "total_spent": 27200,
+    "status": "active",
+    "created_at": "2025-08-20T14:00:00Z"
+  },
+  {
+    "id": "b3a4d23b-6b07-46a7-5db8-4675d0dbefa5",
+    "name": "Olivia Williams",
+    "email": "olivia@example.com",
+    "orders_count": 8,
+    "total_spent": 92300,
+    "status": "active",
+    "created_at": "2025-04-10T09:00:00Z"
+  },
+  {
+    "id": "9289e7ce-9575-493c-a49f-5df45456e67c",
+    "name": "Noah Brown",
+    "email": "noah@example.com",
+    "orders_count": 2,
+    "total_spent": 15600,
+    "status": "active",
+    "created_at": "2025-11-01T16:00:00Z"
+  }
+]

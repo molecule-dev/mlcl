@@ -1,0 +1,99 @@
+{
+  "label": "AI Image Generator",
+  "description": "Text-to-image generation with gallery, variations, and style control — with built-in Stripe-backed subscription tiers",
+  "cluster": "ai-first",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-middleware-validation",
+    "@molecule/api-resource-user",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-openai",
+    "@molecule/api-ai-image-generation-openai",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-image-sharp",
+    "@molecule/app-ai-copilot",
+    "@molecule/app-ai-image-generator",
+    "@molecule/app-gallery",
+    "@molecule/app-image-crop",
+    "@molecule/app-virtual-scroll",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react",
+    "@molecule/app-empty-state-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "AI Image Generator"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for DALL-E",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for prompt enhancement",
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key for S3 uploads",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key for S3 uploads",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket name for image storage",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_AI_IMAGE_GENERATOR_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_IMAGE_GENERATOR_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_AI_IMAGE_GENERATOR_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_IMAGE_GENERATOR_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "image-generation",
+    "gallery",
+    "image-editing",
+    "subscriptions"
+  ]
+}

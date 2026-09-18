@@ -1,0 +1,7 @@
+# Handler files in api/src/handlers/ that are NOT mounted as HTTP routes
+# and therefore can't be exercised by a network assertion. One per line.
+
+# Internal helpers — not a router. Provides shared auth/access guards
+# (assertCourseStaff, assertEnrolled, requireUserId) consumed by the
+# real handlers (courses, modules, assignments, ...).
+_lmsAccess

@@ -1,0 +1,6 @@
+# Handlers that are not directly exercised by spec files because they're
+# utility modules / private helpers, not Express routers exposed at /api/<base>.
+# One handler basename per line. Comments after `#` are ignored.
+
+_decorate    # internal API projection helpers — not mounted as routes
+_seed        # internal demo-data seeding helpers — not mounted as routes

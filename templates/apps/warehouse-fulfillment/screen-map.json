@@ -1,0 +1,219 @@
+{
+  "app": "warehouse-fulfillment",
+  "designProjectId": "16674738570048306384",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-landing.html",
+      "designScreenId": "0556d253cc0144ecbafcad69b71a22b3"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-login.html",
+      "designScreenId": "2c57d5e5d3374125abe497f0e56ad34f"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-warehouse-fulfillment-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Forgot password' row, no SSO/Google buttons (or keep if preferred)."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-warehouse-fulfillment-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. No password field, no Remember me, no social buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-warehouse-fulfillment-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. No email field, no social buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-dashboard.html",
+      "designScreenId": "617b2e8cc32a4c3c957947b35fdd54fa"
+    },
+    {
+      "name": "Orders",
+      "templateFile": "app/pages/Orders.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-orders.html",
+      "designScreenId": "a4d267cc865142038dc1045e00665428"
+    },
+    {
+      "name": "OrderDetail",
+      "templateFile": "app/pages/OrderDetail.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/orders/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-order-detail.html",
+      "designScreenId": "fd12d94dedef4bdc8929bc818a3a1b20"
+    },
+    {
+      "name": "PickList",
+      "templateFile": "app/pages/PickList.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/pick/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-pick-list.html",
+      "designScreenId": "62efdde3f7a44a5dae817431b39f1a51"
+    },
+    {
+      "name": "Inventory",
+      "templateFile": "app/pages/Inventory.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/inventory",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-inventory.html",
+      "designScreenId": "e98df898442e4b8dbc0c01d647701817"
+    },
+    {
+      "name": "Shipments",
+      "templateFile": "app/pages/Shipments.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/shipments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-shipments.html",
+      "designScreenId": "7876a75e33a24539b09e18e6cd530689"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-settings.html",
+      "designScreenId": "c90664b994d14abab949789b8fcc76a2"
+    },
+    {
+      "name": "InventoryDetail",
+      "templateFile": "app/pages/InventoryDetail.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/inventory/:sku",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-inventory-detail.html",
+      "designScreenId": "15dca5def4e1472e926f5afe4173b091"
+    },
+    {
+      "name": "ShipmentDetail",
+      "templateFile": "app/pages/ShipmentDetail.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/shipments/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-shipment-detail.html",
+      "designScreenId": "de786a1cde5447db8407b3c96c867d7f"
+    },
+    {
+      "name": "Receiving",
+      "templateFile": "app/pages/Receiving.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/receiving",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-receiving.html",
+      "designScreenId": "dd53ef9ed88a4c05ba5b76ab63770978"
+    },
+    {
+      "name": "Returns",
+      "templateFile": "app/pages/Returns.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/returns",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-returns.html",
+      "designScreenId": "6856bdda196c4c45bea0243b53f463ae"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-reports.html",
+      "designScreenId": "77b4e320a4644e6280c3894524de3bc4"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-notifications.html",
+      "designScreenId": "92262f5cb26d40e78e6f5a0080a9384d"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-profile.html",
+      "designScreenId": "d179ac72c05c4bd98c218216dd01b31c"
+    },
+    {
+      "name": "Scanner",
+      "templateFile": "app/pages/Scanner.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/scan",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-scanner.html",
+      "designScreenId": "7cf0650860d84f349a691c63c528f5b2"
+    },
+    {
+      "name": "Locations",
+      "templateFile": "app/pages/Locations.tsx",
+      "components": ["app/components/WarehouseFulfillmentLayout.tsx"],
+      "route": "/locations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-warehouse-fulfillment-locations.html",
+      "designScreenId": "7fe18bb58c5546d9be0c6ba7156900b8"
+    }
+  ]
+}

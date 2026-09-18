@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ord_3221",
+    "number": "T-3221",
+    "placed_at": "2026-04-22T19:31:00Z",
+    "status": "completed",
+    "total_cents": 8800,
+    "items": [
+      { "product_slug": "aurora-ui-kit", "name": "Aurora UI Kit — Figma + Code", "price_cents": 6900, "license_key": "DG-AUR0-PUR1-DEMO", "file_type": "FIGMA + ZIP" },
+      { "product_slug": "focus-handbook", "name": "The Focus Handbook (eBook)", "price_cents": 1900, "license_key": "DG-FOCS-PUR1-DEMO", "file_type": "PDF + EPUB" }
+    ]
+  },
+  {
+    "id": "ord_3187",
+    "number": "T-3187",
+    "placed_at": "2026-03-30T10:14:00Z",
+    "status": "completed",
+    "total_cents": 4900,
+    "items": [
+      { "product_slug": "signal-typeface", "name": "Signal — Variable Display Typeface", "price_cents": 4900, "license_key": "DG-SGNL-PUR2-DEMO", "file_type": "OTF + WOFF2" }
+    ]
+  },
+  {
+    "id": "ord_3104",
+    "number": "T-3104",
+    "placed_at": "2026-02-12T17:00:00Z",
+    "status": "completed",
+    "total_cents": 0,
+    "items": [
+      { "product_slug": "indie-pricing-calculator", "name": "Indie Pricing Calculator (Notion)", "price_cents": 0, "license_key": null, "file_type": "NOTION" }
+    ]
+  }
+]

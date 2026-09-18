@@ -1,0 +1,17 @@
+Polish complete: 2026-04-30T01:50:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: business-saas / hr → siblings: applicant-tracking, crm
+Brand: Arbor — "Where talent takes root" (teal #0d9488 primary, violet accent)
+Components: 6 bespoke (ArborLayout, KpiCard, HeadcountHeroCard, EmployeeStatusPill, PtoStatusPill, LoginBrandPanel)
+Pages rewritten: Landing, Dashboard, Employees, OrgChart, PTO (signature)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (LoginBrandPanel split-layout)
+Pages added: EmployeeProfile, AddEmployee, Onboarding, Performance, Documents, Reports, Notifications, Settings (close screen-map.json gaps)
+Screen-map coverage: 16/16 routes wired in App.tsx
+Material 3 tokens: filled via fill-material3-tokens.mjs (50 lines added to index.css); HR-specific status/PTO/document tokens added to theme.css
+Fonts: Inter + Material Symbols injected by inject-default-design-resources.mjs
+Sweep 1 chrome conformance: yes (Header/Footer delegate, RootErrorBoundary re-export, ArborLayout via app-sidebar-layout-react)
+Fixtures: 9 mock-server fixtures (employees, pto, documents, notifications, onboarding, performance, dashboard-stats, audit, org-tree)
+Typecheck: tsc --noEmit clean
+Compliance: clean (check-rules-compliance.mjs); ClassMap coverage 100%
+Bonds tidied: removed dead app-bonds.ts (broken imports), unused Theme import in app-theme-css-variables.ts
+Note: page-per-commit was attempted but mlcl/ saw concurrent activity from a parallel agent during commits, leading to several misleading commit messages even though all hr-management content reached HEAD intact.

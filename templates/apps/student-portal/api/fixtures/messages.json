@@ -1,0 +1,67 @@
+[
+  {
+    "id": "msg-t1",
+    "thread_id": "t-1",
+    "sender": "Ms. Tran",
+    "sender_role": "teacher",
+    "channel": "teacher",
+    "initials": "JT",
+    "preview":
+      "Quick check-in: I noticed you crushed problem 6 — would you walk me through your approach next class?",
+    "time_label": "12 min",
+    "unread": true,
+    "created_at": "2026-04-30T08:42:00Z"
+  },
+  {
+    "id": "msg-t2",
+    "thread_id": "t-2",
+    "sender": "Mr. Okafor",
+    "sender_role": "teacher",
+    "channel": "teacher",
+    "initials": "AO",
+    "preview":
+      "Lab partners for Friday are posted on the board. Bring your notebook — we’re building the Krebs cycle poster.",
+    "time_label": "1 hr",
+    "unread": true,
+    "created_at": "2026-04-30T08:00:00Z"
+  },
+  {
+    "id": "msg-t3",
+    "thread_id": "t-3",
+    "sender": "Maya Carter",
+    "sender_role": "parent",
+    "channel": "parent",
+    "initials": "MC",
+    "preview":
+      "Pickup will be 4:15 today — your dad is taking you to the eye doctor before practice.",
+    "time_label": "2 hr",
+    "unread": false,
+    "created_at": "2026-04-30T07:00:00Z"
+  },
+  {
+    "id": "msg-t4",
+    "thread_id": "t-4",
+    "sender": "Office of the Principal",
+    "sender_role": "school",
+    "channel": "school",
+    "initials": "OE",
+    "preview":
+      "Spring assembly moves to Friday at 1:30 PM. Period 7 will be shortened to 25 minutes.",
+    "time_label": "Yesterday",
+    "unread": false,
+    "created_at": "2026-04-29T13:00:00Z"
+  },
+  {
+    "id": "msg-t5",
+    "thread_id": "t-5",
+    "sender": "Dr. Park",
+    "sender_role": "teacher",
+    "channel": "teacher",
+    "initials": "DP",
+    "preview":
+      "Great work on the outline. I left rubric notes — strengthen your topic sentences and you’re at an A.",
+    "time_label": "2d",
+    "unread": false,
+    "created_at": "2026-04-28T15:30:00Z"
+  }
+]

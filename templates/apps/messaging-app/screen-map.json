@@ -1,0 +1,190 @@
+{
+  "app": "messaging-app",
+  "designProjectId": "10879883575023599225",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-landing.html",
+      "designScreenId": "231de998311242229cbcfc0630f3be71"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-login.html",
+      "designScreenId": "f88c874c1179452985d93d805a38d5a8"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-messaging-app-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace phone/username toggle with fields: First Name, Last Name, Phone number (with country code), Password, Confirm Password. Heading 'Create your Hush account'. Button 'Create account'. Bottom link 'Already have an account? Sign in'. Keep encryption footer badge."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-messaging-app-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Phone number input (with country code). Heading 'Reset access', subtext 'We'll send a secure verification code to your phone'. Button 'Send code'. Bottom link 'Back to sign in'. Keep encryption footer badge."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-messaging-app-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Keep encryption footer badge."
+    },
+    {
+      "name": "Inbox",
+      "templateFile": "app/pages/Inbox.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/inbox",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-inbox.html",
+      "designScreenId": "07b12e7796694c338f715e215fa0aa46"
+    },
+    {
+      "name": "Conversation",
+      "templateFile": "app/pages/Conversation.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/conversations/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-conversation.html",
+      "designScreenId": "3fb3546328924de2935ad7e2bdba7a4e"
+    },
+    {
+      "name": "NewConversation",
+      "templateFile": "app/pages/NewConversation.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/conversations/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-new-conversation.html",
+      "designScreenId": "6686e12c02c0409e9bea79e123602030"
+    },
+    {
+      "name": "Contacts",
+      "templateFile": "app/pages/Contacts.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/contacts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-contacts.html",
+      "designScreenId": "a4d60606b4644e26ad6323809ac4c8a2"
+    },
+    {
+      "name": "Groups",
+      "templateFile": "app/pages/Groups.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/groups",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-groups.html",
+      "designScreenId": "a7d807e8b2a749f49fff6e555e17276f"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-settings.html",
+      "designScreenId": "b0e8780555af412fb529f77f9e942895"
+    },
+    {
+      "name": "ContactDetail",
+      "templateFile": "app/pages/ContactDetail.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/contacts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-contact-detail.html",
+      "designScreenId": "7d095bf1a80d4a679a6b883fc01512ec"
+    },
+    {
+      "name": "GroupDetail",
+      "templateFile": "app/pages/GroupDetail.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/groups/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-group-detail.html",
+      "designScreenId": "48730f550ce449f18c662f4e823368d2"
+    },
+    {
+      "name": "NewGroup",
+      "templateFile": "app/pages/NewGroup.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/groups/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-messaging-app-new-conversation.html",
+      "derivationNotes": "Same three-pane layout as NewConversation. Replace the 'Start a new conversation' header with 'Create a new group'. Above the contact picker add two stacked fields: Group name (text input, required) and Description (one-line input, optional). Keep the contact picker pattern but allow multi-select with checkbox circles on each row; show selected member chips above the picker (avatar + name + x). Bottom action bar: 'Create group' (primary, disabled until name + 1 member) and 'Cancel' (ghost). Keep the encryption pill at the top. Same Inter typography and Hush color palette as NewConversation."
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-profile.html",
+      "designScreenId": "b0b3c6a5c45e46d4b213033f0f36b85c"
+    },
+    {
+      "name": "Archive",
+      "templateFile": "app/pages/Archive.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/archive",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-archive.html",
+      "designScreenId": "ba6598a99a14402eb5197848e29e2df5"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-search.html",
+      "designScreenId": "bc394a4acaef49b7a499cad950136ace"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MessagingAppLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-messaging-app-notifications.html",
+      "designScreenId": "83244317b0cc4dfa8ec3a6ff53cff372"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "0421",
+    "title": "Elevated webhook delivery latency in EU-WEST",
+    "message": "We are observing elevated p95 latency on outbound webhook delivery via the eu-west fanout. Investigation is in progress; ingestion and the public API are unaffected.",
+    "impact": "minor",
+    "status": "monitoring",
+    "affected_components": ["Webhook delivery"],
+    "created_at": "2026-04-26T19:42:00.000Z",
+    "resolved_at": null,
+    "latest_update": { "status": "monitoring", "message": "Failover to the standby fanout completed. p95 has returned to baseline; we are monitoring before declaring resolved.", "created_at": "2026-04-26T20:24:00.000Z" }
+  },
+  {
+    "id": "0420",
+    "title": "Search index reindex failure — partial results possible",
+    "message": "A scheduled reindex of the search corpus failed to complete. Recently-created incidents may not appear in search until the reindex resumes.",
+    "impact": "major",
+    "status": "investigating",
+    "affected_components": ["Search index"],
+    "created_at": "2026-04-26T18:05:00.000Z",
+    "resolved_at": null,
+    "latest_update": { "status": "investigating", "message": "Identified a malformed mapping introduced in the 14:32 UTC deploy. Rolling forward with a corrected mapping; ETA 30 minutes.", "created_at": "2026-04-26T18:42:00.000Z" }
+  },
+  {
+    "id": "0419",
+    "title": "Auth refresh tokens rejected in us-east-2",
+    "message": "Long-lived OAuth refresh tokens were rejected for ~17 minutes after the auth pod rollout. New sessions and SSO flows were unaffected.",
+    "impact": "major",
+    "status": "resolved",
+    "affected_components": ["Authentication"],
+    "created_at": "2026-04-25T22:11:00.000Z",
+    "resolved_at": "2026-04-25T22:28:00.000Z",
+    "latest_update": { "status": "resolved", "message": "Refresh tokens are validating again on all auth pods. Postmortem to follow within 5 business days.", "created_at": "2026-04-25T22:28:00.000Z" }
+  },
+  {
+    "id": "0418",
+    "title": "Public API 502s during deploy window",
+    "message": "The public API returned 502s for a small percentage of requests during the rolling deploy of api-platform v4.7.1.",
+    "impact": "minor",
+    "status": "resolved",
+    "affected_components": ["Public API"],
+    "created_at": "2026-04-24T14:12:00.000Z",
+    "resolved_at": "2026-04-24T14:34:00.000Z",
+    "latest_update": { "status": "resolved", "message": "All pods are healthy; readiness gate has been tightened to prevent recurrence on future deploys.", "created_at": "2026-04-24T14:34:00.000Z" }
+  },
+  {
+    "id": "0417",
+    "title": "Telemetry ingest backpressure on cardinality spike",
+    "message": "OpenTelemetry ingest applied backpressure for ~9 minutes after a customer pushed a metric set with extreme tag cardinality.",
+    "impact": "minor",
+    "status": "resolved",
+    "affected_components": ["Telemetry ingest"],
+    "created_at": "2026-04-23T09:05:00.000Z",
+    "resolved_at": "2026-04-23T09:14:00.000Z",
+    "latest_update": { "status": "resolved", "message": "Cardinality limit enforced upstream; ingest p95 is back below 200ms.", "created_at": "2026-04-23T09:14:00.000Z" }
+  },
+  {
+    "id": "0416",
+    "title": "Email delivery delays — Mailgun upstream incident",
+    "message": "Email notifications were delayed by up to 12 minutes during a Mailgun upstream incident in eu-west. SMS, webhooks, and the dashboard were unaffected.",
+    "impact": "minor",
+    "status": "resolved",
+    "affected_components": ["Email pipeline"],
+    "created_at": "2026-04-21T03:18:00.000Z",
+    "resolved_at": "2026-04-21T03:42:00.000Z",
+    "latest_update": { "status": "resolved", "message": "Mailgun has confirmed recovery. Queued mail has been flushed in priority order.", "created_at": "2026-04-21T03:42:00.000Z" }
+  },
+  {
+    "id": "0415",
+    "title": "Stripe webhook signature verification failures",
+    "message": "Inbound Stripe webhooks failed signature verification for ~6 minutes after a key rotation. No invoice or subscription state was lost.",
+    "impact": "major",
+    "status": "resolved",
+    "affected_components": ["Billing & subs"],
+    "created_at": "2026-04-19T15:50:00.000Z",
+    "resolved_at": "2026-04-19T15:56:00.000Z",
+    "latest_update": { "status": "resolved", "message": "Old and new signing keys are accepted during the next rotation window; replays from Stripe have been re-processed.", "created_at": "2026-04-19T15:56:00.000Z" }
+  }
+]

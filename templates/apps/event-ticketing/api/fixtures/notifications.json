@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ntf-001",
+    "user_id": "usr-001",
+    "kind": "purchase",
+    "title": "Order confirmed",
+    "body": "Your 2 tickets to Midnight Synth Festival are ready in My Tickets.",
+    "event_id": "evt-001",
+    "read": false,
+    "created_at": "2026-04-29T19:42:11Z"
+  },
+  {
+    "id": "ntf-002",
+    "user_id": "usr-001",
+    "kind": "reminder",
+    "title": "Event in 2 weeks",
+    "body": "Frontend Conf 2026 starts July 15 — check the schedule and download your pass.",
+    "event_id": "evt-003",
+    "read": false,
+    "created_at": "2026-04-29T08:14:00Z"
+  },
+  {
+    "id": "ntf-003",
+    "user_id": "usr-001",
+    "kind": "transfer",
+    "title": "Transfer accepted",
+    "body": "Marcos accepted your transfer for Rooftop Jazz Sessions, GA · Row 3.",
+    "event_id": "evt-002",
+    "read": true,
+    "created_at": "2026-04-27T22:10:54Z"
+  },
+  {
+    "id": "ntf-004",
+    "user_id": "usr-001",
+    "kind": "announcement",
+    "title": "Lineup update",
+    "body": "Echo Collective added a surprise headliner on night two of Midnight Synth.",
+    "event_id": "evt-001",
+    "read": true,
+    "created_at": "2026-04-25T14:00:33Z"
+  },
+  {
+    "id": "ntf-005",
+    "user_id": "usr-001",
+    "kind": "check_in",
+    "title": "Check-in opened",
+    "body": "Doors are open for Sunday Morning Yoga in the Park — scan your pass at the bandshell.",
+    "event_id": "evt-004",
+    "read": true,
+    "created_at": "2026-04-20T11:30:00Z"
+  }
+]

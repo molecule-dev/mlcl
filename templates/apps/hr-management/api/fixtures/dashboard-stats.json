@@ -1,0 +1,25 @@
+{
+  "headcount": 142,
+  "headcount_delta": 6,
+  "active_today": 119,
+  "on_leave": 8,
+  "open_pto_requests": 5,
+  "anniversaries_this_week": 3,
+  "starting_this_month": 4,
+  "headcount_by_dept": [
+    { "name": "Engineering",      "count": 48, "color": "#0d9488" },
+    { "name": "Customer Success", "count": 26, "color": "#2563eb" },
+    { "name": "Sales",            "count": 22, "color": "#7c3aed" },
+    { "name": "Marketing",        "count": 14, "color": "#d97706" },
+    { "name": "Design",           "count": 12, "color": "#ea580c" },
+    { "name": "People",           "count":  9, "color": "#16a34a" },
+    { "name": "Finance",          "count": 11, "color": "#6b7280" }
+  ],
+  "tenure_buckets": [
+    { "label": "<1 yr",  "count": 18 },
+    { "label": "1-2 yr", "count": 32 },
+    { "label": "3-5 yr", "count": 51 },
+    { "label": "6-10 yr","count": 33 },
+    { "label": "10+ yr", "count":  8 }
+  ]
+}

@@ -1,0 +1,20 @@
+course-marketplace polish complete
+
+App: Lectura — course marketplace
+Date: 2026-04-28
+
+Verification passed:
+  npx tsc --noEmit (from app/)                      0 errors
+  scripts/check-rules-compliance.mjs                clean
+  ClassMap coverage                                 100%
+
+Sweep summary:
+  Brand fonts (Inter + JetBrains Mono + Material Symbols Outlined) wired through index.html
+  Sweep 1 chrome (@molecule/app-header-react, @molecule/app-footer-react, @molecule/app-root-error-boundary-react)
+  9 bespoke branded components (CourseTile, CourseHeroBanner, EnrolledCourseCard, CategoryBubble, ReviewCard, LessonRow, InstructorAvatarCard, CertificateBadge, AuthShell)
+  Signed-in pages rewritten (Browse, MyLearning, CourseDetail, Lesson, InstructorDashboard, Settings)
+  Missing pages created (Checkout, InstructorCourseEditor, InstructorProfile, Certificate, Notifications)
+  Landing rewritten with branded marketing layout
+  Auth pages branded with AuthShell (Login, Signup, ForgotPassword, ResetPassword)
+  NotFound page + catch-all route added
+  All native-element classNames funneled through cm.cn()

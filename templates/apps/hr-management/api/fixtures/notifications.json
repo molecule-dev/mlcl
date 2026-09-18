@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ntf_001",
+    "kind": "pto_request",
+    "icon": "calendar_month",
+    "actor_name": "Maya Chen",
+    "actor_initial": "M",
+    "title": "Maya Chen requested PTO",
+    "body": "6 vacation days, May 12 → May 19.",
+    "occurred_at": "2026-04-29T16:30:00Z",
+    "link": "/pto",
+    "unread": true
+  },
+  {
+    "id": "ntf_002",
+    "kind": "anniversary",
+    "icon": "celebration",
+    "actor_name": "Priya Iyer",
+    "actor_initial": "P",
+    "title": "Priya Iyer · 8 years at Arbor",
+    "body": "Send a note — anniversary today.",
+    "occurred_at": "2026-04-29T08:00:00Z",
+    "link": "/employees/emp_005",
+    "unread": true
+  },
+  {
+    "id": "ntf_003",
+    "kind": "doc_uploaded",
+    "icon": "description",
+    "actor_name": "Priya Iyer",
+    "actor_initial": "P",
+    "title": "New document: Performance Review Template",
+    "body": "Shared with Managers.",
+    "occurred_at": "2026-04-29T07:30:00Z",
+    "link": "/documents",
+    "unread": true
+  },
+  {
+    "id": "ntf_004",
+    "kind": "onboarding",
+    "icon": "person_add",
+    "actor_name": "Imani Brooks",
+    "actor_initial": "I",
+    "title": "Imani Brooks completed onboarding",
+    "body": "All 12 checklist items done.",
+    "occurred_at": "2026-04-28T15:45:00Z",
+    "link": "/onboarding",
+    "unread": false
+  },
+  {
+    "id": "ntf_005",
+    "kind": "pto_approved",
+    "icon": "check_circle",
+    "actor_name": "Lena Okafor",
+    "actor_initial": "L",
+    "title": "PTO approved for Lena Okafor",
+    "body": "8 days of vacation, June 2 → 13.",
+    "occurred_at": "2026-04-26T09:18:00Z",
+    "link": "/pto",
+    "unread": false
+  },
+  {
+    "id": "ntf_006",
+    "kind": "mention",
+    "icon": "alternate_email",
+    "actor_name": "Devon Park",
+    "actor_initial": "D",
+    "title": "Devon mentioned you in a 1:1 note",
+    "body": "@priya — let’s sync on Maya’s promotion review.",
+    "occurred_at": "2026-04-25T13:00:00Z",
+    "link": "/notifications",
+    "unread": false
+  },
+  {
+    "id": "ntf_007",
+    "kind": "pto_denied",
+    "icon": "block",
+    "actor_name": "Avery Kim",
+    "actor_initial": "A",
+    "title": "Theo Nakamura — PTO denied",
+    "body": "Conflict with on-call rotation.",
+    "occurred_at": "2026-04-24T11:00:00Z",
+    "link": "/pto",
+    "unread": false
+  },
+  {
+    "id": "ntf_008",
+    "kind": "anniversary",
+    "icon": "cake",
+    "actor_name": "Jordan Patel",
+    "actor_initial": "J",
+    "title": "Jordan Patel’s birthday tomorrow",
+    "body": "Card from the team in #people-ops.",
+    "occurred_at": "2026-04-24T08:00:00Z",
+    "link": "/employees/emp_002",
+    "unread": false
+  }
+]

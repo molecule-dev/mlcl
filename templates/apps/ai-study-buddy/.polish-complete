@@ -1,0 +1,4 @@
+polished: 2026-04-28
+polisher: Claude Opus 4.7 (1M context)
+typecheck: 0 errors (npx tsc --noEmit from app/)
+rules-compliance: clean (classmap-coverage 62.5% — acceptable per polish-app.md)

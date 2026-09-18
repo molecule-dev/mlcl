@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Chọgharịa akụkọ enyemaka',
+  'about.cta.signup': "Nwaa Courier n'efu",
+  'about.eyebrow': 'Banyere Courier',
+  'about.principle.calm': 'Debe nwayọ dịka ọ dị na mbụ.',
+  'about.principle.calm.desc':
+    'Enweghị akara ngosi nke na-eti mkpu, enweghị ọkwa ị na-arịọghị, enweghị ihe ngosi nke chọrọ nlele.',
+  'about.principle.fast.desc':
+    'Ihe ọ bụla ga-eme bụ otu ịpị igodo. Igbe mbata na-ebu ihe na-erughị 200ms na nbanye ọhụrụ.',
+  'about.principle.honest.desc':
+    "Nzochi ozi na njem na n'oge ezumike, njigide doro anya, na mbupụ data otu pịa.",
+  'about.story': 'Ihe mere anyị ji wuo Courier',
+  'about.story.p1':
+    'Ọtụtụ ndị ahịa email na-eme ka mmekọrịta gị ka mma — na-adọpụ gị azụ, na-ekewa uche gị, na-atụ aro otu ugboro ọzọ. Courier na-eme ihe dị iche. Anyị na-atụ ihe ịga nke ọma site na oge ị na-etinyeghị na igbe mbata gị: nwalee ya ngwa ngwa, jiri obi ike kwụsị, wee malite ọrụ dị mkpa.',
+  'about.subtitle':
+    'Courier bụ igbe ozi dị jụụ, nke nwere pane atọ nke obere ndị otu wuru, ndị chọrọ ịhazi ozi kama imeghachi omume na ya.',
+  'about.team.body':
+    "Anyị bụ ndị otu ndị na-emepụta ihe na ndị injinia kesara, bụ́ ndị na-anọkarị ọtụtụ awa kwa ụbọchị n'ime igbe ozi na-eme mkpọtụ. Courier bụ igbe ozi anyị chọrọ iji onwe anyị.",
+  'about.title': 'Email maka ọrụ lekwasịrị anya',
+  'help.cta.about': 'Banyere Courier',
+  'help.cta.pricing': 'Lee ọnụahịa',
+  'help.eyebrow': 'Ebe enyemaka',
+  'help.faq.compose.a':
+    'Pịa \\u201CKọm\\u201D site na sidebar (ma ọ bụ pịa \\u201Cc\\u201D na nlele igbe mbata ọ bụla), tinye opekata mpe otu onye nnata, isiokwu, na ahụ, wee pịa \\u201CZepụ\\u201D. Ozi ọhụrụ ahụ ga-apụta ozugbo na folda ezitere gị.',
+  'help.faq.compose.q': 'Kedu ka m ga-esi zipu ozi mbụ m?',
+  'help.faq.export.a':
+    'Ee. Ntọala \\u2192 Akaụntụ \\u2192 Mbupụ data na-emepụta ebe nchekwa enwere ike ibudata (mbox + JSON) yana ozi ọ bụla, akara, na kọntaktị. Achọghị ọkwa adịchaghị mma.',
+  'help.faq.labels.a':
+    "Faịlụ dị iche iche (ozi dị kpọmkwem n'otu): Igbe mbata, Zitere, Drafts, Spam, Mkpofu, Ebe Nchekwa. Akara ngosi bụ ihe mgbakwunye \\u2014 ị nwere ike itinye ọtụtụ na otu email ma nzacha site na njikọta site na ogwe ọchụchọ.",
+  'help.faq.password.a':
+    'Jiri njikọ \\u201CChefuru paswọọdụ?\\u201D na ibe nbanye. Anyị ga-ezitere njikọ nrụpụta dị irè ruo otu awa na email akaụntụ gị.',
+  'help.faq.shortcuts.a':
+    "Ee. \\u201Cj\\u201D / \\u201Ck\\u201D na-agagharị n'etiti eriri, \\u201Cs\\u201D na-agbanwe kpakpando, \\u201Ce\\u201D na-edebe ihe, \\u201C#\\u201D na-agagharị na ihe mkpofu, ma \\u201C/\\u201D na-elekwasị anya na igbe nchọta. Akwụkwọ mkpirisi dị ndụ na nlele igbe mbata ọ bụla site na ịpị \\u201C?\\u201D.",
+  'help.faq.support.a':
+    "Ziga ozi na support@courier.example. Anyị na-aza ozi ọ bụla n'ime otu ụbọchị azụmaahịa, ụbọchị izu 9\\u201317 UTC.",
+  'help.subtitle':
+    "Azịza ngwa ngwa nye ajụjụ ndị anyị na-anụkarị. Ọ dị ihe na-efu? Mepee Ntọala ma jiri fọm nzaghachi n'ime ngwa ahụ, ma ọ bụ dega na support@courier.example.",
+  'help.title': 'Kedu ka anyị ga-esi nyere aka?',
+  'landing.brand.scrollTop': "Laghachi n'elu",
+  'landing.ctaBody':
+    'Soro ọtụtụ puku ndị ọkachamara ndị mechara igbe ozi ha tupu ha eri nri ehihie.',
+  'landing.ctaTitle': 'Hazie ihe karịa, meghachi omume obere.',
+  'landing.eyebrow': 'Email maka ọrụ lekwasịrị anya',
+  'landing.featuresBody': 'Kwụsị ijikwa igbe ozi gị wee malite ịrụcha ọrụ.',
+  'landing.featuresTitle': 'Emebere maka ọrụ miri emi',
+  'landing.help': 'Enyemaka',
+  'landing.heroDemo': 'Lelee ngosi ngosi',
+  'landing.heroSubtitle':
+    'Courier bụ igbe ozi atọ dị jụụ nke e wuru maka ndị ọrụ ihe ọmụma bụ ndị chọrọ ịhazi ozi, ọ bụghị imeghachi omume na ya.',
+  'landing.proof': "Ndị otu lekwasịrị anya n'ụwa niile tụkwasịrị obi",
+  'landing.signIn': 'banye',
+  'meridian.archive.empty': 'Ebe nchekwa dị efu.',
+  'meridian.compose.addRecipient': 'Tinye onye nnata ọzọ',
+  'meridian.compose.bodyPlaceholder': 'Dee ozi gị…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Tụfuo akwụkwọ e dere',
+  'meridian.compose.invalidEmail': '" {{value}} " abụghị ozi email ziri ezi',
+  'meridian.compose.needRecipient': 'Tinye opekata mpe otu onye nnata mbụ.',
+  'meridian.compose.replyTo': "Zaa n'ime eriri {{id}}",
+  'meridian.compose.savedAt': 'Edebere draft na {{time}}',
+  'meridian.compose.sentWithError':
+    'Echekwara na Zitere, mana nnyefe ahụ agaghị nke ọma: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': 'Isiokwu',
+  'meridian.compose.title': 'Ozi ọhụrụ',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': "Gaa n'ihu na-edezi ihe",
+  'meridian.drafts.count': '{{count}} ozi',
+  'meridian.drafts.delete': 'Hichapụ edemede',
+  'meridian.drafts.empty': 'Enwebeghị m ihe osise — malite ide ihe.',
+  'meridian.drafts.lastSaved': 'Echekwara {{at}}',
+  'meridian.drafts.noRecipients': '(enwebeghị ndị nnata)',
+  'meridian.drafts.selectDraft': 'Họrọ draft ị ga-ahụ tupu ị hụ ya.',
+  'meridian.drafts.title': 'Edemede',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Edemede',
+  'meridian.folder.count': '{{count}} ozi',
+  'meridian.folder.deleteForever': 'Hichapụ kpamkpam',
+  'meridian.folder.restore': 'Bugharịa na igbe mbata',
+  'meridian.forgot.subtitle':
+    'Tinye ozi-e jikọtara na igbe mbata gị, anyị ga-ezitere gị njikọ nrụpụta.',
+  'meridian.forgot.success': 'Ọ bụrụ na akaụntụ nwere ozi-e ahụ dị, njikọ nrụpụta na-abịa.',
+  'meridian.inbox.empty': 'Enweghị ozi ebe a ugbu a.',
+  'meridian.inbox.loading': 'Na-ebugo…',
+  'meridian.inbox.next': 'Osote',
+  'meridian.inbox.noSubject': '(enweghị isiokwu)',
+  'meridian.inbox.openCompose': 'Mepee ide ihe',
+  'meridian.inbox.previous': 'Nke gara aga',
+  'meridian.inbox.replyFailed': 'Echekwara azịza mana nnyefe ahụ adaala: {{error}}',
+  'meridian.inbox.replySent': 'Ezitere azịza.',
+  'meridian.inbox.replyTo': 'Zaghachi na {{name}}',
+  'meridian.inbox.selectMessage': 'Họrọ ozi ị ga-agụ',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Lee eriri',
+  'meridian.login.hidePassword': 'Zoo paswọọdụ',
+  'meridian.login.noAccount': 'Ị nweghị akaụntụ?',
+  'meridian.login.showPassword': 'Gosi paswọọdụ',
+  'meridian.message.toLine': 'na {{recipients}}',
+  'meridian.notFound.eyebrow': 'Njehie 404',
+  'meridian.notFound.title': "E debere eriri a n'ebe nchekwa.",
+  'meridian.notFound.toInbox': 'Mepee igbe mbata m',
+  'meridian.reset.newLabel': 'Okwuntughe Ọhụrụ',
+  'meridian.reset.showPassword': 'Gosi paswọọdụ',
+  'meridian.reset.subtitle': 'Họrọ paswọọdụ siri ike — opekata mpe mkpụrụedemede 8.',
+  'meridian.sent.empty': 'I zipubeghị ihe ọ bụla.',
+  'meridian.sent.title': 'Ezitere',
+  'meridian.settings.noName': '(enweghị aha edobere)',
+  'meridian.settings.section.${section}': 'Hazie nke gị {{aha ngwa}} ahụmịhe',
+  'meridian.settings.signature': 'Mbinye aka',
+  'meridian.settings.signatureSaved': 'Echekwara akara aka.',
+  'meridian.sidebar.compose': 'Dee ya ede',
+  'meridian.sidebar.labels': 'Aha ndị e ji mee ihe',
+  'meridian.sidebar.noLabels': 'Enwebeghị aha mmado ugbu a',
+  'meridian.sidebar.storage': 'Nchekwa',
+  'meridian.sidebar.storageLabel': '{{used}} nke {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Mepụta igbe mbata Courier gị',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Gosi paswọọdụ',
+  'meridian.signup.subtitle': 'Hazie igbe ozi gị tupu e rie nri ehihie.',
+  'meridian.spam.empty': 'Enweghị spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Enweghị ozi ndị a ma ama.',
+  'meridian.starred.loading': 'Na-ebugo…',
+  'meridian.starred.removeStar': 'Wepụ kpakpando',
+  'meridian.starred.total': '{{count}} mkpokọta',
+  'meridian.thread.back': 'Laghachi na igbe mbata',
+  'meridian.thread.empty': 'Enweghị ozi ọ bụla na eriri a.',
+  'meridian.thread.eyebrow': 'Eriri # {{id}}',
+  'meridian.thread.notFound': 'Achọtaghị eriri ahụ.',
+  'meridian.thread.star': 'Tinye kpakpando',
+  'meridian.thread.unstar': 'Wepụ kpakpando',
+  'meridian.time.yesterday': 'Ụnyaahụ',
+  'meridian.topBar.searchPlaceholder': 'Chọọ ozi email',
+  'meridian.trash.empty': 'Ahịhịa tọgbọ chakoo.',
+  'meridian.trash.title': 'Ahịhịa',
+  'nav.legal': 'Iwu kwadoro',
+  'planUpdated.description':
+    'Ndebanye aha gị na-arụ ọrụ ugbu a, emelitekwala ịkwụ ụgwọ gị. Nnọọ na igbe mbata Courier gị emelitere.',
+  'pricing.heading': 'ihe osise',
+  'pricing.limit.emails': 'ozi ịntanetị',
+  'pricing.limit.folders': 'folda',
+  'pricing.limit.labels': 'aha ụlọọrụ',
+  'privacy.collect.account':
+    'Data akaụntụ: aha, adreesị ozi-e, paswọọdụ hashed, na ụbọchị ị debanyere aha.',
+  'privacy.intro':
+    'Amụma nzuzo a na-akọwa data Courier na-anakọta, ihe mere anyị ji anakọta ya, otu anyị si echekwa ya, na nhọrọ ndị ị nwere maka ya. Ebumnuche anyị bụ ịkọwa kpọmkwem kama ịgbaso iwu; ọ bụrụ na ihe ọ bụla edoghị anya, degaara privacy@courier.example.',
+  'privacy.lastUpdated': 'Emelitere ikpeazụ: Eprel 1, 2026',
+  'privacy.linkTerms': 'Gụọ Usoro Ọrụ Anyị \\u2192',
+  'privacy.rights.body':
+    "Ị nwere ike ibupụ data niile anyị nwere gbasara gị site na Ntọala → Akaụntụ → Mbupụ data, ị nwekwara ike ihichapụ akaụntụ gị n'otu pịa — hichaa ahịrị niile n'ime awa 24, hichaa ndekọ nyocha mgbe ụbọchị 30 gachara.",
+  'privacy.security.body':
+    'A na-ezochi ọdịnaya na mgbakwunye ozi na oge ezumike site na iji AES-256. Njikọ na ọrụ anyị na-eji TLS 1.3. A na-eji bcrypt hichapụ okwuntughe; anyị anaghị edekọ ma ọ bụ chekwaa okwuntughe ederede nkịtị. Enwere ike ịnweta mmepụta naanị maka ndị injinia oku oku, a na-enyocha ha kwa ọnwa.',
+  'privacy.share.body':
+    'Anyị na-ekerịta data naanị na ndị na-arụ ọrụ anyị chọrọ iji Courier rụọ ọrụ (nzipu ozi-e site na Mailgun, ịkwụ ụgwọ site na Stripe, nnabata site na AWS). Onye ọ bụla nwere nkwekọrịta iji data gị naanị iji rụọ ọrụ ha maka anyị. Anyị anaghị ere, gbazite, ma ọ bụ ree data gị na onye ọ bụla.',
+  'terms.acceptable.spam':
+    'Enweghị ozi zuru oke a na-arịọghị. Anyị ga-emechi akaụntụ ndị na-eziga spam na-enweghị ịdọ aka ná ntị.',
+  'terms.account.body':
+    'Ọ bụ gị ga-ahụ maka idobe nzuzo nke paswọọdụ gị na ihe ọ bụla na-eme site na akaụntụ gị. Gwa anyị na security@courier.example ma ọ bụrụ na i chere na e mebiela akaụntụ gị.',
+  'terms.billing.body':
+    "Atụmatụ akwụ ụgwọ na-emegharị mgbe oge ahọpụtara na ndebanye aha. Ị nwere ike ịkagbu na Ntọala → Ịkwụ ụgwọ n'oge ọ bụla ma ị na-edebe ohere maka oge ịkwụ ụgwọ fọdụrụnụ. A na-enye nkwụghachi maka oge ọrụ nke gafere SLA.",
+  'terms.intro':
+    "Usoro ndị a na-achịkwa ojiji Courier gị. Site n'ịmepụta akaụntụ ma ọ bụ izipu ozi-e site na anyị, ị kwenyere ka e jiri ha mee ihe. Anyị na-agbalị ide iwu mmadụ nwere ike ịgbaso n'ezie.",
+  'terms.lastUpdated': 'Dị irè: Eprel 1, 2026',
+  'terms.termination.body':
+    "Ị nwere ike ihichapụ akaụntụ gị n'oge ọ bụla. Anyị nwere ike ịkwụsịtụ akaụntụ nke mebiri usoro ndị a; ọ bụrụ na anyị emee ya, anyị ga-akọwa ihe kpatara ya ma kwe ka ị bufee data gị mbụ.",
+  'terms.warranty.body':
+    "A na-enye ọrụ a dịka ọ dị. Anyị na-arụsi ọrụ ike iji hụ na ọ dị nchebe ma nwee ntụkwasị obi, mana anyị enweghị ike ikwe nkwa ịnweta ya n'enweghị nsogbu. Ruo ókè iwu kwadoro, ụgwọ anyị niile ejedebere na ego ị kwụrụ anyị n'ime ọnwa iri na abụọ gara aga.",
+}

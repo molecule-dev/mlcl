@@ -1,0 +1,119 @@
+{
+  "app": "email-client",
+  "designProjectId": "10316326056781846083",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-email-client-landing.html",
+      "designScreenId": "9f928e5bf6574c1b90eed083ea2891e6"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-email-client-login.html",
+      "designScreenId": "0da10afa1d9a4440add0bea6f6c1298c"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-email-client-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-email-client-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-email-client-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Inbox",
+      "templateFile": "app/pages/Inbox.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/inbox",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-inbox.html",
+      "designScreenId": "dd109dfdc139473498bcbcf954b6cd3f"
+    },
+    {
+      "name": "Compose",
+      "templateFile": "app/pages/Compose.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/compose",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-compose.html",
+      "designScreenId": "87ee692487f14713b15f2347fe224af3"
+    },
+    {
+      "name": "ThreadView",
+      "templateFile": "app/pages/ThreadView.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/thread/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-thread-view.html",
+      "designScreenId": "a250dc33f00d468aa2e37103293e7383"
+    },
+    {
+      "name": "Drafts",
+      "templateFile": "app/pages/Drafts.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/drafts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-drafts.html",
+      "designScreenId": "c3c203d831934227a2b09d1ad968d521"
+    },
+    {
+      "name": "Starred",
+      "templateFile": "app/pages/Starred.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/starred",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-starred.html",
+      "designScreenId": "7f15b094c43042d0b73ee9108d5cd45e"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/EmailClientLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-email-client-settings.html",
+      "designScreenId": "421e09cc57b54752bf3b04641e357546"
+    }
+  ]
+}

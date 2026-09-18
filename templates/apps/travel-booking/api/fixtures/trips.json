@@ -1,0 +1,101 @@
+[
+  {
+    "id": "t1",
+    "property_id": "p7",
+    "property_name": "Lighthouse Suites Cinque Terre",
+    "city": "Vernazza",
+    "country": "Italy",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t1/800/600",
+    "address": "Punta del Faro, 19018 Vernazza, Italy",
+    "check_in_iso": "2026-06-12T15:00:00Z",
+    "check_out_iso": "2026-06-17T11:00:00Z",
+    "guests": 2,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t1a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t1b/800/600",
+      "https://picsum.photos/seed/sojourn-tb-t1c/800/600"
+    ],
+    "host_name": "Giulia P.",
+    "host_message_count": 2,
+    "subtotal_cents": 194500,
+    "taxes_cents": 23340,
+    "total_cents": 217840,
+    "cancellable": true,
+    "modifiable": true,
+    "confirmation_code": "SJ-7Q4-LIGHT-1782"
+  },
+  {
+    "id": "t2",
+    "property_id": "p8",
+    "property_name": "Whitecap Wilderness Camp",
+    "city": "Banff",
+    "country": "Canada",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t2/800/600",
+    "address": "Whitecap Valley Rd, Banff, AB T1L 1B5, Canada",
+    "check_in_iso": "2026-09-04T16:00:00Z",
+    "check_out_iso": "2026-09-09T10:00:00Z",
+    "guests": 4,
+    "status": "upcoming",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t2a/1200/900",
+      "https://picsum.photos/seed/sojourn-tb-t2b/800/600"
+    ],
+    "host_name": "Mason R.",
+    "host_message_count": 0,
+    "subtotal_cents": 167500,
+    "taxes_cents": 20100,
+    "total_cents": 187600,
+    "cancellable": true,
+    "modifiable": false,
+    "confirmation_code": "SJ-9P3-WHITE-9201"
+  },
+  {
+    "id": "t3",
+    "property_id": "p1",
+    "property_name": "Casa Mirador Oaxaca",
+    "city": "Oaxaca",
+    "country": "Mexico",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t3/800/600",
+    "address": "Camino al Mirador 88, San Pablo Etla, OAX",
+    "check_in_iso": "2026-02-08T15:00:00Z",
+    "check_out_iso": "2026-02-12T11:00:00Z",
+    "guests": 2,
+    "status": "completed",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t3a/1200/900"
+    ],
+    "host_name": "Sofía M.",
+    "host_message_count": 0,
+    "subtotal_cents": 107600,
+    "taxes_cents": 12912,
+    "total_cents": 120512,
+    "cancellable": false,
+    "modifiable": false,
+    "confirmation_code": "SJ-2K8-CASA-5544"
+  },
+  {
+    "id": "t4",
+    "property_id": "p4",
+    "property_name": "Riad Bahia Tangier",
+    "city": "Tangier",
+    "country": "Morocco",
+    "thumbnail_url": "https://picsum.photos/seed/sojourn-tb-t4/800/600",
+    "address": "Rue Bahia 14, Medina de Tanger, Morocco",
+    "check_in_iso": "2025-11-12T14:00:00Z",
+    "check_out_iso": "2025-11-16T10:00:00Z",
+    "guests": 2,
+    "status": "completed",
+    "gallery": [
+      "https://picsum.photos/seed/sojourn-tb-t4a/1200/900"
+    ],
+    "host_name": "Karim B.",
+    "host_message_count": 0,
+    "subtotal_cents": 65600,
+    "taxes_cents": 7872,
+    "total_cents": 73472,
+    "cancellable": false,
+    "modifiable": false,
+    "confirmation_code": "SJ-1H8-BAHIA-3277"
+  }
+]

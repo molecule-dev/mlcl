@@ -1,0 +1,13 @@
+[
+  {
+    "id": "b1",
+    "confirmation_code": "SKY7P2Q",
+    "status": "confirmed",
+    "flight_id": "f1",
+    "passenger_count": 2,
+    "total_cents": 77800,
+    "currency": "USD",
+    "card_last4": "4242",
+    "created_at": "2026-04-12T09:14:00Z"
+  }
+]

@@ -1,0 +1,225 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via base.css @theme block === */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #f56262;
+  --mol-color-background: #f7f7fa;
+  --mol-color-background-secondary: #eef0f5;
+  --mol-color-background-tertiary: #e4e7ef;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f8fc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #13141b;
+  --mol-color-text-secondary: #5f6168;
+  --mol-color-text-tertiary: #5c5f6b; /* darkened from #9395a0 (2.79:1 fail) → 5.94:1 on #f7f7fa */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e4ea;
+  --mol-color-border-secondary: #d4d7e2;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #15803d; /* #16a34a was 3.00:1 on success-light #dcfce7 (fail); #15803d = 4.57:1, 5.02:1 on white */
+  --mol-color-warning: #b45309; /* #d97706 was 2.86:1 on warning-light #fef3c7 (fail); #b45309 = 4.51:1, 5.02:1 on white */
+  --mol-color-error: #b91c1c; /* #dc2626 was 3.95:1 on error-light #fee2e2 (fail); #b91c1c = 5.30:1, 6.47:1 on white */
+  --mol-color-info: #2563eb;
+
+  /* === App-specific aliases === */
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #ede9fe;
+  --color-secondary: #f56262;
+
+  /* Background — light by default; dark overrides below */
+  --color-bg: #f7f7fa;
+  --color-bg-surface: #ffffff;
+  --color-bg-sidebar: #ffffff;
+  --color-bg-hover: #eef0f5;
+  --color-bg-player: #0d0e12;
+
+  /* Text */
+  --color-text: #13141b;
+  --color-text-secondary: #5f6168;
+  --color-text-link: #6d28d9;
+
+  /* Borders */
+  --color-border: #e2e4ea;
+  --color-border-light: #eef0f5;
+
+  /* Brand gradient pair — CTA buttons + hero sections */
+  --color-brand-gradient-from: #7c3aed;
+  --color-brand-gradient-to: #06b6d4;
+  --color-brand-gradient-mid: #6d28d9;
+  --color-brand-gradient-lavender: #a78bfa;
+  /* Deep indigo surface for dark-on-dark gradient cards (stays fixed, theme-independent) */
+  --color-brand-deep-a: #1e1b4b;
+  --color-brand-deep-b: #312e81;
+  /* Recording live-indicator icon (rose on dark violet CTA) */
+  --color-live-indicator: #fecaca;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.6875rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --player-max-width: 960px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 100px;
+
+  /* Shadows — softer in light mode */
+  --shadow-sm: 0 1px 3px rgba(13, 14, 18, 0.08);
+  --shadow-md: 0 4px 12px rgba(13, 14, 18, 0.12);
+  --shadow-player: 0 8px 24px rgba(13, 14, 18, 0.18);
+
+  /* Material-3 bridge — light mode tokens so bg-primary, text-on-surface etc.
+     work correctly in both modes without relying on the dark-only block. */
+  --color-background: #f7f7fa;
+  --color-on-background: #13141b;
+  --color-surface: #ffffff;
+  --color-on-surface: #13141b;
+  --color-on-surface-variant: #5f6168;
+  --color-surface-variant: #eef0f5;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e4e7ef;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f7fa;
+  --color-surface-container: #eef0f5;
+  --color-surface-container-high: #e4e7ef;
+  --color-surface-container-highest: #d8dce8;
+  --color-inverse-surface: #13141b;
+  --color-inverse-on-surface: #f7f7fa;
+  --color-inverse-primary: #ede9fe;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* white on violet #7c3aed = 5.70:1 */
+  --color-on-primary-container: #2e0a8a;
+  --color-secondary: #f56262;
+  --color-secondary-container: #fde8e8;
+  --color-on-secondary: #3a0000; /* dark on coral — #ffffff was 3.09:1 (fail); #3a0000 = 5.77:1 */
+  --color-on-secondary-container: #5c0000;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #cffafe;
+  --color-on-tertiary: #001a22; /* dark on cyan — #ffffff = 2.43:1 (fail); #001a22 = 7.39:1 */
+  --color-on-tertiary-container: #083344;
+  --color-error-container: #fde8e8;
+  --color-on-error: #ffffff; /* white on error #b91c1c = 6.47:1 */
+  --color-on-error-container: #5c0000;
+  --color-outline: #9395a0;
+  --color-outline-variant: #d4d7e2;
+  --color-surface-tint: #7c3aed;
+}
+
+/* Dark mode — streaming/screen-share rich black canvas.
+   Brand indigo (#625df5) STAYS at the brand stop so live/recording
+   chrome retains identity. `--color-on-primary` STAYS white so go-live
+   and broadcast CTAs read against the saturated indigo. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #1e1c4d;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #f56262;
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #1a1a1a;
+  --mol-color-background-tertiary: #2a2a2a;
+  --mol-color-surface: #0a0a0a;
+  --mol-color-surface-secondary: #1a1a1a;
+  --mol-color-input-background: #050505;
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0a0a0a;
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #8b5cf6;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* App brand tokens */
+  --color-primary: #7c3aed; /* brand violet — stays at brand stop */
+  --color-primary-hover: #8b5cf6;
+  --color-primary-light: #1e1c4d;
+  --color-secondary: #f56262;
+
+  /* Surfaces — true-dark streaming-app palette */
+  --color-bg: #0a0a0a;
+  --color-bg-surface: #1a1a1a;
+  --color-bg-sidebar: #050505;
+  --color-bg-hover: #2a2a2a;
+  --color-bg-player: #000000;
+
+  --color-text: #f5f5f5;
+  --color-text-secondary: #c4c4c4;
+  --color-text-link: #9690f9;
+
+  --color-border: #2a2a2a;
+  --color-border-light: #3a3a3a;
+
+  /* Brand gradient pair — same values in dark (gradient stays vivid on dark) */
+  --color-brand-gradient-from: #7c3aed;
+  --color-brand-gradient-to: #06b6d4;
+  --color-brand-gradient-mid: #6d28d9;
+  --color-brand-gradient-lavender: #a78bfa;
+  --color-brand-deep-a: #1e1b4b;
+  --color-brand-deep-b: #312e81;
+  --color-live-indicator: #fecaca;
+
+  /* Stitch / Material-3 bridge — brand stop preserved, on-primary white. */
+  --color-background: #0a0a0a;
+  --color-on-background: #f5f5f5;
+  --color-surface: #1a1a1a;
+  --color-surface-bright: #2a2a2a;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #232323;
+  --color-surface-container-highest: #2d2d2d;
+  --color-surface-variant: #232323;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0a0a0a;
+  --color-inverse-primary: #7c3aed;
+  --color-primary-container: #1e1c4d;
+  --color-on-primary: #ffffff; /* white on violet — readable always */
+  --color-on-primary-container: #c7c5fb;
+  --color-secondary-container: #5a1818;
+  --color-on-secondary: #3a0000; /* dark on coral — #ffffff was 3.09:1 (fail); #3a0000 = 5.77:1 */
+  --color-on-secondary-container: #ffdada;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #134e4a;
+  --color-on-tertiary: #001a22; /* dark on cyan — #ffffff was 2.43:1 (fail); #001a22 = 7.39:1 */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* lifted from #5a5a5a (2.52:1 fail) → 3.41:1 on #1a1a1a */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #7c3aed;
+
+  /* Shadows — heavy for player-on-dark depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-player: 0 10px 15px rgba(0, 0, 0, 0.7);
+}

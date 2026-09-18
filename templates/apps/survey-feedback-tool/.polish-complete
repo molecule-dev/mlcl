@@ -1,0 +1,41 @@
+Polish complete: 2026-04-30T03:00:00Z
+Pipeline: polish-app.md (manual session)
+Cluster: feedback / surveys (cross-cluster translation)
+Sibling reference: customer-support-chat (sidebar shell + auth shell)
+Brand: Murmur — "Every voice, amplified"
+Palette: primary #5b4ee4 (indigo), accent #f06050 (coral), Inter + JetBrains Mono
+
+Bespoke components: 7
+  - SurveyFeedbackToolLayout (64px icon-rail sidebar shell + Header/Footer chrome)
+  - ResponsesHeroCard (gradient hero + KPI grid + SVG sparkline of recent responses)
+  - KpiStatCard (left-border accent KPI tile with optional trend pill)
+  - StatusPill (semantic pill for active/draft/closed/promoter/passive/detractor)
+  - SurveyListItem (editorial list row — title, description, status, response counts, NPS)
+  - NpsDistributionBar (0-10 horizontal histogram colour-coded by detractor/passive/promoter)
+  - AuthShell (Catalog §13.3 brand-panel auth shell with sample NPS preview)
+
+Pages rewritten / added: 17 (full screen-map.json coverage)
+  Public:    Landing, Login, Signup, ForgotPassword, ResetPassword,
+             PublicSurvey (multi-step), ThankYou, NotFound
+  Auth'd:    Surveys, SurveyDetail, Builder, Responses, ResponseDetail,
+             Analytics, Templates, Settings, Profile, Notifications
+
+Material 3 derivative tokens: filled (50 lines added to index.css)
+Inter + JetBrains Mono + Material Symbols Outlined: loaded via index.html
+Sweep 1 chrome conformance: Header / Footer / RootErrorBoundary delegate
+  to @molecule/app-{header,footer,root-error-boundary}-react
+
+Verification:
+  npx tsc --noEmit                                                → clean
+  scripts/check-rules-compliance.mjs mlcl/templates/apps/survey-feedback-tool → clean (0 violations, 277 files)
+  scripts/check-screen-map-coverage.mjs survey-feedback-tool      → 17/17 wired
+
+Notes:
+  - api/fixtures/ does not exist for this app yet, so pages consume
+    inline sample data with `// TODO: replace with /api/<endpoint>`
+    markers throughout. Mock-server wiring should follow the
+    customer-support-chat / personal-finance pattern when fixtures
+    land.
+  - Sibling-cluster translation: customer-support-chat InboxLayout →
+    SurveyFeedbackToolLayout, InboxHeroCard → ResponsesHeroCard,
+    KpiStatCard / StatusPill carry through with Murmur palette retuning.

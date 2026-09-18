@@ -1,0 +1,54 @@
+[
+  {
+    "id": "lib_1",
+    "product_slug": "aurora-ui-kit",
+    "name": "Aurora UI Kit — Figma + Code",
+    "cover_image": "https://picsum.photos/seed/aurora-ui-kit/800/500",
+    "file_type": "FIGMA + ZIP",
+    "license_key": "DG-AUR0-PUR1-DEMO",
+    "purchased_at": "2026-04-22T19:31:00Z",
+    "version": "v3.2",
+    "update_available": true,
+    "downloads_remaining": 5,
+    "size_mb": 184
+  },
+  {
+    "id": "lib_2",
+    "product_slug": "focus-handbook",
+    "name": "The Focus Handbook (eBook)",
+    "cover_image": "https://picsum.photos/seed/focus-handbook/800/500",
+    "file_type": "PDF + EPUB",
+    "license_key": "DG-FOCS-PUR1-DEMO",
+    "purchased_at": "2026-04-22T19:31:00Z",
+    "version": "v1.4",
+    "update_available": false,
+    "downloads_remaining": 12,
+    "size_mb": 14
+  },
+  {
+    "id": "lib_3",
+    "product_slug": "signal-typeface",
+    "name": "Signal — Variable Display Typeface",
+    "cover_image": "https://picsum.photos/seed/signal-type/800/500",
+    "file_type": "OTF + WOFF2",
+    "license_key": "DG-SGNL-PUR2-DEMO",
+    "purchased_at": "2026-03-30T10:14:00Z",
+    "version": "v2.0",
+    "update_available": true,
+    "downloads_remaining": 9,
+    "size_mb": 6
+  },
+  {
+    "id": "lib_4",
+    "product_slug": "indie-pricing-calculator",
+    "name": "Indie Pricing Calculator (Notion)",
+    "cover_image": "https://picsum.photos/seed/pricing-calc/800/500",
+    "file_type": "NOTION",
+    "license_key": null,
+    "purchased_at": "2026-02-12T17:00:00Z",
+    "version": "v1.0",
+    "update_available": false,
+    "downloads_remaining": null,
+    "size_mb": null
+  }
+]

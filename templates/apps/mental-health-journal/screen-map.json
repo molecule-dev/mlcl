@@ -1,0 +1,149 @@
+{
+  "app": "mental-health-journal",
+  "designProjectId": "4735119715278727362",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-landing.html",
+      "designScreenId": "f95f794fd10b49308bbb6c29a75fb3aa"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-login.html",
+      "designScreenId": "47edbe54e3954f0c84818e563f18d8bf"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mental-health-journal-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Create your journal', subtext 'A safe space for your thoughts'. Button 'Create account'. Bottom link 'Already have an account? Sign in'. Keep encryption lock badge below card."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mental-health-journal-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Email field. Heading 'Reset your password', subtext 'We'll send a gentle reset link to your email'. Button 'Send reset link'. Bottom link 'Back to sign in'. Keep encryption lock badge below."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-mental-health-journal-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Keep encryption lock badge below."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-home.html",
+      "designScreenId": "5ed5afb8482a4977be9ebae33df9f628"
+    },
+    {
+      "name": "Journal",
+      "templateFile": "app/pages/Journal.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/journal",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-journal.html",
+      "designScreenId": "f62fe930bc264f59a40a4197f3d90889"
+    },
+    {
+      "name": "EntryComposer",
+      "templateFile": "app/pages/EntryComposer.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/journal/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-entry-composer.html",
+      "designScreenId": "b9d6fd1da2d244ef94cb4bffd4401297"
+    },
+    {
+      "name": "EntryDetail",
+      "templateFile": "app/pages/EntryDetail.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/journal/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-entry-detail.html",
+      "designScreenId": "83d7fb4d7de64c8c8b5c9e1a32ca2771"
+    },
+    {
+      "name": "Insights",
+      "templateFile": "app/pages/Insights.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/insights",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-insights.html",
+      "designScreenId": "9f3a0670e4e543ddba53ad00017140cc"
+    },
+    {
+      "name": "Prompts",
+      "templateFile": "app/pages/Prompts.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/prompts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-prompts.html",
+      "designScreenId": "d0185c2e063744c492aa1407470ad6ef"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-settings.html",
+      "designScreenId": "4498354b9b294d0dad8485d3d2812816"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-calendar.html",
+      "designScreenId": "de1b64d324014e41be33624241f18260"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MentalHealthJournalLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-mental-health-journal-profile.html",
+      "designScreenId": "1267d76dbc9d49dc95a851b72cc6fc2a"
+    }
+  ]
+}

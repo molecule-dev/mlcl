@@ -1,0 +1,42 @@
+[
+  {
+    "id": "m1",
+    "thread_id": "t1-sam",
+    "sender_name": "Sam Patel",
+    "sender_role": "sitter",
+    "preview": "All good — Bella's loving the new route through the park.",
+    "unread_count": 2,
+    "last_message_at": "2026-04-29T18:30:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "m2",
+    "thread_id": "t2-casey",
+    "sender_name": "Casey Lin",
+    "sender_role": "sitter",
+    "preview": "Mochi finished dinner. Sending a photo now.",
+    "unread_count": 1,
+    "last_message_at": "2026-04-29T19:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "m3",
+    "thread_id": "t3-riley",
+    "sender_name": "Dr. Riley",
+    "sender_role": "vet",
+    "preview": "Bella's bloodwork is clean. Continue current diet.",
+    "unread_count": 0,
+    "last_message_at": "2026-04-28T11:00:00Z",
+    "avatar_url": null
+  },
+  {
+    "id": "m4",
+    "thread_id": "t4-jordan",
+    "sender_name": "Jordan Reyes",
+    "sender_role": "sitter",
+    "preview": "Confirmed for the overnight stay May 10–12. Schedule received.",
+    "unread_count": 0,
+    "last_message_at": "2026-04-26T15:00:00Z",
+    "avatar_url": null
+  }
+]

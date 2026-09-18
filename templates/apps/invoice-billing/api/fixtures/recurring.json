@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rec-mosaic-monthly",
+    "client_id": "c-mosaic",
+    "client_name": "Mosaic Marketing",
+    "label": "Monthly retainer",
+    "amount": 950,
+    "currency": "USD",
+    "cadence": "monthly",
+    "next_run_at": "2026-05-01T00:00:00Z",
+    "active": true,
+    "created_at": "2025-08-01T10:00:00Z"
+  },
+  {
+    "id": "rec-northwind-quarterly",
+    "client_id": "c-northwind",
+    "client_name": "Northwind Coffee Co",
+    "label": "Quarterly hosting",
+    "amount": 645,
+    "currency": "USD",
+    "cadence": "quarterly",
+    "next_run_at": "2026-07-01T00:00:00Z",
+    "active": true,
+    "created_at": "2025-04-01T10:00:00Z"
+  },
+  {
+    "id": "rec-briar-monthly",
+    "client_id": "c-briar",
+    "client_name": "Briar & Bloom",
+    "label": "Social design retainer",
+    "amount": 1200,
+    "currency": "USD",
+    "cadence": "monthly",
+    "next_run_at": "2026-05-05T00:00:00Z",
+    "active": false,
+    "created_at": "2025-11-01T10:00:00Z"
+  }
+]

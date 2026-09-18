@@ -1,0 +1,11 @@
+Polish complete: 2026-04-28T13:30:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: dev-tools → sibling: api-documentation
+Components: 5 bespoke (StatusPill, BuildSparkline, PipelineRow, MetricStatCard, EnvironmentCard)
+Pages rewritten: Landing, Pipelines, PipelineDetail, Environments, Login, Signup, ForgotPassword, ResetPassword
+Material 3 tokens filled: yes (idempotent, already complete)
+Fonts loaded: Inter + JetBrains Mono + Material Symbols Outlined (already in index.html)
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary already delegated)
+Screen-map coverage: 14/14
+Compliance: 1 classmap-coverage violation (decorative gradients/blur/orbs/inline color tokens — within ≤4 acceptable threshold)
+Typecheck: clean

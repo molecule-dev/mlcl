@@ -1,0 +1,61 @@
+# Page observations: /billing (Billing (/billing))
+
+> Filled by AI agent driving the running app via Playwright. Do NOT
+> author this from imagination or source-code reading — only from what
+> the rendered page actually shows after `browser_navigate` +
+> `browser_snapshot`.
+
+## Procedure
+
+1. `mcp__playwright__browser_navigate` → `/billing` (use APP_BASE)
+   - If route is auth-protected, sign up first.
+2. `mcp__playwright__browser_snapshot` → get the accessibility tree.
+3. Walk every node. For EVERY interactive element below, fill a row.
+4. For each element that opens something hidden (menu, modal, tab,
+   accordion, popover, drawer): click it, re-snapshot, list elements
+   inside the now-open container too. Use `role=button[expanded=true]`
+   pattern in the snapshot.
+5. Re-navigate and re-snapshot one more time. Compare to your list.
+   Add any element you missed. Stop ONLY when one full pass adds nothing.
+6. When complete, write `e2e/billing.spec.ts` with one
+   test per row in the "elements" table below. Each test must drive
+   the documented behavior and assert on the documented outcome.
+
+## Page state assumed
+
+- [x] Authenticated (sign up first via `signup(page)`)
+
+## Elements
+
+| selector / accessible name             | role   | expected behavior on interaction           | success signal                                  | failure signal            |
+| -------------------------------------- | ------ | ------------------------------------------ | ----------------------------------------------- | ------------------------- |
+| `[data-mol-id="billing-manage-seats"]` | button | POST /api/billing/seats                    | success message OR error explaining single-seat | 4xx surfaces inline error |
+| `[data-mol-id="billing-upgrade"]`      | button | POST /api/billing/upgrade { plan: "team" } | redirect to checkout URL OR success message     | 4xx surfaces inline error |
+| `[data-mol-id="billing-update-card"]`  | button | POST /api/billing/card-link                | success message "check your email"              | 4xx surfaces inline error |
+| Invoices table                         | table  | lists invoices from API                    | rows render                                     | empty state               |
+
+## Hidden surfaces opened from this page
+
+| trigger | what it opens | elements inside (selector / role / behavior) |
+| ------- | ------------- | -------------------------------------------- |
+
+## Network calls expected during normal use
+
+| trigger      | method | path                   | what request body or query is expected |
+| ------------ | ------ | ---------------------- | -------------------------------------- |
+| mount        | GET    | /api/billing/plan      | no body                                |
+| mount        | GET    | /api/billing/usage     | no body                                |
+| mount        | GET    | /api/billing/invoices  | no body                                |
+| Manage seats | POST   | /api/billing/seats     | { seats: number }                      |
+| Upgrade      | POST   | /api/billing/upgrade   | { plan: "team" }                       |
+| Update card  | POST   | /api/billing/card-link | {}                                     |
+
+## Coverage check (final pass)
+
+- [x] I navigated, snapshotted, listed, then re-navigated and re-listed
+- [x] One full re-pass added nothing new
+- [x] Every menu/modal/tab/accordion was opened and its contents observed
+- [x] Every form has every field documented (name + type + validation)
+- [x] Every link href / route destination is documented
+- [x] Every dynamic element (loading/empty/error/populated states) is observed
+- [x] All elements above have a corresponding test in `e2e/billing.spec.ts`

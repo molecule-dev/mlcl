@@ -1,0 +1,179 @@
+{
+  "app": "rag-knowledge-base",
+  "designProjectId": "5614067143392109374",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-landing.html",
+      "designScreenId": "2390dfe572c04e5fa784e1a686b79ad1"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-login.html",
+      "designScreenId": "1de123f5c4ba4e2fae43b3fa424c31f6"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rag-knowledge-base-login.html",
+      "derivationNotes": "Same split layout as Login. Right card fields: First Name, Last Name, Work Email, Password, Confirm Password. Heading 'Create your Engram account'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rag-knowledge-base-login.html",
+      "derivationNotes": "Same split layout with only Email field on the right. Heading 'Reset your password'. Subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-rag-knowledge-base-login.html",
+      "derivationNotes": "Same split layout with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Ask",
+      "templateFile": "app/pages/Ask.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/ask",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-ask.html",
+      "designScreenId": "329282ab84d447009fc7b2cbc4f58f2c"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-documents.html",
+      "designScreenId": "9a5ccdb627354779b3b5510a5905cb7d"
+    },
+    {
+      "name": "DocumentDetail",
+      "templateFile": "app/pages/DocumentDetail.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/documents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-document-detail.html",
+      "designScreenId": "87e0216e84584b579ee44b6f2d31fc05"
+    },
+    {
+      "name": "Sources",
+      "templateFile": "app/pages/Sources.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/sources",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-sources.html",
+      "designScreenId": "c39e0125f71e455bb4f54960d104119a"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-analytics.html",
+      "designScreenId": "3e73872323914b928f77aaaf3f1d747d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-settings.html",
+      "designScreenId": "a86d3cbca35a401baa8439c6ca1faa82"
+    },
+    {
+      "name": "SourceDetail",
+      "templateFile": "app/pages/SourceDetail.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/sources/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-source-detail.html",
+      "designScreenId": "d249c4ecfb3a46c8bf36d48c4685406a"
+    },
+    {
+      "name": "History",
+      "templateFile": "app/pages/History.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-history.html",
+      "designScreenId": "1220329f865f4a33b8a4766a7f97abac"
+    },
+    {
+      "name": "KnowledgeGraph",
+      "templateFile": "app/pages/KnowledgeGraph.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/graph",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-knowledge-graph.html",
+      "designScreenId": "7b1d1751eed545d1b2c401b3dd582f29"
+    },
+    {
+      "name": "Members",
+      "templateFile": "app/pages/Members.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/members",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-members.html",
+      "designScreenId": "a99362f0b5ec4511833b9b32905c6f0b"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-notifications.html",
+      "designScreenId": "a3d2499a786f47d498660613f01cca2a"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/RagKnowledgeBaseLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-rag-knowledge-base-billing.html",
+      "designScreenId": "886e9a51c72444a7b14121d958d36301"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "app": "travel-booking",
+  "designProjectId": "6603098492782016502",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-landing.html",
+      "designScreenId": "5b872e1472474e6b8c80fa75327b52a7"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-login.html",
+      "designScreenId": "1cbd19179cb54e69a7508173f049a2fe"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-travel-booking-login.html",
+      "derivationNotes": "Same 45/55 split layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Create your Sojourn account'. Button text 'Create Account' (teal primary). Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-travel-booking-login.html",
+      "derivationNotes": "Same 45/55 split as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email and we will send a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'. No password field, no OAuth buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-travel-booking-login.html",
+      "derivationNotes": "Same 45/55 split as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to Sign In'. No email field, no OAuth buttons."
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-search.html",
+      "designScreenId": "dfad1467a01a416eba481725a4cefbe3"
+    },
+    {
+      "name": "PropertyDetail",
+      "templateFile": "app/pages/PropertyDetail.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/property/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-property-detail.html",
+      "designScreenId": "8be37635c7954585bef1e9f142d4f3bc"
+    },
+    {
+      "name": "Booking",
+      "templateFile": "app/pages/Booking.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/booking/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-booking.html",
+      "designScreenId": "94961e9f1aa940558abe3ca8ed098fdf"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/trips",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-trips.html",
+      "designScreenId": "8bc4a3ea2aa3422a98c8ee4b9463c967"
+    },
+    {
+      "name": "Favorites",
+      "templateFile": "app/pages/Favorites.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/favorites",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-favorites.html",
+      "designScreenId": "c018ea49589c4523bed2585b85a25668"
+    },
+    {
+      "name": "Account",
+      "templateFile": "app/pages/Account.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/account",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-account.html",
+      "designScreenId": "049f03466de349979b45320b884419a2"
+    },
+    {
+      "name": "TripDetail",
+      "templateFile": "app/pages/TripDetail.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/trips/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-trip-detail.html",
+      "designScreenId": "27493a38b96b4b12aefcdbcc46750f45"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/TravelBookingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-travel-booking-notifications.html",
+      "designScreenId": "cbc6a11b736c4b15abf5610793a16fbc"
+    }
+  ]
+}

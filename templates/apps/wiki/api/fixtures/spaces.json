@@ -1,0 +1,58 @@
+[
+  {
+    "id": "space-engineering",
+    "name": "Engineering",
+    "slug": "engineering",
+    "description": "Architecture, runbooks, RFCs, and the rest of the engineering canon.",
+    "color": "#4f46e5",
+    "icon": "cpu",
+    "page_count": 47,
+    "member_count": 14,
+    "permission": "team",
+    "owner_id": "user-marcus",
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-21T11:00:00Z"
+  },
+  {
+    "id": "space-people",
+    "name": "People & Culture",
+    "slug": "people",
+    "description": "Onboarding, benefits, policies, and how we work together.",
+    "color": "#d97706",
+    "icon": "users",
+    "page_count": 23,
+    "member_count": 14,
+    "permission": "team",
+    "owner_id": "user-sara",
+    "created_at": "2026-01-22T09:30:00Z",
+    "updated_at": "2026-04-15T14:00:00Z"
+  },
+  {
+    "id": "space-leadership",
+    "name": "Leadership",
+    "slug": "leadership",
+    "description": "Strategy docs, planning, and quarterly reviews. Restricted access.",
+    "color": "#7c3aed",
+    "icon": "compass",
+    "page_count": 12,
+    "member_count": 4,
+    "permission": "private",
+    "owner_id": "user-leo",
+    "created_at": "2026-02-01T13:00:00Z",
+    "updated_at": "2026-04-22T16:30:00Z"
+  },
+  {
+    "id": "space-product",
+    "name": "Product",
+    "slug": "product",
+    "description": "Specs, user research, and design rationale.",
+    "color": "#0d9488",
+    "icon": "lightbulb",
+    "page_count": 31,
+    "member_count": 9,
+    "permission": "team",
+    "owner_id": "user-tara",
+    "created_at": "2026-02-08T11:15:00Z",
+    "updated_at": "2026-04-19T10:45:00Z"
+  }
+]

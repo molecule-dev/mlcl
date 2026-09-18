@@ -1,0 +1,8 @@
+[
+  { "id": "fleet-eu-west",   "name": "EU West Manufacturing", "device_count": 412, "online": 401, "warning": 9, "critical": 2, "region": "eu-west-1",      "last_sync": "2026-04-27T15:58:42Z" },
+  { "id": "fleet-na-east",   "name": "NA East Logistics",     "device_count": 287, "online": 281, "warning": 4, "critical": 2, "region": "us-east-1",      "last_sync": "2026-04-27T15:58:51Z" },
+  { "id": "fleet-asia-cold", "name": "APAC Cold Chain",       "device_count": 198, "online": 192, "warning": 6, "critical": 0, "region": "ap-southeast-1", "last_sync": "2026-04-27T15:58:33Z" },
+  { "id": "fleet-research",  "name": "R&D Lab Sensors",       "device_count":  48, "online":  46, "warning": 2, "critical": 0, "region": "us-west-2",      "last_sync": "2026-04-27T15:58:48Z" },
+  { "id": "fleet-fieldtest", "name": "Field Test (Beta)",     "device_count":  64, "online":  58, "warning": 4, "critical": 2, "region": "us-east-2",      "last_sync": "2026-04-27T15:57:12Z" },
+  { "id": "fleet-warehouse", "name": "Warehouse Robotics",    "device_count": 239, "online": 236, "warning": 3, "critical": 0, "region": "us-east-1",      "last_sync": "2026-04-27T15:58:50Z" }
+]

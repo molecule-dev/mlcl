@@ -1,0 +1,28 @@
+[
+  {
+    "id": "p1",
+    "thread_id": "t1",
+    "author": { "username": "helena.k", "reputation": 4820, "role": "moderator" },
+    "body": "I want to start with the primary sources rather than the slogan. Marcus Aurelius writes about *amor fati* — the loving acceptance of what comes — but the spirit is closer to *meet the obstacle squarely* than *the obstacle is the path itself*. The grammar of the slogan flattens the distinction.",
+    "created_at": "2026-04-29T22:00:00Z",
+    "votes": 218,
+    "is_op": true,
+    "reply_count": 12
+  },
+  {
+    "id": "p2",
+    "thread_id": "t1",
+    "author": { "username": "arch.r", "reputation": 1240 },
+    "body": "Two thoughts:\n\n1. Holiday's contribution is rhetorical. He gives a generation a usable line.\n2. Whether that line tracks the source is a separate question, and you're right to pull on it.",
+    "created_at": "2026-04-29T22:25:00Z",
+    "votes": 84
+  },
+  {
+    "id": "p3",
+    "thread_id": "t1",
+    "author": { "username": "mia.v", "reputation": 2780 },
+    "body": "Worth looking at the Greek: Marcus's *eumenōs* (graciously, with goodwill) is not the same as *embrace as the path*. There's a quietness in the source that the slogan flattens.",
+    "created_at": "2026-04-30T00:12:00Z",
+    "votes": 56
+  }
+]

@@ -1,0 +1,15 @@
+Polish complete: 2026-04-30T01:20:00Z
+Pipeline: polish-app.md (manual session)
+Cluster: finance → siblings: banking-dashboard, personal-finance, crypto-tracker, investment-portfolio
+Components: 6 bespoke
+  - PayrollManagerLayout.tsx (deep-navy sidebar shell with gradient logo chip + accent badge, translated from MeridianLayout)
+  - PayrollHeroCard.tsx (cyan→emerald gradient next-pay-run card with SVG sparkline, translated from BalanceHeroCard)
+  - PayrollKpiTriad.tsx (4-up KPI cards with semantic-tinted icon chips + accent borders, translated from KpiCard/AccountsTriad)
+  - EmployeesTable.tsx (avatar-chip editorial table with status pills + skeletons, translated from CompaniesTable/CompanyRow)
+  - PayRunsList.tsx (status-strip pay-run cards with employee chips + amounts, brand-original via DESIGN.md recipe)
+  - AuthBrandHeader.tsx (gradient logo chip + Coffer wordmark + tagline, translated from banking-dashboard AuthBrandHeader)
+Pages rewritten: Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard, Employees, EmployeeDetail, PayRuns, PayRunDetail, RunPayroll, PayStub, TaxCenter, Reports, Settings, AuditLog, Notifications, Billing, Profile
+Screen-map coverage: 19/19
+Compliance: 1 violation (classmap-coverage 75.2% — bespoke gradient/blur/sparkline decorative pieces; above 70% acceptance threshold)
+Brand: Coffer — cyan/teal primary (#0e7490) → secondary teal (#22a3c4) → emerald accent (#059669) → deep-navy sidebar (#0c1f2e)
+Tagline: Every cycle, covered

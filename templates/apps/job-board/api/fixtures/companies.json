@@ -1,0 +1,74 @@
+[
+  {
+    "id": "co_001",
+    "name": "Acuity Talent",
+    "logo_url": null,
+    "description": "Acuity helps fast-growing teams hire across product, design, and engineering. Remote-first since 2019, with hiring teams in 14 countries.",
+    "website": "https://acuitytalent.example",
+    "employee_count": 184,
+    "contact_email": "people@acuitytalent.example",
+    "location": "Remote-first \u00b7 NYC HQ",
+    "industry": "Talent platform",
+    "active_job_count": 12
+  },
+  {
+    "id": "co_002",
+    "name": "Northwind People Ops",
+    "logo_url": null,
+    "description": "Embedded people-ops studio for Series A\u2013C startups. We pair deep recruiting with HR systems, comp benchmarking, and onboarding playbooks.",
+    "website": "https://northwind.example",
+    "employee_count": 42,
+    "contact_email": "talent@northwind.example",
+    "location": "San Francisco, CA",
+    "industry": "Recruiting agency",
+    "active_job_count": 7
+  },
+  {
+    "id": "co_003",
+    "name": "Polaris Recruiting Studio",
+    "logo_url": null,
+    "description": "Senior + staff engineering search across fintech, dev tools, and AI infra. Quietly placed 240 engineers since 2021.",
+    "website": "https://polaris.example",
+    "employee_count": 28,
+    "contact_email": "hello@polaris.example",
+    "location": "Brooklyn, NY",
+    "industry": "Engineering search",
+    "active_job_count": 9
+  },
+  {
+    "id": "co_004",
+    "name": "Foundry Hiring Co.",
+    "logo_url": null,
+    "description": "Foundry is the open hiring co-op for design-led product teams. Member companies share a candidate pool and a shared comp band.",
+    "website": "https://foundry.example",
+    "employee_count": 56,
+    "contact_email": "join@foundry.example",
+    "location": "Remote (Americas)",
+    "industry": "Design hiring co-op",
+    "active_job_count": 5
+  },
+  {
+    "id": "co_005",
+    "name": "Vector Labs",
+    "logo_url": null,
+    "description": "AI infrastructure for retrieval-heavy product teams. We hire engineers who care equally about latency and developer experience.",
+    "website": "https://vector.example",
+    "employee_count": 64,
+    "contact_email": "careers@vector.example",
+    "location": "Remote (US/EU)",
+    "industry": "AI infrastructure",
+    "active_job_count": 6
+  },
+  {
+    "id": "co_006",
+    "name": "Helix Health",
+    "logo_url": null,
+    "description": "Helix is a connected-care platform for hospital networks. Our engineering team owns FHIR, scheduling, and the patient app.",
+    "website": "https://helix.example",
+    "employee_count": 312,
+    "contact_email": "talent@helix.example",
+    "location": "Boston, MA",
+    "industry": "Health tech",
+    "active_job_count": 14
+  }
+]

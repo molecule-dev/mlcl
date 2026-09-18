@@ -1,0 +1,26 @@
+[
+  {
+    "id": "world-cup-final",
+    "headline": "World Cup final delivers extra-time drama in front of 78,000.",
+    "excerpt": "Penalties. Late-game tactics. The framing across outlets is mostly cosmetic — bias minimal — but coverage angles vary by region.",
+    "topic": "Sports",
+    "topic_slug": "sports",
+    "source_count": 14,
+    "average_bias": 0.02,
+    "published_at": "2026-04-29T10:00:00.000Z",
+    "image_url": null,
+    "saved": true
+  },
+  {
+    "id": "open-source-ai-bill",
+    "headline": "Open-source AI bill clears committee with bipartisan support.",
+    "excerpt": "The bill exempts academic projects from licensing. TechCrunch frames it as a win; Fox emphasizes deregulation; The Verge questions enforceability.",
+    "topic": "Tech",
+    "topic_slug": "tech",
+    "source_count": 11,
+    "average_bias": -0.1,
+    "published_at": "2026-04-29T14:00:00.000Z",
+    "image_url": null,
+    "saved": true
+  }
+]

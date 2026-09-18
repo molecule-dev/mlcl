@@ -1,0 +1,27 @@
+app: status-page (Vigil)
+date: 2026-04-29
+tagline: Every second, accounted for
+cluster: developer-tools
+sibling-reference: ci-cd-dashboard, personal-finance
+
+bespoke components: 7
+  - StatusPill        (status semantics + pulsing degraded indicator)
+  - UptimeBar         (90-day deterministic uptime visualisation)
+  - ServiceRow        (component health row with uptime + monitor link)
+  - IncidentCard      (severity-accented incident summary)
+  - StatusOverviewCard (hero card — "all systems operational" + KPIs)
+  - MetricKpiCard     (compact KPI tile with delta + trend)
+  - StatusPageLayout  (Vigil sidebar shell wired through SidebarLayout)
+
+screens covered: 19/19
+  Public:    PublicStatus, Login, Signup, ForgotPassword, ResetPassword
+  Authed:    Dashboard, IncidentList, IncidentDetail, IncidentForm,
+             Components, ComponentDetail, MaintenanceList, MaintenanceDetail,
+             Subscribers, Settings, Profile, Notifications, Team, AuditLog
+
+theme: dark-first emerald-on-navy (deep-navy bg + slate panels + emerald primary)
+auth pattern: 440px centred card on scan-line backdrop with status-pill eyebrow
+classmap-coverage: 100%
+missing-tokens: 0
+api-fixtures: components/incidents/maintenance/subscribers/team/notifications/audit
+mock-server: routes auto-resolve from mlcl/templates/apps/status-page/api/fixtures/

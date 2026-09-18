@@ -1,0 +1,3 @@
+# Internal handler invoked transitively by every authenticated mailbox
+# request — verified by every authenticated test (signup → mailbox seeded).
+_seed

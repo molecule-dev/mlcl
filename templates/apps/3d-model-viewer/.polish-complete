@@ -1,0 +1,3 @@
+Polish complete: 2026-04-26T16:05:03Z
+Pipeline: v2 (phases 1-12, including hand-fixes to Upload page tokens)
+Note: marker written manually 2026-04-26 — polished via direct run.mjs invocations rather than the auto-polish-daemon, plus targeted hand-fixes on the Upload page (bg-primary-container → bg-violet-50, bg-surface-dark → bg-slate-900, etc.).

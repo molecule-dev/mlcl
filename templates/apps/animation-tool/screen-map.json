@@ -1,0 +1,149 @@
+{
+  "app": "animation-tool",
+  "designProjectId": "5631700573913795683",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-landing.html",
+      "designScreenId": "7fffa69c03c74ab695d54b6a05d3de6c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-login.html",
+      "designScreenId": "1e0430292756493bbeab83e1b32698fb"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-animation-tool-login.html",
+      "derivationNotes": "Same dark centered card with kinetic bezier-curve background as Login, but with fields: First Name, Last Name, Email, Password, Confirm Password. Card heading changes to 'Create your account' with subtext 'Join the motion workflow'. Primary button text becomes 'Create Account' (violet-to-magenta gradient). Bottom link changes to 'Already have an account? Sign in'. Keep Google + GitHub social auth row. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-animation-tool-login.html",
+      "derivationNotes": "Same dark card layout and Vivace branding as Login, but with only email field. Heading changes to 'Reset your password' with subtext 'Enter your email and we will send you a reset link'. Button text changes to 'Send Reset Link' (violet-to-magenta gradient). Bottom link changes to 'Back to Sign In'. Remove password field, remember-me row, and social auth section."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-animation-tool-login.html",
+      "derivationNotes": "Same dark card layout and Vivace branding as Login, but with New Password + Confirm Password fields only. Heading changes to 'Set a new password'. Subtext 'Make it something you will remember'. Button text changes to 'Reset Password' (violet-to-magenta gradient). Bottom link changes to 'Back to Sign In'. Remove email field, remember-me row, and social auth section."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-dashboard.html",
+      "designScreenId": "3fff5f0400964aaea627ab8750787f3c"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/projects/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-editor.html",
+      "designScreenId": "5a0c389eefd644079675bd9ea8822eb5"
+    },
+    {
+      "name": "Projects",
+      "templateFile": "app/pages/Projects.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/projects",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-projects.html",
+      "designScreenId": "5ecdd0acfc3c43d19ae2ed3dfe314c9b"
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-library.html",
+      "designScreenId": "2fa6d633a04b4e15975f1ce0cbad7b3a"
+    },
+    {
+      "name": "Export",
+      "templateFile": "app/pages/Export.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/projects/:id/export",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-export.html",
+      "designScreenId": "edc81d28fb7142ac98bde5d31bd59077"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-settings.html",
+      "designScreenId": "3d681382774342c1b497e23957bdda38"
+    },
+    {
+      "name": "Assets",
+      "templateFile": "app/pages/Assets.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/assets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-assets.html",
+      "designScreenId": "b52ef71b570a4631b48e4449e64d99be"
+    },
+    {
+      "name": "StateMachine",
+      "templateFile": "app/pages/StateMachine.tsx",
+      "components": ["app/components/AnimationToolLayout.tsx"],
+      "route": "/projects/:id/states",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-state-machine.html",
+      "designScreenId": "d7e97f3b066846a598adf3d18d4e2271"
+    },
+    {
+      "name": "SharePreview",
+      "templateFile": "app/pages/SharePreview.tsx",
+      "components": [],
+      "route": "/share/:token",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-animation-tool-share-preview.html",
+      "designScreenId": "c4d847e5680b4a60892c75d32ff60b9e"
+    }
+  ]
+}

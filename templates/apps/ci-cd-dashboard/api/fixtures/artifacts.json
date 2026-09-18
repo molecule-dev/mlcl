@@ -1,0 +1,9 @@
+[
+  { "id": "a1", "name": "api-v4.2.0.tar.gz",          "pipeline_id": "pl1", "pipeline_name": "build-and-test", "size_bytes":  5242880, "type": "tarball",   "retention_days": 30, "created_at": "2026-04-26T20:42:00.000Z", "download_url": "/artifacts/a1" },
+  { "id": "a2", "name": "web-bundle.js",              "pipeline_id": "pl2", "pipeline_name": "build-and-test", "size_bytes":   843200, "type": "binary",    "retention_days": 30, "created_at": "2026-04-26T20:18:00.000Z", "download_url": "/artifacts/a2" },
+  { "id": "a3", "name": "web-bundle.js.map",          "pipeline_id": "pl2", "pipeline_name": "build-and-test", "size_bytes":  2097152, "type": "sourcemap", "retention_days": 30, "created_at": "2026-04-26T20:18:00.000Z", "download_url": "/artifacts/a3" },
+  { "id": "a4", "name": "acme-api:4.2.0",             "pipeline_id": "pl3", "pipeline_name": "deploy-staging", "size_bytes": 36700160, "type": "docker",    "retention_days": 90, "created_at": "2026-04-26T19:46:00.000Z", "download_url": "/artifacts/a4" },
+  { "id": "a5", "name": "sbom-api-v4.2.0.json",       "pipeline_id": "pl1", "pipeline_name": "build-and-test", "size_bytes":   124928, "type": "sbom",      "retention_days": 365, "created_at": "2026-04-26T20:42:00.000Z", "download_url": "/artifacts/a5" },
+  { "id": "a6", "name": "build-log-pl4.txt",          "pipeline_id": "pl4", "pipeline_name": "lint-and-typecheck", "size_bytes": 18432, "type": "log",     "retention_days": 14, "created_at": "2026-04-26T19:30:00.000Z", "download_url": "/artifacts/a6" },
+  { "id": "a7", "name": "AcmeMobile-4.2.0.ipa",       "pipeline_id": "pl5", "pipeline_name": "build-and-test", "size_bytes": 67108864, "type": "binary",    "retention_days": 30, "created_at": "2026-04-26T18:50:00.000Z", "download_url": "/artifacts/a7" }
+]

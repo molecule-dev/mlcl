@@ -1,0 +1,48 @@
+[
+  {
+    "id": "key_001",
+    "name": "terraform-prod",
+    "key_masked": "pk_live_••••8a3f",
+    "scopes": ["endpoints:write", "deliveries:read"],
+    "created_at": "2025-09-04T10:18:00Z",
+    "last_used_at": "2026-04-26T15:42:00Z",
+    "is_revoked": false
+  },
+  {
+    "id": "key_002",
+    "name": "ci-pipeline",
+    "key_masked": "pk_live_••••2c11",
+    "scopes": ["endpoints:read", "deliveries:write"],
+    "created_at": "2025-11-12T08:42:00Z",
+    "last_used_at": "2026-04-26T14:22:00Z",
+    "is_revoked": false
+  },
+  {
+    "id": "key_003",
+    "name": "staging-tests",
+    "key_masked": "pk_test_••••4d22",
+    "scopes": ["endpoints:read", "deliveries:read"],
+    "created_at": "2026-01-04T16:30:00Z",
+    "last_used_at": "2026-04-25T09:18:00Z",
+    "is_revoked": false
+  },
+  {
+    "id": "key_004",
+    "name": "ops-dashboard",
+    "key_masked": "pk_live_••••5e33",
+    "scopes": ["deliveries:read", "events:read"],
+    "created_at": "2025-08-21T13:10:00Z",
+    "last_used_at": "2026-04-26T15:11:00Z",
+    "is_revoked": false
+  },
+  {
+    "id": "key_005",
+    "name": "expired-key",
+    "key_masked": "pk_live_••••6f44",
+    "scopes": ["endpoints:write"],
+    "created_at": "2024-12-01T09:00:00Z",
+    "last_used_at": "2025-06-14T22:00:00Z",
+    "is_revoked": true,
+    "revoked_at": "2025-06-15T10:30:00Z"
+  }
+]

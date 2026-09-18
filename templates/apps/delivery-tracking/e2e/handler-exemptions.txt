@@ -1,0 +1,6 @@
+# Handlers that intentionally have no public HTTP path.
+# One name per line; the verify-app-coverage.mjs gate will skip these.
+
+# Server-side seed module, called from server bootstrap and from POST /users
+# (sets up demo data for new accounts). Not a request handler.
+_seed

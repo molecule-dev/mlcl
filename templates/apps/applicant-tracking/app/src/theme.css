@@ -1,0 +1,198 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  /* #4f46e5 darkened from #6366f1 so white on-primary clears 4.5:1 (was 4.47 — borderline fail). */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #0d9488;
+
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e5e5e5;
+
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* App-specific tokens — pipeline stage colors */
+  --color-stage-sourced: #8b5cf6;
+  --color-stage-sourced-bg: #ede9fe;
+  --color-stage-screening: #6366f1;
+  --color-stage-screening-bg: #e0e7ff;
+  --color-stage-interview: #0d9488;
+  --color-stage-interview-bg: #ccfbf1;
+  --color-stage-offer: #d97706;
+  --color-stage-offer-bg: #fef3c7;
+  --color-stage-hired: #16a34a;
+  --color-stage-hired-bg: #dcfce7;
+  --color-stage-rejected: #6b7280;
+  --color-stage-rejected-bg: #f3f4f6;
+
+  /* AI score tier colors */
+  --color-score-high: #16a34a;
+  --color-score-high-light: #dcfce7;
+  --color-score-medium: #d97706;
+  --color-score-medium-light: #fef3c7;
+  --color-score-low: #dc2626;
+  --color-score-low-light: #fee2e2;
+
+  /* === M3 light-mode tokens — override the stitch @theme baseline in index.css
+     so on-primary-container, on-surface, outline etc. are app-correct in light mode. === */
+  --color-background: #fafafa;
+  --color-on-background: #0f172a;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-on-primary: #ffffff;
+  --color-primary: #4f46e5;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary-container: #1e1b4b;
+  --color-outline: #64748b;
+  --color-outline-variant: #e5e5e5;
+  --color-surface-tint: #4f46e5;
+  --color-on-error: #ffffff;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #7f1d1d;
+  --color-inverse-surface: #1e293b;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #818cf8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #e5e5e5;
+  --color-surface-container-high: #d4d4d4;
+  --color-surface-container-highest: #c4c4c4;
+  --color-surface-variant: #e5e5e5;
+  --color-secondary: #0d9488;
+  --color-secondary-container: #ccfbf1;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0d9488;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #3b0764;
+}
+
+/* Dark mode — productivity/HR cool-slate dark.
+   Cool slate neutrals (#0f172a / #1e293b / #334155) keep the recruiter
+   console feeling enterprise-grade. Brand indigo (#4f46e5) is preserved
+   at the Stitch brand stop; `--mol-color-primary` shifts to a brighter
+   indigo (#818cf8) for body accents that read on dark surfaces.
+   `--color-on-primary` STAYS white (8.72:1 on dark mol-primary #818cf8,
+   6.29:1 on brand stop #4f46e5 — both pass). Pipeline-stage and AI-score
+   domain semantics preserved with brighter foregrounds and tinted dark bgs. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #312e81;
+  --mol-color-primary-dark: #4f46e5;
+  --mol-color-secondary: #2dd4bf;
+
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  /* #d63030: darker than #f87171 so white on-error text clears 4.5:1. */
+  --mol-color-error: #d63030;
+  --mol-color-info: #38bdf8;
+
+  --mol-color-background: #0f172a;
+  --mol-color-background-secondary: #1e293b;
+  --mol-color-background-tertiary: #334155;
+  --mol-color-surface: #1e293b;
+  --mol-color-border: #334155;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #0f172a;
+
+  /* App-specific tokens — pipeline stage colors (brighter for dark bg, deeper tinted bgs) */
+  --color-stage-sourced: #a78bfa;
+  --color-stage-sourced-bg: #3b2e6e;
+  --color-stage-screening: #818cf8;
+  --color-stage-screening-bg: #312e81;
+  --color-stage-interview: #2dd4bf;
+  --color-stage-interview-bg: #134e4a;
+  --color-stage-offer: #fbbf24;
+  --color-stage-offer-bg: #5b3a0d;
+  --color-stage-hired: #4ade80;
+  --color-stage-hired-bg: #14532d;
+  --color-stage-rejected: #94a3b8;
+  --color-stage-rejected-bg: #1f2937;
+
+  /* AI score tier colors — brighter on dark, deeper tinted bg */
+  --color-score-high: #4ade80;
+  --color-score-high-light: #14532d;
+  --color-score-medium: #fbbf24;
+  --color-score-medium-light: #5b3a0d;
+  /* #fca5a5: lighter than #f87171 so text-on-container passes 4.5:1 vs #7f1d1d (5.28:1). */
+  --color-score-low: #fca5a5;
+  --color-score-low-light: #7f1d1d;
+
+  /* Stitch / Material-3 token dark variants — keep brand indigo at the
+     brand stop; on-primary stays white for readable CTA buttons. */
+  --color-background: #0f172a;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0f172a;
+  --color-surface-bright: #334155;
+  --color-surface-dim: #0a0f1c;
+  --color-surface-container-lowest: #060a14;
+  --color-surface-container-low: #131c2e;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #28344a;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0f172a;
+  --color-inverse-primary: #4f46e5;
+  /* #4f46e5: matches light primary, white on-primary clears 4.5:1 (6.29:1). */
+  --color-primary: #4f46e5;
+  --color-primary-container: #312e81;
+  --color-on-primary: #ffffff; /* white on indigo — readable in both modes */
+  --color-on-primary-container: #e1e0ff;
+  --color-primary-fixed: #312e81;
+  --color-primary-fixed-dim: #4f46e5;
+  --color-on-primary-fixed: #e1e0ff;
+  --color-on-primary-fixed-variant: #c0c1ff;
+  --color-secondary: #2dd4bf;
+  --color-secondary-container: #134e4a;
+  --color-on-secondary: #002822;
+  --color-on-secondary-container: #86f2e4;
+  --color-secondary-fixed: #134e4a;
+  --color-secondary-fixed-dim: #115e59;
+  --color-on-secondary-fixed: #86f2e4;
+  --color-on-secondary-fixed-variant: #6bd8cb;
+  --color-tertiary: #c4b5fd;
+  --color-tertiary-container: #5b21b6;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #e9ddff;
+  --color-tertiary-fixed: #5b21b6;
+  --color-tertiary-fixed-dim: #7c3aed;
+  --color-on-tertiary-fixed: #e9ddff;
+  --color-on-tertiary-fixed-variant: #d0bcff;
+  /* #d63030 darkened from #f87171 so white on-error clears 4.5:1 (was 2.77 — fail). */
+  --color-error: #d63030;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+  --color-surface-tint: #818cf8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "aud_001",
+    "occurred_at": "2026-04-29T16:34:21Z",
+    "actor_name": "Priya Iyer",
+    "actor_initial": "P",
+    "action": "approved",
+    "target_label": "PTO request for Lena Okafor",
+    "target_link": "/pto",
+    "details": "Vacation, Jun 2 → Jun 13."
+  },
+  {
+    "id": "aud_002",
+    "occurred_at": "2026-04-29T15:12:09Z",
+    "actor_name": "Sasha Wright",
+    "actor_initial": "S",
+    "action": "uploaded",
+    "target_label": "Compensation Bands 2026.xlsx",
+    "target_link": "/documents",
+    "details": "Restricted to Leadership."
+  },
+  {
+    "id": "aud_003",
+    "occurred_at": "2026-04-29T13:48:45Z",
+    "actor_name": "Avery Kim",
+    "actor_initial": "A",
+    "action": "promoted",
+    "target_label": "Maya Chen",
+    "target_link": "/employees/emp_001",
+    "details": "Senior Backend Engineer → Staff Engineer (effective May 1)."
+  },
+  {
+    "id": "aud_004",
+    "occurred_at": "2026-04-29T11:02:14Z",
+    "actor_name": "Devon Park",
+    "actor_initial": "D",
+    "action": "added",
+    "target_label": "Sai Becker",
+    "target_link": "/onboarding",
+    "details": "New Solutions Architect, start May 13."
+  },
+  {
+    "id": "aud_005",
+    "occurred_at": "2026-04-28T22:19:00Z",
+    "actor_name": "system",
+    "actor_initial": "s",
+    "action": "rotated",
+    "target_label": "Encryption keys",
+    "target_link": "/settings",
+    "details": "Quarterly key rotation completed."
+  },
+  {
+    "id": "aud_006",
+    "occurred_at": "2026-04-28T18:00:00Z",
+    "actor_name": "Priya Iyer",
+    "actor_initial": "P",
+    "action": "edited",
+    "target_label": "Remote Work Policy",
+    "target_link": "/documents",
+    "details": "Added section on async-first norms."
+  }
+]

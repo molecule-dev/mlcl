@@ -1,0 +1,175 @@
+/*
+ * Pylon — Webhook Manager design tokens.
+ *
+ * `:root` = light palette. `[data-mol-mode='dark']` = dark overrides.
+ * The ClassMap helpers in @molecule/app-ui consume these via the bridge
+ * tokens defined in index.css; the raw `--mol-*` values are also exposed
+ * for components that read them directly via inline style.
+ */
+
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* ── Bridge variables (light defaults) ── */
+  --mol-color-primary: #059669;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #047857;
+  --mol-color-secondary: #4f46e5;
+  --mol-color-secondary-light: #e0e7ff;
+  --mol-color-secondary-dark: #4338ca;
+
+  --mol-color-background: #f9fafb;
+  --mol-color-background-secondary: #f3f4f6;
+  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-input-background: #ffffff;
+
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #059669;
+
+  --mol-color-success: #059669;
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #d97706;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #4f46e5;
+  --mol-color-info-light: #e0e7ff;
+
+  /* Typography */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono:
+    'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
+  --color-background: #f9fafb;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e5e7eb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9fafb;
+  --color-surface-container: #f3f4f6;
+  --color-surface-container-high: #e5e7eb;
+  --color-surface-container-highest: #d1d5db;
+  --color-surface-variant: #f3f4f6;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f9fafb;
+  --color-inverse-primary: #34d399;
+  --color-primary: #059669;
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #021a12; /* dark forest on emerald — 4.81:1 (was white 3.77 FAIL) */
+  --color-on-primary-container: #064e3b;
+  --color-secondary: #4f46e5;
+  --color-secondary-container: #e0e7ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #422006; /* dark amber on amber — 4.57:1 (was white 3.19 FAIL) */
+  --color-on-tertiary-container: #78350f;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* 4.76:1 vs white surface (was #94a3b8 2.56 FAIL) */
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #059669;
+}
+
+/* Dark mode — Pylon webhook devops dark.
+   Pure-neutral terminal canvas — emerald-on-near-black, like a clean
+   modern devops console (Vercel, Datadog, Sentry). Brand emerald stays
+   at the brand stop (#10b981) for primary CTAs so the Pylon color reads
+   consistently; surface accents (links, focus rings, success badges) use
+   a brighter mint. Indigo secondary preserved.
+   `--color-on-primary` stays white so the emerald CTA keeps its
+   light-on-emerald character.
+   Selector: `[data-mol-mode='dark']` — controlled by the theme toggle on
+   <html>, NOT @media or .dark class. */
+[data-mol-mode='dark'] {
+  /* ── Bridge variables ── */
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: #0b3d2d;
+  --mol-color-primary-dark: #10b981;
+  --mol-color-secondary: #a5b4fc;
+  --mol-color-secondary-light: #1e1b4b;
+  --mol-color-secondary-dark: #6366f1;
+
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #141414;
+  --mol-color-background-tertiary: #1c1c1c;
+  --mol-color-surface: #0f0f0f;
+  --mol-color-surface-secondary: #1a1a1a;
+  --mol-color-input-background: #060606;
+
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #b8b8b8;
+  --mol-color-text-tertiary: #8a8a8a; /* #7a7a7a was 4.46:1 on the near-black cards (fail); #8a8a8a = 5.55:1 */
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #262626;
+  --mol-color-border-secondary: #383838;
+  --mol-color-border-focus: #34d399;
+
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #0b3d2d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #4a2d05;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #4a1414;
+  --mol-color-info: #a5b4fc;
+  --mol-color-info-light: #1e1b4b;
+
+  /* ── Material-3 / Stitch bridge tokens (dark overrides) ── */
+  --color-background: #0a0a0a;
+  --color-on-background: #f5f5f5;
+  --color-surface: #0f0f0f;
+  --color-surface-bright: #1c1c1c;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0a0a0a;
+  --color-surface-container: #141414;
+  --color-surface-container-high: #1c1c1c;
+  --color-surface-container-highest: #262626;
+  --color-surface-variant: #1c1c1c;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #b8b8b8;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0a0a0a;
+  --color-inverse-primary: #059669;
+  --color-primary: #10b981; /* keep brand emerald at brand stop */
+  --color-primary-container: #0b3d2d;
+  --color-on-primary: #022c22; /* dark on emerald — 5.97:1 (was white 2.54 FAIL) */
+  --color-on-primary-container: #a7f3d0;
+  --color-secondary: #a5b4fc;
+  --color-secondary-container: #1e1b4b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #e0e7ff;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4a2d05;
+  --color-on-tertiary: #3a1a00; /* dark on amber — 9.48:1 (was white 1.67 FAIL) */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #4a1414;
+  --color-on-error: #3a0000; /* dark on red — 6.43:1 (was white 2.77 FAIL) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6e6e6e; /* 3.76:1 vs surface (was #525252 2.45 FAIL) */
+  --color-outline-variant: #262626;
+  --color-surface-tint: #34d399;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

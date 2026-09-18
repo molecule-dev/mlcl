@@ -1,0 +1,1215 @@
+{
+  "slug": "flashcard-app",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-decks",
+      "path": "/decks",
+      "component": "Decks",
+      "file": "app/src/pages/Decks.tsx"
+    },
+    {
+      "id": "page-deckdetail",
+      "path": "/decks/:deckId",
+      "component": "DeckDetail",
+      "file": "app/src/pages/DeckDetail.tsx"
+    },
+    {
+      "id": "page-cardedit",
+      "path": "/decks/:deckId/cards/:cardId/edit",
+      "component": "CardEdit",
+      "file": "app/src/pages/CardEdit.tsx"
+    },
+    {
+      "id": "page-cardnew",
+      "path": "/decks/:deckId/cards/new",
+      "component": "CardNew",
+      "file": "app/src/pages/CardNew.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-stats",
+      "path": "/stats",
+      "component": "Stats",
+      "file": "app/src/pages/Stats.tsx"
+    },
+    {
+      "id": "page-study",
+      "path": "/study/:deckId",
+      "component": "Study",
+      "file": "app/src/pages/Study.tsx"
+    },
+    {
+      "id": "page-sessionsummary",
+      "path": "/study/:deckId/summary",
+      "component": "SessionSummary",
+      "file": "app/src/pages/SessionSummary.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-authshell-40",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AuthShell.tsx",
+      "line": 40,
+      "label": "link at app/src/components/AuthShell.tsx:40",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckprogresscard-78",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DeckProgressCard.tsx",
+      "line": 78,
+      "label": "link at app/src/components/DeckProgressCard.tsx:78",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-flashcardsurface-51",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/FlashcardSurface.tsx",
+      "line": 51,
+      "label": "button at app/src/components/FlashcardSurface.tsx:51",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-footer-36--------",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/components/Footer.tsx",
+      "line": 36,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-footer-44-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/Footer.tsx",
+      "line": 44,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-footer-51-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/Footer.tsx",
+      "line": 51,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-footer-58",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/Footer.tsx",
+      "line": 58,
+      "label": "button at app/src/components/Footer.tsx:58",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-footer-78",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/Footer.tsx",
+      "line": 78,
+      "label": "button at app/src/components/Footer.tsx:78",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-header-16",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Header.tsx",
+      "line": 16,
+      "label": "link at app/src/components/Header.tsx:16",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-todayherocard-121-play-arrow",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TodayHeroCard.tsx",
+      "line": 121,
+      "label": "play_arrow",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-35-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 35,
+      "label": ", )}",
+      "href": "/settings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-38-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 38,
+      "label": ", )}",
+      "href": "/stats",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-42-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 42,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-cardeditor-74-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 74,
+      "label": "← , )}",
+      "href": "/decks/${deckId}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-cardeditor-94",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 94,
+      "label": "textarea at app/src/pages/CardEditor.tsx:94",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-cardeditor-108",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 108,
+      "label": "textarea at app/src/pages/CardEditor.tsx:108",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-cardeditor-122",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 122,
+      "label": "input at app/src/pages/CardEditor.tsx:122",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-cardeditor-144-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 144,
+      "label": ", )}",
+      "href": "/decks/${deckId}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-cardeditor-147--------mode-----new-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 147,
+      "label": ", ) : (mode === new ? t(cardEditor.createLabel, , ) : t(card",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-193-------defaultvalue--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 193,
+      "label": ", , { defaultValue: d.category",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckdetail-84-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 84,
+      "label": "← , )}",
+      "href": "/decks",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckdetail-87-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 87,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckdetail-102-----due----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 102,
+      "label": ", } due })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deckdetail-122",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 122,
+      "label": "button at app/src/pages/DeckDetail.tsx:122",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deckdetail-143--p-classname--cm-cn",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DeckDetail.tsx",
+      "line": 143,
+      "label": "<p className={cm.cn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-decks-96-------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 96,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-decks-110",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 110,
+      "label": "button at app/src/pages/Decks.tsx:110",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-decks-147",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 147,
+      "label": "link at app/src/pages/Decks.tsx:147",
+      "href": "/decks/${d.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-decks-202",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 202,
+      "label": "input at app/src/pages/Decks.tsx:202",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-decks-216",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 216,
+      "label": "input at app/src/pages/Decks.tsx:216",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-decks-228",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 228,
+      "label": "select at app/src/pages/Decks.tsx:228",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-decks-242-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 242,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-decks-249-------t-decks-create",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 249,
+      "label": ", ) : t(decks.create.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-40-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 40,
+      "label": "arrow_back , )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-98--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 98,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-65--span-aria-hidden-tr",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 65,
+      "label": "<span aria-hidden=true className=",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-80-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 80,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-87-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 87,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-139-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 139,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-154-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 154,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-270-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 270,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-43-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 43,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-73-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-95--isloggingin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 95,
+      "label": "{isLoggingIn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-154",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 154,
+      "label": "input at app/src/pages/Login.tsx:154",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-53-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 53,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-121--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 121,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-sessionsummary-23-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SessionSummary.tsx",
+      "line": 23,
+      "label": ", )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-sessionsummary-26-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SessionSummary.tsx",
+      "line": 26,
+      "label": ", )}",
+      "href": "/decks/${deckId}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 171,
+      "label": "button at app/src/pages/Settings.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-210",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 210,
+      "label": "input at app/src/pages/Settings.tsx:210",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-223",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 223,
+      "label": "input at app/src/pages/Settings.tsx:223",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-238",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 238,
+      "label": "button at app/src/pages/Settings.tsx:238",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-257-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 257,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-279",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 279,
+      "label": "input at app/src/pages/Settings.tsx:279",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-298-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 298,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-344",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 344,
+      "label": "input at app/src/pages/Settings.tsx:344",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-43-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 43,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-93--issigningup",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 93,
+      "label": "{isSigningUp",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-study-205-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Study.tsx",
+      "line": 205,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-study-251",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Study.tsx",
+      "line": 251,
+      "label": "button at app/src/pages/Study.tsx:251",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-study-315-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Study.tsx",
+      "line": 315,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-study-377-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Study.tsx",
+      "line": 377,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-study-389-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Study.tsx",
+      "line": 389,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-cardeditor-89",
+      "file": "app/src/pages/CardEditor.tsx",
+      "line": 89,
+      "label": "form at app/src/pages/CardEditor.tsx:89",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-decks-190",
+      "file": "app/src/pages/Decks.tsx",
+      "line": 190,
+      "label": "form at app/src/pages/Decks.tsx:190",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-72",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 72,
+      "label": "form at app/src/pages/ForgotPassword.tsx:72",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-49",
+      "file": "app/src/pages/Login.tsx",
+      "line": 49,
+      "label": "form at app/src/pages/Login.tsx:49",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-65",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 65,
+      "label": "form at app/src/pages/ResetPassword.tsx:65",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-49",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 49,
+      "label": "form at app/src/pages/Signup.tsx:49",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-cards--id",
+      "method": "DELETE",
+      "mountedPath": "/cards/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 254,
+      "resource": "cards"
+    },
+    {
+      "id": "route-delete-decks--id",
+      "method": "DELETE",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 191,
+      "resource": "decks"
+    },
+    {
+      "id": "route-delete-notifications--id",
+      "method": "DELETE",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 156,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-cards-",
+      "method": "GET",
+      "mountedPath": "/cards",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 66,
+      "resource": "cards"
+    },
+    {
+      "id": "route-get-cards--id",
+      "method": "GET",
+      "mountedPath": "/cards/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 124,
+      "resource": "cards"
+    },
+    {
+      "id": "route-get-cards-deck--deckid",
+      "method": "GET",
+      "mountedPath": "/cards/deck/:deckId",
+      "rawPath": "/deck/:deckId",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 95,
+      "resource": "cards"
+    },
+    {
+      "id": "route-get-decks-",
+      "method": "GET",
+      "mountedPath": "/decks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 57,
+      "resource": "decks"
+    },
+    {
+      "id": "route-get-decks--id",
+      "method": "GET",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 85,
+      "resource": "decks"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 51,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-profile-me",
+      "method": "GET",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 79,
+      "resource": "profile"
+    },
+    {
+      "id": "route-get-reports-overview",
+      "method": "GET",
+      "mountedPath": "/reports/overview",
+      "rawPath": "/overview",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 109,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-reports-today",
+      "method": "GET",
+      "mountedPath": "/reports/today",
+      "rawPath": "/today",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 69,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-stats-deck--deckid",
+      "method": "GET",
+      "mountedPath": "/stats/deck/:deckId",
+      "rawPath": "/deck/:deckId",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 91,
+      "resource": "stats"
+    },
+    {
+      "id": "route-get-stats-heatmap",
+      "method": "GET",
+      "mountedPath": "/stats/heatmap",
+      "rawPath": "/heatmap",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 66,
+      "resource": "stats"
+    },
+    {
+      "id": "route-get-stats-me",
+      "method": "GET",
+      "mountedPath": "/stats/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 31,
+      "resource": "stats"
+    },
+    {
+      "id": "route-get-study-deck--deckid-due",
+      "method": "GET",
+      "mountedPath": "/study/deck/:deckId/due",
+      "rawPath": "/deck/:deckId/due",
+      "handlerFile": "api/src/handlers/study.ts",
+      "line": 47,
+      "resource": "study"
+    },
+    {
+      "id": "route-patch-cards--id",
+      "method": "PATCH",
+      "mountedPath": "/cards/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 194,
+      "resource": "cards"
+    },
+    {
+      "id": "route-patch-decks--id",
+      "method": "PATCH",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 139,
+      "resource": "decks"
+    },
+    {
+      "id": "route-patch-notifications--id",
+      "method": "PATCH",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 103,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-patch-profile-me",
+      "method": "PATCH",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 107,
+      "resource": "profile"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-cards-",
+      "method": "POST",
+      "mountedPath": "/cards",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 146,
+      "resource": "cards"
+    },
+    {
+      "id": "route-post-decks-",
+      "method": "POST",
+      "mountedPath": "/decks",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 107,
+      "resource": "decks"
+    },
+    {
+      "id": "route-post-notifications-",
+      "method": "POST",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 78,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-notifications-mark-all-read",
+      "method": "POST",
+      "mountedPath": "/notifications/mark-all-read",
+      "rawPath": "/mark-all-read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 129,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-study-review",
+      "method": "POST",
+      "mountedPath": "/study/review",
+      "rawPath": "/review",
+      "handlerFile": "api/src/handlers/study.ts",
+      "line": 79,
+      "resource": "study"
+    },
+    {
+      "id": "route-put-cards--id",
+      "method": "PUT",
+      "mountedPath": "/cards/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/cards.ts",
+      "line": 224,
+      "resource": "cards"
+    },
+    {
+      "id": "route-put-decks--id",
+      "method": "PUT",
+      "mountedPath": "/decks/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/decks.ts",
+      "line": 165,
+      "resource": "decks"
+    }
+  ],
+  "totals": {
+    "pages": 17,
+    "elements": 69,
+    "forms": 6,
+    "routes": 31
+  }
+}

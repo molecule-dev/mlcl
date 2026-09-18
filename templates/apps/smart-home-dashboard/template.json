@@ -1,0 +1,82 @@
+{
+  "label": "Smart Home Dashboard",
+  "description": "Home Assistant-like app with devices, automations, scenes, and energy monitoring — with built-in Stripe-backed subscription tiers",
+  "cluster": "operations-iot",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-webhook-http",
+    "@molecule/app-charts",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-data-table",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Smart Home"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications"
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_SMART_HOME_DASHBOARD_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_SMART_HOME_DASHBOARD_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_SMART_HOME_DASHBOARD_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_SMART_HOME_DASHBOARD_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "realtime",
+    "notifications",
+    "webhooks",
+    "cron",
+    "subscriptions"
+  ]
+}

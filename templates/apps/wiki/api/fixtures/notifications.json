@@ -1,0 +1,62 @@
+[
+  {
+    "id": "notif-001",
+    "kind": "mention",
+    "title": "Anya Sokolov mentioned you on Architecture Overview",
+    "body": "@you — does the auth section need to move to its own page?",
+    "page_id": "page-002",
+    "page_title": "Engineering — System Architecture Overview",
+    "actor_id": "user-anya",
+    "actor_name": "Anya Sokolov",
+    "read": false,
+    "created_at": "2026-04-21T14:22:00Z"
+  },
+  {
+    "id": "notif-002",
+    "kind": "comment",
+    "title": "Marcus Tan replied to a thread you started",
+    "body": "Yes — call it auth-architecture, link from here under See also.",
+    "page_id": "page-002",
+    "page_title": "Engineering — System Architecture Overview",
+    "actor_id": "user-marcus",
+    "actor_name": "Marcus Tan",
+    "read": false,
+    "created_at": "2026-04-21T15:01:00Z"
+  },
+  {
+    "id": "notif-003",
+    "kind": "edit",
+    "title": "Priya Iyer updated Database Migration Runbook",
+    "body": "Rewrote the rollback section with a non-transactional case.",
+    "page_id": "page-004",
+    "page_title": "Database Migration Runbook",
+    "actor_id": "user-priya",
+    "actor_name": "Priya Iyer",
+    "read": true,
+    "created_at": "2026-04-22T09:18:00Z"
+  },
+  {
+    "id": "notif-004",
+    "kind": "share",
+    "title": "Tara Chen shared Cairn Style Guide with the Product space",
+    "body": "Sharing this style guide so designers can reference the typography choices.",
+    "page_id": "sample-1",
+    "page_title": "Sample Page — Cairn Style Guide",
+    "actor_id": "user-tara",
+    "actor_name": "Tara Chen",
+    "read": true,
+    "created_at": "2026-04-23T08:32:00Z"
+  },
+  {
+    "id": "notif-005",
+    "kind": "request",
+    "title": "Leo Park requested edit access to Q2 Planning",
+    "body": "Need to update the headcount section before the all-hands.",
+    "page_id": "page-005",
+    "page_title": "Q2 Planning — Goals and OKRs",
+    "actor_id": "user-leo",
+    "actor_name": "Leo Park",
+    "read": false,
+    "created_at": "2026-04-23T10:10:00Z"
+  }
+]

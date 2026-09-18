@@ -1,0 +1,230 @@
+:root {
+  /* Brand colors */
+  --color-primary: #c2185b; /* darkened from #e1306c — white text 5.87:1 (was 4.34:1 fail) */
+  --color-primary-hover: #ad1457;
+  --color-primary-light: #fce4ec;
+  --color-secondary: #405de6;
+
+  /* Gradient */
+  --gradient-brand: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+
+  /* Surfaces */
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f5f5;
+  --color-border: #dbdbdb;
+
+  /* Text */
+  --color-text: #262626;
+  --color-text-secondary: #737373; /* darkened from #8e8e8e — 4.54:1 vs bg (was 3.14:1 fail) */
+  --color-text-tertiary: #c7c7c7; /* decorative / placeholder only, not standalone text */
+  --color-text-on-primary: #ffffff;
+
+  /* Interactions — like/heart is a fixed semantic/brand color, preserved */
+  --color-like: #ed4956;
+  --color-like-active: #ed4956;
+
+  /* === @molecule/app-theme provider bridge tokens === */
+  --mol-color-primary: #c2185b; /* matches --color-primary */
+  --mol-color-primary-light: #fce4ec;
+  --mol-color-primary-dark: #ad1457;
+  --mol-color-secondary: #405de6;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #efefef;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #262626;
+  --mol-color-text-secondary: #737373; /* matches --color-text-secondary */
+  --mol-color-text-tertiary: #c7c7c7;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #dbdbdb;
+  --mol-color-border-secondary: #c7c7c7;
+  --mol-color-border-focus: #c2185b;
+  --mol-color-success: #15803d; /* #16a34a was 3.29:1 as small text on white (fail); #15803d = 5.02:1 */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626; /* darkened from #ed4956 — white 4.83:1 (was 3.69:1 fail) */
+  --mol-color-info: #405de6;
+
+  /* Typography */
+  --font-family-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Layout */
+  --content-width: 470px;
+  --page-width: 935px;
+  --profile-grid-size: 293px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Stories */
+  --story-ring-size: 64px;
+  --story-ring-gradient: var(--gradient-brand);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* Material-3 / Stitch bridge tokens — light baseline */
+  --color-background: #fafafa;
+  --color-on-background: #262626;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #efefef;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #f0f0f0;
+  --color-surface-container-high: #ebebeb;
+  --color-surface-container-highest: #e5e5e5;
+  --color-surface-variant: #f5f5f5;
+  --color-on-surface: #262626;
+  --color-on-surface-variant: #6b6b6b; /* #737373 was 4.34:1 on #f5f5f5 (fail); #6b6b6b = 4.89:1 */
+  --color-inverse-surface: #262626;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #fce4ec;
+  --color-primary: #c2185b;
+  --color-primary-container: #fce4ec;
+  --color-on-primary: #ffffff; /* white on darkened pink — 5.87:1 */
+  --color-on-primary-container: #6d0025;
+  --color-secondary: #405de6;
+  --color-secondary-container: #e8eaff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1a2080;
+  --color-tertiary: #b45309;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff; /* white on dark amber — 5.27:1 */
+  --color-on-tertiary-container: #451a03;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 — 4.83:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #737373; /* 4.54:1 vs surface — meets ≥3:1 outline requirement */
+  --color-outline-variant: #dbdbdb;
+  --color-surface-tint: #c2185b;
+}
+
+/* Dark mode — Instagram-inspired social dark.
+   Rich-black canvas (Instagram/Twitter/TikTok dark — content-first; the
+   photos and avatars carry the color, the chrome stays out of the way).
+   Brand pink kept bright (#f06292) for surface accents; CTAs use dark
+   on-primary (#1a0510) so text reads at 6.4:1 against the bright rose.
+   Brand gradient preserved unchanged — it reads vividly on rich black. */
+[data-mol-mode='dark'] {
+  /* Brand colors — bright surface-accent rose for links/chips */
+  --color-primary: #f06292;
+  --color-primary-hover: #f48fb1;
+  --color-primary-light: #3a1426;
+  --color-secondary: #738afe;
+
+  /* Gradient — same hot brand wash, reads vividly on rich black */
+  --gradient-brand: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+
+  /* Surfaces — true near-black for content-first feed */
+  --color-background: #000000;
+  --color-surface: #0f0f0f;
+  --color-surface-hover: #1a1a1a;
+  --color-border: #262626;
+
+  /* Text — Instagram-style tiering */
+  --color-text: #fafafa;
+  --color-text-secondary: #b0b0b0;
+  --color-text-tertiary: #6a6a6a;
+  --color-text-on-primary: #ffffff;
+
+  /* Interactions */
+  --color-like: #ed4956;
+  --color-like-active: #ff5d6a;
+
+  /* === @molecule/app-theme provider bridge tokens === */
+  --mol-color-primary: #f06292;
+  --mol-color-primary-light: #3a1426;
+  --mol-color-primary-dark: #c13584;
+  --mol-color-secondary: #738afe;
+  --mol-color-background: #000000;
+  --mol-color-background-secondary: #0f0f0f;
+  --mol-color-background-tertiary: #1a1a1a;
+  --mol-color-surface: #0f0f0f;
+  --mol-color-surface-secondary: #1a1a1a;
+  --mol-color-input-background: #000000;
+  --mol-color-text: #fafafa;
+  --mol-color-text-secondary: #b0b0b0;
+  --mol-color-text-tertiary: #6a6a6a;
+  --mol-color-text-inverse: #000000;
+  --mol-color-border: #262626;
+  --mol-color-border-secondary: #363636;
+  --mol-color-border-focus: #f06292;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #738afe;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #000000;
+  --color-on-background: #fafafa;
+  --color-surface-bright: #1a1a1a;
+  --color-surface-dim: #000000;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0a0a0a;
+  --color-surface-container: #0f0f0f;
+  --color-surface-container-high: #1a1a1a;
+  --color-surface-container-highest: #262626;
+  --color-surface-variant: #1a1a1a;
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #b0b0b0;
+  --color-inverse-surface: #fafafa;
+  --color-inverse-on-surface: #000000;
+  --color-inverse-primary: #c2185b;
+  --color-primary-container: #3a1426;
+  --color-on-primary: #1a0510; /* dark on bright rose — 6.4:1 (was #fff = 3.06:1 fail) */
+  --color-on-primary-container: #fce4ec;
+  --color-secondary-container: #1a1f3a;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #c5ceff;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #422006;
+  --color-on-tertiary: #1a0800; /* dark on amber — 11.66:1 (was #fff = 1.67:1 fail) */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — 6.43:1 (was #fff = 2.77:1 fail) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #606060; /* 3.05:1 vs #0f0f0f surface (was #4a4a4a = 2.16:1 fail) */
+  --color-outline-variant: #262626;
+  --color-surface-tint: #f06292;
+
+  /* Shadows — deeper for rich-black canvas */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

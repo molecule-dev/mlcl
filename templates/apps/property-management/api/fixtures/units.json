@@ -1,0 +1,68 @@
+[
+  {
+    "id": "unit-101",
+    "property_id": "prop-001",
+    "unit_number": "1D",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 850,
+    "rent_amount_cents": 165000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-001"
+  },
+  {
+    "id": "unit-104",
+    "property_id": "prop-001",
+    "unit_number": "4B",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 920,
+    "rent_amount_cents": 175000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-005"
+  },
+  {
+    "id": "unit-202",
+    "property_id": "prop-002",
+    "unit_number": "2A",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 720,
+    "rent_amount_cents": 195000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-012"
+  },
+  {
+    "id": "unit-205",
+    "property_id": "prop-002",
+    "unit_number": "5A",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 980,
+    "rent_amount_cents": 210000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-018"
+  },
+  {
+    "id": "unit-307",
+    "property_id": "prop-003",
+    "unit_number": "7C",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1120,
+    "rent_amount_cents": 185000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-027"
+  },
+  {
+    "id": "unit-512",
+    "property_id": "prop-006",
+    "unit_number": "12B",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1280,
+    "rent_amount_cents": 220000,
+    "occupancy_status": "occupied",
+    "current_tenant_id": "ten-041"
+  }
+]

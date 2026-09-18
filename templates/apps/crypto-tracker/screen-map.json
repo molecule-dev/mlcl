@@ -1,0 +1,161 @@
+{
+  "app": "crypto-tracker",
+  "designProjectId": "9903036953166372878",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-login.html",
+      "designScreenId": "a682d81dc97f4018946b281c65973a3f"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crypto-tracker-login.html",
+      "derivationNotes": "Same two-column split as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crypto-tracker-login.html",
+      "derivationNotes": "Same two-column split as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crypto-tracker-login.html",
+      "derivationNotes": "Same two-column split as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-dashboard.html",
+      "designScreenId": "8d4f24adeb24475fbce641e6e026df07"
+    },
+    {
+      "name": "Markets",
+      "templateFile": "app/pages/Markets.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/markets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-markets.html",
+      "designScreenId": "9d3619ab4c79497ab3e89fd836ad156e"
+    },
+    {
+      "name": "CoinDetail",
+      "templateFile": "app/pages/CoinDetail.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/coin/:symbol",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-coin-detail.html",
+      "designScreenId": "8f0cad58c29745bea0f2100b4f2d0123"
+    },
+    {
+      "name": "Portfolio",
+      "templateFile": "app/pages/Portfolio.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/portfolio",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-portfolio.html",
+      "designScreenId": "0eea47b70a054d84b3101c3f2ce0c7ac"
+    },
+    {
+      "name": "Watchlist",
+      "templateFile": "app/pages/Watchlist.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/watchlist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-watchlist.html",
+      "designScreenId": "5f5d69c27fba4452be1d27adabb98f54"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-alerts.html",
+      "designScreenId": "a6c34ed574e7408cb10463ba9e362bb0"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-settings.html",
+      "designScreenId": "ee116fe6de654fa19cd1027230437895"
+    },
+    {
+      "name": "News",
+      "templateFile": "app/pages/News.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/news",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-news.html",
+      "designScreenId": "0f6d360f6eef4355839f91654dc690da"
+    },
+    {
+      "name": "Transactions",
+      "templateFile": "app/pages/Transactions.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/transactions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crypto-tracker-transactions.html",
+      "designScreenId": "b0678cc6f0f14e7a947a640a984db7e7"
+    },
+    {
+      "name": "AlertNew",
+      "templateFile": "app/pages/AlertNew.tsx",
+      "components": ["app/components/CryptoTrackerLayout.tsx"],
+      "route": "/alerts/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crypto-tracker-alerts.html",
+      "derivationNotes": "Modal-style form panel using Alerts page chrome. Fields: Coin (search dropdown with icon), Condition (select: 'Price above'/'Price below'/'24h change exceeds'/'Volume spikes'), Target value (numeric input with unit suffix), Notification channels (checkboxes: Email, Push, SMS), Repeat (toggle: One-time / Recurring). Primary button 'Create alert', secondary 'Cancel' that returns to /alerts."
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "/404",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crypto-tracker-login.html",
+      "derivationNotes": "Reuse the Login two-column split. Right column shows large '404' headline in heading font, subtext 'This signal is out of range', and a primary button 'Back to Dashboard' linking to /. Brand panel (left) unchanged."
+    }
+  ]
+}

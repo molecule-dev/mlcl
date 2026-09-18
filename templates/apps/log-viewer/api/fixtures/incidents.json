@@ -1,0 +1,8 @@
+[
+  { "id": "inc1", "title": "Checkout 5xx spike on stripe charges",            "service": "checkout",      "severity": "sev1", "status": "investigating", "owner": "Riley Kovacs",   "started_at": "2026-04-30T13:31:00.000Z", "resolved_at": null,                       "impacted_users": 1284 },
+  { "id": "inc2", "title": "Search index lag exceeding SLA in eu-west",        "service": "search-index",  "severity": "sev2", "status": "mitigated",     "owner": "Jordan Ma",      "started_at": "2026-04-30T11:58:00.000Z", "resolved_at": null,                       "impacted_users": 312  },
+  { "id": "inc3", "title": "Auth-service slow oauth callbacks",                "service": "auth-service",  "severity": "sev3", "status": "monitoring",    "owner": "Sasha Petrov",   "started_at": "2026-04-30T09:14:00.000Z", "resolved_at": null,                       "impacted_users": 88   },
+  { "id": "inc4", "title": "Edge CDN cache poisoning advisory",                "service": "edge-cdn",      "severity": "sev2", "status": "open",          "owner": "Imani Davies",   "started_at": "2026-04-30T08:02:00.000Z", "resolved_at": null,                       "impacted_users": 47   },
+  { "id": "inc5", "title": "Billing webhook backlog cleared",                  "service": "billing",       "severity": "sev3", "status": "resolved",      "owner": "Morgan Cho",     "started_at": "2026-04-29T22:18:00.000Z", "resolved_at": "2026-04-30T01:05:00.000Z", "impacted_users": 19   },
+  { "id": "inc6", "title": "Data pipeline kafka lag",                          "service": "data-pipeline", "severity": "sev4", "status": "resolved",      "owner": "Riley Kovacs",   "started_at": "2026-04-29T18:40:00.000Z", "resolved_at": "2026-04-29T19:22:00.000Z", "impacted_users": 0    }
+]

@@ -1,0 +1,11 @@
+Polish complete: 2026-04-30T00:30:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: operations-iot → sibling: smart-home-dashboard (with helpdesk-ticketing pattern crib for AlertBanner)
+Brand: Nimbus — atmospheric cyan + tertiary indigo on dark, "See what's coming"
+Components: 6 bespoke (WeatherHeroCard, MetricGaugeCard, HourlyForecastStrip, DailyForecastRow, LocationCard, AlertBanner)
+Layout: WeatherDashboardLayout (SidebarLayout) + AuthBrandHeader for §13.7
+Pages rewritten: Landing, Dashboard, LocationDetail, Locations, Radar, Alerts, Trends, Compare, Settings (and PlanUpdated kept for billing)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (AuthBrandHeader in centred glass card)
+Screen-map coverage: 13/13
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

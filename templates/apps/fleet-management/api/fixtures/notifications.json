@@ -1,0 +1,7 @@
+[
+  { "id": "ntf_001", "type": "speeding_alert",   "title": "Speeding alert — TRK-4220",          "body": "Henry Park, 78 mph in 65 zone (I-78 E)",                                "href": "/alerts",          "created_at": "2026-04-26T14:22:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "maintenance_due",  "title": "TRK-4220 — service due in 1,200 mi", "body": "Approaching 320K-mile interval. Schedule with Jamal.",                  "href": "/maintenance",     "created_at": "2026-04-26T08:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "route_completed",  "title": "Route completed: Cleveland",          "body": "Marcus Reilly arrived 12 min early. Brooklyn → Cleveland, 462 mi.",     "href": "/trips",           "created_at": "2026-04-25T19:00:00Z", "unread": false },
+  { "id": "ntf_004", "type": "driver_assigned",  "title": "Tessa Bright assigned to VAN-2044",  "body": "Newark depot · cargo van · effective today",                            "href": "/drivers/drv_006", "created_at": "2026-04-25T08:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "system_message",   "title": "Welcome to Bearing",                  "body": "Add your first vehicle and assign a driver to get started.",            "href": "/vehicles",        "created_at": "2024-08-12T10:00:00Z", "unread": false }
+]

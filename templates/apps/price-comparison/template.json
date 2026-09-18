@@ -1,0 +1,98 @@
+{
+  "label": "Price Comparison",
+  "description": "Google Shopping-like price comparison with multi-source data, price history tracking, and drop alerts — with built-in Stripe-backed subscription tiers",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-product",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-http-axios",
+    "@molecule/api-cache-redis",
+    "@molecule/app-data-table",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-charts",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "App name displayed in header and emails",
+      "default": "PriceWatch"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch admin API key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for alert emails",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "REDIS_URL": {
+      "description": "Redis connection string for caching",
+      "default": "redis://localhost:6379"
+    },
+    "PRICE_FETCH_CRON": {
+      "description": "Cron expression for price fetching schedule",
+      "default": "0 */6 * * *"
+    },
+    "ALERT_CHECK_CRON": {
+      "description": "Cron expression for alert evaluation",
+      "default": "0 */1 * * *"
+    },
+    "DEFAULT_CURRENCY": {
+      "description": "Default currency code",
+      "default": "USD"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_PRICE_COMPARISON_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_PRICE_COMPARISON_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_PRICE_COMPARISON_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_PRICE_COMPARISON_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "notifications",
+    "subscriptions"
+  ]
+}

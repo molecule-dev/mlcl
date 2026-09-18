@@ -1,0 +1,169 @@
+{
+  "app": "password-manager",
+  "designProjectId": "9364589623479256442",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-password-manager-landing.html",
+      "designScreenId": "64ceaef95ba14a2c84b2f4535e563388"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-password-manager-login.html",
+      "designScreenId": "5ab5c7f1433f4dcd89f1f45d948d5f96"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-password-manager-login.html",
+      "derivationNotes": "Same centered crystalline card as Login with First Name, Last Name, Email, Master Password, Confirm Master Password, and Recovery Email fields. Heading 'Create your vault'. Button 'Seal my vault'. Bottom link 'Already have an account? Sign In'. Biometric button removed. Add reassurance text 'Your master password can't be recovered — choose carefully.'"
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-password-manager-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Recovery kit lookup', subtext 'Since we never see your master password, we can only help you restore from your Recovery Kit.' Button 'Send recovery instructions'. Bottom link 'Back to Sign In'. No master-password or biometric fields."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-password-manager-login.html",
+      "derivationNotes": "Same centered card as Login with New Master Password and Confirm Master Password fields. Heading 'Set new master password'. Strength meter shown beneath first field. Button 'Re-encrypt vault'. Bottom link 'Back to Sign In'. Warning text 'All 294 items will be re-encrypted locally — this may take a moment.'"
+    },
+    {
+      "name": "Vault",
+      "templateFile": "app/pages/Vault.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/vault",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-vault.html",
+      "designScreenId": "098316a3a85e4917822caf2cd4ff0245"
+    },
+    {
+      "name": "ItemDetail",
+      "templateFile": "app/pages/ItemDetail.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/vault/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-item-detail.html",
+      "designScreenId": "3922832be7a3476dac25b767312535ae"
+    },
+    {
+      "name": "NewItem",
+      "templateFile": "app/pages/NewItem.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/vault/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-new-item.html",
+      "designScreenId": "40802de5770b437e904a058cd09d8130"
+    },
+    {
+      "name": "Generator",
+      "templateFile": "app/pages/Generator.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/generator",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-generator.html",
+      "designScreenId": "a573c5e231c24052a11a15d50aeb7e14"
+    },
+    {
+      "name": "SharedVaults",
+      "templateFile": "app/pages/SharedVaults.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-shared-vaults.html",
+      "designScreenId": "0deba0979df540f6a6326c0e8960f1d4"
+    },
+    {
+      "name": "SecurityReport",
+      "templateFile": "app/pages/SecurityReport.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/security",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-security-report.html",
+      "designScreenId": "d64f7732f4aa49ecb9363f04ac47b9f1"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-settings.html",
+      "designScreenId": "72a11549a70b494290852b39c8561d7c"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-notifications.html",
+      "designScreenId": "14fe9ab71f0d47ca97b3e556821241ce"
+    },
+    {
+      "name": "Trash",
+      "templateFile": "app/pages/Trash.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/trash",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-trash.html",
+      "designScreenId": "b18d1fdbc420453b880fb0c2389d152f"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-profile.html",
+      "designScreenId": "918a0b2e28f04267b9524d4ca86d9e91"
+    },
+    {
+      "name": "SharedVaultDetail",
+      "templateFile": "app/pages/SharedVaultDetail.tsx",
+      "components": ["app/components/PasswordManagerLayout.tsx"],
+      "route": "/shared/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-password-manager-shared-vault-detail.html",
+      "designScreenId": "6452fb8514ad4cb2bec01eb3cb589d28"
+    }
+  ]
+}

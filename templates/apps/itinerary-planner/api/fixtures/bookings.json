@@ -1,0 +1,28 @@
+[
+  {
+    "id": "bk-001",
+    "type": "flight",
+    "title": "British Airways BA-2241 · LHR → KEF",
+    "detail": "Economy Plus · 1× checked bag · 4 travelers",
+    "start_iso": "2026-06-12T08:25:00Z",
+    "end_iso": "2026-06-12T11:40:00Z",
+    "confirmation_code": "BA-XR8L9P",
+    "trip_id": "tr-2026-iceland",
+    "status": "confirmed",
+    "cost_cents": 142800,
+    "vendor": "British Airways"
+  },
+  {
+    "id": "bk-002",
+    "type": "hotel",
+    "title": "Reykjavík Loft Apartments · 4 nights",
+    "detail": "Two-bedroom suite · Ocean view · Free cancellation until June 5.",
+    "start_iso": "2026-06-12T15:00:00Z",
+    "end_iso": "2026-06-16T11:00:00Z",
+    "confirmation_code": "WP-LOFT-7821",
+    "trip_id": "tr-2026-iceland",
+    "status": "confirmed",
+    "cost_cents": 109600,
+    "vendor": "Reykjavík Loft"
+  }
+]

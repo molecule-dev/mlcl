@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "slug": "philosophy",
+    "name": "Philosophy & Ethics",
+    "description": "Long-running threads on the examined life — Stoicism, virtue ethics, applied logic.",
+    "icon": "menu_book",
+    "color": "#5b4fc7",
+    "thread_count": 1428,
+    "post_count": 18432,
+    "last_activity_at": "2026-04-30T00:48:00Z",
+    "last_thread_title": "Is \"the obstacle is the way\" actually Stoic? — A close reading",
+    "status": "live"
+  },
+  {
+    "id": "2",
+    "slug": "product-craft",
+    "name": "Product Craft",
+    "description": "Working on something? Share, critique, learn. PRDs, post-mortems, design reviews.",
+    "icon": "design_services",
+    "color": "#e09a2e",
+    "thread_count": 962,
+    "post_count": 11204,
+    "last_activity_at": "2026-04-30T00:13:00Z",
+    "last_thread_title": "Shipping a v1 with two-thirds the features — postmortem from a small team",
+    "status": "pinned"
+  },
+  {
+    "id": "3",
+    "slug": "community",
+    "name": "Community Hall",
+    "description": "Introductions, weekly threads, town halls. Lower-stakes, higher-warmth conversations.",
+    "icon": "forum",
+    "color": "#16a34a",
+    "thread_count": 504,
+    "post_count": 6890,
+    "last_activity_at": "2026-04-29T22:00:00Z",
+    "last_thread_title": "Weekly check-in — what are you reading this week?",
+    "status": "live"
+  },
+  {
+    "id": "4",
+    "slug": "craft-reviews",
+    "name": "Craft Reviews",
+    "description": "Volunteer-staffed peer review. Share a piece of work, get back a serious read in 48 hours.",
+    "icon": "reviews",
+    "color": "#0891b2",
+    "thread_count": 312,
+    "post_count": 4140,
+    "last_activity_at": "2026-04-29T19:00:00Z",
+    "last_thread_title": "Critique exchange — short essay drafts, week of April 28",
+    "status": "live"
+  },
+  {
+    "id": "5",
+    "slug": "announcements",
+    "name": "Announcements",
+    "description": "Read-only space for site updates, governance changes, and community news.",
+    "icon": "campaign",
+    "color": "#9333ea",
+    "thread_count": 48,
+    "post_count": 612,
+    "last_activity_at": "2026-04-28T13:00:00Z",
+    "last_thread_title": "Q2 roadmap — moderation tooling and reputation tweaks",
+    "status": "live"
+  },
+  {
+    "id": "6",
+    "slug": "archive",
+    "name": "The Archive",
+    "description": "Historic threads we keep around for reference. Locked but readable.",
+    "icon": "inventory_2",
+    "color": "#6b7280",
+    "thread_count": 209,
+    "post_count": 1840,
+    "last_activity_at": "2026-04-18T01:00:00Z",
+    "last_thread_title": "Founding values doc — locked, kept for posterity",
+    "status": "archived"
+  }
+]

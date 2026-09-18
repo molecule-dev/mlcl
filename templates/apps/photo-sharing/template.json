@@ -1,0 +1,96 @@
+{
+  "label": "Photo Sharing",
+  "description": "Flickr-like photo community with albums, galleries, and EXIF — with built-in Stripe-backed subscription tiers",
+  "cluster": "content-social",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-comment",
+    "@molecule/api-resource-reaction",
+    "@molecule/api-resource-tag",
+    "@molecule/api-resource-follow",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-gallery-photoswipe",
+    "@molecule/app-image-crop",
+    "@molecule/app-virtual-scroll",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Photo Sharing"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for photo uploads",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "S3_ACCESS_KEY_ID": {
+      "description": "S3 access key",
+      "required": true
+    },
+    "S3_SECRET_ACCESS_KEY": {
+      "description": "S3 secret key",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_PHOTO_SHARING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_PHOTO_SHARING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_PHOTO_SHARING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_PHOTO_SHARING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "albums",
+    "galleries",
+    "exif",
+    "image-upload",
+    "tags",
+    "comments",
+    "favorites",
+    "subscriptions"
+  ]
+}

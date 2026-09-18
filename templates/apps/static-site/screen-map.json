@@ -1,0 +1,57 @@
+{
+  "app": "static-site",
+  "screens": [
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": [
+        "app/components/SiteLayout.tsx",
+        "app/components/PostCard.tsx",
+        "app/components/Pagination.tsx"
+      ],
+      "route": "/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Post",
+      "templateFile": "app/pages/Post.tsx",
+      "components": ["app/components/SiteLayout.tsx", "app/components/TagList.tsx"],
+      "route": "/:slug/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Tags",
+      "templateFile": "app/pages/Tags.tsx",
+      "components": ["app/components/SiteLayout.tsx"],
+      "route": "/tags/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "Tag",
+      "templateFile": "app/pages/Tag.tsx",
+      "components": ["app/components/SiteLayout.tsx", "app/components/PostCard.tsx"],
+      "route": "/tags/:tag/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": ["app/components/SiteLayout.tsx"],
+      "route": "/about/",
+      "auth": false,
+      "type": "custom"
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": ["app/components/SiteLayout.tsx"],
+      "route": "*",
+      "auth": false,
+      "type": "custom"
+    }
+  ]
+}

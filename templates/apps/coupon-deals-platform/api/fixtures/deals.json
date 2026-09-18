@@ -1,0 +1,42 @@
+[
+  {
+    "id": "deal_001", "title": "$30 for $60 worth of brunch at Sunny Side",         "merchant": "Sunny Side Cafe",       "merchant_id": "m_001", "category": "Restaurants", "discount_pct": 50, "original_price_cents": 6000, "deal_price_cents": 3000, "expires_at": "2026-05-12T23:59:00Z", "hot": true,  "saved_count": 248, "redemption_code": "SUNNY60", "qr_url": "/qr/deal_001.png", "redeemed": false, "saved": true,
+    "description": "Two weekend brunches for the price of one. Includes one entrée + one drink each. Valid Sat-Sun, 9am-2pm.",
+    "fine_print": ["Valid 9am-2pm Sat/Sun only.", "Cannot combine with other promotions.", "Reservations recommended."]
+  },
+  {
+    "id": "deal_002", "title": "$25 for $50 yoga class card (5 classes)",            "merchant": "Lotus Studio",          "merchant_id": "m_002", "category": "Fitness",     "discount_pct": 50, "original_price_cents": 5000, "deal_price_cents": 2500, "expires_at": "2026-05-08T23:59:00Z", "hot": true,  "saved_count": 142, "redemption_code": "LOTUS5",  "qr_url": "/qr/deal_002.png", "redeemed": false, "saved": false,
+    "description": "5-class punch card for any drop-in class.",
+    "fine_print": ["New customers only.", "Expires 90 days from first redemption."]
+  },
+  {
+    "id": "deal_003", "title": "20% off entire order at Threadly",                    "merchant": "Threadly",              "merchant_id": "m_003", "category": "Online",      "discount_pct": 20, "original_price_cents": 0,    "deal_price_cents": 0,    "expires_at": "2026-04-30T23:59:00Z", "hot": false, "saved_count":  84, "redemption_code": "THREAD20","qr_url": "/qr/deal_003.png", "redeemed": false, "saved": true,
+    "description": "Online promo code: 20% off your full order.",
+    "fine_print": ["One-time use per customer.", "Excludes gift cards."]
+  },
+  {
+    "id": "deal_004", "title": "$45 for $90 spa massage (60 min)",                     "merchant": "Tranquil Touch Spa",    "merchant_id": "m_004", "category": "Beauty",      "discount_pct": 50, "original_price_cents": 9000, "deal_price_cents": 4500, "expires_at": "2026-06-15T23:59:00Z", "hot": false, "saved_count":  96, "redemption_code": "TRANQ50", "qr_url": "/qr/deal_004.png", "redeemed": false, "saved": false,
+    "description": "60-minute therapeutic massage with a licensed therapist.",
+    "fine_print": ["Appointments required, 24h cancellation."]
+  },
+  {
+    "id": "deal_005", "title": "$20 for $40 climbing day-pass",                        "merchant": "Vertical Edge",         "merchant_id": "m_005", "category": "Activities",  "discount_pct": 50, "original_price_cents": 4000, "deal_price_cents": 2000, "expires_at": "2026-04-28T23:59:00Z", "hot": true,  "saved_count": 312, "redemption_code": "VERT20",  "qr_url": "/qr/deal_005.png", "redeemed": false, "saved": false,
+    "description": "Full-day climbing pass with shoe + harness rental.", "fine_print": ["Liability waiver required."]
+  },
+  {
+    "id": "deal_006", "title": "Free haircut with first color service",                "merchant": "Studio 18 Salon",       "merchant_id": "m_006", "category": "Beauty",      "discount_pct": 35, "original_price_cents": 8500, "deal_price_cents": 5500, "expires_at": "2026-05-20T23:59:00Z", "hot": false, "saved_count":  62, "redemption_code": "S18FREE", "qr_url": "/qr/deal_006.png", "redeemed": false, "saved": false,
+    "description": "Free haircut ($30 value) with any color service ($55+).", "fine_print": ["New clients only."]
+  },
+  {
+    "id": "deal_007", "title": "30% off services at Quick Mobile Detail",              "merchant": "Quick Mobile Detail",   "merchant_id": "m_007", "category": "Services",    "discount_pct": 30, "original_price_cents": 12000,"deal_price_cents": 8400, "expires_at": "2026-05-18T23:59:00Z", "hot": false, "saved_count":  41, "redemption_code": "DETAIL30","qr_url": "/qr/deal_007.png", "redeemed": false, "saved": false,
+    "description": "Mobile car detail at your address. Sedan/SUV.", "fine_print": ["Service area: within 10 miles of downtown."]
+  },
+  {
+    "id": "deal_008", "title": "$15 for $30 pizza + drinks at Slice Time",             "merchant": "Slice Time",            "merchant_id": "m_008", "category": "Restaurants", "discount_pct": 50, "original_price_cents": 3000, "deal_price_cents": 1500, "expires_at": "2026-04-26T23:59:00Z", "hot": true,  "saved_count": 489, "redemption_code": "SLICE50", "qr_url": "/qr/deal_008.png", "redeemed": false, "saved": false,
+    "description": "Two large slices + two drinks.", "fine_print": ["Dine-in only."]
+  },
+  {
+    "id": "deal_009", "title": "20% off climbing gear at Vertical Edge Pro Shop",      "merchant": "Vertical Edge",         "merchant_id": "m_005", "category": "Activities",  "discount_pct": 20, "original_price_cents": 0,    "deal_price_cents": 0,    "expires_at": "2026-06-01T23:59:00Z", "hot": false, "saved_count":  28, "redemption_code": "VERTGEAR","qr_url": "/qr/deal_009.png", "redeemed": false, "saved": false,
+    "description": "20% off any in-store gear purchase.", "fine_print": ["Excludes ropes."]
+  }
+]

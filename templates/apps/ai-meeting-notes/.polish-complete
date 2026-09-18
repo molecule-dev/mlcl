@@ -1,0 +1,18 @@
+Polish complete: 2026-04-28T07:55:00Z
+Pipeline: polish-app.md via parallel polish driver (1 of 14 sessions)
+Cluster: ai-tools → polished sibling: ai-chatbot-builder
+Bespoke components: 1 (AuthShell)
+Pages rewritten: Landing, Dashboard, Login, Signup, ForgotPassword, ResetPassword
+Pages added: Profile (closes screen-map-coverage gap)
+Material 3 tokens: already complete (filled previously)
+Fonts: pre-existing (index.css ships IBM Plex Sans/Mono + Inter via Google Fonts elsewhere)
+Sweep 1 chrome: pre-existing (uses @molecule/app-sidebar-layout-react via MurmurLayout)
+Typecheck: clean
+Compliance: clean (check-rules-compliance.mjs)
+Screen-map coverage: 16/16 routes wired in App.tsx
+Commits: 4
+  - feat(ai-meeting-notes): brand auth pages with Murmur shell
+  - feat(ai-meeting-notes): add Profile page + wire /profile route
+  - feat(ai-meeting-notes): rewrite Landing with Murmur hero + sample transcript
+  - feat(ai-meeting-notes): rewrite Dashboard with hero KPI band + richer cards
+Note: parallel-polish session — screenshots deferred to parent batch driver.

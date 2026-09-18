@@ -1,0 +1,47 @@
+[
+  {
+    "id": "f_001",
+    "venue_id": "v_aerie",
+    "name": "The Aerie Loft",
+    "city": "Brooklyn",
+    "country": "United States",
+    "rating": 4.9,
+    "review_count": 312,
+    "thumbnail_url": "https://picsum.photos/seed/alcove-aerie/1200/900",
+    "rate_kind": "hour",
+    "rate_unit_cents": 17500,
+    "amenities": ["Skylights", "Hardwood floors", "Catering kitchen"],
+    "badges": ["editor_pick", "instant_book"],
+    "saved_at_iso": "2026-04-22T18:14:00Z"
+  },
+  {
+    "id": "f_002",
+    "venue_id": "v_garden",
+    "name": "Hillstead Garden",
+    "city": "Hudson",
+    "country": "United States",
+    "rating": 4.8,
+    "review_count": 87,
+    "thumbnail_url": "https://picsum.photos/seed/alcove-garden/1200/900",
+    "rate_kind": "day",
+    "rate_unit_cents": 240000,
+    "amenities": ["Outdoor power", "String lights", "Restrooms"],
+    "badges": ["rare_find"],
+    "saved_at_iso": "2026-04-19T11:02:00Z"
+  },
+  {
+    "id": "f_003",
+    "venue_id": "v_verdant",
+    "name": "The Verdant Hall",
+    "city": "New Orleans",
+    "country": "United States",
+    "rating": 4.9,
+    "review_count": 142,
+    "thumbnail_url": "https://picsum.photos/seed/alcove-verdant/1200/900",
+    "rate_kind": "day",
+    "rate_unit_cents": 380000,
+    "amenities": ["Stage", "Caterer's kitchen", "Bridal suite"],
+    "badges": ["editor_pick", "rare_find"],
+    "saved_at_iso": "2026-04-09T08:48:00Z"
+  }
+]

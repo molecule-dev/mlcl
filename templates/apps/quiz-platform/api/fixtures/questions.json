@@ -1,0 +1,57 @@
+[
+  {
+    "id": "qn01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "quiz_id": "qz01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "position": 1,
+    "prompt": "What is the capital of Australia?",
+    "options": ["Sydney", "Canberra", "Melbourne", "Perth"],
+    "correct_index": 1,
+    "time_limit_seconds": 15,
+    "points": 100,
+    "explanation": "Canberra was purpose-built as the capital in 1908 as a compromise between Sydney and Melbourne."
+  },
+  {
+    "id": "qn02b3c4-5d6e-4f7a-b8c9-d0e1f2a3b4c5",
+    "quiz_id": "qz01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "position": 2,
+    "prompt": "Which country has Brasília as its capital?",
+    "options": ["Argentina", "Colombia", "Brazil", "Chile"],
+    "correct_index": 2,
+    "time_limit_seconds": 15,
+    "points": 100,
+    "explanation": "Brazil moved its capital from Rio de Janeiro to the newly-built Brasília in 1960."
+  },
+  {
+    "id": "qn03c4d5-6e7f-4a8b-c9d0-e1f2a3b4c5d6",
+    "quiz_id": "qz01a2b3-4c5d-4e6f-a7b8-c9d0e1f2a3b4",
+    "position": 3,
+    "prompt": "Reykjavik is the capital of which country?",
+    "options": ["Norway", "Iceland", "Greenland", "Finland"],
+    "correct_index": 1,
+    "time_limit_seconds": 15,
+    "points": 100,
+    "explanation": "Reykjavik is Iceland's capital and the world's northernmost capital of a sovereign state."
+  },
+  {
+    "id": "qn04d5e6-7f8a-4b9c-d0e1-f2a3b4c5d6e7",
+    "quiz_id": "qz03c4d5-6e7f-4a8b-c9d0-e1f2a3b4c5d6",
+    "position": 1,
+    "prompt": "What is the chemical symbol for gold?",
+    "options": ["Go", "Au", "Ag", "Gd"],
+    "correct_index": 1,
+    "time_limit_seconds": 12,
+    "points": 100,
+    "explanation": "Au comes from the Latin 'aurum', meaning shining dawn."
+  },
+  {
+    "id": "qn05e6f7-8a9b-4c0d-e1f2-a3b4c5d6e7f8",
+    "quiz_id": "qz05e6f7-8a9b-4c0d-e1f2-a3b4c5d6e7f8",
+    "position": 1,
+    "prompt": "What is the time complexity of binary search on a sorted array?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+    "correct_index": 2,
+    "time_limit_seconds": 30,
+    "points": 150,
+    "explanation": "Each step halves the search space, giving logarithmic time."
+  }
+]

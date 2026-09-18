@@ -1,0 +1,194 @@
+/* Embark brand tokens — drive --color-* via the --mol-color-* mapping in index.css. */
+
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #0b7a70; /* darkened from #0d9488 — 5.21:1 on white */
+  --mol-color-primary-light: #0d9488;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #7c3aed; /* darkened from #8b5cf6 — 5.70:1 with white */
+  --mol-color-secondary-light: #a78bfa;
+  --mol-color-secondary-dark: #7c3aed;
+
+  --mol-color-success: #15803d; /* was #16a34a (3.1:1 as 18px landing icon on #f8fafa); green-700 = 5.0:1 */
+  --mol-color-success-light: #dcfce7;
+  /* amber-800. #e89316 is a fill colour, not a text one: as label text it
+     measured 2.16-2.43:1 on white and on its own washes. amber-700 #b45309 was
+     tried first and still failed the deepest wash (4.46:1); #92400e clears all
+     three surfaces the audit found. */
+  --mol-color-warning: #92400e;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  /* teal-700. The brand teal was already darkened to #0b7a70 above for the
+     same reason; info kept the old value and rendered 3.16:1 on its own tint. */
+  --mol-color-info: #0f766e;
+  --mol-color-info-light: #ccfbf1;
+
+  --mol-color-background: #f8fafa;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafa;
+  --mol-color-input-background: #ffffff;
+
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #64748b;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0b7a70;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Embark-specific status palette (used by ChecklistTaskCard, TimelineMilestone).
+     Foreground values meet 4.5:1 on their paired light bg. */
+  --embark-status-complete: #15803d; /* darkened from #16a34a — 4.54:1 on #dcfce7 */
+  --embark-status-complete-bg: #dcfce7;
+  --embark-status-progress: #b45309; /* darkened from #e89316 — 4.55:1 on #fef3c7 */
+  --embark-status-progress-bg: #fef3c7;
+  --embark-status-overdue: #b91c1c; /* darkened from #dc2626 — 5.30:1 on #fee2e2 */
+  --embark-status-overdue-bg: #fee2e2;
+  --embark-status-pending: #475569; /* darkened from #94a3b8 — 6.92:1 on #f1f5f9 */
+  --embark-status-pending-bg: #f1f5f9;
+  --embark-milestone: #7c3aed; /* darkened from #8b5cf6 — 5.70:1 on #ede9fe */
+  --embark-milestone-bg: #ede9fe;
+  --embark-progress-track: #e2e8f0;
+
+  /* Material-3 bridge (light mode) — ensures bg-surface / text-on-surface /
+     bg-primary etc. resolve correctly in light mode alongside the dark
+     overrides below. Primary uses #0b7a70 (5.21:1 on white) since the
+     brand teal #0d9488 only achieves 3.74:1 with white text. */
+  --color-background: #f8fafa;
+  --color-on-background: #1e293b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafa;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #1e293b;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #1e293b;
+  --color-inverse-on-surface: #f8fafa;
+  --color-inverse-primary: #2dd4bf;
+  --color-primary: #0b7a70; /* darkened from #0d9488 — 5.21:1 on white */
+  --color-primary-container: #ccfbf1;
+  --color-on-primary: #ffffff; /* white on #0b7a70 ≥ 5.21:1 */
+  --color-on-primary-container: #134e4a;
+  --color-secondary: #7c3aed; /* darkened from #8b5cf6 — 5.70:1 with white */
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary: #ffffff; /* white on #7c3aed ≥ 5.70:1 */
+  --color-on-secondary-container: #4c1d95;
+  --color-tertiary: #0369a1;
+  --color-tertiary-container: #e0f2fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #0c4a6e;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #64748b;
+  --color-outline-variant: #cbd5e1;
+  --color-surface-tint: #0b7a70;
+}
+
+/* Dark mode — cool-neutral Embark onboarding dark.
+   Productivity tone: cool-slate near-black surfaces, brand teal kept at
+   the brand stop (#0d9488) for badges and surface accents and shifted
+   brighter for hero CTAs so white text reads cleanly.
+   `--color-on-primary` STAYS white in both modes so teal CTA buttons keep
+   their light-on-teal character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #0b7a70; /* brand stop — 5.21:1 on white */
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #c4b5fd;
+  --mol-color-secondary-dark: #8b5cf6;
+
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #78350f;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #7f1d1d;
+  --mol-color-info: #2dd4bf;
+  --mol-color-info-light: #134e4a;
+
+  --mol-color-background: #0a1320;
+  --mol-color-background-secondary: #111a2c;
+  --mol-color-background-tertiary: #182336;
+  --mol-color-surface: #111a2c;
+  --mol-color-surface-secondary: #182336;
+  --mol-color-input-background: #060c18;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #b0bccd;
+  --mol-color-text-tertiary: #6b7793;
+  --mol-color-text-inverse: #0a1320;
+
+  --mol-color-border: #243450;
+  --mol-color-border-secondary: #324460;
+  --mol-color-border-focus: #0b7a70;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on teal: `on-primary` stays white. */
+  --color-background: #0a1320;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0a1320;
+  --color-surface-bright: #182336;
+  --color-surface-dim: #050a13;
+  --color-surface-container-lowest: #030711;
+  --color-surface-container-low: #0e1626;
+  --color-surface-container: #111a2c;
+  --color-surface-container-high: #182336;
+  --color-surface-container-highest: #243450;
+  --color-surface-variant: #182336;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #b0bccd;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0a1320;
+  --color-inverse-primary: #0d9488;
+  --color-primary: #0b7a70; /* brand stop uses darkened teal — 5.21:1 on white */
+  --color-primary-container: #134e4a;
+  --color-on-primary: #ffffff; /* white on #0b7a70 ≥ 5.21:1 */
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4c1d95;
+  --color-on-secondary: #0a1320;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #67e8f9;
+  --color-tertiary-container: #155e75;
+  --color-on-tertiary: #0a1320; /* dark text on cyan — 12.86:1, replaces white (1.45:1) */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark red — 4.74:1 on #f87171, replaces white (2.77:1) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b7da0; /* lifted from #5a677f — 4.19:1 on #111a2c surface */
+  --color-outline-variant: #243450;
+  --color-surface-tint: #2dd4bf;
+
+  /* Embark status palette — brighter foregrounds, deep saturated backgrounds.
+     All fg/bg pairs meet 4.5:1. */
+  --embark-status-complete: #4ade80; /* 5.23:1 on #14532d */
+  --embark-status-complete-bg: #14532d;
+  --embark-status-progress: #fbbf24; /* 5.43:1 on #78350f */
+  --embark-status-progress-bg: #78350f;
+  --embark-status-overdue: #fca5a5; /* 5.28:1 on #7f1d1d, replaces #f87171 (3.62:1) */
+  --embark-status-overdue-bg: #7f1d1d;
+  --embark-status-pending: #94a3b8; /* 5.71:1 on #1e293b, replaces #64748b (3.07:1) */
+  --embark-status-pending-bg: #1e293b;
+  --embark-milestone: #c4b5fd; /* 5.93:1 on #4c1d95, replaces #a78bfa (4.03:1) */
+  --embark-milestone-bg: #4c1d95;
+  --embark-progress-track: #334155;
+}

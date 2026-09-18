@@ -1,0 +1,261 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #e05a2b;
+  --mol-color-primary-light: #fff1eb;
+  --mol-color-primary-dark: #c44b1e;
+  --mol-color-secondary: #1a9960;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #faf8f7;
+  --mol-color-background-tertiary: #f5efea;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf8f7;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a1a;
+  --mol-color-text-secondary: #555555;
+  --mol-color-text-tertiary: #6b7280; /* #94a3b8 was 2.56:1 vs white (fail ≥4.5:1); #6b7280 = 4.83:1 */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7dfd9;
+  --mol-color-border-secondary: #f0e8e1;
+  --mol-color-border-focus: #e05a2b;
+  --mol-color-success: #1a9960;
+  --mol-color-warning: #eab308;
+  --mol-color-error: #b91c1c; /* was #dc2626 — 3.81:1 as chip text on bg-error/15 tint (axe serious); #b91c1c = 5.10:1 */
+  --mol-color-info: #0ea5e9;
+
+  /* Sift brand — savvy deal-hunter palette (DESIGN.md) */
+  --color-primary: #e05a2b;
+  --color-primary-hover: #f06d3f;
+  --color-primary-light: #fff1eb;
+  --color-secondary: #1a9960;
+  --color-secondary-hover: #14804e;
+  --color-secondary-light: #d1fae5;
+  --color-accent: #1a9960;
+  --color-accent-hover: #14804e;
+
+  /* Semantic colors */
+  --color-success: #1a9960;
+  --color-warning: #eab308;
+  --color-error: #b91c1c;
+  --color-info: #0ea5e9;
+
+  /* Price-domain colors */
+  --color-price-drop: #1a9960;
+  --color-price-drop-light: #d1fae5;
+  --color-price-rise: #dc2626;
+  --color-price-rise-light: #fee2e2;
+  --color-best-price: #e05a2b;
+  --color-best-price-light: #fff1eb;
+  --color-alert-active: #7c3aed;
+  --color-alert-active-light: #ede9fe;
+  --color-in-stock: #1a9960;
+  --color-out-of-stock: #6b7280;
+  --color-price-strikethrough: #9ca3af;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #faf8f7;
+  --color-bg-tertiary: #f5efea;
+  --color-surface: #ffffff;
+  --color-surface-hover: #faf8f7;
+  --color-border: #e7dfd9;
+  --color-border-light: #f0e8e1;
+
+  /* Text */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(224, 90, 43, 0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+
+  /* Layout */
+  --max-width: 1360px;
+  --sidebar-width: 280px;
+  --header-height: 64px;
+
+  /* === Material-3 / Stitch bridge tokens — light mode defaults === */
+  --color-background: #ffffff;
+  --color-on-background: #1a1a1a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f5efea;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf8f7;
+  --color-surface-container: #f5efea;
+  --color-surface-container-high: #ede6e0;
+  --color-surface-container-highest: #e7dfd9;
+  --color-surface-variant: #f5efea;
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #555555;
+  --color-inverse-surface: #2a201a;
+  --color-inverse-on-surface: #f7f1eb;
+  --color-inverse-primary: #ff7b4a;
+  --color-primary: #ba4418; /* #e05a2b is 3.71:1 vs white (fail); #ba4418 = 5.35:1 */
+  --color-primary-container: #fff1eb;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #3d1200;
+  --color-secondary: #0c6b40; /* #0e7a49 was 4.36:1 as chip text on bg-secondary/15 tint (axe serious); #0c6b40 = 5.33:1 on tint, 6.58:1 under white text */
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #012a16;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #2d1b69;
+  --color-error: #b91c1c;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #4a0000;
+  --color-outline: #7d6e65; /* sufficient ≥3:1 vs light surfaces */
+  --color-outline-variant: #e7dfd9;
+  --color-surface-tint: #e05a2b;
+}
+
+/* Dark mode — savvy deal-hunter warm-neutral dark.
+   Warm umber surfaces (no blue tint — Sift's brand is friendly
+   shopkeeper, not tech). Brand orange lifts to #ff7b4a for surface
+   accents and best-price flags; brand stop #e05a2b is preserved for
+   hero CTAs so white text stays the on-primary contrast. Price
+   semantics (drop=green, rise=red) preserved across modes. */
+[data-mol-mode='dark'] {
+  --color-primary: #ff7b4a;
+  --color-primary-hover: #ff8e63;
+  --color-primary-light: #4a1f0e;
+  --color-secondary: #34d399;
+  --color-secondary-hover: #6ee7b7;
+  --color-secondary-light: #064e3b;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
+
+  /* Semantic colors */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #38bdf8;
+
+  /* Price-domain colors — semantics preserved (drop=green, rise=red) */
+  --color-price-drop: #34d399;
+  --color-price-drop-light: #064e3b;
+  --color-price-rise: #f87171;
+  --color-price-rise-light: #7f1d1d;
+  --color-best-price: #ff7b4a;
+  --color-best-price-light: #4a1f0e;
+  --color-alert-active: #a78bfa;
+  --color-alert-active-light: #4c1d95;
+  --color-in-stock: #34d399;
+  --color-out-of-stock: #94a3b8;
+  --color-price-strikethrough: #64748b;
+
+  /* Surfaces */
+  --color-bg: #15100d;
+  --color-bg-secondary: #1f1814;
+  --color-bg-tertiary: #2b231c;
+  --color-surface: #1f1814;
+  --color-surface-hover: #2b231c;
+  --color-border: #3c322a;
+  --color-border-light: #2b231c;
+
+  /* Text */
+  --color-text: #f7f1eb;
+  --color-text-secondary: #bdaea1;
+  --color-text-muted: #87766a;
+  --color-text-inverse: #15100d;
+
+  /* Shadows — darker for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.65);
+
+  /* @theme / Material-3 bridge tokens — dark variants so bg-surface,
+     text-on-surface, bg-primary etc. flip cleanly with the toggle.
+     CTA buttons keep white text: --color-on-primary stays white. */
+  --color-background: #15100d;
+  --color-on-background: #f7f1eb;
+  --color-surface: #1f1814;
+  --color-surface-bright: #2b231c;
+  --color-surface-dim: #0e0b08;
+  --color-surface-container-lowest: #0a0705;
+  --color-surface-container-low: #1a120f;
+  --color-surface-container: #1f1814;
+  --color-surface-container-high: #2b231c;
+  --color-surface-container-highest: #3c322a;
+  --color-surface-variant: #2b231c;
+  --color-on-surface: #f7f1eb;
+  --color-on-surface-variant: #bdaea1;
+  --color-inverse-surface: #f7f1eb;
+  --color-inverse-on-surface: #15100d;
+  --color-inverse-primary: #4a1f0e;
+  --color-primary: #ff7b4a; /* added — root was #e05a2b (3.71:1 vs white, fail); dark brand lifts to #ff7b4a; on-primary goes dark */
+  --color-primary-container: #4a1f0e;
+  --color-on-primary: #1a0800; /* dark on bright orange — #ffffff was 2.57:1 (fail); #1a0800 = 7.59:1 */
+  --color-on-primary-container: #ffd5c0;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #002916; /* dark on green — #ffffff was 1.92:1 (fail); #002916 = 8.22:1 */
+  --color-on-secondary-container: #a7f3d0;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #4c1d95;
+  --color-on-tertiary: #1a0050; /* dark on violet — #ffffff was 2.72:1 (fail); #1a0050 = 6.65:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #8c7d73; /* #6b5c52 was 2.73:1 vs surface (fail ≥3:1); #8c7d73 = 4.42:1 */
+  --color-outline-variant: #3c322a;
+  --color-surface-tint: #ff7b4a;
+
+  /* --mol-color-* provider bridge — dark variants */
+  --mol-color-primary: #ff7b4a;
+  --mol-color-primary-light: #4a1f0e;
+  --mol-color-primary-dark: #e05a2b;
+  --mol-color-secondary: #34d399;
+  --mol-color-background: #15100d;
+  --mol-color-background-secondary: #1f1814;
+  --mol-color-background-tertiary: #2b231c;
+  --mol-color-surface: #1f1814;
+  --mol-color-surface-secondary: #2b231c;
+  --mol-color-input-background: #15100d;
+  --mol-color-text: #f7f1eb;
+  --mol-color-text-secondary: #bdaea1;
+  --mol-color-text-tertiary: #87766a;
+  --mol-color-text-inverse: #15100d;
+  --mol-color-border: #3c322a;
+  --mol-color-border-secondary: #2b231c;
+  --mol-color-border-focus: #ff7b4a;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+}

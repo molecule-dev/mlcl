@@ -1,0 +1,83 @@
+{
+  "label": "Property Management",
+  "description": "Buildium-like property management with units, tenants, maintenance requests, and accounting — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-permissions-custom",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-resource-notification",
+    "@molecule/api-reporting-database",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-import-export-csv",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-data-table",
+    "@molecule/app-calendar",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-file-upload",
+    "@molecule/app-command-palette",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Property Manager"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe API secret key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for notifications",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for documents and photos",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_PROPERTY_MANAGEMENT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_MANAGEMENT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_MANAGEMENT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_MANAGEMENT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "admin",
+  "features": [
+    "auth",
+    "notifications",
+    "payments",
+    "reports",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "label": "Video Conferencing",
+  "description": "Zoom-like video meetings with WebRTC, screen sharing, recording, and chat — with built-in Stripe-backed subscription tiers",
+  "cluster": "communication",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-notification",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-calendar",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Video Conferencing"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for recordings",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for meeting invites",
+      "required": true
+    },
+    "TURN_SERVER_URL": {
+      "description": "TURN server URL for WebRTC relay (consumed by the browser at call time; live-call tests are BLOCKED: TURN_SERVER_URL required when not set)",
+      "required": false
+    },
+    "TURN_SERVER_SECRET": {
+      "description": "TURN server shared secret (consumed only when minting per-peer credentials; live-call tests are BLOCKED: TURN_SERVER_SECRET required when not set)",
+      "required": false
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_VIDEO_CONFERENCING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_VIDEO_CONFERENCING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_VIDEO_CONFERENCING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_VIDEO_CONFERENCING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "realtime",
+    "video",
+    "screen-share",
+    "recording",
+    "calendar",
+    "subscriptions"
+  ]
+}

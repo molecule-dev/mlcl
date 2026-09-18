@@ -1,0 +1,126 @@
+{
+  "knowledge_documents": [
+    {
+      "id": "kd01a2b3-c4d5-4e6f-a8b9-c0d1e2f3a4b5",
+      "bot_id": "a1b2c3d4-5678-4e9f-a012-3456789abcde",
+      "title": "Return Policy",
+      "content": "Our return policy allows customers to return items within 30 days of delivery for a full refund. Items must be in original condition with tags attached. To initiate a return, customers should visit their order history and select 'Start Return' next to the relevant item. A prepaid return label will be emailed within 24 hours. Refunds are processed within 5-10 business days after receiving the returned item.",
+      "source_url": "https://store.example.com/policies/returns",
+      "status": "indexed",
+      "created_at": "2026-01-20T12:00:00Z",
+      "updated_at": "2026-01-20T12:00:00Z"
+    },
+    {
+      "id": "kd02b3c4-d5e6-4f7a-b9c0-d1e2f3a4b5c6",
+      "bot_id": "a1b2c3d4-5678-4e9f-a012-3456789abcde",
+      "title": "Shipping Guide",
+      "content": "We offer three shipping options: Standard (5-7 business days, free over $50), Express (2-3 business days, $9.99), and Overnight (next business day, $24.99). All orders placed before 2 PM EST ship same day. International shipping is available to 45 countries with delivery times of 7-14 business days. Tracking information is emailed once the order ships.",
+      "source_url": "https://store.example.com/shipping",
+      "status": "indexed",
+      "created_at": "2026-01-22T09:00:00Z",
+      "updated_at": "2026-01-22T09:00:00Z"
+    },
+    {
+      "id": "kd03c4d5-e6f7-4a8b-c0d1-e2f3a4b5c6d7",
+      "bot_id": "a1b2c3d4-5678-4e9f-a012-3456789abcde",
+      "title": "Warranty Information",
+      "content": "All electronics carry a 2-year manufacturer warranty. Apparel and accessories have a 6-month warranty against defects. Warranty claims can be submitted through the support portal or by contacting support@store.example.com. Warranty coverage does not include damage from misuse, accidents, or normal wear and tear.",
+      "source_url": "https://store.example.com/warranty",
+      "status": "indexed",
+      "created_at": "2026-02-01T10:00:00Z",
+      "updated_at": "2026-02-01T10:00:00Z"
+    },
+    {
+      "id": "kd04d5e6-f7a8-4b9c-d1e2-f3a4b5c6d7e8",
+      "bot_id": "b2c3d4e5-6789-4f0a-b123-456789abcdef",
+      "title": "Product Catalog Overview",
+      "content": "Our product line includes: Premium Headphones ($149-$399), Wireless Speakers ($79-$249), Smart Home Devices ($49-$199), and Accessories ($19-$89). Our best sellers are the WNC-001 Noise-Canceling Headphones and the PBS-700 Bluetooth Speaker. Enterprise volume discounts are available for orders of 10+ units.",
+      "source_url": "https://store.example.com/products",
+      "status": "indexed",
+      "created_at": "2026-02-10T08:00:00Z",
+      "updated_at": "2026-02-10T08:00:00Z"
+    },
+    {
+      "id": "kd05e6f7-a8b9-4c0d-e2f3-a4b5c6d7e8f9",
+      "bot_id": "b2c3d4e5-6789-4f0a-b123-456789abcdef",
+      "title": "Pricing Plans",
+      "content": "Starter Plan: $29/month — 1 bot, 1,000 conversations/month, email support. Professional Plan: $99/month — 5 bots, 10,000 conversations/month, priority support, analytics dashboard. Enterprise Plan: Custom pricing — unlimited bots, unlimited conversations, dedicated account manager, SSO, custom integrations.",
+      "source_url": null,
+      "status": "indexed",
+      "created_at": "2026-02-15T14:00:00Z",
+      "updated_at": "2026-02-15T14:00:00Z"
+    },
+    {
+      "id": "kd06f7a8-b9c0-4d1e-f3a4-b5c6d7e8f901",
+      "bot_id": "a1b2c3d4-5678-4e9f-a012-3456789abcde",
+      "title": "Size Guide (Archived)",
+      "content": "This document has been superseded by the updated size guide.",
+      "source_url": "https://store.example.com/size-guide-old",
+      "status": "removed",
+      "created_at": "2025-12-01T10:00:00Z",
+      "updated_at": "2026-02-20T09:00:00Z"
+    }
+  ],
+  "training_examples": [
+    {
+      "id": "te01a2b3-c4d5-4e6f-a8b9-c0d1e2f3a4b5",
+      "intent_id": "i01a2b3c-4d5e-4f6a-8b9c-0d1e2f3a4b5c",
+      "text": "Where is my order?",
+      "created_at": "2026-01-20T10:05:00Z"
+    },
+    {
+      "id": "te02b3c4-d5e6-4f7a-b9c0-d1e2f3a4b5c6",
+      "intent_id": "i01a2b3c-4d5e-4f6a-8b9c-0d1e2f3a4b5c",
+      "text": "Can you track my package?",
+      "created_at": "2026-01-20T10:06:00Z"
+    },
+    {
+      "id": "te03c4d5-e6f7-4a8b-c0d1-e2f3a4b5c6d7",
+      "intent_id": "i01a2b3c-4d5e-4f6a-8b9c-0d1e2f3a4b5c",
+      "text": "I want to know the status of order #12345",
+      "created_at": "2026-01-20T10:07:00Z"
+    },
+    {
+      "id": "te04d5e6-f7a8-4b9c-d1e2-f3a4b5c6d7e8",
+      "intent_id": "i02b3c4d-5e6f-4a7b-9c0d-1e2f3a4b5c6d",
+      "text": "I want to return something I bought",
+      "created_at": "2026-01-20T10:35:00Z"
+    },
+    {
+      "id": "te05e6f7-a8b9-4c0d-e2f3-a4b5c6d7e8f9",
+      "intent_id": "i02b3c4d-5e6f-4a7b-9c0d-1e2f3a4b5c6d",
+      "text": "How do I send back an item?",
+      "created_at": "2026-01-20T10:36:00Z"
+    },
+    {
+      "id": "te06f7a8-b9c0-4d1e-f3a4-b5c6d7e8f901",
+      "intent_id": "i03c4d5e-6f7a-4b8c-0d1e-2f3a4b5c6d7e",
+      "text": "How long does shipping take?",
+      "created_at": "2026-01-22T08:05:00Z"
+    },
+    {
+      "id": "te07a7b8-c0d1-4e2f-a4b5-c6d7e8f90123",
+      "intent_id": "i03c4d5e-6f7a-4b8c-0d1e-2f3a4b5c6d7e",
+      "text": "Do you offer free shipping?",
+      "created_at": "2026-01-22T08:06:00Z"
+    },
+    {
+      "id": "te08b8c9-d1e2-4f3a-b5c6-d7e8f9012345",
+      "intent_id": "i04d5e6f-7a8b-4c9d-1e2f-3a4b5c6d7e8f",
+      "text": "What product do you recommend for running?",
+      "created_at": "2026-02-05T09:05:00Z"
+    },
+    {
+      "id": "te09c9d0-e2f3-4a4b-c6d7-e8f901234567",
+      "intent_id": "i04d5e6f-7a8b-4c9d-1e2f-3a4b5c6d7e8f",
+      "text": "I need help choosing between your products",
+      "created_at": "2026-02-05T09:06:00Z"
+    },
+    {
+      "id": "te10d0e1-f3a4-4b5c-d7e8-f90123456789",
+      "intent_id": "i07a7b8c-0d1e-4f2a-4b5c-6d7e8f901234",
+      "text": "I can't log into my account",
+      "created_at": "2026-01-25T11:05:00Z"
+    }
+  ]
+}

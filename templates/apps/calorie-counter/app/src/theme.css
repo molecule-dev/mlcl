@@ -1,0 +1,211 @@
+/* App-specific theme overrides for Nosh — see DESIGN.md */
+
+/*
+ * Nosh palette: teal primary + warm orange accent + macro/meal semantic colors.
+ * --mol-color-* drive the @theme tokens in index.css. Macro/meal tokens are
+ * layered on top of the standard Material 3 palette via @theme below.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #0f766e; /* was #0d9488 — 3.74:1 as link text on white; teal-700 = 5.47:1 */
+  --mol-color-primary-light: #14b8a6;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #f97316;
+  --mol-color-secondary-light: #fb923c;
+  --mol-color-secondary-dark: #ea580c;
+  --mol-color-background: #f0fdfa;
+  --mol-color-background-secondary: #e6fbf6;
+  --mol-color-background-tertiary: #ccfbf1;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0fdfa;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #374151; /* was #6b7280 — 3.35:1 on the teal primary-container tint; gray-700 = 7.15:1 */
+  --mol-color-text-tertiary: #4b5563;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #065f46; /* was #10b981 — 2.23:1 as chip text on success-light; emerald-800 = 6.78:1 */
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #b91c1c; /* #ef4444 → #ffffff on-error = 3.76:1 (fail); #b91c1c = 6.47:1 */
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #14b8a6;
+  --mol-color-info-light: #ccfbf1;
+  --mol-color-border: #ccfbf1;
+  --mol-color-border-secondary: #99f6e4;
+  --mol-color-border-focus: #0d9488;
+
+  /* M3 overrides for light mode — base.css derives these from mol-color-* but some
+     need explicit correction for WCAG contrast. */
+  --color-on-primary: #ffffff; /* primary darkened to teal-700 — white = 5.47:1 (the old ink pairing fails on the darker stop) */
+  --color-error: #b91c1c; /* mol-color-error #ef4444 gives 3.76:1 on #ffffff (fail); #b91c1c = 6.47:1 */
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand-specific tokens */
+  --color-protein: #6366f1;
+  --color-protein-light: #e0e7ff;
+  --color-carbs: #f59e0b;
+  --color-carbs-light: #fef3c7;
+  --color-fat: #ec4899;
+  --color-fat-light: #fce7f3;
+  --color-fiber: #8b5cf6;
+  --color-fiber-light: #ede9fe;
+  --color-breakfast: #f97316;
+  --color-lunch: #0d9488;
+  --color-dinner: #6366f1;
+  --color-snacks: #ec4899;
+  --color-accent: #c2410c; /* was #f97316 — 2.8:1 under white CTA text; orange-700 = 5.18:1 */
+  --color-on-accent: #ffffff;
+  --color-accent-container: #ffedd5;
+  --color-on-accent-container: #7c2d12;
+  --color-under-goal: #10b981;
+  --color-near-goal: #f59e0b;
+  --color-over-goal: #ef4444;
+}
+
+/* Dark theme overrides — Nosh dark.
+   Warm-neutral near-black chassis (food/health brand — not cold tech).
+   Brand teal is kept at the brand stop (#0d9488) for the Material-3
+   `--color-primary` bridge so CTA buttons keep their light-on-teal
+   character; surface accents (info, border-focus) lift to brighter
+   teal for visibility. `--color-on-primary` stays white. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #2dd4bf;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #14b8a6;
+  --mol-color-secondary: #fb923c;
+  --mol-color-secondary-light: #fdba74;
+  --mol-color-secondary-dark: #f97316;
+  --mol-color-background: #100f0d;
+  --mol-color-background-secondary: #181715;
+  --mol-color-background-tertiary: #1f1e1c;
+  --mol-color-surface: #100f0d;
+  --mol-color-surface-secondary: #181715;
+  --mol-color-input-background: #0a0a09;
+  --mol-color-text: #f5f4f2;
+  --mol-color-text-secondary: #c4c2bd;
+  --mol-color-text-tertiary: #8a8783;
+  --mol-color-text-inverse: #100f0d;
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #064e3b;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #451a03;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #2dd4bf;
+  --mol-color-info-light: #134e4a;
+  --mol-color-border: #2a2a28;
+  --mol-color-border-secondary: #3a3936;
+  --mol-color-border-focus: #2dd4bf;
+
+  /* Brand tokens — macros stay vivid but slightly brighter for dark */
+  --color-protein: #818cf8;
+  --color-protein-light: #1e1b4b;
+  --color-carbs: #fbbf24;
+  --color-carbs-light: #451a03;
+  --color-fat: #f472b6;
+  --color-fat-light: #500724;
+  --color-fiber: #a78bfa;
+  --color-fiber-light: #2e1065;
+  --color-breakfast: #fb923c;
+  --color-lunch: #2dd4bf;
+  --color-dinner: #818cf8;
+  --color-snacks: #f472b6;
+  --color-accent: #fb923c;
+  --color-on-accent: #ffffff;
+  --color-accent-container: #431407;
+  --color-on-accent-container: #fed7aa;
+  --color-under-goal: #34d399;
+  --color-near-goal: #fbbf24;
+  --color-over-goal: #f87171;
+
+  /* Material-3 bridge tokens — override the @theme block so `bg-surface`,
+     `text-on-surface`, `bg-primary-container`, etc. all flip on dark.
+     Brand teal kept at brand stop (#0d9488). on-primary uses dark teal (#001a18)
+   because #0d9488 is medium-luminance — white only passes at 3.74:1 (fail). */
+  --color-background: #100f0d;
+  --color-on-background: #f5f4f2;
+  --color-surface: #100f0d;
+  --color-surface-bright: #1f1e1c;
+  --color-surface-dim: #080806;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0a0a09;
+  --color-surface-container: #181715;
+  --color-surface-container-high: #1f1e1c;
+  --color-surface-container-highest: #2a2a28;
+  --color-surface-variant: #1f1e1c;
+  --color-on-surface: #f5f4f2;
+  --color-on-surface-variant: #c4c2bd;
+  --color-inverse-surface: #f5f4f2;
+  --color-inverse-on-surface: #100f0d;
+  --color-inverse-primary: #0d9488;
+  --color-secondary-container: #1f1e1c;
+  --color-on-secondary: #100f0d;
+  --color-on-secondary-container: #f5f4f2;
+  --color-tertiary: #f472b6;
+  --color-tertiary-container: #500724;
+  --color-on-tertiary: #500724; /* #ffffff was 2.65:1 (fail); #500724 = 5.68:1 */
+  --color-on-tertiary-container: #fce7f3;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #706e6b; /* #5a5957 was 2.74:1 vs surface (fail ≥3:1); #706e6b = 3.77:1 */
+  --color-outline-variant: #2a2a28;
+  --color-surface-tint: #2dd4bf;
+
+  /* @theme token dark variants — override Tailwind's static :root rules
+     so `bg-primary-light`, `bg-surface-secondary`, `text-l-protein`, etc.
+     flip on data-mol-mode="dark". `--color-primary` stays at brand stop
+     so CTA buttons keep their light-on-teal character. */
+  --color-primary: #0d9488; /* keep brand teal at brand stop */
+  --color-on-primary: #001a18; /* #ffffff was 3.74:1 vs #0d9488 (fail); #001a18 = 4.83:1 */
+  --color-primary-container: #134e4a;
+  --color-on-primary-container: #ccfbf1;
+  --color-primary-dark: #14b8a6;
+  --color-primary-light: #134e4a;
+  --color-surface-secondary: #181715;
+  --color-l-protein: #818cf8;
+  --color-l-carbs: #fbbf24;
+  --color-l-fat: #f472b6;
+  --color-l-fiber: #a78bfa;
+  --color-l-breakfast: #fb923c;
+  --color-l-lunch: #2dd4bf;
+  --color-l-dinner: #818cf8;
+  --color-l-snacks: #f472b6;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}
+
+/*
+ * Register Nosh-specific Tailwind color tokens so utilities like
+ * `bg-protein`, `text-carbs`, `border-l-breakfast`, `bg-accent`, etc. resolve
+ * to the CSS variables defined above. Keep this list aligned with DESIGN.md.
+ */
+@theme {
+  --color-protein: var(--color-protein);
+  --color-protein-light: var(--color-protein-light);
+  --color-carbs: var(--color-carbs);
+  --color-carbs-light: var(--color-carbs-light);
+  --color-fat: var(--color-fat);
+  --color-fat-light: var(--color-fat-light);
+  --color-fiber: var(--color-fiber);
+  --color-fiber-light: var(--color-fiber-light);
+  --color-breakfast: var(--color-breakfast);
+  --color-lunch: var(--color-lunch);
+  --color-dinner: var(--color-dinner);
+  --color-snacks: var(--color-snacks);
+  --color-accent: var(--color-accent);
+  --color-on-accent: var(--color-on-accent);
+  --color-accent-container: var(--color-accent-container);
+  --color-on-accent-container: var(--color-on-accent-container);
+  --color-under-goal: var(--color-under-goal);
+  --color-near-goal: var(--color-near-goal);
+  --color-over-goal: var(--color-over-goal);
+}

@@ -1,0 +1,6 @@
+[
+  { "id": "v1", "date": "2026-04-12", "category": "office-visit", "provider": "Dr. Anika Patel", "specialty": "Internal Medicine", "facility": "Brightcare Internal Medicine", "summary": "Quarterly diabetes follow-up. A1C 6.8%. Increased Lisinopril to 20 mg daily." },
+  { "id": "v2", "date": "2026-02-08", "category": "specialist", "provider": "Dr. Wei Lin", "specialty": "Ophthalmology", "facility": "Madison Eye Center", "summary": "Annual diabetic retinopathy screening. No microvascular changes." },
+  { "id": "v3", "date": "2025-12-19", "category": "lab-draw", "provider": "Quest Diagnostics", "specialty": "Phlebotomy", "facility": "Quest — Linden Ave", "summary": "Routine quarterly draw — CMP, lipid panel, A1C." },
+  { "id": "v4", "date": "2025-09-30", "category": "telehealth", "provider": "Dr. Anika Patel", "specialty": "Internal Medicine", "facility": "Brightcare (telehealth)", "summary": "Medication adjustment review. Approved Atorvastatin start at 20 mg." }
+]

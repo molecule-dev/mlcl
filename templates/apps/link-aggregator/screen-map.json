@@ -1,0 +1,159 @@
+{
+  "app": "link-aggregator",
+  "designProjectId": "16783396432560902864",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-landing.html",
+      "designScreenId": "d0c423200447477ca881e7c7f3065bcd"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-login.html",
+      "designScreenId": "6c7bbe90d69a4bf4b0130ac003a39794"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-link-aggregator-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-link-aggregator-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-link-aggregator-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Feed",
+      "templateFile": "app/pages/Feed.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/feed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-feed.html",
+      "designScreenId": "abb1aa954126410c84a927446a783a19"
+    },
+    {
+      "name": "LinkDetail",
+      "templateFile": "app/pages/LinkDetail.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/links/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-link-detail.html",
+      "designScreenId": "701d154cf968408e912b3e19ceec25f3"
+    },
+    {
+      "name": "Subs",
+      "templateFile": "app/pages/Subs.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/subs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-subs.html",
+      "designScreenId": "18ba4607338b4baebd9b4eb6eca4e044"
+    },
+    {
+      "name": "SubDetail",
+      "templateFile": "app/pages/SubDetail.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/subs/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-sub-detail.html",
+      "designScreenId": "9d7dc86e1c0448a284079bac883115fa"
+    },
+    {
+      "name": "SubmitLink",
+      "templateFile": "app/pages/SubmitLink.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/submit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-submit-link.html",
+      "designScreenId": "ab6260500a6a4de69143837dc4102cb2"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/users/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-profile.html",
+      "designScreenId": "a51a4cef7f5844cb940d8bdc92993f94"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-settings.html",
+      "designScreenId": "cff710227dd04da38cc3586831646799"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-notifications.html",
+      "designScreenId": "6567255741f0445f8be6ada2108f5522"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-search.html",
+      "designScreenId": "2203f5b9cab6439eb21c9ebe8546e80c"
+    },
+    {
+      "name": "Saved",
+      "templateFile": "app/pages/Saved.tsx",
+      "components": ["app/components/LinkAggregatorLayout.tsx"],
+      "route": "/saved",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-link-aggregator-saved.html",
+      "designScreenId": "28c5bcab89c748249116629caf1e3854"
+    }
+  ]
+}

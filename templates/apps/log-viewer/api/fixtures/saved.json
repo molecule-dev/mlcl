@@ -1,0 +1,8 @@
+[
+  { "id": "saved-1", "name": "Errors in checkout last 1h",       "query": "service:checkout severity:>=error",                       "owner": "Riley Kovacs",   "shared": true,  "last_run_at": "2026-04-30T13:35:00.000Z", "result_count": 218 },
+  { "id": "saved-2", "name": "Slow oauth callbacks",             "query": "service:auth-service path:/oauth/callback duration_ms:>800", "owner": "Sasha Petrov", "shared": true,  "last_run_at": "2026-04-30T11:42:00.000Z", "result_count": 41 },
+  { "id": "saved-3", "name": "5xx by service (last 24h)",         "query": "status:5xx | stats count by service",                      "owner": "Jordan Ma",     "shared": true,  "last_run_at": "2026-04-30T08:14:00.000Z", "result_count": 8 },
+  { "id": "saved-4", "name": "My recent searches",                "query": "user_id:usr_4f2e91a",                                      "owner": "Imani Davies",  "shared": false, "last_run_at": "2026-04-30T07:55:00.000Z", "result_count": 132 },
+  { "id": "saved-5", "name": "Stripe webhooks",                   "query": "service:billing source:webhook stripe",                    "owner": "Morgan Cho",    "shared": true,  "last_run_at": "2026-04-29T22:01:00.000Z", "result_count": 612 },
+  { "id": "saved-6", "name": "Cache poisoning suspects",          "query": "service:edge-cdn message:cache_purge_fail",                "owner": "Imani Davies",  "shared": true,  "last_run_at": "2026-04-29T18:11:00.000Z", "result_count": 12 }
+]

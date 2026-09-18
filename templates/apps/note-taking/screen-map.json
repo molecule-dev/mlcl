@@ -1,0 +1,144 @@
+{
+  "app": "note-taking",
+  "designProjectId": "4781725720676621228",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-note-taking-landing.html",
+      "designScreenId": "0fb025d6327f405a84db3eee6d92666d"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-note-taking-login.html",
+      "designScreenId": "3698e862ccef4db4a339ad4ee840f28b"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-note-taking-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Create account."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-note-taking-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Request reset."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-note-taking-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Set new password."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-home.html",
+      "designScreenId": "f0313eabf97549acaacce9ec647a9a2f"
+    },
+    {
+      "name": "Notes",
+      "templateFile": "app/pages/Notes.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/notes",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-note-taking-note-editor.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Verso wordmark) as NoteEditor. Page content: notebook tree (left list pane) plus a middle list pane showing notes within selected notebook (title, excerpt, last edited, tag chips). Right editor canvas replaced with empty-state 'Select a note' or first-note preview."
+    },
+    {
+      "name": "NoteEditor",
+      "templateFile": "app/pages/NoteEditor.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/notes/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-note-editor.html",
+      "designScreenId": "22c7d6e400d74cb6a09096862e568c99"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-search.html",
+      "designScreenId": "8e2e4a980ffa405e856743ab1a8217f6"
+    },
+    {
+      "name": "Graph",
+      "templateFile": "app/pages/Graph.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/graph",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-graph.html",
+      "designScreenId": "005f45b0315e4a1491779b61d4e27866"
+    },
+    {
+      "name": "Tags",
+      "templateFile": "app/pages/Tags.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/tags",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-tags.html",
+      "designScreenId": "983b4b1485674c5f98b42c6a5952ab17"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/VersoLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-note-taking-settings.html",
+      "designScreenId": "4a034cda4578410c8dd141bee2aa2f3b"
+    }
+  ]
+}

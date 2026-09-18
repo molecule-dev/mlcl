@@ -1,0 +1,150 @@
+{
+  "app": "flashcard-app",
+  "designProjectId": "8351906521900048098",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-landing.html",
+      "designScreenId": "44af3235d4574db982af07219012d04b"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-login.html",
+      "designScreenId": "3192547d9d6b4ab28f45dde4cc6f1f5e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flashcard-app-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Start studying free'. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. Keep decorative flashcard mockup and soft violet background. Remove streak reminder pill and Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flashcard-app-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'We\u2019ll email you a reset link.' Button 'Send reset link'. Bottom link 'Back to sign in'. Keep soft violet background. Remove streak reminder pill."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flashcard-app-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Remove streak reminder pill."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-dashboard.html",
+      "designScreenId": "c8bf5c09e2ee4b3fab332eb7cd9da580"
+    },
+    {
+      "name": "Decks",
+      "templateFile": "app/pages/Decks.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/decks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-decks.html",
+      "designScreenId": "67f0c77bc2564a9ca7ff3ea9ea859cc7"
+    },
+    {
+      "name": "Study",
+      "templateFile": "app/pages/Study.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/study/:deckId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-study.html",
+      "designScreenId": "5f22470b353e46c8beefc51a9abdf72c"
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-stats.html",
+      "designScreenId": "cc6618ec241b47ce8b47fe058a175ccf"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-settings.html",
+      "designScreenId": "930dcb5e4fa34b4ca53c273395d5be53"
+    },
+    {
+      "name": "DeckDetail",
+      "templateFile": "app/pages/DeckDetail.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/decks/:deckId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-deck-detail.html",
+      "designScreenId": "d7cdeb4403d64bb8a1fe4b2d232b0b4b"
+    },
+    {
+      "name": "CardNew",
+      "templateFile": "app/pages/CardNew.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/decks/:deckId/cards/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-card-editor.html",
+      "designScreenId": "48662a6c56864132a469e39598ef9ffd"
+    },
+    {
+      "name": "CardEdit",
+      "templateFile": "app/pages/CardEdit.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/decks/:deckId/cards/:cardId/edit",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-flashcard-app-card-editor.html",
+      "derivationNotes": "Same two-column form + live preview as CardNew. Heading 'Edit flashcard' instead of 'New flashcard'. Pre-populated Front/Back fields. Replace 'Save and add another' with 'Delete card' (destructive ghost variant). Primary button reads 'Save changes'. Add small 'Last reviewed 2 days ago' meta line near header."
+    },
+    {
+      "name": "SessionSummary",
+      "templateFile": "app/pages/SessionSummary.tsx",
+      "components": ["app/components/FlashcardAppLayout.tsx"],
+      "route": "/study/:deckId/summary",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-flashcard-app-session-summary.html",
+      "designScreenId": "e3345801861a4e3e8885103b0a22cca0"
+    }
+  ]
+}

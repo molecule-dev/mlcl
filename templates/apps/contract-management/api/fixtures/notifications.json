@@ -1,0 +1,16 @@
+[
+  { "id": "ntf_001", "type": "expiring", "title": "Stark Industries Order expires in 19 days",  "body": "VEL-2026-0139 — $24,000 — auto-renew is disabled.",                              "href": "/contracts/ct_004", "created_at": "2026-04-26T08:00:00Z", "unread": true,
+    "contract_id": "ct_004", "contract_title": "Order — Stark widgets",      "actor": "system" },
+  { "id": "ntf_002", "type": "viewed",   "title": "Acme Corp viewed SOW #4",                     "body": "Margaret Cole opened VEL-2026-0141 for the third time.",                          "href": "/contracts/ct_002", "created_at": "2026-04-22T16:48:00Z", "unread": true,
+    "contract_id": "ct_002", "contract_title": "SOW #4 — Acme Q2 engagement","actor": "Margaret Cole" },
+  { "id": "ntf_003", "type": "signed",   "title": "Hooli signed mutual NDA",                     "body": "Gavin Belson signed VEL-2026-0140.",                                              "href": "/contracts/ct_003", "created_at": "2026-04-12T15:01:00Z", "unread": false,
+    "contract_id": "ct_003", "contract_title": "NDA — Hooli prospect call",  "actor": "Gavin Belson" },
+  { "id": "ntf_004", "type": "sent",     "title": "SOW #4 sent to Acme",                          "body": "VEL-2026-0141 sent to Margaret Cole for signature.",                              "href": "/contracts/ct_002", "created_at": "2026-04-22T10:30:30Z", "unread": false,
+    "contract_id": "ct_002", "contract_title": "SOW #4 — Acme Q2 engagement","actor": "Morgan Reyes" },
+  { "id": "ntf_005", "type": "mention",  "title": "Devon Park mentioned you",                     "body": "\"@morgan can you confirm the IP-assignment carve-out is still required for Initech renewal?\"", "href": "/contracts/ct_006", "created_at": "2026-04-18T09:30:00Z", "unread": false,
+    "contract_id": "ct_006", "contract_title": "MSA — Initech (legacy)",     "actor": "Devon Park" },
+  { "id": "ntf_006", "type": "expiring", "title": "Initech MSA expired",                          "body": "VEL-2026-0137 expired on 2025-12-01. Tagged as renewal opportunity.",            "href": "/contracts/ct_006", "created_at": "2025-12-02T09:00:00Z", "unread": false,
+    "contract_id": "ct_006", "contract_title": "MSA — Initech (legacy)",     "actor": "system" },
+  { "id": "ntf_007", "type": "system_message","title": "New template version published",           "body": "MSA template updated to v3.2.",                                                  "href": "/templates/tpl_msa_v3", "created_at": "2026-04-12T10:01:00Z", "unread": false,
+    "contract_id": "tpl_msa_v3", "contract_title": "Master Service Agreement", "actor": "system" }
+]

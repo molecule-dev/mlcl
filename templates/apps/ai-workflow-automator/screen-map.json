@@ -1,0 +1,169 @@
+{
+  "app": "ai-workflow-automator",
+  "designProjectId": "14560468892465690227",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-landing.html",
+      "designScreenId": "3d47623d91c948d7a757bd46a0d31523"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-login.html",
+      "designScreenId": "dbf6671bdfb245c38fbf2f306ba549e3"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-workflow-automator-login.html",
+      "derivationNotes": "Same centered card layout as Login but with additional fields: Full Name, Work Email, Password, Confirm Password. Heading changes to 'Create your account'. Button text changes to 'Start automating'. Bottom link changes to 'Already have an account? Sign in'. Keep the subtle dotted grid background pattern. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-workflow-automator-login.html",
+      "derivationNotes": "Same centered card layout as Login but with only email field. Heading changes to 'Reset your password' with subtext 'Enter your email to receive a reset link'. Button text changes to 'Send reset link'. Bottom link changes to 'Back to sign in'. No password field, no social buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-workflow-automator-login.html",
+      "derivationNotes": "Same centered card layout as Login but with New Password and Confirm Password fields only. Heading changes to 'Set a new password'. Button text changes to 'Update password'. Bottom link changes to 'Back to sign in'. No email field, no social buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-dashboard.html",
+      "designScreenId": "5e8cd005745e430b8b2802ba8155be7c"
+    },
+    {
+      "name": "WorkflowBuilder",
+      "templateFile": "app/pages/WorkflowBuilder.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/workflows/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-workflow-builder.html",
+      "designScreenId": "f74191c5938246739fa6e75c2ab349f8"
+    },
+    {
+      "name": "Executions",
+      "templateFile": "app/pages/Executions.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/executions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-executions.html",
+      "designScreenId": "7396bd7770a8407f92c740696886582d"
+    },
+    {
+      "name": "ExecutionDetail",
+      "templateFile": "app/pages/ExecutionDetail.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/executions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-execution-detail.html",
+      "designScreenId": "8a9926a7e31d4a59ab2b6cff6664e733"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-templates.html",
+      "designScreenId": "25bcc12ed42a4a03932a4dea3b9280c8"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-settings.html",
+      "designScreenId": "2dd6f9aae4ae4c8bbf766f3800bb1b2d"
+    },
+    {
+      "name": "Workflows",
+      "templateFile": "app/pages/Workflows.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/workflows",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-workflows.html",
+      "designScreenId": "b8af1a74e220471faaa1642a9d91cfac"
+    },
+    {
+      "name": "TemplateDetail",
+      "templateFile": "app/pages/TemplateDetail.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-template-detail.html",
+      "designScreenId": "bd72d50c6b9f4da8b33a8e0fba66b1ed"
+    },
+    {
+      "name": "Connections",
+      "templateFile": "app/pages/Connections.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/connections",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-connections.html",
+      "designScreenId": "cfd2f0e9d9c3456c844bec10f9f9c826"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-notifications.html",
+      "designScreenId": "6233e9eed08942428dea49a65c103722"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/AiWorkflowAutomatorLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-workflow-automator-billing.html",
+      "designScreenId": "097057fc365240499b4112503dcfa1ee"
+    }
+  ]
+}

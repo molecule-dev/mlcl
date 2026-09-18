@@ -1,0 +1,31 @@
+{
+  "score": 84,
+  "scoreDelta": 6,
+  "lastScannedAt": "2026-04-29T18:00:00Z",
+  "summary": {
+    "weak": 3,
+    "reused": 4,
+    "old": 7,
+    "breached": 1,
+    "twoFactorEligible": 12
+  },
+  "weakItems": [
+    { "id": "vi_4", "title": "Figma", "username": "ada@sigil.dev", "strength": 2, "lastUsedAt": "2026-04-28T16:30:00Z", "iconLetter": "F", "accent": "#a259ff" },
+    { "id": "vi_5", "title": "Wi-Fi — Sigil HQ", "username": "sigil-guest", "strength": 2, "lastUsedAt": "2026-04-27T09:15:00Z", "iconLetter": "W", "accent": "#22d3ee" },
+    { "id": "vi_9", "title": "Mailchimp", "username": "growth@sigil.dev", "strength": 1, "lastUsedAt": "2026-04-21T08:42:00Z", "iconLetter": "M", "accent": "#ffe01b" }
+  ],
+  "reusedGroups": [
+    { "id": "g1", "items": ["LinkedIn", "Twitter", "Reddit"], "count": 3 },
+    { "id": "g2", "items": ["Notion", "Linear"], "count": 2 }
+  ],
+  "breached": [
+    { "id": "b1", "site": "linkedin.com", "discoveredAt": "2026-04-19T00:00:00Z", "severity": "medium" }
+  ],
+  "trend": [
+    { "date": "2026-03-30", "score": 70 },
+    { "date": "2026-04-06", "score": 73 },
+    { "date": "2026-04-13", "score": 76 },
+    { "date": "2026-04-20", "score": 79 },
+    { "date": "2026-04-27", "score": 84 }
+  ]
+}

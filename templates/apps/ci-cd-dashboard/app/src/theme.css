@@ -1,0 +1,396 @@
+:root {
+  /* === @theme bridge — dark-first developer tool === */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #94a3b8;
+  --mol-color-background: #0a0f1e;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1f2937;
+  --mol-color-surface: #111827;
+  --mol-color-surface-secondary: #1f2937;
+  --mol-color-input-background: #0c1120;
+  --mol-color-text: #f9fafb;
+  --mol-color-text-secondary: #9ca3af;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #111827;
+  --mol-color-border: #374151;
+  --mol-color-border-secondary: #4b5563;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #22c55e;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* === Material-3 bridge tokens (default/dark — this app is dark-first) === */
+  --color-background: #0a0f1e;
+  --color-on-background: #f9fafb;
+  --color-surface: #111827;
+  --color-surface-bright: #1f2937;
+  --color-surface-dim: #060b14;
+  --color-surface-container-lowest: #030609;
+  --color-surface-container-low: #0e1520;
+  --color-surface-container: #111827;
+  --color-surface-container-high: #1f2937;
+  --color-surface-container-highest: #2a3347;
+  --color-surface-variant: #1f2937;
+  --color-surface-elevated: #1f2937;
+  --color-on-surface: #f9fafb;
+  --color-on-surface-variant: #9ca3af;
+  --color-inverse-surface: #f9fafb;
+  --color-inverse-on-surface: #111827;
+  --color-inverse-primary: #059669;
+  --color-primary: #10b981;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #022c22; /* dark green — 5.97:1 on #10b981 (was #fff = 2.54:1 fail) */
+  --color-on-primary-container: #a7f3d0;
+  --color-secondary: #94a3b8;
+  --color-secondary-container: #1e293b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #e2e8f0;
+  --color-tertiary: #3b82f6;
+  --color-tertiary-container: #1e3a5f;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #bfdbfe;
+  --color-error: #ef4444;
+  --color-error-container: #450a0a;
+  --color-on-error: #280000; /* dark red — 5.12:1 on #ef4444 (was #fff = 3.76:1 fail) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #4b5563;
+  --color-outline-variant: #374151;
+  --color-surface-tint: #10b981;
+
+  /* === Brand colors === */
+  --color-primary-hover: #059669;
+  --color-primary-light: #064e3b;
+
+  /* Pipeline status colors */
+  --color-status-idle: #6b7280;
+  --color-status-queued: #f59e0b;
+  --color-status-running: #3b82f6;
+  --color-status-success: #22c55e;
+  --color-status-failed: #ef4444;
+  --color-status-cancelled: #9ca3af;
+
+  /* Log level colors */
+  --color-log-info: #94a3b8;
+  --color-log-warn: #f59e0b;
+  --color-log-error: #ef4444;
+  --color-log-debug: #8b5cf6;
+
+  /* Status pill tokens — dot / bg / text / ring per status */
+  --color-pill-queued-dot: #8b5cf6;
+  --color-pill-queued-bg: rgba(139, 92, 246, 0.15);
+  --color-pill-queued-text: #c4b5fd;
+  --color-pill-queued-ring: rgba(139, 92, 246, 0.3);
+  --color-pill-running-dot: #3b82f6;
+  --color-pill-running-bg: rgba(59, 130, 246, 0.15);
+  --color-pill-running-text: #93c5fd;
+  --color-pill-running-ring: rgba(59, 130, 246, 0.3);
+  --color-pill-success-dot: #22c55e;
+  --color-pill-success-bg: rgba(34, 197, 94, 0.15);
+  --color-pill-success-text: #86efac;
+  --color-pill-success-ring: rgba(34, 197, 94, 0.3);
+  --color-pill-failed-dot: #ef4444;
+  --color-pill-failed-bg: rgba(239, 68, 68, 0.15);
+  --color-pill-failed-text: #fca5a5;
+  --color-pill-failed-ring: rgba(239, 68, 68, 0.3);
+  --color-pill-cancelled-dot: #94a3b8;
+  --color-pill-cancelled-bg: rgba(148, 163, 184, 0.12);
+  --color-pill-cancelled-text: #cbd5e1;
+  --color-pill-cancelled-ring: rgba(148, 163, 184, 0.25);
+  --color-pill-skipped-dot: #a1a1aa;
+  --color-pill-skipped-bg: rgba(161, 161, 170, 0.12);
+  --color-pill-skipped-text: #d4d4d8;
+  --color-pill-skipped-ring: rgba(161, 161, 170, 0.25);
+  --color-pill-degraded-dot: #f59e0b;
+  --color-pill-degraded-bg: rgba(245, 158, 11, 0.15);
+  --color-pill-degraded-text: #fcd34d;
+  --color-pill-degraded-ring: rgba(245, 158, 11, 0.3);
+
+  /* Text */
+  --color-text: #f9fafb;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #111827;
+  --color-border: #374151;
+
+  /* Feedback */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 14px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders */
+  --border-radius: 6px;
+  --border-radius-lg: 10px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/* Dark mode overrides — brand-calibrated developer-tools dark palette
+   (deep slate canvas, bright cyan pipeline accents, log-syntax-friendly
+   status colors). Pins the dark surface set regardless of OS-level
+   color-scheme so the theme toggle is authoritative. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* provider bridge */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #94a3b8;
+  --mol-color-background: #0a0f1e;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1f2937;
+  --mol-color-surface: #111827;
+  --mol-color-surface-secondary: #1f2937;
+  --mol-color-input-background: #0c1120;
+  --mol-color-text: #f9fafb;
+  --mol-color-text-secondary: #9ca3af;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #111827;
+  --mol-color-border: #374151;
+  --mol-color-border-secondary: #4b5563;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* App-specific aliases */
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-light: #064e3b;
+
+  --color-status-idle: #6b7280;
+  --color-status-queued: #fbbf24;
+  --color-status-running: #60a5fa;
+  --color-status-success: #34d399;
+  --color-status-failed: #f87171;
+  --color-status-cancelled: #9ca3af;
+
+  --color-log-info: #94a3b8;
+  --color-log-warn: #fbbf24;
+  --color-log-error: #f87171;
+  --color-log-debug: #a78bfa;
+
+  --color-text: #f9fafb;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #111827;
+  --color-border: #374151;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* Material-3 bridge tokens — dark */
+  --color-background: #0a0f1e;
+  --color-on-background: #f9fafb;
+  --color-surface: #111827;
+  --color-surface-bright: #1f2937;
+  --color-surface-dim: #060b14;
+  --color-surface-container-lowest: #030609;
+  --color-surface-container-low: #0e1520;
+  --color-surface-container: #111827;
+  --color-surface-container-high: #1f2937;
+  --color-surface-container-highest: #2a3347;
+  --color-surface-variant: #1f2937;
+  --color-surface-elevated: #1f2937;
+  --color-on-surface: #f9fafb;
+  --color-on-surface-variant: #9ca3af;
+  --color-inverse-surface: #f9fafb;
+  --color-inverse-on-surface: #111827;
+  --color-inverse-primary: #059669;
+  --color-on-primary: #022c22; /* dark green — 5.97:1 on #10b981 (matches :root) */
+  --color-on-primary-container: #a7f3d0;
+  --color-primary-container: #064e3b;
+  --color-secondary: #94a3b8;
+  --color-secondary-container: #1e293b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #e2e8f0;
+  --color-tertiary: #60a5fa;
+  --color-tertiary-container: #1e3a5f;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #bfdbfe;
+  --color-error-container: #450a0a;
+  --color-on-error: #280000; /* dark red — 5.12:1 on #ef4444 (was #fff = 3.76:1 fail) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #4b5563;
+  --color-outline-variant: #374151;
+  --color-surface-tint: #10b981;
+
+  /* Status pill tokens — dark (brighter accents for dark canvas) */
+  --color-pill-queued-dot: #a78bfa;
+  --color-pill-queued-bg: rgba(167, 139, 250, 0.15);
+  --color-pill-queued-text: #c4b5fd;
+  --color-pill-queued-ring: rgba(167, 139, 250, 0.3);
+  --color-pill-running-dot: #60a5fa;
+  --color-pill-running-bg: rgba(96, 165, 250, 0.15);
+  --color-pill-running-text: #93c5fd;
+  --color-pill-running-ring: rgba(96, 165, 250, 0.3);
+  --color-pill-success-dot: #34d399;
+  --color-pill-success-bg: rgba(52, 211, 153, 0.15);
+  --color-pill-success-text: #6ee7b7;
+  --color-pill-success-ring: rgba(52, 211, 153, 0.3);
+  --color-pill-failed-dot: #f87171;
+  --color-pill-failed-bg: rgba(248, 113, 113, 0.15);
+  --color-pill-failed-text: #fca5a5;
+  --color-pill-failed-ring: rgba(248, 113, 113, 0.3);
+  --color-pill-cancelled-dot: #9ca3af;
+  --color-pill-cancelled-bg: rgba(156, 163, 175, 0.12);
+  --color-pill-cancelled-text: #d1d5db;
+  --color-pill-cancelled-ring: rgba(156, 163, 175, 0.25);
+  --color-pill-skipped-dot: #a1a1aa;
+  --color-pill-skipped-bg: rgba(161, 161, 170, 0.12);
+  --color-pill-skipped-text: #d4d4d8;
+  --color-pill-skipped-ring: rgba(161, 161, 170, 0.25);
+  --color-pill-degraded-dot: #fbbf24;
+  --color-pill-degraded-bg: rgba(251, 191, 36, 0.15);
+  --color-pill-degraded-text: #fcd34d;
+  --color-pill-degraded-ring: rgba(251, 191, 36, 0.3);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/* Light mode overrides — developer-tools light counterpart to the
+   deep slate `:root` palette. Toggling [data-mol-mode="light"] flips
+   the defaults to a clean emerald-on-white pipeline view. */
+[data-mol-mode='light'] {
+  /* --mol-color-* provider bridge (light) */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #475569;
+  --mol-color-background: #f9fafb;
+  --mol-color-background-secondary: #f3f4f6;
+  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d1d5db;
+  --mol-color-border-secondary: #e5e7eb;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  /* App-specific aliases */
+  --color-primary: #047857;
+  --color-primary-hover: #065f46;
+  --color-primary-light: #d1fae5;
+
+  --color-status-idle: #6b7280;
+  --color-status-queued: #d97706;
+  --color-status-running: #2563eb;
+  --color-status-success: #16a34a;
+  --color-status-failed: #dc2626;
+  --color-status-cancelled: #9ca3af;
+
+  --color-log-info: #475569;
+  --color-log-warn: #d97706;
+  --color-log-error: #dc2626;
+  --color-log-debug: #7c3aed;
+
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+  --color-border: #d1d5db;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* Material-3 bridge tokens — light */
+  --color-background: #f9fafb;
+  --color-on-background: #111827;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e5e7eb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9fafb;
+  --color-surface-container: #f3f4f6;
+  --color-surface-container-high: #e5e7eb;
+  --color-surface-container-highest: #d1d5db;
+  --color-surface-variant: #f3f4f6;
+  --color-surface-elevated: #f3f4f6;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #6b7280;
+  --color-inverse-surface: #111827;
+  --color-inverse-on-surface: #f9fafb;
+  --color-inverse-primary: #6ee7b7;
+  --color-on-primary: #ffffff; /* white — 5.55:1 on light #047857 (passes) */
+  --color-on-primary-container: #064e3b;
+  --color-primary-container: #d1fae5;
+  --color-secondary: #475569;
+  --color-secondary-container: #e2e8f0;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1e293b;
+  --color-tertiary: #2563eb;
+  --color-tertiary-container: #dbeafe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1e3a5f;
+  --color-error-container: #fef2f2;
+  --color-on-error: #280000; /* dark red — 5.12:1 on #ef4444 (was #fff = 3.76:1 fail) */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #9ca3af;
+  --color-outline-variant: #d1d5db;
+  --color-surface-tint: #10b981;
+
+  /* Status pill tokens — light */
+  --color-pill-queued-dot: #7c3aed;
+  --color-pill-queued-bg: rgba(124, 58, 237, 0.1);
+  --color-pill-queued-text: #6d28d9;
+  --color-pill-queued-ring: rgba(124, 58, 237, 0.25);
+  --color-pill-running-dot: #2563eb;
+  --color-pill-running-bg: rgba(37, 99, 235, 0.1);
+  --color-pill-running-text: #1d4ed8;
+  --color-pill-running-ring: rgba(37, 99, 235, 0.25);
+  --color-pill-success-dot: #16a34a;
+  --color-pill-success-bg: rgba(22, 163, 74, 0.1);
+  --color-pill-success-text: #15803d;
+  --color-pill-success-ring: rgba(22, 163, 74, 0.25);
+  --color-pill-failed-dot: #dc2626;
+  --color-pill-failed-bg: rgba(220, 38, 38, 0.1);
+  --color-pill-failed-text: #b91c1c;
+  --color-pill-failed-ring: rgba(220, 38, 38, 0.25);
+  --color-pill-cancelled-dot: #6b7280;
+  --color-pill-cancelled-bg: rgba(107, 114, 128, 0.1);
+  --color-pill-cancelled-text: #4b5563;
+  --color-pill-cancelled-ring: rgba(107, 114, 128, 0.2);
+  --color-pill-skipped-dot: #9ca3af;
+  --color-pill-skipped-bg: rgba(156, 163, 175, 0.1);
+  --color-pill-skipped-text: #6b7280;
+  --color-pill-skipped-ring: rgba(156, 163, 175, 0.2);
+  --color-pill-degraded-dot: #d97706;
+  --color-pill-degraded-bg: rgba(217, 119, 6, 0.1);
+  --color-pill-degraded-text: #b45309;
+  --color-pill-degraded-ring: rgba(217, 119, 6, 0.25);
+
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --shadow-md: 0 4px 6px rgba(17, 24, 39, 0.08);
+  --shadow-lg: 0 10px 15px rgba(17, 24, 39, 0.1);
+}

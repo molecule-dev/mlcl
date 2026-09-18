@@ -1,0 +1,149 @@
+{
+  "app": "news-aggregator",
+  "designProjectId": "13346381847063525267",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-landing.html",
+      "designScreenId": "2b3e02c477664dabade1e745077109f7"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-login.html",
+      "designScreenId": "d1c81aa9cd5647f29df48916e3975552"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-news-aggregator-login.html",
+      "derivationNotes": "Same split layout as Login with left editorial image and right card. Card contains First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-news-aggregator-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-news-aggregator-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-home.html",
+      "designScreenId": "22d2d131c0b84bbbaf0630623ce7128b"
+    },
+    {
+      "name": "TopicDetail",
+      "templateFile": "app/pages/TopicDetail.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/topics/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-topic-detail.html",
+      "designScreenId": "47d2e1117f9046998bdba9e390e163c3"
+    },
+    {
+      "name": "StoryDetail",
+      "templateFile": "app/pages/StoryDetail.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/stories/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-story-detail.html",
+      "designScreenId": "71aa06760d3e4c6f92d16f6bb6362670"
+    },
+    {
+      "name": "Saved",
+      "templateFile": "app/pages/Saved.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/saved",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-saved.html",
+      "designScreenId": "3490275d7b9b457dbaa31e374bae62e6"
+    },
+    {
+      "name": "Sources",
+      "templateFile": "app/pages/Sources.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/sources",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-sources.html",
+      "designScreenId": "c6cb9082b8644299be9cbfd5dbadebe6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-settings.html",
+      "designScreenId": "48c10e12cd6540828b665f4c3a9d0be3"
+    },
+    {
+      "name": "Topics",
+      "templateFile": "app/pages/Topics.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/topics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-topics.html",
+      "designScreenId": "5a3ce97f35b44ea7830c25b8c2468163"
+    },
+    {
+      "name": "SourceDetail",
+      "templateFile": "app/pages/SourceDetail.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/sources/:slug",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-source-detail.html",
+      "designScreenId": "85bbcc1ceb394ccf94c313d6fcdbf260"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/NewsAggregatorLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-news-aggregator-search.html",
+      "designScreenId": "caf39834decc414c8cca1a60ea09e585"
+    }
+  ]
+}

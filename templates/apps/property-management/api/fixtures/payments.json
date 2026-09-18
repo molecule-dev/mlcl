@@ -1,0 +1,46 @@
+[
+  {
+    "id": "pay-001",
+    "tenant_id": "ten-001",
+    "lease_id": "lease-001",
+    "amount_cents": 165000,
+    "type": "rent",
+    "method": "ach",
+    "status": "succeeded",
+    "received_at": "2026-04-01T08:00:00Z",
+    "memo": "April 2026 rent"
+  },
+  {
+    "id": "pay-002",
+    "tenant_id": "ten-005",
+    "lease_id": "lease-005",
+    "amount_cents": 175000,
+    "type": "rent",
+    "method": "card",
+    "status": "succeeded",
+    "received_at": "2026-04-01T09:15:00Z",
+    "memo": "April 2026 rent"
+  },
+  {
+    "id": "pay-003",
+    "tenant_id": "ten-027",
+    "lease_id": "lease-027",
+    "amount_cents": 185000,
+    "type": "rent",
+    "method": "ach",
+    "status": "failed",
+    "received_at": "2026-04-03T10:00:00Z",
+    "memo": "April 2026 rent — NSF, retry pending"
+  },
+  {
+    "id": "pay-004",
+    "tenant_id": "ten-041",
+    "lease_id": "lease-041",
+    "amount_cents": 220000,
+    "type": "rent",
+    "method": "ach",
+    "status": "succeeded",
+    "received_at": "2026-04-01T07:45:00Z",
+    "memo": "April 2026 rent"
+  }
+]

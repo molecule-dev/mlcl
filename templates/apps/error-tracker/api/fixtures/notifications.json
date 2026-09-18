@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ntf-1",
+    "title": "Critical issue: TypeError in computeTotal",
+    "body": "1247 events in 4h · 312 users affected · production",
+    "kind": "alert",
+    "severity": "critical",
+    "created_at": "2026-04-27T15:55:00Z",
+    "read": false
+  },
+  {
+    "id": "ntf-2",
+    "title": "Regression detected: NetworkError",
+    "body": "Resolved in 4.1.9 — reappeared in 4.2.1",
+    "kind": "regression",
+    "severity": "error",
+    "created_at": "2026-04-27T15:30:00Z",
+    "read": false
+  },
+  {
+    "id": "ntf-3",
+    "title": "Release 4.2.1 deployed",
+    "body": "27 commits · production · 0 errors during rollout",
+    "kind": "release",
+    "severity": "info",
+    "created_at": "2026-04-26T19:30:00Z",
+    "read": true
+  }
+]

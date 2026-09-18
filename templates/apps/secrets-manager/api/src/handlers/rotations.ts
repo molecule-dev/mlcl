@@ -1,0 +1,164 @@
+import { type Request, type Response, Router } from 'express'
+import { z } from 'zod'
+
+import { getUserId } from '@molecule/api-bonds-default-express'
+import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
+import { t } from '@molecule/api-i18n'
+import { validateBody } from '@molecule/api-middleware-validation'
+
+const router = Router()
+
+const paramId = (req: Request): string => {
+  const id = req.params.id
+  return Array.isArray(id) ? id[0] : id
+}
+
+const createRotationSchema = z.object({
+  secret_id: z.string().uuid(),
+  scheduled_at: z.string().datetime().optional(),
+  mode: z.enum(['manual', 'cron']).default('manual'),
+})
+
+const updateRotationSchema = z.object({
+  status: z.enum(['pending', 'in_progress', 'completed', 'failed']).optional(),
+  completed_at: z.string().datetime().nullable().optional(),
+})
+
+router.get('/rotations', async (_req: Request, res: Response) => {
+  try {
+    const uid = getUserId(res)
+    if (!uid)
+      return res
+        .status(401)
+        .json({ error: t('errors.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+
+    const rows = await findMany<Record<string, unknown>>('rotations', {
+      where: [{ field: 'user_id', operator: '=', value: uid }],
+      orderBy: [{ field: 'scheduled_at', direction: 'desc' }],
+    })
+    res.json(rows)
+  } catch (_err) {
+    res.status(500).json({
+      error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
+    })
+  }
+})
+
+router.get('/rotations/:id', async (req: Request, res: Response) => {
+  try {
+    const uid = getUserId(res)
+    if (!uid)
+      return res
+        .status(401)
+        .json({ error: t('errors.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+
+    const id = paramId(req)
+    const row = await findById<Record<string, unknown>>('rotations', id)
+    if (!row || row.user_id !== uid) {
+      return res
+        .status(404)
+        .json({ error: t('rotations.notFound', undefined, { defaultValue: 'Rotation not found' }) })
+    }
+    res.json(row)
+  } catch (_err) {
+    res.status(500).json({
+      error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
+    })
+  }
+})
+
+router.post(
+  '/rotations',
+  validateBody(createRotationSchema),
+  async (req: Request, res: Response) => {
+    try {
+      const uid = getUserId(res)
+      if (!uid)
+        return res
+          .status(401)
+          .json({ error: t('errors.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+
+      const body = req.body as z.infer<typeof createRotationSchema>
+      const secret = await findById<Record<string, unknown>>('secrets', body.secret_id)
+      if (!secret || secret.user_id !== uid) {
+        return res
+          .status(404)
+          .json({ error: t('secrets.notFound', undefined, { defaultValue: 'Secret not found' }) })
+      }
+
+      const result = await create<Record<string, unknown>>('rotations', {
+        user_id: uid,
+        secret_id: body.secret_id,
+        scheduled_at: body.scheduled_at ? new Date(body.scheduled_at) : new Date(),
+        status: 'pending',
+        mode: body.mode,
+        by_actor: uid,
+      })
+      res.status(201).json(result.data ?? {})
+    } catch (_err) {
+      res.status(500).json({
+        error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
+      })
+    }
+  },
+)
+
+router.put(
+  '/rotations/:id',
+  validateBody(updateRotationSchema),
+  async (req: Request, res: Response) => {
+    try {
+      const uid = getUserId(res)
+      if (!uid)
+        return res
+          .status(401)
+          .json({ error: t('errors.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+
+      const id = paramId(req)
+      const existing = await findById<Record<string, unknown>>('rotations', id)
+      if (!existing || existing.user_id !== uid) {
+        return res.status(404).json({
+          error: t('rotations.notFound', undefined, { defaultValue: 'Rotation not found' }),
+        })
+      }
+
+      const body = req.body as z.infer<typeof updateRotationSchema>
+      const updates: Record<string, unknown> = {}
+      if (body.status !== undefined) updates.status = body.status
+      if (body.completed_at !== undefined) updates.completed_at = body.completed_at
+
+      const result = await updateById<Record<string, unknown>>('rotations', id, updates)
+      res.json(result.data ?? {})
+    } catch (_err) {
+      res.status(500).json({
+        error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
+      })
+    }
+  },
+)
+
+router.delete('/rotations/:id', async (req: Request, res: Response) => {
+  try {
+    const uid = getUserId(res)
+    if (!uid)
+      return res
+        .status(401)
+        .json({ error: t('errors.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+
+    const id = paramId(req)
+    const existing = await findById<Record<string, unknown>>('rotations', id)
+    if (!existing || existing.user_id !== uid) {
+      return res
+        .status(404)
+        .json({ error: t('rotations.notFound', undefined, { defaultValue: 'Rotation not found' }) })
+    }
+    await deleteById('rotations', id)
+    res.status(204).end()
+  } catch (_err) {
+    res.status(500).json({
+      error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
+    })
+  }
+})
+
+export default router

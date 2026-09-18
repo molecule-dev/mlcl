@@ -1,0 +1,22 @@
+Polish complete: 2026-04-30T01:35:00Z
+Pipeline: polish-app.md autonomous session
+Cluster: commerce/finance → sibling: personal-finance
+Components: 8 bespoke
+  - RemitLayout (dark teal sidebar shell + sticky topbar)
+  - RevenueHeroCard (gradient outstanding hero with sparkline + frosted pill)
+  - KpiStatCard (4 tones, semantic top border, hover lift)
+  - InvoiceStatusBadge (7 lifecycle pills)
+  - InvoiceTableRow (mono number, tabular nums, status pill)
+  - ClientCard (avatar initials, outstanding hero, invoice count)
+  - ActivityFeed (tinted icon discs, 6 activity kinds)
+  - AuthShell (split-pane brand panel + centered card)
+Pages rewritten: 13 (all 14 screen-map routes wired)
+  Public: Landing, Login, Signup, ForgotPassword, ResetPassword
+  Auth:  Dashboard, Invoices, InvoiceEditor, InvoiceDetail, Clients,
+         ClientDetail, Payments, Reports, Settings
+Screen-map coverage: 14/14
+Compliance: clean (check-rules-compliance.mjs)
+Material 3 tokens: filled (chore commit a40af810)
+Fonts: Inter + Material Symbols Outlined (already present in index.html)
+Sweep 1 chrome conformance: yes (Header/Footer delegations + RootErrorBoundary re-export)
+Brand palette: dark teal (#0a5c5f / #0d7377) + coral (#e86c3a)

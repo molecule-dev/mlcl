@@ -1,0 +1,47 @@
+[
+  { "id": "m1",  "restaurant_id": "r1", "section": "starters", "name": "Edamame",                "description": "Steamed soybeans with sea salt",                  "price_cents":  599 },
+  { "id": "m2",  "restaurant_id": "r1", "section": "starters", "name": "Miso Soup",              "description": "Tofu, scallions, dashi",                          "price_cents":  499 },
+  { "id": "m3",  "restaurant_id": "r1", "section": "rolls",    "name": "Spicy Tuna Roll",        "description": "Yellowfin tuna, sriracha mayo, scallions",        "price_cents": 1299 },
+  { "id": "m4",  "restaurant_id": "r1", "section": "rolls",    "name": "Dragon Roll",            "description": "Eel, avocado, cucumber, eel sauce",               "price_cents": 1599 },
+  { "id": "m5",  "restaurant_id": "r1", "section": "rolls",    "name": "Rainbow Roll",           "description": "Crab, avocado topped with five fish",             "price_cents": 1799 },
+  { "id": "m6",  "restaurant_id": "r1", "section": "sashimi",  "name": "Salmon Sashimi (5pc)",   "description": "Atlantic salmon, ponzu",                          "price_cents": 1499 },
+  { "id": "m7",  "restaurant_id": "r1", "section": "mains",    "name": "Chicken Teriyaki",       "description": "Grilled chicken thigh, rice, vegetables",         "price_cents": 1599 },
+  { "id": "m8",  "restaurant_id": "r1", "section": "desserts", "name": "Mochi Trio",             "description": "Matcha, mango, strawberry",                       "price_cents":  799 },
+
+  { "id": "m9",  "restaurant_id": "r2", "section": "starters", "name": "Caprese Salad",          "description": "Tomato, mozzarella, basil, olive oil",            "price_cents": 1099 },
+  { "id": "m10", "restaurant_id": "r2", "section": "pizzas",   "name": "Margherita Pizza",       "description": "San Marzano, fior di latte, basil",               "price_cents": 1599 },
+  { "id": "m11", "restaurant_id": "r2", "section": "pizzas",   "name": "Quattro Formaggi",       "description": "Mozzarella, gorgonzola, parmesan, ricotta",       "price_cents": 1799 },
+  { "id": "m12", "restaurant_id": "r2", "section": "pasta",    "name": "Cacio e Pepe",           "description": "Tonnarelli, pecorino, black pepper",              "price_cents": 1499 },
+  { "id": "m13", "restaurant_id": "r2", "section": "pasta",    "name": "Spaghetti Carbonara",    "description": "Guanciale, pecorino, egg yolk",                   "price_cents": 1599 },
+  { "id": "m14", "restaurant_id": "r2", "section": "desserts", "name": "Tiramisu",               "description": "Mascarpone, espresso-soaked savoiardi",           "price_cents":  799 },
+
+  { "id": "m15", "restaurant_id": "r3", "section": "starters", "name": "Samosa (2pc)",           "description": "Spiced potato, peas, mint chutney",               "price_cents":  599 },
+  { "id": "m16", "restaurant_id": "r3", "section": "tandoor",  "name": "Tandoori Chicken",       "description": "Yogurt-marinated, charred in clay oven",          "price_cents": 1599 },
+  { "id": "m17", "restaurant_id": "r3", "section": "curries",  "name": "Chicken Tikka Masala",   "description": "Tomato cream curry, basmati rice",                "price_cents": 1499 },
+  { "id": "m18", "restaurant_id": "r3", "section": "curries",  "name": "Paneer Butter Masala",   "description": "Tomato cream, fresh paneer",                      "price_cents": 1399 },
+  { "id": "m19", "restaurant_id": "r3", "section": "breads",   "name": "Garlic Naan",            "description": "Tandoor-baked, garlic, butter",                   "price_cents":  399 },
+
+  { "id": "m20", "restaurant_id": "r4", "section": "tacos",    "name": "Carne Asada Taco",       "description": "Grilled steak, onion, cilantro, lime",            "price_cents":  499 },
+  { "id": "m21", "restaurant_id": "r4", "section": "tacos",    "name": "Al Pastor Taco",         "description": "Marinated pork, pineapple",                       "price_cents":  499 },
+  { "id": "m22", "restaurant_id": "r4", "section": "tacos",    "name": "Fish Taco",              "description": "Beer-battered cod, slaw, chipotle aioli",         "price_cents":  599 },
+  { "id": "m23", "restaurant_id": "r4", "section": "sides",    "name": "Guacamole + Chips",      "description": "Fresh avocado, lime, sea salt",                   "price_cents":  799 },
+
+  { "id": "m24", "restaurant_id": "r5", "section": "burgers",  "name": "Classic Smash",          "description": "Two patties, cheddar, lettuce, special sauce",    "price_cents":  999 },
+  { "id": "m25", "restaurant_id": "r5", "section": "burgers",  "name": "Double Stack",           "description": "Four patties, double cheese, pickles",            "price_cents": 1399 },
+  { "id": "m26", "restaurant_id": "r5", "section": "sides",    "name": "Hand-cut Fries",         "description": "Twice-fried russet potatoes, sea salt",           "price_cents":  499 },
+  { "id": "m27", "restaurant_id": "r5", "section": "drinks",   "name": "Vanilla Milkshake",      "description": "Whole-milk vanilla bean, whipped cream",          "price_cents":  599 },
+
+  { "id": "m28", "restaurant_id": "r6", "section": "pizzas",   "name": "Pepperoni Slice",        "description": "Cup-and-char pepperoni, mozz, sauce",             "price_cents":  499 },
+  { "id": "m29", "restaurant_id": "r6", "section": "pizzas",   "name": "Whole Pie · Margherita", "description": "18\" New York-style, 8 slices",                   "price_cents": 1899 },
+  { "id": "m30", "restaurant_id": "r6", "section": "salads",   "name": "Antipasto Salad",        "description": "Salami, provolone, olives, pepperoncini",         "price_cents":  999 },
+
+  { "id": "m31", "restaurant_id": "r7", "section": "bowls",    "name": "Mediterranean Bowl",     "description": "Quinoa, falafel, hummus, tzatziki, tomato",       "price_cents": 1399 },
+  { "id": "m32", "restaurant_id": "r7", "section": "bowls",    "name": "Buddha Bowl",            "description": "Brown rice, edamame, kale, avocado, miso",        "price_cents": 1299 },
+  { "id": "m33", "restaurant_id": "r7", "section": "salads",   "name": "Kale Caesar",            "description": "Lacinato kale, parmesan, lemon",                  "price_cents": 1099 },
+  { "id": "m34", "restaurant_id": "r7", "section": "drinks",   "name": "Cold-pressed Green",     "description": "Kale, apple, ginger, lemon, cucumber",            "price_cents":  799 },
+
+  { "id": "m35", "restaurant_id": "r8", "section": "scoops",   "name": "Vanilla Bean (2 scoops)","description": "Madagascar vanilla, hand-churned",                "price_cents":  599 },
+  { "id": "m36", "restaurant_id": "r8", "section": "scoops",   "name": "Pistachio (2 scoops)",   "description": "Sicilian pistachio, sea salt",                    "price_cents":  699 },
+  { "id": "m37", "restaurant_id": "r8", "section": "specials", "name": "Mochi Trio",             "description": "Matcha, mango, strawberry",                       "price_cents":  799 },
+  { "id": "m38", "restaurant_id": "r8", "section": "specials", "name": "Affogato",               "description": "Espresso poured over vanilla gelato",             "price_cents":  599 }
+]

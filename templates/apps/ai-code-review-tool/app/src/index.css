@@ -1,0 +1,234 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #fcf8ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #f4eff9;
+  --color-inverse-primary: #d2bbff;
+  --color-inverse-surface: #312f37;
+  --color-on-background: #1c1b22;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede0ff;
+  --color-on-primary-fixed: #25005a;
+  --color-on-primary-fixed-variant: #5a00c6;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #006172;
+  --color-on-secondary-fixed: #001f26;
+  --color-on-secondary-fixed-variant: #004e5c;
+  --color-on-surface: #1c1b22;
+  --color-on-surface-variant: #4a4455;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ffe0cd;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #713700;
+  --color-outline: #7b7487;
+  --color-outline-variant: #ccc3d8;
+  --color-primary: #630ed4;
+  --color-primary-dark: #1a7f37; /* filled-button green — white text = 5.08:1 (bg-primary #3fb950 was 2.54:1); text-primary stays bright for dark bg */
+  --color-primary-container: #7c3aed;
+  --color-primary-fixed: #eaddff;
+  --color-primary-fixed-dim: #d2bbff;
+  --color-secondary: #00687a;
+  --color-secondary-container: #57dffe;
+  --color-secondary-fixed: #acedff;
+  --color-secondary-fixed-dim: #4cd7f6;
+  --color-surface: #fcf8ff;
+  --color-surface-bright: #fcf8ff;
+  --color-surface-container: #f1ecf6;
+  --color-surface-container-high: #ebe6f0;
+  --color-surface-container-highest: #e5e1ea;
+  --color-surface-container-low: #f7f2fc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #ddd8e2;
+  --color-surface-tint: #732ee4;
+  --color-surface-variant: #e5e1ea;
+  --color-tertiary: #7d3d00;
+  --color-tertiary-container: #a15100;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-tertiary-fixed-dim: #ffb784;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-display: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+  --font-mono: 'JetBrains Mono';
+  --font-sans: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-24 -left-24 -right-24 -rotate-90 -top-24 2xl 3xl absolute align-middle antialiased backdrop-blur-md bg-gradient-to-r bg-inverse-surface bg-outline-variant bg-primary-fixed/30 bg-primary/10 bg-secondary bg-secondary-fixed bg-secondary/10 bg-surface bg-surface-container-high bg-surface-container-low bg-surface-container-lowest bg-surface-variant bg-tertiary-fixed bg-transparent bg-violet-50 bg-white bg-white/80 blur-3xl border border-2 border-none border-primary border-r-0 border-secondary cursor-pointer dark:bg-slate-900/80 dark:bg-slate-950 dark:bg-violet-900/30 dark:hover:bg-slate-800 dark:hover:text-violet-300 dark:text-slate-400 dark:text-slate-500 dark:text-violet-300 dark:text-violet-400 duration-200 fill-current fixed flat flex flex-1 flex-col focus:outline-none focus:ring-2 focus:ring-secondary font-black font-body font-bold font-extrabold");
+@source inline("font-headline font-label font-medium font-mono font-semibold from-primary gap-2 gap-3 gap-4 gap-6 gap-8 grid grid-cols-1 group group-hover:text-primary h-1 h-12 h-16 h-2 h-48 h-5 h-8 h-full h-px h-screen hover:bg-surface-container-low hover:bg-surface-variant hover:bg-white/50 hover:opacity-90 hover:text-on-surface hover:text-primary-container hover:text-violet-500 hover:text-violet-600 inset-y-0 items-center items-end items-start justify-between justify-center justify-end leading-relaxed left-0 lg:col-span-2 lg:grid-cols-3 material-symbols-outlined max-w-[420px] mb mb-1 mb-2 mb-4 mb-6 mb-8 md md:flex-row md:grid-cols-4 md:mt-0 min-h-screen ml-64 ml-auto mt-1");
+@source inline("mt-2 mt-4 mt-8 mt-auto no no-border object-cover opacity-50 overflow-hidden p-3 p-4 p-6 p-8 pb-8 pl-4 placeholder:text-on-surface-variant/50 pointer-events-none pr-10 pr-3 pt-1 pt-24 px-1 px-2 px-4 px-5 px-8 py py-1 py-2 py-3 relative right-0 ring-1 ring-outline-variant/15 rounded rounded-full rounded-lg rounded-r-none rounded-xl scale-98 self-center shadow-sm shadows sm space-y-1 space-y-2 space-y-3 space-y-4 space-y-6 space-y-8 sr-only text-2xl text-3xl text-[14px] text-[16px] text-[18px] text-center text-error text-inverse-on-surface text-lg");
+@source inline("text-on-secondary-fixed text-on-surface text-on-surface-variant text-on-tertiary-fixed text-outline text-primary text-primary-container text-secondary text-secondary-fixed-dim text-slate-400 text-slate-500 text-sm text-tertiary-container text-violet-600 text-violet-700 text-white text-xl text-xs to-primary-container to-secondary top-0 tracking-tight tracking-tighter tracking-wide tracking-wider transform transition-all transition-colors transition-opacity transition-shadow uppercase w-12 w-16 w-2 w-3/4 w-48 w-5 w-64 w-8 w-full xs z-10 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.glass-panel {
+  background: rgba(252, 248, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e3e2e7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc3d8;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.glass-panel {
+  background: rgba(252, 248, 255, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-container));
+}
+
+.ambient-shadow {
+  box-shadow: 0 10px 40px -10px rgba(99, 14, 212, 0.08);
+}
+
+.repo-font {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Prism Progress Bar */
+.prism-progress {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: 999px;
+}
+
+/* Focus styles */
+.focus-glow:focus-within {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: -2px;
+}
+
+.material-symbols-outlined[data-weight='fill'] {
+  font-variation-settings: 'FILL' 1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e3e2e7;
+  border-radius: 9999px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar for editor */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e1ea;
+  border-radius: 4px;
+}
+
+.glass-panel {
+  background: rgba(252, 248, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+/* polish-v2:stitch-styles:end */

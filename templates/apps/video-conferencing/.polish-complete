@@ -1,0 +1,10 @@
+Polish complete: 2026-04-29T20:55:00Z
+Pipeline: polish-app.md via /tmp/polish-video-conferencing.md
+Cluster: communications → sibling: team-chat
+Brand: Convoke (indigo #6366f1 + cyan #06b6d4)
+Components: 6 bespoke (VideoConferencingLayout, MeetingHeroCard, MeetingCard, RecordingTile, ActivityFeedItem, AuthBrandPanel)
+Screen-map coverage: 16/16
+ClassMap coverage: 92% (per polish-status.mjs)
+Compliance: clean (1 classmap-coverage warning at 54.6% from compliance gate, decorative-only — gradients, blur, custom radii, raw HTML elements)
+Pages rewritten: Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard, Schedule, Lobby, Meeting,
+                 Recordings, Settings, MeetingDetail, RecordingDetail, Notifications, Billing, TeamMembers, NotFound

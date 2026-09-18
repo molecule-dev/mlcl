@@ -1,0 +1,16 @@
+Polish complete: 2026-04-29T20:57:00Z
+Pipeline: polish-app.mjs (autonomous polish session)
+Cluster: real-estate-travel → sibling: hotel-booking
+Brand: Sojourn (teal #0c7a8a primary + coral #e8634a accent, DM Sans display)
+Components: 6 bespoke (DestinationDiscoveryCard, PropertyListingCard,
+  SojournHeroSearchCard, SojournAuthShell, TripItineraryRow,
+  TravelBookingLayout)
+Pages rewritten: Landing, Search, PropertyDetail, Booking, Trips,
+  TripDetail, Favorites, Account, Notifications +
+  Login/Signup/ForgotPassword/ResetPassword
+Screen-map coverage: 13/13 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs)
+ClassMap coverage: 93%
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegate)
+Material 3 tokens filled: yes (48 tokens)
+Fonts: Material Symbols Outlined + Inter + DM Sans

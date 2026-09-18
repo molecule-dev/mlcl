@@ -1,0 +1,99 @@
+{
+  "label": "Warehouse Fulfillment",
+  "description": "ShipBob-like warehouse fulfillment with orders, picking, packing, shipping, and tracking — with built-in Stripe-backed subscription tiers",
+  "cluster": "operations-iot",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-order",
+    "@molecule/api-resource-product",
+    "@molecule/api-resource-inventory",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-import-export-csv",
+    "@molecule/api-reporting-database",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-realtime-socketio",
+    "@molecule/app-data-table",
+    "@molecule/app-charts",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Warehouse Fulfillment"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch API key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for shipping notifications",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications"
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_WAREHOUSE_FULFILLMENT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_WAREHOUSE_FULFILLMENT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_WAREHOUSE_FULFILLMENT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_WAREHOUSE_FULFILLMENT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "admin",
+  "features": [
+    "auth",
+    "search",
+    "realtime",
+    "picking",
+    "packing",
+    "shipping",
+    "reporting",
+    "subscriptions"
+  ]
+}

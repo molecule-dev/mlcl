@@ -1,0 +1,149 @@
+{
+  "app": "coupon-deals-platform",
+  "designProjectId": "536242043511973500",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-landing.html",
+      "designScreenId": "df354e3cef184e08a7422d5664ae2e1f"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-login.html",
+      "designScreenId": "3c56d841724e4271a7c664595b5ac2f1"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-coupon-deals-platform-login.html",
+      "derivationNotes": "Same split layout with warm gradient hero on left. Right card has First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account and start saving'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-coupon-deals-platform-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has only Email field. Heading 'Forgot your password?', subtext 'No worries — we will send a reset link to your inbox'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-coupon-deals-platform-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Deals",
+      "templateFile": "app/pages/Deals.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/deals",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-deals.html",
+      "designScreenId": "740d9f0ba8d443ff971fb9585596ffd1"
+    },
+    {
+      "name": "DealDetail",
+      "templateFile": "app/pages/DealDetail.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/deals/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-deal-detail.html",
+      "designScreenId": "5ade48aad3024efda3fa6ed05421acf3"
+    },
+    {
+      "name": "Merchants",
+      "templateFile": "app/pages/Merchants.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/merchants",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-merchants.html",
+      "designScreenId": "8fbaef4ba8ef4620a39719b61416c4da"
+    },
+    {
+      "name": "MyCoupons",
+      "templateFile": "app/pages/MyCoupons.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/my-coupons",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-my-coupons.html",
+      "designScreenId": "72fc96f580ab4c4fa308058c00d5162a"
+    },
+    {
+      "name": "NearMe",
+      "templateFile": "app/pages/NearMe.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/near-me",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-near-me.html",
+      "designScreenId": "b978ac84384047578ea0c4e50f136b79"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-dashboard.html",
+      "designScreenId": "f491f4427aac4b04a8bd5fbbe24ccf8d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-settings.html",
+      "designScreenId": "f646dfad08c446a7823c4569f15b775a"
+    },
+    {
+      "name": "MerchantDetail",
+      "templateFile": "app/pages/MerchantDetail.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/merchants/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-merchant-detail.html",
+      "designScreenId": "a8a06594f56547c6b5a46d006954af42"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/CouponDealsPlatformLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-coupon-deals-platform-notifications.html",
+      "designScreenId": "db366602fcda42b491a9f5993550a7bd"
+    }
+  ]
+}

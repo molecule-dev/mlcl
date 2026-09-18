@@ -1,0 +1,166 @@
+[
+  {
+    "id": "iss-1",
+    "title": "TypeError: Cannot read properties of undefined (reading 'amount')",
+    "culprit": "src/checkout/total.ts in computeTotal",
+    "level": "critical",
+    "status": "unresolved",
+    "event_count": 1247,
+    "user_count": 312,
+    "first_seen": "2026-04-27T12:00:00Z",
+    "last_seen": "2026-04-27T15:57:00Z",
+    "fingerprint": "a7f3d2c1e9b04a59",
+    "environment": "production",
+    "release": "4.2.1",
+    "assignee": "Riley",
+    "is_regression": true,
+    "frequency": [3, 4, 6, 8, 12, 9, 14, 22, 28, 31, 27, 35, 42, 51, 47, 39, 44, 58, 71, 82],
+    "exception_type": "TypeError",
+    "exception_value": "Cannot read properties of undefined (reading 'amount')",
+    "recent_events": [
+      {
+        "id": "evt-1",
+        "environment": "production",
+        "release": "4.2.1",
+        "timestamp": "2026-04-27T15:57:00Z",
+        "user": { "id": "u-1", "email": "leah@acme.com" },
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel) Chrome/126"
+      },
+      {
+        "id": "evt-2",
+        "environment": "production",
+        "release": "4.2.1",
+        "timestamp": "2026-04-27T15:48:00Z",
+        "user": { "id": "u-2", "email": "priya@example.com" },
+        "user_agent": "Mozilla/5.0 (X11; Linux) Firefox/130"
+      },
+      {
+        "id": "evt-3",
+        "environment": "production",
+        "release": "4.2.1",
+        "timestamp": "2026-04-27T15:21:00Z",
+        "user": { "id": "u-3", "email": "morgan@acme.com" },
+        "user_agent": "Mozilla/5.0 (iPhone; iOS 17) Safari"
+      },
+      {
+        "id": "evt-4",
+        "environment": "staging",
+        "release": "4.2.1",
+        "timestamp": "2026-04-27T14:53:00Z",
+        "user": { "id": "u-4", "email": "sasha@acme.com" },
+        "user_agent": "Node/20.5.1"
+      }
+    ],
+    "frames": [
+      {
+        "kind": "vendor",
+        "filename": "node_modules/react-dom/cjs/react-dom.development.js",
+        "function": "commitRoot",
+        "lineno": 22942
+      },
+      {
+        "kind": "vendor",
+        "filename": "node_modules/react-dom/cjs/react-dom.development.js",
+        "function": "workLoopSync",
+        "lineno": 22842
+      },
+      {
+        "kind": "app",
+        "filename": "src/checkout/Cart.tsx",
+        "function": "CheckoutSummary",
+        "lineno": 47
+      },
+      {
+        "kind": "app",
+        "filename": "src/checkout/total.ts",
+        "function": "computeTotal",
+        "lineno": 24,
+        "context_pre": [
+          "  const subtotal = items.reduce((acc, item) => acc + item.price, 0)",
+          "  const tax = subtotal * region.taxRate",
+          "  const shipping = quote.shipping ?? 0"
+        ],
+        "context_line": "  const discount = coupon.amount ?? 0  // ← coupon may be undefined",
+        "context_post": [
+          "  return subtotal + tax + shipping - discount",
+          "}",
+          ""
+        ]
+      },
+      {
+        "kind": "vendor",
+        "filename": "node_modules/react-dom/cjs/react-dom.development.js",
+        "function": "beginWork",
+        "lineno": 17654
+      }
+    ]
+  },
+  {
+    "id": "iss-2",
+    "title": "NetworkError: Request timed out after 30000ms",
+    "culprit": "src/lib/http.ts in fetchWithRetry",
+    "level": "error",
+    "status": "unresolved",
+    "event_count": 482,
+    "user_count": 138,
+    "first_seen": "2026-04-26T04:00:00Z",
+    "last_seen": "2026-04-27T15:49:00Z",
+    "fingerprint": "8b2e6f4d913a2c01",
+    "environment": "production",
+    "release": "4.2.1",
+    "assignee": null,
+    "is_regression": false,
+    "frequency": [12, 14, 11, 9, 8, 7, 9, 11, 12, 10, 9, 8, 11, 13, 12, 14, 13, 11, 10, 12]
+  },
+  {
+    "id": "iss-3",
+    "title": "ReferenceError: navigator is not defined",
+    "culprit": "src/ssr/render.ts in renderToString",
+    "level": "warning",
+    "status": "new",
+    "event_count": 218,
+    "user_count": 64,
+    "first_seen": "2026-04-26T22:00:00Z",
+    "last_seen": "2026-04-27T15:32:00Z",
+    "fingerprint": "d5301f87a0bc2ee9",
+    "environment": "production",
+    "release": "4.2.1",
+    "assignee": "Sasha",
+    "is_regression": false,
+    "frequency": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 15, 22, 29, 31, 27, 24, 26, 32]
+  },
+  {
+    "id": "iss-4",
+    "title": "NullPointerException: project.owner was null",
+    "culprit": "api/handlers/projects.ts:241",
+    "level": "warning",
+    "status": "resolved",
+    "event_count": 73,
+    "user_count": 19,
+    "first_seen": "2026-04-22T16:00:00Z",
+    "last_seen": "2026-04-27T12:00:00Z",
+    "fingerprint": "c14f9a3b2e80517f",
+    "environment": "staging",
+    "release": "4.2.0",
+    "assignee": "Jordan",
+    "is_regression": false,
+    "frequency": [8, 6, 5, 4, 3, 4, 5, 6, 5, 4, 3, 2, 1, 1, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "id": "iss-5",
+    "title": "TimeoutError: Database query exceeded 5000ms",
+    "culprit": "api/db/pool.ts in queryWithTimeout",
+    "level": "error",
+    "status": "unresolved",
+    "event_count": 1029,
+    "user_count": 274,
+    "first_seen": "2026-04-25T16:00:00Z",
+    "last_seen": "2026-04-27T15:58:30Z",
+    "fingerprint": "fe2a8d610f43b925",
+    "environment": "production",
+    "release": "4.2.1",
+    "assignee": "Morgan",
+    "is_regression": false,
+    "frequency": [4, 6, 9, 12, 10, 8, 11, 13, 15, 19, 22, 25, 28, 31, 27, 24, 26, 33, 36, 41]
+  }
+]

@@ -1,0 +1,163 @@
+/*
+ * Vantage — News Aggregator brand theme.
+ *
+ * Editorial palette: deep teal primary (#0a7e8c), warm orange accent
+ * (#e07428), slate-blue category bar. Mapped to molecule's --mol-color-*
+ * tokens; index.css derives the full Material 3 surface ladder from these.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand colors */
+  --mol-color-primary: #0a7e8c;
+  --mol-color-primary-light: #e0f7fa;
+  --mol-color-primary-dark: #086670;
+  --mol-color-secondary: #e07428;
+  --mol-color-secondary-light: #fff3e0;
+  --mol-color-secondary-dark: #9a3412; /* was #c0601e — white badge text was 3.5:1 (axe serious); #9a3412 = 7.31:1 */
+
+  /* Surfaces (light editorial backgrounds) */
+  --mol-color-background: #f1f3f5;
+  --mol-color-background-secondary: #f7f8fa;
+  --mol-color-background-tertiary: #e9eef2;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f8fa;
+  --mol-color-input-background: #ffffff;
+
+  /* Text */
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #5e6473; /* #6b7280 was 4.35:1 vs #f1f3f5 bg (fail ≥4.5:1); #5e6473 = 5.32:1 */
+  --mol-color-text-tertiary: #757575; /* #9ca3af was 2.54:1 vs white surface (fail ≥4.5:1); #757575 = 4.61:1 */
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic */
+  --mol-color-success: #059669;
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #1d4ed8;
+  --mol-color-info-light: #dbeafe;
+
+  /* Hero gradient — lighter teal stop used in branded CTA/auth panels */
+  --color-primary-gradient-to: #0c9aab;
+
+  /* Borders */
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #0a7e8c;
+
+  /* Editorial typography — Playfair Display headlines, Inter body */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-headline: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --mol-font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+/* Dark mode — editorial warm near-black with teal brand intact.
+   Brand teal (#0a7e8c) STAYS at the brand stop; orange editorial accent
+   preserved. `--color-on-primary` STAYS white so headline CTAs and
+   chip-style category bars read cleanly. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #0a7e8c;
+  --mol-color-primary-light: #155e75;
+  --mol-color-primary-dark: #086670;
+  --mol-color-secondary: #e07428;
+  --mol-color-secondary-light: #7c2d12;
+  --mol-color-secondary-dark: #9a3412; /* was #c0601e — white badge text was 3.5:1 (axe serious); #9a3412 = 7.31:1 */
+
+  /* Surfaces — editorial warm near-black */
+  --mol-color-background: #0d0d0d;
+  --mol-color-background-secondary: #171717;
+  --mol-color-background-tertiary: #1f1f1f;
+  --mol-color-surface: #0d0d0d;
+  --mol-color-surface-secondary: #171717;
+  --mol-color-input-background: #0a0a0a;
+
+  --mol-color-text: #f5f5f5;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0d0d0d;
+
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #064e3b;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #60a5fa;
+  --mol-color-info-light: #1e3a8a;
+
+  --mol-color-border: #2a2a2a;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #22d3ee;
+
+  /* Stitch / Material-3 bridge — brand stop preserved, on-primary white. */
+  --color-background: #0d0d0d;
+  --color-on-background: #f5f5f5;
+  --color-surface: #0d0d0d;
+  --color-surface-bright: #1f1f1f;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #171717;
+  --color-surface-container-high: #1f1f1f;
+  --color-surface-container-highest: #2a2a2a;
+  --color-surface-variant: #1f1f1f;
+  --color-on-surface: #f5f5f5;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f5f5f5;
+  --color-inverse-on-surface: #0d0d0d;
+  --color-inverse-primary: #0a7e8c;
+  --color-primary: #0a7e8c; /* brand teal — stays at brand stop */
+  --color-primary-container: #155e75;
+  --color-on-primary: #ffffff; /* white on teal — readable always */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #e07428; /* orange editorial accent preserved */
+  --color-secondary-container: #5a2e0a;
+  --color-on-secondary: #1a0800; /* #ffffff was 3.14:1 vs #e07428 (fail); #1a0800 = 6.21:1 */
+  --color-on-secondary-container: #fed7aa;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #5a3a08;
+  --color-on-tertiary: #0d0d0d;
+  --color-on-tertiary-container: #fde9b8;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* #ffffff was 2.77:1 vs #f87171 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* #5a5a5a was 2.82:1 vs #0d0d0d surface (fail ≥3:1); #6e6e6e = 3.81:1 */
+  --color-outline-variant: #2a2a2a;
+  --color-surface-tint: #0a7e8c;
+
+  /* Hero gradient — lifted teal for warm shimmer on near-black canvas */
+  --color-primary-gradient-to: #22d3ee;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/* Editorial flourish utilities consumed by polished components.
+ * Kept tiny and decorative — actual layout still flows through ClassMap. */
+.font-headline {
+  font-family: var(--mol-font-headline);
+}
+
+.tonal-sculpting {
+  box-shadow:
+    0 1px 0 0 color-mix(in srgb, var(--color-on-surface) 6%, transparent) inset,
+    0 0 0 1px color-mix(in srgb, var(--color-on-surface) 4%, transparent),
+    0 18px 40px -24px color-mix(in srgb, var(--color-on-surface) 35%, transparent);
+}
+
+.input-focus-border {
+  border-bottom: 2px solid color-mix(in srgb, var(--color-on-surface) 14%, transparent);
+  transition: border-color 150ms ease;
+}
+
+.input-focus-border:focus-within {
+  border-bottom-color: var(--color-primary);
+}

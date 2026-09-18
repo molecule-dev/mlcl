@@ -1,0 +1,6 @@
+# Handler base names exempted from gate 3 (network-assertion coverage).
+# The favorites handler is part of the API surface but the v1 UI does not
+# expose a favorites bookmark control yet; the CRUD endpoints are still
+# wired and tested via the API directly in the comprehensive user-journey
+# spec. Re-list once the UI ships favourites.
+favorites

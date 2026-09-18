@@ -1,0 +1,32 @@
+[
+  {
+    "id": "msg-a1f3c2",
+    "role": "user",
+    "content": "Hi, I need help setting up my new chatbot for customer support.",
+    "timestamp": "2026-02-10T08:23:00Z"
+  },
+  {
+    "id": "msg-b7e9d4",
+    "role": "assistant",
+    "content": "Sure! To get started, could you tell me what industry your business is in and what types of questions your customers ask most often?",
+    "timestamp": "2026-02-10T08:23:45Z"
+  },
+  {
+    "id": "msg-c4a812",
+    "role": "user",
+    "content": "We're an e-commerce store. Most questions are about order tracking, returns, and product availability.",
+    "timestamp": "2026-02-10T08:25:10Z"
+  },
+  {
+    "id": "msg-d2f601",
+    "role": "assistant",
+    "content": "Great choice! I'd recommend enabling the Order Tracking and Returns intents from the template library. You can find them under Bot Builder → Intents → Browse Templates. Want me to walk you through the setup step by step?",
+    "timestamp": "2026-02-10T08:25:58Z"
+  },
+  {
+    "id": "msg-e8b347",
+    "role": "user",
+    "content": "Yes please, and also — can the bot hand off to a live agent if it can't answer something?",
+    "timestamp": "2026-02-10T08:27:30Z"
+  }
+]

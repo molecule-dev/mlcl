@@ -1,0 +1,98 @@
+[
+  {
+    "id": "rv1",
+    "restaurant_id": "r1",
+    "user_id": "u-maya",
+    "author": "Maya K.",
+    "title": "Pasta-room reverence",
+    "rating": 5,
+    "body": "Maialino Rosso has the best cacio e pepe in the city. The amaro list is genuinely thrilling and the staff knows it cold.",
+    "helpful_count": 47,
+    "photos": ["https://picsum.photos/seed/morsel-rv1a/600/400"],
+    "created_at": "2026-04-12T19:14:00Z"
+  },
+  {
+    "id": "rv2",
+    "restaurant_id": "r1",
+    "user_id": "u-tomas",
+    "author": "Tomás S.",
+    "title": "Quietly excellent",
+    "rating": 5,
+    "body": "Sat at the bar, watched the kitchen for ninety minutes. Every plate left looking the same: clean. That's the standard.",
+    "helpful_count": 31,
+    "photos": [],
+    "created_at": "2026-03-22T20:48:00Z"
+  },
+  {
+    "id": "rv3",
+    "restaurant_id": "r2",
+    "user_id": "u-amelia",
+    "author": "Amelia R.",
+    "title": "Worth the month-out booking",
+    "rating": 5,
+    "body": "Sakura Omakase is a meditation. Twelve courses, two hours, and the chef remembers what you preferred halfway through.",
+    "helpful_count": 24,
+    "photos": ["https://picsum.photos/seed/morsel-rv3a/600/400"],
+    "created_at": "2026-04-04T18:30:00Z"
+  },
+  {
+    "id": "rv4",
+    "restaurant_id": "r3",
+    "user_id": "u-henrik",
+    "author": "Henrik L.",
+    "title": "Salsa macha forever",
+    "rating": 5,
+    "body": "The birria is the headline but the salsa macha is the encore. We bought a jar on the way out.",
+    "helpful_count": 88,
+    "photos": [],
+    "created_at": "2026-04-19T13:05:00Z"
+  },
+  {
+    "id": "rv5",
+    "restaurant_id": "r4",
+    "user_id": "u-yara",
+    "author": "Yara A.",
+    "title": "Banchan parade",
+    "rating": 4,
+    "body": "Seventeen banchan plus the galbijjim is a lot for two people. We left full and slightly humbled.",
+    "helpful_count": 12,
+    "photos": ["https://picsum.photos/seed/morsel-rv5a/600/400"],
+    "created_at": "2026-04-08T19:55:00Z"
+  },
+  {
+    "id": "rv6",
+    "restaurant_id": "r5",
+    "user_id": "u-birgit",
+    "author": "Birgit J.",
+    "title": "Tarte tatin epiphany",
+    "rating": 5,
+    "body": "Café de Saint Clair makes you reconsider what bistro means. The wine pour at the bar is generous to a fault.",
+    "helpful_count": 19,
+    "photos": [],
+    "created_at": "2026-03-30T21:18:00Z"
+  },
+  {
+    "id": "rv7",
+    "restaurant_id": "r8",
+    "user_id": "u-rashid",
+    "author": "Rashid B.",
+    "title": "Late-night standard",
+    "rating": 4,
+    "body": "It's 2am, the burger is hot, the fries are crisp, and the milkshake won't fit through the straw. Exactly right.",
+    "helpful_count": 56,
+    "photos": [],
+    "created_at": "2026-04-23T02:11:00Z"
+  },
+  {
+    "id": "rv8",
+    "restaurant_id": "r6",
+    "user_id": "u-nadia",
+    "author": "Nadia C.",
+    "title": "Bring water",
+    "rating": 4,
+    "body": "Soi 38's som tam earned its reputation. The boat noodles are excellent. The spice is real — order with respect.",
+    "helpful_count": 22,
+    "photos": [],
+    "created_at": "2026-04-15T20:02:00Z"
+  }
+]

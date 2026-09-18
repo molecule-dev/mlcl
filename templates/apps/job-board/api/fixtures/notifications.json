@@ -1,0 +1,62 @@
+[
+  {
+    "id": "notif_001",
+    "title": "Interview invite from Acuity Talent",
+    "body": "Acuity Talent moved you from Reviewing to Interview for Senior Backend Engineer. They proposed three slots later this week.",
+    "type": "interview",
+    "read": false,
+    "link": "/jobs/job_001",
+    "occurred_at": "2026-04-30T00:30:00Z",
+    "created_at": "2026-04-30T00:30:00Z"
+  },
+  {
+    "id": "notif_002",
+    "title": "Offer extended by Foundry Hiring Co.",
+    "body": "Foundry sent you an offer for Product Designer (Senior). Expires in 5 days.",
+    "type": "offer",
+    "read": false,
+    "link": "/applications",
+    "occurred_at": "2026-04-29T18:00:00Z",
+    "created_at": "2026-04-29T18:00:00Z"
+  },
+  {
+    "id": "notif_003",
+    "title": "3 new roles match your saved search",
+    "body": "Senior React, Staff Frontend, and Full-stack Engineer matched \"TypeScript + remote\".",
+    "type": "match",
+    "read": false,
+    "link": "/jobs",
+    "occurred_at": "2026-04-29T13:00:00Z",
+    "created_at": "2026-04-29T13:00:00Z"
+  },
+  {
+    "id": "notif_004",
+    "title": "Your application was reviewed",
+    "body": "Vector Labs reviewed your application for Staff Frontend Engineer.",
+    "type": "application",
+    "read": true,
+    "link": "/jobs/job_002",
+    "occurred_at": "2026-04-29T09:30:00Z",
+    "created_at": "2026-04-29T09:30:00Z"
+  },
+  {
+    "id": "notif_005",
+    "title": "Vector Labs is hiring 6 new roles",
+    "body": "A company you follow just opened additional roles. View them all in one place.",
+    "type": "job",
+    "read": true,
+    "link": "/companies/co_005",
+    "occurred_at": "2026-04-28T17:15:00Z",
+    "created_at": "2026-04-28T17:15:00Z"
+  },
+  {
+    "id": "notif_006",
+    "title": "Helix Health saved your profile",
+    "body": "Helix Health\u2019s recruiter shortlisted your profile for upcoming roles.",
+    "type": "match",
+    "read": true,
+    "link": "/companies/co_006",
+    "occurred_at": "2026-04-28T11:00:00Z",
+    "created_at": "2026-04-28T11:00:00Z"
+  }
+]

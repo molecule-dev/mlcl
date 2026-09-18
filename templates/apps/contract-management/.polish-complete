@@ -1,0 +1,13 @@
+Polish complete: 2026-04-28T16:00:00Z
+Pipeline: polish-app.md (parent-driven parallel batch)
+Cluster: business-saas → sibling: crm (also referenced personal-finance for hero treatment)
+Components: 5 bespoke (VellumPortfolioHero, VellumKpiCard, ContractStatusPill, VellumContractRow, AuthBrandPanel)
+Pages rewritten: Landing, Dashboard, ContractDetail
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (split layout w/ AuthBrandPanel)
+Material 3 tokens filled: yes (already complete on entry)
+Fonts loaded: Inter, Source Serif 4, JetBrains Mono, Material Symbols Outlined
+Sweep 1 chrome conformance: yes (Header/Footer already delegated; RootErrorBoundary not used in this app)
+Screen-map coverage: 15/15 (verified via check-screen-map-coverage.mjs)
+Compliance: 1 classmap-coverage notice (78.9% — within decorative-Tailwind budget)
+Typecheck: clean
+Brand identity: Vellum — dark navy #0f1d2f + seal gold #c49a2a

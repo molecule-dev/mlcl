@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-surface-hover: #f3f4f6;
+
+  /* Stitch border-radius scale. */
+  --radius-12px: 12px;
+  --radius: 0.5rem;
+  --radius-full: 9999px;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: Inter, sans-serif;
+  --font-headline: Inter, sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-24 -left-3 -left-[11px] -right-12 -right-24 -right-3 -rotate-45 -space-x-2 -top-24 -translate-x-[600px] -translate-y-1/2 -translate-y-[300px] -z-10 2xl 3xl absolute active:scale-95 animate-blob animate-ping animate-pulse animated animation-delay-2000 antialiased backdrop-blur-md backdrop-blur-sm bezier-line bezier-line-animated bg-accent bg-accent/10 bg-background bg-clip-text bg-cyan-100 bg-cyan-400 bg-cyan-50 bg-cyan-50/50 bg-cyan-500 bg-dot-pattern bg-dot-size bg-failure bg-failure/10 bg-failure/20 bg-gradient-to-br bg-gradient-to-r bg-green-100 bg-green-50 bg-green-500 bg-grid-pattern bg-indigo-950 bg-primary bg-primary/10 bg-red-100 bg-red-400 bg-red-50 bg-red-50/30 bg-red-500 bg-slate-100 bg-slate-200 bg-slate-300 bg-slate-400 bg-slate-50");
+@source inline("bg-slate-50/50 bg-slate-50/90 bg-slate-900 bg-success bg-success/10 bg-success/20 bg-surface bg-transparent bg-violet-100 bg-violet-400 bg-violet-50 bg-violet-50/50 bg-violet-500 bg-violet-600 bg-violet-600/20 bg-white bg-white/10 bg-white/60 bg-white/80 bg-white/90 block blur-3xl border border-0 border-2 border-accent border-accent/20 border-b border-b-2 border-collapse border-cyan-100 border-cyan-200 border-cyan-400 border-dashed border-failure/20 border-failure/30 border-green-100 border-green-200 border-indigo-400/30 border-indigo-900 border-l border-l-2 border-l-4 border-l-[6px] border-l-cyan-500 border-l-failure border-l-green-500 border-l-red-500 border-l-slate-300 border-l-transparent border-l-violet-500 border-primary border-r border-r-0 border-r-2 border-red-100 border-red-200 border-slate-100 border-slate-200 border-slate-300");
+@source inline("border-slate-50 border-slate-700 border-solid border-success/20 border-success/30 border-t border-transparent border-violet-100 border-violet-200 border-violet-500 border-violet-600 border-white border-white/10 border-white/20 border-white/5 border-y-[4px] border-y-transparent bottom-0 bottom-1 bottom-12 bottom-2 bottom-3 bottom-4 bottom-6 break-all col-span-2 connection-line cursor-crosshair cursor-grab cursor-pointer dark:bg-slate-900/80 dark:bg-slate-950 dark:bg-slate-950/80 dark:border-slate-800 dark:hover:bg-slate-900 dark:hover:text-slate-100 dark:hover:text-violet-400 dark:text-slate-400 dark:text-slate-500 dark:text-violet-400 dark:text-white disabled:opacity-50 divide-cyan-100 divide-slate-100 divide-y dotted-grid duration-150 duration-200 ease-in-out filter fixed flex flex-1 flex-col flex-shrink-0 flex-wrap focus-within:ring-2 focus-within:ring-violet-500/50 focus:bg-white focus:border-primary");
+@source inline("focus:border-violet-300 focus:border-violet-500 focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-violet-500 focus:ring-violet-500/50 focus:ring-violet-600 font-black font-body font-bold font-extrabold font-headline font-inter font-medium font-mono font-semibold from-primary from-violet-500 from-violet-600 gap-1 gap-12 gap-2 gap-3 gap-4 gap-6 gap-8 grid grid-bg grid-cols-1 grid-cols-2 group group-hover:bg-cyan-100 group-hover:bg-green-100 group-hover:bg-slate-100 group-hover:bg-violet-100 group-hover:opacity-100 group-hover:text-cyan-600 group-hover:text-green-600 group-hover:text-violet-600 h-1 h-10 h-12 h-14 h-16 h-2 h-20 h-3 h-4 h-5 h-6 h-64 h-7 h-8 h-9 h-[180px] h-[2000px]");
+@source inline("h-[400px] h-[50px] h-[56px] h-full h-px h-screen hidden hover:bg-cyan-100 hover:bg-primary/90 hover:bg-red-50 hover:bg-slate-100 hover:bg-slate-200 hover:bg-slate-50 hover:bg-violet-50 hover:bg-violet-600 hover:bg-violet-700 hover:bg-white/20 hover:bg-white/5 hover:border-cyan-300 hover:border-cyan-400 hover:border-green-300 hover:border-slate-300 hover:border-violet-300 hover:border-violet-400 hover:from-indigo-600 hover:from-violet-500 hover:from-violet-700 hover:opacity-80 hover:opacity-90 hover:shadow-lg hover:shadow-md hover:text-cyan-600 hover:text-primary hover:text-red-600 hover:text-slate-300 hover:text-slate-600 hover:text-slate-700 hover:text-slate-800 hover:text-slate-900 hover:text-violet-500 hover:text-violet-600 hover:text-violet-700 hover:text-white hover:to-indigo-500 hover:to-primary hover:to-violet-400 hover:to-violet-600 hover:underline inline-flex inset-0 inset-y-0 inspector-scroll items-baseline items-center items-end items-start json-key json-number json-string justify-between");
+@source inline("justify-center justify-end leading-none leading-relaxed leading-tight left-0 left-1/2 left-12 left-2 left-3 left-4 left-6 left-64 left-8 left-[150px] left-[200px] left-[20px] left-[430px] left-[550px] left-[7px] left-[990px] lg:block lg:flex lg:flex-row lg:gap-8 lg:grid-cols-2 lg:grid-cols-4 lg:h-[500px] lg:ml-10 lg:p-8 lg:pb-32 lg:pt-48 lg:px-8 lg:text-6xl lg:w-1/3 lg:w-2/3 lg:w-[220px] line-clamp-1 line-clamp-2 material-symbols-outlined max-w-2xl max-w-7xl max-w-[440px] max-w-lg max-w-md max-w-xl mb mb-1 mb-12 mb-2 mb-3 mb-4 mb-6 mb-8 md md:block md:col-span-1 md:flex md:flex-row md:grid-cols-2");
+@source inline("md:grid-cols-5 md:hidden md:inline-flex md:ml-64 md:p-12 md:py-10 md:text-4xl min-h-screen min-w-0 min-w-[140px] mix-blend-multiply ml-2 ml-3 ml-6 ml-64 ml-9 ml-auto mr-1 mr-2 mr-3 mt-1 mt-16 mt-2 mt-20 mt-4 mt-6 mt-8 mt-auto mx-1 mx-2 mx-4 mx-8 mx-auto my-2 my-8 object-contain object-cover opacity-0 opacity-30 opacity-40 opacity-50 opacity-75 opacity-90 overflow-auto overflow-hidden overflow-x-auto overflow-x-hidden overflow-y-auto p-0 p-1 p-10 p-2 p-3 p-4 p-5 p-6 p-8 pb-1 pb-2 pb-20");
+@source inline("pb-3 pb-6 pb-8 pl-10 pl-11 pl-3 pl-4 pl-5 pl-6 pl-9 placeholder-slate-400 pointer-events-none pr-4 pt-10 pt-16 pt-32 pt-4 pt-6 pt-8 pt-[2px] pulse-dot px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-3 py-4 py-5 py-6 py-8 relative right-0 right-1 right-8 ring-2 ring-4 ring-green-500/20 ring-violet-500/30 ring-white rotate-45 rotate-[-10deg] rotate-[15deg] rotate-[5deg] rounded rounded-12px rounded-2xl rounded-full rounded-lg rounded-md rounded-r-lg rounded-xl scale-95 selection:bg-violet-200 selection:text-violet-900");
+@source inline("shadow-2xl shadow-inner shadow-lg shadow-md shadow-primary/20 shadow-sm shadow-violet-500/20 shadow-violet-500/25 shadow-violet-600/30 shadow-violet-900/50 shadow-xl shrink-0 sm sm:block sm:flex-row sm:items-center space-x-2 space-x-3 space-x-4 space-y-1 space-y-12 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sticky text-2xl text-3xl text-5xl text-[10px] text-[11px] text-[12px] text-[14px] text-[16px] text-[18px] text-[20px] text-[28px] text-[9px] text-accent text-amber-400 text-base text-blue-300 text-center text-cyan-400 text-cyan-500 text-cyan-600 text-cyan-700 text-cyan-800 text-failure text-green-300 text-green-500 text-green-600 text-green-700 text-indigo-200/50 text-indigo-200/70 text-indigo-300 text-indigo-50 text-indigo-900 text-indigo-950");
+@source inline("text-left text-lg text-orange-300 text-pink-400 text-primary text-red-400 text-red-600 text-red-600/80 text-red-700 text-red-800 text-right text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-800 text-slate-900 text-sm text-success text-transparent text-violet-100 text-violet-400 text-violet-500 text-violet-600 text-violet-700 text-white text-xl text-xs to-accent to-cyan-500 to-indigo-600 to-violet-500 top-0 top-1 top-1/2 top-2 top-3 top-4 top-8 top-[110px] top-[120px] top-[210px] top-[220px] top-[310px] tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transition-all transition-colors transition-opacity transition-shadow transition-transform truncate uppercase via-violet-600 w-1 w-10");
+@source inline("w-12 w-14 w-2 w-20 w-3 w-4 w-48 w-5 w-6 w-64 w-7 w-8 w-9 w-[2000px] w-[260px] w-[280px] w-[300px] w-[360px] w-[480px] w-full w-px whitespace-nowrap workflow-grid xl:grid-cols-3 xl:text-[64px] xs z-0 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.dotted-grid {
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.json-key {
+  color: #7c3aed;
+}
+
+.json-string {
+  color: #06b6d4;
+}
+
+.json-number {
+  color: #16a34a;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.pulse-dot {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(6, 182, 212, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+  }
+}
+
+.workflow-grid {
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bezier-line {
+  fill: none;
+  stroke: #94a3b8;
+  stroke-width: 2;
+}
+
+.bezier-line-animated {
+  fill: none;
+  stroke: #a78bfa;
+  stroke-width: 2;
+  stroke-dasharray: 6;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dotted-grid {
+  background-image: radial-gradient(var(--tw-colors-canvas-grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.grid-bg {
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom bezier connection styles (SVG paths overlaying the canvas) */
+.connection-line {
+  fill: none;
+  stroke: #a78bfa;
+  stroke-width: 2px;
+}
+
+.connection-line.animated {
+  stroke-dasharray: 5, 5;
+  /* Animation removed per instructions, but class structure kept for realism */
+}
+
+/* Scrollbar styling for inspector */
+.inspector-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.inspector-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.inspector-scroll::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+}
+/* polish-v2:stitch-styles:end */

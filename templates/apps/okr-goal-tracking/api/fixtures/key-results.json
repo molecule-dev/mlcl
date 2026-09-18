@@ -1,0 +1,86 @@
+[
+  {
+    "id": "kr-1-1",
+    "objective_id": "obj-1",
+    "title": "Median activation time \u2264 7 days",
+    "metric_type": "number",
+    "start_value": 14,
+    "current_value": 9,
+    "target_value": 7,
+    "status": "on-track",
+    "confidence": "on-track",
+    "owner_name": "Avery Chen"
+  },
+  {
+    "id": "kr-1-2",
+    "objective_id": "obj-1",
+    "title": "Trial \u2192 paid conversion \u2265 32%",
+    "metric_type": "percentage",
+    "start_value": 18,
+    "current_value": 26,
+    "target_value": 32,
+    "status": "at-risk",
+    "confidence": "at-risk",
+    "owner_name": "Priya Shah"
+  },
+  {
+    "id": "kr-1-3",
+    "objective_id": "obj-1",
+    "title": "Setup wizard completion \u2265 90%",
+    "metric_type": "percentage",
+    "start_value": 62,
+    "current_value": 88,
+    "target_value": 90,
+    "status": "on-track",
+    "confidence": "on-track",
+    "owner_name": "Marcus Lee"
+  },
+  {
+    "id": "kr-2-1",
+    "objective_id": "obj-2",
+    "title": "NPS from engineering admins \u2265 60",
+    "metric_type": "number",
+    "start_value": 32,
+    "current_value": 48,
+    "target_value": 60,
+    "status": "at-risk",
+    "confidence": "at-risk",
+    "owner_name": "Marcus Lee"
+  },
+  {
+    "id": "kr-2-2",
+    "objective_id": "obj-2",
+    "title": "Public REST + webhooks GA",
+    "metric_type": "boolean",
+    "start_value": 0,
+    "current_value": 1,
+    "target_value": 1,
+    "status": "completed",
+    "confidence": "on-track",
+    "owner_name": "Sara Okafor"
+  },
+  {
+    "id": "kr-3-1",
+    "objective_id": "obj-3",
+    "title": "Weekly check-in rate \u2265 95%",
+    "metric_type": "percentage",
+    "start_value": 70,
+    "current_value": 94,
+    "target_value": 95,
+    "status": "on-track",
+    "confidence": "on-track",
+    "owner_name": "Sara Okafor"
+  },
+  {
+    "id": "kr-4-1",
+    "objective_id": "obj-4",
+    "title": "New ARR booked \u2265 $1.6M",
+    "metric_type": "currency",
+    "start_value": 0,
+    "current_value": 320000,
+    "target_value": 1600000,
+    "status": "behind",
+    "confidence": "behind",
+    "owner_name": "Priya Shah"
+  }
+]

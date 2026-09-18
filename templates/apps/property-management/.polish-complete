@@ -1,0 +1,15 @@
+Polish complete: 2026-04-30T01:50:00Z
+Pipeline: polish-app.md autonomous session (verify-only — pre-existing polish from prior commits)
+Cluster: ops → fallback sibling: personal-finance / crm (no polished ops sibling)
+Brand: Hearthstone — navy primary (#1e3a5f) + terracotta accent (#c57b3c)
+Components: 6 bespoke (PortfolioHeroCard, OccupancyKpiQuad, MaintenanceQueueList, PropertyListCard, SettingsPanel, AuthBrandHeader)
+Pages rewritten: Landing (PortfolioHeroCard + KPI quad + feature triad), Dashboard (hero + KPIs + queue), Properties/PropertyDetail (signature list + detail), all 17 screen-map routes wired
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (AuthBrandHeader)
+Material 3 tokens: complete (fill-material3-tokens.mjs idempotent)
+Fonts: Inter + JetBrains Mono + Material Symbols Outlined loaded in index.html
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegated to packages
+Screen-map coverage: 17/17 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs — 0 violations, 279 files)
+Typecheck: clean (npx tsc --noEmit)
+ClassMap coverage: 96%
+Provenance commits: 78b9c3e0 (chrome+brand colors), 9cd6a194 (6 bespoke components), 50cbd504 (Landing rewrite)

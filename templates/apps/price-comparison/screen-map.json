@@ -1,0 +1,189 @@
+{
+  "app": "price-comparison",
+  "designProjectId": "13594934465864294306",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-landing.html",
+      "designScreenId": "5fffcd94466e4d42bdeaa8b278826f2a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-login.html",
+      "designScreenId": "ce496f1271bf41aba2ff472ada4aec2f"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-price-comparison-login.html",
+      "derivationNotes": "Same split-screen layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-price-comparison-login.html",
+      "derivationNotes": "Same split-screen layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-price-comparison-login.html",
+      "derivationNotes": "Same split-screen layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-search.html",
+      "designScreenId": "ad1001d5f1ce4d7b869afb51815d0054"
+    },
+    {
+      "name": "ProductDetail",
+      "templateFile": "app/pages/ProductDetail.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/products/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-product-detail.html",
+      "designScreenId": "0e217ed602894e6797c3aab99a2d1baa"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-alerts.html",
+      "designScreenId": "c7221d1fd06e48cb8982ffa8a23cf111"
+    },
+    {
+      "name": "Deals",
+      "templateFile": "app/pages/Deals.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/deals",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-deals.html",
+      "designScreenId": "4979ad91ac5849ee9577b551c145c0d4"
+    },
+    {
+      "name": "Watchlist",
+      "templateFile": "app/pages/Watchlist.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/watchlist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-watchlist.html",
+      "designScreenId": "44f9cbc5ecb140c2bfc6a31300157134"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-settings.html",
+      "designScreenId": "1f2063ec530a4eeeb3278f67ac03342f"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-dashboard.html",
+      "designScreenId": "2e92bc3c274d4251a3ba21992fe96a4a"
+    },
+    {
+      "name": "AlertDetail",
+      "templateFile": "app/pages/AlertDetail.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/alerts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-alert-detail.html",
+      "designScreenId": "d6ba0fa83a6b4b52a46379a399f726c1"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-notifications.html",
+      "designScreenId": "8805d1adde7d4825b1df90c82f7f98d0"
+    },
+    {
+      "name": "Categories",
+      "templateFile": "app/pages/Categories.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/categories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-categories.html",
+      "designScreenId": "009d8fcdc3b44d2da558294f762761fe"
+    },
+    {
+      "name": "PriceHistory",
+      "templateFile": "app/pages/PriceHistory.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/products/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-price-history.html",
+      "designScreenId": "c983153ba1544b72951c91e808b61e7f"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-profile.html",
+      "designScreenId": "a4bac055e39b47a2a4637d4016f86b99"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/PriceComparisonLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-price-comparison-billing.html",
+      "designScreenId": "eac73340c621428a99ba0eb24793effa"
+    }
+  ]
+}

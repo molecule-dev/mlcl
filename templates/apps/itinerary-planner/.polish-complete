@@ -1,0 +1,30 @@
+Polish complete: 2026-04-30T02:55:00Z
+Pipeline: polish-app.md (manual session)
+Cluster: hospitality / travel
+Sibling reference: travel-booking + personal-finance (cross-cluster translation)
+Brand: Waypoint — "Every stop tells a story"
+Palette: primary #0e7490 (deep teal), accent #f97316 (coral), Plus Jakarta Sans display
+
+Bespoke components: 7
+  - TripCountdownHeroCard (gradient hero + 7xl countdown + SVG sparkline)
+  - TripCoverCard (editorial 16:9 + status dot + collaborator stack)
+  - BudgetSpendCard (KPI tile + primary→accent→error progress ramp)
+  - DayTimelineRow (fixed time column + categorical stripe + node)
+  - DestinationOrbCard (full-bleed photographic discovery card)
+  - WaypointLayout (sidebar shell delegating to Sweep 1 SidebarLayout)
+  - WaypointAuthShell (Catalog §13.3 brand-panel auth shell)
+
+Pages rewritten / added: 15 (full screen-map.json coverage)
+  Public:    Landing, Login, Signup, ForgotPassword, ResetPassword
+  Auth'd:    Dashboard, Trips, TripPlanner, TripDetail, Destinations,
+             Bookings, Expenses, Calendar, Notifications, Settings
+
+Material 3 derivative tokens: filled
+Plus Jakarta Sans + Material Symbols Outlined: loaded via index.html
+Sweep 1 chrome conformance: Header / Footer / RootErrorBoundary /
+  WaypointLayout (SidebarLayout) all delegate to @molecule/app-*-react
+
+Verification:
+  npx tsc --noEmit                                      → clean
+  scripts/check-rules-compliance.mjs                    → clean (0 violations)
+  scripts/check-screen-map-coverage.mjs itinerary-planner → 15/15 wired

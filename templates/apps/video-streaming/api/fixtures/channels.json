@@ -1,0 +1,10 @@
+[
+  { "id": "c-1", "name": "Northern Field Studio", "handle": "northernfield", "subscriber_count": 482000, "video_count": 124, "avatar_index": 0, "description": "Quiet documentary work from a small Brooklyn studio. New work the second Friday of every month.", "subscribed": true, "has_new": true, "banner_index": 0 },
+  { "id": "c-2", "name": "Lina Reyes", "handle": "linareyes", "subscriber_count": 1200000, "video_count": 318, "avatar_index": 1, "description": "Solo creator behind one of the cosiest bedroom-studio channels on the platform.", "subscribed": true, "banner_index": 1 },
+  { "id": "c-3", "name": "Slow Spoon", "handle": "slowspoon", "subscriber_count": 246000, "video_count": 88, "avatar_index": 2, "description": "Late-night ambient cooking show. No talking. No edits. Just dinner.", "subscribed": false, "banner_index": 2 },
+  { "id": "c-4", "name": "Cosmo Reels", "handle": "cosmoreels", "subscriber_count": 612000, "video_count": 142, "avatar_index": 3, "description": "Documentary shorts from Cosmo Reels. Travel, film, and small-town histories.", "subscribed": true, "banner_index": 3 },
+  { "id": "c-5", "name": "Resonant Labs", "handle": "resonantlabs", "subscriber_count": 86400, "video_count": 47, "avatar_index": 4, "description": "Hardware tinkering, modular synths, and the occasional 8-bit chiptune.", "subscribed": false, "banner_index": 4 },
+  { "id": "c-6", "name": "Aperture Daily", "handle": "aperture", "subscriber_count": 2300000, "video_count": 612, "avatar_index": 5, "description": "Photography crash courses, gear reviews, and one-take field tutorials.", "subscribed": true, "banner_index": 5 },
+  { "id": "c-7", "name": "Off-Tempo", "handle": "offtempo", "subscriber_count": 482000, "video_count": 96, "avatar_index": 6, "description": "Music-theory deep-dives on TV themes, jingles, and 30-second hooks.", "subscribed": false, "banner_index": 6 },
+  { "id": "c-8", "name": "Petra Vlogs", "handle": "petravlogs", "subscriber_count": 318000, "video_count": 412, "avatar_index": 0, "description": "Daily-life vlogs, gentle experiments, and a lot of bread.", "subscribed": false, "banner_index": 0 }
+]

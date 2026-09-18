@@ -1,0 +1,247 @@
+:root {
+  /* Brand colors — Slate (indigo + teal + violet canvas accent) */
+  --color-primary: #5b5bf7;
+  --color-primary-hover: #7676ff;
+  --color-primary-light: #eaeaff;
+  --color-primary-dark: #4444d4;
+  --color-secondary: #00c4a8;
+  --color-secondary-hover: #00dbbe;
+  --color-secondary-dark: #00a88e;
+  --color-canvas-accent: #a855f7;
+
+  /* Canvas */
+  --color-canvas-bg: #f5f5f5;
+  --color-canvas-grid: #e0e0e0;
+  --color-canvas-selection: rgba(45, 155, 240, 0.2);
+
+  /* Sticky note colors */
+  --color-sticky-yellow: #fef3c7;
+  --color-sticky-green: #d1fae5;
+  --color-sticky-blue: #dbeafe;
+  --color-sticky-pink: #fce7f3;
+  --color-sticky-purple: #ede9fe;
+
+  /* Background */
+  --color-bg: #ffffff;
+  --color-bg-toolbar: #2c2c2e;
+  --color-bg-sidebar: #ffffff;
+  --color-bg-hover: #f0f0f0;
+
+  /* Text */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #6e6e80;
+  --color-text-toolbar: #ffffff;
+  --color-text-link: #2d9bf0;
+
+  /* Borders */
+  --color-border: #e0e0e0;
+  --color-border-selection: #2d9bf0;
+
+  /* ── mol-color bridge tokens (light defaults) ── */
+  --mol-color-primary: #5b5bf7;
+  --mol-color-primary-light: #eaeaff;
+  --mol-color-primary-dark: #4444d4;
+  --mol-color-secondary: #00c4a8;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #efefef;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #6e6e80;
+  --mol-color-text-tertiary: #9898aa;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e0e0e0;
+  --mol-color-border-secondary: #c8c8c8;
+  --mol-color-border-focus: #5b5bf7;
+  --mol-color-success: #00c4a8;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #5b5bf7;
+
+  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
+  --color-background: #ffffff;
+  --color-on-background: #1a1a2e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0e0e0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #efefef;
+  --color-surface-container-high: #e5e5e5;
+  --color-surface-container-highest: #d8d8d8;
+  --color-surface-variant: #f0f0f0;
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #6e6e80;
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #f5f5f5;
+  --color-inverse-primary: #7676ff;
+  --color-primary-container: #eaeaff;
+  --color-on-primary: #160040; /* dark on indigo — 7.17:1 (white 2.98 FAIL) */
+  --color-on-primary-container: #1a0060;
+  --color-secondary-container: #ccfff8;
+  --color-on-secondary: #003d34; /* dark on teal */
+  --color-on-secondary-container: #003832;
+  --color-tertiary: #a855f7;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #160040; /* dark on violet */
+  --color-on-tertiary-container: #1a0060;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on red — 4.83:1 ✓ */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6e6e80; /* 4.9:1 vs white surface */
+  --color-outline-variant: #d8d8e8;
+  --color-surface-tint: #5b5bf7;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.625rem;
+  --font-size-sm: 0.75rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Layout */
+  --toolbar-height: 48px;
+  --sidebar-width: 280px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-round: 50%;
+
+  /* Shadows */
+  --shadow-element: 0 1px 4px rgba(0, 0, 0, 0.1);
+  --shadow-toolbar: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-sticky: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode overrides — brand-calibrated dark palette.
+   Slate indigo (#5b5bf7) brightened to #818cf8 for dark canvas readability.
+   `--color-on-primary` STAYS white so CTA buttons keep light-on-indigo character. */
+[data-mol-mode='dark'] {
+  /* Brand colors — Slate (brighter indigo + teal + violet) */
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-light: #312e81;
+  --color-primary-dark: #6366f1;
+  --color-secondary: #2dd4bf;
+  --color-secondary-hover: #5eead4;
+  --color-secondary-dark: #14b8a6;
+  --color-canvas-accent: #c084fc;
+
+  /* Canvas — dark with subtle grid */
+  --color-canvas-bg: #1a1a24;
+  --color-canvas-grid: #2a2a38;
+  --color-canvas-selection: rgba(129, 140, 248, 0.25);
+
+  /* Sticky note colors — deeper, saturated darks (semantics preserved) */
+  --color-sticky-yellow: #78350f;
+  --color-sticky-green: #14532d;
+  --color-sticky-blue: #1e3a8a;
+  --color-sticky-pink: #831843;
+  --color-sticky-purple: #4c1d95;
+
+  /* Background */
+  --color-bg: #0f0f17;
+  --color-bg-toolbar: #1a1a24;
+  --color-bg-sidebar: #14141d;
+  --color-bg-hover: #22222e;
+
+  /* Text */
+  --color-text: #f1f1f5;
+  --color-text-secondary: #a1a1b3;
+  --color-text-toolbar: #ffffff;
+  --color-text-link: #5eb4f7;
+
+  /* Borders */
+  --color-border: #2a2a38;
+  --color-border-selection: #5eb4f7;
+
+  /* Shadows — darker for depth */
+  --shadow-element: 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-toolbar: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-sticky: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+  /* mol-color bridge tokens (shared molecule pages + bonds read these) */
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #312e81;
+  --mol-color-primary-dark: #6366f1;
+  --mol-color-secondary: #2dd4bf;
+  --mol-color-background: #0f0f17;
+  --mol-color-background-secondary: #1a1a24;
+  --mol-color-background-tertiary: #222230;
+  --mol-color-surface: #0f0f17;
+  --mol-color-surface-secondary: #1a1a24;
+  --mol-color-input-background: #0b0b12;
+  --mol-color-text: #f1f1f5;
+  --mol-color-text-secondary: #a1a1b3;
+  --mol-color-text-tertiary: #6b6b80;
+  --mol-color-text-inverse: #0f0f17;
+  --mol-color-border: #2a2a38;
+  --mol-color-border-secondary: #3a3a4a;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #5eb4f7;
+
+  /* Stitch / Material-3 token dark variants — flip bg-surface, text-on-surface,
+     bg-primary etc. so Tailwind M3 utilities respond to dark mode. */
+  --color-background: #0f0f17;
+  --color-on-background: #f1f1f5;
+  --color-surface: #0f0f17;
+  --color-surface-bright: #2a2a38;
+  --color-surface-dim: #090910;
+  --color-surface-container-lowest: #050508;
+  --color-surface-container-low: #121220;
+  --color-surface-container: #1a1a24;
+  --color-surface-container-high: #222230;
+  --color-surface-container-highest: #2a2a38;
+  --color-surface-variant: #222230;
+  --color-on-surface: #f1f1f5;
+  --color-on-surface-variant: #a1a1b3;
+  --color-inverse-surface: #e8e8f0;
+  --color-inverse-on-surface: #0f0f17;
+  --color-inverse-primary: #4444d4;
+  --color-primary: #818cf8; /* brightened indigo for dark readability */
+  --color-primary-container: #312e81;
+  --color-on-primary: #0f0f17; /* dark on indigo — 6.39:1 (was white 2.98 FAIL) */
+  --color-on-primary-container: #e0e7ff;
+  --color-primary-fixed: #e0e7ff;
+  --color-primary-fixed-dim: #a5b4fc;
+  --color-on-primary-fixed: #1a0060;
+  --color-on-primary-fixed-variant: #3730a3;
+  --color-secondary: #2dd4bf;
+  --color-secondary-container: #134e4a;
+  --color-on-secondary: #0f0f17;
+  --color-on-secondary-container: #ccfbf1;
+  --color-secondary-fixed: #ccfbf1;
+  --color-secondary-fixed-dim: #5eead4;
+  --color-on-secondary-fixed: #042f2e;
+  --color-on-secondary-fixed-variant: #115e59;
+  --color-tertiary: #c084fc;
+  --color-tertiary-container: #4c1d95;
+  --color-on-tertiary: #160040; /* dark on violet — 7.17:1 (was white 2.64 FAIL) */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — 6.43:1 (was white 2.77 FAIL) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #717180; /* 3.97:1 vs surface (was #5a5a6a 2.82 FAIL) */
+  --color-outline-variant: #2a2a38;
+  --color-surface-tint: #818cf8;
+}

@@ -1,0 +1,5 @@
+  // Knowledge base UI
+  'knowledgeBaseSourcesHeader.gridView': 'Grid view',
+  'knowledgeBaseSourcesHeader.listView': 'List view',
+  'knowledgeBaseTopBar.accountMenu': 'Account menu',
+  'knowledgeSourceCard.moreActions': 'More actions',

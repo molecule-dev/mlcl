@@ -1,0 +1,87 @@
+export default {
+  app: {
+    name: 'Streak',
+    tagline: 'Keep the fire alive',
+  },
+  nav: {
+    today: 'Today',
+    habits: 'Habits',
+    statistics: 'Statistics',
+    achievements: 'Achievements',
+    settings: 'Settings',
+  },
+  habit: {
+    create: 'New Habit',
+    edit: 'Edit Habit',
+    delete: 'Delete Habit',
+    archive: 'Archive Habit',
+    notFound: 'Habit not found',
+    check: 'Check habit',
+    name: 'Habit name',
+    description: 'Description',
+    frequency: 'Frequency',
+    frequencyDaily: 'Daily',
+    frequencyWeekly: 'Weekly',
+    frequencyMonthly: 'Monthly',
+    target: 'Target per day',
+    reminder: 'Reminder time',
+    color: 'Color',
+    icon: 'Icon',
+    category: 'Category',
+    streak: '{{count}} day streak',
+    heatmap: 'Activity',
+  },
+  entry: {
+    habitRequired: 'habit_id is required',
+    logged: 'Habit logged!',
+    note: 'Add a note',
+  },
+  stats: {
+    activeStreaks: 'Active Streaks',
+    bestStreak: 'Best Streak',
+    currentStreak: 'Current Streak',
+    totalCompletions: 'Total Completions',
+    completionRate: 'Completion Rate',
+    days: 'days',
+    times: 'times',
+    weeklyProgress: 'Weekly Progress',
+    monthlyOverview: 'Monthly Overview',
+  },
+  dashboard: {
+    todayHabits: "Today's Habits",
+    noHabits: 'No habits yet. Create one to get started!',
+    allDone: 'All habits completed for today!',
+  },
+  actions: {
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    edit: 'Edit',
+  },
+  pricing: {
+    heading: 'Choose your {{app}} plan',
+    entries: '{{count}} entries',
+    habits: '{{count}} habits',
+    stats: '{{count}} stats',
+    advanced: 'Advanced features: {{v}}',
+    export: 'Data export: {{v}}',
+  },
+  habits: {
+    notFound: 'Habit not found.',
+  },
+  entries: {
+    notFound: 'Entry not found.',
+  },
+  reminders: {
+    notFound: 'Reminder not found.',
+  },
+  notifications: {
+    notFound: 'Notification not found.',
+  },
+  freezes: {
+    empty: 'No streak freezes available.',
+  },
+  auth: {
+    unauthorized: 'Authentication required.',
+  },
+}

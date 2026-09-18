@@ -1,0 +1,129 @@
+{
+  "app": "writing-tool",
+  "designProjectId": "16244449453107499711",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-landing.html",
+      "designScreenId": "f57c4179f39a4ec28a2cfa4ad5bd5e39"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-login.html",
+      "designScreenId": "8626d6c643874a7a9b40348ab9d04585"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-writing-tool-login.html",
+      "derivationNotes": "Same 55/45 literary split layout as Login (left serif excerpt panel, right form) with additional fields: First Name, Last Name, Email, Password, Confirm Password. Heading changes to 'Start writing with Versal', subhead 'Create an account and write without walls'. Button text changes to 'Create account'. Bottom link changes to 'Already have an account? Sign in'. No 'Forgot password?' link. Keep SSO row."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-writing-tool-login.html",
+      "derivationNotes": "Same 55/45 literary split layout as Login with only Email field. Heading changes to 'Reset your password', subtext 'Enter your email and we'll send you a reset link'. Button text changes to 'Send reset link'. Bottom link changes to 'Back to sign in'. No password field, no SSO row, no divider."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-writing-tool-login.html",
+      "derivationNotes": "Same 55/45 literary split layout as Login with only New Password and Confirm Password fields. Heading changes to 'Set a new password'. Button text changes to 'Reset password'. Bottom link changes to 'Back to sign in'. No email field, no SSO row, no divider."
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-library.html",
+      "designScreenId": "f7f66ce2238d47f29bfd44ec1dc028ee"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/editor/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-editor.html",
+      "designScreenId": "c6cb549a16674e5d83db0434bf04c49e"
+    },
+    {
+      "name": "FocusMode",
+      "templateFile": "app/pages/FocusMode.tsx",
+      "components": [],
+      "route": "/editor/:id/focus",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-focus-mode.html",
+      "designScreenId": "c690226ce2d34d29bc973699f5596222"
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-stats.html",
+      "designScreenId": "d4895222b6694c4f9c4262da5d2cbb0d"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-settings.html",
+      "designScreenId": "a0bebd2c76124025820a567446e3f27a"
+    },
+    {
+      "name": "VersionHistory",
+      "templateFile": "app/pages/VersionHistory.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/editor/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-version-history.html",
+      "designScreenId": "aaf8112aa00a40bf8bee159937b34349"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/WritingToolLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-writing-tool-billing.html",
+      "designScreenId": "1de43bdcc97940cebf90dc8f0f43109d"
+    }
+  ]
+}

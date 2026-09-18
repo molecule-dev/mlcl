@@ -1,0 +1,39 @@
+Polish complete: Signet (ai-email-composer)
+Date: 2026-04-28
+Recipe: prompts/polish-app.md (steps 1-9, 11; step 10 batched separately)
+
+Brand foundations:
+- App name: Signet — "Every word, perfected"
+- Brand color: #5B4FCF (purple), Accent: #D4A843 (gold)
+- Fonts: Inter (UI), Newsreader (compose serif), JetBrains Mono (code)
+- Material Symbols Outlined for iconography
+- Wired via index.html + theme.css + branding.ts
+
+Sweep 1 chrome adopted:
+- @molecule/app-header-react (Header.tsx)
+- @molecule/app-footer-react (Footer.tsx)
+- @molecule/app-root-error-boundary-react (RootErrorBoundary.tsx)
+- @molecule/app-sidebar-layout-react (SignetLayout.tsx)
+- @molecule/app-empty-state-react, @molecule/app-kpi-card-react,
+  @molecule/app-data-table-ui-react (available for future expansion)
+
+Bespoke component library (12):
+- SignetWordmark, AuthBrandHeader, AuthShell, AuthInputField
+- SignetLayout, StatusPill, InboxHeroCard, EmailKpiTriad
+- RecentSentList, TemplateLibraryGrid, TonePillRow,
+  AiSuggestionPanel, EmailListItem
+
+Pages rewritten/created (15):
+- Landing (signed-out marketing hero)
+- Dashboard, Inbox, Compose, Templates, Analytics
+- Settings, Profile, Billing, PlanUpdated (signed-in)
+- Login, Signup, ForgotPassword, ResetPassword (auth, AuthShell-wrapped)
+- NotFound (404)
+
+Verification:
+- npx tsc --noEmit (from app/): 0 app-side errors
+- node scripts/check-rules-compliance.mjs: clean
+- ClassMap coverage: 100% (raw classNames wrapped via cm.cn)
+
+Skipped:
+- Screenshots (step 10) — batched by parent agent across all polished apps

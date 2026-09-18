@@ -1,0 +1,10 @@
+[
+  { "id": "reuters", "slug": "reuters", "name": "Reuters", "description": "Global wire service. Centrist, fact-led.", "factual_rating": 96, "bias_value": -0.05, "story_count": 412, "following": true, "ownership": "Thomson Reuters", "accent_color": "#FA6400" },
+  { "id": "ap", "slug": "ap", "name": "Associated Press", "description": "Long-running cooperative wire service.", "factual_rating": 95, "bias_value": -0.02, "story_count": 388, "following": true, "ownership": "AP Cooperative", "accent_color": "#0a4d8c" },
+  { "id": "bbc", "slug": "bbc", "name": "BBC News", "description": "British public service broadcaster.", "factual_rating": 92, "bias_value": -0.15, "story_count": 298, "following": true, "ownership": "British Broadcasting Corporation", "accent_color": "#bb1919" },
+  { "id": "wsj", "slug": "wsj", "name": "Wall Street Journal", "description": "Business-led national daily.", "factual_rating": 88, "bias_value": 0.35, "story_count": 240, "following": false, "ownership": "News Corp", "accent_color": "#000000" },
+  { "id": "guardian", "slug": "guardian", "name": "The Guardian", "description": "British daily, left-leaning op-ed.", "factual_rating": 87, "bias_value": -0.45, "story_count": 215, "following": false, "ownership": "Scott Trust Limited", "accent_color": "#052962" },
+  { "id": "fox", "slug": "fox", "name": "Fox News", "description": "US cable news network.", "factual_rating": 78, "bias_value": 0.65, "story_count": 198, "following": false, "ownership": "Fox Corporation", "accent_color": "#003366" },
+  { "id": "nyt", "slug": "nyt", "name": "The New York Times", "description": "US national daily, broad coverage.", "factual_rating": 90, "bias_value": -0.25, "story_count": 322, "following": true, "ownership": "The New York Times Company", "accent_color": "#000000" },
+  { "id": "tc", "slug": "tc", "name": "TechCrunch", "description": "Tech industry trade publication.", "factual_rating": 82, "bias_value": -0.08, "story_count": 142, "following": false, "ownership": "Yahoo Inc.", "accent_color": "#0a9c47" }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sub-current",
+    "user_id": "user-current",
+    "tier": "classic",
+    "tier_name": "Classic",
+    "cadence": "monthly",
+    "price": 3900,
+    "status": "active",
+    "next_box_id": "box-cozy-evenings",
+    "next_box_name": "Cozy Evenings",
+    "next_ship_at": "2026-05-12T00:00:00Z",
+    "started_at": "2025-09-01T00:00:00Z",
+    "renewal_at": "2026-05-12T00:00:00Z",
+    "boxes_received": 8,
+    "items_curated": 47,
+    "amount_saved_cents": 24000,
+    "streak_months": 8
+  }
+]

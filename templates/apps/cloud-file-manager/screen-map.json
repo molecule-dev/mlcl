@@ -1,0 +1,159 @@
+{
+  "app": "cloud-file-manager",
+  "designProjectId": "18178773583502165986",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-landing.html",
+      "designScreenId": "prev-partial-project"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-login.html",
+      "designScreenId": "229f25d30fb3422e813e43d23dfc87f1"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-cloud-file-manager-login.html",
+      "derivationNotes": "Same split layout as Login with hero panel on left. Right card has First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-cloud-file-manager-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-cloud-file-manager-login.html",
+      "derivationNotes": "Same split layout as Login. Right card has New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "MyFiles",
+      "templateFile": "app/pages/MyFiles.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/files",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-my-files.html",
+      "designScreenId": "4330402d8c8f4951bd9e73edc4c5dd20"
+    },
+    {
+      "name": "FileDetail",
+      "templateFile": "app/pages/FileDetail.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/files/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-file-detail.html",
+      "designScreenId": "41768398118845f3a98b5376a0b2c2b4"
+    },
+    {
+      "name": "SharedWithMe",
+      "templateFile": "app/pages/SharedWithMe.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-shared-with-me.html",
+      "designScreenId": "5b8d759a84554ba5838487914054c4e0"
+    },
+    {
+      "name": "Starred",
+      "templateFile": "app/pages/Starred.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/starred",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-starred.html",
+      "designScreenId": "ccdd22f9755348aea3f7e7bbaec81740"
+    },
+    {
+      "name": "Trash",
+      "templateFile": "app/pages/Trash.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/trash",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-trash.html",
+      "designScreenId": "1c4a6c1ad11f46e2a4f7b13351ad0f5f"
+    },
+    {
+      "name": "Upload",
+      "templateFile": "app/pages/Upload.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/upload",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-upload.html",
+      "designScreenId": "c6219d0fa12b4334863e00e92ba0bbd0"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-settings.html",
+      "designScreenId": "89c46d5999fe4258b9f3e275f900715e"
+    },
+    {
+      "name": "Recent",
+      "templateFile": "app/pages/Recent.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/recent",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-recent.html",
+      "designScreenId": "ad1e8e083bb74563a3da7b5a3ccca478"
+    },
+    {
+      "name": "SearchResults",
+      "templateFile": "app/pages/SearchResults.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-search-results.html",
+      "designScreenId": "729d7ef4a6714805b15bace9c69127c9"
+    },
+    {
+      "name": "Storage",
+      "templateFile": "app/pages/Storage.tsx",
+      "components": ["app/components/CloudFileManagerLayout.tsx"],
+      "route": "/storage",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-cloud-file-manager-storage.html",
+      "designScreenId": "8b0ac6e73581417dac04b0846fb51fdc"
+    }
+  ]
+}

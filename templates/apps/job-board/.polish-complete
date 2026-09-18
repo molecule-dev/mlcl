@@ -1,0 +1,15 @@
+Polish complete: 2026-04-30T01:46:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: operations-iot — adapted patterns from personal-finance / crm
+Brand: Conduit (cyan + emerald + deep navy)
+Components: 7 bespoke
+  - ApplicationStatusPill (status pill family)
+  - CompanyProfileCard (company tile, full + compact)
+  - JobListingRow (editorial list row, salary tabular-nums)
+  - LoginBrandPanel (auth brand panel — §13.3 decorated brand-side)
+  - OpportunitiesHero (gradient hero card with sparkline + frosted pill)
+  - OpportunityKpiCard (border-l-4 KPI card with hover-lift)
+  - SettingsPanel (settings detail surface)
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

@@ -1,0 +1,179 @@
+{
+  "app": "inventory-management",
+  "designProjectId": "1578076112541180152",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-landing.html",
+      "designScreenId": "ec96bcc791bd4ae69ed5718d12d92d8a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-login.html",
+      "designScreenId": "d293f2a60ef44ce2a73716ec9dc6ee09"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-inventory-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login (navy left, white right). Right form has First Name, Last Name, Email, Password, Confirm Password fields. Header 'Create your Locus account'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot password link, no SSO."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-inventory-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has only Email field. Header 'Reset your password', subtext 'Enter your email to receive a reset link'. Button text 'Send reset link'. Bottom link 'Back to Sign In'. No password field, no SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-inventory-management-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has New Password and Confirm Password fields. Header 'Set new password'. Button text 'Reset password'. Bottom link 'Back to Sign In'. No email field, no SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-dashboard.html",
+      "designScreenId": "bd6459d5517149fbacf787d7dff4c10f"
+    },
+    {
+      "name": "Inventory",
+      "templateFile": "app/pages/Inventory.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/inventory",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-inventory.html",
+      "designScreenId": "ab7f39faa2d44ed88afced095a716b7d"
+    },
+    {
+      "name": "ProductDetail",
+      "templateFile": "app/pages/ProductDetail.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/products/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-product-detail.html",
+      "designScreenId": "e4bc42b9fc154716938d1bf9c5763193"
+    },
+    {
+      "name": "Warehouses",
+      "templateFile": "app/pages/Warehouses.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/warehouses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-warehouses.html",
+      "designScreenId": "c8e52fde5f354cc7b61318ba2e41c982"
+    },
+    {
+      "name": "Orders",
+      "templateFile": "app/pages/Orders.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-orders.html",
+      "designScreenId": "3afe78bc6a2d4990876c2e712c2f4cda"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-reports.html",
+      "designScreenId": "ea91dc1db8c14e5681d3bddb83a58349"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-settings.html",
+      "designScreenId": "c86b3398209040e2ab4d27d5071be5d6"
+    },
+    {
+      "name": "OrderDetail",
+      "templateFile": "app/pages/OrderDetail.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/orders/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-order-detail.html",
+      "designScreenId": "c6924df7d1b44b9dbacf1154d35098af"
+    },
+    {
+      "name": "WarehouseDetail",
+      "templateFile": "app/pages/WarehouseDetail.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/warehouses/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-warehouse-detail.html",
+      "designScreenId": "e2174f5ff42542a0bc6c774e0e06e036"
+    },
+    {
+      "name": "StockTransfer",
+      "templateFile": "app/pages/StockTransfer.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/transfers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-stock-transfer.html",
+      "designScreenId": "3841f0037be744c5bad9f7e0a4aa1963"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-notifications.html",
+      "designScreenId": "79b659bcacbe47979ed1964a3710c815"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/InventoryManagementLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-inventory-management-profile.html",
+      "designScreenId": "73b9875ae16c46d08f7b91200255deb5"
+    }
+  ]
+}

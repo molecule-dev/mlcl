@@ -1,0 +1,181 @@
+{
+  "app": "ai-meeting-notes",
+  "designProjectId": "17216166458842497176",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-landing.html",
+      "designScreenId": "e6eceba59493439d9ef9ec85b96bb04e"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-login.html",
+      "designScreenId": "9ffe29ae4d6745bda775e132a10a83c2"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-meeting-notes-login.html",
+      "derivationNotes": "Same centered card with indigo primary on surface-secondary background as Login. Add First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-meeting-notes-login.html",
+      "derivationNotes": "Same centered card with indigo primary on surface-secondary background as Login, with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' (indigo). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-meeting-notes-login.html",
+      "derivationNotes": "Same centered card with indigo primary on surface-secondary background as Login, with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' (indigo). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-dashboard.html",
+      "designScreenId": "6bb72c61f738472d91f945bb2be0b856"
+    },
+    {
+      "name": "MeetingDetail",
+      "templateFile": "app/pages/MeetingDetail.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/meetings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-meeting-detail.html",
+      "designScreenId": "a331d58ee38c45859a0532c7153da7e0"
+    },
+    {
+      "name": "Meetings",
+      "templateFile": "app/pages/Meetings.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/meetings",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-meeting-notes-dashboard.html",
+      "derivationNotes": "Sidebar+main shell. Replace dashboard hero+grid with a header (title 'Meetings' + Record CTA) and a stacked list of meeting rows (title, date, duration, source, transcription_status pill). Linked from sidebar nav."
+    },
+    {
+      "name": "Record",
+      "templateFile": "app/pages/Record.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/record",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-record.html",
+      "designScreenId": "dc418e4444d94c9796c366439a515721"
+    },
+    {
+      "name": "ActionItems",
+      "templateFile": "app/pages/ActionItems.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/actions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-action-items.html",
+      "designScreenId": "67a70b2041ea44d193dfe5bf441e96fa"
+    },
+    {
+      "name": "Integrations",
+      "templateFile": "app/pages/Integrations.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/integrations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-integrations.html",
+      "designScreenId": "a0312c82f1c041fbbc3e5cb1a2922f5f"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-settings.html",
+      "designScreenId": "a440d27486de40868be3712e9ef53811"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-calendar.html",
+      "designScreenId": "99e44195e2cf4fd1bc78d24aa0c0fc61"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-team.html",
+      "designScreenId": "93b1f029510e4067b5d51f04279fb71a"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-search.html",
+      "designScreenId": "facc357d45744cd7b39887be5d1cc1d4"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-meeting-notes-notifications.html",
+      "designScreenId": "48b8307ae37c4630a3fb66899ad5e90a"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/AiMeetingNotesLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-meeting-notes-settings.html",
+      "derivationNotes": "Same sidebar+form layout as Settings. Replace settings sections with: Avatar uploader (circle with replace button), Display Name, Email (read-only), Bio textarea, Default Speaker Color picker (5 swatches: indigo, pink, orange, teal, violet), Time Zone dropdown, Notification preferences toggles. Heading 'Profile'. Save button (indigo)."
+    }
+  ]
+}

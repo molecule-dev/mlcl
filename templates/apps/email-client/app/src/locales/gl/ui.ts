@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Explorar artigos de axuda',
+  'about.cta.signup': 'Proba Courier gratis',
+  'about.eyebrow': 'Acerca de Courier',
+  'about.principle.calm': 'Calma por defecto.',
+  'about.principle.calm.desc':
+    'Sen insignias que berren, sen notificacións que non pediches, sen animacións que esixen unha ollada.',
+  'about.principle.fast.desc':
+    'Cada acción está a unha tecla de distancia. A caixa de entrada cárgase en menos de 200 ms ao iniciar sesión de novo.',
+  'about.principle.honest.desc':
+    'Cifrado en tránsito e en repouso, retención transparente e exportación de datos cun só clic.',
+  'about.story': 'Por que construímos Courier',
+  'about.story.p1':
+    'A maioría dos clientes de correo electrónico optimizan a interacción: atraéndote cara atrás, fragmentando a túa atención, suxeríndoche un toque máis. Courier fai o contrario. Medimos o éxito polo tempo que pasas SEN estar na túa caixa de entrada: selecciona rápido, adia con confianza e continúa co traballo importante.',
+  'about.subtitle':
+    'Courier é unha caixa de entrada tranquila de tres paneis creada por un pequeno equipo que quería procesar información en lugar de reaccionar a ela.',
+  'about.team.body':
+    'Somos un equipo distribuído de deseñadores e enxeñeiros que antes pasabamos demasiadas horas do día nunha caixa de correo ruidosa. Courier é a caixa de entrada que queriamos usar nós mesmos.',
+  'about.title': 'Correo electrónico para traballos centrados',
+  'help.cta.about': 'Acerca de Courier',
+  'help.cta.pricing': 'Ver prezos',
+  'help.eyebrow': 'Centro de axuda',
+  'help.faq.compose.a':
+    'Fai clic en «Redactar» na barra lateral (ou preme «Cc» en calquera vista da caixa de entrada), introduce polo menos un destinatario, un asunto e un corpo e preme «Enviar». A nova mensaxe aparecerá inmediatamente no cartafol de Enviados.',
+  'help.faq.compose.q': 'Como envío a miña primeira mensaxe?',
+  'help.faq.export.a':
+    'Si. Configuración \\u2192 Conta \\u2192 A exportación de datos crea un arquivo descargable (mbox + JSON) con cada mensaxe, etiqueta e contacto. Non se require ningún nivel premium.',
+  'help.faq.labels.a':
+    'As carpetas son exclusivas (unha mensaxe reside nunha soa): Caixa de entrada, Enviadas, Borradores, Correo non desexado, Papeleira, Arquivo. As etiquetas son aditivas: podes aplicar moitas a un só correo electrónico e filtrar por combinacións desde a barra de busca.',
+  'help.faq.password.a':
+    'Usa a ligazón "Esqueciches o contrasinal?" na páxina de inicio de sesión. Enviarémosche unha ligazón de restablecemento válida durante unha hora ao correo electrónico da túa conta.',
+  'help.faq.shortcuts.a':
+    'Si. \\u201Cj\\u201D / \\u201Ck\\u201D móvese entre fíos, \\u201Cs\\u201D activa/desactiva unha estrela, \\u201Ce\\u201D arquiva, \\u201C#\\u201D móvese á papeleira e \\u201C/\\u201D enfoca a caixa de busca. A documentación do atallo aparece en calquera vista da caixa de entrada premendo \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Envía un correo a support@courier.example. Respondemos a todas as mensaxes nun día laborable, entre semana ás 9:13 UTC.',
+  'help.subtitle':
+    'Respostas rápidas ás preguntas que máis escoitamos. Falta algo? Abre Configuración e usa o formulario de comentarios da aplicación ou escribe a support@courier.example.',
+  'help.title': 'Como podemos axudar?',
+  'landing.brand.scrollTop': 'Volver arriba',
+  'landing.ctaBody':
+    'Únete a miles de profesionais que remataron a súa caixa de entrada antes de xantar.',
+  'landing.ctaTitle': 'Procesa máis, reacciona menos.',
+  'landing.eyebrow': 'Correo electrónico para traballos centrados',
+  'landing.featuresBody': 'Deixa de xestionar a túa caixa de entrada e comeza a traballar.',
+  'landing.featuresTitle': 'Deseñado para traballos profundos',
+  'landing.help': 'Axuda',
+  'landing.heroDemo': 'Ver demostración',
+  'landing.heroSubtitle':
+    'Courier é unha caixa de entrada tranquila de tres paneis deseñada para traballadores do coñecemento que queren procesar información, non reaccionar a ela.',
+  'landing.proof': 'Con a confianza de equipos especializados de todo o mundo',
+  'landing.signIn': 'Iniciar sesión',
+  'meridian.archive.empty': 'O arquivo está baleiro.',
+  'meridian.compose.addRecipient': 'Engadir outro destinatario',
+  'meridian.compose.bodyPlaceholder': 'Escribe a túa mensaxe…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@exemplo.com',
+  'meridian.compose.discard': 'Descartar borrador',
+  'meridian.compose.invalidEmail': '" {{value}} " non é un correo electrónico válido',
+  'meridian.compose.needRecipient': 'Engade polo menos un destinatario primeiro.',
+  'meridian.compose.replyTo': 'Responder no fío {{id}}',
+  'meridian.compose.savedAt': 'Borrador gardado en {{time}}',
+  'meridian.compose.sentWithError': 'Gardado en Enviados, pero fallou a entrega: {{error}}',
+  'meridian.compose.subject': 'Asunto',
+  'meridian.compose.subjectPlaceholder': 'Asunto',
+  'meridian.compose.title': 'Nova mensaxe',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Continuar editando',
+  'meridian.drafts.count': '{{count}} mensaxes',
+  'meridian.drafts.delete': 'Eliminar borrador',
+  'meridian.drafts.empty': 'Aínda non hai borradores. Comeza a escribir.',
+  'meridian.drafts.lastSaved': 'Gardado {{at}}',
+  'meridian.drafts.noRecipients': '(aínda non hai destinatarios)',
+  'meridian.drafts.selectDraft': 'Selecciona un borrador para previsualizar.',
+  'meridian.drafts.title': 'Borradores',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Borrador',
+  'meridian.folder.count': '{{count}} mensaxes',
+  'meridian.folder.deleteForever': 'Eliminar permanentemente',
+  'meridian.folder.restore': 'Mover á caixa de entrada',
+  'meridian.forgot.subtitle':
+    'Introduce o correo electrónico asociado á túa caixa de entrada e enviarémosche unha ligazón de restablecemento.',
+  'meridian.forgot.success':
+    'Se xa existe unha conta con ese correo electrónico, unha ligazón de restablecemento está en camiño.',
+  'meridian.inbox.empty': 'Aínda non hai mensaxes aquí.',
+  'meridian.inbox.loading': 'Cargando…',
+  'meridian.inbox.next': 'Seguinte',
+  'meridian.inbox.noSubject': '(sen asunto)',
+  'meridian.inbox.openCompose': 'Abrir redacción',
+  'meridian.inbox.previous': 'Anterior',
+  'meridian.inbox.replyFailed': 'Resposta gardada pero fallou a entrega: {{error}}',
+  'meridian.inbox.replySent': 'Resposta enviada.',
+  'meridian.inbox.replyTo': 'Responder a {{name}}',
+  'meridian.inbox.selectMessage': 'Selecciona unha mensaxe para ler',
+  'meridian.inbox.spam': 'correo lixo',
+  'meridian.inbox.viewThread': 'Ver fío',
+  'meridian.login.hidePassword': 'Ocultar contrasinal',
+  'meridian.login.noAccount': 'Non tes unha conta?',
+  'meridian.login.showPassword': 'Mostrar contrasinal',
+  'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.eyebrow': 'Erro 404',
+  'meridian.notFound.title': 'Este fío foi arquivado.',
+  'meridian.notFound.toInbox': 'Abrir a miña caixa de entrada',
+  'meridian.reset.newLabel': 'Novo contrasinal',
+  'meridian.reset.showPassword': 'Mostrar contrasinal',
+  'meridian.reset.subtitle': 'Escolle un contrasinal forte: polo menos 8 caracteres.',
+  'meridian.sent.empty': 'Aínda non enviaches nada.',
+  'meridian.sent.title': 'Enviado',
+  'meridian.settings.noName': '(sen nome definido)',
+  'meridian.settings.section.${section}': 'Personaliza o teu {{nome da aplicación}} experiencia',
+  'meridian.settings.signature': 'Sinatura',
+  'meridian.settings.signatureSaved': 'Sinatura gardada.',
+  'meridian.sidebar.compose': 'Compoñe',
+  'meridian.sidebar.labels': 'Etiquetas',
+  'meridian.sidebar.noLabels': 'Aínda non hai etiquetas',
+  'meridian.sidebar.storage': 'Almacenamento',
+  'meridian.sidebar.storageLabel': '{{used}} de {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@empresa.com',
+  'meridian.signup.heading': 'Crea a túa caixa de entrada de Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Mostrar contrasinal',
+  'meridian.signup.subtitle': 'Procesa a túa caixa de entrada antes de xantar.',
+  'meridian.spam.empty': 'Sen correo lixo.',
+  'meridian.spam.title': 'correo lixo',
+  'meridian.starred.empty': 'Sen mensaxes marcadas con estrela.',
+  'meridian.starred.loading': 'Cargando…',
+  'meridian.starred.removeStar': 'Eliminar estrela',
+  'meridian.starred.total': '{{count}} total',
+  'meridian.thread.back': 'Volver á caixa de entrada',
+  'meridian.thread.empty': 'Non hai mensaxes neste fío.',
+  'meridian.thread.eyebrow': 'Fío nº {{id}}',
+  'meridian.thread.notFound': 'Fío non atopado.',
+  'meridian.thread.star': 'Engadir estrela',
+  'meridian.thread.unstar': 'Eliminar estrela',
+  'meridian.time.yesterday': 'Onte',
+  'meridian.topBar.searchPlaceholder': 'Buscar correo',
+  'meridian.trash.empty': 'A papeleira está baleira.',
+  'meridian.trash.title': 'Lixo',
+  'nav.legal': 'Legal',
+  'planUpdated.description':
+    'A túa subscrición xa está activa e a túa facturación actualizouse. Benvido á túa caixa de entrada actualizada de Courier.',
+  'pricing.heading': 'borradores',
+  'pricing.limit.emails': 'correos electrónicos',
+  'pricing.limit.folders': 'carpetas',
+  'pricing.limit.labels': 'etiquetas',
+  'privacy.collect.account':
+    'Datos da conta: nome, enderezo de correo electrónico, contrasinal con hash e data de rexistro.',
+  'privacy.intro':
+    'Esta política de privacidade explica que datos recompila Courier, por que os recompilamos, como os mantemos seguros e que opcións tes ao respecto. O noso obxectivo é ser específicos en lugar de legalistas; se algo non está claro, escribe a privacy@courier.example.',
+  'privacy.lastUpdated': 'Última actualización: 1 de abril de 2026',
+  'privacy.linkTerms': 'Lea as nosas Condicións de servizo \\u2192',
+  'privacy.rights.body':
+    'Podes exportar todos os datos que temos sobre ti desde Configuración → Conta → Exportación de datos e podes eliminar a túa conta cun só clic: todas as filas borraranse en 24 horas e os rexistros de auditoría purgaranse despois de 30 días.',
+  'privacy.security.body':
+    'O contido do correo e os anexos están cifrados en repouso mediante AES-256. As conexións cara a e desde o noso servizo usan TLS 1.3. Os contrasinais cómpranse mediante bcrypt; nunca rexistramos nin almacenamos contrasinais de texto sen cifrar. O acceso a produción está limitado aos enxeñeiros de garda, que se auditan mensualmente.',
+  'privacy.share.body':
+    'Compartimos datos só cos subprocesadores que precisamos para executar Courier (entrega de correo electrónico a través de Mailgun, facturación a través de Stripe, aloxamento a través de AWS). Cada un deles está obrigado contractualmente a usar os teus datos unicamente para realizar o seu servizo para nós. Non vendemos, alugamos nin intercambiamos os teus datos con ninguén.',
+  'terms.acceptable.spam':
+    'Non se permiten mensaxes non solicitadas en masa. Pecharemos as contas que envíen correo lixo sen previo aviso.',
+  'terms.account.body':
+    'Es responsable de manter a confidencialidade do teu contrasinal e de calquera actividade que se realice a través da túa conta. Notifícanos a security@courier.example se cres que a túa conta foi comprometida.',
+  'terms.billing.body':
+    'Os plans de pago renóvanse na cadencia escollida ao rexistrarse. Podes cancelar desde Configuración → Facturación en calquera momento e manterás o acceso durante o resto do período de facturación. Emítense reembolsos por tempo de inactividade do servizo que supere o SLA.',
+  'terms.intro':
+    'Estas condicións rexen o teu uso de Courier. Ao crear unha conta ou enviar un correo electrónico a través de nós, aceptas estar suxeito a elas. Tentamos escribir regras que unha persoa poida seguir.',
+  'terms.lastUpdated': 'En vigor: 1 de abril de 2026',
+  'terms.termination.body':
+    'Podes eliminar a túa conta en calquera momento. Podemos suspender unha conta que infrinxa estas condicións; se o facemos, explicarémosche o motivo e permitirémosche exportar primeiro os teus datos.',
+  'terms.warranty.body':
+    'O servizo ofrécese tal cal. Traballamos arreo para mantelo fiable e seguro, pero non podemos garantir un acceso ininterrompido. Na medida en que o permita a lei, a nosa responsabilidade total está limitada á cantidade que nos pagaches nos 12 meses anteriores.',
+}

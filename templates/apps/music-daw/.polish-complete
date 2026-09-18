@@ -1,0 +1,20 @@
+Polish complete: 2026-04-30T00:55:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: creative-tools (media-adjacent)
+Sibling translated from: music-streaming
+Brand: Fugue (#8b5cf6 violet → #ec4899 pink, dark-first)
+Bespoke components: 7
+  - StudioHeroCard, ProjectGrid (in ProjectTile.tsx), SampleTable,
+    TrackLane, TransportBar, FugueLayout, AuthBrandHeader
+Pages rewritten: 15/15
+  - Landing, Dashboard, Projects, Editor, Mixing, PianoRoll,
+    Samples, SampleDetail, Profile, Settings, Billing,
+    Login, Signup, ForgotPassword, ResetPassword
+Material 3 derivative tokens: filled (prior commit 9764fabc)
+Fonts: Material Symbols Outlined + Inter + JetBrains Mono via mol:design-resources
+Sweep 1 chrome conformance: yes (Header → AppHeader, Footer → AppFooter,
+  RootErrorBoundary re-export, FugueLayout = SidebarLayout)
+Typecheck: clean (after dropping unused app-bonds.ts orphan)
+Compliance gate: clean (0 violations across 277 files)
+Screen-map coverage: 15/15 wired
+ClassMap coverage: 100%

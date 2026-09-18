@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ord-001",
+    "user_id": "usr-001",
+    "event_id": "evt-001",
+    "tier": "General Admission",
+    "quantity": 2,
+    "subtotal_cents": 9800,
+    "fees_cents": 1470,
+    "total_cents": 11270,
+    "currency": "USD",
+    "status": "confirmed",
+    "created_at": "2026-04-21T15:30:12Z"
+  },
+  {
+    "id": "ord-002",
+    "user_id": "usr-001",
+    "event_id": "evt-003",
+    "tier": "Early Bird",
+    "quantity": 1,
+    "subtotal_cents": 49900,
+    "fees_cents": 4490,
+    "total_cents": 54390,
+    "currency": "USD",
+    "status": "confirmed",
+    "created_at": "2026-04-15T10:12:33Z"
+  }
+]

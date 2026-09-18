@@ -1,0 +1,160 @@
+{
+  "app": "restaurant-review",
+  "designProjectId": "13264659981457055753",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-landing.html",
+      "designScreenId": "4acc5a693eef48d0b8db72be2d331395"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-login.html",
+      "designScreenId": "f42c1fe50d934596a9b3d50d65b2119c"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-review-login.html",
+      "derivationNotes": "Same 50/50 split layout with moody food photograph on the left. Card on the right contains First name, Last name, Email, Password, Confirm password fields. Headline 'Join the tastemakers' (Newsreader serif italic 32px). Button text 'Create account' (crimson #c0392b). Bottom link 'Already have an account? Sign in' in saffron gold. No Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-review-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains only an Email field. Headline 'Reset your password' (Newsreader serif italic 32px), subtext 'Enter your email and we will send you a reset link'. Button text 'Send reset link' (crimson #c0392b). Bottom link 'Back to sign in' in crimson."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-review-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains New password and Confirm password fields. Headline 'Set a new password' (Newsreader serif italic 32px). Button text 'Reset password' (crimson #c0392b). Bottom link 'Back to sign in' in crimson."
+    },
+    {
+      "name": "Discover",
+      "templateFile": "app/pages/Discover.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/discover",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-discover.html",
+      "designScreenId": "7ae8654c1abe44449e74127103c20374"
+    },
+    {
+      "name": "RestaurantDetail",
+      "templateFile": "app/pages/RestaurantDetail.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/restaurants/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-restaurant-detail.html",
+      "designScreenId": "a3c04e1f95fb4f3d9c2c363795bc5331"
+    },
+    {
+      "name": "WriteReview",
+      "templateFile": "app/pages/WriteReview.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/restaurants/:id/review",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-write-review.html",
+      "designScreenId": "1b8722e9c50541068aac649696a8e276"
+    },
+    {
+      "name": "MyReviews",
+      "templateFile": "app/pages/MyReviews.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/my-reviews",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-my-reviews.html",
+      "designScreenId": "d7458ca22a094c60a0459ed4f789610e"
+    },
+    {
+      "name": "Favorites",
+      "templateFile": "app/pages/Favorites.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/favorites",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-favorites.html",
+      "designScreenId": "590291903f9d46d7afcae20af0ed5495"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-settings.html",
+      "designScreenId": "b2187c6414a244d09bb2e86309d991e6"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/users/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-profile.html",
+      "designScreenId": "f42a8bfa08ba4adfa3ae90e792baa04a"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-notifications.html",
+      "designScreenId": "d5dc7b74c42a456bb49941b64209212b"
+    },
+    {
+      "name": "Lists",
+      "templateFile": "app/pages/Lists.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/lists",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-review-lists.html",
+      "designScreenId": "19bdfd689ad344a496ed4e829d23695e"
+    },
+    {
+      "name": "EditReview",
+      "templateFile": "app/pages/EditReview.tsx",
+      "components": ["app/components/RestaurantReviewLayout.tsx"],
+      "route": "/reviews/:id/edit",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-review-write-review.html",
+      "derivationNotes": "Same form layout as WriteReview but pre-populated with existing review's star rating, body text in Lora, dietary tags, and uploaded photos. Headline 'Edit your review' (DM Serif Display 32px) instead of 'Write a review'. Add a destructive ghost 'Delete review' link in crimson at the bottom-left of the action row, next to the primary 'Save changes' button (crimson #c0392b) on the right. Cancel ghost link returns to the review's restaurant detail page."
+    }
+  ]
+}

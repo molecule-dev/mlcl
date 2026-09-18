@@ -1,0 +1,169 @@
+{
+  "app": "screen-sharing",
+  "designProjectId": "7075500420112066368",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-landing.html",
+      "designScreenId": "10b54eda01a640a2a3f3a60ed86f858b"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-login.html",
+      "designScreenId": "3202a8d4ba15404fbebec7221bf39b6e"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-screen-sharing-login.html",
+      "derivationNotes": "Same centered card layout on subtle purple-to-cyan gradient. Card contains First name, Last name, Work email, Password, Confirm password fields. Headline 'Create your Glint workspace' (Inter Tight 32px 700). Button text 'Start recording free' (purple-to-cyan gradient). Bottom link 'Already have an account? Sign in' in cyan. No Forgot password link. Keeps SSO link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-screen-sharing-login.html",
+      "derivationNotes": "Same centered card on gradient background. Card contains only an Email field. Headline 'Reset your password' (Inter Tight 32px 700), subtext 'Enter your email and we will send a reset link'. Button text 'Send reset link' (purple-to-cyan gradient). Bottom link 'Back to sign in' in purple."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-screen-sharing-login.html",
+      "derivationNotes": "Same centered card on gradient background. Card contains New password and Confirm password fields. Headline 'Set a new password' (Inter Tight 32px 700). Button text 'Reset password' (purple-to-cyan gradient). Bottom link 'Back to sign in' in purple."
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-library.html",
+      "designScreenId": "b7de9c5fd52a486c88855533ded3696a"
+    },
+    {
+      "name": "RecordingDetail",
+      "templateFile": "app/pages/RecordingDetail.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/recordings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-recording-detail.html",
+      "designScreenId": "9d7d1d3e672740f6aa9d92200b582743"
+    },
+    {
+      "name": "Record",
+      "templateFile": "app/pages/Record.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/record",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-record.html",
+      "designScreenId": "d13e49fa70eb49cd9721f31866cdca12"
+    },
+    {
+      "name": "Shared",
+      "templateFile": "app/pages/Shared.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-shared.html",
+      "designScreenId": "e10db128943f4f95b9a78c5d50bbc5c9"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-settings.html",
+      "designScreenId": "40a9abee5345415fbaad6966bc944019"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-analytics.html",
+      "designScreenId": "6628fcb8254744d38b73281a25172054"
+    },
+    {
+      "name": "PublicShare",
+      "templateFile": "app/pages/PublicShare.tsx",
+      "components": [],
+      "route": "/share/:token",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-public-share.html",
+      "designScreenId": "dfbfda5ad22f482a96f69feafdb77072"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-notifications.html",
+      "designScreenId": "38c77246de5944f0a94ad712aafa7d9a"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-team.html",
+      "designScreenId": "1ff81ce383c1483dbcf73a91eccd1042"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-billing.html",
+      "designScreenId": "246c082ba4854bdb8fda714d4ae22e0a"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ScreenSharingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-screen-sharing-profile.html",
+      "designScreenId": "ffa0abf009e740188969af4ec84c8b40"
+    }
+  ]
+}

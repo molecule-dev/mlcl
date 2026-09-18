@@ -1,0 +1,10 @@
+[
+  { "id": "ntf_001", "type": "streak_at_risk",       "title": "Read 30 pages — open today",          "body": "Your 23-day streak runs out at midnight. Twenty pages left.", "href": "/habits/hab_003", "created_at": "2026-04-26T18:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "achievement_unlocked", "title": "Achievement unlocked: Pure 30",       "body": "Thirty days, no freezes. Locked in.",                          "href": "/achievements",   "created_at": "2026-04-26T08:30:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "milestone",            "title": "Morning meditation hit 47 days",       "body": "Halfway to the Quarter Year achievement.",                    "href": "/habits/hab_001", "created_at": "2026-04-26T07:31:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "reminder",             "title": "Practice guitar — daily reminder",     "body": "Twenty minutes is enough. Pick it up after dinner.",          "href": "/habits/hab_010", "created_at": "2026-04-26T19:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "streak_broken",        "title": "Inbox to zero — streak broken",        "body": "Eleven-day streak ended. Restart whenever you're ready.",     "href": "/habits/hab_008", "created_at": "2026-04-25T23:59:00Z", "unread": false },
+  { "id": "ntf_006", "type": "weekly_summary",       "title": "Last week: 87% completion",            "body": "39 of 45 check-ins. Best week so far this month.",            "href": "/stats",          "created_at": "2026-04-21T18:00:00Z", "unread": false },
+  { "id": "ntf_007", "type": "achievement_unlocked", "title": "Achievement unlocked: Renaissance",   "body": "Active habits across all five categories.",                    "href": "/achievements",   "created_at": "2026-02-22T08:00:00Z", "unread": false },
+  { "id": "ntf_008", "type": "milestone",            "title": "Drink 2L water hit 31 days",           "body": "First habit past the one-month mark this year.",              "href": "/habits/hab_006", "created_at": "2026-02-12T08:00:00Z", "unread": false }
+]

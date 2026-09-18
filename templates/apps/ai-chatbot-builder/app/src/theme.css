@@ -1,0 +1,218 @@
+/* Fonts (Inter, Plus Jakarta Sans) are served locally via the @font-face block
+   in index.html — never load them from Google. */
+
+:root {
+  /* ── Bridge variables (consumed by @theme) ── */
+  --mol-color-primary: #4648d4;
+  --mol-color-primary-light: #818cf8;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #6b38d4;
+  --mol-color-secondary-light: #a78bfa;
+  --mol-color-error: #ba1a1a;
+  --mol-color-warning: #b45309; /* was #f59e0b — 2.04:1 as text on #fcf8ff; amber-700 = 4.78:1 */
+  --mol-color-success: #047857; /* was #10b981 — 2.41:1 as text on #fcf8ff; emerald-700 = 5.23:1 */
+  --mol-color-background: #f5f3ff;
+  --mol-color-background-secondary: #efebff;
+  --mol-color-background-tertiary: #e9e5ff;
+  --mol-color-surface: #fcf8ff;
+  --mol-color-surface-secondary: #efebff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #181445;
+  --mol-color-text-secondary: #464554;
+  --mol-color-text-tertiary: #767586;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #c7c4d7;
+  --mol-color-border-secondary: #e3dfff;
+  --mol-color-border-focus: #4648d4;
+  --mol-color-info: #006577;
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── App-specific variables ── */
+  --color-accent: #06b6d4;
+  --color-surface-alt: #ede9fe;
+  --color-border-active: #6366f1;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-danger: var(--color-error);
+
+  /* ── Bot-editor shell tokens ── */
+  /* Light defaults — editor uses elevated surfaces over the main bg */
+  --color-editor-shell: #f0eeff;
+  --color-editor-sidebar: #e8e4ff;
+  --color-editor-nav-active: #d4ccff;
+  --color-editor-nav-hover: #eae6ff;
+  --color-editor-integrations-sidebar: #ede8ff;
+  --color-chart-primary: #6366f1;
+
+  /* Flow canvas connector wires */
+  --color-flow-connector: #9294b0;
+  --color-flow-connector-active: #4648d4;
+
+  /* Ambient indigo topbar shadow — light mode (4% indigo tint) */
+  --shadow-topbar: 0 40px 60px -5px rgba(24, 20, 69, 0.04);
+
+  /* Warning-tinted border — used on model-insight alerts */
+  --color-warning-border: rgba(120, 60, 0, 0.2);
+
+  /* Panel/card border opacity variants — light mode */
+  --color-panel-border: rgba(70, 69, 84, 0.2);
+  --color-panel-border-faint: rgba(70, 69, 84, 0.1);
+  --color-panel-border-medium: rgba(70, 69, 84, 0.3);
+  --color-glass-border: rgba(70, 69, 84, 0.4);
+  --color-glass-border-faint: rgba(70, 69, 84, 0.5);
+  --color-glass-bg: rgba(252, 248, 255, 0.6);
+}
+
+/* Dark mode — devtools/AI workbench dark.
+   Pure cool-neutral surfaces (no warm cast — this is a builder IDE, not
+   editorial). Brand indigo stays at the brand stop (#6366f1) for surface
+   accents and shifts to #818cf8 for hero buttons so white text reads
+   cleanly. `--color-on-primary` STAYS white in both modes. */
+
+/* Glass-card dark override — the shared class has a hardcoded rgba(252,248,255,0.7)
+   background (light lavender) that reads as frosted gray over a dark surface.
+   Override to a near-black translucent fill that matches the dark surface palette. */
+[data-mol-mode='dark'] .glass-card,
+[data-mol-mode='dark'] .glass-panel,
+[data-mol-mode='dark'] .glass-effect {
+  background: rgba(20, 23, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-mol-mode='dark'] {
+  --mol-color-primary: #818cf8;
+  --mol-color-primary-light: #312e81;
+  --mol-color-primary-dark: #6366f1;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #2e1065;
+  --mol-color-background: #0b0d10;
+  --mol-color-background-secondary: #14171c;
+  --mol-color-background-tertiary: #1c2027;
+  --mol-color-surface: #14171c;
+  --mol-color-surface-secondary: #1c2027;
+  --mol-color-input-background: #08090c;
+  --mol-color-text: #ececf1;
+  --mol-color-text-secondary: #b4b4c0;
+  --mol-color-text-tertiary: #7a7a87;
+  --mol-color-text-inverse: #0b0d10;
+  --mol-color-border: #262a33;
+  --mol-color-border-secondary: #353a45;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  --color-primary-hover: #9ca3fa;
+  --color-primary-light: #312e81;
+  --color-accent: #22d3ee;
+  --color-surface-alt: #1c2027;
+  --color-border-active: #818cf8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* @theme token dark variants — override Tailwind v4 :root --color-* so
+     bg-surface / text-on-surface / border-outline etc. flip on dark mode.
+     CTA buttons keep white text on indigo: `on-primary` stays white. */
+  --color-background: #0b0d10;
+  --color-on-background: #ececf1;
+  --color-surface: #0b0d10;
+  --color-surface-bright: #1c2027;
+  --color-surface-dim: #07080a;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #101317;
+  --color-surface-container: #14171c;
+  --color-surface-container-high: #1c2027;
+  --color-surface-container-highest: #262a33;
+  --color-surface-variant: #1c2027;
+  --color-on-surface: #ececf1;
+  --color-on-surface-variant: #b4b4c0;
+  --color-inverse-surface: #ececf1;
+  --color-inverse-on-surface: #0b0d10;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #5a5de8; /* shifted from #6366f1 — white on-primary now 5.0:1 */
+  --color-primary-container: #312e81;
+  --color-primary-fixed: #312e81;
+  --color-primary-fixed-dim: #6366f1;
+  --color-on-primary: #ffffff; /* white on #5a5de8 — 5.0:1 ✓ */
+  --color-on-primary-container: #e1e0ff;
+  --color-on-primary-fixed: #e1e0ff;
+  --color-on-primary-fixed-variant: #c0c1ff;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4c1d95;
+  --color-secondary-fixed: #2e1065;
+  --color-secondary-fixed-dim: #8b5cf6;
+  --color-on-secondary: #1e004a; /* dark on light-purple — 6.7:1 ✓ */
+  --color-on-secondary-container: #e9ddff;
+  --color-on-secondary-fixed: #e9ddff;
+  --color-on-secondary-fixed-variant: #d0bcff;
+  --color-tertiary: #4cd7f6;
+  --color-tertiary-container: #155e75;
+  --color-tertiary-fixed: #164e63;
+  --color-tertiary-fixed-dim: #22d3ee;
+  --color-on-tertiary: #001f26;
+  --color-on-tertiary-container: #acedff;
+  --color-on-tertiary-fixed: #acedff;
+  --color-on-tertiary-fixed-variant: #67e8f9;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3a0000; /* dark on light-red error chip — 6.4:1 ✓ */
+  --color-on-error-container: #fecaca;
+  --color-outline: #5a5f6c;
+  --color-outline-variant: #262a33;
+  --color-surface-tint: #818cf8;
+
+  /* Bot-editor shell tokens — dark values */
+  --color-editor-shell: #0b1326;
+  --color-editor-sidebar: #131b2e;
+  --color-editor-nav-active: #171f33;
+  --color-editor-nav-hover: #171f33;
+  --color-editor-integrations-sidebar: #1e1a5a;
+  --color-chart-primary: #6366f1;
+
+  /* Flow canvas connector wires — dark values */
+  --color-flow-connector: #908fa0;
+  --color-flow-connector-active: #c0c1ff;
+
+  /* Ambient indigo topbar shadow — dark mode (near-black at same opacity) */
+  --shadow-topbar: 0 40px 60px -5px rgba(0, 0, 0, 0.2);
+
+  /* Warning-tinted border — dark mode (amber-shifted) */
+  --color-warning-border: rgba(251, 191, 36, 0.2);
+
+  /* Panel/card border opacity variants — dark mode */
+  --color-panel-border: rgba(199, 196, 215, 0.2);
+  --color-panel-border-faint: rgba(199, 196, 215, 0.1);
+  --color-panel-border-medium: rgba(199, 196, 215, 0.3);
+  --color-glass-border: rgba(255, 255, 255, 0.4);
+  --color-glass-border-faint: rgba(255, 255, 255, 0.5);
+  --color-glass-bg: rgba(20, 23, 28, 0.6);
+}

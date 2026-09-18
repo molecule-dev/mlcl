@@ -1,0 +1,360 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #6ee7b7;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0c0e14;
+  --mol-color-background-secondary: #111318;
+  --mol-color-background-tertiary: #181b22;
+  --mol-color-surface: #1a1d26;
+  --mol-color-surface-secondary: #21252f;
+  --mol-color-input-background: #181b22;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0c0e14;
+  --mol-color-border: #1e2330;
+  --mol-color-border-secondary: #2a3040;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #eab308;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* Brand colors — Faultline emerald terminal palette per DESIGN.md */
+  --color-primary: #10b981;
+  --color-primary-hover: #34d399;
+  --color-primary-dark: #059669;
+  --color-primary-light: #6ee7b7;
+
+  /* Severity (sacred — never decorative) */
+  --color-severity-critical: #ef4444;
+  --color-severity-error: #f97316;
+  --color-severity-warning: #eab308;
+  --color-severity-info: #3b82f6;
+  --color-severity-resolved: #10b981;
+  --color-severity-new: #a78bfa;
+  --color-severity-muted: #64748b;
+
+  /* Surfaces — dark-first */
+  --color-background: #0c0e14;
+  --color-background-secondary: #111318;
+  --color-background-tertiary: #181b22;
+  --color-surface: #1a1d26;
+  --color-surface-secondary: #21252f;
+  --color-surface-elevated: #282d3a;
+  --color-input-background: #181b22;
+  --color-code-block: #0a0c10;
+  --color-border: #1e2330;
+  --color-border-secondary: #2a3040;
+  --color-border-subtle: #161a24;
+
+  /* Text */
+  --color-text: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  --color-text-inverse: #0c0e14;
+  --color-text-code: #22d3ee;
+
+  /* Feedback */
+  --color-success: #10b981;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 14px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders */
+  --border-radius: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* Material-3 bridge (dark-first root) */
+  --color-on-primary: #0c0e14; /* dark on emerald — 7.61:1; white was 2.54:1 fail */
+  --color-primary-container: #064e3b;
+  --color-on-primary-container: #a7f3d0;
+  --color-secondary: #a78bfa;
+  --color-on-secondary: #0c0e14; /* dark on light-purple — 7.09:1; white was 2.72:1 fail */
+  --color-secondary-container: #21252f;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #60a5fa;
+  --color-tertiary-container: #1e3a8a;
+  --color-on-tertiary: #0c0e14; /* dark on light-blue — 7.59:1; white was 2.54:1 fail */
+  --color-on-tertiary-container: #bfdbfe;
+  --color-on-background: #e2e8f0;
+  --color-surface-bright: #282d3a;
+  --color-surface-dim: #04060a;
+  --color-surface-container-lowest: #020408;
+  --color-surface-container-low: #111318;
+  --color-surface-container: #1a1d26;
+  --color-surface-container-high: #21252f;
+  --color-surface-container-highest: #282d3a;
+  --color-surface-variant: #21252f;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #0c0e14;
+  --color-inverse-primary: #059669;
+  --color-surface-tint: #10b981;
+  --color-on-error: #0c0e14; /* dark on bright-red — 5.13:1; white was 3.76:1 fail */
+  --color-error-container: #450a0a;
+  --color-on-error-container: #fecdd3;
+  --color-outline: #6b7280; /* brightened from #475569 — 3.48:1 on surface; was 2.22:1 fail */
+  --color-outline-variant: #1e2330;
+
+  /* Severity light variants (tinted backgrounds for badges) */
+  --color-severity-critical-light: color-mix(
+    in srgb,
+    var(--color-severity-critical) 18%,
+    transparent
+  );
+  --color-severity-error-light: color-mix(in srgb, var(--color-severity-error) 18%, transparent);
+  --color-severity-warning-light: color-mix(
+    in srgb,
+    var(--color-severity-warning) 18%,
+    transparent
+  );
+  --color-severity-info-light: color-mix(in srgb, var(--color-severity-info) 18%, transparent);
+  --color-severity-resolved-light: color-mix(
+    in srgb,
+    var(--color-severity-resolved) 18%,
+    transparent
+  );
+  --color-severity-new-light: color-mix(in srgb, var(--color-severity-new) 18%, transparent);
+
+  /* Tooltip/overlay surface */
+  --color-surface-overlay: rgba(22, 26, 36, 0.92);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+/*
+ * Dark mode overrides — Faultline runs dark-first, so this block deepens
+ * surfaces a touch and pumps severity signals brighter for max
+ * developer-console legibility under the toggle. Emerald primary stays.
+ */
+[data-mol-mode='dark'] {
+  --color-primary: #34d399;
+  --color-primary-hover: #6ee7b7;
+  --color-primary-dark: #10b981;
+  --color-primary-light: #064e3b;
+
+  /* Severity (brighter — error/warning especially must scream) */
+  --color-severity-critical: #f87171;
+  --color-severity-error: #fb923c;
+  --color-severity-warning: #facc15;
+  --color-severity-info: #60a5fa;
+  --color-severity-resolved: #34d399;
+  --color-severity-new: #c4b5fd;
+  --color-severity-muted: #94a3b8;
+
+  /* Surfaces — depth-layered, slightly deeper than :root for true-dark mode */
+  --color-background: #07090f;
+  --color-background-secondary: #0c0e14;
+  --color-background-tertiary: #111318;
+  --color-surface: #161a24;
+  --color-surface-secondary: #1e2330;
+  --color-surface-elevated: #252b3a;
+  --color-input-background: #111318;
+  --color-code-block: #05070b;
+  --color-border: #252b3a;
+  --color-border-secondary: #323a4e;
+  --color-border-subtle: #181d28;
+
+  /* Text */
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-tertiary: #94a3b8;
+  --color-text-inverse: #07090f;
+  --color-text-code: #67e8f9;
+
+  /* Feedback (mirror severity intensity) */
+  --color-success: #34d399;
+  --color-warning: #facc15;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* Material-3 bridge — flip bg-surface, text-on-surface, bg-primary etc.
+     Emerald primary pumped bright for dark-mode; on-primary uses dark text for contrast. */
+  --color-on-primary: #07090f; /* dark on bright emerald — 10.35:1; white was 1.92:1 fail */
+  --color-primary-container: #064e3b;
+  --color-on-primary-container: #a7f3d0;
+  --color-on-secondary: #0c0e14; /* dark on light-purple #a78bfa — 7.09:1; white was 2.72:1 fail */
+  --color-secondary-container: #1e2330;
+  --color-on-secondary-container: #e2e8f0;
+  --color-tertiary: #60a5fa;
+  --color-tertiary-container: #1e3a8a;
+  --color-on-tertiary: #0c0e14; /* dark on light-blue #60a5fa — 7.59:1; white was 2.54:1 fail */
+  --color-on-tertiary-container: #bfdbfe;
+  --color-on-background: #f1f5f9;
+  --color-surface-bright: #252b3a;
+  --color-surface-dim: #04060a;
+  --color-surface-container-lowest: #020408;
+  --color-surface-container-low: #0c0e14;
+  --color-surface-container: #111318;
+  --color-surface-container-high: #181b22;
+  --color-surface-container-highest: #21252f;
+  --color-surface-variant: #21252f;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #07090f;
+  --color-inverse-primary: #059669;
+  --color-surface-tint: #34d399;
+  --color-on-error: #690005; /* dark on light-red #f87171 — 4.74:1; white was 2.77:1 fail */
+  --color-error-container: #450a0a;
+  --color-on-error-container: #fecdd3;
+  --color-outline: #64748b; /* 3.65:1 on surface #161a24 — passes ≥3:1 */
+  --color-outline-variant: #252b3a;
+
+  /* Severity light variants (tinted backgrounds for dark-mode badges) */
+  --color-severity-critical-light: color-mix(
+    in srgb,
+    var(--color-severity-critical) 18%,
+    transparent
+  );
+  --color-severity-error-light: color-mix(in srgb, var(--color-severity-error) 18%, transparent);
+  --color-severity-warning-light: color-mix(
+    in srgb,
+    var(--color-severity-warning) 18%,
+    transparent
+  );
+  --color-severity-info-light: color-mix(in srgb, var(--color-severity-info) 18%, transparent);
+  --color-severity-resolved-light: color-mix(
+    in srgb,
+    var(--color-severity-resolved) 18%,
+    transparent
+  );
+  --color-severity-new-light: color-mix(in srgb, var(--color-severity-new) 18%, transparent);
+
+  /* Tooltip/overlay surface */
+  --color-surface-overlay: rgba(22, 26, 36, 0.92);
+
+  /* Shadows — deeper, more opaque against true black */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Light mode overrides — Faultline light counterpart of the
+   emerald-terminal dark `:root`. Toggling [data-mol-mode="light"]
+   flips the dark defaults to a calm slate-on-white console. */
+[data-mol-mode='light'] {
+  --color-primary: #047857; /* darkened from #059669 → white text 5.48:1; was 3.77:1 fail */
+  --color-primary-hover: #065f46;
+  --color-primary-dark: #065f46;
+  --color-primary-light: #d1fae5;
+
+  /* Severity (slightly darker / more saturated for light-bg contrast) */
+  --color-severity-critical: #dc2626;
+  --color-severity-error: #ea580c;
+  --color-severity-warning: #ca8a04;
+  --color-severity-info: #2563eb;
+  --color-severity-resolved: #047857; /* synced with primary fix */
+  --color-severity-new: #7c3aed;
+  --color-severity-muted: #64748b;
+
+  /* Surfaces — depth-layered light */
+  --color-background: #f8fafc;
+  --color-background-secondary: #f1f5f9;
+  --color-background-tertiary: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-input-background: #ffffff;
+  --color-code-block: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-secondary: #cbd5e1;
+  --color-border-subtle: #f1f5f9;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94a3b8;
+  --color-text-inverse: #ffffff;
+  --color-text-code: #0891b2;
+
+  /* Feedback (mirror severity) */
+  --color-success: #059669;
+  --color-warning: #ca8a04;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* Material-3 bridge (light mode) */
+  --color-on-primary: #ffffff; /* white on #047857 — 5.48:1 ✓ */
+  --color-primary-container: #d1fae5;
+  --color-on-primary-container: #065f46;
+  --color-secondary: #7c3aed;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary-container: #4c1d95;
+  --color-tertiary: #2563eb;
+  --color-tertiary-container: #dbeafe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1e3a8a;
+  --color-on-background: #0f172a;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #6ee7b7;
+  --color-surface-tint: #059669;
+  --color-on-error: #ffffff;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #450a0a;
+  --color-outline: #64748b;
+  --color-outline-variant: #cbd5e1;
+
+  /* Severity light variants (tinted backgrounds for light-mode badges) */
+  --color-severity-critical-light: color-mix(
+    in srgb,
+    var(--color-severity-critical) 15%,
+    transparent
+  );
+  --color-severity-error-light: color-mix(in srgb, var(--color-severity-error) 15%, transparent);
+  --color-severity-warning-light: color-mix(
+    in srgb,
+    var(--color-severity-warning) 15%,
+    transparent
+  );
+  --color-severity-info-light: color-mix(in srgb, var(--color-severity-info) 15%, transparent);
+  --color-severity-resolved-light: color-mix(
+    in srgb,
+    var(--color-severity-resolved) 15%,
+    transparent
+  );
+  --color-severity-new-light: color-mix(in srgb, var(--color-severity-new) 15%, transparent);
+
+  /* Tooltip/overlay surface */
+  --color-surface-overlay: rgba(248, 250, 252, 0.95);
+
+  /* Shadows — soft, low-alpha for light surfaces */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
+}

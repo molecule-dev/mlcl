@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+/*
+ * Roost coral-accent tokens. The shared base.css @theme registers primary /
+ * secondary / success / etc., but NOT `accent` — yet the pages use
+ * `bg-accent`, `text-accent`, `border-accent`, `ring-accent`, and
+ * `bg-accent-hover` throughout. Register them here so those utilities
+ * generate. The runtime value is driven by theme.css's `--color-accent`
+ * (light + dark aware); the fallback below matches its light value.
+ */
+@theme {
+  --color-accent: var(--mol-color-accent, #e07052);
+  --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, black);
+  /* The accent used AS TEXT. The coral is a fill colour — 3.18:1 on the white
+     surface, which fails AA for the eyebrows and links that also used it. This
+     deeper coral is 5.28:1 on the off-white auth panel and reads as the same hue. bg-accent keeps the vivid
+     tone; a fill is held to the 3:1 graphics threshold, not 4.5. */
+  --color-accent-on-surface: #b34526;
+}
+
+@import '@molecule/app-ui-tailwind/base.css';

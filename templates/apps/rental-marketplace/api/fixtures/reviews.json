@@ -1,0 +1,46 @@
+[
+  {
+    "id": "rv1",
+    "listing_id": "l1",
+    "guest_id": "g11",
+    "guest_name": "Hannah W.",
+    "guest_photo": "https://picsum.photos/seed/roost-rv1/200/200",
+    "rating": 5,
+    "comment": "The most peaceful four nights I've had in years. Fell asleep to fog every night and woke up to whales offshore.",
+    "created_at": "2026-03-22T11:14:00Z",
+    "categories": { "cleanliness": 5, "accuracy": 5, "communication": 5, "value": 5 }
+  },
+  {
+    "id": "rv2",
+    "listing_id": "l1",
+    "guest_id": "g12",
+    "guest_name": "Marco D.",
+    "guest_photo": "https://picsum.photos/seed/roost-rv2/200/200",
+    "rating": 5,
+    "comment": "Maren is the host you dream about. The cabin is photogenic but it's the small touches — the local cheese, the trail map, the firewood — that make it feel like home.",
+    "created_at": "2026-02-08T18:42:00Z",
+    "categories": { "cleanliness": 5, "accuracy": 5, "communication": 5, "value": 5 }
+  },
+  {
+    "id": "rv3",
+    "listing_id": "l3",
+    "guest_id": "g13",
+    "guest_name": "Aida F.",
+    "guest_photo": "https://picsum.photos/seed/roost-rv3/200/200",
+    "rating": 5,
+    "comment": "Selma's riad is one of the most beautiful homes I've ever stayed in. Hassan's breakfasts alone are worth the trip.",
+    "created_at": "2026-01-30T08:14:00Z",
+    "categories": { "cleanliness": 5, "accuracy": 5, "communication": 5, "value": 5 }
+  },
+  {
+    "id": "rv4",
+    "listing_id": "l1",
+    "guest_id": "g14",
+    "guest_name": "Theo S.",
+    "guest_photo": "https://picsum.photos/seed/roost-rv4/200/200",
+    "rating": 4,
+    "comment": "Stunning, but bring extra clothes — the fog rolls in cold even in summer. Maren left us a thoughtful welcome basket.",
+    "created_at": "2026-01-12T20:18:00Z",
+    "categories": { "cleanliness": 5, "accuracy": 4, "communication": 5, "value": 4 }
+  }
+]

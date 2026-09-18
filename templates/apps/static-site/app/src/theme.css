@@ -1,0 +1,14 @@
+/* =============================================================================
+ * APP COLOR PALETTE — recolor the app by adding `--color-*` overrides here.
+ *
+ * This project has no per-app palette yet, so colors come from the theme bond
+ * defaults (app/src/bonds/app-theme-css-variables.ts). To customize, add
+ * overrides here — they win over the bond:
+ *   :root { --color-primary: #1565c0; … }   → light theme
+ *   [data-mol-mode='dark'] { --color-primary: #42a5f5; … } → dark theme
+ * These drive the ENTIRE UI (bg-primary, text-primary, cm.surface, …); changing a
+ * CORE token auto-updates its derived shades via color-mix. Alternatively edit
+ * the theme objects in the bond — but prefer overriding here.
+ * ============================================================================= */
+
+/* App-specific theme overrides — see DESIGN.md */

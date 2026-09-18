@@ -1,0 +1,31 @@
+Polish complete: 2026-04-30T00:30:00Z
+Pipeline: polish-app.md (autonomous Cursor session)
+App: Stillpoint — daily guided meditations, breathwork, sleep stories
+Cluster: health-fitness → sibling: calorie-counter (Nosh)
+
+Bespoke components (10):
+- StillpointAppShell, StillpointSidebar, StillpointTopBar, StillpointAuthShell
+- TodaySessionHeroCard (translated from personal-finance/NetWorthCard)
+- StreakRingCard (translated from calorie-counter/CalorieRingCard)
+- SessionCard (translated from personal-finance/AccountCard)
+- CategoryTile (color-tinted, translated from personal-finance/CategoryCard)
+- BreathingDial (signature, concentric inhale/hold/exhale rings)
++ lib/categoryTone.ts helper (per-category fg/softBg/icon tokens)
+
+Pages rewritten/added (16/16 from screen-map.json):
+- Landing, Login, Signup, ForgotPassword, ResetPassword (branded auth)
+- Home, Library, SessionPlayer (signature), Courses, CourseDetail
+- Journal, Stats, Settings, Profile, Notifications, Search
++ NotFound (* route, brand-consistent)
+
+Removed: Dashboard, History, Player, Pricing, SessionBrowser, PlanUpdated,
+AppLayout (legacy scaffold pages with broken imports, not in screen-map)
+
+Material 3 tokens: filled (idempotent script)
+Fonts: Material Symbols Outlined + Inter via mol:design-resources slot
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegated
+Theme: --mol-color-* bridge to indigo/saffron palette per DESIGN.md
+Typecheck: clean (npx tsc --noEmit)
+Compliance: clean (check-rules-compliance.mjs)
+Screen-map coverage: 16/16
+ClassMap coverage: 100% (per polish-status)

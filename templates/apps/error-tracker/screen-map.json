@@ -1,0 +1,201 @@
+{
+  "app": "error-tracker",
+  "designProjectId": "14161677097789423913",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-login.html",
+      "designScreenId": "0761b512690f40709b1b4a0e38d75836"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-error-tracker-login.html",
+      "derivationNotes": "Same dark centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-error-tracker-login.html",
+      "derivationNotes": "Same dark centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-error-tracker-login.html",
+      "derivationNotes": "Same dark centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-dashboard.html",
+      "designScreenId": "eb7ce8a3a106485ea69420fd4094b3b3"
+    },
+    {
+      "name": "Issues",
+      "templateFile": "app/pages/Issues.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/issues",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-issues.html",
+      "designScreenId": "7352e682d8f5448b80ce37173dfc939b"
+    },
+    {
+      "name": "IssueDetail",
+      "templateFile": "app/pages/IssueDetail.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/issues/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-issue-detail.html",
+      "designScreenId": "025126068dcb425c8180773d3fdeaed2"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-alerts.html",
+      "designScreenId": "115fea2cf5474de1a9f3f7e12a72edd4"
+    },
+    {
+      "name": "Releases",
+      "templateFile": "app/pages/Releases.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/releases",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-releases.html",
+      "designScreenId": "1920d22f337e4a7e8b13c0a940eb126f"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-settings.html",
+      "designScreenId": "9935a2998a094385a348d15ce293ca5c"
+    },
+    {
+      "name": "Projects",
+      "templateFile": "app/pages/Projects.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/projects",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-projects.html",
+      "designScreenId": "c08202d1be4d4450b0a69a176c7a408a"
+    },
+    {
+      "name": "AlertDetail",
+      "templateFile": "app/pages/AlertDetail.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/alerts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-alert-detail.html",
+      "designScreenId": "d396aecb2cfd4fcfa3939b41f7300378"
+    },
+    {
+      "name": "ReleaseDetail",
+      "templateFile": "app/pages/ReleaseDetail.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/releases/:version",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-release-detail.html",
+      "designScreenId": "5782d81362d64a45aaadc1241057590f"
+    },
+    {
+      "name": "Discover",
+      "templateFile": "app/pages/Discover.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/discover",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-discover.html",
+      "designScreenId": "9ae7aa958082485fb8772e5551116c21"
+    },
+    {
+      "name": "Performance",
+      "templateFile": "app/pages/Performance.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/performance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-performance.html",
+      "designScreenId": "968d3176b77b4a16aa1e07592ae2a8e4"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-notifications.html",
+      "designScreenId": "7457a6f6e32e40398067a7da2d1fa255"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-error-tracker-team.html",
+      "designScreenId": "7aefd68e9302414e8d87ff1b0a72f517"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/FaultlineLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-error-tracker-settings.html",
+      "derivationNotes": "Reuse Settings shell (sidebar + top bar). Replace settings panels with personal account sections: avatar upload, display name, email (mono), password change form, 2FA enrolment with QR placeholder, personal API keys table (mono key prefixes + 'rotate'/'revoke' actions), connected accounts (GitHub/GitLab/Google) with status pills, sessions list (mono IP/UA + revoke), preferences (theme dark default, default environment, density). Header reads 'Profile / jane.doe'."
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "/404",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-error-tracker-login.html",
+      "derivationNotes": "Same dark centered card as Login. Heading mono '404' large with subtle hairline crack accent on the '0', subtext 'This route did not throw — it never existed.' Single primary green button 'Back to Dashboard'. No form fields. Bottom secondary link 'Report a bug'."
+    }
+  ]
+}

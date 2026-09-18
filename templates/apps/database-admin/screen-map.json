@@ -1,0 +1,150 @@
+{
+  "app": "database-admin",
+  "designProjectId": "16691038523391942906",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-database-admin-login.html",
+      "designScreenId": "92eb5babd04f4fa6bf152b02553285a1"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-database-admin-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link. Dark theme. Mono accents preserved."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-database-admin-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign in'. Dark theme preserved."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-database-admin-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign in'. Dark theme preserved."
+    },
+    {
+      "name": "Connections",
+      "templateFile": "app/pages/Connections.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/connections",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-connections.html",
+      "designScreenId": "69980dc13c3741b7a04f0d2971d11849"
+    },
+    {
+      "name": "QueryEditor",
+      "templateFile": "app/pages/QueryEditor.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/query/:connectionId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-query-editor.html",
+      "designScreenId": "1595dfdc20c04e87bb73a0e31697e60c"
+    },
+    {
+      "name": "TableBrowser",
+      "templateFile": "app/pages/TableBrowser.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/table/:connectionId/:table",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-table-browser.html",
+      "designScreenId": "6e466e56a3f14be789efcd336947c359"
+    },
+    {
+      "name": "SchemaExplorer",
+      "templateFile": "app/pages/SchemaExplorer.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/schema/:connectionId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-schema-explorer.html",
+      "designScreenId": "e59db60b113d49c1beb3714b2e3bf57f"
+    },
+    {
+      "name": "QueryHistory",
+      "templateFile": "app/pages/QueryHistory.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-query-history.html",
+      "designScreenId": "980e8735c1544cb194b3d9bca285d102"
+    },
+    {
+      "name": "Monitoring",
+      "templateFile": "app/pages/Monitoring.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/monitoring",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-monitoring.html",
+      "designScreenId": "83c138e030c84af891d5d6671e9ff466"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-settings.html",
+      "designScreenId": "7e6b296b5d444f0da03c87c65de4d306"
+    },
+    {
+      "name": "NewConnection",
+      "templateFile": "app/pages/NewConnection.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/connections/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-new-connection.html",
+      "designScreenId": "f43771e93b9144e2bd1daee11924d648"
+    },
+    {
+      "name": "EditConnection",
+      "templateFile": "app/pages/EditConnection.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/connections/:connectionId/edit",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-database-admin-new-connection.html",
+      "derivationNotes": "Same form layout as NewConnection but breadcrumb 'Connections > production-readonly > Edit', heading 'Edit connection', fields pre-populated, primary button 'Save changes', adds a 'Delete connection' red ghost button to the toolbar. Test status strip shows last test result instead of 'Not tested yet'. Dark theme preserved."
+    },
+    {
+      "name": "SavedQueryDetail",
+      "templateFile": "app/pages/SavedQueryDetail.tsx",
+      "components": ["app/components/DatabaseAdminLayout.tsx"],
+      "route": "/history/saved/:queryId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-database-admin-saved-query-detail.html",
+      "designScreenId": "d6c829d471044f81a791c518a05e5056"
+    }
+  ]
+}

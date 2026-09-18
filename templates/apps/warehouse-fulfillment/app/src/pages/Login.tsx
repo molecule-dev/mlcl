@@ -1,0 +1,209 @@
+import { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router'
+
+import { useAuthFormState } from '@molecule/app-auth-shell-react'
+import { useLogin, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME } from '../branding.js'
+import { AuthShell } from '../components/AuthShell.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
+
+export function Login() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/dashboard'
+  const { status, error, login } = useLogin()
+  // Cross-view auth form persistence (email shared across Login/Signup/
+  // Forgot/Reset, cleared on success) via the shared @molecule hook.
+  const {
+    fields: authFormFields,
+    setField: setAuthFormField,
+    clear: clearAuthForm,
+  } = useAuthFormState()
+  const email = authFormFields.email ?? ''
+  const setEmail = (value: string): void => setAuthFormField('email', value)
+  const [password, setPassword] = useState('')
+
+  const isLoggingIn = status === 'pending'
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    try {
+      await login({ email, password })
+      clearAuthForm()
+      navigate(from, { replace: true })
+    } catch (_error) {
+      // login error state from useLogin surfaces this to the UI
+    }
+  }
+
+  return (
+    <AuthShell
+      heading={t(
+        'login.heading',
+        { appName: APP_NAME },
+        { defaultValue: 'Sign in to {{appName}}' },
+      )}
+      subheading={t(
+        'login.subheading',
+        {},
+        { defaultValue: 'Floor command for every order, every wave, every dock.' },
+      )}
+      bottomLinkText={t(
+        'login.noAccount',
+        { appName: APP_NAME },
+        { defaultValue: 'New to {{appName}}?' },
+      )}
+      bottomLinkLabel={t('auth.signup.createAnAccount', {}, { defaultValue: 'Create an account' })}
+      bottomLinkTo="/signup"
+    >
+      <form onSubmit={handleSubmit} className={cm.cn(cm.w('full'), cm.stack(5))}>
+        <FormField
+          icon="alternate_email"
+          label={t('auth.workEmail', {}, { defaultValue: 'Work email' })}
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={setEmail}
+          placeholder="ops@yourwarehouse.com"
+          required
+        />
+        <FormField
+          icon="lock"
+          label={t('auth.login.password', {}, { defaultValue: 'Password' })}
+          type="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={setPassword}
+          placeholder="••••••••"
+          required
+          rightLink={{
+            to: '/forgot-password',
+            label: t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' }),
+          }}
+        />
+
+        {error && (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-lg bg-error-container text-on-error-container border border-error/20',
+            )}
+          >
+            {error.message}
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={isLoggingIn}
+          className={cm.cn(
+            cm.w('full'),
+            cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+            cm.h(12),
+            cm.fontWeight('bold'),
+            'rounded-xl bg-gradient-to-br from-primary to-primary-dark text-on-primary shadow-lg shadow-primary/30 hover:opacity-95 active:scale-[0.98] disabled:opacity-60 transition-all',
+          )}
+        >
+          {isLoggingIn
+            ? t('common.signingInEllipsis', {}, { defaultValue: 'Signing in…' })
+            : t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+          <span
+            className={cm.cn('material-symbols-outlined text-[18px]')}
+            data-icon="arrow_forward"
+          >
+            arrow_forward
+          </span>
+        </button>
+      </form>
+
+      <OAuthButtons />
+    </AuthShell>
+  )
+}
+
+interface FormFieldProps {
+  label: string
+  icon: string
+  type: string
+  value: string
+  onChange: (value: string) => void
+  placeholder?: string
+  required?: boolean
+  autoComplete?: string
+  rightLink?: { to: string; label: string }
+}
+
+export function FormField({
+  label,
+  icon,
+  type,
+  value,
+  onChange,
+  placeholder,
+  required,
+  autoComplete,
+  rightLink,
+}: FormFieldProps) {
+  const cm = getClassMap()
+  return (
+    <div className={cm.stack(2)}>
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+        <label
+          className={cm.cn(
+            'text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface-variant',
+          )}
+        >
+          {label}
+        </label>
+        {rightLink && (
+          <Link
+            to={rightLink.to}
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'text-primary hover:underline',
+            )}
+          >
+            {rightLink.label}
+          </Link>
+        )}
+      </div>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('px', 4),
+          cm.h(12),
+          'rounded-xl border border-outline-variant bg-surface-container-low transition-colors focus-within:border-primary focus-within:bg-surface focus-within:shadow-sm',
+        )}
+      >
+        <span
+          className={cm.cn('material-symbols-outlined text-[18px] text-on-surface-variant')}
+          data-icon={icon}
+        >
+          {icon}
+        </span>
+        <input
+          type={type}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          required={required}
+          autoComplete={autoComplete}
+          className={cm.cn(
+            cm.w('full'),
+            'bg-transparent border-none outline-none text-sm text-on-surface placeholder:text-on-surface-variant',
+          )}
+        />
+      </div>
+    </div>
+  )
+}
+
+export default Login

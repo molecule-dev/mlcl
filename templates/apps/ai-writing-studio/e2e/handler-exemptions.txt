@@ -1,0 +1,9 @@
+# Handlers exempted from the "must be exercised by some spec" gate.
+#
+# One handler base name (filename stem) per line. Comments allowed.
+
+# api/src/handlers/credentials.ts — opaque BYOK (bring-your-own-key) storage
+# for per-user provider keys. Plume defaults to platform-managed keys, so no
+# UI exposes credential CRUD yet. The handler is real, owner-scoped, and
+# kept in place for future BYOK rollout.
+credentials

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "climate-summit-deal",
+    "headline": "Climate summit lands a deal — five outlets, five framings.",
+    "excerpt": "Reuters calls it a breakthrough. Fox calls it a giveaway. The Guardian calls it overdue. Vantage stacks them for you.",
+    "topic": "World",
+    "topic_slug": "world",
+    "source_count": 7,
+    "average_bias": -0.2,
+    "published_at": "2026-04-29T15:48:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "fed-rate-cut",
+    "headline": "Fed signals a quarter-point cut as inflation cools.",
+    "excerpt": "Markets rallied on the dovish statement. Centrist outlets focused on the data; left-leaning coverage flagged housing risk; right-leaning highlighted growth optimism.",
+    "topic": "Business",
+    "topic_slug": "business",
+    "source_count": 9,
+    "average_bias": 0.15,
+    "published_at": "2026-04-29T15:13:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "open-source-ai-bill",
+    "headline": "Open-source AI bill clears committee with bipartisan support.",
+    "excerpt": "The bill exempts academic projects from licensing. TechCrunch frames it as a win; Fox emphasizes deregulation; The Verge questions enforceability.",
+    "topic": "Tech",
+    "topic_slug": "tech",
+    "source_count": 11,
+    "average_bias": -0.1,
+    "published_at": "2026-04-29T14:00:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "webb-supernova",
+    "headline": "James Webb spots oldest supernova on record, 12 billion light-years out.",
+    "excerpt": "Confirmed by spectroscopy this week. Science outlets emphasize the cosmology implication; mainstream outlets focused on the visual.",
+    "topic": "Science",
+    "topic_slug": "science",
+    "source_count": 5,
+    "average_bias": -0.05,
+    "published_at": "2026-04-29T12:00:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "world-cup-final",
+    "headline": "World Cup final delivers extra-time drama in front of 78,000.",
+    "excerpt": "Penalties. Late-game tactics. The framing across outlets is mostly cosmetic — bias minimal — but coverage angles vary by region.",
+    "topic": "Sports",
+    "topic_slug": "sports",
+    "source_count": 14,
+    "average_bias": 0.02,
+    "published_at": "2026-04-29T10:00:00.000Z",
+    "image_url": null,
+    "saved": true
+  },
+  {
+    "id": "museum-restitution",
+    "headline": "Museum agrees to return contested bronzes after ten-year campaign.",
+    "excerpt": "Cultural restitution stories diverge sharply by outlet. Left-leaning coverage celebrates; conservative outlets question precedent; international press leans neutral.",
+    "topic": "Culture",
+    "topic_slug": "culture",
+    "source_count": 6,
+    "average_bias": -0.3,
+    "published_at": "2026-04-29T07:00:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "biotech-merger",
+    "headline": "Biotech merger creates third-largest player in oncology research.",
+    "excerpt": "Wall Street outlets flag valuation; FT focuses on pipeline; trade press questions antitrust risk.",
+    "topic": "Business",
+    "topic_slug": "business",
+    "source_count": 8,
+    "average_bias": 0.22,
+    "published_at": "2026-04-29T02:00:00.000Z",
+    "image_url": null,
+    "saved": false
+  },
+  {
+    "id": "chip-export-rules",
+    "headline": "New chip-export rules tighten Pacific tech corridor.",
+    "excerpt": "Bloomberg framed as policy update; right-leaning outlets emphasize national security; left-leaning press interrogates economic fallout.",
+    "topic": "Tech",
+    "topic_slug": "tech",
+    "source_count": 13,
+    "average_bias": -0.08,
+    "published_at": "2026-04-28T22:00:00.000Z",
+    "image_url": null,
+    "saved": false
+  }
+]

@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Peržiūrėti pagalbos straipsnius',
+  'about.cta.signup': 'Išbandykite „Courier“ nemokamai',
+  'about.eyebrow': 'Apie „Courier“',
+  'about.principle.calm': 'Pagal numatytuosius nustatymus – ramus.',
+  'about.principle.calm.desc':
+    'Jokių rėkiančių ženkliukų, jokių nepageidaujamų pranešimų, jokių dėmesio reikalaujančių animacijų.',
+  'about.principle.fast.desc':
+    'Kiekvieną veiksmą galima atlikti vienu klavišo paspaudimu. Įėjus į paskyrą, pašto dėžutė įkeliama per mažiau nei 200 milisekundžių.',
+  'about.principle.honest.desc':
+    'Duomenų šifravimas perdavimo ir saugojimo metu, skaidrus duomenų saugojimas bei duomenų eksportavimas vienu paspaudimu.',
+  'about.story': 'Kodėl sukūrėme „Courier“',
+  'about.story.p1':
+    'Dauguma el. pašto programų yra pritaikytos skatinti vartotojo aktyvumą – jos nuolat atitraukia jūsų dėmesį, blaško jį ir ragina atlikti dar vieną veiksmą. „Courier“ veikia priešingai. Sėkmę vertiname pagal laiką, kurį praleidžiate NE savo pašto dėžutėje: greitai atrinkite laiškus, drąsiai atidėkite juos vėlesniam laikui ir imkitės svarbiausių darbų.',
+  'about.subtitle':
+    '„Courier“ – tai rami, iš trijų langų sudaryta pašto dėžutė, kurią sukūrė nedidelė komanda, siekusi ne tik reaguoti į informaciją, bet ir ją apdoroti.',
+  'about.team.body':
+    'Esame išsibarsčiusi dizainerių ir inžinierių komanda, kuri anksčiau kasdien praleisdavo pernelyg daug laiko triukšmingoje pašto dėžutėje. „Courier“ – tai pašto dėžutė, kurią norėjome naudoti patys.',
+  'about.title': 'El. paštas, skirtas susikaupusiam darbui',
+  'help.cta.about': 'Apie „Courier“',
+  'help.cta.pricing': 'Peržiūrėti kainas',
+  'help.eyebrow': 'Pagalbos centras',
+  'help.faq.compose.a':
+    'Šoninėje juostoje spustelėkite „Parašyti“ (arba bet kuriame pašto dėžutės lange paspauskite klavišą „c“), įveskite bent vieną gavėją, temą ir laiško tekstą, tada spustelėkite „Siųsti“. Naujas laiškas iškart atsiras jūsų „Išsiųsti“ aplanke.',
+  'help.faq.compose.q': 'Kaip nusiųsti pirmąją žinutę?',
+  'help.faq.export.a':
+    'Taip. Meniu „Nustatymai“ > „Paskyra“ > „Duomenų eksportavimas“ leidžia sukurti atsisiunčiamą archyvą (mbox + JSON), kuriame yra visi laiškai, žymės ir kontaktai. Tam nereikia jokio mokamo plano.',
+  'help.faq.labels.a':
+    'Aplankai yra išskirtiniai (vienas laiškas gali būti tik viename iš jų): „Gautieji“, „Išsiųstieji“, „Juodraščiai“, „Šlamštas“, „Šiukšlinė“, „Archyvas“. Žymės yra sudėtinės – vienam laiškui galite priskirti kelias žymes ir jas filtruoti pagal jų derinius paieškos juostoje.',
+  'help.faq.password.a':
+    'Prisijungimo puslapyje spustelėkite nuorodą „Pamiršote slaptažodį?“. Į jūsų paskyros el. paštą išsiųsime nuorodą, kuria galėsite atkurti slaptažodį; ji galioja vieną valandą.',
+  'help.faq.shortcuts.a':
+    'Taip. „j“ / „k“ perkelia tarp temų, „s“ įjungia žvaigždutę, „e“ archyvuoja, „#“ perkelia į šiukšlinę, o „/“ nukreipia į paieškos laukelį. Sparčiųjų klavišų aprašymą galima rasti bet kuriame pašto dėžutės lange, paspaudus „?“.',
+  'help.faq.support.a':
+    'Siųskite laišką adresu support@courier.example. Į kiekvieną laišką atsakome per vieną darbo dieną, darbo dienomis nuo 9 iki 17 val. (UTC).',
+  'help.subtitle':
+    'Trumpi atsakymai į dažniausiai užduodamus klausimus. Trūksta ko nors? Atidarykite „Nustatymai“ ir pasinaudokite programėlėje esančia atsiliepimų forma arba rašykite adresu support@courier.example.',
+  'help.title': 'Kaip galime padėti?',
+  'landing.brand.scrollTop': 'Atgal į viršų',
+  'landing.ctaBody':
+    'Prisijunkite prie tūkstančių profesionalų, kurie dar iki pietų spėjo išnagrinėti visus el. laiškus.',
+  'landing.ctaTitle': 'Daugiau veik, mažiau reaguok.',
+  'landing.eyebrow': 'El. paštas, skirtas susikaupusiam darbui',
+  'landing.featuresBody': 'Nustokite tvarkyti savo pašto dėžutę ir pradėkite dirbti.',
+  'landing.featuresTitle': 'Sukurta giliam darbui',
+  'landing.help': 'Pagalba',
+  'landing.heroDemo': 'Peržiūrėti demonstracinę versiją',
+  'landing.heroSubtitle':
+    '„Courier“ – tai rami, trijų langų pašto dėžutė, sukurta žinių darbuotojams, kurie nori apdoroti informaciją, o ne tik į ją reaguoti.',
+  'landing.proof': 'Jomis pasitiki tikslingai dirbančios komandos visame pasaulyje',
+  'landing.signIn': 'Prisijungti',
+  'meridian.archive.empty': 'Archyvas tuščias.',
+  'meridian.compose.addRecipient': 'Pridėti kitą gavėją',
+  'meridian.compose.bodyPlaceholder': 'Parašykite savo žinutę…',
+  'meridian.compose.cc': 'Kopija',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Atmesti juodraštį',
+  'meridian.compose.invalidEmail': '„{{value}}“ nėra galiojantis el. pašto adresas',
+  'meridian.compose.needRecipient': 'Pirmiausia įtraukite bent vieną gavėją.',
+  'meridian.compose.replyTo': 'Atsakyti šioje temoje {{id}}',
+  'meridian.compose.savedAt': 'Juodraštis išsaugotas adresu {{time}}',
+  'meridian.compose.sentWithError':
+    'Išsaugota išsiųstų laiškų aplanke, tačiau nepavyko išsiųsti: {{error}}',
+  'meridian.compose.subject': 'Tema',
+  'meridian.compose.subjectPlaceholder': 'Tema',
+  'meridian.compose.title': 'Nauja žinutė',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Tęsti redagavimą',
+  'meridian.drafts.count': '{{count}} pranešimai',
+  'meridian.drafts.delete': 'Ištrinti juodraštį',
+  'meridian.drafts.empty': 'Kol kas nėra jokių juodraščių – pradėkite rašyti.',
+  'meridian.drafts.lastSaved': 'Išsaugota {{at}}',
+  'meridian.drafts.noRecipients': '(dar nėra gavėjų)',
+  'meridian.drafts.selectDraft': 'Pasirinkite juodraštį, kurį norite peržiūrėti.',
+  'meridian.drafts.title': 'Juodraščiai',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Projektas',
+  'meridian.folder.count': '{{count}} pranešimai',
+  'meridian.folder.deleteForever': 'Ištrinti visam laikui',
+  'meridian.folder.restore': 'Perkelti į pašto dėžutę',
+  'meridian.forgot.subtitle':
+    'Įveskite su jūsų pašto dėžute susietą el. pašto adresą, ir mes išsiųsime nuorodą, kuria galėsite atkurti slaptažodį.',
+  'meridian.forgot.success':
+    'Jei yra paskyra su šiuo el. pašto adresu, jums netrukus bus išsiųsta nuoroda, kuria galėsite atkurti slaptažodį.',
+  'meridian.inbox.empty': 'Čia dar nėra jokių pranešimų.',
+  'meridian.inbox.loading': 'Kraunama…',
+  'meridian.inbox.next': 'Toliau',
+  'meridian.inbox.noSubject': '(be temos)',
+  'meridian.inbox.openCompose': 'Atidaryti laiško rašymo langą',
+  'meridian.inbox.previous': 'Ankstesnis',
+  'meridian.inbox.replyFailed': 'Atsakymas išsaugotas, tačiau jo nepavyko išsiųsti: {{error}}',
+  'meridian.inbox.replySent': 'Atsakymas išsiųstas.',
+  'meridian.inbox.replyTo': 'Atsakyti į „{{name}}“',
+  'meridian.inbox.selectMessage': 'Pasirinkite pranešimą, kurį norite perskaityti',
+  'meridian.inbox.spam': 'Šlamštas',
+  'meridian.inbox.viewThread': 'Peržiūrėti temą',
+  'meridian.login.hidePassword': 'Paslėpti slaptažodį',
+  'meridian.login.noAccount': 'Neturite paskyros?',
+  'meridian.login.showPassword': 'Rodyti slaptažodį',
+  'meridian.message.toLine': 'į „{{recipients}}“',
+  'meridian.notFound.eyebrow': 'Klaida 404',
+  'meridian.notFound.title': 'Ši tema buvo perkelta į archyvą.',
+  'meridian.notFound.toInbox': 'Atidaryti mano pašto dėžutę',
+  'meridian.reset.newLabel': 'Naujas slaptažodis',
+  'meridian.reset.showPassword': 'Rodyti slaptažodį',
+  'meridian.reset.subtitle': 'Pasirinkite saugų slaptažodį – ne trumpesnį kaip 8 simbolių.',
+  'meridian.sent.empty': 'Jūs dar nieko neišsiuntėte.',
+  'meridian.sent.title': 'Išsiųsta',
+  'meridian.settings.noName': '(pavadinimas nenurodytas)',
+  'meridian.settings.section.${section}': 'Pritaikyti „{{appName}}“ pagal savo poreikius',
+  'meridian.settings.signature': 'Parašas',
+  'meridian.settings.signatureSaved': 'Parašas išsaugotas.',
+  'meridian.sidebar.compose': 'Parašyti',
+  'meridian.sidebar.labels': 'Etiketės',
+  'meridian.sidebar.noLabels': 'Dar nėra žymių',
+  'meridian.sidebar.storage': 'Sandėliavimas',
+  'meridian.sidebar.storageLabel': '{{used}} iš „{{quota}}“',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Sukurkite savo „Courier“ pašto dėžutę',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Rodyti slaptažodį',
+  'meridian.signup.subtitle': 'Išnagrinėkite savo pašto dėžutę iki pietų.',
+  'meridian.spam.empty': 'Be šlamšto.',
+  'meridian.spam.title': 'Šlamštas',
+  'meridian.starred.empty': 'Nėra pažymėtų pranešimų.',
+  'meridian.starred.loading': 'Kraunama…',
+  'meridian.starred.removeStar': 'Pašalinti žvaigždutę',
+  'meridian.starred.total': '{{count}} iš viso',
+  'meridian.thread.back': 'Grįžti į pašto dėžutę',
+  'meridian.thread.empty': 'Šioje temoje nėra pranešimų.',
+  'meridian.thread.eyebrow': 'Tema Nr. {{id}}',
+  'meridian.thread.notFound': 'Temos nerasta.',
+  'meridian.thread.star': 'Pridėti žvaigždutę',
+  'meridian.thread.unstar': 'Pašalinti žvaigždutę',
+  'meridian.time.yesterday': 'Vakar',
+  'meridian.topBar.searchPlaceholder': 'Ieškoti laiškų',
+  'meridian.trash.empty': 'Šiukšliadėžė tuščia.',
+  'meridian.trash.title': 'Šiukšlės',
+  'nav.legal': 'Teisinis',
+  'planUpdated.description':
+    'Jūsų prenumerata dabar aktyvuota, o atsiskaitymo duomenys atnaujinti. Sveiki atvykę į atnaujintą „Courier“ pašto dėžutę.',
+  'pricing.heading': 'juodraščiai',
+  'pricing.limit.emails': 'el. laiškai',
+  'pricing.limit.folders': 'aplankai',
+  'pricing.limit.labels': 'etiketės',
+  'privacy.collect.account':
+    'Paskyros duomenys: vardas ir pavardė, el. pašto adresas, užšifruotas slaptažodis ir registracijos data.',
+  'privacy.intro':
+    'Šioje privatumo politikoje paaiškinama, kokius duomenis renka „Courier“, kodėl juos renkam, kaip užtikriname jų saugumą ir kokias galimybes turite jų atžvilgiu. Siekiame pateikti aiškią informaciją, o ne teisinę terminiją; jei kas nors neaišku, rašykite adresu privacy@courier.example.',
+  'privacy.lastUpdated': 'Paskutinis atnaujinimas: 2026 m. balandžio 1 d.',
+  'privacy.linkTerms': 'Perskaitykite mūsų paslaugų teikimo sąlygas \\u2192',
+  'privacy.rights.body':
+    'Visus mūsų turimus jūsų duomenis galite eksportuoti meniu „Nustatymai“ → „Paskyra“ → „Duomenų eksportavimas“, o savo paskyrą galite ištrinti vienu paspaudimu – visi įrašai bus ištrinti per 24 valandas, o audito žurnalai – po 30 dienų.',
+  'privacy.security.body':
+    'Laiškų turinys ir priedai saugojimo metu šifruojami naudojant AES-256 algoritmą. Ryšys su mūsų paslauga užtikrinamas naudojant TLS 1.3 protokolą. Slaptažodžiai šifruojami naudojant „bcrypt“ algoritmą; mes niekada nefiksuojame ir nesaugome slaptažodžių paprastu tekstu. Prieiga prie gamybinės aplinkos suteikiama tik budintiems inžinieriams, o prieiga tikrinama kas mėnesį.',
+  'privacy.share.body':
+    'Duomenis mes perduodame tik tiems duomenų tvarkytojams, kurių paslaugos mums reikalingos „Courier“ veiklai užtikrinti (elektroninių laiškų siuntimas per „Mailgun“, atsiskaitymas per „Stripe“, hostingo paslaugos per „AWS“). Kiekvienas iš jų sutartimi įsipareigojęs naudoti jūsų duomenis tik tam, kad mums teiktų paslaugas. Mes jūsų duomenų niekam neparduodame, neišnuomojame ir jais neprekiaujame.',
+  'terms.acceptable.spam':
+    'Nesiunčiame masinių nepageidaujamų pranešimų. Paskyras, iš kurių siunčiamas šlamštas, uždarysime be įspėjimo.',
+  'terms.account.body':
+    'Jūs esate atsakingi už savo slaptažodžio konfidencialumo išlaikymą ir už bet kokią veiklą, vykdomą per jūsų paskyrą. Jei manote, kad jūsų paskyra buvo neteisėtai pasinaudota, praneškite mums el. paštu security@courier.example.',
+  'terms.billing.body':
+    'Mokamų planų galiojimas pratęsiamas pagal registracijos metu pasirinktą dažnumą. Paslaugą galite atšaukti bet kuriuo metu meniu „Nustatymai“ → „Apskaita“, o prieiga bus išsaugota iki atsiskaitymo laikotarpio pabaigos. Grąžinamos lėšos už paslaugos neveikimo laiką, kuris viršija SLA sąlygose numatytą trukmę.',
+  'terms.intro':
+    'Šios sąlygos reglamentuoja jūsų naudojimąsi „Courier“. Sukurdami paskyrą arba siųsdami el. laišką per mūsų platformą, jūs sutinkate laikytis šių sąlygų. Stengiamės nustatyti taisykles, kurių žmogus iš tikrųjų gali laikytis.',
+  'terms.lastUpdated': 'Įsigalioja: 2026 m. balandžio 1 d.',
+  'terms.termination.body':
+    'Savo paskyrą galite ištrinti bet kuriuo metu. Mes galime laikinai sustabdyti paskyros, kuri pažeidžia šias sąlygas, veikimą; jei tai padarysime, paaiškinsime priežastį ir leisime jums pirmiausia eksportuoti savo duomenis.',
+  'terms.warranty.body':
+    'Paslauga teikiama tokia, kokia yra. Mes dedame visas pastangas, kad ji būtų patikima ir saugi, tačiau negalime garantuoti nepertraukiamo prieigos. Teisės aktų leidžiamose ribose mūsų bendra atsakomybė neviršija sumos, kurią mums sumokėjote per pastaruosius 12 mėnesių.',
+}

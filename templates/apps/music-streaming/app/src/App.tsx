@@ -1,0 +1,83 @@
+import { BrowserRouter, Route, Routes } from 'react-router'
+
+import { getClient as getHttpClient } from '@molecule/app-http'
+import { MoleculeProvider } from '@molecule/app-react'
+import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
+import { getProvider as getStorageProvider } from '@molecule/app-storage'
+
+import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import { AuthGuard } from './components/AuthGuard.js'
+import { ReverbLayout } from './components/ReverbLayout.js'
+import { PlayerProvider } from './lib/player.js'
+import { About } from './pages/About.js'
+import { AlbumDetail } from './pages/AlbumDetail.js'
+import { ArtistDetail } from './pages/ArtistDetail.js'
+import { ForgotPassword } from './pages/ForgotPassword.js'
+import { Home } from './pages/Home.js'
+import { Landing } from './pages/Landing.js'
+import { Library } from './pages/Library.js'
+import { LikedSongs } from './pages/LikedSongs.js'
+import { Login } from './pages/Login.js'
+import { Notifications } from './pages/Notifications.js'
+import { NowPlaying } from './pages/NowPlaying.js'
+import { PlanUpdated } from './pages/PlanUpdated.js'
+import { PlaylistDetail } from './pages/PlaylistDetail.js'
+import { Pricing } from './pages/Pricing.js'
+import { Privacy } from './pages/Privacy.js'
+import { Profile } from './pages/Profile.js'
+import { Queue } from './pages/Queue.js'
+import { Radio } from './pages/Radio.js'
+import { ResetPassword } from './pages/ResetPassword.js'
+import { Search } from './pages/Search.js'
+import { Settings } from './pages/Settings.js'
+import { Signup } from './pages/Signup.js'
+import { Subscription } from './pages/Subscription.js'
+import { Terms } from './pages/Terms.js'
+export function App() {
+  return (
+    <BrowserRouter>
+      <MoleculeProvider
+        auth={authClient}
+        http={getHttpClient()}
+        theme={themeProvider}
+        storage={getStorageProvider()}
+        i18n={i18nProvider}
+      >
+        <RootErrorBoundary>
+          <PlayerProvider>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<ReverbLayout />}>
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/library" element={<Library />} />
+                  <Route path="/library/liked" element={<LikedSongs />} />
+                  <Route path="/playlists/:id" element={<PlaylistDetail />} />
+                  <Route path="/albums/:id" element={<AlbumDetail />} />
+                  <Route path="/artists/:id" element={<ArtistDetail />} />
+                  <Route path="/radio" element={<Radio />} />
+                  <Route path="/now-playing" element={<NowPlaying />} />
+                  <Route path="/profile/:handle" element={<Profile />} />
+                  <Route path="/subscription" element={<Subscription />} />
+                  <Route path="/queue" element={<Queue />} />
+                  <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/plan-updated" element={<PlanUpdated />} />
+                </Route>
+              </Route>
+            </Routes>
+          </PlayerProvider>
+        </RootErrorBoundary>
+      </MoleculeProvider>
+    </BrowserRouter>
+  )
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env*
+!.env.example
+*.log
+.DS_Store
+coverage/
+
+# In-container Meilisearch search index data (molecule.dev runs a per-project
+# Meilisearch sidecar with --db-path ./.meilisearch)
+.meilisearch/
+
+# molecule.dev platform runtime markers written into the project root by the
+# sandbox (.mol-install-*, .mol-boot-timeline.log, ...) — never project source
+.mol-*

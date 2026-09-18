@@ -1,0 +1,111 @@
+{
+  "label": "Blog / Publishing Platform",
+  "description": "Medium-like content publishing with rich text, SEO, RSS, drafts, scheduling — including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+  "cluster": "content-social",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-ai-summarization",
+    "@molecule/api-ai-summarization-llm",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-image-sharp",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-comment",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-reaction",
+    "@molecule/api-resource-tag",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-sitemap-xml",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-ai-copilot",
+    "@molecule/app-billing-react",
+    "@molecule/app-data-table",
+    "@molecule/app-kpi-card-react",
+    "@molecule/app-markdown",
+    "@molecule/app-shell-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "WriteFlow"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for image uploads",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "S3_ACCESS_KEY_ID": {
+      "description": "S3 access key",
+      "required": true
+    },
+    "S3_SECRET_ACCESS_KEY": {
+      "description": "S3 secret key",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_BLOG_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_BLOG_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_BLOG_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_BLOG_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "rss",
+    "seo",
+    "scheduling",
+    "drafts",
+    "rich-text",
+    "image-upload",
+    "subscriptions"
+  ]
+}

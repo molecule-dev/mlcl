@@ -1,0 +1,169 @@
+{
+  "app": "video-editor",
+  "designProjectId": "17240840099665558616",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-editor-landing.html",
+      "designScreenId": "81c24d425fe94cea852b28d0c6ed8ab5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-editor-login.html",
+      "designScreenId": "a8c17890b08b4fc5b3602854d94ebaf3"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-editor-login.html",
+      "derivationNotes": "Same centered dark card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Gradient button text becomes 'Create Account'. Bottom link becomes 'Already have an account? Sign In'. No Forgot Password link. Keep identical background radial gradient wash."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-editor-login.html",
+      "derivationNotes": "Same centered dark card as Login with only Email field. Heading becomes 'Reset your password', subtext 'Enter your email to receive a reset link'. Gradient button becomes 'Send reset link'. Bottom link becomes 'Back to Sign In'. No password field. No provider buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-editor-login.html",
+      "derivationNotes": "Same centered dark card as Login with New Password and Confirm Password fields only. Heading becomes 'Set new password'. Gradient button becomes 'Reset password'. Bottom link becomes 'Back to Sign In'. No email field. No provider buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-dashboard.html",
+      "designScreenId": "afc8ce7327e74feb9c8e3f874ad92905"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/editor/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-editor.html",
+      "designScreenId": "9e4c0f0aab094308b5a1e9666d185a59"
+    },
+    {
+      "name": "AssetLibrary",
+      "templateFile": "app/pages/AssetLibrary.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/assets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-asset-library.html",
+      "designScreenId": "2f4307bd65e44ab8a8bcd4c2bfdaf354"
+    },
+    {
+      "name": "ExportQueue",
+      "templateFile": "app/pages/ExportQueue.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/export",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-export-queue.html",
+      "designScreenId": "75277f93d1c2436f900adb764d5acac0"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-templates.html",
+      "designScreenId": "49f1897825f8457a9d39173a5034f12a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-settings.html",
+      "designScreenId": "d5699a563fff44a19b7f05c2eeea7e88"
+    },
+    {
+      "name": "NewProject",
+      "templateFile": "app/pages/NewProject.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/projects/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-new-project.html",
+      "designScreenId": "52377586ee9e4db09d8988e46a6634e3"
+    },
+    {
+      "name": "ProjectDetail",
+      "templateFile": "app/pages/ProjectDetail.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/projects/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-project-detail.html",
+      "designScreenId": "e28ab468833044868d39635f62b8f965"
+    },
+    {
+      "name": "AssetDetail",
+      "templateFile": "app/pages/AssetDetail.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/assets/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-asset-detail.html",
+      "designScreenId": "72d5a6013f014b789e9e83ef7b942b47"
+    },
+    {
+      "name": "TemplateDetail",
+      "templateFile": "app/pages/TemplateDetail.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-template-detail.html",
+      "designScreenId": "854435fa395a48afae9437736e2ef2c2"
+    },
+    {
+      "name": "ExportDetail",
+      "templateFile": "app/pages/ExportDetail.tsx",
+      "components": ["app/components/VideoEditorLayout.tsx"],
+      "route": "/export/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-editor-export-detail.html",
+      "designScreenId": "fdfa466ba0bd48acb5d937cff19e0e8d"
+    }
+  ]
+}

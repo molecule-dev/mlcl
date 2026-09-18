@@ -1,0 +1,16 @@
+[
+  {
+    "id": "database-reading-list",
+    "name": "Reading list",
+    "icon": "menu_book",
+    "row_count": 23,
+    "updated_at": "2026-04-21T20:00:00Z"
+  },
+  {
+    "id": "database-q2-questions",
+    "name": "Q2 research questions",
+    "icon": "live_help",
+    "row_count": 8,
+    "updated_at": "2026-04-25T09:00:00Z"
+  }
+]

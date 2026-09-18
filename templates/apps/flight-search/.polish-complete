@@ -1,0 +1,15 @@
+Polish complete: 2026-04-29T22:42:00Z
+Pipeline: polish-app.md (manual session)
+Cluster: real-estate-travel → siblings: hotel-booking, travel-booking
+Components: 6 bespoke
+  - SkylarkHeroSearchCard.tsx (gradient hero search form, translated from SojournHeroSearchCard)
+  - FlightResultCard.tsx (deal-pill + dashed-route row, brand-original)
+  - PriceAlertCard.tsx (tracked sparkline + delta pill, translated from NetWorthCard)
+  - TripItineraryCard.tsx (status itinerary row, translated from TripItineraryRow)
+  - SkylarkAuthShell.tsx (decorated auth panel, translated from SojournAuthShell)
+  - FlightSearchLayout.tsx (TopNavLayout shell, translated from SojournLayout)
+Pages rewritten: Landing, Login, Signup, ForgotPassword, ResetPassword, Results, FlightDetail, Booking, Trips, PriceAlerts, Settings, TripDetail
+Screen-map coverage: 12/12
+Compliance: clean (check-rules-compliance.mjs)
+Brand: Skylark — deep navy (#1e3a5f) → secondary blue (#2a5298) → orange accent (#e86a2e)
+Tagline: Every route, one search

@@ -1,0 +1,169 @@
+{
+  "app": "video-conferencing",
+  "designProjectId": "14891069149907877268",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-landing.html",
+      "designScreenId": "ab3bb789bbe549ea8e00724012a460e4"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-login.html",
+      "designScreenId": "dc36b4dda6b5498c879b99c3ca55a066"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-conferencing-login.html",
+      "derivationNotes": "Same 50/50 split layout as Login with Workspace Name, First Name, Last Name, Work Email, Password, Confirm Password fields. Heading 'Create your Convoke workspace'. Button 'Create workspace' indigo primary. Bottom link 'Already have a workspace? Sign in' cyan. Keep SSO/OAuth options. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-conferencing-login.html",
+      "derivationNotes": "Same 50/50 split as Login with only Work Email field. Heading 'Reset your password', subtext 'We will email you a reset link'. Button 'Send reset link' indigo. Bottom link 'Back to Sign In' cyan. No workspace URL, no password, no OAuth buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-video-conferencing-login.html",
+      "derivationNotes": "Same 50/50 split as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password' indigo. Bottom link 'Back to Sign In' cyan. No workspace URL, no email, no OAuth buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-dashboard.html",
+      "designScreenId": "ff98006f226f404ebf84e38b85c50dc4"
+    },
+    {
+      "name": "Schedule",
+      "templateFile": "app/pages/Schedule.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/schedule",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-schedule.html",
+      "designScreenId": "13709b19e606427c86dadf87f1fb19d2"
+    },
+    {
+      "name": "Lobby",
+      "templateFile": "app/pages/Lobby.tsx",
+      "components": [],
+      "route": "/meeting/:id/lobby",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-lobby.html",
+      "designScreenId": "61d773b819e54388aecd27ac8ddaddd2"
+    },
+    {
+      "name": "Meeting",
+      "templateFile": "app/pages/Meeting.tsx",
+      "components": [],
+      "route": "/meeting/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-meeting.html",
+      "designScreenId": "304e3520ea9d44d9be984d3175390264"
+    },
+    {
+      "name": "Recordings",
+      "templateFile": "app/pages/Recordings.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/recordings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-recordings.html",
+      "designScreenId": "e6d34bc7221646abb1da8a68a47bccfa"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-settings.html",
+      "designScreenId": "5c53d78041914876afe050c3b281dc98"
+    },
+    {
+      "name": "MeetingDetail",
+      "templateFile": "app/pages/MeetingDetail.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/meeting/:id/details",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-meeting-detail.html",
+      "designScreenId": "6db588e24fdf47769b50ae44e19c7289"
+    },
+    {
+      "name": "RecordingDetail",
+      "templateFile": "app/pages/RecordingDetail.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/recordings/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-recording-detail.html",
+      "designScreenId": "a9fc715a7ed441abb877a6e84d3f3444"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-notifications.html",
+      "designScreenId": "a2d143802ed349d2ac814a20f857b63f"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-billing.html",
+      "designScreenId": "2384e7e05c304031803085fb460fadad"
+    },
+    {
+      "name": "TeamMembers",
+      "templateFile": "app/pages/TeamMembers.tsx",
+      "components": ["app/components/VideoConferencingLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-video-conferencing-team-members.html",
+      "designScreenId": "ff75ac48d94243cf9aa3a57b7d105c49"
+    }
+  ]
+}

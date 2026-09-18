@@ -1,0 +1,189 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #f59e0b;
+  --mol-color-primary-light: #fef3c7;
+  --mol-color-primary-dark: #b45309; /* was #d97706 (3.2:1 on white — fails 4.5:1); #b45309 = 5.0:1, the readable-amber for small text on light */
+  --mol-color-secondary: #8b5cf6;
+  --mol-color-background: #fafaf9;
+  --mol-color-background-secondary: #f5f5f4;
+  --mol-color-background-tertiary: #e7e5e4;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5f4;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1c1917;
+  --mol-color-text-secondary: #57534e;
+  --mol-color-text-tertiary: #a8a29e;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7e5e4;
+  --mol-color-border-secondary: #d6d3d1;
+  --mol-color-border-focus: #f59e0b;
+  /* green-700. Gain figures render text-success at 12px on white, where
+     green-500 #22c55e measures 2.27:1 — far under the 4.5 floor. #15803d is
+     5.02:1. The dark-theme value below keeps its lighter green. */
+  --mol-color-success: #15803d;
+  --mol-color-warning: #f97316;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #06b6d4;
+
+  --color-primary: #f59e0b;
+  --color-primary-hover: #d97706;
+  --color-primary-light: #fef3c7;
+  --color-secondary: #8b5cf6;
+  --color-secondary-hover: #7c3aed;
+  --color-secondary-light: #ede9fe;
+  --color-success: #15803d;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-warning: #f97316;
+  --color-info: #06b6d4;
+
+  --color-bg: #fafaf9;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f5f4;
+  --color-border: #e7e5e4;
+  --color-border-focus: #f59e0b;
+
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #a8a29e;
+  --color-text-inverse: #ffffff;
+
+  /* === M3 light tokens === */
+  --color-background: #fafaf9;
+  --color-on-background: #1c1917;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #57534e;
+  --color-on-primary: #1c1917; /* dark on amber — amber is too light for white text */
+  --color-on-primary-container: #431b00;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #21005d;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #001e30;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
+  --color-outline: #a8a29e;
+  --color-outline-variant: #e7e5e4;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+}
+
+/* Dark mode — finance trading-desk cool slate dark.
+   Cool slate near-black surfaces (no warm tint — finance reads as
+   analytical, not editorial). Brand amber kept at brand stop (#f59e0b)
+   for badges and accents. `--color-on-primary` is dark (#0b1220) in both
+   modes — amber L≈0.46, white fails 4.5:1 (only 2.1:1). Semantic up/down
+   preserved (brighter for dark canvas). */
+[data-mol-mode='dark'] {
+  /* Brand — amber kept at brand stop; lighter hover for dark contrast */
+  --color-primary: #f59e0b;
+  --color-primary-hover: #fbbf24;
+  --color-primary-light: #451a03;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #c4b5fd;
+  --color-secondary-light: #2e1065;
+
+  /* Semantic ticker colors — green = up, red = down (brighter for dark bg) */
+  --color-success: #34d399;
+  --color-danger: #f87171;
+  --color-danger-hover: #ef4444;
+  --color-warning: #fbbf24;
+  --color-info: #38bdf8;
+
+  /* Neutrals — cool slate trading canvas, depth-layered */
+  --color-bg: #0b1220;
+  --color-surface: #111827;
+  --color-surface-hover: #1a2236;
+  --color-border: #1f2937;
+  --color-border-focus: #f59e0b;
+
+  /* Text — neutral on cool slate */
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #0b1220;
+
+  /* M3 / Stitch bridge tokens — flip bg-surface, text-on-surface, etc. */
+  --mol-color-primary: #f59e0b;
+  --mol-color-primary-light: #451a03;
+  --mol-color-primary-dark: #d97706;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0b1220;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1a2236;
+  --mol-color-surface: #111827;
+  --mol-color-surface-secondary: #1a2236;
+  --mol-color-input-background: #080f1a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #1f2937;
+  --mol-color-border-secondary: #273549;
+  --mol-color-border-focus: #f59e0b;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+
+  --color-background: #0b1220;
+  --color-on-background: #f1f5f9;
+  --color-surface: #111827;
+  --color-surface-bright: #1a2236;
+  --color-surface-dim: #060c17;
+  --color-surface-container-lowest: #020609;
+  --color-surface-container-low: #0d1525;
+  --color-surface-container: #111827;
+  --color-surface-container-high: #1a2236;
+  --color-surface-container-highest: #1f2937;
+  --color-surface-variant: #1a2236;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1220;
+  --color-inverse-primary: #d97706;
+  --color-primary-container: #451a03;
+  --color-on-primary: #0b1220; /* dark on amber — 9.8:1; white only 2.1:1 */
+  --color-on-primary-container: #fef3c7;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #0b1220; /* dark on violet #a78bfa — white only 2.6:1 */
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #38bdf8;
+  --color-tertiary-container: #0c4a6e;
+  --color-on-tertiary: #0b1220; /* dark on sky blue — white would be ~3.3:1 */
+  --color-on-tertiary-container: #e0f2fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #475569;
+  --color-outline-variant: #1f2937;
+  --color-surface-tint: #f59e0b;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,139 @@
+{
+  "app": "weather-dashboard",
+  "designProjectId": "3006405182398366230",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-landing.html",
+      "designScreenId": "878a96bca5cf45668f0315b871def29f"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-login.html",
+      "designScreenId": "e0d51207bb97444a8be3203ae4f7612c"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-weather-dashboard-login.html",
+      "derivationNotes": "Same glass-morphism card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Remember me' / 'Forgot password' row."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-weather-dashboard-login.html",
+      "derivationNotes": "Same glass-morphism card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. No password, no social buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-weather-dashboard-login.html",
+      "derivationNotes": "Same glass-morphism card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. No email field, no social buttons."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-dashboard.html",
+      "designScreenId": "f0741686d1004d3fa7d6025c27e53212"
+    },
+    {
+      "name": "LocationDetail",
+      "templateFile": "app/pages/LocationDetail.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/location/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-location-detail.html",
+      "designScreenId": "990a515388294c19b9b2e1f9db5c96bc"
+    },
+    {
+      "name": "Locations",
+      "templateFile": "app/pages/Locations.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/locations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-locations.html",
+      "designScreenId": "ae3d79397063411fafa2aeb23145e5d5"
+    },
+    {
+      "name": "Radar",
+      "templateFile": "app/pages/Radar.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/radar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-radar.html",
+      "designScreenId": "9e3e7a9fd36142dfab7d0012798e0896"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-alerts.html",
+      "designScreenId": "0a61c1d973c74217bafe4409d9298cd8"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-settings.html",
+      "designScreenId": "2daf9bc6d6f940959810b461c42b722d"
+    },
+    {
+      "name": "Trends",
+      "templateFile": "app/pages/Trends.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/trends",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-trends.html",
+      "designScreenId": "dac41990854d4762bd16bb1d1f56ad8f"
+    },
+    {
+      "name": "Compare",
+      "templateFile": "app/pages/Compare.tsx",
+      "components": ["app/components/WeatherDashboardLayout.tsx"],
+      "route": "/compare",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-weather-dashboard-compare.html",
+      "designScreenId": "614a01826463457ba094585c9f48eb70"
+    }
+  ]
+}

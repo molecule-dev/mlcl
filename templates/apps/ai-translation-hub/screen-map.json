@@ -1,0 +1,189 @@
+{
+  "app": "ai-translation-hub",
+  "designProjectId": "2151633610011831214",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-landing.html",
+      "designScreenId": "fb5087014f7d41df84aa390e8d36d91a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-login.html",
+      "designScreenId": "1edcbd3d6bb54f60b8770573933f7016"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-translation-hub-login.html",
+      "derivationNotes": "Same centered card with indigo primary on surface-secondary background as Login. Add First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-translation-hub-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link' (indigo). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-translation-hub-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password' (indigo). Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-dashboard.html",
+      "designScreenId": "7f7596fd0d064610bc51238ce5e36c19"
+    },
+    {
+      "name": "Translate",
+      "templateFile": "app/pages/Translate.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/translate/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-translate.html",
+      "designScreenId": "923cc0dc673e4c0a9cdb4b09571612a4"
+    },
+    {
+      "name": "Projects",
+      "templateFile": "app/pages/Projects.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/projects",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-projects.html",
+      "designScreenId": "5b080fbeaf954adeab546485d8871d52"
+    },
+    {
+      "name": "Glossary",
+      "templateFile": "app/pages/Glossary.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/glossary",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-glossary.html",
+      "designScreenId": "c54678e3d5964a39a54ab55477fd385b"
+    },
+    {
+      "name": "Memory",
+      "templateFile": "app/pages/Memory.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/memory",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-memory.html",
+      "designScreenId": "64c8400652d84b7d993a71a3374dbd6a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-settings.html",
+      "designScreenId": "173202a2538943f0abda7c9772c4d2d8"
+    },
+    {
+      "name": "ProjectDetail",
+      "templateFile": "app/pages/ProjectDetail.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/projects/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-project-detail.html",
+      "designScreenId": "51aebd3d37c047d08f13f393ee294990"
+    },
+    {
+      "name": "NewProject",
+      "templateFile": "app/pages/NewProject.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/projects/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-new-project.html",
+      "designScreenId": "99a086e38ea743bd8a8ddc819578e93b"
+    },
+    {
+      "name": "Review",
+      "templateFile": "app/pages/Review.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/review",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-review.html",
+      "designScreenId": "e62a646ac2794ce7b6398f918cd5654b"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-profile.html",
+      "designScreenId": "0371e89d9d314833a863ab9e5fc4418e"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-notifications.html",
+      "designScreenId": "8c18bf34b4864a6eb6471fdcb9ac2abb"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-team.html",
+      "designScreenId": "8d8788ac242e43dea30abf3bcbfdfec4"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/AiTranslationHubLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-translation-hub-billing.html",
+      "designScreenId": "497c3b5f69b349fcb8f5fef6d886a0b2"
+    }
+  ]
+}

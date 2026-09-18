@@ -1,0 +1,271 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #0e7c6b;
+  --mol-color-primary-light: #e6f5f2;
+  --mol-color-primary-dark: #0c6558;
+  --mol-color-secondary: #b44c18;
+  --mol-color-background: #f5f8f7;
+  --mol-color-background-secondary: #eaf2f0;
+  --mol-color-background-tertiary: #e0ebe7;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f8f7;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #162220;
+  --mol-color-text-secondary: #56706b;
+  --mol-color-text-tertiary: #92aca6;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e8eeec;
+  --mol-color-border-secondary: #d3dedb;
+  --mol-color-border-focus: #0e7c6b;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0e7c6b;
+  --mol-font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* === Material-3 / Stitch token set (light) === */
+  --color-primary: #0e7c6b;
+  --color-on-primary: #ffffff; /* 5.10:1 on teal — passes */
+  --color-primary-container: #e6f5f2;
+  --color-on-primary-container: #003229;
+  --color-secondary: #b44c18;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdf0e8;
+  --color-on-secondary-container: #3e1500;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef9ee;
+  --color-on-tertiary: #3a1f00; /* dark on amber — 6.39:1 */
+  --color-on-tertiary-container: #3a1f00;
+  --color-background: #f5f8f7;
+  --color-on-background: #162220;
+  --color-surface: #ffffff;
+  --color-surface-bright: #f5f8f7;
+  --color-surface-dim: #ecf0ee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f8f7;
+  --color-surface-container: #eaf2f0;
+  --color-surface-container-high: #e0ebe7;
+  --color-surface-container-highest: #d6e4e0;
+  --color-surface-variant: #eaf2f0;
+  --color-on-surface: #162220;
+  --color-on-surface-variant: #56706b;
+  --color-outline: #6e8c86; /* 3.01:1 vs #ffffff — outline ≥3:1 */
+  --color-outline-variant: #e8eeec;
+  --color-surface-tint: #0e7c6b;
+  --color-inverse-surface: #162220;
+  --color-inverse-on-surface: #f5f8f7;
+  --color-inverse-primary: #34d9b8;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* 4.83:1 on #dc2626 — passes */
+  --color-on-error-container: #7f1d1d;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--mol-color-text);
+  --color-text-secondary: var(--mol-color-text-secondary);
+  --color-text-tertiary: var(--mol-color-text-tertiary);
+  --color-text-on-primary: var(--mol-color-text-inverse);
+  --color-primary-hover: #10a48d;
+
+  /* === Forum-specific tokens (inline styles only, NOT in @theme) === */
+  /* Reputation tier tokens */
+  --color-rep-legend-bg: #fef3c7;
+  --color-rep-legend-fg: #92400e;
+  --color-rep-legend-border: #d4a020;
+  --color-rep-veteran-bg: #fdf8e8;
+  --color-rep-veteran-fg: #c48a18;
+  --color-rep-contributor-bg: #e0f0ec;
+  --color-rep-contributor-fg: #0c6558;
+  --color-rep-member-bg: #eaf2f0;
+  --color-rep-member-fg: #0e7c6b;
+  --color-rep-newcomer-bg: #f3f4f6;
+  --color-rep-newcomer-fg: #6b7280;
+
+  --color-upvote: #e8762c;
+  --color-upvote-active: #f09040;
+  --color-downvote: #7b8ab0;
+  --color-downvote-active: #5c6b94;
+  --color-karma: #d4a020;
+  --color-karma-light: #fdf8e8;
+  --color-pinned: #0e7c6b;
+  --color-pinned-light: #e6f5f2;
+  --color-locked: #6b7280;
+  --color-locked-light: #f3f4f6;
+  --color-resolved: #15803d; /* was #16a34a (3.0:1 on #dcfce7 pill); green-700 = 4.6:1 */
+  --color-resolved-light: #dcfce7;
+  --color-moderator: #b44c18;
+  --color-moderator-light: #fdf0e8;
+  --color-hot: #b91c1c; /* was #dc2626 (3.9:1 on #fee2e2 pill); red-700 = 5.3:1 */
+  --color-hot-light: #fee2e2;
+  --color-flagged: #d97706;
+  --color-flagged-light: #fef9ee;
+  --color-quote-border: #b8d4ce;
+  --color-vote-divider: #e8eeec;
+
+  /* Typography */
+  --font-family-serif: 'Charter', 'Bitstream Charter', Georgia, 'Noto Serif', serif;
+  --font-family-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono:
+    'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Layout */
+  --content-width: 780px;
+  --page-width: 1120px;
+  --sidebar-width: 300px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode — forum craft-community dark.
+   Warm forest-tinted near-black surfaces — keeps the editorial-craftsy
+   feel of the light palette (Charter serif, teal+rust) rather than
+   flipping to a cold cyber green. Brand teal stays at the brand stop
+   (#0e7c6b) for primary CTAs; surface accents (links, focus rings,
+   pinned chips) use a brighter mint-teal that reads well on the dark
+   warm canvas. Rust secondary preserved for moderator/secondary
+   surfaces. `--mol-color-text-inverse` stays white so the teal CTA
+   keeps its light-on-teal character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #34d9b8;
+  --mol-color-primary-light: #143832;
+  --mol-color-primary-dark: #0e7c6b;
+  --mol-color-secondary: #f09040;
+  --mol-color-background: #0d1311;
+  --mol-color-background-secondary: #161e1b;
+  --mol-color-background-tertiary: #1e2a26;
+  --mol-color-surface: #131a17;
+  --mol-color-surface-secondary: #1a2420;
+  --mol-color-input-background: #0a0f0d;
+  --mol-color-text: #ecf3f0;
+  --mol-color-text-secondary: #a6bcb6;
+  --mol-color-text-tertiary: #6c8580;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #243430;
+  --mol-color-border-secondary: #344a44;
+  --mol-color-border-focus: #34d9b8;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #34d9b8;
+
+  --color-primary-hover: #5ce4c8;
+  --color-primary-light: #143832;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTAs keep white text on teal: `on-primary` stays white. */
+  --color-background: #0d1311;
+  --color-on-background: #ecf3f0;
+  --color-surface: #131a17;
+  --color-surface-bright: #1e2a26;
+  --color-surface-dim: #080e0c;
+  --color-surface-container-lowest: #040907;
+  --color-surface-container-low: #10170f;
+  --color-surface-container: #161e1b;
+  --color-surface-container-high: #1e2a26;
+  --color-surface-container-highest: #243430;
+  --color-surface-variant: #1e2a26;
+  --color-on-surface: #ecf3f0;
+  --color-on-surface-variant: #a6bcb6;
+  --color-inverse-surface: #ecf3f0;
+  --color-inverse-on-surface: #0d1311;
+  --color-inverse-primary: #0e7c6b;
+  --color-primary: #0e7c6b; /* keep brand teal at brand stop */
+  --color-primary-container: #143832;
+  --color-on-primary: #ffffff; /* white on teal — readable in both modes */
+  --color-on-primary-container: #b2f0e6;
+  --color-secondary: #f09040;
+  --color-secondary-container: #5a2208;
+  --color-on-secondary: #0d1311; /* dark on amber — 7.84:1 (was #fff = 2.39:1 FAIL) */
+  --color-on-secondary-container: #ffd8ba;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4a3005;
+  --color-on-tertiary: #0d1311;
+  --color-on-tertiary-container: #fde9b8;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* 4.74:1 (was #fff = 2.77:1 FAIL) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6a8c84; /* 4.80:1 vs surface (was #4a6460 = 2.76:1 FAIL ≥3:1) */
+  --color-outline-variant: #243430;
+  --color-surface-tint: #34d9b8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Reputation tier tokens — dark variants */
+  --color-rep-legend-bg: rgba(251, 191, 36, 0.16);
+  --color-rep-legend-fg: #fbbf24;
+  --color-rep-legend-border: rgba(251, 191, 36, 0.4);
+  --color-rep-veteran-bg: rgba(212, 160, 32, 0.14);
+  --color-rep-veteran-fg: #d4a020;
+  --color-rep-contributor-bg: rgba(52, 217, 184, 0.14);
+  --color-rep-contributor-fg: #34d9b8;
+  --color-rep-member-bg: rgba(52, 217, 184, 0.12);
+  --color-rep-member-fg: #34d9b8;
+  --color-rep-newcomer-bg: rgba(148, 163, 184, 0.14);
+  --color-rep-newcomer-fg: #94a3b8;
+
+  /* Forum-specific tokens — brighter/saturated for dark-bg visibility */
+  --color-upvote: #f09040;
+  --color-upvote-active: #fbbf24;
+  --color-downvote: #94a3b8;
+  --color-downvote-active: #cbd5e1;
+  --color-karma: #fbbf24;
+  --color-karma-light: rgba(251, 191, 36, 0.16);
+  --color-pinned: #34d9b8;
+  --color-pinned-light: rgba(52, 217, 184, 0.16);
+  --color-locked: #94a3b8;
+  --color-locked-light: rgba(148, 163, 184, 0.16);
+  --color-resolved: #4ade80;
+  --color-resolved-light: rgba(74, 222, 128, 0.16);
+  --color-moderator: #fb923c;
+  --color-moderator-light: rgba(251, 146, 60, 0.16);
+  --color-hot: #f87171;
+  --color-hot-light: rgba(248, 113, 113, 0.16);
+  --color-flagged: #fbbf24;
+  --color-flagged-light: rgba(251, 191, 36, 0.14);
+  --color-quote-border: #2c443e;
+  --color-vote-divider: #243430;
+}

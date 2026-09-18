@@ -1,0 +1,6 @@
+[
+  { "id": "exp-001", "trip_id": "tr-2026-iceland", "category": "accommodation", "amount_cents": 84500, "occurred_iso": "2026-06-12T15:00:00Z", "vendor": "Reykjavík Loft", "description": "4-night stay" },
+  { "id": "exp-002", "trip_id": "tr-2026-iceland", "category": "food",          "amount_cents": 51000, "occurred_iso": "2026-06-12T19:30:00Z", "vendor": "Matur og Drykkur", "description": "Dinner for 4" },
+  { "id": "exp-003", "trip_id": "tr-2026-iceland", "category": "transport",     "amount_cents": 36000, "occurred_iso": "2026-06-12T12:50:00Z", "vendor": "Blue Car Rental", "description": "10-day RAV4" },
+  { "id": "exp-004", "trip_id": "tr-2026-iceland", "category": "activity",      "amount_cents": 9500,  "occurred_iso": "2026-06-14T20:00:00Z", "vendor": "Sky Lagoon", "description": "Sky Pass × 4" }
+]

@@ -1,0 +1,169 @@
+{
+  "app": "meditation-app",
+  "designProjectId": "7425151460231691153",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-landing.html",
+      "designScreenId": "1e80a5be02ff4fb3973f70d71ee433cd"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-login.html",
+      "designScreenId": "2a8a12ca63f04d19bf7968c9de2c7e2a"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meditation-app-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meditation-app-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-meditation-app-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-home.html",
+      "designScreenId": "8909e6497c0740b6bcbd6164c0cf8960"
+    },
+    {
+      "name": "Library",
+      "templateFile": "app/pages/Library.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-library.html",
+      "designScreenId": "d978975f2f034506a5f53c635c5f4280"
+    },
+    {
+      "name": "SessionPlayer",
+      "templateFile": "app/pages/SessionPlayer.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/sessions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-session-player.html",
+      "designScreenId": "41681f01a78c4942918433def1ad6cce"
+    },
+    {
+      "name": "Courses",
+      "templateFile": "app/pages/Courses.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/courses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-courses.html",
+      "designScreenId": "ecc57619153548cbb2ff4c5f495201c9"
+    },
+    {
+      "name": "Journal",
+      "templateFile": "app/pages/Journal.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/journal",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-journal.html",
+      "designScreenId": "bc923d3d25c44b52a0f031835f4279ab"
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-stats.html",
+      "designScreenId": "2280415c2b3c4c9486eb652d3625b494"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-settings.html",
+      "designScreenId": "64898a37346649688c120278fa1120e3"
+    },
+    {
+      "name": "CourseDetail",
+      "templateFile": "app/pages/CourseDetail.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/courses/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-course-detail.html",
+      "designScreenId": "05a922cb0b144c019c049ae825850e97"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-profile.html",
+      "designScreenId": "1c1eca7a959a45e49c7796f0d0762950"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-notifications.html",
+      "designScreenId": "3cce4804d86f48cdb7a37abeca37c859"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/MeditationAppLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-meditation-app-search.html",
+      "designScreenId": "8386578d1ba148eea1371ce7caf2fbdb"
+    }
+  ]
+}

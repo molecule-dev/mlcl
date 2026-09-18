@@ -1,0 +1,79 @@
+[
+  {
+    "id": "ds_001", "name": "Q3 2025 Orders",       "description": "Order-level transaction data: customer, product, amount, region. Ingested 2025-10-01.", "rows": 184212, "cols": 18, "size_bytes":  82421840, "last_analyzed_at": "2026-04-25T11:00:00Z", "format": "csv", "column_preview": ["order_id", "customer_id", "amount_cents", "currency", "region", "channel", "ordered_at", "shipped_at"],
+    "schema": [
+      { "name": "order_id",     "type": "string",    "nullable": false, "example": "ord_a18c2f", "unique_count": 184212 },
+      { "name": "customer_id",  "type": "string",    "nullable": false, "example": "cust_8421",  "unique_count":  42180 },
+      { "name": "amount_cents", "type": "integer",   "nullable": false, "example": "8420",        "unique_count":   8200 },
+      { "name": "currency",     "type": "string",    "nullable": false, "example": "USD",         "unique_count":      8 },
+      { "name": "region",       "type": "string",    "nullable": false, "example": "us-east",    "unique_count":     14 },
+      { "name": "channel",      "type": "string",    "nullable": true,  "example": "web",         "unique_count":      6 },
+      { "name": "ordered_at",   "type": "timestamp", "nullable": false, "example": "2025-09-12T14:22:00Z", "unique_count": 184212 },
+      { "name": "shipped_at",   "type": "timestamp", "nullable": true,  "example": "2025-09-13T09:30:00Z", "unique_count": 173420 }
+    ],
+    "statistics": [
+      { "field": "amount_cents",  "min":  "100",         "max":  "1248000",     "mean":  "11240",   "median": "8420", "null_pct":  0   },
+      { "field": "ordered_at",    "min": "2025-07-01",   "max":  "2025-09-30",                                       "null_pct":  0   },
+      { "field": "shipped_at",    "min": "2025-07-02",   "max":  "2025-10-04",                                       "null_pct":  5.9 }
+    ],
+    "ai_insights": [
+      { "type": "anomaly",     "headline": "Refund spike in Sept week 38",       "body": "Refund rate 4.1× the rolling-90 average — concentrated in 2 SKUs." },
+      { "type": "correlation", "headline": "Channel × region effect on AOV",      "body": "Web AOV in EU regions is 18% higher than NA — driven by larger basket size." }
+    ]
+  },
+  {
+    "id": "ds_002", "name": "Customer Master 2026", "description": "Deduplicated customer records with attributes (segment, lifetime value, tenure).",       "rows":  42180, "cols": 22, "size_bytes":  18240000, "last_analyzed_at": "2026-04-22T15:00:00Z", "format": "parquet", "column_preview": ["customer_id", "segment", "ltv_cents", "tenure_months"],
+    "schema": [
+      { "name": "customer_id",   "type": "string",  "nullable": false, "example": "cust_8421", "unique_count": 42180 },
+      { "name": "segment",       "type": "string",  "nullable": false, "example": "SMB",       "unique_count":     5 },
+      { "name": "ltv_cents",     "type": "integer", "nullable": false, "example": "184200",    "unique_count": 32100 },
+      { "name": "tenure_months", "type": "integer", "nullable": false, "example": "18",        "unique_count":   124 }
+    ],
+    "statistics": [{ "field": "ltv_cents", "min": "0", "max": "8420000", "mean": "184200", "median": "82400", "null_pct": 0 }],
+    "ai_insights": [{ "type": "trend", "headline": "Enterprise LTV up 14% YoY", "body": "Average enterprise LTV crossed $50K for the first time in March 2026." }]
+  },
+  {
+    "id": "ds_003", "name": "Web Traffic Apr 2026", "description": "Pageview-level traffic data with session, source, page, time-on-page.",                  "rows": 421840, "cols": 14, "size_bytes": 184212840, "last_analyzed_at": "2026-04-25T08:30:00Z", "format": "json", "column_preview": ["session_id", "source", "page", "duration_ms"],
+    "schema": [
+      { "name": "session_id",  "type": "string",    "nullable": false, "example": "sess_a8421f", "unique_count": 84200 },
+      { "name": "source",      "type": "string",    "nullable": false, "example": "google",       "unique_count":     8 },
+      { "name": "page",        "type": "string",    "nullable": false, "example": "/pricing",     "unique_count":   142 },
+      { "name": "duration_ms", "type": "integer",   "nullable": true,  "example": "8420",         "unique_count": 32480 },
+      { "name": "ts",          "type": "timestamp", "nullable": false, "example": "2026-04-22T11:18:00Z", "unique_count": 421840 }
+    ],
+    "statistics": [{ "field": "duration_ms", "min": "0", "max": "1842000", "mean": "12480", "median": "4200", "null_pct": 2.1 }],
+    "ai_insights": []
+  },
+  {
+    "id": "ds_004", "name": "Marketing Spend Q1",   "description": "Campaign-level marketing spend with channel, attributed pipeline, CAC.",                "rows":     842, "cols": 16, "size_bytes":     412000, "last_analyzed_at": "2026-04-12T14:00:00Z", "format": "xlsx", "column_preview": ["campaign", "channel", "spend_cents", "attributed_revenue_cents"],
+    "schema": [
+      { "name": "campaign",                  "type": "string",  "nullable": false, "example": "cpb-2026-spring", "unique_count": 842 },
+      { "name": "channel",                   "type": "string",  "nullable": false, "example": "google_ads",      "unique_count":   6 },
+      { "name": "spend_cents",               "type": "integer", "nullable": false, "example": "184200",          "unique_count": 712 },
+      { "name": "attributed_revenue_cents",  "type": "integer", "nullable": false, "example": "1842000",         "unique_count": 612 }
+    ],
+    "statistics": [],
+    "ai_insights": [{ "type": "correlation", "headline": "ROI gap between paid social and display", "body": "Paid social ROI 4.2× display ROI for Q1." }]
+  },
+  {
+    "id": "ds_005", "name": "Inventory Snapshot",   "description": "Daily inventory level by SKU and warehouse.",                                              "rows":  62400, "cols": 12, "size_bytes":  21840000, "last_analyzed_at": null,                       "format": "parquet", "column_preview": ["sku", "warehouse_id", "on_hand", "snapshot_date"],
+    "schema": [
+      { "name": "sku",            "type": "string", "nullable": false, "example": "SKU-A8421", "unique_count":  840 },
+      { "name": "warehouse_id",   "type": "string", "nullable": false, "example": "wh_east",   "unique_count":   12 },
+      { "name": "on_hand",        "type": "integer","nullable": false, "example": "421",        "unique_count": 5240 },
+      { "name": "snapshot_date",  "type": "date",   "nullable": false, "example": "2026-04-25", "unique_count":  124 }
+    ],
+    "statistics": [], "ai_insights": []
+  },
+  {
+    "id": "ds_006", "name": "NPS Survey Responses", "description": "Quarterly NPS responses with score, comment, segment, geo.",                              "rows":   8412, "cols":  9, "size_bytes":   3240000, "last_analyzed_at": "2026-04-08T09:00:00Z", "format": "csv", "column_preview": ["respondent_id", "score", "comment", "segment"],
+    "schema": [
+      { "name": "respondent_id", "type": "string",  "nullable": false, "example": "resp_84a1", "unique_count": 8412 },
+      { "name": "score",         "type": "integer", "nullable": false, "example": "9",          "unique_count":   11 },
+      { "name": "comment",       "type": "string",  "nullable": true,  "example": "Great UX",  "unique_count": 6240 },
+      { "name": "segment",       "type": "string",  "nullable": false, "example": "Mid-market", "unique_count":    5 }
+    ],
+    "statistics": [{ "field": "score", "min": "0", "max": "10", "mean": "8.4", "median": "9", "null_pct": 0 }],
+    "ai_insights": [{ "type": "trend", "headline": "Detractor share down 4pp QoQ", "body": "Promoter % held steady at 64%; passive ↓ 4pp moved to promoter." }]
+  }
+]

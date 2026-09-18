@@ -1,0 +1,13 @@
+Polish complete: 2026-04-29T20:55:00Z
+Pipeline: polish-app.md via polish-fleet
+Cluster: dashboard/finance — sibling: banking-dashboard + personal-finance
+Brand: Ember — "Your home, always aglow"
+Components: 8 bespoke (HomeHeroCard, EnergyMeterCard, RoomTriad,
+            DeviceStatusRow, SceneCard, AutomationRow, AuthBrandHeader,
+            SmartHomeDashboardLayout) + Sweep-1 chrome (Header/Footer/RootErrorBoundary)
+Screen-map coverage: 18/18 (Landing, Login, Signup, ForgotPassword,
+            ResetPassword, Overview, Rooms, RoomDetail, DeviceDetail,
+            AddDevice, Scenes, Automations, AutomationEditor, Energy,
+            Security, Activity, Floorplan, Settings)
+Typecheck: 0 errors (npx tsc --noEmit from app/)
+Compliance: clean (classmap-coverage 98%)

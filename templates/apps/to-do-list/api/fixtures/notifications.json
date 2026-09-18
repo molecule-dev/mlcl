@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "overdue",        "title": "Overdue: Review the launch runbook draft",  "body": "Due 26 Apr · in Q3 Launch.",                                          "href": "/today",            "created_at": "2026-04-26T08:30:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "reminder",       "title": "Reminder: Send Acme written commit",         "body": "Due in 4 days from Q3 Launch.",                                       "href": "/today",            "created_at": "2026-04-26T08:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "recurring",      "title": "Daily walk → reset",                          "body": "Done streak: 12 days.",                                               "href": "/today",            "created_at": "2026-04-26T08:00:00Z", "unread": false },
+  { "id": "ntf_004", "type": "assigned",       "title": "Mira assigned: Confirm Q2 refactor timing",   "body": "Due 2 May · #engineering.",                                           "href": "/projects/prj_003", "created_at": "2026-04-25T11:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "mention",        "title": "Devon mentioned you on auth refactor",        "body": "@lin — does the JWT consolidation timing work for you?",              "href": "/projects/prj_003", "created_at": "2026-04-24T20:58:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message", "title": "Welcome to Cadence",                          "body": "Add your first task with ⌘K, or paste a list and we'll parse it.",    "href": "/today",            "created_at": "2026-03-01T10:00:00Z", "unread": false }
+]

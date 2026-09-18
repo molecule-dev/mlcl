@@ -1,0 +1,14 @@
+Polish complete: 2026-04-28T16:35:00Z
+Pipeline: polish-app.md (parallel batch resume after crashed-partial-polish stash)
+Cluster: business-saas / hiring → siblings: crm, personal-finance
+Components: 5 bespoke (StagePill, ScoreBadge, KpiCard, PipelineFunnelHero, LoginBrandPanel)
+Pages rewritten: Landing, Dashboard, Pipeline (signature)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (LoginBrandPanel split-layout)
+Pages added: JobDetail, NewJob, Profile, Billing (close screen-map.json gaps)
+Screen-map coverage: 18/18 routes wired
+Material 3 tokens: already filled prior to session; AI score tier tokens added
+Fonts: Inter + Material Symbols already in index.html
+Sweep 1 chrome conformance: yes (Header/Footer delegate, RootErrorBoundary re-export)
+Typecheck: tsc --noEmit clean
+Compliance: clean (check-rules-compliance.mjs); ClassMap coverage above 80% threshold
+Note: pre-crash partial work was already committed in 481f9aae + 0374a15e (chrome + bespoke components). This session resumed from there, completed the remaining steps (page rewrites, auth branding, missing pages, classmap wrap), and skipped Step 10 (screenshots) per parent-agent ownership.

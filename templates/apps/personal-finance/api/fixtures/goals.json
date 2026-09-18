@@ -1,0 +1,42 @@
+[
+  {
+    "id": "f8c309fc-7d93-4a1c-0458-499c5f232127",
+    "name": "Emergency Fund",
+    "target_amount": 25000,
+    "current_amount": 18500,
+    "target_date": "2026-12-31T00:00:00Z",
+    "icon": "savings",
+    "color": "#10B981",
+    "status": "active"
+  },
+  {
+    "id": "236001bc-c6b2-4687-6ba1-97d8a34cef80",
+    "name": "Vacation to Japan",
+    "target_amount": 8000,
+    "current_amount": 3200,
+    "target_date": "2027-04-01T00:00:00Z",
+    "icon": "flight",
+    "color": "#3B82F6",
+    "status": "active"
+  },
+  {
+    "id": "a268bdd5-101f-40b2-b25e-5802ea99e2b9",
+    "name": "New Laptop",
+    "target_amount": 2500,
+    "current_amount": 2500,
+    "target_date": "2026-06-01T00:00:00Z",
+    "icon": "laptop_mac",
+    "color": "#8B5CF6",
+    "status": "completed"
+  },
+  {
+    "id": "fc4c83e3-a80d-4028-169c-d4fd49479ded",
+    "name": "Down Payment",
+    "target_amount": 60000,
+    "current_amount": 22000,
+    "target_date": "2028-01-01T00:00:00Z",
+    "icon": "home",
+    "color": "#F59E0B",
+    "status": "active"
+  }
+]

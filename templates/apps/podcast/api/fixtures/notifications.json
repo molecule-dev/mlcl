@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "new_episode",      "title": "Edge Cases — new episode",                "body": "When clock skew broke our payment processor (53 min)",                "href": "/episodes/ep_010", "created_at": "2026-04-23T11:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "new_episode",      "title": "The Daily Filament — new episode",        "body": "The story behind the new container shipping rates (21 min)",          "href": "/episodes/ep_001", "created_at": "2026-04-26T06:00:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "transcript_ready", "title": "Transcript ready: Founder's Hour",        "body": "Lin Chen episode now searchable — full transcript available.",         "href": "/episodes/ep_020", "created_at": "2026-04-22T14:00:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "recommended_show", "title": "You might like: Quanta Cast",             "body": "Based on your Type Theory subscription. 88 episodes, 4.9 stars.",      "href": "/shows/shw_006",   "created_at": "2026-04-25T10:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "show_update",      "title": "Two Cigars added a new co-host",          "body": "From the show: \"We're stoked to introduce…\"",                        "href": "/shows/shw_004",   "created_at": "2026-04-24T18:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",   "title": "Welcome to Wavelength",                    "body": "Subscribe to a few shows to start getting personalized picks.",         "href": "/discover",        "created_at": "2025-09-12T10:00:00Z", "unread": false }
+]

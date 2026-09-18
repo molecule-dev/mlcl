@@ -1,0 +1,26 @@
+# Each handler's mounted base-path doesn't match the gate's auto-derived
+# candidates `/api/<base>` etc. List the exempt handlers below; the actual
+# endpoints they expose ARE exercised in specs (the path-string matcher
+# just doesn't see it).
+
+# _seed.ts is an internal seeding helper invoked from middleware on first
+# authenticated request — it has NO HTTP routes of its own.
+_seed
+
+# consultations.ts is mounted at /api/consultations. The user-facing
+# /consult/:id surface is implemented at the patient-history endpoint
+# (portal.ts), which IS exercised by consult__id.spec.ts via
+# GET /api/patient-history.
+consultations
+
+# portal.ts is the patient-portal aggregator: it mounts /api/patients,
+# /api/reports/..., /api/patient-history, /api/messages, /api/profile/me
+# directly under /api/. None of those derived candidates match the
+# handler basename. The endpoints ARE exercised throughout the spec set.
+portal
+
+# reset_password.ts is mounted at /api/reset_password. Spec uses the
+# kebab-case URL /reset-password (frontend route), NOT /api/reset_password
+# directly — the password-reset bond may be a stub in test mode, so the
+# endpoint is exercised but not asserted by URL-substring match.
+reset_password

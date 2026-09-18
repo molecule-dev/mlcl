@@ -1,0 +1,8 @@
+[
+  { "meeting_id": "mtg_001", "meeting_title": "Q3 Launch Planning",         "recorded_at": "2026-04-25T15:00:00Z", "speaker": "Sasha Kim",   "ts": "00:24", "text": "Agreed. Ship the launch on May 12 and target the dashboard for May 26." },
+  { "meeting_id": "mtg_001", "meeting_title": "Q3 Launch Planning",         "recorded_at": "2026-04-25T15:00:00Z", "speaker": "Devon Park",  "ts": "00:18", "text": "I'd say split. The dashboard isn't code-complete and bundling it adds risk." },
+  { "meeting_id": "mtg_002", "meeting_title": "Engineering 1:1",            "recorded_at": "2026-04-24T20:30:00Z", "speaker": "Devon Park",  "ts": "00:01", "text": "Heads up — auth service is starting to hurt. Two incidents this month." },
+  { "meeting_id": "mtg_003", "meeting_title": "Customer call — Acme Corp QBR","recorded_at": "2026-04-22T18:00:00Z", "speaker": "Margaret Cole","ts": "00:24", "text": "Two asks for Q2: SSO integration and audit-log export to Splunk." },
+  { "meeting_id": "mtg_003", "meeting_title": "Customer call — Acme Corp QBR","recorded_at": "2026-04-22T18:00:00Z", "speaker": "Sasha Kim",   "ts": "00:38", "text": "Both are on the roadmap. SSO is committed for Q2; audit-log export likely Q3." },
+  { "meeting_id": "mtg_004", "meeting_title": "All-hands — April",          "recorded_at": "2026-04-15T17:00:00Z", "speaker": "Sasha Kim",   "ts": "00:01", "text": "Welcome everyone. Quick numbers from Q1, then April priorities." }
+]

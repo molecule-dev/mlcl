@@ -1,0 +1,10 @@
+[
+  { "id": "cp_001", "organization": "Acme Corp",         "contact_name": "Margaret Cole",  "contact_email": "ap@acme.example",      "active_contracts": 2, "total_value_cents":  6642000, "last_signed_at": "2026-04-22T16:48:00Z", "tags": ["Enterprise", "Strategic"] },
+  { "id": "cp_002", "organization": "Stark Industries",  "contact_name": "Pepper Potts",   "contact_email": "ap@stark.example",     "active_contracts": 3, "total_value_cents": 12400000, "last_signed_at": "2025-05-15T17:00:00Z", "tags": ["Enterprise"] },
+  { "id": "cp_003", "organization": "Hooli LLC",         "contact_name": "Gavin Belson",   "contact_email": "gavin@hooli.example",  "active_contracts": 1, "total_value_cents":        0, "last_signed_at": "2026-04-12T15:00:00Z", "tags": ["Prospect"] },
+  { "id": "cp_004", "organization": "Pied Piper Inc.",   "contact_name": "Richard Hendricks","contact_email": "richard@pp.example", "active_contracts": 2, "total_value_cents":  3600000, "last_signed_at": "2026-03-18T14:00:00Z", "tags": ["SMB", "Strategic"] },
+  { "id": "cp_005", "organization": "Wayne Enterprises", "contact_name": "Lucius Fox",     "contact_email": "ar@wayne.example",     "active_contracts": 4, "total_value_cents": 18800000, "last_signed_at": "2026-02-08T11:00:00Z", "tags": ["Enterprise"] },
+  { "id": "cp_006", "organization": "Soylent Corp",      "contact_name": "Joe Chip",       "contact_email": "ap@soylent.example",   "active_contracts": 0, "total_value_cents":        0, "last_signed_at": null,                   "tags": ["Pending"] },
+  { "id": "cp_007", "organization": "Initech",           "contact_name": "Bill Lumbergh",  "contact_email": "bill@initech.example", "active_contracts": 0, "total_value_cents":   880000, "last_signed_at": "2024-12-01T09:00:00Z", "tags": ["Renewal opportunity"] },
+  { "id": "cp_008", "organization": "Globex Corp",       "contact_name": "Hank Scorpio",   "contact_email": "ap@globex.example",    "active_contracts": 1, "total_value_cents":  1240000, "last_signed_at": "2026-01-08T11:00:00Z", "tags": ["SMB"] }
+]

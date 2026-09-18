@@ -1,0 +1,110 @@
+{
+  "label": "Social Media Feed",
+  "description": "Instagram-like social with posts, stories, followers, and feed — with built-in Stripe-backed subscription tiers",
+  "cluster": "content-social",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-comment",
+    "@molecule/api-resource-reaction",
+    "@molecule/api-resource-follow",
+    "@molecule/api-resource-activity-feed",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-content-moderation",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-gallery",
+    "@molecule/app-image-crop",
+    "@molecule/app-realtime-socketio",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Social"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for media uploads",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "S3_ACCESS_KEY_ID": {
+      "description": "S3 access key",
+      "required": true
+    },
+    "S3_SECRET_ACCESS_KEY": {
+      "description": "S3 secret key",
+      "required": true
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications",
+      "required": true
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_SOCIAL_MEDIA_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_SOCIAL_MEDIA_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_SOCIAL_MEDIA_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_SOCIAL_MEDIA_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "feed",
+    "stories",
+    "followers",
+    "likes",
+    "comments",
+    "image-upload",
+    "realtime",
+    "push-notifications",
+    "subscriptions"
+  ]
+}

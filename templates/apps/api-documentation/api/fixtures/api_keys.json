@@ -1,0 +1,6 @@
+[
+  { "id": "key_001", "name": "Production",   "key_masked": "prsm_live_•••••••••••••••••a8421", "scopes": ["accounts:read", "accounts:write", "transactions:read", "transactions:write"], "last_used_at": "2026-04-25T18:00:00Z", "created_at": "2025-12-04T10:00:00Z" },
+  { "id": "key_002", "name": "Staging",       "key_masked": "prsm_test_•••••••••••••••••b94f2", "scopes": ["accounts:read", "accounts:write"],                                              "last_used_at": "2026-04-26T08:42:00Z", "created_at": "2026-02-15T14:00:00Z" },
+  { "id": "key_003", "name": "Read-only CI",  "key_masked": "prsm_test_•••••••••••••••••c8842", "scopes": ["accounts:read", "transactions:read"],                                            "last_used_at": "2026-04-12T22:00:00Z", "created_at": "2026-03-01T09:00:00Z" },
+  { "id": "key_004", "name": "Webhook signer","key_masked": "prsm_live_•••••••••••••••••d4290", "scopes": ["webhooks:write"],                                                                "last_used_at": null,                   "created_at": "2026-04-18T11:00:00Z" }
+]

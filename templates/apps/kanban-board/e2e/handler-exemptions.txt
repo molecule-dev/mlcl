@@ -1,0 +1,13 @@
+# Handlers not yet exposed in the user-facing UI for kanban-board.
+# These exist in the API but the v1 frontend does not surface them
+# (attachments require S3 wiring + paid-tier limits that the Pricing
+# page advertises as a Pro feature; checklists/labels are roadmap items
+# advertised on Pricing as upcoming; members is single-seat in v1 —
+# multi-seat collaboration shows up on Team.tsx as a planned feature).
+#
+# When the corresponding UI ships, remove the line and add a spec that
+# exercises the endpoint via the rendered surface.
+attachments
+checklists
+labels
+members

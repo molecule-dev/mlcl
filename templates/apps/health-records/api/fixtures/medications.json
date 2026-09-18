@@ -1,0 +1,53 @@
+[
+  {
+    "id": "m1",
+    "name": "Metformin",
+    "dosage": "500 mg",
+    "frequency": "Twice daily with meals",
+    "category": "diabetes",
+    "interaction_warning": "Hold 48 hr before/after iodinated contrast.",
+    "refills_left": 2,
+    "refills_total": 5,
+    "next_refill_date": "2026-05-07"
+  },
+  {
+    "id": "m2",
+    "name": "Lisinopril",
+    "dosage": "20 mg",
+    "frequency": "Once daily, morning",
+    "category": "cardiovascular",
+    "refills_left": 4,
+    "refills_total": 5,
+    "next_refill_date": "2026-06-12"
+  },
+  {
+    "id": "m3",
+    "name": "Atorvastatin",
+    "dosage": "40 mg",
+    "frequency": "Once daily, evening",
+    "category": "lipids",
+    "refills_left": 0,
+    "refills_total": 5,
+    "next_refill_date": "2026-04-30"
+  },
+  {
+    "id": "m4",
+    "name": "Levothyroxine",
+    "dosage": "75 mcg",
+    "frequency": "Once daily, fasted",
+    "category": "thyroid",
+    "refills_left": 3,
+    "refills_total": 5,
+    "next_refill_date": "2026-05-22"
+  },
+  {
+    "id": "m5",
+    "name": "Sertraline",
+    "dosage": "50 mg",
+    "frequency": "Once daily",
+    "category": "mental health",
+    "refills_left": 1,
+    "refills_total": 5,
+    "next_refill_date": "2026-05-04"
+  }
+]

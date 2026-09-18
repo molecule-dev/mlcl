@@ -1,0 +1,245 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #f6fafa;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #edf1f1;
+  --color-inverse-primary: #d2bbff;
+  --color-inverse-surface: #2c3132;
+  --color-on-background: #181c1d;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede0ff;
+  --color-on-primary-fixed: #25005a;
+  --color-on-primary-fixed-variant: #5a00c6;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #523787;
+  --color-on-secondary-fixed: #25005a;
+  --color-on-secondary-fixed-variant: #523787;
+  --color-on-surface: #181c1d;
+  --color-on-surface-variant: #4a4455;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ffe0cd;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #713700;
+  --color-outline: #7b7487;
+  --color-outline-variant: #ccc3d8;
+  --color-primary: #630ed4;
+  --color-primary-container: #7c3aed;
+  --color-primary-fixed: #eaddff;
+  --color-primary-fixed-dim: #d2bbff;
+  --color-secondary: #6a4fa0;
+  --color-secondary-container: #c4a7ff;
+  --color-secondary-fixed: #eaddff;
+  --color-secondary-fixed-dim: #d2bbff;
+  --color-surface: #f6fafa;
+  --color-surface-bright: #f6fafa;
+  --color-surface-container: #ebefef;
+  --color-surface-container-high: #e5e9e9;
+  --color-surface-container-highest: #dfe3e3;
+  --color-surface-container-low: #f0f4f4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d7dbdb;
+  --color-surface-tint: #732ee4;
+  --color-surface-variant: #dfe3e3;
+  --color-tertiary: #7d3d00;
+  --color-tertiary-container: #a15100;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-tertiary-fixed-dim: #ffb784;
+
+  /* Stitch border-radius scale. */
+  --radius-12: 0.75rem;
+  --radius: 0.125rem;
+  --radius-full: 0.75rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-display: Newsreader;
+  --font-headline: Newsreader;
+  --font-label: 'Space Grotesk';
+  --font-mono: 'JetBrains Mono';
+  --font-serif-doc: 'Source Serif 4';
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-right-4 -top-4 -translate-y-1/2 2xl 3xl absolute active:scale-100 antialiased backdrop-blur-md bg-background bg-gradient-to-br bg-gradient-to-tl bg-primary bg-primary-container bg-primary/10 bg-secondary bg-secondary/10 bg-surface-container bg-surface-container-high bg-surface-container-highest bg-surface-container-low bg-surface-container-lowest bg-tertiary bg-tertiary-container bg-tertiary/10 blur-2xl blur-[100px] blur-[120px] border border-0 border-b-2 border-l-4 border-l-tertiary border-outline-variant border-outline-variant/10 border-outline-variant/20 border-outline-variant/30 border-r-0 border-t docked duration-200 duration-300 ease-in-out fixed flex flex-1 flex-col flex-grow flex-row flex-shrink-0 flex-wrap focus:border-primary focus:outline-none focus:ring-0 font-black font-body font-bold font-headline font-label font-medium");
+@source inline("font-semibold from-primary-fixed/20 from-surface-tint/10 from-tertiary/5 full-width gap-1 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-[1px] gap-x-8 gap-y-4 grid grid-cols-1 group group-hover:opacity-100 h-12 h-16 h-2 h-24 h-3 h-5 h-8 h-[600px] h-[800px] h-full h-screen hidden hover:-translate-y-1 hover:bg-primary hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-tint hover:bg-surface-variant hover:text-on-surface hover:text-primary-container inset-0 items-baseline items-center justify-between justify-center left-0 left-3 lg:flex lg:grid-cols-4 lg:p-12 material-symbols-outlined max-w-7xl max-w-[420px] mb mb-2 mb-4 mb-6 mb-8 md:flex md:flex-row md:hidden");
+@source inline("md:items-end md:ml-[260px] md:p-10 md:text-5xl min-h-screen ml-0 ml-1 ml-2 mr-4 mt-1 mt-2 mt-3 mt-6 mt-auto mx-auto object-cover opacity-30 opacity-40 opacity-50 opacity-60 opacity-70 overflow-hidden overflow-y-auto p-10 p-2 p-4 p-6 p-8 pb-24 pl-10 placeholder:text-outline pointer-events-none pr-12 pr-4 pt-6 px-4 px-5 px-6 px-8 py py-2 py-3 py-5 relative right-2 right-4 rounded-[12px] rounded-full rounded-lg rounded-t-lg rounded-xl scale-95 selection:bg-primary-container selection:text-on-primary-container sm sm:block sm:grid-cols-2 space-y-12 sticky text-2xl");
+@source inline("text-3xl text-4xl text-[14px] text-center text-lg text-on-background text-on-primary text-on-surface text-on-surface-variant text-outline text-primary text-primary-container text-secondary text-sm text-tertiary text-tertiary-container text-xl text-xs to-transparent top-0 top-1/2 top-2 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transition-all transition-colors transition-opacity transition-transform uppercase w-2 w-24 w-3 w-5 w-64 w-8 w-[260px] w-[600px] w-[800px] w-full xs z-0 z-10 z-30 z-40");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.font-newsreader {
+  font-family: 'Newsreader', serif;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-sourceserif {
+  font-family: 'Source Serif 4', serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Document viewer specific styles */
+.doc-bg {
+  background-color: #e8ecec;
+}
+
+.extract-hl-active {
+  background-color: rgba(124, 58, 237, 0.1);
+  border: 2px solid var(--color-primary-container);
+}
+
+.extract-hl {
+  background-color: rgba(124, 58, 237, 0.1);
+  border: 1px solid transparent;
+}
+
+/* Confidence Colors */
+.conf-high-text {
+  color: #059669;
+}
+
+.conf-high-bg {
+  background-color: rgba(5, 150, 105, 0.1);
+}
+
+.conf-med-text {
+  color: #d97706;
+}
+
+.conf-med-bg {
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+.conf-low-text {
+  color: #dc2626;
+}
+
+.conf-low-bg {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Subtle scrollbar for right pane */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-dim);
+  border-radius: 4px;
+}
+
+/* Override background to match user request */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gradient-primary {
+  /* Kept in sync with BRAND_GRADIENT in src/branding.ts */
+  background-image: linear-gradient(135deg, #1d4ed8, #2563eb 60%, #3b6fd4);
+}
+
+.tonal-shadow {
+  box-shadow: 0 12px 40px rgba(10, 31, 31, 0.06);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for meticulous aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-container-highest);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline-variant);
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 10px 0;
+  }
+}
+/* polish-v2:stitch-styles:end */

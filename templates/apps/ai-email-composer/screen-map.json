@@ -1,0 +1,155 @@
+{
+  "app": "ai-email-composer",
+  "designProjectId": "11706653058549442054",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-login.html",
+      "designScreenId": "5c31b413f52940afadfd35cd604437fc"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-email-composer-login.html",
+      "derivationNotes": "Same centered card layout as Login. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-email-composer-login.html",
+      "derivationNotes": "Same centered card layout as Login. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-email-composer-login.html",
+      "derivationNotes": "Same centered card layout as Login. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-dashboard.html",
+      "designScreenId": "3bd38d1d2d724ab98dbba0145fae2f40"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-landing.html",
+      "designScreenId": "db3dc98f7f404faca40039e0755ac4fc"
+    },
+    {
+      "name": "Inbox",
+      "templateFile": "app/pages/Inbox.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/inbox",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-inbox.html",
+      "designScreenId": "015424b8748247ceb5b0cbf2a17d672d"
+    },
+    {
+      "name": "Compose",
+      "templateFile": "app/pages/Compose.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/compose",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-compose.html",
+      "designScreenId": "0bc25801ce2544b6b12b1e5f27cd6f57"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-templates.html",
+      "designScreenId": "f3e622d0ef1740acadc7e4943f1958c9"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-analytics.html",
+      "designScreenId": "cad7fffc044f4f378e94d1d8a017e506"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-settings.html",
+      "designScreenId": "b11a254b1fea4c2a8d82e2371cd11b72"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-profile.html",
+      "designScreenId": "5176a0abbe9746aaafd2911e3df6fc5e"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": [
+        "app/components/SignetLayout.tsx"
+      ],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-email-composer-billing.html",
+      "designScreenId": "a8339b8099b54c88a3910e37743c3b28"
+    }
+  ]
+}

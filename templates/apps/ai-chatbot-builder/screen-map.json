@@ -1,0 +1,164 @@
+{
+  "app": "ai-chatbot-builder",
+  "designProjectId": "9510836035791876163",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-dashboard.html",
+      "designScreenId": "f858cd8bb83b425da55549c946554523",
+      "designScreenTitle": "NeuralForge Dashboard"
+    },
+    {
+      "name": "BotsList",
+      "templateFile": "app/pages/BotsList.tsx",
+      "components": [],
+      "route": "/bots",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-bots-list.html",
+      "designScreenId": "79fcd948b0ea4753b1c268961fdfecb9",
+      "designScreenTitle": "NeuralForge - My Bots Gallery"
+    },
+    {
+      "name": "BotEditor",
+      "templateFile": "app/pages/BotEditor.tsx",
+      "components": [],
+      "route": "/bots/:id/editor",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-bot-editor.html",
+      "designScreenId": "93323624f1484d9988283defe2b3c23b",
+      "designScreenTitle": "NeuralForge — Bot Editor (Light Mode)"
+    },
+    {
+      "name": "BotAnalytics",
+      "templateFile": "app/pages/BotAnalytics.tsx",
+      "components": [],
+      "route": "/bots/:id/analytics",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-bot-analytics.html",
+      "designScreenId": "1ebe7aeea35e4beb9b46a2da6998920f",
+      "designScreenTitle": "Analytics Dashboard"
+    },
+    {
+      "name": "BotSettings",
+      "templateFile": "app/pages/BotSettings.tsx",
+      "components": [],
+      "route": "/bots/:id/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-chatbot-builder-bot-settings.html",
+      "designScreenId": "59e3da0c68744807881e142708263ad0",
+      "designScreenTitle": "Bot Settings - NeuralForge",
+      "generationPrompt": "Bot Settings page for the NeuralForge AI Chatbot Builder. Left sidebar with navigation. Main content has sections: General (bot name, description, avatar, status toggle), AI Behavior (model selection, temperature slider, max tokens, system prompt textarea), Appearance (widget color picker, position selector, welcome message, typing indicator toggle), Access & Security (allowed domains, rate limiting, authentication toggle, masked API key). Footer with Save/Discard buttons. NeuralForge design system: Plus Jakarta Sans headings, Inter body, no 1px borders, tonal depth, ambient shadows, rounded corners."
+    },
+    {
+      "name": "BotDeploy",
+      "templateFile": "app/pages/BotDeploy.tsx",
+      "components": [],
+      "route": "/bots/:id/deploy",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-chatbot-builder-bot-deploy.html",
+      "designScreenId": "38df8c8b4ae846859aa31e81f1a067b7",
+      "designScreenTitle": "Deploy Your Bot",
+      "generationPrompt": "Bot Deploy page for the NeuralForge AI Chatbot Builder. Left sidebar with navigation. Main content has sections: Embed Widget (HTML code snippet with copy button, preview thumbnail, customization options), Share Link (generated URL, QR code, password protection toggle), API Access (endpoint URL, masked API key, rate limits, docs link), Channel Integrations (Slack, Discord, WhatsApp, Telegram, Facebook Messenger grid with connection status toggles). NeuralForge design system: Plus Jakarta Sans headings, Inter body, no 1px borders, tonal depth, ambient shadows, rounded corners."
+    },
+    {
+      "name": "Integrations",
+      "templateFile": "app/pages/Integrations.tsx",
+      "components": [],
+      "route": "/integrations",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-integrations.html",
+      "designScreenId": "1e4c306f874d4f1981400791849dd2b8",
+      "designScreenTitle": "Integrations Library"
+    },
+    {
+      "name": "KnowledgeBase",
+      "templateFile": "app/pages/KnowledgeBase.tsx",
+      "components": [],
+      "route": "/knowledge-base",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-knowledge-base.html",
+      "designScreenId": "b43108f370a74027af2d0118d2239092",
+      "designScreenTitle": "NeuralForge Knowledge Base"
+    },
+    {
+      "name": "TestChat",
+      "templateFile": "app/pages/TestChat.tsx",
+      "components": [],
+      "route": "/test-chat",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-ai-chatbot-builder-test-chat.html",
+      "designScreenId": "2ce45be276174e4dab2bfe537f66838d",
+      "designScreenTitle": "NeuralForge Test Chat"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-chatbot-builder-settings.html",
+      "designScreenId": "60b0189838ec4adb943a96fe1fbbd77c",
+      "designScreenTitle": "Account Settings — NeuralForge",
+      "generationPrompt": "Account Settings page for NeuralForge. Left sidebar with Settings active. Main content has horizontal tabs (Profile, Security, Billing, Notifications, API Keys). Profile section with avatar upload, name/email/company inputs, timezone/language dropdowns. Billing overview with Pro Plan card, usage meters (messages, bots, storage), upgrade button. Danger Zone with delete account. Footer with Save/Cancel buttons. NeuralForge design system: Plus Jakarta Sans headings, Inter body, no 1px borders, tonal depth, ambient shadows, rounded corners."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-chatbot-builder-login.html",
+      "designScreenId": "f12fb4bdb6a242dd805517f941b37b47",
+      "designScreenTitle": "NeuralForge Login Page",
+      "generationPrompt": "Login page for NeuralForge AI Chatbot Builder. Centered glassmorphic card on soft indigo background (#fcf8ff). Card has NeuralForge logo with AI sparkle, 'Welcome back' heading, email and password inputs (surface_container_high fill, no borders), 'Forgot password?' link in tertiary, gradient Sign In button (primary to secondary), social login (Google, GitHub) ghost buttons, 'Don't have an account? Sign up' footer. Plus Jakarta Sans headings, Inter body, no 1px borders, ambient shadows, full roundedness."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-chatbot-builder-login.html",
+      "derivationNotes": "Same glassmorphic centered card layout as Login. Change heading to 'Create your account' with subtext 'Start building intelligent chatbots'. Add full name field above email. Keep email and password fields. Add 'Confirm password' field. Change CTA to 'Create Account'. Remove 'Forgot password?' link. Keep social login buttons. Change footer to 'Already have an account? Sign in'."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-chatbot-builder-login.html",
+      "derivationNotes": "Same glassmorphic centered card layout as Login. Change heading to 'Reset your password' with subtext 'Enter your email and we'll send you a reset link'. Only email field (remove password field). Change CTA to 'Send Reset Link'. Remove social login section and divider. Change footer to 'Remember your password? Sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-chatbot-builder-login.html",
+      "derivationNotes": "Same glassmorphic centered card layout as Login. Change heading to 'Set new password' with subtext 'Enter your new password below'. Two fields: 'New password' and 'Confirm password' (remove email field). Change CTA to 'Reset Password'. Remove social login section and divider. Change footer to 'Back to Sign in'."
+    }
+  ]
+}

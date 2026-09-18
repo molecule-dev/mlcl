@@ -1,0 +1,14 @@
+# Handler files that aren't directly hit by an e2e spec.
+#
+# All four handlers below are first-class CRUD endpoints kept on the
+# server for forward-compatible features (annotations, activity rollup,
+# multi-layer canvases). The Editor currently writes shapes directly
+# without an explicit layer object, the dashboard activity feed reads
+# from /api/notifications (the canonical inbox), and comments/threading
+# is part of the Pro tier roadmap. Once those features ship to the UI,
+# remove the corresponding line here.
+#
+_seed
+activities
+comments
+layers

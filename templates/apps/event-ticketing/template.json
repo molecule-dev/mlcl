@@ -1,0 +1,98 @@
+{
+  "label": "Event Ticketing",
+  "description": "Eventbrite-like event platform with creation, ticketing, check-in, and analytics — with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-booking",
+    "@molecule/api-resource-tag",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-reporting-database",
+    "@molecule/app-kpi-card-react",
+    "@molecule/app-maps",
+    "@molecule/app-data-table",
+    "@molecule/app-calendar",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-gallery",
+    "@molecule/api-resource-payment",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Event Ticketing"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe API secret key",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for event images",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_EVENT_TICKETING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_EVENT_TICKETING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_EVENT_TICKETING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_EVENT_TICKETING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "payments",
+    "maps",
+    "analytics",
+    "subscriptions"
+  ]
+}

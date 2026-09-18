@@ -1,0 +1,145 @@
+{
+  "categories": [
+    { "name": "Home & Kitchen", "slug": "home-kitchen", "count": 412, "icon": "kitchen" },
+    { "name": "Home & Living", "slug": "home-living", "count": 308, "icon": "weekend" },
+    { "name": "Bags & Accessories", "slug": "bags", "count": 264, "icon": "shopping_bag" },
+    { "name": "Food & Drink", "slug": "food", "count": 184, "icon": "restaurant" },
+    { "name": "Bath & Body", "slug": "bath-body", "count": 142, "icon": "spa" },
+    { "name": "Art & Stationery", "slug": "art", "count": 96, "icon": "palette" },
+    { "name": "Jewelry", "slug": "jewelry", "count": 78, "icon": "diamond" },
+    { "name": "Apparel", "slug": "apparel", "count": 220, "icon": "checkroom" }
+  ],
+  "featured-vendors": {
+    "data": [
+      {
+        "id": "vnd-001",
+        "slug": "mira-co-ceramics",
+        "name": "Mira & Co. Ceramics",
+        "tagline": "Hand-thrown stoneware for everyday rituals",
+        "category": "Home & Kitchen",
+        "verified": true,
+        "rating": 4.9,
+        "review_count": 1247,
+        "products_count": 42,
+        "logo": "https://picsum.photos/seed/vendor-mira-logo/120/120",
+        "banner": "https://picsum.photos/seed/vendor-mira-banner/1200/400"
+      },
+      {
+        "id": "vnd-002",
+        "slug": "atlas-textiles",
+        "name": "Atlas Textiles",
+        "tagline": "Heritage weaves, modernized",
+        "category": "Home & Living",
+        "verified": true,
+        "rating": 4.85,
+        "review_count": 892,
+        "products_count": 28,
+        "logo": "https://picsum.photos/seed/vendor-atlas-logo/120/120",
+        "banner": "https://picsum.photos/seed/vendor-atlas-banner/1200/400"
+      },
+      {
+        "id": "vnd-003",
+        "slug": "ember-leather",
+        "name": "Ember Leather",
+        "tagline": "Slow-made carry goods",
+        "category": "Bags & Accessories",
+        "verified": true,
+        "rating": 4.92,
+        "review_count": 2104,
+        "products_count": 36,
+        "logo": "https://picsum.photos/seed/vendor-ember-logo/120/120",
+        "banner": "https://picsum.photos/seed/vendor-ember-banner/1200/400"
+      },
+      {
+        "id": "vnd-004",
+        "slug": "north-pine-coffee",
+        "name": "North Pine Coffee",
+        "tagline": "Single-origin coffees, roasted weekly",
+        "category": "Food & Drink",
+        "verified": true,
+        "rating": 4.88,
+        "review_count": 670,
+        "products_count": 18,
+        "logo": "https://picsum.photos/seed/vendor-northpine-logo/120/120",
+        "banner": "https://picsum.photos/seed/vendor-northpine-banner/1200/400"
+      }
+    ]
+  },
+  "trending": {
+    "data": [
+      {
+        "id": "prd-004",
+        "vendor_name": "Ember Leather",
+        "vendor_slug": "ember-leather",
+        "name": "Bridle Leather Bifold Wallet",
+        "price": 12500,
+        "compare_at_price": 14500,
+        "rating": 4.94,
+        "review_count": 612,
+        "image": "https://picsum.photos/seed/prd004a/600/600"
+      },
+      {
+        "id": "prd-006",
+        "vendor_name": "North Pine Coffee",
+        "vendor_slug": "north-pine-coffee",
+        "name": "Yirgacheffe — Single Origin",
+        "price": 2200,
+        "compare_at_price": null,
+        "rating": 4.91,
+        "review_count": 412,
+        "image": "https://picsum.photos/seed/prd006a/600/600"
+      },
+      {
+        "id": "prd-001",
+        "vendor_name": "Mira & Co. Ceramics",
+        "vendor_slug": "mira-co-ceramics",
+        "name": "Stoneware Breakfast Bowl — Sand",
+        "price": 4200,
+        "compare_at_price": null,
+        "rating": 4.9,
+        "review_count": 184,
+        "image": "https://picsum.photos/seed/prd001a/600/600"
+      },
+      {
+        "id": "prd-003",
+        "vendor_name": "Atlas Textiles",
+        "vendor_slug": "atlas-textiles",
+        "name": "Hand-loomed Wool Throw — Sahara Stripe",
+        "price": 14900,
+        "compare_at_price": null,
+        "rating": 4.92,
+        "review_count": 261,
+        "image": "https://picsum.photos/seed/prd003a/600/600"
+      },
+      {
+        "id": "prd-005",
+        "vendor_name": "Ember Leather",
+        "vendor_slug": "ember-leather",
+        "name": "Field Tote — Saddle Tan",
+        "price": 18900,
+        "compare_at_price": null,
+        "rating": 4.88,
+        "review_count": 348,
+        "image": "https://picsum.photos/seed/prd005a/600/600"
+      },
+      {
+        "id": "prd-008",
+        "vendor_name": "Halcyon Soap Co.",
+        "vendor_slug": "halcyon-soap",
+        "name": "Wild Rosemary + Sea Salt Soap Bar",
+        "price": 1100,
+        "compare_at_price": null,
+        "rating": 4.84,
+        "review_count": 178,
+        "image": "https://picsum.photos/seed/prd008a/600/600"
+      }
+    ]
+  },
+  "marketplace-stats": {
+    "vendors_count": 4280,
+    "products_count": 92160,
+    "buyers_count": 184200,
+    "orders_today": 12480,
+    "countries_served": 42
+  }
+}

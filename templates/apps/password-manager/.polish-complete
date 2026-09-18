@@ -1,0 +1,12 @@
+Polish complete: 2026-04-30T00:50:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: security/utility (no direct sibling) — translated treatments from personal-finance + helpdesk-ticketing
+Brand: Sigil — deep-indigo + crystalline-mint, sigil-mark wordmark
+Bespoke components (8): VaultHeroCard, VaultItemRow, VaultSidebar, GeneratedPasswordCard, PasswordStrengthMeter, SettingsPanel, SigilBrandHeader, PasswordManagerLayout
+Pages rewritten: Landing, Vault (primary list), Generator (signature), SecurityReport, Notifications, Settings, Profile, NotFound
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (SigilBrandHeader + brand-tinted card + PasswordStrengthMeter)
+Chrome conformance: Header → AppHeader, Footer → AppFooter, RootErrorBoundary → re-export
+Material 3 tokens: filled (1d68a3a8)
+Fonts: Material Symbols Outlined + Inter loaded in index.html
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)

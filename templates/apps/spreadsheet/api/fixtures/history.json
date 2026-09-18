@@ -1,0 +1,77 @@
+[
+  {
+    "id": "h-001",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "edit",
+    "actor_id": "u-avery-chen",
+    "actor_name": "Avery Chen",
+    "actor_avatar": "AC",
+    "summary": "Updated Q4 close-date forecast for Northwind opportunity",
+    "cells": [
+      { "ref": "Pipeline!E412", "before": "2026-07-01", "after": "2026-06-12" },
+      { "ref": "Pipeline!F412", "before": "0.55", "after": "0.80" }
+    ],
+    "ts": "2026-04-29T17:42:00Z"
+  },
+  {
+    "id": "h-002",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "formula",
+    "actor_id": "u-priya-shah",
+    "actor_name": "Priya Shah",
+    "actor_avatar": "PS",
+    "summary": "Tightened confidence formula on Pipeline sheet",
+    "cells": [
+      { "ref": "Pipeline!F:F", "before": "=IF(Stage=\"Negotiation\",0.7,0.4)", "after": "=IF(Stage=\"Closed-Won\",1,IF(Stage=\"Negotiation\",0.8,IF(Stage=\"Proposal\",0.55,0.3)))" }
+    ],
+    "ts": "2026-04-29T11:18:00Z"
+  },
+  {
+    "id": "h-003",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "automation",
+    "actor_id": "system",
+    "actor_name": "Calcite",
+    "actor_avatar": "C",
+    "summary": "Hourly Waterfall recalc — 7 sheets, 42 ranges",
+    "cells": [],
+    "ts": "2026-04-29T20:00:00Z"
+  },
+  {
+    "id": "h-004",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "share",
+    "actor_id": "u-avery-chen",
+    "actor_name": "Avery Chen",
+    "actor_avatar": "AC",
+    "summary": "Granted Renée Okafor editor access",
+    "cells": [],
+    "ts": "2026-04-29T09:55:00Z"
+  },
+  {
+    "id": "h-005",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "edit",
+    "actor_id": "u-jamie-park",
+    "actor_name": "Jamie Park",
+    "actor_avatar": "JP",
+    "summary": "Bulk-imported 142 Salesforce opportunities into Pipeline sheet",
+    "cells": [
+      { "ref": "Pipeline!A271:N412", "before": "—", "after": "+142 rows" }
+    ],
+    "ts": "2026-04-28T22:08:00Z"
+  },
+  {
+    "id": "h-006",
+    "workbook_id": "ws-q4-revenue-2026",
+    "type": "edit",
+    "actor_id": "u-marcus-rivera",
+    "actor_name": "Marcus Rivera",
+    "actor_avatar": "MR",
+    "summary": "Reset AMER booked total after revenue rec adjustment",
+    "cells": [
+      { "ref": "Summary!C2", "before": "$1,912,000", "after": "$1,864,000" }
+    ],
+    "ts": "2026-04-28T16:21:00Z"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "symbol": "btc",   "name": "Bitcoin",   "amount": 0.4218, "cost_basis_usd": 18400, "current_value_usd": 28858, "pnl_usd": 10458, "pnl_pct":  56.84, "allocation_pct": 38.4 },
+  { "symbol": "eth",   "name": "Ethereum",  "amount": 5.4200, "cost_basis_usd": 12200, "current_value_usd": 20663, "pnl_usd":  8463, "pnl_pct":  69.36, "allocation_pct": 27.5 },
+  { "symbol": "sol",   "name": "Solana",    "amount": 42.000, "cost_basis_usd":  4500, "current_value_usd":  7737, "pnl_usd":  3237, "pnl_pct":  71.93, "allocation_pct": 10.3 },
+  { "symbol": "link",  "name": "Chainlink", "amount": 240.00, "cost_basis_usd":  3200, "current_value_usd":  4421, "pnl_usd":  1221, "pnl_pct":  38.16, "allocation_pct":  5.9 },
+  { "symbol": "ada",   "name": "Cardano",   "amount": 8200.0, "cost_basis_usd":  3800, "current_value_usd":  4011, "pnl_usd":   211, "pnl_pct":   5.55, "allocation_pct":  5.3 },
+  { "symbol": "matic", "name": "Polygon",   "amount": 4200.0, "cost_basis_usd":  3500, "current_value_usd":  3032, "pnl_usd":  -468, "pnl_pct": -13.37, "allocation_pct":  4.0 },
+  { "symbol": "doge",  "name": "Dogecoin",  "amount": 18000, "cost_basis_usd":  1800, "current_value_usd":  2416, "pnl_usd":   616, "pnl_pct":  34.22, "allocation_pct":  3.2 },
+  { "symbol": "xrp",   "name": "XRP",       "amount": 5400.0, "cost_basis_usd":  4200, "current_value_usd":  3374, "pnl_usd":  -826, "pnl_pct": -19.67, "allocation_pct":  4.5 }
+]

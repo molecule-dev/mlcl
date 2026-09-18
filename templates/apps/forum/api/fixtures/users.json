@@ -1,0 +1,62 @@
+[
+  {
+    "id": "u-ada",
+    "username": "ada.lovelace",
+    "display_name": "Ada Lovelace",
+    "avatar_url": "https://i.pravatar.cc/96?u=ada",
+    "bio": "Loves typed languages and analytical engines.",
+    "karma": 12480,
+    "tier": "Veteran",
+    "post_count": 184,
+    "comment_count": 962,
+    "joined_at": "2024-03-12T08:00:00Z"
+  },
+  {
+    "id": "u-grace",
+    "username": "grace.hopper",
+    "display_name": "Grace Hopper",
+    "avatar_url": "https://i.pravatar.cc/96?u=grace",
+    "bio": "Database whisperer. Compiler enthusiast.",
+    "karma": 8924,
+    "tier": "Contributor",
+    "post_count": 96,
+    "comment_count": 612,
+    "joined_at": "2024-05-20T08:00:00Z"
+  },
+  {
+    "id": "u-linus",
+    "username": "linus.torvalds",
+    "display_name": "Linus Torvalds",
+    "avatar_url": "https://i.pravatar.cc/96?u=linus",
+    "bio": "Strong opinions, weakly held.",
+    "karma": 21340,
+    "tier": "Legend",
+    "post_count": 312,
+    "comment_count": 1840,
+    "joined_at": "2023-11-04T08:00:00Z"
+  },
+  {
+    "id": "u-margaret",
+    "username": "margaret.hamilton",
+    "display_name": "Margaret Hamilton",
+    "avatar_url": "https://i.pravatar.cc/96?u=margaret",
+    "bio": "Software-engineering before it was cool.",
+    "karma": 15280,
+    "tier": "Veteran",
+    "post_count": 142,
+    "comment_count": 880,
+    "joined_at": "2024-01-15T08:00:00Z"
+  },
+  {
+    "id": "u-mae",
+    "username": "mae.jemison",
+    "display_name": "Mae Jemison",
+    "avatar_url": "https://i.pravatar.cc/96?u=mae",
+    "bio": "Designer who codes.",
+    "karma": 6120,
+    "tier": "Contributor",
+    "post_count": 64,
+    "comment_count": 420,
+    "joined_at": "2024-07-22T08:00:00Z"
+  }
+]

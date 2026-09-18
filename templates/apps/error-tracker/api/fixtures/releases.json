@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rel-1",
+    "version": "4.2.1",
+    "deployed_at": "2026-04-26T19:30:00Z",
+    "environment": "production",
+    "issue_count": 12,
+    "new_issues": 3,
+    "resolved_issues": 7,
+    "regression_count": 1,
+    "author": "Riley",
+    "commits": 27
+  },
+  {
+    "id": "rel-2",
+    "version": "4.2.0",
+    "deployed_at": "2026-04-22T17:00:00Z",
+    "environment": "production",
+    "issue_count": 23,
+    "new_issues": 5,
+    "resolved_issues": 14,
+    "regression_count": 0,
+    "author": "Morgan",
+    "commits": 41
+  },
+  {
+    "id": "rel-3",
+    "version": "4.1.9",
+    "deployed_at": "2026-04-19T14:00:00Z",
+    "environment": "production",
+    "issue_count": 18,
+    "new_issues": 4,
+    "resolved_issues": 9,
+    "regression_count": 2,
+    "author": "Sasha",
+    "commits": 19
+  }
+]

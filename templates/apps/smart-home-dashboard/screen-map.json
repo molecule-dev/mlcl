@@ -1,0 +1,189 @@
+{
+  "app": "smart-home-dashboard",
+  "designProjectId": "6488795046396251505",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-landing.html",
+      "designScreenId": "6ffabcf1b83949b9b91ce7e51a0e2292"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-login.html",
+      "designScreenId": "621cfee313ec410cb97afa77dcddd351"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-smart-home-dashboard-login.html",
+      "derivationNotes": "Same 55/45 split layout and ambient left preview panel. Right-side card uses Full Name, Email, Password, Confirm Password fields. Heading changes to 'Make yourself at home'. Subtext 'Create an account to set up your hub'. Primary button 'Create account' cyan with glow. Bottom link 'Already set up? Sign in'. No 'Forgot?' link. Keep SSO row (Apple, Google, HomeKit) and encrypted footer note."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-smart-home-dashboard-login.html",
+      "derivationNotes": "Same 55/45 split layout and ambient left preview panel. Right-side card shows only Email field. Heading 'Reset your password'. Subtext 'We\u2019ll send a recovery link to your email'. Primary button 'Send reset link'. Bottom link 'Back to sign in'. No password input, no SSO options."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-smart-home-dashboard-login.html",
+      "derivationNotes": "Same 55/45 split layout and ambient left preview panel. Right-side card shows New Password and Confirm Password fields with reveal-on-hold eye icons. Heading 'Set a new password'. Subtext 'Choose something strong \u2014 minimum 12 characters'. Primary button 'Reset password'. Bottom link 'Back to sign in'. No email field, no SSO options."
+    },
+    {
+      "name": "Overview",
+      "templateFile": "app/pages/Overview.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/overview",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-overview.html",
+      "designScreenId": "b2d62c51828e44e1a4ff23a8f0d3cfd9"
+    },
+    {
+      "name": "Rooms",
+      "templateFile": "app/pages/Rooms.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/rooms",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-rooms.html",
+      "designScreenId": "879b2324243247948d7029a7c44ae39e"
+    },
+    {
+      "name": "Scenes",
+      "templateFile": "app/pages/Scenes.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/scenes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-scenes.html",
+      "designScreenId": "bba952ca77924829848131a968656784"
+    },
+    {
+      "name": "Automations",
+      "templateFile": "app/pages/Automations.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/automations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-automations.html",
+      "designScreenId": "042f6936388f4d919deb2a2cba2ade71"
+    },
+    {
+      "name": "Energy",
+      "templateFile": "app/pages/Energy.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/energy",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-energy.html",
+      "designScreenId": "d46d337ff12a4f5cb88bf82b1ec30fa6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-settings.html",
+      "designScreenId": "d31bead52bc24dee976dc716fae371f6"
+    },
+    {
+      "name": "Security",
+      "templateFile": "app/pages/Security.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/security",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-security.html",
+      "designScreenId": "736d8e7f34c5452fae28b6a3027796c8"
+    },
+    {
+      "name": "Activity",
+      "templateFile": "app/pages/Activity.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/activity",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-activity.html",
+      "designScreenId": "1df0fe9e936d4d1d868ba738003b9aca"
+    },
+    {
+      "name": "Floorplan",
+      "templateFile": "app/pages/Floorplan.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/floorplan",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-floorplan.html",
+      "designScreenId": "59cd5db75b524b358e4e31ee226f2326"
+    },
+    {
+      "name": "RoomDetail",
+      "templateFile": "app/pages/RoomDetail.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/rooms/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-room-detail.html",
+      "designScreenId": "6221f5575cf74a3e9508ba3da3b045b4"
+    },
+    {
+      "name": "DeviceDetail",
+      "templateFile": "app/pages/DeviceDetail.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/devices/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-device-detail.html",
+      "designScreenId": "ee75f61054ba47419e7c155df77acb1a"
+    },
+    {
+      "name": "AutomationEditor",
+      "templateFile": "app/pages/AutomationEditor.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/automations/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-automation-editor.html",
+      "designScreenId": "0cbe24cb25cf499bb3235bd6e6ca11c0"
+    },
+    {
+      "name": "AddDevice",
+      "templateFile": "app/pages/AddDevice.tsx",
+      "components": ["app/components/SmartHomeDashboardLayout.tsx"],
+      "route": "/devices/add",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-smart-home-dashboard-add-device.html",
+      "designScreenId": "7c6c881ba146442b9c7205b1ac0153a0"
+    }
+  ]
+}

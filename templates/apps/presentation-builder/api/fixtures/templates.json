@@ -1,0 +1,56 @@
+[
+  {
+    "id": "aurora-stage",
+    "name": "Aurora Stage",
+    "category": "Pitch",
+    "previewColor": "#7c3aed",
+    "slideCount": 12,
+    "isPremium": false,
+    "tags": ["gradient", "stage", "violet"]
+  },
+  {
+    "id": "midnight-studio",
+    "name": "Midnight Studio",
+    "category": "Board",
+    "previewColor": "#1e1b4b",
+    "slideCount": 18,
+    "isPremium": true,
+    "tags": ["dark", "minimal", "navy"]
+  },
+  {
+    "id": "sunrise-stage",
+    "name": "Sunrise Stage",
+    "category": "Sales",
+    "previewColor": "#f59e0b",
+    "slideCount": 14,
+    "isPremium": false,
+    "tags": ["warm", "amber", "energetic"]
+  },
+  {
+    "id": "neon-rally",
+    "name": "Neon Rally",
+    "category": "Marketing",
+    "previewColor": "#ec4899",
+    "slideCount": 16,
+    "isPremium": true,
+    "tags": ["bold", "magenta", "playful"]
+  },
+  {
+    "id": "horizon-mono",
+    "name": "Horizon Mono",
+    "category": "Editorial",
+    "previewColor": "#0f172a",
+    "slideCount": 10,
+    "isPremium": false,
+    "tags": ["minimal", "mono", "editorial"]
+  },
+  {
+    "id": "atlas-cyan",
+    "name": "Atlas Cyan",
+    "category": "Product",
+    "previewColor": "#06b6d4",
+    "slideCount": 20,
+    "isPremium": true,
+    "tags": ["cool", "cyan", "geometric"]
+  }
+]

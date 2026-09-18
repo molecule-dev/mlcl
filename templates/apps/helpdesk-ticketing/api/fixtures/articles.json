@@ -1,0 +1,72 @@
+[
+  {
+    "id": "kb01a2b3-c4d5-4e6f-a8b9-c0d1e2f3a4b5",
+    "title": "Getting Started with the API",
+    "body": "This guide walks you through authenticating with our API and making your first request.\n\n## Authentication\n\nAll API requests require a Bearer token in the Authorization header. Generate your API key from Settings > API Keys.\n\n```\nAuthorization: Bearer your-api-key-here\n```\n\n## Making Your First Request\n\nUse the /api/v1/me endpoint to verify your authentication:\n\n```bash\ncurl -H 'Authorization: Bearer your-key' https://api.example.com/v1/me\n```\n\n## Rate Limits\n\nFree plans: 100 requests/minute. Professional: 1,000/minute. Enterprise: Custom.",
+    "category": "API Documentation",
+    "status": "published",
+    "author_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-09-01T10:00:00Z",
+    "updated_at": "2026-03-15T09:00:00Z"
+  },
+  {
+    "id": "kb02b3c4-d5e6-4f7a-b9c0-d1e2f3a4b5c6",
+    "title": "Setting Up Single Sign-On (SSO)",
+    "body": "Configure SAML-based SSO for your organization.\n\n## Supported Providers\n\n- Okta\n- Azure AD\n- Google Workspace\n- OneLogin\n\n## Configuration Steps\n\n1. Navigate to Settings > Security > SSO\n2. Select your identity provider\n3. Enter your SSO URL and certificate\n4. Configure attribute mapping\n5. Test the connection\n6. Enable SSO for your organization\n\n## Troubleshooting\n\nIf you see a SAML validation error, verify that your IdP certificate hasn't expired and that the Assertion Consumer Service URL matches exactly.",
+    "category": "Security",
+    "status": "published",
+    "author_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-10-15T11:00:00Z",
+    "updated_at": "2026-03-20T14:00:00Z"
+  },
+  {
+    "id": "kb03c4d5-e6f7-4a8b-c0d1-e2f3a4b5c6d7",
+    "title": "Importing Data via CSV",
+    "body": "Import contacts, deals, and other records using CSV files.\n\n## File Requirements\n\n- UTF-8 encoding\n- Maximum file size: 50MB\n- Maximum 100,000 rows per import\n- Headers must match field names exactly\n\n## Steps\n\n1. Go to Settings > Import/Export\n2. Select the data type (contacts, deals, etc.)\n3. Upload your CSV file\n4. Map columns to fields\n5. Preview and confirm\n\n## Tips for Large Imports\n\nFor files over 10MB, consider splitting into multiple batches. The system processes imports asynchronously and will email you when complete.",
+    "category": "Data Management",
+    "status": "published",
+    "author_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "created_at": "2025-11-01T09:00:00Z",
+    "updated_at": "2026-02-10T11:00:00Z"
+  },
+  {
+    "id": "kb04d5e6-f7a8-4b9c-d1e2-f3a4b5c6d7e8",
+    "title": "Webhook Configuration Guide",
+    "body": "Set up webhooks to receive real-time notifications when events occur.\n\n## Supported Events\n\n- `order.created` — New order placed\n- `order.updated` — Order status changed\n- `contact.created` — New contact added\n- `payment.received` — Payment processed\n\n## Setup\n\n1. Go to Settings > Webhooks\n2. Click 'Add Webhook'\n3. Enter your endpoint URL (must be HTTPS)\n4. Select events to subscribe to\n5. Save and test\n\n## Security\n\nAll webhook payloads include an `X-Signature` header. Verify this against your webhook secret to ensure authenticity.",
+    "category": "Integrations",
+    "status": "published",
+    "author_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2025-12-01T10:00:00Z",
+    "updated_at": "2026-03-01T09:00:00Z"
+  },
+  {
+    "id": "kb05e6f7-a8b9-4c0d-e2f3-a4b5c6d7e8f9",
+    "title": "Understanding Your Invoice",
+    "body": "A breakdown of your monthly invoice line items.\n\n## Line Items\n\n- **Base Plan** — Your subscription tier (Starter, Professional, Enterprise)\n- **Additional Users** — Per-seat charges above your plan's included seats\n- **API Overage** — Charges for API calls exceeding your plan limit\n- **Add-ons** — Optional features like premium support or custom domains\n\n## Payment Methods\n\nWe accept Visa, Mastercard, American Express, and ACH bank transfers (Enterprise only).\n\n## Billing Cycle\n\nMonthly plans bill on the 1st of each month. Annual plans bill on your subscription anniversary date.",
+    "category": "Billing",
+    "status": "published",
+    "author_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "created_at": "2026-01-10T08:00:00Z",
+    "updated_at": "2026-03-05T10:00:00Z"
+  },
+  {
+    "id": "kb06f7a8-b9c0-4d1e-f3a4-b5c6d7e8f901",
+    "title": "Two-Factor Authentication Setup",
+    "body": "Secure your account with two-factor authentication (2FA).\n\n## Methods\n\n- **Authenticator App** (recommended) — Google Authenticator, Authy, or 1Password\n- **SMS** — Text message codes to your phone\n\n## Setup\n\n1. Go to Settings > Security > Two-Factor Authentication\n2. Choose your method\n3. Scan the QR code or enter your phone number\n4. Enter the verification code\n5. Save your backup codes\n\n## Lost Access?\n\nIf you lose access to your 2FA method, use a backup code to log in. If you've lost your backup codes, contact support with your account email and photo ID.",
+    "category": "Security",
+    "status": "published",
+    "author_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-02-01T11:00:00Z",
+    "updated_at": "2026-03-10T09:00:00Z"
+  },
+  {
+    "id": "kb07a8b9-c0d1-4e2f-a4b5-c6d7e8f90123",
+    "title": "Batch Operations API (Draft)",
+    "body": "Documentation for the upcoming batch operations API.\n\n## Endpoints\n\n- `POST /api/v1/batch/create` — Create multiple records\n- `POST /api/v1/batch/update` — Update multiple records\n- `POST /api/v1/batch/delete` — Delete multiple records\n\n## Limits\n\n- Maximum 1,000 records per batch request\n- Requests are processed asynchronously\n- Status polling via `GET /api/v1/batch/:id/status`",
+    "category": "API Documentation",
+    "status": "draft",
+    "author_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-03-25T14:00:00Z",
+    "updated_at": "2026-03-27T16:00:00Z"
+  }
+]

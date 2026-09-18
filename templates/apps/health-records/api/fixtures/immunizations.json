@@ -1,0 +1,7 @@
+[
+  { "id": "i1", "vaccine_name": "Influenza (quadrivalent)", "administered_date": "2025-10-08", "dose_number": 1, "of_total": 1, "lot_number": "FL2526-A", "status": "completed" },
+  { "id": "i2", "vaccine_name": "Tdap booster", "administered_date": "2024-04-12", "dose_number": 1, "of_total": 1, "status": "completed" },
+  { "id": "i3", "vaccine_name": "Hepatitis B", "administered_date": "2024-08-22", "dose_number": 2, "of_total": 3, "status": "in-progress" },
+  { "id": "i4", "vaccine_name": "Shingles (Shingrix)", "administered_date": null, "dose_number": 0, "of_total": 2, "status": "due" },
+  { "id": "i5", "vaccine_name": "MMR", "administered_date": "1992-06-04", "dose_number": 2, "of_total": 2, "status": "completed" }
+]

@@ -1,0 +1,225 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
+  /* Chrono — precise blue + accent green from DESIGN.md */
+  --mol-color-primary: #2563eb;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #1d4ed8;
+  --mol-color-secondary: #10b981;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #2563eb;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Backward-compat aliases (inline styles / legacy references) ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-bg: var(--color-background);
+  --color-bg-secondary: var(--color-background-secondary);
+  --color-bg-tertiary: var(--color-background-tertiary);
+  --color-danger: var(--color-error);
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #3b82f6;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary-hover: #34d399;
+
+  --font-mono: 'JetBrains Mono', 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-timer: 0 2px 16px rgba(16, 185, 129, 0.25);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 15rem;
+
+  /* Sidebar (dark persistent nav per DESIGN.md) */
+  --color-sidebar-bg: #0f172a;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: #1e293b;
+  --color-sidebar-text: #cbd5e1;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Timer states */
+  --color-timer-running: #10b981;
+  --color-timer-running-light: #d1fae5;
+  --color-timer-paused: #f59e0b;
+  --color-timer-paused-light: #fef3c7;
+  --color-timer-stopped: #64748b;
+
+  /* Billable / Budget */
+  --color-billable: #8b5cf6;
+  --color-billable-light: #ede9fe;
+  --color-non-billable: #94a3b8;
+  --color-over-budget: #ef4444;
+  --color-over-budget-light: #fee2e2;
+  --color-under-budget: #10b981;
+
+  /* Revenue / Expense */
+  --color-revenue: #059669;
+  --color-expense: #dc2626;
+
+  /* === Material-3 light tokens — required by bg-primary, text-on-surface, etc. === */
+  --color-on-background: #0f172a;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #dde5f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f5f9;
+  --color-surface-container: #e8edf5;
+  --color-surface-container-high: #dde5f0;
+  --color-surface-container-highest: #d4dceb;
+  --color-surface-variant: #dbeafe;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #344054;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #93c5fd;
+  --color-on-primary: #ffffff; /* white on #2563eb = 5.17:1 PASS */
+  --color-primary-container: #dbeafe;
+  --color-on-primary-container: #031e54;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #022c1a;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #2e1065;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #64748b;
+  --color-outline-variant: #cbd5e1;
+  --color-surface-tint: #2563eb;
+}
+
+/* Dark mode — Chrono time-tracking focused dark.
+   Cool deep-slate canvas (productivity brand — precise, instrument-like;
+   the timer is the center of attention). Brand blue stays at the brand
+   stop (#2563eb) for primary CTAs so the Chrono color reads consistently
+   in both modes; surface accents (links, focus rings) use a brighter
+   sky-blue. Accent green stays at brand stop (#10b981) for the timer
+   running state. Timer-state semantics preserved. `--mol-color-text-inverse`
+   stays white so the blue CTA keeps its light-on-blue character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #3568c8; /* darkened for white-text contrast ≥4.5:1 */
+  --mol-color-primary-light: #16223d;
+  --mol-color-primary-dark: #2563eb;
+  --mol-color-secondary: #34d399;
+  --mol-color-background: #050a16;
+  --mol-color-background-secondary: #0c1424;
+  --mol-color-background-tertiary: #182238;
+  --mol-color-surface: #0c1424;
+  --mol-color-surface-secondary: #182238;
+  --mol-color-input-background: #03060f;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #b8c2d4;
+  --mol-color-text-tertiary: #7c8aa3;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #1c2740;
+  --mol-color-border-secondary: #2c3855;
+  --mol-color-border-focus: #3568c8;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+
+  --color-primary-hover: #4476d4; /* lighter hover above corrected primary */
+  --color-primary-light: #16223d;
+  --color-primary-dark: #2563eb;
+  --color-secondary-hover: #6ee7b7;
+
+  /* Sidebar — already dark; keep deeper than surfaces for depth */
+  --color-sidebar-bg: #03060f;
+  --color-sidebar-hover: #0c1424;
+  --color-sidebar-active: #182238;
+  --color-sidebar-text: #b8c2d4;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Timer states — semantics preserved (running=green, paused=amber, stopped=slate) */
+  --color-timer-running: #34d399;
+  --color-timer-running-light: #0e3a24;
+  --color-timer-paused: #fbbf24;
+  --color-timer-paused-light: #4a2d05;
+  --color-timer-stopped: #94a3b8;
+
+  /* Billable / Budget — brighter foregrounds, deep saturated backgrounds */
+  --color-billable: #a78bfa;
+  --color-billable-light: #2e1a5a;
+  --color-non-billable: #7c8aa3;
+  --color-over-budget: #f87171;
+  --color-over-budget-light: #4a1414;
+  --color-under-budget: #34d399;
+
+  /* Revenue / Expense */
+  --color-revenue: #34d399;
+  --color-expense: #f87171;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on blue: `on-primary` stays white. */
+  --color-background: #050a16;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0c1424;
+  --color-surface-bright: #182238;
+  --color-surface-dim: #020509;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #080e1b;
+  --color-surface-container: #0c1424;
+  --color-surface-container-high: #182238;
+  --color-surface-container-highest: #1c2740;
+  --color-surface-variant: #182238;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #b8c2d4;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #050a16;
+  --color-inverse-primary: #2563eb;
+  --color-primary: #3568c8; /* blue-600 level — white text = 5.30:1 (was #60a5fa = 2.54 FAIL) */
+  --color-primary-container: #16223d;
+  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+  --color-on-primary-container: #bfdbfe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #0e3a24;
+  --color-on-secondary: #022c1a;
+  --color-on-secondary-container: #a7f3d0;
+  --color-tertiary: #7c3aed; /* violet-700 — white text = 5.70:1 (was #a78bfa = 2.72 FAIL) */
+  --color-tertiary-container: #2e1a5a;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #4a1414;
+  --color-on-error: #3a0000; /* dark on red = 6.43:1 (was #ffffff = 2.77 FAIL) */
+  --color-on-error-container: #fee2e2;
+  --color-outline: #64748b; /* slate-500 vs surface #0c1424 = 3.87:1 ≥3 (was #4a5568 = 2.45 FAIL) */
+  --color-outline-variant: #1c2740;
+  --color-surface-tint: #3568c8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+  --shadow-timer: 0 2px 16px rgba(52, 211, 153, 0.4);
+}

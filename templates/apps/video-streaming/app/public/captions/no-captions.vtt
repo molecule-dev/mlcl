@@ -1,0 +1,6 @@
+WEBVTT
+
+NOTE
+Placeholder captions file. No captions have been generated for this video
+yet — the real WebVTT is produced per-video by the AI subtitle pipeline
+(PUT /api/videos/:id/subtitles) and served from the video's subtitles_url.

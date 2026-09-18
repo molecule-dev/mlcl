@@ -1,0 +1,24 @@
+[
+  {
+    "id": "m_001", "name": "Sunny Side Cafe",     "category": "Restaurants", "city": "Brooklyn, NY", "rating": 4.6, "active_deals": 2, "initial": "S",
+    "bio": "All-day brunch spot with rotating seasonal menus.",
+    "address": "248 Vanderbilt Ave, Brooklyn, NY 11205",
+    "phone": "+1 (718) 555-0142",
+    "hours": [
+      { "day": "Mon", "open": "8:00",  "close": "15:00" },
+      { "day": "Tue", "open": "8:00",  "close": "15:00" },
+      { "day": "Wed", "open": "8:00",  "close": "15:00" },
+      { "day": "Thu", "open": "8:00",  "close": "15:00" },
+      { "day": "Fri", "open": "8:00",  "close": "15:00" },
+      { "day": "Sat", "open": "9:00",  "close": "16:00" },
+      { "day": "Sun", "open": "9:00",  "close": "16:00" }
+    ]
+  },
+  { "id": "m_002", "name": "Lotus Studio",        "category": "Fitness",    "city": "Brooklyn, NY", "rating": 4.8, "active_deals": 1, "initial": "L", "bio": "Yoga + breathwork studio.",            "address": "118 Berry St", "phone": "+1 (718) 555-1188", "hours": [{"day":"Mon-Sun","open":"6:00","close":"21:00"}] },
+  { "id": "m_003", "name": "Threadly",            "category": "Online",     "city": "Online",       "rating": 4.4, "active_deals": 1, "initial": "T", "bio": "Indie threads and curated drops.",     "address": "Online only",  "phone": "—",                  "hours": [] },
+  { "id": "m_004", "name": "Tranquil Touch Spa",  "category": "Beauty",     "city": "Manhattan, NY","rating": 4.7, "active_deals": 1, "initial": "T", "bio": "Therapeutic massage + facials.",       "address": "412 W 14th St","phone": "+1 (212) 555-4123","hours": [{"day":"Mon-Sat","open":"10:00","close":"20:00"}] },
+  { "id": "m_005", "name": "Vertical Edge",       "category": "Activities", "city": "Brooklyn, NY", "rating": 4.9, "active_deals": 2, "initial": "V", "bio": "Climbing gym + bouldering.",           "address": "215 4th Ave",  "phone": "+1 (718) 555-2150","hours": [{"day":"Mon-Sun","open":"6:00","close":"23:00"}] },
+  { "id": "m_006", "name": "Studio 18 Salon",     "category": "Beauty",     "city": "Brooklyn, NY", "rating": 4.5, "active_deals": 1, "initial": "S", "bio": "Color specialists, modern cuts.",      "address": "182 Court St", "phone": "+1 (718) 555-1820","hours": [{"day":"Tue-Sat","open":"10:00","close":"19:00"}] },
+  { "id": "m_007", "name": "Quick Mobile Detail", "category": "Services",   "city": "NYC area",     "rating": 4.6, "active_deals": 1, "initial": "Q", "bio": "We come to you.",                        "address": "Mobile",        "phone": "+1 (917) 555-0007","hours": [] },
+  { "id": "m_008", "name": "Slice Time",          "category": "Restaurants","city": "Brooklyn, NY", "rating": 4.3, "active_deals": 1, "initial": "S", "bio": "Quick-serve pizza by the slice.",       "address": "85 Bedford Ave","phone": "+1 (718) 555-8588","hours": [{"day":"Mon-Sun","open":"11:00","close":"00:00"}] }
+]

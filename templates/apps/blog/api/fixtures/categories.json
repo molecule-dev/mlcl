@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cat01-dev-tutorials",
+    "name": "Developer Tutorials",
+    "slug": "developer-tutorials",
+    "description": "Step-by-step guides and tutorials for developers of all skill levels.",
+    "created_at": "2025-06-01T10:00:00Z"
+  },
+  {
+    "id": "cat02-best-practices",
+    "name": "Best Practices",
+    "slug": "best-practices",
+    "description": "Industry-standard patterns, conventions, and approaches for writing better software.",
+    "created_at": "2025-06-01T10:00:00Z"
+  },
+  {
+    "id": "cat03-industry-trends",
+    "name": "Industry Trends",
+    "slug": "industry-trends",
+    "description": "Analysis of emerging technologies, market shifts, and the future of software development.",
+    "created_at": "2025-06-01T10:00:00Z"
+  },
+  {
+    "id": "cat04-case-studies",
+    "name": "Case Studies",
+    "slug": "case-studies",
+    "description": "Real-world stories of technical decisions, migrations, and lessons learned.",
+    "created_at": "2025-08-15T10:00:00Z"
+  },
+  {
+    "id": "cat05-devops",
+    "name": "DevOps & Infrastructure",
+    "slug": "devops-infrastructure",
+    "description": "CI/CD pipelines, cloud infrastructure, monitoring, and operational excellence.",
+    "created_at": "2025-09-01T10:00:00Z"
+  },
+  {
+    "id": "cat06-opinion",
+    "name": "Opinion",
+    "slug": "opinion",
+    "description": "Thoughtful takes on technology, culture, and the developer experience.",
+    "created_at": "2025-10-01T10:00:00Z"
+  }
+]

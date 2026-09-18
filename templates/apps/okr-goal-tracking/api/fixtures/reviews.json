@@ -1,0 +1,29 @@
+[
+  {
+    "id": "rev-1",
+    "period": "Q1 2026",
+    "objective_count": 14,
+    "avg_grade": 0.78,
+    "submitted_at": "2026-04-05T16:00:00Z",
+    "headline": "Strong onboarding shift; ARR drag from enterprise stalls.",
+    "grade": "B+"
+  },
+  {
+    "id": "rev-2",
+    "period": "Q4 2025",
+    "objective_count": 12,
+    "avg_grade": 0.65,
+    "submitted_at": "2026-01-10T16:00:00Z",
+    "headline": "Reset year with painful honest grades on shipping cadence.",
+    "grade": "C+"
+  },
+  {
+    "id": "rev-3",
+    "period": "Q3 2025",
+    "objective_count": 11,
+    "avg_grade": 0.81,
+    "submitted_at": "2025-10-08T16:00:00Z",
+    "headline": "Highest team check-in rate ever; first ARR milestone hit.",
+    "grade": "A-"
+  }
+]

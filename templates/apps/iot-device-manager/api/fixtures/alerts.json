@@ -1,0 +1,8 @@
+[
+  { "id": "al-001", "device_id": "dev-3a8842", "device_name": "IOT-3A8842", "type": "overpressure", "message": "Pressure exceeded threshold (78 PSI > 75 PSI)", "severity": "critical", "created_at": "2026-04-27T15:55:43Z" },
+  { "id": "al-002", "device_id": "dev-2c9d44", "device_name": "IOT-9C44A2", "type": "fill_level",   "message": "Tank fill above warning threshold (81%)",        "severity": "warning",  "created_at": "2026-04-27T15:52:11Z" },
+  { "id": "al-003", "device_id": "dev-6c2d11", "device_name": "IOT-6C2D11", "type": "firmware",     "message": "Firmware drift — running 2.4.0, target 2.4.1",  "severity": "info",     "created_at": "2026-04-27T15:37:02Z" },
+  { "id": "al-004", "device_id": "dev-1b8f09", "device_name": "IOT-1B8F09", "type": "offline",      "message": "Heartbeat missed for 2h 44m",                    "severity": "warning",  "created_at": "2026-04-27T13:14:21Z" },
+  { "id": "al-005", "device_id": "dev-3a8842", "device_name": "IOT-3A8842", "type": "temperature",  "message": "Temperature climbing toward warning band",       "severity": "warning",  "created_at": "2026-04-27T15:31:09Z" },
+  { "id": "al-006", "device_id": "dev-4f1b27", "device_name": "IOT-4F1B27", "type": "battery",      "message": "Backup battery cell voltage low (3.21V)",        "severity": "info",     "created_at": "2026-04-27T14:21:50Z" }
+]

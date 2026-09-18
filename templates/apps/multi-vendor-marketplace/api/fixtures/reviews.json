@@ -1,0 +1,80 @@
+[
+  {
+    "id": "rev-001",
+    "product_id": "prd-001",
+    "vendor_id": "vnd-001",
+    "user_id": "usr-001",
+    "user_name": "Helena Souza",
+    "rating": 5,
+    "title": "Beautiful and substantial",
+    "body": "Heavier in the hand than I expected — feels like a piece you'd inherit. Glaze has lovely tonal variation. Would buy more.",
+    "verified_purchase": true,
+    "helpful_count": 24,
+    "created_at": "2026-04-14T18:30:00Z"
+  },
+  {
+    "id": "rev-002",
+    "product_id": "prd-001",
+    "vendor_id": "vnd-001",
+    "user_id": "usr-004",
+    "user_name": "Marcus Hill",
+    "rating": 5,
+    "title": "Daily use champion",
+    "body": "Two months in, still our favourite breakfast bowl. Easy in the dishwasher, beautiful on the table.",
+    "verified_purchase": true,
+    "helpful_count": 18,
+    "created_at": "2026-03-22T10:00:00Z"
+  },
+  {
+    "id": "rev-003",
+    "product_id": "prd-001",
+    "vendor_id": "vnd-001",
+    "user_id": "usr-005",
+    "user_name": "Priya N.",
+    "rating": 4,
+    "title": "Bigger than expected",
+    "body": "Beautiful piece, but the 16cm felt larger than I'd guessed from the photos. I'd order one size down for kids.",
+    "verified_purchase": true,
+    "helpful_count": 7,
+    "created_at": "2026-02-14T14:00:00Z"
+  },
+  {
+    "id": "rev-004",
+    "product_id": "prd-004",
+    "vendor_id": "vnd-003",
+    "user_id": "usr-002",
+    "user_name": "Tomás Vega",
+    "rating": 5,
+    "title": "Will outlast every wallet I've owned",
+    "body": "Bridle leather is firm at first but breaks in beautifully. Stitching is impeccable. Bought one in chocolate after six weeks.",
+    "verified_purchase": true,
+    "helpful_count": 41,
+    "created_at": "2026-04-02T11:00:00Z"
+  },
+  {
+    "id": "rev-005",
+    "product_id": "prd-006",
+    "vendor_id": "vnd-004",
+    "user_id": "usr-003",
+    "user_name": "Aiko Takahashi",
+    "rating": 5,
+    "title": "Bergamot perfection",
+    "body": "Bright, jammy, with the floral notes North Pine promised. Roast date was 4 days before it arrived — could not be fresher.",
+    "verified_purchase": true,
+    "helpful_count": 32,
+    "created_at": "2026-04-12T09:00:00Z"
+  },
+  {
+    "id": "rev-006",
+    "product_id": "prd-003",
+    "vendor_id": "vnd-002",
+    "user_id": "usr-006",
+    "user_name": "Eleanor Pike",
+    "rating": 5,
+    "title": "Heirloom-quality",
+    "body": "Soft, weighty wool with a beautiful natural smell. Knowing it was woven by a women's cooperative made it feel even better.",
+    "verified_purchase": true,
+    "helpful_count": 16,
+    "created_at": "2026-03-28T16:00:00Z"
+  }
+]

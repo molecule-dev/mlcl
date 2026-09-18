@@ -1,0 +1,139 @@
+import { useEffect, useRef, useState } from 'react'
+
+import { useTranslation } from '@molecule/app-react'
+import { NotificationWrapper } from '@molecule/app-notification-badge-react'
+import { NotificationCenter } from '@molecule/app-notification-center-react'
+import type { NotificationItem } from '@molecule/app-notification-center-react'
+import { getClassMap } from '@molecule/app-ui'
+import { Button } from '@molecule/app-ui-react'
+
+type RawNotification = {
+  id: string
+  type: string
+  actor_name: string
+  subject_title: string
+  created_at: string
+  read_at: string | null
+}
+
+export function NotificationBellWidget({ userId }: { userId: string }) {
+  const { t } = useTranslation()
+  const cm = getClassMap()
+  const [items, setItems] = useState<RawNotification[]>([])
+  const [unread, setUnread] = useState(0)
+  const [open, setOpen] = useState(false)
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    fetch('/api/notifications')
+      .then((r) => r.json())
+      .then((p) => {
+        setItems(p.items)
+        setUnread(p.unread)
+      })
+
+    // Subscribe to THIS user's room. The room is the trailing path segment
+    // and must match the handlers' `broadcast(`user:${userId}`, …)` exactly —
+    // a mismatch (e.g. a literal `/api/realtime/me`) silently receives nothing.
+    const events = new EventSource(`/api/realtime/user:${userId}`)
+    events.addEventListener('notification:created', (e) => {
+      const n = JSON.parse((e as MessageEvent).data) as RawNotification
+      setItems((prev) => [n, ...prev])
+      setUnread((u) => u + 1)
+    })
+    events.addEventListener('notification:read', () => setUnread((u) => Math.max(0, u - 1)))
+    events.addEventListener('notification:all-read', () => setUnread(0))
+    return () => events.close()
+  }, [userId])
+
+  // Close panel when clicking outside
+  useEffect(() => {
+    if (!open) return
+    function handleClick(e: MouseEvent): void {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [open])
+
+  async function markRead(id: string): Promise<void> {
+    await fetch(`/api/notifications/${id}/read`, { method: 'POST' })
+    setItems((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read_at: new Date().toISOString() } : n)),
+    )
+  }
+
+  async function markAllRead(): Promise<void> {
+    await fetch('/api/notifications/mark-all-read', { method: 'POST' })
+    setUnread(0)
+    setItems((prev) => prev.map((n) => ({ ...n, read_at: n.read_at ?? new Date().toISOString() })))
+  }
+
+  const centerItems: NotificationItem[] = items.map((n) => ({
+    id: n.id,
+    title: t(
+      `notifications.${n.type}`,
+      { actor: n.actor_name, subject: n.subject_title },
+      {
+        defaultValue: `${n.actor_name} did something on "${n.subject_title}"`,
+      },
+    ),
+    timestamp: n.created_at,
+    read: n.read_at !== null,
+    onClick: () => {
+      void markRead(n.id)
+    },
+  }))
+
+  return (
+    <div className={cm.position('relative')} ref={panelRef} style={{ display: 'inline-block' }}>
+      {/* Bell icon button with unread count badge */}
+      <NotificationWrapper count={unread}>
+        <Button
+          variant="ghost"
+          size="sm"
+          aria-label={t(
+            'notifications.bellLabel',
+            { count: unread },
+            { defaultValue: 'Notifications ({{count}} unread)' },
+          )}
+          onClick={() => setOpen((o) => !o)}
+        >
+          {/* SVG bell icon — swap for an Icon component if your project has one */}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+        </Button>
+      </NotificationWrapper>
+
+      {/* Dropdown notification panel */}
+      {open && (
+        <div
+          className={cm.position('absolute')}
+          style={{ top: '100%', right: 0, zIndex: 50, marginTop: 8 }}
+        >
+          <NotificationCenter
+            items={centerItems}
+            onMarkAllRead={markAllRead}
+            emptyState={t('notifications.empty', undefined, {
+              defaultValue: "You're all caught up.",
+            })}
+          />
+        </div>
+      )}
+    </div>
+  )
+}

@@ -1,0 +1,16 @@
+Polish complete: 2026-04-30T00:43:19Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+App: video-editor (Rushes — Cut. Create. Captivate.)
+Cluster: creative-tools → sibling: animation-tool
+Components: 9 bespoke (ProjectThumbCard, RenderJobCard, RushesAuthShell,
+  RushesLayout, RushesWordmark, SettingsPanel, StatusPill, StudioStatTile,
+  TimelinePreview)
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)
+Material 3 tokens: complete
+Fonts (Inter + JetBrains Mono + Material Symbols Outlined): present in index.html
+Sweep 1 chrome: Header/Footer delegate to @molecule/app-{header,footer}-react;
+  RootErrorBoundary is 1-line re-export of @molecule/app-root-error-boundary-react
+Auth pages branded via shared RushesAuthShell with creative-gradient (#7c3aed → #ec4899)
+classmapCoveragePct: 96

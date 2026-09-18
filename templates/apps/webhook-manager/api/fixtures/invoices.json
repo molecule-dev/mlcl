@@ -1,0 +1,62 @@
+[
+  {
+    "id": "inv_2049",
+    "amount_cents": 24900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2026-04-01T00:00:00Z",
+    "paid_at": "2026-04-01T08:14:00Z",
+    "period_start": "2026-04-01",
+    "period_end": "2026-04-30"
+  },
+  {
+    "id": "inv_2018",
+    "amount_cents": 24900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2026-03-01T00:00:00Z",
+    "paid_at": "2026-03-01T07:42:00Z",
+    "period_start": "2026-03-01",
+    "period_end": "2026-03-31"
+  },
+  {
+    "id": "inv_1987",
+    "amount_cents": 24900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2026-02-01T00:00:00Z",
+    "paid_at": "2026-02-01T09:11:00Z",
+    "period_start": "2026-02-01",
+    "period_end": "2026-02-28"
+  },
+  {
+    "id": "inv_1956",
+    "amount_cents": 24900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2026-01-01T00:00:00Z",
+    "paid_at": "2026-01-01T10:30:00Z",
+    "period_start": "2026-01-01",
+    "period_end": "2026-01-31"
+  },
+  {
+    "id": "inv_1925",
+    "amount_cents": 19900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2025-12-01T00:00:00Z",
+    "paid_at": "2025-12-01T11:08:00Z",
+    "period_start": "2025-12-01",
+    "period_end": "2025-12-31"
+  },
+  {
+    "id": "inv_1894",
+    "amount_cents": 19900,
+    "currency": "USD",
+    "status": "paid",
+    "issued_at": "2025-11-01T00:00:00Z",
+    "paid_at": "2025-11-01T08:50:00Z",
+    "period_start": "2025-11-01",
+    "period_end": "2025-11-30"
+  }
+]

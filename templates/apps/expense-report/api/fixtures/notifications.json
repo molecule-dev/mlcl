@@ -1,0 +1,67 @@
+[
+  {
+    "id": "ntf-001",
+    "type": "approved",
+    "title": "Report approved",
+    "description": "Your April 2026 expense report was approved by Sarah Chen.",
+    "amount_cents": 79425,
+    "actor": "Sarah Chen",
+    "reportId": "rpt-2026-04",
+    "occurred_at": "2026-04-26T14:32:00Z",
+    "read": false
+  },
+  {
+    "id": "ntf-002",
+    "type": "policy",
+    "title": "Missing receipt",
+    "description": "Adobe Creative Cloud ($79.99) needs a receipt before it can be submitted.",
+    "amount_cents": null,
+    "actor": "System",
+    "reportId": "rpt-2026-04",
+    "occurred_at": "2026-04-25T09:15:00Z",
+    "read": false
+  },
+  {
+    "id": "ntf-003",
+    "type": "submitted",
+    "title": "Report submitted",
+    "description": "March 2026 expense report sent to Sarah Chen for approval.",
+    "amount_cents": 43210,
+    "actor": "You",
+    "reportId": "rpt-2026-03",
+    "occurred_at": "2026-04-04T11:02:00Z",
+    "read": true
+  },
+  {
+    "id": "ntf-004",
+    "type": "reimbursed",
+    "title": "Reimbursement deposited",
+    "description": "$432.10 from March report deposited to checking •••4521.",
+    "amount_cents": 43210,
+    "actor": "Payroll",
+    "reportId": "rpt-2026-03",
+    "occurred_at": "2026-04-09T08:00:00Z",
+    "read": true
+  },
+  {
+    "id": "ntf-005",
+    "type": "rejected",
+    "title": "Expense rejected",
+    "description": "AWS ($248.75) flagged as duplicate of exp-203. Please remove or contest.",
+    "amount_cents": 24875,
+    "actor": "Sarah Chen",
+    "reportId": "rpt-2026-03",
+    "occurred_at": "2026-04-07T16:45:00Z",
+    "read": true
+  },
+  {
+    "id": "ntf-006",
+    "type": "reminder",
+    "title": "Submit your April report",
+    "description": "April closes Friday — 6 expenses are still in draft.",
+    "amount_cents": null,
+    "actor": "System",
+    "occurred_at": "2026-04-27T07:00:00Z",
+    "read": false
+  }
+]

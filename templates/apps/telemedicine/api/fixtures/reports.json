@@ -1,0 +1,17 @@
+{
+  "vitals": {
+    "patient_count": 247,
+    "visits_today": 12,
+    "avg_rating": 4.8,
+    "pending_messages": 3,
+    "open_prescriptions": 47
+  },
+  "vitals-snapshot": [
+    { "label": "Blood pressure",  "value": "138/86",  "unit": "mmHg",  "state": "warn" },
+    { "label": "Heart rate",      "value": "78",      "unit": "bpm",   "state": "good" },
+    { "label": "SpO2",            "value": "98",      "unit": "%",     "state": "good" },
+    { "label": "Temp",            "value": "98.2",    "unit": "°F",    "state": "good" },
+    { "label": "Weight",          "value": "182",     "unit": "lb",    "state": "good" },
+    { "label": "BMI",             "value": "27.8",    "unit": "",      "state": "warn" }
+  ]
+}

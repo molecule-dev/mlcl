@@ -1,0 +1,139 @@
+{
+  "app": "banking-dashboard",
+  "designProjectId": "17280253066768390335",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-landing.html",
+      "designScreenId": "8b28b7db1dec4de9b9a482503f9ca94a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-login.html",
+      "designScreenId": "da9c764d2aa2490fae7eca6f59c63460"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-banking-dashboard-login.html",
+      "derivationNotes": "Same split layout as Login. Replace the form with First Name, Last Name, Email, Password, Confirm Password fields. Heading becomes 'Create your Meridian account'. Button text becomes 'Open Account'. Bottom link changes to 'Already have an account? Sign in'. Keep social auth ghost buttons."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-banking-dashboard-login.html",
+      "derivationNotes": "Same split layout as Login but with only email field. Heading becomes 'Reset your password' with subtext 'Enter your email to receive a reset link'. Button becomes 'Send Reset Link'. Bottom link becomes 'Back to Sign In'. No password field, no social auth."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-banking-dashboard-login.html",
+      "derivationNotes": "Same split layout as Login but with New Password and Confirm Password fields only. Heading becomes 'Set new password' with subtext 'Choose a strong password for your Meridian account.' Button becomes 'Reset Password'. Bottom link becomes 'Back to Sign In'. No email field, no social auth."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-dashboard.html",
+      "designScreenId": "efd2af0365e84779a660990dc9a43a6d"
+    },
+    {
+      "name": "Accounts",
+      "templateFile": "app/pages/Accounts.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/accounts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-accounts.html",
+      "designScreenId": "25c0e6f7f9444b6a910b655301da55d9"
+    },
+    {
+      "name": "AccountDetail",
+      "templateFile": "app/pages/AccountDetail.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/accounts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-account-detail.html",
+      "designScreenId": "d5cabce96941456784b2ad218c543b1e"
+    },
+    {
+      "name": "Transfers",
+      "templateFile": "app/pages/Transfers.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/transfers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-transfers.html",
+      "designScreenId": "98d83f71eb0d4f659c41e4ae0bd9b6b0"
+    },
+    {
+      "name": "Statements",
+      "templateFile": "app/pages/Statements.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/statements",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-statements.html",
+      "designScreenId": "e7e3515cc2ab489fa5f26ac3f5917291"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/audit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-audit-log.html",
+      "designScreenId": "81846e69d55140cf86f17aa7c1178228"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-settings.html",
+      "designScreenId": "62b2e26cedb0473cb440616851852a61"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/BankingDashboardLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-banking-dashboard-notifications.html",
+      "designScreenId": "8872bc6ff6bb4d7b87cd3b1c202b26d3"
+    }
+  ]
+}

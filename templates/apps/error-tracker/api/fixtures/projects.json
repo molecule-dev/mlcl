@@ -1,0 +1,35 @@
+[
+  {
+    "id": "proj-1",
+    "name": "checkout-web",
+    "slug": "checkout-web",
+    "platform": "javascript",
+    "environment": "production",
+    "issue_count": 47,
+    "users_affected": 821,
+    "last_event": "2026-04-27T15:58:30Z",
+    "team": "platform"
+  },
+  {
+    "id": "proj-2",
+    "name": "api-gateway",
+    "slug": "api-gateway",
+    "platform": "node",
+    "environment": "production",
+    "issue_count": 12,
+    "users_affected": 138,
+    "last_event": "2026-04-27T15:49:00Z",
+    "team": "platform"
+  },
+  {
+    "id": "proj-3",
+    "name": "mobile-ios",
+    "slug": "mobile-ios",
+    "platform": "swift",
+    "environment": "production",
+    "issue_count": 19,
+    "users_affected": 286,
+    "last_event": "2026-04-27T15:32:00Z",
+    "team": "mobile"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "d1",
+    "title": "Annual Lab Panel — April 2026",
+    "category": "lab_report",
+    "file_size": 462848,
+    "mime_type": "application/pdf",
+    "provider_name": "Dr. Patel",
+    "document_date": "2026-04-12",
+    "uploaded_at": "2026-04-14T15:00:00Z",
+    "is_encrypted": true,
+    "shared_with_count": 1
+  },
+  {
+    "id": "d2",
+    "title": "MRI — Lumbar spine (T2-weighted)",
+    "category": "imaging",
+    "file_size": 14680064,
+    "mime_type": "image/dicom",
+    "provider_name": "Mercy Imaging",
+    "document_date": "2026-03-26",
+    "uploaded_at": "2026-03-28T11:30:00Z",
+    "is_encrypted": true,
+    "shared_with_count": 0
+  },
+  {
+    "id": "d3",
+    "title": "Endocrinology Consultation Note",
+    "category": "referral",
+    "file_size": 184320,
+    "mime_type": "application/pdf",
+    "provider_name": "Dr. Chen",
+    "document_date": "2026-03-12",
+    "uploaded_at": "2026-03-12T09:15:00Z",
+    "is_encrypted": true,
+    "shared_with_count": 2
+  },
+  {
+    "id": "d4",
+    "title": "Prescription List — Brightcare",
+    "category": "prescription",
+    "file_size": 64512,
+    "mime_type": "application/pdf",
+    "provider_name": "Dr. Patel",
+    "document_date": "2026-03-04",
+    "uploaded_at": "2026-03-04T18:18:00Z",
+    "is_encrypted": true,
+    "shared_with_count": 1
+  }
+]

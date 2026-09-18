@@ -1,0 +1,140 @@
+{
+  "app": "blog",
+  "designProjectId": "381130489246385716",
+  "screens": [
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-analytics.html",
+      "designScreenId": "1c97628605f54ddaaf9a276325c30729"
+    },
+    {
+      "name": "Comments",
+      "templateFile": "app/pages/Comments.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/comments",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-comments.html",
+      "designScreenId": "10e8109fb9684400a3805c7975a298f1"
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-dashboard.html",
+      "designScreenId": "9f30b950de554199835db6c9823472a2"
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-blog-login.html",
+      "derivationNotes": "Same centered auth card layout as Login. Replace the form with a single email input field and a 'Send Reset Link' primary button. Remove the password field, 'Forgot password?' link, and social login options. Update the heading to 'Reset your password' and add a subtitle 'Enter your email and we'll send you a link to reset your password.' Add a 'Back to login' text link below the button."
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-blog-landing.html",
+      "designScreenId": "f53d55dccaa44c5ab42c85a596b8071d"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-blog-login.html",
+      "designScreenId": "526e4275efa14dcda98403736beea465"
+    },
+    {
+      "name": "PostDetail",
+      "templateFile": "app/pages/PostDetail.tsx",
+      "components": [],
+      "route": "/post/:id",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-blog-post-detail.html",
+      "designScreenId": "c41fcf1a518848af915b5695cddad9aa"
+    },
+    {
+      "name": "PostEditor",
+      "templateFile": "app/pages/PostEditor.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/posts/new",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-post-editor.html",
+      "designScreenId": "de0ca60f54a9453ea338ea85de7b640f"
+    },
+    {
+      "name": "PostList",
+      "templateFile": "app/pages/PostList.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/posts",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-post-list.html",
+      "designScreenId": "fa7ebdbe237948fa82c6df69e8275c93"
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-blog-login.html",
+      "derivationNotes": "Same centered auth card layout as Login. Replace the form with two fields: 'New password' and 'Confirm new password' (both password inputs with show/hide toggles). Primary button reads 'Reset Password'. Remove email field, social login, and sign-up link. Heading: 'Set new password'. Subtitle: 'Your new password must be at least 8 characters.' Add a success state card that shows after submission with a checkmark icon and 'Password updated — go to login' CTA."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-blog-settings.html",
+      "designScreenId": "cd172487ea5f49da81da7b37159ad3b1"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-blog-login.html",
+      "derivationNotes": "Same centered auth card layout as Login. Extend the form with an additional 'Full name' text input at the top and a 'Confirm password' field after the password field. Update heading to 'Create your account' and primary button to 'Create account'. Change the footer link to 'Already have an account? Log in'. Keep social sign-in options (Google, GitHub) with updated label 'Sign up with Google / GitHub'."
+    },
+    {
+      "name": "Tags",
+      "templateFile": "app/pages/Tags.tsx",
+      "components": ["app/components/BlogLayout.tsx"],
+      "route": "/tags",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-blog-tags.html",
+      "designScreenId": "38fac0310ab54f70ae843b521232b2bb",
+      "generationPrompt": "Tags management page for WriteFlow blog platform. Left sidebar navigation (240px, active Tags item highlighted indigo), top header with 'Tags' title and '+ New Tag' button. Stats row: Total Tags (18), Tagged Posts (47), Most Used tag. Search bar with filter dropdown. Tags table with columns: Tag (colored badge chip), Slug (monospace), Posts count with bar indicator, Created date, Actions (edit/delete). Sample tags: technology (indigo), design (pink), programming (green), writing (amber), tutorial (blue), productivity (purple), javascript (yellow), css (teal). Create/Edit Tag modal with name input, auto-slug, color swatch picker, badge preview. Pagination showing 1-8 of 18. Light mode, Inter font, indigo #4f46e5 accent, rounded corners, WriteFlow design system."
+    }
+  ]
+}

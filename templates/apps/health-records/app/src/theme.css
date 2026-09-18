@@ -1,0 +1,187 @@
+/*
+ * Meridian — clinical, trustworthy, precise.
+ * Brand teal (#0f766e) + indigo accent on a near-white surface ladder.
+ *
+ * Material 3 derivative tokens (--color-on-*, --color-*-container,
+ * --color-surface-container-*) are filled by index.css using
+ * color-mix() against these base tokens.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #14b8a6;
+  --mol-color-primary-dark: #0d5f58;
+  --mol-color-secondary: #4f46e5; /* darkened from #6366f1 — white text was 4.47:1 (fail); #4f46e5 = 6.29:1 */
+  --mol-color-secondary-light: #818cf8;
+  --mol-color-secondary-dark: #3730a3;
+
+  /* Semantic — clinical statuses (in-range, abnormal, caution, overdue) */
+  --mol-color-success: #16a34a;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #d97706;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #6366f1;
+  --mol-color-info-light: #ede9fe;
+
+  /* Surfaces — soft teal-tinted near-whites */
+  --mol-color-background: #f0fdfa;
+  --mol-color-background-secondary: #e6fffb;
+  --mol-color-background-tertiary: #d6f5f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fffe;
+  --mol-color-input-background: #ffffff;
+
+  /* Text */
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #475569; /* was #64748b (4.3:1 on #f4f4f5 cards); slate-600 = 6.9:1 */
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Borders */
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0f766e;
+
+  /* Clinical-domain tokens — referenced by bespoke components */
+  --color-clinical-normal: #16a34a;
+  --color-clinical-normal-bg: #dcfce7;
+  --color-clinical-abnormal: #dc2626;
+  --color-clinical-abnormal-bg: #fee2e2;
+  --color-clinical-caution: #d97706;
+  --color-clinical-caution-bg: #fef3c7;
+  --color-clinical-overdue: #ea580c;
+  --color-clinical-overdue-bg: #fff7ed;
+  --color-clinical-confidential: #7c3aed;
+  --color-clinical-confidential-bg: #ede9fe;
+  --color-clinical-inactive: #6b7280;
+  --color-clinical-inactive-bg: #f3f4f6;
+
+  /* Permission badge tokens */
+  --color-perm-owner: #0f766e;
+  --color-perm-caregiver: #6366f1;
+  --color-perm-provider: #16a34a;
+  --color-perm-readonly: #6b7280;
+
+  /* Clinical font for lab values + vitals */
+  --mol-font-mono: 'SF Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Hero card dark background — deep navy-teal, looks great on light too */
+  --color-hero-bg: #0f2937;
+  --color-hero-bg-gradient-end: #134e4a;
+}
+
+/* Dark mode — Meridian clinical warm-neutral dark.
+   Health-domain near-black with subtle teal warmth (calm/trustworthy, not
+   cold like a tech dashboard). Brand teal kept at brand stop (#0f766e) for
+   accents/links; surface borders use a touch of brand warmth.
+   `--color-on-primary` STAYS white so teal CTAs keep their light-on-teal
+   character. Clinical semantic tokens preserved with brighter tones. */
+[data-mol-mode='dark'] {
+  /* Brand — keep teal primary at brand stop for accents/links */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #14b8a6;
+  --mol-color-primary-dark: #0d5f58;
+  --mol-color-secondary: #818cf8;
+  --mol-color-secondary-light: #a5b4fc;
+  --mol-color-secondary-dark: #6366f1;
+
+  /* Semantic — brighter for dark contrast */
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #a5b4fc;
+  --mol-color-info-light: #1e1b4b;
+
+  /* Surfaces — warm-neutral near-black with subtle teal warmth */
+  --mol-color-background: #0d1413;
+  --mol-color-background-secondary: #131c1b;
+  --mol-color-background-tertiary: #1b2625;
+  --mol-color-surface: #131c1b;
+  --mol-color-surface-secondary: #1b2625;
+  --mol-color-input-background: #0a1010;
+
+  /* Text — tiered for legibility */
+  --mol-color-text: #f1f5f4;
+  --mol-color-text-secondary: #a6b3b0;
+  --mol-color-text-tertiary: #7c8986;
+  --mol-color-text-inverse: #0d1413;
+
+  /* Borders — lifted off bg with subtle teal warmth */
+  --mol-color-border: #263331;
+  --mol-color-border-secondary: #364442;
+  --mol-color-border-focus: #0f766e;
+
+  /* Clinical-domain tokens — preserve semantics */
+  --color-clinical-normal: #4ade80;
+  --color-clinical-normal-bg: #14532d;
+  --color-clinical-abnormal: #f87171;
+  --color-clinical-abnormal-bg: #450a0a;
+  --color-clinical-caution: #fbbf24;
+  --color-clinical-caution-bg: #422006;
+  --color-clinical-overdue: #fb923c;
+  --color-clinical-overdue-bg: #431407;
+  --color-clinical-confidential: #a78bfa;
+  --color-clinical-confidential-bg: #2e1065;
+  --color-clinical-inactive: #94a3b8;
+  --color-clinical-inactive-bg: #1f2937;
+
+  /* Permission badges — brand teal stays */
+  --color-perm-owner: #0f766e;
+  --color-perm-caregiver: #818cf8;
+  --color-perm-provider: #4ade80;
+  --color-perm-readonly: #94a3b8;
+
+  /* @theme bridge — flip bg-* / text-* tokens cleanly. Brand teal at brand
+     stop; CTA buttons keep white text on teal: on-primary stays white. */
+  --color-primary: #0f766e; /* keep brand teal at brand stop */
+  --color-on-primary: #ffffff; /* white on teal — readable in both modes */
+  --color-primary-container: #134e4a;
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #818cf8;
+  --color-on-secondary: #0d1413;
+  --color-secondary-container: #1e1b4b;
+  --color-on-secondary-container: #c7d2fe;
+  --color-tertiary: #4ade80;
+  --color-tertiary-container: #14532d;
+  --color-on-tertiary: #0d1413;
+  --color-on-tertiary-container: #bbf7d0;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on bright red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-inverse-surface: #f1f5f4;
+  --color-inverse-on-surface: #0d1413;
+  --color-inverse-primary: #0f766e;
+  --color-background: #0d1413;
+  --color-on-background: #f1f5f4;
+  --color-surface: #131c1b;
+  --color-surface-bright: #263331;
+  --color-surface-dim: #080d0c;
+  --color-surface-container-lowest: #050908;
+  --color-surface-container-low: #101817;
+  --color-surface-container: #131c1b;
+  --color-surface-container-high: #1b2625;
+  --color-surface-container-highest: #263331;
+  --color-surface-variant: #1b2625;
+  --color-on-surface: #f1f5f4;
+  --color-on-surface-variant: #a6b3b0;
+  --color-outline: #5a6967;
+  --color-outline-variant: #263331;
+  --color-surface-tint: #0f766e;
+
+  /* Hero card — slightly brighter in dark mode so it reads against near-black bg */
+  --color-hero-bg: #132028;
+  --color-hero-bg-gradient-end: #1a3a35;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

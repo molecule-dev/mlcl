@@ -1,0 +1,12 @@
+Polish complete: 2026-04-29T22:35:00Z
+Pipeline: polish-app.md operating manual
+App: news-aggregator → "Vantage" (every angle, one view)
+Cluster: content-social → polished sibling: blog (with banking-dashboard chrome reference)
+Components: 7 bespoke (NewsAggregatorLayout, AuthBrandHeader, StoryHeroCard, StoryListItem, TopicChipsRow, BiasIndicator, SourceCard)
+Pages: Landing, Login, Signup, ForgotPassword, ResetPassword, Home, Topics, TopicDetail, StoryDetail, Sources, SourceDetail, Saved, Search, Settings (14/14 screen-map routes wired)
+Material 3 tokens filled: yes (48 derivatives via fill-material3-tokens.mjs)
+Fonts: Inter + Material Symbols Outlined + Playfair Display headlines (already injected)
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegate to @molecule/app-{header,footer,root-error-boundary}-react
+Compliance: clean except 1 classmap-coverage at 76.7% (decorative gradients + frosted glass; threshold 80%)
+Screen-map coverage: 14/14
+classmap coverage (file-based): 94%

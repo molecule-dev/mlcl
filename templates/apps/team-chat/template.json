@@ -1,0 +1,101 @@
+{
+  "label": "Team Chat",
+  "description": "Slack-like workspace chat with channels, threads, reactions, file sharing, and integrations \u2014 including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+  "cluster": "communication",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-permissions-custom",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-resource-activity-feed",
+    "@molecule/api-resource-notification",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-command-palette",
+    "@molecule/app-file-upload",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/app-markdown",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-shell-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Team Chat"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for file uploads",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for email notifications",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    },
+    "MEILISEARCH_URL": {
+      "description": "MeiliSearch URL",
+      "default": "http://localhost:7700"
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications"
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_TEAM_CHAT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_TEAM_CHAT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_TEAM_CHAT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_TEAM_CHAT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "chat",
+  "features": [
+    "auth",
+    "realtime",
+    "search",
+    "notifications",
+    "file-upload",
+    "threads",
+    "subscriptions"
+  ]
+}

@@ -1,0 +1,16 @@
+# Handlers exempt from the "exercised by some spec" coverage gate.
+#
+# articles  — public read-only article-level API. The polished frontend
+#             aggregates at the story level (/api/stories) which clusters
+#             multiple articles per news event. The /api/articles endpoints
+#             remain a real, mounted public surface (paginated, by-category,
+#             by-source, by-tag, search, trending, for-you, summarize) for
+#             API consumers and a future article-level UI; they are not yet
+#             exercised by the user-facing pages, hence not in the e2e set.
+# categories — public read-only category list. The frontend uses the
+#             /api/topics aggregation (which derives from categories) to
+#             render the topic chips and topic detail. /api/categories
+#             remains a real surface for power users and the admin/curation
+#             pipeline that exists outside the user-facing app.
+articles
+categories

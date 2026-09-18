@@ -1,0 +1,9 @@
+[
+  { "id": "world", "slug": "world", "label": "World", "icon": "public", "tint": "world", "story_count": 24, "average_bias": -0.05, "accent_color": "#0a7e8c" },
+  { "id": "business", "slug": "business", "label": "Business", "icon": "trending_up", "tint": "business", "story_count": 18, "average_bias": 0.18, "accent_color": "#059669" },
+  { "id": "tech", "slug": "tech", "label": "Tech", "icon": "memory", "tint": "tech", "story_count": 31, "average_bias": -0.1, "accent_color": "#3b82f6" },
+  { "id": "science", "slug": "science", "label": "Science", "icon": "science", "tint": "science", "story_count": 9, "average_bias": -0.08, "accent_color": "#8b5cf6" },
+  { "id": "sports", "slug": "sports", "label": "Sports", "icon": "sports_basketball", "tint": "sports", "story_count": 14, "average_bias": 0.02, "accent_color": "#f59e0b" },
+  { "id": "culture", "slug": "culture", "label": "Culture", "icon": "theater_comedy", "tint": "culture", "story_count": 11, "average_bias": -0.22, "accent_color": "#e07428" },
+  { "id": "entertainment", "slug": "entertainment", "label": "Entertainment", "icon": "movie", "tint": "entertainment", "story_count": 16, "average_bias": -0.12, "accent_color": "#ec4899" }
+]

@@ -1,0 +1,173 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Supersede, don't stack. Without this, every push starts a full build + test run
+# that goes to completion even after newer commits have landed, so several run at
+# once and all but the last answer a question nobody is asking any more. Only the
+# newest commit's result is meaningful. Nothing here publishes or deploys, so
+# there is no irreversible work to protect — cancel freely.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Builds against the PUBLISHED @molecule/* packages, from the npm registry —
+  # the same topology every consumer has (sandboxes since 2026-08-05, molecule-dev
+  # CI + the API image since 2026-08-07). The file:../molecule pins this job once
+  # linked were repinned to registry versions on 2026-08-07; a molecule source
+  # change reaches mlcl by being PUBLISHED, per the workspace release doctrine.
+  #
+  # The molecule CHECKOUT below is still required — as DATA, never as code:
+  # docs:check:ci regenerates README.md via ts-morph over molecule SOURCE, and
+  # npm test's toolchain-drift gate compares registry.json against molecule's
+  # manifests. Nothing installs or compiles the monorepo here any more.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out mlcl
+        uses: actions/checkout@v4
+        with:
+          path: mlcl
+      - name: Check out molecule (DATA for docs:check:ci + the toolchain gate)
+        uses: actions/checkout@v4
+        with:
+          repository: molecule-dev/molecule
+          path: molecule
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mlcl/package-lock.json
+      # @molecule/* install from the npm registry via the committed lockfile —
+      # no molecule install, no fleet build.
+      - run: npm ci
+        working-directory: mlcl
+      - run: npm run build
+        working-directory: mlcl
+      # Fail if any flagship's CATALOG.md is stale vs its template files. These docs
+      # are injected into the AI selection + executor prompts, so a stale one
+      # silently feeds builds wrong info. Regenerate with `npm run gen:template-catalog`.
+      - run: npm run gen:template-catalog:check
+        working-directory: mlcl
+      # Fail if a template's e2e specs name that template's own demo data. The
+      # specs ship to the user verbatim and the user replaces the demo content,
+      # so a spec that asserts on a seeded row's name fails on a CORRECT app.
+      # Pure file reading — no build, no molecule checkout, <1s.
+      - run: npm run verify:template-e2e-demo-data
+        working-directory: mlcl
+      # Fail if any package's README.md differs from what the generator produces.
+      # README.md is 100% generated, but the only thing that regenerated it was
+      # molecule's pre-commit hook — which regenerates the STAGED packages that are
+      # in registry.json. A brand-new package is registered in a LATER commit than
+      # the one adding its files, so its hand-written README sailed through, and the
+      # drift surfaced days later as an unrelated `format:check` failure in molecule's
+      # CI. Needs the molecule checkout above, which is why it lives in this job.
+      #
+      # :ci runs the ~919-package ts-morph sweep ONLY when a generator input moved
+      # (registry.json, the docs-* / api-extractor sources) — the changes that alter
+      # output for packages nobody touched. Per-package source edits are already
+      # covered by the pre-commit regeneration, so the sweep would find nothing.
+      # ~0s on a typical commit, minutes when it can actually matter. It reports the
+      # skip out loud: a gate whose "pass" and "did not run" look alike is exactly
+      # the failure catalogued in docs/gate-blind-spots-2026-08-06.md.
+      - run: npm run docs:check:ci
+        working-directory: mlcl
+      # `npm test` includes the toolchain-drift test, which fails if registry.json
+      # toolchain versions diverge from the pinned deps — a dep-consistency gate.
+      # With the molecule sibling present it now enforces the fleet↔molecule half
+      # too, instead of skipping it for want of a checkout.
+      - run: npm test
+        working-directory: mlcl
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+
+  # Security scanning (SEC3) — the same secure-by-default gates mlcl scaffolds
+  # into every generated project, applied to mlcl itself.
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Fail on a moderate-or-higher dependency advisory.
+      - run: npm audit --audit-level=moderate
+      # Working-tree secret scan via gitleaks (Docker on the runner — no
+      # marketplace-action license needed). `--no-git` catches a leaked
+      # credential in an open PR before it is merged.
+      - name: Scan for committed secrets (gitleaks)
+        run: >-
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:latest
+          detect --source=/repo --no-git --redact --verbose
+
+  # Cross-repo registry export-drift gate. registry.json (in THIS repo) records
+  # each package's exports, but the source of truth lives in the SEPARATE molecule
+  # repo — which this repo's other jobs never check out, so an export change there
+  # drifts registry.json silently. This job checks out BOTH repos as siblings and
+  # runs the export-drift check.
+  #
+  # Pre-MVP note: nothing is published to npm yet, so an mlcl-only checkout cannot
+  # `tsc -b` (staging.ts imports unpublished @molecule type packages). The export
+  # check is therefore run via tsx against SOURCE — its scanner subgraph imports no
+  # @molecule/* packages, so it needs no build and no published deps. (The broader
+  # `registry:check` — also tables/toolchain/frameworks — needs a full build and
+  # belongs in CI once packages are published; locally it already works.)
+  #
+  # Inert until enabled, so it can't break CI before its switch is set. To turn it
+  # on, add this repo's Settings → Secrets and variables → Actions → Variables:
+  #   • Variable  REGISTRY_SYNC_CHECK = true
+  # molecule is a PUBLIC repo, so NO token/secret is needed — the default
+  # GITHUB_TOKEN checks it out anonymously. (If it were private, you'd add a
+  # `token:` to the molecule checkout pointing at a read-only Contents PAT secret.)
+  registry-sync:
+    if: ${{ vars.REGISTRY_SYNC_CHECK == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out mlcl
+        uses: actions/checkout@v4
+        with:
+          path: mlcl
+      - name: Check out molecule (public export source of truth — no token needed)
+        uses: actions/checkout@v4
+        with:
+          repository: molecule-dev/molecule
+          path: molecule
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mlcl/package-lock.json
+      - run: npm ci
+        working-directory: mlcl
+      # No build: the export check runs via tsx against source (see note above).
+      # molecule is a SOURCE-only checkout — the scan reads its .ts/.tsx directly.
+      - name: Check registry exports are in sync with molecule sources
+        working-directory: mlcl
+        env:
+          MOLECULE_PACKAGES_DIR: ${{ github.workspace }}/molecule/packages
+        run: npm run verify:registry-exports
+      # Version-split gates with the molecule sibling PRESENT: the standalone
+      # `build` job's `npm test` runs these too, but the fleet↔molecule gate
+      # skips gracefully there (no sibling checkout). Here it enforces — a dep
+      # bump that sweeps molecule but not the templates/registry (the
+      # 2026-08-01 custom-app blank-preview class) fails this step.
+      - name: Version-split gates (fleet ↔ molecule ↔ registry)
+        working-directory: mlcl
+        run: npx vitest run src/lib/__tests__/toolchain.test.ts

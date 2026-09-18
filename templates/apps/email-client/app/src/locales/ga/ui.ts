@@ -1,0 +1,170 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Brabhsáil ailt chabhrach',
+  'about.cta.signup': 'Bain triail as Courier saor in aisce',
+  'about.eyebrow': 'Maidir le Courier',
+  'about.principle.calm': 'Socair de réir réamhshocraithe.',
+  'about.principle.calm.desc':
+    'Gan suaitheantais ag béicíl, gan fógraí nár iarr tú, gan beochan a éilíonn súil ghéar a chaitheamh.',
+  'about.principle.fast.desc':
+    'Tá gach gníomh le brú eochrach amháin. Lódálann an bosca isteach i níos lú ná 200ms ar shíniú isteach úr.',
+  'about.principle.honest.desc':
+    'Criptiú le linn iompair agus i riocht sosa, coinneáil thrédhearcach, agus easpórtáil sonraí le cliceáil amháin.',
+  'about.story': 'Cén fáth ar thógamar Courier',
+  'about.story.p1':
+    'Déanann formhór na gcliant ríomhphoist an obair is fearr le haghaidh rannpháirtíochta — tú a tharraingt siar, d’aird a roinnt ina ilchodanna, agus tapáil eile a mholadh. Déanann Courier a mhalairt. Déanaimid rath a thomhas de réir an ama a chaitheann tú NACH bhfuil i do bhosca isteach: déan iarracht an obair a thriail go tapa, cuir do chuid oibre ar athló le muinín, agus lean ar aghaidh leis an obair is tábhachtaí.',
+  'about.subtitle':
+    'Is bosca isteach socair trí phainéal é Courier atá tógtha ag foireann bheag a bhí ag iarraidh faisnéis a phróiseáil seachas freagairt di.',
+  'about.team.body':
+    'Is foireann scaipthe dearthóirí agus innealtóirí muid a chaith an iomarca uaireanta an chloig gach lá i mbosca poist glórach tráth. Is é Courier an bosca isteach a theastaigh uainn féin a úsáid.',
+  'about.title': 'Ríomhphost le haghaidh oibre dírithe',
+  'help.cta.about': 'Maidir le Courier',
+  'help.cta.pricing': 'Féach ar phraghsáil',
+  'help.eyebrow': 'Ionad cabhrach',
+  'help.faq.compose.a':
+    'Cliceáil \\u201CScum\\u201D ón mbarra taoibh (nó brúigh \\u201Cc\\u201D ar aon radharc bosca isteach), cuir isteach faighteoir amháin ar a laghad, ábhar, agus corp, agus brúigh \\u201CSend\\u201D. Feictear an teachtaireacht nua i do fhillteán Seolta láithreach.',
+  'help.faq.compose.q': 'Conas a sheolfaidh mé mo chéad teachtaireacht?',
+  'help.faq.export.a':
+    'Sea. Cruthaíonn Socruithe \\u2192 Cuntas \\u2192 Easpórtáil Sonraí cartlann in-íoslódáilte (mbox + JSON) le gach teachtaireacht, lipéad agus teagmhálaí. Níl aon leibhéal préimhe ag teastáil.',
+  'help.faq.labels.a':
+    'Bíonn fillteáin eisiacha (bíonn teachtaireacht i gceann amháin go díreach): Bosca Isteach, Seolta, Dréachtaí, Turscar, Bruscar, Cartlann. Bíonn lipéid breiseánacha agus is féidir leat go leor acu a chur i bhfeidhm ar ríomhphost amháin agus scagadh a dhéanamh de réir teaglaim ón mbarra cuardaigh.',
+  'help.faq.password.a':
+    'Úsáid an nasc \\u201CAn ndearna tú dearmad ar do phasfhocal?\\u201D ar an leathanach logála isteach. Seolfaimid nasc athshocraithe atá bailí ar feadh uair an chloig chuig ríomhphost do chuntais.',
+  'help.faq.shortcuts.a':
+    'Sea. Bogann \\u201Cj\\u201D / \\u201Ck\\u201D idir snáitheanna, lascann \\u201Cs\\u201D réalta, cartlannaíonn \\u201C#\\u201D go dtí an bruscar, agus díríonn \\u201C/\\u201D an bosca cuardaigh. Maireann doiciméadacht aicearraí ag aon radharc bosca isteach trí bhrú ar \\u201C?\\u201D.',
+  'help.faq.support.a':
+    "Seol ríomhphost chuig support@courier.example. Freagraímid gach teachtaireacht laistigh d'aon lá gnó amháin, laethanta na seachtaine 9\\u201317 UTC.",
+  'help.subtitle':
+    'Freagraí gasta ar na ceisteanna is mó a chloisimid. An bhfuil aon rud ar iarraidh? Oscail Socruithe agus bain úsáid as an bhfoirm aiseolais san aip, nó scríobh chuig support@courier.example.',
+  'help.title': 'Conas is féidir linn cabhrú?',
+  'landing.brand.scrollTop': 'Ar ais go barr',
+  'landing.ctaBody':
+    'Bí i do bhall de na mílte gairmí a chríochnaigh a mbosca isteach roimh an lón.',
+  'landing.ctaTitle': 'Próiseáil níos mó, imoibrigh níos lú.',
+  'landing.eyebrow': 'Ríomhphost le haghaidh oibre dírithe',
+  'landing.featuresBody': 'Stop ag bainistiú do bhosca isteach agus tosaigh ag déanamh oibre.',
+  'landing.featuresTitle': 'Deartha le haghaidh oibre domhain',
+  'landing.help': 'Cabhair',
+  'landing.heroDemo': 'Féach ar an taispeántas',
+  'landing.heroSubtitle':
+    'Is bosca isteach socair trí phainéal é Courier atá deartha d’oibrithe eolais ar mian leo faisnéis a phróiseáil, ní freagairt di.',
+  'landing.proof': 'Muinín ag foirne dírithe ar fud an domhain',
+  'landing.signIn': 'Sínigh isteach',
+  'meridian.archive.empty': 'Tá an chartlann folamh.',
+  'meridian.compose.addRecipient': 'Cuir faighteoir eile leis',
+  'meridian.compose.bodyPlaceholder': 'Scríobh do theachtaireacht…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@sampla.com',
+  'meridian.compose.discard': 'Scrios an dréacht',
+  'meridian.compose.invalidEmail': '" {{value}} "ní ríomhphost bailí é',
+  'meridian.compose.needRecipient': 'Cuir faighteoir amháin ar a laghad leis ar dtús.',
+  'meridian.compose.replyTo': 'Freagra sa snáithe {{id}}',
+  'meridian.compose.savedAt': 'Dréacht sábháilte ag {{time}}',
+  'meridian.compose.subject': 'Ábhar',
+  'meridian.compose.subjectPlaceholder': 'Ábhar',
+  'meridian.compose.title': 'Teachtaireacht nua',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Lean ar aghaidh ag eagarthóireacht',
+  'meridian.drafts.count': '{{count}} teachtaireachtaí',
+  'meridian.drafts.delete': 'Scrios dréacht',
+  'meridian.drafts.empty': 'Gan aon dréachtaí fós — tosaigh ag scríobh.',
+  'meridian.drafts.lastSaved': 'Sábháilte {{at}}',
+  'meridian.drafts.noRecipients': '(gan aon fhaighteoirí fós)',
+  'meridian.drafts.selectDraft': 'Roghnaigh dréacht le réamhamharc a dhéanamh air.',
+  'meridian.drafts.title': 'Dréachtaí',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Dréacht',
+  'meridian.folder.count': '{{count}} teachtaireachtaí',
+  'meridian.folder.deleteForever': 'Scrios go buan',
+  'meridian.folder.restore': 'Bog chuig an mbosca isteach',
+  'meridian.forgot.subtitle':
+    'Cuir isteach an seoladh ríomhphoist atá nasctha le do bhosca isteach agus seolfaimid nasc athshocraithe chugat.',
+  'meridian.forgot.success':
+    'Má tá cuntas leis an seoladh ríomhphoist sin ann, tá nasc athshocraithe ar an mbealach.',
+  'meridian.inbox.empty': 'Níl aon teachtaireachtaí anseo go fóill.',
+  'meridian.inbox.loading': 'Ag lódáil…',
+  'meridian.inbox.next': 'Ar Aghaidh',
+  'meridian.inbox.noSubject': '(gan ábhar)',
+  'meridian.inbox.openCompose': 'Oscail an chumadóireacht',
+  'meridian.inbox.previous': 'Roimhe Seo',
+  'meridian.inbox.replySent': 'Freagra seolta.',
+  'meridian.inbox.replyTo': 'Freagra a thabhairt ar {{name}}',
+  'meridian.inbox.selectMessage': 'Roghnaigh teachtaireacht le léamh',
+  'meridian.inbox.spam': 'Turscar',
+  'meridian.inbox.viewThread': 'Féach ar an snáithe',
+  'meridian.login.hidePassword': 'Folaigh an focal faire',
+  'meridian.login.noAccount': 'Nach bhfuil cuntas agat?',
+  'meridian.login.showPassword': 'Taispeáin an focal faire',
+  'meridian.message.toLine': 'go {{recipients}}',
+  'meridian.notFound.eyebrow': 'Earráid 404',
+  'meridian.notFound.title': 'Cartlannaíodh an snáithe seo.',
+  'meridian.notFound.toInbox': 'Oscail mo bhosca isteach',
+  'meridian.reset.newLabel': 'Pasfhocal nua',
+  'meridian.reset.showPassword': 'Taispeáin an focal faire',
+  'meridian.reset.subtitle': 'Roghnaigh pasfhocal láidir — 8 gcarachtar ar a laghad.',
+  'meridian.sent.empty': 'Níl aon rud seolta agat fós.',
+  'meridian.sent.title': 'Seolta',
+  'meridian.settings.noName': '(níl aon ainm socraithe)',
+  'meridian.settings.section.${section}': 'Saincheap do {{Ainm an Aipe}} taithí',
+  'meridian.settings.signature': 'Síniú',
+  'meridian.settings.signatureSaved': 'Síniú sábháilte.',
+  'meridian.sidebar.compose': 'Cum',
+  'meridian.sidebar.labels': 'Lipéid',
+  'meridian.sidebar.noLabels': 'Gan aon lipéid fós',
+  'meridian.sidebar.storage': 'Stóráil',
+  'meridian.sidebar.storageLabel': '{{used}} de {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Cruthaigh do bhosca isteach Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Taispeáin an focal faire',
+  'meridian.signup.subtitle': 'Próiseáil do bhosca isteach roimh an lón.',
+  'meridian.spam.empty': 'Gan aon turscar.',
+  'meridian.spam.title': 'Turscar',
+  'meridian.starred.empty': 'Gan aon teachtaireachtaí le réalta.',
+  'meridian.starred.loading': 'Ag lódáil…',
+  'meridian.starred.removeStar': 'Bain réalta',
+  'meridian.starred.total': '{{count}} iomlán',
+  'meridian.thread.back': 'Ar ais chuig an mBosca Isteach',
+  'meridian.thread.empty': 'Níl aon teachtaireachtaí sa snáithe seo.',
+  'meridian.thread.eyebrow': 'Snáithe # {{id}}',
+  'meridian.thread.notFound': 'Snáithe gan aimsiú.',
+  'meridian.thread.star': 'Cuir réalta leis',
+  'meridian.thread.unstar': 'Bain réalta',
+  'meridian.time.yesterday': 'Inné',
+  'meridian.topBar.searchPlaceholder': 'Cuardaigh ríomhphost',
+  'meridian.trash.empty': 'Tá an bruscar folamh.',
+  'meridian.trash.title': 'Bruscar',
+  'nav.legal': 'Dlíthiúil',
+  'planUpdated.description':
+    'Tá do shíntiús gníomhach anois agus tá do bhilleáil nuashonraithe. Fáilte romhat chuig do bhosca isteach Courier athnuaite.',
+  'pricing.heading': 'dréachtaí',
+  'pricing.limit.emails': 'ríomhphoist',
+  'pricing.limit.folders': 'fillteáin',
+  'pricing.limit.labels': 'lipéid',
+  'privacy.collect.account':
+    'Sonraí cuntais: ainm, seoladh ríomhphoist, pasfhocal hasháilte, agus an dáta ar chláraigh tú.',
+  'privacy.intro':
+    'Míníonn an polasaí príobháideachais seo na sonraí a bhailíonn Courier, cén fáth a bhailímid iad, conas a choinnímid slán iad, agus na roghanna atá agat maidir leo. Tá sé mar aidhm againn a bheith sonrach seachas dlíthiúil; mura bhfuil aon rud soiléir, scríobh chuig privacy@courier.example.',
+  'privacy.lastUpdated': 'Nuashonraithe go deireanach: 1 Aibreán, 2026',
+  'privacy.linkTerms': 'Léigh ár dTéarmaí Seirbhíse \\u2192',
+  'privacy.rights.body':
+    'Is féidir leat gach píosa sonraí atá againn fút a easpórtáil ó Socruithe → Cuntas → Easpórtáil sonraí, agus is féidir leat do chuntas a scriosadh le cliceáil amháin — scriostar na sraitheanna go léir laistigh de 24 uair an chloig, agus glantar na logaí iniúchta tar éis 30 lá.',
+  'privacy.security.body':
+    "Criptítear ábhar agus ceangaltáin ríomhphoist nuair a bhíonn siad i bhfostú ag baint úsáide as AES-256. Úsáideann naisc chuig agus ónár seirbhís TLS 1.3. Déantar pasfhocail a hasháil le bcrypt; ní logálann ná ní stórálaimid pasfhocail théacs simplí riamh. Tá rochtain táirgeachta teoranta d'innealtóirí ar glao, agus déantar iniúchadh míosúil orthu.",
+  'privacy.share.body':
+    'Ní roinnimid sonraí ach leis na fophróiseálaithe a theastaíonn uainn chun Courier a rith (seachadadh ríomhphoist trí Mailgun, billeáil trí Stripe, óstáil trí AWS). Tá oibleagáid chonarthach ar gach duine acu do shonraí a úsáid chun a seirbhís féin a chur i gcrích dúinn amháin. Ní dhíolaimid, ní ligeann muid ar cíos ná ní thrádálaimid do shonraí le duine ar bith.',
+  'terms.acceptable.spam':
+    'Gan teachtaireachtaí mórchóir gan iarraidh. Dúnfaimid cuntais a sheolann turscar gan rabhadh.',
+  'terms.account.body':
+    'Tá tú freagrach as rúndacht do phasfhocail a choinneáil agus as aon ghníomhaíocht a tharlaíonn trí do chuntas. Cuir in iúl dúinn ag security@courier.example má chreideann tú go bhfuil do chuntas curtha i mbaol.',
+  'terms.billing.body':
+    'Athnuaitear pleananna íoctha ag an luas a roghnaíodh ag an gclárú. Is féidir leat cealú ó Socruithe → Billeáil ag am ar bith agus coinníonn tú rochtain don chuid eile den tréimhse billeála. Eisítear aisíocaíochtaí le haghaidh am neamhfhónaimh seirbhíse a sháraíonn an SLA.',
+  'terms.intro':
+    'Rialaíonn na téarmaí seo d’úsáid Courier. Trí chuntas a chruthú nó ríomhphost a sheoladh chugainn, aontaíonn tú a bheith faoi cheangal acu. Déanaimid iarracht rialacha a scríobh ar féidir le duine a leanúint i ndáiríre.',
+  'terms.lastUpdated': 'Éifeachtach: 1 Aibreán, 2026',
+  'terms.termination.body':
+    'Féadfaidh tú do chuntas a scriosadh tráth ar bith. Féadfaimid cuntas a sháraíonn na téarmaí seo a chur ar fionraí; má dhéanaimid amhlaidh, míneoimid an chúis agus ligfimid duit do shonraí a easpórtáil ar dtús.',
+  'terms.warranty.body':
+    'Cuirtear an tseirbhís ar fáil mar atá. Déanaimid ár ndícheall chun í a choinneáil iontaofa agus slán, ach ní féidir linn rochtain gan bhriseadh a ráthú. A mhéid a cheadaítear faoin dlí, tá ár ndliteanas comhiomlán teoranta don mhéid a d’íoc tú linn sna 12 mhí roimhe sin.',
+}

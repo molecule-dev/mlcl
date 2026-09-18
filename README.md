@@ -1,0 +1,521 @@
+# mlcl — the Molecule.dev CLI
+
+Scaffold and manage production full-stack apps from hundreds of composable,
+swappable `@molecule/*` packages.
+
+`mlcl create` gives you a real, conventional TypeScript project — Express API,
+React app, database with migrations, auth, i18n — not a toy. Every capability
+is a package behind a **bond** (a swappable provider interface), so you can
+change PostgreSQL for MySQL, Mailgun for SES, or one OAuth provider for
+another by changing one wiring file, not rewriting your app.
+
+- **Start from a working app**: 130+ flagship templates (blog, CRM, team chat,
+  online store, …) — real screens, real handlers, real data models.
+- **Stay decoupled**: cores define interfaces; bonds implement them. Your code
+  talks to `bond('email')`, never to a vendor SDK.
+- **Own everything**: the output is plain TypeScript you can read, edit, and
+  deploy anywhere. Apache-2.0 packages; your app is yours.
+
+## Quickstart
+
+```bash
+npx mlcl create my-app --template blog --no-interactive
+cd my-app
+npm run dev
+```
+
+Or build exactly the stack you want:
+
+```bash
+npx mlcl create my-api \
+  --type api \
+  --packages @molecule/api-database-postgresql,@molecule/api-resource-user \
+  --no-interactive
+```
+
+Discover what exists before you write it:
+
+```bash
+mlcl search payments        # find packages by capability
+mlcl templates              # list flagship templates
+```
+
+Then grow the project package by package:
+
+```bash
+mlcl add @molecule/api-emails-mailgun --inject   # install + wire the bond
+mlcl swap database postgresql mysql              # swap a provider
+```
+
+See [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md) for using
+`mlcl` in an app you already have.
+
+## For AI agents
+
+`mlcl` is designed to be driven by coding agents (Claude Code, Codex, Cursor,
+Pi, …) as much as by humans:
+
+- **Non-interactive by flag** — every prompt has a flag; `--no-interactive`
+  with `--type`/`--packages`/`--template` runs start to finish unattended.
+- **`--json` on core commands** — machine-readable results for scripting and
+  tool use.
+- **`mlcl search` / `mlcl templates`** — discover packages and templates
+  without scraping docs.
+- **LLM-oriented docs** — every `@molecule/*` package on npm carries a
+  generated README describing its API and wiring; the full catalog is at
+  <https://www.molecule.dev/llms.txt> and <https://www.molecule.dev/llms-full.txt>.
+- **Scaffolded projects carry an AGENTS.md** — your agent gets the project's
+  conventions (bonds, ClassMap styling, handler patterns) in context on open.
+
+A minimal agent workflow:
+
+```bash
+npx mlcl search auth --json
+npx mlcl create my-app --type full-stack --framework react \
+  --packages @molecule/api-database-postgresql,@molecule/app-auth \
+  --no-interactive --json
+```
+
+## Requirements
+
+- Node.js ≥ 22
+
+## Documentation
+
+- [Molecule.dev](https://www.molecule.dev) — what the platform is
+- [Package catalog](https://www.molecule.dev/packages) — every `@molecule/*` package
+- [Templates](https://www.molecule.dev/templates) — the flagship app gallery
+- [Integrating into an existing app](docs/INTEGRATE-EXISTING-APP.md)
+
+<!-- usage -->
+```sh-session
+$ npm install -g mlcl
+$ mlcl COMMAND
+running command...
+$ mlcl (--version)
+mlcl/2.0.0 linux-arm64 node-v25.9.0
+$ mlcl --help [COMMAND]
+USAGE
+  $ mlcl COMMAND
+...
+```
+<!-- usagestop -->
+
+<!-- commands -->
+* [`mlcl add MOLECULE`](#mlcl-add-molecule)
+* [`mlcl create [NAME]`](#mlcl-create-name)
+* [`mlcl help [COMMAND]`](#mlcl-help-command)
+* [`mlcl init`](#mlcl-init)
+* [`mlcl inject`](#mlcl-inject)
+* [`mlcl search QUERY`](#mlcl-search-query)
+* [`mlcl stage down`](#mlcl-stage-down)
+* [`mlcl stage list`](#mlcl-stage-list)
+* [`mlcl stage logs`](#mlcl-stage-logs)
+* [`mlcl stage status [SLUG]`](#mlcl-stage-status-slug)
+* [`mlcl stage up`](#mlcl-stage-up)
+* [`mlcl swap MOLECULE`](#mlcl-swap-molecule)
+* [`mlcl templates`](#mlcl-templates)
+* [`mlcl validate`](#mlcl-validate)
+
+## `mlcl add MOLECULE`
+
+Add a molecule package to your project
+
+```
+USAGE
+  $ mlcl add MOLECULE [--no-install] [-D] [--inject]
+
+ARGUMENTS
+  MOLECULE  Molecule package name
+
+FLAGS
+  -D, --dev         Add as dev dependency
+      --inject      Run mlcl inject immediately after adding (installs + wires the package)
+      --no-install  Skip npm install
+
+DESCRIPTION
+  Add a molecule package to your project
+
+EXAMPLES
+  $ mlcl add @molecule/api-resource-user
+
+  $ mlcl add @molecule/api-oauth-github --no-install
+
+  $ mlcl add @molecule/api-emails-mailgun --inject
+```
+
+_See code: [src/commands/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/add.ts)_
+
+## `mlcl create [NAME]`
+
+Create a new project
+
+```
+USAGE
+  $ mlcl create [NAME] [--skip-install] [--type api|app|full-stack|static|status-page|status-page-edge]
+    [--framework <value>] [--packages <value>] [--theme <value>] [--no-interactive] [--json] [--template <value>]
+
+ARGUMENTS
+  [NAME]  Project name
+
+FLAGS
+  --framework=<value>  Frontend framework (app only)
+  --json               Print a machine-readable JSON result instead of progress output (implies --no-interactive)
+  --no-interactive     Run without interactive prompts (requires --type and name arg)
+  --packages=<value>   Comma-separated list of @molecule package names to include
+  --skip-install       Skip npm install
+  --template=<value>   App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available
+                       templates.
+  --theme=<value>      Theme preset name (e.g. liquid-glass)
+  --type=<option>      Project type (api, app, or full-stack)
+                       <options: api|app|full-stack|static|status-page|status-page-edge>
+
+DESCRIPTION
+  Create a new project
+
+EXAMPLES
+  $ mlcl create my-app
+
+  $ mlcl create my-app --skip-install
+
+  $ mlcl create my-api --type api --packages @molecule/api-database-postgresql,@molecule/api-resource-user --no-interactive
+
+  $ mlcl create my-app --type app --framework react --packages @molecule/app-state-zustand --no-interactive
+
+  $ mlcl create my-project --type full-stack --framework react --packages @molecule/api-database-postgresql,@molecule/app-auth --no-interactive
+```
+
+_See code: [src/commands/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/create.ts)_
+
+## `mlcl help [COMMAND]`
+
+Display help for mlcl.
+
+```
+USAGE
+  $ mlcl help [COMMAND...] [-n]
+
+ARGUMENTS
+  [COMMAND...]  Command to show help for.
+
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for mlcl.
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/6.2.55/src/commands/help.ts)_
+
+## `mlcl init`
+
+Initialize a new molecule package
+
+```
+USAGE
+  $ mlcl init [-n <value>] [-t
+    core|provider|resource|middleware|utility|infrastructure|framework|feature|native] [-c <value>] [-d <value>] [-s
+    api|app] [--implements <value>] [--label <value>] [--interactive] [-f] [--dir <value>]
+
+FLAGS
+  -c, --category=<value>     Feature category (e.g., database, payments, email, cache, ai)
+  -d, --description=<value>  Package description
+  -f, --force                Overwrite existing files
+  -n, --name=<value>         Package name (without @molecule/ prefix)
+  -s, --stack=<option>       Stack: api (backend) or app (frontend)
+                             <options: api|app>
+  -t, --type=<option>        Package type
+                             <options:
+                             core|provider|resource|middleware|utility|infrastructure|framework|feature|native>
+      --dir=<value>          Target directory (default: cwd)
+      --implements=<value>   Core interface this provider implements (e.g., @molecule/api-cache)
+      --[no-]interactive     Interactive mode (default: true)
+      --label=<value>        Human-readable label for UI
+
+DESCRIPTION
+  Initialize a new molecule package
+
+EXAMPLES
+  $ mlcl init
+
+  $ mlcl init --name api-ai --type core --description "AI provider interface"
+
+  $ mlcl init --name api-cache-redis --type provider --category cache --description "Redis cache" --implements @molecule/api-cache --no-interactive
+```
+
+_See code: [src/commands/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/init.ts)_
+
+## `mlcl inject`
+
+Execute molecule injection with preview
+
+```
+USAGE
+  $ mlcl inject [--dry-run] [-f] [-m <value>] [-p <value>] [--install] [--test] [--format] [--ai]
+
+FLAGS
+  -f, --force             Overwrite existing files and skip confirmation prompts
+  -m, --molecule=<value>  Specific molecule to inject
+  -p, --path=<value>      [default: .] Path to the project
+      --[no-]ai           Use AI for code generation (falls back to heuristics when disabled)
+      --dry-run           Show what would be done without making changes
+      --[no-]format       Format generated code with Prettier
+      --[no-]install      Run npm install after injection
+      --[no-]test         Run smoke tests after injection
+
+DESCRIPTION
+  Execute molecule injection with preview
+
+EXAMPLES
+  $ mlcl inject
+
+  $ mlcl inject --dry-run
+
+  $ mlcl inject -m @molecule/api-resource-user
+
+  $ mlcl inject --no-install
+```
+
+_See code: [src/commands/inject.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/inject.ts)_
+
+## `mlcl search QUERY`
+
+Search @molecule/* packages by name or capability (e.g. "payments", "social login", "file uploads")
+
+```
+USAGE
+  $ mlcl search QUERY [--stack api|app] [--limit <value>] [--json]
+
+ARGUMENTS
+  QUERY  Search query
+
+FLAGS
+  --json            Output machine-readable JSON (one array of hits)
+  --limit=<value>   [default: 20] Maximum number of results
+  --stack=<option>  Restrict to one stack
+                    <options: api|app>
+
+DESCRIPTION
+  Search @molecule/* packages by name or capability (e.g. "payments", "social login", "file uploads")
+
+EXAMPLES
+  $ mlcl search payments
+
+  $ mlcl search "send emails" --stack api
+
+  $ mlcl search database --json
+```
+
+_See code: [src/commands/search.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/search.ts)_
+
+## `mlcl stage down`
+
+Tear down a staging environment
+
+```
+USAGE
+  $ mlcl stage down [-b <value>] [--all] [-f] [-p <value>]
+
+FLAGS
+  -b, --branch=<value>        Branch name or slug to tear down (defaults to current branch)
+  -f, --force                 Skip confirmation prompt
+  -p, --project-path=<value>  [default: .] Path to the project root
+      --all                   Tear down all staging environments
+
+DESCRIPTION
+  Tear down a staging environment
+
+EXAMPLES
+  $ mlcl stage down
+
+  $ mlcl stage down --branch feature/login
+
+  $ mlcl stage down --all
+```
+
+_See code: [src/commands/stage/down.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/down.ts)_
+
+## `mlcl stage list`
+
+List all active staging environments
+
+```
+USAGE
+  $ mlcl stage list [--json] [-p <value>]
+
+FLAGS
+  -p, --project-path=<value>  [default: .] Path to the project root
+      --json                  Output as JSON
+
+DESCRIPTION
+  List all active staging environments
+
+EXAMPLES
+  $ mlcl stage list
+
+  $ mlcl stage list --json
+```
+
+_See code: [src/commands/stage/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/list.ts)_
+
+## `mlcl stage logs`
+
+View logs from a staging environment
+
+```
+USAGE
+  $ mlcl stage logs [-s api|app|db|all] [-n <value>] [-b <value>] [-p <value>]
+
+FLAGS
+  -b, --branch=<value>        Branch name or slug (defaults to current branch)
+  -n, --tail=<value>          [default: 100] Number of lines to show
+  -p, --project-path=<value>  [default: .] Path to the project root
+  -s, --service=<option>      [default: all] Service to view logs for
+                              <options: api|app|db|all>
+
+DESCRIPTION
+  View logs from a staging environment
+
+EXAMPLES
+  $ mlcl stage logs
+
+  $ mlcl stage logs --service api --tail 50
+
+  $ mlcl stage logs -b feature/login
+```
+
+_See code: [src/commands/stage/logs.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/logs.ts)_
+
+## `mlcl stage status [SLUG]`
+
+Show detailed status of a staging environment
+
+```
+USAGE
+  $ mlcl stage status [SLUG] [-p <value>]
+
+ARGUMENTS
+  [SLUG]  Branch name or slug (defaults to current branch)
+
+FLAGS
+  -p, --project-path=<value>  [default: .] Path to the project root
+
+DESCRIPTION
+  Show detailed status of a staging environment
+
+EXAMPLES
+  $ mlcl stage status
+
+  $ mlcl stage status feat-login
+```
+
+_See code: [src/commands/stage/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/status.ts)_
+
+## `mlcl stage up`
+
+Deploy a staging environment for the current branch
+
+```
+USAGE
+  $ mlcl stage up [-b <value>] [-d <value>] [--skip-build] [-p <value>]
+
+FLAGS
+  -b, --branch=<value>        Branch name (defaults to current git branch)
+  -d, --driver=<value>        Staging driver to use (defaults to first available)
+  -p, --project-path=<value>  [default: .] Path to the project root
+      --skip-build            Skip building before deploying
+
+DESCRIPTION
+  Deploy a staging environment for the current branch
+
+EXAMPLES
+  $ mlcl stage up
+
+  $ mlcl stage up --branch feature/login
+
+  $ mlcl stage up --skip-build
+```
+
+_See code: [src/commands/stage/up.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/up.ts)_
+
+## `mlcl swap MOLECULE`
+
+Swap a molecule provider for another implementing the same interface
+
+```
+USAGE
+  $ mlcl swap MOLECULE [-r <value>] [--no-interactive] [--install] [--format]
+
+ARGUMENTS
+  MOLECULE  New molecule provider to swap in
+
+FLAGS
+  -r, --replace=<value>  Specific provider to replace (for multi-provider categories)
+      --[no-]format      Run prettier after swap
+      --[no-]install     Run npm install after swap
+      --no-interactive   Skip confirmation prompt
+
+DESCRIPTION
+  Swap a molecule provider for another implementing the same interface
+
+EXAMPLES
+  $ mlcl swap @molecule/app-icons-lucide
+
+  $ mlcl swap @molecule/api-database-mysql --no-interactive
+
+  $ mlcl swap @molecule/api-oauth-apple --replace @molecule/api-oauth-github
+```
+
+_See code: [src/commands/swap.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/swap.ts)_
+
+## `mlcl templates`
+
+List flagship app templates for mlcl create --template <slug> (blog, crm, team-chat, …)
+
+```
+USAGE
+  $ mlcl templates [--json]
+
+FLAGS
+  --json  Output machine-readable JSON
+
+DESCRIPTION
+  List flagship app templates for mlcl create --template <slug> (blog, crm, team-chat, …)
+
+EXAMPLES
+  $ mlcl templates
+
+  $ mlcl templates --json
+```
+
+_See code: [src/commands/templates.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/templates.ts)_
+
+## `mlcl validate`
+
+Validate a molecule package structure and conventions
+
+```
+USAGE
+  $ mlcl validate [-p <value>] [--json]
+
+FLAGS
+  -p, --path=<value>  [default: .] Path to the molecule package
+      --json          Output results as JSON
+
+DESCRIPTION
+  Validate a molecule package structure and conventions
+
+EXAMPLES
+  $ mlcl validate
+
+  $ mlcl validate --path /path/to/molecule
+
+  $ mlcl validate --json
+```
+
+_See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/validate.ts)_
+<!-- commandsstop -->
+
+## License
+
+Apache-2.0 © [Molecule Dev, Inc.](https://molecule.dev)

@@ -1,0 +1,8 @@
+[
+  { "symbol": "btc",   "name": "Bitcoin",   "price_usd": 68421.18, "change_24h_pct":  2.18, "market_cap_usd": 1342000000000, "added_at": "2026-04-21T08:00:00Z" },
+  { "symbol": "eth",   "name": "Ethereum",  "price_usd":  3812.42, "change_24h_pct":  1.94, "market_cap_usd":  458000000000, "added_at": "2026-04-19T14:30:00Z" },
+  { "symbol": "sol",   "name": "Solana",    "price_usd":   184.21, "change_24h_pct":  4.18, "market_cap_usd":   86200000000, "added_at": "2026-04-15T09:18:00Z" },
+  { "symbol": "link",  "name": "Chainlink", "price_usd":    18.42, "change_24h_pct":  3.18, "market_cap_usd":   11200000000, "added_at": "2026-04-10T13:24:00Z" },
+  { "symbol": "ada",   "name": "Cardano",   "price_usd":     0.48, "change_24h_pct":  1.42, "market_cap_usd":   17400000000, "added_at": "2026-04-08T11:50:00Z" },
+  { "symbol": "matic", "name": "Polygon",   "price_usd":     0.72, "change_24h_pct": -1.84, "market_cap_usd":    7100000000, "added_at": "2026-04-04T19:42:00Z" }
+]

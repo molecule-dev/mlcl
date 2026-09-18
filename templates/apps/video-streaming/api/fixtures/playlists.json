@@ -1,0 +1,8 @@
+[
+  { "id": "pl-1", "title": "Watch Later", "description": "Saved videos you haven't gotten to yet. Sorted newest-first.", "video_count": 24, "duration_minutes": 612, "cover_index": 0, "category": "personal", "created_by": "you" },
+  { "id": "pl-2", "title": "Documentary night", "description": "Long-form docs queued up for slow Sundays.", "video_count": 18, "duration_minutes": 1240, "cover_index": 3, "category": "personal", "created_by": "you" },
+  { "id": "pl-3", "title": "Inspiration board", "description": "Creator workflow tours, behind-the-scenes, and gear talks.", "video_count": 32, "duration_minutes": 488, "cover_index": 1, "category": "personal", "created_by": "you" },
+  { "id": "pl-4", "title": "Trending: documentary", "description": "Top-watched documentaries on Spool this week.", "video_count": 12, "duration_minutes": 296, "cover_index": 4, "category": "featured", "created_by": "Spool Editorial" },
+  { "id": "pl-5", "title": "Indie creator spotlights", "description": "New solo creators to watch, picked by the editorial team.", "video_count": 16, "duration_minutes": 188, "cover_index": 6, "category": "featured", "created_by": "Spool Editorial" },
+  { "id": "pl-6", "title": "Synth & hardware", "description": "Modular builds, MIDI rigs, and field-recording walkthroughs.", "video_count": 28, "duration_minutes": 524, "cover_index": 5, "category": "featured", "created_by": "Spool Editorial" }
+]

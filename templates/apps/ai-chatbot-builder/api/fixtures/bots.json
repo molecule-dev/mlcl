@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "name": "Customer Support Bot",
+    "icon": "support_agent",
+    "iconBgClass": "bg-primary/10 text-primary border-2 border-primary/5",
+    "status": "online",
+    "description": "Handles customer inquiries 24/7 across multiple channels with instant resolution capabilities.",
+    "conversations": 1247,
+    "satisfaction": 4.5,
+    "updatedAt": "2h ago"
+  },
+  {
+    "id": "2",
+    "name": "Sales Assistant",
+    "icon": "trending_up",
+    "iconBgClass": "bg-secondary-container/30 text-secondary border-2 border-secondary/5",
+    "status": "online",
+    "description": "Qualifies leads and books demos by identifying intent and matching with sales reps.",
+    "conversations": 342,
+    "satisfaction": 4.2,
+    "updatedAt": "5h ago"
+  },
+  {
+    "id": "3",
+    "name": "FAQ Bot",
+    "icon": "quiz",
+    "iconBgClass": "bg-surface-dim text-on-surface-variant border-2 border-outline-variant/10",
+    "status": "offline",
+    "description": "Answers common product questions and directs users to relevant help center articles.",
+    "conversations": 89,
+    "satisfaction": 3.8,
+    "updatedAt": "1d ago"
+  },
+  {
+    "id": "4",
+    "name": "Onboarding Guide",
+    "icon": "explore",
+    "iconBgClass": "bg-tertiary-fixed-dim/20 text-tertiary border-2 border-tertiary/5",
+    "status": "online",
+    "description": "Guides new users through setup process and helps them achieve their first aha moment.",
+    "conversations": 56,
+    "satisfaction": 4.7,
+    "updatedAt": "4h ago"
+  },
+  {
+    "id": "5",
+    "name": "HR Assistant",
+    "icon": "person",
+    "iconBgClass": "bg-secondary-container/30 text-secondary border-2 border-secondary/5",
+    "status": "online",
+    "description": "Assists employees with HR-related queries, leave requests, and policy lookups around the clock.",
+    "conversations": 178,
+    "satisfaction": 4.3,
+    "updatedAt": "3h ago"
+  },
+  {
+    "id": "6",
+    "name": "IT Helpdesk Bot",
+    "icon": "build",
+    "iconBgClass": "bg-surface-dim text-on-surface-variant border-2 border-outline-variant/10",
+    "status": "offline",
+    "description": "Handles common IT support tickets and guides users through step-by-step troubleshooting flows.",
+    "conversations": 234,
+    "satisfaction": 4,
+    "updatedAt": "2d ago"
+  }
+]

@@ -1,0 +1,50 @@
+/**
+ * Swahili — Sera ya Faragha.
+ *
+ * Maudhui yanawekwa tofauti na tafsiri za kiolesura
+ * cha mtumiaji ili yaweze kudumishwa kwa uhuru. Thamani
+ * ni mfuatano wa HTML unaoonyeshwa kupitia innerHTML
+ * katika dirisha la modali la sehemu ya chini.
+ */
+
+import type { PrivacyPolicyContent } from '../types.js'
+
+export const privacyPolicy: PrivacyPolicyContent = {
+  'content.privacyPolicy': `
+    <p><strong>Kwa muhtasari: Hatukufuatilii kwa njia yoyote. Hatushiriki wala kuuza taarifa zako. Tunatumia taarifa za mawasiliano unazotupa kwa hiari kuwasiliana nawe na kukutumia taarifa kuhusu {{appName}}.</strong></p>
+    <p>Katika {{appName}}, tunathamini faragha ya wageni wetu. Hati hii ya Sera ya Faragha ina aina za taarifa zinazokusanywa na kurekodwa na {{appName}} na jinsi tunavyozitumia.</p>
+    <p>Ikiwa una maswali ya ziada au unahitaji taarifa zaidi kuhusu Sera yetu ya Faragha, usisite kuwasiliana nasi.</p>
+    <p>Sera hii ya Faragha inatumika tu kwa shughuli zetu za mtandaoni na ni halali kwa wageni wa tovuti yetu kuhusiana na taarifa walizoshiriki na/au kukusanya katika {{appName}}. Sera hii haitumiki kwa taarifa yoyote iliyokusanywa nje ya mtandao au kupitia njia nyingine zaidi ya tovuti hii.</p>
+    <h2>Idhini</h2>
+    <p>Kwa kutumia tovuti yetu, unakubali Sera yetu ya Faragha na unakubaliana na masharti yake.</p>
+    <h2>Taarifa tunazokusanya</h2>
+    <p>Kutoa taarifa za kibinafsi ni hiari kabisa. Ni juu yako kabisa.</p>
+    <p>Taarifa za kibinafsi unazoombiwa kutoa, na sababu kwa nini unaombwa kuzitoa, zitafanywa wazi kwako wakati tunapokuomba kutoa taarifa zako za kibinafsi.</p>
+    <p>Ukituwasiliana moja kwa moja, tunaweza kupokea taarifa za ziada kukuhusu kama vile jina lako, anwani ya barua pepe, nambari ya simu, maudhui ya ujumbe na/au viambatisho unavyoweza kututumia, na taarifa nyingine yoyote unayoweza kuchagua kutoa.</p>
+    <p>Unapojisajili kwa Akaunti, tunaweza kukuomba taarifa zako za mawasiliano, ikiwa ni pamoja na vitu kama jina, anwani ya barua pepe, nambari ya simu, jina la kampuni, na anwani.</p>
+    <h2>Jinsi tunavyotumia taarifa zako</h2>
+    <p>Ukichagua kutoa taarifa zako za kibinafsi, zinaweza kutumika kwa yafuatayo:</p>
+    <ul>
+      <li>Ubinafsishaji ndani ya programu</li>
+      <li>Kuwasiliana nawe, ikiwa ni pamoja na huduma kwa wateja, kukupa sasisho na taarifa nyingine zinazohusiana na tovuti, na kwa madhumuni ya masoko na utangazaji</li>
+      <li>Kukutumia barua pepe</li>
+      <li>Kuzuia ulaghai</li>
+    </ul>
+    <h2>Faili za Kumbukumbu</h2>
+    <p>API inafuata taratibu za kawaida za kurekodi. Taarifa zinazorekodiwa ni pamoja na anwani za itifaki ya mtandao (IP), aina za kivinjari (mawakala wa mtumiaji), mihuri ya tarehe na wakati, na kurasa za rufaa/kutoka. Hizi hazihusishwi na taarifa yoyote inayoweza kutambulisha mtu binafsi. Madhumuni ya taarifa hii ni kwa utatuzi wa hitilafu, usalama, na kudumisha tovuti ikiendelea kufanya kazi.</p>
+    <h2>Vidakuzi</h2>
+    <p>Programu inatumia kidakuzi kimoja cha kivinjari kukuweka umeingia kwa usalama kwa maombi yanayotumwa kwa API.</p>
+    <p>Hatutumii vidakuzi kufuatilia tabia ya watumiaji.</p>
+    <p>Hatutumii wala kuruhusu vidakuzi au hati zozote za wahusika wa tatu.</p>
+    <h2>Haki za Ulinzi wa Data za GDPR</h2>
+    <p>Kila mtumiaji ana haki ya yafuatayo:</p>
+    <p>Haki ya ufikiaji – Una haki ya kuomba nakala za data yako ya kibinafsi.</p>
+    <p>Haki ya kusahihisha – Una haki ya kuomba tusahihishe taarifa yoyote unayoamini si sahihi. Pia una haki ya kuomba tukamilishe taarifa unayoamini haijakamilika.</p>
+    <p>Haki ya kufutwa – Una haki ya kuomba tufute data yako ya kibinafsi.</p>
+    <p>Haki ya kuzuia usindikaji – Una haki ya kuomba tuzuie usindikaji wa data yako ya kibinafsi.</p>
+    <p>Haki ya kupinga usindikaji – Una haki ya kupinga usindikaji wetu wa data yako ya kibinafsi.</p>
+    <p>Haki ya uhamishaji wa data – Una haki ya kuomba tuhamisha data tuliyokusanya kwa shirika lingine, au moja kwa moja kwako.</p>
+    <p>Ukitoa ombi, tuna mwezi mmoja wa kukujibu. Ikiwa ungependa kutumia haki yoyote kati ya hizi, tafadhali wasiliana nasi.</p>
+    <h2>Taarifa za Watoto</h2>
+    <p>{{appName}} haikukusanyi kwa makusudi Taarifa Yoyote ya Kitambulisho cha Kibinafsi kutoka kwa watoto walio chini ya umri wa miaka 13. Ikiwa unafikiri mtoto wako alitoa aina hii ya taarifa kwenye tovuti yetu, tunakuhimiza sana uwasiliane nasi mara moja na tutajitahidi kadri tuwezavyo kuondoa taarifa kama hizo haraka kutoka kwenye rekodi zetu.</p>`,
+}

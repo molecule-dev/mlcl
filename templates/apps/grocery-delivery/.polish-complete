@@ -1,0 +1,13 @@
+Polish complete: 2026-04-28T13:21:00Z
+Pipeline: polish-app.md via parallel polish-remaining-fleet driver (resumed
+  after prior batch crash; partial work was stashed and started fresh)
+Cluster: ecommerce / delivery → polished sibling: food-delivery
+Components: 5 bespoke (AuthBrandHeader, BushelHero, CategoryStrip,
+  FeaturedProductsGrid, OrderSummaryCard)
+Pages rewritten: Landing, Shop, Cart, OrderConfirmation
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (catalog §13.7)
+Chrome conformance: Header/Footer delegate to @molecule/app-{header,footer}-react
+Material 3 tokens filled: yes (chore in 674ef050)
+Fonts loaded: yes (Inter + DM Sans + JetBrains Mono + Material Symbols)
+Screen-map coverage: 15/15
+Compliance: 1 classmap-coverage violation (decorative gradients/blur — under ≤4 threshold)

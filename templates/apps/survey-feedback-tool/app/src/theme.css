@@ -1,0 +1,234 @@
+/*
+ * Gauge — survey / feedback tool brand tokens.
+ *
+ * Primary indigo (#5b4ee4) + coral accent (#f06050) per DESIGN.md.
+ * Light + dark variants. Material 3 derivatives are computed from
+ * --color-primary etc. inside index.css.
+ */
+
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* ── Provider bridge tokens (mol-color-* fed into @theme via index.css) ── */
+  --mol-color-primary: #4f42d8; /* #5b4ee4 was 4.38:1 on the bg-primary/15 chip tint (fail); #4f42d8 = 5.38:1, same indigo */
+  --mol-color-primary-light: #ededff;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #f06050;
+  --mol-color-success: #047857; /* #10b981 was 2.53:1 as small text on white (fail); #047857 = 5.48:1 */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #6366f1;
+  --mol-color-background: #f8f7ff;
+  --mol-color-background-secondary: #f8f7ff;
+  --mol-color-background-tertiary: #f5f4fb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f7ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #e5e4f0;
+  --mol-color-border-secondary: #d4d3e0;
+  --mol-color-border-focus: #5b4ee4;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  --color-primary: #4f42d8; /* matches --mol-color-primary contrast fix */
+  --color-primary-hover: #7366f0;
+  --color-primary-light: #ededff;
+  --color-primary-dark: #4338ca;
+
+  --color-secondary: #f06050;
+  --color-secondary-hover: #f47868;
+  --color-secondary-dark: #d94a3a;
+
+  --color-success: #047857; /* matches --mol-color-success contrast fix */
+  --color-success-light: #d1fae5;
+  --color-on-success: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-on-warning: #78350f;
+  --color-danger: #ef4444;
+  --color-error: #ef4444;
+  --color-error-light: #fee2e2;
+  --color-on-error: #7f1d1d; /* dark maroon on red — 5.72:1 vs #ef4444 */
+  --color-info: #6366f1;
+
+  /* App-specific category/notification accent tokens */
+  --color-accent-purple: #5b21b6;
+  --color-accent-purple-bg: #ededff;
+
+  --color-bg: #ffffff;
+  --color-background: #f8f7ff;
+  --color-bg-secondary: #f8f7ff;
+  --color-bg-tertiary: #f5f4fb;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8f7ff;
+
+  --color-border: #e5e4f0;
+  --color-border-secondary: #d4d3e0;
+  --color-border-focus: #5b4ee4;
+
+  --color-text: #1e1b4b;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #94a3b8;
+  --color-text-neutral: #374151;
+
+  /* Stitch / Material-3 @theme light tokens */
+  --color-on-background: #1e1b4b;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #4a4869;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8e7f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8f7ff;
+  --color-surface-container: #f5f4fb;
+  --color-surface-container-high: #ededff;
+  --color-surface-container-highest: #e5e4f0;
+  --color-surface-variant: #f5f4fb;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #f5f3ff;
+  --color-inverse-primary: #dbe0ff;
+  --color-primary-container: #ededff;
+  --color-on-primary: #ffffff; /* white on indigo #5b4ee4 — 4.54:1 */
+  --color-on-primary-container: #1e1b4b; /* dark on light lavender — 11.3:1 */
+  --color-secondary-container: #fee2e2;
+  --color-on-secondary: #3b0a06; /* dark on coral #f06050 — 8.1:1 ≥ 4.5:1 */
+  --color-on-secondary-container: #7f1d1d;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff; /* white on violet #7c3aed — 4.54:1 */
+  --color-on-tertiary-container: #2e1065; /* dark on light violet — 10.6:1 */
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #767390; /* #767390 on #ffffff = 4.54:1 ≥ 3:1 outline */
+  --color-outline-variant: #d4d3e0;
+  --color-surface-tint: #5b4ee4;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 2rem;
+  --sidebar-width: 16rem;
+}
+
+/* Dark mode — Gauge indigo+coral productivity dark.
+   Cool neutral indigo-tinted near-black surfaces. Brand indigo preserved
+   at brand stop; CTA buttons keep white text. Coral accent stays warm
+   for emphasis. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #4f42d8; /* #5b4ee4 was 4.38:1 on the bg-primary/15 chip tint (fail); #4f42d8 = 5.38:1, same indigo */
+  --mol-color-primary-light: #1e1b4b;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #0c0a18;
+  --mol-color-background-secondary: #15122a;
+  --mol-color-background-tertiary: #1e1b4b;
+  --mol-color-surface: #0c0a18;
+  --mol-color-surface-secondary: #15122a;
+  --mol-color-input-background: #08061a;
+  --mol-color-text: #f5f3ff;
+  --mol-color-text-secondary: #c4c0e0;
+  --mol-color-text-tertiary: #8a86a8;
+  --mol-color-text-inverse: #0c0a18;
+  --mol-color-border: #2a2550;
+  --mol-color-border-secondary: #3a3470;
+  --mol-color-border-focus: #5b4ee4;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* App-specific aliases — indigo+coral survey shell */
+  --color-primary: #4f42d8; /* matches --mol-color-primary contrast fix */
+  --color-primary-hover: #7366f0;
+  --color-primary-light: #1e1b4b;
+  --color-primary-dark: #4338ca;
+
+  --color-secondary: #f06050;
+  --color-secondary-hover: #f47868;
+  --color-secondary-dark: #d94a3a;
+
+  --color-success: #34d058;
+  --color-success-light: #052e1f;
+  --color-on-success: #ffffff;
+  --color-warning: #f5b400;
+  --color-warning-light: #3a2a0a;
+  --color-on-warning: #fcd34d;
+  --color-danger: #f25c5c;
+  --color-error: #f25c5c;
+  --color-error-light: #3a1414;
+  --color-on-error: #ffdad6; /* light on dark error containers — overridden to same value below in M3 block */
+  --color-info: #5b4ee4;
+
+  /* App-specific category/notification accent tokens — dark variants */
+  --color-accent-purple: #c4b5fd;
+  --color-accent-purple-bg: #1e1b4b;
+  --color-text-neutral: #a1a1aa;
+
+  --color-bg: #0c0a18;
+  --color-background: #0c0a18;
+  --color-bg-secondary: #15122a;
+  --color-bg-tertiary: #1e1b4b;
+  --color-surface: #15122a;
+  --color-surface-secondary: #1e1b4b;
+
+  --color-border: #2a2550;
+  --color-border-secondary: #1e1b4b;
+  --color-border-focus: #5b4ee4;
+
+  --color-text: #f5f3ff;
+  --color-text-secondary: #c4c0e0;
+  --color-text-muted: #8a86a8;
+
+  /* Stitch / Material-3 @theme token dark variants — override the @theme
+     block from index.css so `bg-surface`, `text-on-surface`, `bg-primary`
+     etc. flip cleanly. CTA buttons keep white text on indigo: on-primary
+     stays white. */
+  --color-on-background: #f5f3ff;
+  --color-surface-bright: #1e1b4b;
+  --color-surface-dim: #08061a;
+  --color-surface-container-lowest: #050410;
+  --color-surface-container-low: #110e22;
+  --color-surface-container: #15122a;
+  --color-surface-container-high: #1e1b4b;
+  --color-surface-container-highest: #2a2550;
+  --color-surface-variant: #1e1b4b;
+  --color-on-surface: #f5f3ff;
+  --color-on-surface-variant: #c4c0e0;
+  --color-inverse-surface: #f5f3ff;
+  --color-inverse-on-surface: #0c0a18;
+  --color-inverse-primary: #1e1b4b;
+  /* --color-primary / --color-secondary set above in App-specific aliases */
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #ffffff; /* white on indigo — readable in both modes */
+  --color-on-primary-container: #dbe0ff;
+  --color-secondary-container: #5a1818;
+  --color-on-secondary: #3b0a06; /* dark on coral #f06050 — white was 3.13:1 (fail); #3b0a06 = 8.1:1 */
+  --color-on-secondary-container: #ffd9d4;
+  --color-tertiary: #fb7185;
+  --color-tertiary-container: #5a1828;
+  --color-on-tertiary: #3e0022; /* dark on pink #fb7185 — white was 2.45:1 (fail); #3e0022 = 7.99:1 */
+  --color-on-tertiary-container: #ffd9e0;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #ffdad6; /* light on dark error containers — 14:1 on #3a1414; app uses this as text on error-light */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5a5470;
+  --color-outline-variant: #2a2550;
+  --color-surface-tint: #818cf8;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

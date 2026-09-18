@@ -1,0 +1,44 @@
+{
+  "dashboard_stats": {
+    "active_polls": 14,
+    "ballots_cast_today": 2418,
+    "quorum_met_pct": 86,
+    "questions_count": 318,
+    "participation_per_minute": [42, 58, 51, 73, 88, 96, 112, 124, 158, 192, 218, 240]
+  },
+  "full": {
+    "kpi": [
+      { "label": "Active polls",        "value": "14",    "sub": "+3 this week" },
+      { "label": "Ballots cast today",   "value": "2,418", "sub": "+612 vs yesterday" },
+      { "label": "Quorum met",           "value": "86%",   "sub": "12 of 14 cleared threshold" },
+      { "label": "Q&A questions",        "value": "318",   "sub": "+47 in last hour" }
+    ],
+    "by_type": [
+      { "type": "Single-choice",   "count": 6, "color": "#0891b2" },
+      { "type": "Multiple-choice", "count": 3, "color": "#0e7490" },
+      { "type": "Ranked",          "count": 2, "color": "#06b6d4" },
+      { "type": "Open-text",       "count": 2, "color": "#22d3ee" },
+      { "type": "Rating",          "count": 1, "color": "#67e8f9" }
+    ],
+    "participation_timeline": [
+      { "time": "07:00", "ballots":  42 },
+      { "time": "08:00", "ballots":  58 },
+      { "time": "09:00", "ballots":  51 },
+      { "time": "10:00", "ballots":  73 },
+      { "time": "11:00", "ballots":  88 },
+      { "time": "12:00", "ballots":  96 },
+      { "time": "13:00", "ballots": 112 },
+      { "time": "14:00", "ballots": 124 },
+      { "time": "15:00", "ballots": 158 },
+      { "time": "16:00", "ballots": 192 },
+      { "time": "17:00", "ballots": 218 },
+      { "time": "18:00", "ballots": 240 }
+    ],
+    "top_polls": [
+      { "id": "p_2026_04_charter", "title": "Adopt the revised 2026 charter?",       "responses": 627, "quorum_pct":  78 },
+      { "id": "p_bylaws_amend",    "title": "Bylaws § 4.2 amendment",                 "responses": 514, "quorum_pct": 100 },
+      { "id": "p_conf_keynote",    "title": "Day 1 keynote Q&A",                      "responses": 248, "quorum_pct":  92 },
+      { "id": "p_q2_budget",       "title": "Q2 community grant budget",              "responses": 188, "quorum_pct":  64 }
+    ]
+  }
+}

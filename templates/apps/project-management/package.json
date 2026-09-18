@@ -1,0 +1,24 @@
+{
+  "name": "project-management",
+  "version": "0.0.1",
+  "private": true,
+  "description": "project-management — full-stack Molecule project",
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "overrides": {
+    "ws": "8.21.1"
+  },
+  "scripts": {
+    "dev": "npm run dev:api & npm run dev:app",
+    "dev:api": "npm run dev --workspace=api",
+    "dev:app": "npm run dev --workspace=app",
+    "build": "npm run build --workspace=api && npm run build --workspace=app",
+    "build:api": "npm run build --workspace=api",
+    "build:app": "npm run build --workspace=app",
+    "test": "npm run test --workspace=api && npm run test --workspace=app",
+    "test:api": "npm run test --workspace=api",
+    "test:app": "npm run test --workspace=app"
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "col-001",
+    "board_id": "brd-001",
+    "user_id": "usr-002",
+    "name": "Maya Chen",
+    "email": "maya@slate.example",
+    "color": "#5b5bf7",
+    "role": "editor",
+    "is_online": true,
+    "cursor_x": 412,
+    "cursor_y": 218,
+    "last_seen_at": "2026-04-29T20:55:00Z"
+  },
+  {
+    "id": "col-002",
+    "board_id": "brd-001",
+    "user_id": "usr-003",
+    "name": "Jordan Park",
+    "email": "jordan@slate.example",
+    "color": "#a855f7",
+    "role": "editor",
+    "is_online": true,
+    "cursor_x": 836,
+    "cursor_y": 462,
+    "last_seen_at": "2026-04-29T20:55:11Z"
+  },
+  {
+    "id": "col-003",
+    "board_id": "brd-001",
+    "user_id": "usr-004",
+    "name": "Riley Singh",
+    "email": "riley@slate.example",
+    "color": "#00c4a8",
+    "role": "viewer",
+    "is_online": false,
+    "cursor_x": null,
+    "cursor_y": null,
+    "last_seen_at": "2026-04-28T17:14:00Z"
+  },
+  {
+    "id": "col-004",
+    "board_id": "brd-001",
+    "user_id": "usr-005",
+    "name": "Sofia Reyes",
+    "email": "sofia@slate.example",
+    "color": "#f97316",
+    "role": "editor",
+    "is_online": true,
+    "cursor_x": 1180,
+    "cursor_y": 680,
+    "last_seen_at": "2026-04-29T20:54:50Z"
+  },
+  {
+    "id": "col-005",
+    "board_id": "brd-002",
+    "user_id": "usr-002",
+    "name": "Maya Chen",
+    "email": "maya@slate.example",
+    "color": "#5b5bf7",
+    "role": "editor",
+    "is_online": false,
+    "cursor_x": null,
+    "cursor_y": null,
+    "last_seen_at": "2026-04-29T15:00:00Z"
+  }
+]

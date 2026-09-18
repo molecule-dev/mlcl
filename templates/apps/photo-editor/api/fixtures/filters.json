@@ -1,0 +1,92 @@
+[
+  {
+    "id": "pr_velvet",
+    "name": "Velvet Dusk",
+    "category": "mood",
+    "intensity": 0.8,
+    "preview_url": "/presets/velvet-dusk.jpg",
+    "user_id": null,
+    "is_public": true,
+    "created_at": "2026-03-02T14:00:00Z",
+    "updated_at": "2026-04-22T18:00:00Z",
+    "parameters": {
+      "brightness": 0.04,
+      "contrast": 0.18,
+      "saturation": -0.08,
+      "tint": -6,
+      "grain": 0.12
+    }
+  },
+  {
+    "id": "pr_cinema_noir",
+    "name": "Cinema Noir",
+    "category": "cinema",
+    "intensity": 0.65,
+    "preview_url": "/presets/cinema-noir.jpg",
+    "user_id": null,
+    "is_public": true,
+    "created_at": "2026-02-18T09:00:00Z",
+    "updated_at": "2026-04-20T10:30:00Z",
+    "parameters": {
+      "brightness": -0.04,
+      "contrast": 0.24,
+      "saturation": -0.1,
+      "tint": -3,
+      "grain": 0.18
+    }
+  },
+  {
+    "id": "pr_studio_warm",
+    "name": "Studio Warm",
+    "category": "studio",
+    "intensity": 0.55,
+    "preview_url": "/presets/studio-warm.jpg",
+    "user_id": null,
+    "is_public": true,
+    "created_at": "2026-01-30T11:00:00Z",
+    "updated_at": "2026-04-15T08:00:00Z",
+    "parameters": {
+      "brightness": 0.1,
+      "contrast": -0.06,
+      "saturation": 0.05,
+      "temperature": 12,
+      "grain": 0
+    }
+  },
+  {
+    "id": "pr_street_high",
+    "name": "Street High Contrast",
+    "category": "street",
+    "intensity": 0.75,
+    "preview_url": "/presets/street-high.jpg",
+    "user_id": null,
+    "is_public": true,
+    "created_at": "2026-02-05T16:00:00Z",
+    "updated_at": "2026-04-18T12:00:00Z",
+    "parameters": {
+      "brightness": -0.06,
+      "contrast": 0.32,
+      "saturation": 0.15,
+      "tint": -8,
+      "grain": 0.22
+    }
+  },
+  {
+    "id": "pr_blue_hour",
+    "name": "Blue Hour Atelier",
+    "category": "mood",
+    "intensity": 0.6,
+    "preview_url": "/presets/blue-hour.jpg",
+    "user_id": null,
+    "is_public": true,
+    "created_at": "2026-03-12T19:00:00Z",
+    "updated_at": "2026-04-25T07:00:00Z",
+    "parameters": {
+      "brightness": 0.02,
+      "contrast": 0.12,
+      "saturation": -0.05,
+      "temperature": -10,
+      "grain": 0.08
+    }
+  }
+]

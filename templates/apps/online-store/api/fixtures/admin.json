@@ -1,0 +1,547 @@
+{
+  "dashboard": {
+    "revenue": 142800,
+    "orders_count": 28,
+    "customers_count": 156,
+    "products_count": 12,
+    "recent_orders": [
+      {
+        "id": "c7928b78-2b8a-44b8-d356-9832696638fa",
+        "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+        "status": "delivered",
+        "subtotal": 38400,
+        "tax": 3072,
+        "total": 41472,
+        "currency": "USD",
+        "shipping_address": {
+          "name": "Emma Smith",
+          "line1": "1234 Main St",
+          "city": "San Francisco",
+          "state": "CA",
+          "postalCode": "94102",
+          "country": "US"
+        },
+        "created_at": "2026-03-15T10:00:00Z",
+        "updated_at": "2026-03-22T14:00:00Z"
+      },
+      {
+        "id": "d9752d42-9477-4909-26c0-d6da927cdfa0",
+        "user_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+        "status": "shipped",
+        "subtotal": 15900,
+        "tax": 1272,
+        "total": 17172,
+        "currency": "USD",
+        "shipping_address": {
+          "name": "Liam Johnson",
+          "line1": "5678 Oak Ave",
+          "city": "Austin",
+          "state": "TX",
+          "postalCode": "73301",
+          "country": "US"
+        },
+        "created_at": "2026-03-20T15:30:00Z",
+        "updated_at": "2026-03-25T09:00:00Z"
+      },
+      {
+        "id": "27acdc2f-7be7-498e-9657-761c24b97bdb",
+        "user_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+        "status": "confirmed",
+        "subtotal": 8900,
+        "tax": 712,
+        "total": 9612,
+        "currency": "USD",
+        "shipping_address": {
+          "name": "Olivia Williams",
+          "line1": "9012 Cedar Ln",
+          "city": "Denver",
+          "state": "CO",
+          "postalCode": "80201",
+          "country": "US"
+        },
+        "created_at": "2026-03-28T08:00:00Z",
+        "updated_at": "2026-03-28T08:00:00Z"
+      },
+      {
+        "id": "c1e297a7-70e6-48db-b394-3b1486e6700e",
+        "user_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+        "status": "processing",
+        "subtotal": 22400,
+        "tax": 1792,
+        "total": 24192,
+        "currency": "USD",
+        "shipping_address": {
+          "name": "Noah Brown",
+          "line1": "3456 Elm St",
+          "city": "Portland",
+          "state": "OR",
+          "postalCode": "97201",
+          "country": "US"
+        },
+        "created_at": "2026-03-26T12:00:00Z",
+        "updated_at": "2026-03-27T10:00:00Z"
+      },
+      {
+        "id": "ab29b187-0a1e-4bd4-7806-0192f5dbf95d",
+        "user_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+        "status": "delivered",
+        "subtotal": 7000,
+        "tax": 560,
+        "total": 7560,
+        "currency": "USD",
+        "shipping_address": {
+          "name": "Ava Garcia",
+          "line1": "7890 Park Blvd",
+          "city": "Seattle",
+          "state": "WA",
+          "postalCode": "98101",
+          "country": "US"
+        },
+        "created_at": "2026-03-10T09:00:00Z",
+        "updated_at": "2026-03-17T16:00:00Z"
+      }
+    ]
+  },
+  "products/stats": {
+    "total": 12,
+    "active": 12,
+    "out_of_stock": 0,
+    "low_stock": 2
+  },
+  "settings": [
+    {
+      "id": "settings",
+      "store_name": "Bazaar",
+      "currency": "USD",
+      "timezone": "America/New_York",
+      "tax_rate": 0.08,
+      "shipping_flat_rate": 599,
+      "free_shipping_threshold": 7500
+    }
+  ],
+  "products": [
+    {
+      "id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+      "name": "Wireless Noise-Canceling Headphones",
+      "description": "Premium over-ear headphones with active noise cancellation and 30-hour battery life.",
+      "price": 29900,
+      "category": "Electronics",
+      "sku": "WNC-001",
+      "status": "active",
+      "featured": true,
+      "total_sold": 342,
+      "images": [
+        "https://picsum.photos/seed/wnc001/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/wnc001/200/200"
+      ],
+      "tags": [
+        "bestseller",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2025-08-15T10:00:00Z",
+      "updated_at": "2026-03-28T14:00:00Z"
+    },
+    {
+      "id": "7a66b990-9e1b-451b-1188-c707b52fe44e",
+      "name": "Organic Cotton T-Shirt",
+      "description": "Soft, breathable crew-neck tee made from 100% organic cotton. Available in 12 colors.",
+      "price": 3500,
+      "category": "Apparel",
+      "sku": "OCT-100",
+      "status": "active",
+      "featured": false,
+      "total_sold": 1205,
+      "images": [
+        "https://picsum.photos/seed/oct100/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/oct100/200/200"
+      ],
+      "tags": [
+        "organic",
+        "eco-friendly"
+      ],
+      "variants": [],
+      "created_at": "2025-06-01T08:00:00Z",
+      "updated_at": "2026-03-20T12:00:00Z"
+    },
+    {
+      "id": "b4c742d4-aa96-4e42-3813-fda967e4804d",
+      "name": "Handcrafted Leather Wallet",
+      "description": "Full-grain Italian leather bifold wallet with RFID protection.",
+      "price": 8900,
+      "category": "Accessories",
+      "sku": "HLW-200",
+      "status": "active",
+      "featured": true,
+      "total_sold": 567,
+      "images": [
+        "https://picsum.photos/seed/hlw200/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/hlw200/200/200"
+      ],
+      "tags": [
+        "handmade",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2025-09-10T11:00:00Z",
+      "updated_at": "2026-03-25T09:00:00Z"
+    },
+    {
+      "id": "3ffd395a-aac1-4c30-80d8-b60fb166e79c",
+      "name": "Stainless Steel Water Bottle",
+      "description": "Double-walled vacuum insulated, keeps drinks cold 24hrs or hot 12hrs. 32oz capacity.",
+      "price": 4500,
+      "category": "Home & Kitchen",
+      "sku": "SSW-300",
+      "status": "active",
+      "featured": false,
+      "total_sold": 892,
+      "images": [
+        "https://picsum.photos/seed/ssw300/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/ssw300/200/200"
+      ],
+      "tags": [
+        "eco-friendly",
+        "popular"
+      ],
+      "variants": [],
+      "created_at": "2025-07-20T14:00:00Z",
+      "updated_at": "2026-03-22T16:00:00Z"
+    },
+    {
+      "id": "9f01131e-b493-4093-dc40-0acaa9d7d0f3",
+      "name": "Minimalist Analog Watch",
+      "description": "Japanese movement quartz watch with genuine leather strap and sapphire crystal glass.",
+      "price": 15900,
+      "category": "Accessories",
+      "sku": "MAW-400",
+      "status": "active",
+      "featured": true,
+      "total_sold": 234,
+      "images": [
+        "https://picsum.photos/seed/maw400/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/maw400/200/200"
+      ],
+      "tags": [
+        "premium",
+        "new"
+      ],
+      "variants": [],
+      "created_at": "2025-11-01T09:00:00Z",
+      "updated_at": "2026-03-18T11:00:00Z"
+    },
+    {
+      "id": "d5b57299-0340-4c59-2eb9-5459d62b9c49",
+      "name": "Bamboo Cutting Board Set",
+      "description": "Set of 3 premium bamboo cutting boards in small, medium, and large sizes.",
+      "price": 5400,
+      "category": "Home & Kitchen",
+      "sku": "BCB-500",
+      "status": "active",
+      "featured": false,
+      "total_sold": 445,
+      "images": [
+        "https://picsum.photos/seed/bcb500/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/bcb500/200/200"
+      ],
+      "tags": [
+        "eco-friendly",
+        "popular"
+      ],
+      "variants": [],
+      "created_at": "2025-10-15T13:00:00Z",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "2fa60451-3b2f-43c1-d034-71f4e57d70db",
+      "name": "Wool Blend Beanie",
+      "description": "Soft merino wool blend beanie with fleece lining. One size fits most.",
+      "price": 2800,
+      "category": "Apparel",
+      "sku": "WBB-600",
+      "status": "active",
+      "featured": false,
+      "total_sold": 678,
+      "images": [
+        "https://picsum.photos/seed/wbb600/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/wbb600/200/200"
+      ],
+      "tags": [
+        "popular",
+        "sale"
+      ],
+      "variants": [],
+      "created_at": "2025-10-01T08:00:00Z",
+      "updated_at": "2026-03-10T14:00:00Z"
+    },
+    {
+      "id": "6e54961f-e497-4402-8093-a2c4593d0b04",
+      "name": "Portable Bluetooth Speaker",
+      "description": "Waterproof IPX7 speaker with 360-degree sound and 20-hour playtime.",
+      "price": 7900,
+      "category": "Electronics",
+      "sku": "PBS-700",
+      "status": "active",
+      "featured": true,
+      "total_sold": 512,
+      "images": [
+        "https://picsum.photos/seed/pbs700/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/pbs700/200/200"
+      ],
+      "tags": [
+        "bestseller",
+        "new"
+      ],
+      "variants": [],
+      "created_at": "2025-12-01T10:00:00Z",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    {
+      "id": "7bfc6e28-b996-4829-1180-31712889bc86",
+      "name": "Ceramic Pour-Over Coffee Set",
+      "description": "Hand-thrown ceramic dripper with matching mug and reusable stainless filter.",
+      "price": 6500,
+      "category": "Home & Kitchen",
+      "sku": "CPC-800",
+      "status": "active",
+      "featured": false,
+      "total_sold": 189,
+      "images": [
+        "https://picsum.photos/seed/cpc800/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/cpc800/200/200"
+      ],
+      "tags": [
+        "handmade",
+        "new"
+      ],
+      "variants": [],
+      "created_at": "2026-01-15T09:00:00Z",
+      "updated_at": "2026-03-20T11:00:00Z"
+    },
+    {
+      "id": "7738987e-395d-4a40-501d-8b33600bc842",
+      "name": "Canvas Laptop Backpack",
+      "description": "Waxed canvas backpack with padded 15\" laptop compartment and waterproof base.",
+      "price": 12900,
+      "category": "Accessories",
+      "sku": "CLB-900",
+      "status": "active",
+      "featured": false,
+      "total_sold": 356,
+      "images": [
+        "https://picsum.photos/seed/clb900/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/clb900/200/200"
+      ],
+      "tags": [
+        "premium",
+        "popular"
+      ],
+      "variants": [],
+      "created_at": "2025-09-20T12:00:00Z",
+      "updated_at": "2026-03-25T15:00:00Z"
+    },
+    {
+      "id": "9a69b2d7-0203-4df0-15b7-ee43d0648192",
+      "name": "Soy Wax Candle Collection",
+      "description": "Set of 4 hand-poured soy candles in seasonal scents. 40-hour burn time each.",
+      "price": 4200,
+      "category": "Home & Kitchen",
+      "sku": "SWC-010",
+      "status": "active",
+      "featured": false,
+      "total_sold": 723,
+      "images": [
+        "https://picsum.photos/seed/swc010/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/swc010/200/200"
+      ],
+      "tags": [
+        "handmade",
+        "popular"
+      ],
+      "variants": [],
+      "created_at": "2025-11-15T11:00:00Z",
+      "updated_at": "2026-03-18T09:00:00Z"
+    },
+    {
+      "id": "e9293a48-a423-4c35-1e12-1c7d641785e0",
+      "name": "Running Sneakers Pro",
+      "description": "Lightweight responsive cushioning with breathable mesh upper. Carbon plate technology.",
+      "price": 18500,
+      "category": "Footwear",
+      "sku": "RSP-110",
+      "status": "active",
+      "featured": true,
+      "total_sold": 278,
+      "images": [
+        "https://picsum.photos/seed/rsp110/400/400"
+      ],
+      "thumbnails": [
+        "https://picsum.photos/seed/rsp110/200/200"
+      ],
+      "tags": [
+        "new",
+        "premium"
+      ],
+      "variants": [],
+      "created_at": "2026-02-01T10:00:00Z",
+      "updated_at": "2026-03-28T12:00:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "c7928b78-2b8a-44b8-d356-9832696638fa",
+      "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+      "status": "delivered",
+      "subtotal": 38400,
+      "tax": 3072,
+      "total": 41472,
+      "currency": "USD",
+      "shipping_address": {
+        "name": "Emma Smith",
+        "line1": "1234 Main St",
+        "city": "San Francisco",
+        "state": "CA",
+        "postalCode": "94102",
+        "country": "US"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "updated_at": "2026-03-22T14:00:00Z"
+    },
+    {
+      "id": "d9752d42-9477-4909-26c0-d6da927cdfa0",
+      "user_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+      "status": "shipped",
+      "subtotal": 15900,
+      "tax": 1272,
+      "total": 17172,
+      "currency": "USD",
+      "shipping_address": {
+        "name": "Liam Johnson",
+        "line1": "5678 Oak Ave",
+        "city": "Austin",
+        "state": "TX",
+        "postalCode": "73301",
+        "country": "US"
+      },
+      "created_at": "2026-03-20T15:30:00Z",
+      "updated_at": "2026-03-25T09:00:00Z"
+    },
+    {
+      "id": "27acdc2f-7be7-498e-9657-761c24b97bdb",
+      "user_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+      "status": "confirmed",
+      "subtotal": 8900,
+      "tax": 712,
+      "total": 9612,
+      "currency": "USD",
+      "shipping_address": {
+        "name": "Olivia Williams",
+        "line1": "9012 Cedar Ln",
+        "city": "Denver",
+        "state": "CO",
+        "postalCode": "80201",
+        "country": "US"
+      },
+      "created_at": "2026-03-28T08:00:00Z",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    {
+      "id": "c1e297a7-70e6-48db-b394-3b1486e6700e",
+      "user_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+      "status": "processing",
+      "subtotal": 22400,
+      "tax": 1792,
+      "total": 24192,
+      "currency": "USD",
+      "shipping_address": {
+        "name": "Noah Brown",
+        "line1": "3456 Elm St",
+        "city": "Portland",
+        "state": "OR",
+        "postalCode": "97201",
+        "country": "US"
+      },
+      "created_at": "2026-03-26T12:00:00Z",
+      "updated_at": "2026-03-27T10:00:00Z"
+    },
+    {
+      "id": "ab29b187-0a1e-4bd4-7806-0192f5dbf95d",
+      "user_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+      "status": "delivered",
+      "subtotal": 7000,
+      "tax": 560,
+      "total": 7560,
+      "currency": "USD",
+      "shipping_address": {
+        "name": "Ava Garcia",
+        "line1": "7890 Park Blvd",
+        "city": "Seattle",
+        "state": "WA",
+        "postalCode": "98101",
+        "country": "US"
+      },
+      "created_at": "2026-03-10T09:00:00Z",
+      "updated_at": "2026-03-17T16:00:00Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "a830c424-7d56-4187-9750-b2a91e283089",
+      "name": "Emma Smith",
+      "email": "emma@example.com",
+      "orders_count": 5,
+      "total_spent": 48900,
+      "status": "active",
+      "created_at": "2025-06-15T10:00:00Z"
+    },
+    {
+      "id": "fcddfc6c-777c-483a-9cea-1d8a46255d1b",
+      "name": "Liam Johnson",
+      "email": "liam@example.com",
+      "orders_count": 3,
+      "total_spent": 27200,
+      "status": "active",
+      "created_at": "2025-08-20T14:00:00Z"
+    },
+    {
+      "id": "b3a4d23b-6b07-46a7-5db8-4675d0dbefa5",
+      "name": "Olivia Williams",
+      "email": "olivia@example.com",
+      "orders_count": 8,
+      "total_spent": 92300,
+      "status": "active",
+      "created_at": "2025-04-10T09:00:00Z"
+    },
+    {
+      "id": "9289e7ce-9575-493c-a49f-5df45456e67c",
+      "name": "Noah Brown",
+      "email": "noah@example.com",
+      "orders_count": 2,
+      "total_spent": 15600,
+      "status": "active",
+      "created_at": "2025-11-01T16:00:00Z"
+    }
+  ]
+}

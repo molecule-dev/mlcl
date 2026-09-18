@@ -1,0 +1,7 @@
+Polish complete: 2026-04-28T16:38:00+03:00
+Pipeline: polish-app.md via polish-remaining-fleet driver (resumed after mid-polish crash)
+Cluster: education/study-tools → sibling: lms (translated WelcomeBanner, KpiCard, CourseCard, LoginBranding patterns)
+Components: 6 bespoke (TodayHeroCard, StudyKpiCard, DeckProgressCard, FlashcardSurface, AuthShell, RootErrorBoundary)
+Screen-map coverage: 11/11 (Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard, Decks, Study, Progress, CardNew, CardEdit)
+Compliance: 1 acceptable classmap-coverage informational under 80% (signature visuals + auth orbs require raw Tailwind for gradients/blur)
+Step 10 (screenshots) deferred to parent agent per instructions.

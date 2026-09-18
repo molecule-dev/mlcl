@@ -1,0 +1,20 @@
+Polish complete: 2026-04-28
+Pipeline: prompts/polish-app.md (Sweep 1 era)
+Sibling reference: banking-dashboard (chrome + auth shell patterns), online-store / property-listing (commerce cluster)
+
+Brand:        Gavl — "Every second counts" (orange #e05a2b primary, green #1a9a6c accent)
+Fonts:        Inter (sans), JetBrains Mono (mono), Material Symbols Outlined (icons) — all Google Fonts
+Components:   11 bespoke + chrome (AuctionCard, CountdownTimer, AuctionStatusPill, BidPanelCard,
+              StatCard, NotificationRow, HeroAuctionCard, AuthBrandHeader, AuthShell,
+              AuctionPlatformLayout, RootErrorBoundary)
+Pages:        15 of 15 from screen-map.json wired
+              - Rewritten signed-in: BrowseAuctions, AuctionDetail, MyBids, Watchlist,
+                SellListing, Settings
+              - Created missing: SellerDashboard, Notifications, SellerProfile,
+                WonAuctionCheckout
+              - Branded auth: Login, Signup, ForgotPassword, ResetPassword (all via AuthShell)
+              - Polished landing + 404
+ClassMap cov: 100% (24 .tsx scanned, 0 raw className tokens leaked)
+Typecheck:    npx tsc --noEmit — 0 errors (app/)
+Rules check:  node scripts/check-rules-compliance.mjs reference/flagship-apps/auction-platform — clean
+Step 10:      screenshots intentionally skipped (parent agent batches)

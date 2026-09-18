@@ -1,0 +1,5 @@
+[
+  { "name": "Slack #releases",     "url": "https://hooks.slack.com/services/T0000/B0000/abcdef", "events": ["pipeline.failed", "deploy.complete"], "active": true,  "last_delivery_status": "success" },
+  { "name": "PagerDuty oncall",    "url": "https://events.pagerduty.com/integration/abc/enqueue", "events": ["pipeline.failed"],                     "active": true,  "last_delivery_status": "success" },
+  { "name": "Internal build feed", "url": "https://example.com/internal/build-feed",            "events": ["pipeline.success", "pipeline.failed"], "active": false, "last_delivery_status": "404"     }
+]

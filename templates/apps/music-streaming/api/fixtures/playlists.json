@@ -1,0 +1,24 @@
+[
+  { "id": "pl_001", "title": "Daily Mix 1",            "description": "Indie folk and dream pop, gently sequenced.",                   "cover_index": 1, "track_count": 50, "duration_minutes": 195, "category": "made_for_you",     "created_by": "Reverb" },
+  { "id": "pl_002", "title": "Daily Mix 2",            "description": "Electronic and shoegaze — the louder, brighter half.",         "cover_index": 3, "track_count": 50, "duration_minutes": 211, "category": "made_for_you",     "created_by": "Reverb" },
+  { "id": "pl_003", "title": "Daily Mix 3",            "description": "Late-night jazz and bossa nova for the slower hours.",         "cover_index": 5, "track_count": 50, "duration_minutes": 224, "category": "made_for_you",     "created_by": "Reverb" },
+  { "id": "pl_004", "title": "Discover Weekly",        "description": "30 fresh tracks. Refreshes every Monday.",                     "cover_index": 4, "track_count": 30, "duration_minutes": 116, "category": "made_for_you",     "created_by": "Reverb" },
+  { "id": "pl_005", "title": "Release Radar",          "description": "New from artists you follow.",                                 "cover_index": 6, "track_count": 24, "duration_minutes": 95,  "category": "made_for_you",     "created_by": "Reverb" },
+
+  { "id": "pl_010", "title": "Hello Future",           "description": "Lush synthwave + neo-disco. Volume up.",                       "cover_index": 6, "track_count": 32, "duration_minutes": 124, "category": "recently_played", "created_by": "Mira C." },
+  { "id": "pl_011", "title": "Studio Sessions",        "description": "Headphones-on focus mix — deep concentration.",                "cover_index": 3, "track_count": 28, "duration_minutes": 102, "category": "recently_played", "created_by": "Self" },
+  { "id": "pl_012", "title": "Run It",                  "description": "180 bpm to keep the cadence steady.",                          "cover_index": 2, "track_count": 25, "duration_minutes": 88,  "category": "recently_played", "created_by": "Reverb" },
+  { "id": "pl_013", "title": "Old Bones",              "description": "Six decades of Americana, blues, and folk.",                   "cover_index": 5, "track_count": 60, "duration_minutes": 248, "category": "recently_played", "created_by": "Self" },
+
+  { "id": "pl_020", "title": "Today's Top Hits",       "description": "What's playing globally right now. Updated daily.",            "cover_index": 4, "track_count": 50, "duration_minutes": 198, "category": "featured",         "created_by": "Reverb Editorial" },
+  { "id": "pl_021", "title": "RapCaviar",              "description": "The hottest in hip-hop. Flagship rap playlist.",                "cover_index": 1, "track_count": 50, "duration_minutes": 175, "category": "featured",         "created_by": "Reverb Editorial" },
+  { "id": "pl_022", "title": "Mint",                    "description": "The freshest dance and electronic.",                           "cover_index": 6, "track_count": 60, "duration_minutes": 218, "category": "featured",         "created_by": "Reverb Editorial" },
+  { "id": "pl_023", "title": "All Out 80s",            "description": "Eighties classics and the genre-defining tracks.",             "cover_index": 2, "track_count": 75, "duration_minutes": 312, "category": "featured",         "created_by": "Reverb Editorial" },
+  { "id": "pl_024", "title": "Deep Focus",             "description": "Instrumental ambient + post-rock for hard problems.",          "cover_index": 5, "track_count": 80, "duration_minutes": 358, "category": "featured",         "created_by": "Reverb Editorial" },
+
+  { "id": "pl_030", "title": "Morning Coffee",         "description": "Acoustic and slow indie to ease into the day.",                 "cover_index": 2, "track_count": 40, "duration_minutes": 152, "category": "mood",             "created_by": "Reverb Editorial" },
+  { "id": "pl_031", "title": "Late Night Drive",       "description": "Synthwave + ambient for empty highways.",                       "cover_index": 6, "track_count": 35, "duration_minutes": 142, "category": "mood",             "created_by": "Reverb Editorial" },
+  { "id": "pl_032", "title": "Rainy Day",               "description": "Mellow indie folk for grey afternoons.",                        "cover_index": 5, "track_count": 30, "duration_minutes": 118, "category": "mood",             "created_by": "Reverb Editorial" },
+  { "id": "pl_033", "title": "Workout Power",          "description": "High-energy hip-hop and electronic for the gym.",              "cover_index": 1, "track_count": 50, "duration_minutes": 178, "category": "mood",             "created_by": "Reverb Editorial" },
+  { "id": "pl_034", "title": "Dinner Party",           "description": "Smooth jazz, nu-disco, and some bossa for the table.",         "cover_index": 3, "track_count": 45, "duration_minutes": 175, "category": "mood",             "created_by": "Reverb Editorial" }
+]

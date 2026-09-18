@@ -1,0 +1,34 @@
+[
+  {
+    "id": "intg_aws",
+    "name": "AWS Secrets Manager",
+    "category": "aws",
+    "status": "connected",
+    "vaults": ["vault_payments"],
+    "last_sync": "2026-04-30T01:18:00Z"
+  },
+  {
+    "id": "intg_doppler",
+    "name": "Doppler",
+    "category": "doppler",
+    "status": "connected",
+    "vaults": ["vault_internal", "vault_observability"],
+    "last_sync": "2026-04-30T02:42:08Z"
+  },
+  {
+    "id": "intg_gcp",
+    "name": "GCP Secret Manager",
+    "category": "gcp",
+    "status": "disconnected",
+    "vaults": ["vault_observability", "vault_data_pipelines"],
+    "last_sync": "2026-04-30T02:30:00Z"
+  },
+  {
+    "id": "intg_vercel",
+    "name": "Vercel Env Vars",
+    "category": "vercel",
+    "status": "error",
+    "vaults": [],
+    "last_sync": "2026-04-25T11:00:00Z"
+  }
+]

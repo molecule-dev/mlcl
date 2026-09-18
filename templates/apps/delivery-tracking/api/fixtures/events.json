@@ -1,0 +1,24 @@
+[
+  { "id": "evt_001", "shipment_id": "shp_001", "timestamp": "2026-04-23T16:00:00Z", "status": "pending",          "location": "Reno, NV — origin facility",        "description": "Label created" },
+  { "id": "evt_002", "shipment_id": "shp_001", "timestamp": "2026-04-24T08:30:00Z", "status": "picked_up",        "location": "Reno, NV — UPS",                    "description": "Picked up by carrier" },
+  { "id": "evt_003", "shipment_id": "shp_001", "timestamp": "2026-04-24T22:14:00Z", "status": "arrived",          "location": "Salt Lake City, UT — UPS hub",      "description": "Arrived at sort facility" },
+  { "id": "evt_004", "shipment_id": "shp_001", "timestamp": "2026-04-25T03:42:00Z", "status": "in_transit",       "location": "Salt Lake City, UT — UPS hub",      "description": "Departed sort facility" },
+  { "id": "evt_005", "shipment_id": "shp_001", "timestamp": "2026-04-25T18:30:00Z", "status": "arrived",          "location": "Denver, CO — UPS hub",              "description": "Arrived at destination region" },
+  { "id": "evt_006", "shipment_id": "shp_001", "timestamp": "2026-04-26T06:15:00Z", "status": "in_transit",       "location": "Denver, CO — UPS hub",              "description": "On vehicle, en route to destination" },
+
+  { "id": "evt_010", "shipment_id": "shp_003", "timestamp": "2026-04-24T05:30:00Z", "status": "pending",          "location": "Memphis, TN — origin facility",     "description": "Label created" },
+  { "id": "evt_011", "shipment_id": "shp_003", "timestamp": "2026-04-24T09:00:00Z", "status": "picked_up",        "location": "Memphis, TN — FedEx",               "description": "Picked up by carrier" },
+  { "id": "evt_012", "shipment_id": "shp_003", "timestamp": "2026-04-25T11:42:00Z", "status": "arrived",          "location": "Austin, TX — FedEx hub",            "description": "Arrived at delivery facility" },
+  { "id": "evt_013", "shipment_id": "shp_003", "timestamp": "2026-04-26T08:30:00Z", "status": "out_for_delivery", "location": "Austin, TX",                        "description": "Out for delivery" },
+
+  { "id": "evt_020", "shipment_id": "shp_004", "timestamp": "2026-04-24T18:00:00Z", "status": "pending",          "location": "Atlanta, GA — origin facility",     "description": "Label created" },
+  { "id": "evt_021", "shipment_id": "shp_004", "timestamp": "2026-04-25T07:00:00Z", "status": "picked_up",        "location": "Atlanta, GA — UPS",                 "description": "Picked up by carrier" },
+  { "id": "evt_022", "shipment_id": "shp_004", "timestamp": "2026-04-25T22:00:00Z", "status": "in_transit",       "location": "Charlotte, NC — UPS hub",           "description": "Arrived at delivery facility" },
+  { "id": "evt_023", "shipment_id": "shp_004", "timestamp": "2026-04-26T07:00:00Z", "status": "out_for_delivery", "location": "Charlotte, NC",                     "description": "Out for delivery" },
+  { "id": "evt_024", "shipment_id": "shp_004", "timestamp": "2026-04-26T09:48:00Z", "status": "delivered",        "location": "Charlotte, NC — 402 Tryon St",      "description": "Delivered. Signed by M. CHEN." },
+
+  { "id": "evt_030", "shipment_id": "shp_005", "timestamp": "2026-04-22T08:00:00Z", "status": "pending",          "location": "Cincinnati, OH — origin facility",  "description": "Label created" },
+  { "id": "evt_031", "shipment_id": "shp_005", "timestamp": "2026-04-22T11:00:00Z", "status": "picked_up",        "location": "Cincinnati, OH — DHL",              "description": "Picked up by carrier" },
+  { "id": "evt_032", "shipment_id": "shp_005", "timestamp": "2026-04-23T18:14:00Z", "status": "in_transit",       "location": "Atlanta, GA — DHL hub",             "description": "In transit through southeast region" },
+  { "id": "evt_033", "shipment_id": "shp_005", "timestamp": "2026-04-25T03:42:00Z", "status": "exception",        "location": "Miami, FL — DHL hub",               "description": "Exception: address requires apt/unit number" }
+]

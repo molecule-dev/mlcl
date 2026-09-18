@@ -1,0 +1,243 @@
+/* App-specific theme overrides — see DESIGN.md for the source of truth.
+ *
+ * Meridian palette: deep blue primary, violet accent, semantic mail-state
+ * colors (unread / starred / draft / sent / spam / attachment).
+ */
+
+:root {
+  /* Meridian brand: deep electric blue + violet accent. */
+  --mol-color-primary: #2563eb;
+  --mol-color-primary-light: #3b82f6;
+  --mol-color-primary-dark: #1d4ed8;
+  --mol-color-secondary: #7c3aed;
+  --mol-color-secondary-light: #8b5cf6;
+  --mol-color-secondary-dark: #6d28d9;
+
+  /* Surfaces (light) — generous, calm backgrounds. */
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+
+  /* Text scale. */
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic. */
+  --mol-color-success: #15803d; /* was #16a34a (3.0:1 on #dcfce7 chips); green-700 = 4.6:1 */
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #b45309; /* was #f59e0b (1.9:1 on #fef3c7 chips); amber-700 = 4.5:1 */
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #b91c1c; /* was #dc2626 (3.9:1 on #fee2e2 chips); red-700 = 5.3:1 */
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #2563eb;
+  --mol-color-info-light: #dbeafe;
+
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #2563eb;
+
+  /* Typography */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+  /* Meridian semantic mail tokens — used by ThreadRow / Sidebar / Pills. */
+  --color-unread: #2563eb;
+  --color-unread-light: #dbeafe;
+  --color-starred: #eab308;
+  --color-starred-light: #fef9c3;
+  --color-draft: #f97316;
+  --color-draft-light: #fff7ed;
+  --color-sent: #16a34a;
+  --color-sent-light: #dcfce7;
+  --color-spam: #dc2626;
+  --color-spam-light: #fee2e2;
+  --color-attachment: #7c3aed;
+  --color-attachment-light: #ede9fe;
+  --color-thread-active: #eff6ff;
+  --color-thread-divider: #f1f5f9;
+
+  /* Compatibility aliases for tokens used in legacy markup. Keeping them
+   * defined ensures Tailwind resolves the class even when older inline
+   * markup hasn't been migrated to ClassMap yet. */
+  --color-text-main: var(--color-foreground);
+  --color-text-muted: var(--color-foreground-secondary);
+  --color-surface-sec: var(--color-surface-secondary);
+  --color-accent: var(--color-secondary);
+  --color-accent-light: var(--color-secondary-light);
+
+  /* Primary scale (Tailwind-style 50/100/200/.../900) — derived from the
+   * Meridian brand blue so utility classes like `bg-primary-50` resolve. */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Material-3 bridge (light mode) */
+  --color-primary: #2563eb;
+  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+  --color-primary-container: #dbeafe;
+  --color-on-primary-container: #1e3a8a;
+  --color-secondary: #7c3aed;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary-container: #4c1d95;
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #1d4ed8;
+  --color-surface-tint: #2563eb;
+  --color-tertiary: #0d9488;
+  --color-tertiary-container: #ccfbf1;
+  --color-on-tertiary: #0f172a; /* dark text on teal — 4.77:1, replaces white (3.74:1) */
+  --color-on-tertiary-container: #134e4a;
+  --color-error: #b91c1c; /* see --mol-color-error */
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #64748b;
+  --color-outline-variant: #cbd5e1;
+}
+
+/* Dark mode — Meridian professional inbox dark.
+   Cool slate productivity surfaces. Brand blue kept at brand stop
+   (#2563eb) for accents/links/CTAs. `--color-on-primary` STAYS white so
+   blue CTAs keep their light-on-blue character in both modes. Mail
+   semantic tokens (unread/starred/draft/sent/spam/attachment) preserved
+   with brightened tones for dark canvas readability. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #2563eb;
+  --mol-color-primary-light: #1e3a8a;
+  --mol-color-primary-dark: #1d4ed8;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #2e1065;
+  --mol-color-secondary-dark: #8b5cf6;
+
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #0f172a;
+  --mol-color-background-tertiary: #1e293b;
+  --mol-color-surface: #1a2332;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-input-background: #131b2d;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #0f172a;
+
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #052e16;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #60a5fa;
+  --mol-color-info-light: #1e3a8a;
+
+  --mol-color-border: #293548;
+  --mol-color-border-secondary: #3b4a63;
+  --mol-color-border-focus: #2563eb;
+
+  /* Meridian semantic mail tokens — preserved with dark-mode tones. */
+  --color-unread: #60a5fa;
+  --color-unread-light: #1e3a8a;
+  --color-starred: #facc15;
+  --color-starred-light: #422006;
+  --color-draft: #fb923c;
+  --color-draft-light: #431407;
+  --color-sent: #4ade80;
+  --color-sent-light: #052e16;
+  --color-spam: #f87171;
+  --color-spam-light: #450a0a;
+  --color-attachment: #a78bfa;
+  --color-attachment-light: #2e1065;
+  --color-thread-active: #172554;
+  --color-thread-divider: #1e293b;
+
+  /* Material-3 bridge — flip bg-surface, text-on-surface, bg-primary etc.
+     cleanly. Brand blue kept at brand stop; CTA buttons keep white text. */
+  --color-primary: #2563eb; /* keep brand blue at brand stop */
+  --color-primary-hover: #3b82f6;
+  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+  --color-primary-container: #1e3a8a;
+  --color-on-primary-container: #bfdbfe;
+  --color-primary-50: #0a1633;
+  --color-primary-100: #0f1f4a;
+  --color-primary-200: #1e3a8a;
+  --color-primary-300: #1d4ed8;
+  --color-primary-400: #2563eb;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #60a5fa;
+  --color-primary-700: #93c5fd;
+  --color-primary-800: #bfdbfe;
+  --color-primary-900: #dbeafe;
+
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #0c1222;
+  --color-on-secondary-container: #ede9fe;
+
+  --color-tertiary: #67e8f9;
+  --color-tertiary-container: #164e63;
+  --color-on-tertiary: #0c1222;
+  --color-on-tertiary-container: #cffafe;
+
+  --color-background: #0c1222;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1a2332;
+  --color-surface-bright: #293548;
+  --color-surface-dim: #080e1a;
+  --color-surface-container-lowest: #050b14;
+  --color-surface-container-low: #0f172a;
+  --color-surface-container: #131f30;
+  --color-surface-container-high: #1e293b;
+  --color-surface-container-highest: #293548;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1222;
+  --color-inverse-primary: #1d4ed8;
+
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark red — 4.74:1 on #f87171, replaces white (2.77:1) */
+  --color-on-error-container: #fecdd3;
+
+  --color-outline: #7d8fa5; /* lifted from #475569 — 4.77:1 on #1a2332 surface */
+  --color-outline-variant: #293548;
+  --color-surface-tint: #60a5fa;
+
+  --color-surface-secondary: #1e293b;
+  --color-surface-sec: #1e293b;
+  --color-text-main: #f1f5f9;
+  --color-text-muted: #cbd5e1;
+  --color-accent: #a78bfa;
+  --color-accent-light: #2e1065;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

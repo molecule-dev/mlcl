@@ -1,0 +1,169 @@
+{
+  "app": "medication-reminder",
+  "designProjectId": "10554216862349587508",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-landing.html",
+      "designScreenId": "4382b4507f184427a140be4bf457ff0c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-login.html",
+      "designScreenId": "29eafd3838a346fc898a9c7d0f2ca30b"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-medication-reminder-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-medication-reminder-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-medication-reminder-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-dashboard.html",
+      "designScreenId": "c4ec06f081d34258b6785e0c445b987e"
+    },
+    {
+      "name": "Medications",
+      "templateFile": "app/pages/Medications.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/medications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-medications.html",
+      "designScreenId": "04309ca6ebb2407482812c3c4536ed9e"
+    },
+    {
+      "name": "AddMedication",
+      "templateFile": "app/pages/AddMedication.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/medications/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-add-medication.html",
+      "designScreenId": "0bc76c69b6814f149300655517f216eb"
+    },
+    {
+      "name": "MedicationDetail",
+      "templateFile": "app/pages/MedicationDetail.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/medications/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-medication-detail.html",
+      "designScreenId": "1697a602bcae47fb88b70f0a0dd7e17a"
+    },
+    {
+      "name": "Schedule",
+      "templateFile": "app/pages/Schedule.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/schedule",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-schedule.html",
+      "designScreenId": "4244dcbcc2574894a42ab8962b5e046a"
+    },
+    {
+      "name": "Caregivers",
+      "templateFile": "app/pages/Caregivers.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/caregivers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-caregivers.html",
+      "designScreenId": "0d7fcc5b251f46368a8200a815b72674"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-settings.html",
+      "designScreenId": "e4f8d6e31af84ab38904414e9c30f02c"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-profile.html",
+      "designScreenId": "2b45e96f02794e92a9cd7397db981d32"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-notifications.html",
+      "designScreenId": "718195a149964538b2b88f8062d9cbb5"
+    },
+    {
+      "name": "AdherenceReport",
+      "templateFile": "app/pages/AdherenceReport.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-adherence-report.html",
+      "designScreenId": "25708df895504d5985673db5c25c5abf"
+    },
+    {
+      "name": "Refills",
+      "templateFile": "app/pages/Refills.tsx",
+      "components": ["app/components/MedicationReminderLayout.tsx"],
+      "route": "/refills",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-medication-reminder-refills.html",
+      "designScreenId": "352e23f120e244ce84a78bbe645351ca"
+    }
+  ]
+}

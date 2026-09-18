@@ -1,0 +1,9 @@
+# Exempt handlers whose endpoints are exercised by indirection (the app
+# doesn't call them directly via /api/<handler>; the work happens via
+# composite endpoints or transitive calls), or whose surface is fully
+# covered by another spec under a different path.
+#
+# threads — the Thread page calls /api/threads/:messageId/replies which
+# reads off the threads table; the route literal is exercised in
+# channels__channelId_threads__messageId.spec.ts.
+threads

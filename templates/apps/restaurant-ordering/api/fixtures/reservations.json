@@ -1,0 +1,10 @@
+[
+  { "id": "r01", "partyName": "Howe",   "partySize": 2, "isoTime": "2026-04-30T18:00:00Z", "table": "4",  "status": "confirmed" },
+  { "id": "r02", "partyName": "Reyes",  "partySize": 4, "isoTime": "2026-04-30T18:30:00Z", "table": "10", "status": "confirmed", "notes": "Birthday — bring candle" },
+  { "id": "r03", "partyName": "Park",   "partySize": 6, "isoTime": "2026-04-30T19:00:00Z", "table": "11", "status": "confirmed" },
+  { "id": "r04", "partyName": "Visser", "partySize": 3, "isoTime": "2026-04-30T19:15:00Z",                "status": "waitlist",  "notes": "Patio if available" },
+  { "id": "r05", "partyName": "Costa",  "partySize": 2, "isoTime": "2026-04-30T19:30:00Z", "table": "8",  "status": "confirmed" },
+  { "id": "r06", "partyName": "Otieno", "partySize": 5, "isoTime": "2026-04-30T20:00:00Z", "table": "14", "status": "confirmed" },
+  { "id": "r07", "partyName": "Singh",  "partySize": 2, "isoTime": "2026-04-30T20:30:00Z",                "status": "waitlist" },
+  { "id": "r08", "partyName": "Aleko",  "partySize": 4, "isoTime": "2026-04-30T17:30:00Z", "table": "5",  "status": "seated" }
+]

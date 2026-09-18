@@ -1,0 +1,14 @@
+Polish complete: 2026-04-30T00:51:00Z
+Pipeline: polish-app.mjs (price-comparison)
+Cluster: ecommerce-comparison → no direct sibling, used online-store / blog patterns
+Brand: Sift — gradient hero + retailer comparison surfaces
+Components: 6 bespoke (SavingsHeroCard, PriceWatchKpiGrid, ProductPriceCard,
+            RetailerPriceTable, PriceHistoryChart, PriceDropFeed)
+            + 2 auth-shell (SiftAuthShell, AuthFormAtoms) + SiftLayout
+Pages rewritten: Landing, Dashboard, ProductDetail (signature),
+                 Search/Categories/Deals/Watchlist (browse),
+                 Alerts/AlertDetail/PriceHistory/Notifications,
+                 Profile/Settings/Billing,
+                 Login/Signup/ForgotPassword/ResetPassword
+Screen-map coverage: 18/18
+Compliance: clean (check-rules-compliance.mjs)

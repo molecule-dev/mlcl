@@ -1,0 +1,28 @@
+[
+  {
+    "id": "mtr-001",
+    "name": "Whole-home — Main Panel",
+    "scope": "household",
+    "type": "main",
+    "manufacturer": "Emporia",
+    "model": "Vue 3",
+    "firmware_version": "3.0.4",
+    "is_active": true,
+    "circuits_monitored": 16,
+    "installed_at": "2025-01-12T08:30:00Z",
+    "updated_at": "2026-04-29T15:42:00Z"
+  },
+  {
+    "id": "mtr-002",
+    "name": "Solar Production",
+    "scope": "subpanel",
+    "type": "production",
+    "manufacturer": "Enphase",
+    "model": "Envoy",
+    "firmware_version": "8.2.4225",
+    "is_active": true,
+    "circuits_monitored": 1,
+    "installed_at": "2024-08-21T14:00:00Z",
+    "updated_at": "2026-04-29T15:42:00Z"
+  }
+]

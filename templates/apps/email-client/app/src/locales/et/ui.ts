@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Vaata abiteemasid',
+  'about.cta.signup': 'Proovi Courierit tasuta',
+  'about.eyebrow': 'Courierist',
+  'about.principle.calm': 'Vaikimisi vaikne.',
+  'about.principle.calm.desc':
+    'Ei mingeid silmatorkavaid märgiseid, ei mingeid soovimatuid teateid, ei mingeid tähelepanu nõudvaid animatsioone.',
+  'about.principle.fast.desc':
+    'Iga toiming on vaid ühe klahvivajutuse kaugusel. Postkast laadib sisse logimisel alla 200 millisekundi.',
+  'about.principle.honest.desc':
+    'Andmete krüpteerimine nii edastamise ajal kui ka salvestatuna, läbipaistev säilitamine ja andmete eksportimine ühe klõpsuga.',
+  'about.story': "Miks me Courier'i lõime",
+  'about.story.p1':
+    'Enamik e-posti kliente on loodud kasutajate kaasatust suurendama – nad tõmbavad su tähelepanu tagasi, hajutavad su tähelepanu ja soovitavad veel üht klõpsu. Courier teeb vastupidi. Me mõõdame edu selle järgi, kui palju aega sa EI veeda oma postkastis: sorteeri kirjad kiiresti, lükka need kindlalt edasi ja asu tegelema olulise tööga.',
+  'about.subtitle':
+    'Courier on rahulik, kolmest aknast koosnev postkast, mille on loonud väike meeskond, kes soovis teavet töödelda, mitte sellele lihtsalt reageerida.',
+  'about.team.body':
+    'Oleme laialipaisatud disainerite ja inseneride meeskond, kes veetsid kunagi iga päev liiga palju aega mürarikkas postkastis. Courier on just selline postkast, mida me ise kasutada soovisime.',
+  'about.title': 'E-post keskendunud töö jaoks',
+  'help.cta.about': 'Courierist',
+  'help.cta.pricing': 'Vaata hindu',
+  'help.eyebrow': 'Abi',
+  'help.faq.compose.a':
+    'Klõpsa külgribal nuppu „Kirjuta“ (või vajuta mis tahes postkasti vaates klahvi „c“), sisesta vähemalt üks adressaat, teema ja tekst ning vajuta nuppu „Saada“. Uus sõnum ilmub kohe kausta „Saadetud“.',
+  'help.faq.compose.q': 'Kuidas saata oma esimene sõnum?',
+  'help.faq.export.a':
+    'Jah. Menüüvalik „Seaded“ → „Konto“ → „Andmete eksport“ loob allalaaditava arhiivi (mbox + JSON), mis sisaldab kõiki kirju, märksõnu ja kontakte. Selleks ei ole vaja premium-paketti.',
+  'help.faq.labels.a':
+    'Kausta on eksklusiivsed (iga kiri asub täpselt ühes neist): Saabunud, Saadetud, Kavad, Rämpspost, Prügikast, Arhiiv. Sildid on kumulatiivsed – ühele kirjale saab lisada mitu silti ja otsinguribalt saab neid kombinatsioonide järgi filtreerida.',
+  'help.faq.password.a':
+    'Kasuta sisselogimislehel linki „Unustasid parooli?”. Saadame sinu konto e-posti aadressile ühe tunni jooksul kehtiva parooli taastamise lingi.',
+  'help.faq.shortcuts.a':
+    'Jah. „j” / „k” liigub teemade vahel, „s” lülitab tähe sisse või välja, „e” arhiveerib, „#” viib prügikasti ja „/” suunab fookuse otsingukasti. Kiirklahvide dokumentatsioon on kättesaadav igas postkasti vaates, kui vajutad \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Saatke kiri aadressile support@courier.example. Vastame igale kirjale ühe tööpäeva jooksul, tööpäevadel kell 9–17 (UTC).',
+  'help.subtitle':
+    'Kiired vastused kõige sagedamini esitatavatele küsimustele. Kas midagi puudub? Ava seaded ja kasuta rakenduses olevat tagasisidevormi või kirjuta aadressile support@courier.example.',
+  'help.title': 'Kuidas me saame aidata?',
+  'landing.brand.scrollTop': 'Tagasi üles',
+  'landing.ctaBody':
+    'Liitu tuhandete spetsialistidega, kes said oma postkasti korda juba enne lõunat.',
+  'landing.ctaTitle': 'Tee rohkem, reageeri vähem.',
+  'landing.eyebrow': 'E-post keskendunud töö jaoks',
+  'landing.featuresBody': 'Lõpeta postkasti haldamine ja hakka tööd tegema.',
+  'landing.featuresTitle': 'Mõeldud sügavale keskendumisele',
+  'landing.help': 'Abi',
+  'landing.heroDemo': 'Vaata tutvustusvideot',
+  'landing.heroSubtitle':
+    'Courier on rahulik kolmekordne postkast, mis on loodud teadustöötajatele, kes soovivad teavet töödelda, mitte sellele lihtsalt reageerida.',
+  'landing.proof': 'Meid usaldavad spetsialiseerunud meeskonnad üle kogu maailma',
+  'landing.signIn': 'Logi sisse',
+  'meridian.archive.empty': 'Arhiiv on tühi.',
+  'meridian.compose.addRecipient': 'Lisa veel üks adressaat',
+  'meridian.compose.bodyPlaceholder': 'Kirjuta oma sõnum…',
+  'meridian.compose.cc': 'Koopia',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Kustuta eelnõu',
+  'meridian.compose.invalidEmail': '„{{value}}“ ei ole kehtiv e-posti aadress',
+  'meridian.compose.needRecipient': 'Lisage kõigepealt vähemalt üks adressaat.',
+  'meridian.compose.replyTo': 'Vasta teemasse „{{id}}“',
+  'meridian.compose.savedAt': 'Kavand on salvestatud aadressil {{time}}',
+  'meridian.compose.sentWithError': 'Salvestatud saatmiseks, kuid saatmine ebaõnnestus: {{error}}',
+  'meridian.compose.subject': 'Teema',
+  'meridian.compose.subjectPlaceholder': 'Teema',
+  'meridian.compose.title': 'Uus sõnum',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Jätka redigeerimist',
+  'meridian.drafts.count': '{{count}} sõnumid',
+  'meridian.drafts.delete': 'Kustuta kavand',
+  'meridian.drafts.empty': 'Kavandeid pole veel – alusta kirjutamist.',
+  'meridian.drafts.lastSaved': 'Salvestatud {{at}}',
+  'meridian.drafts.noRecipients': '(veel pole saajaid)',
+  'meridian.drafts.selectDraft': 'Vali eelvaatamiseks eelnõu.',
+  'meridian.drafts.title': 'Kavandid',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Eelnõu',
+  'meridian.folder.count': '{{count}} sõnumid',
+  'meridian.folder.deleteForever': 'Lõplikult kustutada',
+  'meridian.folder.restore': 'Liiguta postkasti',
+  'meridian.forgot.subtitle':
+    'Sisesta oma postkasti seotud e-posti aadress ja me saadame sulle parooli taastamise lingi.',
+  'meridian.forgot.success':
+    'Kui selle e-posti aadressiga on olemas konto, saadetakse sulle varsti parooli taastamise link.',
+  'meridian.inbox.empty': 'Siin pole veel ühtegi sõnumit.',
+  'meridian.inbox.loading': 'Laadimine…',
+  'meridian.inbox.next': 'Järgmine',
+  'meridian.inbox.noSubject': '(teema puudub)',
+  'meridian.inbox.openCompose': 'Ava kirjutamine',
+  'meridian.inbox.previous': 'Eelmine',
+  'meridian.inbox.replyFailed': 'Vastus salvestati, kuid saatmine ebaõnnestus: {{error}}',
+  'meridian.inbox.replySent': 'Vastus on saadetud.',
+  'meridian.inbox.replyTo': 'Vasta aadressile {{name}}',
+  'meridian.inbox.selectMessage': 'Vali lugemiseks sõnum',
+  'meridian.inbox.spam': 'Rämpspost',
+  'meridian.inbox.viewThread': 'Vaata teemat',
+  'meridian.login.hidePassword': 'Peida parool',
+  'meridian.login.noAccount': 'Kas sul pole veel kontot?',
+  'meridian.login.showPassword': 'Näita parooli',
+  'meridian.message.toLine': '{{recipients}}',
+  'meridian.notFound.eyebrow': 'Viga 404',
+  'meridian.notFound.title': 'See teema on arhiveeritud.',
+  'meridian.notFound.toInbox': 'Ava minu postkast',
+  'meridian.reset.newLabel': 'Uus parool',
+  'meridian.reset.showPassword': 'Näita parooli',
+  'meridian.reset.subtitle': 'Vali tugev parool – vähemalt 8 tähemärki.',
+  'meridian.sent.empty': 'Sa pole veel midagi saatnud.',
+  'meridian.sent.title': 'Saadetud',
+  'meridian.settings.noName': '(nime pole määratud)',
+  'meridian.settings.section.${section}': 'Kohanda oma „{{appName}}“ kasutuskogemust',
+  'meridian.settings.signature': 'Allkiri',
+  'meridian.settings.signatureSaved': 'Allkiri salvestatud.',
+  'meridian.sidebar.compose': 'Kirjuta',
+  'meridian.sidebar.labels': 'Sildid',
+  'meridian.sidebar.noLabels': 'Sildid puuduvad',
+  'meridian.sidebar.storage': 'Salvestamine',
+  'meridian.sidebar.storageLabel': '{{used}} {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Loo oma Courier-postkast',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Näita parooli',
+  'meridian.signup.subtitle': 'Töötle oma postkast läbi enne lõunat.',
+  'meridian.spam.empty': 'Ei mingit rämpsposti.',
+  'meridian.spam.title': 'Rämpspost',
+  'meridian.starred.empty': 'Tähega märgitud sõnumeid pole.',
+  'meridian.starred.loading': 'Laadimine…',
+  'meridian.starred.removeStar': 'Tähe eemaldamine',
+  'meridian.starred.total': '{{count}} kokku',
+  'meridian.thread.back': 'Tagasi postkasti',
+  'meridian.thread.empty': 'Selles teemas pole ühtegi sõnumit.',
+  'meridian.thread.eyebrow': 'Teema nr {{id}}',
+  'meridian.thread.notFound': 'Teemat ei leitud.',
+  'meridian.thread.star': 'Lisa täht',
+  'meridian.thread.unstar': 'Tähe eemaldamine',
+  'meridian.time.yesterday': 'Eile',
+  'meridian.topBar.searchPlaceholder': 'Otsi kirju',
+  'meridian.trash.empty': 'Prügikast on tühi.',
+  'meridian.trash.title': 'Prügikast',
+  'nav.legal': 'Õiguslik',
+  'planUpdated.description':
+    'Teie tellimus on nüüd aktiivne ja arveldusandmed on uuendatud. Tere tulemast uuendatud Courier-postkasti.',
+  'pricing.heading': 'tuulehoovused',
+  'pricing.limit.emails': 'e-kirjad',
+  'pricing.limit.folders': 'kaustad',
+  'pricing.limit.labels': 'sildid',
+  'privacy.collect.account':
+    'Kontoandmed: nimi, e-posti aadress, räsitud parool ja registreerumise kuupäev.',
+  'privacy.intro':
+    'Käesolevas privaatsuspoliitikas selgitatakse, milliseid andmeid Courier kogub, miks me neid kogume, kuidas me neid kaitsevad ja millised valikuvõimalused teil nende suhtes on. Püüame olla pigem konkreetsed kui juriidilised; kui midagi jääb ebaselgeks, kirjutage aadressile privacy@courier.example.',
+  'privacy.lastUpdated': 'Viimati uuendatud: 1. aprill 2026',
+  'privacy.linkTerms': 'Loe meie kasutustingimusi \\u2192',
+  'privacy.rights.body':
+    'Saad eksportida kõik meie poolt sinu kohta säilitatavad andmed menüüst „Seaded“ → „Konto“ → „Andmete eksport“ ning saad oma konto ühe klõpsuga kustutada – kõik andmed kustutatakse 24 tunni jooksul, auditeerimislogid kustutatakse 30 päeva möödudes.',
+  'privacy.security.body':
+    'Kirjade sisu ja manused krüpteeritakse salvestamisel AES-256-ga. Ühendused meie teenusega toimuvad TLS 1.3-protokolli abil. Paroolid hash-itakse bcrypt-algoritmiga; me ei logi ega säilita kunagi paroolisid selge tekstina. Juurdepääs tootmiskeskkonnale on piiratud valvekorras olevate inseneridega, keda auditeeritakse kord kuus.',
+  'privacy.share.body':
+    "Jagame andmeid ainult nendele alltöötlejatele, keda vajame Courier'i teenuse osutamiseks (e-kirjade saatmine Mailguni kaudu, arveldamine Stripe'i kaudu, veebimajutus AWS-i kaudu). Kõik nad on lepinguliselt kohustatud kasutama teie andmeid ainult selleks, et osutada meile oma teenust. Me ei müü, ei rendi ega vaheta teie andmeid kellegagi.",
+  'terms.acceptable.spam':
+    'Mitte mingit massilist soovimatut sõnumite saatmist. Spämmi saatvate kontode puhul sulgeme need ilma hoiatuseta.',
+  'terms.account.body':
+    'Te vastutate oma parooli konfidentsiaalsuse säilitamise eest ning kõigi tegevuste eest, mis toimuvad teie konto kaudu. Palun teavitage meid aadressil security@courier.example, kui arvate, et teie konto on ohustatud.',
+  'terms.billing.body':
+    'Tasulised paketid uuendatakse registreerimisel valitud sagedusega. Saad teenuse igal ajal tühistada menüüs „Seaded“ → „Arveldamine“ ning säilitad juurdepääsu teenusele kuni arveldusperioodi lõpuni. Tagasimakseid tehakse teenuse katkestuste eest, mis ületavad SLA-s sätestatud piire.',
+  'terms.intro':
+    'Need tingimused reguleerivad teie Courier kasutamist. Konto loomise või meie kaudu e-kirja saatmisega nõustute nende tingimustega. Püüame koostada reegleid, mida on tegelikult võimalik järgida.',
+  'terms.lastUpdated': 'Jõustub: 1. aprill 2026',
+  'terms.termination.body':
+    'Võite oma konto igal ajal kustutada. Meil on õigus peatada konto, mis rikub käesolevaid tingimusi; sel juhul selgitame põhjuse ja anname teile võimaluse oma andmed esmalt eksportida.',
+  'terms.warranty.body':
+    'Teenust osutatakse sellisena, nagu see on. Me teeme kõik endast oleneva, et teenus oleks usaldusväärne ja turvaline, kuid me ei saa tagada katkematut juurdepääsu. Seadusega lubatud ulatuses on meie koguvastutus piiratud summaga, mille olete meile viimase 12 kuu jooksul maksnud.',
+}

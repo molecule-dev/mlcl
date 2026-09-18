@@ -1,0 +1,50 @@
+[
+  {
+    "id": "inv-2026-04",
+    "subscription_id": "sub-current",
+    "amount_cents": 3900,
+    "currency": "USD",
+    "status": "paid",
+    "billed_at": "2026-04-12T00:00:00Z",
+    "period_start": "2026-04-12T00:00:00Z",
+    "period_end": "2026-05-11T00:00:00Z",
+    "description": "Crate Classic — April 2026",
+    "receipt_url": "/receipts/inv-2026-04.pdf"
+  },
+  {
+    "id": "inv-2026-03",
+    "subscription_id": "sub-current",
+    "amount_cents": 3900,
+    "currency": "USD",
+    "status": "paid",
+    "billed_at": "2026-03-12T00:00:00Z",
+    "period_start": "2026-03-12T00:00:00Z",
+    "period_end": "2026-04-11T00:00:00Z",
+    "description": "Crate Classic — March 2026",
+    "receipt_url": "/receipts/inv-2026-03.pdf"
+  },
+  {
+    "id": "inv-2026-02",
+    "subscription_id": "sub-current",
+    "amount_cents": 3900,
+    "currency": "USD",
+    "status": "paid",
+    "billed_at": "2026-02-12T00:00:00Z",
+    "period_start": "2026-02-12T00:00:00Z",
+    "period_end": "2026-03-11T00:00:00Z",
+    "description": "Crate Classic — February 2026",
+    "receipt_url": "/receipts/inv-2026-02.pdf"
+  },
+  {
+    "id": "inv-2026-01",
+    "subscription_id": "sub-current",
+    "amount_cents": 3900,
+    "currency": "USD",
+    "status": "paid",
+    "billed_at": "2026-01-12T00:00:00Z",
+    "period_start": "2026-01-12T00:00:00Z",
+    "period_end": "2026-02-11T00:00:00Z",
+    "description": "Crate Classic — January 2026",
+    "receipt_url": "/receipts/inv-2026-01.pdf"
+  }
+]

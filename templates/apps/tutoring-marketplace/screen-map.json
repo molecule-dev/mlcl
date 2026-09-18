@@ -1,0 +1,159 @@
+{
+  "app": "tutoring-marketplace",
+  "designProjectId": "903117845234308117",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-landing.html",
+      "designScreenId": "77174856e8204559a0beb659ac509b9f"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-login.html",
+      "designScreenId": "bd8d6e4083794a4596e24169506e2469"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-tutoring-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split layout as Login with Student/Tutor role toggle, First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Join Chalk'. Button text 'Create Account' (indigo primary). Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-tutoring-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email and we will send a reset link'. Button 'Send reset link' indigo. Bottom link 'Back to Sign In'. No role toggle, no password, no OAuth buttons."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-tutoring-marketplace-login.html",
+      "derivationNotes": "Same 50/50 split as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password' indigo. Bottom link 'Back to Sign In'. No role toggle, no email, no OAuth buttons."
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-search.html",
+      "designScreenId": "63781168474747a28b97b1ed36523562"
+    },
+    {
+      "name": "TutorProfile",
+      "templateFile": "app/pages/TutorProfile.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/tutor/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-tutor-profile.html",
+      "designScreenId": "89109eb34a284d4eb66b223262afd295"
+    },
+    {
+      "name": "Booking",
+      "templateFile": "app/pages/Booking.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/book/:tutorId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-booking.html",
+      "designScreenId": "72c015d9e88a4400842343431bc6add0"
+    },
+    {
+      "name": "Sessions",
+      "templateFile": "app/pages/Sessions.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/sessions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-sessions.html",
+      "designScreenId": "51482f9bea75410482ff9b90f8834735"
+    },
+    {
+      "name": "Messages",
+      "templateFile": "app/pages/Messages.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/messages",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-messages.html",
+      "designScreenId": "e7fea5d7a71a4f778058bd6c15def4bf"
+    },
+    {
+      "name": "Account",
+      "templateFile": "app/pages/Account.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/account",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-account.html",
+      "designScreenId": "813bf39306ea4ce89b212fce674e80b5"
+    },
+    {
+      "name": "SessionDetail",
+      "templateFile": "app/pages/SessionDetail.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/sessions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-session-detail.html",
+      "designScreenId": "f98f90e2bc234012b58dec9ccb42080c"
+    },
+    {
+      "name": "BookingConfirmation",
+      "templateFile": "app/pages/BookingConfirmation.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/book/:tutorId/confirm",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-booking-confirmation.html",
+      "designScreenId": "266065e9aed841e9872055db68e1b295"
+    },
+    {
+      "name": "BecomeTutor",
+      "templateFile": "app/pages/BecomeTutor.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/become-tutor",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-become-tutor.html",
+      "designScreenId": "e5597a2fb06d4c6484534cca76fd79aa"
+    },
+    {
+      "name": "TutorDashboard",
+      "templateFile": "app/pages/TutorDashboard.tsx",
+      "components": ["app/components/TutoringMarketplaceLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-tutoring-marketplace-tutor-dashboard.html",
+      "designScreenId": "7812507ff8c3405992646ee8956d3a7d"
+    }
+  ]
+}

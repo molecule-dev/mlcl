@@ -1,0 +1,38 @@
+[
+  {
+    "id": "n1",
+    "type": "price_drop",
+    "title": "JFK → CDG dropped to $324",
+    "body": "Your tracked route is 16% below your $350 target. Aeroflot Skyline AS 412 has nonstop seats available.",
+    "icon": "trending_down",
+    "read": false,
+    "created_at": "2026-04-29T14:08:00Z"
+  },
+  {
+    "id": "n2",
+    "type": "fare_alert",
+    "title": "ORD → BCN dropped to $542",
+    "body": "Your tracked route hit a 60-day low. 11% below your $600 target on Veridia Air for July 4-22.",
+    "icon": "campaign",
+    "read": false,
+    "created_at": "2026-04-29T08:45:00Z"
+  },
+  {
+    "id": "n3",
+    "type": "trip_reminder",
+    "title": "Paris trip in 13 days",
+    "body": "Your AS 412 flight to CDG departs May 12 at 18:30. Online check-in opens May 11 at 18:30.",
+    "icon": "flight_takeoff",
+    "read": true,
+    "created_at": "2026-04-28T20:00:00Z"
+  },
+  {
+    "id": "n4",
+    "type": "system",
+    "title": "Welcome to Skylark",
+    "body": "Track up to 10 routes on the free plan. Upgrade to Pioneer for unlimited tracking and priority alerts.",
+    "icon": "info",
+    "read": true,
+    "created_at": "2026-04-12T09:14:00Z"
+  }
+]

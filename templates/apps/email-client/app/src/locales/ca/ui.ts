@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': "Navega pels articles d'ajuda",
+  'about.cta.signup': 'Prova Courier gratuïtament',
+  'about.eyebrow': 'Sobre Courier',
+  'about.principle.calm': 'Calma per defecte.',
+  'about.principle.calm.desc':
+    'Sense distintius que cridin, sense notificacions que no hagis demanat, sense animacions que requereixin una ullada.',
+  'about.principle.fast.desc':
+    "Cada acció està a només prémer una tecla. La safata d'entrada es carrega en menys de 200 ms en iniciar la sessió de nou.",
+  'about.principle.honest.desc':
+    'Xifratge en trànsit i en repòs, retenció transparent i exportació de dades amb un sol clic.',
+  'about.story': 'Per què vam construir Courier',
+  'about.story.p1':
+    "La majoria de clients de correu electrònic optimitzen la interacció: atrauen l'atenció, fragmenten l'atenció i suggereixen un toc més. Courier fa el contrari. Mesurem l'èxit pel temps que passes NO a la safata d'entrada: tria ràpidament, ajorna amb confiança i continua amb la feina que importa.",
+  'about.subtitle':
+    "Courier és una safata d'entrada tranquil·la de tres panells creada per un petit equip que volia processar informació en lloc de reaccionar-hi.",
+  'about.team.body':
+    "Som un equip distribuït de dissenyadors i enginyers que abans passaven massa hores del dia en una bústia sorollosa. Courier és la bústia d'entrada que volíem utilitzar nosaltres mateixos.",
+  'about.title': 'Correu electrònic per a treballs centrats',
+  'help.cta.about': 'Sobre Courier',
+  'help.cta.pricing': 'Veure preus',
+  'help.eyebrow': "Centre d'ajuda",
+  'help.faq.compose.a':
+    "Feu clic a «Redacta» a la barra lateral (o premeu «Cc» a qualsevol vista de la safata d'entrada), introduïu com a mínim un destinatari, un assumpte i un cos i premeu «Envia». El missatge nou apareixerà immediatament a la carpeta Enviats.",
+  'help.faq.compose.q': 'Com puc enviar el meu primer missatge?',
+  'help.faq.export.a':
+    "Sí. Configuració \\u2192 Compte \\u2192 L'exportació de dades crea un arxiu descarregable (mbox + JSON) amb cada missatge, etiqueta i contacte. No cal cap nivell premium.",
+  'help.faq.labels.a':
+    "Les carpetes són exclusives (un missatge es troba exactament en una): Safata d'entrada, Enviats, Esborranys, Correu brossa, Paperera, Arxiu. Les etiquetes són additives: podeu aplicar-ne moltes a un sol correu electrònic i filtrar-les per combinacions des de la barra de cerca.",
+  'help.faq.password.a':
+    'Feu servir l\'enllaç "Heu oblidat la contrasenya?" de la pàgina d\'inici de sessió. Us enviarem un enllaç de restabliment vàlid durant una hora al correu electrònic del vostre compte.',
+  'help.faq.shortcuts.a':
+    "Sí. \\u201Cj\\u201D / \\u201Ck\\u201D moure's entre fils, \\u201Cs\\u201D activar/desactivar una estrella, \\u201Ce\\u201D arxivar, \\u201C#\\u201D moure's a la paperera i \\u201C/\\u201D enfocar el quadre de cerca. La documentació de les dreceres es troba a qualsevol vista de la safata d'entrada prement \\u201C?\\u201D.",
+  'help.faq.support.a':
+    "Envia un correu electrònic a support@courier.example. Responem a tots els missatges en el termini d'un dia laborable, els dies laborables a les 9:13 UTC.",
+  'help.subtitle':
+    "Respostes ràpides a les preguntes que més ens fan sentir. Hi falta alguna cosa? Obre Configuració i utilitza el formulari de comentaris de l'aplicació o escriu a support@courier.example.",
+  'help.title': 'Com podem ajudar?',
+  'landing.brand.scrollTop': 'Torna a dalt',
+  'landing.ctaBody':
+    "Uneix-te a milers de professionals que han acabat la seva safata d'entrada abans de dinar.",
+  'landing.ctaTitle': 'Processa més, reacciona menys.',
+  'landing.eyebrow': 'Correu electrònic per a treballs centrats',
+  'landing.featuresBody': "Deixa de gestionar la teva safata d'entrada i comença a treballar.",
+  'landing.featuresTitle': 'Dissenyat per a treballs profunds',
+  'landing.help': 'Ajuda',
+  'landing.heroDemo': 'Mira la demostració',
+  'landing.heroSubtitle':
+    "Courier és una safata d'entrada tranquil·la de tres panells creada per a treballadors del coneixement que volen processar informació, no reaccionar-hi.",
+  'landing.proof': "Confiança d'equips especialitzats a tot el món",
+  'landing.signIn': 'Inicia la sessió',
+  'meridian.archive.empty': "L'arxiu és buit.",
+  'meridian.compose.addRecipient': 'Afegeix un altre destinatari',
+  'meridian.compose.bodyPlaceholder': 'Escriu el teu missatge…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': "Descarta l'esborrany",
+  'meridian.compose.invalidEmail': '" {{value}} " no és un correu electrònic vàlid',
+  'meridian.compose.needRecipient': 'Afegeix com a mínim un destinatari primer.',
+  'meridian.compose.replyTo': 'Respon al fil {{id}}',
+  'meridian.compose.savedAt': 'Esborrany desat a {{time}}',
+  'meridian.compose.sentWithError': "Desat a Enviats, però ha fallat l'entrega: {{error}}",
+  'meridian.compose.subject': 'Assumpte',
+  'meridian.compose.subjectPlaceholder': 'Assumpte',
+  'meridian.compose.title': 'Nou missatge',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Continua editant',
+  'meridian.drafts.count': '{{count}} missatges',
+  'meridian.drafts.delete': "Suprimeix l'esborrany",
+  'meridian.drafts.empty': 'Encara no hi ha esborranys; comença a compondre.',
+  'meridian.drafts.lastSaved': 'Desat {{at}}',
+  'meridian.drafts.noRecipients': '(encara no hi ha destinataris)',
+  'meridian.drafts.selectDraft': 'Seleccioneu un esborrany per previsualitzar-lo.',
+  'meridian.drafts.title': 'Esborranys',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Esborrany',
+  'meridian.folder.count': '{{count}} missatges',
+  'meridian.folder.deleteForever': 'Suprimeix permanentment',
+  'meridian.folder.restore': "Mou a la safata d'entrada",
+  'meridian.forgot.subtitle':
+    "Introdueix el correu electrònic associat a la teva safata d'entrada i t'enviarem un enllaç de restabliment.",
+  'meridian.forgot.success':
+    'Si ja existeix un compte amb aquest correu electrònic, hi haurà un enllaç de restabliment en camí.',
+  'meridian.inbox.empty': 'Encara no hi ha missatges aquí.',
+  'meridian.inbox.loading': "S'està carregant…",
+  'meridian.inbox.next': 'Següent',
+  'meridian.inbox.noSubject': '(sense assumpte)',
+  'meridian.inbox.openCompose': 'Obre la redacció',
+  'meridian.inbox.previous': 'Anterior',
+  'meridian.inbox.replyFailed': 'Resposta desada però ha fallat el lliurament: {{error}}',
+  'meridian.inbox.replySent': 'Resposta enviada.',
+  'meridian.inbox.replyTo': 'Respon a {{name}}',
+  'meridian.inbox.selectMessage': 'Selecciona un missatge per llegir',
+  'meridian.inbox.spam': 'Correu brossa',
+  'meridian.inbox.viewThread': 'Veure fil',
+  'meridian.login.hidePassword': 'Amaga la contrasenya',
+  'meridian.login.noAccount': 'No tens cap compte?',
+  'meridian.login.showPassword': 'Mostra la contrasenya',
+  'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.eyebrow': 'Error 404',
+  'meridian.notFound.title': 'Aquest fil ha estat arxivat.',
+  'meridian.notFound.toInbox': "Obre la meva safata d'entrada",
+  'meridian.reset.newLabel': 'Nova contrasenya',
+  'meridian.reset.showPassword': 'Mostra la contrasenya',
+  'meridian.reset.subtitle': 'Trieu una contrasenya segura: com a mínim 8 caràcters.',
+  'meridian.sent.empty': 'Encara no has enviat res.',
+  'meridian.sent.title': 'Enviat',
+  'meridian.settings.noName': "(no s'ha establert cap nom)",
+  'meridian.settings.section.${section}': "Personalitza el teu {{nom de l'aplicació}} experiència",
+  'meridian.settings.signature': 'Signatura',
+  'meridian.settings.signatureSaved': 'Signatura desada.',
+  'meridian.sidebar.compose': 'Compon',
+  'meridian.sidebar.labels': 'Etiquetes',
+  'meridian.sidebar.noLabels': 'Encara no hi ha etiquetes',
+  'meridian.sidebar.storage': 'Emmagatzematge',
+  'meridian.sidebar.storageLabel': '{{used}} de {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': "Crea la teva safata d'entrada de Courier",
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Mostra la contrasenya',
+  'meridian.signup.subtitle': "Processa la teva safata d'entrada abans de dinar.",
+  'meridian.spam.empty': 'Sense correu brossa.',
+  'meridian.spam.title': 'Correu brossa',
+  'meridian.starred.empty': 'No hi ha missatges marcats amb una estrella.',
+  'meridian.starred.loading': "S'està carregant…",
+  'meridian.starred.removeStar': "Elimina l'estrella",
+  'meridian.starred.total': '{{count}} total',
+  'meridian.thread.back': "Torna a la safata d'entrada",
+  'meridian.thread.empty': 'No hi ha missatges en aquest fil.',
+  'meridian.thread.eyebrow': 'Fil núm. {{id}}',
+  'meridian.thread.notFound': "No s'ha trobat el fil.",
+  'meridian.thread.star': 'Afegeix una estrella',
+  'meridian.thread.unstar': "Elimina l'estrella",
+  'meridian.time.yesterday': 'Ahir',
+  'meridian.topBar.searchPlaceholder': 'Cerca correu',
+  'meridian.trash.empty': 'La paperera és buida.',
+  'meridian.trash.title': 'Escombraries',
+  'nav.legal': 'Legal',
+  'planUpdated.description':
+    "La teva subscripció ja està activa i la teva facturació s'ha actualitzat. Benvingut a la teva safata d'entrada de Courier actualitzada.",
+  'pricing.heading': 'esborranys',
+  'pricing.limit.emails': 'correus electrònics',
+  'pricing.limit.folders': 'carpetes',
+  'pricing.limit.labels': 'etiquetes',
+  'privacy.collect.account':
+    'Dades del compte: nom, adreça electrònica, contrasenya codificada i data de registre.',
+  'privacy.intro':
+    'Aquesta política de privadesa explica quines dades recopila Courier, per què les recopila, com les mantenim segures i quines opcions teniu al respecte. Intentem ser específics en lloc de legalistes; si alguna cosa no està clara, escriviu a privacy@courier.example.',
+  'privacy.lastUpdated': "Darrera actualització: 1 d'abril de 2026",
+  'privacy.linkTerms': 'Llegeix les nostres Condicions del servei \\u2192',
+  'privacy.rights.body':
+    "Podeu exportar totes les dades que tenim sobre vosaltres des de Configuració → Compte → Exportació de dades i podeu suprimir el vostre compte amb un sol clic: totes les files s'esborraran en 24 hores i els registres d'auditoria es purgaran després de 30 dies.",
+  'privacy.security.body':
+    "El contingut del correu i els fitxers adjunts es xifren en repòs mitjançant AES-256. Les connexions cap al nostre servei i des d'aquest utilitzen TLS 1.3. Les contrasenyes es xifren amb bcrypt; mai registrem ni emmagatzemem contrasenyes de text sense format. L'accés de producció està limitat als enginyers de guàrdia, auditats mensualment.",
+  'privacy.share.body':
+    "Només compartim dades amb els subprocessadors que necessitem per executar Courier (enviament de correu electrònic a través de Mailgun, facturació a través de Stripe, allotjament a través d'AWS). Cadascun està obligat contractualment a utilitzar les vostres dades només per realitzar el seu servei per a nosaltres. No venem, lloguem ni intercanviem les vostres dades amb ningú.",
+  'terms.acceptable.spam':
+    "No s'accepten missatges no sol·licitats en massa. Tancarem els comptes que enviïn correu brossa sense previ avís.",
+  'terms.account.body':
+    "Sou responsable de mantenir la confidencialitat de la vostra contrasenya i de qualsevol activitat que es produeixi a través del vostre compte. Notifica'ns a security@courier.example si creieu que el vostre compte ha estat compromès.",
+  'terms.billing.body':
+    "Els plans de pagament es renoven a la cadència escollida en el moment del registre. Podeu cancel·lar des de Configuració → Facturació en qualsevol moment i manteniu l'accés durant la resta del període de facturació. Es reemborsen els diners per temps d'inactivitat del servei que superi l'acord de nivell de servei.",
+  'terms.intro':
+    "Aquests termes regeixen l'ús de Courier. En crear un compte o enviar un correu electrònic a través nostre, accepteu quedar-hi subjectes. Intentem escriure normes que una persona pugui seguir realment.",
+  'terms.lastUpdated': "Vigent a partir de l'1 d'abril de 2026",
+  'terms.termination.body':
+    "Podeu eliminar el vostre compte en qualsevol moment. Podem suspendre un compte que infringeixi aquestes condicions; si ho fem, us n'explicarem el motiu i us permetrem exportar les vostres dades primer.",
+  'terms.warranty.body':
+    "El servei es proporciona tal com és. Treballem de valent per mantenir-lo fiable i segur, però no podem garantir un accés ininterromput. En la mesura que ho permeti la llei, la nostra responsabilitat agregada està limitada a l'import que ens vau pagar durant els 12 mesos anteriors.",
+}

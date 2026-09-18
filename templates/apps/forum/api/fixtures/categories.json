@@ -1,0 +1,68 @@
+[
+  {
+    "id": "cat-typescript",
+    "name": "TypeScript",
+    "slug": "typescript",
+    "description": "Discussion, news, and questions about TypeScript and the broader typed-JavaScript ecosystem.",
+    "emoji": "📘",
+    "subscribers": 24800,
+    "active_users": 412,
+    "color": "#3178c6",
+    "created_at": "2025-01-12T08:00:00Z"
+  },
+  {
+    "id": "cat-react",
+    "name": "React",
+    "slug": "react",
+    "description": "Everything React — RSC, hooks, libraries, patterns, and ecosystem chatter.",
+    "emoji": "⚛️",
+    "subscribers": 31200,
+    "active_users": 587,
+    "color": "#61dafb",
+    "created_at": "2025-01-12T08:00:00Z"
+  },
+  {
+    "id": "cat-design-systems",
+    "name": "Design Systems",
+    "slug": "design-systems",
+    "description": "Component libraries, tokens, theming, and the practice of designing at scale.",
+    "emoji": "🎨",
+    "subscribers": 18400,
+    "active_users": 240,
+    "color": "#e8762c",
+    "created_at": "2025-01-12T08:00:00Z"
+  },
+  {
+    "id": "cat-database",
+    "name": "Databases",
+    "slug": "databases",
+    "description": "Postgres, SQLite, vector stores, ORMs, schema design, and query tuning.",
+    "emoji": "🗄️",
+    "subscribers": 14200,
+    "active_users": 198,
+    "color": "#0e7c6b",
+    "created_at": "2025-01-12T08:00:00Z"
+  },
+  {
+    "id": "cat-devops",
+    "name": "DevOps",
+    "slug": "devops",
+    "description": "CI/CD, containers, observability, infra-as-code, and platform engineering.",
+    "emoji": "🛠️",
+    "subscribers": 12100,
+    "active_users": 174,
+    "color": "#5b6cff",
+    "created_at": "2025-01-12T08:00:00Z"
+  },
+  {
+    "id": "cat-meta",
+    "name": "Meta",
+    "slug": "meta",
+    "description": "Site-wide announcements, moderation discussions, and community proposals.",
+    "emoji": "📣",
+    "subscribers": 8400,
+    "active_users": 92,
+    "color": "#a14cd6",
+    "created_at": "2025-01-12T08:00:00Z"
+  }
+]

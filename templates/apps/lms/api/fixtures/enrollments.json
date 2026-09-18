@@ -1,0 +1,92 @@
+[
+  {
+    "id": "enr01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "student_email": "alex.turner@students.edu",
+    "role": "student",
+    "status": "completed",
+    "enrolled_at": "2025-09-05T10:00:00Z",
+    "updated_at": "2026-01-15T09:00:00Z"
+  },
+  {
+    "id": "enr02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "student_email": "maya.johnson@students.edu",
+    "role": "student",
+    "status": "active",
+    "enrolled_at": "2026-02-01T08:00:00Z",
+    "updated_at": "2026-03-28T10:00:00Z"
+  },
+  {
+    "id": "enr03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "student_email": "alex.turner@students.edu",
+    "role": "student",
+    "status": "active",
+    "enrolled_at": "2026-01-20T09:00:00Z",
+    "updated_at": "2026-03-25T14:00:00Z"
+  },
+  {
+    "id": "enr04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "student_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "student_email": "jordan.lee@students.edu",
+    "role": "ta",
+    "status": "active",
+    "enrolled_at": "2026-01-18T10:00:00Z",
+    "updated_at": "2026-03-20T11:00:00Z"
+  },
+  {
+    "id": "enr05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "student_email": "maya.johnson@students.edu",
+    "role": "student",
+    "status": "active",
+    "enrolled_at": "2025-11-10T08:00:00Z",
+    "updated_at": "2026-03-15T09:00:00Z"
+  },
+  {
+    "id": "enr06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "student_email": "alex.turner@students.edu",
+    "role": "student",
+    "status": "active",
+    "enrolled_at": "2026-02-05T10:00:00Z",
+    "updated_at": "2026-03-28T08:00:00Z"
+  },
+  {
+    "id": "enr07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "student_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "student_email": "maya.johnson@students.edu",
+    "role": "student",
+    "status": "active",
+    "enrolled_at": "2026-02-10T14:00:00Z",
+    "updated_at": "2026-03-22T10:00:00Z"
+  },
+  {
+    "id": "enr08b9c-0d1e-4f2a-b3c4-d5e6f7a8b9c0",
+    "course_id": "crs06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "student_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "student_email": "alex.turner@students.edu",
+    "role": "student",
+    "status": "inactive",
+    "enrolled_at": "2025-03-10T10:00:00Z",
+    "updated_at": "2026-01-01T00:00:00Z"
+  },
+  {
+    "id": "enr09c0d-1e2f-4a3b-c4d5-e6f7a8b9c0d1",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "student_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "student_email": "jordan.lee@students.edu",
+    "role": "observer",
+    "status": "active",
+    "enrolled_at": "2026-03-01T08:00:00Z",
+    "updated_at": "2026-03-01T08:00:00Z"
+  }
+]

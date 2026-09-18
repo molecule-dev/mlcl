@@ -1,0 +1,15 @@
+{
+  "now-playing": {
+    "track_id": "trk_005",
+    "track_title": "Cardinal",
+    "artist": "Tessa Mira",
+    "album": "Hello, Stranger",
+    "cover_index": 4,
+    "duration_seconds": 245,
+    "position_seconds": 87,
+    "is_playing": true,
+    "is_shuffled": false,
+    "repeat_mode": "off",
+    "liked": true
+  }
+}

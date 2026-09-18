@@ -1,0 +1,187 @@
+{
+  "app": "itinerary-planner",
+  "designProjectId": "677858999546722347",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Marketing home."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-itinerary-planner-login.html",
+      "designScreenId": "a96c698e53f14649b2d73d9fef15d824"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Create account."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Request reset."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-login.html",
+      "derivationNotes": "Same centered card layout as Login, adapted for Set new password."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-itinerary-planner-dashboard.html",
+      "designScreenId": "b0eeb20d9bea46d5ae4e454c352d347c"
+    },
+    {
+      "name": "Trips",
+      "templateFile": "app/pages/Trips.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/trips",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: All trips list with status, dates, destinations."
+    },
+    {
+      "name": "TripPlanner",
+      "templateFile": "app/pages/TripPlanner.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/trips/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Build/edit a trip with day timeline, stops, transport."
+    },
+    {
+      "name": "TripDetail",
+      "templateFile": "app/pages/TripDetail.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/trips/:id",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: View trip itinerary, bookings, map, notes."
+    },
+    {
+      "name": "Destinations",
+      "templateFile": "app/pages/Destinations.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/destinations",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Browse saved and suggested destinations."
+    },
+    {
+      "name": "Bookings",
+      "templateFile": "app/pages/Bookings.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/bookings",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Flights, hotels, activities with confirmations."
+    },
+    {
+      "name": "Expenses",
+      "templateFile": "app/pages/Expenses.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/expenses",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Trip spending tracker with per-category breakdown."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-itinerary-planner-dashboard.html",
+      "derivationNotes": "Use same shell (sidebar + top bar + Waypoint wordmark) as reference. Page content: Profile, preferences, currency, integrations."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-itinerary-planner-notifications.html",
+      "designScreenId": "fbdae1e3f1004451af931be6278ec65a"
+    },
+    {
+      "name": "Calendar",
+      "templateFile": "app/pages/Calendar.tsx",
+      "components": [
+        "app/components/WaypointLayout.tsx"
+      ],
+      "route": "/calendar",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-itinerary-planner-calendar.html",
+      "designScreenId": "0e238d7e222145c3b4fde120a6db0d6e"
+    }
+  ]
+}

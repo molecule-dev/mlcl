@@ -1,0 +1,181 @@
+{
+  "app": "survey-feedback-tool",
+  "designProjectId": "3507262806240638777",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-landing.html",
+      "designScreenId": "f59973d45d1046ee8b6054ff689e91e9"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-login.html",
+      "designScreenId": "bcd6a757bcc54fe988cc0e581567690d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-survey-feedback-tool-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password. Button 'Create Account'. Bottom link 'Already have an account? Sign In'."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-survey-feedback-tool-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-survey-feedback-tool-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'."
+    },
+    {
+      "name": "Surveys",
+      "templateFile": "app/pages/Surveys.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-surveys.html",
+      "designScreenId": "95c632d88af64b668819231abdd14ad2"
+    },
+    {
+      "name": "Builder",
+      "templateFile": "app/pages/Builder.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys/:id/build",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-builder.html",
+      "designScreenId": "141d4307296d420ab5e3454d7b4df698"
+    },
+    {
+      "name": "Responses",
+      "templateFile": "app/pages/Responses.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys/:id/responses",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-responses.html",
+      "designScreenId": "91b5f36999a2420c9bb5ed30d09ab02e"
+    },
+    {
+      "name": "SurveyDetail",
+      "templateFile": "app/pages/SurveyDetail.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-survey-detail.html",
+      "designScreenId": "2ecdc0e5efa44b77a91f36eaf5b7a9f1"
+    },
+    {
+      "name": "ResponseDetail",
+      "templateFile": "app/pages/ResponseDetail.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys/:id/responses/:responseId",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-response-detail.html",
+      "designScreenId": "f66bf674f4b449d096b7a0d879d63467"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/surveys/:id/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-analytics.html",
+      "designScreenId": "c0612bb40de14f85b171466955325d23"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-templates.html",
+      "designScreenId": "506629e1a1da49f7b2afe1319072c9d2"
+    },
+    {
+      "name": "PublicSurvey",
+      "templateFile": "app/pages/PublicSurvey.tsx",
+      "components": [],
+      "route": "/s/:slug",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-public-survey.html",
+      "designScreenId": "5d5d3f89f5ba41f287bcba0cb869528a"
+    },
+    {
+      "name": "ThankYou",
+      "templateFile": "app/pages/ThankYou.tsx",
+      "components": [],
+      "route": "/s/:slug/thank-you",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-survey-feedback-tool-public-survey.html",
+      "derivationNotes": "Same outer Gauge survey frame as PublicSurvey but the canvas shows a centered confirmation card (max-width 560px): large checkmark icon in complete color, heading 'Thanks — your voice matters', subtext 'Your response has been recorded.', optional 'Take another survey' link. No progress bar, no question, no Submit button."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-settings.html",
+      "designScreenId": "b097cb5c3b51482c9b574655633074ca"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-survey-feedback-tool-settings.html",
+      "derivationNotes": "Same Gauge layout + tabbed settings shell as Settings, but tabs collapse to a single Profile tab with sections: Avatar (upload + preview), Name (first/last fields), Email (with 'verified' badge), Password (current + new + confirm), Active Sessions (table of devices with revoke buttons). Save button bottom-right of card."
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SurveyFeedbackToolLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-survey-feedback-tool-notifications.html",
+      "designScreenId": "0a6837e945414bee8581501798966bf6"
+    }
+  ]
+}

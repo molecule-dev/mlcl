@@ -1,0 +1,47 @@
+[
+  {
+    "id": "n1",
+    "type": "reply",
+    "actor": { "username": "arch.r", "display_name": "Arch Reyes" },
+    "target": { "type": "thread", "id": "t1", "title": "Is \"the obstacle is the way\" actually Stoic? — A close reading" },
+    "body": "Two thoughts: 1) Holiday's contribution is rhetorical… 2) Whether that line tracks…",
+    "created_at": "2026-04-29T22:25:00Z",
+    "read": false
+  },
+  {
+    "id": "n2",
+    "type": "mention",
+    "actor": { "username": "mia.v", "display_name": "Mia Vergara" },
+    "target": { "type": "thread", "id": "t1", "title": "Is \"the obstacle is the way\" actually Stoic? — A close reading" },
+    "body": "@helena.k worth looking at the Greek — eumenōs vs embrace.",
+    "created_at": "2026-04-30T00:12:00Z",
+    "read": false
+  },
+  {
+    "id": "n3",
+    "type": "follow",
+    "actor": { "username": "kara.w", "display_name": "Kara Wei" },
+    "target": null,
+    "body": "Kara Wei started following you.",
+    "created_at": "2026-04-29T18:00:00Z",
+    "read": true
+  },
+  {
+    "id": "n4",
+    "type": "badge",
+    "actor": null,
+    "target": { "type": "badge", "id": "elder", "title": "Elder" },
+    "body": "You earned the Elder badge — 4 years of slow conversation.",
+    "created_at": "2026-04-29T12:00:00Z",
+    "read": true
+  },
+  {
+    "id": "n5",
+    "type": "moderation",
+    "actor": { "username": "mod.alex", "display_name": "Alex Park" },
+    "target": { "type": "thread", "id": "t5", "title": "Locked: please move further conversation to the new threading guide" },
+    "body": "Thread locked by mod.alex.",
+    "created_at": "2026-04-29T01:00:00Z",
+    "read": true
+  }
+]

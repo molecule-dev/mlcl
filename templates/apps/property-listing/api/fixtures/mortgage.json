@@ -1,0 +1,55 @@
+{
+  "example_calculations": [
+    {
+      "home_price": 875000,
+      "down_payment_percent": 20,
+      "interest_rate": 6.5,
+      "loan_term_years": 30,
+      "property_tax_rate": 1.1,
+      "insurance_annual": 1200,
+      "result": {
+        "monthly_payment": 5228.42,
+        "principal_and_interest": 4424.84,
+        "property_tax": 802.08,
+        "insurance": 100,
+        "down_payment": 175000,
+        "loan_amount": 700000,
+        "total_cost": 1882231.2
+      }
+    },
+    {
+      "home_price": 425000,
+      "down_payment_percent": 10,
+      "interest_rate": 6.75,
+      "loan_term_years": 30,
+      "property_tax_rate": 1.1,
+      "insurance_annual": 900,
+      "result": {
+        "monthly_payment": 2953.95,
+        "principal_and_interest": 2481.53,
+        "property_tax": 389.58,
+        "insurance": 75,
+        "down_payment": 42500,
+        "loan_amount": 382500,
+        "total_cost": 1063422
+      }
+    },
+    {
+      "home_price": 1250000,
+      "down_payment_percent": 25,
+      "interest_rate": 6.25,
+      "loan_term_years": 15,
+      "property_tax_rate": 1.1,
+      "insurance_annual": 1800,
+      "result": {
+        "monthly_payment": 9241.89,
+        "principal_and_interest": 8045.48,
+        "property_tax": 1145.83,
+        "insurance": 150,
+        "down_payment": 312500,
+        "loan_amount": 937500,
+        "total_cost": 1663540.2
+      }
+    }
+  ]
+}

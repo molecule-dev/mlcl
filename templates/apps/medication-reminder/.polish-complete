@@ -1,0 +1,12 @@
+Polish complete: 2026-04-28T13:30:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: health (no polished sibling) → analogues: personal-finance + banking-dashboard
+Components: 5 bespoke (TodayHeroCard, AdherenceTriad, DoseRow, RefillAlertCard, AuthBrandHeader)
+Pages rewritten: Landing, Dashboard, Refills
+Auth branded: Login, Signup, ForgotPassword, ResetPassword
+Material 3 tokens filled: yes (already complete)
+Fonts added: yes (already loaded)
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegate to @molecule packages)
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean

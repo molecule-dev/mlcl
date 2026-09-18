@@ -1,0 +1,149 @@
+{
+  "app": "ai-writing-studio",
+  "designProjectId": "17805563881739248686",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-landing.html",
+      "designScreenId": "f4b23bfb29734076bfe2b7a110a56959"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-login.html",
+      "designScreenId": "dd660ddd40344bf38fe045f83a455cf4"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-writing-studio-login.html",
+      "derivationNotes": "Same centered card on soft lavender (#faf9fc) with Plume wordmark + Lora italic tagline as Login, but with fields: First Name, Last Name, Email, Password, Confirm Password. Card heading changes to 'Create your account' with subtext 'Start your writing journey'. Primary button text becomes 'Create Account' (purple #6c47d9). Bottom link changes to 'Already have an account? Sign in'. Keep Google + GitHub social auth row. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-writing-studio-login.html",
+      "derivationNotes": "Same centered card layout and Plume branding as Login, but with only email field. Heading changes to 'Reset your password' with Lora italic subtext 'Enter your email and we will send you a reset link'. Button text changes to 'Send Reset Link' (purple). Bottom link changes to 'Back to Sign In'. Remove password field, remember-me row, and social auth section."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-writing-studio-login.html",
+      "derivationNotes": "Same centered card layout and Plume branding as Login, but with New Password + Confirm Password fields only. Heading changes to 'Set a new password'. Subtext in Lora italic: 'Choose something memorable.' Button text changes to 'Reset Password' (purple). Bottom link changes to 'Back to Sign In'. Remove email field, remember-me row, and social auth section."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-dashboard.html",
+      "designScreenId": "c50dc856e5364de5abc5751c99a06059"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/documents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-editor.html",
+      "designScreenId": "5bf272cd37bf4c67a9d2607b0c0b82eb"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-documents.html",
+      "designScreenId": "f774e0f247854a3cb02d34d676b9476e"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-templates.html",
+      "designScreenId": "0e6b0faf1b8141269336622d92b2e588"
+    },
+    {
+      "name": "SEOAnalysis",
+      "templateFile": "app/pages/SEOAnalysis.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/documents/:id/seo",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-seo-analysis.html",
+      "designScreenId": "f24b70d210074729984c3b5e1e032c23"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-settings.html",
+      "designScreenId": "9265d2432e2e41df9cc20db05d961ae6"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-profile.html",
+      "designScreenId": "abbe161cf3ad4a81bbe6fb6cd23a1a7f"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-billing.html",
+      "designScreenId": "01ded7f5476d4d6ead4e944307a84624"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/AiWritingStudioLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-writing-studio-analytics.html",
+      "designScreenId": "6a162cf0b63d43d68fd912673437bd42"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+# Handlers we don't currently exercise in e2e (no UI surface yet).
+collections

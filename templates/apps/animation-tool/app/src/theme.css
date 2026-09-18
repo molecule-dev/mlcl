@@ -1,0 +1,296 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === Vivace dark-default palette (dark studio canvas) === */
+  --anim-primary: #e040fb;
+  --anim-primary-hover: #c530db;
+  --anim-secondary: #00bfa5;
+  --anim-accent: #ffd740;
+  --anim-danger: #ff5252;
+
+  --anim-background: #18181b;
+  --anim-surface: #27272a;
+  --anim-surface-elevated: #3f3f46;
+  --anim-border: #52525b;
+
+  --anim-text: #fafafa;
+  --anim-text-secondary: #a1a1aa;
+  --anim-text-muted: #71717a;
+
+  --anim-canvas-bg: #09090b;
+  --anim-selection: #e040fb;
+  --anim-playhead: #00bfa5;
+  --anim-keyframe: #ffd740;
+  --anim-keyframe-selected: #e040fb;
+  --anim-curve: rgba(0, 191, 165, 0.6);
+
+  --anim-toolbar-bg: #18181b;
+  --anim-timeline-bg: #0f0f12;
+  --anim-sidebar-bg: #1f1f23;
+  --anim-sidebar-width: 280px;
+
+  --anim-radius-sm: 4px;
+  --anim-radius-md: 6px;
+  --anim-radius-lg: 10px;
+
+  --anim-font-sans: 'Inter', system-ui, sans-serif;
+  --anim-font-mono: 'JetBrains Mono', monospace;
+  --anim-font-size-xs: 10px;
+  --anim-font-size-sm: 12px;
+  --anim-font-size-md: 14px;
+
+  /* === @theme bridge — provider tokens (dark defaults match dark studio) === */
+  --mol-color-primary: #e040fb;
+  --mol-color-primary-light: #3b0f4d;
+  --mol-color-primary-dark: #c530db;
+  --mol-color-secondary: #00bfa5;
+  --mol-color-background: #18181b;
+  --mol-color-background-secondary: #27272a;
+  --mol-color-background-tertiary: #3f3f46;
+  --mol-color-surface: #27272a;
+  --mol-color-surface-secondary: #3f3f46;
+  --mol-color-input-background: #18181b;
+  --mol-color-text: #fafafa;
+  --mol-color-text-secondary: #a1a1aa;
+  --mol-color-text-tertiary: #71717a;
+  --mol-color-text-inverse: #18181b;
+  --mol-color-border: #52525b;
+  --mol-color-border-secondary: #3f3f46;
+  --mol-color-border-focus: #e040fb;
+  --mol-color-success: #00bfa5;
+  --mol-color-warning: #ffd740;
+  --mol-color-error: #ff5252;
+  --mol-color-info: #60a5fa;
+
+  /* === Material-3 bridge tokens (dark defaults) === */
+  --color-background: #18181b;
+  --color-on-background: #fafafa;
+  --color-surface: #27272a;
+  --color-surface-bright: #3f3f46;
+  --color-surface-dim: #0f0f12;
+  --color-surface-container-lowest: #09090b;
+  --color-surface-container-low: #1f1f23;
+  --color-surface-container: #27272a;
+  --color-surface-container-high: #3f3f46;
+  --color-surface-container-highest: #52525b;
+  --color-surface-variant: #3f3f46;
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #a1a1aa;
+  --color-inverse-surface: #fafafa;
+  --color-inverse-on-surface: #18181b;
+  --color-inverse-primary: #c530db;
+  --color-primary: #e040fb;
+  --color-primary-container: #3b0f4d;
+  --color-on-primary: #1a001f; /* dark purple — white gives only 3.3:1 on fuchsia */
+  --color-on-primary-container: #f8d4ff;
+  --color-secondary: #00bfa5;
+  --color-secondary-container: #004d43;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #adf7ec;
+  --color-tertiary: #ffd740;
+  --color-tertiary-container: #4d3b00;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #fff0b0;
+  --color-error: #ff5252;
+  --color-error-container: #4d0a0a;
+  --color-on-error: #450a16; /* dark — white gives only 3.2:1 on coral-red */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #71717a;
+  --color-outline-variant: #3f3f46;
+  --color-surface-tint: #e040fb;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/* Light mode — studio white canvas.
+   Zinc-50/white surfaces match the motion-studio aesthetic in daylight.
+   Brand fuchsia (#e040fb) stays at the same stop in both modes — CTAs
+   look identical. Canvas gets a slightly tinted swatch so keyframe
+   diamonds still read clearly. */
+[data-mol-mode='light'] {
+  --anim-primary: #86198f; /* was #e040fb — 2.5-3.33:1 as text on light surfaces (4.35 even at fuchsia-700 on the hero glow tint); fuchsia-800 = 5.54:1 there */
+  --anim-primary-hover: #86198f;
+  --anim-secondary: #115e59; /* was #00bfa5 — 1.96:1 as chip text on its 15% tint; teal-800 = 5.99:1 (chip pulses, so extra headroom) */
+  --anim-accent: #ffd740;
+  --anim-danger: #ff5252;
+
+  --anim-background: #fafafa;
+  --anim-surface: #ffffff;
+  --anim-surface-elevated: #f4f4f5;
+  --anim-border: #e4e4e7;
+
+  --anim-text: #18181b;
+  --anim-text-secondary: #52525b;
+  --anim-text-muted: #52525b; /* was #a1a1aa — 1.92-2.56:1 on light bgs; zinc-600 = 5.8:1 even on the hero tint */
+
+  --anim-canvas-bg: #e4e4e7;
+
+  --anim-toolbar-bg: #ffffff;
+  --anim-timeline-bg: #f4f4f5;
+  --anim-sidebar-bg: #fafafa;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* @theme bridge — light overrides */
+  --mol-color-primary: #e040fb;
+  --mol-color-primary-light: #fce4ff;
+  --mol-color-primary-dark: #c530db;
+  --mol-color-secondary: #00897b;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f4f4f5;
+  --mol-color-background-tertiary: #e4e4e7;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f4f4f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #18181b;
+  --mol-color-text-secondary: #52525b;
+  --mol-color-text-tertiary: #a1a1aa;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e4e4e7;
+  --mol-color-border-secondary: #d4d4d8;
+  --mol-color-border-focus: #e040fb;
+  --mol-color-success: #00897b;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #1d4ed8; /* was #2563eb — 4.19:1 as shared-chip text on its tint; blue-700 = 5.44:1 */
+
+  /* Material-3 bridge tokens — light */
+  --color-background: #fafafa;
+  --color-on-background: #18181b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f4f4f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fafafa;
+  --color-surface-container: #f4f4f5;
+  --color-surface-container-high: #e4e4e7;
+  --color-surface-container-highest: #d4d4d8;
+  --color-surface-variant: #f4f4f5;
+  --color-on-surface: #18181b;
+  --color-on-surface-variant: #52525b;
+  --color-inverse-surface: #27272a;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #e040fb;
+  --color-primary: #e040fb;
+  --color-primary-container: #fce4ff;
+  --color-on-primary: #1a001f; /* dark purple — white gives only 3.3:1 on fuchsia */
+  --color-on-primary-container: #4a0060;
+  --color-secondary: #00897b;
+  --color-secondary-container: #b2f2ea;
+  --color-on-secondary: #0d0d0d; /* dark on teal — white gives only 4.3:1 on #00897b */
+  --color-on-secondary-container: #00201d;
+  --color-tertiary: #b45309;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #451a03;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #6e7786; /* #a1a1aa fails 3:1 on white (2.56) — darkened to pass */
+  --color-outline-variant: #e4e4e7;
+  --color-surface-tint: #e040fb;
+}
+
+/* Dark mode — motion-studio rich-black canvas.
+   Pure-black canvas + near-black chrome so animations and color reads
+   are not contaminated by toolbar tint. Brand fuchsia stays at the
+   brand stop (#E040FB) and brightens slightly for hero CTAs.
+   `--color-on-primary` stays white so CTA buttons keep white text. */
+[data-mol-mode='dark'] {
+  --anim-primary: #e879f9;
+  --anim-primary-hover: #f0a6fb;
+  --anim-secondary: #2dd4bf;
+  --anim-accent: #fbbf24;
+  --anim-danger: #fb7185;
+
+  --anim-background: #0a0a0c;
+  --anim-surface: #131316;
+  --anim-surface-elevated: #1e1e22;
+  --anim-border: #2e2e34;
+
+  --anim-text: #f5f5f7;
+  --anim-text-secondary: #b8b8bf;
+  --anim-text-muted: #75757d;
+
+  --anim-canvas-bg: #000000;
+  --anim-selection: #e879f9;
+  --anim-playhead: #2dd4bf;
+  --anim-keyframe: #fbbf24;
+  --anim-keyframe-selected: #e879f9;
+  --anim-curve: rgba(45, 212, 191, 0.7);
+
+  --anim-toolbar-bg: #0a0a0c;
+  --anim-timeline-bg: #050506;
+  --anim-sidebar-bg: #0f0f12;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* @theme bridge — dark overrides */
+  --mol-color-primary: #e879f9;
+  --mol-color-primary-light: #3b0f4d;
+  --mol-color-primary-dark: #e040fb;
+  --mol-color-secondary: #2dd4bf;
+  --mol-color-background: #0a0a0c;
+  --mol-color-background-secondary: #131316;
+  --mol-color-background-tertiary: #1e1e22;
+  --mol-color-surface: #131316;
+  --mol-color-surface-secondary: #1e1e22;
+  --mol-color-input-background: #0a0a0c;
+  --mol-color-text: #f5f5f7;
+  --mol-color-text-secondary: #b8b8bf;
+  --mol-color-text-tertiary: #75757d;
+  --mol-color-text-inverse: #0a0a0c;
+  --mol-color-border: #2e2e34;
+  --mol-color-border-secondary: #1e1e22;
+  --mol-color-border-focus: #e879f9;
+  --mol-color-success: #2dd4bf;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #fb7185;
+  --mol-color-info: #60a5fa;
+
+  /* Material-3 bridge tokens — dark */
+  --color-background: #0a0a0c;
+  --color-on-background: #f5f5f7;
+  --color-surface: #131316;
+  --color-surface-bright: #1e1e22;
+  --color-surface-dim: #050506;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0f0f12;
+  --color-surface-container: #131316;
+  --color-surface-container-high: #1e1e22;
+  --color-surface-container-highest: #2e2e34;
+  --color-surface-variant: #1e1e22;
+  --color-on-surface: #f5f5f7;
+  --color-on-surface-variant: #b8b8bf;
+  --color-inverse-surface: #f5f5f7;
+  --color-inverse-on-surface: #0a0a0c;
+  --color-inverse-primary: #e040fb;
+  --color-primary: #e040fb;
+  --color-primary-container: #3b0f4d;
+  --color-on-primary: #1a001f; /* dark purple — white gives only 3.3:1 on fuchsia */
+  --color-on-primary-container: #f8d4ff;
+  --color-secondary: #2dd4bf;
+  --color-secondary-container: #004d43;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #adf7ec;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4d3b00;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #fff0b0;
+  --color-error: #fb7185;
+  --color-error-container: #4d0a0a;
+  --color-on-error: #450a16; /* dark — white gives only 2.7:1 on rose-400 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #75757d;
+  --color-outline-variant: #2e2e34;
+  --color-surface-tint: #e879f9;
+}

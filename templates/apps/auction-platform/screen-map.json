@@ -1,0 +1,159 @@
+{
+  "app": "auction-platform",
+  "designProjectId": "10990457923354297952",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-landing.html",
+      "designScreenId": "60a6b81efd974e789194715c01440e48"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-login.html",
+      "designScreenId": "edc547e736854c6fa74487f64b4db2d6"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-auction-platform-login.html",
+      "derivationNotes": "Same split-panel layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading changes to 'Create your Gavl account'. Button 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-auction-platform-login.html",
+      "derivationNotes": "Same split-panel layout as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-auction-platform-login.html",
+      "derivationNotes": "Same split-panel layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "BrowseAuctions",
+      "templateFile": "app/pages/BrowseAuctions.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/auctions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-browse-auctions.html",
+      "designScreenId": "a5fadf98d7a84cb29e0bc602da668fa7"
+    },
+    {
+      "name": "AuctionDetail",
+      "templateFile": "app/pages/AuctionDetail.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/auctions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-auction-detail.html",
+      "designScreenId": "e157ddaf492e44bb8fbb42c2b4f9391f"
+    },
+    {
+      "name": "MyBids",
+      "templateFile": "app/pages/MyBids.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/my-bids",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-my-bids.html",
+      "designScreenId": "f48db69f7ee649d09888f0cfbd7a3c88"
+    },
+    {
+      "name": "SellListing",
+      "templateFile": "app/pages/SellListing.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/sell/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-sell-listing.html",
+      "designScreenId": "fab7d919f3df4b0c9cb01c44fc93128d"
+    },
+    {
+      "name": "Watchlist",
+      "templateFile": "app/pages/Watchlist.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/watchlist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-watchlist.html",
+      "designScreenId": "6cd3fbeff90f4d24ac13932b73623820"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-settings.html",
+      "designScreenId": "e7db2164ded04fec894e63907bf68657"
+    },
+    {
+      "name": "SellerDashboard",
+      "templateFile": "app/pages/SellerDashboard.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/seller",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-seller-dashboard.html",
+      "designScreenId": "07a18674b8174e8b927b0d1cc403700b"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-notifications.html",
+      "designScreenId": "f4a786c002de42b9a7eaa2568e38ccd1"
+    },
+    {
+      "name": "SellerProfile",
+      "templateFile": "app/pages/SellerProfile.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/sellers/:handle",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-seller-profile.html",
+      "designScreenId": "623dc9d1c47d46768ffab1681ccbf159"
+    },
+    {
+      "name": "WonAuctionCheckout",
+      "templateFile": "app/pages/WonAuctionCheckout.tsx",
+      "components": ["app/components/AuctionPlatformLayout.tsx"],
+      "route": "/my-bids/won/:id/checkout",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-auction-platform-won-auction-checkout.html",
+      "designScreenId": "1cad49039a204b748871b3535c43c883"
+    }
+  ]
+}

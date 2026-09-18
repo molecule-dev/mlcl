@@ -1,0 +1,18 @@
+# Handlers that aren't directly exercised by spec network assertions.
+# Each line = handler basename (e.g. "auth" for api/src/handlers/auth.ts).
+# These are exercised indirectly via signup / login / billing flows.
+auth
+devices
+pushNotifications
+oauth
+forgotPassword
+resetPassword
+plan
+twoFactor
+profile
+expenses
+documents
+payments
+stripe
+admin
+subscription

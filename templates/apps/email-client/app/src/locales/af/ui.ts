@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Blaai deur hulpartikels',
+  'about.cta.signup': 'Probeer Courier gratis',
+  'about.eyebrow': 'Oor Meridiaan',
+  'about.principle.calm': 'Kalm by verstek.',
+  'about.principle.calm.desc':
+    "Geen kentekens wat skree nie, geen kennisgewings waarvoor jy nie gevra het nie, geen animasies wat 'n kykie vereis nie.",
+  'about.principle.fast.desc':
+    "Elke aksie is een toetsdruk weg. Die inboks laai in minder as 200 ms met 'n nuwe aanmelding.",
+  'about.principle.honest.desc':
+    "Enkripsie in transito en in rus, deursigtige bewaring en 'n een-klik data-uitvoer.",
+  'about.story': 'Waarom ons Courier gebou het',
+  'about.story.p1':
+    "Die meeste e-poskliënte optimaliseer vir betrokkenheid – trek jou terug, fragmenteer jou aandag, stel nog 'n tik voor. Courier doen die teenoorgestelde. Ons meet sukses aan die tyd wat jy NIE in jou inboks spandeer nie: triageer vinnig, stel met selfvertroue uit en gaan aan met die werk wat saak maak.",
+  'about.subtitle':
+    "Courier is 'n kalm inboks met drie vensters wat gebou is deur 'n klein span wat inligting wou verwerk in plaas daarvan om daarop te reageer.",
+  'about.team.body':
+    "Ons is 'n verspreide span ontwerpers en ingenieurs wat eens te veel ure van elke dag in 'n raserige posbus deurgebring het. Courier is die posbus wat ons self wou gebruik.",
+  'about.title': 'E-pos vir gefokusde werk',
+  'help.cta.about': 'Oor Meridiaan',
+  'help.cta.pricing': 'Bekyk pryse',
+  'help.eyebrow': 'Hulpsentrum',
+  'help.faq.compose.a':
+    "Klik \\u201CSkryf\\u201D vanaf die sybalk (of druk \\u201Cc\\u201D in enige inboks-aansig), voer ten minste een ontvanger, 'n onderwerp en 'n liggaam in, en druk \\u201CStuur\\u201D. Die nuwe boodskap verskyn onmiddellik in jou Gestuurde-vouer.",
+  'help.faq.compose.q': 'Hoe stuur ek my eerste boodskap?',
+  'help.faq.export.a':
+    "Ja. Instellings \\u2192 Rekening \\u2192 Data-uitvoer skep 'n aflaaibare argief (mbox + JSON) met elke boodskap, etiket en kontak. Geen premiumvlak is nodig nie.",
+  'help.faq.labels.a':
+    'Vouers is eksklusief (’n boodskap woon in presies een): Inboks, Gestuur, Konsepte, Spam, Asblik, Argief. Etikette is additief en jy kan baie op ’n enkele e-pos toepas en volgens kombinasies vanaf die soekbalk filter.',
+  'help.faq.password.a':
+    "Gebruik die skakel \\u201CWagwoord vergeet?\\u201D op die aanmeldbladsy. Ons sal 'n terugstelskakel wat vir een uur geldig is, na jou rekening se e-posadres stuur.",
+  'help.faq.shortcuts.a':
+    "Ja. \\u201Cj\\u201D / \\u201Ck\\u201D beweeg tussen drade, \\u201Cs\\u201D skakel 'n ster aan, \\u201Ce\\u201D argiveer, \\u201C#\\u201D skuif na die asblik, en \\u201C/\\u201D fokus die soekkassie. Kortpaddokumentasie leef by enige inboks-aansig deur op \\u201C?\\u201D te druk.",
+  'help.faq.support.a':
+    'Stuur e-pos na support@courier.example. Ons beantwoord elke boodskap binne een werksdag, weeksdae 9\\u201317 UTC.',
+  'help.subtitle':
+    'Vinnige antwoorde op die vrae wat ons die meeste hoor. Enigiets ontbreek? Maak Instellings oop en gebruik die terugvoervorm in die toepassing, of skryf aan support@courier.example.',
+  'help.title': 'Hoe kan ons help?',
+  'landing.brand.scrollTop': 'Terug na bo',
+  'landing.ctaBody':
+    'Sluit aan by duisende professionele persone wat hul inboks voor middagete klaargemaak het.',
+  'landing.ctaTitle': 'Verwerk meer, reageer minder.',
+  'landing.eyebrow': 'E-pos vir gefokusde werk',
+  'landing.featuresBody': 'Hou op om jou inboks te bestuur en begin werk gedoen kry.',
+  'landing.featuresTitle': 'Ontwerp vir diep werk',
+  'landing.help': 'Hulp',
+  'landing.heroDemo': 'Kyk demonstrasie',
+  'landing.heroSubtitle':
+    "Courier is 'n kalm driepaneel-inboks wat gebou is vir kenniswerkers wat inligting wil verwerk, nie daarop wil reageer nie.",
+  'landing.proof': 'Vertrou deur gefokusde spanne wêreldwyd',
+  'landing.signIn': 'Teken aan',
+  'meridian.archive.empty': 'Argief is leeg.',
+  'meridian.compose.addRecipient': "Voeg nog 'n ontvanger by",
+  'meridian.compose.bodyPlaceholder': 'Skryf jou boodskap…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@voorbeeld.com',
+  'meridian.compose.discard': 'Gooi konsep weg',
+  'meridian.compose.invalidEmail': '" {{value}} "is nie \'n geldige e-posadres nie',
+  'meridian.compose.needRecipient': 'Voeg eers ten minste een ontvanger by.',
+  'meridian.compose.replyTo': 'Antwoord in draad {{id}}',
+  'meridian.compose.savedAt': 'Konsep gestoor om {{time}}',
+  'meridian.compose.sentWithError': 'Gestoor na Gestuur, maar aflewering het misluk: {{error}}',
+  'meridian.compose.subject': 'Onderwerp',
+  'meridian.compose.subjectPlaceholder': 'Onderwerp',
+  'meridian.compose.title': 'Nuwe boodskap',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Gaan voort met redigering',
+  'meridian.drafts.count': '{{count}} boodskappe',
+  'meridian.drafts.delete': 'Vee konsep uit',
+  'meridian.drafts.empty': 'Geen konsepte nog nie — begin skryf.',
+  'meridian.drafts.lastSaved': 'Gestoor {{at}}',
+  'meridian.drafts.noRecipients': '(nog geen ontvangers nie)',
+  'meridian.drafts.selectDraft': "Kies 'n konsep om te voorskou.",
+  'meridian.drafts.title': 'Konsepte',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Konsep',
+  'meridian.folder.count': '{{count}} boodskappe',
+  'meridian.folder.deleteForever': 'Vee permanent uit',
+  'meridian.folder.restore': 'Skuif na inboks',
+  'meridian.forgot.subtitle':
+    "Voer die e-posadres in wat met jou inboks geassosieer word en ons sal 'n terugstelskakel stuur.",
+  'meridian.forgot.success':
+    "Indien 'n rekening met daardie e-posadres bestaan, is 'n terugstelskakel oppad.",
+  'meridian.inbox.empty': 'Geen boodskappe hier nog nie.',
+  'meridian.inbox.loading': 'Laai tans…',
+  'meridian.inbox.next': 'Volgende',
+  'meridian.inbox.noSubject': '(geen onderwerp nie)',
+  'meridian.inbox.openCompose': 'Maak skryf oop',
+  'meridian.inbox.previous': 'Vorige',
+  'meridian.inbox.replyFailed': 'Antwoord gestoor, maar aflewering het misluk: {{error}}',
+  'meridian.inbox.replySent': 'Antwoord gestuur.',
+  'meridian.inbox.replyTo': 'Antwoord op {{name}}',
+  'meridian.inbox.selectMessage': "Kies 'n boodskap om te lees",
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Bekyk draad',
+  'meridian.login.hidePassword': 'Versteek wagwoord',
+  'meridian.login.noAccount': "Het jy nie 'n rekening nie?",
+  'meridian.login.showPassword': 'Wys wagwoord',
+  'meridian.message.toLine': 'om {{recipients}}',
+  'meridian.notFound.eyebrow': 'Fout 404',
+  'meridian.notFound.title': 'Hierdie draad is geargiveer.',
+  'meridian.notFound.toInbox': 'Maak my inboks oop',
+  'meridian.reset.newLabel': 'Nuwe wagwoord',
+  'meridian.reset.showPassword': 'Wys wagwoord',
+  'meridian.reset.subtitle': "Kies 'n sterk wagwoord — ten minste 8 karakters.",
+  'meridian.sent.empty': 'Jy het nog niks gestuur nie.',
+  'meridian.sent.title': 'Gestuur',
+  'meridian.settings.noName': '(geen naam gestel nie)',
+  'meridian.settings.section.${section}': 'Pas jou {{appName}} ervaring',
+  'meridian.settings.signature': 'Handtekening',
+  'meridian.settings.signatureSaved': 'Handtekening gestoor.',
+  'meridian.sidebar.compose': 'Komponeer',
+  'meridian.sidebar.labels': 'Etikette',
+  'meridian.sidebar.noLabels': 'Geen etikette nog nie',
+  'meridian.sidebar.storage': 'Berging',
+  'meridian.sidebar.storageLabel': '{{used}} van {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@maatskappy.com',
+  'meridian.signup.heading': 'Skep jou Courier-inboks',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Wys wagwoord',
+  'meridian.signup.subtitle': 'Verwerk jou inboks voor middagete.',
+  'meridian.spam.empty': 'Geen strooipos nie.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Geen stergemerkte boodskappe nie.',
+  'meridian.starred.loading': 'Laai tans…',
+  'meridian.starred.removeStar': 'Verwyder ster',
+  'meridian.starred.total': '{{count}} totaal',
+  'meridian.thread.back': 'Terug na Inboks',
+  'meridian.thread.empty': 'Geen boodskappe in hierdie draad nie.',
+  'meridian.thread.eyebrow': 'Draad # {{id}}',
+  'meridian.thread.notFound': 'Draad nie gevind nie.',
+  'meridian.thread.star': 'Voeg ster by',
+  'meridian.thread.unstar': 'Verwyder ster',
+  'meridian.time.yesterday': 'Gister',
+  'meridian.topBar.searchPlaceholder': 'Soek e-pos',
+  'meridian.trash.empty': 'Asblik is leeg.',
+  'meridian.trash.title': 'Asblik',
+  'nav.legal': 'Regs',
+  'planUpdated.description':
+    'Jou intekening is nou aktief en jou fakturering is opgedateer. Welkom by jou verfrisde Courier-inboks.',
+  'pricing.heading': 'konsepte',
+  'pricing.limit.emails': 'e-posse',
+  'pricing.limit.folders': 'lêers',
+  'pricing.limit.labels': 'etikette',
+  'privacy.collect.account':
+    'Rekeningdata: naam, e-posadres, gehashte wagwoord en die datum waarop jy aangemeld het.',
+  'privacy.intro':
+    'Hierdie privaatheidsbeleid verduidelik watter data Courier insamel, waarom ons dit insamel, hoe ons dit veilig hou, en watter keuses u daaroor het. Ons streef daarna om spesifiek te wees in plaas van wetties; indien enigiets onduidelik is, skryf aan privacy@courier.example.',
+  'privacy.lastUpdated': 'Laas opgedateer: 1 April 2026',
+  'privacy.linkTerms': 'Lees ons Diensbepalings \\u2192',
+  'privacy.rights.body':
+    'Jy kan elke stukkie data wat ons oor jou hou uitvoer vanaf Instellings → Rekening → Data-uitvoer, en jy kan jou rekening met een klik verwyder — alle rye word binne 24 uur uitgevee, ouditlogboeke word na 30 dae uitgevee.',
+  'privacy.security.body':
+    'Posinhoud en aanhangsels word in rus geïnkripteer met behulp van AES-256. Verbindings na en van ons diens gebruik TLS 1.3. Wagwoorde word met bcrypt gehash; ons teken of stoor nooit gewone tekswagwoorde nie. Produksietoegang is beperk tot ingenieurs wat op roep is en maandeliks geouditeer word.',
+  'privacy.share.body':
+    'Ons deel slegs data met die subverwerkers wat ons nodig het om Courier te bedryf (e-posaflewering via Mailgun, fakturering via Stripe, hosting via AWS). Elkeen is kontraktueel verplig om u data slegs te gebruik om hul diens vir ons te lewer. Ons verkoop, verhuur of verhandel u data nie met enigiemand nie.',
+  'terms.acceptable.spam':
+    'Geen ongevraagde boodskappe in grootmaat nie. Ons sal rekeninge wat strooipos stuur sonder waarskuwing sluit.',
+  'terms.account.body':
+    'Jy is verantwoordelik vir die handhawing van die vertroulikheid van jou wagwoord en vir enige aktiwiteit wat deur jou rekening plaasvind. Stel ons in kennis by security@courier.example as jy glo dat jou rekening gekompromitteer is.',
+  'terms.billing.body':
+    'Betaalde planne hernu teen die tempo wat tydens registrasie gekies is. Jy kan te eniger tyd kanselleer vanaf Instellings → Fakturering en jy behou toegang vir die res van die faktuurperiode. Terugbetalings word uitgereik vir diensonderbrekings wat die SLA oorskry.',
+  'terms.intro':
+    "Hierdie bepalings beheer jou gebruik van Courier. Deur 'n rekening te skep of 'n e-pos deur ons te stuur, stem jy in om daaraan gebonde te wees. Ons probeer reëls skryf wat 'n persoon eintlik kan volg.",
+  'terms.lastUpdated': 'Effektief: 1 April 2026',
+  'terms.termination.body':
+    "Jy kan jou rekening te eniger tyd verwyder. Ons kan 'n rekening opskort wat hierdie bepalings oortree; indien wel, sal ons die rede verduidelik en jou eers toelaat om jou data uit te voer.",
+  'terms.warranty.body':
+    'Die diens word soos dit is verskaf. Ons werk hard om dit betroubaar en veilig te hou, maar ons kan nie ononderbroke toegang waarborg nie. In die mate wat deur die wet toegelaat word, is ons totale aanspreeklikheid beperk tot die bedrag wat u ons in die voorafgaande 12 maande betaal het.',
+}

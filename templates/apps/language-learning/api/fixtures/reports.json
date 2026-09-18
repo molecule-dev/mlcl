@@ -1,0 +1,51 @@
+{
+  "user_progress": {
+    "current_streak": 42,
+    "total_xp": 8420,
+    "today_xp": 120,
+    "daily_goal": 150,
+    "hearts": 4,
+    "hearts_max": 5,
+    "words_mastered": 286,
+    "minutes_today": 18,
+    "history": [
+      { "day": "Mon", "xp": 90 },
+      { "day": "Tue", "xp": 110 },
+      { "day": "Wed", "xp": 70 },
+      { "day": "Thu", "xp": 140 },
+      { "day": "Fri", "xp": 130 },
+      { "day": "Sat", "xp": 90 },
+      { "day": "Sun", "xp": 120 }
+    ]
+  },
+  "user_streak": {
+    "current_streak": 42,
+    "longest_streak": 64,
+    "last_active_iso": "2026-04-30T07:30:00Z"
+  },
+  "user_xp": {
+    "today": 120,
+    "this_week": 760,
+    "total": 8420
+  },
+  "weekly_leaderboard": [
+    { "id": "u1", "rank": 1, "name": "Alex Rivers",  "flag": "🇪🇸", "avatar": "https://picsum.photos/seed/parlance-1/96/96", "xp": 3120 },
+    { "id": "u2", "rank": 2, "name": "Marcus Wei",   "flag": "🇨🇳", "avatar": "https://picsum.photos/seed/parlance-2/96/96", "xp": 2890 },
+    { "id": "u3", "rank": 3, "name": "Elena Popa",   "flag": "🇮🇹", "avatar": "https://picsum.photos/seed/parlance-3/96/96", "xp": 2640 },
+    { "id": "u4", "rank": 4, "name": "You",          "flag": "🇫🇷", "avatar": "https://picsum.photos/seed/parlance-you/96/96", "xp": 2450, "is_current_user": true },
+    { "id": "u5", "rank": 5, "name": "Davit G.",     "flag": "🇩🇪", "avatar": "https://picsum.photos/seed/parlance-5/96/96", "xp": 2310 }
+  ],
+  "alltime_leaderboard": [
+    { "id": "g1", "rank": 1,   "name": "rosa.k",  "flag": "🇵🇹", "avatar": "https://picsum.photos/seed/parlance-global-1/96/96", "xp": 14820 },
+    { "id": "g2", "rank": 2,   "name": "kenji78", "flag": "🇯🇵", "avatar": "https://picsum.photos/seed/parlance-global-2/96/96", "xp": 13980 },
+    { "id": "g3", "rank": 3,   "name": "mira_l",  "flag": "🇸🇪", "avatar": "https://picsum.photos/seed/parlance-global-3/96/96", "xp": 12940 },
+    { "id": "g4", "rank": 184, "name": "You",     "flag": "🇫🇷", "avatar": "https://picsum.photos/seed/parlance-global-you/96/96", "xp": 2450, "is_current_user": true }
+  ],
+  "friends_leaderboard": [
+    { "id": "u1", "rank": 1, "name": "Alex Rivers",  "flag": "🇪🇸", "avatar": "https://picsum.photos/seed/parlance-1/96/96", "xp": 3120 },
+    { "id": "u2", "rank": 2, "name": "Marcus Wei",   "flag": "🇨🇳", "avatar": "https://picsum.photos/seed/parlance-2/96/96", "xp": 2890 },
+    { "id": "u3", "rank": 3, "name": "Elena Popa",   "flag": "🇮🇹", "avatar": "https://picsum.photos/seed/parlance-3/96/96", "xp": 2640 },
+    { "id": "u4", "rank": 4, "name": "You",          "flag": "🇫🇷", "avatar": "https://picsum.photos/seed/parlance-you/96/96", "xp": 2450, "is_current_user": true },
+    { "id": "u5", "rank": 5, "name": "Davit G.",     "flag": "🇩🇪", "avatar": "https://picsum.photos/seed/parlance-5/96/96", "xp": 2310 }
+  ]
+}

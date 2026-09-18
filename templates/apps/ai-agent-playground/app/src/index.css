@@ -1,0 +1,263 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — Neuron violet/nebula brand.
+     Drives bg-*, text-*, border-* for custom tokens.
+     Dark defaults here; light overrides in theme.css [data-mol-mode='light']
+     (applied by the CSS-variables theme provider). */
+  --color-background: #0f0a1e;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-inverse-on-surface: #1e0a3c;
+  --color-inverse-primary: #5b21b6;
+  --color-inverse-surface: #f5f3ff;
+  --color-on-background: #f5f3ff;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #fecaca;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede9fe;
+  --color-on-primary-fixed: #1e0a3c;
+  --color-on-primary-fixed-variant: #5b21b6;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #ddd6fe;
+  --color-on-secondary-fixed: #1e0a3c;
+  --color-on-secondary-fixed-variant: #4c1d95;
+  --color-on-surface: #f5f3ff;
+  --color-on-surface-variant: #c4b5fd;
+  /* #1e0a3c on #c4b5fd = 9.77:1 — passes AA. */
+  --color-on-tertiary: #1e0a3c;
+  --color-on-tertiary-container: #ede9fe;
+  --color-on-tertiary-fixed: #1e0a3c;
+  --color-on-tertiary-fixed-variant: #5b21b6;
+  --color-outline: #8b7cb9;
+  --color-outline-variant: #2e1f5e;
+  --color-primary: #7c3aed;
+  --color-primary-container: #3b1d8a;
+  --color-primary-fixed: #ddd6fe;
+  --color-primary-fixed-dim: #7c3aed;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #4c1d95;
+  --color-secondary-fixed: #ddd6fe;
+  --color-secondary-fixed-dim: #a78bfa;
+  --color-surface: #0f0a1e;
+  --color-surface-bright: #2e1f5e;
+  --color-surface-container: #1a1033;
+  --color-surface-container-high: #1e1540;
+  --color-surface-container-highest: #2e1f5e;
+  --color-surface-container-low: #150e2e;
+  --color-surface-container-lowest: #07050f;
+  --color-surface-dim: #0a0716;
+  --color-surface-tint: #8b5cf6;
+  --color-surface-variant: #1e1540;
+  --color-tertiary: #c4b5fd;
+  --color-tertiary-container: #5b21b6;
+  --color-tertiary-fixed: #ede9fe;
+  --color-tertiary-fixed-dim: #c4b5fd;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-headline: 'Space Grotesk', sans-serif;
+  --font-label: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-translate-x-1/2 -translate-y-1/2 -z-10 2xl 3xl absolute animate-pulse backdrop-blur-[24px] backdrop-blur-xl bg-emerald-500 bg-error bg-gradient-to-b bg-gradient-to-br bg-primary/5 bg-secondary bg-surface-container bg-surface-container-high bg-surface-container-highest bg-surface-container-low bg-surface-container-lowest bg-surface-variant/5 bg-terminal-pattern bg-white/5 block blur-[120px] border border-b border-l-2 border-outline-variant/15 border-t border-white/5 brightness-110 btn-primary-gradient col-span-4 col-span-8 contrast duration-200 fill-current fixed flex flex-1 flex-col focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary font-black font-body font-bold font-headline font-label font-medium font-mono font-semibold from-white/5 gap-2 gap-3 gap-4 gap-6 grid");
+@source inline("grid-cols-12 grid-cols-2 grid-cols-4 group group-hover:opacity-100 group-hover:text-primary h-2 h-5 h-8 h-[48px] h-[800px] h-full h-screen hover:bg-surface-container-high hover:bg-white/10 hover:bg-white/5 hover:border-outline-variant/30 hover:brightness-125 hover:text-on-surface hover:text-secondary-fixed hover:text-slate-300 hover:underline inset-0 inset-y-0 items-center items-end items-start justify-between justify-center kinetic-gradient leading-relaxed left-0 left-1/2 line-clamp-2 material-symbols-outlined max-h-[160px] max-w-[420px] mb mb-1 mb-2 mb-3 mb-4 mb-8 min-h-screen ml-1 ml-4 ml-[260px] mr-2 mr-3 mt-1 mt-6 mt-8 mt-[48px] mt-auto mx-4 opacity-0 opacity-100 opacity-70 overflow-hidden overflow-y-auto");
+@source inline("p-3 p-4 p-5 p-6 p-8 placeholder:text-on-surface-variant/40 pointer-events-none pr-10 pr-3 pt-3 px-2 px-3 px-4 px-6 py py-1 py-2 py-3 py-6 relative right-0 right-4 rounded rounded-full rounded-lg shrink-0 sm space-x-1 space-x-2 space-x-3 space-x-4 space-y-1 space-y-2 space-y-4 space-y-5 surface tabular-nums text-2xl text-4xl text-[10px] text-[18px] text-[20px] text-[9px] text-base text-center text-emerald-500 text-error text-lg text-on-primary text-on-primary-fixed text-on-surface text-on-surface-variant text-on-surface-variant/50 text-on-surface-variant/70 text-primary text-right text-secondary text-slate-400 text-slate-500 text-sm");
+@source inline("text-tertiary text-white text-xl text-xs to-transparent top-0 top-1/2 top-4 tracking-tight tracking-tighter tracking-wider tracking-widest transition-all transition-colors transition-opacity uppercase w-2 w-5 w-8 w-[260px] w-[800px] w-[80px] w-full xs z-10 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.dotted-grid {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-on-surface) 10%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.glow-primary {
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.glow-primary-hover:hover {
+  box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.glass-panel {
+  background: color-mix(in srgb, var(--color-surface-container-highest) 60%, transparent);
+  backdrop-filter: blur(24px);
+}
+
+.kinetic-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.ghost-border {
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 15%, transparent);
+}
+
+/* Node Connectors (SVG placeholders for layout visual) */
+.connector-line {
+  position: absolute;
+  background: color-mix(in srgb, var(--color-on-surface) 20%, transparent);
+  height: 2px;
+  z-index: 0;
+}
+
+.dot-grid {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-on-surface) 10%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Tonal Layering Utilities */
+.glass-panel {
+  background-color: color-mix(in srgb, var(--color-surface-container-highest) 60%, transparent);
+  backdrop-filter: blur(20px);
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.kinetic-btn:hover {
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.dotted-bg {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-outline-variant) 10%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  background-color: transparent;
+}
+
+.kinetic-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-start infinite;
+}
+
+.kinetic-gradient {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-container));
+}
+
+.kinetic-gradient:hover {
+  background: linear-gradient(45deg, var(--color-primary-container), var(--color-primary));
+}
+
+.bg-terminal-pattern {
+  background-image: radial-gradient(var(--color-surface-container-highest) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.font-headline {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Dotted grid texture */
+.bg-dotted-grid {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-outline-variant) 10%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.kinetic-btn {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-container));
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-panel {
+  background-color: color-mix(in srgb, var(--color-surface-container-highest) 60%, transparent);
+  backdrop-filter: blur(24px);
+}
+
+/* Custom scrollbar for terminal vibe */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-container-lowest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-container-high);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-container-highest);
+}
+/* polish-v2:stitch-styles:end */

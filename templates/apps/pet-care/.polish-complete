@@ -1,0 +1,14 @@
+Polish complete: 2026-04-30T01:46:11Z
+Pipeline: polish-app.md autonomous session
+Cluster: operations-iot → fallback sibling: personal-finance / crm (no operations-iot polished sibling yet)
+Brand: Nuzzle — teal-cyan (#0891b2) + emerald (#10b981) + navy (#0f1b2d)
+Components: 7 bespoke (PetSnapshotHero, PetProfileCard, SitterCard, HealthSummaryTriad, BookingTimelineEntry, SettingsPanel, AuthBrandHeader)
+Pages rewritten: Landing (§14 marketing kit), Dashboard (hero + triad + roster + timeline), PetDetail (signature gradient hero + facts + gallery + timeline), all 18 screen-map routes wired
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (AuthBrandHeader + gradient submit + corner orbs)
+Material 3 tokens: complete (fill-material3-tokens.mjs idempotent)
+Fonts: Inter + Plus Jakarta Sans + JetBrains Mono + Material Symbols Outlined loaded in index.html
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegated to packages
+Screen-map coverage: 18/18 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs — 0 violations, 281 files)
+Typecheck: clean (npx tsc --noEmit)
+ClassMap coverage: 97%

@@ -1,0 +1,169 @@
+{
+  "app": "to-do-list",
+  "designProjectId": "1210379757160059046",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-landing.html",
+      "designScreenId": "6b6d5fad4c644f71a81dd68d81f5f033"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-login.html",
+      "designScreenId": "42c9ad87cbef41f1b7e2c2bf8dc5cfdb"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-to-do-list-login.html",
+      "derivationNotes": "Same centered 440px card on soft #f1f5f9 background as Login. Card adds First Name, Last Name, Email, Password, Confirm Password fields. Heading changes to 'Start your momentum'. Subtext 'Capture, plan, and progress'. Primary button 'Create account' indigo solid. Bottom link 'Already have an account? Sign in' indigo. No Forgot Password link. Keep SSO buttons (Google, Apple, Microsoft) and the platform-sync footer note."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-to-do-list-login.html",
+      "derivationNotes": "Same centered 440px card on soft #f1f5f9 background as Login. Card shows only Email input. Heading 'Reset your password'. Subtext 'We will send a reset link to your email'. Primary button 'Send reset link' indigo solid. Bottom link 'Back to sign in' indigo. No password, no SSO, no remember-me. Keep the platform-sync footer note."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-to-do-list-login.html",
+      "derivationNotes": "Same centered 440px card on soft #f1f5f9 background as Login. Card shows New Password and Confirm Password fields with eye toggles. Heading 'Set a new password'. Subtext 'Choose a password of at least 12 characters'. Primary button 'Reset password' indigo solid. Bottom link 'Back to sign in' indigo. No email, no SSO. Keep the platform-sync footer note."
+    },
+    {
+      "name": "Today",
+      "templateFile": "app/pages/Today.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/today",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-today.html",
+      "designScreenId": "10a97af6bf8f4c43b4302a9ff3d3a098"
+    },
+    {
+      "name": "Inbox",
+      "templateFile": "app/pages/Inbox.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/inbox",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-inbox.html",
+      "designScreenId": "38ca70336ff84eb68a114939ad5811a7"
+    },
+    {
+      "name": "Upcoming",
+      "templateFile": "app/pages/Upcoming.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/upcoming",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-upcoming.html",
+      "designScreenId": "73fd50ec56f14a25b6d02423cd9bdf03"
+    },
+    {
+      "name": "ProjectDetail",
+      "templateFile": "app/pages/ProjectDetail.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/projects/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-project-detail.html",
+      "designScreenId": "7ed31ecdf878437f9eee4518145a1e6d"
+    },
+    {
+      "name": "Labels",
+      "templateFile": "app/pages/Labels.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/labels",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-labels.html",
+      "designScreenId": "4e1be22ebbbe49b089781ddae928c317"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-settings.html",
+      "designScreenId": "6637394ad4b748f9b8c9c49ef5c47ff5"
+    },
+    {
+      "name": "TaskDetail",
+      "templateFile": "app/pages/TaskDetail.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/tasks/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-task-detail.html",
+      "designScreenId": "70997a6c6c7441c3b55c5e449462efe5"
+    },
+    {
+      "name": "Completed",
+      "templateFile": "app/pages/Completed.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/completed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-completed.html",
+      "designScreenId": "4b2d819777d14ef79d15f9cf9a7a3aca"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-notifications.html",
+      "designScreenId": "a5cb0c032a52412e9eb2a5fe16d778bc"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-search.html",
+      "designScreenId": "794a107ecd6b4febb42e33272f940c01"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/ToDoListLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-to-do-list-analytics.html",
+      "designScreenId": "b921fe80381747bfb393711bf4af7eb0"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  { "id": "pmt_001", "received_at": "2026-04-25", "customer_name": "Pied Piper",       "invoice_number": "INV-2026-0140", "amount_cents": 1302000, "method": "ach",    "status": "received", "reconciled": true  },
+  { "id": "pmt_002", "received_at": "2026-04-22", "customer_name": "Stark Industries", "invoice_number": "INV-2026-0139", "amount_cents":  967820, "method": "wire",   "status": "received", "reconciled": true  },
+  { "id": "pmt_003", "received_at": "2026-04-18", "customer_name": "Initech",          "invoice_number": "INV-2026-0138", "amount_cents":   78120, "method": "card",   "status": "received", "reconciled": true  },
+  { "id": "pmt_004", "received_at": "2026-04-15", "customer_name": "Acme Corp",        "invoice_number": "INV-2026-0142", "amount_cents":  100000, "method": "card",   "status": "pending",  "reconciled": false },
+  { "id": "pmt_005", "received_at": "2026-04-10", "customer_name": "Wayne Enterprises","invoice_number": "INV-2026-0134", "amount_cents":  421800, "method": "ach",    "status": "received", "reconciled": false },
+  { "id": "pmt_006", "received_at": "2026-04-08", "customer_name": "Globex Corp",      "invoice_number": "INV-2026-0133", "amount_cents":  124800, "method": "check",  "status": "refunded", "reconciled": true  },
+  { "id": "pmt_007", "received_at": "2026-03-30", "customer_name": "Soylent Corp",     "invoice_number": "INV-2026-0132", "amount_cents":   84200, "method": "card",   "status": "received", "reconciled": true  },
+  { "id": "pmt_008", "received_at": "2026-03-25", "customer_name": "Acme Corp",        "invoice_number": "INV-2026-0131", "amount_cents":  600000, "method": "wire",   "status": "received", "reconciled": true  }
+]

@@ -1,0 +1,23 @@
+Polish complete: 2026-04-30T01:55:00Z
+Pipeline: polish-app.md (manual session driver)
+Cluster: hospitality (no polished sibling) → fallback sibling: auction-platform
+Brand: Turnstile — violet/indigo gradient + rose accent, "Every moment, front row"
+Components: 8 bespoke
+  - HeroEventCard          (translated from auction-platform/HeroAuctionCard)
+  - EventCard              (translated from auction-platform/AuctionCard)
+  - KpiCard                (translated from auction-platform/StatCard)
+  - NotificationRow        (translated from auction-platform/NotificationRow)
+  - TicketStub             (per DESIGN.md "Ticket / Order Confirmation" recipe)
+  - AuthShell              (§13.3, translated from auction-platform/AuthShell)
+  - AuthBrandHeader        (§13.7, translated from auction-platform/AuthBrandHeader)
+  - EventTicketingLayout   (sidebar shell on top of @molecule/app-sidebar-layout-react)
+Pages rewritten: Landing, Dashboard, EventList, EventDetail, Checkout, OrderConfirmation,
+  MyTickets, TicketDetail, CreateEvent, EditEvent, Attendees, Settings, Notifications,
+  Login, Signup, ForgotPassword, ResetPassword
+Screen-map coverage: 17/17 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)
+Material 3 tokens: filled (idempotent, no-op on rerun)
+Fonts: Inter + Material Symbols Outlined wired in index.html
+Sweep 1 chrome conformance: Header / Footer / RootErrorBoundary delegate to
+  @molecule/app-{header,footer,root-error-boundary}-react

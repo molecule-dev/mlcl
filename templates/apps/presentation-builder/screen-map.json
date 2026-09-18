@@ -1,0 +1,139 @@
+{
+  "app": "presentation-builder",
+  "designProjectId": "18194466469420377839",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-landing.html",
+      "designScreenId": "a8df28f99f704a0aabbb74b7e25c2e4c"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-login.html",
+      "designScreenId": "6a15b5cbcf914ff6aa92c1cbe42239b6"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-presentation-builder-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane changes to First Name, Last Name, Email, Password, Confirm Password. Heading 'Step onto the stage'. Button text 'Create my studio'. Bottom link 'Already have an account? Sign In'. SSO and social auth still available."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-presentation-builder-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane: heading 'Reset your password', only Email field. Button 'Send reset link'. Bottom link 'Back to Sign In'. Social and SSO sections removed."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-presentation-builder-login.html",
+      "derivationNotes": "Same split layout as Login. Right pane: heading 'Set new password', New Password and Confirm Password fields. Button 'Reset password'. Bottom link 'Back to Sign In'. Social and SSO sections removed."
+    },
+    {
+      "name": "Decks",
+      "templateFile": "app/pages/Decks.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/decks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-decks.html",
+      "designScreenId": "6289ab0b4f184774b54cb18fb190c16a"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/decks/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-editor.html",
+      "designScreenId": "e1a71ccc78364339a1caf4329531fcdd"
+    },
+    {
+      "name": "Present",
+      "templateFile": "app/pages/Present.tsx",
+      "components": [],
+      "route": "/decks/:id/present",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-present.html",
+      "designScreenId": "e78fe9fb79d14283987435c24f07c4e3"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-templates.html",
+      "designScreenId": "35aa39a1a8524479a1781348a54d243b"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-settings.html",
+      "designScreenId": "467c4a7ffd51443996fd64836d638d1d"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-analytics.html",
+      "designScreenId": "705fd88bfbcd405c9362d9c992364769"
+    },
+    {
+      "name": "Shared",
+      "templateFile": "app/pages/Shared.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-shared.html",
+      "designScreenId": "74caccd0e08d4e1797494fd1f0234544"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/PresentationBuilderLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-presentation-builder-notifications.html",
+      "designScreenId": "9ccc1cf9a67545bfa7f7606f4302ca8f"
+    }
+  ]
+}

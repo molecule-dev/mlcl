@@ -1,0 +1,41 @@
+{
+  "today": {
+    "date": "2026-04-26",
+    "active_streaks": 9,
+    "longest_active": 47,
+    "freezes_available": 1,
+    "motivational_message": "Nine streaks alive. Keep them all warm."
+  },
+  "overview": {
+    "total_check_ins": 138,
+    "total_check_ins_change_percent": 12.4,
+    "active_habits": 9,
+    "active_streaks": 9,
+    "current_completion_rate": 0.78,
+    "longest_active_streak": 47,
+    "longest_active_habit": "Morning meditation",
+    "best_ever_streak": 89,
+    "best_ever_habit": "Morning meditation",
+    "by_category": [
+      { "category": "health",     "count": 3, "rate": 0.84 },
+      { "category": "mind",       "count": 2, "rate": 0.71 },
+      { "category": "creativity", "count": 2, "rate": 0.65 },
+      { "category": "social",     "count": 1, "rate": 0.78 },
+      { "category": "learning",   "count": 2, "rate": 0.82 }
+    ],
+    "weekly_completion": [
+      { "week": "2026-02-02", "rate": 0.62 },
+      { "week": "2026-02-09", "rate": 0.71 },
+      { "week": "2026-02-16", "rate": 0.68 },
+      { "week": "2026-02-23", "rate": 0.74 },
+      { "week": "2026-03-02", "rate": 0.79 },
+      { "week": "2026-03-09", "rate": 0.71 },
+      { "week": "2026-03-16", "rate": 0.83 },
+      { "week": "2026-03-23", "rate": 0.78 },
+      { "week": "2026-03-30", "rate": 0.80 },
+      { "week": "2026-04-06", "rate": 0.85 },
+      { "week": "2026-04-13", "rate": 0.79 },
+      { "week": "2026-04-20", "rate": 0.87 }
+    ]
+  }
+}

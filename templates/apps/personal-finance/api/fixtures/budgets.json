@@ -1,0 +1,50 @@
+[
+  {
+    "id": "b01cb8e8-9405-4774-e6e7-4b1133ae7857",
+    "category_id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
+    "amount": 600,
+    "month": 4,
+    "year": 2026,
+    "spent": 149.8
+  },
+  {
+    "id": "201267de-caab-488e-5b03-d12a35f8862d",
+    "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
+    "amount": 400,
+    "month": 4,
+    "year": 2026,
+    "spent": 74.18
+  },
+  {
+    "id": "12b61e75-f5e1-4c58-e6d2-f01b46ae211c",
+    "category_id": "a25028f6-165c-47a7-6bf6-bf3f410746b2",
+    "amount": 250,
+    "month": 4,
+    "year": 2026,
+    "spent": 45
+  },
+  {
+    "id": "fd96d963-ce5d-48cf-60e1-31d11baa48f0",
+    "category_id": "371ef930-6f47-4c17-5558-b4abf76781a6",
+    "amount": 150,
+    "month": 4,
+    "year": 2026,
+    "spent": 28.49
+  },
+  {
+    "id": "f86a6cb8-63e4-410c-9a3a-24332df160ea",
+    "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
+    "amount": 300,
+    "month": 4,
+    "year": 2026,
+    "spent": 319.46
+  },
+  {
+    "id": "f0ce3f7c-ce1b-4911-f2c5-533a60175a21",
+    "category_id": "0304979b-60f0-499e-c12f-2f88c082ed21",
+    "amount": 350,
+    "month": 4,
+    "year": 2026,
+    "spent": 280
+  }
+]

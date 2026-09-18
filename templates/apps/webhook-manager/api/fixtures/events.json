@@ -1,0 +1,102 @@
+[
+  {
+    "id": "evt_91ae",
+    "name": "order.completed",
+    "category": "Orders",
+    "description": "Fired when an order moves to the completed state.",
+    "occurred_at": "2026-04-26T15:42:00Z",
+    "fanout_endpoints": 3,
+    "delivery_status": "delivered",
+    "payload": {
+      "event": "order.completed",
+      "order_id": "ord_4218",
+      "customer_id": "cus_8821",
+      "amount": 12940,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "evt_3a1b",
+    "name": "payment.refunded",
+    "category": "Payments",
+    "description": "Fired when a payment is refunded.",
+    "occurred_at": "2026-04-26T15:35:00Z",
+    "fanout_endpoints": 2,
+    "delivery_status": "partial",
+    "payload": {
+      "event": "payment.refunded",
+      "payment_id": "pmt_8821",
+      "amount": 4900,
+      "reason": "duplicate"
+    }
+  },
+  {
+    "id": "evt_18ce",
+    "name": "invoice.paid",
+    "category": "Billing",
+    "description": "Fired when an invoice is paid in full.",
+    "occurred_at": "2026-04-26T15:24:00Z",
+    "fanout_endpoints": 1,
+    "delivery_status": "delivered",
+    "payload": {
+      "event": "invoice.paid",
+      "invoice_id": "inv_2049",
+      "amount": 24900
+    }
+  },
+  {
+    "id": "evt_2bcd",
+    "name": "user.created",
+    "category": "Identity",
+    "description": "Fired when a new user account is created.",
+    "occurred_at": "2026-04-26T15:18:00Z",
+    "fanout_endpoints": 1,
+    "delivery_status": "delivered",
+    "payload": {
+      "event": "user.created",
+      "user_id": "user_42",
+      "email": "alex@example.com"
+    }
+  },
+  {
+    "id": "evt_7e02",
+    "name": "subscription.canceled",
+    "category": "Billing",
+    "description": "Fired when a subscription is canceled.",
+    "occurred_at": "2026-04-26T15:10:00Z",
+    "fanout_endpoints": 2,
+    "delivery_status": "failed",
+    "payload": {
+      "event": "subscription.canceled",
+      "subscription_id": "sub_8a3f",
+      "reason": "voluntary"
+    }
+  },
+  {
+    "id": "evt_5d12",
+    "name": "order.created",
+    "category": "Orders",
+    "description": "Fired when a new order is created.",
+    "occurred_at": "2026-04-26T14:58:00Z",
+    "fanout_endpoints": 3,
+    "delivery_status": "delivered"
+  },
+  {
+    "id": "evt_b0d4",
+    "name": "payment.succeeded",
+    "category": "Payments",
+    "description": "Fired when a payment is captured.",
+    "occurred_at": "2026-04-26T14:42:00Z",
+    "fanout_endpoints": 2,
+    "delivery_status": "delivered"
+  },
+  {
+    "id": "evt_9c40",
+    "name": "subscription.created",
+    "category": "Billing",
+    "description": "Fired when a new subscription is created.",
+    "occurred_at": "2026-04-26T14:30:00Z",
+    "fanout_endpoints": 2,
+    "delivery_status": "retrying"
+  }
+]

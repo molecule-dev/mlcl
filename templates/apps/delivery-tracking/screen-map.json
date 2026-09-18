@@ -1,0 +1,169 @@
+{
+  "app": "delivery-tracking",
+  "designProjectId": "115743948817934730",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-landing.html",
+      "designScreenId": "2f67f2772bff47538bb243d8b6c35a00"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-login.html",
+      "designScreenId": "eabad91790df4dda98d2302ea9124235"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-delivery-tracking-login.html",
+      "derivationNotes": "Same split layout as Login (dark navy left panel + white right panel) with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-delivery-tracking-login.html",
+      "derivationNotes": "Same split layout as Login with only the Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-delivery-tracking-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-dashboard.html",
+      "designScreenId": "7da90ab3594b4328914dbdc8b8ed57a9"
+    },
+    {
+      "name": "Shipments",
+      "templateFile": "app/pages/Shipments.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/shipments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-shipments.html",
+      "designScreenId": "5b1a496dd8604c35827ee09a6858fd35"
+    },
+    {
+      "name": "ShipmentDetail",
+      "templateFile": "app/pages/ShipmentDetail.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/shipments/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-shipment-detail.html",
+      "designScreenId": "b14f4b2c78c54541a754512246c111b9"
+    },
+    {
+      "name": "Carriers",
+      "templateFile": "app/pages/Carriers.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/carriers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-carriers.html",
+      "designScreenId": "554c840ac1b64be48cd879fa9079c568"
+    },
+    {
+      "name": "Webhooks",
+      "templateFile": "app/pages/Webhooks.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/webhooks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-webhooks.html",
+      "designScreenId": "f6d0e7647631499c8380ab8ba4ba6b71"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-settings.html",
+      "designScreenId": "0e53ecfe968b4429a60051996598e24e"
+    },
+    {
+      "name": "CarrierDetail",
+      "templateFile": "app/pages/CarrierDetail.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/carriers/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-carrier-detail.html",
+      "designScreenId": "6f1f9d0b320341cfaed0c3d2c6f6947a"
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-alerts.html",
+      "designScreenId": "8231d5a8e52842dbaf0b765d81995292"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-analytics.html",
+      "designScreenId": "5d6d4e1b8fcc46e09e0e4566190226c0"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-profile.html",
+      "designScreenId": "ec482c39d65d4bf5a0e1c8fb48b2799f"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/WaypointLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-delivery-tracking-team.html",
+      "designScreenId": "3bef44a85844456c91501e64b4110256"
+    }
+  ]
+}

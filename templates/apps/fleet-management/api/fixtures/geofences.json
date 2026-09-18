@@ -1,0 +1,8 @@
+[
+  { "id": "gf_001", "name": "Brooklyn depot",        "type": "depot",        "rule": "both",            "radius_miles": 0.25, "center": "Brooklyn Navy Yard, NY",         "active": true,  "vehicles_assigned": 12 },
+  { "id": "gf_002", "name": "Newark depot",           "type": "depot",        "rule": "both",            "radius_miles": 0.25, "center": "Newark Industrial Blvd, NJ",     "active": true,  "vehicles_assigned": 8  },
+  { "id": "gf_003", "name": "Manhattan service area", "type": "service_area", "rule": "exit_alert",      "radius_miles": 5,    "center": "Midtown Manhattan, NY",          "active": true,  "vehicles_assigned": 6  },
+  { "id": "gf_004", "name": "Acme HQ delivery",       "type": "customer",     "rule": "entry_alert",     "radius_miles": 0.1,  "center": "Acme Manufacturing, Newark, NJ",  "active": true,  "vehicles_assigned": 3  },
+  { "id": "gf_005", "name": "FAA restricted zone",    "type": "restricted",   "rule": "restricted",      "radius_miles": 1,    "center": "JFK Airport restricted, NY",      "active": true,  "vehicles_assigned": 12 },
+  { "id": "gf_006", "name": "Holiday warehouse",       "type": "customer",     "rule": "both",            "radius_miles": 0.15, "center": "Holiday Distribution, Boston, MA","active": false, "vehicles_assigned": 0  }
+]

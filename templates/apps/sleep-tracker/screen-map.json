@@ -1,0 +1,169 @@
+{
+  "app": "sleep-tracker",
+  "designProjectId": "3986513735721825119",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-landing.html",
+      "designScreenId": "a86caca423bb4f679a6f7fd84b351b6e"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-login.html",
+      "designScreenId": "3f64543555b6431cb882263a7b95a2c0"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sleep-tracker-login.html",
+      "derivationNotes": "Same split layout and ambient left panel as Login. Right-side auth card uses Name, Email, Password, Confirm Password fields. Heading changes to 'Create your account'. Subtext 'Start tracking tonight \u2014 it takes 30 seconds'. Primary button 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Forgot password?' link. Keep SSO buttons (Apple, Google, Magic link)."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sleep-tracker-login.html",
+      "derivationNotes": "Same split layout and ambient left panel as Login. Right-side card shows only Email field. Heading 'Reset your password'. Subtext 'Enter your email and we\u2019ll send a reset link'. Primary button 'Send reset link'. Bottom link 'Back to sign in'. No password field, no SSO options."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-sleep-tracker-login.html",
+      "derivationNotes": "Same split layout and ambient left panel as Login. Right-side card shows New Password and Confirm Password fields (reveal-on-hold eye icons). Heading 'Set a new password'. Subtext 'Choose something restful \u2014 at least 12 characters'. Primary button 'Reset password'. Bottom link 'Back to sign in'. No email field, no SSO options."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-dashboard.html",
+      "designScreenId": "0292f741aa354b568992c3ef89491fc4"
+    },
+    {
+      "name": "Night",
+      "templateFile": "app/pages/Night.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/night/:date",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-night.html",
+      "designScreenId": "b3a0dd0302c74014a64b9db1a87de265"
+    },
+    {
+      "name": "Trends",
+      "templateFile": "app/pages/Trends.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/trends",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-trends.html",
+      "designScreenId": "c7c207bb5cf145ac9226817d2f402780"
+    },
+    {
+      "name": "Coaching",
+      "templateFile": "app/pages/Coaching.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/coaching",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-coaching.html",
+      "designScreenId": "839314aaae8d4d4aae9ee491e114a845"
+    },
+    {
+      "name": "Devices",
+      "templateFile": "app/pages/Devices.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/devices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-devices.html",
+      "designScreenId": "ec5311aae58743548767fa2e6d3d5f56"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-settings.html",
+      "designScreenId": "c82f3d8b0aba4883a086dd6e3dd86307"
+    },
+    {
+      "name": "NightHistory",
+      "templateFile": "app/pages/NightHistory.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-night-history.html",
+      "designScreenId": "19f0c8ed438348228c298af1cb6e707d"
+    },
+    {
+      "name": "SmartAlarm",
+      "templateFile": "app/pages/SmartAlarm.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/alarm",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-smart-alarm.html",
+      "designScreenId": "b9d33c30a6c04d17897b7edf6a37b52c"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-profile.html",
+      "designScreenId": "ee91983c90b24065817f93f08a3840b0"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-notifications.html",
+      "designScreenId": "a63844aca8a5485eadcc324d9f629871"
+    },
+    {
+      "name": "CoachingDetail",
+      "templateFile": "app/pages/CoachingDetail.tsx",
+      "components": ["app/components/SleepTrackerLayout.tsx"],
+      "route": "/coaching/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-sleep-tracker-coaching-detail.html",
+      "designScreenId": "6c6701f9490945698c92eacef5f072aa"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+:root {
+  /* Brand — Parlance violet (per DESIGN.md) */
+  --color-primary: #635bff;
+  --color-primary-dark: #4f46e5; /* violet one shade darker for small text on light — #635bff is only 4.48:1 on white; #4f46e5 = 6.3:1 */
+  --color-primary-hover: #7d77ff;
+  --color-primary-light: #f5f3ff;
+  --color-secondary: #06b6d4;
+  --color-secondary-hover: #22d3ee;
+  --color-secondary-light: #ecfeff;
+
+  --color-success: #047857; /* was #10b981 (2.53:1 on white — fails as 12px delta text); emerald-700 = 5.5:1 */
+  --color-warning: #b45309; /* was #f59e0b (2.14:1 on white); amber-700 = 5.0:1 for icons + small text */
+  --color-error: #dc2626;
+  --color-info: #06b6d4;
+  /* M3 on-secondary: dark teal on cyan — 5.52:1 WCAG AA */
+  --color-on-secondary: #083344;
+  /* Muted text role — base @theme fallback computed #808080 (3.9:1 on white, fails);
+     zinc-family #6b6b74 = 5.3:1 on white, ≥4.5:1 on every light surface incl. #f5f3ff */
+  --color-on-surface-variant: #6b6b74;
+
+  /* Surfaces */
+  --color-bg: #f5f3ff;
+  --color-background: #f5f3ff;
+  --color-background-secondary: #eef2ff;
+  --color-background-tertiary: #faf9ff;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #faf9ff;
+  --color-surface-hover: #f0f0ff;
+  --color-input-background: #ffffff;
+
+  /* Text */
+  --color-text: #18181b;
+  --color-text-secondary: #71717a;
+  --color-text-muted: #a1a1aa;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e4e4e7;
+  --color-border-secondary: #f4f4f5;
+  --color-border-focus: #635bff;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(99, 91, 255, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(99, 91, 255, 0.1);
+  --shadow-lg: 0 16px 40px -12px rgba(99, 91, 255, 0.16);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+
+  /* Status badge tokens (inline styles + Tailwind arbitrary-var refs) */
+  --color-status-error-bg: #fee2e2;
+  --color-status-error-text: #991b1b;
+  --color-status-success-bg: #d1fae5;
+  --color-status-success-text: #065f46;
+  --color-status-resolved-bg: #dcfce7;
+  --color-status-resolved-text: #166534;
+  --color-status-warning-bg: #fef3c7;
+  --color-status-warning-text: #92400e;
+
+  /* Bot/AI accent tokens */
+  --color-bot-accent: #7c3aed; /* was #8b5cf6 (4.23:1 with white avatar text); violet-600 = 5.7:1 */
+  --color-bot-text: #5b21b6;
+  --color-bot-bg: #ede9fe;
+  --color-bot-bubble-bg: var(--color-background-tertiary);
+  --color-bot-bubble-text: var(--color-text);
+
+  /* Internal note bubble tokens */
+  --color-note-bg: #fefce8;
+  --color-note-text: #92400e;
+  --color-note-border: #facc15;
+  --color-note-avatar-bg: #fef3c7;
+}
+
+/* Light mode — explicit override so the toggle overrides prefers-color-scheme.
+   Parlance violet (#635bff) stays at the brand stop. Surfaces are clean
+   white/violet-tinted neutrals matching the `:root` defaults. */
+[data-mol-mode='light'] {
+  --color-primary: #635bff;
+  --color-primary-dark: #4f46e5; /* see :root — small violet text on light needs the darker stop */
+  --color-primary-hover: #7d77ff;
+  --color-primary-light: #f5f3ff;
+  --color-secondary: #06b6d4;
+  --color-secondary-hover: #22d3ee;
+  --color-secondary-light: #ecfeff;
+
+  --color-success: #047857; /* see :root — 4.5:1 for small delta text */
+  --color-warning: #b45309; /* see :root */
+  --color-error: #dc2626;
+  --color-info: #06b6d4;
+  /* M3 on-secondary: dark teal on cyan — 5.52:1 WCAG AA */
+  --color-on-secondary: #083344;
+  --color-on-surface-variant: #6b6b74; /* see :root — muted text ≥4.5:1 on light surfaces */
+
+  --color-bg: #f5f3ff;
+  --color-background: #f5f3ff;
+  --color-background-secondary: #eef2ff;
+  --color-background-tertiary: #faf9ff;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #faf9ff;
+  --color-surface-hover: #f0f0ff;
+  --color-input-background: #ffffff;
+
+  --color-text: #18181b;
+  --color-text-secondary: #71717a;
+  --color-text-muted: #a1a1aa;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e4e4e7;
+  --color-border-secondary: #f4f4f5;
+  --color-border-focus: #635bff;
+
+  --shadow-sm: 0 1px 2px rgba(99, 91, 255, 0.06);
+  --shadow-md: 0 4px 12px -2px rgba(99, 91, 255, 0.1);
+  --shadow-lg: 0 16px 40px -12px rgba(99, 91, 255, 0.16);
+
+  /* Status badge tokens — light */
+  --color-status-error-bg: #fee2e2;
+  --color-status-error-text: #991b1b;
+  --color-status-success-bg: #d1fae5;
+  --color-status-success-text: #065f46;
+  --color-status-resolved-bg: #dcfce7;
+  --color-status-resolved-text: #166534;
+  --color-status-warning-bg: #fef3c7;
+  --color-status-warning-text: #92400e;
+
+  /* Bot/AI accent tokens — light */
+  --color-bot-accent: #7c3aed; /* see :root — 4.5:1 with white avatar text */
+  --color-bot-text: #5b21b6;
+  --color-bot-bg: #ede9fe;
+  --color-bot-bubble-bg: var(--color-background-tertiary);
+  --color-bot-bubble-text: var(--color-text);
+
+  /* Internal note bubble tokens — light */
+  --color-note-bg: #fefce8;
+  --color-note-text: #92400e;
+  --color-note-border: #facc15;
+  --color-note-avatar-bg: #fef3c7;
+}
+
+/* Dark mode — social/chat rich neutral.
+   Rich neutral zinc surfaces (no violet tint — Intercom/Linear chat-tool
+   feel: text-heavy threads read best on warm-tinted zinc, not on indigo
+   plum). Parlance violet stays at the brand stop (#635bff) for agent
+   bubbles, links, and focus rings; `--color-on-primary` STAYS white so
+   the violet CTA buttons keep their light-on-violet character. */
+[data-mol-mode='dark'] {
+  --color-primary: #635bff; /* keep brand violet at brand stop */
+  --color-primary-dark: #8983ff; /* "dark" stop flips light in dark mode: small violet text needs 6.2:1 on #0e0e10 */
+  --color-primary-hover: #8983ff;
+  --color-primary-light: #1e1b4b;
+  --color-secondary: #67e8f9;
+  --color-secondary-hover: #a5f3fc;
+  --color-secondary-light: #083344;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #67e8f9;
+
+  --color-bg: #0e0e10;
+  --color-background: #0e0e10;
+  --color-background-secondary: #18181b;
+  --color-background-tertiary: #1f1f23;
+  --color-surface: #18181b;
+  --color-surface-secondary: #1f1f23;
+  --color-surface-hover: #27272a;
+  --color-input-background: #131316;
+
+  --color-text: #f4f4f5;
+  --color-text-secondary: #c4c4c7;
+  --color-text-muted: #8a8a90;
+  --color-text-inverse: #0e0e10;
+
+  --color-border: #2a2a2e;
+  --color-border-secondary: #3a3a3f;
+  --color-border-focus: #8983ff;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on violet: on-primary stays white. */
+  --color-on-background: #f4f4f5;
+  --color-surface-bright: #27272a;
+  --color-surface-dim: #08080a;
+  --color-surface-container-lowest: #050506;
+  --color-surface-container-low: #131316;
+  --color-surface-container: #18181b;
+  --color-surface-container-high: #1f1f23;
+  --color-surface-container-highest: #2a2a2e;
+  --color-surface-variant: #1f1f23;
+  --color-on-surface: #f4f4f5;
+  --color-on-surface-variant: #c4c4c7;
+  --color-inverse-surface: #f4f4f5;
+  --color-inverse-on-surface: #18181b;
+  --color-inverse-primary: #635bff;
+  --color-primary-container: #1e1b4b;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #e0e7ff;
+  --color-secondary: #67e8f9; /* lifted cyan for dark surfaces */
+  --color-secondary-container: #083344;
+  --color-on-secondary: #042f3a; /* dark teal on light-cyan — 9.84:1 WCAG AA */
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #67e8f9;
+  --color-tertiary-container: #155e75;
+  --color-on-tertiary: #042f3a;
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark text on #f87171 — 4.74:1 ≥4.5 WCAG AA */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #737379; /* 3.76:1 on #18181b — outline 3:1 fix */
+  /* prev: #5a5a60 (2.59:1 FAIL) */
+  --color-outline-variant: #2a2a2e;
+  --color-surface-tint: #8983ff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 40px -12px rgba(0, 0, 0, 0.65);
+
+  /* Status badge tokens — dark */
+  --color-status-error-bg: #450a0a;
+  --color-status-error-text: #fca5a5;
+  --color-status-success-bg: #022c22;
+  --color-status-success-text: #6ee7b7;
+  --color-status-resolved-bg: #052e16;
+  --color-status-resolved-text: #86efac;
+  --color-status-warning-bg: #451a03;
+  --color-status-warning-text: #fcd34d;
+
+  /* Bot/AI accent tokens — dark */
+  --color-bot-accent: #a78bfa;
+  --color-bot-text: #c4b5fd;
+  --color-bot-bg: #2e1065;
+  --color-bot-bubble-bg: #2e1065;
+  --color-bot-bubble-text: #e9d5ff;
+
+  /* Internal note bubble tokens — dark */
+  --color-note-bg: #422006;
+  --color-note-text: #fde68a;
+  --color-note-border: #92400e;
+  --color-note-avatar-bg: #422006;
+}

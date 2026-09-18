@@ -1,0 +1,90 @@
+[
+  {
+    "id": "qst_001",
+    "survey_id": "q4-product-nps",
+    "type": "nps",
+    "text": "How likely are you to recommend Gauge to a colleague?",
+    "description": "Rate from 0 (not at all likely) to 10 (extremely likely).",
+    "options": null,
+    "required": true,
+    "position": 1,
+    "created_at": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "qst_002",
+    "survey_id": "q4-product-nps",
+    "type": "long_text",
+    "text": "What is the single most important reason for your score?",
+    "description": null,
+    "options": null,
+    "required": false,
+    "position": 2,
+    "created_at": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "qst_003",
+    "survey_id": "q4-product-nps",
+    "type": "single_select",
+    "text": "Which feature has driven the most value this quarter?",
+    "description": null,
+    "options": ["New dashboard", "Sharing & roles", "Analytics export", "Mobile app", "Other"],
+    "required": false,
+    "position": 3,
+    "created_at": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "qst_004",
+    "survey_id": "q4-product-nps",
+    "type": "rating",
+    "text": "How would you rate the overall reliability of Gauge over the last 30 days?",
+    "description": "1 = poor, 5 = excellent.",
+    "options": null,
+    "required": false,
+    "position": 4,
+    "created_at": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "qst_005",
+    "survey_id": "q4-product-nps",
+    "type": "long_text",
+    "text": "Anything you wish we'd build next?",
+    "description": "Optional — we read every response.",
+    "options": null,
+    "required": false,
+    "position": 5,
+    "created_at": "2026-04-01T09:00:00Z"
+  },
+  {
+    "id": "qst_010",
+    "survey_id": "employee-pulse",
+    "type": "rating",
+    "text": "How manageable was your workload this past week?",
+    "description": "1 = drowning, 5 = sustainable.",
+    "options": null,
+    "required": true,
+    "position": 1,
+    "created_at": "2026-04-04T14:30:00Z"
+  },
+  {
+    "id": "qst_011",
+    "survey_id": "employee-pulse",
+    "type": "rating",
+    "text": "Do you feel clear on your top priority for the next two weeks?",
+    "description": null,
+    "options": null,
+    "required": true,
+    "position": 2,
+    "created_at": "2026-04-04T14:30:00Z"
+  },
+  {
+    "id": "qst_020",
+    "survey_id": "onboarding-csat",
+    "type": "csat",
+    "text": "How satisfied are you with your onboarding experience so far?",
+    "description": "1 = very dissatisfied, 5 = very satisfied.",
+    "options": null,
+    "required": true,
+    "position": 1,
+    "created_at": "2026-04-12T11:00:00Z"
+  }
+]

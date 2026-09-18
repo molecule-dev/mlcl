@@ -1,0 +1,302 @@
+:root {
+  --color-primary: #4338ca;
+  --color-primary-hover: #3730a3;
+  --color-primary-light: #e0e7ff;
+  --color-secondary: #6366f1;
+  --color-secondary-hover: #4f46e5;
+  --color-accent: #818cf8;
+  --color-accent-light: #eef2ff;
+
+  --color-success: #059669;
+  --color-success-light: #d1fae5;
+  --color-warning: #d97706;
+  --color-warning-light: #fef3c7;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+
+  --color-quality-excellent: #059669;
+  --color-quality-good: #0284c7;
+  --color-quality-fair: #d97706;
+  --color-quality-poor: #dc2626;
+
+  /* Sleep stage chart colors */
+  --color-stage-deep: #3730a3;
+  --color-stage-light: #818cf8;
+  --color-stage-rem: #a78bfa;
+  --color-stage-awake: #d97706;
+
+  /* Sleep quality badge palette (dot/border + pill bg + pill text) */
+  --color-quality-excellent-dot: #059669;
+  --color-quality-excellent-pill: #d1fae5;
+  --color-quality-excellent-text: #047857;
+  --color-quality-good-dot: #4338ca;
+  --color-quality-good-pill: #e0e7ff;
+  --color-quality-good-text: #3730a3;
+  --color-quality-fair-dot: #d97706;
+  --color-quality-fair-pill: #fef3c7;
+  --color-quality-fair-text: #b45309;
+  --color-quality-poor-dot: #dc2626;
+  --color-quality-poor-pill: #fee2e2;
+  --color-quality-poor-text: #b91c1c;
+
+  /* Accent orange (SmartAlarm "next" / score secondary line) */
+  --color-accent-amber: #d97706;
+  --color-accent-amber-pill: #fef3c7;
+  --color-accent-amber-text: #b45309;
+
+  /* Category / actor badge tokens (used in data maps across pages) */
+  --color-badge-indigo-bg: #e0e7ff;
+  --color-badge-indigo-fg: #3730a3;
+  --color-badge-violet-bg: #ede9fe;
+  --color-badge-violet-fg: #5b21b6;
+  --color-badge-green-bg: #d1fae5;
+  --color-badge-green-fg: #047857;
+  --color-badge-amber-bg: #fef3c7;
+  --color-badge-amber-fg: #b45309;
+  --color-badge-red-bg: #fee2e2;
+  --color-badge-red-fg: #b91c1c;
+  --color-badge-muted-bg: #f1f5f9;
+  --color-badge-muted-fg: #475569;
+
+  --color-bg: #f0f0ff;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #ffffff;
+  --color-bg-hover: #e0e7ff;
+  --color-bg-sidebar: #ffffff;
+
+  --color-text: #1e1b4b;
+  --color-text-secondary: #4338ca;
+  --color-text-muted: #475569; /* #94a3b8 was 2.27:1 on #f0f0ff (fail ≥4.5:1); #475569 = 6.72:1 */
+  --color-text-inverse: #ffffff;
+
+  --color-border: #cbd5e1;
+  --color-border-focus: #4338ca;
+
+  /* Hero gradient dark start — safe dark anchor for white text on gradient cards.
+     var(--color-text) was used as gradient start in both modes but becomes near-white
+     (#e3e7ff) in dark mode, destroying white-text contrast (1.23:1). This token
+     always resolves to a dark surface so white text is readable. */
+  --color-hero-gradient-start: #1e1b4b;
+
+  /* === @molecule/app-theme provider bridge tokens === */
+  --mol-color-primary: #4338ca;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #3730a3;
+  --mol-color-secondary: #6366f1;
+  --mol-color-background: #f0f0ff;
+  --mol-color-background-secondary: #e8eaff;
+  --mol-color-background-tertiary: #dde0ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f5ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #4338ca;
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #cbd5e1;
+  --mol-color-border-secondary: #a5aecb;
+  --mol-color-border-focus: #4338ca;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+
+  /* Stitch / Material-3 light token set */
+  --color-background: #f0f0ff;
+  --color-on-background: #1e1b4b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0e0f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5ff;
+  --color-surface-container: #eeeeff;
+  --color-surface-container-high: #e8e8f8;
+  --color-surface-container-highest: #ddddf0;
+  --color-surface-variant: #e4e0f4;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #46445a;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #f3f0ff;
+  --color-inverse-primary: #b4baff;
+  --color-primary: #4338ca;
+  --color-primary-container: #e0e7ff;
+  --color-on-primary: #ffffff; /* white on #4338ca = 7.90:1 */
+  --color-on-primary-container: #1e1b4b;
+  --color-secondary: #5b58e0; /* #6366f1 was 4.47:1 (fail); #5b58e0 = 5.36:1 */
+  --color-secondary-container: #e8e8ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #818cf8;
+  --color-tertiary-container: #e0e7ff;
+  --color-on-tertiary: #1a1650; /* white was 2.98:1 (fail); #1a1650 = 5.52:1 */
+  --color-on-tertiary-container: #1e1b4b;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 */
+  --color-on-error-container: #3d1414;
+  --color-outline: #7b79aa; /* meets ≥3:1 on #f0f0ff (3.61:1) and #ffffff (4.07:1) */
+  --color-outline-variant: #c4c4dc;
+  --color-surface-tint: #4338ca;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(67, 56, 202, 0.06);
+  --shadow-md: 0 4px 12px rgba(67, 56, 202, 0.1);
+  --shadow-lg: 0 8px 24px rgba(67, 56, 202, 0.14);
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode — midnight-indigo sleep dark.
+   Deep night-sky indigo surfaces (on-theme for a sleep app — the
+   palette literally evokes the time you'd use it). Brand indigo
+   lifts to #818cf8 for surface accents; brand stop #4338ca is
+   preserved for hero CTAs so white text stays the on-primary
+   contrast. Sleep-quality semantics (excellent=green, poor=red)
+   preserved across modes. */
+[data-mol-mode='dark'] {
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-light: #1e1b4b;
+  --color-secondary: #6366f1;
+  --color-secondary-hover: #818cf8;
+  --color-accent: #a5b4fc;
+  --color-accent-light: #1e1b4b;
+
+  --color-success: #34d399;
+  --color-success-light: #132f2c;
+  --color-warning: #fbbf24;
+  --color-warning-light: #3d3513;
+  --color-error: #f87171;
+  --color-error-light: #3d1414;
+
+  --color-quality-excellent: #34d399;
+  --color-quality-good: #38bdf8;
+  --color-quality-fair: #fbbf24;
+  --color-quality-poor: #f87171;
+
+  /* Sleep stage chart colors — brighter for dark surfaces */
+  --color-stage-deep: #4338ca;
+  --color-stage-light: #a5b4fc;
+  --color-stage-rem: #c4b5fd;
+  --color-stage-awake: #fbbf24;
+
+  /* Sleep quality badge palette dark variants */
+  --color-quality-excellent-dot: #34d399;
+  --color-quality-excellent-pill: #132f2c;
+  --color-quality-excellent-text: #34d399;
+  --color-quality-good-dot: #818cf8;
+  --color-quality-good-pill: #1e1b4b;
+  --color-quality-good-text: #a5b4fc;
+  --color-quality-fair-dot: #fbbf24;
+  --color-quality-fair-pill: #3d3513;
+  --color-quality-fair-text: #fbbf24;
+  --color-quality-poor-dot: #f87171;
+  --color-quality-poor-pill: #3d1414;
+  --color-quality-poor-text: #f87171;
+
+  /* Accent amber dark variants */
+  --color-accent-amber: #fbbf24;
+  --color-accent-amber-pill: #3d3513;
+  --color-accent-amber-text: #fbbf24;
+
+  /* Category / actor badge tokens — dark variants */
+  --color-badge-indigo-bg: #1e1b4b;
+  --color-badge-indigo-fg: #a5b4fc;
+  --color-badge-violet-bg: #2e1065;
+  --color-badge-violet-fg: #c4b5fd;
+  --color-badge-green-bg: #132f2c;
+  --color-badge-green-fg: #34d399;
+  --color-badge-amber-bg: #3d3513;
+  --color-badge-amber-fg: #fbbf24;
+  --color-badge-red-bg: #3d1414;
+  --color-badge-red-fg: #f87171;
+  --color-badge-muted-bg: #1e2330;
+  --color-badge-muted-fg: #94a3b8;
+
+  --color-bg: #07061a;
+  --color-bg-card: #11102e;
+  --color-bg-input: #1a1745;
+  --color-bg-hover: #211e52;
+  --color-bg-sidebar: #0c0a23;
+
+  --color-text: #e3e7ff;
+  --color-text-secondary: #a5b4fc;
+  --color-text-muted: #6b6e8a;
+  --color-text-inverse: #07061a;
+
+  --color-border: #2a276e;
+  --color-border-focus: #818cf8;
+  --color-hero-gradient-start: #07061a; /* near-black in dark — was #e3e7ff (light) which broke white text */
+
+  --color-on-primary: #ffffff; /* white on indigo — readable in both modes */
+
+  /* Material-3 bridge tokens — override the @theme block so `bg-surface`,
+     `text-on-surface`, `bg-primary-container`, etc. all flip on dark.
+     Brand indigo kept at brand stop (#4338ca) so CTA buttons keep white text. */
+  --color-background: #07061a;
+  --color-on-background: #e3e7ff;
+  --color-surface: #07061a;
+  --color-surface-bright: #211e52;
+  --color-surface-dim: #030310;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0c0a23;
+  --color-surface-container: #11102e;
+  --color-surface-container-high: #1a1745;
+  --color-surface-container-highest: #211e52;
+  --color-surface-variant: #1a1745;
+  --color-on-surface: #e3e7ff;
+  --color-on-surface-variant: #a5b4fc;
+  --color-inverse-surface: #e3e7ff;
+  --color-inverse-on-surface: #07061a;
+  --color-inverse-primary: #4338ca;
+  --color-primary: #4338ca; /* keep brand indigo at brand stop */
+  --color-primary-container: #1e1b4b;
+  --color-on-primary-container: #e0e7ff;
+  --color-secondary: #818cf8;
+  --color-secondary-container: #1e1b4b;
+  --color-on-secondary: #07061a;
+  --color-on-secondary-container: #e0e7ff;
+  --color-tertiary: #a5b4fc;
+  --color-tertiary-container: #1e1b4b;
+  --color-on-tertiary: #1a1650; /* white was 1.99:1 (fail); #1a1650 = 8.27:1 */
+  --color-on-tertiary-container: #e0e7ff;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #706d96; /* #4f4c8a was 2.60:1 vs surface (fail ≥3:1); #706d96 = 4.11:1 */
+  --color-outline-variant: #2a276e;
+  --color-surface-tint: #818cf8;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

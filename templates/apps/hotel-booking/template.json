@@ -1,0 +1,105 @@
+{
+  "label": "Hotel Booking",
+  "description": "Hotels.com-like hotel booking with rooms, availability, rates, amenities, and loyalty rewards \u2014 with built-in Stripe-backed subscription tiers",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-cache-redis",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-image-sharp",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-booking",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-review",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-calendar",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-gallery",
+    "@molecule/app-maps",
+    "@molecule/app-notification-feed-react",
+    "@molecule/app-status-timeline-react",
+    "@molecule/app-top-nav-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Hotel Booking"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe API secret key",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "REDIS_URL": {
+      "description": "Redis URL for caching",
+      "default": "redis://localhost:6379"
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for hotel photos",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_HOTEL_BOOKING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_HOTEL_BOOKING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_HOTEL_BOOKING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_HOTEL_BOOKING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "maps",
+    "bookmarks",
+    "reviews",
+    "payments",
+    "subscriptions"
+  ]
+}

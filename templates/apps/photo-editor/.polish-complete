@@ -1,0 +1,29 @@
+Polish complete: 2026-04-30T00:55:00Z
+Pipeline: polish-app.md (autonomous session)
+Cluster: creative-tools (media) → sibling: animation-tool (PhotoEditorLayout
+translation pattern), design-canvas (AuthShell §13.3 brand panel pattern),
+personal-finance (NetWorthCard hero + sparkline pattern).
+
+Brand: Lustra — "Light bends to your will" — violet (#8b5cf6) + magenta
+(#ec4899) + cyan canvas accent (#06b6d4) on #0c0c1d background.
+Dark editor chrome by design (DESIGN.md "Canvas is king").
+
+Bespoke components (6): AdjustmentSlider, AuthShell, LustraWordmark,
+PhotoEditorLayout, PhotoTile, PresetTile. Plus RootErrorBoundary as
+Sweep 1 chrome re-export. Sample data fixture: lib/sample-photos.ts.
+
+Pages polished (12/12): Landing, Login, Signup, ForgotPassword,
+ResetPassword, Library, Editor, Export, Settings, AlbumDetail, Presets,
+Profile.
+
+Sweep 1 chrome conformance: Header.tsx + Footer.tsx delegate to
+@molecule/app-{header,footer,root-error-boundary}-react. Material 3
+derivative tokens filled. Material Symbols Outlined + Inter +
+JetBrains Mono fonts loaded in index.html.
+
+Verification:
+- typecheck: clean
+- compliance: clean (273 files, 0 violations)
+- screen-map coverage: 12/12 wired
+- bespokeComponentCount: 6 (≥3 required)
+- classmapCoveragePct: 100% (≥70 required)

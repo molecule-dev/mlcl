@@ -1,0 +1,10 @@
+[
+  { "id": "pr-1", "exercise": "Conventional Deadlift", "muscleGroup": "back", "weight": 180, "reps": 1, "unit": "kg", "achievedAt": "2026-04-15", "estimatedOneRm": 180 },
+  { "id": "pr-2", "exercise": "Barbell Back Squat", "muscleGroup": "legs", "weight": 152.5, "reps": 3, "unit": "kg", "achievedAt": "2026-04-25", "estimatedOneRm": 167 },
+  { "id": "pr-3", "exercise": "Barbell Bench Press", "muscleGroup": "chest", "weight": 110, "reps": 5, "unit": "kg", "achievedAt": "2026-04-29", "estimatedOneRm": 124 },
+  { "id": "pr-4", "exercise": "Standing Overhead Press", "muscleGroup": "shoulders", "weight": 67.5, "reps": 3, "unit": "kg", "achievedAt": "2026-04-08", "estimatedOneRm": 74 },
+  { "id": "pr-5", "exercise": "Barbell Row", "muscleGroup": "back", "weight": 100, "reps": 5, "unit": "kg", "achievedAt": "2026-04-02", "estimatedOneRm": 113 },
+  { "id": "pr-6", "exercise": "Romanian Deadlift", "muscleGroup": "legs", "weight": 120, "reps": 6, "unit": "kg", "achievedAt": "2026-03-29", "estimatedOneRm": 140 },
+  { "id": "pr-7", "exercise": "Pull-Up (BW)", "muscleGroup": "back", "weight": 0, "reps": 18, "unit": "kg", "achievedAt": "2026-03-14", "estimatedOneRm": 0 },
+  { "id": "pr-8", "exercise": "Incline Dumbbell Press", "muscleGroup": "chest", "weight": 40, "reps": 6, "unit": "kg", "achievedAt": "2026-03-08", "estimatedOneRm": 46 }
+]

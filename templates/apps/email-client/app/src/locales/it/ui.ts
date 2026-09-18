@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Sfoglia gli articoli di aiuto',
+  'about.cta.signup': 'Prova Courier gratis',
+  'about.eyebrow': 'Informazioni su Courier',
+  'about.principle.calm': 'Calma per impostazione predefinita.',
+  'about.principle.calm.desc':
+    'Niente badge che urlano, niente notifiche non richieste, niente animazioni che reclamano attenzione.',
+  'about.principle.fast.desc':
+    'Ogni azione è a un tasto di distanza. La casella di posta si carica in meno di 200ms al nuovo accesso.',
+  'about.principle.honest.desc':
+    'Crittografia in transito e a riposo, ritenzione trasparente ed esportazione dati con un solo clic.',
+  'about.story': 'Perché abbiamo creato Courier',
+  'about.story.p1':
+    "La maggior parte dei client email ottimizza per il coinvolgimento — riportandoLa indietro, frammentando la Sua attenzione, suggerendo un tocco in più. Courier fa l'opposto. Misuriamo il successo dal tempo che Lei trascorre FUORI dalla casella di posta: smistare velocemente, rinviare con sicurezza e proseguire con il lavoro che conta.",
+  'about.subtitle':
+    'Courier è una casella di posta a tre pannelli, calma, creata da un piccolo team che voleva elaborare le informazioni invece di reagire ad esse.',
+  'about.team.body':
+    'Siamo un team distribuito di designer e ingegneri che un tempo passavano troppe ore al giorno in una casella di posta rumorosa. Courier è la casella di posta che noi stessi avremmo voluto usare.',
+  'about.title': 'Email per il lavoro concentrato',
+  'help.cta.about': 'Informazioni su Courier',
+  'help.cta.pricing': 'Vedi i prezzi',
+  'help.eyebrow': 'Centro assistenza',
+  'help.faq.compose.a':
+    'Fai clic su "Componi" nella barra laterale (oppure premi "Cc" in qualsiasi visualizzazione della posta in arrivo), inserisci almeno un destinatario, un oggetto e un corpo del messaggio, quindi fai clic su "Invia". Il nuovo messaggio apparirà immediatamente nella cartella Posta inviata.',
+  'help.faq.compose.q': 'Come invio il mio primo messaggio?',
+  'help.faq.export.a':
+    'Sì. Impostazioni → Account → Esportazione dati crea un archivio scaricabile (mbox + JSON) con ogni messaggio, etichetta e contatto. Non è richiesto alcun piano premium.',
+  'help.faq.labels.a':
+    'Le cartelle sono esclusive (un messaggio si trova esattamente in una): Posta in arrivo, Inviati, Bozze, Spam, Cestino, Archivio. Le etichette sono additive — può applicarne molte a una singola email e filtrare per combinazioni dalla barra di ricerca.',
+  'help.faq.password.a':
+    'Usi il link "Password dimenticata?" nella pagina di accesso. Le invieremo un link di reimpostazione valido per un\'ora all\'email del Suo account.',
+  'help.faq.shortcuts.a':
+    'Sì. "j" / "k" si spostano tra i thread, "s" attiva/disattiva una stella, "e" archivia, "#" sposta nel cestino e "/" mette a fuoco la barra di ricerca. La documentazione delle scorciatoie è disponibile in ogni vista della posta premendo "?".',
+  'help.faq.support.a':
+    "Invii un'email a support@courier.example. Rispondiamo a ogni messaggio entro un giorno lavorativo, dal lunedì al venerdì dalle 9 alle 17 UTC.",
+  'help.subtitle':
+    "Risposte rapide alle domande più frequenti. Manca qualcosa? Apra le Impostazioni e utilizzi il modulo di feedback nell'app, oppure scriva a support@courier.example.",
+  'help.title': 'Come possiamo aiutarLa?',
+  'landing.brand.scrollTop': 'Torna in cima',
+  'landing.ctaBody':
+    'Si unisca a migliaia di professionisti che hanno finito la posta prima di pranzo.',
+  'landing.ctaTitle': 'Elabori di più, reagisca di meno.',
+  'landing.eyebrow': 'Email per il lavoro concentrato',
+  'landing.featuresBody': 'Smetta di gestire la Sua casella di posta e cominci a lavorare.',
+  'landing.featuresTitle': 'Progettato per il lavoro profondo',
+  'landing.help': 'Aiuto',
+  'landing.heroDemo': 'Guarda la demo',
+  'landing.heroSubtitle':
+    'Courier è una casella di posta a tre pannelli, calma, creata per i knowledge worker che vogliono elaborare le informazioni, non reagire ad esse.',
+  'landing.proof': 'Apprezzato da team concentrati in tutto il mondo',
+  'landing.signIn': 'Accedi',
+  'meridian.archive.empty': "L'archivio è vuoto.",
+  'meridian.compose.addRecipient': 'Aggiungi un altro destinatario',
+  'meridian.compose.bodyPlaceholder': 'Scriva il Suo messaggio…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Elimina bozza',
+  'meridian.compose.invalidEmail': '"{{value}}" non è un\'email valida',
+  'meridian.compose.needRecipient': 'Aggiunga prima almeno un destinatario.',
+  'meridian.compose.replyTo': 'Rispondi nel thread {{id}}',
+  'meridian.compose.savedAt': 'Bozza salvata alle {{time}}',
+  'meridian.compose.sentWithError': 'Salvato in Inviati, ma la consegna non è riuscita: {{error}}',
+  'meridian.compose.subject': 'Ogg',
+  'meridian.compose.subjectPlaceholder': 'Oggetto',
+  'meridian.compose.title': 'Nuovo messaggio',
+  'meridian.compose.to': 'A',
+  'meridian.drafts.continue': 'Continua a modificare',
+  'meridian.drafts.count': '{{count}} messaggi',
+  'meridian.drafts.delete': 'Elimina bozza',
+  'meridian.drafts.empty': 'Nessuna bozza ancora — inizi a comporre.',
+  'meridian.drafts.lastSaved': 'Salvato {{at}}',
+  'meridian.drafts.noRecipients': '(ancora nessun destinatario)',
+  'meridian.drafts.selectDraft': 'Selezioni una bozza da visualizzare.',
+  'meridian.drafts.title': 'Bozze',
+  'meridian.drafts.to': 'A',
+  'meridian.drafts.watermark': 'Bozza',
+  'meridian.folder.count': '{{count}} messaggi',
+  'meridian.folder.deleteForever': 'Elimina definitivamente',
+  'meridian.folder.restore': 'Sposta nella posta in arrivo',
+  'meridian.forgot.subtitle':
+    "Inserisca l'email associata alla Sua casella di posta e Le invieremo un link di reimpostazione.",
+  'meridian.forgot.success':
+    'Se esiste un account con quella email, il link di reimpostazione è in arrivo.',
+  'meridian.inbox.empty': 'Nessun messaggio qui ancora.',
+  'meridian.inbox.loading': 'Caricamento…',
+  'meridian.inbox.next': 'Successivo',
+  'meridian.inbox.noSubject': '(senza oggetto)',
+  'meridian.inbox.openCompose': 'Apri composizione',
+  'meridian.inbox.previous': 'Precedente',
+  'meridian.inbox.replyFailed': 'Risposta salvata ma la consegna non è riuscita: {{error}}',
+  'meridian.inbox.replySent': 'Risposta inviata.',
+  'meridian.inbox.replyTo': 'Rispondi a {{name}}',
+  'meridian.inbox.selectMessage': 'Selezioni un messaggio da leggere',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Visualizza thread',
+  'meridian.login.hidePassword': 'Nascondi password',
+  'meridian.login.noAccount': 'Non ha un account?',
+  'meridian.login.showPassword': 'Mostra password',
+  'meridian.message.toLine': 'a {{recipients}}',
+  'meridian.notFound.eyebrow': 'Errore 404',
+  'meridian.notFound.title': 'Questo thread è stato archiviato.',
+  'meridian.notFound.toInbox': 'Apri la mia posta in arrivo',
+  'meridian.reset.newLabel': 'Nuova password',
+  'meridian.reset.showPassword': 'Mostra password',
+  'meridian.reset.subtitle': 'Scelga una password sicura — almeno 8 caratteri.',
+  'meridian.sent.empty': 'Non ha ancora inviato nulla.',
+  'meridian.sent.title': 'Inviati',
+  'meridian.settings.noName': '(nessun nome impostato)',
+  'meridian.settings.section.${section}': 'Personalizza il tuo {{appName}} esperienza',
+  'meridian.settings.signature': 'Firma',
+  'meridian.settings.signatureSaved': 'Firma salvata.',
+  'meridian.sidebar.compose': 'Componi',
+  'meridian.sidebar.labels': 'Etichette',
+  'meridian.sidebar.noLabels': 'Nessuna etichetta ancora',
+  'meridian.sidebar.storage': 'Spazio',
+  'meridian.sidebar.storageLabel': '{{used}} di {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@azienda.com',
+  'meridian.signup.heading': 'Crei la Sua casella Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Mostra password',
+  'meridian.signup.subtitle': 'Elabori la Sua posta prima di pranzo.',
+  'meridian.spam.empty': 'Nessuno spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Nessun messaggio con stella.',
+  'meridian.starred.loading': 'Caricamento…',
+  'meridian.starred.removeStar': 'Rimuovi stella',
+  'meridian.starred.total': '{{count}} in totale',
+  'meridian.thread.back': 'Torna alla Posta in arrivo',
+  'meridian.thread.empty': 'Nessun messaggio in questo thread.',
+  'meridian.thread.eyebrow': 'Thread #{{id}}',
+  'meridian.thread.notFound': 'Thread non trovato.',
+  'meridian.thread.star': 'Aggiungi stella',
+  'meridian.thread.unstar': 'Rimuovi stella',
+  'meridian.time.yesterday': 'Ieri',
+  'meridian.topBar.searchPlaceholder': 'Cerca nella posta',
+  'meridian.trash.empty': 'Il cestino è vuoto.',
+  'meridian.trash.title': 'Cestino',
+  'nav.legal': 'Legale',
+  'planUpdated.description':
+    'Il Suo abbonamento è ora attivo e la fatturazione è stata aggiornata. Benvenuto nella Sua casella Courier aggiornata.',
+  'pricing.heading': 'bozze',
+  'pricing.limit.emails': 'email',
+  'pricing.limit.folders': 'cartelle',
+  'pricing.limit.labels': 'etichette',
+  'privacy.collect.account':
+    "Dati dell'account: nome, indirizzo email, password con hash e data di registrazione.",
+  'privacy.intro':
+    'Questa informativa sulla privacy spiega quali dati raccoglie Courier, perché li raccogliamo, come li proteggiamo e quali scelte ha al riguardo. Cerchiamo di essere specifici invece che legalistici; se qualcosa non è chiaro, scriva a privacy@courier.example.',
+  'privacy.lastUpdated': 'Ultimo aggiornamento: 1 aprile 2026',
+  'privacy.linkTerms': 'Legga i nostri Termini di servizio →',
+  'privacy.rights.body':
+    'Può esportare ogni dato che deteniamo su di Lei da Impostazioni → Account → Esportazione dati, e può eliminare il Suo account con un solo clic — tutte le righe vengono cancellate entro 24 ore, i log di audit eliminati dopo 30 giorni.',
+  'privacy.security.body':
+    "Il contenuto della posta e gli allegati sono crittografati a riposo con AES-256. Le connessioni da e verso il nostro servizio usano TLS 1.3. Le password sono sottoposte ad hash con bcrypt; non registriamo né memorizziamo mai password in chiaro. L'accesso alla produzione è limitato agli ingegneri on-call, sottoposto ad audit mensilmente.",
+  'privacy.share.body':
+    'Condividiamo i dati solo con i sub-responsabili necessari per gestire Courier (consegna email tramite Mailgun, fatturazione tramite Stripe, hosting tramite AWS). Ciascuno è contrattualmente obbligato a usare i Suoi dati solo per eseguire il servizio per noi. Non vendiamo, affittiamo né scambiamo i Suoi dati con nessuno.',
+  'terms.acceptable.spam':
+    'Nessun invio massiccio di messaggi non richiesti. Chiuderemo senza preavviso gli account che inviano spam.',
+  'terms.account.body':
+    'È responsabile della riservatezza della Sua password e di qualsiasi attività che avvenga attraverso il Suo account. Ci avvisi a security@courier.example se ritiene che il Suo account sia stato compromesso.',
+  'terms.billing.body':
+    "I piani a pagamento si rinnovano con la cadenza scelta alla registrazione. Può annullare da Impostazioni → Fatturazione in qualsiasi momento e mantiene l'accesso per il resto del periodo di fatturazione. I rimborsi sono emessi per interruzioni del servizio che superano lo SLA.",
+  'terms.intro':
+    "Questi termini regolano l'uso di Courier. Creando un account o inviando email attraverso di noi accetta di essere vincolato da essi. Cerchiamo di scrivere regole che una persona possa effettivamente seguire.",
+  'terms.lastUpdated': 'In vigore dal: 1 aprile 2026',
+  'terms.termination.body':
+    'Può eliminare il Suo account in qualsiasi momento. Possiamo sospendere un account che viola questi termini; se lo facciamo, spiegheremo il motivo e Le consentiremo di esportare prima i Suoi dati.',
+  'terms.warranty.body':
+    "Il servizio è fornito così com'è. Lavoriamo duramente per mantenerlo affidabile e sicuro, ma non possiamo garantire un accesso ininterrotto. Nei limiti consentiti dalla legge, la nostra responsabilità aggregata è limitata all'importo che ci ha pagato nei 12 mesi precedenti.",
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "tm_001",
+    "name": "Alex Park",
+    "email": "alex@example.com",
+    "role": "admin",
+    "last_active_at": "2026-04-26T15:42:00Z",
+    "status": "active",
+    "avatar_initials": "AP"
+  },
+  {
+    "id": "tm_002",
+    "name": "Priya Desai",
+    "email": "priya@example.com",
+    "role": "developer",
+    "last_active_at": "2026-04-26T13:18:00Z",
+    "status": "active",
+    "avatar_initials": "PD"
+  },
+  {
+    "id": "tm_003",
+    "name": "Marcus Reilly",
+    "email": "marcus@example.com",
+    "role": "developer",
+    "last_active_at": "2026-04-26T11:02:00Z",
+    "status": "active",
+    "avatar_initials": "MR"
+  },
+  {
+    "id": "tm_004",
+    "name": "Linda Park",
+    "email": "linda@example.com",
+    "role": "viewer",
+    "last_active_at": "2026-04-25T17:42:00Z",
+    "status": "active",
+    "avatar_initials": "LP"
+  },
+  {
+    "id": "tm_005",
+    "name": "Devon Walsh",
+    "email": "devon@example.com",
+    "role": "developer",
+    "last_active_at": "2026-04-25T09:48:00Z",
+    "status": "active",
+    "avatar_initials": "DW"
+  },
+  {
+    "id": "tm_006",
+    "name": "Aisha Martin",
+    "email": "aisha@example.com",
+    "role": "viewer",
+    "last_active_at": "2026-04-24T18:14:00Z",
+    "status": "active",
+    "avatar_initials": "AM"
+  },
+  {
+    "id": "tm_007",
+    "name": "Henry Park",
+    "email": "henry@example.com",
+    "role": "admin",
+    "last_active_at": "2026-04-23T22:00:00Z",
+    "status": "active",
+    "avatar_initials": "HP"
+  }
+]

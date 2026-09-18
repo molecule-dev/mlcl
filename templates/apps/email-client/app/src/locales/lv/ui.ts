@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Pārlūkot palīdzības rakstus',
+  'about.cta.signup': 'Izmēģiniet Courier bez maksas',
+  'about.eyebrow': 'Par Courier',
+  'about.principle.calm': 'Noklusējuma iestatījums ir „Calm“.',
+  'about.principle.calm.desc':
+    'Nekādu uzkrītošu ikonu, nekādu nevēlamu paziņojumu, nekādu animāciju, kas pieprasa uzmanību.',
+  'about.principle.fast.desc':
+    'Katra darbība ir tikai viena taustiņa nospiediena attālumā. Ienākošo vēstuļu kastīte pēc jaunas pieteikšanās ielādējas mazāk nekā 200 milisekundēs.',
+  'about.principle.honest.desc':
+    'Šifrēšana datu pārraides un uzglabāšanas laikā, pārredzama datu saglabāšana un datu eksportēšana ar vienu klikšķi.',
+  'about.story': 'Kāpēc mēs izveidojām Courier',
+  'about.story.p1':
+    'Lielākā daļa e-pasta klientu ir optimizēti, lai veicinātu lietotāju iesaistīšanos — atkal un atkal piesaistot jūsu uzmanību, sadalot to un mudinot veikt vēl vienu pieskārienu. Courier darbojas pretēji. Mēs panākumus vērtējam pēc laika, ko jūs pavadāt ĀRĀ no savas iesūtņu kastītes: ātri izvērtējiet vēstules, droši atlikt to izskatīšanu un ķerieties pie patiesi svarīgā darba.',
+  'about.subtitle':
+    '„Courier“ ir vienkārša, trīs logu ieejas pastkastīte, ko izstrādājusi neliela komanda, kuras mērķis bija apstrādāt informāciju, nevis tikai reaģēt uz to.',
+  'about.team.body':
+    'Mēs esam izkliedēta dizaineru un inženieru komanda, kas kādreiz katru dienu pavadīja pārāk daudz laika trokšņainā e-pasta kastē. Courier ir tā e-pasta kastīte, ko mēs paši gribējām lietot.',
+  'about.title': 'E-pasts koncentrētam darbam',
+  'help.cta.about': 'Par Courier',
+  'help.cta.pricing': 'Skatīt cenas',
+  'help.eyebrow': 'Palīdzības centrs',
+  'help.faq.compose.a':
+    'Noklikšķiniet uz „Sagatavot” sānu joslā (vai nospiediet „c” jebkurā iesūtņu skatā), ievadiet vismaz vienu saņēmēju, tematu un ziņojuma tekstu, un nospiediet „Sūtīt”. Jaunā ziņa nekavējoties parādīsies jūsu „Nosūtītās” mapē.',
+  'help.faq.compose.q': 'Kā nosūtīt pirmo ziņu?',
+  'help.faq.export.a':
+    'Jā. Izvēlnē „Iestatījumi“ → „Konts“ → „Datu eksports“ tiek izveidots lejupielādējams arhīvs (mbox + JSON), kurā iekļauti visi ziņojumi, marķieri un kontakti. Nav nepieciešams premium pakalpojums.',
+  'help.faq.labels.a':
+    'Mapes ir savstarpēji izslēdzošas (vienam ziņojumam var būt piešķirta tikai viena): „Ienākošie”, „Nosūtītie”, „Sagataves”, „Spams”, „Atkritumu grozs”, „Arhīvs”. Etiķetes ir savstarpēji papildinošas — vienam e-pastam var piešķirt vairākas etiķetes un meklēšanas joslā filtrēt pēc to kombinācijām.',
+  'help.faq.password.a':
+    'Izmantojiet pieteikšanās lapā esošo saiti „Aizmirsāt paroli?”. Uz jūsu konta e-pasta adresi nosūtīsim atjaunošanas saiti, kas būs derīga vienu stundu.',
+  'help.faq.shortcuts.a':
+    'Jā. “j” / “k” pārvietojas starp tēmām, “s” ieslēdz vai izslēdz zvaigznīti, “e” arhivē, “#” pārvieto uz atkritumu grozu, un “/” fokusu pārvieto uz meklēšanas laukumu. Saīsnes dokumentācija ir pieejama jebkurā iesūtņu skatā, nospiežot \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Sūtiet vēstuli uz support@courier.example. Mēs atbildam uz katru ziņojumu vienas darba dienas laikā, darba dienās no plkst. 9.00 līdz 17.00 (UTC).',
+  'help.subtitle':
+    'Ātrās atbildes uz visbiežāk uzdotajiem jautājumiem. Kaut kas trūkst? Atveriet iestatījumus un izmantojiet lietotnē pieejamo atsauksmju veidlapu vai rakstiet uz support@courier.example.',
+  'help.title': 'Kā mēs varam palīdzēt?',
+  'landing.brand.scrollTop': 'Atgriezties uz sākumu',
+  'landing.ctaBody':
+    'Pievienojies tūkstošiem profesionāļu, kuri savu e-pasta pastkastīti iztīra jau pirms pusdienām.',
+  'landing.ctaTitle': 'Rīkojies vairāk, reaģē mazāk.',
+  'landing.eyebrow': 'E-pasts koncentrētam darbam',
+  'landing.featuresBody':
+    'Pārstājiet nodarboties ar savas iesūtņu kastītes pārvaldīšanu un sāciet darbus paveikt.',
+  'landing.featuresTitle': 'Paredzēts intensīvam darbam',
+  'landing.help': 'Palīdzība',
+  'landing.heroDemo': 'Noskatīties demonstrāciju',
+  'landing.heroSubtitle':
+    '„Courier“ ir vienkārša trīslogu iesūtņu kastīte, kas izstrādāta zināšanu darbiniekiem, kuri vēlas apstrādāt informāciju, nevis tikai reaģēt uz to.',
+  'landing.proof': 'To uzticas specializētas komandas visā pasaulē',
+  'landing.signIn': 'Pierakstīties',
+  'meridian.archive.empty': 'Arhīvs ir tukšs.',
+  'meridian.compose.addRecipient': 'Pievienot vēl vienu saņēmēju',
+  'meridian.compose.bodyPlaceholder': 'Ierakstiet savu ziņu…',
+  'meridian.compose.cc': 'Kopija',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Atcelt uzmetumu',
+  'meridian.compose.invalidEmail': '"{{value}}" nav derīgs e-pasta adrese',
+  'meridian.compose.needRecipient': 'Vispirms pievienojiet vismaz vienu saņēmēju.',
+  'meridian.compose.replyTo': 'Atbildēt šajā tēmā {{id}}',
+  'meridian.compose.savedAt': 'Dokumenta skice saglabāta vietnē {{time}}',
+  'meridian.compose.sentWithError': 'Saglabāts sadaļā „Nosūtīts”, bet piegāde neizdevās: {{error}}',
+  'meridian.compose.subject': 'Tēma',
+  'meridian.compose.subjectPlaceholder': 'Tēma',
+  'meridian.compose.title': 'Jauns ziņojums',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Turpināt rediģēšanu',
+  'meridian.drafts.count': '{{count}} ziņojumi',
+  'meridian.drafts.delete': 'Dzēst uzmetumu',
+  'meridian.drafts.empty': 'Vēl nav nekādu uzmetumu — sāc rakstīt.',
+  'meridian.drafts.lastSaved': 'Saglabāts {{at}}',
+  'meridian.drafts.noRecipients': '(vēl nav adresātu)',
+  'meridian.drafts.selectDraft': 'Izvēlieties uzmetumu, lai to apskatītu.',
+  'meridian.drafts.title': 'Priekšlikumi',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Projekts',
+  'meridian.folder.count': '{{count}} ziņojumi',
+  'meridian.folder.deleteForever': 'Dzēst neatgriezeniski',
+  'meridian.folder.restore': 'Pārvietot uz iesūtni',
+  'meridian.forgot.subtitle':
+    'Ievadiet e-pasta adresi, kas saistīta ar jūsu pastkastīti, un mēs nosūtīsim saiti paroles atjaunošanai.',
+  'meridian.forgot.success':
+    'Ja konts ar šo e-pasta adresi jau pastāv, jums tiks nosūtīta saite paroles atjaunošanai.',
+  'meridian.inbox.empty': 'Šeit vēl nav ziņojumu.',
+  'meridian.inbox.loading': 'Notiek ielāde…',
+  'meridian.inbox.next': 'Nākamais',
+  'meridian.inbox.noSubject': '(bez tēmas)',
+  'meridian.inbox.openCompose': 'Atvērt rakstīšanas logu',
+  'meridian.inbox.previous': 'Iepriekšējais',
+  'meridian.inbox.replyFailed': 'Atbilde saglabāta, bet nosūtīšana neizdevās: {{error}}',
+  'meridian.inbox.replySent': 'Atbilde nosūtīta.',
+  'meridian.inbox.replyTo': 'Atbildēt uz {{name}}',
+  'meridian.inbox.selectMessage': 'Izvēlieties ziņu, kuru vēlaties lasīt',
+  'meridian.inbox.spam': 'Sūdzības par surogātpastu',
+  'meridian.inbox.viewThread': 'Skatīt pavedienu',
+  'meridian.login.hidePassword': 'Paslēpt paroli',
+  'meridian.login.noAccount': 'Jums vēl nav konta?',
+  'meridian.login.showPassword': 'Rādīt paroli',
+  'meridian.message.toLine': 'uz {{recipients}}',
+  'meridian.notFound.eyebrow': 'Kļūda 404',
+  'meridian.notFound.title': 'Šī tēma ir arhivēta.',
+  'meridian.notFound.toInbox': 'Atvērt manu iesūtņu pastu',
+  'meridian.reset.newLabel': 'Jauna parole',
+  'meridian.reset.showPassword': 'Rādīt paroli',
+  'meridian.reset.subtitle': 'Izvēlieties drošu paroli — vismaz 8 rakstzīmes.',
+  'meridian.sent.empty': 'Jūs vēl neesat nosūtījis neko.',
+  'meridian.sent.title': 'Nosūtīts',
+  'meridian.settings.noName': '(nosaukums nav norādīts)',
+  'meridian.settings.section.${section}': 'Pielāgojiet savu „{{appName}}“ lietošanas pieredzi',
+  'meridian.settings.signature': 'Paraksts',
+  'meridian.settings.signatureSaved': 'Paraksts saglabāts.',
+  'meridian.sidebar.compose': 'Sagatavot',
+  'meridian.sidebar.labels': 'Etiķetes',
+  'meridian.sidebar.noLabels': 'Vēl nav piešķirti apzīmējumi',
+  'meridian.sidebar.storage': 'Uzglabāšana',
+  'meridian.sidebar.storageLabel': '{{used}} no „{{quota}}“',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Izveidojiet savu Courier pastkastīti',
+  'meridian.signup.namePlaceholder': 'Morgana Čena',
+  'meridian.signup.showPassword': 'Rādīt paroli',
+  'meridian.signup.subtitle': 'Pirms pusdienām pārskatiet savu e-pasta pastkasti.',
+  'meridian.spam.empty': 'Bez surogātpasta.',
+  'meridian.spam.title': 'Sūdzības par surogātpastu',
+  'meridian.starred.empty': 'Nav ziņojumu ar zvaigznīti.',
+  'meridian.starred.loading': 'Notiek ielāde…',
+  'meridian.starred.removeStar': 'Noņemt zvaigznīti',
+  'meridian.starred.total': '{{count}} kopā',
+  'meridian.thread.back': 'Atgriezties uz iesūtņu kastīti',
+  'meridian.thread.empty': 'Šajā tēmā nav ziņojumu.',
+  'meridian.thread.eyebrow': 'Tēma Nr. {{id}}',
+  'meridian.thread.notFound': 'Tēma nav atrasta.',
+  'meridian.thread.star': 'Pievienot zvaigznīti',
+  'meridian.thread.unstar': 'Noņemt zvaigznīti',
+  'meridian.time.yesterday': 'Vakar',
+  'meridian.topBar.searchPlaceholder': 'Meklēt e-pastu',
+  'meridian.trash.empty': 'Atkritumu grozs ir tukšs.',
+  'meridian.trash.title': 'Atkritumi',
+  'nav.legal': 'Juridiskā informācija',
+  'planUpdated.description':
+    'Jūsu abonements tagad ir aktīvs, un rēķina informācija ir atjaunināta. Laipni lūdzam atjauninātajā Courier pastkastē!',
+  'pricing.heading': 'caurvēji',
+  'pricing.limit.emails': 'e-pasti',
+  'pricing.limit.folders': 'mapes',
+  'pricing.limit.labels': 'etiķetes',
+  'privacy.collect.account':
+    'Konta dati: vārds, e-pasta adrese, hashēta parole un reģistrācijas datums.',
+  'privacy.intro':
+    'Šajā privātuma politikā ir izskaidrots, kādus datus Courier vāc, kāpēc mēs tos vācam, kā mēs nodrošinām to drošību un kādas izvēles iespējas jums ir saistībā ar šiem datiem. Mēs cenšamies izteikties konkrēti, nevis juridiski; ja kaut kas nav skaidrs, rakstiet uz privacy@courier.example.',
+  'privacy.lastUpdated': 'Pēdējā atjaunināšana: 2026. gada 1. aprīlis',
+  'privacy.linkTerms': 'Lasiet mūsu lietošanas noteikumus \\u2192',
+  'privacy.rights.body':
+    'Jūs varat eksportēt visus datus, kas mums ir par jums, izvēloties „Iestatījumi“ → „Konts“ → „Datu eksports“, kā arī ar vienu klikšķi dzēst savu kontu — visas ierakstu rindas tiek dzēstas 24 stundu laikā, bet revīzijas žurnāli — pēc 30 dienām.',
+  'privacy.security.body':
+    'E-pasta saturs un pielikumi tiek šifrēti uzglabāšanas laikā, izmantojot AES-256. Savienojumi ar mūsu pakalpojumu un no tā tiek nodrošināti, izmantojot TLS 1.3. Paroles tiek šifrētas ar bcrypt; mēs nekad nereģistrējam vai neuzglabājam paroles nešifrētā veidā. Piekļuve ražošanas videi ir ierobežota tikai dežūrējošajiem inženieriem, un tā tiek pārbaudīta reizi mēnesī.',
+  'privacy.share.body':
+    'Mēs dalāmies ar datiem tikai ar tiem apakšuzņēmējiem, kas mums nepieciešami, lai nodrošinātu Courier darbību (e-pasta sūtīšana ar Mailgun, rēķinu izrakstīšana ar Stripe, hostings ar AWS). Katram no tiem līgumā ir noteikts pienākums izmantot jūsu datus tikai mūsu vajadzībām. Mēs nepārdodam, neiznomājam un neapmainām jūsu datus ar trešajām personām.',
+  'terms.acceptable.spam':
+    'Aizliegts sūtīt masveida nevēlamas ziņas. Kontus, no kuriem tiek sūtīts surogātpasts, mēs slēgsim bez brīdinājuma.',
+  'terms.account.body':
+    'Jūs esat atbildīgs par savas paroles konfidencialitātes saglabāšanu un par jebkuru darbību, kas tiek veikta, izmantojot jūsu kontu. Ja uzskatāt, ka jūsu konts ir ticis uzlauzts, lūdzu, informējiet mūs, rakstot uz security@courier.example.',
+  'terms.billing.body':
+    'Maksas plāni tiek atjaunoti saskaņā ar reģistrācijas brīdī izvēlēto periodu. Jūs varat jebkurā brīdī atcelt abonementu sadaļā „Iestatījumi“ → „Norēķini“, un jums saglabāsies piekļuve līdz norēķinu perioda beigām. Atmaksa tiek veikta par pakalpojuma darbības pārtraukumu, kas pārsniedz SLA noteiktos termiņus.',
+  'terms.intro':
+    'Šie noteikumi reglamentē jūsu Courier lietošanu. Izveidojot kontu vai nosūtot e-pastu ar mūsu starpniecību, jūs piekrītat ievērot šos noteikumus. Mēs cenšamies izstrādāt noteikumus, kurus cilvēks patiešām var ievērot.',
+  'terms.lastUpdated': 'Spēkā no 2026. gada 1. aprīļa',
+  'terms.termination.body':
+    'Jūs varat dzēst savu kontu jebkurā brīdī. Mēs varam bloķēt kontu, kas neatbilst šiem noteikumiem; ja to darīsim, mēs paskaidrosim iemeslu un ļausim jums vispirms eksportēt savus datus.',
+  'terms.warranty.body':
+    'Pakalpojums tiek sniegts tāds, kāds tas ir. Mēs pieliekam visas pūles, lai nodrošinātu tā uzticamību un drošību, taču nevaram garantēt nepārtrauktu piekļuvi. Tiktāl, ciktāl to atļauj likums, mūsu kopējā atbildība ir ierobežota līdz summai, ko jūs mums esat samaksājuši iepriekšējos 12 mēnešos.',
+}

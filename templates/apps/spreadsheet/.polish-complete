@@ -1,0 +1,16 @@
+Polish complete: 2026-04-29T21:00:00Z
+Pipeline: polish-app.mjs (autonomous polish session)
+Cluster: data/grid → siblings: personal-finance, project-management, api-documentation
+Brand: Calcite ("Structure your thinking" — analytic blue #2563eb primary + emerald #10b981 accent, Inter + JetBrains Mono)
+Components: 8 bespoke (CalciteAuthHeader, CalciteKpiTile,
+  FormulaPlayground, GridPreview, SpreadsheetSidebar,
+  WorkbenchLayout, WorkbookHeroCard, WorkbookListItem)
+Pages rewritten: Landing, Workbooks, Editor, Charts, Templates,
+  TemplatePreview, Settings, Automations, Integrations, History,
+  Notifications, Team, Profile, Billing, NotFound +
+  Login/Signup/ForgotPassword/ResetPassword
+Screen-map coverage: 19/19
+ClassMap coverage: 76%
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary/AppShellLayout delegate)
+Material 3 tokens filled: yes
+Fonts: Material Symbols Outlined + Inter + JetBrains Mono

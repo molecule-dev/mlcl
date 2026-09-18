@@ -1,0 +1,211 @@
+import { describe, expect, it, vi } from 'vitest'
+
+// Mock bonds to avoid requiring real connections
+vi.mock('../bonds/index.js', () => ({
+  setupBonds: vi.fn(),
+}))
+
+// Mock middleware to avoid loading @molecule/* middleware packages
+vi.mock('../middleware/body-parser.js', () => ({
+  bodyParserMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+vi.mock('../middleware/cookie-parser.js', () => ({
+  cookieParserMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+vi.mock('../middleware/cors.js', () => ({
+  corsMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+
+// Mock all @molecule/* packages
+vi.mock('@molecule/api-ai-agents', () => ({}))
+
+vi.mock('@molecule/api-ai-anthropic', () => ({}))
+
+vi.mock('@molecule/api-ai-embeddings-openai', () => ({}))
+
+vi.mock('@molecule/api-ai-openai', () => ({}))
+
+vi.mock('@molecule/api-ai-rag', () => ({}))
+
+vi.mock('@molecule/api-ai-vector-store-pgvector', () => ({}))
+
+// Mock domain handlers — these pull in @molecule/api-database / api-search / api-entitlements
+// which require real bonds at module-init. Server-shape tests shouldn't need to wire bonds.
+import { Router } from 'express'
+vi.mock('../handlers/bots.js', () => ({ default: Router() }))
+vi.mock('../handlers/intents.js', () => ({ default: Router() }))
+vi.mock('../handlers/conversations.js', () => ({ default: Router() }))
+vi.mock('../handlers/training.js', () => ({ default: Router() }))
+vi.mock('../handlers/index.js', () => ({ default: Router() }))
+vi.mock('../routes/billing.js', () => ({ default: Router() }))
+
+vi.mock('@molecule/api-bond', () => ({
+  bond: vi.fn(),
+  unbond: vi.fn(),
+  unbondAll: vi.fn(),
+  get: vi.fn(),
+  getAll: vi.fn(() => new Map()),
+  isBonded: vi.fn(() => false),
+  require: vi.fn(),
+  getAnalytics: vi.fn(),
+  expectBond: vi.fn(),
+  unexpectBond: vi.fn(),
+  getLogger: vi.fn(() => ({ debug: vi.fn(), info: vi.fn(), warn: vi.fn(), error: vi.fn() })),
+}))
+
+vi.mock('@molecule/api-config', () => ({}))
+
+vi.mock('@molecule/api-config-env', () => ({}))
+
+vi.mock('@molecule/api-database-postgresql', () => ({
+  // scripts/migrate.ts calls createMigrator(migrationsDir) at module init
+  // (re-exported through @molecule/api-bonds-default-express) — return a
+  // no-op runner so importing server.ts doesn't touch a real database.
+  createMigrator: vi.fn(() => vi.fn(async () => {})),
+}))
+
+vi.mock('@molecule/api-jwt-jsonwebtoken', () => ({}))
+
+vi.mock('@molecule/api-locales-ai-anthropic', () => ({}))
+
+vi.mock('@molecule/api-locales-body-parser', () => ({}))
+
+vi.mock('@molecule/api-locales-config', () => ({}))
+
+vi.mock('@molecule/api-locales-device', () => ({}))
+
+vi.mock('@molecule/api-locales-resource', () => ({}))
+
+vi.mock('@molecule/api-locales-secrets', () => ({}))
+
+vi.mock('@molecule/api-locales-secrets-doppler', () => ({}))
+
+vi.mock('@molecule/api-locales-user', () => ({}))
+
+vi.mock('@molecule/api-locales-user-payments', () => ({}))
+
+vi.mock('@molecule/api-logger', () => ({
+  logger: { info: vi.fn(), warn: vi.fn(), error: vi.fn(), debug: vi.fn(), trace: vi.fn() },
+}))
+
+vi.mock(
+  '@molecule/api-middleware-body-parser',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-body-parser-express', () => ({}))
+
+vi.mock(
+  '@molecule/api-middleware-cookie-parser',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-cookie-parser-express', () => ({}))
+
+vi.mock(
+  '@molecule/api-middleware-cors',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-cors-express', () => ({}))
+
+vi.mock('@molecule/api-password-bcrypt', () => ({}))
+
+vi.mock('@molecule/api-resource', () => ({
+  createRequestHandler: (fn: unknown) => fn,
+}))
+
+vi.mock('@molecule/api-resource-device', () => ({
+  createRequestHandlerMap: () => ({
+    auth: vi.fn(),
+    query: vi.fn(),
+    authUser: vi.fn(),
+    read: vi.fn(),
+    update: vi.fn(),
+    del: vi.fn(),
+  }),
+}))
+
+vi.mock('@molecule/api-resource-thread', () => ({
+  requestHandlerMap: {},
+}))
+
+vi.mock('@molecule/api-resource-user', () => ({
+  createRequestHandlerMap: () => ({
+    create: vi.fn(),
+    logIn: vi.fn(),
+    logInOAuth: vi.fn(),
+    // mountDefaultUserAuthRoutes / mountDefaultUserSecurityRoutes front the
+    // credential routes with these rate-limit middlewares — Express throws
+    // "argument handler must be a function" if they're missing from the map.
+    rateLimitAuth: vi.fn(),
+    rateLimitTwoFactor: vi.fn(),
+    forgotPassword: vi.fn(),
+    authSelf: vi.fn(),
+    read: vi.fn(),
+    update: vi.fn(),
+    del: vi.fn(),
+    updatePassword: vi.fn(),
+    verifyTwoFactor: vi.fn(),
+    updatePlan: vi.fn(),
+    verifyPayment: vi.fn(),
+    handlePaymentNotification: vi.fn(),
+  }),
+  authorization: {
+    verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+  },
+}))
+
+vi.mock('@molecule/api-search-meilisearch', () => ({}))
+
+vi.mock('@molecule/api-secrets', () => ({
+  // Credentialed provider packages self-register their secret definitions at
+  // module init (molecule e649a9be), so the mock must expose registerSecrets.
+  registerSecrets: vi.fn(),
+  resolveAll: vi.fn(async () => undefined),
+}))
+
+vi.mock('@molecule/api-secrets-env', () => ({}))
+
+vi.mock('@molecule/api-two-factor-otplib', () => ({}))
+
+vi.mock('@molecule/api-utilities-validation', () => ({}))
+
+describe('server', () => {
+  it('exports a create function', async () => {
+    const { create } = await import('../server.js')
+    expect(typeof create).toBe('function')
+  })
+})
+
+describe('bonds/index', () => {
+  it('exports setupBonds function', async () => {
+    const bonds = (await import('../bonds/index.js')) as Record<string, unknown>
+    expect(typeof bonds.setupBonds).toBe('function')
+  })
+})
+
+describe('router', () => {
+  it('exports a router', async () => {
+    const { router } = await import('../App/router.js')
+    expect(router).toBeDefined()
+  })
+})

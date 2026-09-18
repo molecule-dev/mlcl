@@ -1,0 +1,8 @@
+# Handlers exempt from gate 3 (network-assertion coverage).
+# One handler basename per line. Use # for comments.
+
+# _seed.ts is an internal helper invoked by other handlers (reports.ts,
+# insights.ts) to populate demo data on first authenticated dashboard
+# load. It exposes no HTTP route of its own — it's a side-effect of
+# GET /api/reports/dashboard_stats and GET /api/insights.
+_seed

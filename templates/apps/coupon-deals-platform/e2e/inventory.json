@@ -1,0 +1,1105 @@
+{
+  "slug": "coupon-deals-platform",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-deals",
+      "path": "/deals",
+      "component": "Deals",
+      "file": "app/src/pages/Deals.tsx"
+    },
+    {
+      "id": "page-dealdetail",
+      "path": "/deals/:id",
+      "component": "DealDetail",
+      "file": "app/src/pages/DealDetail.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-merchants",
+      "path": "/merchants",
+      "component": "Merchants",
+      "file": "app/src/pages/Merchants.tsx"
+    },
+    {
+      "id": "page-merchantdetail",
+      "path": "/merchants/:id",
+      "component": "MerchantDetail",
+      "file": "app/src/pages/MerchantDetail.tsx"
+    },
+    {
+      "id": "page-mycoupons",
+      "path": "/my-coupons",
+      "component": "MyCoupons",
+      "file": "app/src/pages/MyCoupons.tsx"
+    },
+    {
+      "id": "page-nearme",
+      "path": "/near-me",
+      "component": "NearMe",
+      "file": "app/src/pages/NearMe.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "input-authformatoms-63",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AuthFormAtoms.tsx",
+      "line": 63,
+      "label": "input at app/src/components/AuthFormAtoms.tsx:63",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-authformatoms-131",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AuthFormAtoms.tsx",
+      "line": 131,
+      "label": "input at app/src/components/AuthFormAtoms.tsx:131",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-authformatoms-189",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AuthFormAtoms.tsx",
+      "line": 189,
+      "label": "button at app/src/components/AuthFormAtoms.tsx:189",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-couponcodeblock-90",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/CouponCodeBlock.tsx",
+      "line": 90,
+      "label": "button at app/src/components/CouponCodeBlock.tsx:90",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealcard-30--default-true------l",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DealCard.tsx",
+      "line": 30,
+      "label": "(default true). */ linked?: boolean } function fmtUsd(cents:",
+      "href": "/deals/:id",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealcard-193",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DealCard.tsx",
+      "line": 193,
+      "label": "link at app/src/components/DealCard.tsx:193",
+      "href": "/deals/${deal.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-hotdealsrow-56------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/HotDealsRow.tsx",
+      "line": 56,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-safelink-23",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SafeLink.tsx",
+      "line": 23,
+      "label": "link at app/src/components/SafeLink.tsx:23",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-snagrauthshell-70-local-activity",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SnagrAuthShell.tsx",
+      "line": 70,
+      "label": "local_activity",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-snagrauthshell-156-local-activity",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SnagrAuthShell.tsx",
+      "line": 156,
+      "label": "local_activity",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-35-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 35,
+      "label": ", )}",
+      "href": "/settings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-38-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 38,
+      "label": ", )}",
+      "href": "/my-coupons",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-42-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 42,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-202-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 202,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealdetail-134--span-classname--ari",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DealDetail.tsx",
+      "line": 134,
+      "label": "<span className= aria-hidden=true",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealdetail-204",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DealDetail.tsx",
+      "line": 204,
+      "label": "link at app/src/pages/DealDetail.tsx:204",
+      "href": "/merchants/${deal.merchant_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealdetail-337--span",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DealDetail.tsx",
+      "line": 337,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dealdetail-357",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DealDetail.tsx",
+      "line": 357,
+      "label": "button at app/src/pages/DealDetail.tsx:357",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dealdetail-400--span-classname----h",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DealDetail.tsx",
+      "line": 400,
+      "label": "<span className=), h-12 w-12 rounded-full bg-primary/15 text",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-deals-95",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Deals.tsx",
+      "line": 95,
+      "label": "button at app/src/pages/Deals.tsx:95",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-deals-121--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Deals.tsx",
+      "line": 121,
+      "label": "<",
+      "href": "/deals/${d.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-67-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 67,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-113-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 113,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-123-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 123,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-194-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 194,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-213-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 213,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-420",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 420,
+      "label": "link at app/src/pages/Landing.tsx:420",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-57-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 57,
+      "label": ", , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-107",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 107,
+      "label": "input at app/src/pages/Login.tsx:107",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-115-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 115,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-merchantdetail-75-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MerchantDetail.tsx",
+      "line": 75,
+      "label": "← , )}",
+      "href": "/merchants",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-merchantdetail-97---off",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MerchantDetail.tsx",
+      "line": 97,
+      "label": "% OFF",
+      "href": "/deals/${d.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-merchants-53",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Merchants.tsx",
+      "line": 53,
+      "label": "input at app/src/pages/Merchants.tsx:53",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-merchants-72--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Merchants.tsx",
+      "line": 72,
+      "label": "<span className={cm.cn(h-12 w-12, cm.roundedFull, bg-primary",
+      "href": "/merchants/${m.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mycoupons-93---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MyCoupons.tsx",
+      "line": 93,
+      "label": "()",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mycoupons-124",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MyCoupons.tsx",
+      "line": 124,
+      "label": "link at app/src/pages/MyCoupons.tsx:124",
+      "href": "/deals/${c.deal_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-nearme-103",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NearMe.tsx",
+      "line": 103,
+      "label": "link at app/src/pages/NearMe.tsx:103",
+      "href": "/deals/${d.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-79-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 79,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-167",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 167,
+      "label": "button at app/src/pages/Settings.tsx:167",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-230-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 230,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-279-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 279,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-317",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 317,
+      "label": "input at app/src/pages/Settings.tsx:317",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-327-------t-settings-sav",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 327,
+      "label": ", ) : t(settings.save, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-359-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 359,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-369-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 369,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-404",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 404,
+      "label": "input at app/src/pages/Settings.tsx:404",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-73-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-forgotpassword-104",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 104,
+      "label": "form at app/src/pages/ForgotPassword.tsx:104",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-73",
+      "file": "app/src/pages/Login.tsx",
+      "line": 73,
+      "label": "form at app/src/pages/Login.tsx:73",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-91",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 91,
+      "label": "form at app/src/pages/ResetPassword.tsx:91",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-205",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 205,
+      "label": "form at app/src/pages/Settings.tsx:205",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-248",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 248,
+      "label": "form at app/src/pages/Settings.tsx:248",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-296",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 296,
+      "label": "form at app/src/pages/Settings.tsx:296",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-85",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 85,
+      "label": "form at app/src/pages/Signup.tsx:85",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-categories--id",
+      "method": "DELETE",
+      "mountedPath": "/categories/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 144,
+      "resource": "categories"
+    },
+    {
+      "id": "route-delete-deals--id",
+      "method": "DELETE",
+      "mountedPath": "/deals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 261,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-categories-",
+      "method": "GET",
+      "mountedPath": "/categories",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 35,
+      "resource": "categories"
+    },
+    {
+      "id": "route-get-categories--id",
+      "method": "GET",
+      "mountedPath": "/categories/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 61,
+      "resource": "categories"
+    },
+    {
+      "id": "route-get-categories--id-deals",
+      "method": "GET",
+      "mountedPath": "/categories/:id/deals",
+      "rawPath": "/:id/deals",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 75,
+      "resource": "categories"
+    },
+    {
+      "id": "route-get-deals-",
+      "method": "GET",
+      "mountedPath": "/deals",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 51,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-deals--id",
+      "method": "GET",
+      "mountedPath": "/deals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 141,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-deals-expiring-soon",
+      "method": "GET",
+      "mountedPath": "/deals/expiring-soon",
+      "rawPath": "/expiring-soon",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 128,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-deals-featured",
+      "method": "GET",
+      "mountedPath": "/deals/featured",
+      "rawPath": "/featured",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 112,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-deals-public",
+      "method": "GET",
+      "mountedPath": "/deals/public",
+      "rawPath": "/public",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 95,
+      "resource": "deals"
+    },
+    {
+      "id": "route-get-merchants-",
+      "method": "GET",
+      "mountedPath": "/merchants",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 102,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-get-merchants--id",
+      "method": "GET",
+      "mountedPath": "/merchants/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 205,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-get-merchants--id-deals",
+      "method": "GET",
+      "mountedPath": "/merchants/:id/deals",
+      "rawPath": "/:id/deals",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 221,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-get-merchants-me",
+      "method": "GET",
+      "mountedPath": "/merchants/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 84,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-get-merchants-me-analytics",
+      "method": "GET",
+      "mountedPath": "/merchants/me/analytics",
+      "rawPath": "/me/analytics",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 146,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-get-my-coupons-",
+      "method": "GET",
+      "mountedPath": "/my_coupons",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/my_coupons.ts",
+      "line": 22,
+      "resource": "my_coupons"
+    },
+    {
+      "id": "route-get-nearby-deals-",
+      "method": "GET",
+      "mountedPath": "/nearby_deals",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/nearby_deals.ts",
+      "line": 22,
+      "resource": "nearby_deals"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 29,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-redemptions-",
+      "method": "GET",
+      "mountedPath": "/redemptions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 105,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-get-redemptions--id",
+      "method": "GET",
+      "mountedPath": "/redemptions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 185,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-get-redemptions-merchant-all",
+      "method": "GET",
+      "mountedPath": "/redemptions/merchant/all",
+      "rawPath": "/merchant/all",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 123,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-get-reports-dashboard-stats",
+      "method": "GET",
+      "mountedPath": "/reports/dashboard_stats",
+      "rawPath": "/dashboard_stats",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 26,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-user-settings-",
+      "method": "GET",
+      "mountedPath": "/user_settings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/user_settings.ts",
+      "line": 38,
+      "resource": "user_settings"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-categories-",
+      "method": "POST",
+      "mountedPath": "/categories",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 93,
+      "resource": "categories"
+    },
+    {
+      "id": "route-post-deals-",
+      "method": "POST",
+      "mountedPath": "/deals",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 158,
+      "resource": "deals"
+    },
+    {
+      "id": "route-post-merchants-apply",
+      "method": "POST",
+      "mountedPath": "/merchants/apply",
+      "rawPath": "/apply",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 46,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-post-redemptions-",
+      "method": "POST",
+      "mountedPath": "/redemptions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 33,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-post-redemptions--id-redeem",
+      "method": "POST",
+      "mountedPath": "/redemptions/:id/redeem",
+      "rawPath": "/:id/redeem",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 205,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-post-redemptions-verify",
+      "method": "POST",
+      "mountedPath": "/redemptions/verify",
+      "rawPath": "/verify",
+      "handlerFile": "api/src/handlers/redemptions.ts",
+      "line": 153,
+      "resource": "redemptions"
+    },
+    {
+      "id": "route-put-categories--id",
+      "method": "PUT",
+      "mountedPath": "/categories/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 119,
+      "resource": "categories"
+    },
+    {
+      "id": "route-put-deals--id",
+      "method": "PUT",
+      "mountedPath": "/deals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/deals.ts",
+      "line": 206,
+      "resource": "deals"
+    },
+    {
+      "id": "route-put-merchants--id-status",
+      "method": "PUT",
+      "mountedPath": "/merchants/:id/status",
+      "rawPath": "/:id/status",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 242,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-put-merchants-me",
+      "method": "PUT",
+      "mountedPath": "/merchants/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/merchants.ts",
+      "line": 116,
+      "resource": "merchants"
+    },
+    {
+      "id": "route-put-notifications--id-read",
+      "method": "PUT",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 53,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-put-user-settings-",
+      "method": "PUT",
+      "mountedPath": "/user_settings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/user_settings.ts",
+      "line": 64,
+      "resource": "user_settings"
+    }
+  ],
+  "totals": {
+    "pages": 18,
+    "elements": 52,
+    "forms": 7,
+    "routes": 39
+  }
+}

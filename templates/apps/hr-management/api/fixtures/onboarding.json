@@ -1,0 +1,82 @@
+[
+  {
+    "id": "onb_001",
+    "employee_id": "emp_008",
+    "employee_name": "Lena Okafor",
+    "employee_initial": "L",
+    "role": "Frontend Engineer",
+    "department": "Engineering",
+    "start_date": "2026-02-14",
+    "buddy_name": "Maya Chen",
+    "progress_pct": 75,
+    "checklist_total": 12,
+    "checklist_done": 9,
+    "next_item": "Sign IP & confidentiality agreement",
+    "tasks": [
+      { "id": "t1", "label": "Welcome packet sent",         "status": "done", "category": "Pre-start" },
+      { "id": "t2", "label": "Equipment shipped",           "status": "done", "category": "Pre-start" },
+      { "id": "t3", "label": "Manager intro call",          "status": "done", "category": "Day 1" },
+      { "id": "t4", "label": "Team kickoff meeting",        "status": "done", "category": "Day 1" },
+      { "id": "t5", "label": "Codebase tour with buddy",    "status": "done", "category": "Week 1" },
+      { "id": "t6", "label": "Set up dev environment",      "status": "done", "category": "Week 1" },
+      { "id": "t7", "label": "First PR shipped",            "status": "done", "category": "Week 2" },
+      { "id": "t8", "label": "Read company handbook",       "status": "done", "category": "Week 2" },
+      { "id": "t9", "label": "Benefits enrollment",         "status": "done", "category": "Admin" },
+      { "id": "t10","label": "Sign IP & confidentiality",   "status": "in_progress", "category": "Admin" },
+      { "id": "t11","label": "30-day check-in with manager","status": "todo", "category": "Day 30" },
+      { "id": "t12","label": "Goals set in performance hub","status": "todo", "category": "Day 30" }
+    ]
+  },
+  {
+    "id": "onb_002",
+    "employee_id": "emp_012",
+    "employee_name": "Imani Brooks",
+    "employee_initial": "I",
+    "role": "Recruiter",
+    "department": "People",
+    "start_date": "2025-04-30",
+    "buddy_name": "Priya Iyer",
+    "progress_pct": 100,
+    "checklist_total": 12,
+    "checklist_done": 12,
+    "next_item": "Onboarding complete",
+    "tasks": []
+  },
+  {
+    "id": "onb_003",
+    "employee_id": "emp_011",
+    "employee_name": "Theo Nakamura",
+    "employee_initial": "T",
+    "role": "Data Engineer",
+    "department": "Engineering",
+    "start_date": "2024-09-03",
+    "buddy_name": "Avery Kim",
+    "progress_pct": 100,
+    "checklist_total": 12,
+    "checklist_done": 12,
+    "next_item": "Onboarding complete",
+    "tasks": []
+  },
+  {
+    "id": "onb_004",
+    "employee_id": "emp_new1",
+    "employee_name": "Sai Becker",
+    "employee_initial": "S",
+    "role": "Solutions Architect",
+    "department": "Customer Success",
+    "start_date": "2026-05-13",
+    "buddy_name": "Noah Singh",
+    "progress_pct": 25,
+    "checklist_total": 12,
+    "checklist_done": 3,
+    "next_item": "Equipment shipped",
+    "tasks": [
+      { "id": "t1", "label": "Welcome packet sent",     "status": "done", "category": "Pre-start" },
+      { "id": "t2", "label": "Background check",        "status": "done", "category": "Pre-start" },
+      { "id": "t3", "label": "Offer counter-signed",    "status": "done", "category": "Pre-start" },
+      { "id": "t4", "label": "Equipment shipped",       "status": "in_progress", "category": "Pre-start" },
+      { "id": "t5", "label": "Manager intro call",      "status": "todo", "category": "Day 1" },
+      { "id": "t6", "label": "Team kickoff meeting",    "status": "todo", "category": "Day 1" }
+    ]
+  }
+]

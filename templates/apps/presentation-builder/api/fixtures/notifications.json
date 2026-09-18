@@ -1,0 +1,42 @@
+[
+  {
+    "id": "n1",
+    "kind": "comment",
+    "actorName": "Mara Lin",
+    "deckId": "lumen-series-b",
+    "deckTitle": "Lumen Capital, Series B",
+    "summary": "left a comment on slide 7",
+    "createdAt": "2026-04-30T15:42:00Z",
+    "read": false
+  },
+  {
+    "id": "n2",
+    "kind": "share",
+    "actorName": "Niko Park",
+    "deckId": "q4-board",
+    "deckTitle": "Q4 Board Update",
+    "summary": "shared the deck with Iris Wei",
+    "createdAt": "2026-04-30T14:08:00Z",
+    "read": false
+  },
+  {
+    "id": "n3",
+    "kind": "edit",
+    "actorName": "Iris Wei",
+    "deckId": "design-system",
+    "deckTitle": "Design System v4 Keynote",
+    "summary": "edited 4 slides in the typography section",
+    "createdAt": "2026-04-30T11:55:00Z",
+    "read": true
+  },
+  {
+    "id": "n4",
+    "kind": "view",
+    "actorName": "External viewer",
+    "deckId": "sales-kickoff",
+    "deckTitle": "GTM Kickoff 2026",
+    "summary": "viewed the deck for 4 min 12 s",
+    "createdAt": "2026-04-29T22:30:00Z",
+    "read": true
+  }
+]

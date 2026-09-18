@@ -1,0 +1,329 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #f7f9fb;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-success: #16a34a;
+  --color-success-light: #d1fae5;
+  --color-warning: #f59e0b;
+  --color-inverse-on-surface: #eff1f3;
+  --color-inverse-primary: #c0c1ff;
+  --color-inverse-surface: #2d3133;
+  --color-on-background: #191c1e;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-on-primary-fixed: #07006c;
+  --color-on-primary-fixed-variant: #2f2ebe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #494b83;
+  --color-on-secondary-fixed: #13144a;
+  --color-on-secondary-fixed-variant: #404178;
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #464554;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-on-tertiary-fixed: #3d0026;
+  --color-on-tertiary-fixed-variant: #85145a;
+  --color-outline: #767586;
+  --color-outline-variant: #c7c4d7;
+  --color-primary: #4648d4;
+  --color-primary-container: #6063ee;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-secondary: #575992;
+  --color-secondary-container: #bdbefe;
+  --color-secondary-fixed: #e1e0ff;
+  --color-secondary-fixed-dim: #c0c1ff;
+  --color-surface: #f7f9fb;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d8dadc;
+  --color-surface-tint: #494bd6;
+  --color-surface-variant: #e0e3e5;
+  --color-tertiary: #a12e70;
+  --color-tertiary-container: #c0488a;
+  --color-tertiary-fixed: #ffd8e7;
+  --color-tertiary-fixed-dim: #ffafd3;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-left-[11px] -left-[15px] -mr-8 -mt-8 -space-x-2 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute accent-primary active:opacity-80 active:scale-90 active:scale-95 antialiased appearance-none backdrop-blur backdrop-blur-md backdrop-blur-xl bg-amber-100 bg-amber-400 bg-amber-500/10 bg-clip-text bg-emerald-100 bg-emerald-500 bg-gradient-to-br bg-gradient-to-r bg-green-500 bg-indigo-50/50 bg-outline-variant/20 bg-outline-variant/30 bg-outline-variant/50 bg-primary bg-primary-container bg-primary-fixed bg-primary-fixed-dim bg-primary-fixed/20 bg-primary-fixed/50 bg-primary/5 bg-secondary-container bg-secondary-fixed bg-secondary-fixed/50 bg-slate-100 bg-slate-100/50 bg-slate-200 bg-slate-50 bg-source-pane bg-source-pane/90 bg-surface bg-surface-bright bg-surface-bright/90 bg-surface-container bg-surface-container-high bg-surface-container-highest bg-surface-container-low bg-surface-container-lowest bg-surface-container-lowest/50 bg-surface-dim bg-surface-variant bg-surface/30");
+@source inline("bg-surface/80 bg-target-pane bg-target-pane/90 bg-tertiary bg-tertiary-container bg-tertiary-container/10 bg-tertiary-container/15 bg-transparent bg-white bg-white/80 block blur-2xl blur-[100px] border border-0 border-2 border-b border-b-2 border-collapse border-dashed border-indigo-600 border-l border-l-2 border-l-4 border-none border-outline-variant border-outline-variant/15 border-outline-variant/20 border-outline-variant/30 border-outline-variant/50 border-primary border-primary-fixed border-primary/20 border-r border-r-0 border-r-2 border-r-4 border-slate-100/50 border-slate-200/20 border-slate-200/50 border-surface-container-high border-surface-container-high/50 border-surface-container-highest border-surface-container-highest/50 border-surface-container-lowest border-surface-container-lowest/50 border-surface-container/50 border-surface-dim border-surface-variant border-surface-variant/30 border-surface-variant/50 border-t border-tertiary-container/20 border-transparent border-white/40 border-white/50 bottom-0 bottom-8 cursor-col-resize cursor-ew-resize");
+@source inline("cursor-pointer custom-scrollbar dark:bg-indigo-900/20 dark:bg-inverse-surface dark:bg-inverse-surface/90 dark:bg-primary-fixed/10 dark:bg-slate-700 dark:bg-slate-800 dark:bg-slate-800/20 dark:bg-slate-900 dark:bg-slate-950 dark:bg-slate-950/80 dark:border-inverse-primary dark:border-slate-800/50 dark:hover:bg-inverse-surface dark:hover:bg-slate-800 dark:hover:bg-slate-800/50 dark:hover:bg-slate-900 dark:hover:text-indigo-300 dark:hover:text-indigo-400 dark:hover:text-slate-100 dark:text-indigo-400 dark:text-inverse-primary dark:text-on-primary dark:text-outline-variant dark:text-slate-100 dark:text-slate-400 data disabled:cursor-not-allowed disabled:opacity-50 divide-transparent divide-y docked duration-150 duration-200 duration-300 ease-in-out ease-out fixed flat flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus-within:border-primary/40 focus-within:ring-1 focus-within:ring-primary/40 focus:bg-surface-container-lowest focus:bg-white focus:border-b-2 focus:border-b-primary focus:border-primary focus:border-transparent focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-primary");
+@source inline("focus:ring-primary-fixed focus:ring-primary/20 focus:ring-primary/40 font-black font-body font-bold font-extrabold font-headline font-label font-medium font-mono font-mono-tech font-semibold font-serif-content font-technical for from-primary from-primary/10 from-primary/5 full-width gap-1 gap-10 gap-12 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 glass-modal glass-panel gradient-btn grid grid-cols-1 grid-cols-2 grid-cols-4 group group-focus-within:border-tertiary group-focus-within:text-primary group-hover:bg-primary-fixed group-hover:border-primary group-hover:opacity-100 group-hover:text-on-surface-variant group-hover:text-primary h-10 h-12 h-16 h-2 h-20 h-24 h-4 h-5 h-6 h-7 h-8 h-9 h-[160px] h-[56px] h-[6px] h-[800px]");
+@source inline("h-full h-px h-screen hidden hover:-translate-y-1 hover:bg-error-container/20 hover:bg-primary-container/10 hover:bg-primary/10 hover:bg-primary/5 hover:bg-slate-100 hover:bg-slate-200/50 hover:bg-slate-50 hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-low hover:bg-surface-container-low/50 hover:bg-surface-container-lowest hover:bg-surface-dim hover:bg-surface-variant hover:border-outline-variant/30 hover:border-primary/50 hover:border-slate-200 hover:border-surface-container-highest hover:opacity-100 hover:opacity-90 hover:scale-105 hover:shadow hover:shadow-md hover:text-error hover:text-indigo-500 hover:text-indigo-600 hover:text-on-background hover:text-on-surface hover:text-primary hover:text-primary-container hover:text-slate-700 hover:text-slate-900 inline-block inline-flex items-baseline items-center items-end items-start justify-between justify-center justify-end leading-relaxed leading-tight left-0 left-1/2 left-3 left-4 left-5 left-[320px] lg:grid-cols-2 lg:p-14 line-clamp-1 line-clamp-2 line-through");
+@source inline("m-1 material-symbols-outlined max-w-2xl max-w-3xl max-w-5xl max-w-6xl max-w-7xl max-w-[440px] max-w-full mb mb-1 mb-10 mb-16 mb-2 mb-3 mb-32 mb-4 mb-6 mb-8 mb-[160px] md md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:left-[280px] md:mb-0 md:w-2 min-h-[220px] min-h-[52px] min-h-screen min-w-0 min-w-[120px] ml-1 ml-3 ml-[280px] mr-2 mr-4 mr-[320px] mt-1 mt-2 mt-3 mt-4 mt-8 mt-auto mx-1 mx-2 mx-auto my-8 no-border no-scrollbar no-shadows object-cover opacity-0 opacity-20 opacity-60 opacity-70 opacity-80 outline-none overflow-hidden");
+@source inline("overflow-x-auto overflow-y-auto p-1 p-10 p-2 p-3 p-4 p-5 p-6 p-8 pb-2 pb-20 pb-24 pb-3 pb-4 pb-8 pb-[1px] pl-10 pl-12 pl-14 pl-2 pl-4 pl-6 pl-8 pl-9 placeholder:text-on-surface-variant/60 placeholder:text-outline placeholder:text-outline-variant pointer-events-none pr-10 pr-12 pr-2 pr-4 pr-6 pt-32 pt-4 px-0 px-1 px-10 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-3 py-4 py-6 py-8 relative right-0 right-3 right-4 right-8 ring-2");
+@source inline("ring-primary rounded rounded-2xl rounded-[12px] rounded-bl-full rounded-full rounded-l-2xl rounded-lg rounded-md rounded-none rounded-sm rounded-xl scale-105 scale-95 segment-active segment-content segment-gutter segment-row selection:bg-primary-container selection:bg-primary-fixed selection:text-on-primary-container selection:text-on-primary-fixed shadow-ambient shadow-inner shadow-sm shrink-0 signature-gradient sm sm:block sm:flex-row space-y-1 space-y-12 space-y-3 space-y-4 space-y-6 space-y-8 sticky surface-container-low text-2xl text-3xl text-[10px] text-[11px] text-[12px] text-[14px] text-[15px] text-[16px] text-[18px] text-[1rem] text-[20px] text-amber-700 text-amber-800 text-base text-center text-emerald-600 text-emerald-800 text-error text-headline-md text-indigo-600 text-label-md text-left");
+@source inline("text-lg text-on-background text-on-primary text-on-primary-container text-on-primary-fixed text-on-secondary-container text-on-secondary-fixed text-on-surface text-on-surface-variant text-on-tertiary-container text-outline text-outline-variant text-primary text-red-500 text-right text-secondary text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-800 text-slate-900 text-sm text-tertiary text-tertiary-container text-title-sm text-transparent text-truncate-1 text-white text-xl text-xs to-primary-container to-tertiary to-tertiary/10 to-transparent tonal-lift tonal-shift top-0 top-1 top-1/2 tracking-tight tracking-tighter tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-shadow transition-transform truncate uppercase w-1 w-10 w-12 w-16 w-2 w-24 w-32");
+@source inline("w-4 w-5 w-6 w-64 w-7 w-72 w-8 w-9 w-[1px] w-[280px] w-[2px] w-[320px] w-[360px] w-[4px] w-[800px] w-fit w-full w-px whitespace-nowrap xl:flex xl:grid-cols-3 xl:grid-cols-4 xs z-0 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.signature-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.signature-text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-truncate-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+}
+
+.dark .glass-panel {
+  background-color: rgba(45, 49, 51, 0.8);
+  backdrop-filter: blur(24px);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 0.5px 0 0 rgba(255, 255, 255, 1);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Custom Toggle Switch Styles for Tailwind */
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: #4648d4;
+  background-color: #4648d4;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #e1e0ff;
+}
+
+.toggle-checkbox {
+  right: 20px;
+  z-index: 1;
+  border-color: #eceef0;
+  background-color: #fff;
+}
+
+.toggle-label {
+  background-color: #eceef0;
+  z-index: 0;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.glass-panel {
+  background: rgba(247, 249, 251, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+}
+
+.shadow-ambient {
+  box-shadow: 0px 20px 40px rgba(70, 72, 212, 0.08);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+/* Minimal custom scrollbar for editorial feel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(118, 117, 134, 0.2);
+  border-radius: 20px;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(118, 117, 134, 0.4);
+}
+
+.font-technical {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+  color: #ffffff;
+}
+
+.glass-modal {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.glass-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+}
+
+.ambient-shadow {
+  box-shadow: 0px 20px 40px rgba(70, 72, 212, 0.08);
+}
+
+.font-serif-content {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+}
+
+.bg-source-pane {
+  background-color: #f8fafc;
+}
+
+.bg-target-pane {
+  background-color: #faf5ff;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-variant);
+  border-radius: 10px;
+}
+
+.segment-row {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--color-surface-container);
+}
+
+.segment-active {
+  background-color: var(--color-surface-container-highest);
+  border-left: 2px solid var(--color-primary);
+}
+
+.segment-gutter {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  color: var(--color-outline);
+  user-select: none;
+}
+
+.segment-content {
+  flex: 1;
+  padding: 1rem;
+  outline: none;
+}
+/* polish-v2:stitch-styles:end */

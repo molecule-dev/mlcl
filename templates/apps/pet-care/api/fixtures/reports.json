@@ -1,0 +1,180 @@
+{
+  "health/records": [
+    {
+      "id": "h1",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella",
+      "record_type": "vaccination",
+      "title": "Rabies booster",
+      "vet_name": "Dr. Riley",
+      "vet_clinic": "Lighthouse Veterinary",
+      "date": "2026-03-18T10:00:00Z",
+      "next_due_date": "2027-03-18T10:00:00Z",
+      "attachments_count": 1,
+      "notes": "DA2PP + Rabies. No adverse reaction observed."
+    },
+    {
+      "id": "h2",
+      "pet_id": "p2-mochi",
+      "pet_name": "Mochi",
+      "record_type": "checkup",
+      "title": "Annual wellness exam",
+      "vet_name": "Dr. Lin",
+      "vet_clinic": "Park Slope Animal Hospital",
+      "date": "2026-02-04T11:30:00Z",
+      "next_due_date": "2027-02-04T11:30:00Z",
+      "attachments_count": 2,
+      "notes": "All systems normal. Senior bloodwork recommended next year."
+    },
+    {
+      "id": "h3",
+      "pet_id": "p3-pickles",
+      "pet_name": "Pickles",
+      "record_type": "surgery",
+      "title": "Dental cleaning + extraction",
+      "vet_name": "Dr. Riley",
+      "vet_clinic": "Lighthouse Veterinary",
+      "date": "2025-11-22T09:00:00Z",
+      "next_due_date": null,
+      "attachments_count": 3,
+      "notes": "Two molars extracted under anesthesia. Recovery uneventful."
+    },
+    {
+      "id": "h4",
+      "pet_id": "p4-kiwi",
+      "pet_name": "Kiwi",
+      "record_type": "checkup",
+      "title": "Avian wellness check",
+      "vet_name": "Dr. Morales",
+      "vet_clinic": "Manhattan Exotic Vet",
+      "date": "2026-04-22T10:00:00Z",
+      "next_due_date": "2027-04-22T10:00:00Z",
+      "attachments_count": 1,
+      "notes": "Feather condition excellent. Beak trim performed."
+    },
+    {
+      "id": "h5",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella",
+      "record_type": "vaccination",
+      "title": "Bordetella",
+      "vet_name": "Dr. Riley",
+      "vet_clinic": "Lighthouse Veterinary",
+      "date": "2025-09-10T14:00:00Z",
+      "next_due_date": "2026-09-10T14:00:00Z",
+      "attachments_count": 0,
+      "notes": "Annual kennel-cough vaccine for sitter visits."
+    }
+  ],
+  "health/medications": [
+    {
+      "id": "med1",
+      "pet_id": "p3-pickles",
+      "pet_name": "Pickles",
+      "medication_name": "Cosequin DS",
+      "dosage": "1 chew",
+      "frequency": "Daily",
+      "schedule_label": "Once daily, with breakfast",
+      "next_dose_at": "2026-04-30T07:30:00Z",
+      "refill_due_date": "2026-05-04T00:00:00Z",
+      "supply_remaining_days": 4,
+      "prescribed_by": "Dr. Riley",
+      "active": true
+    },
+    {
+      "id": "med2",
+      "pet_id": "p6-cooper",
+      "pet_name": "Cooper",
+      "medication_name": "Fluoxetine",
+      "dosage": "5mg",
+      "frequency": "Daily",
+      "schedule_label": "Once daily, with dinner",
+      "next_dose_at": "2026-04-30T18:00:00Z",
+      "refill_due_date": "2026-05-22T00:00:00Z",
+      "supply_remaining_days": 22,
+      "prescribed_by": "Dr. Riley",
+      "active": true
+    },
+    {
+      "id": "med3",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella",
+      "medication_name": "Heartgard Plus",
+      "dosage": "1 chewable",
+      "frequency": "Monthly",
+      "schedule_label": "First of every month",
+      "next_dose_at": "2026-05-01T08:00:00Z",
+      "refill_due_date": "2026-08-01T00:00:00Z",
+      "supply_remaining_days": 92,
+      "prescribed_by": "Dr. Riley",
+      "active": true
+    }
+  ],
+  "health/reminders": [
+    {
+      "id": "r1",
+      "pet_id": "p3-pickles",
+      "pet_name": "Pickles",
+      "title": "Refill Cosequin DS",
+      "record_type": "medication",
+      "reminder_date": "2026-05-04T00:00:00Z",
+      "severity": "warning"
+    },
+    {
+      "id": "r2",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella",
+      "title": "Annual checkup tomorrow",
+      "record_type": "checkup",
+      "reminder_date": "2026-04-30T15:00:00Z",
+      "severity": "info"
+    },
+    {
+      "id": "r3",
+      "pet_id": "p4-kiwi",
+      "pet_name": "Kiwi",
+      "title": "Beak trim follow-up",
+      "record_type": "grooming",
+      "reminder_date": "2026-07-22T00:00:00Z",
+      "severity": "info"
+    }
+  ],
+  "bookings/upcoming": [
+    {
+      "id": "b1-bella-checkup",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella",
+      "sitter_name": "Dr. Riley",
+      "service": "Annual checkup",
+      "type": "vet",
+      "status": "confirmed",
+      "start_date": "2026-04-30T15:00:00Z",
+      "end_date": "2026-04-30T16:00:00Z",
+      "notes": "Vaccinations + dental cleaning."
+    },
+    {
+      "id": "b2-bella-pickles-walk",
+      "pet_id": "p1-bella",
+      "pet_name": "Bella, Pickles",
+      "sitter_name": "Sam Patel",
+      "service": "Morning walk",
+      "type": "walk",
+      "status": "upcoming",
+      "start_date": "2026-05-02T08:00:00Z",
+      "end_date": "2026-05-02T08:45:00Z",
+      "notes": "45-minute neighbourhood walk."
+    },
+    {
+      "id": "b3-mochi-sitter",
+      "pet_id": "p2-mochi",
+      "pet_name": "Mochi",
+      "sitter_name": "Casey Lin",
+      "service": "Evening sitter",
+      "type": "sitting",
+      "status": "pending",
+      "start_date": "2026-05-05T18:00:00Z",
+      "end_date": "2026-05-05T20:00:00Z",
+      "notes": "Two-hour sitting while we're at the gala."
+    }
+  ]
+}

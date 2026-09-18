@@ -1,0 +1,12 @@
+Polish complete: 2026-04-29T22:30:00Z
+Pipeline: polish-app.md (polish-app.mjs operating manual)
+Cluster: content-social → polished sibling: blog
+Brand identity: Cairn — "Stack knowledge, mark the path" (#4f46e5 indigo + #d97706 amber)
+Components: 7 bespoke (KnowledgeHeroCard, StatPill, PageRow, PageTreeSidebar, AISummaryCard, WikiLayout, AuthShell)
+Pages rewritten: Landing, Home, PageView (signature), PageEditor, plus 11 screen-map screens (Search, VersionHistory, Spaces, Templates, Notifications, Comments, TeamMembers, Trash, Profile, Settings)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (catalog §13.3 Decorated-Card via AuthShell)
+Screen-map coverage: 18/18
+Material 3 tokens: complete (filled)
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegate to @molecule/app-{header,footer,root-error-boundary}-react)
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

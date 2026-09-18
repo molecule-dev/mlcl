@@ -1,0 +1,68 @@
+[
+  {
+    "id": "u_aria",
+    "handle": "ariastreetlight",
+    "display_name": "Aria Reyes",
+    "bio": "Night-light photographer. Tokyo / Mexico City. New zine soon.",
+    "avatar_url": "/img/users/aria.jpg",
+    "verified": true,
+    "follower_count": 184500,
+    "following_count": 412,
+    "post_count": 327
+  },
+  {
+    "id": "u_kelvin",
+    "handle": "kelvinkb",
+    "display_name": "Kelvin Bayode",
+    "bio": "Producer, Brava HQ. New EP dropping in May.",
+    "avatar_url": "/img/users/kelvin.jpg",
+    "verified": true,
+    "follower_count": 92010,
+    "following_count": 188,
+    "post_count": 142
+  },
+  {
+    "id": "u_sienna",
+    "handle": "siennajpx",
+    "display_name": "Sienna Park",
+    "bio": "Editorial portraiture, Seoul / Berlin.",
+    "avatar_url": "/img/users/sienna.jpg",
+    "verified": false,
+    "follower_count": 21800,
+    "following_count": 645,
+    "post_count": 98
+  },
+  {
+    "id": "u_amelie",
+    "handle": "ameliepatisserie",
+    "display_name": "Amélie Lefèvre",
+    "bio": "Croissants, viennoiserie, sourdough. Lyon.",
+    "avatar_url": "/img/users/amelie.jpg",
+    "verified": true,
+    "follower_count": 312000,
+    "following_count": 122,
+    "post_count": 415
+  },
+  {
+    "id": "u_dominic",
+    "handle": "domskates",
+    "display_name": "Dominic Hale",
+    "bio": "Skater. Filmer. SD.",
+    "avatar_url": "/img/users/dominic.jpg",
+    "verified": false,
+    "follower_count": 8400,
+    "following_count": 210,
+    "post_count": 64
+  },
+  {
+    "id": "u_jade",
+    "handle": "jadestudio",
+    "display_name": "Jade Okafor",
+    "bio": "Painter. Brooklyn studio open Saturdays.",
+    "avatar_url": "/img/users/jade.jpg",
+    "verified": false,
+    "follower_count": 14200,
+    "following_count": 188,
+    "post_count": 76
+  }
+]

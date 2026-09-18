@@ -1,0 +1,225 @@
+{
+    "app": "online-store",
+    "designProjectId": "3663196465834117599",
+    "screens": [
+        {
+            "name": "StorefrontPage",
+            "templateFile": "app/pages/StorefrontPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/",
+            "auth": false,
+            "type": "design_match",
+            "designFile": "design-online-store-storefront.html",
+            "designScreenId": "e13186e94281406bb246fa7ccd20d547"
+        },
+        {
+            "name": "ProductDetailPage",
+            "templateFile": "app/pages/ProductDetailPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/product/:id",
+            "auth": false,
+            "type": "design_match",
+            "designFile": "design-online-store-product-detail.html",
+            "designScreenId": "e53454f24ed14f81b5664115418f55ac"
+        },
+        {
+            "name": "CartPage",
+            "templateFile": "app/pages/CartPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/cart",
+            "auth": false,
+            "type": "design_match",
+            "designFile": "design-online-store-cart.html",
+            "designScreenId": "875f17e9319542d5b877c4d53ddb68fb"
+        },
+        {
+            "name": "CheckoutPage",
+            "templateFile": "app/pages/CheckoutPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/checkout",
+            "auth": true,
+            "type": "design_match",
+            "designFile": "design-online-store-checkout.html",
+            "designScreenId": "ba4791b8e1de4834b288bab602ada445"
+        },
+        {
+            "name": "OrdersPage",
+            "templateFile": "app/pages/OrdersPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/orders",
+            "auth": true,
+            "type": "design_match",
+            "designFile": "design-online-store-orders.html",
+            "designScreenId": "7ffa59ab10804cc8be369b9a9a45603d"
+        },
+        {
+            "name": "AdminProductsPage",
+            "templateFile": "app/pages/AdminProductsPage.tsx",
+            "components": [
+                "app/components/AdminLayout.tsx"
+            ],
+            "route": "/admin/products",
+            "auth": true,
+            "type": "design_match",
+            "designFile": "design-online-store-admin-products.html",
+            "designScreenId": "fdda141c7c664da589e67c3973834d0d"
+        },
+        {
+            "name": "AdminOrdersPage",
+            "templateFile": "app/pages/AdminOrdersPage.tsx",
+            "components": [
+                "app/components/AdminLayout.tsx"
+            ],
+            "route": "/admin/orders",
+            "auth": true,
+            "type": "design_match",
+            "designFile": "design-online-store-admin-orders.html",
+            "designScreenId": "2985917e5e7e4e9283370e6d5cf2679f"
+        },
+        {
+            "name": "Login",
+            "templateFile": "app/pages/Login.tsx",
+            "components": [],
+            "route": "/login",
+            "auth": false,
+            "type": "generate_new",
+            "designFile": "design-online-store-login.html",
+            "designScreenId": "36a78f1dbc3e4a0a8897c87d3bc420e1",
+            "generationPrompt": "Login page for Bazaar e-commerce store. Centered auth card on surface #faf8ff. Card uses #ffffff with rounded-lg corners and ambient shadow. Contains: Bazaar logo, Welcome Back headline, email and password inputs with surface_container_low background, Forgot password link, primary Sign In button, social login (Google, GitHub), Sign up link. No borders, tonal layering, Inter font."
+        },
+        {
+            "name": "AdminDashboardPage",
+            "templateFile": "app/pages/AdminDashboardPage.tsx",
+            "components": [
+                "app/components/AdminLayout.tsx"
+            ],
+            "route": "/admin",
+            "auth": true,
+            "type": "generate_new",
+            "designFile": "design-online-store-admin-dashboard.html",
+            "designScreenId": "cfda7b45a2a84b8c9e588b403c590b45",
+            "generationPrompt": "Admin Dashboard for Bazaar e-commerce. Left sidebar navigation (surface_container_high #e2e7ff) with nav items (Dashboard active, Products, Orders, Settings). Main content: Dashboard headline, 4 KPI stat cards (Revenue, Orders, AOV, Customers), Revenue Chart, Recent Orders table, Top Products and Low Stock Alerts. Primary #004ac6, secondary #fea619. Inter font, no borders, tonal layering."
+        },
+        {
+            "name": "AdminSettingsPage",
+            "templateFile": "app/pages/AdminSettingsPage.tsx",
+            "components": [
+                "app/components/AdminLayout.tsx"
+            ],
+            "route": "/admin/settings",
+            "auth": true,
+            "type": "generate_new",
+            "designFile": "design-online-store-admin-settings.html",
+            "designScreenId": "9fcc8e86dc7c427fb8e6950a51562132",
+            "generationPrompt": "Admin Settings for Bazaar e-commerce. Left sidebar with Settings active. Main content: Store Settings headline. Sections in white cards: General Settings (name, URL, description, logo), Payment Settings (Stripe/PayPal/Apple Pay toggles), Shipping Settings (thresholds, rates), Email Notifications (toggles), Tax Settings. Save Changes button. Inter font, no borders."
+        },
+        {
+            "name": "CategoryPage",
+            "templateFile": "app/pages/CategoryPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/category/:slug",
+            "auth": false,
+            "type": "generate_new",
+            "designFile": "design-online-store-category.html",
+            "designScreenId": "29f0dafb8ace4ad3b0742230e51c4d14",
+            "generationPrompt": "Category browsing page for Bazaar e-commerce. Glassmorphic header, breadcrumbs, category title. Left sidebar with filters (price, brand, size, color, rating). 3-column product grid with white cards, ambient shadows. Sort dropdown, pagination. Surface #faf8ff, dark footer #283044. Inter font, no borders."
+        },
+        {
+            "name": "OrderDetailPage",
+            "templateFile": "app/pages/OrderDetailPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/orders/:id",
+            "auth": true,
+            "type": "generate_new",
+            "designFile": "design-online-store-order-detail.html",
+            "designScreenId": "7f4a0e3945a3450390ef3a0d2f7c4cde",
+            "generationPrompt": "Order Detail page for Bazaar. Header, breadcrumbs, Order #12345 headline with Shipped badge. Two-column: left has order items list with thumbnails and summary totals; right has shipping info, payment info, and order timeline with status dots. White cards, ambient shadows, dark footer. Inter font."
+        },
+        {
+            "name": "SearchPage",
+            "templateFile": "app/pages/SearchPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/search",
+            "auth": false,
+            "type": "generate_new",
+            "designFile": "design-online-store-search.html",
+            "designScreenId": "09a60e8a76f54bf39405c5e755e73b67",
+            "generationPrompt": "Search Results page for Bazaar. Glassmorphic header with pre-filled search bar. Results for query headline with count. Horizontal filter chips, 3-column product grid with white cards, sidebar filters, pagination. Surface #faf8ff, dark footer #283044. Inter font, no borders."
+        },
+        {
+            "name": "Settings",
+            "templateFile": "app/pages/Settings.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/settings",
+            "auth": true,
+            "type": "generate_new",
+            "designFile": "design-online-store-settings.html",
+            "designScreenId": "b19df17dff884d34b77425d0981fb1f5",
+            "generationPrompt": "User Settings/Profile page for Bazaar. Glassmorphic header. Account Settings headline. Sections in white cards: Profile (avatar, name, email, phone), Password (current/new/confirm), Shipping Addresses (list with edit/delete), Notifications (toggles), Danger Zone (delete account). Inter font, no borders, dark footer."
+        },
+        {
+            "name": "WishlistPage",
+            "templateFile": "app/pages/WishlistPage.tsx",
+            "components": [
+                "app/components/StorefrontLayout.tsx"
+            ],
+            "route": "/wishlist",
+            "auth": true,
+            "type": "generate_new",
+            "designFile": "design-online-store-wishlist.html",
+            "designScreenId": "68bcabdc1af14bf19fcf1016cd4e9af7",
+            "generationPrompt": "Wishlist page for Bazaar. Glassmorphic header. My Wishlist headline with item count. 3-column product grid with white cards, filled heart icon in #fea619, product name, price, availability status, Add to Cart button, Remove link. Sort options. Dark footer #283044. Inter font, no borders."
+        },
+        {
+            "name": "Signup",
+            "templateFile": "app/pages/Signup.tsx",
+            "components": [],
+            "route": "/signup",
+            "auth": false,
+            "type": "derive_from",
+            "designFile": null,
+            "deriveFrom": "design-online-store-login.html",
+            "derivationNotes": "Same centered auth card layout as Login. Add full name field above email. Add confirm password field below password. Change headline to 'Create Account'. Change button to 'Create Account'. Change bottom link to 'Already have an account? Sign in'. Remove 'Forgot password?' link."
+        },
+        {
+            "name": "ForgotPassword",
+            "templateFile": "app/pages/ForgotPassword.tsx",
+            "components": [],
+            "route": "/forgot-password",
+            "auth": false,
+            "type": "derive_from",
+            "designFile": null,
+            "deriveFrom": "design-online-store-login.html",
+            "derivationNotes": "Same centered auth card layout as Login. Remove password field. Change headline to 'Reset Your Password'. Add descriptive text: 'Enter your email and we will send you a reset link.' Change button to 'Send Reset Link'. Remove social login section. Change bottom link to 'Back to Sign In'."
+        },
+        {
+            "name": "ResetPassword",
+            "templateFile": "app/pages/ResetPassword.tsx",
+            "components": [],
+            "route": "/reset-password",
+            "auth": false,
+            "type": "derive_from",
+            "designFile": null,
+            "deriveFrom": "design-online-store-login.html",
+            "derivationNotes": "Same centered auth card layout as Login. Remove email field. Change headline to 'Set New Password'. Replace fields with: new password field and confirm password field. Change button to 'Reset Password'. Remove social login section and forgot password link. Change bottom link to 'Back to Sign In'."
+        }
+    ]
+}

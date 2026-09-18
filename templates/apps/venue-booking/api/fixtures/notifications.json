@@ -1,0 +1,62 @@
+[
+  {
+    "id": "n_001",
+    "kind": "booking_confirmed",
+    "title": "Maya confirmed your booking at The Aerie Loft",
+    "body": "Your photoshoot for May 12 is locked in. Maya sent a quick note about the freight elevator.",
+    "icon": "event_available",
+    "venue_id": "v_aerie",
+    "venue_name": "The Aerie Loft",
+    "thumbnail_url": "https://picsum.photos/seed/alcove-aerie/1200/900",
+    "created_at_iso": "2026-04-29T09:14:00Z",
+    "unread": true
+  },
+  {
+    "id": "n_002",
+    "kind": "host_message",
+    "title": "Owen sent a message about Hillstead Garden",
+    "body": "Power circuit map attached for your June 21 booking.",
+    "icon": "forum",
+    "venue_id": "v_garden",
+    "venue_name": "Hillstead Garden",
+    "thumbnail_url": "https://picsum.photos/seed/alcove-garden/1200/900",
+    "created_at_iso": "2026-04-28T17:42:00Z",
+    "unread": true
+  },
+  {
+    "id": "n_003",
+    "kind": "price_drop",
+    "title": "Lantern Rooftop dropped to $215/hr for weekday bookings",
+    "body": "You favorited this rooftop in March — Priya is offering a weekday rate this season.",
+    "icon": "trending_down",
+    "venue_id": "v_rooftop",
+    "venue_name": "Lantern Rooftop",
+    "thumbnail_url": "https://picsum.photos/seed/alcove-rooftop/1200/900",
+    "created_at_iso": "2026-04-26T08:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n_004",
+    "kind": "review_request",
+    "title": "Tell us about Casa Sun Studio",
+    "body": "Jules would love to hear how your April 18 shoot went.",
+    "icon": "rate_review",
+    "venue_id": "v_studio",
+    "venue_name": "Casa Sun Studio",
+    "thumbnail_url": "https://picsum.photos/seed/alcove-studio/1200/900",
+    "created_at_iso": "2026-04-21T19:00:00Z",
+    "unread": false
+  },
+  {
+    "id": "n_005",
+    "kind": "new_listing",
+    "title": "A new rare-find in Portland: Foundry Workshop",
+    "body": "Devon just listed an industrial workshop with mezzanine — 80-person capacity.",
+    "icon": "auto_awesome",
+    "venue_id": "v_workshop",
+    "venue_name": "Foundry Workshop",
+    "thumbnail_url": "https://picsum.photos/seed/alcove-foundry/1200/900",
+    "created_at_iso": "2026-04-18T11:30:00Z",
+    "unread": false
+  }
+]

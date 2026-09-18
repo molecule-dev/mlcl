@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #fcf8ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #f3eeff;
+  --color-inverse-primary: #c0c1ff;
+  --color-inverse-surface: #2d2a5b;
+  --color-on-background: #181445;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-on-primary-fixed: #07006c;
+  --color-on-primary-fixed-variant: #2f2ebe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fffbff;
+  --color-on-secondary-fixed: #23005c;
+  --color-on-secondary-fixed-variant: #5516be;
+  --color-on-surface: #181445;
+  --color-on-surface-variant: #464554;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #f9fdff;
+  --color-on-tertiary-fixed: #001f26;
+  --color-on-tertiary-fixed-variant: #004e5c;
+  --color-outline: #656473; /* was #767586 — 4.07:1 as text on the #f7f1fe glass card; #656473 = 5.23:1 */
+  --color-outline-variant: #c7c4d7;
+  --color-primary: #4648d4;
+  --color-primary-container: #6063ee;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-secondary: #6b38d4;
+  --color-secondary-container: #8455ef;
+  --color-secondary-fixed: #e9ddff;
+  --color-secondary-fixed-dim: #d0bcff;
+  --color-surface: #fcf8ff;
+  --color-surface-bright: #fcf8ff;
+  --color-surface-container: #efebff;
+  --color-surface-container-high: #e9e5ff;
+  --color-surface-container-highest: #e3dfff;
+  --color-surface-container-low: #f6f2ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #dad6ff;
+  --color-surface-tint: #494bd6;
+  --color-surface-variant: #e3dfff;
+  --color-tertiary: #006577;
+  --color-tertiary-container: #008096;
+  --color-tertiary-fixed: #acedff;
+  --color-tertiary-fixed-dim: #4cd7f6;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-headline: 'Plus Jakarta Sans';
+  --font-label: Inter;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-1 -bottom-20 -mt-4 -mx-4 -right-1 -right-20 -right-3 -right-8 -rotate-[60deg] -top-3 -top-8 -translate-x-1/2 -translate-y-1/2 -translate-y-1/3 -z-10 2xl 3xl absolute accent-primary active:opacity-80 active:scale-90 active:scale-95 ai-gradient-bg ambient-glow ambient-shadow animate-ping animate-pulse antialiased appearance-none aspect-[3/4] aspect-video backdrop-blur-md backdrop-blur-sm backdrop-blur-xl before:absolute before:bg-tertiary before:bg-tertiary-fixed-dim before:h-6 before:h-8 before:left-0 before:left-[-8px] before:rounded-full before:translate-x-[-8px] before:w-[2px] bezier-connection bg-amber-100 bg-background bg-background/80 bg-blue-100 bg-clip-text bg-emerald-50 bg-error bg-error-container bg-gradient-to-br bg-gradient-to-r bg-gradient-to-t bg-gradient-to-tr bg-green-100 bg-green-400 bg-green-500/20");
+@source inline("bg-indigo-100 bg-indigo-400 bg-indigo-50 bg-on-surface bg-on-surface-variant bg-on-surface/40 bg-on-surface/5 bg-outline-variant bg-outline-variant/20 bg-outline-variant/30 bg-primary bg-primary-container bg-primary-container/10 bg-primary-fixed bg-primary-fixed-dim/20 bg-primary/10 bg-primary/20 bg-primary/5 bg-secondary-container bg-secondary-container/30 bg-secondary-fixed bg-slate-100 bg-slate-100/50 bg-slate-200 bg-slate-50 bg-slate-800 bg-slate-900 bg-slate-950/70 bg-surface bg-surface-container bg-surface-container-high bg-surface-container-high/50 bg-surface-container-highest bg-surface-container-highest/50 bg-surface-container-highest/80 bg-surface-container-low bg-surface-container-low/30 bg-surface-container-low/50 bg-surface-container-lowest bg-surface-container-lowest/50 bg-surface-dim bg-tertiary bg-tertiary-container bg-tertiary-fixed bg-tertiary-fixed-dim bg-tertiary-fixed-dim/10 bg-tertiary-fixed-dim/20 bg-tertiary/10 bg-tertiary/20 bg-tertiary/5 bg-transparent bg-white bg-white/10 bg-white/20 bg-white/40 bg-white/50 bg-white/70 bg-white/80 block blur-2xl");
+@source inline("blur-[100px] blur-[120px] blur-[80px] border border-0 border-2 border-4 border-8 border-[20px] border-b border-b-2 border-b-transparent border-dashed border-emerald-100 border-error/20 border-green-500/50 border-indigo-500 border-indigo-600 border-l border-l-4 border-l-transparent border-none border-outline border-outline-variant border-outline-variant/10 border-outline-variant/15 border-outline-variant/20 border-outline-variant/30 border-primary border-primary-container border-primary/20 border-primary/5 border-r border-r-transparent border-secondary-container border-secondary/5 border-slate-100/20 border-slate-200 border-slate-200/20 border-slate-200/50 border-surface-container border-surface-container-high border-surface-container-highest border-surface-container-low border-surface-container-lowest border-t border-t-2 border-t-4 border-t-transparent border-tertiary border-tertiary-container/20 border-tertiary-fixed border-tertiary-fixed-dim border-tertiary/5 border-transparent border-white border-white/10 border-white/40 border-white/5 bottom-0");
+@source inline("bottom-2 bottom-4 bottom-8 brightness-90 btn-gradient canvas-grid canvas-on-dark col-span-1 col-span-12 col-span-2 col-span-5 col-span-7 cursor-default cursor-pointer dark:bg-indigo-900/20 dark:bg-slate-800 dark:bg-slate-800/50 dark:bg-slate-900 dark:bg-slate-950 dark:bg-slate-950/80 dark:border-slate-800/20 dark:border-white/5 dark:hover:bg-slate-800 dark:hover:bg-slate-800/50 dark:hover:text-indigo-300 dark:hover:text-indigo-400 dark:shadow-none dark:text-cyan-400 dark:text-indigo-300 dark:text-indigo-400 dark:text-slate-400 dark:text-slate-500 dark:text-white divide-surface-container-high divide-y duration-150 duration-200 duration-300 duration-500 duration-700 fixed flex flex-1 flex-col flex-grow focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-tertiary/15 focus:bg-surface-container-lowest focus:border-primary focus:ring-0 focus:ring-2 focus:ring-4 focus:ring-primary-container focus:ring-primary-fixed focus:ring-primary/10 focus:ring-primary/15 focus:ring-primary/20 focus:ring-primary/40 focus:ring-surface-tint/15 font-bold");
+@source inline("font-extrabold font-headline font-inter font-label font-medium font-mono font-normal font-semibold from-indigo-600 from-on-background/80 from-on-surface/80 from-primary from-tertiary from-tertiary-container/10 from-transparent gap-1 gap-10 gap-12 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-x-8 gap-y-1 gap-y-4 gap-y-6 glass-card grayscale grid grid-cols-1 grid-cols-12 grid-cols-2 grid-cols-8 grid-rows-8 group group-focus-within:text-primary group-hover:bg-primary group-hover:brightness-100 group-hover:opacity-100 group-hover:ring-primary/20 group-hover:ring-primary/30 group-hover:rotate-0 group-hover:scale-105 group-hover:scale-110 group-hover:text-on-surface group-hover:text-primary group-hover:text-white group-hover:translate-x-1 h-1 h-10 h-12 h-14 h-16 h-2 h-24 h-3 h-32 h-4");
+@source inline("h-48 h-5 h-6 h-64 h-8 h-[1px] h-[300px] h-[35rem] h-[400px] h-[40rem] h-[500px] h-[50rem] h-[600px] h-full h-px h-screen hidden hover:-translate-y-1 hover:bg-error/5 hover:bg-primary hover:bg-primary-fixed-dim/40 hover:bg-primary/5 hover:bg-primary/90 hover:bg-slate-100 hover:bg-slate-200/50 hover:bg-slate-800/50 hover:bg-surface-bright hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-low hover:bg-surface-variant hover:bg-white/30 hover:bg-white/50 hover:border-primary/20 hover:opacity-100 hover:opacity-80 hover:opacity-90 hover:opacity-95 hover:rotate-0 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/5 hover:shadow-lg hover:shadow-md hover:shadow-on-surface/5 hover:shadow-primary/20 hover:shadow-primary/5 hover:shadow-xl hover:text-error hover:text-error/80 hover:text-indigo-300 hover:text-indigo-500 hover:text-indigo-600 hover:text-on-surface hover:text-primary hover:text-slate-900 hover:text-tertiary hover:text-white hover:underline");
+@source inline("inline-flex inset-0 inset-[-20px] inset-y-0 italic items-baseline items-center items-end items-start justify-between justify-center justify-end justify-start leading-none leading-normal leading-relaxed leading-snug leading-tight left-0 left-1 left-1/2 left-12 left-3 left-4 left-60 left-64 left-[580px] left-[880px] lg:col-span-1 lg:col-span-2 lg:col-span-4 lg:col-span-8 lg:grid-cols-12 lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 line-clamp-2 m-4 material-symbols-outlined max-w-2xl max-w-4xl max-w-5xl max-w-6xl max-w-7xl max-w-[1600px] max-w-[440px] max-w-md max-w-sm max-w-xl mb-1 mb-10 mb-12 mb-14 mb-2 mb-3 mb-4 mb-5 mb-6 mb-8 md");
+@source inline("md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:items-end md:p-10 md:w-80 md:w-auto medium min-h-0 min-h-screen min-w-0 mix-blend-multiply ml-1 ml-2 ml-4 ml-60 ml-64 ml-[240px] ml-auto mr-2 mr-3 mt-1 mt-10 mt-12 mt-16 mt-2 mt-3 mt-4 mt-6 mt-8 mt-auto mx-2 mx-4 mx-auto my-8 neural-orb no-border no-scrollbar object-cover opacity-0 opacity-20 opacity-40 opacity-60 opacity-70 opacity-75 opacity-80 outline-none overflow-hidden overflow-x-auto overflow-x-hidden overflow-y-auto p-1 p-10 p-12 p-16 p-2 p-3 p-4 p-5");
+@source inline("p-6 p-8 pb-2 pb-32 pl-10 pl-12 pl-5 pl-64 placeholder:text-on-surface-variant/50 placeholder:text-on-surface-variant/60 placeholder:text-outline placeholder:text-outline/60 placeholder:text-slate-400 pointer-events-none pr-10 pr-16 pr-4 preserve-3d primary-gradient pt-16 pt-24 pt-4 pt-6 pt-8 px-1 px-10 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-3 py-4 py-5 py-6 py-8 relative resize-none right-0 right-1 right-2 right-3 right-4 ring-1 ring-2 ring-4 ring-error/10 ring-primary/10 ring-primary/40 ring-surface-container-high ring-white rotate-12 rotate-3 rotate-[20deg]");
+@source inline("rounded rounded-2xl rounded-3xl rounded-[2rem] rounded-full rounded-lg rounded-md rounded-t-xl rounded-tl-none rounded-tr-none rounded-xl scale-95 scrollbar-hide shadow-2xl shadow-black/10 shadow-inner shadow-lg shadow-md shadow-primary/10 shadow-primary/20 shadow-primary/25 shadow-sm shadow-xl shrink-0 sm:grid-cols-2 space-y-1 space-y-10 space-y-12 space-y-2 space-y-3 space-y-4 space-y-6 space-y-8 sticky text-2xl text-3xl text-4xl text-5xl text-[10px] text-[11px] text-[12px] text-[14px] text-[18px] text-[20px] text-[9px] text-amber-600 text-amber-700 text-base text-blue-700 text-center text-cyan-100/90 text-cyan-700 text-emerald-600 text-error text-green-400 text-green-500 text-green-700 text-indigo-400 text-indigo-600 text-indigo-700");
+@source inline("text-indigo-900 text-left text-lg text-on-background text-on-primary text-on-primary-fixed-variant text-on-primary-fixed-variant/70 text-on-surface text-on-surface-variant text-on-surface-variant/40 text-on-surface-variant/50 text-on-surface-variant/60 text-on-surface-variant/70 text-on-surface/60 text-on-tertiary-container text-on-tertiary-fixed text-outline text-outline-variant text-outline/60 text-primary text-primary-container text-primary-fixed text-right text-secondary text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-900 text-sm text-tertiary text-transparent text-white text-white/60 text-white/70 text-xl text-xs text-yellow-500 to-indigo-800 to-primary to-primary-container to-secondary to-tertiary to-tertiary-fixed-dim to-transparent top-0 top-1 top-1/2 top-10 top-3 top-32 top-4 top-40 top-64 tracking-normal tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest");
+@source inline("transform transition-all transition-colors transition-opacity transition-shadow transition-transform translate-x-1/3 translate-y-1/2 truncate underline-offset-4 uppercase w-1 w-1/2 w-10 w-12 w-14 w-16 w-2 w-2/3 w-24 w-3 w-3/4 w-32 w-4 w-44 w-48 w-5 w-52 w-6 w-60 w-64 w-72 w-8 w-80 w-96 w-[1px] w-[240px] w-[340px] w-[35rem] w-[400px] w-[40rem] w-[500px] w-[50rem] w-[600px] w-full w-px whitespace-nowrap whitespace-pre-wrap xl:grid-cols-2 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+h1,
+h2,
+h3,
+.font-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.font-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ambient-shadow {
+  box-shadow: 0 40px 60px -5px rgba(24, 20, 69, 0.04);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.bezier-connection {
+  stroke-dasharray: 4;
+  stroke-linecap: round;
+}
+
+.canvas-grid {
+  background-image: radial-gradient(circle, #2d3449 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.canvas-on-dark {
+  background-color: #0b0e14;
+  background-image: radial-gradient(circle, rgba(196, 181, 253, 0.14) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ambient-shadow {
+  box-shadow: 0 10px 40px -5px rgba(24, 20, 69, 0.04);
+}
+
+.glass-panel {
+  background: rgba(252, 248, 255, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background-color: rgba(245, 242, 254, 0.8);
+}
+
+.ai-gradient-bg {
+  background: linear-gradient(135deg, #4648d4 0%, #4cd7f6 100%);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ambient-glow {
+  box-shadow: 0 40px 60px -15px rgba(24, 20, 69, 0.04);
+}
+
+.neural-orb {
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(252, 248, 255, 0.7);
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #4648d4 0%, #4cd7f6 100%);
+}
+/* polish-v2:stitch-styles:end */

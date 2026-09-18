@@ -1,0 +1,30 @@
+Polish complete: 2026-04-30T01:52:00Z
+Pipeline: polish-app.md (autonomous polish session)
+Cluster: sports — no polished sibling; chrome treatments cross-referenced
+  to banking-dashboard / personal-finance / project-management
+Brand: Pennant — teal-to-navy gradient (#0e7490 → #0c4a6e), JetBrains Mono
+  for tabular scores, Inter for body, accent emerald (#10b981).
+Components: 7 bespoke
+  - PennantHeroCard      (gradient leader card + sparkline + form pills)
+  - ScoreboardTicker     (broadcast-style live game ticker)
+  - StandingsTable       (W-L-D table with playoff line + favorite team)
+  - MatchCard            (status strip + team rows + winner highlight)
+  - StatLeaderRow        (podium leader row with rank + delta + bar)
+  - PennantLayout        (auth shell with sticky scoreboard top-bar)
+  - AuthBrandHeader      (shield mark + tagline)
+Pages rewritten:
+  - Landing  (catalog §14 + PennantHeroCard sample)
+  - Dashboard (PennantHeroCard + ScoreboardTicker + StandingsTable +
+    StatLeaderRow + MatchCard grid)
+  - MatchDetail / Matches / Schedule / Standings (signature flows)
+  - Auth: Login, Signup, ForgotPassword, ResetPassword (catalog §13.1)
+  - Players, PlayerDetail, Teams, TeamDetail, Stats, Profile,
+    Settings, Notifications (full screen-map coverage)
+Screen-map coverage: 18/18 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs)
+Classmap coverage: 100%
+Material 3 derivative tokens: present (0 missing)
+Fonts: Material Symbols Outlined + Inter + JetBrains Mono in index.html
+Sweep 1 chrome: Header → AppHeader, Footer → AppFooter,
+  RootErrorBoundary → re-export
+Typecheck: clean (npx tsc --noEmit)

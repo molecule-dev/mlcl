@@ -1,0 +1,79 @@
+[
+  {
+    "id": "tpl-push-a",
+    "name": "Push Day A",
+    "split": "PPL",
+    "exerciseCount": 6,
+    "estimatedMin": 60,
+    "lastUsed": "2026-04-29",
+    "exercises": [
+      "Barbell Bench Press",
+      "Standing Overhead Press",
+      "Incline Dumbbell Press",
+      "Cable Tricep Pushdown",
+      "Dumbbell Lateral Raise",
+      "Dips"
+    ]
+  },
+  {
+    "id": "tpl-pull-a",
+    "name": "Pull Day A",
+    "split": "PPL",
+    "exerciseCount": 6,
+    "estimatedMin": 58,
+    "lastUsed": "2026-04-27",
+    "exercises": [
+      "Conventional Deadlift",
+      "Pull-Up",
+      "Barbell Row",
+      "Face Pull",
+      "EZ-Bar Bicep Curl",
+      "Hammer Curl"
+    ]
+  },
+  {
+    "id": "tpl-legs-heavy",
+    "name": "Leg Day Heavy",
+    "split": "PPL",
+    "exerciseCount": 5,
+    "estimatedMin": 70,
+    "lastUsed": "2026-04-25",
+    "exercises": [
+      "Barbell Back Squat",
+      "Romanian Deadlift",
+      "Leg Press",
+      "Walking Lunges",
+      "Standing Calf Raise"
+    ]
+  },
+  {
+    "id": "tpl-upper-power",
+    "name": "Upper Power",
+    "split": "Upper / Lower",
+    "exerciseCount": 6,
+    "estimatedMin": 65,
+    "lastUsed": "2026-04-12",
+    "exercises": [
+      "Bench Press",
+      "Weighted Pull-Up",
+      "Overhead Press",
+      "Barbell Row",
+      "Skull Crusher",
+      "Bicep Curl"
+    ]
+  },
+  {
+    "id": "tpl-conditioning",
+    "name": "Conditioning Circuit",
+    "split": "Conditioning",
+    "exerciseCount": 4,
+    "estimatedMin": 35,
+    "lastUsed": "2026-04-08",
+    "exercises": [
+      "Rowing Machine",
+      "Kettlebell Swings",
+      "Box Jumps",
+      "Burpees"
+    ]
+  }
+]

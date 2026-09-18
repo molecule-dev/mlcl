@@ -1,0 +1,198 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #cffafe;
+  --mol-color-primary-dark: #0c4a6e;
+  --mol-color-secondary: #6366f1;
+  --mol-color-background: #f0f9ff;
+  --mol-color-background-secondary: #e0f2fe;
+  --mol-color-background-tertiary: #cffafe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569; /* was #64748b — 4.46:1 as footer links on #f0f9ff (axe serious); slate-600 = 7.1:1 */
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #0e7490;
+  --mol-color-success: #047857; /* was #10b981 — 2.53:1 as landing feature icons on white (axe serious, needs 3:1); emerald-700 = 5.5:1 */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0e7490; /* was #06b6d4 — 2.42:1 as landing feature icons on white (axe serious); cyan-700 = 5.4:1 */
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     These feed bg-surface, text-on-surface, etc. in light mode. */
+  --color-background: #f0f9ff;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0f2fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f9ff;
+  --color-surface-container: #e0f2fe;
+  --color-surface-container-high: #cffafe;
+  --color-surface-container-highest: #a5f3fc;
+  --color-surface-variant: #e0f2fe;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #e0f2fe;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0e7490;
+  --color-primary-container: #cffafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #0c4a6e;
+  --color-secondary: #6366f1;
+  --color-secondary-container: #e0e7ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1e1b4b;
+  --color-tertiary: #0e7490;
+  --color-tertiary-container: #cffafe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #0c4a6e;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #450a0a;
+  --color-outline: #64748b;
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0e7490;
+
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #0c4a6e;
+  --color-secondary-light: #a5b4fc;
+  --color-secondary-dark: #4f46e5;
+  --color-accent: #06b6d4;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #047857; /* keep in sync with --mol-color-success above (contrast fix) */
+  --color-info: #0e7490; /* keep in sync with --mol-color-info above (contrast fix) */
+  --color-background-secondary: #e0f2fe;
+  --color-background-tertiary: #cffafe;
+  --color-surface-secondary: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569; /* keep in sync with --mol-color-text-secondary above (contrast fix) */
+  --color-text-tertiary: #475569;
+  --color-text-inverse: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-secondary: #cbd5e1;
+  --color-border-focus: #0e7490;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Dark mode — IoT/devtools pure-neutral dark with cyan brand.
+   Pure near-black surfaces (#0a0a0a / #161616 / #1e1e1e) so sensor cards
+   and telemetry charts read crisply. Brand cyan kept at #0891b2 for
+   surface accents (status dots, focus rings); hero CTA primary shifted
+   to #0e7490 so white text reads at 5.36:1 (was #0891b2 = 3.68:1, fail).
+   `--color-on-primary` stays white. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #0e7490;
+  --mol-color-primary-light: #164e63;
+  --mol-color-primary-dark: #67e8f9;
+  --mol-color-secondary: #818cf8;
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #161616;
+  --mol-color-background-tertiary: #1e1e1e;
+  --mol-color-surface: #161616;
+  --mol-color-surface-secondary: #1e1e1e;
+  --mol-color-input-background: #0a0a0a;
+  --mol-color-text: #f2f2f2;
+  --mol-color-text-secondary: #b3b3b3;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0a0a0a;
+  --mol-color-border: #262626;
+  --mol-color-border-secondary: #3a3a3a;
+  --mol-color-border-focus: #22d3ee;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly. */
+  --color-background: #0a0a0a;
+  --color-on-background: #f2f2f2;
+  --color-surface: #161616;
+  --color-surface-bright: #1e1e1e;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0f0f0f;
+  --color-surface-container: #161616;
+  --color-surface-container-high: #1e1e1e;
+  --color-surface-container-highest: #262626;
+  --color-surface-variant: #1e1e1e;
+  --color-on-surface: #f2f2f2;
+  --color-on-surface-variant: #b3b3b3;
+  --color-inverse-surface: #f2f2f2;
+  --color-inverse-on-surface: #161616;
+  --color-inverse-primary: #0891b2;
+  /* #0e7490 with white = 5.36:1 — passes AA. #0891b2 was 3.68:1 (fail). */
+  --color-primary: #0e7490;
+  --color-primary-light: #164e63;
+  --color-primary-dark: #67e8f9;
+  --color-primary-container: #164e63;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #818cf8;
+  --color-secondary-light: #312e81;
+  --color-secondary-dark: #a5b4fc;
+  --color-secondary-container: #312e81;
+  --color-on-secondary: #0a0a0a;
+  --color-on-secondary-container: #e0e7ff;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #164e63;
+  --color-on-tertiary: #0a0a0a;
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  /* #690005 on #f87171 = 4.74:1 — passes AA. White was 2.77:1 (fail). */
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b7280;
+  --color-outline-variant: #262626;
+  --color-surface-tint: #22d3ee;
+
+  --color-accent: #22d3ee;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-success: #4ade80;
+  --color-info: #22d3ee;
+  --color-background-secondary: #161616;
+  --color-background-tertiary: #1e1e1e;
+  --color-surface-secondary: #1e1e1e;
+  --color-text: #f2f2f2;
+  --color-text-secondary: #b3b3b3;
+  --color-text-tertiary: #8a8a8a;
+  --color-text-inverse: #0a0a0a;
+  --color-border: #262626;
+  --color-border-secondary: #3a3a3a;
+  --color-border-focus: #22d3ee;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}

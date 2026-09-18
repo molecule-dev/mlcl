@@ -1,0 +1,60 @@
+{
+  "today": {
+    "date": "2026-04-26",
+    "total_doses": 8,
+    "taken_count": 4,
+    "missed_count": 0,
+    "upcoming_count": 4,
+    "current_streak": 47,
+    "longest_streak": 187,
+    "refills_due_soon": 2
+  },
+  "adherence": {
+    "current_adherence": 0.94,
+    "current_streak": 47,
+    "longest_streak": 187,
+    "doses_taken_30d": 226,
+    "doses_missed_30d": 11,
+    "doses_skipped_30d": 4,
+    "by_medication": [
+      { "medication_id": "med_001", "medication_name": "Lisinopril",       "pill_color": "blue",   "adherence_rate": 0.97, "missed_count": 1 },
+      { "medication_id": "med_002", "medication_name": "Metformin",        "pill_color": "yellow", "adherence_rate": 0.95, "missed_count": 3 },
+      { "medication_id": "med_003", "medication_name": "Atorvastatin",     "pill_color": "green",  "adherence_rate": 0.83, "missed_count": 5 },
+      { "medication_id": "med_004", "medication_name": "Sertraline",       "pill_color": "purple", "adherence_rate": 0.97, "missed_count": 1 },
+      { "medication_id": "med_005", "medication_name": "Vitamin D3",       "pill_color": "orange", "adherence_rate": 0.93, "missed_count": 2 },
+      { "medication_id": "med_007", "medication_name": "Levothyroxine",    "pill_color": "pink",   "adherence_rate": 1.00, "missed_count": 0 }
+    ],
+    "daily_30d": [
+      { "date": "2026-03-28", "total": 8, "taken": 8 },
+      { "date": "2026-03-29", "total": 8, "taken": 7 },
+      { "date": "2026-03-30", "total": 8, "taken": 8 },
+      { "date": "2026-03-31", "total": 8, "taken": 8 },
+      { "date": "2026-04-01", "total": 8, "taken": 8 },
+      { "date": "2026-04-02", "total": 8, "taken": 7 },
+      { "date": "2026-04-03", "total": 8, "taken": 8 },
+      { "date": "2026-04-04", "total": 8, "taken": 8 },
+      { "date": "2026-04-05", "total": 8, "taken": 6 },
+      { "date": "2026-04-06", "total": 8, "taken": 8 },
+      { "date": "2026-04-07", "total": 8, "taken": 8 },
+      { "date": "2026-04-08", "total": 8, "taken": 8 },
+      { "date": "2026-04-09", "total": 8, "taken": 8 },
+      { "date": "2026-04-10", "total": 8, "taken": 8 },
+      { "date": "2026-04-11", "total": 8, "taken": 7 },
+      { "date": "2026-04-12", "total": 8, "taken": 8 },
+      { "date": "2026-04-13", "total": 8, "taken": 8 },
+      { "date": "2026-04-14", "total": 8, "taken": 8 },
+      { "date": "2026-04-15", "total": 8, "taken": 8 },
+      { "date": "2026-04-16", "total": 8, "taken": 8 },
+      { "date": "2026-04-17", "total": 8, "taken": 8 },
+      { "date": "2026-04-18", "total": 8, "taken": 8 },
+      { "date": "2026-04-19", "total": 8, "taken": 8 },
+      { "date": "2026-04-20", "total": 8, "taken": 8 },
+      { "date": "2026-04-21", "total": 8, "taken": 8 },
+      { "date": "2026-04-22", "total": 8, "taken": 7 },
+      { "date": "2026-04-23", "total": 8, "taken": 8 },
+      { "date": "2026-04-24", "total": 8, "taken": 8 },
+      { "date": "2026-04-25", "total": 8, "taken": 8 },
+      { "date": "2026-04-26", "total": 8, "taken": 4 }
+    ]
+  }
+}

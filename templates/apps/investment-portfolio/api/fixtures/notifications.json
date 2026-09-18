@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "rebalance_drift", "title": "US Equity allocation +4.2% above target", "body": "Drift exceeds the 3% tolerance band. Consider trimming VTI / VXF.",                "href": "/rebalance",       "created_at": "2026-04-25T10:00:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "price_alert",     "title": "NVDA tagged $884.12",                     "body": "NVIDIA crossed your $1000 alert threshold (within 13%).",                            "href": "/assets/NVDA",     "created_at": "2026-04-25T08:24:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "dividend_paid",   "title": "SCHD dividend paid: $642.04",             "body": "Schwab US Dividend Equity ETF Q1 distribution credited to Fidelity Brokerage.",      "href": "/transactions",    "created_at": "2026-04-22T11:00:00Z", "unread": false },
+  { "id": "ntf_004", "type": "tax_doc_ready",   "title": "2025 Form 1099-DIV ready",                "body": "Your 1099-DIV is available for download from /reports.",                              "href": "/reports",         "created_at": "2026-04-12T09:30:00Z", "unread": false },
+  { "id": "ntf_005", "type": "rebalance_drift", "title": "Fixed Income allocation -2.8% below target","body": "BND + TIP drifted below your 25% target.",                                          "href": "/rebalance",       "created_at": "2026-04-08T14:18:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",  "title": "Welcome to Argent",                       "body": "Connect a brokerage in /settings to begin syncing your holdings.",                    "href": "/settings",        "created_at": "2026-03-28T10:00:00Z", "unread": false }
+]

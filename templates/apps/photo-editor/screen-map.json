@@ -1,0 +1,18 @@
+{
+  "app": "photo-editor",
+  "designProjectId": "1743063585724900107",
+  "screens": [
+    {"name": "Landing", "templateFile": "app/pages/Landing.tsx", "components": [], "route": "/", "auth": false, "type": "generate_new", "designFile": "design-photo-editor-landing.html", "designScreenId": "52981a58994e43629feaef8e01f22976"},
+    {"name": "Login", "templateFile": "app/pages/Login.tsx", "components": [], "route": "/login", "auth": false, "type": "generate_new", "designFile": "design-photo-editor-login.html", "designScreenId": "52818c31118e444ca40c1fbe46fcf80f"},
+    {"name": "Signup", "templateFile": "app/pages/Signup.tsx", "components": [], "route": "/signup", "auth": false, "type": "derive_from", "designFile": null, "deriveFrom": "design-photo-editor-login.html", "derivationNotes": "Same glassmorphic dark card with First Name, Last Name, Email, Password, Confirm Password fields. Button 'Create account' (gradient). Bottom link 'Already have an account? Sign in'."},
+    {"name": "ForgotPassword", "templateFile": "app/pages/ForgotPassword.tsx", "components": [], "route": "/forgot-password", "auth": false, "type": "derive_from", "designFile": null, "deriveFrom": "design-photo-editor-login.html", "derivationNotes": "Same dark card with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom link 'Back to sign in'."},
+    {"name": "ResetPassword", "templateFile": "app/pages/ResetPassword.tsx", "components": [], "route": "/reset-password", "auth": false, "type": "derive_from", "designFile": null, "deriveFrom": "design-photo-editor-login.html", "derivationNotes": "Same dark card with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'."},
+    {"name": "Editor", "templateFile": "app/pages/Editor.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/editor", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-editor.html", "designScreenId": "d0d34ca088c64fcdba2ac1c51ea82d99"},
+    {"name": "Library", "templateFile": "app/pages/Library.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/library", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-library.html", "designScreenId": "ff817a4b50d0457fad5ac1ff8511d079"},
+    {"name": "Export", "templateFile": "app/pages/Export.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/export", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-export.html", "designScreenId": "7219633ca49647a598a7022032d5adb7"},
+    {"name": "Settings", "templateFile": "app/pages/Settings.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/settings", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-settings.html", "designScreenId": "126d319f22b947d29419858a90a22875"},
+    {"name": "AlbumDetail", "templateFile": "app/pages/AlbumDetail.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/album/:id", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-album-detail.html", "designScreenId": "09ee9137bcab4997a98ed08b46d2f108"},
+    {"name": "Presets", "templateFile": "app/pages/Presets.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/presets", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-presets.html", "designScreenId": "b9bfd27d7bbf401a908c24416633b8af"},
+    {"name": "Profile", "templateFile": "app/pages/Profile.tsx", "components": ["app/components/PhotoEditorLayout.tsx"], "route": "/profile", "auth": true, "type": "generate_new", "designFile": "design-photo-editor-profile.html", "designScreenId": "ad8dcd7932e2415e828e591945cdb1dd"}
+  ]
+}

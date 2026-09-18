@@ -1,0 +1,128 @@
+[
+  {
+    "id": "a-1",
+    "title": "Q3 town hall recap — five commitments before October planning",
+    "body": "Two-thirds of the company joined live last Thursday. The recap below summarizes the five commitments we made and the metrics we will track on the dashboard between now and our October planning offsite. Please read end-to-end and acknowledge so we know it landed.",
+    "body_html": null,
+    "category_id": "ch-company",
+    "author_id": "u-1",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "normal",
+    "status": "published",
+    "is_pinned": true,
+    "requires_acknowledgment": true,
+    "publish_at": null,
+    "published_at": "2026-04-30T09:14:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-30T09:14:00Z",
+    "updated_at": "2026-04-30T09:14:00Z"
+  },
+  {
+    "id": "a-2",
+    "title": "Required: Q3 security awareness module due Friday",
+    "body": "A 12-minute module covering phishing patterns we observed in August, MFA hygiene, and the new shared-device guidance from the IT team. Required for everyone with access to production systems — completion is checked from your SSO profile, no extra steps.",
+    "body_html": null,
+    "category_id": "ch-security",
+    "author_id": "u-2",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "high",
+    "status": "published",
+    "is_pinned": false,
+    "requires_acknowledgment": true,
+    "publish_at": null,
+    "published_at": "2026-04-30T07:42:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-30T07:42:00Z",
+    "updated_at": "2026-04-30T07:42:00Z"
+  },
+  {
+    "id": "a-3",
+    "title": "Welcome Mira Kowalski (Design) and three more joining Engineering",
+    "body": "Four new colleagues started this morning. Mira is joining Brand & Marketing as Lead Designer; Jovan, Hana, and Amir are joining the Storage Reliability squad. Slack handles, headshots, and onboarding-buddy assignments are in the thread.",
+    "body_html": null,
+    "category_id": "ch-people",
+    "author_id": "u-3",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "normal",
+    "status": "published",
+    "is_pinned": false,
+    "requires_acknowledgment": false,
+    "publish_at": null,
+    "published_at": "2026-04-29T16:20:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-29T16:20:00Z",
+    "updated_at": "2026-04-29T16:20:00Z"
+  },
+  {
+    "id": "a-4",
+    "title": "Northwind 4.6 ships next Wednesday — what changes for support",
+    "body": "Release notes are attached. Three things to watch for in support: (1) the new project-export endpoint is rate-limited per workspace; (2) the legacy CSV importer is removed — point customers to the new Studio importer; (3) saved-views are now per-workspace, not per-user.",
+    "body_html": null,
+    "category_id": "ch-product",
+    "author_id": "u-4",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "normal",
+    "status": "published",
+    "is_pinned": false,
+    "requires_acknowledgment": true,
+    "publish_at": null,
+    "published_at": "2026-04-28T15:00:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-28T15:00:00Z",
+    "updated_at": "2026-04-28T15:00:00Z"
+  },
+  {
+    "id": "a-5",
+    "title": "August anniversary list — twenty-three teammates and counting",
+    "body": "Twenty-three teammates hit a Northwind anniversary in August, including Kenji Watanabe (8 years!) and our first-anniversary class of 2024 hires. Drop a note in #culture or send a card via the People-Ops portal — small gestures, big signal.",
+    "body_html": null,
+    "category_id": "ch-culture",
+    "author_id": "u-3",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "low",
+    "status": "published",
+    "is_pinned": false,
+    "requires_acknowledgment": false,
+    "publish_at": null,
+    "published_at": "2026-04-27T09:00:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-27T09:00:00Z",
+    "updated_at": "2026-04-27T09:00:00Z"
+  },
+  {
+    "id": "a-6",
+    "title": "Distributed offsite — Lisbon Oct 14-17, RSVPs by Sept 24",
+    "body": "Our second distributed offsite is locked: Lisbon, Oct 14-17. Travel reimbursements are pre-approved. RSVP via the People-Ops portal by Sept 24 so we can confirm the workshop rooms and family-track logistics.",
+    "body_html": null,
+    "category_id": "ch-remote",
+    "author_id": "u-7",
+    "audience": {
+      "kind": "all"
+    },
+    "priority": "normal",
+    "status": "published",
+    "is_pinned": false,
+    "requires_acknowledgment": false,
+    "publish_at": null,
+    "published_at": "2026-04-26T10:30:00Z",
+    "archived_at": null,
+    "scheduled_at": null,
+    "created_at": "2026-04-26T10:30:00Z",
+    "updated_at": "2026-04-26T10:30:00Z"
+  }
+]

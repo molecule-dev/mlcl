@@ -1,0 +1,348 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — light-mode defaults (overridden by mode blocks below) === */
+  --mol-color-primary: #5548c9; /* matches light-block contrast fix */
+  --mol-color-primary-light: #a29bfe;
+  --mol-color-primary-dark: #5a4bd1;
+  --mol-color-secondary: #00cec9;
+  --mol-color-secondary-light: #81ecec;
+  --mol-color-secondary-dark: #00b5b0;
+  --mol-color-background: #f0f0f5;
+  --mol-color-background-secondary: #e8e8f0;
+  --mol-color-background-tertiary: #e0e0eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f8fc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a30;
+  --mol-color-text-secondary: #5a5a7a;
+  --mol-color-text-tertiary: #55556e;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d8d8e8;
+  --mol-color-border-secondary: #c8c8dc;
+  --mol-color-border-focus: #6c5ce7;
+  --mol-color-success: #00b894;
+  --mol-color-warning: #fdcb6e;
+  --mol-color-error: #d63031;
+  --mol-color-info: #0a63b5;
+
+  /* Stitch / Material-3 bridge tokens — light mode defaults */
+  --color-background: #f0f0f5;
+  --color-on-background: #1a1a30;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #d8d8e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f0f5;
+  --color-surface-container: #e8e8f0;
+  --color-surface-container-high: #e0e0eb;
+  --color-surface-container-highest: #d8d8e8;
+  --color-surface-variant: #e8e8f0;
+  --color-on-surface: #1a1a30;
+  --color-on-surface-variant: #5a5a7a;
+  --color-inverse-surface: #1a1a30;
+  --color-inverse-on-surface: #f0f0f5;
+  --color-inverse-primary: #8b7ef0;
+  --color-primary: #5548c9;
+  --color-primary-container: #ede9ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1a0080;
+  --color-secondary: #00cec9;
+  --color-secondary-container: #ccf7f6;
+  --color-on-secondary: #003333; /* dark on teal — white was 1.97:1 (fail); #003333 = 7.01:1 */
+  --color-on-secondary-container: #003333;
+  --color-tertiary: #fd79a8;
+  --color-tertiary-container: #ffe4ef;
+  --color-on-tertiary: #55003a; /* dark on pink — white was 2.48:1 (fail); #55003a = 5.86:1 */
+  --color-on-tertiary-container: #55003a;
+  --color-error: #d63031;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #5a1818;
+  --color-outline: #6c6c88; /* darkened — #9898b0 was 2.82:1 vs white (fail ≥3:1); #6c6c88 = 5.07:1 */
+  --color-outline-variant: #d8d8e8;
+  --color-surface-tint: #6c5ce7;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --video-primary: #6c5ce7;
+  --video-primary-hover: #5a4bd1;
+  --video-secondary: #00cec9;
+  --video-secondary-hover: #00b5b0;
+  --video-accent: #fd79a8;
+  --video-danger: #d63031;
+  --video-warning: #fdcb6e;
+
+  --video-background: #0d0d12;
+  --video-surface: #1a1a24;
+  --video-surface-elevated: #252535;
+  --video-border: #333348;
+
+  --video-text: #e4e4f0;
+  --video-text-secondary: #9898b8;
+  --video-text-muted: #5a5a78;
+
+  --video-canvas-bg: #000000;
+  --video-selection: #6c5ce7;
+  --video-playhead: #ff6b6b;
+  --video-track-bg: #16161f;
+  --video-clip-bg: #6c5ce7;
+  --video-clip-audio: #00cec9;
+
+  --video-toolbar-bg: #121220;
+  --video-timeline-bg: #0f0f18;
+  --video-sidebar-width: 280px;
+
+  --video-radius-sm: 4px;
+  --video-radius-md: 6px;
+  --video-radius-lg: 10px;
+
+  --video-font-sans: 'Inter', system-ui, sans-serif;
+  --video-font-mono: 'JetBrains Mono', monospace;
+  --video-font-size-xs: 10px;
+  --video-font-size-sm: 12px;
+  --video-font-size-md: 14px;
+
+  /* Extended tokens used in TSX className strings (default = dark NLE palette) */
+  --video-text-primary: #f1f0f5; /* bright text for headings/values */
+  --video-text-muted-alt: #9896a6; /* mid-tone muted text */
+  --video-text-dim: #6b6880; /* dimmer muted text / placeholders */
+  --video-link: #a78bfa; /* link/accent — brightened primary */
+  --video-link-hover: #ec4899; /* link hover — pink accent */
+  --video-cta-from: #7c3aed; /* gradient CTA start stop */
+  --video-cta-to: #ec4899; /* gradient CTA end stop */
+  --video-cta-from-hover: #6d28d9; /* gradient CTA start hover */
+  --video-cta-to-hover: #db2777; /* gradient CTA end hover */
+  --video-error-text: #fca5a5; /* error message text */
+  --video-input-bg: #0f0f14; /* form input background */
+  --video-panel-bg: #16161d; /* card / panel background */
+  --video-panel-bg-alt: #1e1e28; /* alternate deeper panel bg */
+  --video-border-subtle: #2a2a38; /* subtle / inner border */
+}
+
+/* Dark mode overrides — creative-studio violet-on-near-black NLE palette.
+   on-primary stays white so violet CTA buttons keep white text in dark mode. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #8b7ef0;
+  --mol-color-primary-light: #a29bfe;
+  --mol-color-primary-dark: #6c5ce7;
+  --mol-color-secondary: #2de5df;
+  --mol-color-secondary-light: #81ecec;
+  --mol-color-secondary-dark: #00cec9;
+  --mol-color-background: #0d0d12;
+  --mol-color-background-secondary: #1a1a24;
+  --mol-color-background-tertiary: #252535;
+  --mol-color-surface: #1a1a24;
+  --mol-color-surface-secondary: #252535;
+  --mol-color-input-background: #0d0d12;
+  --mol-color-text: #f0f0f8;
+  --mol-color-text-secondary: #a8a8c8;
+  --mol-color-text-tertiary: #6a6a88;
+  --mol-color-text-inverse: #0d0d12;
+  --mol-color-border: #3d3d55;
+  --mol-color-border-secondary: #4a4a65;
+  --mol-color-border-focus: #8b7ef0;
+  --mol-color-success: #00b894;
+  --mol-color-warning: #fdd580;
+  --mol-color-error: #f87171;
+  --mol-color-info: #74b9ff;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #0d0d12;
+  --color-on-background: #f0f0f8;
+  --color-surface: #1a1a24;
+  --color-surface-bright: #252535;
+  --color-surface-dim: #050508;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #111118;
+  --color-surface-container: #1a1a24;
+  --color-surface-container-high: #252535;
+  --color-surface-container-highest: #333348;
+  --color-surface-variant: #252535;
+  --color-on-surface: #f0f0f8;
+  --color-on-surface-variant: #a8a8c8;
+  --color-inverse-surface: #f0f0f8;
+  --color-inverse-on-surface: #0d0d12;
+  --color-inverse-primary: #6c5ce7;
+  --color-primary: #5548c9; /* keep brand violet at brand stop */
+  --color-primary-container: #2e2080;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #d8d4ff;
+  --color-secondary: #2de5df;
+  --color-secondary-container: #003333;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #b3f5f3;
+  --color-tertiary: #ff8fb8;
+  --color-tertiary-container: #55003a;
+  --color-on-tertiary: #55003a; /* dark on pink — white was 2.13:1 (fail); #55003a = 6.82:1 */
+  --color-on-tertiary-container: #ffd9e4;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on coral-red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7b7b9c; /* lightened — #5a5a78 was 2.60:1 vs surface (fail ≥3:1); #7b7b9c = 4.24:1 */
+  --color-outline-variant: #333348;
+  --color-surface-tint: #8b7ef0;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  --video-primary: #8b7ef0;
+  --video-primary-hover: #7468e8;
+  --video-secondary: #2de5df;
+  --video-secondary-hover: #14cfc9;
+  --video-accent: #ff8fb8;
+  --video-danger: #f87171;
+  --video-warning: #fdd580;
+
+  --video-background: #0d0d12;
+  --video-surface: #1a1a24;
+  --video-surface-elevated: #252535;
+  --video-border: #3d3d55;
+
+  --video-text: #f0f0f8;
+  --video-text-secondary: #a8a8c8;
+  --video-text-muted: #6a6a88;
+
+  --video-canvas-bg: #000000;
+  --video-selection: #8b7ef0;
+  --video-playhead: #ff7878;
+  --video-track-bg: #16161f;
+  --video-clip-bg: #6c5ce7;
+  --video-clip-audio: #00cec9;
+
+  --video-toolbar-bg: #121220;
+  --video-timeline-bg: #0f0f18;
+
+  /* Extended tokens — dark mode overrides */
+  --video-text-primary: #f0f0f8;
+  --video-text-muted-alt: #a8a8c8;
+  --video-text-dim: #6a6a88;
+  --video-link: #8b7ef0;
+  --video-link-hover: #ff8fb8;
+  --video-cta-from: #7c3aed;
+  --video-cta-to: #ec4899;
+  --video-cta-from-hover: #6d28d9;
+  --video-cta-to-hover: #db2777;
+  --video-error-text: #fca5a5;
+  --video-input-bg: #0d0d12;
+  --video-panel-bg: #1a1a24;
+  --video-panel-bg-alt: #1e1e28;
+  --video-border-subtle: #3d3d55;
+}
+
+/* Light mode — clean studio white.
+   Off-white surfaces so the dark NLE chrome reads as a deliberate design
+   choice rather than a bug. Brand violet stays at #6c5ce7 (same stop as
+   dark mode) so CTAs look identical in both modes. Canvas gets a dark
+   swatch so clips still read correctly against it. */
+[data-mol-mode='light'] {
+  /* === @theme bridge light overrides === */
+  --mol-color-primary: #5548c9; /* #6c5ce7 was 3.3-4.27:1 as link/label text on light tinted surfaces (fail); #5548c9 = 4.55-5.86:1 */
+  --mol-color-primary-light: #a29bfe;
+  --mol-color-primary-dark: #443aa8; /* stepped below the darkened primary */
+  --mol-color-secondary: #00cec9;
+  --mol-color-secondary-light: #81ecec;
+  --mol-color-secondary-dark: #00b5b0;
+  --mol-color-background: #f0f0f5;
+  --mol-color-background-secondary: #e8e8f0;
+  --mol-color-background-tertiary: #e0e0eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f8fc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1a30;
+  --mol-color-text-secondary: #5a5a7a;
+  --mol-color-text-tertiary: #55556e; /* #9898b0 was 1.92-2.81:1 (fail); #55556e ≥4.93:1 on all light surfaces */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d8d8e8;
+  --mol-color-border-secondary: #c8c8dc;
+  --mol-color-border-focus: #6c5ce7;
+  --mol-color-success: #00b894;
+  --mol-color-warning: #fdcb6e;
+  --mol-color-error: #d63031;
+  --mol-color-info: #0a63b5; /* #0984e3 was 3.22:1 on its info chip tint (fail); #0a63b5 = 5.05:1 */
+
+  /* Stitch / Material-3 bridge tokens — light mode */
+  --color-background: #f0f0f5;
+  --color-on-background: #1a1a30;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #d8d8e8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f0f5;
+  --color-surface-container: #e8e8f0;
+  --color-surface-container-high: #e0e0eb;
+  --color-surface-container-highest: #d8d8e8;
+  --color-surface-variant: #e8e8f0;
+  --color-on-surface: #1a1a30;
+  --color-on-surface-variant: #5a5a7a;
+  --color-inverse-surface: #1a1a30;
+  --color-inverse-on-surface: #f0f0f5;
+  --color-inverse-primary: #8b7ef0;
+  --color-primary: #5548c9; /* matches --mol-color-primary contrast fix */
+  --color-primary-container: #ede9ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1a0080;
+  --color-secondary: #00cec9;
+  --color-secondary-container: #ccf7f6;
+  --color-on-secondary: #003333; /* dark on teal — white was 1.97:1 (fail); #003333 = 7.01:1 */
+  --color-on-secondary-container: #003333;
+  --color-tertiary: #fd79a8;
+  --color-tertiary-container: #ffe4ef;
+  --color-on-tertiary: #55003a; /* dark on pink — white was 2.48:1 (fail); #55003a = 5.86:1 */
+  --color-on-tertiary-container: #55003a;
+  --color-error: #d63031;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #5a1818;
+  --color-outline: #6c6c88; /* darkened — #9898b0 was 2.82:1 vs white (fail ≥3:1); #6c6c88 = 5.07:1 */
+  --color-outline-variant: #d8d8e8;
+  --color-surface-tint: #5548c9;
+
+  --video-primary: #5548c9;
+  --video-primary-hover: #443aa8;
+  --video-secondary: #00cec9;
+  --video-secondary-hover: #00b5b0;
+  --video-accent: #fd79a8;
+
+  --video-background: #f0f0f5;
+  --video-surface: #ffffff;
+  --video-surface-elevated: #f8f8fc;
+  --video-border: #d8d8e8;
+
+  --video-text: #1a1a30;
+  --video-text-secondary: #5a5a7a;
+  --video-text-muted: #55556e;
+
+  --video-canvas-bg: #2a2a3a;
+  --video-track-bg: #ebebf0;
+
+  --video-toolbar-bg: #e8e8f0;
+  --video-timeline-bg: #e0e0eb;
+
+  /* Extended tokens — light mode overrides */
+  --video-text-primary: #1a1a30;
+  --video-text-muted-alt: #5a5a7a;
+  --video-text-dim: #55556e; /* was 1.92-2.81:1 (fail) */
+  --video-link: #4c40b5; /* text-role link: must clear 4.5:1 even on the 20% primary-tinted hero panel (5.00:1) */
+  --video-link-hover: #c4256e; /* #fd79a8 was 2.47:1 as static text on white (fail); #c4256e = 5.47:1 */
+  --video-cta-from: #5548c9;
+  --video-cta-to: #fd79a8;
+  --video-cta-from-hover: #443aa8;
+  --video-cta-to-hover: #e0619a;
+  --video-error-text: #d63031;
+  --video-input-bg: #f0f0f5;
+  --video-panel-bg: #ffffff;
+  --video-panel-bg-alt: #f8f8fc;
+  --video-border-subtle: #d8d8e8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,29 @@
+2026-04-28
+brand: Meridian — deep electric blue (#2563eb) → violet (#7c3aed) gradient
+tagline: "Where every message finds its line"
+
+components (8 bespoke + 3 chrome delegations):
+  - MeridianBrandHeader     gradient orb chip + tagline (auth shell)
+  - MeridianTopBar          sticky in-app top nav with search pill
+  - MeridianMailSidebar     compose CTA + folder list + labels + storage gauge
+  - MeridianAppShell        outer chrome (top bar + sidebar + content slot)
+  - MeridianThreadRow       editorial thread row (avatar, snippet, label chips)
+  - MeridianMessageCard     reading-pane message card with attachments strip
+  - MeridianHeroPreview     decorative 3-pane inbox mockup for Landing hero
+  - OAuthButtons            Google + GitHub provider strip on auth pages
+  - Header (delegate)       @molecule/app-header-react
+  - Footer (delegate)       @molecule/app-footer-react
+  - RootErrorBoundary       @molecule/app-root-error-boundary-react
+
+pages rewritten (12):
+  signed-in: Inbox, Compose, ThreadView, Drafts, Starred, Settings, PlanUpdated
+  auth:      Login, Signup, ForgotPassword, ResetPassword
+  marketing: Landing
+  fallback:  NotFound (404, brand-orb)
+
+verification:
+  npx tsc --noEmit                                            → 0 errors (app-side)
+  node scripts/check-rules-compliance.mjs                    → clean (1 target, 276 files)
+  classmap coverage                                          → 91.5%
+
+screenshots: skipped per instructions (main agent batches)

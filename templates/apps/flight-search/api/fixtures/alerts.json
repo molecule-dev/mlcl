@@ -1,0 +1,50 @@
+[
+  {
+    "id": "a1",
+    "origin_code": "JFK",
+    "origin_city": "New York",
+    "destination_code": "CDG",
+    "destination_city": "Paris",
+    "target_price": 480,
+    "current_lowest": 462,
+    "departure_date": "2026-05-12",
+    "history": [612, 588, 552, 510, 491, 482, 462],
+    "active": true
+  },
+  {
+    "id": "a2",
+    "origin_code": "SFO",
+    "origin_city": "San Francisco",
+    "destination_code": "NRT",
+    "destination_city": "Tokyo",
+    "target_price": 950,
+    "current_lowest": 1080,
+    "departure_date": "2026-06-04",
+    "history": [1180, 1150, 1130, 1110, 1080, 1080, 1080],
+    "active": true
+  },
+  {
+    "id": "a3",
+    "origin_code": "LAX",
+    "origin_city": "Los Angeles",
+    "destination_code": "LHR",
+    "destination_city": "London",
+    "target_price": 700,
+    "current_lowest": 668,
+    "departure_date": "2026-07-08",
+    "history": [892, 845, 798, 740, 712, 690, 668],
+    "active": true
+  },
+  {
+    "id": "a4",
+    "origin_code": "ORD",
+    "origin_city": "Chicago",
+    "destination_code": "BCN",
+    "destination_city": "Barcelona",
+    "target_price": 540,
+    "current_lowest": 580,
+    "departure_date": "2026-09-18",
+    "history": [612, 600, 595, 588, 582, 580, 580],
+    "active": false
+  }
+]

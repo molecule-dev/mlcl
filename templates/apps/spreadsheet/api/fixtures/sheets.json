@@ -1,0 +1,68 @@
+[
+  {
+    "id": "sh-q4-summary",
+    "spreadsheet_id": "ws-q4-revenue-2026",
+    "name": "Summary",
+    "position": 0,
+    "row_count": 32,
+    "column_count": 9,
+    "color": "#2563eb",
+    "created_at": "2026-01-18T09:14:00Z",
+    "updated_at": "2026-04-29T17:42:00Z"
+  },
+  {
+    "id": "sh-q4-pipeline",
+    "spreadsheet_id": "ws-q4-revenue-2026",
+    "name": "Pipeline",
+    "position": 1,
+    "row_count": 412,
+    "column_count": 14,
+    "color": "#10b981",
+    "created_at": "2026-01-18T09:14:00Z",
+    "updated_at": "2026-04-29T17:39:00Z"
+  },
+  {
+    "id": "sh-q4-bookings",
+    "spreadsheet_id": "ws-q4-revenue-2026",
+    "name": "Bookings",
+    "position": 2,
+    "row_count": 286,
+    "column_count": 11,
+    "color": "#f59e0b",
+    "created_at": "2026-01-18T09:14:00Z",
+    "updated_at": "2026-04-29T17:30:00Z"
+  },
+  {
+    "id": "sh-q4-waterfall",
+    "spreadsheet_id": "ws-q4-revenue-2026",
+    "name": "Waterfall",
+    "position": 3,
+    "row_count": 48,
+    "column_count": 13,
+    "color": "#7c3aed",
+    "created_at": "2026-01-18T09:14:00Z",
+    "updated_at": "2026-04-28T11:50:00Z"
+  },
+  {
+    "id": "sh-headcount-roster",
+    "spreadsheet_id": "ws-headcount-fy26",
+    "name": "Roster",
+    "position": 0,
+    "row_count": 184,
+    "column_count": 12,
+    "color": "#10b981",
+    "created_at": "2026-02-04T10:00:00Z",
+    "updated_at": "2026-04-28T22:08:00Z"
+  },
+  {
+    "id": "sh-headcount-scenarios",
+    "spreadsheet_id": "ws-headcount-fy26",
+    "name": "Scenarios",
+    "position": 1,
+    "row_count": 64,
+    "column_count": 10,
+    "color": "#2563eb",
+    "created_at": "2026-02-04T10:00:00Z",
+    "updated_at": "2026-04-27T18:42:00Z"
+  }
+]

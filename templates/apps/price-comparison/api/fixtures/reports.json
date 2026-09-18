@@ -1,0 +1,40 @@
+{
+  "dashboard": {
+    "total_savings_cents": 482300,
+    "watching_count": 14,
+    "drops_this_week": 23,
+    "expiring_alerts": 7,
+    "savings_change_pct": 18,
+    "watchlist_count": 14,
+    "active_alerts": 7,
+    "deals_today": 23,
+    "currency": "USD",
+    "savings_sparkline": [120, 145, 138, 162, 158, 184, 201, 218, 234, 247, 265, 290, 312, 348],
+    "top_retailers": [
+      { "name": "Amazon", "savings_cents": 184200 },
+      { "name": "Best Buy", "savings_cents": 121100 },
+      { "name": "Target", "savings_cents": 92900 },
+      { "name": "Walmart", "savings_cents": 84100 }
+    ],
+    "trending": [
+      {
+        "id": "p1",
+        "title": "Sony WH-1000XM6",
+        "drop_pct": 12,
+        "image_url": "https://picsum.photos/seed/sift-p1/200/200"
+      },
+      {
+        "id": "p2",
+        "title": "MacBook Air M3",
+        "drop_pct": 8,
+        "image_url": "https://picsum.photos/seed/sift-p2/200/200"
+      },
+      {
+        "id": "p3",
+        "title": "Dyson V15 Detect",
+        "drop_pct": 5,
+        "image_url": "https://picsum.photos/seed/sift-p3/200/200"
+      }
+    ]
+  }
+}

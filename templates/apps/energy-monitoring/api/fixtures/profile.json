@@ -1,0 +1,40 @@
+{
+  "id": "user-001",
+  "name": "Avery Thompson",
+  "email": "avery@voltrace.app",
+  "household_size": 4,
+  "monthly_kwh_goal": 720,
+  "tz": "America/Los_Angeles",
+  "currency": "USD",
+  "joined_at": "2025-01-12T08:30:00Z",
+  "achievements": [
+    {
+      "id": "ach-01",
+      "title": "First 100 kWh saved",
+      "description": "Hit a 30-day rolling reduction of 100 kWh vs. baseline.",
+      "earned_at": "2026-02-18T00:00:00Z",
+      "icon": "savings"
+    },
+    {
+      "id": "ach-02",
+      "title": "Solar zenith",
+      "description": "Net-exported energy for 7 days running.",
+      "earned_at": "2026-03-29T00:00:00Z",
+      "icon": "wb_sunny"
+    },
+    {
+      "id": "ach-03",
+      "title": "Quiet night",
+      "description": "Held overnight load below 250 W average for a full week.",
+      "earned_at": "2026-04-12T00:00:00Z",
+      "icon": "bedtime"
+    },
+    {
+      "id": "ach-04",
+      "title": "Budget keeper",
+      "description": "Ended 3 consecutive months under monthly cost target.",
+      "earned_at": "2026-04-25T00:00:00Z",
+      "icon": "verified"
+    }
+  ]
+}

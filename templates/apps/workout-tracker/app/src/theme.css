@@ -1,0 +1,241 @@
+/* App-specific theme overrides for Forja — see DESIGN.md */
+
+/*
+ * Forja palette: orange primary (#e05030 forge-glow) + charcoal accent
+ * (#1a1a2e wrought-iron) + workout-domain semantic tokens (PR gold,
+ * volume-up green, rest-timer indigo, muscle-group pills). The tokens
+ * here drive the @theme registration at the bottom of this file so
+ * utilities like `bg-pr`, `border-l-streak-active`, `text-rest-timer`
+ * resolve at runtime.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #e05030;
+  --mol-color-primary-light: #f06848;
+  --mol-color-primary-dark: #b83820;
+  --mol-color-secondary: #1a1a2e;
+  --mol-color-secondary-light: #2d2d44;
+  --mol-color-secondary-dark: #10101e;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f3f4f6;
+  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #fafafa;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #4b5563;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #22c55e;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #f5a623;
+  --mol-color-warning-light: #fef3cd;
+  --mol-color-error: #ef4444;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #6366f1;
+  --mol-color-info-light: #e0e7ff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #e05030;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* === Material-3 / Stitch bridge tokens — light palette ===
+     Feeds bg-surface, text-on-surface, bg-primary etc. in light mode.
+     on-primary is dark (#150702) because white (#fff) on forge-orange (#e05030)
+     is only 3.92:1 — below the 4.5:1 AA threshold. */
+  --color-background: #fafafa;
+  --color-on-background: #111827;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e5e7eb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fafafa;
+  --color-surface-container: #f3f4f6;
+  --color-surface-container-high: #e5e7eb;
+  --color-surface-container-highest: #d1d5db;
+  --color-surface-variant: #f3f4f6;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #6b7280;
+  --color-inverse-surface: #111827;
+  --color-inverse-on-surface: #fafafa;
+  --color-inverse-primary: #f07050;
+  --color-primary: #e05030;
+  --color-primary-container: #fee2d5;
+  /* #150702 on #e05030 = 5.04:1 — passes AA. White was 3.92:1 (fail). */
+  --color-on-primary: #150702;
+  --color-on-primary-container: #6b1a0a;
+  --color-secondary: #1a1a2e;
+  --color-secondary-container: #e5e7eb;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #111827;
+  --color-tertiary: #f5a623;
+  --color-tertiary-container: #fef3cd;
+  --color-on-tertiary: #1a0c00; /* dark on amber — white was 1.94:1 (fail) */
+  --color-on-tertiary-container: #6b3d00;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  /* #1a0000 on #ef4444 = 5.35:1 — passes AA. White was 3.76:1 (fail). */
+  --color-on-error: #1a0000;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* on surface #fff = 4.61:1 — passes 3:1 outline */
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #e05030;
+
+  /* Brand-specific tokens — workout domain (PRs, volume, timers, muscle groups). */
+  --color-pr: #b45309; /* was #f5a623 (1.97:1 as icon on white); amber-700 = 5.0:1 */
+  --color-pr-light: #fef3cd;
+  --color-pr-text: #92600a;
+  --color-volume-up: #166534; /* was #22c55e (2.11:1 as trend text on white); green-800 = 7.1:1 */
+  --color-volume-down: #b91c1c; /* was #ef4444 (3.76:1 as trend text on white); red-700 = 6.5:1 */
+  --color-rest-timer: #4338ca; /* was #6366f1 (3.4:1 on its own -light chip); indigo-700 = 6.4:1 */
+  --color-rest-timer-light: #e0e7ff;
+  --color-streak-active: #b45309; /* was #f5a623 (1.97:1 as icon on white); amber-700 = 5.0:1 */
+  --color-streak-inactive: #d1d5db;
+  --color-set-completed: #f0fdf4;
+  --color-set-current: #fff7ed;
+  --color-workout-active: #fef7f5;
+  --color-accent: #1a1a2e;
+  --color-on-accent: #ffffff;
+  --color-accent-container: #2d2d44;
+  --color-on-accent-container: #ffffff;
+  /* Muscle group pills — bg + fg pairs. */
+  --color-muscle-chest: #b91c1c; /* was #ef4444 (3.23:1 on its -bg chip); red-700 = 5.6:1 */
+  --color-muscle-chest-bg: #fee2e2;
+  --color-muscle-back: #1d4ed8; /* was #3b82f6 (3.1:1 on its -bg chip); blue-700 = 5.5:1 */
+  --color-muscle-back-bg: #dbeafe;
+  --color-muscle-legs: #166534; /* was #22c55e (2.0:1 on its -bg chip); green-800 = 6.5:1 */
+  --color-muscle-legs-bg: #dcfce7;
+  --color-muscle-shoulders: #92400e; /* was #f59e0b (1.9:1 on its -bg chip); amber-800 = 6.4:1 */
+  --color-muscle-shoulders-bg: #fef3c7;
+  --color-muscle-arms: #6d28d9; /* was #8b5cf6 (3.3:1 on its -bg chip); violet-700 = 6.0:1 */
+  --color-muscle-arms-bg: #ede9fe;
+  --color-muscle-core: #be185d; /* was #ec4899 (3.0:1 on its -bg chip); pink-700 = 5.1:1 */
+  --color-muscle-core-bg: #fce7f3;
+  --color-muscle-cardio: #0e7490; /* was #06b6d4 (2.3:1 on its -bg chip); cyan-700 = 4.8:1 */
+  --color-muscle-cardio-bg: #cffafe;
+}
+
+/* Dark theme overrides — keyed by data-mol-mode attr on <html>. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #f07050;
+  --mol-color-primary-light: #ff8a6a;
+  --mol-color-primary-dark: #e05030;
+  --mol-color-secondary: #2d2d54;
+  --mol-color-secondary-light: #3d3d68;
+  --mol-color-secondary-dark: #1a1a2e;
+  --mol-color-background: #0a0a14;
+  --mol-color-background-secondary: #0e0e1c;
+  --mol-color-background-tertiary: #16162a;
+  --mol-color-surface: #16162a;
+  --mol-color-surface-secondary: #1e1e36;
+  --mol-color-input-background: #1e1e36;
+  --mol-color-text: #f0f0f4;
+  --mol-color-text-secondary: #a0a0b4;
+  --mol-color-text-tertiary: #7c7c92;
+  --mol-color-text-inverse: #0a0a14;
+  --mol-color-border: #2a2a40;
+  --mol-color-border-secondary: #3a3a55;
+  --mol-color-border-focus: #f07050;
+
+  /* Status — brighter on dark forge-glow bg */
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #5b3a0d;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #7f1d1d;
+  --mol-color-info: #818cf8;
+  --mol-color-info-light: #312e81;
+
+  /* Workout-domain tokens — brightened signal, deepened tinted bgs */
+  --color-pr: #fbbf24;
+  --color-pr-light: #5b3a0d;
+  --color-pr-text: #fde68a;
+  --color-volume-up: #4ade80;
+  --color-volume-down: #f87171;
+  --color-rest-timer: #818cf8;
+  --color-rest-timer-light: #312e81;
+  --color-streak-active: #fbbf24;
+  --color-streak-inactive: #3a3a55;
+  --color-set-completed: #0a1a10;
+  --color-set-current: #1a1408;
+  --color-workout-active: #1a1018;
+  --color-accent: #3d3d68;
+  --color-on-accent: #f0f0f4;
+  --color-accent-container: #2d2d54;
+  --color-on-accent-container: #f0f0f4;
+
+  /* Muscle group pills — brighter fg, deep tinted bgs */
+  --color-muscle-chest: #f87171;
+  --color-muscle-chest-bg: #4a1818;
+  --color-muscle-back: #60a5fa;
+  --color-muscle-back-bg: #16335c;
+  --color-muscle-legs: #4ade80;
+  --color-muscle-legs-bg: #14422a;
+  --color-muscle-shoulders: #fbbf24;
+  --color-muscle-shoulders-bg: #4a3208;
+  --color-muscle-arms: #a78bfa;
+  --color-muscle-arms-bg: #2e1f55;
+  --color-muscle-core: #f472b6;
+  --color-muscle-core-bg: #4a1a35;
+  --color-muscle-cardio: #22d3ee;
+  --color-muscle-cardio-bg: #083344;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on forge-orange: `on-primary` stays white. */
+  --color-background: #0a0a14;
+  --color-on-background: #f0f0f4;
+  --color-surface: #16162a;
+  --color-surface-bright: #1e1e36;
+  --color-surface-dim: #060610;
+  --color-surface-container-lowest: #040410;
+  --color-surface-container-low: #0e0e1c;
+  --color-surface-container: #16162a;
+  --color-surface-container-high: #1e1e36;
+  --color-surface-container-highest: #2a2a40;
+  --color-surface-variant: #1e1e36;
+  --color-on-surface: #f0f0f4;
+  --color-on-surface-variant: #a0a0b4;
+  --color-inverse-surface: #f0f0f4;
+  --color-inverse-on-surface: #0a0a14;
+  --color-inverse-primary: #e05030;
+  --color-primary: #f07050; /* keep brand orange at slightly brighter dark stop */
+  --color-primary-container: #3a1810;
+  /* #1e0a02 on #f07050 = 6.49:1 — passes AA. White was 2.94:1 (fail). */
+  --color-on-primary: #1e0a02;
+  --color-on-primary-container: #ffd0c0;
+  --color-secondary: #a0a0c0;
+  --color-secondary-container: #2d2d54;
+  --color-on-secondary: #0a0a14;
+  --color-on-secondary-container: #e0e0f4;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4a3208;
+  --color-on-tertiary: #0a0a14;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #fecaca;
+  --color-outline: #717190; /* #5a5a75 was 2.67:1 vs surface (fail ≥3:1); #717190 = 3.78:1 */
+  --color-outline-variant: #2a2a40;
+  --color-surface-tint: #f07050;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
+
+/*
+ * NOTE: the Forja-specific Tailwind token REGISTRATION lives in index.css
+ * (the Tailwind root). A previous @theme block here was dead — theme.css is a
+ * plain stylesheet outside the Tailwind pipeline, so utilities like
+ * `bg-accent` / `text-muscle-*` were silently never generated (the app
+ * sidebar rendered white-on-white; caught by the axe a11y gate). The
+ * :root/.dark blocks above stay the runtime source of truth; index.css only
+ * registers the utility names with matching light-mode defaults.
+ */

@@ -1,0 +1,210 @@
+/* App-specific theme overrides — see DESIGN.md
+ * Calcite — Structure your thinking. Analytic blue + emerald accent
+ * data-grid app for analysts and finance teams.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
+  --mol-color-primary: #2563eb;
+  --mol-color-primary-light: #dbeafe;
+  --mol-color-primary-dark: #1d4ed8;
+  --mol-color-secondary: #10b981;
+  --mol-color-success: #15803d; /* #16a34a was 3.29:1 as small text on white (fail); #15803d = 5.02:1 */
+  --mol-color-warning: #b45309; /* #f59e0b was 2.14:1 as small text on white (fail); #b45309 = 5.02:1 */
+  --mol-color-error: #b91c1c; /* #dc2626 was 4.02:1 on rose-100 chips (fail); #b91c1c = 5.44:1, 6.47:1 on white */
+  --mol-color-info: #6366f1;
+
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #f1f5f9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #f8fafc;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #2563eb;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Backward-compat aliases (inline styles / legacy references) ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-bg: var(--color-background);
+  --color-bg-secondary: var(--color-background-secondary);
+  --color-bg-tertiary: var(--color-background-tertiary);
+  --color-danger: var(--color-error);
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #1d4ed8;
+  --color-secondary-hover: #059669;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.12);
+
+  /* Spreadsheet semantic colors */
+  --color-formula: #7c3aed;
+  --color-formula-light: #ede9fe;
+  --color-cell-selected: #dbeafe;
+  --color-cell-editing: #eff6ff;
+  --color-grid-line: #e2e8f0;
+  --color-grid-line-strong: #cbd5e1;
+  --color-grid-header: #f1f5f9;
+  --color-code-bg: #f8fafc;
+  --color-code-formula-text: #7c3aed;
+  --color-positive: #16a34a;
+  --color-negative: #dc2626;
+  --color-linked-record: #6366f1;
+  --color-linked-record-light: #e0e7ff;
+
+  /* Material-3 / Stitch bridge tokens — light baseline for bg-surface,
+     text-on-surface, bg-primary etc. */
+  --color-background: #ffffff;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8edf3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f1f5f9;
+  --color-surface-container: #f8fafc;
+  --color-surface-container-high: #f1f5f9;
+  --color-surface-container-highest: #e2e8f0;
+  --color-surface-variant: #f1f5f9;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-inverse-primary: #60a5fa;
+  --color-primary: #2563eb;
+  --color-primary-container: #dbeafe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a8a;
+  --color-secondary: #10b981;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #003d25; /* dark on emerald — 4.89:1 (was #fff = 2.54:1 fail) */
+  --color-on-secondary-container: #064e3b;
+  --color-tertiary: #7c3aed;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #ffffff; /* white on deep violet #7c3aed — 5.70:1 */
+  --color-on-tertiary-container: #3b1f6a;
+  --color-error: #b91c1c; /* matches --mol-color-error contrast fix above */
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #b91c1c — 6.47:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #64748b; /* 4.76:1 vs #fff surface (was #94a3b8 = 2.56:1 fail ≥3:1) */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #2563eb;
+
+  /* base.css derives primary-fixed as color-mix(primary 60%, white) = #7ca1f3,
+     which fails with the app's ubiquitous `bg-primary-fixed text-primary` chips
+     (#2563eb on #7ca1f3 = 2.03:1). Pin a compliant light-blue chip surface. */
+  --color-primary-fixed: #eff6ff; /* text-primary #2563eb on it = 4.75:1 */
+  --color-primary-fixed-dim: #dbeafe;
+  --color-on-primary-fixed: #1e3a8a;
+}
+
+/* Dark mode overrides — Calcite analytic dark.
+   Deep navy canvas (#0c1222) keeps the data-grid feel precise.
+   Blue primary shifts to a sky tone (#60a5fa) so active cells read against
+   dark surfaces. `--color-on-primary` stays white so blue CTA buttons keep
+   white text in both modes. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #60a5fa;
+  --mol-color-primary-light: #1e3a8a;
+  --mol-color-primary-dark: #3b82f6;
+  --mol-color-secondary: #34d399;
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #1a2332;
+  --mol-color-background-tertiary: #1e293b;
+  --mol-color-surface: #1a2332;
+  --mol-color-surface-secondary: #1e293b;
+  --mol-color-input-background: #0f172a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0c1222;
+  --mol-color-border: #334155;
+  --mol-color-border-secondary: #475569;
+  --mol-color-border-focus: #60a5fa;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #818cf8;
+
+  --color-primary-hover: #3b82f6;
+  --color-secondary-hover: #10b981;
+  --color-formula: #a78bfa;
+  --color-formula-light: rgba(167, 139, 250, 0.15);
+  --color-cell-selected: rgba(96, 165, 250, 0.18);
+  --color-cell-editing: rgba(59, 130, 246, 0.12);
+  --color-grid-line: #334155;
+  --color-grid-line-strong: #475569;
+  --color-grid-header: #1e293b;
+  --color-code-bg: #0d1117;
+  --color-code-formula-text: #a78bfa;
+  --color-positive: #4ade80;
+  --color-negative: #f87171;
+  --color-linked-record: #818cf8;
+  --color-linked-record-light: rgba(129, 140, 248, 0.18);
+
+  /* Material-3 / Stitch bridge tokens — override the @theme block so
+     bg-surface, text-on-surface, bg-primary etc. flip cleanly.
+     CTA buttons keep white text on blue: on-primary stays white. */
+  --color-background: #0c1222;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1a2332;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #080e1a;
+  --color-surface-container-lowest: #060a12;
+  --color-surface-container-low: #101929;
+  --color-surface-container: #1a2332;
+  --color-surface-container-high: #1e293b;
+  --color-surface-container-highest: #263040;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1222;
+  --color-inverse-primary: #2563eb;
+  --color-primary: #60a5fa;
+  --color-primary-container: #1e3a8a;
+  --color-on-primary: #0c1222; /* dark navy on sky-blue — 7.34:1 (was #fff = 2.54:1 fail) */
+  --color-on-primary-container: #bfdbfe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #0c1222;
+  --color-on-secondary-container: #a7f3d0;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #3b1f6a;
+  --color-on-tertiary: #0c1222; /* dark navy on lavender — 6.86:1 (was #fff = 2.72:1 fail) */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* dark on red — 6.43:1 (was #fff = 2.77:1 fail) */
+  --color-on-error-container: #fecdd3;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+  --color-surface-tint: #60a5fa;
+
+  /* Dark twin of the light-mode primary-fixed pin (see above): the base.css
+     color-mix derivation fails against text-primary in dark mode too. */
+  --color-primary-fixed: #172554; /* text-primary #60a5fa on it = 5.78:1 */
+  --color-primary-fixed-dim: #1e3a8a;
+  --color-on-primary-fixed: #93c5fd;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}

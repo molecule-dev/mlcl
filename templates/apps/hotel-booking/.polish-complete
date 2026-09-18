@@ -1,0 +1,24 @@
+Polish complete: 2026-04-28T13:21:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+App: hotel-booking (Sojourn)
+Cluster: hospitality (no polished sibling — translated from online-store + personal-finance siblings)
+
+Components: 5 bespoke
+- SojournHeroSearchCard (gradient hero + embedded search form, ex-NetWorthCard treatment)
+- DestinationDiscoveryCard (image-led 4:3 card, ex-CategoryCard treatment)
+- PropertyListingCard (editorial property card, ex-ProductCard treatment)
+- TripItineraryRow (editorial list row, ex-ActivityRow treatment)
+- LoyaltyTierBadge (status pill, bespoke from §13 catalog patterns)
+- SojournAuthShell (catalog §13.3 brand-panel split)
+
+Pages rewritten: Landing, SearchResults (primary list + map peer), PropertyDetail (signature)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (all on SojournAuthShell)
+
+Tokens: --color-accent + container/hover/on variants added (DESIGN.md loyalty gold)
+Material 3 tokens: already complete (no fill needed)
+Fonts: already wired (Inter + DM Serif Display + Material Symbols)
+Sweep 1 chrome conformance: Header/Footer already conformed (no edits needed)
+
+Screen-map coverage: 14/14 (all routes wired, including /plan-updated)
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

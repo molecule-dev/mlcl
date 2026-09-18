@@ -1,0 +1,103 @@
+{
+  "label": "Subscription Box",
+  "description": "Cratejoy-like recurring subscription boxes with billing, customization, and shipment tracking",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-product",
+    "@molecule/api-resource-order",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-image-sharp",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-data-table",
+    "@molecule/app-gallery",
+    "@molecule/app-stepper",
+    "@molecule/api-resource-payment",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Subscription box service name",
+      "default": "My Box"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret key",
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for box images",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "AWS region",
+      "default": "us-east-1"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun domain",
+      "required": true
+    },
+    "DEFAULT_CURRENCY": {
+      "description": "Default currency",
+      "default": "USD"
+    },
+    "BILLING_DAY": {
+      "description": "Day of month for billing",
+      "default": "1"
+    },
+    "STRIPE_SUBSCRIPTION_BOX_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_SUBSCRIPTION_BOX_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_SUBSCRIPTION_BOX_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_SUBSCRIPTION_BOX_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "payments",
+    "notifications",
+    "image-upload",
+    "subscriptions"
+  ]
+}

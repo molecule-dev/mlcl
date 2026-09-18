@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Morsel's gold accent.
+ *
+ * These must live HERE, not in theme.css. Tailwind v4 generates utilities from
+ * @theme; a token declared only in :root overrides an existing utility's value
+ * but never creates `bg-accent` / `text-on-accent`. `--color-accent` was in
+ * theme.css alone, so every `bg-accent` in the app painted nothing and the
+ * element showed its ancestor — the landing CTA read as near-black text on the
+ * crimson hero (3.5:1, an axe serious violation) instead of dark-on-gold.
+ */
+@theme {
+  --color-accent: #d4a017;
+  /* Text ON the gold fill. #1a0d00 is 8.03:1 there; white is 2.38:1. */
+  --color-on-accent: #1a0d00;
+  /* The accent used AS TEXT on the crimson hero band, where the gold itself is
+     2.28:1. A pale gold keeps the warm editorial tone and measures 4.53:1. */
+  --color-accent-on-primary: #fbe9bd;
+  /* …and as TEXT on the light app surfaces, where the gold is 2.38:1. Measured
+     against the warmest of them (the #faf8f6 auth panel, not pure white — an
+     earlier #96700a passed on white at 4.55:1 and still failed there at 4.29):
+     5.02:1 on #faf8f6, 5.32:1 on #ffffff. `bg-accent` keeps the vivid #d4a017 —
+     it is a fill, where the 3:1 graphics threshold applies, not 4.5. */
+  --color-accent-on-surface: #8a6508;
+}

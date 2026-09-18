@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Register the Forja-specific color tokens so utilities like `bg-accent`,
+ * `text-muscle-chest`, `border-l-pr`, `bg-set-completed` are actually
+ * GENERATED. This must live here (the Tailwind root) — an earlier @theme
+ * block in theme.css was invisible to Tailwind, so `bg-accent` silently
+ * produced no CSS and the app sidebar rendered white-on-white (caught by the
+ * axe a11y gate). Values below are the light-mode defaults; theme.css's
+ * :root/.dark blocks re-declare the same variables at runtime and win the
+ * cascade (utilities reference var(--color-*)), so dark mode keeps working.
+ * KEEP IN SYNC with theme.css.
+ */
+@theme {
+  --color-pr: #b45309;
+  --color-pr-light: #fef3cd;
+  --color-pr-text: #92600a;
+  --color-volume-up: #166534;
+  --color-volume-down: #b91c1c;
+  --color-rest-timer: #4338ca;
+  --color-rest-timer-light: #e0e7ff;
+  --color-streak-active: #b45309;
+  --color-streak-inactive: #d1d5db;
+  --color-set-completed: #f0fdf4;
+  --color-set-current: #fff7ed;
+  --color-workout-active: #fef7f5;
+  --color-accent: #1a1a2e;
+  --color-on-accent: #ffffff;
+  --color-accent-container: #2d2d44;
+  --color-on-accent-container: #ffffff;
+  --color-muscle-chest: #b91c1c;
+  --color-muscle-chest-bg: #fee2e2;
+  --color-muscle-back: #1d4ed8;
+  --color-muscle-back-bg: #dbeafe;
+  --color-muscle-legs: #166534;
+  --color-muscle-legs-bg: #dcfce7;
+  --color-muscle-shoulders: #92400e;
+  --color-muscle-shoulders-bg: #fef3c7;
+  --color-muscle-arms: #6d28d9;
+  --color-muscle-arms-bg: #ede9fe;
+  --color-muscle-core: #be185d;
+  --color-muscle-core-bg: #fce7f3;
+  --color-muscle-cardio: #0e7490;
+  --color-muscle-cardio-bg: #cffafe;
+}

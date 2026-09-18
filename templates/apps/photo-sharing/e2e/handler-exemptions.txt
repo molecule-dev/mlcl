@@ -1,0 +1,8 @@
+# Handlers exempted from gate 3's mounted-path test (they're exercised at
+# non-conventional paths that gate 3's heuristic doesn't recognise).
+#
+# - uploads → mounted at /api/photo-uploads (POST) and /api/photo-files (GET)
+#   in api/src/server.ts, not at /api/uploads. Already covered by
+#   uploadAndCreatePhoto in _helpers.ts and by the Upload page's
+#   two-stage POST pipeline.
+uploads

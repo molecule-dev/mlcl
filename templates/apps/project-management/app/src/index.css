@@ -1,0 +1,173 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #faf8ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #eef0ff;
+  --color-inverse-primary: #c0c1ff;
+  --color-inverse-surface: #283044;
+  --color-on-background: #131b2e;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-on-primary-fixed: #07006c;
+  --color-on-primary-fixed-variant: #2f2ebe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #006172;
+  --color-on-secondary-fixed: #001f26;
+  --color-on-secondary-fixed-variant: #004e5c;
+  --color-on-surface: #131b2e;
+  --color-on-surface-variant: #464554;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fffbff;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #703700;
+  --color-outline: #767586;
+  --color-outline-variant: #c7c4d7;
+  --color-primary: #4648d4;
+  --color-primary-container: #6063ee;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-secondary: #00687a;
+  --color-secondary-container: #57dffe;
+  --color-secondary-fixed: #acedff;
+  --color-secondary-fixed-dim: #4cd7f6;
+  --color-surface: #faf8ff;
+  --color-surface-bright: #faf8ff;
+  --color-surface-container: #eaedff;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-highest: #dae2fd;
+  --color-surface-container-low: #f2f3ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d2d9f4;
+  --color-surface-tint: #494bd6;
+  --color-surface-variant: #dae2fd;
+  --color-tertiary: #904900;
+  --color-tertiary-container: #b55d00;
+  --color-tertiary-fixed: #ffdcc5;
+  --color-tertiary-fixed-dim: #ffb783;
+
+  /* Stitch border-radius scale. */
+  --radius-2xl: 1rem;
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-space-x-2 -translate-y-1/2 2xl 3xl absolute active:scale-90 active:scale-95 after:absolute after:bg-white after:border after:border-gray-300 after:h-2 after:h-5 after:left-[2px] after:right-4 after:rounded-full after:top-[2px] after:transition-all after:w-2 after:w-5 antialiased appearance-none aspect-video backdrop-blur-md backdrop-blur-xl before:absolute before:bg-indigo-600 before:bg-outline-variant/30 before:bg-primary before:bottom-2 before:h-1 before:mr-2 before:rounded-full before:top-2 before:w-1 before:w-[1px] bg-amber-100/50 bg-amber-400 bg-background bg-blue-500 bg-emerald-100 bg-emerald-400 bg-emerald-500 bg-error bg-error-container bg-error-container/30 bg-error/10 bg-gradient-to-br bg-gradient-to-r bg-green-100 bg-indigo-100 bg-indigo-100/50 bg-indigo-50 bg-indigo-600 bg-outline bg-outline-variant/20 bg-primary bg-primary-container bg-primary-fixed bg-primary/10");
+@source inline("bg-primary/5 bg-purple-100 bg-purple-500 bg-secondary-container/20 bg-slate-200 bg-slate-50 bg-slate-700 bg-slate-800 bg-slate-900 bg-surface bg-surface-container bg-surface-container-high bg-surface-container-high/40 bg-surface-container-highest bg-surface-container-highest/50 bg-surface-container-low bg-surface-container-low/30 bg-surface-container-low/50 bg-surface-container-lowest bg-surface-container-lowest/80 bg-surface/80 bg-tertiary-container bg-tertiary-container/20 bg-white bg-white/80 bg-yellow-400 block border border-0 border-2 border-amber-500 border-b border-b-2 border-error border-green-400 border-l border-l-2 border-l-4 border-none border-outline-variant border-outline-variant/10 border-outline-variant/20 border-outline-variant/5 border-primary border-primary/20 border-purple-400 border-r-0 border-surface border-surface-container border-surface-container-lowest border-t border-t-0 border-t-4 border-transparent border-white bottom-0 bottom-8 calendar-grid col-span-4 col-span-8");
+@source inline("cursor-pointer custom-shadow dark:bg-amber-900/20 dark:bg-slate-900 dark:bg-slate-950/80 dark:hover:bg-slate-800 dark:shadow-none dark:text-amber-400 dark:text-slate-100 dark:text-slate-400 dark:text-white decoration-on-surface-variant/40 docked duration-200 duration-300 ease-out fixed flex flex-1 flex-col flex-wrap focus:bg-surface-container-lowest focus:bg-white focus:ring-1 focus:ring-2 focus:ring-amber-500/20 focus:ring-primary-container/20 focus:ring-primary/20 font-black font-bold font-extrabold font-medium font-semibold from-primary full-width gap-1 gap-10 gap-12 gap-2 gap-3 gap-4 gap-6 gap-8 gap-[1px] gap-y-2 ghost-border glass-panel grayscale grid grid-cols-1 grid-cols-12 grid-cols-2 grid-cols-4 grid-cols-7 group group-hover:border-primary group-hover:opacity-100 group-hover:text-primary h-1 h-10");
+@source inline("h-11 h-12 h-14 h-16 h-2 h-24 h-5 h-6 h-7 h-8 h-full h-screen hidden hover:bg-error/90 hover:bg-indigo-700 hover:bg-primary-container hover:bg-slate-100 hover:bg-slate-200/50 hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-highest/30 hover:bg-surface-container-low hover:bg-white hover:opacity-80 hover:opacity-90 hover:scale-110 hover:shadow-sm hover:text-indigo-600 hover:text-on-surface hover:text-primary hover:translate-x-1 hover:translate-y-[-2px] hover:underline indigo-gradient inline-flex italic items-center items-end items-start justify-between justify-center justify-end leading-none leading-relaxed leading-tight left-0 left-1 left-3 left-4 left-[280px] lg:flex lg:ml-72 line-through material-symbols-outlined max-w-4xl max-w-6xl max-w-7xl max-w-[1280px] max-w-[1440px]");
+@source inline("max-w-[540px] max-w-xl mb mb-1 mb-10 mb-12 mb-2 mb-3 mb-4 mb-6 mb-8 md md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:inline-block md:items-center md:w-1/3 md:w-2/3 min-h-[200px] min-h-screen min-w-0 min-w-max ml-1 ml-2 ml-4 ml-72 ml-[260px] ml-[280px] mr-2 mt-1 mt-10 mt-2 mt-4 mt-8 mt-auto mx-auto object-cover opacity-0 opacity-30 opacity-60 opacity-70 opacity-80 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-1 p-10 p-16 p-2 p-3 p-4 p-6 p-8 pb-1 pb-20 peer peer-checked:after:border-white");
+@source inline("peer-checked:after:translate-x-full peer-focus:outline-none pl-10 pl-12 pl-2 pl-8 placeholder:text-outline-variant pr-4 pr-8 pt-10 pt-24 pt-3 pt-4 pt-6 pt-8 px-1 px-16 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-2 py-3 py-4 py-6 py-8 relative resize-none right-0 right-8 ring-1 ring-2 ring-4 ring-black/5 ring-primary ring-surface-container-low rounded rounded-2xl rounded-full rounded-l-md rounded-lg rounded-md rounded-r-md rounded-xl selection:bg-primary-fixed selection:text-primary shadow-2xl shadow-indigo-100 shadow-indigo-200 shadow-lg shadow-md shadow-none shadow-primary/10 shadow-primary/20 shadow-sm sm");
+@source inline("space-y-1 space-y-12 space-y-2 space-y-3 space-y-4 space-y-6 space-y-8 sr-only sticky text-2xl text-3xl text-4xl text-5xl text-[10px] text-[11px] text-[14px] text-[20px] text-amber-700 text-base text-center text-emerald-600 text-emerald-700 text-error text-green-500 text-green-700 text-indigo-600 text-indigo-700 text-indigo-900 text-lg text-on-primary text-on-secondary-container text-on-surface text-on-surface-variant text-on-surface-variant/50 text-on-surface-variant/60 text-on-surface-variant/80 text-outline text-outline-variant text-outline/30 text-primary text-red-500 text-right text-secondary text-slate-500 text-slate-600 text-slate-900 text-sm text-tertiary text-white text-xl text-xs to-primary-container top-0 top-1/2 top-12 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest");
+@source inline("transition-all transition-colors transition-opacity transition-transform truncate underline-offset-4 uppercase w-1/2 w-10 w-11 w-14 w-16 w-2 w-2/3 w-2/5 w-24 w-3/4 w-5 w-6 w-64 w-7 w-72 w-8 w-80 w-[1px] w-[240px] w-[260px] w-[280px] w-full xs z-10 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Custom scrollbar for the Digital Atélier feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e6e8ea;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d8c3ad;
+}
+
+.indigo-gradient {
+  background: linear-gradient(135deg, #4648d4 0%, #6063ee 100%);
+}
+
+.custom-shadow {
+  box-shadow: 0 10px 30px -10px rgba(19, 27, 46, 0.08);
+}
+
+.ghost-border {
+  border: 1px solid rgba(198, 197, 215, 0.15);
+}
+
+.tonal-layering {
+  box-shadow: none;
+  border: none;
+}
+
+.ghost-border:focus-within {
+  box-shadow: 0 0 0 1px rgba(70, 72, 212, 0.2);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+}
+/* polish-v2:stitch-styles:end */

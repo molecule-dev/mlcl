@@ -1,0 +1,131 @@
+{
+  "app": "ai-document-processor",
+  "designProjectId": "15048605730705323507",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-login.html",
+      "designScreenId": "c35ad5113e3349ec9c6b039b72674972"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-document-processor-login.html",
+      "derivationNotes": "Same centered card layout as Login. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-document-processor-login.html",
+      "derivationNotes": "Same centered card layout as Login. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-document-processor-login.html",
+      "derivationNotes": "Same centered card layout as Login. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-dashboard.html",
+      "designScreenId": "cf22a1cc04904dc8a7fd722c441bbcbd"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-landing.html",
+      "designScreenId": "75994b57b592465091224418d9b3c3d2"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-documents.html",
+      "designScreenId": "ce4615a0f4f54637b55c4ad16f4e10ed"
+    },
+    {
+      "name": "DocumentDetail",
+      "templateFile": "app/pages/DocumentDetail.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/documents/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-document-detail.html",
+      "designScreenId": "77f34f8eb51d492380abdc2b26f79848"
+    },
+    {
+      "name": "Upload",
+      "templateFile": "app/pages/Upload.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/upload",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-upload.html",
+      "designScreenId": "886a697066b44919ba25bf7f842bf984"
+    },
+    {
+      "name": "Rules",
+      "templateFile": "app/pages/Rules.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/rules",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-rules.html",
+      "designScreenId": "e085df1b345c4423b00c828cd9aa49fa"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/ParcelaLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-document-processor-settings.html",
+      "designScreenId": "07fc36a11a8a42849c2a20f0abe97790"
+    }
+  ]
+}

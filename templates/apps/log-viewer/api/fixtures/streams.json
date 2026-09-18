@@ -1,0 +1,10 @@
+[
+  { "id": "str-prod-app",      "name": "prod-app",       "source": "kubernetes/prod",   "format": "json",   "rate_per_sec": 412, "retention_days": 30, "status": "active",  "last_event_at": "2026-04-30T13:42:01.000Z" },
+  { "id": "str-prod-api",      "name": "prod-api",       "source": "kubernetes/prod",   "format": "json",   "rate_per_sec": 218, "retention_days": 30, "status": "active",  "last_event_at": "2026-04-30T13:42:01.000Z" },
+  { "id": "str-staging",       "name": "staging-cluster","source": "kubernetes/staging","format": "json",   "rate_per_sec": 18,  "retention_days": 7,  "status": "active",  "last_event_at": "2026-04-30T13:41:59.000Z" },
+  { "id": "str-payments",      "name": "payments",       "source": "fluentbit/payments","format": "logfmt", "rate_per_sec": 64,  "retention_days": 90, "status": "active",  "last_event_at": "2026-04-30T13:41:58.000Z" },
+  { "id": "str-edge-access",   "name": "edge-access",    "source": "cloudfront",        "format": "clf",    "rate_per_sec": 982, "retention_days": 30, "status": "active",  "last_event_at": "2026-04-30T13:42:01.000Z" },
+  { "id": "str-cron",          "name": "cron-jobs",      "source": "kubernetes/jobs",   "format": "json",   "rate_per_sec": 2,   "retention_days": 14, "status": "paused",  "last_event_at": "2026-04-30T05:00:00.000Z" },
+  { "id": "str-mobile-ios",    "name": "mobile-ios",     "source": "sdk/ios",           "format": "json",   "rate_per_sec": 71,  "retention_days": 14, "status": "active",  "last_event_at": "2026-04-30T13:41:55.000Z" },
+  { "id": "str-mobile-android","name": "mobile-android", "source": "sdk/android",       "format": "json",   "rate_per_sec": 88,  "retention_days": 14, "status": "active",  "last_event_at": "2026-04-30T13:41:54.000Z" }
+]

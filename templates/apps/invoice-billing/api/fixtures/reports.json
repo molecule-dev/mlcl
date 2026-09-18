@@ -1,0 +1,31 @@
+{
+  "outstanding": {
+    "total_outstanding": 1284000,
+    "total_overdue": 312000,
+    "total_collected_this_month": 4392500,
+    "invoices_open": 18,
+    "change_pct": 12.4
+  },
+  "revenue": {
+    "period": "monthly",
+    "series": [
+      { "label": "Apr 2025", "value": 18450 },
+      { "label": "May 2025", "value": 22100 },
+      { "label": "Jun 2025", "value": 28900 },
+      { "label": "Jul 2025", "value": 24300 },
+      { "label": "Aug 2025", "value": 32550 },
+      { "label": "Sep 2025", "value": 36800 },
+      { "label": "Oct 2025", "value": 43950 }
+    ]
+  },
+  "tax-summary": {
+    "year": 2026,
+    "tax_collected": 15834,
+    "tax_owed": 4209,
+    "categories": [
+      { "category": "Design services", "taxable": 102450, "rate": 8.875, "amount": 9092 },
+      { "category": "Print production", "taxable": 38900, "rate": 8.875, "amount": 3452 },
+      { "category": "Photography", "taxable": 27200, "rate": 0, "amount": 0 }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+[
+  { "id": "acc_001", "kind": "checking",   "name": "Everyday Checking",  "institution": "Verity Credit Union", "mask": "8412", "balance_cents":  482310, "on_budget": true,  "closed": false },
+  { "id": "acc_002", "kind": "savings",    "name": "Emergency Fund",     "institution": "Marcus by Goldman",   "mask": "0921", "balance_cents":  894200, "on_budget": true,  "closed": false },
+  { "id": "acc_003", "kind": "credit",     "name": "Travel Card",        "institution": "Chase Sapphire",      "mask": "1147", "balance_cents":  -42180, "on_budget": true,  "closed": false },
+  { "id": "acc_004", "kind": "credit",     "name": "Cash Back",          "institution": "Citi Custom",         "mask": "8440", "balance_cents":  -18420, "on_budget": true,  "closed": false },
+  { "id": "acc_005", "kind": "investment", "name": "Brokerage",          "institution": "Vanguard",            "mask": "5503", "balance_cents": 4218090, "on_budget": false, "closed": false },
+  { "id": "acc_006", "kind": "investment", "name": "401(k)",             "institution": "Fidelity",            "mask": "9914", "balance_cents": 8421090, "on_budget": false, "closed": false },
+  { "id": "acc_007", "kind": "loan",       "name": "Auto Loan",          "institution": "Verity Credit Union", "mask": "5081", "balance_cents":-1842090, "on_budget": false, "closed": false },
+  { "id": "acc_008", "kind": "cash",       "name": "Wallet",             "institution": "Cash",                "mask": "0000", "balance_cents":    8400, "on_budget": true,  "closed": false }
+]

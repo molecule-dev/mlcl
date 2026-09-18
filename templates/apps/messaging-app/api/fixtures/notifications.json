@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "mention",        "title": "@mira in Climbing crew 🧗",         "body": "Devon mentioned you: \"saw your photos from yesterday — nice send!\"", "href": "/conversations/cnv_002", "created_at": "2026-04-26T14:12:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "missed_call",    "title": "Missed call from Henry Park",        "body": "Tap to call back. 14:38, 1m 24s ago.",                                  "href": "/conversations/cnv_001", "created_at": "2026-04-26T14:38:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "group_invite",   "title": "Jamie added you to a group",         "body": "\"Climbing trip July\" — accept to join.",                              "href": "/groups",                "created_at": "2026-04-26T11:00:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "security_event", "title": "New device linked",                   "body": "MacBook Pro 14 was linked to your account on Apr 24.",                  "href": "/profile",               "created_at": "2026-04-24T09:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "security_event", "title": "Henry Park's safety number changed", "body": "Henry reinstalled the app on a new device. Re-verify when you can.",   "href": "/contacts/cnv_001",      "created_at": "2026-04-22T18:00:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message", "title": "Welcome to Hush",                     "body": "Verify a contact's safety number to confirm encryption.",               "href": "/contacts",              "created_at": "2024-08-15T00:00:00Z", "unread": false }
+]

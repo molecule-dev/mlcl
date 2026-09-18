@@ -1,0 +1,53 @@
+[
+  {
+    "id": "tkt-001",
+    "order_id": "ord-001",
+    "user_id": "usr-001",
+    "event_id": "evt-001",
+    "event_title": "Midnight Synth Festival",
+    "venue": "The Echo Hall",
+    "city": "Brooklyn, NY",
+    "start_date": "2026-06-12",
+    "start_time": "19:30",
+    "tier": "General Admission",
+    "seat": "GA · 12-A",
+    "ref_code": "TURN-7K3X-NPQ9",
+    "qr_payload": "TURN:tkt-001:evt-001:usr-001",
+    "status": "active",
+    "transferable": true
+  },
+  {
+    "id": "tkt-002",
+    "order_id": "ord-001",
+    "user_id": "usr-001",
+    "event_id": "evt-001",
+    "event_title": "Midnight Synth Festival",
+    "venue": "The Echo Hall",
+    "city": "Brooklyn, NY",
+    "start_date": "2026-06-12",
+    "start_time": "19:30",
+    "tier": "General Admission",
+    "seat": "GA · 12-B",
+    "ref_code": "TURN-7K3X-NPR0",
+    "qr_payload": "TURN:tkt-002:evt-001:usr-001",
+    "status": "active",
+    "transferable": true
+  },
+  {
+    "id": "tkt-003",
+    "order_id": "ord-002",
+    "user_id": "usr-001",
+    "event_id": "evt-003",
+    "event_title": "Frontend Conf 2026",
+    "venue": "Pier 70 Convention Center",
+    "city": "San Francisco, CA",
+    "start_date": "2026-07-15",
+    "start_time": "09:00",
+    "tier": "Early Bird",
+    "seat": "Conf Pass · A1",
+    "ref_code": "TURN-FE26-EB42",
+    "qr_payload": "TURN:tkt-003:evt-003:usr-001",
+    "status": "active",
+    "transferable": false
+  }
+]

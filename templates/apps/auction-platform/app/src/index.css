@@ -1,0 +1,200 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Gavl auction palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-bid-panel: var(--mol-color-bid-panel, #fdf6f2);
+  --color-surface-secondary: var(--mol-color-surface-secondary, #faf8f6);
+  --color-accent: var(--mol-color-accent, #1a9a6c);
+  --color-accent-hover: var(--mol-color-accent-hover, #22b87e);
+  --color-accent-dark: var(--mol-color-accent-dark, #147a56);
+  --color-timer: var(--mol-color-timer, #1e1e1e);
+  --color-timer-bar: var(--mol-color-timer-bar, #1e1e1e);
+  --color-urgent: var(--mol-color-urgent, #dc2626);
+  --color-ending-soon: var(--mol-color-ending-soon, #d97706);
+  --color-ending-soon-light: var(--mol-color-ending-soon-light, #fef3c7);
+  --color-bid-winning: var(--mol-color-bid-winning, #1a9a6c);
+  --color-bid-winning-light: var(--mol-color-bid-winning-light, #d1fae5);
+  --color-bid-outbid: var(--mol-color-bid-outbid, #dc2626);
+  --color-bid-outbid-light: var(--mol-color-bid-outbid-light, #fee2e2);
+
+  /* Numbered primary scale used by Stitch baseline pages — derived from --color-primary. */
+  --color-primary-50: color-mix(in srgb, var(--color-primary) 8%, white);
+  --color-primary-100: color-mix(in srgb, var(--color-primary) 16%, white);
+  --color-primary-200: color-mix(in srgb, var(--color-primary) 32%, white);
+  --color-primary-300: color-mix(in srgb, var(--color-primary) 48%, white);
+  --color-primary-500: var(--color-primary);
+  --color-primary-600: color-mix(in srgb, var(--color-primary) 80%, black);
+  --color-primary-700: color-mix(in srgb, var(--color-primary) 60%, black);
+  --color-accent-100: color-mix(in srgb, var(--color-accent) 16%, white);
+  --color-accent-500: var(--color-accent);
+  --color-accent-700: color-mix(in srgb, var(--color-accent) 60%, black);
+
+  /* Display surfaces used in nav/timer overlays. */
+  --color-dark: #0f0d12;
+  --color-surface-bid: var(--color-bid-panel);
+  --color-surface-dark: var(--color-dark);
+  --color-surface-sec: var(--color-surface-secondary);
+
+  /* Optional aliases for ribbon/danger phrasing. */
+  --color-danger: var(--color-urgent);
+  --color-danger-light: var(--color-bid-outbid-light);
+  --color-urgent-red: var(--color-urgent);
+
+  /* Stitch border-radius scale. */
+  --radius: 0.5rem;
+  --radius-btn: 8px;
+  --radius-card: 12px;
+  --radius-full: 9999px;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-inset-1 -mr-20 -mt-20 -translate-y-1/2 2xl 2xl:grid-cols-4 3xl absolute active:scale-95 after:absolute after:bg-white after:border after:border-gray-300 after:h-5 after:left-[2px] after:rounded-full after:top-[2px] after:transition-all after:w-5 amount animate-pulse antialiased appearance-none aspect-[4/3] aspect-h-3 aspect-square aspect-w-4 auction-card auction-card-body auction-description auction-detail-page auction-gallery auction-grid auction-image auction-info auction-list-page backdrop-blur-md backdrop-blur-sm bg-accent bg-accent-500 bg-accent/10 bg-accent/5 bg-amber-100 bg-bid-panel bg-black/10 bg-black/40 bg-danger bg-danger-light bg-danger-light/30 bg-dark bg-dark/90 bg-gradient-to-br bg-gradient-to-r bg-gradient-to-t bg-gray-100 bg-gray-50 bg-green-50 bg-neutral-100 bg-neutral-200 bg-neutral-300");
+@source inline("bg-neutral-50 bg-orange-100 bg-orange-50 bg-primary bg-primary-100 bg-primary-100/30 bg-primary-50 bg-primary-500 bg-primary-light bg-primary/10 bg-red-100 bg-red-50/30 bg-red-600 bg-stone-100 bg-stone-50 bg-surface bg-surface-bid bg-surface-dark bg-surface-sec bg-surface-secondary bg-surface/90 bg-timer bg-timer/80 bg-timer/90 bg-transparent bg-urgent bg-warning bg-white bg-white/10 bg-white/20 bg-white/80 bg-white/90 bg-zinc-100 bg-zinc-200 bg-zinc-400 bg-zinc-50 bg-zinc-50/50 bg-zinc-900 bid-btn bid-count bid-error bid-form bid-history bid-input-group bid-panel bid-row block blur blur-3xl border border-2 border-accent-100 border-accent/20 border-b border-b-2 border-collapse border-danger/20 border-dashed border-gray-100 border-gray-200");
+@source inline("border-gray-300 border-l border-neutral-100 border-neutral-200 border-neutral-300 border-none border-orange-100 border-orange-200/60 border-orange-600 border-primary border-primary-100 border-primary-200 border-primary-50 border-primary-500 border-primary-600 border-primary/20 border-primary/30 border-r border-r-4 border-stone-100 border-stone-200 border-stone-300 border-stone-800 border-t border-transparent border-urgent border-urgent/20 border-urgent/30 border-white border-white/10 border-white/20 border-zinc-100 border-zinc-200 border-zinc-300 border-zinc-700/50 bottom-0 bottom-1 bottom-3 bottom-6 buy-now-btn col-span-1 col-span-2 countdown current-bid current-bid-display cursor-pointer dark:bg-gray-950 dark:bg-neutral-950 dark:bg-stone-800 dark:bg-stone-900 dark:bg-stone-900/80 dark:border-gray-800 dark:border-neutral-800 dark:border-stone-700 dark:border-stone-800 dark:hover:bg-gray-900 dark:hover:bg-neutral-800 dark:hover:bg-stone-800 dark:text-gray-400 dark:text-neutral-300");
+@source inline("dark:text-orange-400 dark:text-orange-500 dark:text-stone-300 dark:text-stone-400 dark:text-white disabled:opacity-50 divide-stone-100 divide-y divide-zinc-100 docked duration-100 duration-150 duration-200 duration-300 duration-500 duration-700 ease-in-out filled fixed flat flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus-within:bg-white focus-within:border-primary focus-within:border-primary-300 focus-within:ring-1 focus-within:ring-2 focus-within:ring-primary focus-within:ring-primary-100 focus:bg-white focus:border-accent focus:border-primary focus:border-primary-500 focus:outline-none focus:ring-0 focus:ring-1 focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-primary focus:ring-primary-500 font-black font-body font-bold font-extrabold font-headline font-inter font-medium font-mono font-mono-sf font-normal font-sans font-semibold from-accent from-black/80 from-primary");
+@source inline("from-surface-dark/90 from-white full-width gap-1 gap-12 gap-2 gap-3 gap-4 gap-6 gap-8 grid grid-cols-1 grid-cols-2 grid-cols-3 grid-rows-2 group group-hover:opacity-100 group-hover:scale-105 group-hover:text-gray-900 group-hover:text-primary-600 group-hover:translate-x-0 h-10 h-12 h-14 h-16 h-2 h-24 h-3 h-4 h-5 h-6 h-8 h-96 h-[200px] h-[48px] h-[500px] h-[56px] h-[600px] h-[80px] h-full h-screen hidden hide-scrollbar hover:-translate-y-1 hover:bg-accent-hover hover:bg-emerald-600 hover:bg-gray-100 hover:bg-gray-50 hover:bg-neutral-100 hover:bg-neutral-200 hover:bg-neutral-50 hover:bg-orange-100 hover:bg-orange-700 hover:bg-primary hover:bg-primary-100 hover:bg-primary-50 hover:bg-primary-600 hover:bg-primary-dark hover:bg-primary-hover hover:bg-red-50");
+@source inline("hover:bg-stone-100 hover:bg-stone-50 hover:bg-white hover:bg-zinc-100 hover:bg-zinc-50 hover:border-gray-300 hover:border-neutral-300 hover:border-primary-200 hover:border-primary/50 hover:border-zinc-400 hover:opacity-100 hover:scale-110 hover:shadow-lg hover:shadow-md hover:shadow-sm hover:text-gray-600 hover:text-gray-700 hover:text-gray-800 hover:text-neutral-700 hover:text-orange-500 hover:text-orange-700 hover:text-primary hover:text-primary-500 hover:text-primary-600 hover:text-primary-700 hover:text-primary-dark hover:text-primary-hover hover:text-red-400 hover:text-red-500 hover:text-red-600 hover:text-stone-600 hover:text-stone-900 hover:text-white hover:text-zinc-700 hover:text-zinc-800 hover:text-zinc-900 hover:underline image-thumbnails inline-flex inset-0 inset-x-0 inset-y-0 italic items-baseline items-center items-end items-start justify-between justify-center justify-end label leading-5 leading-none leading-relaxed leading-snug leading-tight left-0 left-1 left-2 left-3");
+@source inline("left-4 left-6 left-[220px] left-[260px] lg:flex lg:flex-row lg:grid-cols-2 lg:grid-cols-3 lg:hidden lg:ml-auto lg:p-8 lg:px-8 lg:py-24 lg:text-7xl lg:w-1/3 lg:w-2/3 lg:w-2/5 lg:w-3/5 lg:w-[280px] line-clamp-1 line-clamp-2 loading main-image material-symbols-outlined max-w-3xl max-w-7xl max-w-[1600px] max-w-[440px] max-w-lg max-w-md max-w-none max-w-screen-2xl max-w-screen-xl mb mb-1 mb-2 mb-3 mb-4 mb-6 mb-8 md md:block md:col-span-1 md:col-span-2 md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:mb-0 md:ml-[260px] md:p-16 md:p-8 md:text-4xl md:text-left md:w-80 me-2 min-h-screen min-w-0 min-w-[800px]");
+@source inline("ml-1 ml-2 ml-4 ml-[260px] ml-auto mr-2 ms-2 mt-1 mt-12 mt-2 mt-3 mt-4 mt-6 mt-8 mt-auto mx-2 mx-8 mx-auto no object-contain object-cover opacity-0 opacity-10 opacity-20 opacity-25 opacity-50 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto overflow-x-hidden overflow-y-auto p-0 p-1 p-10 p-12 p-2 p-3 p-4 p-5 p-6 p-8 pb-1 pb-2 pb-24 pb-3 pb-4 pb-6 pb-8 pb-[80px] peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-primary peer-focus:outline-none pl-10 pl-3 pl-4 pl-5");
+@source inline("pl-6 pl-7 pl-9 placeholder-gray-500 placeholder-stone-400 placeholder-zinc-500 pointer-events-none pr-10 pr-3 pr-4 pr-8 prose prose-zinc pt-16 pt-2 pt-4 pt-6 pt-8 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-10 py-12 py-16 py-2 py-3 py-4 py-6 py-8 relative resize-none ribbon ribbon-ending ribbon-live ribbon-wrapper right-0 right-1 right-2 right-3 right-4 right-[-24px] ring-2 ring-urgent/30 rotate-45 rounded rounded-2xl rounded-[12px] rounded-full rounded-lg rounded-md rounded-xl row-span-1 rtl:rotate-180 scroll-smooth scrollbar-hide");
+@source inline("select-all shadow shadow-2xl shadow-emerald-900/50 shadow-inner shadow-lg shadow-md shadow-orange-500/20 shadow-orange-500/30 shadow-sm shadow-xl shadows shrink-0 sm sm:block sm:flex sm:flex-row sm:grid-cols-2 sm:grid-cols-6 sm:items-center sm:ms-4 sm:p-10 sm:px-6 sm:text-3xl sm:text-sm snap-mandatory snap-start snap-x space-y-1 space-y-2 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sr-only sticky tabular-nums text-2xl text-3xl text-4xl text-5xl text-6xl text-[10px] text-[14px] text-[16px] text-[18px] text-[20px] text-[32px] text-[9px] text-accent text-accent-700 text-amber-500 text-amber-700 text-base text-blue-500 text-blue-800 text-center text-danger text-gray-400");
+@source inline("text-gray-500 text-gray-600 text-gray-700 text-gray-900 text-left text-lg text-neutral-100 text-neutral-300 text-neutral-400 text-neutral-500 text-neutral-600 text-neutral-700 text-neutral-900 text-orange-600 text-primary text-primary-600 text-primary-700 text-red-400 text-red-500 text-red-600 text-red-700 text-right text-sm text-stone-400 text-stone-500 text-stone-600 text-stone-700 text-stone-900 text-urgent text-urgent-red text-white text-white/70 text-white/90 text-xl text-xs text-zinc-300 text-zinc-400 text-zinc-500 text-zinc-600 text-zinc-700 text-zinc-800 text-zinc-900 time-remaining timer to-primary-dark to-transparent to-urgent to-zinc-900 top-0 top-1 top-1/2 top-2 top-24 top-3 top-4 top-8 top-[140px] top-[68px] tracking-tight tracking-tighter");
+@source inline("tracking-wide tracking-wider tracking-widest transform transition transition-all transition-colors transition-opacity transition-shadow transition-transform translate-x-1 translate-x-10 translate-x-5 translate-y-2 truncate underline uppercase via-black/20 via-transparent via-zinc-900 w-1 w-10 w-11 w-12 w-14 w-16 w-2 w-20 w-24 w-3 w-32 w-4 w-5 w-6 w-64 w-72 w-8 w-96 w-[220px] w-[260px] w-[280px] w-[3px] w-[48px] w-full w-px whitespace-nowrap xl:flex xl:grid-cols-4 xl:text-6xl xs z-0 z-10 z-20 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+/* SF Mono equivalent fallback */
+.font-mono-sf {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+.ribbon {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  width: 150px;
+  text-align: center;
+  padding: 5px 0;
+  transform: rotate(45deg);
+  z-index: 10;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-on-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ribbon-live {
+  background-color: var(--color-primary);
+}
+
+.ribbon-ending {
+  background-color: #d97706;
+}
+
+.ribbon-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-top-right-radius: 0.75rem;
+  z-index: 10;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-mono {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+  .fill-icon {
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+}
+
+.ribbon {
+  position: absolute;
+  top: 16px;
+  right: -24px;
+  transform: rotate(45deg);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 4px 32px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+/* polish-v2:stitch-styles:end */

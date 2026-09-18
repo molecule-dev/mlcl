@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tier-classic",
+    "name": "Classic",
+    "tagline": "A monthly drop of small surprises.",
+    "price_cents": 3900,
+    "cadence": "monthly",
+    "items_per_box": "5–6",
+    "popular": false,
+    "features": [
+      "5–6 curated items each month",
+      "Free shipping anywhere in the US",
+      "Skip or pause any time",
+      "Themed editions every season"
+    ]
+  },
+  {
+    "id": "tier-premium",
+    "name": "Premium",
+    "tagline": "Bigger boxes, broader stories.",
+    "price_cents": 5900,
+    "cadence": "monthly",
+    "items_per_box": "7–8",
+    "popular": true,
+    "features": [
+      "7–8 hand-picked items each month",
+      "Limited-edition collaborations",
+      "Two member-only swaps per box",
+      "Free returns + early access to drops"
+    ]
+  },
+  {
+    "id": "tier-quarterly",
+    "name": "Quarterly Edition",
+    "tagline": "Season-long stories, four times a year.",
+    "price_cents": 14900,
+    "cadence": "quarterly",
+    "items_per_box": "10–12",
+    "popular": false,
+    "features": [
+      "10–12 keepsake items per season",
+      "Hardback story booklet with each box",
+      "Maker spotlight + behind-the-scenes",
+      "Reserved seasonal collaborations"
+    ]
+  }
+]

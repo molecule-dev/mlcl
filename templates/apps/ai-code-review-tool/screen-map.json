@@ -1,0 +1,202 @@
+{
+  "app": "ai-code-review-tool",
+  "designProjectId": "4061965772079334304",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-login.html",
+      "designScreenId": "1f1d6f81e97f4c6eb8bb1d62a584b2ef"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-code-review-tool-login.html",
+      "derivationNotes": "Same centered card on soft purple background. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-code-review-tool-login.html",
+      "derivationNotes": "Same centered card on soft purple background. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-code-review-tool-login.html",
+      "derivationNotes": "Same centered card on soft purple background. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-dashboard.html",
+      "designScreenId": "7e7d0e8b9d0c4bcdbdd4e11b252eaf5b"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-landing.html",
+      "designScreenId": "e072503660664ccba373ef5bebf0b4ae"
+    },
+    {
+      "name": "PullRequestDetail",
+      "templateFile": "app/pages/PullRequestDetail.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/prs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-pull-request-detail.html",
+      "designScreenId": "28b5f656edec4a7ba1ff3e9f07c69ef8"
+    },
+    {
+      "name": "Repositories",
+      "templateFile": "app/pages/Repositories.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/repos",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-repositories.html",
+      "designScreenId": "fed9906d169d476ab915460aef56188c"
+    },
+    {
+      "name": "ReviewHistory",
+      "templateFile": "app/pages/ReviewHistory.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-review-history.html",
+      "designScreenId": "800ad9ffffdd45b299fd2efbe959a9a9"
+    },
+    {
+      "name": "RulesEditor",
+      "templateFile": "app/pages/RulesEditor.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/rules",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-rules-editor.html",
+      "designScreenId": "8c48481eda8948d9a451f0368b3c7aa6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-settings.html",
+      "designScreenId": "688b444d24fe45dcac181465c3433d3c"
+    },
+    {
+      "name": "RepositoryDetail",
+      "templateFile": "app/pages/RepositoryDetail.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/repos/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-repository-detail.html",
+      "designScreenId": "042df04e847e43108ad590f0117109b2"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-reports.html",
+      "designScreenId": "5f87709c860841b7bab5564adff64e13"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-notifications.html",
+      "designScreenId": "b3c20f5993aa489e84d1f45a12f2838d"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-search.html",
+      "designScreenId": "22616e69800244cdb844b97ce6110ed8"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": [
+        "app/components/RefractLayout.tsx"
+      ],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-code-review-tool-profile.html",
+      "designScreenId": "2e4483dcff694dbc91084a9e7890d8aa"
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "*",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-code-review-tool-login.html",
+      "derivationNotes": "Same centered card on soft purple background. Replace form with a terminal-style 404 message: large display 404 in JetBrains Mono primary purple, heading 'Page not found', subtext 'The path you requested does not exist or has been moved.', primary 'Back to Dashboard' button + ghost 'Search Refract' button. Refract wordmark stays at top of card."
+    }
+  ]
+}

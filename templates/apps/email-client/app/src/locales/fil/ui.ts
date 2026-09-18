@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Mag-browse ng mga artikulo ng tulong',
+  'about.cta.signup': 'Subukan ang Courier nang libre',
+  'about.eyebrow': 'Tungkol sa Courier',
+  'about.principle.calm': 'Kalmado bilang default.',
+  'about.principle.calm.desc':
+    'Walang mga badge na sumisigaw, walang mga notification na hindi mo hiniling, walang mga animation na humihingi ng sulyap.',
+  'about.principle.fast.desc':
+    'Isang keystroke lang ang kailangan para sa bawat aksyon. Naglo-load ang inbox nang wala pang 200ms sa isang bagong sign-in.',
+  'about.principle.honest.desc':
+    'Pag-encrypt habang inililipat at habang hindi inililipat, transparent na pagpapanatili, at pag-export ng data sa isang click lang.',
+  'about.story': 'Bakit namin itinayo ang Courier',
+  'about.story.p1':
+    'Karamihan sa mga email client ay nag-o-optimize para sa pakikipag-ugnayan — hinihila ka paatras, pinaghihiwalay ang iyong atensyon, at nagmumungkahi ng isa pang pag-tap. Kabaligtaran naman ang ginagawa ng Courier. Sinusukat namin ang tagumpay sa oras na HINDI mo ginugugol sa iyong inbox: mabilis na pag-triage, pag-antala nang may kumpiyansa, at ituloy ang mahahalagang gawain.',
+  'about.subtitle':
+    'Ang Courier ay isang tahimik at may tatlong pane na inbox na ginawa ng isang maliit na pangkat na gustong magproseso ng impormasyon sa halip na mag-react dito.',
+  'about.team.body':
+    'Kami ay isang pangkat ng mga designer at engineer na minsang gumugol ng napakaraming oras araw-araw sa isang maingay na mailbox. Ang Courier ang inbox na gusto naming gamitin mismo.',
+  'about.title': 'Email para sa nakapokus na trabaho',
+  'help.cta.about': 'Tungkol sa Courier',
+  'help.cta.pricing': 'Tingnan ang pagpepresyo',
+  'help.eyebrow': 'Help center',
+  'help.faq.compose.a':
+    'I-click ang \\u201CCompose\\u201D mula sa sidebar (o pindutin ang \\u201Cc\\u201D sa anumang inbox view), maglagay ng kahit isang tatanggap, paksa, at katawan, at pindutin ang \\u201CSend\\u201D. Agad na lilitaw ang bagong mensahe sa iyong Sent folder.',
+  'help.faq.compose.q': 'Paano ko ipapadala ang una kong mensahe?',
+  'help.faq.export.a':
+    'Oo. Mga Setting \\u2192 Account \\u2192 Ang pag-export ng data ay lumilikha ng isang nada-download na archive (mbox + JSON) na naglalaman ng bawat mensahe, label, at contact. Hindi kinakailangan ang premium tier.',
+  'help.faq.labels.a':
+    'Eksklusibo ang mga folder (ang isang mensahe ay nasa eksaktong isa): Inbox, Naipadala, Mga Draft, Spam, Basurahan, Archive. Ang mga label ay pandagdag \\u2014 maaari kang maglapat ng marami sa isang email at mag-filter ayon sa mga kumbinasyon mula sa search bar.',
+  'help.faq.password.a':
+    'Gamitin ang link na \\u201CNakalimutan ang password?\\u201D sa pahina ng pag-sign-in. Magpapadala kami ng link sa pag-reset na balido sa loob ng isang oras sa email ng iyong account.',
+  'help.faq.shortcuts.a':
+    'Oo. \\u201Cj\\u201D / \\u201Ck\\u201D lumilipat sa pagitan ng mga thread, \\u201Cs\\u201D nagpapalit ng bituin, \\u201Ce\\u201D nag-a-archive, \\u201C#\\u201D lumilipat sa basurahan, at \\u201C/\\u201D nagpo-focus sa search box. Makikita ang dokumentasyon ng shortcut sa anumang inbox view sa pamamagitan ng pagpindot sa \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Magpadala ng email sa support@courier.example. Sinasagot namin ang bawat mensahe sa loob ng isang araw ng negosyo, mga karaniwang araw ng trabaho 9\\u201317 UTC.',
+  'help.subtitle':
+    'Mabilisang mga sagot sa mga tanong na madalas naming marinig. May kulang ba? Buksan ang Mga Setting at gamitin ang in-app feedback form, o sumulat sa support@courier.example.',
+  'help.title': 'Paano tayo makakatulong?',
+  'landing.brand.scrollTop': 'Balik sa itaas',
+  'landing.ctaBody':
+    'Samahan ang libu-libong propesyonal na natapos ang kanilang inbox bago mananghalian.',
+  'landing.ctaTitle': 'Mas maraming proseso, mas kaunting reaksyon.',
+  'landing.eyebrow': 'Email para sa nakapokus na trabaho',
+  'landing.featuresBody': 'Itigil ang pamamahala sa iyong inbox at simulan na ang pagtatrabaho.',
+  'landing.featuresTitle': 'Dinisenyo para sa malalim na trabaho',
+  'landing.help': 'Tulong',
+  'landing.heroDemo': 'Manood ng demo',
+  'landing.heroSubtitle':
+    'Ang Courier ay isang tahimik na three-pane inbox na ginawa para sa mga knowledge worker na gustong magproseso ng impormasyon, hindi mag-react dito.',
+  'landing.proof': 'Pinagkakatiwalaan ng mga nakatutok na koponan sa buong mundo',
+  'landing.signIn': 'Mag-sign in',
+  'meridian.archive.empty': 'Walang laman ang arkibos.',
+  'meridian.compose.addRecipient': 'Magdagdag ng isa pang tatanggap',
+  'meridian.compose.bodyPlaceholder': 'Isulat ang iyong mensahe…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Itapon ang draft',
+  'meridian.compose.invalidEmail': '" {{value}} " ay hindi isang wastong email',
+  'meridian.compose.needRecipient': 'Magdagdag muna ng kahit isang tatanggap.',
+  'meridian.compose.replyTo': 'Tumugon sa thread {{id}}',
+  'meridian.compose.savedAt': 'Na-save ang draft noong {{time}}',
+  'meridian.compose.sentWithError': 'Na-save sa Naipadala, ngunit nabigo ang paghahatid: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': 'Paksa',
+  'meridian.compose.title': 'Bagong mensahe',
+  'meridian.compose.to': 'Para kay',
+  'meridian.drafts.continue': 'Ipagpatuloy ang pag-edit',
+  'meridian.drafts.count': '{{count}} mga mensahe',
+  'meridian.drafts.delete': 'Burahin ang draft',
+  'meridian.drafts.empty': 'Wala pang mga draft — simulan na ang pagsusulat.',
+  'meridian.drafts.lastSaved': 'Na-save {{at}}',
+  'meridian.drafts.noRecipients': '(wala pang mga tatanggap)',
+  'meridian.drafts.selectDraft': 'Pumili ng draft na ipi-preview.',
+  'meridian.drafts.title': 'Mga draft',
+  'meridian.drafts.to': 'Para kay',
+  'meridian.drafts.watermark': 'Draft',
+  'meridian.folder.count': '{{count}} mga mensahe',
+  'meridian.folder.deleteForever': 'Permanenteng burahin',
+  'meridian.folder.restore': 'Ilipat sa inbox',
+  'meridian.forgot.subtitle':
+    'Ilagay ang email na nauugnay sa iyong inbox at magpapadala kami ng link sa pag-reset.',
+  'meridian.forgot.success':
+    'Kung mayroon nang account na may ganoong email, may paparating nang link para sa pag-reset.',
+  'meridian.inbox.empty': 'Wala pang mga mensahe rito.',
+  'meridian.inbox.loading': 'Naglo-load…',
+  'meridian.inbox.next': 'Susunod',
+  'meridian.inbox.noSubject': '(walang paksa)',
+  'meridian.inbox.openCompose': 'Buksan ang pagsulat',
+  'meridian.inbox.previous': 'Nakaraan',
+  'meridian.inbox.replyFailed': 'Na-save ang tugon ngunit nabigo ang paghahatid: {{error}}',
+  'meridian.inbox.replySent': 'Naipadala na ang tugon.',
+  'meridian.inbox.replyTo': 'Tugon sa {{name}}',
+  'meridian.inbox.selectMessage': 'Pumili ng mensaheng babasahin',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Tingnan ang thread',
+  'meridian.login.hidePassword': 'Itago ang password',
+  'meridian.login.noAccount': 'Wala pang account?',
+  'meridian.login.showPassword': 'Ipakita ang password',
+  'meridian.message.toLine': 'sa {{recipients}}',
+  'meridian.notFound.eyebrow': 'Error 404',
+  'meridian.notFound.title': 'Na-archive na ang thread na ito.',
+  'meridian.notFound.toInbox': 'Buksan ang aking inbox',
+  'meridian.reset.newLabel': 'Bagong password',
+  'meridian.reset.showPassword': 'Ipakita ang password',
+  'meridian.reset.subtitle': 'Pumili ng matibay na password — hindi bababa sa 8 character.',
+  'meridian.sent.empty': 'Wala ka pang naipapadala.',
+  'meridian.sent.title': 'Ipinadala',
+  'meridian.settings.noName': '(walang pangalang nakatakda)',
+  'meridian.settings.section.${section}': 'I-customize ang iyong {{Pangalan ng app}} karanasan',
+  'meridian.settings.signature': 'Lagda',
+  'meridian.settings.signatureSaved': 'Na-save ang lagda.',
+  'meridian.sidebar.compose': 'I-compose',
+  'meridian.sidebar.labels': 'Mga Label',
+  'meridian.sidebar.noLabels': 'Wala pang mga label',
+  'meridian.sidebar.storage': 'Storage',
+  'meridian.sidebar.storageLabel': '{{used}} ng {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Gumawa ng iyong Courier inbox',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Ipakita ang password',
+  'meridian.signup.subtitle': 'Iproseso ang iyong inbox bago mananghalian.',
+  'meridian.spam.empty': 'Walang spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Walang mga mensaheng may bituin.',
+  'meridian.starred.loading': 'Naglo-load…',
+  'meridian.starred.removeStar': 'Alisin ang bituin',
+  'meridian.starred.total': '{{count}} kabuuan',
+  'meridian.thread.back': 'Bumalik sa Inbox',
+  'meridian.thread.empty': 'Walang mensahe sa thread na ito.',
+  'meridian.thread.eyebrow': '# ng Usapin {{id}}',
+  'meridian.thread.notFound': 'Hindi natagpuan ang sinulid.',
+  'meridian.thread.star': 'Magdagdag ng bituin',
+  'meridian.thread.unstar': 'Alisin ang bituin',
+  'meridian.time.yesterday': 'Kahapon',
+  'meridian.topBar.searchPlaceholder': 'Maghanap ng mail',
+  'meridian.trash.empty': 'Walang laman ang basurahan.',
+  'meridian.trash.title': 'Basurahan',
+  'nav.legal': 'Legal',
+  'planUpdated.description':
+    'Aktibo na ngayon ang iyong subscription at na-update na ang iyong billing. Maligayang pagdating sa iyong na-refresh na Courier inbox.',
+  'pricing.heading': 'mga draft',
+  'pricing.limit.emails': 'mga email',
+  'pricing.limit.folders': 'mga folder',
+  'pricing.limit.labels': 'mga label',
+  'privacy.collect.account':
+    'Data ng account: pangalan, email address, na-hash na password, at ang petsa ng iyong pag-sign up.',
+  'privacy.intro':
+    'Ipinapaliwanag ng patakaran sa privacy na ito kung anong data ang kinokolekta ng Courier, bakit namin ito kinokolekta, paano namin ito pinapanatiling ligtas, at kung ano ang mga pagpipilian mo rito. Layunin naming maging tiyak sa halip na legalistiko; kung may anumang hindi malinaw, sumulat sa privacy@courier.example.',
+  'privacy.lastUpdated': 'Huling na-update: Abril 1, 2026',
+  'privacy.linkTerms': 'Basahin ang aming Mga Tuntunin ng Serbisyo',
+  'privacy.rights.body':
+    'Maaari mong i-export ang bawat piraso ng data na hawak namin tungkol sa iyo mula sa Mga Setting → Account → Pag-export ng data, at maaari mong burahin ang iyong account sa isang click lamang — lahat ng row ay mabubura sa loob ng 24 na oras, ang mga audit log ay mabubura pagkatapos ng 30 araw.',
+  'privacy.security.body':
+    'Ang nilalaman at mga kalakip ng mail ay naka-encrypt habang naka-imbak gamit ang AES-256. Ang mga koneksyon papunta at mula sa aming serbisyo ay gumagamit ng TLS 1.3. Ang mga password ay hina-hash gamit ang bcrypt; hindi kami kailanman naglo-log o nag-iimbak ng mga plaintext na password. Ang access sa produksyon ay limitado sa mga on-call engineer, na ina-audit buwan-buwan.',
+  'privacy.share.body':
+    'Ibinabahagi lamang namin ang data sa mga sub-processor na kailangan namin para patakbuhin ang Courier (paghahatid ng email sa pamamagitan ng Mailgun, pagsingil sa pamamagitan ng Stripe, pagho-host sa pamamagitan ng AWS). Ang bawat isa ay may kontratang obligasyon na gamitin lamang ang iyong data para maisagawa ang kanilang serbisyo para sa amin. Hindi namin ibinebenta, inuupahan, o ipinagpapalit ang iyong data sa sinuman.',
+  'terms.acceptable.spam':
+    'Bawal ang maramihang hindi hinihinging mensahe. Isasara namin ang mga account na nagpapadala ng spam nang walang babala.',
+  'terms.account.body':
+    'Responsibilidad mo ang pagpapanatili ng pagiging kumpidensyal ng iyong password at para sa anumang aktibidad na nangyayari sa pamamagitan ng iyong account. Abisuhan kami sa security@courier.example kung naniniwala kang nakompromiso ang iyong account.',
+  'terms.billing.body':
+    'Ang mga bayad na plano ay mare-renew sa ritmo na pinili sa pag-sign-up. Maaari kang magkansela mula sa Mga Setting → Pagsingil anumang oras at mapapanatili mo ang access para sa natitirang panahon ng pagsingil. Ang mga refund ay ibinibigay para sa downtime ng serbisyo na lumampas sa SLA.',
+  'terms.intro':
+    'Ang mga tuntuning ito ang namamahala sa iyong paggamit ng Courier. Sa pamamagitan ng paggawa ng account o pagpapadala ng email sa pamamagitan namin, sumasang-ayon kang sumunod sa mga ito. Sinusubukan naming sumulat ng mga tuntunin na maaaring sundin ng isang tao.',
+  'terms.lastUpdated': 'Epektibo: Abril 1, 2026',
+  'terms.termination.body':
+    'Maaari mong burahin ang iyong account anumang oras. Maaari naming suspindihin ang isang account na lumalabag sa mga tuntuning ito; kung gagawin namin, ipapaliwanag namin ang dahilan at hahayaan ka munang i-export ang iyong data.',
+  'terms.warranty.body':
+    'Ang serbisyo ay ibinibigay nang walang pagbabago. Nagsusumikap kaming panatilihin itong maaasahan at ligtas, ngunit hindi namin magagarantiya ang walang patid na pag-access. Sa lawak na pinahihintulutan ng batas, ang aming kabuuang pananagutan ay limitado sa halagang ibinayad mo sa amin sa nakaraang 12 buwan.',
+}

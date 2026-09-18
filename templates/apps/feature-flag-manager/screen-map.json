@@ -1,0 +1,142 @@
+{
+  "app": "feature-flag-manager",
+  "designProjectId": "7085104943291468692",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-login.html",
+      "designScreenId": "f582393cb62843ad9fadb3368422ebf0"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-login.html",
+      "derivationNotes": "Same dark centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-login.html",
+      "derivationNotes": "Same dark centered card with only Email field. Heading 'Reset your password'. Button 'Send reset link'. Bottom 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-login.html",
+      "derivationNotes": "Same dark centered card with New Password and Confirm Password. Heading 'Set new password'. Button 'Reset password'. Bottom 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-dashboard.html",
+      "designScreenId": "1164f9b42c9a4f2c8198f4868608a0a3"
+    },
+    {
+      "name": "Flags",
+      "templateFile": "app/pages/Flags.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/flags",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-flags.html",
+      "designScreenId": "c189fc2bc19442a784a30446a8f6841d"
+    },
+    {
+      "name": "FlagDetail",
+      "templateFile": "app/pages/FlagDetail.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/flags/:key",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-flag-detail.html",
+      "designScreenId": "1a16b111c2c14b1aa4fcd4b231fa418f"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/audit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-audit-log.html",
+      "designScreenId": "c8991c5aa9c74aab98d86a60c45c4113"
+    },
+    {
+      "name": "Environments",
+      "templateFile": "app/pages/Environments.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/environments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-environments.html",
+      "designScreenId": "efc16fda8da14266a497c364250478ce"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-dashboard.html",
+      "derivationNotes": "Settings page with same dark sidebar nav and top bar as Dashboard. Two-column content: left settings sub-nav (Organization, Team Members, Projects, Integrations, API, Webhooks, Audit Retention, Billing) with emerald #10b981 active state; right content shows Organization card, Team Members table with Admin/Editor/Viewer roles, Integrations grid (Slack, GitHub, Jira, Datadog with status pills + Manage buttons), Webhooks list with mono endpoint URLs and event chips. Save Changes primary emerald button. All endpoints/keys in JetBrains Mono."
+    },
+    {
+      "name": "Segments",
+      "templateFile": "app/pages/Segments.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/segments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-feature-flag-manager-segments.html",
+      "designScreenId": "5fc95a08e39b4aa3aabd3d95b2b156ba"
+    },
+    {
+      "name": "SegmentDetail",
+      "templateFile": "app/pages/SegmentDetail.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/segments/:key",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-flag-detail.html",
+      "derivationNotes": "Same dark FlagDetail layout (sidebar + top bar + main panel). Header shows segment key in JetBrains Mono (e.g. 'beta_testers') + segment name + Active/Draft pill + Edit/Archive actions. Tabs: Rules | Members | Used In | Audit. Rules tab uses the same Targeting Rule Card layout as FlagDetail (drag-handle, AND/OR connector pills, attribute select in mono, operator select, value chips) — but rules define segment membership rather than flag eligibility. Members tab: paginated table with user avatar, email, attributes (mono), joined-segment timestamp (mono xs). Used In tab: list of flags that reference this segment with toggle states. Audit tab: same audit log entry component as elsewhere. Right rail summary: total members count (mono 2xl), tag chips, last evaluated timestamp."
+    },
+    {
+      "name": "NewFlag",
+      "templateFile": "app/pages/NewFlag.tsx",
+      "components": ["app/components/FeatureFlagManagerLayout.tsx"],
+      "route": "/flags/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-feature-flag-manager-flag-detail.html",
+      "derivationNotes": "Same dark FlagDetail layout but in create mode. Header shows breadcrumb 'Pennant / Flags / New flag' and an editable flag-key input (JetBrains Mono) with auto-slug helper text 'derived from name', flag name input, description textarea, flag type select (Boolean / Multivariate / String / Number), tags multi-select chips. Section: Variants — for boolean default 'true / false', for multivariate dynamic add-row table with variant key (mono), value (mono), description, weight %. Section: Default rule (when no targeting matches) — variant select. Section: Environments — checkbox list (development, staging, production) with default state per env. Bottom action bar: Cancel ghost button + 'Create flag' emerald primary button. No Audit log, no Targeting rules editor (those appear after creation). Keep dark control-panel aesthetic, sharp 8px corners, mono for keys."
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+:root {
+  /* Brand colors — warm orange/red delivery theme */
+  --color-primary: #e8590c;
+  --color-primary-hover: #d9480f;
+  --color-primary-light: #fff4e6;
+  --color-secondary: #1a1b1e;
+  --color-accent: #f76707;
+  --color-accent-hover: #e8590c;
+  --color-accent-warm: #fbbf24;
+
+  /* Semantic colors */
+  --color-success: #15803d; /* was #2f9e44 (3.4:1 as 11px bold text on white); green-700 = 5.0:1 */
+  --color-warning: #d9480f; /* was #f08c00 (2.4:1 as star icons); 4.3:1 */
+  --color-error: #c92a2a; /* darkened from #e03131 — white on-error now 5.3:1 */
+  --color-info: #1c7ed6;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f1f3f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fff4e6;
+  --color-border: #dee2e6;
+  --color-border-light: #f1f3f5;
+
+  /* Text */
+  --color-text: #1a1b1e;
+  --color-text-secondary: #495057;
+  --color-text-muted: #868e96;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.12);
+
+  /* Layout */
+  --max-width: 1280px;
+  --sidebar-width: 320px;
+  --header-height: 64px;
+
+  /* Restaurant grid */
+  --restaurant-card-min-width: 280px;
+  --restaurant-image-ratio: 16 / 9;
+
+  /* Menu layout */
+  --menu-item-min-width: 300px;
+  --cart-sidebar-width: 360px;
+
+  /* Order status colors */
+  --color-status-placed: #868e96;
+  --color-status-confirmed: #1c7ed6;
+  --color-status-preparing: #f08c00;
+  --color-status-ready: #7048e8;
+  --color-status-picked-up: #e8590c;
+  --color-status-delivered: #2f9e44;
+  --color-status-cancelled: #c92a2a;
+
+  /* Rating */
+  --color-star: #f59f00;
+  --color-star-empty: #dee2e6;
+
+  /* Map */
+  --map-height: 300px;
+  --map-height-lg: 400px;
+
+  /* Driver dashboard */
+  --delivery-card-border: #e8590c;
+  --stat-card-bg: #fff4e6;
+
+  /* Auth card glow shadow — matches brand primary at 12% opacity */
+  --color-auth-card-shadow: rgba(232, 89, 12, 0.12);
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #e8590c;
+  --mol-color-primary-light: #fff4e6;
+  --mol-color-primary-dark: #c2410c; /* was #d9480f (4.3:1 as small bold links); orange-700 = 5.2:1 */
+  --mol-color-secondary: #1a1b1e;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8f9fa;
+  --mol-color-background-tertiary: #f1f3f5;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f9fa;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1a1b1e;
+  --mol-color-text-secondary: #495057;
+  --mol-color-text-tertiary: #868e96;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #dee2e6;
+  --mol-color-border-secondary: #ced4da;
+  --mol-color-border-focus: #e8590c;
+  --mol-color-success: #15803d; /* see --color-success */
+  --mol-color-warning: #d9480f; /* see --color-warning */
+  --mol-color-error: #c92a2a;
+  --mol-color-info: #1c7ed6;
+
+  /* === M3 bridge tokens (light) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #1a1b1e;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ede8e4;
+  --color-surface-container-lowest: #fdfbfa;
+  --color-surface-container-low: #f8f9fa;
+  --color-surface-container: #f1f3f5;
+  --color-surface-container-high: #e9ecef;
+  --color-surface-container-highest: #dee2e6;
+  --color-surface-variant: #f1f3f5;
+  --color-on-surface: #1a1b1e;
+  --color-on-surface-variant: #495057;
+  --color-inverse-surface: #2c2a28;
+  --color-inverse-on-surface: #f6efe6;
+  --color-inverse-primary: #fb923c;
+  --color-primary-container: #fff4e6;
+  --color-on-primary: #3d0c00; /* dark on orange — 4.8:1 contrast (white only 3.5:1) */
+  --color-on-primary-container: #7a2500;
+  --color-secondary-container: #f1f3f5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1a1b1e;
+  --color-tertiary: #f76707;
+  --color-tertiary-container: #fff4e6;
+  --color-on-tertiary: #3d0c00; /* dark on orange tertiary — matches on-primary */
+  --color-on-tertiary-container: #7a2500;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #c92a2a — 5.3:1 contrast */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #adb5bd;
+  --color-outline-variant: #dee2e6;
+  --color-surface-tint: #e8590c;
+}
+
+/* Dark mode — late-night delivery warm-neutral dark.
+   Warm cocoa surfaces evoke a lit kitchen at night; the brand orange
+   pops without competing with food photography. Primary lifts to
+   #fb923c for surface accents; brand stop #e8590c is preserved for hero
+   CTAs so white text stays the on-primary contrast. */
+[data-mol-mode='dark'] {
+  --color-primary: #fb923c;
+  --color-primary-hover: #fdba74;
+  --color-primary-light: rgba(251, 146, 60, 0.18);
+  --color-secondary: #f0eae3;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  --color-bg: #16110d;
+  --color-bg-secondary: #211a14;
+  --color-bg-tertiary: #2c241c;
+  --color-surface: #211a14;
+  --color-surface-hover: #2c241c;
+  --color-border: #3c3229;
+  --color-border-light: #2c241c;
+
+  --color-text: #f6efe6;
+  --color-text-secondary: #ccc0b1;
+  --color-text-muted: #8d8073;
+  --color-text-inverse: #16110d;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.65);
+
+  --color-status-placed: #adb5bd;
+  --color-status-confirmed: #60a5fa;
+  --color-status-preparing: #fbbf24;
+  --color-status-ready: #a78bfa;
+  --color-status-picked-up: #fb923c;
+  --color-status-delivered: #4ade80;
+  --color-status-cancelled: #f87171;
+
+  --color-star: #fbbf24;
+  --color-star-empty: #3c3229;
+
+  --delivery-card-border: #fb923c;
+  --stat-card-bg: rgba(251, 146, 60, 0.12);
+  --color-accent-warm: #fbbf24;
+  --color-auth-card-shadow: rgba(251, 146, 60, 0.18);
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #fb923c;
+  --mol-color-primary-light: rgba(251, 146, 60, 0.18);
+  --mol-color-primary-dark: #ea7128;
+  --mol-color-secondary: #f0eae3;
+  --mol-color-background: #16110d;
+  --mol-color-background-secondary: #211a14;
+  --mol-color-background-tertiary: #2c241c;
+  --mol-color-surface: #211a14;
+  --mol-color-surface-secondary: #2c241c;
+  --mol-color-input-background: #0e0b08;
+  --mol-color-text: #f6efe6;
+  --mol-color-text-secondary: #ccc0b1;
+  --mol-color-text-tertiary: #8d8073;
+  --mol-color-text-inverse: #16110d;
+  --mol-color-border: #3c3229;
+  --mol-color-border-secondary: #4d4138;
+  --mol-color-border-focus: #fb923c;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* === M3 bridge tokens (dark) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #f6efe6;
+  --color-surface-bright: #2c241c;
+  --color-surface-dim: #0a0806;
+  --color-surface-container-lowest: #0a0806;
+  --color-surface-container-low: #16110d;
+  --color-surface-container: #211a14;
+  --color-surface-container-high: #2c241c;
+  --color-surface-container-highest: #3c3229;
+  --color-surface-variant: #2c241c;
+  --color-on-surface: #f6efe6;
+  --color-on-surface-variant: #ccc0b1;
+  --color-inverse-surface: #f6efe6;
+  --color-inverse-on-surface: #16110d;
+  --color-inverse-primary: #e8590c;
+  --color-primary-container: #432209;
+  --color-on-primary: #3d0c00; /* dark on orange — 7.5:1 contrast (white only 2.2:1) */
+  --color-on-primary-container: #fdd9b5;
+  --color-secondary-container: #3c3229;
+  --color-on-secondary: #16110d;
+  --color-on-secondary-container: #f0eae3;
+  --color-tertiary: #fb923c;
+  --color-tertiary-container: #432209;
+  --color-on-tertiary: #3d0c00; /* dark on orange tertiary — 7.5:1 contrast */
+  --color-on-tertiary-container: #fdd9b5;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red error — 5.9:1 contrast (white only 2.8:1) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6e5f52;
+  --color-outline-variant: #3c3229;
+  --color-surface-tint: #fb923c;
+}
+
+/* The shared TopNavLayout hardcodes the pair bg-primary-container + text-primary
+   for the active nav item, but brand orange (--color-primary) cannot reach 4.5:1
+   as 14px text on any light background. Re-pair the text to the M3-correct
+   on-primary-container token wherever that combination appears. */
+.bg-primary-container.text-primary {
+  color: var(--color-on-primary-container);
+}

@@ -1,0 +1,47 @@
+export default {
+  common: {
+    loading: 'Loading...',
+    back: 'Back',
+  },
+  search: {
+    title: 'Find Restaurants',
+    placeholder: 'Restaurants, cuisine, or location...',
+    allCuisines: 'All Cuisines',
+    italian: 'Italian',
+    japanese: 'Japanese',
+    mexican: 'Mexican',
+    chinese: 'Chinese',
+    indian: 'Indian',
+    thai: 'Thai',
+    american: 'American',
+    french: 'French',
+    anyPrice: 'Any Price',
+    anyRating: 'Any Rating',
+    reviews: 'reviews',
+    noResults: 'No restaurants found',
+  },
+  restaurant: {
+    notFound: 'Restaurant not found',
+    reviews: 'reviews',
+    about: 'About',
+    info: 'Info',
+    address: 'Address',
+    phone: 'Phone',
+    website: 'Website',
+    hours: 'Hours',
+    writeReview: 'Write a Review',
+  },
+  review: {
+    notFound: 'Review not found',
+    helpful: 'found this helpful',
+  },
+  pricing: {
+    heading: 'Choose your {{app}} plan',
+    limits: {
+      restaurants: 'restaurants',
+      reviews: 'reviews',
+      advancedFeatures: 'Advanced features',
+      canExport: 'Data export',
+    },
+  },
+}

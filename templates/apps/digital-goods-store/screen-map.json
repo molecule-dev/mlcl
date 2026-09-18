@@ -1,0 +1,179 @@
+{
+  "app": "digital-goods-store",
+  "designProjectId": "8010879356015427536",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-landing.html",
+      "designScreenId": "07a074f8abff4086be4ed19740421588"
+    },
+    {
+      "name": "Storefront",
+      "templateFile": "app/pages/Storefront.tsx",
+      "components": [],
+      "route": "/shop",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-storefront.html",
+      "designScreenId": "7a3c9611eada4105b22b45753440541b"
+    },
+    {
+      "name": "ProductDetail",
+      "templateFile": "app/pages/ProductDetail.tsx",
+      "components": [],
+      "route": "/shop/:slug",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-product-detail.html",
+      "designScreenId": "93303defe1ad49eb88ef520635d18cf5"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-login.html",
+      "designScreenId": "40111915f8f24b709604b9e5d3e0a6be"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-digital-goods-store-login.html",
+      "derivationNotes": "Same split layout as Login (warm gradient left + white form right) with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-digital-goods-store-login.html",
+      "derivationNotes": "Same split layout as Login with only the Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-digital-goods-store-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/DigitalGoodsStoreLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-dashboard.html",
+      "designScreenId": "64d4784cc5a64986855cbfd828eec37f"
+    },
+    {
+      "name": "Products",
+      "templateFile": "app/pages/Products.tsx",
+      "components": ["app/components/DigitalGoodsStoreLayout.tsx"],
+      "route": "/products",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-products.html",
+      "designScreenId": "7391f62eeea2458bba6ad7c38c68ef7f"
+    },
+    {
+      "name": "Sales",
+      "templateFile": "app/pages/Sales.tsx",
+      "components": ["app/components/DigitalGoodsStoreLayout.tsx"],
+      "route": "/sales",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-sales.html",
+      "designScreenId": "03f032441ec74428ba544a4b74a80f22"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DigitalGoodsStoreLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-settings.html",
+      "designScreenId": "e9705a4a79884e2a8e3b0fc1b39e059f"
+    },
+    {
+      "name": "Cart",
+      "templateFile": "app/pages/Cart.tsx",
+      "components": [],
+      "route": "/cart",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-cart.html",
+      "designScreenId": "5a92f75cf1ba4381882114c199f1a273"
+    },
+    {
+      "name": "Checkout",
+      "templateFile": "app/pages/Checkout.tsx",
+      "components": [],
+      "route": "/checkout",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-checkout.html",
+      "designScreenId": "90af0ea9bc644984807da097082f4be3"
+    },
+    {
+      "name": "OrderConfirm",
+      "templateFile": "app/pages/OrderConfirm.tsx",
+      "components": [],
+      "route": "/order/:id/confirm",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-order-confirm.html",
+      "designScreenId": "fb4084d9d0f740faa5e2c9bff3dd8a20"
+    },
+    {
+      "name": "CustomerLibrary",
+      "templateFile": "app/pages/CustomerLibrary.tsx",
+      "components": [],
+      "route": "/library",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-customer-library.html",
+      "designScreenId": "84117b3fb8984cc6ae928bb29ab814ad"
+    },
+    {
+      "name": "OrderHistory",
+      "templateFile": "app/pages/OrderHistory.tsx",
+      "components": [],
+      "route": "/orders",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-order-history.html",
+      "designScreenId": "54ad13cb999b48e899749a031b99a48a"
+    },
+    {
+      "name": "ProductEditor",
+      "templateFile": "app/pages/ProductEditor.tsx",
+      "components": ["app/components/DigitalGoodsStoreLayout.tsx"],
+      "route": "/products/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-digital-goods-store-product-editor.html",
+      "designScreenId": "9a385fa1ed5746bfb3ddc9102c39b9a1"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Handlers that are not exposed as HTTP endpoints — internal-only helpers
+# the verify-app-coverage gate should ignore.
+_seed

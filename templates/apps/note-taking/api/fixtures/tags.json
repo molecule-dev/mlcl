@@ -1,0 +1,14 @@
+[
+  { "id": "tag-writing", "name": "writing", "count": 12, "color": "#3b5fc0" },
+  { "id": "tag-work", "name": "work", "count": 18, "color": "#0891b2" },
+  { "id": "tag-personal", "name": "personal", "count": 9, "color": "#8b5cf6" },
+  { "id": "tag-reading", "name": "reading", "count": 7, "color": "#2da563" },
+  { "id": "tag-research", "name": "research", "count": 6, "color": "#0891b2" },
+  { "id": "tag-craft", "name": "craft", "count": 5, "color": "#3b5fc0" },
+  { "id": "tag-process", "name": "process", "count": 8, "color": "#3b5fc0" },
+  { "id": "tag-drafts", "name": "drafts", "count": 4, "color": "#3b5fc0" },
+  { "id": "tag-habits", "name": "habits", "count": 3, "color": "#8b5cf6" },
+  { "id": "tag-q2", "name": "q2", "count": 5, "color": "#0891b2" },
+  { "id": "tag-shipping", "name": "shipping", "count": 6, "color": "#0891b2" },
+  { "id": "tag-checklist", "name": "checklist", "count": 4, "color": "#0891b2" }
+]

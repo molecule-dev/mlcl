@@ -1,0 +1,8 @@
+[
+  { "id": "u-001", "name": "Asha Rahman",  "email": "asha@vigil.example.com",   "role": "owner",     "on_call": true,  "shift": "Primary · 16:00-00:00 UTC", "avatar_initial": "A", "tz": "Europe/London" },
+  { "id": "u-002", "name": "Diego Park",   "email": "diego@vigil.example.com",  "role": "operator",  "on_call": false, "shift": "Off-shift",                  "avatar_initial": "D", "tz": "America/Los_Angeles" },
+  { "id": "u-003", "name": "Mira Adler",   "email": "mira@vigil.example.com",   "role": "operator",  "on_call": true,  "shift": "Secondary · 16:00-00:00 UTC", "avatar_initial": "M", "tz": "Europe/Berlin" },
+  { "id": "u-004", "name": "Riley Tanaka", "email": "riley@vigil.example.com",  "role": "viewer",    "on_call": false, "shift": "Read-only",                  "avatar_initial": "R", "tz": "Asia/Tokyo" },
+  { "id": "u-005", "name": "Imani Suleiman","email": "imani@vigil.example.com", "role": "operator",  "on_call": false, "shift": "Off-shift · returns 22:00 UTC","avatar_initial": "I", "tz": "Africa/Nairobi" },
+  { "id": "u-006", "name": "Jordan Vega",  "email": "jordan@vigil.example.com", "role": "operator",  "on_call": false, "shift": "Off-shift",                  "avatar_initial": "J", "tz": "America/New_York" }
+]

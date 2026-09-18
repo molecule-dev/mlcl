@@ -1,0 +1,6 @@
+# Handlers exempted from gate 3 (handler endpoint hit by spec).
+# `_seed` is invoked internally from list/snapshot endpoints; it has no
+# public route surface to assert against. Coverage of seed correctness is
+# enforced indirectly by every dashboard / list / detail spec that reads
+# the rows it generates.
+_seed

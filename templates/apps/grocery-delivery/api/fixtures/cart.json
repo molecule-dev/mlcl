@@ -1,0 +1,7 @@
+[
+  { "id": "ci1", "product_id": "p1",  "name": "Organic Hass Avocados", "brand": "Earthbound",  "size": "4 ct",   "qty": 1, "price_cents":  599, "thumbnail_url": "https://picsum.photos/seed/p1/120/120",  "substitution_pref": "best_match" },
+  { "id": "ci2", "product_id": "p2",  "name": "Whole Milk",            "brand": "Clover",      "size": "1 gal",  "qty": 2, "price_cents":  549, "thumbnail_url": "https://picsum.photos/seed/p2/120/120",  "substitution_pref": "best_match" },
+  { "id": "ci3", "product_id": "p3",  "name": "Sourdough Boule",       "brand": "Acme Bread",  "size": "26 oz",  "qty": 1, "price_cents":  649, "thumbnail_url": "https://picsum.photos/seed/p3/120/120",  "substitution_pref": "specific" },
+  { "id": "ci4", "product_id": "p11", "name": "Free-Range Eggs",       "brand": "Vital Farms", "size": "12 ct",  "qty": 1, "price_cents":  699, "thumbnail_url": "https://picsum.photos/seed/p11/120/120", "substitution_pref": "best_match" },
+  { "id": "ci5", "product_id": "p18", "name": "Bananas",               "brand": "Chiquita",    "size": "2 lb",   "qty": 1, "price_cents":  199, "thumbnail_url": "https://picsum.photos/seed/p18/120/120", "substitution_pref": "remove" }
+]

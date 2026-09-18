@@ -1,0 +1,732 @@
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
+
+import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { SURFACE_PANEL } from '../branding.js'
+import { type HttpMethod, MethodBadge } from '../components/MethodBadge.js'
+import { MetricStatCard } from '../components/MetricStatCard.js'
+import { statusFromCode, StatusPill } from '../components/StatusPill.js'
+
+const PANEL_BORDER = 'var(--color-border)'
+
+const METHODS: HttpMethod[] = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+
+interface SavedRequest {
+  id: string
+  name?: string
+  method?: string
+  url?: string
+  collection_id?: string | null
+}
+
+interface EnvironmentRow {
+  id: string
+  name?: string
+  is_active?: boolean
+}
+
+interface ExecuteResponse {
+  status?: number
+  body?: unknown
+  headers?: Record<string, string>
+  duration_ms?: number
+  error?: string
+}
+
+interface AssertionResult {
+  defaultLabel: string
+  passed: boolean
+}
+
+function buildAssertions(resp: ExecuteResponse): AssertionResult[] {
+  const status = resp.status ?? 0
+  const duration = resp.duration_ms ?? 0
+  const sizeBytes =
+    typeof resp.body === 'string'
+      ? resp.body.length
+      : resp.body
+        ? JSON.stringify(resp.body).length
+        : 0
+  return [
+    { defaultLabel: 'Response received', passed: status > 0 },
+    { defaultLabel: 'Status code is 2xx', passed: status >= 200 && status < 300 },
+    { defaultLabel: 'Response time is below 1000 ms', passed: duration > 0 && duration < 1000 },
+    { defaultLabel: 'Body is non-empty', passed: sizeBytes > 0 },
+    { defaultLabel: 'No transport error', passed: !resp.error },
+  ]
+}
+
+function formatBody(body: unknown): string {
+  if (body == null) return ''
+  if (typeof body === 'string') {
+    try {
+      return JSON.stringify(JSON.parse(body), null, 2)
+    } catch (_error) {
+      // body is not JSON — display it as-is
+      return body
+    }
+  }
+  try {
+    return JSON.stringify(body, null, 2)
+  } catch (_error) {
+    // non-serialisable body (circular ref, etc.) — fall back to string coercion
+    return String(body)
+  }
+}
+
+type RequestTab = 'params' | 'auth' | 'headers' | 'body' | 'tests'
+
+const VALID_TABS: RequestTab[] = ['params', 'auth', 'headers', 'body', 'tests']
+
+function tabFromHash(hash: string): RequestTab {
+  const candidate = hash.replace(/^#/, '') as RequestTab
+  return VALID_TABS.includes(candidate) ? candidate : 'auth'
+}
+
+export function Workspace() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const http = useHttpClient()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [method, setMethod] = useState<HttpMethod>('GET')
+  const [url, setUrl] = useState<string>('')
+  const activeRequestTab = tabFromHash(location.hash)
+  const setActiveRequestTab = (tab: RequestTab) => {
+    navigate(`${location.pathname}#${tab}`, { replace: false })
+  }
+  const [saved, setSaved] = useState<SavedRequest[] | null>(null)
+  const [activeEnv, setActiveEnv] = useState<EnvironmentRow | null>(null)
+  const [response, setResponse] = useState<ExecuteResponse | null>(null)
+  const [busy, setBusy] = useState<'send' | 'save' | null>(null)
+  const [statusMsg, setStatusMsg] = useState<string | null>(null)
+
+  // Load existing saved requests + active environment.
+  useEffect(() => {
+    let cancelled = false
+    Promise.all([
+      http.get<SavedRequest[]>('/api/requests').catch(() => ({ data: [] as SavedRequest[] })),
+      http
+        .get<EnvironmentRow[]>('/api/environments')
+        .catch(() => ({ data: [] as EnvironmentRow[] })),
+    ]).then(([rs, es]) => {
+      if (cancelled) return
+      const rows = Array.isArray(rs.data) ? rs.data : []
+      const envs = Array.isArray(es.data) ? es.data : []
+      setSaved(rows)
+      const active = envs.find((e) => e.is_active) ?? envs[0] ?? null
+      setActiveEnv(active)
+      const first = rows[0]
+      if (first) {
+        setMethod((first.method as HttpMethod) ?? 'GET')
+        setUrl(first.url ?? '')
+      }
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [http])
+
+  const handleSend = async () => {
+    if (busy) return
+    setBusy('send')
+    setStatusMsg(null)
+    try {
+      // Persist a request (or reuse the first saved) so we can use the
+      // existing /api/requests/:id/execute endpoint.
+      let target: SavedRequest | null = saved?.[0] ?? null
+      if (!target) {
+        const created = await http.post<SavedRequest>('/api/requests', {
+          name: t('workspace.unnamed', {}, { defaultValue: 'Untitled request' }),
+          method,
+          url,
+        })
+        target = created.data
+        setSaved([target, ...(saved ?? [])])
+      } else {
+        await http.put<SavedRequest>(`/api/requests/${target.id}`, {
+          method,
+          url,
+        })
+      }
+      const exec = await http.post<ExecuteResponse>(`/api/requests/${target.id}/execute`, {})
+      setResponse(exec.data)
+      setStatusMsg(
+        t('workspace.statusSent', {}, { defaultValue: 'Request fired — see response below.' }),
+      )
+    } catch (err) {
+      setStatusMsg(
+        err instanceof Error
+          ? err.message
+          : t('workspace.statusError', {}, { defaultValue: 'Could not send the request.' }),
+      )
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const handleSave = async () => {
+    if (busy) return
+    setBusy('save')
+    setStatusMsg(null)
+    try {
+      const target = saved?.[0]
+      if (target) {
+        await http.put<SavedRequest>(`/api/requests/${target.id}`, { method, url })
+        setStatusMsg(
+          t('workspace.statusSaved', {}, { defaultValue: 'Request saved to this workspace.' }),
+        )
+      } else {
+        const created = await http.post<SavedRequest>('/api/requests', {
+          name: t('workspace.unnamed', {}, { defaultValue: 'Untitled request' }),
+          method,
+          url,
+        })
+        setSaved([created.data, ...(saved ?? [])])
+        setStatusMsg(
+          t('workspace.statusSaved', {}, { defaultValue: 'Request saved to this workspace.' }),
+        )
+      }
+    } catch (err) {
+      setStatusMsg(
+        err instanceof Error
+          ? err.message
+          : t('workspace.saveError', {}, { defaultValue: 'Could not save the request.' }),
+      )
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const requestTabs = [
+    { key: 'params', defaultLabel: 'Params', badge: '0' },
+    { key: 'auth', defaultLabel: 'Auth', badge: '1' },
+    { key: 'headers', defaultLabel: 'Headers', badge: '0' },
+    { key: 'body', defaultLabel: 'Body', badge: method === 'GET' ? '–' : '1' },
+    { key: 'tests', defaultLabel: 'Tests', badge: '5' },
+  ] as const
+
+  const assertions = response ? buildAssertions(response) : []
+  const passed = assertions.filter((a) => a.passed).length
+  const failed = assertions.length - passed
+  const responseSize = response?.body
+    ? typeof response.body === 'string'
+      ? response.body.length
+      : JSON.stringify(response.body).length
+    : 0
+
+  return (
+    <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'p-6')}>
+      <header className={cm.cn('flex items-start justify-between gap-6 flex-wrap mb-6')}>
+        <div>
+          <p
+            className={cm.cn('font-mono text-xs font-bold uppercase tracking-widest mb-2')}
+            style={{ color: 'var(--color-primary)' }}
+          >
+            {t('workspace.eyebrow', {}, { defaultValue: '$ pylon workspace --pane split' })}
+          </p>
+          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'tracking-tight')}>
+            {t('nav.workspace', {}, { defaultValue: 'Workspace' })}
+          </h1>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {t(
+              'workspace.subheading',
+              {},
+              {
+                defaultValue:
+                  'Compose a request, fire it, then assert the response — all in one pane.',
+              },
+            )}
+          </p>
+        </div>
+        <div className={cm.cn('flex items-center gap-2')}>
+          <button
+            type="button"
+            onClick={handleSave}
+            disabled={busy !== null || !url}
+            className={cm.cn(
+              'px-3 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest border transition-colors hover:opacity-80 disabled:opacity-50',
+            )}
+            style={{
+              borderColor: 'color-mix(in srgb, var(--color-text) 18%, transparent)',
+              color: 'var(--color-text-primary)',
+              backgroundColor: 'color-mix(in srgb, var(--color-surface-elevated) 60%, transparent)',
+            }}
+            data-mol-id="workspace-save"
+          >
+            {busy === 'save'
+              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+              : t('common.save', {}, { defaultValue: 'Save' })}
+          </button>
+          <button
+            type="button"
+            onClick={handleSend}
+            disabled={busy !== null || !url}
+            className={cm.cn(
+              'px-4 py-2 rounded-md font-mono text-xs font-extrabold uppercase tracking-widest transition-all hover:opacity-90 inline-flex items-center gap-2 disabled:opacity-50',
+            )}
+            style={{
+              backgroundColor: 'var(--color-primary)',
+              color: 'var(--color-on-primary)',
+              boxShadow:
+                '0 8px 22px -10px color-mix(in srgb, var(--color-primary) 60%, transparent)',
+            }}
+            data-mol-id="workspace-send"
+          >
+            {busy === 'send'
+              ? t('common.sendingEllipsis', {}, { defaultValue: 'Sending…' })
+              : t('common.send', {}, { defaultValue: 'Send' })}
+            <span
+              className={cm.cn('px-1 rounded text-[10px] font-mono')}
+              style={{ backgroundColor: 'color-mix(in srgb, var(--color-text) 25%, transparent)' }}
+            >
+              ⌘↵
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {statusMsg ? (
+        <div
+          className={cm.cn('mb-4 px-4 py-2 rounded-md font-mono text-xs')}
+          style={{
+            backgroundColor: 'color-mix(in srgb, var(--color-success) 10%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--color-success) 30%, transparent)',
+            color: 'var(--color-success)',
+          }}
+          role="status"
+          data-mol-id="workspace-status-message"
+        >
+          {statusMsg}
+        </div>
+      ) : null}
+
+      {/* Top stats */}
+      <section className={cm.cn('grid gap-4 grid-cols-2 md:grid-cols-4 mb-6')}>
+        <MetricStatCard
+          eyebrow={t('nav.status', {}, { defaultValue: 'Status' })}
+          value={response?.status ? String(response.status) : '—'}
+          unit={response?.status ? (statusFromCode(response.status) === 'success' ? 'OK' : '') : ''}
+          tone={
+            response?.status
+              ? statusFromCode(response.status) === 'success'
+                ? 'success'
+                : statusFromCode(response.status) === 'serverError'
+                  ? 'error'
+                  : 'warning'
+              : 'neutral'
+          }
+          icon="check_circle"
+          caption={t('workspace.metric.statusCaption', {}, { defaultValue: 'Last response' })}
+        />
+        <MetricStatCard
+          eyebrow={t('workspace.metric.latency', {}, { defaultValue: 'Latency' })}
+          value={response?.duration_ms ? String(response.duration_ms) : '—'}
+          unit="ms"
+          tone={
+            response?.duration_ms
+              ? response.duration_ms < 200
+                ? 'success'
+                : response.duration_ms < 1000
+                  ? 'warning'
+                  : 'error'
+              : 'neutral'
+          }
+          icon="speed"
+          caption={t(
+            'workspace.metric.latencyCaption',
+            {},
+            { defaultValue: 'Round-trip from this run' },
+          )}
+        />
+        <MetricStatCard
+          eyebrow={t('workspace.metric.size', {}, { defaultValue: 'Payload' })}
+          value={
+            responseSize
+              ? responseSize >= 1024
+                ? (responseSize / 1024).toFixed(1)
+                : String(responseSize)
+              : '—'
+          }
+          unit={responseSize ? (responseSize >= 1024 ? 'KB' : 'B') : ''}
+          tone={response ? 'info' : 'neutral'}
+          icon="data_object"
+          caption={t('workspace.metric.sizeCaption', {}, { defaultValue: 'Response body bytes' })}
+        />
+        <MetricStatCard
+          eyebrow={t('workspace.metric.tests', {}, { defaultValue: 'Tests' })}
+          value={response ? `${passed}` : '—'}
+          unit={response ? `/ ${assertions.length}` : ''}
+          tone={response ? (failed > 0 ? 'warning' : 'success') : 'neutral'}
+          icon="bug_report"
+          caption={
+            response
+              ? failed > 0
+                ? t(
+                    'workspace.metric.testsFailing',
+                    { count: failed },
+                    { defaultValue: '{{count}} failing' },
+                  )
+                : t(
+                    'workspace.metric.testsAllPassing',
+                    {},
+                    { defaultValue: 'All assertions green' },
+                  )
+              : t('workspace.metric.testsIdle', {}, { defaultValue: 'Send a request to evaluate' })
+          }
+        />
+      </section>
+
+      {/* URL bar */}
+      <div
+        className={cm.cn('rounded-xl p-3 mb-6 flex items-center gap-2 font-mono')}
+        style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
+      >
+        <select
+          value={method}
+          onChange={(e) => setMethod(e.target.value as HttpMethod)}
+          className={cm.cn(
+            'bg-transparent border-none outline-none font-extrabold text-sm pr-2 cursor-pointer',
+          )}
+          style={{ color: 'var(--color-text-primary)' }}
+          aria-label={t('workspace.methodLabel', {}, { defaultValue: 'HTTP method' })}
+          data-mol-id="workspace-method"
+        >
+          {METHODS.map((m) => (
+            <option key={m} value={m} style={{ backgroundColor: 'var(--color-background)' }}>
+              {m}
+            </option>
+          ))}
+        </select>
+        <span style={{ color: 'var(--color-surface)' }}>|</span>
+        <input
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder={t(
+            'workspace.urlPlaceholder',
+            {},
+            { defaultValue: 'https://api.example.com/v1/resource' },
+          )}
+          className={cm.cn('flex-1 bg-transparent border-none outline-none text-sm')}
+          style={{ color: 'var(--color-text-primary)' }}
+          aria-label={t('workspace.urlLabel', {}, { defaultValue: 'Request URL' })}
+          data-mol-id="workspace-url"
+        />
+        <span
+          className={cm.cn(
+            'font-mono text-[11px] font-bold uppercase tracking-widest px-2 py-1 rounded',
+          )}
+          style={{
+            backgroundColor: 'color-mix(in srgb, var(--color-method-patch) 18%, transparent)',
+            color: 'var(--color-method-patch)',
+          }}
+        >
+          {activeEnv?.name ?? t('workspace.environment', {}, { defaultValue: 'No env' })}
+        </span>
+      </div>
+
+      <div className={cm.cn('grid gap-6 grid-cols-1 lg:grid-cols-2')}>
+        {/* Request panel */}
+        <section
+          className={cm.cn('rounded-2xl overflow-hidden flex flex-col')}
+          style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
+        >
+          <header
+            className={cm.cn('flex items-center gap-1 px-2 border-b')}
+            style={{
+              borderColor: PANEL_BORDER,
+              backgroundColor: 'color-mix(in srgb, var(--color-background) 40%, transparent)',
+            }}
+          >
+            {requestTabs.map((tab) => {
+              const active = activeRequestTab === tab.key
+              return (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveRequestTab(tab.key)}
+                  className={cm.cn(
+                    'px-3 py-3 font-mono text-[11px] font-extrabold uppercase tracking-widest border-b-2 transition-colors',
+                  )}
+                  style={{
+                    color: active ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                    borderColor: active ? 'var(--color-primary)' : 'transparent',
+                  }}
+                  data-mol-id={`workspace-tab-${tab.key}`}
+                >
+                  {t(`workspace.tab.${tab.key}`, {}, { defaultValue: tab.defaultLabel })}
+                  <span
+                    className={cm.cn('ml-2 px-1.5 py-0.5 rounded text-[10px]')}
+                    style={{
+                      backgroundColor:
+                        'color-mix(in srgb, var(--color-surface-elevated) 80%, transparent)',
+                      color: 'var(--color-text-secondary)',
+                    }}
+                  >
+                    {tab.badge}
+                  </span>
+                </button>
+              )
+            })}
+          </header>
+          <div className={cm.cn('p-5 flex-1')}>
+            <div className={cm.cn('mb-4 flex items-center gap-3')}>
+              <span
+                className={cm.cn('text-[10px] font-black uppercase tracking-widest font-mono')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t('workspace.authType', {}, { defaultValue: 'Type' })}
+              </span>
+              <select
+                className={cm.cn('px-3 py-2 rounded-md font-mono text-xs')}
+                style={{
+                  backgroundColor: 'var(--color-background)',
+                  color: 'var(--color-text-primary)',
+                  border: `1px solid ${PANEL_BORDER}`,
+                }}
+                defaultValue="bearer"
+                aria-label={t('workspace.authTypeLabel', {}, { defaultValue: 'Auth type' })}
+              >
+                <option value="none">
+                  {t('workspace.authOption.none', {}, { defaultValue: 'None' })}
+                </option>
+                <option value="basic">
+                  {t('workspace.authOption.basic', {}, { defaultValue: 'Basic Auth' })}
+                </option>
+                <option value="bearer">
+                  {t('workspace.authOption.bearer', {}, { defaultValue: 'Bearer Token' })}
+                </option>
+                <option value="oauth">
+                  {t('workspace.authOption.oauth', {}, { defaultValue: 'OAuth 2.0' })}
+                </option>
+                <option value="apikey">
+                  {t('workspace.authOption.apikey', {}, { defaultValue: 'API Key' })}
+                </option>
+              </select>
+            </div>
+            <div
+              className={cm.cn('rounded-md p-4')}
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--color-background) 50%, transparent)',
+                border: `1px solid ${PANEL_BORDER}`,
+              }}
+            >
+              <div className={cm.cn('flex items-center justify-between mb-2')}>
+                <label
+                  className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
+                  style={{ color: 'var(--color-text-secondary)' }}
+                  htmlFor="workspace-token"
+                >
+                  {t('workspace.token', {}, { defaultValue: 'Token' })}
+                </label>
+                <span
+                  className={cm.cn('font-mono text-[10px] font-bold px-2 py-0.5 rounded')}
+                  style={{
+                    backgroundColor:
+                      'color-mix(in srgb, var(--color-method-patch) 18%, transparent)',
+                    color: 'var(--color-method-patch)',
+                  }}
+                >
+                  {t('workspace.envVar', {}, { defaultValue: 'env variable' })}
+                </span>
+              </div>
+              <input
+                id="workspace-token"
+                type="password"
+                placeholder={t('workspace.tokenPlaceholder', {}, { defaultValue: '{{API_TOKEN}}' })}
+                className={cm.cn('w-full px-3 py-2 rounded-md font-mono text-sm outline-none')}
+                style={{
+                  backgroundColor: 'var(--color-background)',
+                  color: 'var(--color-method-patch)',
+                  border: `1px solid ${PANEL_BORDER}`,
+                }}
+              />
+              <p
+                className={cm.cn('mt-2 text-[11px]')}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'workspace.tokenHint',
+                  {},
+                  {
+                    defaultValue:
+                      'Sent as Authorization: Bearer <token> on every request in this collection.',
+                  },
+                )}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Response panel */}
+        <section
+          className={cm.cn('rounded-2xl overflow-hidden flex flex-col')}
+          style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
+        >
+          <header
+            className={cm.cn('flex items-center justify-between px-4 py-3 border-b')}
+            style={{
+              borderColor: PANEL_BORDER,
+              backgroundColor: 'color-mix(in srgb, var(--color-background) 40%, transparent)',
+            }}
+          >
+            <div className={cm.cn('flex items-center gap-2')}>
+              <MethodBadge method={method} />
+              {response?.status ? (
+                <StatusPill
+                  status={statusFromCode(response.status)}
+                  label={String(response.status)}
+                  emphasis
+                />
+              ) : (
+                <span
+                  className={cm.cn(
+                    'font-mono text-[11px] font-bold uppercase tracking-widest px-2 py-1 rounded',
+                  )}
+                  style={{
+                    backgroundColor:
+                      'color-mix(in srgb, var(--color-surface-elevated) 60%, transparent)',
+                    color: 'var(--color-text-secondary)',
+                  }}
+                >
+                  {t('workspace.idle', {}, { defaultValue: 'Idle' })}
+                </span>
+              )}
+            </div>
+            <div
+              className={cm.cn('flex items-center gap-3 font-mono text-[11px]')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {response?.duration_ms ? (
+                <>
+                  <span style={{ color: 'var(--color-success)' }}>{response.duration_ms} ms</span>
+                  <span>·</span>
+                  <span>
+                    {responseSize >= 1024
+                      ? `${(responseSize / 1024).toFixed(1)} KB`
+                      : `${responseSize} B`}
+                  </span>
+                </>
+              ) : (
+                <span>{t('workspace.noResponseYet', {}, { defaultValue: 'No response yet' })}</span>
+              )}
+            </div>
+          </header>
+          <pre
+            className={cm.cn('flex-1 p-5 m-0 font-mono text-[12px] leading-relaxed overflow-auto')}
+            style={{
+              backgroundColor: 'var(--color-background)',
+              color: 'var(--color-text-primary)',
+              minHeight: '12rem',
+            }}
+          >
+            {response
+              ? formatBody(response.body)
+              : t(
+                  'workspace.responseHint',
+                  {},
+                  { defaultValue: '// Press Send to fire the request and capture the response.' },
+                )}
+          </pre>
+          <footer
+            className={cm.cn('border-t')}
+            style={{
+              borderColor: PANEL_BORDER,
+              backgroundColor: 'color-mix(in srgb, var(--color-background) 40%, transparent)',
+            }}
+          >
+            <div
+              className={cm.cn(
+                'flex items-center px-4 py-2 border-b font-mono text-[11px] font-extrabold uppercase tracking-widest',
+              )}
+              style={{ borderColor: PANEL_BORDER }}
+            >
+              <span style={{ color: 'var(--color-text-primary)' }} className={cm.cn('mr-4')}>
+                {t('workspace.testResults', {}, { defaultValue: 'Test results' })}
+              </span>
+              <span
+                className={cm.cn('flex items-center gap-1')}
+                style={{ color: 'var(--color-success)' }}
+              >
+                <span
+                  className={cm.cn('w-2 h-2 rounded-full')}
+                  style={{ backgroundColor: 'var(--color-method-get)' }}
+                  aria-hidden="true"
+                />
+                {t(
+                  'workspace.passedCount',
+                  { count: passed },
+                  { defaultValue: '{{count}} passed' },
+                )}
+              </span>
+              <span
+                className={cm.cn('ml-3 flex items-center gap-1')}
+                style={{ color: failed > 0 ? 'var(--color-error)' : 'var(--color-text-secondary)' }}
+              >
+                <span
+                  className={cm.cn('w-2 h-2 rounded-full')}
+                  style={{
+                    backgroundColor:
+                      failed > 0 ? 'var(--color-method-delete)' : 'var(--color-border-light)',
+                  }}
+                  aria-hidden="true"
+                />
+                {t(
+                  'workspace.failedCount',
+                  { count: failed },
+                  { defaultValue: '{{count}} failed' },
+                )}
+              </span>
+            </div>
+            <ul className={cm.cn('px-4 py-3 space-y-1.5 max-h-40 overflow-auto')}>
+              {assertions.length === 0 ? (
+                <li
+                  className={cm.cn('font-mono text-[12px] px-3 py-1.5')}
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  {t(
+                    'workspace.noAssertions',
+                    {},
+                    { defaultValue: 'Run a request to evaluate built-in assertions.' },
+                  )}
+                </li>
+              ) : (
+                assertions.map((assertion, i) => (
+                  <li
+                    key={i}
+                    className={cm.cn(
+                      'flex items-center gap-2 font-mono text-[12px] px-3 py-1.5 rounded',
+                    )}
+                    style={{
+                      color: assertion.passed ? 'var(--color-text-primary)' : 'var(--color-error)',
+                      backgroundColor:
+                        'color-mix(in srgb, var(--color-surface-elevated) 40%, transparent)',
+                    }}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      style={{
+                        color: assertion.passed
+                          ? 'var(--color-method-get)'
+                          : 'var(--color-method-delete)',
+                      }}
+                      aria-hidden="true"
+                    >
+                      {assertion.passed ? 'check_circle' : 'cancel'}
+                    </span>
+                    <span>
+                      {t(`workspace.assertion.${i}`, {}, { defaultValue: assertion.defaultLabel })}
+                    </span>
+                  </li>
+                ))
+              )}
+            </ul>
+          </footer>
+        </section>
+      </div>
+    </div>
+  )
+}

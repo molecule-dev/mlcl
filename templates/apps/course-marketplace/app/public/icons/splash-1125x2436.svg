@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1125" height="2436" viewBox="0 0 1125 2436">
+  <rect width="1125" height="2436" fill="#ffffff"/>
+  <svg x="422" y="1078" width="281" height="281" viewBox="0 0 32 32">
+
+  <!-- Lectura: open book / editorial archive mark -->
+  <!-- Two facing pages with a center spine, accented with a bookmark ribbon -->
+  <path d="M4 7.5C4 6.67 4.67 6 5.5 6h8c1.1 0 2 .9 2 2v17c0-.83-.67-1.5-1.5-1.5H5.5C4.67 23.5 4 22.83 4 22V7.5Z" fill="#4b08c9"/>
+  <path d="M28 7.5C28 6.67 27.33 6 26.5 6h-8c-1.1 0-2 .9-2 2v17c0-.83.67-1.5 1.5-1.5h8c.83 0 1.5-.67 1.5-1.5V7.5Z" fill="#6336e0"/>
+  <!-- Page line accents -->
+  <path d="M6.5 10h6M6.5 13h6M6.5 16h4" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <path d="M19.5 10h6M19.5 13h6M19.5 16h4" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <!-- Bookmark ribbon (gold) -->
+  <path d="M22 6h3v6l-1.5-1.2L22 12V6Z" fill="#e8a820"/>
+
+  </svg>
+</svg>

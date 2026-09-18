@@ -1,0 +1,26 @@
+[
+  { "id": "tx_001", "account_id": "acc_001", "posted_at": "2026-04-25T14:22:00Z", "merchant": "Whole Foods Market",       "category": "Groceries",         "amount_cents":  -8412, "running_balance_cents": 482310, "method": "card",     "status": "posted" },
+  { "id": "tx_002", "account_id": "acc_001", "posted_at": "2026-04-25T11:08:00Z", "merchant": "Spotify",                  "category": "Subscriptions",     "amount_cents":  -1099, "running_balance_cents": 490722, "method": "card",     "status": "posted" },
+  { "id": "tx_003", "account_id": "acc_001", "posted_at": "2026-04-24T19:51:00Z", "merchant": "Lyft",                     "category": "Transport",         "amount_cents":  -2380, "running_balance_cents": 491821, "method": "card",     "status": "posted" },
+  { "id": "tx_004", "account_id": "acc_001", "posted_at": "2026-04-24T09:00:00Z", "merchant": "Acme Corp Payroll",        "category": "Income",            "amount_cents": 412800, "running_balance_cents": 494201, "method": "ach",      "status": "posted" },
+  { "id": "tx_005", "account_id": "acc_001", "posted_at": "2026-04-23T17:34:00Z", "merchant": "Pacific Gas & Electric",   "category": "Utilities",         "amount_cents":  -9842, "running_balance_cents":  81401, "method": "ach",      "status": "posted" },
+  { "id": "tx_006", "account_id": "acc_001", "posted_at": "2026-04-22T08:12:00Z", "merchant": "Blue Bottle Coffee",       "category": "Dining",            "amount_cents":   -612, "running_balance_cents":  91243, "method": "card",     "status": "posted" },
+  { "id": "tx_007", "account_id": "acc_001", "posted_at": "2026-04-21T20:00:00Z", "merchant": "Transfer to Savings",      "category": "Transfer",          "amount_cents": -50000, "running_balance_cents":  91855, "method": "internal", "status": "posted" },
+  { "id": "tx_008", "account_id": "acc_001", "posted_at": "2026-04-20T13:45:00Z", "merchant": "Trader Joe's",             "category": "Groceries",         "amount_cents":  -6231, "running_balance_cents": 141855, "method": "card",     "status": "posted" },
+  { "id": "tx_009", "account_id": "acc_001", "posted_at": "2026-04-19T10:32:00Z", "merchant": "Comcast",                  "category": "Utilities",         "amount_cents":  -7900, "running_balance_cents": 148086, "method": "ach",      "status": "posted" },
+  { "id": "tx_010", "account_id": "acc_001", "posted_at": "2026-04-18T16:18:00Z", "merchant": "Apple Store",              "category": "Shopping",          "amount_cents": -28490, "running_balance_cents": 155986, "method": "card",     "status": "posted" },
+
+  { "id": "tx_011", "account_id": "acc_002", "posted_at": "2026-04-25T00:00:00Z", "merchant": "Interest payment",         "category": "Interest",          "amount_cents":   6532, "running_balance_cents": 1842000, "method": "internal", "status": "posted" },
+  { "id": "tx_012", "account_id": "acc_002", "posted_at": "2026-04-21T20:00:01Z", "merchant": "Transfer from Checking",   "category": "Transfer",          "amount_cents":  50000, "running_balance_cents": 1835468, "method": "internal", "status": "posted" },
+  { "id": "tx_013", "account_id": "acc_002", "posted_at": "2026-03-25T00:00:00Z", "merchant": "Interest payment",         "category": "Interest",          "amount_cents":   6431, "running_balance_cents": 1785468, "method": "internal", "status": "posted" },
+
+  { "id": "tx_014", "account_id": "acc_003", "posted_at": "2026-04-25T18:42:00Z", "merchant": "United Airlines",          "category": "Travel",            "amount_cents": -42180, "running_balance_cents": -128450, "method": "card",     "status": "posted" },
+  { "id": "tx_015", "account_id": "acc_003", "posted_at": "2026-04-24T12:14:00Z", "merchant": "Hyatt Regency",            "category": "Travel",            "amount_cents": -28900, "running_balance_cents":  -86270, "method": "card",     "status": "pending" },
+  { "id": "tx_016", "account_id": "acc_003", "posted_at": "2026-04-22T20:30:00Z", "merchant": "Eleven Madison Park",      "category": "Dining",            "amount_cents": -32400, "running_balance_cents":  -57370, "method": "card",     "status": "posted" },
+  { "id": "tx_017", "account_id": "acc_003", "posted_at": "2026-04-15T09:00:00Z", "merchant": "Statement payment",        "category": "Payment",           "amount_cents":  90000, "running_balance_cents":  -24970, "method": "internal", "status": "posted" },
+
+  { "id": "tx_018", "account_id": "acc_004", "posted_at": "2026-04-24T16:00:00Z", "merchant": "VTSAX buy 12 sh",          "category": "Trade",             "amount_cents": -148230, "running_balance_cents": 4218090, "method": "internal", "status": "posted" },
+  { "id": "tx_019", "account_id": "acc_004", "posted_at": "2026-04-22T09:30:00Z", "merchant": "Dividend — VTI",           "category": "Dividend",          "amount_cents":   8421, "running_balance_cents": 4366320, "method": "internal", "status": "posted" },
+
+  { "id": "tx_020", "account_id": "acc_005", "posted_at": "2026-04-15T00:00:00Z", "merchant": "Monthly auto-pay",         "category": "Payment",           "amount_cents":  42000, "running_balance_cents": -1842090, "method": "ach",     "status": "posted" }
+]

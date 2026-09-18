@@ -1,0 +1,410 @@
+:root {
+  /* Brand colors — Rollout emerald + violet accent */
+  --color-primary: #10b981;
+  --color-primary-hover: #34d399;
+  --color-primary-dark: #059669;
+  --color-primary-light: #d1fae5;
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #a78bfa;
+  --color-accent-dark: #7c3aed;
+
+  /* Flag semantic colors */
+  --color-flag-on: #10b981;
+  --color-flag-on-light: #d1fae5;
+  --color-flag-off: #6b7280;
+  --color-flag-off-light: #f3f4f6;
+  --color-flag-killed: #ef4444;
+  --color-flag-killed-light: #fee2e2;
+  --color-rollout-partial: #f59e0b;
+  --color-rollout-partial-light: #fef3c7;
+  --color-stale-flag: #f97316;
+  --color-stale-flag-light: #fff7ed;
+  --color-targeting-active: #8b5cf6;
+  --color-targeting-active-light: #ede9fe;
+
+  /* Surfaces — dark-first control panel */
+  --color-background: #0c1222;
+  --color-background-secondary: #111827;
+  --color-background-tertiary: #1e293b;
+  --color-surface: #1a2332;
+  --color-surface-secondary: #243044;
+  --color-surface-elevated: #1e293b;
+  --color-input-background: #1e293b;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-code-block: #0d1117;
+  --color-border: #1e293b;
+  --color-border-secondary: #334155;
+
+  /* Text */
+  --color-text: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #0f172a;
+  --color-text-link: #10b981;
+  --color-text-code: #e2e8f0;
+
+  /* Feedback */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 14px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders — sharp 8px control-panel aesthetic */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+
+  /* === App-specific semantic tokens for inline-style chip/banner usage === */
+  --color-accent-chip-bg: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --color-accent-chip-text: #c4b5fd;
+  --color-emerald-chip-bg: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  --color-emerald-chip-text: #6ee7b7;
+  --color-error-chip-bg: color-mix(in srgb, var(--color-error) 18%, transparent);
+  --color-error-chip-text: #fca5a5;
+  --color-on-primary-cta: #ffffff;
+  /* success/error banner backgrounds (tinted form-feedback strips) */
+  --color-success-banner-bg: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --color-success-banner-border: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  --color-error-banner-bg: color-mix(in srgb, var(--color-error) 10%, transparent);
+  --color-error-banner-border: color-mix(in srgb, var(--color-error) 40%, transparent);
+  /* active env-filter pill */
+  --color-env-filter-active-bg: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  --color-env-filter-active-text: #6ee7b7;
+
+  /* Shadows — subtle, no heavy elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+  /* === @mol-color-* provider bridge tokens (dark-first defaults) === */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #8b5cf6;
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1e293b;
+  --mol-color-surface: #1a2332;
+  --mol-color-surface-secondary: #243044;
+  --mol-color-input-background: #1e293b;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-border: #1e293b;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #10b981;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* === M3 @theme tokens (dark-first defaults match dark mode) === */
+  --color-background: #0c1222;
+  --color-on-background: #f1f5f9;
+  --color-surface-bright: #243044;
+  --color-surface-dim: #060c18;
+  --color-surface-container-lowest: #030810;
+  --color-surface-container-low: #111827;
+  --color-surface-container: #1a2332;
+  --color-surface-container-high: #243044;
+  --color-surface-container-highest: #1e293b;
+  --color-surface-variant: #243044;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0c1222;
+  --color-inverse-primary: #059669;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #002b22; /* dark on mid-emerald — 6.05:1 */
+  --color-on-primary-container: #d1fae5;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #ede9fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #dbeafe;
+  --color-error: #ef4444;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red — 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #334155;
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #10b981;
+}
+
+/* Dark mode overrides — control-panel dark, emerald + violet on deep navy */
+[data-mol-mode='dark'] {
+  /* Brand — emerald stays the protagonist, violet stays the accent */
+  --color-primary: #34d399;
+  --color-primary-hover: #6ee7b7;
+  --color-primary-dark: #10b981;
+  --color-primary-light: #064e3b;
+  --color-accent: #a78bfa;
+  --color-accent-hover: #c4b5fd;
+  --color-accent-dark: #8b5cf6;
+
+  /* Flag semantics — brighter saturations against deep navy */
+  --color-flag-on: #34d399;
+  --color-flag-on-light: #064e3b;
+  --color-flag-off: #94a3b8;
+  --color-flag-off-light: #1e293b;
+  --color-flag-killed: #f87171;
+  --color-flag-killed-light: #450a0a;
+  --color-rollout-partial: #fbbf24;
+  --color-rollout-partial-light: #422006;
+  --color-stale-flag: #fb923c;
+  --color-stale-flag-light: #431407;
+  --color-targeting-active: #a78bfa;
+  --color-targeting-active-light: #2e1065;
+
+  /* Surfaces — even deeper than :root for explicit dark toggle */
+  --color-background: #050914;
+  --color-background-secondary: #0c1222;
+  --color-background-tertiary: #131c30;
+  --color-surface: #131c30;
+  --color-surface-secondary: #1c2742;
+  --color-surface-elevated: #1c2742;
+  --color-input-background: #0c1222;
+  --color-overlay: rgba(0, 0, 0, 0.8);
+  --color-code-block: #060912;
+  --color-border: #243044;
+  --color-border-secondary: #334155;
+
+  /* Text */
+  --color-text: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #050914;
+  --color-text-link: #34d399;
+  --color-text-code: #e2e8f0;
+
+  /* Feedback */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* === Stitch / Material-3 @theme token dark variants ===
+     Override the @theme block so `bg-surface`, `text-on-surface`, `bg-primary`
+     etc. flip cleanly. CTA buttons keep white text on emerald: on-primary stays white. */
+  --color-background: #050914;
+  --color-on-background: #f8fafc;
+  --color-surface-bright: #1c2742;
+  --color-surface-dim: #030710;
+  --color-surface-container-lowest: #020510;
+  --color-surface-container-low: #0c1222;
+  --color-surface-container: #131c30;
+  --color-surface-container-high: #1c2742;
+  --color-surface-container-highest: #243044;
+  --color-surface-variant: #1c2742;
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f8fafc;
+  --color-inverse-on-surface: #050914;
+  --color-inverse-primary: #059669;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #002b22; /* dark on bright emerald #34d399 — 7.98:1 */
+  --color-on-primary-container: #d1fae5;
+  --color-secondary: #6d28d9; /* darkened violet so white on-secondary passes 7.10:1 */
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #2563eb; /* darkened blue so white on-tertiary passes 5.17:1 */
+  --color-tertiary-container: #1e3a5f;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #dbeafe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red — 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6e7c8c; /* raised for 3.98:1 on #131c30 */
+  --color-outline-variant: #243044;
+  --color-surface-tint: #34d399;
+
+  /* App-specific semantic tokens — dark overrides */
+  --color-accent-chip-bg: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --color-accent-chip-text: #c4b5fd;
+  --color-emerald-chip-bg: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  --color-emerald-chip-text: #6ee7b7;
+  --color-error-chip-bg: color-mix(in srgb, var(--color-error) 18%, transparent);
+  --color-error-chip-text: #fca5a5;
+  --color-on-primary-cta: #002b22; /* dark on bright emerald — matches on-primary */
+  --color-success-banner-bg: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --color-success-banner-border: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  --color-error-banner-bg: color-mix(in srgb, var(--color-error) 10%, transparent);
+  --color-error-banner-border: color-mix(in srgb, var(--color-error) 40%, transparent);
+  --color-env-filter-active-bg: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  --color-env-filter-active-text: #6ee7b7;
+
+  /* mol-color bridge overrides for dark mode */
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: #064e3b;
+  --mol-color-primary-dark: #10b981;
+  --mol-color-secondary: #6d28d9;
+  --mol-color-background: #050914;
+  --mol-color-background-secondary: #0c1222;
+  --mol-color-background-tertiary: #131c30;
+  --mol-color-surface: #131c30;
+  --mol-color-surface-secondary: #1c2742;
+  --mol-color-input-background: #0c1222;
+  --mol-color-text: #f8fafc;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #050914;
+  --mol-color-border: #243044;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #34d399;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+}
+
+/* Light mode overrides — Rollout emerald + violet on warm off-white control panel.
+ * Brand emerald deepens for contrast on light surfaces; flag semantics stay
+ * recognizable (on=emerald, off=slate, killed=red, partial=amber). */
+[data-mol-mode='light'] {
+  /* Brand — shifted slightly darker for white on-primary to pass WCAG AA */
+  --color-primary: #047857; /* deepened from #059669; white on-primary = 5.48:1 */
+  --color-primary-hover: #065f46;
+  --color-primary-dark: #064e3b;
+  --color-primary-light: #d1fae5;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-dark: #5b21b6;
+
+  /* Flag semantics — saturated for light-bg legibility */
+  --color-flag-on: #047857;
+  --color-flag-on-light: #d1fae5;
+  --color-flag-off: #475569;
+  --color-flag-off-light: #f1f5f9;
+  --color-flag-killed: #dc2626;
+  --color-flag-killed-light: #fee2e2;
+  --color-rollout-partial: #d97706;
+  --color-rollout-partial-light: #fef3c7;
+  --color-stale-flag: #ea580c;
+  --color-stale-flag-light: #fff7ed;
+  --color-targeting-active: #7c3aed;
+  --color-targeting-active-light: #ede9fe;
+
+  /* Surfaces — depth-layered light control panel */
+  --color-background: #f8fafc;
+  --color-background-secondary: #f1f5f9;
+  --color-background-tertiary: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f8fafc;
+  --color-surface-elevated: #ffffff;
+  --color-input-background: #ffffff;
+  --color-overlay: rgba(15, 23, 42, 0.4);
+  --color-code-block: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-secondary: #cbd5e1;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #f8fafc;
+  --color-text-link: #047857;
+  --color-text-code: #1e293b;
+
+  /* Feedback */
+  --color-success: #047857;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  /* App-specific semantic tokens — light overrides */
+  --color-accent-chip-bg: #ede9fe;
+  --color-accent-chip-text: #5b21b6;
+  --color-emerald-chip-bg: #d1fae5;
+  --color-emerald-chip-text: #064e3b;
+  --color-error-chip-bg: #fee2e2;
+  --color-error-chip-text: #b91c1c;
+  --color-on-primary-cta: #ffffff; /* white on #047857 = 5.48:1 ✓ */
+  --color-success-banner-bg: #d1fae5;
+  --color-success-banner-border: #6ee7b7;
+  --color-error-banner-bg: #fee2e2;
+  --color-error-banner-border: #fca5a5;
+  --color-env-filter-active-bg: #d1fae5;
+  --color-env-filter-active-text: #064e3b;
+
+  /* === M3 @theme tokens for light mode === */
+  --color-background: #f8fafc;
+  --color-on-background: #0f172a;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e2e8f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-variant: #e2e8f0;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f8fafc;
+  --color-inverse-primary: #34d399;
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #ffffff; /* white on #047857 = 5.48:1 ✓ */
+  --color-on-primary-container: #064e3b;
+  --color-secondary: #7c3aed;
+  --color-secondary-container: #ede9fe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #2e1065;
+  --color-tertiary: #2563eb;
+  --color-tertiary-container: #dbeafe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1e3a5f;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 = 4.83:1 ✓ */
+  --color-on-error-container: #690005; /* dark on light error-container = 10.73:1 ✓ */
+  --color-outline: #475569;
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #047857;
+
+  /* mol-color bridge overrides for light mode */
+  --mol-color-primary: #047857;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #064e3b;
+  --mol-color-secondary: #7c3aed;
+  --mol-color-background: #f8fafc;
+  --mol-color-background-secondary: #f1f5f9;
+  --mol-color-background-tertiary: #e2e8f0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #f8fafc;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #047857;
+  --mol-color-success: #059669;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #2563eb;
+
+  /* Shadows — soft, low-alpha on light bg */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "evt_1",
+    "timestamp": "2026-04-30T02:54:11Z",
+    "actor": "ada@arcanum.dev",
+    "action": "secret.read",
+    "resource": "STRIPE_LIVE_KEY",
+    "secret_id": "sec_stripe_live_key",
+    "vault_id": "vault_payments",
+    "ip": "10.4.18.2",
+    "result": "ok"
+  },
+  {
+    "id": "evt_2",
+    "timestamp": "2026-04-30T02:42:08Z",
+    "actor": "ci-runner@arcanum.dev",
+    "action": "secret.rotated",
+    "resource": "GH_ACTIONS_RUNNER_PAT",
+    "secret_id": "sec_github_runner",
+    "vault_id": "vault_internal",
+    "ip": "10.4.0.41",
+    "result": "ok"
+  },
+  {
+    "id": "evt_3",
+    "timestamp": "2026-04-30T02:01:22Z",
+    "actor": "noah@arcanum.dev",
+    "action": "secret.read",
+    "resource": "DATADOG_APP_KEY",
+    "secret_id": "sec_datadog_app",
+    "vault_id": "vault_observability",
+    "ip": "10.4.18.7",
+    "result": "denied"
+  },
+  {
+    "id": "evt_4",
+    "timestamp": "2026-04-30T01:12:53Z",
+    "actor": "ada@arcanum.dev",
+    "action": "vault.created",
+    "resource": "Payments",
+    "vault_id": "vault_payments",
+    "ip": "10.4.18.2",
+    "result": "ok"
+  },
+  {
+    "id": "evt_5",
+    "timestamp": "2026-04-29T23:48:01Z",
+    "actor": "system",
+    "action": "secret.updated",
+    "resource": "SNOWFLAKE_DWH_PASSWORD",
+    "secret_id": "sec_snowflake_dwh",
+    "vault_id": "vault_data_pipelines",
+    "ip": "-",
+    "result": "warning"
+  }
+]

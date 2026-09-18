@@ -1,0 +1,169 @@
+{
+  "app": "secrets-manager",
+  "designProjectId": "5039861398461389335",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-landing.html",
+      "designScreenId": "3d71f6663e384519afda9bb56c188246"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-login.html",
+      "designScreenId": "8b6cb89a9f274eff9f609153097a9852"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-secrets-manager-login.html",
+      "derivationNotes": "Same split layout and authentication card as Login with Display Name, Email, Password, Confirm Password fields. Heading changes to 'Create your vault'. Subtext 'Start with a free workspace \u2014 no credit card required'. Primary button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No 'Forgot password?' link. SSO/Passkey options still shown. Right-side terminal panel retains ambient audit-log feel but shows bootstrap/init log entries instead of live events."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-secrets-manager-login.html",
+      "derivationNotes": "Same split layout and authentication card as Login with only Email field. Heading changes to 'Reset access'. Subtext 'Enter your email to receive a signed reset link'. Primary button text 'Send reset link'. Bottom link 'Back to Sign In'. No password field. No SSO/Passkey block. Right-side terminal panel unchanged."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-secrets-manager-login.html",
+      "derivationNotes": "Same split layout and authentication card as Login with New Password and Confirm Password fields (mono inputs, reveal-on-hold eye icon). Heading changes to 'Set new credentials'. Subtext 'Choose a strong password \u2014 minimum 12 characters'. Primary button text 'Reset password'. Bottom link 'Back to Sign In'. No email field, no SSO. Right-side terminal panel unchanged."
+    },
+    {
+      "name": "Vaults",
+      "templateFile": "app/pages/Vaults.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/vaults",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-vaults.html",
+      "designScreenId": "6bd51514e87b4d9faf331af88dbdbb3f"
+    },
+    {
+      "name": "VaultDetail",
+      "templateFile": "app/pages/VaultDetail.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/vaults/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-vault-detail.html",
+      "designScreenId": "4199124cd48d4935be6ca09afa22357b"
+    },
+    {
+      "name": "SecretDetail",
+      "templateFile": "app/pages/SecretDetail.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/secrets/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-secret-detail.html",
+      "designScreenId": "c364ca23df004346ba481d8d3a59de03"
+    },
+    {
+      "name": "AuditLog",
+      "templateFile": "app/pages/AuditLog.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/audit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-audit-log.html",
+      "designScreenId": "b58b425468ce469f96e341c271c3679a"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-settings.html",
+      "designScreenId": "dcf515ce046a4e78868776357838074c"
+    },
+    {
+      "name": "Rotations",
+      "templateFile": "app/pages/Rotations.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/rotations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-rotations.html",
+      "designScreenId": "edd70d3d6ae6489da1a4838ba1a8d49e"
+    },
+    {
+      "name": "Integrations",
+      "templateFile": "app/pages/Integrations.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/integrations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-integrations.html",
+      "designScreenId": "2beae17a78ca4a60a55a0effd123567e"
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/team",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-team.html",
+      "designScreenId": "cc526dda86834daba0454263dcc530d8"
+    },
+    {
+      "name": "ApiTokens",
+      "templateFile": "app/pages/ApiTokens.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/tokens",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-api-tokens.html",
+      "designScreenId": "1a3cfa86b09d44ac9f0f545577b355ca"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-notifications.html",
+      "designScreenId": "a7d8eb06a0264d1f973b512d655ac5bd"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SecretsManagerLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-secrets-manager-profile.html",
+      "designScreenId": "d8026143399b4abe92109d14ac18f4bc"
+    }
+  ]
+}

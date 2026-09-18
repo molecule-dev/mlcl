@@ -1,0 +1,93 @@
+{
+  "label": "Weather Dashboard",
+  "description": "Weather.com-like app with forecasts, alerts, saved locations, and historical data — with built-in Stripe-backed subscription tiers",
+  "cluster": "operations-iot",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-geolocation-nominatim",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-cache-redis",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-weather-open-meteo",
+    "@molecule/app-charts",
+    "@molecule/app-maps",
+    "@molecule/app-data-table",
+    "@molecule/app-command-palette",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Weather Dashboard"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "REDIS_URL": {
+      "description": "Redis connection string for forecast caching",
+      "default": "redis://localhost:6379"
+    },
+    "VAPID_PUBLIC_KEY": {
+      "description": "VAPID public key for push notifications"
+    },
+    "VAPID_PRIVATE_KEY": {
+      "description": "VAPID private key for push notifications"
+    },
+    "FORECAST_CACHE_TTL": {
+      "description": "Forecast cache TTL in seconds",
+      "default": "1800"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_WEATHER_DASHBOARD_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_WEATHER_DASHBOARD_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_WEATHER_DASHBOARD_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_WEATHER_DASHBOARD_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "geolocation",
+    "caching",
+    "alerts",
+    "charts",
+    "maps",
+    "history",
+    "subscriptions"
+  ]
+}

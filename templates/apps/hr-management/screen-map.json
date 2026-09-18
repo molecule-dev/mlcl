@@ -1,0 +1,170 @@
+{
+  "app": "hr-management",
+  "designProjectId": "17706254458723094535",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-hr-management-login.html",
+      "designScreenId": "cc546bcba70049279489ea0bbd9a2c99"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hr-management-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Work email, Password, Confirm Password fields. H1 changes to 'Create your workspace'. Button label 'Create workspace'. Bottom link 'Already have a workspace? Sign in'. Remove workspace URL field and Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hr-management-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Email field. H1 changes to 'Reset your password', subhead 'Enter your work email and we'll send you a reset link'. Button label 'Send reset link'. Bottom link 'Back to sign in'. Remove workspace URL field, password field, Remember me row, SSO button."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hr-management-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields only. H1 changes to 'Set a new password'. Button label 'Reset password'. Bottom link 'Back to sign in'. Remove workspace URL, email, Remember me row, SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-dashboard.html",
+      "designScreenId": "bfb6a3c8ea524145acf1ebae5538f6f9"
+    },
+    {
+      "name": "Employees",
+      "templateFile": "app/pages/Employees.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/employees",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-employees.html",
+      "designScreenId": "58313617c45d4790ba17f4942ae44c3b"
+    },
+    {
+      "name": "EmployeeProfile",
+      "templateFile": "app/pages/EmployeeProfile.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/employees/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-employee-profile.html",
+      "designScreenId": "ef45d06d5eac46bfaec580c95bf4dfb2"
+    },
+    {
+      "name": "OrgChart",
+      "templateFile": "app/pages/OrgChart.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/org-chart",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-org-chart.html",
+      "designScreenId": "3a97e069c60a4f89ae8a3e4b0b760fc8"
+    },
+    {
+      "name": "PTO",
+      "templateFile": "app/pages/PTO.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/pto",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-pto.html",
+      "designScreenId": "2537a1af0d3649e2bbacfa46af329859"
+    },
+    {
+      "name": "Documents",
+      "templateFile": "app/pages/Documents.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/documents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-documents.html",
+      "designScreenId": "66d2a34442cd47da85e43c394d17b720"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-settings.html",
+      "designScreenId": "8238d6a73f0d4e86bc17bfc7fb76e911"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-notifications.html",
+      "designScreenId": "ccf896dee3b54b28a327628e62b470aa"
+    },
+    {
+      "name": "Onboarding",
+      "templateFile": "app/pages/Onboarding.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/onboarding",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-onboarding.html",
+      "designScreenId": "87f3037c8c75447ea7e924c930098f28"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-reports.html",
+      "designScreenId": "511b67ca906246c9814286c88b968cca"
+    },
+    {
+      "name": "Performance",
+      "templateFile": "app/pages/Performance.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/performance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-hr-management-performance.html",
+      "designScreenId": "f268ea6faae847dcb06c4e913db57c05"
+    },
+    {
+      "name": "AddEmployee",
+      "templateFile": "app/pages/AddEmployee.tsx",
+      "components": ["app/components/HrManagementLayout.tsx"],
+      "route": "/employees/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-hr-management-employee-profile.html",
+      "derivationNotes": "Same banner + tabbed profile layout as EmployeeProfile but in create/edit mode. Banner shows placeholder avatar with 'Add photo' button. Name/title fields are inline editable inputs. The first tab (Personal info) is open with empty form fields: First Name, Last Name, Work email, Personal email, Phone, Start date, Employment type, Department dropdown, Manager (employee picker), Office location, Employee ID (auto-generated, mono font, read-only). Replace the right-side action buttons with primary 'Save employee' and ghost 'Cancel'. Hide tabs that require an existing record (Time off, Documents, Audit log) — show a muted hint 'Available after the employee is created'."
+    }
+  ]
+}

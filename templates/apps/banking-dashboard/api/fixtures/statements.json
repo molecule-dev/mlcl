@@ -1,0 +1,11 @@
+[
+  { "id": "stmt_001", "account_id": "acc_001", "account_name": "Everyday Checking",   "period_start": "2026-04-01", "period_end": "2026-04-30", "ready_at": "2026-05-01T03:00:00Z", "size_bytes": 184220, "url": "/api/statements/stmt_001/pdf" },
+  { "id": "stmt_002", "account_id": "acc_001", "account_name": "Everyday Checking",   "period_start": "2026-03-01", "period_end": "2026-03-31", "ready_at": "2026-04-01T03:00:00Z", "size_bytes": 178330, "url": "/api/statements/stmt_002/pdf" },
+  { "id": "stmt_003", "account_id": "acc_001", "account_name": "Everyday Checking",   "period_start": "2026-02-01", "period_end": "2026-02-28", "ready_at": "2026-03-01T03:00:00Z", "size_bytes": 162190, "url": "/api/statements/stmt_003/pdf" },
+  { "id": "stmt_004", "account_id": "acc_002", "account_name": "High-Yield Savings",  "period_start": "2026-04-01", "period_end": "2026-04-30", "ready_at": "2026-05-01T03:00:00Z", "size_bytes": 92110,  "url": "/api/statements/stmt_004/pdf" },
+  { "id": "stmt_005", "account_id": "acc_002", "account_name": "High-Yield Savings",  "period_start": "2026-03-01", "period_end": "2026-03-31", "ready_at": "2026-04-01T03:00:00Z", "size_bytes": 88420,  "url": "/api/statements/stmt_005/pdf" },
+  { "id": "stmt_006", "account_id": "acc_003", "account_name": "Sterling Sapphire",   "period_start": "2026-04-01", "period_end": "2026-04-30", "ready_at": "2026-05-01T03:00:00Z", "size_bytes": 218430, "url": "/api/statements/stmt_006/pdf" },
+  { "id": "stmt_007", "account_id": "acc_003", "account_name": "Sterling Sapphire",   "period_start": "2026-03-01", "period_end": "2026-03-31", "ready_at": "2026-04-01T03:00:00Z", "size_bytes": 209840, "url": "/api/statements/stmt_007/pdf" },
+  { "id": "stmt_008", "account_id": "acc_004", "account_name": "Brokerage",           "period_start": "2026-04-01", "period_end": "2026-04-30", "ready_at": "2026-05-01T03:00:00Z", "size_bytes": 312410, "url": "/api/statements/stmt_008/pdf" },
+  { "id": "stmt_009", "account_id": "acc_005", "account_name": "Auto Loan",           "period_start": "2026-04-01", "period_end": "2026-04-30", "ready_at": "2026-05-01T03:00:00Z", "size_bytes": 76210,  "url": "/api/statements/stmt_009/pdf" }
+]

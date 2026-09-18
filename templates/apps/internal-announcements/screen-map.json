@@ -1,0 +1,149 @@
+{
+  "app": "internal-announcements",
+  "designProjectId": "11529658120242168814",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-login.html",
+      "designScreenId": "5b5020e59b3a4b479210827c2f04b1a5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-announcements-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Work email, Password, Confirm Password fields. H1 'Create your workspace'. Button 'Create workspace'. Bottom link 'Already have a workspace? Sign in'. Remove workspace URL field and Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-announcements-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Email field. H1 'Reset your password', subhead 'Enter your email and we'll send you a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. Remove workspace URL, password, Stay signed in row, SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-announcements-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields. H1 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Remove workspace URL, email, Stay signed in row, SSO."
+    },
+    {
+      "name": "Feed",
+      "templateFile": "app/pages/Feed.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/feed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-feed.html",
+      "designScreenId": "aa8ee445c8aa4a7093a090e9ea30aca8"
+    },
+    {
+      "name": "AnnouncementDetail",
+      "templateFile": "app/pages/AnnouncementDetail.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/announcement/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-announcement-detail.html",
+      "designScreenId": "d215b59ab0964abea2984fa0216c30e6"
+    },
+    {
+      "name": "Composer",
+      "templateFile": "app/pages/Composer.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/compose",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-composer.html",
+      "designScreenId": "7b078f72da6f47329e615e756dfeba33"
+    },
+    {
+      "name": "MyAcknowledgments",
+      "templateFile": "app/pages/MyAcknowledgments.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/my-acknowledgments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-my-acknowledgments.html",
+      "designScreenId": "498328598f5843e3b46bbb0e6ce86aca"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-analytics.html",
+      "designScreenId": "cca0635268d341d89f84f70ad4c404b6"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-settings.html",
+      "designScreenId": "a17fe5be9f3245c9bb264c0cd1d69121"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-profile.html",
+      "designScreenId": "a53a5a2ee6bd44298021f5f1c92d1944"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-notifications.html",
+      "designScreenId": "c2dd4902dab34a708ee31ab4760a2649"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-search.html",
+      "designScreenId": "3c77b5d3e0f645939445cfe9edb81538"
+    },
+    {
+      "name": "TeamDirectory",
+      "templateFile": "app/pages/TeamDirectory.tsx",
+      "components": ["app/components/InternalAnnouncementsLayout.tsx"],
+      "route": "/people",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-announcements-team-directory.html",
+      "designScreenId": "1906da984f0448d193b273eee1457ca9"
+    }
+  ]
+}

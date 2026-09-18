@@ -1,0 +1,57 @@
+[
+  {
+    "id": "q4-product-nps",
+    "title": "Q4 product NPS — power users",
+    "description": "How likely are our power users to recommend us after the new dashboard ships?",
+    "status": "active",
+    "responses": 412,
+    "nps": 68,
+    "completion_rate": 84,
+    "created_at": "2026-04-01T09:00:00Z",
+    "updated_at": "2h ago"
+  },
+  {
+    "id": "employee-pulse",
+    "title": "Employee pulse — November",
+    "description": "Five questions on workload, clarity, and momentum across all teams.",
+    "status": "active",
+    "responses": 187,
+    "nps": 41,
+    "completion_rate": 92,
+    "created_at": "2026-04-04T14:30:00Z",
+    "updated_at": "yesterday"
+  },
+  {
+    "id": "onboarding-csat",
+    "title": "Onboarding CSAT (week 2)",
+    "description": "CSAT + open-ended feedback after the second week of new-customer onboarding.",
+    "status": "partial",
+    "responses": 96,
+    "nps": 52,
+    "completion_rate": 71,
+    "created_at": "2026-04-12T11:00:00Z",
+    "updated_at": "3d ago"
+  },
+  {
+    "id": "pricing-survey",
+    "title": "Pricing willingness-to-pay study",
+    "description": "Van-Westendorp + open follow-up to validate the new Team-tier price points.",
+    "status": "draft",
+    "responses": 0,
+    "nps": null,
+    "completion_rate": null,
+    "created_at": "2026-04-22T15:00:00Z",
+    "updated_at": "Created 5d ago"
+  },
+  {
+    "id": "event-feedback",
+    "title": "Field event — Brooklyn meetup",
+    "description": "Rate the venue, sessions, and food after the in-person Brooklyn meetup.",
+    "status": "closed",
+    "responses": 218,
+    "nps": 73,
+    "completion_rate": 88,
+    "created_at": "2026-03-15T08:00:00Z",
+    "updated_at": "Closed last week"
+  }
+]

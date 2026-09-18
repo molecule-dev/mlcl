@@ -1,0 +1,21 @@
+Polish complete: 2026-04-30T00:42:00Z
+Pipeline: polish-app.md (autonomous polish session, manual run)
+Cluster: content-social → sibling: blog (with personal-finance pattern source)
+Brand: Cairn — "Mark the path" — primary #6d28d9 / accent #ea580c
+Bespoke components: 6
+  - VoteCluster (vertical up/down chevrons + tabular score)
+  - LinkPostCard (link list item with vote cluster, domain, tags, save)
+  - CairnHeroCard (gradient hero with stacked-stones SVG motif)
+  - CommentThreadItem (nested comment with depth-cycling indent border)
+  - SubBadge (sub-community card / row variants)
+  - LinkAggregatorLayout (sticky search header + sidebar nav shell)
+Pages rewritten: Landing, Feed, LinkDetail, Subs, SubDetail, SubmitLink,
+  Profile, Settings, Notifications, Search, Saved + Login / Signup /
+  ForgotPassword / ResetPassword (branded auth shell)
+Screen-map coverage: 15/15 (check-screen-map-coverage.mjs clean)
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)
+Material 3 derivative tokens: filled (script reported already-complete)
+Fonts: Material Symbols Outlined + Inter loaded via index.html
+Sweep 1 chrome conformance: Header / Footer / RootErrorBoundary delegate
+  to @molecule/app-{header,footer,root-error-boundary}-react

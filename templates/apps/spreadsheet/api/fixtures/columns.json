@@ -1,0 +1,90 @@
+[
+  {
+    "id": "c-summary-region",
+    "sheet_id": "sh-q4-summary",
+    "name": "Region",
+    "type": "text",
+    "position": 0,
+    "width": 140,
+    "frozen": true
+  },
+  {
+    "id": "c-summary-pipeline",
+    "sheet_id": "sh-q4-summary",
+    "name": "Pipeline",
+    "type": "currency",
+    "position": 1,
+    "width": 140,
+    "format": "USD"
+  },
+  {
+    "id": "c-summary-booked",
+    "sheet_id": "sh-q4-summary",
+    "name": "Booked",
+    "type": "currency",
+    "position": 2,
+    "width": 140,
+    "format": "USD"
+  },
+  {
+    "id": "c-summary-attainment",
+    "sheet_id": "sh-q4-summary",
+    "name": "% Attainment",
+    "type": "percent",
+    "position": 3,
+    "width": 120,
+    "formula": "=Booked/Quota"
+  },
+  {
+    "id": "c-summary-trend",
+    "sheet_id": "sh-q4-summary",
+    "name": "Trend",
+    "type": "sparkline",
+    "position": 4,
+    "width": 120
+  },
+  {
+    "id": "c-pipeline-account",
+    "sheet_id": "sh-q4-pipeline",
+    "name": "Account",
+    "type": "linked_record",
+    "position": 0,
+    "width": 200,
+    "linked_table": "accounts"
+  },
+  {
+    "id": "c-pipeline-stage",
+    "sheet_id": "sh-q4-pipeline",
+    "name": "Stage",
+    "type": "select",
+    "position": 1,
+    "width": 130,
+    "options": ["Discovery", "Qualified", "Proposal", "Negotiation", "Closed-Won", "Closed-Lost"]
+  },
+  {
+    "id": "c-pipeline-amount",
+    "sheet_id": "sh-q4-pipeline",
+    "name": "Amount",
+    "type": "currency",
+    "position": 2,
+    "width": 140,
+    "format": "USD"
+  },
+  {
+    "id": "c-pipeline-close-date",
+    "sheet_id": "sh-q4-pipeline",
+    "name": "Close Date",
+    "type": "date",
+    "position": 3,
+    "width": 130
+  },
+  {
+    "id": "c-pipeline-confidence",
+    "sheet_id": "sh-q4-pipeline",
+    "name": "Confidence",
+    "type": "percent",
+    "position": 4,
+    "width": 130,
+    "formula": "=IF(Stage=\"Closed-Won\",100%,IF(Stage=\"Negotiation\",80%,IF(Stage=\"Proposal\",55%,30%)))"
+  }
+]

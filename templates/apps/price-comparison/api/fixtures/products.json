@@ -1,0 +1,50 @@
+[
+  {
+    "id": "p1",
+    "title": "Sony WH-1000XM6 Wireless Noise Cancelling Headphones",
+    "brand": "Sony",
+    "category": "Audio",
+    "image_url": "https://picsum.photos/seed/sift-p1/640/480",
+    "lowest_price_cents": 32999,
+    "highest_price_cents": 39999,
+    "avg_price_cents": 35499,
+    "currency": "USD",
+    "retailer_count": 7,
+    "drop_pct": 12,
+    "rating": 4.7,
+    "review_count": 8421,
+    "tags": ["bestseller", "editor_pick"]
+  },
+  {
+    "id": "p2",
+    "title": "Apple MacBook Air 13\" M3 8GB / 256GB",
+    "brand": "Apple",
+    "category": "Laptops",
+    "image_url": "https://picsum.photos/seed/sift-p2/640/480",
+    "lowest_price_cents": 99900,
+    "highest_price_cents": 119900,
+    "avg_price_cents": 109400,
+    "currency": "USD",
+    "retailer_count": 5,
+    "drop_pct": 8,
+    "rating": 4.8,
+    "review_count": 3120,
+    "tags": ["new"]
+  },
+  {
+    "id": "p3",
+    "title": "Dyson V15 Detect Cordless Vacuum",
+    "brand": "Dyson",
+    "category": "Home",
+    "image_url": "https://picsum.photos/seed/sift-p3/640/480",
+    "lowest_price_cents": 64999,
+    "highest_price_cents": 74999,
+    "avg_price_cents": 69999,
+    "currency": "USD",
+    "retailer_count": 6,
+    "drop_pct": 5,
+    "rating": 4.6,
+    "review_count": 1042,
+    "tags": ["price_drop"]
+  }
+]

@@ -1,0 +1,13 @@
+Polish complete: 2026-04-29T23:25:00Z
+Pipeline: polish-app.md (verification + marker pass)
+App: writing-tool (Versal — long-form writing tool, violet/literary brand)
+Cluster: editorial/literary
+Components: 5 bespoke (VersalAuthShell, VersalDocumentCard, VersalInput, VersalLayout, VersalManuscriptHero)
+Pages: 14 (Landing, Login, Signup, ForgotPassword, ResetPassword, Library, Editor, FocusMode, Stats, Settings, VersionHistory, Billing, Pricing, PlanUpdated)
+Screen-map coverage: 12/12 (check-screen-map-coverage.mjs)
+Compliance: clean (check-rules-compliance.mjs — 0 violations across 272 files)
+Material 3 tokens: filled (commit 2bab85eb)
+Fonts: Inter + JetBrains Mono + Material Symbols Outlined wired in index.html
+Sweep 1 chrome: conformed (commit 1d456abd)
+Typecheck: clean (npx tsc --noEmit)
+classmapCoveragePct: 98

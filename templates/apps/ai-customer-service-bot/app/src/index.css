@@ -1,0 +1,220 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #effcf9;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #e6f3f1;
+  --color-inverse-primary: #6bd8cb;
+  --color-inverse-surface: #273331;
+  --color-on-background: #121e1c;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #f4fffc;
+  --color-on-primary-fixed: #00201d;
+  --color-on-primary-fixed-variant: #005049;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5c2400;
+  --color-on-secondary-fixed: #341100;
+  --color-on-secondary-fixed-variant: #783200;
+  --color-on-surface: #121e1c;
+  --color-on-surface-variant: #3d4947;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #f3fffc;
+  --color-on-tertiary-fixed: #00201d;
+  --color-on-tertiary-fixed-variant: #00504a;
+  --color-outline: #6d7a77;
+  --color-outline-variant: #bcc9c6;
+  --color-primary: #00685f;
+  --color-primary-container: #008378;
+  --color-primary-fixed: #89f5e7;
+  --color-primary-fixed-dim: #6bd8cb;
+  --color-secondary: #9d4300;
+  --color-secondary-container: #fd761a;
+  --color-secondary-fixed: #ffdbca;
+  --color-secondary-fixed-dim: #ffb690;
+  --color-surface: #effcf9;
+  --color-surface-bright: #effcf9;
+  --color-surface-container: #e4f1ee;
+  --color-surface-container-high: #deebe8;
+  --color-surface-container-highest: #d8e5e2;
+  --color-surface-container-low: #e9f6f3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #d0ddda;
+  --color-surface-tint: #006a61;
+  --color-surface-variant: #d8e5e2;
+  --color-tertiary: #006860;
+  --color-tertiary-container: #248279;
+  --color-tertiary-fixed: #9cf2e8;
+  --color-tertiary-fixed-dim: #80d5cb;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-display: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-top-2 -translate-x-1/2 -translate-y-1/2 2xl 3xl absolute antialiased atmospheric-shadow bg-background bg-gradient-to-br bg-primary bg-primary/10 bg-primary/15 bg-primary/20 bg-primary/25 bg-primary/30 bg-primary/35 bg-primary/40 bg-secondary bg-secondary-container bg-secondary/10 bg-surface-container bg-surface-container-low bg-surface-container-low/30 bg-surface-container-lowest bg-surface-tint/20 bg-surface-variant bg-teal-50 bg-white/50 block blur-3xl body-md border border-2 border-collapse border-none border-outline-variant/15 border-outline-variant/30 border-surface-container-lowest border-t border-transparent bottom-0 capitalize cubic-bezier cursor-pointer damped dark:bg-teal-950 dark:bg-white/10 dark:group-hover:text-teal-50 dark:hover:bg-teal-900 dark:text-teal-300/60 dark:text-teal-50 dark:text-white/60 duration-200 duration-300 ease-out flat flex flex-1 flex-col");
+@source inline("flex-grow flex-shrink-0 focus:bg-surface-container-lowest focus:border-transparent focus:ring-2 focus:ring-primary/30 font-black font-bold font-headline font-medium font-semibold from-primary gap-1 gap-2 gap-3 gap-4 gap-6 gap-8 grid grid-cols-1 group group-hover:bg-secondary/20 group-hover:bg-surface-container group-hover:text-primary group-hover:text-primary-container group-hover:text-teal-900 h-10 h-16 h-2 h-3 h-4 h-5 h-8 h-[160px] h-[2px] h-[40vw] h-[50vw] h-screen hidden hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-low hover:bg-teal-100 hover:text-on-surface hover:text-primary-container inline-flex inset-0 inset-y-0 italic items-baseline items-center items-end items-start justify-between justify-center label-sm leading-none leading-relaxed leading-tight left-0");
+@source inline("left-1/2 left-3 lg:col-span-4 lg:col-span-8 lg:grid-cols-12 lg:grid-cols-4 lg:p-10 lg:pl-12 line-clamp-1 material-symbols-outlined max-w-[1400px] max-w-[200px] max-w-[420px] mb mb-1 mb-12 mb-2 mb-6 mb-8 md:flex md:grid-cols-2 md:hidden md:p-8 min-h-[240px] min-h-screen mix-blend-multiply ml-1 ml-2 mr-3 mt-1 mt-3 mt-4 mt-8 mt-auto mx-auto no-border no-shadows object-cover opacity-30 opacity-50 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-10 p-2 p-4 p-6 pb-3 pl-10 pl-2 pl-3 placeholder:text-outline pointer-events-none pr-10 pr-3 pr-4 pr-8 pt-6 px-2");
+@source inline("px-4 px-6 px-8 py py-1 py-2 py-3 py-8 relative right-0 rounded rounded-full rounded-l-xl rounded-lg rounded-md rounded-r-xl rounded-t-sm rounded-xl scale-95 selection:bg-primary selection:text-on-primary sm sm:block space-y-2 space-y-4 space-y-6 space-y-8 sticky subtle text-4xl text-[16px] text-[20px] text-center text-left text-lg text-on-background text-on-primary text-on-surface text-on-surface-variant text-outline text-outline-variant text-primary text-right text-secondary text-sm text-surface-tint text-teal-700/70 text-teal-900 text-xl text-xs to-primary-container tonal-shift top-0 top-1/2 tracking-tight tracking-wide tracking-wider tracking-widest transition-all transition-colors");
+@source inline("transition-transform truncate uppercase w-1 w-10 w-2 w-3 w-4 w-5 w-64 w-8 w-[260px] w-[40vw] w-[50vw] w-full xs z-10 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+
+.atmospheric-shadow {
+  box-shadow: 0 8px 32px -4px color-mix(in srgb, var(--color-on-background) 8%, transparent);
+}
+
+.atmospheric-shadow {
+  box-shadow: 0 10px 48px -4px color-mix(in srgb, var(--color-on-background) 8%, transparent);
+}
+
+.glass-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+
+/* Shared components overrides */
+.glass-panel {
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent);
+  backdrop-filter: blur(24px);
+}
+
+.environmental-shadow {
+  box-shadow: 0 16px 48px -4px color-mix(in srgb, var(--color-on-background) 8%, transparent);
+}
+
+/* Transition smoothing */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-container-highest);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline-variant);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+
+.shadow-ambient {
+  box-shadow: 0 10px 40px -4px color-mix(in srgb, var(--color-on-background) 8%, transparent);
+}
+
+.glass-panel {
+  backdrop-filter: blur(24px);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-dim);
+  border-radius: 20px;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-outline-variant);
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+.atmospheric-shadow {
+  box-shadow: 0 16px 48px -4px color-mix(in srgb, var(--color-on-background) 8%, transparent);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+/* polish-v2:stitch-styles:end */

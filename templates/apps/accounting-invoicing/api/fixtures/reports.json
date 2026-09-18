@@ -1,0 +1,95 @@
+{
+  "dashboard_stats": {
+    "cash_on_hand_cents": 1842310,
+    "outstanding_cents":  3461150,
+    "overdue_cents":       802900,
+    "mtd_revenue_cents":  2270170,
+    "mtd_expenses_cents":  561600,
+    "ytd_revenue_cents":  9421084,
+    "ytd_profit_cents":   3842330,
+    "revenue_history": [
+      { "month": "May",  "amount_cents":  712000 },
+      { "month": "Jun",  "amount_cents":  825000 },
+      { "month": "Jul",  "amount_cents":  654000 },
+      { "month": "Aug",  "amount_cents":  890000 },
+      { "month": "Sep",  "amount_cents":  945000 },
+      { "month": "Oct",  "amount_cents": 1024000 },
+      { "month": "Nov",  "amount_cents":  982000 },
+      { "month": "Dec",  "amount_cents": 1248000 },
+      { "month": "Jan",  "amount_cents":  812000 },
+      { "month": "Feb",  "amount_cents":  945000 },
+      { "month": "Mar",  "amount_cents": 1124000 },
+      { "month": "Apr",  "amount_cents": 2270170 }
+    ]
+  },
+  "full": {
+    "pnl_history": [
+      { "month": "May", "revenue_cents":  712000, "expenses_cents":  342000 },
+      { "month": "Jun", "revenue_cents":  825000, "expenses_cents":  398000 },
+      { "month": "Jul", "revenue_cents":  654000, "expenses_cents":  362000 },
+      { "month": "Aug", "revenue_cents":  890000, "expenses_cents":  421000 },
+      { "month": "Sep", "revenue_cents":  945000, "expenses_cents":  455000 },
+      { "month": "Oct", "revenue_cents": 1024000, "expenses_cents":  482000 },
+      { "month": "Nov", "revenue_cents":  982000, "expenses_cents":  440000 },
+      { "month": "Dec", "revenue_cents": 1248000, "expenses_cents":  584000 },
+      { "month": "Jan", "revenue_cents":  812000, "expenses_cents":  391000 },
+      { "month": "Feb", "revenue_cents":  945000, "expenses_cents":  428000 },
+      { "month": "Mar", "revenue_cents": 1124000, "expenses_cents":  491000 },
+      { "month": "Apr", "revenue_cents": 2270170, "expenses_cents":  561600 }
+    ],
+    "expense_breakdown": [
+      { "category": "Rent",            "amount_cents": 245000, "color": "#8b5cf6" },
+      { "category": "Software",        "amount_cents":  96200, "color": "#3b82f6" },
+      { "category": "Marketing",       "amount_cents": 120000, "color": "#ec4899" },
+      { "category": "Travel",          "amount_cents":  42180, "color": "#10b981" },
+      { "category": "Meals",           "amount_cents":  35900, "color": "#f59e0b" },
+      { "category": "Utilities",       "amount_cents":  18900, "color": "#a855f7" },
+      { "category": "Office supplies", "amount_cents":   8420, "color": "#0ea5e9" }
+    ],
+    "cash_flow_history": [
+      { "month": "Jan", "in_cents": 812000, "out_cents": 391000 },
+      { "month": "Feb", "in_cents": 945000, "out_cents": 428000 },
+      { "month": "Mar", "in_cents": 1124000, "out_cents": 491000 },
+      { "month": "Apr", "in_cents": 2270170, "out_cents": 561600 }
+    ],
+    "balance_sheet": {
+      "assets_cents":      4842310,
+      "liabilities_cents":  982400,
+      "equity_cents":      3859910
+    }
+  },
+  "taxes": {
+    "collected_cents": 562420,
+    "owed_cents":      342180,
+    "estimated_cents": 484200,
+    "deductible_cents": 561600,
+    "by_jurisdiction": [
+      { "jurisdiction": "California (state)",   "rate_pct": 8.50, "collected_cents": 184200, "remitted_cents": 184200 },
+      { "jurisdiction": "Texas (state)",        "rate_pct": 8.25, "collected_cents": 124800, "remitted_cents": 124800 },
+      { "jurisdiction": "New York (state)",     "rate_pct": 8.88, "collected_cents":  98420, "remitted_cents":  60000 },
+      { "jurisdiction": "Massachusetts (state)","rate_pct": 6.25, "collected_cents":  82000, "remitted_cents":  82000 },
+      { "jurisdiction": "Washington (state)",   "rate_pct": 6.50, "collected_cents":  73000, "remitted_cents":  73000 }
+    ],
+    "deductibles_breakdown": [
+      { "category": "Rent",            "amount_cents": 245000 },
+      { "category": "Software",        "amount_cents":  96200 },
+      { "category": "Marketing",       "amount_cents": 120000 },
+      { "category": "Travel",          "amount_cents":  42180 },
+      { "category": "Meals (50%)",     "amount_cents":  17950 },
+      { "category": "Utilities",       "amount_cents":  18900 },
+      { "category": "Office supplies", "amount_cents":   8420 }
+    ],
+    "quarterly_estimates": [
+      { "quarter": "Q1 2026", "due_date": "2026-04-15", "estimated_cents": 484200, "paid_cents": 484200, "status": "paid"     },
+      { "quarter": "Q2 2026", "due_date": "2026-06-15", "estimated_cents": 484200, "paid_cents":      0, "status": "upcoming" },
+      { "quarter": "Q3 2026", "due_date": "2026-09-15", "estimated_cents": 484200, "paid_cents":      0, "status": "upcoming" },
+      { "quarter": "Q4 2026", "due_date": "2027-01-15", "estimated_cents": 484200, "paid_cents":      0, "status": "upcoming" }
+    ],
+    "filing_checklist": [
+      { "id": "f_1", "description": "File Q1 2026 sales tax (state)",   "due_date": "2026-04-30", "done": false },
+      { "id": "f_2", "description": "File Q1 2026 sales tax (city)",    "due_date": "2026-04-30", "done": false },
+      { "id": "f_3", "description": "Issue 1099-NEC to contractors",    "due_date": "2026-01-31", "done": true  },
+      { "id": "f_4", "description": "File Form 941 (Q1 employer tax)",  "due_date": "2026-04-30", "done": false }
+    ]
+  }
+}

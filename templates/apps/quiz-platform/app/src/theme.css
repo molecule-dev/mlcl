@@ -1,0 +1,218 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --quiz-primary: #7c3aed;
+  --quiz-primary-hover: #6d28d9;
+  --quiz-secondary: #ec4899;
+  --quiz-secondary-hover: #db2777;
+  --quiz-accent: #06b6d4;
+  --quiz-gradient-from: #1e1b4b;
+  --quiz-gradient-to: #2e1065;
+  --quiz-background: #faf5ff;
+  --quiz-surface: #ffffff;
+  --quiz-surface-hover: #f5f3ff;
+  --quiz-border: #e9d5ff;
+  --quiz-text: #1e1b4b;
+  --quiz-text-muted: #6b7280;
+  --quiz-text-light: #9ca3af;
+  --quiz-success: #10b981;
+  --quiz-warning: #f59e0b;
+  --quiz-danger: #ef4444;
+  --quiz-option-a: #ef4444;
+  --quiz-option-b: #3b82f6;
+  --quiz-option-c: #f59e0b;
+  --quiz-option-d: #10b981;
+  --quiz-gold: #fbbf24;
+  --quiz-silver: #9ca3af;
+  --quiz-bronze: #d97706;
+  --quiz-logo-bolt: #f59e0b;
+  --quiz-logo-bolt-stroke: #fbbf24;
+  --quiz-timer-bg: #7c3aed;
+  --quiz-timer-low: #ef4444;
+  --quiz-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --quiz-font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --quiz-radius: 12px;
+  --quiz-radius-sm: 6px;
+  --quiz-radius-lg: 16px;
+  --quiz-shadow: 0 2px 8px color-mix(in srgb, #7c3aed 10%, transparent);
+  --quiz-shadow-lg: 0 8px 24px color-mix(in srgb, #7c3aed 15%, transparent);
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #ec4899;
+  --mol-color-background: #faf5ff;
+  --mol-color-background-secondary: #f5f3ff;
+  --mol-color-background-tertiary: #ede9fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f3ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e9d5ff;
+  --mol-color-border-secondary: #d8b4fe;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #9a4a10; /* was #f59e0b — 2.36:1 as chip text on #fef3c7 (axe serious); #9a4a10 = 5.61:1 */
+  --mol-color-error: #ef4444;
+  --mol-color-info: #3b82f6;
+
+  /* Stitch / Material-3 tokens — light mode defaults */
+  --color-background: #faf5ff;
+  --color-on-background: #1e1b4b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f0e8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3ff;
+  --color-surface-container: #f0ebff;
+  --color-surface-container-high: #ede9fe;
+  --color-surface-container-highest: #e9d5ff;
+  --color-surface-variant: #ede9fe;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #4a4480;
+  --color-inverse-surface: #1e1b4b;
+  --color-inverse-on-surface: #f5f3ff;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff; /* white on violet — 5.70:1 passes */
+  --color-on-primary-container: #2e0a6e;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #fce7f3;
+  --color-on-secondary: #4a0028; /* dark on pink — avoids white-on-pink fail */
+  --color-on-secondary-container: #4a0028;
+  --color-tertiary: #06b6d4;
+  --color-tertiary-container: #cffafe;
+  --color-on-tertiary: #0a4a52; /* dark on cyan — avoids white-on-cyan fail */
+  --color-on-tertiary-container: #0a4a52;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #5a0000;
+  --color-outline: #9480c2; /* ≥3:1 vs surface white */
+  --color-outline-variant: #e9d5ff;
+  --color-surface-tint: #7c3aed;
+}
+
+/* Dark mode — warm-neutral education dark (game-show energy).
+   Education tone: warm-tinted near-black violet surfaces, brand violet
+   kept at the brand stop (#7c3aed) for badges and surface accents and
+   shifted brighter for hero CTAs so white text reads cleanly.
+   `--color-on-primary` STAYS white in both modes so violet CTA buttons
+   keep their light-on-violet character. */
+[data-mol-mode='dark'] {
+  /* Brand — keep base at brand stop, brighten for hero CTA via primary-hover */
+  --quiz-primary: #7c3aed;
+  --quiz-primary-hover: #a78bfa;
+  --quiz-secondary: #ec4899;
+  --quiz-secondary-hover: #f472b6;
+  --quiz-accent: #22d3ee;
+
+  /* Gradient endpoints — lighter in dark mode for contrast on near-black bg */
+  --quiz-gradient-from: #1f1840;
+  --quiz-gradient-to: #2a1a5e;
+
+  /* Surfaces — depth-layered warm-tinted dark violet */
+  --quiz-background: #0c0817;
+  --quiz-surface: #14102a;
+  --quiz-surface-hover: #1f1840;
+  --quiz-border: #2a234d;
+
+  /* Text */
+  --quiz-text: #f5f3ff;
+  --quiz-text-muted: #c4b5fd;
+  --quiz-text-light: #8b7fb8;
+
+  /* Status — brighter on dark */
+  --quiz-success: #4ade80;
+  --quiz-warning: #fbbf24;
+  --quiz-danger: #f87171;
+
+  /* Multiple-choice option swatches — keep distinct, bump saturation */
+  --quiz-option-a: #f87171;
+  --quiz-option-b: #60a5fa;
+  --quiz-option-c: #fbbf24;
+  --quiz-option-d: #4ade80;
+
+  /* Podium */
+  --quiz-gold: #fcd34d;
+  --quiz-silver: #cbd5e1;
+  --quiz-bronze: #f59e0b;
+  --quiz-logo-bolt: #fbbf24;
+  --quiz-logo-bolt-stroke: #fcd34d;
+
+  /* Timer */
+  --quiz-timer-bg: #a78bfa;
+  --quiz-timer-low: #f87171;
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #4c1d95;
+  --mol-color-primary-dark: #5b21b6;
+  --mol-color-secondary: #ec4899;
+  --mol-color-background: #0c0817;
+  --mol-color-background-secondary: #14102a;
+  --mol-color-background-tertiary: #1f1840;
+  --mol-color-surface: #0c0817;
+  --mol-color-surface-secondary: #14102a;
+  --mol-color-input-background: #060410;
+  --mol-color-text: #f5f3ff;
+  --mol-color-text-secondary: #c4b5fd;
+  --mol-color-text-tertiary: #8b7fb8;
+  --mol-color-text-inverse: #0c0817;
+  --mol-color-border: #2a234d;
+  --mol-color-border-secondary: #3d3660;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on violet: `on-primary` stays white. */
+  --color-background: #0c0817;
+  --color-on-background: #f5f3ff;
+  --color-surface: #0c0817;
+  --color-surface-bright: #1f1840;
+  --color-surface-dim: #060410;
+  --color-surface-container-lowest: #04020a;
+  --color-surface-container-low: #110d24;
+  --color-surface-container: #14102a;
+  --color-surface-container-high: #1f1840;
+  --color-surface-container-highest: #2a234d;
+  --color-surface-variant: #1f1840;
+  --color-on-surface: #f5f3ff;
+  --color-on-surface-variant: #c4b5fd;
+  --color-inverse-surface: #f5f3ff;
+  --color-inverse-on-surface: #14102a;
+  --color-inverse-primary: #7c3aed;
+  --color-primary: #7c3aed;
+  --color-primary-container: #4c1d95;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #831843;
+  --color-on-secondary: #0c0817; /* dark on pink — white was 3.53:1 (fail); #0c0817 = 5.60:1 */
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #155e75;
+  --color-on-tertiary: #0c0817; /* dark on cyan — white was 1.81:1 (fail); #0c0817 = 10.93:1 */
+  --color-on-tertiary-container: #cffafe;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6a5d8c;
+  --color-outline-variant: #2a234d;
+  --color-surface-tint: #a78bfa;
+
+  /* Shadows */
+  --quiz-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --quiz-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

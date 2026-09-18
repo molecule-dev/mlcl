@@ -1,0 +1,88 @@
+{
+  "label": "Customer Support Chat",
+  "description": "Intercom-like support widget with live chat, chatbot, canned responses, and agent dashboard — with built-in Stripe-backed subscription tiers",
+  "cluster": "communication",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-tag",
+    "@molecule/api-resource-activity-feed",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-push-notifications-web-push",
+    "@molecule/api-ai-anthropic",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-data-table",
+    "@molecule/app-command-palette",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Liaison"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for ticket notifications",
+      "required": true
+    },
+    "MEILISEARCH_URL": {
+      "description": "MeiliSearch URL",
+      "default": "http://localhost:7700"
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for AI chatbot",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_CUSTOMER_SUPPORT_CHAT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_CUSTOMER_SUPPORT_CHAT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_CUSTOMER_SUPPORT_CHAT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_CUSTOMER_SUPPORT_CHAT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "realtime",
+    "search",
+    "ai-bot",
+    "canned-responses",
+    "notifications",
+    "subscriptions"
+  ]
+}

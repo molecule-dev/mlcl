@@ -1,0 +1,162 @@
+{
+  "app": "document-collaboration",
+  "designProjectId": "14779800734765001527",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-landing.html",
+      "designScreenId": "5846372e21b64ea0b46b8781a8b61646"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-login.html",
+      "designScreenId": "d732228fdd3e40f188c845bceb9bb34b"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-login.html",
+      "derivationNotes": "Same split layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Create your account'. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field. Heading 'Reset your password', subtext 'We\u2019ll email you a reset link.' Button 'Send reset link'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-dashboard.html",
+      "designScreenId": "21fc98c06cc34a5da36e09cbbd533d34"
+    },
+    {
+      "name": "Editor",
+      "templateFile": "app/pages/Editor.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/doc/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-editor.html",
+      "designScreenId": "a2e675c16d214fe08a9fcca09edc9cd0"
+    },
+    {
+      "name": "VersionHistory",
+      "templateFile": "app/pages/VersionHistory.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/doc/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-version-history.html",
+      "designScreenId": "6699a46b3ba845198c9cce8a8a9e463e"
+    },
+    {
+      "name": "Comments",
+      "templateFile": "app/pages/Comments.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/doc/:id/comments",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-comments.html",
+      "designScreenId": "1fc8bdede4c04067892b345b76b46b7a"
+    },
+    {
+      "name": "Shared",
+      "templateFile": "app/pages/Shared.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-shared.html",
+      "designScreenId": "9653e7640a7644af8949e1f57e518377"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-settings.html",
+      "designScreenId": "1e8c2fc91cb24d1fb1634c09ff0cbf2c"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-document-collaboration-notifications.html",
+      "designScreenId": "71c73b9dd3634189aaf66fb7e13a2de2"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-dashboard.html",
+      "derivationNotes": "Same Quillon shell (top bar + 280px sidebar) and 3-column card grid as Dashboard. Page title 'Templates', subtitle 'Start with a thoughtful structure. Customize endlessly.' Replace dashboard recents with category tabs (All Templates, Writing, Team, Engineering, Personal) and 9 template cards: Blog Post, Meeting Notes, Product Brief, RFC, Journal Entry, Project Plan, Press Release, Research Paper, User Interview Notes. Each card thumbnail simulates a document preview using Charter serif text fragments. Featured 'Blank Document' card with dashed indigo border above the grid. Sidebar 'Templates' nav item is the active state."
+    },
+    {
+      "name": "Trash",
+      "templateFile": "app/pages/Trash.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/trash",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-dashboard.html",
+      "derivationNotes": "Same Quillon shell and document card grid as Dashboard. Page title 'Trash', subtitle 'Documents are deleted permanently after 30 days.' Each document card shows a 'Deleted N days ago' timestamp instead of last edited, and footer actions are 'Restore' (primary outline) and 'Delete forever' (danger ghost) instead of standard hover actions. Banner above grid: 'Empty trash' destructive button on the right. Sidebar 'Trash' nav item is the active state. Each card has a subtle reduced-opacity treatment to suggest deleted state."
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/DocumentCollaborationLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-document-collaboration-settings.html",
+      "derivationNotes": "Same Quillon shell and form card layout as Settings. Page title 'Profile', subtitle 'How you appear to your collaborators.' Sections: 'Identity' (avatar with upload button using assigned cursor color #4f46e5, display name field, handle field, pronouns field), 'About' (bio textarea, role/title field, optional location), 'Public profile' (toggle 'Show profile to teammates', link to docs you've authored), 'Presence' (selectable cursor color swatch from cursor palette: #4f46e5 self, #e11d48, #16a34a, #d97706, #7c3aed). Save button bottom-right in primary indigo. Sidebar entry 'Profile' becomes active (above Settings)."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+Polish complete: 2026-04-30T00:43:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: civic/governance → siblings: applicant-tracking, ci-cd-dashboard
+Components: 7 bespoke (LiveResultsHero, ParticipationSparkline, PollCard,
+  PollStatusPill, QuestionTypeBadge, QuorumKpiCard, VotingPollingLayout)
+Pages: 21 .tsx files; screen-map coverage 18/18 (all wired)
+Auth: Login, Signup, ForgotPassword, ResetPassword branded with Quorum identity
+Material 3 tokens: filled (already complete)
+Fonts: Inter + JetBrains Mono + Material Symbols Outlined in index.html
+Sweep 1 chrome: Header/Footer/RootErrorBoundary delegating to packages
+Typecheck: clean (npx tsc --noEmit)
+Compliance: 1 classmap-coverage violation (decorative gradients/orbs/blurs in
+  bespoke components — within the ≤4 acceptable threshold)
+classmapCoveragePct: 76 (polish-status.mjs)
+bespokeComponentCount: 7 (polish-status.mjs)

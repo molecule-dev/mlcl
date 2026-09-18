@@ -1,0 +1,156 @@
+{
+  "app": "crm",
+  "designProjectId": "15942178707868004658",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-crm-dashboard.html",
+      "designScreenId": "9c4116871a1e4835b4f8b566f7a8eb8e"
+    },
+    {
+      "name": "Contacts",
+      "templateFile": "app/pages/Contacts.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/contacts",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-crm-contacts.html",
+      "designScreenId": "95505ba0092c4b489ed1e22878794654"
+    },
+    {
+      "name": "ContactDetail",
+      "templateFile": "app/pages/ContactDetail.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/contacts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-contact-detail.html",
+      "designScreenId": "6e39aba759b149a89345c0d9b5bef4f6",
+      "generationPrompt": "CRM Contact Detail Page with structured sidebar (surface_dim #d2d9f4), contact header with avatar, name, job title, company link. Two-column layout: left has Contact Information card and Deals card; right has Notes card and Activity Timeline card. All cards surface_container_lowest on surface_container_low. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Companies",
+      "templateFile": "app/pages/Companies.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/companies",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-companies.html",
+      "designScreenId": "fb00e0b487bb42fc84c46efc32a2900d",
+      "generationPrompt": "CRM Companies List Page with structured sidebar, page header with search and Add Company button, filter chips (Industry, Size, Location, Status), data table with tonal row separation. Each row: company name, industry, employee count, revenue, location, status badge. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "CompanyDetail",
+      "templateFile": "app/pages/CompanyDetail.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/companies/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-company-detail.html",
+      "designScreenId": "2111d44c538947ec98da6ed841147c46",
+      "generationPrompt": "CRM Company Detail Page with structured sidebar, company header card with name, industry, website, status. Two-column layout: left has Company Information card and Recent Deals card; right has Key Contacts card and Activity Feed card. All cards surface_container_lowest. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Deals",
+      "templateFile": "app/pages/Deals.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/deals",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-crm-deals.html",
+      "designScreenId": "d705f32759fe4e3eb0c6568f93dd37cc"
+    },
+    {
+      "name": "DealDetail",
+      "templateFile": "app/pages/DealDetail.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/deals/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-deal-detail.html",
+      "designScreenId": "72cf4f70d9844a1592d9733373c056d8",
+      "generationPrompt": "CRM Deal Detail Page with structured sidebar, deal header with name, value, stage badge, close date, probability. Stage progress bar (Qualification to Closed Won). Two-column layout: left has Deal Information and Products/Services cards; right has Associated Contacts and Activity Timeline cards. All cards surface_container_lowest. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Activities",
+      "templateFile": "app/pages/Activities.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/activities",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-crm-activities.html",
+      "designScreenId": "caa23827bb964d5ea4cfeb6f2a73219d"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-reports.html",
+      "designScreenId": "3407ec629a58405780bd3db60c10abe1",
+      "generationPrompt": "CRM Reports & Analytics Page with structured sidebar, page header with date range selector and Export button. Grid of analytics cards: Revenue Overview (line chart), Deal Pipeline (bar chart), Top Performers (leaderboard), Conversion Rates (funnel), Activity Summary (bar chart), Revenue by Source (donut chart). Primary #004ac6 and secondary #712ae2 palette. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CrmLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-crm-settings.html",
+      "designScreenId": "f8dd22bb3ab64be985520d0961bac160",
+      "generationPrompt": "CRM Settings Page with structured sidebar, page header, left settings nav (Profile, Account, Notifications, Integrations, Team, Billing), right content showing Profile section with photo upload, form fields, Save Changes button (gradient #004ac6 to #2563eb), and Notification Preferences card with toggle switches. No 1px borders. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-crm-login.html",
+      "designScreenId": "1a8093475f0e47cbac8cede1a87e5c57",
+      "generationPrompt": "Premium CRM Login Page with centered card on soft surface (#faf8ff), glassmorphic card with brand logo, email/password inputs with ghost borders, Sign In gradient button (#004ac6 to #2563eb), Forgot Password link, Sign Up link. Inter font. Precision Architect design. Light mode."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crm-login.html",
+      "derivationNotes": "Same centered card layout as Login but with additional fields: First Name, Last Name, Email, Password, Confirm Password. Button text changes to 'Create Account'. Bottom link changes to 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crm-login.html",
+      "derivationNotes": "Same centered card layout as Login but with only email field. Heading changes to 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button text changes to 'Send Reset Link'. Bottom link changes to 'Back to Sign In'. No password field."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-crm-login.html",
+      "derivationNotes": "Same centered card layout as Login but with New Password and Confirm Password fields only. Heading changes to 'Set New Password'. Button text changes to 'Reset Password'. Bottom link changes to 'Back to Sign In'. No email field."
+    }
+  ]
+}

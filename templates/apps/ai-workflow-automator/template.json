@@ -1,0 +1,80 @@
+{
+  "label": "AI Workflow Automator",
+  "description": "AI-powered automation rules with triggers, conditions, and multi-step actions — with built-in Stripe-backed subscription tiers",
+  "cluster": "ai-first",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-agents",
+    "@molecule/api-ai-agents-llm",
+    "@molecule/api-workflow-database",
+    "@molecule/api-cron-node-cron",
+    "@molecule/app-data-table",
+    "@molecule/app-ai-assistant",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "AI Workflow Automator"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for AI condition evaluation",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_AI_WORKFLOW_AUTOMATOR_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_WORKFLOW_AUTOMATOR_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_AI_WORKFLOW_AUTOMATOR_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_AI_WORKFLOW_AUTOMATOR_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "workflow-builder",
+    "ai-conditions",
+    "cron-triggers",
+    "run-history",
+    "data-table",
+    "subscriptions"
+  ]
+}

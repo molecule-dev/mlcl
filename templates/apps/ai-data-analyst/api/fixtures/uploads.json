@@ -1,0 +1,8 @@
+[
+  { "id": "ds_001", "filename": "q3-orders.csv",        "size_bytes":  82421840, "rows": 184212, "uploaded_at": "2025-10-01T09:00:00Z", "status": "ready"   },
+  { "id": "ds_002", "filename": "customers.parquet",    "size_bytes":  18240000, "rows":  42180, "uploaded_at": "2026-04-01T11:00:00Z", "status": "ready"   },
+  { "id": "ds_003", "filename": "web-traffic-apr.json", "size_bytes": 184212840, "rows": 421840, "uploaded_at": "2026-04-25T08:00:00Z", "status": "ready"   },
+  { "id": "ds_004", "filename": "marketing-q1.xlsx",    "size_bytes":     412000, "rows":     842, "uploaded_at": "2026-04-12T13:30:00Z", "status": "ready"   },
+  { "id": "ds_005", "filename": "inventory.parquet",    "size_bytes":  21840000, "rows":  62400, "uploaded_at": "2026-04-26T07:00:00Z", "status": "parsing" },
+  { "id": "up_006", "filename": "old-leads.csv",        "size_bytes":   1840000, "rows":   3420, "uploaded_at": "2026-04-25T14:00:00Z", "status": "failed"  }
+]

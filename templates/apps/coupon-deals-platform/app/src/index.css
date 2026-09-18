@@ -1,0 +1,361 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #fff4f3;
+  --color-error: #b31b25;
+  --color-error-container: #fb5151;
+  --color-error-dim: #9f0519;
+  --color-inverse-on-surface: #ce8c88;
+  --color-inverse-primary: #fa5c28;
+  --color-inverse-surface: #240304;
+  --color-on-background: #4e2120;
+  --color-on-error: #ffefee;
+  --color-on-error-container: #570008;
+  --color-on-primary: #ffefeb;
+  --color-on-primary-container: #470e00;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #571400;
+  --color-on-secondary: #ccffd7;
+  --color-on-secondary-container: #00532c;
+  --color-on-secondary-fixed: #003d1f;
+  --color-on-secondary-fixed-variant: #005d32;
+  --color-on-surface: #4e2120;
+  --color-on-surface-variant: #834c4a;
+  --color-on-tertiary: #f1f2ff;
+  --color-on-tertiary-container: #002a78;
+  --color-on-tertiary-fixed: #001443;
+  --color-on-tertiary-fixed-variant: #00328b;
+  --color-outline: #a36764;
+  --color-outline-variant: #e09c98;
+  --color-primary: #a92f00;
+  --color-primary-container: #ff784e;
+  --color-primary-dim: #952900;
+  --color-primary-fixed: #ff784e;
+  --color-primary-fixed-dim: #fd5f2b;
+  --color-secondary: #006a39;
+  --color-secondary-container: #5aec95;
+  --color-secondary-dim: #005c31;
+  --color-secondary-fixed: #5aec95;
+  --color-secondary-fixed-dim: #49dd89;
+  --color-surface: #fff4f3;
+  --color-surface-bright: #fff4f3;
+  --color-surface-container: #ffe1df;
+  --color-surface-container-high: #ffdad7;
+  --color-surface-container-highest: #ffd2cf;
+  --color-surface-container-low: #ffedeb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #ffc7c3;
+  --color-surface-tint: #a92f00;
+  --color-surface-variant: #ffd2cf;
+  --color-tertiary: #0050d4;
+  --color-tertiary-container: #94aeff;
+  --color-tertiary-dim: #0046bb;
+  --color-tertiary-fixed: #94aeff;
+  --color-tertiary-fixed-dim: #7f9fff;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.25rem;
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Stitch font families. */
+  --font-body: Inter, sans-serif;
+  --font-headline: 'Plus Jakarta Sans', sans-serif;
+  --font-label: Inter, sans-serif;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-2 -bottom-24 -bottom-4 -bottom-6 -bottom-[5px] -bottom-[6px] -left-12 -left-2 -mt-px -mx-4 -right-1 -right-2 -right-24 -right-4 -rotate-2 -rotate-3 -top-1 -top-4 -translate-x-1/2 -translate-y-1/2 -translate-y-full -z-10 2xl 3xl absolute active:scale-90 active:scale-95 active:scale-98 activity-table after:absolute after:bg-white after:h-5 after:left-[2px] after:rounded-full after:top-[2px] after:transition-all after:w-5 ambient-shadow animate-ping animate-pulse antialiased aspect-[4/3] aspect-video backdrop-blur backdrop-blur-[20px] backdrop-blur-[2px] backdrop-blur-md backdrop-blur-sm backdrop-blur-xl background bg-background bg-black/10 bg-black/20 bg-black/40 bg-black/50 bg-blue-500 bg-bottom bg-cover bg-error bg-error-container");
+@source inline("bg-error-container/20 bg-gradient-to-b bg-gradient-to-br bg-gradient-to-r bg-inverse-surface bg-kinetic-gradient bg-no-repeat bg-opacity-90 bg-orange-50 bg-outline-variant bg-primary bg-primary-container bg-primary-container/20 bg-primary-container/30 bg-primary-dim bg-primary-fixed bg-primary/10 bg-secondary bg-secondary-container bg-secondary-fixed bg-secondary/10 bg-slate-50 bg-stone-100 bg-surface bg-surface-bright bg-surface-container bg-surface-container-high bg-surface-container-high/80 bg-surface-container-highest bg-surface-container-low bg-surface-container-lowest bg-surface-container-lowest/40 bg-surface-container-lowest/80 bg-surface-dim bg-surface-variant bg-surface-variant/20 bg-surface/50 bg-surface/80 bg-tertiary bg-tertiary-fixed bg-transparent bg-white bg-white/70 bg-white/80 block blur-3xl border border-0 border-2 border-4 border-[3px] border-b border-b-0 border-b-2 border-dashed border-inverse-on-surface/20 border-l-[6px] border-l-[8px] border-l-transparent border-none");
+@source inline("border-outline-variant border-outline-variant/15 border-outline-variant/20 border-outline-variant/30 border-outline/20 border-primary border-primary/20 border-r border-r-0 border-r-[6px] border-r-[8px] border-r-transparent border-surface border-surface-container-high border-surface-container-lowest border-surface-variant/50 border-t border-t-0 border-t-2 border-t-[10px] border-t-[8px] border-t-primary border-t-secondary-fixed border-transparent border-white bottom-0 bottom-10 bottom-3 bottom-6 btn-primary buy-btn category-card category-count category-grid category-icon category-name col-span-1 coupon-address coupon-code coupon-code-display coupon-details coupon-display coupon-expires coupon-label cursor-not-allowed cursor-pointer dark:bg-neutral-800 dark:bg-neutral-950 dark:bg-orange-950/30 dark:bg-slate-800 dark:bg-slate-900 dark:bg-slate-950 dark:bg-slate-950/70 dark:bg-stone-800 dark:bg-stone-900 dark:bg-stone-900/80 dark:bg-stone-950 dark:bg-stone-950/80 dark:hover:bg-slate-800 dark:hover:bg-slate-800/50");
+@source inline("dark:hover:bg-stone-800 dark:hover:text-orange-300 dark:hover:text-orange-400 dark:shadow-none dark:text-neutral-400 dark:text-orange-400 dark:text-orange-500 dark:text-slate-400 dark:text-slate-500 dark:text-stone-200 dark:text-stone-400 dark:text-stone-600 dashboard-deals dashboard-header dashboard-overview dashboard-redemptions dashboard-tabs dashboard-verify deal-card deal-card-body deal-card-expiry deal-card-image deal-card-meta deal-card-pricing deal-card-remaining deal-card-title deal-description deal-detail-page deal-discount-badge deal-discount-badge-lg deal-expired-notice deal-gallery deal-grid deal-header deal-info deal-location deal-main-image deal-merchant-card deal-price-discounted deal-price-discounted-lg deal-price-original deal-price-original-lg deal-pricing-block deal-progress deal-purchase-section deal-savings deal-sold-out deal-tags deal-terms deal-thumbnails deal-timer deals-categories deals-expiring deals-featured deals-hero deals-page deals-search deals-search-results deals-table docked");
+@source inline("drop-shadow-sm duration-100 duration-200 duration-300 duration-500 ease-in-out empty-message empty-state filter fixed flat flat-editorial flex flex-1 flex-col flex-grow flex-shrink-0 flex-wrap focus-within:bg-surface-container focus-within:bg-surface-container-highest focus-within:ring-2 focus-within:ring-primary/40 focus:bg-surface-container-lowest focus:border-outline/50 focus:border-primary focus:outline-none focus:ring-0 focus:ring-2 focus:ring-offset-surface-container-lowest focus:ring-outline-variant/15 focus:ring-primary focus:ring-primary/30 font-black font-body font-bold font-brand font-code font-display font-extrabold font-headline font-label font-medium font-mono font-normal font-semibold from-indigo-500 from-primary from-secondary from-surface-container from-tertiary full-width gap-1 gap-12 gap-16 gap-2 gap-3 gap-4 gap-6 gap-8 glass-nav");
+@source inline("grid grid-cols-1 grid-cols-2 group group-focus-within:opacity-100 group-focus-within:text-primary group-hover:bg-transparent group-hover:border-primary/30 group-hover:opacity-100 group-hover:scale-105 group-hover:scale-110 group-hover:text-on-surface group-hover:text-primary group-open:rotate-180 h-0 h-1 h-10 h-11 h-12 h-14 h-16 h-2 h-24 h-3 h-32 h-4 h-40 h-48 h-5 h-6 h-64 h-8 h-9 h-96 h-[1px] h-[600px] h-[850px] h-full h-screen hidden hide-scrollbar hover:-translate-y-1 hover:bg-black/30 hover:bg-error/10 hover:bg-orange-50 hover:bg-primary-container hover:bg-primary/10 hover:bg-slate-100 hover:bg-surface hover:bg-surface-bright hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-low hover:bg-surface-container-lowest hover:bg-surface-dim hover:bg-surface-variant hover:bg-zinc-100 hover:border-outline-variant/15 hover:border-primary");
+@source inline("hover:opacity-100 hover:opacity-80 hover:opacity-90 hover:scale-105 hover:shadow-ambient hover:shadow-ambient-hover hover:shadow-md hover:skew-x-2 hover:text-on-primary-container hover:text-orange-500 hover:text-orange-600 hover:text-primary hover:text-primary-container hover:text-white hover:underline inline-block inline-flex inset-0 inset-y-0 italic items-center items-end items-start justify-around justify-between justify-center justify-end justify-start kinetic-card leading-none leading-relaxed leading-tight left-0 left-1 left-1/2 left-10 left-2 left-3 left-4 lg:block lg:flex lg:flex-row lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 lg:hidden lg:p-8 lg:py-32 lg:text-5xl lg:text-7xl lg:w-1/2 lg:w-2/5 lg:w-3/5 line-clamp-2 line-through link-btn list-disc list-none loading material-symbols-outlined");
+@source inline("max-h-[921px] max-w-3xl max-w-7xl max-w-[440px] max-w-full max-w-lg max-w-md max-w-none max-w-screen-2xl max-w-sm max-w-xl mb mb-1 mb-12 mb-2 mb-3 mb-4 mb-6 mb-8 md md:-mx-8 md:bg-surface-container-low md:block md:col-span-2 md:flex md:flex-row md:gap-5 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:hidden md:ml-[280px] md:p-10 md:p-8 md:pb-6 md:px-8 md:py-12 md:shadow-none md:text-4xl md:text-5xl md:text-right md:w-auto merchant-dashboard-page merchant-info merchant-logo merchant-name merchant-pending merchant-rating min-h-screen min-w-[280px] mix-blend-multiply ml-1 ml-2 ml-4 modal-close modal-content modal-overlay mr-1 mr-2 mr-4");
+@source inline("mt-1 mt-12 mt-16 mt-2 mt-20 mt-4 mt-8 mt-auto mx-6 mx-8 mx-auto my-12 my-2 my-8 my-deals-filters my-deals-page nav-item-active no-border no-line no-scrollbar not-merchant object-contain object-cover opacity-0 opacity-10 opacity-100 opacity-20 opacity-50 opacity-60 opacity-70 opacity-75 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto overflow-y-auto p-0 p-1 p-12 p-2 p-3 p-4 p-5 p-6 p-8 pb-1 pb-16 pb-2 pb-24 pb-8 pb-safe-offset-2 peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-tertiary pl-0 pl-10 pl-12 pl-2");
+@source inline("pl-3 pl-4 pl-5 pl-8 placeholder-on-surface-variant placeholder-on-surface-variant/70 placeholder:text-on-surface-variant placeholder:text-on-surface-variant/50 placeholder:text-on-surface-variant/70 pointer-events-auto pointer-events-none pr-4 primary-btn progress-bar progress-fill progress-labels prose prose-lg pt-0 pt-1 pt-16 pt-2 pt-3 pt-4 pt-5 pt-8 pt-[72px] pulse-gradient purchase-savings purchase-success purchase-summary purchase-total px-1 px-12 px-2 px-3 px-4 px-6 px-8 py py-1 py-10 py-12 py-16 py-2 py-20 py-3 py-4 py-5 py-8 qr-code-box qr-data qr-label qr-placeholder quantity-selector rating-count recent-activity redeem-btn redeemed-info redemption-card");
+@source inline("redemption-card-body redemption-card-left redemption-card-right redemption-code redemption-date redemption-merchant redemption-price redemption-summary redemption-thumb redemptions-list relative right-0 right-1 right-10 right-2 right-3 right-32 right-4 right-6 ring-1 ring-2 ring-outline-variant/15 ring-surface-container-low ring-surface-container-lowest ring-transparent rotate-12 rotate-2 rotate-6 rounded rounded-2xl rounded-[2rem] rounded-full rounded-l-full rounded-lg rounded-md rounded-none rounded-r-full rounded-t-2xl rounded-t-lg rounded-t-md rounded-t-xl rounded-xl scale-90 scale-95 scissor-bottom scissor-cut-bottom scissor-edge scrollbar-hide search-btn secondary-btn section-header section-hint section-subtitle selection:bg-primary selection:bg-primary-container selection:text-on-primary selection:text-on-primary-container shadow-ambient shadow-ambient-hover shadow-inner");
+@source inline("shadow-lg shadow-md shadow-none shadow-primary/20 shadow-slate-200/50 shadow-sm shift shrink-0 sm sm:block sm:flex-row sm:grid-cols-2 sm:items-center sm:justify-end sm:p-12 sm:pb-0 sm:w-auto snap-mandatory snap-start snap-x space-y-10 space-y-12 space-y-2 space-y-6 space-y-8 sr-only stat-card stat-label stat-sub stat-value stats-grid sticky success-actions success-icon surface-container-high tabular-nums tactile-hover tag text-2xl text-3xl text-4xl text-5xl text-6xl text-[10px] text-[12px] text-[14px] text-[16px] text-[20px] text-amber-500 text-base text-blue-500 text-body text-center text-error text-inverse-on-surface text-lg text-neutral-600 text-on-background text-on-error text-on-error-container");
+@source inline("text-on-primary text-on-primary-fixed text-on-primary/90 text-on-secondary text-on-secondary-container text-on-secondary-fixed-variant text-on-surface text-on-surface-variant text-on-tertiary text-on-tertiary-fixed text-orange-600 text-outline-variant text-primary text-primary-dim text-primary/80 text-secondary text-slate-400 text-slate-500 text-sm text-stone-400 text-stone-500 text-tertiary text-white text-xl text-xs text-zinc-500 timer-icon timer-text to-background to-primary-container to-purple-600 to-surface-container-low tonal tonal-shift tonal-shift-bg tonal-shift-no-border top-0 top-1 top-1/2 top-1/4 top-10 top-2 top-28 top-3 top-4 top-40 top-6 top-[22px] top-[72px] top-[76px] tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-shadow");
+@source inline("transition-transform truncate underline underline-offset-4 uppercase urgent-pulse using verify-btn verify-error-icon verify-input-group verify-success-icon via via-surface w-0 w-1 w-10 w-11 w-12 w-16 w-2 w-24 w-3 w-4 w-5 w-6 w-64 w-72 w-8 w-9 w-96 w-[280px] w-fit w-full whitespace-nowrap with xl:grid-cols-3 xs z-0 z-10 z-20 z-30 z-40 z-50 z-[100]");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.scissor-cut-bottom {
+  mask-image: radial-gradient(circle at 12px 100%, transparent 12px, black 13px);
+  mask-size: 24px 100%;
+  mask-position: bottom;
+  mask-repeat: repeat-x;
+  padding-bottom: 24px;
+}
+
+.scissor-cut-side {
+  mask-image: radial-gradient(circle at 100% 12px, transparent 12px, black 13px);
+  mask-size: 100% 24px;
+  mask-position: right;
+  mask-repeat: repeat-y;
+  padding-right: 24px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scissor-edge {
+  position: relative;
+}
+
+.scissor-edge::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-image: radial-gradient(
+    circle at 4px 8px,
+    transparent 4px,
+    var(--color-surface-container-lowest) 4.5px
+  );
+  background-size: 8px 8px;
+  background-repeat: repeat-x;
+  transform: translateY(100%);
+  z-index: 10;
+}
+
+.scissor-cut-bottom {
+  mask-image: radial-gradient(circle at 10px 100%, transparent 10px, black 11px);
+  mask-size: 20px 100%;
+  mask-position: bottom;
+  mask-repeat: repeat-x;
+  padding-bottom: 20px; /* Space for the cut */
+}
+
+.urgent-pulse {
+  animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-border {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.scissor-edge {
+  mask-image: radial-gradient(circle at 12px 100%, transparent 12px, black 13px);
+  mask-position: bottom;
+  mask-size: 24px 100%;
+  mask-repeat: repeat-x;
+  padding-bottom: 24px;
+}
+
+.pulse-gradient {
+  background: linear-gradient(135deg, #a92f00, #ff784e);
+}
+
+.scissor-edge {
+  background-image: radial-gradient(circle at 10px 0, transparent 10px, #ffffff 11px);
+  background-size: 24px 12px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  padding-bottom: 12px;
+}
+
+.ambient-shadow {
+  box-shadow: 0 8px 24px rgba(78, 33, 32, 0.06);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.icon-fill {
+  font-variation-settings: 'FILL' 1;
+}
+
+.bg-gradient-primary {
+  background-image: linear-gradient(
+    135deg,
+    var(--tw-colors-primary) 0%,
+    var(--tw-colors-primary-container) 100%
+  );
+}
+
+.dash-cut {
+  border-bottom: 2px dashed var(--tw-colors-outline-variant);
+  position: relative;
+}
+
+.dash-cut::before,
+.dash-cut::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--tw-colors-surface-container-low);
+  border-radius: 50%;
+}
+
+.dash-cut::before {
+  left: -8px;
+}
+
+.dash-cut::after {
+  right: -8px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.coupon-cut {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.scissor-bottom {
+  background-image: radial-gradient(
+    circle at 10px 10px,
+    transparent 10px,
+    var(--color-surface-container-lowest) 11px
+  );
+  background-size: 24px 24px;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding-bottom: 24px;
+}
+
+/* Essential base overrides for Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-surface-variant);
+  border-radius: 9999px;
+}
+
+.material-symbols-outlined.fill {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.glass-nav {
+  background: rgba(251, 249, 247, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #aa3000 0%, #d3410a 100%);
+  color: #ffffff;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: inset 0 0 0 1px rgba(251, 249, 247, 0.2);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.kinetic-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0px 12px 32px rgba(27, 28, 27, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.kinetic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 16px 40px rgba(27, 28, 27, 0.06);
+}
+
+.nav-item-active {
+  background-color: #ffffff;
+  color: #aa3000;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+/* polish-v2:stitch-styles:end */

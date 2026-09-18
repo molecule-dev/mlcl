@@ -1,0 +1,223 @@
+{
+  "app": "api-documentation",
+  "designProjectId": "1275810981577869609",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-landing.html",
+      "designScreenId": "d3c2ef4ed1574e65b8140e0ee6b756d1"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-login.html",
+      "designScreenId": "e6e6eef8625b4d1388e4befc6779daf5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-login.html",
+      "derivationNotes": "Same dark centered card on #0c1222 with monospace endpoint-strings background as Login, but with fields: Full Name, Email, Password, Confirm Password. Card heading changes to 'Create your account' with subtext 'Start building with Prism'. Primary button text becomes 'Create Account' (green #10b981). Bottom link changes to 'Already have an account? Sign in'. Keep GitHub + Google social auth row. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-login.html",
+      "derivationNotes": "Same dark card layout and Prism branding as Login, but with only email field. Heading changes to 'Reset your password' with subtext 'Enter your email and we will send you a reset link'. Button text changes to 'Send Reset Link' (green). Bottom link changes to 'Back to Sign In'. Remove password field, remember-me row, and social auth section."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-login.html",
+      "derivationNotes": "Same dark card layout and Prism branding as Login, but with New Password + Confirm Password fields only. Heading changes to 'Set a new password'. Button text changes to 'Reset Password' (green). Bottom link changes to 'Back to Sign In'. Remove email field, remember-me row, and social auth section."
+    },
+    {
+      "name": "DocsHome",
+      "templateFile": "app/pages/DocsHome.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-docs-home.html",
+      "designScreenId": "26672588abca4dac899538dbbca0561f"
+    },
+    {
+      "name": "EndpointReference",
+      "templateFile": "app/pages/EndpointReference.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/endpoints/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-endpoint-reference.html",
+      "designScreenId": "8f26aff94a7243d68dd33ef04d404e5d"
+    },
+    {
+      "name": "Endpoints",
+      "templateFile": "app/pages/Endpoints.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/endpoints",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-endpoints.html",
+      "designScreenId": "187925df1a99403fbdc28856d53c4a35"
+    },
+    {
+      "name": "Guides",
+      "templateFile": "app/pages/Guides.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/guides",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-guides.html",
+      "designScreenId": "4fe741ce3a3e42b08e4516697192ecc0"
+    },
+    {
+      "name": "APIKeys",
+      "templateFile": "app/pages/APIKeys.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/settings/api-keys",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-api-keys.html",
+      "designScreenId": "e9ed484b685e4a8a9f353aaf393a0ced"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-settings.html",
+      "designScreenId": "1f9805f70dc248cd92d44651d71835eb"
+    },
+    {
+      "name": "Changelog",
+      "templateFile": "app/pages/Changelog.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/changelog",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-changelog.html",
+      "designScreenId": "316ca21120f54d15b4d30ef8e3882760"
+    },
+    {
+      "name": "Webhooks",
+      "templateFile": "app/pages/Webhooks.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/webhooks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-webhooks.html",
+      "designScreenId": "31a6916ddbda412c86ad56b77647ab40"
+    },
+    {
+      "name": "SDKs",
+      "templateFile": "app/pages/SDKs.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/sdks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-sdks.html",
+      "designScreenId": "958ed9cb88ed4e3b81d159a85d358417"
+    },
+    {
+      "name": "Errors",
+      "templateFile": "app/pages/Errors.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/docs/errors",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-errors.html",
+      "designScreenId": "dad714ba58fb4a449d6fb355f05113fd"
+    },
+    {
+      "name": "APIPlayground",
+      "templateFile": "app/pages/APIPlayground.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/playground",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-api-playground.html",
+      "designScreenId": "7a77287e83204e81ac941abd9c2f8e36"
+    },
+    {
+      "name": "Status",
+      "templateFile": "app/pages/Status.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/status",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-api-documentation-status.html",
+      "designScreenId": "0767e1344a2d4946b3a7ff0c6c76cd71"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-settings.html",
+      "derivationNotes": "Same dark sidebar + Prism branding as Settings, but main panel becomes a personal profile form: circular avatar with upload/remove, Display Name, Public Developer Handle (with @ prefix), Bio textarea, GitHub URL, Twitter URL, Website URL, Time Zone dropdown. Right column shows preview card of the public-facing developer profile (avatar, handle, bio, links). Save button bottom-right."
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-settings.html",
+      "derivationNotes": "Same dark sidebar + Prism branding as Settings. Main panel: 'Current Plan' card showing tier name (Pro), price ($49/mo), Change Plan button (green), next billing date. Below: usage meter cards for API requests (847k of 1M) and rate limit. Below: invoices table (Date, Amount, Status, Download PDF). Right side: Payment Method card with masked card number + Update button."
+    },
+    {
+      "name": "Team",
+      "templateFile": "app/pages/Team.tsx",
+      "components": ["app/components/ApiDocumentationLayout.tsx"],
+      "route": "/settings/team",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-settings.html",
+      "derivationNotes": "Same dark sidebar + Prism branding as Settings. Main panel: 'Team Members' table (Avatar, Name, Email, Role dropdown — Admin/Developer/Viewer, Last Active, Remove icon). Above table: Invite Member button (green, top-right) + email-invite inline form. Below table: 'Pending Invitations' section listing invited emails with role + Resend/Revoke actions."
+    },
+    {
+      "name": "NotFound",
+      "templateFile": "app/pages/NotFound.tsx",
+      "components": [],
+      "route": "/404",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-api-documentation-landing.html",
+      "derivationNotes": "Reuse Landing's dark #0c1222 background, Prism logo header, and JetBrains Mono accent treatment. Replace hero with centered 404 panel: large monospace 'GET /not-found' with red 404 method-style badge, heading 'Endpoint not found', subtext 'The resource you requested does not exist or has been moved.', primary green 'Back to Docs' button + ghost 'Go Home' button. Footer optional, simplified."
+    }
+  ]
+}

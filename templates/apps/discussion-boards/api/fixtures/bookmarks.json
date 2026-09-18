@@ -1,0 +1,28 @@
+[
+  {
+    "id": "b1",
+    "thread_id": "t1",
+    "title": "Is \"the obstacle is the way\" actually Stoic? — A close reading",
+    "category": { "name": "Philosophy & Ethics", "slug": "philosophy", "color": "#5b4fc7" },
+    "author": { "username": "helena.k", "reputation": 4820 },
+    "saved_at": "2026-04-29T22:30:00Z",
+    "note": "Read carefully — quotes the original Greek."
+  },
+  {
+    "id": "b2",
+    "thread_id": "t6",
+    "title": "Shipping a v1 with two-thirds the features — postmortem from a small team",
+    "category": { "name": "Product Craft", "slug": "product-craft", "color": "#e09a2e" },
+    "author": { "username": "kara.w", "reputation": 3140 },
+    "saved_at": "2026-04-29T19:00:00Z"
+  },
+  {
+    "id": "b3",
+    "thread_id": "t3",
+    "title": "Resolved: the canonical reading list for entering Stoicism in 2026",
+    "category": { "name": "Philosophy & Ethics", "slug": "philosophy", "color": "#5b4fc7" },
+    "author": { "username": "mia.v", "reputation": 2780 },
+    "saved_at": "2026-04-28T10:00:00Z",
+    "note": "Build a follow-up thread on this list next month."
+  }
+]

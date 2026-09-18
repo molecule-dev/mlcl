@@ -1,0 +1,16 @@
+[
+  { "id": "1",  "label": "1",  "seats": 2, "guests": 0, "status": "available" },
+  { "id": "2",  "label": "2",  "seats": 2, "guests": 2, "status": "occupied", "server": "Mira",  "ticketMinutes": 24 },
+  { "id": "3",  "label": "3",  "seats": 4, "guests": 3, "status": "occupied", "server": "Tomás", "ticketMinutes": 12 },
+  { "id": "4",  "label": "4",  "seats": 4, "guests": 0, "status": "reserved", "server": "Kiya" },
+  { "id": "5",  "label": "5",  "seats": 6, "guests": 4, "status": "occupied", "server": "Mira",  "ticketMinutes": 22 },
+  { "id": "6",  "label": "6",  "seats": 2, "guests": 0, "status": "dirty" },
+  { "id": "7",  "label": "7",  "seats": 6, "guests": 6, "status": "occupied", "server": "Linh",  "ticketMinutes": 4 },
+  { "id": "8",  "label": "8",  "seats": 2, "guests": 0, "status": "available" },
+  { "id": "9",  "label": "9",  "seats": 4, "guests": 4, "status": "occupied", "server": "Tomás", "ticketMinutes": 38 },
+  { "id": "10", "label": "10", "seats": 4, "guests": 0, "status": "reserved", "server": "Kiya" },
+  { "id": "11", "label": "11", "seats": 8, "guests": 0, "status": "available" },
+  { "id": "12", "label": "12", "seats": 4, "guests": 2, "status": "occupied", "server": "Linh",  "ticketMinutes": 8 },
+  { "id": "14", "label": "14", "seats": 6, "guests": 5, "status": "occupied", "server": "Mira",  "ticketMinutes": 51 },
+  { "id": "15", "label": "15", "seats": 2, "guests": 0, "status": "available" }
+]

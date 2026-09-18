@@ -1,0 +1,61 @@
+[
+  {
+    "id": "kd3f8a12-b74c-4e1d-9c2a-517d6e0f3b91",
+    "bot_id": "a7c2e4f1-3b89-4d6a-b015-2398fa01cd45",
+    "title": "Return & Refund Policy",
+    "content": "Our return policy allows customers to return any item within 30 days of purchase for a full refund. Items must be in their original condition and packaging. To initiate a return, visit our returns portal or contact support@shopnova.com. Refunds are processed within 5–7 business days to the original payment method.",
+    "source_url": "https://shopnova.com/policies/returns",
+    "status": "indexed",
+    "created_at": "2026-01-10T08:30:00Z",
+    "updated_at": "2026-02-14T11:15:00Z",
+    "file_icon": "📄",
+    "page_count": 3
+  },
+  {
+    "id": "kd91cc47-2d0e-4f8b-a3e7-88b4f5c1a209",
+    "bot_id": "a7c2e4f1-3b89-4d6a-b015-2398fa01cd45",
+    "title": "Shipping & Delivery Guide",
+    "content": "ShopNova offers standard (5–7 days), express (2–3 days), and overnight shipping options. Free standard shipping is available on orders over $50. International orders may be subject to customs fees and typically arrive within 10–14 business days. Track your shipment using the link provided in your confirmation email.",
+    "source_url": "https://shopnova.com/policies/shipping",
+    "status": "indexed",
+    "created_at": "2026-01-10T09:00:00Z",
+    "updated_at": "2026-03-01T14:45:00Z",
+    "file_icon": "🚚",
+    "page_count": 5
+  },
+  {
+    "id": "kd04b7e9-a512-4c3d-b6f0-1d2e9a83cc76",
+    "bot_id": "f3d81b02-9c47-4a5e-b2d6-7710e5fa3c88",
+    "title": "Employee Onboarding Handbook",
+    "content": "Welcome to Meridian Solutions. This handbook covers your first 90 days, including IT setup, HR enrollment, team introductions, and compliance training. On day one, report to the main reception at 9:00 AM. Your manager will walk you through your personalised onboarding schedule. All mandatory trainings must be completed within 30 days of your start date.",
+    "status": "processing",
+    "created_at": "2026-02-20T13:00:00Z",
+    "updated_at": "2026-02-20T13:00:00Z",
+    "file_icon": "📋",
+    "page_count": 42
+  },
+  {
+    "id": "kd5a3d18-77f4-4b09-c1e2-930dac6e2b54",
+    "bot_id": "f3d81b02-9c47-4a5e-b2d6-7710e5fa3c88",
+    "title": "IT Security & Acceptable Use Policy",
+    "content": "All Meridian Solutions employees must adhere to this IT security policy. Company devices may not be used for personal business activities. Passwords must be at least 14 characters and rotated every 90 days. VPN is required when accessing internal systems remotely. Any suspected security incident must be reported to security@meridiansolutions.com within 1 hour of discovery.",
+    "source_url": "https://intranet.meridiansolutions.com/it/security-policy",
+    "status": "indexed",
+    "created_at": "2026-01-05T10:20:00Z",
+    "updated_at": "2026-03-18T09:30:00Z",
+    "file_icon": "🔒",
+    "page_count": 18
+  },
+  {
+    "id": "kd2e6f90-c831-4d7a-85b3-4fa01b7de345",
+    "bot_id": "b9051de3-6a24-4f17-c8e0-55629d4ab712",
+    "title": "Product Troubleshooting FAQ",
+    "content": "This document addresses the most common issues reported with the Lumio Smart Hub. Q: The device won't power on — ensure the power adapter is securely connected and the outlet is live. Q: Wi-Fi pairing fails — reset the hub by holding the side button for 10 seconds, then retry pairing via the Lumio app. Q: Firmware update stuck — do not unplug the device; updates can take up to 15 minutes on slower connections. For unresolved issues, contact support at help.lumio.io.",
+    "source_url": "https://help.lumio.io/troubleshooting/smart-hub",
+    "status": "draft",
+    "created_at": "2026-03-05T16:45:00Z",
+    "updated_at": "2026-03-22T10:00:00Z",
+    "file_icon": "🛠️",
+    "page_count": 9
+  }
+]

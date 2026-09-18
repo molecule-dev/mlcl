@@ -1,0 +1,1395 @@
+{
+  "slug": "sports-league",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-matches",
+      "path": "/matches",
+      "component": "Matches",
+      "file": "app/src/pages/Matches.tsx"
+    },
+    {
+      "id": "page-matchdetail",
+      "path": "/matches/:id",
+      "component": "MatchDetail",
+      "file": "app/src/pages/MatchDetail.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-players",
+      "path": "/players",
+      "component": "Players",
+      "file": "app/src/pages/Players.tsx"
+    },
+    {
+      "id": "page-playerdetail",
+      "path": "/players/:id",
+      "component": "PlayerDetail",
+      "file": "app/src/pages/PlayerDetail.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-profile",
+      "path": "/profile",
+      "component": "Profile",
+      "file": "app/src/pages/Profile.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-schedule",
+      "path": "/schedule",
+      "component": "Schedule",
+      "file": "app/src/pages/Schedule.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-standings",
+      "path": "/standings",
+      "component": "Standings",
+      "file": "app/src/pages/Standings.tsx"
+    },
+    {
+      "id": "page-stats",
+      "path": "/stats",
+      "component": "Stats",
+      "file": "app/src/pages/Stats.tsx"
+    },
+    {
+      "id": "page-teams",
+      "path": "/teams",
+      "component": "Teams",
+      "file": "app/src/pages/Teams.tsx"
+    },
+    {
+      "id": "page-teamdetail",
+      "path": "/teams/:id",
+      "component": "TeamDetail",
+      "file": "app/src/pages/TeamDetail.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-matchcard-68--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MatchCard.tsx",
+      "line": 68,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-scoreboardticker-84--span-classname----f",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ScoreboardTicker.tsx",
+      "line": 84,
+      "label": "<span className=), font-bold u",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-standingstable-109--r-color------span-a",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/StandingsTable.tsx",
+      "line": 109,
+      "label": "{r.color ? ( <span aria-hidden=true className={cm.cn(inline-",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-statleaderrow-39--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/StatLeaderRow.tsx",
+      "line": 39,
+      "label": "<span className={cm.cn( inline-flex items-center justify-cen",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-138-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 138,
+      "label": ", )}",
+      "href": "/stats",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-149-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 149,
+      "label": ", )}",
+      "href": "/matches",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-165-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 165,
+      "label": ", )}",
+      "href": "/standings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-51-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 51,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-63",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 63,
+      "label": "input at app/src/pages/ForgotPassword.tsx:63",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-83-------t-forgot-submi",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 83,
+      "label": ", ) : t(forgot.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-98-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 98,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-34-shield",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 34,
+      "label": "shield",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-45-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 45,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-48-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 48,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-79------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 79,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-87-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 87,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-166------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 166,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-72-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 72,
+      "label": ", )}",
+      "href": "/forgot-password",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-78",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 78,
+      "label": "input at app/src/pages/Login.tsx:78",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-88",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 88,
+      "label": "button at app/src/pages/Login.tsx:88",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-105-------t-login-submit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 105,
+      "label": ", ) : t(login.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-123-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 123,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-156",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 156,
+      "label": "input at app/src/pages/Login.tsx:156",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-matchdetail-97-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MatchDetail.tsx",
+      "line": 97,
+      "label": "arrow_back , )}",
+      "href": "/matches",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-matches-78",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Matches.tsx",
+      "line": 78,
+      "label": "button at app/src/pages/Matches.tsx:78",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-134-----as-read----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 134,
+      "label": ", } as read })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-155",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 155,
+      "label": "button at app/src/pages/Notifications.tsx:155",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-202",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 202,
+      "label": "link at app/src/pages/Notifications.tsx:202",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-218",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 218,
+      "label": "button at app/src/pages/Notifications.tsx:218",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-playerdetail-73-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlayerDetail.tsx",
+      "line": 73,
+      "label": "arrow_back , )}",
+      "href": "/players",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-playerdetail-89--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlayerDetail.tsx",
+      "line": 89,
+      "label": "→",
+      "href": "/teams/${player.team_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-players-81",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Players.tsx",
+      "line": 81,
+      "label": "button at app/src/pages/Players.tsx:81",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-players-100",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Players.tsx",
+      "line": 100,
+      "label": "input at app/src/pages/Players.tsx:100",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-players-127",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Players.tsx",
+      "line": 127,
+      "label": "link at app/src/pages/Players.tsx:127",
+      "href": "/players/${p.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pricing-221",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 221,
+      "label": "button at app/src/pages/Pricing.tsx:221",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-70-------t-reset-submit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 70,
+      "label": ", ) : t(reset.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-84-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-115",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 115,
+      "label": "input at app/src/pages/ResetPassword.tsx:115",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-schedule-126-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 126,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-129-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 129,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-132-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 132,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-schedule-172---style---------null",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 172,
+      "label": "@ style=}>- ) : null}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-140-close",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 140,
+      "label": "close",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-151-add-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 151,
+      "label": "add , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-181",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 181,
+      "label": "button at app/src/pages/Settings.tsx:181",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-203-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 203,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-52-------t-signup-submi",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 52,
+      "label": ", ) : t(signup.submit, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-68-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 68,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-100",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 100,
+      "label": "input at app/src/pages/Signup.tsx:100",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-standings-70",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Standings.tsx",
+      "line": 70,
+      "label": "button at app/src/pages/Standings.tsx:70",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-standings-86",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Standings.tsx",
+      "line": 86,
+      "label": "button at app/src/pages/Standings.tsx:86",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-teamdetail-96-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/TeamDetail.tsx",
+      "line": 96,
+      "label": "arrow_back , )}",
+      "href": "/teams",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-teamdetail-184",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/TeamDetail.tsx",
+      "line": 184,
+      "label": "link at app/src/pages/TeamDetail.tsx:184",
+      "href": "/players/${p.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-teams-80",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Teams.tsx",
+      "line": 80,
+      "label": "input at app/src/pages/Teams.tsx:80",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-teams-93--span-aria-hidden-tr",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Teams.tsx",
+      "line": 93,
+      "label": "<span aria-hidden=true",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-forgotpassword-56",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 56,
+      "label": "form at app/src/pages/ForgotPassword.tsx:56",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-53",
+      "file": "app/src/pages/Login.tsx",
+      "line": 53,
+      "label": "form at app/src/pages/Login.tsx:53",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-52",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 52,
+      "label": "form at app/src/pages/ResetPassword.tsx:52",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-41",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 41,
+      "label": "form at app/src/pages/Signup.tsx:41",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-favorite-teams--id",
+      "method": "DELETE",
+      "mountedPath": "/favorite-teams/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/favorite-teams.ts",
+      "line": 102,
+      "resource": "favorite-teams"
+    },
+    {
+      "id": "route-delete-notifications--id",
+      "method": "DELETE",
+      "mountedPath": "/notifications/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 109,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-delete-players--id",
+      "method": "DELETE",
+      "mountedPath": "/players/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/players.ts",
+      "line": 200,
+      "resource": "players"
+    },
+    {
+      "id": "route-delete-schedule--id",
+      "method": "DELETE",
+      "mountedPath": "/schedule/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 327,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-delete-teams--id",
+      "method": "DELETE",
+      "mountedPath": "/teams/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 379,
+      "resource": "teams"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-favorite-teams-",
+      "method": "GET",
+      "mountedPath": "/favorite-teams",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/favorite-teams.ts",
+      "line": 32,
+      "resource": "favorite-teams"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 34,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-players-",
+      "method": "GET",
+      "mountedPath": "/players",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/players.ts",
+      "line": 77,
+      "resource": "players"
+    },
+    {
+      "id": "route-get-players--id",
+      "method": "GET",
+      "mountedPath": "/players/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/players.ts",
+      "line": 105,
+      "resource": "players"
+    },
+    {
+      "id": "route-get-profile-me",
+      "method": "GET",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 47,
+      "resource": "profile"
+    },
+    {
+      "id": "route-get-schedule-",
+      "method": "GET",
+      "mountedPath": "/schedule",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 95,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-get-schedule--id",
+      "method": "GET",
+      "mountedPath": "/schedule/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 187,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-get-schedule-team--teamid",
+      "method": "GET",
+      "mountedPath": "/schedule/team/:teamId",
+      "rawPath": "/team/:teamId",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 143,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-get-schedule-week--season--week",
+      "method": "GET",
+      "mountedPath": "/schedule/week/:season/:week",
+      "rawPath": "/week/:season/:week",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 167,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-get-scores--gameid",
+      "method": "GET",
+      "mountedPath": "/scores/:gameId",
+      "rawPath": "/:gameId",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 159,
+      "resource": "scores"
+    },
+    {
+      "id": "route-get-scores--gameid-events",
+      "method": "GET",
+      "mountedPath": "/scores/:gameId/events",
+      "rawPath": "/:gameId/events",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 425,
+      "resource": "scores"
+    },
+    {
+      "id": "route-get-scores-live",
+      "method": "GET",
+      "mountedPath": "/scores/live",
+      "rawPath": "/live",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 123,
+      "resource": "scores"
+    },
+    {
+      "id": "route-get-standings-",
+      "method": "GET",
+      "mountedPath": "/standings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/standings.ts",
+      "line": 56,
+      "resource": "standings"
+    },
+    {
+      "id": "route-get-standings-divisions",
+      "method": "GET",
+      "mountedPath": "/standings/divisions",
+      "rawPath": "/divisions",
+      "handlerFile": "api/src/handlers/standings.ts",
+      "line": 104,
+      "resource": "standings"
+    },
+    {
+      "id": "route-get-standings-leaders",
+      "method": "GET",
+      "mountedPath": "/standings/leaders",
+      "rawPath": "/leaders",
+      "handlerFile": "api/src/handlers/standings.ts",
+      "line": 147,
+      "resource": "standings"
+    },
+    {
+      "id": "route-get-stats-leaders--stat",
+      "method": "GET",
+      "mountedPath": "/stats/leaders/:stat",
+      "rawPath": "/leaders/:stat",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 97,
+      "resource": "stats"
+    },
+    {
+      "id": "route-get-stats-players--playerid",
+      "method": "GET",
+      "mountedPath": "/stats/players/:playerId",
+      "rawPath": "/players/:playerId",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 214,
+      "resource": "stats"
+    },
+    {
+      "id": "route-get-teams-",
+      "method": "GET",
+      "mountedPath": "/teams",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 70,
+      "resource": "teams"
+    },
+    {
+      "id": "route-get-teams--id",
+      "method": "GET",
+      "mountedPath": "/teams/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 132,
+      "resource": "teams"
+    },
+    {
+      "id": "route-get-teams--id-roster",
+      "method": "GET",
+      "mountedPath": "/teams/:id/roster",
+      "rawPath": "/:id/roster",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 185,
+      "resource": "teams"
+    },
+    {
+      "id": "route-get-teams-search",
+      "method": "GET",
+      "mountedPath": "/teams/search",
+      "rawPath": "/search",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 93,
+      "resource": "teams"
+    },
+    {
+      "id": "route-patch-profile-me",
+      "method": "PATCH",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 79,
+      "resource": "profile"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-favorite-teams-",
+      "method": "POST",
+      "mountedPath": "/favorite-teams",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/favorite-teams.ts",
+      "line": 63,
+      "resource": "favorite-teams"
+    },
+    {
+      "id": "route-post-notifications--id-read",
+      "method": "POST",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 85,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-notifications-read-all",
+      "method": "POST",
+      "mountedPath": "/notifications/read-all",
+      "rawPath": "/read-all",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 67,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-post-players-",
+      "method": "POST",
+      "mountedPath": "/players",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/players.ts",
+      "line": 124,
+      "resource": "players"
+    },
+    {
+      "id": "route-post-schedule-",
+      "method": "POST",
+      "mountedPath": "/schedule",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 208,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-post-schedule--id-postpone",
+      "method": "POST",
+      "mountedPath": "/schedule/:id/postpone",
+      "rawPath": "/:id/postpone",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 291,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-post-scores--gameid",
+      "method": "POST",
+      "mountedPath": "/scores/:gameId",
+      "rawPath": "/:gameId",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 183,
+      "resource": "scores"
+    },
+    {
+      "id": "route-post-scores--gameid-events",
+      "method": "POST",
+      "mountedPath": "/scores/:gameId/events",
+      "rawPath": "/:gameId/events",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 364,
+      "resource": "scores"
+    },
+    {
+      "id": "route-post-scores--gameid-final",
+      "method": "POST",
+      "mountedPath": "/scores/:gameId/final",
+      "rawPath": "/:gameId/final",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 267,
+      "resource": "scores"
+    },
+    {
+      "id": "route-post-scores--gameid-start",
+      "method": "POST",
+      "mountedPath": "/scores/:gameId/start",
+      "rawPath": "/:gameId/start",
+      "handlerFile": "api/src/handlers/scores.ts",
+      "line": 230,
+      "resource": "scores"
+    },
+    {
+      "id": "route-post-teams-",
+      "method": "POST",
+      "mountedPath": "/teams",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 238,
+      "resource": "teams"
+    },
+    {
+      "id": "route-post-teams--id-roster",
+      "method": "POST",
+      "mountedPath": "/teams/:id/roster",
+      "rawPath": "/:id/roster",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 324,
+      "resource": "teams"
+    },
+    {
+      "id": "route-put-players--id",
+      "method": "PUT",
+      "mountedPath": "/players/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/players.ts",
+      "line": 158,
+      "resource": "players"
+    },
+    {
+      "id": "route-put-schedule--id",
+      "method": "PUT",
+      "mountedPath": "/schedule/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/schedule.ts",
+      "line": 258,
+      "resource": "schedule"
+    },
+    {
+      "id": "route-put-teams--id",
+      "method": "PUT",
+      "mountedPath": "/teams/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/teams.ts",
+      "line": 279,
+      "resource": "teams"
+    }
+  ],
+  "totals": {
+    "pages": 20,
+    "elements": 71,
+    "forms": 6,
+    "routes": 46
+  }
+}

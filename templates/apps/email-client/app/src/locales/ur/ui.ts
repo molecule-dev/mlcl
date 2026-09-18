@@ -1,0 +1,173 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'مدد کے مضامین کو براؤز کریں۔',
+  'about.cta.signup': 'میریڈیئن مفت آزمائیں۔',
+  'about.eyebrow': 'میریڈیئن کے بارے میں',
+  'about.principle.calm': 'بطور ڈیفالٹ پرسکون۔',
+  'about.principle.calm.desc':
+    'کوئی بیج نہیں جو چیختا ہے، کوئی اطلاع نہیں جو آپ نے نہیں مانگی، کوئی اینیمیشن نہیں جو ایک نظر کا مطالبہ کرے۔',
+  'about.principle.fast.desc':
+    'ہر عمل ایک کی اسٹروک دور ہے۔ تازہ سائن ان کرنے پر ان باکس 200ms سے کم میں لوڈ ہوتا ہے۔',
+  'about.principle.honest.desc':
+    'ٹرانزٹ اور آرام میں خفیہ کاری، شفاف برقراری، اور ایک کلک ڈیٹا ایکسپورٹ۔',
+  'about.story': 'ہم نے میریڈیئن کیوں بنایا',
+  'about.story.p1':
+    'زیادہ تر ای میل کلائنٹس مشغولیت کے لیے بہتر بناتے ہیں — آپ کو پیچھے کھینچتے ہیں، آپ کی توجہ کو ٹکڑے ٹکڑے کرتے ہیں، ایک اور تھپتھپانے کا مشورہ دیتے ہیں۔ میریڈیئن اس کے برعکس کرتا ہے۔ ہم کامیابی کی پیمائش اس وقت سے کرتے ہیں جب آپ اپنے ان باکس میں خرچ نہیں کرتے ہیں: تیزی سے ٹرائیج کریں، اعتماد کے ساتھ ٹال مٹول کریں، اور اہم کام کے ساتھ آگے بڑھیں۔',
+  'about.subtitle':
+    'میریڈیئن ایک پرسکون، تین پین والا ان باکس ہے جسے ایک چھوٹی ٹیم نے بنایا ہے جو معلومات پر ردعمل ظاہر کرنے کے بجائے اس پر کارروائی کرنا چاہتی ہے۔',
+  'about.team.body':
+    'ہم ڈیزائنرز اور انجینئرز کی تقسیم شدہ ٹیم ہیں جنہوں نے ایک بار شور مچانے والے میل باکس میں ہر دن کے بہت زیادہ گھنٹے گزارے۔ میریڈیئن وہ ان باکس ہے جسے ہم خود استعمال کرنا چاہتے تھے۔',
+  'about.title': 'فوکسڈ کام کے لیے ای میل',
+  'help.cta.about': 'میریڈیئن کے بارے میں',
+  'help.cta.pricing': 'قیمتوں کا تعین دیکھیں',
+  'help.eyebrow': 'امدادی مرکز',
+  'help.faq.compose.a':
+    'سائڈبار سے \\u201Cکمپوز\\u201D پر کلک کریں (یا کسی بھی ان باکس منظر پر \\u201Cc\\u201D دبائیں)، کم از کم ایک وصول کنندہ، ایک مضمون، اور ایک باڈی درج کریں، اور \\u201Cبھیجیں\\u201D کو دبائیں۔ نیا پیغام فوری طور پر آپ کے بھیجے گئے فولڈر میں ظاہر ہوتا ہے۔',
+  'help.faq.compose.q': 'میں اپنا پہلا پیغام کیسے بھیجوں؟',
+  'help.faq.export.a':
+    'جی ہاں ترتیبات \\u2192 اکاؤنٹ \\u2192 ڈیٹا ایکسپورٹ ہر پیغام، لیبل اور رابطے کے ساتھ ڈاؤن لوڈ کے قابل آرکائیو (mbox + JSON) بناتا ہے۔ کوئی پریمیم درجے کی ضرورت نہیں ہے۔',
+  'help.faq.labels.a':
+    'فولڈرز خصوصی ہیں (ایک پیغام بالکل ایک میں رہتا ہے): ان باکس، بھیجے گئے، ڈرافٹ، اسپام، کوڑے دان، آرکائیو۔ لیبلز اضافی ہیں \\u2014 آپ ایک ہی ای میل پر کئی لاگو کر سکتے ہیں اور سرچ بار سے امتزاج کے ذریعے فلٹر کر سکتے ہیں۔',
+  'help.faq.password.a':
+    'سائن ان صفحہ پر \\u201Cپاس ورڈ بھول گئے؟\\u201D لنک استعمال کریں۔ ہم آپ کے اکاؤنٹ کے ای میل پر ایک گھنٹے کے لیے درست ری سیٹ لنک بھیجیں گے۔',
+  'help.faq.shortcuts.a':
+    'جی ہاں \\u201Cj\\u201D / \\u201Ck\\u201D تھریڈز کے درمیان منتقل ہوتا ہے، \\u201Cs\\u201D ستارے کو ٹوگل کرتا ہے، \\u201Ce\\u201D آرکائیوز، \\u201C#\\u201D کوڑے دان میں لے جاتا ہے، اور \\u201C/ تلاش کو فوکس کرتا ہے۔ شارٹ کٹ دستاویزات \\u201C?\\u201D کو دبانے سے کسی بھی ان باکس منظر میں زندہ رہتی ہیں۔',
+  'help.faq.support.a':
+    'support@courier.example پر میل بھیجیں۔ ہم ہر پیغام کا جواب ایک کاروباری دن، ہفتے کے دن 9\\u201317 UTC کے اندر دیتے ہیں۔',
+  'help.subtitle':
+    'ہم سب سے زیادہ سننے والے سوالات کے فوری جوابات۔ کچھ غائب؟ ترتیبات کھولیں اور ایپ فیڈ بیک فارم استعمال کریں، یا support@courier.example پر لکھیں۔',
+  'help.title': 'ہم کس طرح مدد کر سکتے ہیں؟',
+  'landing.brand.scrollTop': 'واپس اوپر',
+  'landing.ctaBody':
+    'ان ہزاروں پیشہ ور افراد میں شامل ہوں جنہوں نے لنچ سے پہلے اپنا ان باکس مکمل کر لیا۔',
+  'landing.ctaTitle': 'زیادہ عمل کریں، کم ردعمل دیں۔',
+  'landing.eyebrow': 'فوکسڈ کام کے لیے ای میل',
+  'landing.featuresBody': 'اپنے ان باکس کا نظم کرنا بند کریں اور کام کرنا شروع کریں۔',
+  'landing.featuresTitle': 'گہرے کام کے لیے ڈیزائن کیا گیا ہے۔',
+  'landing.help': 'مدد',
+  'landing.heroDemo': 'ڈیمو دیکھیں',
+  'landing.heroSubtitle':
+    'Courier ایک پرسکون تھری پین ان باکس ہے جو علمی کارکنوں کے لیے بنایا گیا ہے جو معلومات پر کارروائی کرنا چاہتے ہیں، اس پر ردعمل ظاہر نہیں کرتے۔',
+  'landing.proof': 'دنیا بھر میں مرکوز ٹیموں کے ذریعے بھروسہ کیا جاتا ہے۔',
+  'landing.signIn': 'سائن ان کریں۔',
+  'meridian.archive.empty': 'آرکائیو خالی ہے۔',
+  'meridian.compose.addRecipient': 'دوسرا وصول کنندہ شامل کریں۔',
+  'meridian.compose.bodyPlaceholder': 'اپنا پیغام لکھیں…',
+  'meridian.compose.cc': 'سی سی',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'مسودہ مسترد کریں۔',
+  'meridian.compose.invalidEmail': '" {{value}} "ایک درست ای میل نہیں ہے۔',
+  'meridian.compose.needRecipient': 'پہلے کم از کم ایک وصول کنندہ شامل کریں۔',
+  'meridian.compose.replyTo': 'تھریڈ میں جواب دیں۔ {{id}}',
+  'meridian.compose.savedAt': 'ڈرافٹ پر محفوظ کیا گیا۔ {{time}}',
+  'meridian.compose.sentWithError':
+    'بھیجے گئے میں محفوظ کیا گیا، لیکن ترسیل ناکام ہو گئی: {{error}}',
+  'meridian.compose.subject': 'سبج',
+  'meridian.compose.subjectPlaceholder': 'موضوع',
+  'meridian.compose.title': 'نیا پیغام',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'ترمیم جاری رکھیں',
+  'meridian.drafts.count': '{{count}} پیغامات',
+  'meridian.drafts.delete': 'مسودہ حذف کریں۔',
+  'meridian.drafts.empty': 'ابھی تک کوئی مسودہ نہیں ہے — تحریر کرنا شروع کریں۔',
+  'meridian.drafts.lastSaved': 'محفوظ کیا گیا۔ {{at}}',
+  'meridian.drafts.noRecipients': '(ابھی تک کوئی وصول کنندہ نہیں)',
+  'meridian.drafts.selectDraft': 'پیش نظارہ کرنے کے لیے ایک مسودہ منتخب کریں۔',
+  'meridian.drafts.title': 'ڈرافٹ',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'مسودہ',
+  'meridian.folder.count': '{{count}} پیغامات',
+  'meridian.folder.deleteForever': 'مستقل طور پر حذف کریں۔',
+  'meridian.folder.restore': 'ان باکس میں منتقل کریں۔',
+  'meridian.forgot.subtitle':
+    'اپنے ان باکس سے وابستہ ای میل درج کریں اور ہم ایک ری سیٹ لنک بھیجیں گے۔',
+  'meridian.forgot.success':
+    'اگر اس ای میل کے ساتھ کوئی اکاؤنٹ موجود ہے تو، ایک ری سیٹ لنک اپنے راستے پر ہے۔',
+  'meridian.inbox.empty': 'ابھی تک یہاں کوئی پیغام نہیں ہے۔',
+  'meridian.inbox.loading': 'لوڈ ہو رہا ہے…',
+  'meridian.inbox.next': 'اگلا',
+  'meridian.inbox.noSubject': '(کوئی موضوع نہیں)',
+  'meridian.inbox.openCompose': 'کمپوز کھولیں۔',
+  'meridian.inbox.previous': 'پچھلا',
+  'meridian.inbox.replyFailed': 'جواب محفوظ ہو گیا لیکن ترسیل ناکام ہو گئی: {{error}}',
+  'meridian.inbox.replySent': 'جواب بھیجا گیا۔',
+  'meridian.inbox.replyTo': 'کو جواب دیں۔ {{name}}',
+  'meridian.inbox.selectMessage': 'پڑھنے کے لیے ایک پیغام منتخب کریں۔',
+  'meridian.inbox.spam': 'سپیم',
+  'meridian.inbox.viewThread': 'تھریڈ دیکھیں',
+  'meridian.login.hidePassword': 'پاس ورڈ چھپائیں۔',
+  'meridian.login.noAccount': 'اکاؤنٹ نہیں ہے؟',
+  'meridian.login.showPassword': 'پاس ورڈ دکھائیں۔',
+  'meridian.message.toLine': 'کو {{recipients}}',
+  'meridian.notFound.eyebrow': 'نقص 404',
+  'meridian.notFound.title': 'اس تھریڈ کو آرکائیو کر دیا گیا تھا۔',
+  'meridian.notFound.toInbox': 'میرا ان باکس کھولیں۔',
+  'meridian.reset.newLabel': 'نیا پاس ورڈ',
+  'meridian.reset.showPassword': 'پاس ورڈ دکھائیں۔',
+  'meridian.reset.subtitle': 'ایک مضبوط پاس ورڈ کا انتخاب کریں — کم از کم 8 حروف۔',
+  'meridian.sent.empty': 'آپ نے ابھی تک کچھ نہیں بھیجا ہے۔',
+  'meridian.sent.title': 'بھیجا',
+  'meridian.settings.noName': '(کوئی نام مقرر نہیں)',
+  'meridian.settings.section.${section}': 'اپنی مرضی کے مطابق بنائیں {{appName}} تجربہ',
+  'meridian.settings.signature': 'دستخط',
+  'meridian.settings.signatureSaved': 'دستخط محفوظ ہو گئے۔',
+  'meridian.sidebar.compose': 'تحریر کریں۔',
+  'meridian.sidebar.labels': 'لیبلز',
+  'meridian.sidebar.noLabels': 'ابھی تک کوئی لیبل نہیں ہے۔',
+  'meridian.sidebar.storage': 'ذخیرہ',
+  'meridian.sidebar.storageLabel': '{{used}} کی {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'اپنا میریڈیئن ان باکس بنائیں',
+  'meridian.signup.namePlaceholder': 'مورگن چن',
+  'meridian.signup.showPassword': 'پاس ورڈ دکھائیں۔',
+  'meridian.signup.subtitle': 'دوپہر کے کھانے سے پہلے اپنے ان باکس پر کارروائی کریں۔',
+  'meridian.spam.empty': 'کوئی سپیم نہیں۔',
+  'meridian.spam.title': 'سپیم',
+  'meridian.starred.empty': 'کوئی ستارہ کے نشان والے پیغامات نہیں ہیں۔',
+  'meridian.starred.loading': 'لوڈ ہو رہا ہے…',
+  'meridian.starred.removeStar': 'ستارہ ہٹا دیں۔',
+  'meridian.starred.total': '{{count}} کل',
+  'meridian.thread.back': 'واپس ان باکس میں',
+  'meridian.thread.empty': 'اس تھریڈ میں کوئی پیغام نہیں ہے۔',
+  'meridian.thread.eyebrow': 'تھریڈ # {{id}}',
+  'meridian.thread.notFound': 'تھریڈ نہیں ملا۔',
+  'meridian.thread.star': 'ستارہ شامل کریں۔',
+  'meridian.thread.unstar': 'ستارہ ہٹا دیں۔',
+  'meridian.time.yesterday': 'کل',
+  'meridian.topBar.searchPlaceholder': 'میل تلاش کریں۔',
+  'meridian.trash.empty': 'ردی کی ٹوکری خالی ہے۔',
+  'meridian.trash.title': 'ردی کی ٹوکری',
+  'nav.legal': 'قانونی',
+  'planUpdated.description':
+    'آپ کی رکنیت اب فعال ہے اور آپ کی بلنگ کو اپ ڈیٹ کر دیا گیا ہے۔ آپ کے تازہ دم مریڈین ان باکس میں خوش آمدید۔',
+  'pricing.heading': 'مسودے',
+  'pricing.limit.emails': 'ای میلز',
+  'pricing.limit.folders': 'فولڈرز',
+  'pricing.limit.labels': 'لیبلز',
+  'privacy.collect.account':
+    'اکاؤنٹ کا ڈیٹا: نام، ای میل پتہ، ہیش شدہ پاس ورڈ، اور آپ کے سائن اپ کی تاریخ۔',
+  'privacy.intro':
+    'یہ رازداری کی پالیسی بتاتی ہے کہ Courier کون سا ڈیٹا اکٹھا کرتا ہے، ہم اسے کیوں جمع کرتے ہیں، ہم اسے کیسے محفوظ رکھتے ہیں، اور اس پر آپ کے پاس کون سے انتخاب ہیں۔ ہمارا مقصد قانونی کی بجائے مخصوص ہونا ہے۔ اگر کچھ واضح نہ ہو تو privacy@courier.example پر لکھیں۔',
+  'privacy.lastUpdated': 'آخری بار اپ ڈیٹ کیا گیا: 1 اپریل 2026',
+  'privacy.linkTerms': 'ہماری سروس کی شرائط پڑھیں \\u2192',
+  'privacy.rights.body':
+    'آپ سیٹنگز → اکاؤنٹ → ڈیٹا ایکسپورٹ سے ہمارے پاس موجود ڈیٹا کے ہر ٹکڑے کو ایکسپورٹ کر سکتے ہیں، اور آپ اپنا اکاؤنٹ ایک کلک میں ڈیلیٹ کر سکتے ہیں — تمام قطاریں 24 گھنٹوں کے اندر صاف کر دی جائیں گی، آڈٹ لاگز 30 دن کے بعد صاف کر دیے جائیں گے۔',
+  'privacy.security.body':
+    'AES-256 کا استعمال کرتے ہوئے میل کے مواد اور منسلکات کو باقی جگہ پر خفیہ کیا جاتا ہے۔ ہماری سروس سے اور اس سے رابطے TLS 1.3 استعمال کرتے ہیں۔ پاس ورڈز کو bcrypt کے ساتھ ہیش کیا جاتا ہے۔ ہم کبھی بھی سادہ متن کے پاس ورڈز کو لاگ یا اسٹور نہیں کرتے ہیں۔ پیداوار تک رسائی آن کال انجینئرز تک محدود ہے، ماہانہ آڈٹ کیا جاتا ہے۔',
+  'privacy.share.body':
+    'ہم صرف ان ذیلی پروسیسرز کے ساتھ ڈیٹا کا اشتراک کرتے ہیں جن کی ہمیں میریڈیئن چلانے کی ضرورت ہے (میل گن کے ذریعے ای میل کی ترسیل، اسٹرائپ کے ذریعے بلنگ، AWS کے ذریعے ہوسٹنگ)۔ ہر ایک معاہدہ کے مطابق آپ کا ڈیٹا صرف ہمارے لیے اپنی خدمات انجام دینے کے لیے استعمال کرنے کا پابند ہے۔ ہم آپ کا ڈیٹا کسی کے ساتھ فروخت، کرایہ یا تجارت نہیں کرتے ہیں۔',
+  'terms.acceptable.spam':
+    'کوئی بڑی تعداد میں غیر منقولہ پیغام رسانی نہیں۔ ہم ان اکاؤنٹس کو بند کر دیں گے جو بغیر وارننگ کے سپیم بھیجتے ہیں۔',
+  'terms.account.body':
+    'آپ اپنے پاس ورڈ کی رازداری کو برقرار رکھنے اور آپ کے اکاؤنٹ کے ذریعے ہونے والی کسی بھی سرگرمی کے لیے ذمہ دار ہیں۔ اگر آپ کو لگتا ہے کہ آپ کے اکاؤنٹ سے سمجھوتہ کیا گیا ہے تو ہمیں security@courier.example پر مطلع کریں۔',
+  'terms.billing.body':
+    'بامعاوضہ منصوبوں کی تجدید سائن اپ پر چنے گئے کیڈینس پر ہوتی ہے۔ آپ کسی بھی وقت ترتیبات → بلنگ سے منسوخ کر سکتے ہیں اور آپ بلنگ کی باقی مدت تک رسائی برقرار رکھتے ہیں۔ ریفنڈز سروس ڈاؤن ٹائم کے لیے جاری کیے جاتے ہیں جو SLA سے زیادہ ہے۔',
+  'terms.intro':
+    'یہ شرائط آپ کے میریڈیئن کے استعمال کو کنٹرول کرتی ہیں۔ ایک اکاؤنٹ بنا کر یا ہمارے ذریعے ای میل بھیج کر آپ ان کے پابند ہونے سے اتفاق کرتے ہیں۔ ہم ان اصولوں کو لکھنے کی کوشش کرتے ہیں جو ایک شخص اصل میں پیروی کر سکتا ہے۔',
+  'terms.lastUpdated': 'مؤثر: 1 اپریل 2026',
+  'terms.termination.body':
+    'آپ کسی بھی وقت اپنا اکاؤنٹ حذف کر سکتے ہیں۔ ہم ان شرائط کی خلاف ورزی کرنے والے اکاؤنٹ کو معطل کر سکتے ہیں۔ اگر ہم ایسا کرتے ہیں تو ہم اس کی وجہ بیان کریں گے اور پہلے آپ کو اپنا ڈیٹا ایکسپورٹ کرنے دیں گے۔',
+  'terms.warranty.body':
+    'سروس اسی طرح فراہم کی جاتی ہے۔ ہم اسے قابل اعتماد اور محفوظ رکھنے کے لیے سخت محنت کرتے ہیں، لیکن ہم بلا تعطل رسائی کی ضمانت نہیں دے سکتے۔ قانون کی طرف سے اجازت کی حد تک، ہماری مجموعی ذمہ داری اس رقم پر محدود ہے جو آپ نے ہمیں پچھلے 12 مہینوں میں ادا کی تھی۔',
+}

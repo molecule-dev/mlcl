@@ -1,0 +1,8 @@
+[
+  { "id": "deal_001", "title": "$30 for $60 brunch at Sunny Side",      "merchant": "Sunny Side Cafe",     "discount_pct": 50, "deal_price_cents": 3000, "distance_km": 0.4, "expires_at": "2026-05-12T23:59:00Z", "lat": 40.6892, "lng": -73.9648, "hot": true  },
+  { "id": "deal_002", "title": "$25 yoga class card",                    "merchant": "Lotus Studio",        "discount_pct": 50, "deal_price_cents": 2500, "distance_km": 0.8, "expires_at": "2026-05-08T23:59:00Z", "lat": 40.7188, "lng": -73.9580, "hot": true  },
+  { "id": "deal_005", "title": "$20 climbing day-pass",                   "merchant": "Vertical Edge",       "discount_pct": 50, "deal_price_cents": 2000, "distance_km": 1.2, "expires_at": "2026-04-28T23:59:00Z", "lat": 40.6770, "lng": -73.9802, "hot": true  },
+  { "id": "deal_006", "title": "Free haircut with first color",          "merchant": "Studio 18 Salon",     "discount_pct": 35, "deal_price_cents": 5500, "distance_km": 1.8, "expires_at": "2026-05-20T23:59:00Z", "lat": 40.6820, "lng": -73.9924, "hot": false },
+  { "id": "deal_008", "title": "$15 pizza + drinks at Slice Time",        "merchant": "Slice Time",          "discount_pct": 50, "deal_price_cents": 1500, "distance_km": 2.4, "expires_at": "2026-04-26T23:59:00Z", "lat": 40.7148, "lng": -73.9614, "hot": true  },
+  { "id": "deal_004", "title": "$45 spa massage (60 min)",                "merchant": "Tranquil Touch Spa",  "discount_pct": 50, "deal_price_cents": 4500, "distance_km": 4.6, "expires_at": "2026-06-15T23:59:00Z", "lat": 40.7416, "lng": -74.0044, "hot": false }
+]

@@ -1,0 +1,219 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #f97316;
+  --mol-color-primary-light: #fff7ed;
+  --mol-color-primary-dark: #ea580c;
+  --mol-color-secondary: #1e293b;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #fafaf9;
+  --mol-color-background-tertiary: #f5f5f4;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #fafaf9;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1c1917;
+  --mol-color-text-secondary: #57534e;
+  --mol-color-text-tertiary: #78716c;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7e5e4;
+  --mol-color-border-secondary: #f5f5f4;
+  --mol-color-border-focus: #f97316;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0ea5e9;
+
+  /* Brand colors */
+  --color-primary: #f97316;
+  --color-primary-hover: #ea580c;
+  --color-primary-light: #fff7ed;
+  --color-secondary: #1e293b;
+  --color-accent: #06b6d4;
+  --color-accent-hover: #0891b2;
+
+  /* Semantic colors */
+  --color-success: #16a34a;
+  --color-warning: #eab308;
+  --color-error: #dc2626;
+  --color-info: #0ea5e9;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #fafaf9;
+  --color-bg-tertiary: #f5f5f4;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-border-light: #f5f5f4;
+
+  /* Text */
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #736f6b; /* #a8a29e was 2.52:1 on white (fail); #736f6b = 4.98:1 */
+  --color-text-inverse: #ffffff;
+  /* M3 on-primary: orange brand requires dark text — white was 2.80:1 (fail) */
+  --color-on-primary: #1c1917; /* 6.24:1 on #f97316 ✓ */
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --header-height: 64px;
+
+  /* Product grid */
+  --product-card-min-width: 240px;
+  --product-image-ratio: 4 / 3;
+
+  /* Vendor */
+  --vendor-card-min-width: 280px;
+  --vendor-logo-size: 64px;
+
+  /* Status colors */
+  --color-status-pending: #f59e0b;
+  --color-status-active: #16a34a;
+  --color-status-suspended: #dc2626;
+  --color-status-confirmed: #2563eb;
+  --color-status-processing: #f59e0b;
+  --color-status-shipped: #8b5cf6;
+  --color-status-delivered: #16a34a;
+
+  /* Rating */
+  --color-star: #f59e0b;
+  --color-star-empty: #e7e5e4;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (warm-orange primary + cyan accent on warm-neutral surfaces) */
+[data-mol-mode='dark'] {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #fb923c;
+  --mol-color-primary-light: rgba(251, 146, 60, 0.16);
+  --mol-color-primary-dark: #ea580c;
+  --mol-color-secondary: #e2e8f0;
+  --mol-color-background: #1a1716;
+  --mol-color-background-secondary: #221e1c;
+  --mol-color-background-tertiary: #2c2724;
+  --mol-color-surface: #221e1c;
+  --mol-color-surface-secondary: #2c2724;
+  --mol-color-input-background: #120f0e;
+  --mol-color-text: #f5f0eb;
+  --mol-color-text-secondary: #c7bdb3;
+  --mol-color-text-tertiary: #8a8079;
+  --mol-color-text-inverse: #1a1716;
+  --mol-color-border: #3a332f;
+  --mol-color-border-secondary: #2c2724;
+  --mol-color-border-focus: #fb923c;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #d93030;
+  --mol-color-info: #38bdf8;
+
+  --color-primary: #fb923c;
+  --color-primary-hover: #fdba74;
+  --color-primary-light: rgba(251, 146, 60, 0.16);
+  --color-secondary: #e2e8f0;
+  --color-accent: #22d3ee;
+  --color-accent-hover: #67e8f9;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #d93030; /* #f87171 was 2.77:1 with white (fail); #d93030 = 4.76:1 */
+  --color-info: #38bdf8;
+
+  --color-bg: #1a1716;
+  --color-bg-secondary: #221e1c;
+  --color-bg-tertiary: #2c2724;
+  --color-surface: #221e1c;
+  --color-surface-hover: #2c2724;
+  --color-border: #3a332f;
+  --color-border-light: #2c2724;
+
+  --color-text: #f5f0eb;
+  --color-text-secondary: #c7bdb3;
+  --color-text-muted: #8a8079;
+  --color-text-inverse: #1a1716;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+
+  --color-status-pending: #fbbf24;
+  --color-status-active: #4ade80;
+  --color-status-suspended: #d93030; /* matches fixed error — white 4.76:1 */
+  --color-status-confirmed: #60a5fa;
+  --color-status-processing: #fbbf24;
+  --color-status-shipped: #a78bfa;
+  --color-status-delivered: #4ade80;
+
+  --color-star: #fbbf24;
+  --color-star-empty: #3a332f;
+
+  /* Material-3 / Stitch bridge tokens — override the @theme block so
+     bg-surface, text-on-surface, bg-primary etc. flip cleanly in dark mode.
+     --color-on-primary stays white so orange CTA buttons keep readable contrast. */
+  --color-background: #1a1716;
+  --color-on-background: #f5f0eb;
+  --color-surface: #221e1c;
+  --color-surface-bright: #2c2724;
+  --color-surface-dim: #120f0e;
+  --color-surface-container-lowest: #0e0c0b;
+  --color-surface-container-low: #1a1716;
+  --color-surface-container: #221e1c;
+  --color-surface-container-high: #2c2724;
+  --color-surface-container-highest: #3a332f;
+  --color-surface-variant: #2c2724;
+  --color-on-surface: #f5f0eb;
+  --color-on-surface-variant: #c7bdb3;
+  --color-inverse-surface: #f5f0eb;
+  --color-inverse-on-surface: #1a1716;
+  --color-inverse-primary: #f97316;
+  --color-primary: #fb923c;
+  --color-primary-container: #7c2d0c;
+  --color-on-primary: #1a1716; /* orange primary — dark text 7.88:1; white was 2.26:1 (fail) */
+  --color-on-primary-container: #fed7aa;
+  --color-secondary: #e2e8f0;
+  --color-secondary-container: #2c2724;
+  --color-on-secondary: #1a1716;
+  --color-on-secondary-container: #f5f0eb;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #0a3f4a;
+  --color-on-tertiary: #081c22; /* #ffffff was 1.81:1 on #22d3ee (fail); #081c22 = 9.69:1 */
+  --color-on-tertiary-container: #a5f3fc;
+  --color-error: #d93030; /* #f87171 was 2.77:1 with white (fail); #d93030 = 4.76:1 */
+  --color-error-container: #5a1818;
+  --color-on-error: #ffffff; /* on #d93030 = 4.76:1 ✓ */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7a7370; /* #6b6360 was 2.82:1 vs surface (fail ≥3:1); #7a7370 = 3.55:1 */
+  --color-outline-variant: #3a332f;
+  --color-surface-tint: #fb923c;
+}

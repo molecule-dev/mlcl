@@ -1,0 +1,26 @@
+[
+  {
+    "id": "block-1",
+    "page_id": "page-on-letting-drafts-breathe",
+    "type": "paragraph",
+    "content": "Some thoughts only land when they've been left alone for a day.",
+    "order": 1,
+    "updated_at": "2026-04-29T08:30:00Z"
+  },
+  {
+    "id": "block-2",
+    "page_id": "page-on-letting-drafts-breathe",
+    "type": "paragraph",
+    "content": "I came back to this draft after twenty-four hours and the second paragraph rewrote itself in three lines.",
+    "order": 2,
+    "updated_at": "2026-04-29T08:30:00Z"
+  },
+  {
+    "id": "block-3",
+    "page_id": "page-on-letting-drafts-breathe",
+    "type": "heading",
+    "content": "What sleeping does",
+    "order": 3,
+    "updated_at": "2026-04-29T08:30:00Z"
+  }
+]

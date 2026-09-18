@@ -1,0 +1,17 @@
+Polish complete: 2026-04-30T00:50:00Z
+Pipeline: polish-app.md (autonomous polish session, post-typecheck cleanup)
+Cluster: business-saas → siblings: crm, helpdesk-ticketing, project-management, personal-finance
+Components: 7 bespoke (KeyResultRow, KpiSummaryCard, ObjectiveCard, ProgressRing,
+            AscentSideNav, AuthShell, DashboardLayout) + sampleOkrs.ts
+Screen-map coverage: 18/18 (all routes wired through DashboardLayout + AuthGuard)
+Material 3 tokens: complete (0 missing per polish-status)
+ClassMap coverage: 94%
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean after dropping unused @molecule/app-data-table / app-tree-view /
+           app-command-palette providers from app-bonds.ts (interfaces only —
+           providers don't exist), removing unused Theme import, and adding
+           'not-started' / 'completed' to the ObjectiveDetail status record.
+Pages: Landing, Pricing, Dashboard, Objectives, ObjectiveDetail, NewObjective,
+       EditObjective, CheckIn, Reviews, ReviewDetail, Team, Notifications,
+       Settings, Profile, Billing, PlanUpdated, Login, Signup, ForgotPassword,
+       ResetPassword.

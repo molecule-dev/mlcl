@@ -1,0 +1,18 @@
+{
+  "totalRevenueCents": 4827400,
+  "monthRevenueCents": 612300,
+  "monthChangeCents": 84100,
+  "monthChangePct": 15.9,
+  "totalSales": 2864,
+  "totalDownloads": 4129,
+  "totalProducts": 12,
+  "monthSales": 217,
+  "conversionPct": 4.2,
+  "sparkline": [42, 51, 47, 63, 58, 70, 66, 78, 74, 88, 81, 95],
+  "topProducts": [
+    { "slug": "aurora-ui-kit", "name": "Aurora UI Kit", "sales_count": 412, "revenue_cents": 2842800 },
+    { "slug": "focus-handbook", "name": "The Focus Handbook", "sales_count": 781, "revenue_cents": 1483900 },
+    { "slug": "lumen-icon-set", "name": "Lumen Icon Set", "sales_count": 286, "revenue_cents": 915200 },
+    { "slug": "signal-typeface", "name": "Signal Typeface", "sales_count": 119, "revenue_cents": 583100 }
+  ]
+}

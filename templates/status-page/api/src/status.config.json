@@ -1,0 +1,26 @@
+{
+  "services": [
+    {
+      "name": "API",
+      "url": "http://localhost:4000/health",
+      "method": "GET",
+      "expectedStatus": 200,
+      "timeoutMs": 5000,
+      "intervalMs": 60000
+    },
+    {
+      "name": "Website",
+      "url": "https://example.com",
+      "method": "GET",
+      "expectedStatus": 200,
+      "timeoutMs": 10000,
+      "intervalMs": 60000
+    }
+  ],
+  "notifications": {
+    "webhook": {
+      "enabled": false,
+      "url": ""
+    }
+  }
+}

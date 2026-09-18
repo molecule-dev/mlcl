@@ -1,0 +1,139 @@
+{
+  "app": "customer-support-chat",
+  "designProjectId": "14848436636190874711",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-landing.html",
+      "designScreenId": "351d2e020ad7480e9f4c89e37763160b"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-login.html",
+      "designScreenId": "2ec1c037083b47808426d5cb0050e199"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-customer-support-chat-login.html",
+      "derivationNotes": "Same centered card as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-customer-support-chat-login.html",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to Sign in'."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-customer-support-chat-login.html",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to Sign in'."
+    },
+    {
+      "name": "Inbox",
+      "templateFile": "app/pages/Inbox.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/inbox",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-inbox.html",
+      "designScreenId": "16ece95d2c7b47568f2855743552544b"
+    },
+    {
+      "name": "ConversationDetail",
+      "templateFile": "app/pages/ConversationDetail.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/conversation/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-conversation-detail.html",
+      "designScreenId": "73bbffa3ada94fc9907b2ed97257177d"
+    },
+    {
+      "name": "Contacts",
+      "templateFile": "app/pages/Contacts.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/contacts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-contacts.html",
+      "designScreenId": "091f947972ea44febf373891b52741ff"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-reports.html",
+      "designScreenId": "2e854723edcd46ab9db3752cab95b239"
+    },
+    {
+      "name": "Automations",
+      "templateFile": "app/pages/Automations.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/automations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-automations.html",
+      "designScreenId": "a93aca8889d441a7a8386e31d4df9e82"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-settings.html",
+      "designScreenId": "cab469a28ad844d28da73a3749680eef"
+    },
+    {
+      "name": "ContactDetail",
+      "templateFile": "app/pages/ContactDetail.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/contacts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-contact-detail.html",
+      "designScreenId": "aecab978260b47d985da0f57edd38b90"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/CustomerSupportChatLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-customer-support-chat-notifications.html",
+      "designScreenId": "82408ab37a234d2aae4c498b29f2a154"
+    }
+  ]
+}

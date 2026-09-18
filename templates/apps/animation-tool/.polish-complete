@@ -1,0 +1,11 @@
+Polish complete: 2026-04-28T17:50:00Z
+Pipeline: polish-app.md
+Cluster: creative-tools → sibling references: ai-agent-playground, 3d-model-viewer, api-documentation
+Brand: Vivace — motion brought to life (violet #8b5cf6 + magenta #ec4899)
+Fonts: Inter, JetBrains Mono, Material Symbols Outlined (Google Fonts via index.html)
+Chrome: Header → AppHeader, Footer → AppFooter, RootErrorBoundary → app-root-error-boundary-react
+Components: 9 bespoke (VivaceWordmark, AnimationToolLayout, VivaceAuthShell, StatusPill, ProjectCard, RenderQueueCard, KeyframeTimelineMini, MotionStatTile, EasingCurveTile)
+Pages rewritten: 14/14 (Landing, Login, Signup, ForgotPassword, ResetPassword, Dashboard, Projects, Editor, Library, Export, Settings, Assets, StateMachine, SharePreview) + NotFound
+Screen-map coverage: 14/14
+Typecheck: 0 app-side errors (npx tsc --noEmit)
+Compliance: clean (check-rules-compliance.mjs)

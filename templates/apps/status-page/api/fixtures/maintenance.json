@@ -1,0 +1,46 @@
+[
+  {
+    "id": "0042",
+    "title": "Postgres primary failover drill — eu-west",
+    "message": "We will fail over the primary Postgres node in eu-west to its replica. Brief read-only mode (~90s) is expected on Public API and Internal dashboard.",
+    "status": "scheduled",
+    "scheduled_for": "2026-05-02T02:00:00.000Z",
+    "scheduled_until": "2026-05-02T02:30:00.000Z",
+    "affected_components": ["Public API", "Internal dashboard"],
+    "scheduled_by": "Asha Rahman",
+    "duration_minutes": 30
+  },
+  {
+    "id": "0041",
+    "title": "Kafka cluster upgrade — ingest fleet",
+    "message": "Rolling upgrade of the Kafka cluster powering Telemetry ingest. Some lag is expected on streaming consumers; producers will continue uninterrupted.",
+    "status": "in_progress",
+    "scheduled_for": "2026-04-26T20:00:00.000Z",
+    "scheduled_until": "2026-04-26T22:00:00.000Z",
+    "affected_components": ["Telemetry ingest"],
+    "scheduled_by": "Diego Park",
+    "duration_minutes": 120
+  },
+  {
+    "id": "0040",
+    "title": "Search index re-shard",
+    "message": "Quarterly re-shard of the search index for the increased corpus size.",
+    "status": "completed",
+    "scheduled_for": "2026-04-21T05:00:00.000Z",
+    "scheduled_until": "2026-04-21T06:30:00.000Z",
+    "affected_components": ["Search index"],
+    "scheduled_by": "Mira Adler",
+    "duration_minutes": 90
+  },
+  {
+    "id": "0039",
+    "title": "Webhook fanout autoscaler upgrade",
+    "message": "Upgrade the webhook fanout autoscaler from v2 to v3. No customer-visible impact expected.",
+    "status": "completed",
+    "scheduled_for": "2026-04-15T03:00:00.000Z",
+    "scheduled_until": "2026-04-15T03:45:00.000Z",
+    "affected_components": ["Webhook delivery"],
+    "scheduled_by": "Diego Park",
+    "duration_minutes": 45
+  }
+]

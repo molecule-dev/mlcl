@@ -1,0 +1,62 @@
+[
+  {
+    "id": "m1",
+    "name": "Jordan Mendez",
+    "email": "jordan@glint.app",
+    "role": "owner",
+    "initials": "JM",
+    "recordingsCount": 42,
+    "lastActive": "just now",
+    "status": "active"
+  },
+  {
+    "id": "m2",
+    "name": "Priya Bhatt",
+    "email": "priya@glint.app",
+    "role": "admin",
+    "initials": "PB",
+    "recordingsCount": 18,
+    "lastActive": "24m",
+    "status": "active"
+  },
+  {
+    "id": "m3",
+    "name": "Diego Romero",
+    "email": "diego@glint.app",
+    "role": "member",
+    "initials": "DR",
+    "recordingsCount": 7,
+    "lastActive": "3h",
+    "status": "active"
+  },
+  {
+    "id": "m4",
+    "name": "Marisol Rivera",
+    "email": "marisol@glint.app",
+    "role": "member",
+    "initials": "MR",
+    "recordingsCount": 12,
+    "lastActive": "Yesterday",
+    "status": "active"
+  },
+  {
+    "id": "m5",
+    "name": "Yuna Park",
+    "email": "yuna@glint.app",
+    "role": "viewer",
+    "initials": "YP",
+    "recordingsCount": 0,
+    "lastActive": "2d",
+    "status": "active"
+  },
+  {
+    "id": "m6",
+    "name": "Kai Tanaka",
+    "email": "kai@glint.app",
+    "role": "member",
+    "initials": "KT",
+    "recordingsCount": 0,
+    "lastActive": "Pending invite",
+    "status": "pending"
+  }
+]

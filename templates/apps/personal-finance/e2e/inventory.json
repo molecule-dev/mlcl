@@ -1,0 +1,3199 @@
+{
+  "slug": "personal-finance",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-accountspage",
+      "path": "/accounts",
+      "component": "AccountsPage",
+      "file": null
+    },
+    {
+      "id": "page-accountdetail",
+      "path": "/accounts/:id",
+      "component": "AccountDetail",
+      "file": "app/src/pages/AccountDetail.tsx"
+    },
+    {
+      "id": "page-addaccount",
+      "path": "/accounts/new",
+      "component": "AddAccount",
+      "file": "app/src/pages/AddAccount.tsx"
+    },
+    {
+      "id": "page-budgetspage",
+      "path": "/budgets",
+      "component": "BudgetsPage",
+      "file": null
+    },
+    {
+      "id": "page-addbudget",
+      "path": "/budgets/new",
+      "component": "AddBudget",
+      "file": "app/src/pages/AddBudget.tsx"
+    },
+    {
+      "id": "page-categories",
+      "path": "/categories",
+      "component": "Categories",
+      "file": "app/src/pages/Categories.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-goalspage",
+      "path": "/goals",
+      "component": "GoalsPage",
+      "file": null
+    },
+    {
+      "id": "page-addgoal",
+      "path": "/goals/new",
+      "component": "AddGoal",
+      "file": "app/src/pages/AddGoal.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-reportspage",
+      "path": "/reports",
+      "component": "ReportsPage",
+      "file": null
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    },
+    {
+      "id": "page-transactionspage",
+      "path": "/transactions",
+      "component": "TransactionsPage",
+      "file": null
+    },
+    {
+      "id": "page-transactiondetail",
+      "path": "/transactions/:id",
+      "component": "TransactionDetail",
+      "file": "app/src/pages/TransactionDetail.tsx"
+    },
+    {
+      "id": "page-addtransaction",
+      "path": "/transactions/new",
+      "component": "AddTransaction",
+      "file": "app/src/pages/AddTransaction.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "button-accountdetailfooter-37-edit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AccountDetailFooter.tsx",
+      "line": 37,
+      "label": "edit",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-accountdetailfooter-51-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AccountDetailFooter.tsx",
+      "line": 51,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-accountdetailtopnavbar-25-arrow-back",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AccountDetailTopNavBar.tsx",
+      "line": 25,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountdetailtopnavbar-50",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountDetailTopNavBar.tsx",
+      "line": 50,
+      "label": "link at app/src/components/AccountDetailTopNavBar.tsx:50",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountdetailtopnavbar-77-settings",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountDetailTopNavBar.tsx",
+      "line": 77,
+      "label": "settings",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountgrid-92-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountGrid.tsx",
+      "line": 92,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountgrid-143--h3-classname--cm-cn",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountGrid.tsx",
+      "line": 143,
+      "label": "<h3 className={cm.cn( cm.fontWeight(bold), cm.textSize(lg), ",
+      "href": "/accounts/${account.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-accountgrid-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AccountGrid.tsx",
+      "line": 171,
+      "label": "button at app/src/components/AccountGrid.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-accountrecenttransactions-61",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AccountRecentTransactions.tsx",
+      "line": 61,
+      "label": "input at app/src/components/AccountRecentTransactions.tsx:61",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-accountrecenttransactions-155-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountRecentTransactions.tsx",
+      "line": 155,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-accountspageheader-36",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AccountsPageHeader.tsx",
+      "line": 36,
+      "label": "button at app/src/components/AccountsPageHeader.tsx:36",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountstopnavbar-28-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountsTopNavBar.tsx",
+      "line": 28,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-accountstopnavbar-50",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AccountsTopNavBar.tsx",
+      "line": 50,
+      "label": "input at app/src/components/AccountsTopNavBar.tsx:50",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-accountstopnavbar-70",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountsTopNavBar.tsx",
+      "line": 70,
+      "label": "link at app/src/components/AccountsTopNavBar.tsx:70",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountstopnavbar-99-settings",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AccountsTopNavBar.tsx",
+      "line": 99,
+      "label": "settings",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addtransactionamountsection-29",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionAmountSection.tsx",
+      "line": 29,
+      "label": "button at app/src/components/AddTransactionAmountSection.tsx:29",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addtransactionamountsection-47",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionAmountSection.tsx",
+      "line": 47,
+      "label": "button at app/src/components/AddTransactionAmountSection.tsx:47",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addtransactionamountsection-87",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AddTransactionAmountSection.tsx",
+      "line": 87,
+      "label": "input at app/src/components/AddTransactionAmountSection.tsx:87",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-addtransactionfab-36-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionFab.tsx",
+      "line": 36,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-addtransactionfab-43-add",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AddTransactionFab.tsx",
+      "line": 43,
+      "label": "add",
+      "href": "/transactions/new",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addtransactionformactions-20-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionFormActions.tsx",
+      "line": 20,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addtransactionformactions-33",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionFormActions.tsx",
+      "line": 33,
+      "label": "button at app/src/components/AddTransactionFormActions.tsx:33",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-addtransactionheader-23-arrow-back",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AddTransactionHeader.tsx",
+      "line": 23,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addtransactionheader-53-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AddTransactionHeader.tsx",
+      "line": 53,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-appearancesection-38-light-mode--t-ap",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AppearanceSection.tsx",
+      "line": 38,
+      "label": "light_mode {t(ap",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-appearancesection-51-dark-mode--t-appe",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AppearanceSection.tsx",
+      "line": 51,
+      "label": "dark_mode {t(appe",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-appearancesection-64-settings-brightness",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AppearanceSection.tsx",
+      "line": 64,
+      "label": "settings_brightness",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-balancehistorycard-61",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/BalanceHistoryCard.tsx",
+      "line": 61,
+      "label": "button at app/src/components/BalanceHistoryCard.tsx:61",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bottomnavbar-20--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BottomNavBar.tsx",
+      "line": 20,
+      "label": "<span className= style= : undefined}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bottomnavbar-44--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BottomNavBar.tsx",
+      "line": 44,
+      "label": "<span className= style={",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bottomnavbar-70--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BottomNavBar.tsx",
+      "line": 70,
+      "label": "<span className= style={",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bottomnavbar-96--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BottomNavBar.tsx",
+      "line": 96,
+      "label": "<span className= style={",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bottomnavbar-122--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BottomNavBar.tsx",
+      "line": 122,
+      "label": "<span className= style= : undefined}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-budgetprogresspanel-51",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/BudgetProgressPanel.tsx",
+      "line": 51,
+      "label": "button at app/src/components/BudgetProgressPanel.tsx:51",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-budgetprogresspanel-66",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/BudgetProgressPanel.tsx",
+      "line": 66,
+      "label": "button at app/src/components/BudgetProgressPanel.tsx:66",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-budgetsummarycard-176",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/BudgetSummaryCard.tsx",
+      "line": 176,
+      "label": "button at app/src/components/BudgetSummaryCard.tsx:176",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-budgetsfooter-34-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BudgetsFooter.tsx",
+      "line": 34,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-budgetsfooter-37-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BudgetsFooter.tsx",
+      "line": 37,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categoriespageheader-27-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/CategoriesPageHeader.tsx",
+      "line": 27,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-39",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 39,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:39",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-63",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 63,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:63",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-87",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 87,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:87",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-111",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 111,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-135",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 135,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:135",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-159",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 159,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:159",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-184",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 184,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:184",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoriessidenavbar-210",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesSideNavBar.tsx",
+      "line": 210,
+      "label": "link at app/src/components/CategoriesSideNavBar.tsx:210",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-categoriestopnavbar-48",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/CategoriesTopNavBar.tsx",
+      "line": 48,
+      "label": "input at app/src/components/CategoriesTopNavBar.tsx:48",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-categoriestopnavbar-69",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoriesTopNavBar.tsx",
+      "line": 69,
+      "label": "link at app/src/components/CategoriesTopNavBar.tsx:69",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categoriestopnavbar-99-account-circle",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/CategoriesTopNavBar.tsx",
+      "line": 99,
+      "label": "account_circle",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categoryallocationchart-24-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoryAllocationChart.tsx",
+      "line": 24,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categorycard-62-edit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/CategoryCard.tsx",
+      "line": 62,
+      "label": "edit",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categorycard-77-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/CategoryCard.tsx",
+      "line": 77,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-communicationssection-50",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/CommunicationsSection.tsx",
+      "line": 50,
+      "label": "input at app/src/components/CommunicationsSection.tsx:50",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-communicationssection-84",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/CommunicationsSection.tsx",
+      "line": 84,
+      "label": "input at app/src/components/CommunicationsSection.tsx:84",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-communicationssection-114",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/CommunicationsSection.tsx",
+      "line": 114,
+      "label": "input at app/src/components/CommunicationsSection.tsx:114",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-connectbankcta-57-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ConnectBankCta.tsx",
+      "line": 57,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-creditcardcard-10--div-classname--d",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CreditCardCard.tsx",
+      "line": 10,
+      "label": "<div className= d",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardbudgetgoalssidebar-14",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardBudgetGoalsSidebar.tsx",
+      "line": 14,
+      "label": "link at app/src/components/DashboardBudgetGoalsSidebar.tsx:14",
+      "href": "/goals",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardherosection-12",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardHeroSection.tsx",
+      "line": 12,
+      "label": "link at app/src/components/DashboardHeroSection.tsx:12",
+      "href": "/accounts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardherosection-15",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardHeroSection.tsx",
+      "line": 15,
+      "label": "link at app/src/components/DashboardHeroSection.tsx:15",
+      "href": "/accounts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardrecentactivity-24-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardRecentActivity.tsx",
+      "line": 24,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardrecentactivity-35",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardRecentActivity.tsx",
+      "line": 35,
+      "label": "link at app/src/components/DashboardRecentActivity.tsx:35",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dashboardtopnavbar-29-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DashboardTopNavBar.tsx",
+      "line": 29,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dashboardtopnavbar-54-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DashboardTopNavBar.tsx",
+      "line": 54,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardtopnavbar-68",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardTopNavBar.tsx",
+      "line": 68,
+      "label": "link at app/src/components/DashboardTopNavBar.tsx:68",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboardtopnavbar-101-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/DashboardTopNavBar.tsx",
+      "line": 101,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dataprivacysection-36--span",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DataPrivacySection.tsx",
+      "line": 36,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-dataprivacysection-66--span-classname-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/DataPrivacySection.tsx",
+      "line": 66,
+      "label": "<span className=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-educationcategorycard-36-edit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/EducationCategoryCard.tsx",
+      "line": 36,
+      "label": "edit",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-educationcategorycard-50-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/EducationCategoryCard.tsx",
+      "line": 50,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-expensecategoriessection-58",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ExpenseCategoriesSection.tsx",
+      "line": 58,
+      "label": "link at app/src/components/ExpenseCategoriesSection.tsx:58",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-freelancecategorycard-37-edit",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/FreelanceCategoryCard.tsx",
+      "line": 37,
+      "label": "edit",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-freelancecategorycard-51--span-classname--dat",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/FreelanceCategoryCard.tsx",
+      "line": 51,
+      "label": "<span className= data-icon=delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-goalsbentogrid-103",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/GoalsBentoGrid.tsx",
+      "line": 103,
+      "label": "button at app/src/components/GoalsBentoGrid.tsx:103",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-goalsemptystatecta-54-rocket-launch",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/GoalsEmptyStateCta.tsx",
+      "line": 54,
+      "label": "rocket_launch",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-goalsfooter-34",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/GoalsFooter.tsx",
+      "line": 34,
+      "label": "button at app/src/components/GoalsFooter.tsx:34",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-goalsfooter-53-print",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/GoalsFooter.tsx",
+      "line": 53,
+      "label": "print",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-goalspageheader-30-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/GoalsPageHeader.tsx",
+      "line": 30,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-incomecategoriessection-58",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/IncomeCategoriesSection.tsx",
+      "line": 58,
+      "label": "link at app/src/components/IncomeCategoriesSection.tsx:58",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-incomevsexpensescard-48-more-horiz",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/IncomeVsExpensesCard.tsx",
+      "line": 48,
+      "label": "more_horiz",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-incomevsexpensescard-124-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/IncomeVsExpensesCard.tsx",
+      "line": 124,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-investmentscategorycard-47",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/InvestmentsCategoryCard.tsx",
+      "line": 47,
+      "label": "button at app/src/components/InvestmentsCategoryCard.tsx:47",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-investmentscategorycard-62",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/InvestmentsCategoryCard.tsx",
+      "line": 62,
+      "label": "button at app/src/components/InvestmentsCategoryCard.tsx:62",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-loginform-83",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 83,
+      "label": "input at app/src/components/LoginForm.tsx:83",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-loginform-112-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 112,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-loginform-137",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 137,
+      "label": "input at app/src/components/LoginForm.tsx:137",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-loginform-151",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 151,
+      "label": "button at app/src/components/LoginForm.tsx:151",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-loginform-168",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 168,
+      "label": "button at app/src/components/LoginForm.tsx:168",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-loginglobalfooter-44-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LoginGlobalFooter.tsx",
+      "line": 44,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-loginglobalfooter-52-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/LoginGlobalFooter.tsx",
+      "line": 52,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mobilenavbar-18-dashboard-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavBar.tsx",
+      "line": 18,
+      "label": "dashboard , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mobilenavbar-30-receipt-long",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavBar.tsx",
+      "line": 30,
+      "label": "receipt_long",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mobilenavbar-47-add",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavBar.tsx",
+      "line": 47,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mobilenavbar-57-account-balance-wall",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavBar.tsx",
+      "line": 57,
+      "label": "account_balance_wallet , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-mobilenavbar-69-settings-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavBar.tsx",
+      "line": 69,
+      "label": "settings , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-networthovertimecard-108-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/NetWorthOverTimeCard.tsx",
+      "line": 108,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-profileidentitysection-46",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/ProfileIdentitySection.tsx",
+      "line": 46,
+      "label": "input at app/src/components/ProfileIdentitySection.tsx:46",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-profileidentitysection-55",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ProfileIdentitySection.tsx",
+      "line": 55,
+      "label": "button at app/src/components/ProfileIdentitySection.tsx:55",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-profileidentitysection-102",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/ProfileIdentitySection.tsx",
+      "line": 102,
+      "label": "input at app/src/components/ProfileIdentitySection.tsx:102",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-profileidentitysection-125",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/ProfileIdentitySection.tsx",
+      "line": 125,
+      "label": "input at app/src/components/ProfileIdentitySection.tsx:125",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-recurringtransactionpanel-53",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/RecurringTransactionPanel.tsx",
+      "line": 53,
+      "label": "select at app/src/components/RecurringTransactionPanel.tsx:53",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-regionalpreferencessection-55",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/RegionalPreferencesSection.tsx",
+      "line": 55,
+      "label": "select at app/src/components/RegionalPreferencesSection.tsx:55",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-regionalpreferencessection-91",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/RegionalPreferencesSection.tsx",
+      "line": 91,
+      "label": "select at app/src/components/RegionalPreferencesSection.tsx:91",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-regionalpreferencessection-123",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/RegionalPreferencesSection.tsx",
+      "line": 123,
+      "label": "select at app/src/components/RegionalPreferencesSection.tsx:123",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reportsfilterbar-21",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ReportsFilterBar.tsx",
+      "line": 21,
+      "label": "button at app/src/components/ReportsFilterBar.tsx:21",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reportsfilterbar-37",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ReportsFilterBar.tsx",
+      "line": 37,
+      "label": "button at app/src/components/ReportsFilterBar.tsx:37",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reportsfilterbar-53",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ReportsFilterBar.tsx",
+      "line": 53,
+      "label": "button at app/src/components/ReportsFilterBar.tsx:53",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reportsfilterbar-71",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ReportsFilterBar.tsx",
+      "line": 71,
+      "label": "button at app/src/components/ReportsFilterBar.tsx:71",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reportspageheader-54",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ReportsPageHeader.tsx",
+      "line": 54,
+      "label": "button at app/src/components/ReportsPageHeader.tsx:54",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-salarycategorycard-37",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SalaryCategoryCard.tsx",
+      "line": 37,
+      "label": "button at app/src/components/SalaryCategoryCard.tsx:37",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-salarycategorycard-53",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SalaryCategoryCard.tsx",
+      "line": 53,
+      "label": "button at app/src/components/SalaryCategoryCard.tsx:53",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-savinggoalcard-63-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SavingGoalCard.tsx",
+      "line": 63,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-savingsratecard-88-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SavingsRateCard.tsx",
+      "line": 88,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-securityaccesssection-122",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 122,
+      "label": "button at app/src/components/SecurityAccessSection.tsx:122",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-securityaccesssection-150",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 150,
+      "label": "input at app/src/components/SecurityAccessSection.tsx:150",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-securityaccesssection-164",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 164,
+      "label": "input at app/src/components/SecurityAccessSection.tsx:164",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-securityaccesssection-188",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 188,
+      "label": "button at app/src/components/SecurityAccessSection.tsx:188",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-securityaccesssection-236",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 236,
+      "label": "input at app/src/components/SecurityAccessSection.tsx:236",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-settingsfooter-25-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SettingsFooter.tsx",
+      "line": 25,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settingsfooter-33-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SettingsFooter.tsx",
+      "line": 33,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspageheader-35",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SettingsPageHeader.tsx",
+      "line": 35,
+      "label": "button at app/src/components/SettingsPageHeader.tsx:35",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-205",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 205,
+      "label": "input at app/src/components/SettingsPanel.tsx:205",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-226---",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 226,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-271---",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 271,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-338-----t-common-logout-",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 338,
+      "label": ") : t(common.logOut, )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-349---",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 349,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-380",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 380,
+      "label": "input at app/src/components/SettingsPanel.tsx:380",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-393",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 393,
+      "label": "input at app/src/components/SettingsPanel.tsx:393",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-402-----t-settings-chang",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 402,
+      "label": ") : t(settings.changePassword, )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-432",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 432,
+      "label": "input at app/src/components/SettingsPanel.tsx:432",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-440",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 440,
+      "label": "button at app/src/components/SettingsPanel.tsx:440",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingssavebutton-9",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SettingsSaveButton.tsx",
+      "line": 9,
+      "label": "button at app/src/components/SettingsSaveButton.tsx:9",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingstopnavbar-33",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/SettingsTopNavBar.tsx",
+      "line": 33,
+      "label": "input at app/src/components/SettingsTopNavBar.tsx:33",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingstopnavbar-56-notifications",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SettingsTopNavBar.tsx",
+      "line": 56,
+      "label": "notifications",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settingstopnavbar-77-account-balance-wall",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SettingsTopNavBar.tsx",
+      "line": 77,
+      "label": "account_balance_wallet",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-sidenavbar-143-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SideNavBar.tsx",
+      "line": 143,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-sidenavbar-149--div",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SideNavBar.tsx",
+      "line": 149,
+      "label": "<div",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-similartransactionscard-39-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SimilarTransactionsCard.tsx",
+      "line": 39,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-similartransactionscard-50--div-classname----cm",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SimilarTransactionsCard.tsx",
+      "line": 50,
+      "label": "<div className=), cm.cursorPointer, group, )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-socialloginbuttons-15",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SocialLoginButtons.tsx",
+      "line": 15,
+      "label": "button at app/src/components/SocialLoginButtons.tsx:15",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-socialloginbuttons-31",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SocialLoginButtons.tsx",
+      "line": 31,
+      "label": "button at app/src/components/SocialLoginButtons.tsx:31",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-spendingbycategorycard-49-more-horiz",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SpendingByCategoryCard.tsx",
+      "line": 49,
+      "label": "more_horiz",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-spendingbycategorycard-64-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SpendingByCategoryCard.tsx",
+      "line": 64,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-spendingbycategorycard-76-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SpendingByCategoryCard.tsx",
+      "line": 76,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-spendingbycategorycard-178-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SpendingByCategoryCard.tsx",
+      "line": 178,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-spendinginsightcard-37-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SpendingInsightCard.tsx",
+      "line": 37,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-topappbar-43",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/TopAppBar.tsx",
+      "line": 43,
+      "label": "input at app/src/components/TopAppBar.tsx:43",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-topappbar-70-add-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TopAppBar.tsx",
+      "line": 70,
+      "label": "add , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-topappbar-88-notifications",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TopAppBar.tsx",
+      "line": 88,
+      "label": "notifications",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-topappbar-125-account-circle",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TopAppBar.tsx",
+      "line": 125,
+      "label": "account_circle",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-topnavbar-76-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TopNavBar.tsx",
+      "line": 76,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-topnavbar-84",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TopNavBar.tsx",
+      "line": 84,
+      "label": "button at app/src/components/TopNavBar.tsx:84",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionactionbuttons-14",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionActionButtons.tsx",
+      "line": 14,
+      "label": "button at app/src/components/TransactionActionButtons.tsx:14",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionactionbuttons-29-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionActionButtons.tsx",
+      "line": 29,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-transactiondetailbreadcrumb-19-arrow-back",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TransactionDetailBreadcrumb.tsx",
+      "line": 19,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-transactiondetailbreadcrumb-35-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TransactionDetailBreadcrumb.tsx",
+      "line": 35,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-transactiondetailtopnavbar-48",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/TransactionDetailTopNavBar.tsx",
+      "line": 48,
+      "label": "input at app/src/components/TransactionDetailTopNavBar.tsx:48",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-transactiondetailtopnavbar-79-notifications",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionDetailTopNavBar.tsx",
+      "line": 79,
+      "label": "notifications",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionfilters-64",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionFilters.tsx",
+      "line": 64,
+      "label": "button at app/src/components/TransactionFilters.tsx:64",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionfilters-80",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionFilters.tsx",
+      "line": 80,
+      "label": "button at app/src/components/TransactionFilters.tsx:80",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionfilters-96",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionFilters.tsx",
+      "line": 96,
+      "label": "button at app/src/components/TransactionFilters.tsx:96",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionfilters-114-file-download",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionFilters.tsx",
+      "line": 114,
+      "label": "file_download",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionpagination-37--------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionPagination.tsx",
+      "line": 37,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionpagination-48--------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionPagination.tsx",
+      "line": 48,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionpagination-59--------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionPagination.tsx",
+      "line": 59,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionpagination-73",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionPagination.tsx",
+      "line": 73,
+      "label": "button at app/src/components/TransactionPagination.tsx:73",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionspageheader-43",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionsPageHeader.tsx",
+      "line": 43,
+      "label": "button at app/src/components/TransactionsPageHeader.tsx:43",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionspageheader-58",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionsPageHeader.tsx",
+      "line": 58,
+      "label": "button at app/src/components/TransactionsPageHeader.tsx:58",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionspageheader-73",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionsPageHeader.tsx",
+      "line": 73,
+      "label": "button at app/src/components/TransactionsPageHeader.tsx:73",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactionstable-92-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TransactionsTable.tsx",
+      "line": 92,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-transactionstable-144-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TransactionsTable.tsx",
+      "line": 144,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-accountdetail-106-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/AccountDetail.tsx",
+      "line": 106,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addaccount-121",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 121,
+      "label": "input at app/src/pages/AddAccount.tsx:121",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-addaccount-141",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 141,
+      "label": "select at app/src/pages/AddAccount.tsx:141",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addaccount-172",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 172,
+      "label": "input at app/src/pages/AddAccount.tsx:172",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addaccount-187",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 187,
+      "label": "input at app/src/pages/AddAccount.tsx:187",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addaccount-205",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 205,
+      "label": "input at app/src/pages/AddAccount.tsx:205",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addaccount-220",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 220,
+      "label": "input at app/src/pages/AddAccount.tsx:220",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-addaccount-232-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 232,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addaccount-240",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 240,
+      "label": "button at app/src/pages/AddAccount.tsx:240",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-addbudget-144",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 144,
+      "label": "select at app/src/pages/AddBudget.tsx:144",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addbudget-173",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 173,
+      "label": "input at app/src/pages/AddBudget.tsx:173",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-addbudget-192",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 192,
+      "label": "select at app/src/pages/AddBudget.tsx:192",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addbudget-211",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 211,
+      "label": "input at app/src/pages/AddBudget.tsx:211",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-addbudget-222-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 222,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addbudget-230",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 230,
+      "label": "button at app/src/pages/AddBudget.tsx:230",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addgoal-124",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 124,
+      "label": "input at app/src/pages/AddGoal.tsx:124",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addgoal-143",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 143,
+      "label": "input at app/src/pages/AddGoal.tsx:143",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addgoal-160",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 160,
+      "label": "input at app/src/pages/AddGoal.tsx:160",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addgoal-176",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 176,
+      "label": "input at app/src/pages/AddGoal.tsx:176",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-addgoal-191",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 191,
+      "label": "button at app/src/pages/AddGoal.tsx:191",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addgoal-209-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 209,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-addgoal-217",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 217,
+      "label": "button at app/src/pages/AddGoal.tsx:217",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addtransaction-145",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 145,
+      "label": "input at app/src/pages/AddTransaction.tsx:145",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-addtransaction-186",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 186,
+      "label": "select at app/src/pages/AddTransaction.tsx:186",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-addtransaction-236",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 236,
+      "label": "select at app/src/pages/AddTransaction.tsx:236",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-addtransaction-285",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 285,
+      "label": "input at app/src/pages/AddTransaction.tsx:285",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-addtransaction-345",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 345,
+      "label": "input at app/src/pages/AddTransaction.tsx:345",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-addtransaction-388",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 388,
+      "label": "textarea at app/src/pages/AddTransaction.tsx:388",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-budgets-108",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Budgets.tsx",
+      "line": 108,
+      "label": "button at app/src/pages/Budgets.tsx:108",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-431---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 431,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-465",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 465,
+      "label": "button at app/src/pages/Categories.tsx:465",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-557",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 557,
+      "label": "button at app/src/pages/Categories.tsx:557",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-579",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 579,
+      "label": "button at app/src/pages/Categories.tsx:579",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-666",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 666,
+      "label": "button at app/src/pages/Categories.tsx:666",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-681",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 681,
+      "label": "button at app/src/pages/Categories.tsx:681",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-766",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 766,
+      "label": "button at app/src/pages/Categories.tsx:766",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-788",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 788,
+      "label": "button at app/src/pages/Categories.tsx:788",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-859",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 859,
+      "label": "button at app/src/pages/Categories.tsx:859",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-874",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 874,
+      "label": "button at app/src/pages/Categories.tsx:874",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-905---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 905,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-924-common-close",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 924,
+      "label": "common.close",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-categories-938",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 938,
+      "label": "input at app/src/pages/Categories.tsx:938",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-categories-950",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 950,
+      "label": "input at app/src/pages/Categories.tsx:950",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-categories-961---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 961,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-categories-964-----editingcategory-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 964,
+      "label": ") : editingCategory ? t(common.save, undefined, ) : t(common",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-245-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 245,
+      "label": ", )}",
+      "href": "/accounts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-342--div-classname--cm-c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 342,
+      "label": "<div className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-421-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 421,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-458--span",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 458,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-541-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 541,
+      "label": ", )}",
+      "href": "/budgets",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-588-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 588,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-102-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 102,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-202",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 202,
+      "label": "input at app/src/pages/ForgotPassword.tsx:202",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-239--loading",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 239,
+      "label": "{loading",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-262-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 262,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-304-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 304,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-312-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 312,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-68-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 68,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-124-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 124,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-157",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 157,
+      "label": "input at app/src/pages/Signup.tsx:157",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 171,
+      "label": "button at app/src/pages/Signup.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-190",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 190,
+      "label": "button at app/src/pages/Signup.tsx:190",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-236-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 236,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-transactiondetail-141--t--transactiondetai",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/TransactionDetail.tsx",
+      "line": 141,
+      "label": "{t( transactionDetail.backToTransactions,",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactiondetail-190-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TransactionDetail.tsx",
+      "line": 190,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-transactiondetail-202--deleting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TransactionDetail.tsx",
+      "line": 202,
+      "label": "{deleting",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-loginform-36",
+      "file": "app/src/components/LoginForm.tsx",
+      "line": 36,
+      "label": "form at app/src/components/LoginForm.tsx:36",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-securityaccesssection-145",
+      "file": "app/src/components/SecurityAccessSection.tsx",
+      "line": 145,
+      "label": "form at app/src/components/SecurityAccessSection.tsx:145",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settingspanel-373",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 373,
+      "label": "form at app/src/components/SettingsPanel.tsx:373",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-427",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 427,
+      "label": "form at app/src/components/SettingsPanel.tsx:427",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-addaccount-98",
+      "file": "app/src/pages/AddAccount.tsx",
+      "line": 98,
+      "label": "form at app/src/pages/AddAccount.tsx:98",
+      "onSubmit": false,
+      "fields": [
+        {
+          "name": "add-account-institution",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "form-addbudget-121",
+      "file": "app/src/pages/AddBudget.tsx",
+      "line": 121,
+      "label": "form at app/src/pages/AddBudget.tsx:121",
+      "onSubmit": false,
+      "fields": [
+        {
+          "name": "add-budget-category",
+          "type": "text"
+        },
+        {
+          "name": "add-budget-month",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "form-addgoal-101",
+      "file": "app/src/pages/AddGoal.tsx",
+      "line": 101,
+      "label": "form at app/src/pages/AddGoal.tsx:101",
+      "onSubmit": false,
+      "fields": [
+        {
+          "name": "add-goal-target-date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "id": "form-addtransaction-107",
+      "file": "app/src/pages/AddTransaction.tsx",
+      "line": 107,
+      "label": "form at app/src/pages/AddTransaction.tsx:107",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-categories-928",
+      "file": "app/src/pages/Categories.tsx",
+      "line": 928,
+      "label": "form at app/src/pages/Categories.tsx:928",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-172",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 172,
+      "label": "form at app/src/pages/ForgotPassword.tsx:172",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-127",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 127,
+      "label": "form at app/src/pages/ResetPassword.tsx:127",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-58",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 58,
+      "label": "form at app/src/pages/Signup.tsx:58",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-accounts--id",
+      "method": "DELETE",
+      "mountedPath": "/accounts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/accounts.ts",
+      "line": 158,
+      "resource": "accounts"
+    },
+    {
+      "id": "route-delete-budgets--id",
+      "method": "DELETE",
+      "mountedPath": "/budgets/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/budgets.ts",
+      "line": 130,
+      "resource": "budgets"
+    },
+    {
+      "id": "route-delete-categories--id",
+      "method": "DELETE",
+      "mountedPath": "/categories/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 107,
+      "resource": "categories"
+    },
+    {
+      "id": "route-delete-goals--id",
+      "method": "DELETE",
+      "mountedPath": "/goals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/goals.ts",
+      "line": 134,
+      "resource": "goals"
+    },
+    {
+      "id": "route-delete-transactions--id",
+      "method": "DELETE",
+      "mountedPath": "/transactions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 182,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-get-accounts-",
+      "method": "GET",
+      "mountedPath": "/accounts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/accounts.ts",
+      "line": 39,
+      "resource": "accounts"
+    },
+    {
+      "id": "route-get-accounts--id",
+      "method": "GET",
+      "mountedPath": "/accounts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/accounts.ts",
+      "line": 66,
+      "resource": "accounts"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 137,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 154,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-budgets-",
+      "method": "GET",
+      "mountedPath": "/budgets",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/budgets.ts",
+      "line": 31,
+      "resource": "budgets"
+    },
+    {
+      "id": "route-get-budgets--id",
+      "method": "GET",
+      "mountedPath": "/budgets/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/budgets.ts",
+      "line": 62,
+      "resource": "budgets"
+    },
+    {
+      "id": "route-get-categories-",
+      "method": "GET",
+      "mountedPath": "/categories",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 34,
+      "resource": "categories"
+    },
+    {
+      "id": "route-get-goals-",
+      "method": "GET",
+      "mountedPath": "/goals",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/goals.ts",
+      "line": 37,
+      "resource": "goals"
+    },
+    {
+      "id": "route-get-goals--id",
+      "method": "GET",
+      "mountedPath": "/goals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/goals.ts",
+      "line": 55,
+      "resource": "goals"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 96,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-reports-budget-progress",
+      "method": "GET",
+      "mountedPath": "/reports/budget-progress",
+      "rawPath": "/budget-progress",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 141,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-reports-income-vs-expenses",
+      "method": "GET",
+      "mountedPath": "/reports/income-vs-expenses",
+      "rawPath": "/income-vs-expenses",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 72,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-reports-net-worth",
+      "method": "GET",
+      "mountedPath": "/reports/net-worth",
+      "rawPath": "/net-worth",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 113,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-reports-spending-by-category",
+      "method": "GET",
+      "mountedPath": "/reports/spending-by-category",
+      "rawPath": "/spending-by-category",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 31,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-transactions-",
+      "method": "GET",
+      "mountedPath": "/transactions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 48,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-get-transactions--id",
+      "method": "GET",
+      "mountedPath": "/transactions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 92,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-post-accounts-",
+      "method": "POST",
+      "mountedPath": "/accounts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/accounts.ts",
+      "line": 91,
+      "resource": "accounts"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 107,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 59,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-budgets-",
+      "method": "POST",
+      "mountedPath": "/budgets",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/budgets.ts",
+      "line": 82,
+      "resource": "budgets"
+    },
+    {
+      "id": "route-post-categories-",
+      "method": "POST",
+      "mountedPath": "/categories",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 52,
+      "resource": "categories"
+    },
+    {
+      "id": "route-post-goals-",
+      "method": "POST",
+      "mountedPath": "/goals",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/goals.ts",
+      "line": 75,
+      "resource": "goals"
+    },
+    {
+      "id": "route-post-transactions-",
+      "method": "POST",
+      "mountedPath": "/transactions",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 112,
+      "resource": "transactions"
+    },
+    {
+      "id": "route-put-accounts--id",
+      "method": "PUT",
+      "mountedPath": "/accounts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/accounts.ts",
+      "line": 126,
+      "resource": "accounts"
+    },
+    {
+      "id": "route-put-budgets--id",
+      "method": "PUT",
+      "mountedPath": "/budgets/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/budgets.ts",
+      "line": 106,
+      "resource": "budgets"
+    },
+    {
+      "id": "route-put-categories--id",
+      "method": "PUT",
+      "mountedPath": "/categories/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/categories.ts",
+      "line": 77,
+      "resource": "categories"
+    },
+    {
+      "id": "route-put-goals--id",
+      "method": "PUT",
+      "mountedPath": "/goals/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/goals.ts",
+      "line": 102,
+      "resource": "goals"
+    },
+    {
+      "id": "route-put-transactions--id",
+      "method": "PUT",
+      "mountedPath": "/transactions/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/transactions.ts",
+      "line": 151,
+      "resource": "transactions"
+    }
+  ],
+  "totals": {
+    "pages": 22,
+    "elements": 249,
+    "forms": 12,
+    "routes": 33
+  }
+}

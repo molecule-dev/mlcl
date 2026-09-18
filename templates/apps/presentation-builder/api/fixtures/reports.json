@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "totalDecks": 47,
+    "weeklyViews": 1842,
+    "weeklyViewsDelta": 0.18,
+    "averageViewSeconds": 312,
+    "averageViewSecondsDelta": 0.07,
+    "topShareLink": "share-3",
+    "topShareLinkViewCount": 124
+  },
+  "topDecks": [
+    {
+      "deckId": "sales-kickoff",
+      "title": "GTM Kickoff 2026",
+      "views": 412,
+      "completionRate": 0.71,
+      "averageSeconds": 240
+    },
+    {
+      "deckId": "lumen-series-b",
+      "title": "Lumen Capital, Series B",
+      "views": 184,
+      "completionRate": 0.86,
+      "averageSeconds": 432
+    },
+    {
+      "deckId": "design-system",
+      "title": "Design System v4 Keynote",
+      "views": 142,
+      "completionRate": 0.62,
+      "averageSeconds": 360
+    },
+    {
+      "deckId": "q4-board",
+      "title": "Q4 Board Update",
+      "views": 38,
+      "completionRate": 0.92,
+      "averageSeconds": 540
+    }
+  ],
+  "viewerLocations": [
+    { "label": "United States", "share": 0.58 },
+    { "label": "United Kingdom", "share": 0.14 },
+    { "label": "Canada", "share": 0.09 },
+    { "label": "Germany", "share": 0.07 },
+    { "label": "Other", "share": 0.12 }
+  ]
+}

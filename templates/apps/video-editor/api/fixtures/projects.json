@@ -1,0 +1,7 @@
+[
+  { "id": "p-skyline", "name": "Skyline · Launch Reel", "width": 1920, "height": 1080, "fps": 30, "duration_ms": 138000, "cover_url": null, "created_at": "2026-04-27T09:00:00Z", "updated_at": "2026-04-27T11:40:00Z" },
+  { "id": "p-vertical", "name": "Vertical · Product Drop", "width": 1080, "height": 1920, "fps": 60, "duration_ms": 45000, "cover_url": null, "created_at": "2026-04-27T07:10:00Z", "updated_at": "2026-04-27T08:30:00Z" },
+  { "id": "p-loop", "name": "Square · Logo Loop", "width": 1080, "height": 1080, "fps": 30, "duration_ms": 12000, "cover_url": null, "created_at": "2026-04-26T12:00:00Z", "updated_at": "2026-04-26T14:00:00Z" },
+  { "id": "p-doc", "name": "Documentary · Cold Open", "width": 2560, "height": 1080, "fps": 24, "duration_ms": 108000, "cover_url": null, "created_at": "2026-04-25T18:30:00Z", "updated_at": "2026-04-25T20:00:00Z" },
+  { "id": "p-explainer", "name": "Explainer · Onboarding", "width": 1920, "height": 1080, "fps": 30, "duration_ms": 204000, "cover_url": null, "created_at": "2026-04-24T14:00:00Z", "updated_at": "2026-04-24T16:00:00Z" }
+]

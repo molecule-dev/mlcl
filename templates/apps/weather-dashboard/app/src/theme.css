@@ -1,0 +1,178 @@
+:root {
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #0261a3; /* darkened from #0284c7 — white on #0284c7 was 4.10:1 (fail); #0261a3 = 6.48:1 */
+  --mol-color-primary-light: #38bdf8;
+  --mol-color-primary-dark: #0369a1;
+  --mol-color-secondary: #0ea5e9;
+  --mol-color-secondary-light: #7dd3fc;
+  /* Darkened from #16a34a (green-600). green-600 is too light to serve as a
+     FOREGROUND in this light theme, and it failed AA in every light-mode role:
+     the soft success button on /login (`text-success-text` = color-mix(success
+     45%, foreground #0c4a6e) over `bg-success/25`) measured 4.19:1 — an axe
+     serious color-contrast violation — and `text-success` body text measured
+     3.30:1 on #ffffff / 3.09:1 on the page, with white-on-solid at 3.30:1.
+     The fleet's 45% text mix is calibrated against a near-black foreground;
+     this theme's foreground is a mid dark blue, so the mix lands lighter here.
+     #166534 (green-800) = 5.38:1 button / 6.69:1 text-on-page / 7.13:1
+     white-on-solid. Dark mode keeps #4ade80 (already 7.84:1). */
+  --mol-color-success: #166534;
+  --mol-color-warning: #ea580c;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+  --mol-color-background: #f0f9ff;
+  --mol-color-background-secondary: #e0f2fe;
+  --mol-color-background-tertiary: #bae6fd;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f9ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0c4a6e;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #bae6fd;
+  --mol-color-border-secondary: #7dd3fc;
+  --mol-color-border-focus: #0284c7;
+  --mol-font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* ── App-specific tokens (raw inline styles only) ── */
+  --color-accent: #f59e0b;
+  --color-danger: #dc2626;
+  --color-warning: #ea580c;
+  /* Must track --mol-color-success above: this :root value SHADOWS the
+     @theme token in @molecule/app-ui-tailwind/base.css (Layer 3 loads last),
+     so it is what `text-success` / `bg-success` / the derived
+     `--color-success-text` actually resolve to. Leaving it at #16a34a here
+     would silently undo the contrast fix. */
+  --color-success: #166534;
+  --color-border-active: #0284c7;
+  --color-surface-alt: #e0f2fe;
+
+  /* ── Material-3 / Stitch bridge tokens (light defaults) ── */
+  --color-background: #f0f9ff;
+  --color-on-background: #0c4a6e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0f2fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f9ff;
+  --color-surface-container: #e0f2fe;
+  --color-surface-container-high: #bae6fd;
+  --color-surface-container-highest: #7dd3fc;
+  --color-surface-variant: #e0f2fe;
+  --color-on-surface: #0c4a6e;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0c4a6e;
+  --color-inverse-on-surface: #f0f9ff;
+  --color-inverse-primary: #38bdf8;
+  --color-primary: #0261a3; /* darkened from #0284c7 — white was 4.10:1 (fail); #0261a3 = 6.48:1 */
+  --color-primary-container: #e0f2fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #0c4a6e;
+  --color-secondary: #0ea5e9;
+  --color-secondary-container: #bae6fd;
+  --color-on-secondary: #001e2e; /* dark on sky-blue — #ffffff was 2.77:1 (fail); #001e2e = 6.18:1 */
+  --color-on-secondary-container: #0369a1;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #3a1a00; /* dark on amber — #ffffff was 2.15:1 (fail); #3a1a00 = 7.36:1 */
+  --color-on-tertiary-container: #78350f;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #5e6e84; /* #94a3b8 was 2.56:1 vs white (fail ≥3:1); #5e6e84 = 5.20:1 */
+  --color-outline-variant: #bae6fd;
+  --color-surface-tint: #0261a3;
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+}
+
+/* Dark mode — night-sky cool-neutral dark.
+   Deep midnight-blue surfaces evoke a clear night sky — on-theme for a
+   weather dashboard. Brand sky-blue lifts to #38bdf8 for surface accents
+   and graphs; brand stop #0284c7 is preserved as primary-dark for hero
+   CTAs so white text stays the on-primary contrast.
+   Selector: `[data-mol-mode='dark']` — controlled by the theme toggle on
+   <html>, NOT @media or .dark class. */
+[data-mol-mode='dark'] {
+  /* ── Bridge variables ── */
+  --mol-color-primary: #38bdf8;
+  --mol-color-primary-light: #7dd3fc;
+  --mol-color-primary-dark: #0284c7;
+  --mol-color-secondary: #0ea5e9;
+  --mol-color-secondary-light: #38bdf8;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fb923c;
+  --mol-color-error: #f87171;
+  --mol-color-info: #38bdf8;
+  --mol-color-background: #07111e;
+  --mol-color-background-secondary: #0d1c30;
+  --mol-color-background-tertiary: #142c46;
+  --mol-color-surface: #0d1c30;
+  --mol-color-surface-secondary: #142c46;
+  --mol-color-input-background: #07111e;
+  --mol-color-text: #e8f4fc;
+  --mol-color-text-secondary: #9eb3c8;
+  --mol-color-text-tertiary: #5e6e84;
+  --mol-color-text-inverse: #07111e;
+  --mol-color-border: #1a3354;
+  --mol-color-border-secondary: #1e3d63;
+  --mol-color-border-focus: #38bdf8;
+
+  /* ── App-specific tokens ── */
+  --color-accent: #fbbf24;
+  --color-danger: #f87171;
+  --color-warning: #fb923c;
+  --color-success: #4ade80;
+  --color-border-active: #38bdf8;
+  --color-surface-alt: #142c46;
+
+  /* ── Material-3 / Stitch bridge tokens (dark overrides) ── */
+  --color-background: #07111e;
+  --color-on-background: #e8f4fc;
+  --color-surface: #0d1c30;
+  --color-surface-bright: #142c46;
+  --color-surface-dim: #040c16;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #07111e;
+  --color-surface-container: #0d1c30;
+  --color-surface-container-high: #142c46;
+  --color-surface-container-highest: #1a3354;
+  --color-surface-variant: #142c46;
+  --color-on-surface: #e8f4fc;
+  --color-on-surface-variant: #9eb3c8;
+  --color-inverse-surface: #e8f4fc;
+  --color-inverse-on-surface: #07111e;
+  --color-inverse-primary: #0261a3;
+  --color-primary: #38bdf8;
+  --color-primary-container: #0369a1;
+  --color-on-primary: #001d32; /* dark on bright-sky-blue — #ffffff was 2.14:1 (fail); #001d32 = 8.02:1 */
+  --color-on-primary-container: #bae6fd;
+  --color-secondary: #0ea5e9;
+  --color-secondary-container: #0c4a6e;
+  --color-on-secondary: #001e2e; /* dark on mid-blue — #ffffff was 2.77:1 (fail); #001e2e = 6.18:1 */
+  --color-on-secondary-container: #bae6fd;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #78350f;
+  --color-on-tertiary: #3a1a00; /* dark on amber — #ffffff was 1.67:1 (fail); #3a1a00 = 9.48:1 */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #7f1d1d;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #5e6e84;
+  --color-outline-variant: #1a3354;
+  --color-surface-tint: #38bdf8;
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}

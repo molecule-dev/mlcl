@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ntf-101",
+    "icon": "grade",
+    "category": "Grade posted",
+    "tone": "success",
+    "title": "New grade posted in AP Biology",
+    "body": "Lab report 3 — “Cellular respiration” has been graded. View the rubric for feedback.",
+    "time_label": "12 min",
+    "read": false,
+    "created_at": "2026-04-30T08:42:00Z"
+  },
+  {
+    "id": "ntf-102",
+    "icon": "assignment",
+    "category": "Reminder",
+    "tone": "warning",
+    "title": "Algebra II practice set 7 is due tonight",
+    "body": "Submit your work in PDF or photo form. Show every factoring step for partial credit.",
+    "time_label": "34 min",
+    "read": false,
+    "created_at": "2026-04-30T08:20:00Z"
+  },
+  {
+    "id": "ntf-103",
+    "icon": "forum",
+    "category": "Message",
+    "tone": "info",
+    "title": "Ms. Tran sent you a message",
+    "body": "“Hi Riley — quick check-in: I noticed you crushed problem 6…”",
+    "time_label": "1 hr",
+    "read": false,
+    "created_at": "2026-04-30T08:00:00Z"
+  },
+  {
+    "id": "ntf-104",
+    "icon": "campaign",
+    "category": "School news",
+    "tone": "info",
+    "title": "Spring assembly moved to Friday",
+    "body": "Hold the period 7 schedule for an all-school assembly in the gym. Buses run on the late bell.",
+    "time_label": "3 hr",
+    "read": true,
+    "created_at": "2026-04-30T06:00:00Z"
+  },
+  {
+    "id": "ntf-105",
+    "icon": "event_busy",
+    "category": "Attendance",
+    "tone": "success",
+    "title": "Excused absence recorded",
+    "body": "Apr 22 marked as excused — note from family is on file.",
+    "time_label": "Yesterday",
+    "read": true,
+    "created_at": "2026-04-29T15:00:00Z"
+  },
+  {
+    "id": "ntf-106",
+    "icon": "account_balance_wallet",
+    "category": "Billing",
+    "tone": "warning",
+    "title": "Family plan renews May 14",
+    "body": "You’ll be charged $9.99/mo. Update payment in Settings → Billing if needed.",
+    "time_label": "2d",
+    "read": true,
+    "created_at": "2026-04-28T09:00:00Z"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "bookmark-1",
+    "article_id": "oncall-rotation",
+    "title": "On-call rotation: rules of engagement",
+    "excerpt": "How we run the rotation, what counts as paged, when to escalate, and how we keep the on-call humane.",
+    "space_name": "Engineering",
+    "section_path": ["Runbooks", "On-call"],
+    "author_name": "Maya Patel",
+    "author_initials": "MP",
+    "status": "published",
+    "updated_at": "2026-04-30T00:55:00.000Z"
+  },
+  {
+    "id": "bookmark-2",
+    "article_id": "parental-leave",
+    "title": "Parental leave: the policy and the spirit of it",
+    "excerpt": "Sixteen weeks paid, flexible ramp, no pressure to return early. Here is exactly how to take it.",
+    "space_name": "People Ops",
+    "section_path": ["Benefits"],
+    "author_name": "Aiyana Klein",
+    "author_initials": "AK",
+    "status": "published",
+    "updated_at": "2026-04-29T08:14:00.000Z"
+  },
+  {
+    "id": "bookmark-3",
+    "article_id": "warehouse-schema",
+    "title": "Warehouse schema conventions",
+    "excerpt": "How we name tables in the analytics warehouse, and the rules around fact / dim / staging layers.",
+    "space_name": "Data Platform",
+    "section_path": ["Conventions"],
+    "author_name": "Elena Vance",
+    "author_initials": "EV",
+    "status": "published",
+    "updated_at": "2026-04-28T13:14:00.000Z"
+  }
+]

@@ -1,0 +1,8 @@
+# Handler files that are not HTTP routes and therefore not exercised by
+# spec network assertions. One name per line (basename without `.ts`).
+# Lines starting with `#` are comments.
+
+# Internal idempotent seed module: seedGlobalCatalogIfEmpty runs once at
+# server boot, seedDemoForUser fires on first /api/notifications read.
+# Not a router; nothing to exercise from a spec network assertion.
+_seed

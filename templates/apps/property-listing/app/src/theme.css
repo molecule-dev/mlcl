@@ -1,0 +1,190 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── Bridge variables (feed into @theme) ── */
+  --mol-color-primary: #1a6b4f;
+  --mol-color-primary-light: #2a8f6b;
+  --mol-color-primary-dark: #0e4d38;
+  --mol-color-secondary: #2563eb;
+  --mol-color-secondary-light: #3b82f6;
+  --mol-color-error: #dc2626;
+  --mol-color-success: #15803d; /* was #16a34a — 3.0-3.3:1 as text on white/success-light (axe serious); green-700 = 5.02:1 white, 4.57:1 on #dcfce7 */
+  --mol-color-background: #f8faf9;
+  --mol-color-surface: #ffffff;
+  --mol-color-text: #1a2e28;
+  --mol-color-text-secondary: #5a706a;
+  --mol-color-text-tertiary: #5f756d; /* was #8a9e98 — 2.82:1 on white as chart/label text (axe serious); #5f756d = 4.94:1 */
+  --mol-color-border: #d4e0dc;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ── App-specific variables ── */
+  --color-accent: #f59e0b;
+  --color-surface-hover: #f0f5f3;
+  --color-price: #1a6b4f;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+
+  /* ── Stitch / Material-3 light tokens ── */
+  --color-background: #f8faf9;
+  --color-on-background: #1a2e28;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #edf3f0;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f9f6;
+  --color-surface-container: #edf3f0;
+  --color-surface-container-high: #e5ede9;
+  --color-surface-container-highest: #d4e0dc;
+  --color-surface-variant: #e5ede9;
+  --color-on-surface: #1a2e28;
+  --color-on-surface-variant: #5a706a;
+  --color-inverse-surface: #1a2e28;
+  --color-inverse-on-surface: #f0f9f5;
+  --color-inverse-primary: #34d399;
+  --color-primary: #1a6b4f;
+  --color-primary-container: #a5f2cf;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #002115;
+  --color-primary-fixed: #a5f2cf;
+  --color-primary-fixed-dim: #34d399;
+  --color-on-primary-fixed: #002115;
+  --color-on-primary-fixed-variant: #004d36;
+  --color-secondary: #2563eb;
+  --color-secondary-container: #dbeafe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #1e3a8a;
+  --color-secondary-fixed: #dbeafe;
+  --color-secondary-fixed-dim: #93c5fd;
+  --color-on-secondary-fixed: #1e3a8a;
+  --color-on-secondary-fixed-variant: #1d4ed8;
+  --color-tertiary: #b45309;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #2a1700;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #690005;
+  --color-outline: #8a9e98;
+  --color-outline-variant: #d4e0dc;
+  --color-surface-tint: #1a6b4f;
+}
+
+/* Dark mode — hospitality/real-estate warm-emerald dark.
+   Warm near-black surfaces with a faint emerald undertone keep the
+   listings feeling inviting rather than corporate. Brand emerald
+   (#00523a) is preserved at the Stitch brand stop for primary CTAs
+   (Schedule Tour, Make Offer); `--mol-color-primary` shifts to a
+   brighter mint (#34d399) for body accents (price labels, chip badges,
+   focus rings). `--color-on-primary` STAYS white. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #34d399;
+  --mol-color-primary-light: #064e3b;
+  --mol-color-primary-dark: #10b981;
+  --mol-color-secondary: #94a3b8;
+  --mol-color-background: #0e1311;
+  --mol-color-background-secondary: #181f1c;
+  --mol-color-background-tertiary: #232b27;
+  --mol-color-surface: #181f1c;
+  --mol-color-surface-secondary: #232b27;
+  --mol-color-input-background: #0a0f0d;
+  --mol-color-text: #e8efea;
+  --mol-color-text-secondary: #b0beb6;
+  --mol-color-text-tertiary: #7d8e85;
+  --mol-color-text-inverse: #0e1311;
+  --mol-color-border: #2c3530;
+  --mol-color-border-secondary: #3d473f;
+  --mol-color-border-focus: #34d399;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  --color-primary-hover: #2cc88d;
+  --color-primary-light: #064e3b;
+
+  /* App-specific tokens — brightened for dark */
+  --color-accent: #fbbf24;
+  --color-surface-hover: #232b27;
+  --color-price: #4ade80;
+
+  /* Stitch / Material-3 token dark variants — keep brand emerald at the
+     brand stop; on-primary stays white so primary CTAs stay readable. */
+  --color-background: #0e1311;
+  --color-on-background: #e8efea;
+  --color-surface: #0e1311;
+  --color-surface-bright: #2c3530;
+  --color-surface-dim: #060908;
+  --color-surface-container-lowest: #030504;
+  --color-surface-container-low: #131816;
+  --color-surface-container: #181f1c;
+  --color-surface-container-high: #232b27;
+  --color-surface-container-highest: #2c3530;
+  --color-surface-variant: #232b27;
+  --color-on-surface: #e8efea;
+  --color-on-surface-variant: #b0beb6;
+  --color-inverse-surface: #e8efea;
+  --color-inverse-on-surface: #0e1311;
+  --color-inverse-primary: #1a6b4f;
+  --color-primary: #00523a; /* keep brand emerald at brand stop */
+  --color-primary-container: #1a6b4f;
+  --color-primary-fixed: #a5f2cf;
+  --color-primary-fixed-dim: #8ad6b3;
+  --color-on-primary: #ffffff; /* white on emerald — readable in both modes */
+  --color-on-primary-container: #bbf7d0;
+  --color-on-primary-fixed: #002115;
+  --color-on-primary-fixed-variant: #005139;
+  --color-secondary: #93c5fd;
+  --color-secondary-container: #1e3a8a;
+  --color-secondary-fixed: #dbe1ff;
+  --color-secondary-fixed-dim: #b4c5ff;
+  --color-on-secondary: #0b1730;
+  --color-on-secondary-container: #dbe7ff;
+  --color-on-secondary-fixed: #00174b;
+  --color-on-secondary-fixed-variant: #003ea8;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #7a4a00;
+  --color-on-tertiary: #2a1700; /* dark on amber — #ffffff was 1.67:1 (fail); #2a1700 = 10.30:1 */
+  --color-on-tertiary-container: #ffd19c;
+  --color-on-tertiary-fixed: #2a1700;
+  --color-on-tertiary-fixed-variant: #653e00;
+  --color-error: #f87171;
+  --color-error-container: #93000a;
+  --color-on-error: #690005; /* dark on light-red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7d8e85;
+  --color-outline-variant: #2c3530;
+  --color-surface-tint: #34d399;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

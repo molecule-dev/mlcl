@@ -1,0 +1,8 @@
+[
+  { "id": "ntf_001", "type": "summary_ready",    "title": "Q3 Launch Planning summary ready",   "body": "AI summary, decisions, and 4 action items extracted.",                       "href": "/meetings/mtg_001",  "created_at": "2026-04-25T15:48:00Z", "unread": true  },
+  { "id": "ntf_002", "type": "action_assigned",  "title": "Riley assigned: notify support",    "body": "Due 2026-04-28 from Q3 Launch Planning.",                                    "href": "/actions",           "created_at": "2026-04-25T15:42:00Z", "unread": true  },
+  { "id": "ntf_003", "type": "mention",          "title": "Devon mentioned you on auth refactor","body": "@sasha can you sync timing with platform team?",                              "href": "/meetings/mtg_002",  "created_at": "2026-04-24T20:58:00Z", "unread": true  },
+  { "id": "ntf_004", "type": "meeting_shared",   "title": "Mira shared Q3 Launch Planning",    "body": "Read access granted to launch-comms@.",                                       "href": "/meetings/mtg_001",  "created_at": "2026-04-25T16:00:00Z", "unread": false },
+  { "id": "ntf_005", "type": "action_assigned",  "title": "Sasha assigned: send Acme commit",  "body": "Due 2026-04-30 from Acme QBR.",                                              "href": "/actions",           "created_at": "2026-04-22T18:55:00Z", "unread": false },
+  { "id": "ntf_006", "type": "system_message",   "title": "Welcome to Murmur",                 "body": "Connect Google Calendar or Zoom in /integrations to start auto-recording.",   "href": "/integrations",      "created_at": "2026-03-01T10:00:00Z", "unread": false }
+]

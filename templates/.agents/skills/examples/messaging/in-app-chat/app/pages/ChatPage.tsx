@@ -1,0 +1,117 @@
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+
+import { MessageBubble } from '@molecule/app-message-bubble-react'
+import { TypingIndicator } from '@molecule/app-typing-indicator-react'
+import { getClassMap } from '@molecule/app-ui'
+import { useTranslation } from '@molecule/app-react'
+import type { MessageData } from '@molecule/app-message-bubble-react'
+
+type ApiMessage = {
+  id: string
+  user_id: string
+  content: string
+  created_at: string
+  user_name?: string
+}
+
+const CURRENT_USER_ID = 'me'
+
+function toMessageData(m: ApiMessage): MessageData {
+  return {
+    id: m.id,
+    author: { id: m.user_id, name: m.user_name ?? m.user_id },
+    body: m.content,
+    timestamp: m.created_at,
+  }
+}
+
+const cm = getClassMap()
+
+export function ChatPage({ channelId }: { channelId: string }) {
+  const { t } = useTranslation()
+  const [messages, setMessages] = useState<ApiMessage[]>([])
+  const [draft, setDraft] = useState('')
+  const [typing, setTyping] = useState(false)
+  const listRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    fetch(`/api/messages?channel_id=${channelId}`)
+      .then((r) => r.json())
+      .then(setMessages)
+
+    // Join the room via the `?room=` query — the SSE bond's subscribe protocol.
+    // (A `/channel:${id}` path SEGMENT does NOT join the room and never matches the
+    // endpoint path, so no broadcasts arrive.) `withCredentials` sends the session cookie.
+    const events = new EventSource(`/api/realtime?room=channel:${channelId}`, {
+      withCredentials: true,
+    })
+    events.addEventListener('message:created', (e) => {
+      const msg = JSON.parse((e as MessageEvent).data) as ApiMessage
+      setMessages((prev) => [...prev, msg])
+    })
+    // Extension point: lights up when the server broadcasts a `typing` event to
+    // this room. To wire it, add a POST route that calls
+    // broadcast(`channel:${channelId}`, 'typing', { userId }) and emit it from the
+    // composer's onChange (throttled); filter out your own id so you don't see it.
+    events.addEventListener('typing', () => {
+      setTyping(true)
+      setTimeout(() => setTyping(false), 2000)
+    })
+    return () => events.close()
+  }, [channelId])
+
+  useEffect(() => {
+    listRef.current?.scrollTo({ top: listRef.current.scrollHeight })
+  }, [messages.length])
+
+  async function send(e: FormEvent): Promise<void> {
+    e.preventDefault()
+    if (!draft.trim()) return
+    await fetch('/api/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ channel_id: channelId, content: draft }),
+    })
+    setDraft('')
+  }
+
+  return (
+    <div className={cm.cn(cm.flex({ direction: 'col' }), 'h-screen')}>
+      <div
+        ref={listRef}
+        className={cm.cn(
+          cm.flex1,
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          cm.sp('p', 4),
+          'overflow-y-auto',
+        )}
+      >
+        {messages.map((m) => (
+          <MessageBubble
+            key={m.id}
+            message={toMessageData(m)}
+            isSelf={m.user_id === CURRENT_USER_ID}
+          />
+        ))}
+        {typing && <TypingIndicator />}
+      </div>
+      <form
+        onSubmit={send}
+        className={cm.flex({ direction: 'row', gap: 'sm' })}
+        style={{ padding: '1rem' }}
+      >
+        <input
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          placeholder={t('chat.composerPlaceholder', undefined, {
+            defaultValue: 'Type a message…',
+          })}
+          className={cm.cn(cm.flex1, cm.input())}
+        />
+        <button type="submit" className={cm.button()}>
+          {t('chat.send', undefined, { defaultValue: 'Send' })}
+        </button>
+      </form>
+    </div>
+  )
+}

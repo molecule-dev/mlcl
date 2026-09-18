@@ -1,0 +1,145 @@
+/*
+ * Cairn — internal knowledge base brand tokens.
+ * Palette taken verbatim from app/DESIGN.md: deep teal primary (#0f766e),
+ * warm amber accent (#d97706), ink-black-on-mist neutrals. Material 3
+ * derivative tokens are filled by the workspace from this base in
+ * src/index.css (see fill-material3-tokens.mjs).
+ */
+
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-hover: #14b8a6;
+  --mol-color-primary-dark: #0d5f59;
+  --mol-color-primary-light: #ccfbf1;
+
+  /* Amber accent darkened (#d97706 → amber-800): as small text-secondary it was
+     2.7-3.2:1 on white/#f4f5f4 and 2.71:1 on its own bg-secondary/15 chips (axe
+     serious). #92400e = 6.5:1 on surfaces and 5.3:1 on the /15 chips. */
+  --mol-color-secondary: #92400e;
+  --mol-color-secondary-hover: #b45309;
+  --mol-color-secondary-dark: #78350f; /* keeps the ladder a step darker than the new base */
+  --mol-color-secondary-light: #fef3c7;
+
+  --mol-color-success: #16a34a;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #d97706;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #b91c1c;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #7c3aed;
+  --mol-color-info-light: #ede9fe;
+
+  --mol-color-background: #f8fafa;
+  --mol-color-background-secondary: #f1f5f5;
+  --mol-color-background-tertiary: #e8edec;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8fafa;
+  --mol-color-input-background: #ffffff;
+
+  --mol-color-text: #1a2e2b;
+  --mol-color-text-secondary: #546866; /* was #5f7370 — 4.16:1 as pill text on surface-container #e8eaea (axe serious); 4.9:1 now */
+  --mol-color-text-tertiary: #7c9390;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-color-border: #d6e0df;
+  --mol-color-border-secondary: #e8edec;
+  --mol-color-border-focus: #0f766e;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-serif:
+    'Georgia', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  --mol-font-mono:
+    'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Dark mode — editorial/productivity warm near-black.
+   Warm near-black surfaces with a subtle teal-tinted text on darkest
+   layer (Notion/Confluence knowledge-base feel — text-heavy articles
+   read best on slightly warm dark, not on cool blue). Brand deep teal
+   stays at the brand stop (#0f766e) so the primary CTA matches across
+   modes; `--color-on-primary` STAYS white so the teal CTA buttons keep
+   their light-on-teal character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #0f766e; /* keep brand teal at brand stop */
+  --mol-color-primary-hover: #14b8a6;
+  --mol-color-primary-dark: #0d5f59;
+  --mol-color-primary-light: #134e4a;
+
+  --mol-color-secondary: #d97706;
+  --mol-color-secondary-hover: #f59e0b;
+  --mol-color-secondary-dark: #b45309;
+  --mol-color-secondary-light: #422006;
+
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #a78bfa;
+  --mol-color-info-light: #2e1065;
+
+  --mol-color-background: #0e100f;
+  --mol-color-background-secondary: #181a19;
+  --mol-color-background-tertiary: #1f2221;
+  --mol-color-surface: #181a19;
+  --mol-color-surface-secondary: #1f2221;
+  --mol-color-input-background: #0b0d0c;
+
+  --mol-color-text: #f1f5f4;
+  --mol-color-text-secondary: #c1c8c6;
+  --mol-color-text-tertiary: #8a928f;
+  --mol-color-text-inverse: #0e100f;
+
+  --mol-color-border: #2a2e2c;
+  --mol-color-border-secondary: #3a403d;
+  --mol-color-border-focus: #14b8a6;
+
+  /* Stitch / Material-3 token dark variants — keep brand teal at the brand
+     stop; on-primary STAYS white so teal CTA buttons remain readable in both
+     modes. Full surface hierarchy provided so `bg-surface-container-*`,
+     `text-on-surface`, `border-outline-variant`, etc. all flip correctly. */
+  --color-background: #0e100f;
+  --color-on-background: #f1f5f4;
+  --color-surface: #181a19;
+  --color-surface-bright: #2a2e2c;
+  --color-surface-dim: #090b0a;
+  --color-surface-container-lowest: #070908;
+  --color-surface-container-low: #121413;
+  --color-surface-container: #181a19;
+  --color-surface-container-high: #1f2221;
+  --color-surface-container-highest: #272b29;
+  --color-surface-variant: #1f2221;
+  --color-on-surface: #f1f5f4;
+  --color-on-surface-variant: #c1c8c6;
+  --color-inverse-surface: #f1f5f4;
+  --color-inverse-on-surface: #0e100f;
+  --color-inverse-primary: #0f766e;
+  --color-surface-tint: #2dd4bf;
+  --color-outline: #4a5754;
+  --color-outline-variant: #2a2e2c;
+  --color-primary: #0f766e; /* keep brand teal at brand stop */
+  --color-primary-container: #134e4a;
+  --color-on-primary: #ffffff; /* white on teal — readable in both modes */
+  --color-on-primary-container: #ccfbf1;
+  --color-primary-fixed: #e6faf8;
+  --color-primary-fixed-dim: #99f6e4;
+  --color-on-primary-fixed: #032a27;
+  --color-on-primary-fixed-variant: #0d5f59;
+  --color-secondary: #fbbf24;
+  --color-secondary-container: #422006;
+  --color-on-secondary: #1c1100;
+  --color-on-secondary-container: #fef3c7;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #2e1065;
+  --color-on-tertiary: #1a0a3d; /* dark on lavender #a78bfa = 6.68:1 ✓ (white was 2.72:1 — fail) */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #5a0000; /* dark on red #f87171 = 5.29:1 ✓ (white was 2.77:1 — fail) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7a8884; /* #7a8884 on #181a19 = 4.73:1 ✓ (outline ≥3:1; #4a5754 was 2.32:1 — fail) */
+}

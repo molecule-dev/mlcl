@@ -1,0 +1,229 @@
+{
+  "app": "restaurant-ordering",
+  "designProjectId": "12395041994995442732",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-landing.html",
+      "designScreenId": "c93a07b411234853b5a0390ece9f65ea"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-login.html",
+      "designScreenId": "e0231fd42ca4410a8a8697ad88c592b5"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-ordering-login.html",
+      "derivationNotes": "Same 50/50 split layout with restaurant-interior photography on the left. Card on the right contains First name, Last name, Restaurant name, Email, Password, Confirm password. Headline 'Create your Hearth account' (DM Sans 32px 700). Button text 'Create account' (orange #e8590c). Bottom link 'Already have an account? Sign in' in orange. No Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-ordering-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains only an Email field. Headline 'Reset your password' (DM Sans 32px 700), subtext 'Enter your email and we'll send a reset link'. Button text 'Send reset link' (orange #e8590c). Bottom link 'Back to sign in' in orange."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-restaurant-ordering-login.html",
+      "derivationNotes": "Same 50/50 split layout. Card contains New password and Confirm password fields. Headline 'Set a new password' (DM Sans 32px 700). Button text 'Reset password' (orange #e8590c). Bottom link 'Back to sign in' in orange."
+    },
+    {
+      "name": "OrderDashboard",
+      "templateFile": "app/pages/OrderDashboard.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-order-dashboard.html",
+      "designScreenId": "321bc393f46545ef9ff5df77f1d14846"
+    },
+    {
+      "name": "Menu",
+      "templateFile": "app/pages/Menu.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/menu",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-menu.html",
+      "designScreenId": "c1e61ffa145f43f789448b4582bb2ff1"
+    },
+    {
+      "name": "OrderDetail",
+      "templateFile": "app/pages/OrderDetail.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/orders/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-order-detail.html",
+      "designScreenId": "fbccf14a6d0d41e19921ebbbf834a98d"
+    },
+    {
+      "name": "Tables",
+      "templateFile": "app/pages/Tables.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/tables",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-tables.html",
+      "designScreenId": "b7af5ac8b5bf47b9a6ac464538bab6ac"
+    },
+    {
+      "name": "Customers",
+      "templateFile": "app/pages/Customers.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/customers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-customers.html",
+      "designScreenId": "a9c32a585e6440fda00a5ea08c0e5d42"
+    },
+    {
+      "name": "Analytics",
+      "templateFile": "app/pages/Analytics.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-analytics.html",
+      "designScreenId": "56d4f170630e449e997d0b88fe040dc9"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-settings.html",
+      "designScreenId": "1506c62792884aba998de6a84b98faff"
+    },
+    {
+      "name": "MenuItemDetail",
+      "templateFile": "app/pages/MenuItemDetail.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/menu/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-menu-item-detail.html",
+      "designScreenId": "9656c80805a84f75b5ddf52793462c2d"
+    },
+    {
+      "name": "CustomerDetail",
+      "templateFile": "app/pages/CustomerDetail.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/customers/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-customer-detail.html",
+      "designScreenId": "9900a7e018244b219dcf9384ecd09a66"
+    },
+    {
+      "name": "OrderHistory",
+      "templateFile": "app/pages/OrderHistory.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/orders/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-order-history.html",
+      "designScreenId": "39868af285684b98ae2d036fdaf07242"
+    },
+    {
+      "name": "TableDetail",
+      "templateFile": "app/pages/TableDetail.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/tables/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-table-detail.html",
+      "designScreenId": "242cb51136d74e029e3afb3c404568e5"
+    },
+    {
+      "name": "Reservations",
+      "templateFile": "app/pages/Reservations.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/reservations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-reservations.html",
+      "designScreenId": "fe419ce6d5b045809738dd87eb6fcea9"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-notifications.html",
+      "designScreenId": "6816f053e2814523a8a2ec3952af4c84"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-profile.html",
+      "designScreenId": "b7b8e89af708469cb03e040dd6bd13d8"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/RestaurantOrderingLayout.tsx"],
+      "route": "/settings/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-billing.html",
+      "designScreenId": "dad8bb05af934b508e91c25b7bc3114f"
+    },
+    {
+      "name": "GuestMenu",
+      "templateFile": "app/pages/GuestMenu.tsx",
+      "components": [],
+      "route": "/menu/guest",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-guest-menu.html",
+      "designScreenId": "4682a19e4bbe4b02ae4133c3770ce5e1"
+    },
+    {
+      "name": "GuestCart",
+      "templateFile": "app/pages/GuestCart.tsx",
+      "components": [],
+      "route": "/cart",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-restaurant-ordering-guest-cart.html",
+      "designScreenId": "b75f5785435c4aa6a4885f0a1c4e4c8b"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+
+<g fill="#4f46e5">
+  <rect x="4"  y="4"  width="10" height="10" rx="2" fill-opacity="1" />
+  <rect x="18" y="4"  width="10" height="10" rx="2" fill-opacity="0.45" />
+  <rect x="4"  y="18" width="10" height="10" rx="2" fill-opacity="0.45" />
+  <rect x="18" y="18" width="10" height="10" rx="2" fill-opacity="1" />
+</g>
+
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#333333">Cairn</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#888888">Stack knowledge, mark the path — a calm, editorial wiki for teams that read deeply.</text>
+</svg>

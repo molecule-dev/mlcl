@@ -1,0 +1,92 @@
+{
+  "label": "Document Collaboration",
+  "description": "Google Docs-like real-time document editing with comments, version history, and sharing — with built-in Stripe-backed subscription tiers",
+  "cluster": "communication",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-comment",
+    "@molecule/api-resource-activity-feed",
+    "@molecule/api-permissions-custom",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-markdown",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-command-palette",
+    "@molecule/app-keyboard-shortcuts",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Docs"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for document assets",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "S3 region",
+      "default": "us-east-1"
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for sharing invites",
+      "required": true
+    },
+    "MEILISEARCH_URL": {
+      "description": "MeiliSearch URL",
+      "default": "http://localhost:7700"
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_DOCUMENT_COLLABORATION_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_DOCUMENT_COLLABORATION_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_DOCUMENT_COLLABORATION_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_DOCUMENT_COLLABORATION_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "realtime",
+    "search",
+    "comments",
+    "versioning",
+    "sharing",
+    "subscriptions"
+  ]
+}

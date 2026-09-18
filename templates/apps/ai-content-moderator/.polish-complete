@@ -1,0 +1,68 @@
+app: ai-content-moderator
+brand: Sift — Signal through the noise
+polish-date: 2026-04-28
+polish-by: Claude Opus 4.7 (1M context) via Cursor
+
+provenance:
+  fonts: Inter (400-900) + JetBrains Mono + Material Symbols Outlined via Google Fonts (index.html preconnect + stylesheets)
+  branding: APP_NAME="Sift", APP_TAGLINE="Signal through the noise", BRAND_COLOR="#4f46e5"
+  chrome:
+    - SiftLayout.tsx (signed-in shell wrapping sidebar + topbar)
+    - SiftSidebar.tsx (dark left rail nav, brand + sections)
+    - SiftTopBar.tsx (breadcrumbs + search + user menu, route-aware)
+    - AuthShell.tsx (two-pane branded auth wrapper)
+  bespoke widgets:
+    - VerdictBadge.tsx (color-coded verdict pills: approved / removed / escalated / pending)
+    - ConfidenceMeter.tsx (gradient confidence bar, low → high)
+    - SiftStatsCard.tsx (KPI tile with icon, value, delta, sparkline slot)
+    - QueueItemRow.tsx (moderation queue table row with verdict, confidence, actions)
+    - AiVerdictPanel.tsx (detailed AI reasoning + signals panel)
+  signed-in pages rewritten/built (Sift chrome):
+    - Dashboard.tsx (KPI grid + verdict-trend donut + recent queue strip)
+    - Queue.tsx (filters, bulk actions, paginated queue list)
+    - ReviewDetail.tsx (item context + AiVerdictPanel + reviewer actions, live API)
+    - Rules.tsx (rule builder + live rules list)
+    - Analytics.tsx (verdict trends, category breakdown, reviewer leaderboard)
+    - Settings.tsx (Team / Integrations / API / Billing tabs)
+    - Profile.tsx (personal info + notification prefs)
+    - Notifications.tsx (filtered feed with mark-as-read)
+  auth pages rebranded on AuthShell:
+    - Login.tsx
+    - Signup.tsx
+    - ForgotPassword.tsx
+    - ResetPassword.tsx
+  marketing + edges:
+    - Landing.tsx (Sift marketing surface, public)
+    - NotFound.tsx (brand-aligned 404)
+  routing:
+    - App.tsx wires Landing/Login/Signup/ForgotPassword/ResetPassword as public,
+      Dashboard/Queue/ReviewDetail/Rules/Analytics/Settings/Profile/Notifications
+      behind AuthGuard, NotFound as catch-all.
+  classmap coverage: routed every native-element className through cm.cn(...);
+    coverage 99.2% (threshold 80%).
+
+gates:
+  typecheck (npx tsc --noEmit from app/): PASS — 0 app-side errors
+  check-rules-compliance: PASS — clean (1 target, 276 files)
+
+skipped: step 10 (screenshots) — batched by main agent.
+
+deviations:
+  - sweep-1 chrome packages (@molecule/app-shell-default, app-empty-state-default,
+    etc.) do not exist as installable packages in the registry today; followed the
+    pattern set by the polished sibling (ai-chatbot-builder) and built fully
+    bespoke chrome (SiftLayout/Sidebar/TopBar) + AuthShell instead.
+
+notes:
+  - This polish was paused mid-flight and resumed; final marker (this file)
+    written in the resume pass after re-verifying both gates still pass.
+
+commits (this polish, in reference/ repo):
+  - a2ccf7dc chore(ai-content-moderator): add fonts + brand identity
+  - 4baf9f0d feat(ai-content-moderator): add Sift chrome + bespoke moderation widgets
+  - 67a11017 feat(ai-content-moderator): brand auth pages on AuthShell
+  - 7edb3be0 refactor(ai-content-moderator): route bespoke component classNames through cm.cn
+  - 15e3d63b feat(ai-content-moderator): rewrite signed-in pages on Sift chrome
+  - 826660b9 feat(ai-content-moderator): add Sift landing + 404 + auth coverage tweaks
+  - 9e523d0c feat(ai-content-moderator): wire app routes for Sift surfaces + 404
+  - a1b8e0ca wip(ai-content-moderator): paused mid-polish, resume later (marker removed)

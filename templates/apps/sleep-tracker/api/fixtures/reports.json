@@ -1,0 +1,27 @@
+{
+  "stats/overview": {
+    "average_duration": 442,
+    "average_quality": "79.3",
+    "total_logs": 7,
+    "best_night": 496,
+    "worst_night": 394
+  },
+  "stats/trends": [
+    { "date": "2026-04-23", "duration": 433, "quality": 77, "bedtime": "2026-04-23T23:55:00Z", "wake_time": "2026-04-24T07:08:00Z" },
+    { "date": "2026-04-24", "duration": 461, "quality": 83, "bedtime": "2026-04-24T23:11:00Z", "wake_time": "2026-04-25T06:52:00Z" },
+    { "date": "2026-04-25", "duration": 426, "quality": 74, "bedtime": "2026-04-25T23:32:00Z", "wake_time": "2026-04-26T06:38:00Z" },
+    { "date": "2026-04-26", "duration": 496, "quality": 91, "bedtime": "2026-04-26T22:58:00Z", "wake_time": "2026-04-27T07:14:00Z" },
+    { "date": "2026-04-27", "duration": 394, "quality": 64, "bedtime": "2026-04-27T00:21:00Z", "wake_time": "2026-04-27T06:55:00Z" },
+    { "date": "2026-04-28", "duration": 434, "quality": 79, "bedtime": "2026-04-28T23:48:00Z", "wake_time": "2026-04-29T07:02:00Z" },
+    { "date": "2026-04-29", "duration": 452, "quality": 87, "bedtime": "2026-04-29T23:14:00Z", "wake_time": "2026-04-30T06:46:00Z" }
+  ],
+  "stats/weekly": [
+    { "date": "2026-04-23", "duration": 433, "quality": 77, "bedtime": "2026-04-23T23:55:00Z", "wake_time": "2026-04-24T07:08:00Z" },
+    { "date": "2026-04-24", "duration": 461, "quality": 83, "bedtime": "2026-04-24T23:11:00Z", "wake_time": "2026-04-25T06:52:00Z" },
+    { "date": "2026-04-25", "duration": 426, "quality": 74, "bedtime": "2026-04-25T23:32:00Z", "wake_time": "2026-04-26T06:38:00Z" },
+    { "date": "2026-04-26", "duration": 496, "quality": 91, "bedtime": "2026-04-26T22:58:00Z", "wake_time": "2026-04-27T07:14:00Z" },
+    { "date": "2026-04-27", "duration": 394, "quality": 64, "bedtime": "2026-04-27T00:21:00Z", "wake_time": "2026-04-27T06:55:00Z" },
+    { "date": "2026-04-28", "duration": 434, "quality": 79, "bedtime": "2026-04-28T23:48:00Z", "wake_time": "2026-04-29T07:02:00Z" },
+    { "date": "2026-04-29", "duration": 452, "quality": 87, "bedtime": "2026-04-29T23:14:00Z", "wake_time": "2026-04-30T06:46:00Z" }
+  ]
+}

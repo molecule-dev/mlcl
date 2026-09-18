@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Shfletoni artikujt e ndihmës',
+  'about.cta.signup': 'Provo Courier falas',
+  'about.eyebrow': 'Rreth Courierit',
+  'about.principle.calm': 'I qetë si parazgjedhje.',
+  'about.principle.calm.desc':
+    'Asnjë distinktiv që bërtet, asnjë njoftim që nuk e ke kërkuar, asnjë animacion që kërkon një vështrim.',
+  'about.principle.fast.desc':
+    'Çdo veprim është vetëm një shtypje tastiere larg. Kutia hyrëse ngarkohet për më pak se 200 ms me një hyrje të re.',
+  'about.principle.honest.desc':
+    'Enkriptim gjatë transportit dhe në qetësi, ruajtje transparente dhe eksportim i të dhënave me një klikim.',
+  'about.story': 'Pse e ndërtuam Courierin',
+  'about.story.p1':
+    'Shumica e klientëve të email-it optimizojnë për angazhim — duke ju tërhequr prapa, duke e fragmentuar vëmendjen tuaj, duke sugjeruar edhe një prekje tjetër. Courier bën të kundërtën. Ne e masim suksesin nga koha që NUK kaloni në kutinë tuaj postare: bëni klasifikimin shpejt, shtyni me besim dhe vazhdoni me punën që ka rëndësi.',
+  'about.subtitle':
+    'Courier është një kuti hyrëse e qetë me tre panele, e ndërtuar nga një ekip i vogël që donte të përpunonte informacionin në vend që të reagonte ndaj tij.',
+  'about.team.body':
+    'Ne jemi një ekip i shpërndarë projektuesish dhe inxhinierësh që dikur kalonim shumë orë të ditës në një kuti postare me zhurmë. Courier është kutia postare që donim të përdornim vetë.',
+  'about.title': 'Email për punë të fokusuar',
+  'help.cta.about': 'Rreth Courierit',
+  'help.cta.pricing': 'Shiko çmimet',
+  'help.eyebrow': 'Qendra e ndihmës',
+  'help.faq.compose.a':
+    'Klikoni te \\u201CComose\\u201D nga shiriti anësor (ose shtypni \\u201Cc\\u201D në çdo pamje të kutisë hyrëse), futni të paktën një marrës, një subjekt dhe një trup mesazhi, dhe shtypni "Dërgo". Mesazhi i ri shfaqet menjëherë në dosjen tuaj "Dërguar".',
+  'help.faq.compose.q': 'Si ta dërgoj mesazhin tim të parë?',
+  'help.faq.export.a':
+    'Po. Cilësimet \\u2192 Llogaria \\u2192 Eksporti i të dhënave krijon një arkiv të shkarkueshëm (mbox + JSON) me çdo mesazh, etiketë dhe kontakt. Nuk kërkohet nivel premium.',
+  'help.faq.labels.a':
+    'Dosjet janë ekskluzive (një mesazh ndodhet saktësisht në një): Kutia hyrëse, Të dërguara, Drafte, Spam, Kosh, Arkivë. Etiketat janë shtesë \\u2014 ju mund të aplikoni shumë në një email të vetëm dhe të filtroni sipas kombinimeve nga shiriti i kërkimit.',
+  'help.faq.password.a':
+    "Përdorni lidhjen \\u201CHarruat fjalëkalimin?\\u201D në faqen e hyrjes. Ne do t'ju dërgojmë një lidhje rivendosjeje të vlefshme për një orë në emailin e llogarisë suaj.",
+  'help.faq.shortcuts.a':
+    'Po. Lëviz midis fijeve, aktivizon një yll, arkivon, zhvendoset në koshin e plehrave dhe fokuson kutinë e kërkimit. Dokumentacioni i shkurtoreve ruhet në çdo pamje të kutisë hyrëse duke shtypur "?".',
+  'help.faq.support.a':
+    'Dërgoni email në support@courier.example. Ne i përgjigjemi çdo mesazhi brenda një dite pune, gjatë ditëve të javës ora 9\\u201317 UTC.',
+  'help.subtitle':
+    'Përgjigje të shpejta për pyetjet që dëgjojmë më shumë. Mungon ndonjë gjë? Hapni Cilësimet dhe përdorni formularin e reagimeve brenda aplikacionit ose shkruani në support@courier.example.',
+  'help.title': 'Si mund të ndihmojmë?',
+  'landing.brand.scrollTop': 'Kthehu në krye',
+  'landing.ctaBody':
+    'Bashkohuni me mijëra profesionistë që i mbaruan postat e tyre postare para drekës.',
+  'landing.ctaTitle': 'Përpuno më shumë, reago më pak.',
+  'landing.eyebrow': 'Email për punë të fokusuar',
+  'landing.featuresBody': 'Ndalo së menaxhuari kutinë tënde postare dhe fillo të kryesh punë.',
+  'landing.featuresTitle': 'I projektuar për punë të thellë',
+  'landing.help': 'Ndihmë',
+  'landing.heroDemo': 'Shiko demonstrimin',
+  'landing.heroSubtitle':
+    'Courier është një kuti hyrëse e qetë me tre panele e ndërtuar për punonjësit e dijes që duan të përpunojnë informacionin, jo të reagojnë ndaj tij.',
+  'landing.proof': 'I besuar nga ekipe të fokusuara në të gjithë botën',
+  'landing.signIn': 'Hyr',
+  'meridian.archive.empty': 'Arkivi është bosh.',
+  'meridian.compose.addRecipient': 'Shto një marrës tjetër',
+  'meridian.compose.bodyPlaceholder': 'Shkruani mesazhin tuaj…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Hidhni draftin',
+  'meridian.compose.invalidEmail': '" {{value}} "nuk është një email i vlefshëm',
+  'meridian.compose.needRecipient': 'Shtoni të paktën një marrës së pari.',
+  'meridian.compose.replyTo': 'Përgjigju në fije diskutimi {{id}}',
+  'meridian.compose.savedAt': 'Drafti u ruajt në {{time}}',
+  'meridian.compose.sentWithError': 'U ruajt te "Dërguar", por dërgimi dështoi: {{error}}',
+  'meridian.compose.subject': 'Subj',
+  'meridian.compose.subjectPlaceholder': 'Subjekti',
+  'meridian.compose.title': 'Mesazh i ri',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Vazhdo redaktimin',
+  'meridian.drafts.count': '{{count}} mesazhe',
+  'meridian.drafts.delete': 'Fshi draftin',
+  'meridian.drafts.empty': 'Ende nuk ka drafte — filloni të shkruani.',
+  'meridian.drafts.lastSaved': 'Ruajtur {{at}}',
+  'meridian.drafts.noRecipients': '(nuk ka marrës ende)',
+  'meridian.drafts.selectDraft': 'Zgjidh një draft për ta parë paraprakisht.',
+  'meridian.drafts.title': 'Draftet',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Draft',
+  'meridian.folder.count': '{{count}} mesazhe',
+  'meridian.folder.deleteForever': 'Fshije përgjithmonë',
+  'meridian.folder.restore': 'Zhvendos në kutinë hyrëse',
+  'meridian.forgot.subtitle':
+    'Fut email-in e lidhur me kutinë tënde hyrëse dhe ne do të të dërgojmë një lidhje rivendosjeje.',
+  'meridian.forgot.success':
+    'Nëse ekziston një llogari me atë email, një lidhje rivendosjeje është duke ardhur.',
+  'meridian.inbox.empty': 'Nuk ka ende mesazhe këtu.',
+  'meridian.inbox.loading': 'Duke u ngarkuar…',
+  'meridian.inbox.next': 'Tjetra',
+  'meridian.inbox.noSubject': '(pa subjekt)',
+  'meridian.inbox.openCompose': 'Hap shkrimin',
+  'meridian.inbox.previous': 'Mëparshme',
+  'meridian.inbox.replyFailed': 'Përgjigja u ruajt, por dërgimi dështoi: {{error}}',
+  'meridian.inbox.replySent': 'Përgjigja u dërgua.',
+  'meridian.inbox.replyTo': 'Përgjigju ndaj {{name}}',
+  'meridian.inbox.selectMessage': 'Zgjidh një mesazh për ta lexuar',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Shiko temën',
+  'meridian.login.hidePassword': 'Fshih fjalëkalimin',
+  'meridian.login.noAccount': 'Nuk keni një llogari?',
+  'meridian.login.showPassword': 'Shfaq fjalëkalimin',
+  'meridian.message.toLine': 'për {{recipients}}',
+  'meridian.notFound.eyebrow': 'Gabim 404',
+  'meridian.notFound.title': 'Kjo temë u arkivua.',
+  'meridian.notFound.toInbox': 'Hap kutinë time postare',
+  'meridian.reset.newLabel': 'Fjalëkalim i ri',
+  'meridian.reset.showPassword': 'Shfaq fjalëkalimin',
+  'meridian.reset.subtitle': 'Zgjidhni një fjalëkalim të fortë - të paktën 8 karaktere.',
+  'meridian.sent.empty': 'Nuk ke dërguar ende asgjë.',
+  'meridian.sent.title': 'Dërguar',
+  'meridian.settings.noName': '(nuk është vendosur emër)',
+  'meridian.settings.section.${section}': 'Personalizo {{appName}} përvojë',
+  'meridian.settings.signature': 'Nënshkrimi',
+  'meridian.settings.signatureSaved': 'Nënshkrimi u ruajt.',
+  'meridian.sidebar.compose': 'Shkruaj',
+  'meridian.sidebar.labels': 'Etiketa',
+  'meridian.sidebar.noLabels': 'Nuk ka ende etiketa',
+  'meridian.sidebar.storage': 'Hapësirë ruajtëse',
+  'meridian.sidebar.storageLabel': '{{used}} e {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Krijo kutinë tënde postare Courier',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Shfaq fjalëkalimin',
+  'meridian.signup.subtitle': 'Përpunoni kutinë tuaj postare para drekës.',
+  'meridian.spam.empty': 'Pa spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Asnjë mesazh i shënuar me yll.',
+  'meridian.starred.loading': 'Duke u ngarkuar…',
+  'meridian.starred.removeStar': 'Hiq yllin',
+  'meridian.starred.total': '{{count}} total',
+  'meridian.thread.back': 'Kthehu te Kutia Postare',
+  'meridian.thread.empty': 'Nuk ka mesazhe në këtë temë diskutimi.',
+  'meridian.thread.eyebrow': 'Numri i temës {{id}}',
+  'meridian.thread.notFound': 'Fija nuk u gjet.',
+  'meridian.thread.star': 'Shto yll',
+  'meridian.thread.unstar': 'Hiq yllin',
+  'meridian.time.yesterday': 'Dje',
+  'meridian.topBar.searchPlaceholder': 'Kërko në email',
+  'meridian.trash.empty': 'Koshi i mbeturinave është bosh.',
+  'meridian.trash.title': 'Mbeturina',
+  'nav.legal': 'Ligjore',
+  'planUpdated.description':
+    'Abonimi juaj është tani aktiv dhe faturimi juaj është përditësuar. Mirë se vini në kutinë tuaj të rifreskuar të Courier.',
+  'pricing.heading': 'draftet',
+  'pricing.limit.emails': 'email-e',
+  'pricing.limit.folders': 'dosje',
+  'pricing.limit.labels': 'etiketat',
+  'privacy.collect.account':
+    'Të dhënat e llogarisë: emri, adresa e email-it, fjalëkalimi i hashuar dhe data kur jeni regjistruar.',
+  'privacy.intro':
+    'Kjo politikë privatësie shpjegon se çfarë të dhënash mbledh Courier, pse i mbledhim ne, si i mbajmë të sigurta dhe çfarë zgjedhjesh keni mbi to. Ne synojmë të jemi specifikë në vend që të jemi legalistë; nëse diçka është e paqartë, shkruani në privacy@courier.example.',
+  'privacy.lastUpdated': 'Përditësuar për herë të fundit: 1 prill 2026',
+  'privacy.linkTerms': 'Lexoni Kushtet tona të Shërbimit \\u2192',
+  'privacy.rights.body':
+    'Mund të eksportoni çdo të dhënë që mbajmë për ju nga Cilësimet → Llogaria → Eksporti i të dhënave, dhe mund ta fshini llogarinë tuaj me një klikim — të gjitha rreshtat fshihen brenda 24 orëve, regjistrat e auditimit fshihen pas 30 ditësh.',
+  'privacy.security.body':
+    'Përmbajtja dhe bashkëngjitjet e postës elektronike janë të enkriptuara në gjendje të qetë duke përdorur AES-256. Lidhjet për në dhe nga shërbimi ynë përdorin TLS 1.3. Fjalëkalimet hashohen me bcrypt; ne nuk i regjistrojmë ose ruajmë kurrë fjalëkalime me tekst të thjeshtë. Qasja në prodhim është e kufizuar për inxhinierët në gatishmëri, të audituar çdo muaj.',
+  'privacy.share.body':
+    'Ne i ndajmë të dhënat vetëm me nën-përpunuesit që na nevojiten për të drejtuar Courier (dërgimi i email-eve nëpërmjet Mailgun, faturimi nëpërmjet Stripe, hostimi nëpërmjet AWS). Secili është i detyruar me kontratë të përdorë të dhënat tuaja vetëm për të kryer shërbimin e tij për ne. Ne nuk i shesim, japim me qira ose tregtojmë të dhënat tuaja me askënd.',
+  'terms.acceptable.spam':
+    "Nuk lejohet dërgimi i mesazheve të pakërkuara në masë. Ne do t'i mbyllim llogaritë që dërgojnë spam pa paralajmërim.",
+  'terms.account.body':
+    'Ju jeni përgjegjës për ruajtjen e konfidencialitetit të fjalëkalimit tuaj dhe për çdo aktivitet që ndodh përmes llogarisë suaj. Na njoftoni në security@courier.example nëse besoni se llogaria juaj është kompromentuar.',
+  'terms.billing.body':
+    'Planet me pagesë rinovohen në ritmin e zgjedhur gjatë regjistrimit. Mund ta anuloni nga Cilësimet → Faturimi në çdo kohë dhe e ruani aksesin për pjesën tjetër të periudhës së faturimit. Rimbursimet lëshohen për kohën e ndërprerjes së shërbimit që tejkalon SLA-në.',
+  'terms.intro':
+    "Këto kushte rregullojnë përdorimin tuaj të Courier. Duke krijuar një llogari ose duke dërguar email përmes nesh, ju pranoni t'i zbatoni ato. Ne përpiqemi të shkruajmë rregulla që një person mund t'i ndjekë realisht.",
+  'terms.lastUpdated': 'Në fuqi: 1 prill 2026',
+  'terms.termination.body':
+    "Mund ta fshini llogarinë tuaj në çdo kohë. Ne mund ta pezullojmë një llogari që shkel këto kushte; nëse e bëjmë këtë, do t'ju shpjegojmë arsyen dhe do t'ju lejojmë të eksportoni të dhënat tuaja më parë.",
+  'terms.warranty.body':
+    'Shërbimi ofrohet siç është. Ne punojmë shumë për ta mbajtur të besueshëm dhe të sigurt, por nuk mund të garantojmë akses të pandërprerë. Në masën e lejuar me ligj, përgjegjësia jonë totale kufizohet në shumën që na keni paguar në 12 muajt e mëparshëm.',
+}

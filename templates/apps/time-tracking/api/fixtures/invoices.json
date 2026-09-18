@@ -1,0 +1,65 @@
+[
+  {
+    "id": "inv-1", "number": "CHR-024", "client_id": "c1",
+    "issued_at": "2026-04-16T00:00:00Z", "due_at": "2026-04-30T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 380000, "tax_cents": 0, "total_cents": 380000,
+    "status": "sent", "notes": "Thanks for the continued partnership on the rebrand.", "paid_at": null,
+    "line_items": [
+      { "id": "li-1a", "invoice_id": "inv-1", "description": "Q4 Rebrand — design & strategy", "quantity": 40, "rate_cents": 9500, "amount_cents": 380000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-2", "number": "CHR-023", "client_id": "c1",
+    "issued_at": "2026-03-31T00:00:00Z", "due_at": "2026-04-14T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 262000, "tax_cents": 0, "total_cents": 262000,
+    "status": "overdue", "notes": null, "paid_at": null,
+    "line_items": [
+      { "id": "li-2a", "invoice_id": "inv-2", "description": "Onboarding Flow — implementation", "quantity": 23.82, "rate_cents": 11000, "amount_cents": 262000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-3", "number": "CHR-022", "client_id": "c1",
+    "issued_at": "2026-03-14T00:00:00Z", "due_at": "2026-03-28T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 412000, "tax_cents": 0, "total_cents": 412000,
+    "status": "paid", "notes": null, "paid_at": "2026-03-22T00:00:00Z",
+    "line_items": [
+      { "id": "li-3a", "invoice_id": "inv-3", "description": "Q4 Rebrand — production", "quantity": 43.37, "rate_cents": 9500, "amount_cents": 412000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-4", "number": "CHR-021", "client_id": "c2",
+    "issued_at": "2026-03-28T00:00:00Z", "due_at": "2026-04-11T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 308000, "tax_cents": 0, "total_cents": 308000,
+    "status": "sent", "notes": null, "paid_at": null,
+    "line_items": [
+      { "id": "li-4a", "invoice_id": "inv-4", "description": "Mobile App Refresh — sprint 3", "quantity": 28, "rate_cents": 11000, "amount_cents": 308000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-5", "number": "CHR-020", "client_id": "c3",
+    "issued_at": "2026-03-12T00:00:00Z", "due_at": "2026-03-26T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 153000, "tax_cents": 0, "total_cents": 153000,
+    "status": "paid", "notes": null, "paid_at": "2026-03-20T00:00:00Z",
+    "line_items": [
+      { "id": "li-5a", "invoice_id": "inv-5", "description": "Marketing Site — build", "quantity": 18, "rate_cents": 8500, "amount_cents": 153000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-6", "number": "CHR-019", "client_id": "c4",
+    "issued_at": "2026-04-12T00:00:00Z", "due_at": "2026-04-26T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 287000, "tax_cents": 0, "total_cents": 287000,
+    "status": "overdue", "notes": null, "paid_at": null,
+    "line_items": [
+      { "id": "li-6a", "invoice_id": "inv-6", "description": "Pitch Deck — Aurora Pharma", "quantity": 22.08, "rate_cents": 13000, "amount_cents": 287000, "source_entry_ids": [] }
+    ]
+  },
+  {
+    "id": "inv-7", "number": "CHR-025", "client_id": "c1",
+    "issued_at": "2026-04-28T00:00:00Z", "due_at": "2026-05-12T00:00:00Z",
+    "currency": "USD", "subtotal_cents": 220000, "tax_cents": 0, "total_cents": 220000,
+    "status": "draft", "notes": null, "paid_at": null,
+    "line_items": [
+      { "id": "li-7a", "invoice_id": "inv-7", "description": "Q4 Rebrand — April retainer", "quantity": 23.16, "rate_cents": 9500, "amount_cents": 220000, "source_entry_ids": [] }
+    ]
+  }
+]

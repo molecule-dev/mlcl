@@ -1,0 +1,80 @@
+[
+  {
+    "id": "s1-sam",
+    "name": "Sam Patel",
+    "photo_url": null,
+    "rating": 4.9,
+    "review_count": 218,
+    "hourly_rate_cents": 2800,
+    "available": true,
+    "specialties": ["dogs", "walking", "puppy training"],
+    "bio": "Certified dog walker — 5 years caring for active breeds. Background-checked + insured.",
+    "city": "Brooklyn, NY",
+    "next_available": "2026-05-02T08:00:00Z"
+  },
+  {
+    "id": "s2-casey",
+    "name": "Casey Lin",
+    "photo_url": null,
+    "rating": 4.95,
+    "review_count": 184,
+    "hourly_rate_cents": 3200,
+    "available": true,
+    "specialties": ["cats", "senior pets", "medication"],
+    "bio": "Veterinary tech by day, cat sitter by night. Comfortable with insulin, sub-Q fluids, and elderly cats.",
+    "city": "Brooklyn, NY",
+    "next_available": "2026-05-01T18:00:00Z"
+  },
+  {
+    "id": "s3-jordan",
+    "name": "Jordan Reyes",
+    "photo_url": null,
+    "rating": 4.8,
+    "review_count": 96,
+    "hourly_rate_cents": 2500,
+    "available": false,
+    "specialties": ["dogs", "overnight", "small breeds"],
+    "bio": "Calm, patient overnight sitter. Hosts up to two pets in my home with backyard.",
+    "city": "Queens, NY",
+    "next_available": "2026-05-08T19:00:00Z"
+  },
+  {
+    "id": "s4-alex",
+    "name": "Alex Morales",
+    "photo_url": null,
+    "rating": 4.85,
+    "review_count": 142,
+    "hourly_rate_cents": 3000,
+    "available": true,
+    "specialties": ["birds", "small mammals", "exotic"],
+    "bio": "Exotic-pet specialist — birds, rabbits, reptiles, and pocket pets. Won't touch a leash.",
+    "city": "Manhattan, NY",
+    "next_available": "2026-05-03T10:00:00Z"
+  },
+  {
+    "id": "s5-riley",
+    "name": "Riley Kim",
+    "photo_url": null,
+    "rating": 4.92,
+    "review_count": 167,
+    "hourly_rate_cents": 2700,
+    "available": true,
+    "specialties": ["dogs", "cats", "drop-in visits"],
+    "bio": "Drop-in feedings, potty breaks, and play time. Photo updates every visit.",
+    "city": "Brooklyn, NY",
+    "next_available": "2026-05-02T12:00:00Z"
+  },
+  {
+    "id": "s6-taylor",
+    "name": "Taylor Brooks",
+    "photo_url": null,
+    "rating": 4.7,
+    "review_count": 58,
+    "hourly_rate_cents": 2200,
+    "available": true,
+    "specialties": ["dogs", "high-energy breeds", "running"],
+    "bio": "Marathon runner. Perfect for working line and high-drive dogs that need real exercise.",
+    "city": "Brooklyn, NY",
+    "next_available": "2026-05-01T06:30:00Z"
+  }
+]

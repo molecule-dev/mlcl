@@ -1,0 +1,368 @@
+[
+  {
+    "id": "da8092cc-3a35-4b8a-3f87-5d7a53fcca03",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -82.5,
+    "type": "expense",
+    "description": "Whole Foods Market",
+    "date": "2026-03-28T18:30:00Z",
+    "category_name": "Groceries",
+    "notes": "",
+    "category_id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "weekly",
+      "food"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "0c5eaa00-f999-450f-45f1-134bb04c7625",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": 4200,
+    "type": "income",
+    "description": "Salary Deposit - Acme Corp",
+    "date": "2026-03-25T06:00:00Z",
+    "category_name": "Income",
+    "notes": "Bi-weekly payroll",
+    "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "payroll"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "8dd8a03d-13ed-4a34-4da8-4c5801c9908e",
+    "account_id": "ea410bdd-5064-4764-90ed-cfe8a06ca92e",
+    "amount": -15.99,
+    "type": "expense",
+    "description": "Netflix",
+    "date": "2026-03-24T12:00:00Z",
+    "category_name": "Entertainment",
+    "notes": "Monthly subscription",
+    "category_id": "371ef930-6f47-4c17-5558-b4abf76781a6",
+    "account_name": "Amex Gold Card",
+    "status": "cleared",
+    "tags": [
+      "leisure"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "7e5d8a09-64fc-4db8-f2dc-2c44e2884590",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -45,
+    "type": "expense",
+    "description": "Shell Gas Station",
+    "date": "2026-03-23T15:45:00Z",
+    "category_name": "Transportation",
+    "notes": "",
+    "category_id": "a25028f6-165c-47a7-6bf6-bf3f410746b2",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "commute"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "2332f31c-101f-456b-33e0-7b1b748dce54",
+    "account_id": "ea410bdd-5064-4764-90ed-cfe8a06ca92e",
+    "amount": -128.47,
+    "type": "expense",
+    "description": "Target",
+    "date": "2026-03-22T10:20:00Z",
+    "category_name": "Shopping",
+    "notes": "Household items",
+    "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
+    "account_name": "Amex Gold Card",
+    "status": "cleared",
+    "tags": [
+      "retail"
+    ],
+    "recurring": false,
+    "merchant_location": "Daly City, CA"
+  },
+  {
+    "id": "b65ddf5d-f10a-46a6-c503-2f70b4b2cec5",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -12.5,
+    "type": "expense",
+    "description": "Spotify Premium",
+    "date": "2026-03-21T00:00:00Z",
+    "category_name": "Entertainment",
+    "notes": "Family plan",
+    "category_id": "371ef930-6f47-4c17-5558-b4abf76781a6",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "leisure"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "21efce7a-3710-4da5-f938-6b595b92c135",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -67.3,
+    "type": "expense",
+    "description": "Costco",
+    "date": "2026-03-20T11:15:00Z",
+    "category_name": "Groceries",
+    "notes": "",
+    "category_id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "weekly",
+      "food"
+    ],
+    "recurring": false,
+    "merchant_location": "South San Francisco, CA"
+  },
+  {
+    "id": "14d74dff-c514-4f99-c8a7-1ac9b6a12720",
+    "account_id": "ea410bdd-5064-4764-90ed-cfe8a06ca92e",
+    "amount": -42.18,
+    "type": "expense",
+    "description": "DoorDash",
+    "date": "2026-03-19T19:30:00Z",
+    "category_name": "Dining",
+    "notes": "",
+    "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
+    "account_name": "Amex Gold Card",
+    "status": "cleared",
+    "tags": [
+      "food",
+      "social"
+    ],
+    "recurring": false,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "dfbfd7d3-145a-4225-aa15-ea111b074099",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -1850,
+    "type": "expense",
+    "description": "Rent Payment",
+    "date": "2026-03-01T08:00:00Z",
+    "category_name": "Housing",
+    "notes": "Monthly rent",
+    "category_id": "ac3e347a-24e6-4963-6ce2-0fe1982c1085",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "fixed",
+      "bills"
+    ],
+    "recurring": true,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "c55a4765-3bf2-4e3a-0d6b-8039760680ed",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -95,
+    "type": "expense",
+    "description": "Verizon Wireless",
+    "date": "2026-03-15T00:00:00Z",
+    "category_name": "Utilities",
+    "notes": "Phone bill",
+    "category_id": "0304979b-60f0-499e-c12f-2f88c082ed21",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "bills"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "8e244c4c-5ace-4af9-c575-72885e41cb06",
+    "account_id": "f34f6cd4-88f4-48e3-5722-74692eb30245",
+    "amount": -34.99,
+    "type": "expense",
+    "description": "Amazon.com",
+    "date": "2026-03-18T14:22:00Z",
+    "category_name": "Shopping",
+    "notes": "Book order",
+    "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
+    "account_name": "Discover it Cash Back",
+    "status": "cleared",
+    "tags": [
+      "retail"
+    ],
+    "recurring": false,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "e451451a-ffb8-4319-307d-f2220741299e",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": 4200,
+    "type": "income",
+    "description": "Salary Deposit - Acme Corp",
+    "date": "2026-03-11T06:00:00Z",
+    "category_name": "Income",
+    "notes": "Bi-weekly payroll",
+    "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "payroll"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "e58da81a-c0cf-4a64-d3b5-233586c35223",
+    "account_id": "ea410bdd-5064-4764-90ed-cfe8a06ca92e",
+    "amount": -156,
+    "type": "expense",
+    "description": "Nordstrom",
+    "date": "2026-03-10T16:45:00Z",
+    "category_name": "Shopping",
+    "notes": "",
+    "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
+    "account_name": "Amex Gold Card",
+    "status": "cleared",
+    "tags": [
+      "retail"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "7ee92df5-657d-4cf5-9991-60e49f6d3418",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -8.5,
+    "type": "expense",
+    "description": "Starbucks",
+    "date": "2026-03-17T07:30:00Z",
+    "category_name": "Dining",
+    "notes": "",
+    "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "food",
+      "social"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "3c56b990-a52c-4a6d-5174-9d01436b7bdc",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -52,
+    "type": "expense",
+    "description": "CVS Pharmacy",
+    "date": "2026-03-16T13:00:00Z",
+    "category_name": "Healthcare",
+    "notes": "Prescription refill",
+    "category_id": "beec806a-3196-4b8c-d08c-215d158ccea8",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "health"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "5bd14277-56c4-4326-c4b8-3317fc1fa05a",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -185,
+    "type": "expense",
+    "description": "Comcast Internet",
+    "date": "2026-03-05T00:00:00Z",
+    "category_name": "Utilities",
+    "notes": "Internet + cable",
+    "category_id": "0304979b-60f0-499e-c12f-2f88c082ed21",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "bills"
+    ],
+    "recurring": true,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "2423b04e-0dd1-466a-9e05-05ec84819799",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -29.99,
+    "type": "expense",
+    "description": "Planet Fitness",
+    "date": "2026-03-01T00:00:00Z",
+    "category_name": "Fitness",
+    "notes": "Monthly membership",
+    "category_id": "2d9db412-25d5-4f46-9f55-1a2f9beecf7c",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "health"
+    ],
+    "recurring": true,
+    "merchant_location": "San Francisco, CA"
+  },
+  {
+    "id": "5c23fc87-e4e2-4d4a-cce4-740d4e69d15c",
+    "account_id": "ea410bdd-5064-4764-90ed-cfe8a06ca92e",
+    "amount": -215,
+    "type": "expense",
+    "description": "Delta Air Lines",
+    "date": "2026-03-08T09:00:00Z",
+    "category_name": "Travel",
+    "notes": "Flight to Denver",
+    "category_id": "e50619b9-7d69-4c51-110a-45ebe544c349",
+    "account_name": "Amex Gold Card",
+    "status": "cleared",
+    "tags": [
+      "vacation"
+    ],
+    "recurring": false,
+    "merchant_location": "SFO Airport"
+  },
+  {
+    "id": "defa77a1-4bb4-4cf7-4b59-3fc77283d7a1",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": 150,
+    "type": "income",
+    "description": "Venmo - Sarah Johnson",
+    "date": "2026-03-12T20:00:00Z",
+    "category_name": "Income",
+    "notes": "Dinner split",
+    "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "payroll"
+    ],
+    "recurring": false,
+    "merchant_location": "Online"
+  },
+  {
+    "id": "9c3ee50f-199b-43f6-dfbe-424bda26423e",
+    "account_id": "a42ffbac-daa0-4b92-e129-6231c74e6341",
+    "amount": -23.5,
+    "type": "expense",
+    "description": "Chipotle Mexican Grill",
+    "date": "2026-03-14T12:30:00Z",
+    "category_name": "Dining",
+    "notes": "",
+    "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
+    "account_name": "Chase Checking",
+    "status": "cleared",
+    "tags": [
+      "food",
+      "social"
+    ],
+    "recurring": false,
+    "merchant_location": "San Francisco, CA"
+  }
+]

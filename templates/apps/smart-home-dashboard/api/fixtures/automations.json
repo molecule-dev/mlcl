@@ -1,0 +1,94 @@
+[
+  {
+    "id": "aut-001",
+    "name": "Sunset Lights On",
+    "description": "Turn on outdoor lights at sunset",
+    "trigger": { "type": "sunset", "offset_minutes": -10 },
+    "conditions": [],
+    "actions": [
+      { "type": "device.on", "device_id": "dev-002" },
+      { "type": "device.on", "device_id": "dev-012", "properties": { "brightness": 70 } }
+    ],
+    "enabled": true,
+    "last_triggered": "2026-04-28T19:42:00Z",
+    "execution_count": 218,
+    "created_at": "2026-01-12T20:00:00Z",
+    "updated_at": "2026-04-28T19:42:00Z"
+  },
+  {
+    "id": "aut-002",
+    "name": "Bedtime Lockdown",
+    "description": "Lock doors, arm cameras, eco thermostat at 11pm",
+    "trigger": { "type": "time", "hour": 23, "minute": 0 },
+    "conditions": [],
+    "actions": [
+      { "type": "scene.activate", "scene_id": "scn-003" }
+    ],
+    "enabled": true,
+    "last_triggered": "2026-04-28T23:00:00Z",
+    "execution_count": 211,
+    "created_at": "2026-01-12T22:30:00Z",
+    "updated_at": "2026-04-28T23:00:00Z"
+  },
+  {
+    "id": "aut-003",
+    "name": "Motion-Triggered Hall",
+    "description": "Hallway lantern when motion detected at night",
+    "trigger": { "type": "motion", "device_id": "dev-011" },
+    "conditions": [{ "type": "time_range", "after": "21:00", "before": "06:00" }],
+    "actions": [
+      { "type": "device.on", "device_id": "dev-002", "duration_minutes": 5 }
+    ],
+    "enabled": true,
+    "last_triggered": "2026-04-29T05:18:00Z",
+    "execution_count": 92,
+    "created_at": "2026-01-25T11:30:00Z",
+    "updated_at": "2026-04-29T05:18:00Z"
+  },
+  {
+    "id": "aut-004",
+    "name": "Leaving Home",
+    "description": "Activate Away when phones leave geofence",
+    "trigger": { "type": "geofence", "event": "exit" },
+    "conditions": [{ "type": "all_phones_away" }],
+    "actions": [
+      { "type": "scene.activate", "scene_id": "scn-004" }
+    ],
+    "enabled": true,
+    "last_triggered": "2026-04-26T08:15:00Z",
+    "execution_count": 38,
+    "created_at": "2026-01-18T13:30:00Z",
+    "updated_at": "2026-04-26T08:15:00Z"
+  },
+  {
+    "id": "aut-005",
+    "name": "Returning Home",
+    "description": "Disarm and warm pendants when arriving",
+    "trigger": { "type": "geofence", "event": "enter" },
+    "conditions": [],
+    "actions": [
+      { "type": "device.off", "device_id": "dev-006" },
+      { "type": "device.on", "device_id": "dev-001", "properties": { "brightness": 60 } }
+    ],
+    "enabled": true,
+    "last_triggered": "2026-04-26T17:42:00Z",
+    "execution_count": 41,
+    "created_at": "2026-01-18T13:35:00Z",
+    "updated_at": "2026-04-26T17:42:00Z"
+  },
+  {
+    "id": "aut-006",
+    "name": "Energy Saver",
+    "description": "Reduce thermostat when no one home for 30m",
+    "trigger": { "type": "presence", "duration_minutes": 30, "state": "absent" },
+    "conditions": [],
+    "actions": [
+      { "type": "device.update", "device_id": "dev-003", "properties": { "target_temp_f": 64 } }
+    ],
+    "enabled": false,
+    "last_triggered": "2026-04-21T14:00:00Z",
+    "execution_count": 12,
+    "created_at": "2026-02-10T10:00:00Z",
+    "updated_at": "2026-04-21T14:00:00Z"
+  }
+]

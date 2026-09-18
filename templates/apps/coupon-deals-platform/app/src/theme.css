@@ -1,0 +1,261 @@
+:root {
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #e8501c;
+  --mol-color-primary-light: #fed7aa;
+  --mol-color-primary-dark: #c23d12;
+  --mol-color-secondary: #16a34a;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #e0a020;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0284c7;
+  --mol-color-background: #fafafa;
+  --mol-color-background-secondary: #f5f5f5;
+  --mol-color-background-tertiary: #e5e5e5;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e5e5e5;
+  --mol-color-text: #1a1a2e;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Brand colors — bright green/yellow deals theme */
+  --color-primary: #166534; /* was #22c55e — 2.0-2.3:1 as text on white/pink tints; green-800 = 6.3:1 even on #ffedeb */
+  --color-primary-hover: #16a34a;
+  --color-primary-light: #dcfce7;
+  --color-secondary: #1a1a2e;
+  --color-accent: #eab308;
+  --color-accent-hover: #ca8a04;
+
+  /* Semantic colors */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f0fdf4;
+  --color-bg-tertiary: #f7fee7;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0fdf4;
+  --color-border: #d9f99d;
+  --color-border-light: #ecfccb;
+
+  /* Text */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Borders */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-deal: 0 4px 14px rgba(34, 197, 94, 0.15);
+
+  /* Layout */
+  --max-width: 1280px;
+  --sidebar-width: 280px;
+  --header-height: 64px;
+
+  /* Deal card */
+  --deal-card-min-width: 280px;
+  --deal-image-ratio: 16 / 10;
+
+  /* Discount badge */
+  --color-discount-bg: #ef4444;
+  --color-discount-text: #ffffff;
+
+  /* Progress bar */
+  --color-progress-bg: #e5e7eb;
+  --color-progress-fill: #22c55e;
+  --color-progress-urgent: #ef4444;
+
+  /* Status colors */
+  --color-status-active: #22c55e;
+  --color-status-purchased: #3b82f6;
+  --color-status-redeemed: #8b5cf6;
+  --color-status-expired: #9ca3af;
+  --color-status-pending: #f59e0b;
+  --color-status-approved: #22c55e;
+  --color-status-rejected: #ef4444;
+  --color-status-suspended: #dc2626;
+  --color-status-archived: #6b7280;
+
+  /* Coupon display */
+  --color-coupon-bg: #fefce8;
+  --color-coupon-border: #eab308;
+  --color-coupon-code: #1a1a2e;
+
+  /* Verify result */
+  --color-verify-valid-bg: #dcfce7;
+  --color-verify-valid-border: #22c55e;
+  --color-verify-invalid-bg: #fef2f2;
+  --color-verify-invalid-border: #ef4444;
+
+  /* Merchant rating */
+  --color-star: #eab308;
+  --color-star-empty: #e5e7eb;
+
+  /* M3 light-mode primary token — green CTA is light (#22c55e) so on-primary must
+     be dark text, not white. white on #22c55e = 2.28:1 (fail); #001a0a = 8.00:1. */
+  --color-on-primary: #ffffff; /* ink was 2.55:1 after primary darkened to green-800; white = 7.3:1 */
+}
+
+/* Dark mode — e-commerce/deals warm-neutral dark.
+   Warm near-black surfaces (#0e0a08 / #1c1612 / #261d18) hold the warm
+   coral/orange Stitch brand tone (#a92f00) without leaning cold. M3
+   `--color-primary` is brand orange; deal-domain green is handled by
+   `--color-status-*`, `--color-progress-fill`, and `--color-verify-*` tokens.
+   `--color-on-primary` STAYS white so primary CTAs remain readable.
+   Domain tokens (coupon, status, verify, star) brighten foregrounds
+   and use deeper tinted bgs. */
+[data-mol-mode='dark'] {
+  /* Legacy deal-domain aliases (not M3 -- those live below in the Stitch block) */
+  --color-primary-hover: #22c55e;
+  --color-primary-light: #14532d;
+  --color-secondary: #cbd5e1;
+  --color-accent: #facc15;
+  --color-accent-hover: #eab308;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  --color-bg: #0e0a08;
+  --color-bg-secondary: #1c1612;
+  --color-bg-tertiary: #261d18;
+  --color-surface: #1c1612;
+  --color-surface-hover: #261d18;
+  --color-border: #3a2e26;
+  --color-border-light: #2a221c;
+
+  --color-text: #f5efe8;
+  --color-text-secondary: #c4b8ad;
+  --color-text-muted: #8a7d70;
+  --color-text-inverse: #0e0a08;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+  --shadow-deal: 0 4px 14px rgba(74, 222, 128, 0.3);
+
+  /* Discount badge — keep punchy on dark */
+  --color-discount-bg: #f87171;
+  --color-discount-text: #ffffff;
+
+  /* Progress bar */
+  --color-progress-bg: #2a4a32;
+  --color-progress-fill: #4ade80;
+  --color-progress-urgent: #f87171;
+
+  /* Status colors — brighter for dark contrast */
+  --color-status-active: #4ade80;
+  --color-status-purchased: #60a5fa;
+  --color-status-redeemed: #a78bfa;
+  --color-status-expired: #6b7280;
+  --color-status-pending: #fbbf24;
+  --color-status-approved: #4ade80;
+  --color-status-rejected: #f87171;
+  --color-status-suspended: #ef4444;
+  --color-status-archived: #4b5563;
+
+  /* Coupon display */
+  --color-coupon-bg: #2a2410;
+  --color-coupon-border: #facc15;
+  --color-coupon-code: #fefce8;
+
+  /* Verify result */
+  --color-verify-valid-bg: #14532d;
+  --color-verify-valid-border: #4ade80;
+  --color-verify-invalid-bg: #450a0a;
+  --color-verify-invalid-border: #f87171;
+
+  /* Merchant rating */
+  --color-star: #facc15;
+  --color-star-empty: #3a3a3a;
+
+  /* Stitch / Material-3 token dark variants — keep brand orange at the
+     brand stop; on-primary stays white for readable CTA buttons. */
+  --color-background: #0e0a08;
+  --color-on-background: #f5efe8;
+  --color-surface: #0e0a08;
+  --color-surface-bright: #2c241e;
+  --color-surface-dim: #060403;
+  --color-surface-container-lowest: #030201;
+  --color-surface-container-low: #150f0c;
+  --color-surface-container: #1c1612;
+  --color-surface-container-high: #261d18;
+  --color-surface-container-highest: #2f241e;
+  --color-surface-variant: #261d18;
+  --color-on-surface: #f5efe8;
+  --color-on-surface-variant: #c4b8ad;
+  --color-inverse-surface: #f5efe8;
+  --color-inverse-on-surface: #0e0a08;
+  --color-inverse-primary: #a92f00;
+  --color-primary: #a92f00; /* keep brand orange at brand stop */
+  --color-primary-container: #c44214;
+  --color-primary-dim: #952900;
+  --color-primary-fixed: #ff784e;
+  --color-primary-fixed-dim: #fd5f2b;
+  --color-on-primary: #ffffff; /* white on orange — readable in both modes */
+  --color-on-primary-container: #ffefeb;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #571400;
+  --color-secondary: #4dd58a;
+  --color-secondary-container: #006a39;
+  --color-secondary-dim: #45c47e;
+  --color-secondary-fixed: #5aec95;
+  --color-secondary-fixed-dim: #49dd89;
+  --color-on-secondary: #00210f;
+  --color-on-secondary-container: #ccffd7;
+  --color-on-secondary-fixed: #003d1f;
+  --color-on-secondary-fixed-variant: #005d32;
+  --color-tertiary: #a8c0ff;
+  --color-tertiary-container: #003ea6;
+  --color-tertiary-dim: #94aeff;
+  --color-tertiary-fixed: #94aeff;
+  --color-tertiary-fixed-dim: #7f9fff;
+  --color-on-tertiary: #001443; /* darkened: white on #a8c0ff = 1.80:1 (fail); #001443 = 9.86:1 */
+  --color-on-tertiary-container: #f1f2ff;
+  --color-on-tertiary-fixed: #001443;
+  --color-on-tertiary-fixed-variant: #00328b;
+  --color-error: #ff8a8a;
+  --color-error-container: #93000a;
+  --color-error-dim: #ff7373;
+  --color-on-error: #690005; /* darkened: white on #ff8a8a = 2.27:1 (fail); #690005 = 5.77:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8a7d70;
+  --color-outline-variant: #3a2e26;
+  --color-surface-tint: #a92f00;
+}

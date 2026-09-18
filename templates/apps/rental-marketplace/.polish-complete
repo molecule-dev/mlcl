@@ -1,0 +1,6 @@
+Polish complete: 2026-04-30T01:55:26Z
+Pipeline: polish-app.md via molecule-workspace/scripts/polish-app.mjs
+Cluster: real-estate-travel → sibling: hotel-booking
+Components: 6 bespoke (BookingItineraryRow, DestinationDiscoveryCard, RoostAuthShell, RoostHeroSearchCard, RoostLayout, RoostListingCard)
+Screen-map coverage: 20/20
+Compliance: clean (check-rules-compliance.mjs)

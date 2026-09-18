@@ -1,0 +1,245 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* === @theme bridge — feeds ClassMap via index.css === */
+  --mol-color-primary: #e05a2b;
+  --mol-color-primary-light: #fde8e0;
+  --mol-color-primary-dark: #9a3412; /* was #c04a1e — 4.19:1 as badge ink on primary-light #fde8e0; orange-800 = 6.19:1 */
+  --mol-color-secondary: #1a9a6c;
+
+  --mol-color-success: #1a9a6c;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #1a73e8;
+
+  --mol-color-background: #faf8f6;
+  --mol-color-background-secondary: #f5efe9;
+  --mol-color-background-tertiary: #ede4dc;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf8f6;
+  --mol-color-input-background: #ffffff;
+  /* Decorative warm card/divider border — not the M3 outline token. */
+  --mol-color-border: #f0d8c8;
+
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* App-specific tokens — Gavl auction palette. */
+  --color-accent: #0f7a52; /* was #1a9a6c — 3.56:1 under white CTA text; = 5.35:1 */
+  --color-accent-hover: #22b87e;
+  --color-accent-dark: #147a56;
+  --color-bid-panel: #fdf6f2;
+  --color-surface-secondary: #faf8f6;
+  --color-timer: #1e1e1e;
+  --color-timer-bar: #1e1e1e;
+  --color-urgent: #dc2626;
+  --color-ending-soon: #d97706;
+  --color-ending-soon-light: #fef3c7;
+  --color-bid-winning: #1a9a6c;
+  --color-bid-winning-light: #d1fae5;
+  --color-bid-outbid: #dc2626;
+  --color-bid-outbid-light: #fee2e2;
+
+  /* Gradient end-stop for hero/CTA button gradients */
+  --color-primary-gradient-end: #f06a3b;
+
+  /* Warm surface gradient (feature cards, bid panel backgrounds) */
+  --color-surface-gradient: linear-gradient(135deg, #fdf6f2, #f5efe9);
+
+  /* Semantic status badge tokens — light values */
+  --color-status-live-bg: #fde8e0;
+  --color-status-live-fg: #c04a1e;
+  --color-status-ending-bg: #fef3c7;
+  --color-status-ending-fg: #92400e;
+  --color-status-closed-bg: #f3f4f6;
+  --color-status-closed-fg: #4b5563;
+  --color-status-won-bg: #d1fae5;
+  --color-status-won-fg: #065f46;
+  --color-status-outbid-bg: #fee2e2;
+  --color-status-outbid-fg: #b91c1c;
+  --color-status-watchlist-bg: #dbeafe;
+  --color-status-watchlist-fg: #1a73e8;
+  --color-status-neutral-bg: #f3f4f6;
+  --color-status-neutral-fg: #4b5563;
+
+  /* Accent colors for stat cards */
+  --color-stat-primary: #e05a2b;
+  --color-stat-accent: #1a9a6c;
+  --color-stat-urgent: #dc2626;
+  --color-stat-ending: #d97706;
+  --color-stat-neutral: #6b7280;
+  --color-trend-up: #1a9a6c;
+  --color-trend-down: #dc2626;
+  --color-trend-flat: #6b7280;
+
+  /* === M3 light-mode tokens (mirrored by dark override block below) === */
+  /* Brand orange #e05a2b cannot carry white text (3.71:1). Use dark brown. */
+  --color-on-primary: #ffffff; /* ink was 3.85:1 after primary darkened to orange-700; white = 5.18:1 */
+  --color-primary: #c2410c; /* was #e05a2b — 3.49:1 as text on #faf8f6; orange-700 = 4.89:1, white-on-primary 5.18:1 */
+  --color-primary-container: #fde8e0;
+  --color-on-primary-container: #4a1a08;
+  --color-on-background: #111827;
+  --color-background: #faf8f6;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #4b5563; /* was #6b7280 — 4.35:1 on #f3f3f4 user card; gray-600 = 6.82:1 */
+  /* Warm mid-tone outline — 5.5:1 vs surface for interactive border contrast. */
+  --color-outline: #786050;
+  --color-outline-variant: #f0d8c8;
+  --color-surface-tint: #e05a2b;
+  --color-on-error: #ffffff;
+  --color-error: #b91c1c;
+  --color-error-container: #fee2e2;
+  --color-on-error-container: #7f1d1d;
+}
+
+[data-mol-mode='dark'] {
+  /* Dark mode — Gavl auction warm neutral dark.
+     Warm near-black surfaces (e-commerce bid energy). Brand orange kept
+     at brand stop (#e05a2b) for accents/badges; emerald accent stays
+     vibrant for live/winning states. `--color-on-primary` is near-black
+     (#160400) — orange cannot carry white text at 4.5:1 (3.71:1). */
+  --mol-color-primary: #e05a2b;
+  --mol-color-primary-light: #4a2517;
+  --mol-color-primary-dark: #c04a1e;
+  --mol-color-secondary: #34d399;
+
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  /* #d63030: darker than #f87171 so white on-error text clears 4.5:1 (4.86:1). */
+  --mol-color-error: #d63030;
+  --mol-color-info: #60a5fa;
+
+  --mol-color-background: #14110e;
+  --mol-color-background-secondary: #1e1a16;
+  --mol-color-background-tertiary: #28231e;
+  --mol-color-surface: #1e1a16;
+  --mol-color-surface-secondary: #28231e;
+  --mol-color-input-background: #28231e;
+  --mol-color-border: #3a332c;
+  --mol-color-border-secondary: #4a4239;
+  --mol-color-border-focus: #e05a2b;
+
+  --mol-color-text: #f5f0ea;
+  --mol-color-text-secondary: #b3a99c;
+  --mol-color-text-tertiary: #857c70;
+  --mol-color-text-inverse: #14110e;
+
+  --color-accent: #34d399;
+  --color-accent-hover: #4ade80;
+  --color-accent-dark: #10b981;
+  --color-bid-panel: #2a2017;
+  --color-surface-secondary: #28231e;
+  --color-timer: #0a0805;
+  --color-timer-bar: #0a0805;
+  --color-urgent: #f87171;
+  --color-ending-soon: #fbbf24;
+  --color-ending-soon-light: #4a2f10;
+  --color-bid-winning: #34d399;
+  --color-bid-winning-light: #0f3a2a;
+  --color-bid-outbid: #f87171;
+  --color-bid-outbid-light: #3f1818;
+
+  /* Stitch / Material-3 token dark variants — keep brand orange at brand stop;
+     light-end of scale flipped dark for warm-on-warm rendering.
+     Brand orange #e05a2b cannot carry white text (3.71:1), so on-primary is
+     near-black #160400 (5.39:1) in both light and dark modes. */
+  --color-background: #14110e;
+  --color-on-background: #f5f0ea;
+  --color-surface: #1e1a16;
+  --color-surface-bright: #28231e;
+  --color-surface-dim: #0a0805;
+  --color-surface-container-lowest: #050402;
+  --color-surface-container-low: #181510;
+  --color-surface-container: #1e1a16;
+  --color-surface-container-high: #28231e;
+  --color-surface-container-highest: #3a332c;
+  --color-surface-variant: #28231e;
+  --color-on-surface: #f5f0ea;
+  --color-on-surface-variant: #b3a99c;
+  --color-inverse-surface: #f5f0ea;
+  --color-inverse-on-surface: #14110e;
+  --color-inverse-primary: #c04a1e;
+  --color-primary: #e05a2b; /* keep brand orange at brand stop */
+  --color-primary-container: #4a2517;
+  /* Brand orange #e05a2b cannot carry white text (3.71:1). Use near-black (5.39:1). */
+  --color-on-primary: #160400;
+  --color-on-primary-container: #fde8e0;
+  --color-secondary: #34d399;
+  --color-secondary-container: #0f3a2a;
+  --color-on-secondary: #14110e;
+  --color-on-secondary-container: #d1fae5;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4a2f10;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fef3c7;
+  /* #d63030: darker than #f87171 so white on-error text clears 4.5:1 (4.86:1). */
+  --color-error: #d63030;
+  --color-error-container: #5a1818;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #857c70;
+  --color-outline-variant: #3a332c;
+  --color-surface-tint: #e05a2b;
+
+  --color-primary-50: #2a1812;
+  --color-primary-100: #3a201a;
+  --color-primary-200: #5a2e22;
+  --color-primary-300: #8a4530;
+  --color-primary-500: #e05a2b;
+  --color-primary-600: #f08555;
+  --color-primary-700: #f5a07a;
+  --color-accent-100: #143a2a;
+  --color-accent-500: #34d399;
+  --color-accent-700: #6ee7b7;
+
+  --color-dark: #050402;
+  --color-surface-bid: #2a2017;
+  --color-surface-dark: #050402;
+  --color-surface-sec: #28231e;
+
+  --color-danger: #f87171;
+  --color-danger-light: #3f1818;
+  --color-urgent-red: #f87171;
+
+  /* Gradient end-stop for hero/CTA button gradients */
+  --color-primary-gradient-end: #f08555;
+
+  /* Warm surface gradient (feature cards, bid panel backgrounds) */
+  --color-surface-gradient: linear-gradient(135deg, #2a2017, #1e1a16);
+
+  /* Semantic status badge tokens — dark values */
+  --color-status-live-bg: #4a2517;
+  --color-status-live-fg: #f08555;
+  --color-status-ending-bg: #4a2f10;
+  --color-status-ending-fg: #fbbf24;
+  --color-status-closed-bg: #28231e;
+  --color-status-closed-fg: #b3a99c;
+  --color-status-won-bg: #0f3a2a;
+  --color-status-won-fg: #34d399;
+  --color-status-outbid-bg: #3f1818;
+  --color-status-outbid-fg: #f87171;
+  --color-status-watchlist-bg: #1a2a42;
+  --color-status-watchlist-fg: #60a5fa;
+  --color-status-neutral-bg: #28231e;
+  --color-status-neutral-fg: #b3a99c;
+
+  /* Accent colors for stat cards */
+  --color-stat-primary: #f08555;
+  --color-stat-accent: #34d399;
+  --color-stat-urgent: #f87171;
+  --color-stat-ending: #fbbf24;
+  --color-stat-neutral: #b3a99c;
+  --color-trend-up: #34d399;
+  --color-trend-down: #f87171;
+  --color-trend-flat: #b3a99c;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

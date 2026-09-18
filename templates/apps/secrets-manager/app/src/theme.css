@@ -1,0 +1,164 @@
+/* App-specific theme overrides — see DESIGN.md for source of truth.
+ *
+ * Arcanum is a dark-by-default developer secrets vault. The brand
+ * palette + dark surfaces are applied at runtime by the JS theme
+ * provider (`bonds/app-theme-css-variables.ts`). This file declares
+ * the --mol-color-* bridge tokens for both modes, M3 bridge overrides
+ * for dark mode, and the Tailwind safelist colour aliases.
+ */
+
+:root {
+  /* === @theme bridge — fed into ClassMap via base.css @theme block ===
+   * Arcanum is dark-by-default; the JS bond overwrites these at runtime.
+   * Defined here so static CSS (e.g. initial paint before JS hydrates)
+   * uses the Arcanum palette rather than the base.css blue defaults. */
+  --mol-color-primary: #00d992;
+  --mol-color-primary-light: #33e6ad;
+  --mol-color-primary-dark: #00b377;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #111a2e;
+  --mol-color-background-tertiary: #182338;
+  --mol-color-surface: #1a2540;
+  --mol-color-surface-secondary: #1f2d4a;
+  --mol-color-input-background: #0f1829;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0c1222;
+  --mol-color-border: #1e3048;
+  --mol-color-border-secondary: #293d5a;
+  --mol-color-border-focus: #00d992;
+  --mol-color-success: #00d992;
+  --mol-color-warning: #facc15;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #60a5fa;
+
+  /* Arcanum brand fonts (loaded in index.html) */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@theme {
+  /* ── Bespoke Arcanum palette aliases for component utilities ── */
+  --color-text: var(--color-foreground);
+  --color-muted: var(--color-foreground-secondary);
+  --color-bg: var(--color-background);
+  --color-surface2: var(--color-surface-secondary);
+  --color-accent: var(--mol-color-secondary, #a78bfa);
+
+  /* ── Secret-state semantic colours (DESIGN.md "Semantic") ── */
+  --color-secret-active: #00d992;
+  --color-secret-expiring: #facc15;
+  --color-secret-expired: #f97316;
+  --color-secret-revoked: #ef4444;
+  --color-secret-inherited: #60a5fa;
+  --color-secret-masked: #64748b;
+
+  /* ── Tailwind safelist mirror tokens (each colour used as
+   *    `text-X` / `bg-X` must be declared in `@theme`) ── */
+  --color-emerald: #00d992;
+  --color-amber: #facc15;
+  --color-orange: #f97316;
+  --color-red: #ef4444;
+  --color-sky: #60a5fa;
+  --color-violet: #a78bfa;
+
+  --color-textPrimary: var(--color-foreground);
+  --color-textSecondary: var(--color-foreground-secondary);
+  --color-textMuted: var(--color-foreground-tertiary);
+}
+
+/* Dark mode overrides — brand-calibrated Arcanum dark palette.
+   Arcanum is dark-by-default; this block pins the bespoke palette aliases,
+   semantic secret-state colors, AND the full M3 bridge token set against
+   `[data-mol-mode='dark']` so all surface/on-surface tokens flip cleanly.
+   The JS theme provider also writes --mol-color-* at runtime; these CSS
+   vars act as a CSS-only fallback when the provider hasn't hydrated yet. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #00d992;
+  --mol-color-primary-light: #33e6ad;
+  --mol-color-primary-dark: #00b377;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-background: #0c1222;
+  --mol-color-background-secondary: #111a2e;
+  --mol-color-background-tertiary: #182338;
+  --mol-color-surface: #1a2540;
+  --mol-color-surface-secondary: #1f2d4a;
+  --mol-color-input-background: #0f1829;
+  --mol-color-text: #e2e8f0;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0c1222;
+  --mol-color-border: #1e3048;
+  --mol-color-border-secondary: #293d5a;
+  --mol-color-border-focus: #00d992;
+  --mol-color-success: #00d992;
+  --mol-color-warning: #facc15;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #60a5fa;
+
+  /* App-specific palette aliases */
+  --color-accent: #a78bfa;
+
+  /* Secret-state semantic colours — brighter variants for dark glancability.
+     Lifted for axe contrast: the SecretStatusPill renders these as 10px text
+     over a 12-16% color-mix tint on surface-secondary (#1f2d4a), so each needs
+     ≥4.5:1 against that mix (revoked/red #f87171 was 4.23, sky #60a5fa 4.40,
+     violet #a78bfa 4.17, masked #64748b 2.46). */
+  --color-secret-active: #00d992;
+  --color-secret-expiring: #facc15;
+  --color-secret-expired: #fb923c;
+  --color-secret-revoked: #fca5a5; /* was #f87171 → 5.71:1 */
+  --color-secret-inherited: #93c5fd; /* was #60a5fa → 5.86:1 */
+  --color-secret-masked: #a8b5c8; /* was #64748b → 4.78:1 */
+
+  --color-emerald: #00d992;
+  --color-amber: #facc15;
+  --color-orange: #fb923c;
+  --color-red: #fca5a5; /* was #f87171 → 5.71:1 (PROD env pill) */
+  --color-sky: #93c5fd; /* was #60a5fa → 5.86:1 */
+  --color-violet: #c4b5fd; /* was #a78bfa → 5.76:1 */
+
+  /* Stitch / Material-3 bridge — Arcanum navy-teal-emerald palette */
+  --color-background: #0c1222;
+  --color-on-background: #e2e8f0;
+  --color-surface: #1a2540;
+  --color-surface-bright: #1f2d4a;
+  --color-surface-dim: #080f1a;
+  --color-surface-container-lowest: #060d18;
+  --color-surface-container-low: #0f1829;
+  --color-surface-container: #111a2e;
+  --color-surface-container-high: #182338;
+  --color-surface-container-highest: #1e3048;
+  --color-surface-variant: #182338;
+  --color-on-surface: #e2e8f0;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #e2e8f0;
+  --color-inverse-on-surface: #0c1222;
+  --color-inverse-primary: #00b377;
+  --color-primary: #00d992;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #002e1e; /* dark on emerald — white was 1.85:1 (fail); #002e1e = 8.05:1 */
+  --color-on-primary-container: #a7f3d0;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #2e1065;
+  --color-on-secondary: #0e0026; /* dark on violet — white was 2.72:1 (fail); #0e0026 = 7.37:1 */
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #60a5fa;
+  --color-tertiary-container: #1e3a8a;
+  --color-on-tertiary: #001029; /* dark on sky-blue — white was 2.54:1 (fail); #001029 = 7.47:1 */
+  --color-on-tertiary-container: #bfdbfe;
+  --color-error: #ef4444;
+  --color-error-container: #450a0a;
+  --color-on-error: #2a0000; /* dark on red — white was 3.76:1 (fail); #2a0000 = 5.08:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #647490; /* #334155 was 1.47:1 vs surface (fail ≥3:1); #647490 = 3.21:1 */
+  --color-outline-variant: #1e3048;
+  --color-surface-tint: #00d992;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

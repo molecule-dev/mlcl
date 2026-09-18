@@ -1,0 +1,98 @@
+[
+  {
+    "id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
+    "name": "Groceries",
+    "icon": "shopping-cart",
+    "color": "#10B981",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "270b0034-a37c-45f8-0d09-5eae82834725",
+    "name": "Dining",
+    "icon": "utensils",
+    "color": "#F59E0B",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "a25028f6-165c-47a7-6bf6-bf3f410746b2",
+    "name": "Transportation",
+    "icon": "car",
+    "color": "#3B82F6",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "371ef930-6f47-4c17-5558-b4abf76781a6",
+    "name": "Entertainment",
+    "icon": "film",
+    "color": "#8B5CF6",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
+    "name": "Shopping",
+    "icon": "shopping-cart",
+    "color": "#EC4899",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "0304979b-60f0-499e-c12f-2f88c082ed21",
+    "name": "Utilities",
+    "icon": "home",
+    "color": "#06B6D4",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "beec806a-3196-4b8c-d08c-215d158ccea8",
+    "name": "Healthcare",
+    "icon": "heart",
+    "color": "#EF4444",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "ac3e347a-24e6-4963-6ce2-0fe1982c1085",
+    "name": "Housing",
+    "icon": "home",
+    "color": "#6366F1",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
+    "name": "Income",
+    "icon": "wallet",
+    "color": "#10B981",
+    "type": "income",
+    "parent_id": null
+  },
+  {
+    "id": "e50619b9-7d69-4c51-110a-45ebe544c349",
+    "name": "Travel",
+    "icon": "receipt",
+    "color": "#F97316",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "2d9db412-25d5-4f46-9f55-1a2f9beecf7c",
+    "name": "Fitness",
+    "icon": "heart",
+    "color": "#14B8A6",
+    "type": "expense",
+    "parent_id": null
+  },
+  {
+    "id": "aac8a82a-bfa4-4154-3b3d-052947a9a18b",
+    "name": "Subscriptions",
+    "icon": "credit-card",
+    "color": "#A855F7",
+    "type": "expense",
+    "parent_id": null
+  }
+]

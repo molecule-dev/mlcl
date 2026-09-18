@@ -1,0 +1,290 @@
+[
+  {
+    "id": "df3f69d1-e079-4618-7b03-8c2e7d55662d",
+    "name": "Wireless Noise-Canceling Headphones",
+    "description": "Premium over-ear headphones with active noise cancellation and 30-hour battery life.",
+    "price": 29900,
+    "category": "Electronics",
+    "sku": "WNC-001",
+    "status": "active",
+    "featured": true,
+    "total_sold": 342,
+    "images": [
+      "https://picsum.photos/seed/wnc001/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/wnc001/200/200"
+    ],
+    "tags": [
+      "bestseller",
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-08-15T10:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  },
+  {
+    "id": "7a66b990-9e1b-451b-1188-c707b52fe44e",
+    "name": "Organic Cotton T-Shirt",
+    "description": "Soft, breathable crew-neck tee made from 100% organic cotton. Available in 12 colors.",
+    "price": 3500,
+    "category": "Apparel",
+    "sku": "OCT-100",
+    "status": "active",
+    "featured": false,
+    "total_sold": 1205,
+    "images": [
+      "https://picsum.photos/seed/oct100/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/oct100/200/200"
+    ],
+    "tags": [
+      "organic",
+      "eco-friendly"
+    ],
+    "variants": [],
+    "created_at": "2025-06-01T08:00:00Z",
+    "updated_at": "2026-03-20T12:00:00Z"
+  },
+  {
+    "id": "b4c742d4-aa96-4e42-3813-fda967e4804d",
+    "name": "Handcrafted Leather Wallet",
+    "description": "Full-grain Italian leather bifold wallet with RFID protection.",
+    "price": 8900,
+    "category": "Accessories",
+    "sku": "HLW-200",
+    "status": "active",
+    "featured": true,
+    "total_sold": 567,
+    "images": [
+      "https://picsum.photos/seed/hlw200/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/hlw200/200/200"
+    ],
+    "tags": [
+      "handmade",
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2025-09-10T11:00:00Z",
+    "updated_at": "2026-03-25T09:00:00Z"
+  },
+  {
+    "id": "3ffd395a-aac1-4c30-80d8-b60fb166e79c",
+    "name": "Stainless Steel Water Bottle",
+    "description": "Double-walled vacuum insulated, keeps drinks cold 24hrs or hot 12hrs. 32oz capacity.",
+    "price": 4500,
+    "category": "Home & Kitchen",
+    "sku": "SSW-300",
+    "status": "active",
+    "featured": false,
+    "total_sold": 892,
+    "images": [
+      "https://picsum.photos/seed/ssw300/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/ssw300/200/200"
+    ],
+    "tags": [
+      "eco-friendly",
+      "popular"
+    ],
+    "variants": [],
+    "created_at": "2025-07-20T14:00:00Z",
+    "updated_at": "2026-03-22T16:00:00Z"
+  },
+  {
+    "id": "9f01131e-b493-4093-dc40-0acaa9d7d0f3",
+    "name": "Minimalist Analog Watch",
+    "description": "Japanese movement quartz watch with genuine leather strap and sapphire crystal glass.",
+    "price": 15900,
+    "category": "Accessories",
+    "sku": "MAW-400",
+    "status": "active",
+    "featured": true,
+    "total_sold": 234,
+    "images": [
+      "https://picsum.photos/seed/maw400/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/maw400/200/200"
+    ],
+    "tags": [
+      "premium",
+      "new"
+    ],
+    "variants": [],
+    "created_at": "2025-11-01T09:00:00Z",
+    "updated_at": "2026-03-18T11:00:00Z"
+  },
+  {
+    "id": "d5b57299-0340-4c59-2eb9-5459d62b9c49",
+    "name": "Bamboo Cutting Board Set",
+    "description": "Set of 3 premium bamboo cutting boards in small, medium, and large sizes.",
+    "price": 5400,
+    "category": "Home & Kitchen",
+    "sku": "BCB-500",
+    "status": "active",
+    "featured": false,
+    "total_sold": 445,
+    "images": [
+      "https://picsum.photos/seed/bcb500/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/bcb500/200/200"
+    ],
+    "tags": [
+      "eco-friendly",
+      "popular"
+    ],
+    "variants": [],
+    "created_at": "2025-10-15T13:00:00Z",
+    "updated_at": "2026-03-15T10:00:00Z"
+  },
+  {
+    "id": "2fa60451-3b2f-43c1-d034-71f4e57d70db",
+    "name": "Wool Blend Beanie",
+    "description": "Soft merino wool blend beanie with fleece lining. One size fits most.",
+    "price": 2800,
+    "category": "Apparel",
+    "sku": "WBB-600",
+    "status": "active",
+    "featured": false,
+    "total_sold": 678,
+    "images": [
+      "https://picsum.photos/seed/wbb600/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/wbb600/200/200"
+    ],
+    "tags": [
+      "popular",
+      "sale"
+    ],
+    "variants": [],
+    "created_at": "2025-10-01T08:00:00Z",
+    "updated_at": "2026-03-10T14:00:00Z"
+  },
+  {
+    "id": "6e54961f-e497-4402-8093-a2c4593d0b04",
+    "name": "Portable Bluetooth Speaker",
+    "description": "Waterproof IPX7 speaker with 360-degree sound and 20-hour playtime.",
+    "price": 7900,
+    "category": "Electronics",
+    "sku": "PBS-700",
+    "status": "active",
+    "featured": true,
+    "total_sold": 512,
+    "images": [
+      "https://picsum.photos/seed/pbs700/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/pbs700/200/200"
+    ],
+    "tags": [
+      "bestseller",
+      "new"
+    ],
+    "variants": [],
+    "created_at": "2025-12-01T10:00:00Z",
+    "updated_at": "2026-03-28T08:00:00Z"
+  },
+  {
+    "id": "7bfc6e28-b996-4829-1180-31712889bc86",
+    "name": "Ceramic Pour-Over Coffee Set",
+    "description": "Hand-thrown ceramic dripper with matching mug and reusable stainless filter.",
+    "price": 6500,
+    "category": "Home & Kitchen",
+    "sku": "CPC-800",
+    "status": "active",
+    "featured": false,
+    "total_sold": 189,
+    "images": [
+      "https://picsum.photos/seed/cpc800/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/cpc800/200/200"
+    ],
+    "tags": [
+      "handmade",
+      "new"
+    ],
+    "variants": [],
+    "created_at": "2026-01-15T09:00:00Z",
+    "updated_at": "2026-03-20T11:00:00Z"
+  },
+  {
+    "id": "7738987e-395d-4a40-501d-8b33600bc842",
+    "name": "Canvas Laptop Backpack",
+    "description": "Waxed canvas backpack with padded 15\" laptop compartment and waterproof base.",
+    "price": 12900,
+    "category": "Accessories",
+    "sku": "CLB-900",
+    "status": "active",
+    "featured": false,
+    "total_sold": 356,
+    "images": [
+      "https://picsum.photos/seed/clb900/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/clb900/200/200"
+    ],
+    "tags": [
+      "premium",
+      "popular"
+    ],
+    "variants": [],
+    "created_at": "2025-09-20T12:00:00Z",
+    "updated_at": "2026-03-25T15:00:00Z"
+  },
+  {
+    "id": "9a69b2d7-0203-4df0-15b7-ee43d0648192",
+    "name": "Soy Wax Candle Collection",
+    "description": "Set of 4 hand-poured soy candles in seasonal scents. 40-hour burn time each.",
+    "price": 4200,
+    "category": "Home & Kitchen",
+    "sku": "SWC-010",
+    "status": "active",
+    "featured": false,
+    "total_sold": 723,
+    "images": [
+      "https://picsum.photos/seed/swc010/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/swc010/200/200"
+    ],
+    "tags": [
+      "handmade",
+      "popular"
+    ],
+    "variants": [],
+    "created_at": "2025-11-15T11:00:00Z",
+    "updated_at": "2026-03-18T09:00:00Z"
+  },
+  {
+    "id": "e9293a48-a423-4c35-1e12-1c7d641785e0",
+    "name": "Running Sneakers Pro",
+    "description": "Lightweight responsive cushioning with breathable mesh upper. Carbon plate technology.",
+    "price": 18500,
+    "category": "Footwear",
+    "sku": "RSP-110",
+    "status": "active",
+    "featured": true,
+    "total_sold": 278,
+    "images": [
+      "https://picsum.photos/seed/rsp110/400/400"
+    ],
+    "thumbnails": [
+      "https://picsum.photos/seed/rsp110/200/200"
+    ],
+    "tags": [
+      "new",
+      "premium"
+    ],
+    "variants": [],
+    "created_at": "2026-02-01T10:00:00Z",
+    "updated_at": "2026-03-28T12:00:00Z"
+  }
+]

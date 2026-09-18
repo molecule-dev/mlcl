@@ -1,0 +1,44 @@
+[
+  {
+    "id": "exp_001", "occurred_at": "2026-04-25", "merchant": "AWS",                "category": "Software",        "category_color": "#3b82f6", "amount_cents":  84200, "tax_cents":  0,    "is_deductible": true,  "has_receipt": true,  "reconciled": true,
+    "reconciled_match_id": "tx_b001", "reconciled_match_description": "AWS · Apr 2026", "receipt_url": null, "notes": "EC2 + S3",
+    "audit_log": [
+      { "id": "ev_1", "occurred_at": "2026-04-25T11:00:00Z", "actor": "system",      "action": "imported from bank feed" },
+      { "id": "ev_2", "occurred_at": "2026-04-25T11:01:00Z", "actor": "ai-categorizer", "action": "auto-categorized as Software" }
+    ]
+  },
+  {
+    "id": "exp_002", "occurred_at": "2026-04-22", "merchant": "Delta Airlines",     "category": "Travel",          "category_color": "#10b981", "amount_cents":  42180, "tax_cents":  0,    "is_deductible": true,  "has_receipt": true,  "reconciled": false,
+    "receipt_url": null, "notes": "Client visit — Boston",
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-22T16:00:00Z", "actor": "avery@northwind.example", "action": "logged manually" }]
+  },
+  {
+    "id": "exp_003", "occurred_at": "2026-04-18", "merchant": "Eleven Madison Park","category": "Meals",           "category_color": "#f59e0b", "amount_cents":  32400, "tax_cents":  3500, "is_deductible": true,  "has_receipt": true,  "reconciled": true,
+    "reconciled_match_id": "tx_b007", "reconciled_match_description": "Eleven Madison · Apr 18", "receipt_url": null, "notes": "Client dinner — Acme",
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-18T22:00:00Z", "actor": "avery@northwind.example", "action": "logged manually" }]
+  },
+  {
+    "id": "exp_004", "occurred_at": "2026-04-15", "merchant": "WeWork",             "category": "Rent",            "category_color": "#8b5cf6", "amount_cents": 245000, "tax_cents":  0,    "is_deductible": true,  "has_receipt": true,  "reconciled": true,
+    "reconciled_match_id": "tx_b015", "reconciled_match_description": "WeWork · April rent", "receipt_url": null,
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-15T09:00:00Z", "actor": "system", "action": "imported from bank feed" }]
+  },
+  {
+    "id": "exp_005", "occurred_at": "2026-04-12", "merchant": "Google Workspace",   "category": "Software",        "category_color": "#3b82f6", "amount_cents":  12000, "tax_cents":  1020, "is_deductible": true,  "has_receipt": false, "reconciled": false,
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-12T08:00:00Z", "actor": "system", "action": "imported from card statement" }]
+  },
+  {
+    "id": "exp_006", "occurred_at": "2026-04-08", "merchant": "Staples",            "category": "Office supplies", "category_color": "#0ea5e9", "amount_cents":   8420, "tax_cents":   720, "is_deductible": true,  "has_receipt": true,  "reconciled": true,
+    "reconciled_match_id": "tx_b021", "reconciled_match_description": "Staples · Office supplies",
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-08T13:30:00Z", "actor": "avery@northwind.example", "action": "logged manually" }]
+  },
+  {
+    "id": "exp_007", "occurred_at": "2026-04-04", "merchant": "Facebook Ads",       "category": "Marketing",       "category_color": "#ec4899", "amount_cents": 120000, "tax_cents":  0,    "is_deductible": true,  "has_receipt": false, "reconciled": true,
+    "reconciled_match_id": "tx_b029", "reconciled_match_description": "Meta Platforms · Apr 4",
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-04-04T18:00:00Z", "actor": "system", "action": "imported from card statement" }]
+  },
+  {
+    "id": "exp_008", "occurred_at": "2026-03-30", "merchant": "Comcast Business",   "category": "Utilities",       "category_color": "#a855f7", "amount_cents":  18900, "tax_cents":  0,    "is_deductible": true,  "has_receipt": true,  "reconciled": true,
+    "reconciled_match_id": "tx_b033", "reconciled_match_description": "Comcast · March bill",
+    "audit_log": [{ "id": "ev_1", "occurred_at": "2026-03-30T10:00:00Z", "actor": "system", "action": "imported from bank feed" }]
+  }
+]

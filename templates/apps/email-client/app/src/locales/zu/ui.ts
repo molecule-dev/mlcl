@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Phequlula izihloko zosizo',
+  'about.cta.signup': 'Zama i-Courier mahhala',
+  'about.eyebrow': 'Mayelana neCourier',
+  'about.principle.calm': 'Ukuthula ngokuzenzakalelayo.',
+  'about.principle.calm.desc':
+    'Azikho izikhangiso ezikhalayo, azikho izaziso ongazicelanga, azikho izithombe ezinyakazayo ezidinga ukubonwa.',
+  'about.principle.fast.desc':
+    'Isenzo ngasinye siseduze nokucindezela inkinobho kanye. Ibhokisi lokungenayo lilayisha ngaphansi kwama-200ms uma ungena ngemvume okusha.',
+  'about.principle.honest.desc':
+    'Ukubethela ngesikhathi sokuthutha kanye nokuphumula, ukugcinwa okusobala, kanye nokuthunyelwa kwedatha ngokuchofoza okukodwa.',
+  'about.story': 'Kungani sakhe iCourier',
+  'about.story.p1':
+    'Iningi lamakhasimende e-imeyili lithuthukisa ukuzibandakanya — likudonsa emuva, lihlukanisa ukunaka kwakho, liphakamisa ukuthinta okukodwa. I-Courier yenza okuphambene nalokho. Silinganisa impumelelo ngesikhathi osichitha UNGASISEBENZI ebhokisini lakho lokungenayo: thatha i-triage ngokushesha, hlala phansi ngokuzethemba, bese uqhubeka nomsebenzi obalulekile.',
+  'about.subtitle':
+    'I-Courier iyibhokisi lokungenayo elizolile, elinamafasitela amathathu elakhiwe yithimba elincane elalifuna ukucubungula ulwazi esikhundleni sokusabela kulo.',
+  'about.team.body':
+    'Siyiqembu elisabalele labaklami nonjiniyela ababeke bachitha amahora amaningi kakhulu nsuku zonke ebhokisini leposi elinomsindo. I-Courier yibhokisi lokungenayo esasifuna ukulisebenzisa thina.',
+  'about.title': 'I-imeyili yomsebenzi ogxile',
+  'help.cta.about': 'Mayelana neCourier',
+  'help.cta.pricing': 'Buka amanani',
+  'help.eyebrow': 'Isikhungo sosizo',
+  'help.faq.compose.a':
+    'Chofoza okuthi "Qamba" kusukela kubha eseceleni (noma cindezela okuthi "Cc" kunoma yikuphi ukubuka kwebhokisi lokungenayo), faka okungenani umamukeli oyedwa, isihloko, kanye nomzimba, bese ucindezela okuthi "Thumela". Umlayezo omusha uvela kufolda yakho ethi "Thumela" ngokushesha.',
+  'help.faq.compose.q': 'Ngiwuthumela kanjani umlayezo wami wokuqala?',
+  'help.faq.export.a':
+    'Yebo. Izilungiselelo \\u2192 I-akhawunti \\u2192 Ukuthunyelwa kwedatha kudala ingobo yomlando elandekayo (mbox + JSON) ngayo yonke imiyalezo, ilebula, kanye noxhumana naye. Akukho tier ye-premium edingekayo.',
+  'help.faq.labels.a':
+    'Amafolda akhethekile (umlayezo uhlala ku-1 ncamashi): Ibhokisi lokungenayo, Okuthunyelwe, Okusalungiswa, Okugaxekile, Udoti, Ingobo yomlando. Amalebula ayisengezo \\u2014 ungafaka amaningi ku-imeyili eyodwa bese uhlunga ngezinhlanganisela ezivela kubha yokusesha.',
+  'help.faq.password.a':
+    'Sebenzisa isixhumanisi esithi \\u201CUkhohliwe iphasiwedi?\\u201D ekhasini lokungena ngemvume. Sizothumela isixhumanisi sokusetha kabusha esisebenza ihora elilodwa ku-imeyili ye-akhawunti yakho.',
+  'help.faq.shortcuts.a':
+    'Yebo. \\u201Cj\\u201D / \\u201Ck\\u201D hambisa phakathi kwezintambo, \\u201Cs\\u201D shintsha inkanyezi, \\u201Ce\\u201D izingobo zomlando, \\u201C#\\u201D hambisa kudoti, futhi \\u201C/\\u201D gxila ebhokisini lokusesha. Imibhalo emfushane ihlala kunoma yikuphi ukubuka kwebhokisi lokungenayo ngokucindezela \\u201C?\\u201D.',
+  'help.faq.support.a':
+    'Thumela i-imeyili ku-support@courier.example. Siphendula yonke imilayezo zingakapheli izinsuku zebhizinisi, phakathi nezinsuku 9\\u201317 UTC.',
+  'help.subtitle':
+    'Izimpendulo ezisheshayo zemibuzo esiyizwa kakhulu. Kukhona okungekho? Vula izilungiselelo bese usebenzisa ifomu lempendulo elingaphakathi nohlelo lokusebenza, noma ubhalele ku-support@courier.example.',
+  'help.title': 'Singasiza kanjani?',
+  'landing.brand.scrollTop': 'Buyela phezulu',
+  'landing.ctaBody':
+    'Joyina izinkulungwane zochwepheshe abaqedele ibhokisi labo lokungenayo ngaphambi kwesidlo sasemini.',
+  'landing.ctaTitle': 'Cubungula kakhulu, sabela kancane.',
+  'landing.eyebrow': 'I-imeyili yomsebenzi ogxile',
+  'landing.featuresBody': 'Yeka ukuphatha ibhokisi lakho lokungenayo bese uqala ukwenza umsebenzi.',
+  'landing.featuresTitle': 'Yakhelwe umsebenzi ojulile',
+  'landing.help': 'Usizo',
+  'landing.heroDemo': 'Bukela idemo',
+  'landing.heroSubtitle':
+    'I-Courier iyibhokisi lokungenayo elizolile elinamafasitela amathathu elakhelwe izisebenzi zolwazi ezifuna ukucubungula ulwazi, hhayi ukusabela kulo.',
+  'landing.proof': 'Kuthenjwe amaqembu agxile emhlabeni wonke',
+  'landing.signIn': 'Ngena ngemvume',
+  'meridian.archive.empty': 'Ingobo yomlando ayinalutho.',
+  'meridian.compose.addRecipient': 'Engeza omunye umamukeli',
+  'meridian.compose.bodyPlaceholder': 'Bhala umlayezo wakho…',
+  'meridian.compose.cc': 'I-CC',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Lahla okusalungiswa',
+  'meridian.compose.invalidEmail': '" {{value}} " akuyona i-imeyili evumelekile',
+  'meridian.compose.needRecipient': 'Engeza okungenani umamukeli oyedwa kuqala.',
+  'meridian.compose.replyTo': 'Phendula ku-thread {{id}}',
+  'meridian.compose.savedAt': 'Okusalungiswa kulondolozwe ku- {{time}}',
+  'meridian.compose.sentWithError': 'Kugcinwe ku-Sent, kodwa ukulethwa kwehlulekile: {{error}}',
+  'meridian.compose.subject': 'I-Subj',
+  'meridian.compose.subjectPlaceholder': 'Isihloko',
+  'meridian.compose.title': 'Umlayezo omusha',
+  'meridian.compose.to': 'To',
+  'meridian.drafts.continue': 'Qhubeka nokuhlela',
+  'meridian.drafts.count': '{{count}} imiyalezo',
+  'meridian.drafts.delete': 'Susa okusalungiswa',
+  'meridian.drafts.empty': 'Azikho izinguqulo ezisalungiswa okwamanje — qala ukubhala.',
+  'meridian.drafts.lastSaved': 'Kulondoloziwe {{at}}',
+  'meridian.drafts.noRecipients': '(abekho abamukeli okwamanje)',
+  'meridian.drafts.selectDraft': 'Khetha okusalungiswa ukuze ubuke kuqala.',
+  'meridian.drafts.title': 'Ama-draft',
+  'meridian.drafts.to': 'To',
+  'meridian.drafts.watermark': 'Okusalungiswa',
+  'meridian.folder.count': '{{count}} imiyalezo',
+  'meridian.folder.deleteForever': 'Susa unomphela',
+  'meridian.folder.restore': 'Hambisa ebhokisini lokungenayo',
+  'meridian.forgot.subtitle':
+    'Faka i-imeyili ehlotshaniswa nebhokisi lakho lokungenayo bese sizokuthumela isixhumanisi sokusetha kabusha.',
+  'meridian.forgot.success':
+    'Uma kukhona i-akhawunti enaleyo imeyili, isixhumanisi sokusetha kabusha sisendleleni.',
+  'meridian.inbox.empty': 'Akukho miyalezo lapha okwamanje.',
+  'meridian.inbox.loading': 'Iyalayisha…',
+  'meridian.inbox.next': 'Olandelayo',
+  'meridian.inbox.noSubject': '(akukho sihloko)',
+  'meridian.inbox.openCompose': 'Vula ukubhala',
+  'meridian.inbox.previous': 'Okwangaphambilini',
+  'meridian.inbox.replyFailed': 'Impendulo ilondoloziwe kodwa ukulethwa kwehlulekile: {{error}}',
+  'meridian.inbox.replySent': 'Impendulo ithunyelwe.',
+  'meridian.inbox.replyTo': 'Phendula ku- {{name}}',
+  'meridian.inbox.selectMessage': 'Khetha umlayezo ozowufunda',
+  'meridian.inbox.spam': 'Ugaxekile',
+  'meridian.inbox.viewThread': 'Buka intambo',
+  'meridian.login.hidePassword': 'Fihla iphasiwedi',
+  'meridian.login.noAccount': 'Awunayo i-akhawunti?',
+  'meridian.login.showPassword': 'Bonisa iphasiwedi',
+  'meridian.message.toLine': 'ku- {{recipients}}',
+  'meridian.notFound.eyebrow': 'Iphutha 404',
+  'meridian.notFound.title': 'Le ngxoxo igcinwe kungobo yomlando.',
+  'meridian.notFound.toInbox': 'Vula ibhokisi lami lokungenayo',
+  'meridian.reset.newLabel': 'Iphasiwedi Entsha',
+  'meridian.reset.showPassword': 'Bonisa iphasiwedi',
+  'meridian.reset.subtitle': 'Khetha iphasiwedi eqinile — okungenani izinhlamvu ezingu-8.',
+  'meridian.sent.empty': 'Awukathumeli lutho okwamanje.',
+  'meridian.sent.title': 'Kuthunyelwe',
+  'meridian.settings.noName': '(akukho gama elibekiwe)',
+  'meridian.settings.section.${section}': 'Yenza ngokwezifiso zakho {{appName}} ulwazi',
+  'meridian.settings.signature': 'Isiginesha',
+  'meridian.settings.signatureSaved': 'Isiginesha igciniwe.',
+  'meridian.sidebar.compose': 'Bhala',
+  'meridian.sidebar.labels': 'Amalebula',
+  'meridian.sidebar.noLabels': 'Azikho amalebula okwamanje',
+  'meridian.sidebar.storage': 'Isitoreji',
+  'meridian.sidebar.storageLabel': '{{used}} kwe {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Dala ibhokisi lakho lokungenayo laseCourier',
+  'meridian.signup.namePlaceholder': 'uMorgan Chen',
+  'meridian.signup.showPassword': 'Bonisa iphasiwedi',
+  'meridian.signup.subtitle': 'Cubungula ibhokisi lakho lokungenayo ngaphambi kwesidlo sasemini.',
+  'meridian.spam.empty': 'Akukho ugaxekile.',
+  'meridian.spam.title': 'Ugaxekile',
+  'meridian.starred.empty': 'Azikho imilayezo enezinkanyezi.',
+  'meridian.starred.loading': 'Iyalayisha…',
+  'meridian.starred.removeStar': 'Susa inkanyezi',
+  'meridian.starred.total': '{{count}} isamba',
+  'meridian.thread.back': 'Buyela ku-Inbox',
+  'meridian.thread.empty': 'Akukho miyalezo kulolu chungechunge.',
+  'meridian.thread.eyebrow': 'Inombolo yochungechunge {{id}}',
+  'meridian.thread.notFound': 'Uchungechunge alutholakalanga.',
+  'meridian.thread.star': 'Engeza inkanyezi',
+  'meridian.thread.unstar': 'Susa inkanyezi',
+  'meridian.time.yesterday': 'Izolo',
+  'meridian.topBar.searchPlaceholder': 'Sesha i-imeyili',
+  'meridian.trash.empty': 'Udoti awunalutho.',
+  'meridian.trash.title': 'Udoti',
+  'nav.legal': 'Ezomthetho',
+  'planUpdated.description':
+    'Okubhalisele kwakho sekuyasebenza manje futhi inkokhelo yakho ibuyekeziwe. Siyakwamukela ebhokisini lakho lokungenayo le-Courier elivuselelwe.',
+  'pricing.heading': 'okusalungiswa',
+  'pricing.limit.emails': 'ama-imeyili',
+  'pricing.limit.folders': 'amafolda',
+  'pricing.limit.labels': 'amalebula',
+  'privacy.collect.account':
+    'Idatha ye-akhawunti: igama, ikheli le-imeyili, iphasiwedi esheshisiwe, kanye nosuku obhalise ngalo.',
+  'privacy.intro':
+    'Le nqubomgomo yobumfihlo ichaza ukuthi yiluphi ulwazi oluqoqwa yi-Courier, ukuthi kungani siluqoqa, ukuthi silugcina kanjani luphephile, nokuthi yiziphi izinketho onazo ngalo. Sihlose ukucacisa esikhundleni sokunamathela emthethweni; uma kukhona okungacacile, bhalela ku-privacy@courier.example.',
+  'privacy.lastUpdated': 'Kugcine ukubuyekezwa: Ephreli 1, 2026',
+  'privacy.linkTerms': 'Funda Imigomo Yesevisi yethu \\u2192',
+  'privacy.rights.body':
+    'Ungathumela yonke idatha esinayo ngawe kusuka kuzilungiselelo → i-Akhawunti → Ukuthumela idatha, futhi ungasusa i-akhawunti yakho ngokuchofoza okukodwa — yonke imigqa isusiwe zingakapheli amahora angu-24, izingodo zokuhlola zihlanzwe ngemva kwezinsuku ezingu-30.',
+  'privacy.security.body':
+    'Okuqukethwe kwemeyili kanye nezinamathiselo kubethelwa ngesikhathi sokusebenza kusetshenziswa i-AES-256. Ukuxhumana okuya nokubuya kusevisi yethu kusebenzisa i-TLS 1.3. Amaphasiwedi afakwa ngokushesha nge-bcrypt; asilokothi sibhale noma sigcine amaphasiwedi acacile. Ukufinyelela ekukhiqizweni kunqunyelwe konjiniyela abaku-call, abahlolwa njalo ngenyanga.',
+  'privacy.share.body':
+    'Sabelana ngedatha kuphela nama-sub-processor esiwadingayo ukuze sisebenzise i-Courier (ukulethwa nge-imeyili nge-Mailgun, ukukhokhisa nge-Stripe, ukubamba nge-AWS). Ngamunye unesibopho ngokwesivumelwano sokusebenzisa idatha yakho ukuze asenzele isevisi yakhe. Asithengisi, asiqashi, noma sihwebe idatha yakho nanoma ubani.',
+  'terms.acceptable.spam':
+    'Akukho miyalezo eminingi engacelwanga. Sizovala ama-akhawunti athumela ugaxekile ngaphandle kwesixwayiso.',
+  'terms.account.body':
+    'Unesibopho sokugcina imfihlo yephasiwedi yakho kanye nanoma yimuphi umsebenzi owenzeka nge-akhawunti yakho. Sazise ku-security@courier.example uma ukholelwa ukuthi i-akhawunti yakho isengozini.',
+  'terms.billing.body':
+    'Izinhlelo ezikhokhelwayo ziyavuselelwa ngesikhathi esikhethiwe ekubhaliseni. Ungakhansela kusuka kuzilungiselelo → Ukukhokhisa nganoma yisiphi isikhathi futhi ugcina ukufinyelela isikhathi esisele sokukhokhisa. Kubuyiselwa imali ngesikhathi sokungasebenzi kwesevisi esidlula i-SLA.',
+  'terms.intro':
+    'Le migomo ilawula ukusebenzisa kwakho i-Courier. Ngokudala i-akhawunti noma ukuthumela i-imeyili ngathi uyavuma ukuboshwa yiyo. Sizama ukubhala imithetho umuntu angayilandela ngempela.',
+  'terms.lastUpdated': 'Kusebenza kusukela: Ephreli 1, 2026',
+  'terms.termination.body':
+    'Ungasusa i-akhawunti yakho nganoma yisiphi isikhathi. Singase simise okwesikhashana i-akhawunti ephula le migomo; uma senza kanjalo, sizochaza isizathu futhi sikuvumele ukuthi uthumele idatha yakho kuqala.',
+  'terms.warranty.body':
+    'Insizakalo inikezwa njengoba injalo. Sisebenza kanzima ukuyigcina ithembekile futhi iphephile, kodwa asikwazi ukuqinisekisa ukufinyelela okungaphazanyiswa. Ngokwezinga elivunyelwe ngumthetho, umthwalo wethu wemfanelo ulinganiselwe enanini osikhokhele lona ezinyangeni eziyi-12 ezedlule.',
+}

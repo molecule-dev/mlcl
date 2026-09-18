@@ -1,0 +1,130 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #d32f2f;
+  --mol-color-primary-light: #ef5350;
+  --mol-color-secondary: #1565c0;
+  --mol-color-background: #f5f5f5;
+  --mol-color-text: #212121;
+  --mol-color-text-secondary: #616161;
+  --mol-color-text-tertiary: #767676; /* was #9e9e9e — 2.68:1 on white (fail); #767676 = 4.54:1 */
+  --mol-color-border: #e0e0e0;
+
+  --color-primary: #d32f2f;
+  --color-primary-container: #a72121; /* light-mode container — needed for gradient hero; white text = 7.29:1 */
+  --color-on-primary: #ffffff; /* white on #d32f2f = 4.98:1 (pass) */
+  --color-on-primary-container: #ffdad6;
+  --color-primary-light: #ef5350;
+  --color-primary-dark: #b71c1c;
+  --color-secondary: #1565c0;
+  --color-secondary-light: #42a5f5;
+  --color-accent: #ffb300;
+  --color-background: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fafafa;
+  --color-text: #212121;
+  --color-text-secondary: #616161;
+  --color-text-muted: #767676; /* darkened from #9e9e9e — 2.68:1 on white (fail); #767676 = 4.54:1 */
+  --color-border: #e0e0e0;
+  --color-error: #c62828;
+  --color-success: #2e7d32;
+  --color-star: #ffb300;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode — warm hospitality dark.
+   Travel tone: warm near-black surfaces (subtle umber cast — hotel lobby
+   at dusk), brand red kept at the brand stop (#d32f2f) for badges and
+   surface accents and shifted brighter for hero CTAs so white text reads
+   cleanly. `--color-on-primary` STAYS white in both modes so red CTA
+   buttons keep their light-on-red character. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #d32f2f;
+  --mol-color-primary-light: #ef5350;
+  --mol-color-secondary: #64b5f6;
+  --mol-color-background: #14100d;
+  --mol-color-text: #f5ece4;
+  --mol-color-text-secondary: #c4b2a3;
+  --mol-color-border: #2e251f;
+
+  --color-primary: #d32f2f;
+  --color-primary-light: #ef5350;
+  --color-primary-dark: #b71c1c;
+  --color-secondary: #64b5f6;
+  --color-secondary-light: #90caf9;
+  --color-accent: #ffb300;
+  --color-background: #14100d;
+  --color-surface: #1d1815;
+  --color-surface-hover: #28201c;
+  --color-text: #f5ece4;
+  --color-text-secondary: #c4b2a3;
+  --color-text-muted: #9a8278; /* lightened from #80726a — 3.80:1 on dark surface (fail); #9a8278 = 4.89:1 */
+  --color-border: #2e251f;
+  --color-error: #f87171;
+  --color-success: #4ade80;
+  --color-star: #ffc947;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on red: `on-primary` stays white. */
+  --color-on-background: #f5ece4;
+  --color-surface-bright: #28201c;
+  --color-surface-dim: #0c0907;
+  --color-surface-container-lowest: #080604;
+  --color-surface-container-low: #181411;
+  --color-surface-container: #1d1815;
+  --color-surface-container-high: #28201c;
+  --color-surface-container-highest: #322823;
+  --color-surface-variant: #28201c;
+  --color-on-surface: #f5ece4;
+  --color-on-surface-variant: #c4b2a3;
+  --color-inverse-surface: #f5ece4;
+  --color-inverse-on-surface: #1d1815;
+  --color-inverse-primary: #d32f2f;
+  --color-primary-container: #5a1818;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffdad6;
+  --color-secondary-container: #0d3b73;
+  --color-on-secondary: #0a1014;
+  --color-on-secondary-container: #d0e6ff;
+  --color-tertiary: #ffc947;
+  --color-tertiary-container: #5b3a0d;
+  --color-on-tertiary: #1a1208;
+  --color-on-tertiary-container: #ffe9b0;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on bright red — #ffffff was 2.77:1 (fail); #690005 = 4.74:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #80706a; /* lightened from #6e5e54 — 2.84:1 on surface (fail); #80706a = 3.72:1 */
+  --color-outline-variant: #2e251f;
+  --color-surface-tint: #ef5350;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Global defaults — inside /* polish-v2:theme:start */
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
+  --color-background: #f8f9ff;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-inverse-on-surface: #eaf1ff;
+  --color-inverse-primary: #d2bbff;
+  --color-inverse-surface: #233144;
+  --color-on-background: #0d1c2e;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ede0ff;
+  --color-on-primary-fixed: #25005a;
+  --color-on-primary-fixed-variant: #5a00c6;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #523787;
+  --color-on-secondary-fixed: #25005a;
+  --color-on-secondary-fixed-variant: #523787;
+  --color-on-surface: #0d1c2e;
+  --color-on-surface-variant: #4a4455;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #ffe0cd;
+  --color-on-tertiary-fixed: #301400;
+  --color-on-tertiary-fixed-variant: #713700;
+  --color-outline: #7b7487;
+  --color-outline-variant: #ccc3d8;
+  --color-primary: #630ed4;
+  --color-primary-container: #7c3aed;
+  --color-primary-fixed: #eaddff;
+  --color-primary-fixed-dim: #d2bbff;
+  --color-secondary: #6a4fa0;
+  --color-secondary-container: #c4a7ff;
+  --color-secondary-fixed: #eaddff;
+  --color-secondary-fixed-dim: #d2bbff;
+  --color-surface: #f8f9ff;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container: #e6eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d5e3fc;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #ccdbf3;
+  --color-surface-tint: #732ee4;
+  --color-surface-variant: #d5e3fc;
+  --color-tertiary: #7d3d00;
+  --color-tertiary-container: #a15100;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-tertiary-fixed-dim: #ffb784;
+
+  /* Stitch border-radius scale. */
+  --radius: 0.125rem;
+  --radius-full: 0.75rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+
+  /* Stitch font families. */
+  --font-body: Inter;
+  --font-headline: Inter;
+  --font-label: Inter;
+}
+/* polish-v2:theme:end */
+
+/* polish-v2:safelist:start */
+@source inline("-bottom-1 -bottom-10 -bottom-4 -mx-6 -right-1 -right-10 -right-12 -right-4 -rotate-90 -space-x-2 -top-12 -top-4 -translate-y-1/2 2xl 3xl absolute active:scale-90 active:scale-95 after:absolute after:bg-white after:border after:border-gray-300 after:h-5 after:left-[2px] after:rounded-full after:top-[2px] after:transition-all after:w-5 antialiased appearance-none aspect-video backdrop-blur backdrop-blur-md backdrop-blur-sm backdrop-blur-xl between bg-amber-100 bg-background bg-black/20 bg-black/60 bg-blue-50 bg-blue-50/50 bg-emerald-100 bg-emerald-500 bg-error bg-error-container bg-gradient-to-br bg-gradient-to-l bg-gradient-to-r bg-gradient-to-t bg-green-50 bg-on-surface bg-orange-50 bg-outline-variant/30 bg-primary bg-primary-container bg-primary-container/10 bg-primary-fixed bg-primary/20 bg-primary/30");
+@source inline("bg-primary/40 bg-primary/5 bg-primary/50 bg-primary/60 bg-primary/70 bg-primary/80 bg-primary/90 bg-purple-50 bg-red-50 bg-secondary bg-secondary-container/30 bg-secondary/10 bg-slate-100 bg-slate-200 bg-slate-300 bg-slate-400 bg-slate-50 bg-slate-50/30 bg-slate-500 bg-slate-700 bg-slate-800 bg-slate-900 bg-surface bg-surface-container bg-surface-container-high bg-surface-container-highest bg-surface-container-low bg-surface-container-low/50 bg-surface-container-lowest bg-surface/80 bg-tertiary bg-tertiary-container bg-tertiary-fixed bg-violet-50/50 bg-white bg-white/10 bg-white/20 bg-white/60 bg-white/80 bg-white/90 block blur-2xl blur-3xl body-lg border border-2 border-b border-b-2 border-collapse border-error border-l border-l-4 border-none border-outline-variant border-outline-variant/10 border-outline-variant/15 border-outline-variant/20 border-outline-variant/30 border-outline-variant/5 border-primary");
+@source inline("border-primary-container border-primary-fixed border-primary/10 border-primary/20 border-r border-r-0 border-r-2 border-slate-100 border-slate-200 border-slate-200/50 border-slate-50 border-slate-800 border-surface border-surface-container-low border-t border-t-0 border-tertiary-container border-tertiary/10 border-transparent border-violet-600 border-white border-white/10 border-white/20 bottom-0 bottom-4 bottom-8 center col col-span-12 cursor-not-allowed cursor-pointer custom-scrollbar dark:bg-blue-900/30 dark:bg-slate-700 dark:bg-slate-800 dark:bg-slate-800/50 dark:bg-slate-900 dark:bg-slate-900/80 dark:bg-slate-950 dark:bg-slate-950/80 dark:bg-violet-900/20 dark:border-slate-800 dark:hover:bg-blue-900/20 dark:hover:bg-slate-800 dark:hover:bg-slate-800/50 dark:hover:text-slate-100 dark:hover:text-slate-200 dark:hover:text-white dark:shadow-none dark:text-blue-300 dark:text-blue-400 dark:text-slate-100 dark:text-slate-400 dark:text-slate-50 dark:text-slate-500 dark:text-violet-300 dark:text-violet-400 decoration-2 delay-100 delay-150");
+@source inline("delay-200 delay-300 delay-400 delay-500 delay-75 divide-slate-50 divide-y duration-150 duration-200 duration-300 duration-500 duration-700 fixed flex flex-1 flex-col flex-grow flex-none flex-row flex-shrink-0 focus:ring-2 focus:ring-primary/20 font-black font-body font-bold font-extrabold font-headline font-inter font-label font-medium font-mono font-plus-jakarta font-plus-jakarta-sans font-sans font-semibold from-black/80 from-primary from-primary/5 gap-1 gap-12 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 glass-card glass-effect grid grid-cols-1 grid-cols-12 grid-cols-2 grid-cols-3 group group-hover:opacity-100 group-hover:rotate-90 group-hover:scale-105 group-hover:scale-110 group-hover:scale-125 group-hover:text-on-surface");
+@source inline("group-hover:text-primary group-hover:translate-x-1 h-1 h-10 h-12 h-14 h-16 h-2 h-20 h-24 h-4 h-40 h-48 h-5 h-6 h-8 h-full h-screen hidden hide-scrollbar hover:bg-blue-50/50 hover:bg-primary hover:bg-primary-container hover:bg-slate-100 hover:bg-slate-200/50 hover:bg-slate-50 hover:bg-slate-50/80 hover:bg-surface-container hover:bg-surface-container-high hover:bg-surface-container-highest hover:bg-surface-container-low hover:bg-white hover:bg-white/30 hover:bg-white/50 hover:border-outline-variant/30 hover:brightness-110 hover:opacity-100 hover:opacity-80 hover:opacity-90 hover:scale-105 hover:scale-110 hover:shadow-lg hover:shadow-on-surface/5 hover:shadow-xl hover:text-blue-600 hover:text-blue-700 hover:text-on-surface hover:text-primary hover:text-slate-600 hover:text-slate-800 hover:text-slate-900 hover:text-white hover:translate-x-1 hover:underline inline-flex inset-0 inset-y-0 items-center items-end items-start");
+@source inline("justify-between justify-center leading-relaxed leading-snug leading-tight left-0 left-3 left-4 left-[260px] lg:block lg:col-span-4 lg:col-span-8 lg:grid-cols-2 lg:grid-cols-3 line-clamp-1 material-symbols-outlined max-w-5xl max-w-6xl max-w-7xl max-w-[120px] max-w-[800px] max-w-lg max-w-md max-w-none max-w-screen-2xl max-w-sm max-w-xl mb mb-1 mb-10 mb-12 mb-2 mb-3 mb-4 mb-6 mb-8 md md:block md:col-span-1 md:col-span-2 md:flex md:flex-row md:grid-cols-2 md:grid-cols-3 md:items-end md:py-20 md:text-5xl min-h-[160px] min-h-screen min-w-0 min-w-[200px] ml-1 ml-2 ml-4 ml-60 ml-64 ml-[260px] mr-1 mr-4 mr-6");
+@source inline("mt-1 mt-10 mt-16 mt-20 mt-4 mt-6 mt-8 mt-auto mx-1 mx-2 mx-auto object-cover opacity-0 opacity-10 opacity-40 opacity-50 opacity-60 opacity-70 opacity-80 opacity-90 outline-none overflow-hidden overflow-x-auto p-1 p-10 p-12 p-2 p-3 p-4 p-5 p-6 p-8 pb-12 pb-2 pb-32 pb-4 pb-6 peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-primary peer-checked:border-primary peer-checked:opacity-100 pl-10 pl-12 pl-2 pl-4 placeholder:text-on-surface-variant/50 placeholder:text-outline placeholder:text-slate-400 pointer-events-none pr-10 pr-12 pr-4 pr-48 primary-gradient prose prose-slate pt-0 pt-2");
+@source inline("pt-20 pt-24 pt-4 pt-6 pt-8 px-10 px-12 px-2 px-3 px-4 px-5 px-6 px-8 py py-1 py-12 py-2 py-3 py-4 py-5 py-6 py-8 relative resize-none right-0 right-16 right-2 right-3 right-4 right-8 right-full ring-2 ring-4 ring-primary/10 ring-white rotate-12 rounded rounded-2xl rounded-3xl rounded-full rounded-l-xl rounded-lg rounded-t-sm rounded-xl scale-95 scale-98 scholar-gradient scholar-shadow scrollbar-hide shadow-2xl shadow-blue-200 shadow-glow shadow-lg shadow-md shadow-primary/10 shadow-primary/20 shadow-primary/40 shadow-primary/50 shadow-sm shadow-tertiary/30");
+@source inline("shadow-xl shrink-0 sm space-x-1 space-x-2 space-x-3 space-x-4 space-x-6 space-y-1 space-y-10 space-y-2 space-y-3 space-y-4 space-y-5 space-y-6 space-y-8 sr-only sticky text-2xl text-3xl text-4xl text-5xl text-[100px] text-[10px] text-[120px] text-[160px] text-[16px] text-[18px] text-[20px] text-[40px] text-[8px] text-[9px] text-amber-500 text-amber-600 text-amber-700 text-base text-blue-600 text-blue-700 text-blue-800 text-center text-display-lg text-emerald-500 text-emerald-600 text-error text-headline-md text-left text-lg text-on-error-container text-on-primary text-on-primary-container text-on-primary-fixed text-on-primary-fixed-variant text-on-secondary text-on-surface text-on-surface-variant text-on-surface-variant/40 text-on-surface-variant/60 text-on-surface-variant/80 text-on-tertiary text-on-tertiary-container");
+@source inline("text-on-tertiary-fixed text-on-tertiary-fixed-variant text-orange-600 text-outline text-primary text-primary-container text-red-600 text-right text-secondary text-slate-100 text-slate-300 text-slate-400 text-slate-500 text-slate-600 text-slate-700 text-slate-900 text-sm text-surface text-tertiary text-violet-600 text-violet-700 text-white text-xl text-xs to-primary-container to-tertiary to-transparent top-0 top-1/2 top-2 top-24 top-3 tracking-tight tracking-tighter tracking-wide tracking-wider tracking-widest transform transition-all transition-colors transition-opacity transition-transform truncate underline-offset-4 uppercase via-primary-container w-1 w-1/2 w-10 w-11 w-12 w-14 w-2 w-20 w-24 w-32 w-4 w-40 w-48 w-5");
+@source inline("w-6 w-60 w-64 w-8 w-80 w-[1px] w-[260px] w-[320px] w-fit w-full w-px whitespace-nowrap xl:block xs z-10 z-30 z-40 z-50");
+/* polish-v2:safelist:end */
+
+/* polish-v2:stitch-styles:start */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scholar-gradient {
+  background: linear-gradient(135deg, #1a56db 0%, #003fb1 100%);
+}
+
+.scholar-shadow {
+  box-shadow: 0 20px 40px rgba(0, 63, 177, 0.06);
+}
+
+.font-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, #1a56db 0%, #003fb1 100%);
+}
+/* polish-v2:stitch-styles:end */

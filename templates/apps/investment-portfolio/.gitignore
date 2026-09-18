@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env*
+!.env.example
+*.log
+.DS_Store
+*.pem
+coverage/
+
+# molecule.dev platform runtime markers written into the project root by the
+# sandbox (.mol-install-*, .mol-boot-timeline.log, ...) — never project source
+.mol-*

@@ -1,0 +1,210 @@
+/*
+ * Nuzzle (pet-care) brand palette — see DESIGN.md.
+ * Teal-cyan primary, emerald accent, navy backbone for clinical-meets-warm
+ * pet-care brand. The molecule theme provider sets each --mol-color-* token
+ * at runtime from this stylesheet (or the dark override below) and Tailwind
+ * resolves @theme tokens (in index.css) against them.
+ */
+
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand */
+  --mol-color-primary: #0891b2;
+  --mol-color-primary-light: #22b8cf;
+  --mol-color-primary-dark: #0e7490;
+  --mol-color-secondary: #10b981;
+  --mol-color-secondary-light: #34d399;
+  --mol-color-secondary-dark: #059669;
+
+  /* Surfaces */
+  --mol-color-background: #f0fdfa;
+  --mol-color-background-secondary: #ecfdf5;
+  --mol-color-background-tertiary: #e0f2fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0fdfa;
+  --mol-color-input-background: #ffffff;
+
+  /* Foreground */
+  --mol-color-text: #1e293b;
+  --mol-color-text-secondary: #64748b;
+  --mol-color-text-tertiary: #475569;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic */
+  --mol-color-success: #10b981;
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #ef4444;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #0891b2;
+  --mol-color-info-light: #cffafe;
+
+  /* Borders */
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #e0f2fe;
+  --mol-color-border-focus: #0891b2;
+
+  /* Brand navy — dark anchor color for hero banners (always dark regardless of mode) */
+  --color-brand-navy: #0f1b2d;
+
+  /* Unrated / empty star indicator */
+  --color-star-empty: #d1d5db;
+
+  /* Pet-care semantic states (border-left accents on profile cards & rows) */
+  --color-pet-healthy: #10b981;
+  --color-pet-healthy-bg: #d1fae5;
+  --color-pet-attention: #f59e0b;
+  --color-pet-attention-bg: #fef3c7;
+  --color-pet-critical: #ef4444;
+  --color-pet-critical-bg: #fee2e2;
+  --color-pet-vaccinated: #8b5cf6;
+  --color-pet-vaccinated-bg: #ede9fe;
+  --color-pet-booked: #0891b2;
+  --color-pet-booked-bg: #cffafe;
+
+  /* Typography */
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+  --mol-font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+
+  /* Material-3 / Stitch bridge tokens (light palette) */
+  --color-background: #f0fdfa;
+  --color-on-background: #1e293b;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e0f2fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0fdfa;
+  --color-surface-container: #ecfdf5;
+  --color-surface-container-high: #e0f2fe;
+  --color-surface-container-highest: #cffafe;
+  --color-surface-variant: #e0f2fe;
+  --color-on-surface: #1e293b;
+  --color-on-surface-variant: #64748b;
+  --color-inverse-surface: #1e293b;
+  --color-inverse-on-surface: #f0fdfa;
+  --color-inverse-primary: #22d3ee;
+  --color-primary: #0891b2;
+  --color-primary-container: #cffafe;
+  --color-on-primary: #100e0c; /* dark on cyan — white was 3.68:1 (fail); #100e0c = 5.23:1 */
+  --color-on-primary-container: #0e7490;
+  --color-secondary: #10b981;
+  --color-secondary-container: #d1fae5;
+  --color-on-secondary: #0c1a1f; /* dark on emerald — white was 2.54:1 (fail); #0c1a1f = 7.00:1 */
+  --color-on-secondary-container: #059669;
+  --color-tertiary: #8b5cf6;
+  --color-tertiary-container: #ede9fe;
+  --color-on-tertiary: #0e0c1a; /* dark on purple — white was 4.23:1 (fail); #0e0c1a = 4.57:1 */
+  --color-on-tertiary-container: #5b21b6;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #300000; /* dark on red — white was 3.76:1 (fail); #300000 = 4.96:1 */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* #94a3b8 was 2.56:1 on white (fail ≥3:1); #6b7280 = 4.83:1 */
+  --color-outline-variant: #e2e8f0;
+  --color-surface-tint: #0891b2;
+}
+
+/* Dark mode overrides — Nuzzle dark (clinical-meets-warm pet care).
+   Warm-neutral near-black chassis (warmer than pure tech-dark — pet
+   care is clinical-but-friendly, not cold). Brand cyan is kept at the
+   brand stop (#0891b2); on-primary uses dark text (#100e0c) because
+   mid-value cyan cannot carry white text at 4.5:1. Focus border +
+   secondary text lift to brighter cyan for legibility on the chassis. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #0891b2;
+  --mol-color-primary-light: #155e75;
+  --mol-color-primary-dark: #0e7490;
+  --mol-color-secondary: #34d399;
+  --mol-color-secondary-light: #6ee7b7;
+  --mol-color-secondary-dark: #059669;
+
+  --mol-color-background: #100e0c;
+  --mol-color-background-secondary: #181614;
+  --mol-color-background-tertiary: #1f1d1a;
+  --mol-color-surface: #100e0c;
+  --mol-color-surface-secondary: #181614;
+  --mol-color-input-background: #0a0908;
+
+  --mol-color-text: #f5f4f2;
+  --mol-color-text-secondary: #c4c2bd;
+  --mol-color-text-tertiary: #8a8783;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Semantic — brightened for dark */
+  --mol-color-success: #34d399;
+  --mol-color-success-light: rgba(52, 211, 153, 0.18);
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: rgba(251, 191, 36, 0.18);
+  --mol-color-error: #f87171;
+  --mol-color-error-light: rgba(248, 113, 113, 0.18);
+  --mol-color-info: #22d3ee;
+  --mol-color-info-light: rgba(34, 211, 238, 0.18);
+
+  --mol-color-border: #2a2826;
+  --mol-color-border-secondary: #3a3835;
+  --mol-color-border-focus: #22d3ee;
+
+  /* Unrated / empty star indicator */
+  --color-star-empty: #5a5855;
+
+  /* Brand navy — intentionally always dark (hero banners on warm-black chassis) */
+  --color-brand-navy: #0c1420;
+
+  /* Pet-care semantic states — preserve hue, dim background tints */
+  --color-pet-healthy: #34d399;
+  --color-pet-healthy-bg: rgba(16, 185, 129, 0.18);
+  --color-pet-attention: #fbbf24;
+  --color-pet-attention-bg: rgba(245, 158, 11, 0.18);
+  --color-pet-critical: #f87171;
+  --color-pet-critical-bg: rgba(239, 68, 68, 0.18);
+  --color-pet-vaccinated: #a78bfa;
+  --color-pet-vaccinated-bg: rgba(139, 92, 246, 0.18);
+  --color-pet-booked: #22d3ee;
+  --color-pet-booked-bg: rgba(8, 145, 178, 0.18);
+
+  /* Material-3 / Stitch bridge tokens — override @theme so bg-surface,
+     text-on-surface etc. flip on data-mol-mode="dark". */
+  --color-background: #100e0c;
+  --color-on-background: #f5f4f2;
+  --color-surface: #100e0c;
+  --color-surface-bright: #1f1d1a;
+  --color-surface-dim: #080706;
+  --color-surface-container-lowest: #030202;
+  --color-surface-container-low: #141210;
+  --color-surface-container: #181614;
+  --color-surface-container-high: #1f1d1a;
+  --color-surface-container-highest: #2a2826;
+  --color-surface-variant: #1f1d1a;
+  --color-on-surface: #f5f4f2;
+  --color-on-surface-variant: #c4c2bd;
+  --color-inverse-surface: #f5f4f2;
+  --color-inverse-on-surface: #100e0c;
+  --color-inverse-primary: #0891b2;
+  --color-primary: #0891b2; /* keep brand cyan at brand stop */
+  --color-primary-container: #155e75;
+  --color-on-primary: #100e0c; /* dark on cyan — white was 3.68:1 (fail); #100e0c = 5.23:1 */
+  --color-on-primary-container: #cffafe;
+  --color-secondary: #34d399;
+  --color-secondary-container: #064e3b;
+  --color-on-secondary: #100e0c;
+  --color-on-secondary-container: #d1fae5;
+  --color-tertiary: #a78bfa;
+  --color-tertiary-container: #3b0764;
+  --color-on-tertiary: #1e0050; /* dark on purple — white was 2.72:1 (fail); #1e0050 = 6.59:1 */
+  --color-on-tertiary-container: #ede9fe;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fee2e2;
+  --color-outline: #706d6a; /* #5a5855 was 2.72:1 on surface (fail ≥3:1); #706d6a = 3.75:1 */
+  --color-outline-variant: #2a2826;
+  --color-surface-tint: #22d3ee;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

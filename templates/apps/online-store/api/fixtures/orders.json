@@ -1,0 +1,154 @@
+[
+  {
+    "id": "c7928b78-2b8a-44b8-d356-9832696638fa",
+    "order_number": "BZ-2026-1847",
+    "user_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "status": "delivered",
+    "subtotal": 38400,
+    "shipping": 0,
+    "tax": 3072,
+    "total": 41472,
+    "currency": "USD",
+    "items": [
+      {
+        "id": "oi-001",
+        "product_id": "p-sony-wh1000xm5",
+        "name": "Sony WH-1000XM5 Wireless Headphones",
+        "quantity": 1,
+        "price": 34900,
+        "thumbnail": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=192&h=192&fit=crop"
+      },
+      {
+        "id": "oi-002",
+        "product_id": "p-organic-tee",
+        "name": "Organic Cotton Crew Neck Tee",
+        "quantity": 1,
+        "price": 3500,
+        "thumbnail": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=192&h=192&fit=crop"
+      }
+    ],
+    "shipping_address": {
+      "name": "Emma Smith",
+      "line1": "1234 Main St",
+      "city": "San Francisco",
+      "state": "CA",
+      "postalCode": "94102",
+      "country": "US"
+    },
+    "shippingInfo": {
+      "name": "Emma Smith",
+      "line1": "1234 Main St",
+      "line2": "",
+      "city": "San Francisco",
+      "state": "CA",
+      "postalCode": "94102",
+      "country": "United States",
+      "trackingNumber": "1Z999AA10123456784",
+      "carrier": "Standard Shipping"
+    },
+    "timeline": [
+      {
+        "status": "placed",
+        "label": "Order Placed",
+        "date": "2026-03-15T10:00:00Z",
+        "completed": true
+      },
+      {
+        "status": "confirmed",
+        "label": "Payment Confirmed",
+        "date": "2026-03-15T10:05:00Z",
+        "completed": true
+      },
+      {
+        "status": "shipped",
+        "label": "Shipped",
+        "date": "2026-03-17T14:30:00Z",
+        "completed": true
+      },
+      {
+        "status": "delivered",
+        "label": "Delivered",
+        "date": "2026-03-22T14:00:00Z",
+        "completed": true
+      }
+    ],
+    "created_at": "2026-03-15T10:00:00Z",
+    "updated_at": "2026-03-22T14:00:00Z"
+  },
+  {
+    "id": "d9752d42-9477-4909-26c0-d6da927cdfa0",
+    "user_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "status": "shipped",
+    "subtotal": 15900,
+    "tax": 1272,
+    "total": 17172,
+    "currency": "USD",
+    "shipping_address": {
+      "name": "Liam Johnson",
+      "line1": "5678 Oak Ave",
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "73301",
+      "country": "US"
+    },
+    "created_at": "2026-03-20T15:30:00Z",
+    "updated_at": "2026-03-25T09:00:00Z"
+  },
+  {
+    "id": "27acdc2f-7be7-498e-9657-761c24b97bdb",
+    "user_id": "278da854-7c49-4ccb-10a7-098f78344dd6",
+    "status": "confirmed",
+    "subtotal": 8900,
+    "tax": 712,
+    "total": 9612,
+    "currency": "USD",
+    "shipping_address": {
+      "name": "Olivia Williams",
+      "line1": "9012 Cedar Ln",
+      "city": "Denver",
+      "state": "CO",
+      "postalCode": "80201",
+      "country": "US"
+    },
+    "created_at": "2026-03-28T08:00:00Z",
+    "updated_at": "2026-03-28T08:00:00Z"
+  },
+  {
+    "id": "c1e297a7-70e6-48db-b394-3b1486e6700e",
+    "user_id": "5db72fef-a971-4e73-8523-0fdfc803cc49",
+    "status": "processing",
+    "subtotal": 22400,
+    "tax": 1792,
+    "total": 24192,
+    "currency": "USD",
+    "shipping_address": {
+      "name": "Noah Brown",
+      "line1": "3456 Elm St",
+      "city": "Portland",
+      "state": "OR",
+      "postalCode": "97201",
+      "country": "US"
+    },
+    "created_at": "2026-03-26T12:00:00Z",
+    "updated_at": "2026-03-27T10:00:00Z"
+  },
+  {
+    "id": "ab29b187-0a1e-4bd4-7806-0192f5dbf95d",
+    "user_id": "568396b8-697f-4d31-0adf-ca994214b6ce",
+    "status": "delivered",
+    "subtotal": 7000,
+    "tax": 560,
+    "total": 7560,
+    "currency": "USD",
+    "shipping_address": {
+      "name": "Ava Garcia",
+      "line1": "7890 Park Blvd",
+      "city": "Seattle",
+      "state": "WA",
+      "postalCode": "98101",
+      "country": "US"
+    },
+    "created_at": "2026-03-10T09:00:00Z",
+    "updated_at": "2026-03-17T16:00:00Z"
+  }
+]

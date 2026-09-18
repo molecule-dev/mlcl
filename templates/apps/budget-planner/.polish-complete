@@ -1,0 +1,14 @@
+Polish complete: 2026-04-28T13:15:00Z
+Pipeline: polish-app.md (parallel batch resume after crashed-partial-polish stash)
+Cluster: finance → sibling: personal-finance
+Components: 6 bespoke (BalanceHeroCard, EnvelopeKpiCard, CategoryProgressRow,
+  GoalProgressCard, TransactionRow, AuthSplitLayout)
+Pages rewritten: Landing, Dashboard, Budget (signature)
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (§13.3 brand panel)
+Pages added: TransactionDetail, Profile, Billing (close screen-map.json gaps)
+Screen-map coverage: 20/20 routes wired
+Material 3 tokens: already filled prior to session
+Fonts: Inter + Material Symbols already in index.html
+Sweep 1 chrome conformance: yes (Header/Footer delegate, RootErrorBoundary re-export)
+Typecheck: clean
+Compliance: clean (classmap-coverage 80.3%)

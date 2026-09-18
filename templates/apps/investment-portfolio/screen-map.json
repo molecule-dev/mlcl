@@ -1,0 +1,149 @@
+{
+  "app": "investment-portfolio",
+  "designProjectId": "11175224272028212009",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-landing.html",
+      "designScreenId": "d8917ee73af3452884ccb8bbd21ca91a"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-login.html",
+      "designScreenId": "b2fd18fae885465d9eef4990d9fe9289"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-investment-portfolio-login.html",
+      "derivationNotes": "Same split-screen layout as Login (navy left, white right). Right form has First Name, Last Name, Email, Password, Confirm Password fields. Header 'Open your Argent account'. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Remember me, no Forgot password link, no SSO."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-investment-portfolio-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has only Email field. Header 'Reset your password', subtext 'Enter your email to receive a reset link'. Button text 'Send reset link'. Bottom link 'Back to Sign In'. No password field, no Remember me, no SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-investment-portfolio-login.html",
+      "derivationNotes": "Same split-screen layout as Login. Right form has New Password and Confirm Password fields. Header 'Set new password'. Button text 'Reset password'. Bottom link 'Back to Sign In'. No email field, no SSO."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-dashboard.html",
+      "designScreenId": "b8a6f3c05f224ef1998fc10861b58f35"
+    },
+    {
+      "name": "Holdings",
+      "templateFile": "app/pages/Holdings.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/holdings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-holdings.html",
+      "designScreenId": "055f3ab158494560a2072a5fd32ca75f"
+    },
+    {
+      "name": "AssetDetail",
+      "templateFile": "app/pages/AssetDetail.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/assets/:symbol",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-asset-detail.html",
+      "designScreenId": "4921953b3bb74459bbe6095aba786dce"
+    },
+    {
+      "name": "Watchlist",
+      "templateFile": "app/pages/Watchlist.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/watchlist",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-watchlist.html",
+      "designScreenId": "f2ff943e85394f7f853fe445abf07b99"
+    },
+    {
+      "name": "Transactions",
+      "templateFile": "app/pages/Transactions.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/transactions",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-transactions.html",
+      "designScreenId": "80a8fec00cb043cfbd7810986148a048"
+    },
+    {
+      "name": "News",
+      "templateFile": "app/pages/News.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/news",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-news.html",
+      "designScreenId": "689f5808a02e4a978c84bb87de89f829"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-settings.html",
+      "designScreenId": "0e11c70c45e54d24a8d93ec61fe5db6b"
+    },
+    {
+      "name": "Rebalance",
+      "templateFile": "app/pages/Rebalance.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/rebalance",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-rebalance.html",
+      "designScreenId": "20d4cc1128844f7ebab02b191dc8dd35"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/InvestmentPortfolioLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-investment-portfolio-reports.html",
+      "designScreenId": "61a902cd5658448393401f3edc403e68"
+    }
+  ]
+}

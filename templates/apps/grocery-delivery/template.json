@@ -1,0 +1,138 @@
+{
+  "label": "Grocery Delivery",
+  "description": "Instacart-like grocery delivery with categories, substitution preferences, delivery slots, and real-time order tracking \u2014 with built-in Stripe-backed subscription tiers",
+  "cluster": "ecommerce",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-geolocation-google",
+    "@molecule/api-image-sharp",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-realtime-socketio",
+    "@molecule/api-resource-cart",
+    "@molecule/api-resource-inventory",
+    "@molecule/api-resource-order",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-product",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-data-table",
+    "@molecule/app-maps",
+    "@molecule/app-realtime-socketio",
+    "@molecule/app-status-timeline-react",
+    "@molecule/app-top-nav-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Grocery store name displayed in header and emails",
+      "default": "Bushel"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key for payment processing",
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "description": "Stripe publishable key for client-side checkout",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "MeiliSearch server URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "MeiliSearch admin API key",
+      "required": true
+    },
+    "GOOGLE_MAPS_API_KEY": {
+      "description": "Google Maps API key for delivery routing and address validation",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for product images",
+      "required": true
+    },
+    "S3_REGION": {
+      "description": "AWS region for S3 bucket",
+      "default": "us-east-1"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "description": "AWS access key for S3",
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "AWS secret key for S3",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "STORE_CURRENCY": {
+      "description": "Default currency code",
+      "default": "USD"
+    },
+    "STORE_TAX_RATE": {
+      "description": "Default tax rate as decimal",
+      "default": "0.0"
+    },
+    "DELIVERY_FEE": {
+      "description": "Default delivery fee in cents",
+      "default": "499"
+    },
+    "FREE_DELIVERY_THRESHOLD": {
+      "description": "Minimum order amount in cents for free delivery",
+      "default": "3500"
+    },
+    "DELIVERY_RADIUS_KM": {
+      "description": "Maximum delivery radius in kilometers",
+      "default": "15"
+    },
+    "STRIPE_GROCERY_DELIVERY_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_GROCERY_DELIVERY_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_GROCERY_DELIVERY_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_GROCERY_DELIVERY_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "payments",
+    "notifications",
+    "image-upload",
+    "realtime",
+    "geolocation",
+    "subscriptions"
+  ]
+}

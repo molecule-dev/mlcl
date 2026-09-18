@@ -1,0 +1,155 @@
+{
+  "app": "ai-data-analyst",
+  "designProjectId": "8876277100018681407",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-login.html",
+      "designScreenId": "2e87e9f2aa7f4e61875ecc4de9906609"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-data-analyst-login.html",
+      "derivationNotes": "Same centered card layout as Login. Add First Name, Last Name, Confirm Password fields. Button text 'Create Account'. Bottom link 'Already have an account? Sign In'. No Forgot Password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-data-analyst-login.html",
+      "derivationNotes": "Same centered card layout as Login. Email field only. Heading 'Reset Password' with subtext 'Enter your email to receive a reset link'. Button 'Send Reset Link'. Bottom link 'Back to Sign In'. No password, SSO, or remember me."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-ai-data-analyst-login.html",
+      "derivationNotes": "Same centered card layout as Login. New Password + Confirm Password fields only. Heading 'Set New Password'. Button 'Reset Password'. Bottom link 'Back to Sign In'."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-dashboard.html",
+      "designScreenId": "7c7684222d8a4e1d8374915638e602b2"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-landing.html",
+      "designScreenId": "09cf1760a7434200a670b0c6371bf83d"
+    },
+    {
+      "name": "QueryEditor",
+      "templateFile": "app/pages/QueryEditor.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/query",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-query-editor.html",
+      "designScreenId": "493b0773022541e9ab732330ac79ea4b"
+    },
+    {
+      "name": "Datasets",
+      "templateFile": "app/pages/Datasets.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/datasets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-datasets.html",
+      "designScreenId": "0738f891f3c94b7788cf9980cff62ffe"
+    },
+    {
+      "name": "DatasetDetail",
+      "templateFile": "app/pages/DatasetDetail.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/datasets/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-dataset-detail.html",
+      "designScreenId": "5ec3ce140bc94af6a738bf386ba3b59d"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-reports.html",
+      "designScreenId": "87fcc3ee406a444082471d18ece488a8"
+    },
+    {
+      "name": "ReportDetail",
+      "templateFile": "app/pages/ReportDetail.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/reports/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-report-detail.html",
+      "designScreenId": "c47e84a7667f4648b6c44a1a9bf983dc"
+    },
+    {
+      "name": "Upload",
+      "templateFile": "app/pages/Upload.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/upload",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-upload.html",
+      "designScreenId": "e943460107154baea21c93d2d86b9485"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/ClarionLayout.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-ai-data-analyst-settings.html",
+      "designScreenId": "80ffceadca544fd8a536fd84b264f3c3"
+    }
+  ]
+}

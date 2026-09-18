@@ -1,0 +1,65 @@
+[
+  {
+    "id": "inv_001", "number": "INV-2026-0142", "customer_name": "Acme Corp",         "customer_email": "ap@acme.example", "customer_address": ["Acme Corp", "100 Industrial Ave", "Boston, MA 02101"],
+    "issued_at": "2026-04-01", "due_date": "2026-05-01", "paid_at": null, "status": "sent",
+    "line_items": [
+      { "description": "Q2 retainer", "quantity": 1, "unit_price_cents": 480000, "total_cents": 480000 },
+      { "description": "Onsite workshop (2 days)", "quantity": 2, "unit_price_cents":  60000, "total_cents": 120000 }
+    ],
+    "subtotal_cents": 600000, "tax_rate_pct": 8.5, "tax_cents": 51000, "amount_cents": 651000, "total_cents": 651000,
+    "notes": "Net 30. Wire instructions on attached page."
+  },
+  {
+    "id": "inv_002", "number": "INV-2026-0141", "customer_name": "Wayne Enterprises", "customer_email": "ar@wayne.example", "customer_address": ["Wayne Enterprises", "1007 Mountain Drive", "Gotham, NJ 07101"],
+    "issued_at": "2026-03-28", "due_date": "2026-04-27", "paid_at": null, "status": "overdue",
+    "line_items": [
+      { "description": "March consulting (40h)", "quantity": 40, "unit_price_cents":  18500, "total_cents": 740000 }
+    ],
+    "subtotal_cents": 740000, "tax_rate_pct": 8.5, "tax_cents": 62900, "amount_cents": 802900, "total_cents": 802900
+  },
+  {
+    "id": "inv_003", "number": "INV-2026-0140", "customer_name": "Pied Piper",        "customer_email": "richard@pp.example", "customer_address": ["Pied Piper Inc.", "742 Evergreen Ter", "Palo Alto, CA 94301"],
+    "issued_at": "2026-03-15", "due_date": "2026-04-14", "paid_at": "2026-04-05", "status": "paid",
+    "line_items": [
+      { "description": "Compression algorithm review", "quantity": 1, "unit_price_cents": 1200000, "total_cents": 1200000 }
+    ],
+    "subtotal_cents": 1200000, "tax_rate_pct": 8.5, "tax_cents": 102000, "amount_cents": 1302000, "total_cents": 1302000
+  },
+  {
+    "id": "inv_004", "number": "INV-2026-0139", "customer_name": "Stark Industries",  "customer_email": "ap@stark.example", "customer_address": ["Stark Industries", "200 Park Ave", "Manhattan, NY 10166"],
+    "issued_at": "2026-03-10", "due_date": "2026-04-09", "paid_at": "2026-04-01", "status": "paid",
+    "line_items": [
+      { "description": "Strategy retainer (March)", "quantity": 1, "unit_price_cents": 850000, "total_cents": 850000 },
+      { "description": "Travel reimbursement",      "quantity": 1, "unit_price_cents":  42000, "total_cents":  42000 }
+    ],
+    "subtotal_cents": 892000, "tax_rate_pct": 8.5, "tax_cents": 75820, "amount_cents": 967820, "total_cents": 967820
+  },
+  {
+    "id": "inv_005", "number": "INV-2026-0138", "customer_name": "Initech",           "customer_email": "ap@initech.example", "customer_address": ["Initech", "4120 Freedom Blvd", "Austin, TX 78704"],
+    "issued_at": "2026-03-01", "due_date": "2026-03-31", "paid_at": "2026-03-29", "status": "paid",
+    "line_items": [
+      { "description": "TPS reports refactor",  "quantity": 1, "unit_price_cents":  72000, "total_cents":  72000 }
+    ],
+    "subtotal_cents": 72000, "tax_rate_pct": 8.5, "tax_cents":  6120, "amount_cents":  78120, "total_cents":  78120
+  },
+  {
+    "id": "inv_006", "number": "INV-2026-0137", "customer_name": "Soylent Corp",      "customer_email": "ap@soylent.example", "customer_address": ["Soylent Corp", "808 Mission St", "San Francisco, CA 94103"],
+    "issued_at": "2026-04-12", "due_date": "2026-05-12", "paid_at": null, "status": "draft",
+    "line_items": [
+      { "description": "Annual contract (draft)", "quantity": 1, "unit_price_cents": 4800000, "total_cents": 4800000 }
+    ],
+    "subtotal_cents": 4800000, "tax_rate_pct": 8.5, "tax_cents": 408000, "amount_cents": 5208000, "total_cents": 5208000
+  },
+  {
+    "id": "inv_007", "number": "INV-2026-0136", "customer_name": "Hooli",             "customer_email": "ap@hooli.example", "customer_address": ["Hooli LLC", "1 Hooli Plaza", "Mountain View, CA 94043"],
+    "issued_at": "2026-04-04", "due_date": "2026-05-04", "paid_at": null, "status": "sent",
+    "line_items": [
+      { "description": "Q2 cloud migration consulting", "quantity": 1, "unit_price_cents": 1850000, "total_cents": 1850000 }
+    ],
+    "subtotal_cents": 1850000, "tax_rate_pct": 8.5, "tax_cents": 157250, "amount_cents": 2007250, "total_cents": 2007250
+  },
+  {
+    "id": "inv_008", "number": "INV-2026-0135", "customer_name": "Globex Corp",       "customer_email": "ap@globex.example", "customer_address": ["Globex Corp", "501 Springfield Ave", "Springfield, IL 62701"],
+    "issued_at": "2026-02-15", "due_date": "2026-03-17", "paid_at": null, "status": "void"
+  }
+]

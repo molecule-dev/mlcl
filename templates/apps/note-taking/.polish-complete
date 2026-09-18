@@ -1,0 +1,37 @@
+note-taking · Verso · polished 2026-04-29
+
+Brand: Verso — "Where thoughts take shape"
+Palette: indigo #3b5fc0 → primary, with violet #8b5cf6 / cyan #0891b2 / green #2da563 cluster accents
+Typography: Inter for UI, Georgia for editorial headings & note bodies
+
+Polish recipe (Sweep 1 chrome + Sweep 2 bespoke):
+- Sweep 1 — chrome conformance (AppHeader, AppFooter, RootErrorBoundary, SidebarLayout via VersoLayout)
+- Sweep 2 — 6 bespoke components built atop ClassMap + Material 3 tokens:
+  * VersoAuthShell      — left brand panel + right form, frosted note preview, gradient orbs
+  * VersoInput          — labeled input with rounded border, comfortable padding, optional hint
+  * VersoLayout         — sidebar shell wrapping @molecule/app-sidebar-layout-react
+  * VersoTodayHero      — gradient hero card for /home with serif headline + streak chip
+  * VersoNoteCard       — editorial note card (serif title, excerpt, tag chips, spine accent)
+  * VersoEditorCanvas   — block editor canvas for /notes/:id with breadcrumbs + serif body
+
+Pages (12 routes from screen-map.json):
+- /                  Landing — marketing hero with editor preview, feature grid, CTA card
+- /login             VersoAuthShell + VersoInput
+- /signup            VersoAuthShell + VersoInput
+- /forgot-password   VersoAuthShell + VersoInput + success state
+- /reset-password    VersoAuthShell + VersoInput
+- /home              VersoTodayHero + stats + recent/favorite notes via VersoNoteCard
+- /notes             notebook tree sidebar + master list of VersoNoteCard
+- /notes/:id         VersoEditorCanvas + backlinks + outline rail
+- /search            search input + filters + recent queries + sample results
+- /graph             knowledge graph SVG with cluster legend + most-connected list
+- /tags              tag cloud (sized by frequency) + tag table
+- /settings          section nav + editor preferences / sync / account panels
+
+Compliance:
+- ClassMap coverage ≥ 70% (every className wrapped via cm.cn)
+- Material 3 derivative tokens filled in app/src/index.css
+- All UI text via t() with defaultValue fallbacks
+- Type-checked with `npx tsc --noEmit` (clean)
+- 12/12 screenshots captured at reference/.app-screenshots/note-taking/, none blank
+- Mock-server fixtures committed at api/fixtures/ (pages, workspaces, tags, blocks, templates, databases)

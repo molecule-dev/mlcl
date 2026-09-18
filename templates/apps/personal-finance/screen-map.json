@@ -1,0 +1,165 @@
+{
+  "app": "personal-finance",
+  "designProjectId": "7465467524270443238",
+  "screens": [
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-dashboard.html",
+      "designScreenId": "be84d3e197b84f60acc816042fa53e06"
+    },
+    {
+      "name": "Transactions",
+      "templateFile": "app/pages/Transactions.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/transactions",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-transactions.html",
+      "designScreenId": "e3cf10352ec14c51855aba47b3dd5786"
+    },
+    {
+      "name": "Accounts",
+      "templateFile": "app/pages/Accounts.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/accounts",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-accounts.html",
+      "designScreenId": "caf12b26ed90487c9379c868650e8466"
+    },
+    {
+      "name": "Budgets",
+      "templateFile": "app/pages/Budgets.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/budgets",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-budgets.html",
+      "designScreenId": "2450a7f7b05b4058abc3437103a20be8"
+    },
+    {
+      "name": "Goals",
+      "templateFile": "app/pages/Goals.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/goals",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-goals.html",
+      "designScreenId": "e9533e019f00440b90be974163ea8b67"
+    },
+    {
+      "name": "Reports",
+      "templateFile": "app/pages/Reports.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/reports",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-personal-finance-reports.html",
+      "designScreenId": "eadb272d22ad4ca082595ac5f12107b1"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-login.html",
+      "designScreenId": "171ab0d839544fefa8a70315f2af14b4",
+      "generationPrompt": "Login page for premium personal finance app 'Ledger'. Centered card on full-height surface-container-low background. Card contains: app logo/name in Manrope display, email input, password input with show/hide toggle, 'Sign In' primary gradient button, 'Forgot Password?' link, 'or continue with' divider, Google/GitHub social login buttons, 'Don't have an account? Sign Up' link. Editorial design system with emerald #006948 primary, no borders, tonal surface shifts."
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-settings.html",
+      "designScreenId": "10c10066d28140f7a4475a1e090f353d",
+      "generationPrompt": "Settings page with sidebar nav. Sections: Profile (avatar, name, email), Security (change password, 2FA toggle), Notifications (email/push/digest toggles), Preferences (currency/date format/language), Appearance (light/dark/system theme), Data (export, delete account in red). 'Save Changes' primary gradient button. Editorial design system, Manrope headlines, Inter body, no borders."
+    },
+    {
+      "name": "AddTransaction",
+      "templateFile": "app/pages/AddTransaction.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/transactions/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-add-transaction.html",
+      "designScreenId": "ac3a295d6bbc4eabb01d99739cba20fb",
+      "generationPrompt": "Add Transaction form page with sidebar nav. Income/Expense pill toggle, large Manrope amount input, description/payee, category dropdown with icons, account dropdown, date picker, tags multi-select, notes textarea, recurring toggle with frequency options. Cancel + Save Transaction buttons. Editorial design, surface-container-low input backgrounds, 2px bottom-bar active states."
+    },
+    {
+      "name": "TransactionDetail",
+      "templateFile": "app/pages/TransactionDetail.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/transactions/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-transaction-detail.html",
+      "designScreenId": "e3743ac9a5a14aa1a93d1faf6e56e547",
+      "generationPrompt": "Transaction detail page with sidebar nav. Breadcrumb navigation. Header card with large amount (red for expense), payee name, status badge, date/time. Details card: category with icon, account, tags as pills, notes, recurring info. 'Similar Transactions' section with 3-4 related items. Edit + Delete action buttons. Editorial design, tonal surface shifts, no borders."
+    },
+    {
+      "name": "AccountDetail",
+      "templateFile": "app/pages/AccountDetail.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/accounts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-account-detail.html",
+      "designScreenId": "13d3798af8e342aaa817d17a4b5b1a78",
+      "generationPrompt": "Account detail page with sidebar nav. Breadcrumb 'Accounts > Chase Checking'. Header: account name, institution, type badge, large balance in Manrope display. Balance trend line chart (30 days, emerald green). Monthly income vs expenses summary. Recent 10 transactions list. Edit Account + Remove Account buttons. Editorial design, ambient shadows, generous whitespace."
+    },
+    {
+      "name": "Categories",
+      "templateFile": "app/pages/Categories.tsx",
+      "components": ["app/components/FinanceLayout.tsx"],
+      "route": "/categories",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-personal-finance-categories.html",
+      "designScreenId": "181900ca50fd4269902d823a1b415cb1",
+      "generationPrompt": "Categories management page with sidebar nav. 'Add Category' gradient button top-right. Two sections: Expense Categories and Income Categories. Grid of category cards: colored icon circle, name, transaction count, monthly total, 4px budget progress bar. Hover shows edit/delete actions. Sample categories: Housing, Food, Transport, Entertainment, Shopping, Health, Salary, Investments, Freelance. Editorial grid layout."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-personal-finance-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace 'Sign In' heading with 'Create Account'. Add full name field above email. Add 'Confirm Password' field below password. Change button text to 'Create Account'. Change bottom link to 'Already have an account? Sign In'. Keep social login section and overall editorial styling identical."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-personal-finance-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace heading with 'Reset Password' and add subtitle 'Enter your email and we'll send you a reset link'. Only email field (remove password field). Change button text to 'Send Reset Link'. Remove social login section and divider. Add 'Back to Sign In' link at bottom."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-personal-finance-login.html",
+      "derivationNotes": "Same centered card layout as Login. Replace heading with 'Set New Password' and subtitle 'Enter your new password below'. Two fields: 'New Password' and 'Confirm Password' (both with show/hide toggles). Change button to 'Reset Password'. Remove social login section. Add 'Back to Sign In' link at bottom."
+    }
+  ]
+}

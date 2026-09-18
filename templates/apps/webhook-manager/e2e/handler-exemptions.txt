@@ -1,0 +1,4 @@
+# Handlers exempted from gate 3 (network-call coverage).
+# Format: one base name per line. Comments after `#` are ignored.
+
+_audit  # internal helper imported by other handlers; not a route

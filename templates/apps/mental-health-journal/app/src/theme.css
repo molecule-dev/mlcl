@@ -1,0 +1,250 @@
+:root {
+  /* ── Bridge variables (feed into @theme) ── */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #f5f3ff;
+  --mol-color-success: #10b981;
+  --mol-color-error: #ef4444;
+  --mol-color-warning: #f59e0b;
+  --mol-color-info: #6366f1;
+  --mol-color-background: #faf5ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-text: #1e1b4b;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #6b7280; /* #9ca3af was 2.37:1 on #faf5ff (fail ≥4.5:1); #6b7280 = 4.51:1 */
+  --mol-color-text-inverse: #ffffff;
+
+  /* Light-mode M3 on-* overrides for colors that fail with white text */
+  --color-on-error: #3a0000; /* white on #ef4444 = 3.76:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-primary: #ffffff; /* white on #7c3aed = 5.70:1 (pass) */
+
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #ede9fe;
+  --color-secondary: #a78bfa;
+  --color-secondary-hover: #8b5cf6;
+  --color-accent: #c4b5fd;
+  --color-accent-light: #f5f3ff;
+
+  --color-success: #10b981;
+  --color-success-light: #d1fae5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-error: #ef4444;
+  --color-error-light: #fee2e2;
+
+  --color-mood-1: #ef4444;
+  --color-mood-2: #f97316;
+  --color-mood-3: #eab308;
+  --color-mood-4: #22c55e;
+  --color-mood-5: #10b981;
+
+  /* Mood badge tokens (dot/border + pill bg + pill text) */
+  /* Prompt category accent colors */
+  --color-prompt-gratitude: #10b981;
+  --color-prompt-feeling: #6366f1;
+  --color-prompt-kindness: #a78bfa;
+  --color-prompt-learn: #f59e0b;
+  --color-prompt-release: #34d399;
+  --color-prompt-connection: #ec4899;
+
+  --color-mood-radiant-dot: #10b981;
+  --color-mood-radiant-pill: #d1fae5;
+  --color-mood-radiant-text: #047857;
+  --color-mood-good-dot: #34d399;
+  --color-mood-good-pill: #d1fae5;
+  --color-mood-good-text: #047857;
+  --color-mood-neutral-dot: #f59e0b;
+  --color-mood-neutral-pill: #fef3c7;
+  --color-mood-neutral-text: #b45309;
+  --color-mood-low-dot: #f97316;
+  --color-mood-low-pill: #ffedd5;
+  --color-mood-low-text: #c2410c;
+  --color-mood-struggling-dot: #ef4444;
+  --color-mood-struggling-pill: #fee2e2;
+  --color-mood-struggling-text: #b91c1c;
+
+  --color-bg: #faf5ff;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #ffffff;
+  --color-bg-hover: #ede9fe;
+  --color-bg-sidebar: #ffffff;
+
+  --color-text: #1e1b4b;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #6b7280; /* #9ca3af was 2.37:1 on #faf5ff (fail ≥4.5:1); #6b7280 = 4.51:1 */
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e5e7eb;
+  --color-border-focus: #7c3aed;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(124, 58, 237, 0.06);
+  --shadow-md: 0 4px 12px rgba(124, 58, 237, 0.1);
+  --shadow-lg: 0 8px 24px rgba(124, 58, 237, 0.14);
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  --font-family: 'Nunito', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode — health/journal calm warm-violet dark.
+   Warm near-black surfaces with the slightest violet undertone keep the
+   journaling space feeling intimate rather than clinical. Brand violet
+   (#7c3aed) is preserved at the brand stop for primary CTAs (Save Entry,
+   etc.); legacy `--color-primary` shifts to a softer lilac (#a78bfa) for
+   body accents (mood pills, focus rings) that read on dark surfaces.
+   `--color-on-primary` STAYS white. Mood scale and severity-tinted bgs
+   keep their semantic hue meaning. */
+[data-mol-mode='dark'] {
+  /* ── Bridge variables (feed into @theme) ── */
+  --mol-color-primary: #7c3aed; /* brand violet — kept at brand stop for CTAs */
+  --mol-color-primary-light: #2d1f4e;
+  --mol-color-secondary: #a78bfa;
+  --mol-color-secondary-light: #2d1f4e;
+  --mol-color-success: #34d399;
+  --mol-color-error: #f87171;
+  --mol-color-warning: #fbbf24;
+  --mol-color-info: #818cf8;
+  --mol-color-background: #110d1a;
+  --mol-color-surface: #1c1729;
+  --mol-color-border: #2d2444;
+  --mol-color-border-focus: #a78bfa;
+  --mol-color-text: #ede9fe;
+  --mol-color-text-secondary: #c4b5fd;
+  --mol-color-text-tertiary: #8a7fa3;
+  --mol-color-text-inverse: #110d1a;
+
+  --color-primary: #a78bfa;
+  --color-primary-hover: #c4b5fd;
+  --color-primary-light: #2d1f4e;
+  --color-secondary: #8b5cf6;
+  --color-secondary-hover: #a78bfa;
+  --color-accent: #c4b5fd;
+  --color-accent-light: #2d1f4e;
+
+  --color-success: #34d399;
+  --color-success-light: #132f2c;
+  --color-warning: #fbbf24;
+  --color-warning-light: #3d3513;
+  --color-error: #f87171;
+  --color-error-light: #3d1414;
+
+  --color-mood-1: #f87171;
+  --color-mood-2: #fb923c;
+  --color-mood-3: #facc15;
+  --color-mood-4: #4ade80;
+  --color-mood-5: #34d399;
+
+  /* Prompt category accent colors — dark variants (slightly brighter) */
+  --color-prompt-gratitude: #34d399;
+  --color-prompt-feeling: #818cf8;
+  --color-prompt-kindness: #c4b5fd;
+  --color-prompt-learn: #fbbf24;
+  --color-prompt-release: #4ade80;
+  --color-prompt-connection: #f472b6;
+
+  /* Mood badge tokens — dark variants */
+  --color-mood-radiant-dot: #34d399;
+  --color-mood-radiant-pill: #132f2c;
+  --color-mood-radiant-text: #34d399;
+  --color-mood-good-dot: #4ade80;
+  --color-mood-good-pill: #132f2c;
+  --color-mood-good-text: #4ade80;
+  --color-mood-neutral-dot: #facc15;
+  --color-mood-neutral-pill: #3d3513;
+  --color-mood-neutral-text: #facc15;
+  --color-mood-low-dot: #fb923c;
+  --color-mood-low-pill: #431407;
+  --color-mood-low-text: #fb923c;
+  --color-mood-struggling-dot: #f87171;
+  --color-mood-struggling-pill: #3d1414;
+  --color-mood-struggling-text: #f87171;
+
+  --color-bg: #110d1a;
+  --color-bg-card: #1c1729;
+  --color-bg-input: #14101e;
+  --color-bg-hover: #261c3a;
+  --color-bg-sidebar: #150f22;
+
+  --color-text: #ede9fe;
+  --color-text-secondary: #c4b5fd;
+  --color-text-muted: #8a7fa3;
+  --color-text-inverse: #110d1a;
+
+  --color-border: #2d2444;
+  --color-border-focus: #a78bfa;
+
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+
+  /* Material-3 bridge tokens — override the @theme block so `bg-surface`,
+     `text-on-surface`, `bg-primary-container`, etc. all flip on dark.
+     Brand violet kept at brand stop (#7c3aed) so CTA buttons keep white text. */
+  --color-background: #110d1a;
+  --color-on-background: #ede9fe;
+  --color-surface: #110d1a;
+  --color-surface-bright: #261c3a;
+  --color-surface-dim: #0a0812;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #150f22;
+  --color-surface-container: #1c1729;
+  --color-surface-container-high: #261c3a;
+  --color-surface-container-highest: #2d2444;
+  --color-surface-variant: #261c3a;
+  --color-on-surface: #ede9fe;
+  --color-on-surface-variant: #c4b5fd;
+  --color-inverse-surface: #ede9fe;
+  --color-inverse-on-surface: #110d1a;
+  --color-inverse-primary: #7c3aed;
+  --color-primary: #7c3aed; /* keep brand violet at brand stop */
+  --color-primary-container: #2d1f4e;
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: #2d1f4e;
+  --color-on-secondary: #110d1a;
+  --color-on-secondary-container: #ede9fe;
+  --color-tertiary: #f9a8d4;
+  --color-tertiary-container: #4a1040;
+  --color-on-tertiary: #3e0022; /* dark on pink — #ffffff was 1.81:1 (fail); #3e0022 = 9.43:1 */
+  --color-on-tertiary-container: #fce7f3;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #6d5e8a;
+  --color-outline-variant: #2d2444;
+  --color-surface-tint: #a78bfa;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

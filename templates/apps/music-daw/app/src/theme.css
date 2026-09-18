@@ -1,0 +1,238 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --daw-primary: #8b5cf6;
+  --daw-primary-hover: #a78bfa;
+  --daw-secondary: #ec4899;
+  --daw-secondary-hover: #f472b6;
+  --daw-accent: #76ff03;
+  --daw-danger: #ff1744;
+  --daw-warning: #ffd600;
+
+  --daw-background: #121212;
+  --daw-surface: #1e1e1e;
+  --daw-surface-elevated: #2c2c2c;
+  --daw-border: #3a3a3a;
+
+  --daw-text: #e0e0e0;
+  --daw-text-secondary: #a0a0a0;
+  --daw-text-muted: #666666;
+
+  --daw-selection: #8b5cf6;
+  --daw-playhead: #76ff03;
+  --daw-record: #ff1744;
+  --daw-arrangement-bg: #141414;
+  --daw-track-bg: #1a1a1a;
+  --daw-track-audio: #22d3ee;
+  --daw-track-midi: #ec4899;
+  --daw-meter-green: #76ff03;
+  --daw-meter-yellow: #ffd600;
+  --daw-meter-red: #ff1744;
+
+  --daw-toolbar-bg: #0d0d0d;
+  --daw-sidebar-bg: #161616;
+  --daw-sidebar-width: 260px;
+
+  --daw-radius-sm: 2px;
+  --daw-radius-md: 4px;
+  --daw-radius-lg: 8px;
+
+  --daw-font-sans: 'Inter', system-ui, sans-serif;
+  --daw-font-mono: 'JetBrains Mono', monospace;
+  --daw-font-size-xs: 10px;
+  --daw-font-size-sm: 12px;
+  --daw-font-size-md: 13px;
+}
+
+[data-mol-mode='light'] {
+  /* --mol-color-* provider bridge (light) */
+  --mol-color-primary: #7c3aed;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #6d28d9;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #f5f3ff;
+  --mol-color-background-secondary: #ede9fe;
+  --mol-color-background-tertiary: #ddd6fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #faf8ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b2e;
+  --mol-color-text-secondary: #6d6884;
+  --mol-color-text-tertiary: #6d6884; /* #9894a8 was 2.68:1 vs #f5f3ff light bg (fail ≥4.5:1); #6d6884 = 4.83:1 */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #ddd6fe;
+  --mol-color-border-secondary: #c4b5fd;
+  --mol-color-border-focus: #7c3aed;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0891b2;
+
+  /* DAW-specific light overrides */
+  --daw-primary: #7c3aed;
+  --daw-primary-hover: #6d28d9;
+  --daw-secondary: #ec4899;
+  --daw-secondary-hover: #db2777;
+  --daw-accent: #16a34a;
+  --daw-danger: #dc2626;
+  --daw-warning: #d97706;
+  --daw-background: #f5f3ff;
+  --daw-surface: #ffffff;
+  --daw-surface-elevated: #faf8ff;
+  --daw-border: #ddd6fe;
+  --daw-text: #1e1b2e;
+  --daw-text-secondary: #6d6884;
+  --daw-text-muted: #9894a8;
+  --daw-arrangement-bg: #ede9fe;
+  --daw-track-bg: #f5f3ff;
+  --daw-toolbar-bg: #e9e4fd;
+  --daw-sidebar-bg: #f0ebff;
+  --daw-meter-green: #16a34a;
+  --daw-meter-yellow: #d97706;
+  --daw-meter-red: #dc2626;
+
+  /* M3 / Stitch bridge tokens */
+  --color-background: #f5f3ff;
+  --color-on-background: #1e1b2e;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ede9fe;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf8ff;
+  --color-surface-container: #f5f3ff;
+  --color-surface-container-high: #ede9fe;
+  --color-surface-container-highest: #ddd6fe;
+  --color-surface-variant: #ede9fe;
+  --color-on-surface: #1e1b2e;
+  --color-on-surface-variant: #6d6884;
+  --color-inverse-surface: #1e1b2e;
+  --color-inverse-on-surface: #f5f3ff;
+  --color-inverse-primary: #c4b5fd;
+  --color-primary: #7c3aed;
+  --color-primary-container: #ede9fe;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #4c1d95;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #fce7f3;
+  --color-on-secondary: #1a000e; /* #ffffff was 3.53:1 vs #ec4899 (fail); dark text = 5.67:1 */
+  --color-on-secondary-container: #831843;
+  --color-tertiary: #16a34a;
+  --color-tertiary-container: #dcfce7;
+  --color-on-tertiary: #002200; /* #ffffff was 3.30:1 vs #16a34a (fail); dark text = 5.19:1 */
+  --color-on-tertiary-container: #14532d;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6e6a82; /* #9894a8 was 2.94:1 vs surface (fail ≥3:1); #6e6a82 = 5.19:1 */
+  --color-outline-variant: #ddd6fe;
+  --color-surface-tint: #7c3aed;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode — studio-rack ink-black with neon synth accents.
+   Pure rich-black surfaces (creative/media studio). Brand pink preserved
+   at brand stop; CTA buttons keep white text. Neon track/meter colors
+   stay vivid for waveform/level visibility. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #8b5cf6;
+  --mol-color-primary-light: #2e1065;
+  --mol-color-primary-dark: #7c3aed;
+  --mol-color-secondary: #c4c4c4;
+  --mol-color-background: #0a0a0a;
+  --mol-color-background-secondary: #161616;
+  --mol-color-background-tertiary: #242424;
+  --mol-color-surface: #0a0a0a;
+  --mol-color-surface-secondary: #161616;
+  --mol-color-input-background: #050505;
+  --mol-color-text: #f0f0f0;
+  --mol-color-text-secondary: #c4c4c4;
+  --mol-color-text-tertiary: #8a8a8a;
+  --mol-color-text-inverse: #0a0a0a;
+  --mol-color-border: #2e2e2e;
+  --mol-color-border-secondary: #3e3e3e;
+  --mol-color-border-focus: #8b5cf6;
+  --mol-color-success: #b9f660;
+  --mol-color-warning: #ffe54c;
+  --mol-color-error: #ff5252;
+  --mol-color-info: #00e5ff;
+
+  /* DAW app-specific aliases — neon studio rack */
+  --daw-primary: #8b5cf6;
+  --daw-primary-hover: #a78bfa;
+  --daw-secondary: #ec4899;
+  --daw-secondary-hover: #f472b6;
+  --daw-accent: #b9f660;
+  --daw-danger: #ff5252;
+  --daw-warning: #ffe54c;
+
+  --daw-background: #0a0a0a;
+  --daw-surface: #161616;
+  --daw-surface-elevated: #242424;
+  --daw-border: #2e2e2e;
+
+  --daw-text: #f0f0f0;
+  --daw-text-secondary: #c4c4c4;
+  --daw-text-muted: #8a8a8a;
+
+  --daw-selection: #8b5cf6;
+  --daw-playhead: #b9f660;
+  --daw-record: #ff5252;
+  --daw-arrangement-bg: #0f0f0f;
+  --daw-track-bg: #141414;
+  --daw-track-audio: #22d3ee;
+  --daw-track-midi: #ec4899;
+  --daw-meter-green: #b9f660;
+  --daw-meter-yellow: #ffe54c;
+  --daw-meter-red: #ff5252;
+
+  --daw-toolbar-bg: #050505;
+  --daw-sidebar-bg: #101010;
+
+  /* @theme token dark variants */
+  --color-background: #0a0a0a;
+  --color-on-background: #f0f0f0;
+  --color-surface: #0a0a0a;
+  --color-surface-bright: #242424;
+  --color-surface-dim: #050505;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #101010;
+  --color-surface-container: #161616;
+  --color-surface-container-high: #242424;
+  --color-surface-container-highest: #2e2e2e;
+  --color-surface-variant: #242424;
+  --color-on-surface: #f0f0f0;
+  --color-on-surface-variant: #c4c4c4;
+  --color-inverse-surface: #f0f0f0;
+  --color-inverse-on-surface: #0a0a0a;
+  --color-inverse-primary: #7c3aed;
+  --color-primary: #8b5cf6; /* brand violet */
+  --color-primary-container: #2e1065;
+  --color-on-primary: #000000; /* #ffffff was 4.23:1 vs #8b5cf6 (fail); dark = 4.96:1 */
+  --color-on-primary-container: #ddd6fe;
+  --color-secondary: #ec4899;
+  --color-secondary-container: #500724;
+  --color-on-secondary: #1a000e; /* #ffffff was 3.53:1 vs #ec4899 (fail); dark text = 5.67:1 */
+  --color-on-secondary-container: #fce7f3;
+  --color-tertiary: #b9f660;
+  --color-tertiary-container: #2a4408;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #e0fbb8;
+  --color-error: #ff5252;
+  --color-error-container: #5a0e0e;
+  --color-on-error: #1a0000; /* #ffffff was 3.19:1 vs #ff5252 (fail); #1a0000 = 6.30:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6e6e6e; /* #5a5a5a was 2.87:1 vs #0a0a0a surface (fail ≥3:1); #6e6e6e = 3.88:1 */
+  --color-outline-variant: #2e2e2e;
+  --color-surface-tint: #8b5cf6;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

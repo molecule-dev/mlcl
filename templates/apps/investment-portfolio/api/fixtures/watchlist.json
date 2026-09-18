@@ -1,0 +1,8 @@
+[
+  { "symbol": "NVDA",  "name": "NVIDIA Corp.",                 "asset_class": "US Equity",   "last_price_cents": 88412, "day_change_pct":  2.84, "alert_threshold_cents": 100000, "alert_direction": "above" },
+  { "symbol": "TSLA",  "name": "Tesla Inc.",                   "asset_class": "US Equity",   "last_price_cents": 17218, "day_change_pct": -1.42, "alert_threshold_cents":  18000, "alert_direction": "above" },
+  { "symbol": "AMZN",  "name": "Amazon.com Inc.",              "asset_class": "US Equity",   "last_price_cents": 21421, "day_change_pct":  0.42, "alert_threshold_cents": null,   "alert_direction": null    },
+  { "symbol": "BRK.B", "name": "Berkshire Hathaway Inc.",      "asset_class": "US Equity",   "last_price_cents": 41218, "day_change_pct":  0.18, "alert_threshold_cents": 400000, "alert_direction": "below" },
+  { "symbol": "QQQ",   "name": "Invesco QQQ Trust",            "asset_class": "US Equity",   "last_price_cents": 49821, "day_change_pct":  0.62, "alert_threshold_cents": null,   "alert_direction": null    },
+  { "symbol": "IEMG",  "name": "iShares Core MSCI EM ETF",     "asset_class": "Intl Equity", "last_price_cents":  5421, "day_change_pct": -0.18, "alert_threshold_cents":   5000, "alert_direction": "below" }
+]

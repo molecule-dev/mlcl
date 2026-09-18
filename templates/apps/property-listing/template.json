@@ -1,0 +1,101 @@
+{
+  "label": "Property Listing",
+  "description": "Zillow-like property listing platform with search, maps, filters, and mortgage calculator \u2014 including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-geolocation-mapbox",
+    "@molecule/api-image-sharp",
+    "@molecule/api-oauth-github",
+    "@molecule/api-oauth-google",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-payment",
+    "@molecule/api-resource-review",
+    "@molecule/api-resource-tag",
+    "@molecule/api-resource-user",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-uploads-s3",
+    "@molecule/app-billing-react",
+    "@molecule/app-data-table",
+    "@molecule/app-date-range-picker",
+    "@molecule/app-gallery",
+    "@molecule/app-kpi-card-react",
+    "@molecule/app-maps",
+    "@molecule/app-pagination-bar-react",
+    "@molecule/app-shell-layout-react",
+    "@molecule/app-virtual-scroll"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Property Listing"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAPBOX_ACCESS_TOKEN": {
+      "description": "Mapbox API access token",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "S3_BUCKET": {
+      "description": "S3 bucket for property photos",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for email alerts",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_PROPERTY_LISTING_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_LISTING_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_LISTING_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_PROPERTY_LISTING_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "search",
+    "maps",
+    "bookmarks",
+    "reviews",
+    "subscriptions"
+  ]
+}

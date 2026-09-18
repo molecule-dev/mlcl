@@ -1,0 +1,425 @@
+:root {
+  /* Vigil — dark-first emerald brand. See DESIGN.md. */
+
+  /* ── Bridge variables (feed into @theme via index.css) ── */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #34d399;
+  --mol-color-secondary: #6366f1;
+  --mol-color-secondary-light: #e0e7ff;
+  --mol-color-secondary-dark: #4f46e5;
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1a2332;
+  --mol-color-surface: #1e293b;
+  --mol-color-surface-secondary: #243244;
+  --mol-color-input-background: #1e293b;
+  --mol-color-border: #1e293b;
+  --mol-color-border-secondary: #334155;
+  --mol-color-border-focus: #6366f1;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-success: #10b981;
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #ef4444;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #6366f1;
+  --mol-color-info-light: #e0e7ff;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mol-font-mono:
+    'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* ── App-specific tokens ── */
+  --color-primary-hover: #34d399;
+  --color-secondary-hover: #818cf8;
+  --color-surface-elevated: #243244;
+  --color-text-muted: #94a3b8;
+  --color-link: #34d399;
+  --color-link-hover: #6ee7b7;
+
+  /* Status semantics — these are sacred, never used decoratively. */
+  --color-status-operational: #10b981;
+  --color-status-operational-light: #d1fae5;
+  --color-status-degraded: #f59e0b;
+  --color-status-degraded-light: #fef3c7;
+  --color-status-partial: #f97316;
+  --color-status-partial-light: #ffedd5;
+  --color-status-major: #ef4444;
+  --color-status-major-light: #fee2e2;
+  --color-status-maintenance: #6366f1;
+  --color-status-maintenance-light: #e0e7ff;
+  --color-status-unknown: #6b7280;
+  --color-status-unknown-light: #f3f4f6;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono:
+    'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-base: 15px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  /* Borders */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+  /* Auth-page structural tokens (inline styles on dark-canvas auth pages).
+     These match the dark-first :root palette so auth pages always look correct
+     regardless of theme toggle state. */
+  --color-auth-bg: #0b1120;
+  --color-auth-panel: #1e293b;
+  --color-auth-input-bg: #1a2332;
+  --color-auth-border: #334155;
+  --color-auth-error-text: #fca5a5;
+  --color-auth-on-primary: #062f1c;
+
+  /* Semantic error text on dark surfaces — used in inline styles */
+  --color-error-text-on-dark: #fca5a5;
+  --color-error-text-vivid-on-dark: #fecaca;
+  /* Incident-status colors as TEXT. The vivid --color-status-* accents above are
+     sized for dots, borders and bars, where 3:1 for non-text graphics applies. As
+     12px text they are not all AA: measured on the card surface, critical red
+     (#ef4444) is 4.38:1 and maintenance indigo (#6366f1) is 3.69:1 — both under
+     4.5. Use these when the status color is the text's own color. */
+  --color-status-critical-text: #f87171;
+  --color-status-major-text: #f97316;
+  --color-status-minor-text: #f59e0b;
+  --color-status-resolved-text: #10b981;
+  --color-status-maintenance-text: #818cf8;
+  /* Text color for CTAs with operational-green background */
+  --color-on-status-operational: #062f1c;
+  /* Muted chip/badge text in dark panels */
+  --color-chip-text: #cbd5e1;
+  /* Semi-transparent border for dark-mode cards */
+  --color-border-card: rgba(51, 65, 85, 0.7);
+  /* Disabled/unreached state text */
+  --color-text-disabled: #475569;
+  /* Light text on dark surface (e.g. reached milestone label) */
+  --color-on-surface-high: #e2e8f0;
+
+  /* Material-3 / Stitch bridge tokens — dark baseline (Vigil is dark-first)
+     bg-surface, text-on-surface, bg-primary etc. resolve correctly.
+     on-primary stays near-black for maximum contrast on the vivid emerald CTA. */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1e293b;
+  --color-surface-bright: #243244;
+  --color-surface-dim: #060c16;
+  --color-surface-container-lowest: #050a12;
+  --color-surface-container-low: #0f1a28;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #243244;
+  --color-surface-container-highest: #2a3a52;
+  --color-surface-variant: #243244;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #059669;
+  --color-primary: #10b981;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #062f1c; /* near-black on vivid emerald — same as :root */
+  --color-on-primary-container: #6ee7b7;
+  --color-secondary: #6366f1;
+  --color-secondary-container: #312e81;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #c7d2fe;
+  --color-tertiary: #f59e0b;
+  --color-tertiary-container: #422006;
+  --color-on-tertiary: #0b1120;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #ef4444;
+  --color-error-container: #450a0a;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #fecdd3;
+  --color-outline: #64748b; /* #475569 was 1.93:1 vs surface (fail ≥3:1); #64748b = 3.07:1 */
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #10b981;
+}
+
+/* Dark mode overrides — brand-calibrated dark palette
+ * Vigil is dark-first, so :root already carries the dark palette.
+ * This block reaffirms the emerald + slate identity when the theme
+ * provider explicitly toggles dark mode, plus deepens shadows. */
+[data-mol-mode='dark'] {
+  /* Brand — emerald primary stays vivid, indigo accent for actions */
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #064e3b;
+  --mol-color-primary-dark: #34d399;
+  --mol-color-secondary: #818cf8;
+  --mol-color-secondary-light: #312e81;
+  --mol-color-secondary-dark: #6366f1;
+  --color-on-primary: #ffffff;
+
+  /* Surfaces — depth-layered slate canvas */
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #111827;
+  --mol-color-background-tertiary: #1a2332;
+  --mol-color-surface: #1e293b;
+  --mol-color-surface-secondary: #243244;
+  --mol-color-input-background: #1e293b;
+
+  /* Borders — lifted off bg */
+  --mol-color-border: #2a3a52;
+  --mol-color-border-secondary: #3b4a64;
+  --mol-color-border-focus: #818cf8;
+
+  /* Text — tiered for legibility */
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #94a3b8;
+  --mol-color-text-tertiary: #64748b;
+  --mol-color-text-inverse: #0f172a;
+
+  /* Semantic — brighter on dark */
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #064e3b;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #818cf8;
+  --mol-color-info-light: #312e81;
+
+  /* App tokens */
+  --color-primary-hover: #34d399;
+  --color-secondary-hover: #a5b4fc;
+  --color-surface-elevated: #2a3a52;
+  --color-text-muted: #94a3b8;
+  --color-link: #34d399;
+  --color-link-hover: #6ee7b7;
+
+  /* Status semantics — preserve meaning, brighten for dark */
+  --color-status-operational: #34d399;
+  --color-status-operational-light: #064e3b;
+  --color-status-degraded: #fbbf24;
+  --color-status-degraded-light: #422006;
+  --color-status-partial: #fb923c;
+  --color-status-partial-light: #431407;
+  --color-status-major: #f87171;
+  --color-status-major-light: #450a0a;
+  --color-status-maintenance: #818cf8;
+  --color-status-maintenance-light: #312e81;
+  --color-status-unknown: #94a3b8;
+  --color-status-unknown-light: #1f2937;
+
+  /* Auth-page structural tokens */
+  --color-auth-bg: #0b1120;
+  --color-auth-panel: #1e293b;
+  --color-auth-input-bg: #1a2332;
+  --color-auth-border: #334155;
+  --color-auth-error-text: #fca5a5;
+  --color-auth-on-primary: #062f1c;
+
+  /* Semantic tokens for dark mode */
+  --color-error-text-on-dark: #fca5a5;
+  --color-error-text-vivid-on-dark: #fecaca;
+  /* Incident-status colors as TEXT. The vivid --color-status-* accents above are
+     sized for dots, borders and bars, where 3:1 for non-text graphics applies. As
+     12px text they are not all AA: measured on the card surface, critical red
+     (#ef4444) is 4.38:1 and maintenance indigo (#6366f1) is 3.69:1 — both under
+     4.5. Use these when the status color is the text's own color. */
+  --color-status-critical-text: #f87171;
+  --color-status-major-text: #f97316;
+  --color-status-minor-text: #f59e0b;
+  --color-status-resolved-text: #10b981;
+  --color-status-maintenance-text: #818cf8;
+  --color-on-status-operational: #062f1c;
+  --color-chip-text: #cbd5e1;
+  --color-border-card: rgba(51, 65, 85, 0.7);
+  --color-text-disabled: #475569;
+  --color-on-surface-high: #e2e8f0;
+
+  /* Material-3 / Stitch bridge tokens */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1e293b;
+  --color-surface-bright: #243244;
+  --color-surface-dim: #060c16;
+  --color-surface-container-lowest: #050a12;
+  --color-surface-container-low: #0f1a28;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #243244;
+  --color-surface-container-highest: #2a3a52;
+  --color-surface-variant: #243244;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #94a3b8;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #059669;
+  --color-primary: #10b981;
+  --color-primary-container: #064e3b;
+  --color-on-primary: #062f1c;
+  --color-on-primary-container: #6ee7b7;
+  --color-secondary: #818cf8;
+  --color-secondary-container: #312e81;
+  --color-on-secondary: #0f172a; /* #ffffff was 2.98:1 vs #818cf8 (fail); #0f172a = 5.98:1 */
+  --color-on-secondary-container: #c7d2fe;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #422006;
+  --color-on-tertiary: #0b1120;
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #3a0000; /* #ffffff was 2.77:1 vs #f87171 (fail); #3a0000 = 6.32:1 */
+  --color-on-error-container: #fecdd3;
+  --color-outline: #64748b; /* #4b5563 was 1.94:1 vs surface (fail ≥3:1); #64748b = 3.07:1 */
+  --color-outline-variant: #2a3a52;
+  --color-surface-tint: #10b981;
+
+  /* Shadows — darker, deeper */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Light mode overrides — Vigil daytime ops dashboard. Status semantics
+ * preserve meaning (operational=green, degraded=amber, major=red);
+ * emerald + indigo deepen for white-bg legibility. */
+[data-mol-mode='light'] {
+  /* Brand */
+  --mol-color-primary: #059669;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-primary-dark: #047857;
+  --mol-color-secondary: #4f46e5;
+  --mol-color-secondary-light: #e0e7ff;
+  --mol-color-secondary-dark: #4338ca;
+
+  /* Surfaces — depth-layered light canvas */
+  --mol-color-background: #f9fafb;
+  --mol-color-background-secondary: #f3f4f6;
+  --mol-color-background-tertiary: #e5e7eb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fafb;
+  --mol-color-input-background: #ffffff;
+
+  /* Borders */
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-secondary: #d1d5db;
+  --mol-color-border-focus: #4f46e5;
+
+  /* Text */
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #f9fafb;
+
+  /* Semantic */
+  --mol-color-success: #059669;
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #d97706;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #4f46e5;
+  --mol-color-info-light: #e0e7ff;
+
+  /* App tokens */
+  --color-primary-hover: #047857;
+  --color-secondary-hover: #4338ca;
+  --color-surface-elevated: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-link: #059669;
+  --color-link-hover: #047857;
+
+  /* Status semantics — saturated for white-bg legibility */
+  --color-status-operational: #059669;
+  --color-status-operational-light: #d1fae5;
+  --color-status-degraded: #d97706;
+  --color-status-degraded-light: #fef3c7;
+  --color-status-partial: #ea580c;
+  --color-status-partial-light: #ffedd5;
+  --color-status-major: #dc2626;
+  --color-status-major-light: #fee2e2;
+  --color-status-maintenance: #4f46e5;
+  --color-status-maintenance-light: #e0e7ff;
+  --color-status-unknown: #6b7280;
+  --color-status-unknown-light: #f3f4f6;
+
+  /* Auth-page structural tokens — light mode surfaces */
+  --color-auth-bg: #f9fafb;
+  --color-auth-panel: #ffffff;
+  --color-auth-input-bg: #f3f4f6;
+  --color-auth-border: #e5e7eb;
+  --color-auth-error-text: #dc2626;
+  --color-auth-on-primary: #ffffff;
+
+  /* Semantic error text on light surfaces */
+  --color-error-text-on-dark: #dc2626;
+  --color-error-text-vivid-on-dark: #ef4444;
+  /* Incident-status colors as TEXT. The vivid --color-status-* accents above are
+     sized for dots, borders and bars, where 3:1 for non-text graphics applies. As
+     12px text they are not all AA: measured on the card surface, critical red
+     (#ef4444) is 4.38:1 and maintenance indigo (#6366f1) is 3.69:1 — both under
+     4.5. Use these when the status color is the text's own color. */
+  --color-status-critical-text: #dc2626;
+  --color-status-major-text: #c2410c;
+  --color-status-minor-text: #b45309;
+  --color-status-resolved-text: #047857;
+  --color-status-maintenance-text: #4f46e5;
+  /* Text on operational-green CTA buttons (light mode — darker green on green is fine) */
+  --color-on-status-operational: #052e16;
+  /* Muted chip/badge text in light panels */
+  --color-chip-text: #475569;
+  /* Semi-transparent border for light-mode cards */
+  --color-border-card: rgba(100, 116, 139, 0.3);
+  /* Disabled/unreached state text */
+  --color-text-disabled: #9ca3af;
+  /* Text on surface in light mode (replaces e2e8f0 dark equiv) */
+  --color-on-surface-high: #374151;
+
+  /* Material-3 / Stitch bridge tokens */
+  --color-background: #f9fafb;
+  --color-on-background: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e5e7eb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9fafb;
+  --color-surface-container: #f3f4f6;
+  --color-surface-container-high: #e5e7eb;
+  --color-surface-container-highest: #d1d5db;
+  --color-surface-variant: #f3f4f6;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-inverse-surface: #0f172a;
+  --color-inverse-on-surface: #f9fafb;
+  --color-inverse-primary: #10b981;
+  --color-primary: #047857; /* stepped down one shade so white on-primary clears 4.5:1; #059669 only reached 3.77:1 */
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #ffffff; /* 5.48:1 on #047857 — passes */
+  --color-on-primary-container: #064e3b;
+  --color-secondary: #4f46e5;
+  --color-secondary-container: #e0e7ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #312e81;
+  --color-tertiary: #d97706;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #1c0a00; /* #ffffff was 3.19:1 vs #d97706 (fail); #1c0a00 = 6.03:1 */
+  --color-on-tertiary-container: #78350f;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* #9ca3af was 2.54:1 vs surface (fail ≥3:1); #6b7280 = 4.83:1 */
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #059669;
+
+  /* Shadows — soft, low-alpha */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
+}

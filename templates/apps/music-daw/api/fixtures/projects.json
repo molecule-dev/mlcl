@@ -1,0 +1,5 @@
+[
+  {"id":"proj-1","name":"Untitled Track","tempo":120,"key":"C","timeSignature":"4/4","createdAt":"2026-04-15T10:00:00Z","updatedAt":"2026-04-27T15:30:00Z"},
+  {"id":"proj-2","name":"Lo-Fi Loop","tempo":85,"key":"Am","timeSignature":"4/4","createdAt":"2026-04-20T09:15:00Z","updatedAt":"2026-04-26T11:45:00Z"},
+  {"id":"proj-3","name":"Rock Anthem","tempo":140,"key":"E","timeSignature":"4/4","createdAt":"2026-04-22T14:20:00Z","updatedAt":"2026-04-27T18:00:00Z"}
+]

@@ -1,0 +1,195 @@
+[
+  {
+    "id": "ord-1042",
+    "user_id": "usr-001",
+    "buyer_name": "Helena Souza",
+    "status": "shipped",
+    "total": 27300,
+    "subtotal": 25700,
+    "shipping": 1100,
+    "tax": 500,
+    "currency": "USD",
+    "payment_method": "card_visa_4242",
+    "placed_at": "2026-04-22T14:30:00Z",
+    "updated_at": "2026-04-26T09:00:00Z",
+    "estimated_delivery": "2026-05-02",
+    "shipping_address": {
+      "name": "Helena Souza",
+      "line1": "742 Linden Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "postal_code": "11215",
+      "country": "US"
+    },
+    "vendors": [
+      {
+        "vendor_id": "vnd-001",
+        "vendor_name": "Mira & Co. Ceramics",
+        "vendor_slug": "mira-co-ceramics",
+        "status": "shipped",
+        "tracking_number": "MRC-92814023",
+        "carrier": "USPS Priority",
+        "items": [
+          { "product_id": "prd-001", "name": "Stoneware Breakfast Bowl — Sand", "variant": "Sand", "qty": 2, "price": 4200, "image": "https://picsum.photos/seed/prd001a/200/200" },
+          { "product_id": "prd-011", "name": "Espresso Cup Set of 2 — Bone", "variant": null, "qty": 1, "price": 5400, "image": "https://picsum.photos/seed/prd011a/200/200" }
+        ]
+      },
+      {
+        "vendor_id": "vnd-003",
+        "vendor_name": "Ember Leather",
+        "vendor_slug": "ember-leather",
+        "status": "delivered",
+        "tracking_number": "EMB-44210182",
+        "carrier": "UPS Ground",
+        "items": [
+          { "product_id": "prd-004", "name": "Bridle Leather Bifold Wallet", "variant": "Tan", "qty": 1, "price": 12500, "image": "https://picsum.photos/seed/prd004a/200/200" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ord-1043",
+    "user_id": "usr-001",
+    "buyer_name": "Helena Souza",
+    "status": "processing",
+    "total": 14900,
+    "subtotal": 14900,
+    "shipping": 0,
+    "tax": 0,
+    "currency": "USD",
+    "payment_method": "card_visa_4242",
+    "placed_at": "2026-04-27T10:15:00Z",
+    "updated_at": "2026-04-27T11:00:00Z",
+    "estimated_delivery": "2026-05-08",
+    "shipping_address": {
+      "name": "Helena Souza",
+      "line1": "742 Linden Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "postal_code": "11215",
+      "country": "US"
+    },
+    "vendors": [
+      {
+        "vendor_id": "vnd-002",
+        "vendor_name": "Atlas Textiles",
+        "vendor_slug": "atlas-textiles",
+        "status": "processing",
+        "tracking_number": null,
+        "carrier": null,
+        "items": [
+          { "product_id": "prd-003", "name": "Hand-loomed Wool Throw — Sahara Stripe", "variant": "Sahara Stripe", "qty": 1, "price": 14900, "image": "https://picsum.photos/seed/prd003a/200/200" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ord-1044",
+    "user_id": "usr-001",
+    "buyer_name": "Helena Souza",
+    "status": "delivered",
+    "total": 4400,
+    "subtotal": 3300,
+    "shipping": 700,
+    "tax": 400,
+    "currency": "USD",
+    "payment_method": "card_visa_4242",
+    "placed_at": "2026-04-08T09:20:00Z",
+    "updated_at": "2026-04-14T16:00:00Z",
+    "estimated_delivery": "2026-04-14",
+    "shipping_address": {
+      "name": "Helena Souza",
+      "line1": "742 Linden Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "postal_code": "11215",
+      "country": "US"
+    },
+    "vendors": [
+      {
+        "vendor_id": "vnd-004",
+        "vendor_name": "North Pine Coffee",
+        "vendor_slug": "north-pine-coffee",
+        "status": "delivered",
+        "tracking_number": "NPC-71203942",
+        "carrier": "USPS Priority",
+        "items": [
+          { "product_id": "prd-006", "name": "Yirgacheffe — Single Origin", "variant": "Whole Bean", "qty": 1, "price": 2200, "image": "https://picsum.photos/seed/prd006a/200/200" },
+          { "product_id": "prd-008", "name": "Wild Rosemary + Sea Salt Soap Bar", "variant": "Rosemary + Sea Salt", "qty": 1, "price": 1100, "image": "https://picsum.photos/seed/prd008a/200/200" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ord-1045",
+    "user_id": "usr-002",
+    "buyer_name": "Tomás Vega",
+    "status": "shipped",
+    "total": 18900,
+    "subtotal": 18900,
+    "shipping": 0,
+    "tax": 0,
+    "currency": "USD",
+    "payment_method": "card_amex_0008",
+    "placed_at": "2026-04-25T11:50:00Z",
+    "updated_at": "2026-04-26T15:00:00Z",
+    "estimated_delivery": "2026-05-01",
+    "shipping_address": {
+      "name": "Tomás Vega",
+      "line1": "120 Mission St",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94105",
+      "country": "US"
+    },
+    "vendors": [
+      {
+        "vendor_id": "vnd-003",
+        "vendor_name": "Ember Leather",
+        "vendor_slug": "ember-leather",
+        "status": "shipped",
+        "tracking_number": "EMB-44218874",
+        "carrier": "UPS Ground",
+        "items": [
+          { "product_id": "prd-005", "name": "Field Tote — Saddle Tan", "variant": "Saddle Tan", "qty": 1, "price": 18900, "image": "https://picsum.photos/seed/prd005a/200/200" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ord-1046",
+    "user_id": "usr-003",
+    "buyer_name": "Aiko Takahashi",
+    "status": "processing",
+    "total": 9300,
+    "subtotal": 8800,
+    "shipping": 200,
+    "tax": 300,
+    "currency": "USD",
+    "payment_method": "card_visa_8214",
+    "placed_at": "2026-04-28T08:00:00Z",
+    "updated_at": "2026-04-28T08:30:00Z",
+    "estimated_delivery": "2026-05-05",
+    "shipping_address": {
+      "name": "Aiko Takahashi",
+      "line1": "1408 Pearl St",
+      "city": "Boulder",
+      "state": "CO",
+      "postal_code": "80302",
+      "country": "US"
+    },
+    "vendors": [
+      {
+        "vendor_id": "vnd-001",
+        "vendor_name": "Mira & Co. Ceramics",
+        "vendor_slug": "mira-co-ceramics",
+        "status": "processing",
+        "tracking_number": null,
+        "carrier": null,
+        "items": [
+          { "product_id": "prd-002", "name": "Pour-Over Carafe — Charcoal", "variant": "Charcoal", "qty": 1, "price": 8800, "image": "https://picsum.photos/seed/prd002a/200/200" }
+        ]
+      }
+    ]
+  }
+]

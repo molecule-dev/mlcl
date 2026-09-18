@@ -1,0 +1,6 @@
+[
+  { "id": "c1", "name": "Acme Corp",        "email": "billing@acme.com",        "billing_currency": "USD", "hourly_rate_cents": 9500,  "archived": false },
+  { "id": "c2", "name": "Flux Labs",        "email": "ops@fluxlabs.io",         "billing_currency": "USD", "hourly_rate_cents": 11000, "archived": false },
+  { "id": "c3", "name": "Northwind Studio", "email": "studio@northwind.design", "billing_currency": "USD", "hourly_rate_cents": 8500,  "archived": false },
+  { "id": "c4", "name": "Aurora Pharma",    "email": "ap@aurora.health",        "billing_currency": "USD", "hourly_rate_cents": 13000, "archived": false }
+]

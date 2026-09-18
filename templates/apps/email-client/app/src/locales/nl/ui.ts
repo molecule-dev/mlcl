@@ -1,0 +1,172 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Bekijk de helpartikelen',
+  'about.cta.signup': 'Probeer Courier gratis',
+  'about.eyebrow': 'Over Courier',
+  'about.principle.calm': 'Standaard rustig.',
+  'about.principle.calm.desc':
+    'Geen badges die schreeuwen, geen meldingen waar u niet om vroeg, geen animaties die uw aandacht eisen.',
+  'about.principle.fast.desc':
+    'Elke actie is één toetsaanslag verwijderd. Het postvak laadt binnen 200ms bij een nieuwe aanmelding.',
+  'about.principle.honest.desc':
+    'Versleuteling tijdens verzending en in opslag, transparante bewaring en gegevensexport met één klik.',
+  'about.story': 'Waarom we Courier hebben gebouwd',
+  'about.story.p1':
+    'De meeste e-mailclients optimaliseren voor betrokkenheid — ze trekken u terug, versnipperen uw aandacht, stellen nog een tik voor. Courier doet het tegenovergestelde. We meten succes aan de tijd die u NIET in uw postvak doorbrengt: snel sorteren, met vertrouwen uitstellen en doorgaan met het werk dat ertoe doet.',
+  'about.subtitle':
+    'Courier is een rustig postvak met drie panelen, gebouwd door een klein team dat informatie wilde verwerken in plaats van erop te reageren.',
+  'about.team.body':
+    'Wij zijn een verspreid team van ontwerpers en ingenieurs dat ooit te veel uren per dag in een rumoerig postvak doorbracht. Courier is het postvak dat we zelf wilden gebruiken.',
+  'about.title': 'E-mail voor geconcentreerd werk',
+  'help.cta.about': 'Over Courier',
+  'help.cta.pricing': 'Bekijk prijzen',
+  'help.eyebrow': 'Helpcentrum',
+  'help.faq.compose.a':
+    "Klik op 'Nieuw bericht' in de zijbalk (of druk op 'c' in een willekeurige inboxweergave), voer ten minste één ontvanger, een onderwerp en een berichttekst in en klik op 'Verzenden'. Het nieuwe bericht verschijnt direct in je map 'Verzonden'.",
+  'help.faq.compose.q': 'Hoe stuur ik mijn eerste bericht?',
+  'help.faq.export.a':
+    'Ja. Instellingen → Account → Gegevensexport maakt een downloadbaar archief (mbox + JSON) met elk bericht, label en contact. Er is geen premium abonnement vereist.',
+  'help.faq.labels.a':
+    'Mappen zijn exclusief (een bericht zit in precies één): Postvak IN, Verzonden, Concepten, Spam, Prullenbak, Archief. Labels zijn aanvullend — u kunt er meerdere op één e-mail toepassen en filteren op combinaties vanuit de zoekbalk.',
+  'help.faq.password.a':
+    'Gebruik de "Wachtwoord vergeten?"-link op de aanmeldingspagina. We sturen een reset-link naar uw account-e-mail, één uur geldig.',
+  'help.faq.shortcuts.a':
+    'Ja. "j" / "k" bewegen tussen threads, "s" wisselt een ster, "e" archiveert, "#" verplaatst naar de prullenbak en "/" geeft de zoekbalk focus. Sneltoetsdocumentatie verschijnt in elke postvakweergave door op "?" te drukken.',
+  'help.faq.support.a':
+    'Stuur een e-mail naar support@courier.example. We beantwoorden elk bericht binnen één werkdag, doordeweeks 9–17 UTC.',
+  'help.subtitle':
+    'Snelle antwoorden op de vragen die we het meest horen. Mist u iets? Open Instellingen en gebruik het feedbackformulier in de app, of schrijf naar support@courier.example.',
+  'help.title': 'Hoe kunnen we u helpen?',
+  'landing.brand.scrollTop': 'Terug naar boven',
+  'landing.ctaBody':
+    'Sluit u aan bij duizenden professionals die hun postvak vóór de lunch hebben afgerond.',
+  'landing.ctaTitle': 'Meer verwerken, minder reageren.',
+  'landing.eyebrow': 'E-mail voor geconcentreerd werk',
+  'landing.featuresBody': 'Stop met uw postvak beheren en begin met werk afmaken.',
+  'landing.featuresTitle': 'Ontworpen voor diepgaand werk',
+  'landing.help': 'Help',
+  'landing.heroDemo': 'Bekijk de demo',
+  'landing.heroSubtitle':
+    'Courier is een rustig postvak met drie panelen, gebouwd voor kenniswerkers die informatie willen verwerken in plaats van erop te reageren.',
+  'landing.proof': 'Vertrouwd door geconcentreerde teams wereldwijd',
+  'landing.signIn': 'Aanmelden',
+  'meridian.archive.empty': 'Archief is leeg.',
+  'meridian.compose.addRecipient': 'Nog een ontvanger toevoegen',
+  'meridian.compose.bodyPlaceholder': 'Schrijf uw bericht…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@voorbeeld.com',
+  'meridian.compose.discard': 'Concept verwijderen',
+  'meridian.compose.invalidEmail': '"{{value}}" is geen geldig e-mailadres',
+  'meridian.compose.needRecipient': 'Voeg eerst minstens één ontvanger toe.',
+  'meridian.compose.replyTo': 'Antwoorden in thread {{id}}',
+  'meridian.compose.savedAt': 'Concept opgeslagen om {{time}}',
+  'meridian.compose.sentWithError': 'Opgeslagen in Verzonden, maar bezorging mislukt: {{error}}',
+  'meridian.compose.subject': 'Ond',
+  'meridian.compose.subjectPlaceholder': 'Onderwerp',
+  'meridian.compose.title': 'Nieuw bericht',
+  'meridian.compose.to': 'Aan',
+  'meridian.drafts.continue': 'Verder bewerken',
+  'meridian.drafts.count': '{{count}} berichten',
+  'meridian.drafts.delete': 'Concept verwijderen',
+  'meridian.drafts.empty': 'Nog geen concepten — begin met opstellen.',
+  'meridian.drafts.lastSaved': 'Opgeslagen {{at}}',
+  'meridian.drafts.noRecipients': '(nog geen ontvangers)',
+  'meridian.drafts.selectDraft': 'Selecteer een concept om te bekijken.',
+  'meridian.drafts.title': 'Concepten',
+  'meridian.drafts.to': 'Aan',
+  'meridian.drafts.watermark': 'Concept',
+  'meridian.folder.count': '{{count}} berichten',
+  'meridian.folder.deleteForever': 'Permanent verwijderen',
+  'meridian.folder.restore': 'Verplaatsen naar postvak in',
+  'meridian.forgot.subtitle':
+    'Voer het e-mailadres in dat aan uw postvak is gekoppeld en we sturen u een reset-link.',
+  'meridian.forgot.success':
+    'Als er een account met dat e-mailadres bestaat, is er een reset-link onderweg.',
+  'meridian.inbox.empty': 'Nog geen berichten hier.',
+  'meridian.inbox.loading': 'Laden…',
+  'meridian.inbox.next': 'Volgende',
+  'meridian.inbox.noSubject': '(geen onderwerp)',
+  'meridian.inbox.openCompose': 'Opstellen openen',
+  'meridian.inbox.previous': 'Vorige',
+  'meridian.inbox.replyFailed': 'Antwoord opgeslagen maar bezorging mislukt: {{error}}',
+  'meridian.inbox.replySent': 'Antwoord verzonden.',
+  'meridian.inbox.replyTo': 'Antwoorden aan {{name}}',
+  'meridian.inbox.selectMessage': 'Selecteer een bericht om te lezen',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Bekijk thread',
+  'meridian.login.hidePassword': 'Wachtwoord verbergen',
+  'meridian.login.noAccount': 'Hebt u nog geen account?',
+  'meridian.login.showPassword': 'Wachtwoord tonen',
+  'meridian.message.toLine': 'aan {{recipients}}',
+  'meridian.notFound.eyebrow': 'Fout 404',
+  'meridian.notFound.title': 'Deze thread is gearchiveerd.',
+  'meridian.notFound.toInbox': 'Mijn postvak openen',
+  'meridian.reset.newLabel': 'Nieuw wachtwoord',
+  'meridian.reset.showPassword': 'Wachtwoord tonen',
+  'meridian.reset.subtitle': 'Kies een sterk wachtwoord — minstens 8 tekens.',
+  'meridian.sent.empty': 'U hebt nog niets verzonden.',
+  'meridian.sent.title': 'Verzonden',
+  'meridian.settings.noName': '(geen naam ingesteld)',
+  'meridian.settings.section.${section}': 'Personaliseer uw {{appName}} ervaring',
+  'meridian.settings.signature': 'Handtekening',
+  'meridian.settings.signatureSaved': 'Handtekening opgeslagen.',
+  'meridian.sidebar.compose': 'Opstellen',
+  'meridian.sidebar.labels': 'Labels',
+  'meridian.sidebar.noLabels': 'Nog geen labels',
+  'meridian.sidebar.storage': 'Opslag',
+  'meridian.sidebar.storageLabel': '{{used}} van {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@bedrijf.com',
+  'meridian.signup.heading': 'Maak uw Courier-postvak aan',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Wachtwoord tonen',
+  'meridian.signup.subtitle': 'Verwerk uw postvak vóór de lunch.',
+  'meridian.spam.empty': 'Geen spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Geen berichten met ster.',
+  'meridian.starred.loading': 'Laden…',
+  'meridian.starred.removeStar': 'Ster verwijderen',
+  'meridian.starred.total': '{{count}} totaal',
+  'meridian.thread.back': 'Terug naar Postvak IN',
+  'meridian.thread.empty': 'Geen berichten in deze thread.',
+  'meridian.thread.eyebrow': 'Thread #{{id}}',
+  'meridian.thread.notFound': 'Thread niet gevonden.',
+  'meridian.thread.star': 'Ster toevoegen',
+  'meridian.thread.unstar': 'Ster verwijderen',
+  'meridian.time.yesterday': 'Gisteren',
+  'meridian.topBar.searchPlaceholder': 'Zoek in e-mail',
+  'meridian.trash.empty': 'Prullenbak is leeg.',
+  'meridian.trash.title': 'Prullenbak',
+  'nav.legal': 'Juridisch',
+  'planUpdated.description':
+    'Uw abonnement is nu actief en uw facturering is bijgewerkt. Welkom bij uw vernieuwde Courier-postvak.',
+  'pricing.heading': 'ontwerpen',
+  'pricing.limit.emails': 'e-mails',
+  'pricing.limit.folders': 'mappen',
+  'pricing.limit.labels': 'labels',
+  'privacy.collect.account':
+    'Accountgegevens: naam, e-mailadres, gehasht wachtwoord en de datum van aanmelding.',
+  'privacy.intro':
+    'Dit privacybeleid legt uit welke gegevens Courier verzamelt, waarom we ze verzamelen, hoe we ze veilig bewaren en welke keuzes u erover hebt. We proberen specifiek te zijn in plaats van juridisch; als iets onduidelijk is, schrijf dan naar privacy@courier.example.',
+  'privacy.lastUpdated': 'Laatst bijgewerkt: 1 april 2026',
+  'privacy.linkTerms': 'Lees onze Servicevoorwaarden →',
+  'privacy.rights.body':
+    'U kunt elk stukje gegevens dat we over u bewaren exporteren vanuit Instellingen → Account → Gegevensexport, en u kunt uw account met één klik verwijderen — alle rijen worden binnen 24 uur gewist, auditlogs na 30 dagen verwijderd.',
+  'privacy.security.body':
+    'E-mailinhoud en bijlagen worden in rust versleuteld met AES-256. Verbindingen van en naar onze dienst gebruiken TLS 1.3. Wachtwoorden worden gehasht met bcrypt; we loggen of bewaren nooit wachtwoorden in platte tekst. Productietoegang is beperkt tot on-call ingenieurs, maandelijks gecontroleerd.',
+  'privacy.share.body':
+    'We delen gegevens alleen met de subverwerkers die we nodig hebben om Courier te draaien (e-mailbezorging via Mailgun, facturering via Stripe, hosting via AWS). Elk van hen is contractueel verplicht uw gegevens alleen te gebruiken om hun dienst voor ons uit te voeren. We verkopen, verhuren of verhandelen uw gegevens met niemand.',
+  'terms.acceptable.spam':
+    'Geen massaal ongevraagd berichtenverkeer. We sluiten accounts die spam versturen zonder waarschuwing.',
+  'terms.account.body':
+    'U bent verantwoordelijk voor het vertrouwelijk houden van uw wachtwoord en voor alle activiteit die via uw account plaatsvindt. Stel ons op de hoogte via security@courier.example als u denkt dat uw account is gecompromitteerd.',
+  'terms.billing.body':
+    'Betaalde abonnementen worden verlengd in het bij de aanmelding gekozen ritme. U kunt op elk moment annuleren vanuit Instellingen → Facturering en u behoudt toegang voor de rest van de factureringsperiode. Restituties worden uitgegeven voor servicestoringen die de SLA overschrijden.',
+  'terms.intro':
+    'Deze voorwaarden regelen uw gebruik van Courier. Door een account aan te maken of e-mail via ons te verzenden, gaat u akkoord met deze voorwaarden. We proberen regels te schrijven die een mens daadwerkelijk kan volgen.',
+  'terms.lastUpdated': 'Van kracht: 1 april 2026',
+  'terms.termination.body':
+    'U kunt uw account op elk moment verwijderen. We kunnen een account opschorten dat deze voorwaarden schendt; als we dat doen, leggen we de reden uit en laten we u eerst uw gegevens exporteren.',
+  'terms.warranty.body':
+    'De dienst wordt geleverd zoals deze is. We werken hard om hem betrouwbaar en veilig te houden, maar we kunnen geen ononderbroken toegang garanderen. Voor zover wettelijk toegestaan, is onze totale aansprakelijkheid beperkt tot het bedrag dat u ons in de voorgaande 12 maanden hebt betaald.',
+}

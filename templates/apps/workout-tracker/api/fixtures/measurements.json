@@ -1,0 +1,10 @@
+[
+  { "id": "m-1", "date": "2026-04-29", "bodyweight": 84.2, "chest": 108, "waist": 84, "hips": 102, "biceps": 39, "thigh": 64, "unit": "kg" },
+  { "id": "m-2", "date": "2026-04-22", "bodyweight": 84.0, "chest": 107.5, "waist": 84, "hips": 101.5, "biceps": 38.8, "thigh": 63.5, "unit": "kg" },
+  { "id": "m-3", "date": "2026-04-15", "bodyweight": 83.7, "chest": 107, "waist": 84.5, "hips": 101.5, "biceps": 38.5, "thigh": 63, "unit": "kg" },
+  { "id": "m-4", "date": "2026-04-08", "bodyweight": 83.2, "chest": 106.5, "waist": 85, "hips": 101, "biceps": 38.2, "thigh": 62.5, "unit": "kg" },
+  { "id": "m-5", "date": "2026-04-01", "bodyweight": 82.6, "chest": 106, "waist": 85, "hips": 101, "biceps": 38, "thigh": 62, "unit": "kg" },
+  { "id": "m-6", "date": "2026-03-25", "bodyweight": 82.0, "chest": 105.5, "waist": 85.5, "hips": 100.5, "biceps": 37.8, "thigh": 61.5, "unit": "kg" },
+  { "id": "m-7", "date": "2026-03-18", "bodyweight": 81.4, "chest": 105, "waist": 86, "hips": 100, "biceps": 37.5, "thigh": 61, "unit": "kg" },
+  { "id": "m-8", "date": "2026-03-11", "bodyweight": 80.8, "chest": 104.5, "waist": 86, "hips": 100, "biceps": 37.2, "thigh": 60.5, "unit": "kg" }
+]

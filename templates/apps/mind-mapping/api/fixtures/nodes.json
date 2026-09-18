@@ -1,0 +1,72 @@
+[
+  {
+    "id": "node-root",
+    "map_id": "map-q4-brainstorm",
+    "parent_id": null,
+    "text": "Q4 Brainstorm",
+    "color": "#2563eb",
+    "shape": "rounded",
+    "size": "m",
+    "x": 320,
+    "y": 180,
+    "position": 0,
+    "created_at": "2026-04-12T09:00:00Z",
+    "updated_at": "2026-04-12T09:00:00Z"
+  },
+  {
+    "id": "node-audience",
+    "map_id": "map-q4-brainstorm",
+    "parent_id": "node-root",
+    "text": "Audience",
+    "color": "#8b5cf6",
+    "shape": "rounded",
+    "size": "m",
+    "x": 80,
+    "y": 60,
+    "position": 1,
+    "created_at": "2026-04-12T09:05:00Z",
+    "updated_at": "2026-04-12T09:05:00Z"
+  },
+  {
+    "id": "node-pricing",
+    "map_id": "map-q4-brainstorm",
+    "parent_id": "node-root",
+    "text": "Pricing",
+    "color": "#f59e0b",
+    "shape": "rounded",
+    "size": "m",
+    "x": 560,
+    "y": 60,
+    "position": 2,
+    "created_at": "2026-04-12T09:06:00Z",
+    "updated_at": "2026-04-12T09:06:00Z"
+  },
+  {
+    "id": "node-channels",
+    "map_id": "map-q4-brainstorm",
+    "parent_id": "node-root",
+    "text": "Channels",
+    "color": "#06b6d4",
+    "shape": "rounded",
+    "size": "m",
+    "x": 80,
+    "y": 320,
+    "position": 3,
+    "created_at": "2026-04-12T09:07:00Z",
+    "updated_at": "2026-04-12T09:07:00Z"
+  },
+  {
+    "id": "node-risks",
+    "map_id": "map-q4-brainstorm",
+    "parent_id": "node-root",
+    "text": "Risks",
+    "color": "#64748b",
+    "shape": "rounded",
+    "size": "m",
+    "x": 560,
+    "y": 320,
+    "position": 4,
+    "created_at": "2026-04-12T09:08:00Z",
+    "updated_at": "2026-04-12T09:08:00Z"
+  }
+]

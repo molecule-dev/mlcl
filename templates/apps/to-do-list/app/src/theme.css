@@ -1,0 +1,242 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #c23a3a; /* #dc4c3e was 4.08:1 with white (FAIL); #c23a3a = 5.30:1 */
+  --mol-color-primary-light: #fef2f1;
+  --mol-color-primary-dark: #a6281a;
+  --mol-color-secondary: #246fe0;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #fafafa;
+  --mol-color-background-tertiary: #f5f5f5;
+  --mol-color-surface: #fafafa;
+  --mol-color-surface-secondary: #f5f5f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #202020;
+  --mol-color-text-secondary: #666666;
+  --mol-color-text-tertiary: #999999;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e0e0e0;
+  --mol-color-border-secondary: #f0f0f0;
+  --mol-color-border-focus: #c23a3a;
+  --mol-color-success: #058527;
+  --mol-color-warning: #eb8909;
+  --mol-color-error: #d1453b;
+  --mol-color-info: #246fe0;
+
+  /* Brand */
+  --color-primary: #c23a3a; /* slightly darkened for ≥4.5:1 vs white (was #dc4c3e = 4.08 FAIL) */
+  --color-primary-hover: #a82828;
+  --color-primary-light: #fef2f1;
+  --color-primary-dark: #a6281a;
+
+  /* Surface */
+  --color-background: #ffffff;
+  --color-surface: #fafafa;
+  --color-surface-hover: #f5f5f5;
+  --color-surface-active: #eeeeee;
+
+  /* Sidebar */
+  --color-sidebar-bg: #fafafa;
+  --color-sidebar-hover: #f0f0f0;
+  --color-sidebar-active: #eaeaea;
+  --color-sidebar-text: #202020;
+  --color-sidebar-text-muted: #808080;
+
+  /* Text */
+  --color-text: #202020;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e0e0e0;
+  --color-border-light: #f0f0f0;
+  --color-border-focus: #c23a3a;
+
+  /* Priority colors */
+  --color-priority-high: #d1453b;
+  --color-priority-medium: #eb8909;
+  --color-priority-low: #246fe0;
+  --color-priority-none: #808080;
+
+  /* Status */
+  --color-success: #058527;
+  --color-warning: #eb8909;
+  --color-error: #d1453b;
+  --color-info: #246fe0;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --content-max-width: 800px;
+
+  /* Radius */
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+  --radius-round: 50%;
+
+  /* Checkbox */
+  --checkbox-size: 18px;
+  --checkbox-border: 2px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+
+  /* === Material-3 light tokens — required by bg-primary, text-on-surface etc. === */
+  --color-on-background: #202020;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ebebeb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #efefef;
+  --color-surface-container-high: #e9e9e9;
+  --color-surface-container-highest: #e0e0e0;
+  --color-surface-variant: #f0e9e8;
+  --color-on-surface: #202020;
+  --color-on-surface-variant: #534341;
+  --color-inverse-surface: #383838;
+  --color-inverse-on-surface: #f5f5f5;
+  --color-inverse-primary: #ff897d;
+  --color-on-primary: #ffffff; /* white on #c23a3a = 5.30:1 PASS (original #dc4c3e was 4.08 FAIL) */
+  --color-primary-container: #ffdad7;
+  --color-on-primary-container: #410001;
+  --color-secondary-container: #d6e3ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #001946;
+  --color-tertiary: #7c5800;
+  --color-tertiary-container: #ffdea0;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #271900;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
+  --color-outline: #857371;
+  --color-outline-variant: #d8c2bf;
+  --color-surface-tint: #c23a3a;
+}
+
+/* Dark mode is activated via [data-mol-mode="dark"], set by the
+   @molecule/app-theme-css-variables provider when the user toggles
+   theme. Keep this selector in sync with the provider's prefix. */
+[data-mol-mode='dark'] {
+  --color-primary-hover: #cc3e3e; /* slightly lighter than corrected primary #bf3535 */
+  --color-primary-light: #3d1c1b;
+  --color-primary-dark: #f5a5a4;
+
+  --color-surface-hover: #333333;
+  --color-surface-active: #3d3d3d;
+
+  --color-sidebar-bg: #282828;
+  --color-sidebar-hover: #333333;
+  --color-sidebar-active: #3d3d3d;
+  --color-sidebar-text: #e0e0e0;
+  --color-sidebar-text-muted: #808080;
+
+  --color-text: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+  --color-text-inverse: #1e1e1e;
+
+  --color-border: #3d3d3d;
+  --color-border-light: #333333;
+  --color-border-focus: #bf3535;
+
+  /* Priority colors — brightened for dark canvas */
+  --color-priority-high: #e5635a;
+  --color-priority-medium: #f5a623;
+  --color-priority-low: #1e57c8; /* matches corrected secondary */
+  --color-priority-none: #999999;
+
+  /* Status — brightened semantic palette */
+  --color-success: #34d27f;
+  --color-warning: #f5a623;
+  --color-error: #e5635a;
+  --color-info: #5b8def;
+
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #bf3535; /* darkened — white text = 5.56:1 (was #de4c4a = 4.01 FAIL) */
+  --mol-color-primary-light: #3d1c1b;
+  --mol-color-primary-dark: #f5a5a4;
+  --mol-color-secondary: #1e57c8; /* darkened — white text = 6.46:1 (was #5b8def = 3.23 FAIL) */
+  --mol-color-background: #1e1e1e;
+  --mol-color-background-secondary: #282828;
+  --mol-color-background-tertiary: #333333;
+  --mol-color-surface: #282828;
+  --mol-color-surface-secondary: #333333;
+  --mol-color-input-background: #1a1a1a;
+  --mol-color-text: #e0e0e0;
+  --mol-color-text-secondary: #a0a0a0;
+  --mol-color-text-tertiary: #666666;
+  --mol-color-text-inverse: #1e1e1e;
+  --mol-color-border: #3d3d3d;
+  --mol-color-border-secondary: #333333;
+  --mol-color-border-focus: #bf3535;
+  --mol-color-success: #34d27f;
+  --mol-color-warning: #f5a623;
+  --mol-color-error: #e5635a;
+  --mol-color-info: #1e57c8;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #1e1e1e;
+  --color-on-background: #e0e0e0;
+  --color-surface: #282828;
+  --color-surface-bright: #3d3d3d;
+  --color-surface-dim: #141414;
+  --color-surface-container-lowest: #0f0f0f;
+  --color-surface-container-low: #1a1a1a;
+  --color-surface-container: #282828;
+  --color-surface-container-high: #333333;
+  --color-surface-container-highest: #3d3d3d;
+  --color-surface-variant: #2e2e2e;
+  --color-on-surface: #e0e0e0;
+  --color-on-surface-variant: #a0a0a0;
+  --color-inverse-surface: #e0e0e0;
+  --color-inverse-on-surface: #1e1e1e;
+  --color-inverse-primary: #dc4c3e;
+  --color-primary: #bf3535; /* darkened for white-text ≥4.5:1 (was #de4c4a = 4.01 FAIL) */
+  --color-primary-container: #3d1c1b;
+  --color-on-primary: #ffffff; /* white on #bf3535 = 5.56:1 PASS */
+  --color-on-primary-container: #fecdd3;
+  --color-secondary: #1e57c8; /* darkened — white text = 6.46:1 (was #5b8def = 3.23 FAIL) */
+  --color-secondary-container: #1a2d55;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #bfdbfe;
+  --color-tertiary: #f5a623;
+  --color-tertiary-container: #4a2d05;
+  --color-on-tertiary: #3a1800; /* dark on amber = 7.91:1 (was #ffffff = 2.03 FAIL) */
+  --color-on-tertiary-container: #fef3c7;
+  --color-error: #e5635a;
+  --color-error-container: #3d1818;
+  --color-on-error: #3a0000; /* dark on red = 5.31:1 (was #ffffff = 3.35 FAIL) */
+  --color-on-error-container: #fee2e2;
+  --color-outline: #7a7a7a; /* vs surface #282828 = 3.43:1 ≥3 (was #5c5c5c = 2.20 FAIL) */
+  --color-outline-variant: #3d3d3d;
+  --color-surface-tint: #bf3535;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+}

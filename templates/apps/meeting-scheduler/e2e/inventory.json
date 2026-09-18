@@ -1,0 +1,1711 @@
+{
+  "slug": "meeting-scheduler",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-availability",
+      "path": "/availability",
+      "component": "Availability",
+      "file": "app/src/pages/Availability.tsx"
+    },
+    {
+      "id": "page-bookingpage",
+      "path": "/book/:slug",
+      "component": "BookingPage",
+      "file": "app/src/pages/BookingPage.tsx"
+    },
+    {
+      "id": "page-bookingconfirmation",
+      "path": "/book/:slug/confirmed",
+      "component": "BookingConfirmation",
+      "file": "app/src/pages/BookingConfirmation.tsx"
+    },
+    {
+      "id": "page-bookings",
+      "path": "/bookings",
+      "component": "Bookings",
+      "file": "app/src/pages/Bookings.tsx"
+    },
+    {
+      "id": "page-meetingdetail",
+      "path": "/bookings/:id",
+      "component": "MeetingDetail",
+      "file": "app/src/pages/MeetingDetail.tsx"
+    },
+    {
+      "id": "page-calendar",
+      "path": "/calendar",
+      "component": "Calendar",
+      "file": "app/src/pages/Calendar.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-eventtypes",
+      "path": "/event-types",
+      "component": "EventTypes",
+      "file": "app/src/pages/EventTypes.tsx"
+    },
+    {
+      "id": "page-eventtypeeditor",
+      "path": "/event-types/:id",
+      "component": "EventTypeEditor",
+      "file": "app/src/pages/EventTypeEditor.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-integrations",
+      "path": "/integrations",
+      "component": "Integrations",
+      "file": "app/src/pages/Integrations.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-billing",
+      "path": "/settings/billing",
+      "component": "Billing",
+      "file": "app/src/pages/Billing.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-bookinglistitem-109--div",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BookingListItem.tsx",
+      "line": 109,
+      "label": "<div",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-eventtypecard-152-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/EventTypeCard.tsx",
+      "line": 152,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-floatinginput-18",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/FloatingInput.tsx",
+      "line": 18,
+      "label": "input at app/src/components/FloatingInput.tsx:18",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-oauthbuttons-38",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/OAuthButtons.tsx",
+      "line": 38,
+      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-180",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 180,
+      "label": "input at app/src/components/SettingsPanel.tsx:180",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-199",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 199,
+      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-237-settings-upgrade",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 237,
+      "label": "settings.upgrade",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-290",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 290,
+      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-293",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 293,
+      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-314",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 314,
+      "label": "input at app/src/components/SettingsPanel.tsx:314",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-325",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 325,
+      "label": "input at app/src/components/SettingsPanel.tsx:325",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-334",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 334,
+      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settingspanel-355",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 355,
+      "label": "input at app/src/components/SettingsPanel.tsx:355",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settingspanel-363",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 363,
+      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-themetoggle-12------------",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ThemeToggle.tsx",
+      "line": 12,
+      "label": "/> ) : ( )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-timeslotpicker-84",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/TimeSlotPicker.tsx",
+      "line": 84,
+      "label": "button at app/src/components/TimeSlotPicker.tsx:84",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-17",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 17,
+      "label": "button at app/src/components/UserMenu.tsx:17",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-availability-210",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 210,
+      "label": "button at app/src/pages/Availability.tsx:210",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-availability-275--span",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 275,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-availability-315",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 315,
+      "label": "input at app/src/pages/Availability.tsx:315",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-availability-327",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 327,
+      "label": "input at app/src/pages/Availability.tsx:327",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-billing-164-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 164,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-244",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 244,
+      "label": "button at app/src/pages/Billing.tsx:244",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-281",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 281,
+      "label": "button at app/src/pages/Billing.tsx:281",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-billing-363",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Billing.tsx",
+      "line": 363,
+      "label": "button at app/src/pages/Billing.tsx:363",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookingconfirmation-354",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 354,
+      "label": "button at app/src/pages/BookingConfirmation.tsx:354",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookingconfirmation-377",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 377,
+      "label": "button at app/src/pages/BookingConfirmation.tsx:377",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookingconfirmation-401",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 401,
+      "label": "button at app/src/pages/BookingConfirmation.tsx:401",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bookingconfirmation-438-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 438,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bookingconfirmation-448-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 448,
+      "label": ", } },",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bookingpage-260--span-classname-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 260,
+      "label": "<span className=), )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookingpage-402",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 402,
+      "label": "button at app/src/pages/BookingPage.tsx:402",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-bookingpage-477",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 477,
+      "label": "input at app/src/pages/BookingPage.tsx:477",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-bookingpage-499",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 499,
+      "label": "input at app/src/pages/BookingPage.tsx:499",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-bookingpage-521",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 521,
+      "label": "textarea at app/src/pages/BookingPage.tsx:521",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookingpage-546",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 546,
+      "label": "button at app/src/pages/BookingPage.tsx:546",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-bookings-150",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Bookings.tsx",
+      "line": 150,
+      "label": "button at app/src/pages/Bookings.tsx:150",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-calendar-152",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Calendar.tsx",
+      "line": 152,
+      "label": "button at app/src/pages/Calendar.tsx:152",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-calendar-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Calendar.tsx",
+      "line": 171,
+      "label": "button at app/src/pages/Calendar.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-calendar-191",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Calendar.tsx",
+      "line": 191,
+      "label": "button at app/src/pages/Calendar.tsx:191",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-calendar-205",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Calendar.tsx",
+      "line": 205,
+      "label": "button at app/src/pages/Calendar.tsx:205",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-calendar-314",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Calendar.tsx",
+      "line": 314,
+      "label": "link at app/src/pages/Calendar.tsx:314",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-207",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 207,
+      "label": "link at app/src/pages/Dashboard.tsx:207",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-329-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 329,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-360-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 360,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-eventtypeeditor-303-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 303,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-eventtypeeditor-319-arrow-back-----defau",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 319,
+      "label": "arrow_back , { defaultValue: Back t",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-346",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 346,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:346",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-367",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 367,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:367",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-384",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 384,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:384",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-433",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 433,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:433",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-eventtypeeditor-466",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 466,
+      "label": "input at app/src/pages/EventTypeEditor.tsx:466",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-eventtypeeditor-503",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 503,
+      "label": "input at app/src/pages/EventTypeEditor.tsx:503",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-533",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 533,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:533",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-eventtypeeditor-566",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 566,
+      "label": "select at app/src/pages/EventTypeEditor.tsx:566",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-eventtypeeditor-597",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 597,
+      "label": "textarea at app/src/pages/EventTypeEditor.tsx:597",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-eventtypeeditor-659",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 659,
+      "label": "button at app/src/pages/EventTypeEditor.tsx:659",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-eventtypeeditor-688",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 688,
+      "label": "input at app/src/pages/EventTypeEditor.tsx:688",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-eventtypeeditor-704",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 704,
+      "label": "input at app/src/pages/EventTypeEditor.tsx:704",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-eventtypeeditor-720",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 720,
+      "label": "input at app/src/pages/EventTypeEditor.tsx:720",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-eventtypes-120",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/EventTypes.tsx",
+      "line": 120,
+      "label": "link at app/src/pages/EventTypes.tsx:120",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-eventtypes-182-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/EventTypes.tsx",
+      "line": 182,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-112",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 112,
+      "label": "input at app/src/pages/ForgotPassword.tsx:112",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-150",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 150,
+      "label": "button at app/src/pages/ForgotPassword.tsx:150",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-169",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 169,
+      "label": "button at app/src/pages/ForgotPassword.tsx:169",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-195-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 195,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-integrations-265",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Integrations.tsx",
+      "line": 265,
+      "label": "button at app/src/pages/Integrations.tsx:265",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-64--span-classname---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 64,
+      "label": "<span className=),",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-88-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 88,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-98-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 98,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-174----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 174,
+      "label": ", ,",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-191--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 191,
+      "label": ",",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-380------arrow-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 380,
+      "label": ", )} arrow_",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-91",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 91,
+      "label": "input at app/src/pages/Login.tsx:91",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-122-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 122,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-145",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 145,
+      "label": "input at app/src/pages/Login.tsx:145",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-160",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 160,
+      "label": "button at app/src/pages/Login.tsx:160",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-193",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 193,
+      "label": "button at app/src/pages/Login.tsx:193",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-224-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 224,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-meetingdetail-156-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MeetingDetail.tsx",
+      "line": 156,
+      "label": "← , )}",
+      "href": "/bookings",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-meetingdetail-182-arrow-back-----defau",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MeetingDetail.tsx",
+      "line": 182,
+      "label": "arrow_back , { defaultValue: Back to bookings",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-meetingdetail-334",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/MeetingDetail.tsx",
+      "line": 334,
+      "label": "link at app/src/pages/MeetingDetail.tsx:334",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-meetingdetail-355",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MeetingDetail.tsx",
+      "line": 355,
+      "label": "button at app/src/pages/MeetingDetail.tsx:355",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-meetingdetail-374",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MeetingDetail.tsx",
+      "line": 374,
+      "label": "button at app/src/pages/MeetingDetail.tsx:374",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-315",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 315,
+      "label": "button at app/src/pages/Notifications.tsx:315",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-365",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 365,
+      "label": "button at app/src/pages/Notifications.tsx:365",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-24",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 24,
+      "label": "link at app/src/pages/PlanUpdated.tsx:24",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-25-planupdated-returnho",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 25,
+      "label": "planUpdated.returnHome",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-105",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 105,
+      "label": "input at app/src/pages/ResetPassword.tsx:105",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-151",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 151,
+      "label": "input at app/src/pages/ResetPassword.tsx:151",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-196",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 196,
+      "label": "input at app/src/pages/ResetPassword.tsx:196",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-228",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 228,
+      "label": "button at app/src/pages/ResetPassword.tsx:228",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-256-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 256,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-243",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 243,
+      "label": "button at app/src/pages/Settings.tsx:243",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-266",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 266,
+      "label": "link at app/src/pages/Settings.tsx:266",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-310",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 310,
+      "label": "input at app/src/pages/Settings.tsx:310",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-332",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 332,
+      "label": "input at app/src/pages/Settings.tsx:332",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-393",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 393,
+      "label": "button at app/src/pages/Settings.tsx:393",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-445",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 445,
+      "label": "button at app/src/pages/Settings.tsx:445",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-483",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 483,
+      "label": "button at app/src/pages/Settings.tsx:483",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-534",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 534,
+      "label": "input at app/src/pages/Settings.tsx:534",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-556",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 556,
+      "label": "input at app/src/pages/Settings.tsx:556",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-571",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 571,
+      "label": "button at app/src/pages/Settings.tsx:571",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-611",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 611,
+      "label": "button at app/src/pages/Settings.tsx:611",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-102",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 102,
+      "label": "input at app/src/pages/Signup.tsx:102",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-151",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 151,
+      "label": "input at app/src/pages/Signup.tsx:151",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-202",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 202,
+      "label": "input at app/src/pages/Signup.tsx:202",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-240",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 240,
+      "label": "button at app/src/pages/Signup.tsx:240",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-271-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 271,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-settingspanel-311",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 311,
+      "label": "form at app/src/components/SettingsPanel.tsx:311",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "current-pw",
+          "type": "password"
+        },
+        {
+          "name": "new-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-settingspanel-352",
+      "file": "app/src/components/SettingsPanel.tsx",
+      "line": 352,
+      "label": "form at app/src/components/SettingsPanel.tsx:352",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "delete-pw",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "id": "form-bookingpage-379",
+      "file": "app/src/pages/BookingPage.tsx",
+      "line": 379,
+      "label": "form at app/src/pages/BookingPage.tsx:379",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-eventtypeeditor-314",
+      "file": "app/src/pages/EventTypeEditor.tsx",
+      "line": 314,
+      "label": "form at app/src/pages/EventTypeEditor.tsx:314",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-80",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 80,
+      "label": "form at app/src/pages/ForgotPassword.tsx:80",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-59",
+      "file": "app/src/pages/Login.tsx",
+      "line": 59,
+      "label": "form at app/src/pages/Login.tsx:59",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-73",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 73,
+      "label": "form at app/src/pages/ResetPassword.tsx:73",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-524",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 524,
+      "label": "form at app/src/pages/Settings.tsx:524",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-70",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 70,
+      "label": "form at app/src/pages/Signup.tsx:70",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-availability--id",
+      "method": "DELETE",
+      "mountedPath": "/availability/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 234,
+      "resource": "availability"
+    },
+    {
+      "id": "route-delete-availability-overrides--id",
+      "method": "DELETE",
+      "mountedPath": "/availability/overrides/:id",
+      "rawPath": "/overrides/:id",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 304,
+      "resource": "availability"
+    },
+    {
+      "id": "route-delete-event-types--id",
+      "method": "DELETE",
+      "mountedPath": "/event-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 415,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-get-availability-",
+      "method": "GET",
+      "mountedPath": "/availability",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 132,
+      "resource": "availability"
+    },
+    {
+      "id": "route-get-availability-overrides",
+      "method": "GET",
+      "mountedPath": "/availability/overrides",
+      "rawPath": "/overrides",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 252,
+      "resource": "availability"
+    },
+    {
+      "id": "route-get-billing-status",
+      "method": "GET",
+      "mountedPath": "/billing/status",
+      "rawPath": "/status",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 111,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-billing-tiers",
+      "method": "GET",
+      "mountedPath": "/billing/tiers",
+      "rawPath": "/tiers",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 129,
+      "resource": "billing"
+    },
+    {
+      "id": "route-get-bookings-",
+      "method": "GET",
+      "mountedPath": "/bookings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 358,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-get-bookings--id",
+      "method": "GET",
+      "mountedPath": "/bookings/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 379,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-get-bookings-by-token--token",
+      "method": "GET",
+      "mountedPath": "/bookings/by-token/:token",
+      "rawPath": "/by-token/:token",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 283,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-get-event-types-",
+      "method": "GET",
+      "mountedPath": "/event-types",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 273,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-get-event-types--id",
+      "method": "GET",
+      "mountedPath": "/event-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 287,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-get-event-types-by-slug--slug",
+      "method": "GET",
+      "mountedPath": "/event-types/by-slug/:slug",
+      "rawPath": "/by-slug/:slug",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 126,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-get-event-types-by-slug--slug-availability",
+      "method": "GET",
+      "mountedPath": "/event-types/by-slug/:slug/availability",
+      "rawPath": "/by-slug/:slug/availability",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 157,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-get-profile-me",
+      "method": "GET",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 61,
+      "resource": "profile"
+    },
+    {
+      "id": "route-patch-availability--id",
+      "method": "PATCH",
+      "mountedPath": "/availability/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 218,
+      "resource": "availability"
+    },
+    {
+      "id": "route-patch-availability-overrides--id",
+      "method": "PATCH",
+      "mountedPath": "/availability/overrides/:id",
+      "rawPath": "/overrides/:id",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 284,
+      "resource": "availability"
+    },
+    {
+      "id": "route-patch-bookings--id",
+      "method": "PATCH",
+      "mountedPath": "/bookings/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 434,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-patch-event-types--id",
+      "method": "PATCH",
+      "mountedPath": "/event-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 385,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-patch-profile-me",
+      "method": "PATCH",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 101,
+      "resource": "profile"
+    },
+    {
+      "id": "route-post-availability-",
+      "method": "POST",
+      "mountedPath": "/availability",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 185,
+      "resource": "availability"
+    },
+    {
+      "id": "route-post-availability-overrides",
+      "method": "POST",
+      "mountedPath": "/availability/overrides",
+      "rawPath": "/overrides",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 266,
+      "resource": "availability"
+    },
+    {
+      "id": "route-post-billing-cancel",
+      "method": "POST",
+      "mountedPath": "/billing/cancel",
+      "rawPath": "/cancel",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 82,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-billing-checkout",
+      "method": "POST",
+      "mountedPath": "/billing/checkout",
+      "rawPath": "/checkout",
+      "handlerFile": "api/src/routes/billing.ts",
+      "line": 36,
+      "resource": "billing"
+    },
+    {
+      "id": "route-post-bookings-",
+      "method": "POST",
+      "mountedPath": "/bookings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 394,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-post-bookings-by-token--token-cancel",
+      "method": "POST",
+      "mountedPath": "/bookings/by-token/:token/cancel",
+      "rawPath": "/by-token/:token/cancel",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 326,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-post-bookings-public",
+      "method": "POST",
+      "mountedPath": "/bookings/public",
+      "rawPath": "/public",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 207,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-post-event-types-",
+      "method": "POST",
+      "mountedPath": "/event-types",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 302,
+      "resource": "event-types"
+    },
+    {
+      "id": "route-put-availability--id",
+      "method": "PUT",
+      "mountedPath": "/availability/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 202,
+      "resource": "availability"
+    },
+    {
+      "id": "route-put-availability-bulk",
+      "method": "PUT",
+      "mountedPath": "/availability/bulk",
+      "rawPath": "/bulk",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 151,
+      "resource": "availability"
+    },
+    {
+      "id": "route-put-bookings--id",
+      "method": "PUT",
+      "mountedPath": "/bookings/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 450,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-put-event-types--id",
+      "method": "PUT",
+      "mountedPath": "/event-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/event-types.ts",
+      "line": 355,
+      "resource": "event-types"
+    }
+  ],
+  "totals": {
+    "pages": 20,
+    "elements": 109,
+    "forms": 9,
+    "routes": 32
+  }
+}

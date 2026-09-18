@@ -1,0 +1,70 @@
+[
+  {
+    "id": "a-001",
+    "type": "low_stock",
+    "severity": "critical",
+    "product_id": "p-003",
+    "product_name": "Insulated Travel Mug — Slate",
+    "sku": "MTL-CUP-077",
+    "warehouse_id": "w-001",
+    "warehouse_name": "Portland Main Distribution",
+    "quantity": 0,
+    "threshold": 80,
+    "message": "Out of stock at Portland Main Distribution.",
+    "acknowledged": false,
+    "created_at": "2026-04-29T14:08:00Z"
+  },
+  {
+    "id": "a-002",
+    "type": "low_stock",
+    "severity": "high",
+    "product_id": "p-008",
+    "product_name": "Brass Door Pull — Antique",
+    "sku": "HW-BRSH-045",
+    "warehouse_id": "w-002",
+    "warehouse_name": "Austin Makers Hub",
+    "quantity": 8,
+    "threshold": 24,
+    "message": "Below reorder threshold across all warehouses.",
+    "acknowledged": false,
+    "created_at": "2026-04-29T11:42:00Z"
+  },
+  {
+    "id": "a-003",
+    "type": "low_stock",
+    "severity": "medium",
+    "product_id": "p-002",
+    "product_name": "Heritage Oak Side Table",
+    "sku": "TBL-OAK-018",
+    "warehouse_id": "w-001",
+    "warehouse_name": "Portland Main Distribution",
+    "quantity": 14,
+    "threshold": 18,
+    "message": "Slight dip below threshold; consider reorder this week.",
+    "acknowledged": false,
+    "created_at": "2026-04-28T09:18:00Z"
+  },
+  {
+    "id": "a-004",
+    "type": "stalled_transfer",
+    "severity": "medium",
+    "transfer_id": "t-003",
+    "reference": "TRF-2026-0420",
+    "message": "Transfer TRF-2026-0420 has been pending for over 24 hours.",
+    "acknowledged": true,
+    "created_at": "2026-04-28T18:00:00Z"
+  },
+  {
+    "id": "a-005",
+    "type": "movement",
+    "severity": "low",
+    "product_id": "p-006",
+    "product_name": "Single-Origin Espresso — 12oz",
+    "sku": "FOOD-BEAN-020",
+    "warehouse_id": "w-003",
+    "warehouse_name": "Atlanta Cross-Dock",
+    "message": "240 units received from Portland Main.",
+    "acknowledged": true,
+    "created_at": "2026-04-25T15:21:00Z"
+  }
+]

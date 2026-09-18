@@ -1,0 +1,7 @@
+Polish complete: 2026-04-30T03:00:00+03:00
+Pipeline: polish-app.mjs via polish-remaining-fleet driver
+Cluster: business-saas (precheck) / productivity (template) → sibling: project-management
+Components: 6 bespoke (TimeTrackingLayout, TimerHeroCard, DurationKpiCard, TimeEntryRow, ProjectBudgetCard, InvoiceStatusPill)
+Screen-map coverage: 16/16
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean (npx tsc --noEmit)

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+
+<g fill="none" stroke="#00d992" stroke-width="2.4" stroke-linecap="round">
+  <path d="M3 11 Q 9 4, 16 11 T 29 11" />
+  <path d="M3 17 Q 9 10, 16 17 T 29 17" stroke-opacity="0.65" />
+  <path d="M3 23 Q 9 16, 16 23 T 29 23" stroke-opacity="0.35" />
+</g>
+
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#333333">Arcanum</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#888888">Arcanum — secrets die in the open.</text>
+</svg>

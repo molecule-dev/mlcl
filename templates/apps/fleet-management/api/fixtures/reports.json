@@ -1,0 +1,37 @@
+{
+  "fleet": {
+    "vehicles_total": 12,
+    "vehicles_in_transit": 6,
+    "vehicles_idle": 1,
+    "vehicles_alert": 2,
+    "vehicles_offline": 1,
+    "drivers_active": 8,
+    "miles_today": 4218,
+    "fuel_used_today": 642,
+    "active_alerts": 5
+  },
+  "analytics": {
+    "miles_30d": 124820,
+    "fuel_30d_gal": 18412,
+    "fuel_cost_30d": 67318,
+    "hours_30d": 6840,
+    "alerts_30d": 184,
+    "on_time_rate": 0.93,
+    "by_vehicle_type": [
+      { "type": "Class 8 truck", "count": 6, "miles": 78420, "fuel_gal": 13682 },
+      { "type": "Cargo van",      "count": 6, "miles": 46400, "fuel_gal": 4730  }
+    ],
+    "daily_miles": [
+      { "date": "2026-03-28", "miles": 4218 }, { "date": "2026-03-29", "miles": 3982 }, { "date": "2026-03-30", "miles": 4128 },
+      { "date": "2026-03-31", "miles": 4214 }, { "date": "2026-04-01", "miles": 4380 }, { "date": "2026-04-02", "miles": 4012 },
+      { "date": "2026-04-03", "miles": 3812 }, { "date": "2026-04-04", "miles": 3284 }, { "date": "2026-04-05", "miles": 1842 },
+      { "date": "2026-04-06", "miles": 4520 }, { "date": "2026-04-07", "miles": 4318 }, { "date": "2026-04-08", "miles": 4214 },
+      { "date": "2026-04-09", "miles": 4380 }, { "date": "2026-04-10", "miles": 4012 }, { "date": "2026-04-11", "miles": 3284 },
+      { "date": "2026-04-12", "miles": 1842 }, { "date": "2026-04-13", "miles": 4218 }, { "date": "2026-04-14", "miles": 4380 },
+      { "date": "2026-04-15", "miles": 4214 }, { "date": "2026-04-16", "miles": 4128 }, { "date": "2026-04-17", "miles": 4012 },
+      { "date": "2026-04-18", "miles": 3284 }, { "date": "2026-04-19", "miles": 1842 }, { "date": "2026-04-20", "miles": 4218 },
+      { "date": "2026-04-21", "miles": 4520 }, { "date": "2026-04-22", "miles": 4318 }, { "date": "2026-04-23", "miles": 4214 },
+      { "date": "2026-04-24", "miles": 4380 }, { "date": "2026-04-25", "miles": 4012 }, { "date": "2026-04-26", "miles": 4218 }
+    ]
+  }
+}

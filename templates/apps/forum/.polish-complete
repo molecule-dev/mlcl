@@ -1,0 +1,16 @@
+Polish complete: 2026-04-29T21:25:00Z
+Pipeline: polish-app.md via subagent (Cursor)
+Cluster: content-social → siblings used: blog, personal-finance
+Brand: Quorum — "Every voice counts" (#0e7c6b primary, #e8762c upvote, #b44c18 mod)
+Components: 7 bespoke (VoteColumn, ThreadRow, CategoryCard, CommunitySidebar,
+  ReputationBadge, ForumLayout, AuthShell)
+Screen-map coverage: 15/15 (Landing, Login, Signup, ForgotPassword, ResetPassword,
+  Feed, Categories, ThreadView, Compose, Profile, Settings, CategoryDetail, Search,
+  Notifications, ModQueue) + NotFound 404 catchall
+Auth pages branded: Login, Signup, ForgotPassword, ResetPassword via AuthShell
+Material 3 tokens filled: yes (48 token derivative ladder)
+Fonts: Material Symbols Outlined + Inter loaded in index.html
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegate to
+  @molecule/app-{header,footer,root-error-boundary}-react)
+Typecheck: clean (npx tsc --noEmit)
+Compliance: clean (check-rules-compliance.mjs, 278 files, 0 violations)

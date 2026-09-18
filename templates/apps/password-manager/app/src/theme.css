@@ -1,0 +1,246 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #1a73e8;
+  --mol-color-primary-light: #e8f0fe;
+  --mol-color-primary-dark: #0d47a1;
+  --mol-color-secondary: #5f6368;
+  --mol-color-background: #f5f5f5;
+  --mol-color-background-secondary: #ffffff;
+  --mol-color-background-tertiary: #e8f0fe;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f4ff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #202124;
+  --mol-color-text-secondary: #5f6368;
+  --mol-color-text-tertiary: #9aa0a6;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #dadce0;
+  --mol-color-border-secondary: #e8eaed;
+  --mol-color-border-focus: #1a73e8;
+  --mol-color-success: #0d652d;
+  --mol-color-warning: #b06000;
+  --mol-color-error: #c5221f;
+  --mol-color-info: #1a73e8;
+
+  /* Stitch / Material-3 light tokens */
+  --color-background: #f5f5f5;
+  --color-on-background: #202124;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8eaed;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #f0f4ff;
+  --color-surface-container-high: #e3ecfe;
+  --color-surface-container-highest: #dadce0;
+  --color-surface-variant: #e8f0fe;
+  --color-on-surface: #202124;
+  --color-on-surface-variant: #5f6368;
+  --color-inverse-surface: #202124;
+  --color-inverse-on-surface: #f5f5f5;
+  --color-inverse-primary: #8ab4f8;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #e8f0fe;
+  --color-on-primary-container: #0d47a1;
+  --color-secondary-container: #f1f3f4;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #202124;
+  --color-tertiary: #1a73e8;
+  --color-tertiary-container: #e8f0fe;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #0d47a1;
+  --color-error-container: #fce8e6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #c5221f;
+  --color-outline: #767c83; /* #9aa0a6 was 2.64:1 vs white surface (fail ≥3:1); #767c83 = 4.22:1 */
+  --color-outline-variant: #dadce0;
+  --color-surface-tint: #1a73e8;
+
+  /* Brand */
+  --color-primary: #1a73e8;
+  --color-primary-hover: #1557b0;
+  --color-primary-light: #e8f0fe;
+  --color-primary-dark: #0d47a1;
+
+  /* Surface */
+  --color-background: #f5f5f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f4ff;
+  --color-surface-active: #e3ecfe;
+
+  /* Sidebar */
+  --color-sidebar-bg: #1c2333;
+  --color-sidebar-hover: #283042;
+  --color-sidebar-active: #344055;
+  --color-sidebar-text: #e0e4ea;
+  --color-sidebar-text-muted: #7f8a9a;
+
+  /* Text */
+  --color-text: #202124;
+  --color-text-secondary: #5f6368;
+  --color-text-muted: #9aa0a6;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #dadce0;
+  --color-border-light: #f0f0f0;
+  --color-border-focus: #1a73e8;
+
+  /* Security indicators */
+  --color-security-strong: #0d652d;
+  --color-security-medium: #b06000;
+  --color-security-weak: #c5221f;
+
+  /* Status */
+  --color-success: #0d652d;
+  --color-warning: #b06000;
+  --color-error: #c5221f;
+  --color-info: #1a73e8;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --content-max-width: 800px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-round: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --transition-fast: 100ms ease;
+  --transition-normal: 200ms ease;
+}
+
+/* Dark mode — security/devtools cool-slate dark.
+   Cool slate near-black (#0f172a / #1e293b / #334155) reinforces the
+   secure-vault feeling — chrome stays out of the way of credential rows.
+   Brand blue (#1a73e8) is preserved at the brand stop for primary CTAs
+   (Save Password, Unlock); legacy `--color-primary` shifts to a brighter
+   `#8ab4f8` for body accents (focus rings, links). Security-strength
+   indicators (strong/medium/weak) keep their green/yellow/red semantics
+   with brighter dark-friendly hues. `--color-on-primary` STAYS white. */
+[data-mol-mode='dark'] {
+  --color-primary: #8ab4f8;
+  --color-primary-hover: #a8c7fa;
+  --color-primary-light: #1a2744;
+  --color-primary-dark: #c2dbff;
+
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #28344a;
+  --color-surface-active: #334155;
+
+  --color-sidebar-bg: #0a1120;
+  --color-sidebar-hover: #1e293b;
+  --color-sidebar-active: #28344a;
+  --color-sidebar-text: #f1f5f9;
+  --color-sidebar-text-muted: #94a3b8;
+
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-border: #334155;
+  --color-border-light: #1e293b;
+  --color-border-focus: #8ab4f8;
+
+  --color-on-primary: #ffffff; /* white on blue — readable in both modes */
+
+  /* Security indicators — brighter for dark, semantics preserved */
+  --color-security-strong: #81c995;
+  --color-security-medium: #fdd663;
+  --color-security-weak: #f28b82;
+
+  --color-success: #81c995;
+  --color-warning: #fdd663;
+  --color-error: #f28b82;
+  --color-info: #8ab4f8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.65);
+
+  /* === @theme bridge — dark overrides === */
+  --mol-color-primary: #8ab4f8;
+  --mol-color-primary-light: #1a2744;
+  --mol-color-primary-dark: #c2dbff;
+  --mol-color-secondary: #cbd5e1;
+  --mol-color-background: #0f172a;
+  --mol-color-background-secondary: #1e293b;
+  --mol-color-background-tertiary: #28344a;
+  --mol-color-surface: #1e293b;
+  --mol-color-surface-secondary: #28344a;
+  --mol-color-input-background: #0f172a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #94a3b8;
+  --mol-color-text-inverse: #0f172a;
+  --mol-color-border: #334155;
+  --mol-color-border-secondary: #1e293b;
+  --mol-color-border-focus: #8ab4f8;
+  --mol-color-success: #81c995;
+  --mol-color-warning: #fdd663;
+  --mol-color-error: #f28b82;
+  --mol-color-info: #8ab4f8;
+
+  /* Stitch / Material-3 token dark variants */
+  --color-background: #0f172a;
+  --color-on-background: #f1f5f9;
+  --color-surface: #1e293b;
+  --color-surface-bright: #28344a;
+  --color-surface-dim: #090f1c;
+  --color-surface-container-lowest: #060c18;
+  --color-surface-container-low: #111827;
+  --color-surface-container: #1e293b;
+  --color-surface-container-high: #28344a;
+  --color-surface-container-highest: #334155;
+  --color-surface-variant: #1e293b;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0f172a;
+  --color-inverse-primary: #1a73e8;
+  --color-primary-container: #1a2744;
+  --color-on-primary-container: #c2dbff;
+  --color-secondary-container: #1e293b;
+  --color-on-secondary: #0f172a;
+  --color-on-secondary-container: #f1f5f9;
+  --color-tertiary: #8ab4f8;
+  --color-tertiary-container: #1a2744;
+  --color-on-tertiary: #0f172a; /* #ffffff was 2.11:1 on #8ab4f8 (fail); #0f172a = 8.47:1 */
+  --color-on-tertiary-container: #c2dbff;
+  --color-error: #f28b82;
+  --color-error-container: #4a1818;
+  --color-on-error: #3a0000; /* #ffffff was 2.39:1 on #f28b82 (fail); #3a0000 = 7.45:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+  --color-surface-tint: #8ab4f8;
+}

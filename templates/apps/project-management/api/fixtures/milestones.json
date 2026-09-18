@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mst01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "Design Phase Complete",
+    "description": "All design deliverables approved: homepage, inner pages, component library, and style guide.",
+    "project_id": "prj01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "due_date": "2026-03-31T00:00:00Z",
+    "status": "in_progress",
+    "created_at": "2026-01-25T10:00:00Z",
+    "updated_at": "2026-03-28T09:00:00Z"
+  },
+  {
+    "id": "mst02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "title": "Development Phase 1 - Core Pages",
+    "description": "Homepage, about, pricing, and contact pages implemented and reviewed.",
+    "project_id": "prj01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "due_date": "2026-05-15T00:00:00Z",
+    "status": "open",
+    "created_at": "2026-01-25T10:30:00Z",
+    "updated_at": "2026-01-25T10:30:00Z"
+  },
+  {
+    "id": "mst03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "title": "Beta Release",
+    "description": "Mobile app v2.0 beta release for internal testing. Core features: offline sync, push notifications, biometric auth.",
+    "project_id": "prj02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "due_date": "2026-04-30T00:00:00Z",
+    "status": "open",
+    "created_at": "2026-01-10T10:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z"
+  },
+  {
+    "id": "mst04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "Public Launch",
+    "description": "Mobile app v2.0 available on App Store and Google Play with full feature set.",
+    "project_id": "prj02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "due_date": "2026-05-31T00:00:00Z",
+    "status": "open",
+    "created_at": "2026-01-10T10:30:00Z",
+    "updated_at": "2026-01-10T10:30:00Z"
+  },
+  {
+    "id": "mst05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "title": "Phase 1 - Auth Service Extraction",
+    "description": "Authentication and user management running as independent microservice with backward-compatible API.",
+    "project_id": "prj03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "due_date": "2026-02-28T00:00:00Z",
+    "status": "completed",
+    "created_at": "2025-10-15T10:00:00Z",
+    "updated_at": "2026-02-28T16:00:00Z"
+  },
+  {
+    "id": "mst06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "title": "Website Launch",
+    "description": "New website live with all pages, analytics, and A/B testing infrastructure.",
+    "project_id": "prj01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "due_date": "2026-06-30T00:00:00Z",
+    "status": "open",
+    "created_at": "2026-01-25T11:00:00Z",
+    "updated_at": "2026-01-25T11:00:00Z"
+  }
+]

@@ -1,0 +1,10 @@
+# aliases.ts mounts adapter routes at the root prefix `/api/...` (e.g.
+# `/api/threads`, `/api/categories-rich`, `/api/categories-by-slug/:slug`,
+# `/api/search`, `/api/users/by-username/:username`, `/api/bookmarks-rich`,
+# `/api/moderation/queue`, `/api/threads/:id/bookmark`). The coverage gate
+# only checks the path-derived candidates `/api/aliases`, `/api/aliasess`,
+# `/aliases`, `/aliasess` — none of which match this mount. The actual
+# endpoints are exercised by every spec that hits the alias surface
+# (compose.spec.ts, t__id.spec.ts, c.spec.ts, c__slug.spec.ts,
+# bookmarks.spec.ts, search.spec.ts, moderation.spec.ts, u__username.spec.ts).
+aliases

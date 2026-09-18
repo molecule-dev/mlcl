@@ -1,0 +1,14 @@
+[
+  { "id": "v_001", "name": "Alex Reyes",      "email": "areyes@hartford.gov",       "organization": "Hartford City Council",  "role": "Council Chair",   "eligibility": "active",   "voted_count": 18, "last_seen": "2026-04-27T15:32:00Z" },
+  { "id": "v_002", "name": "Marisol Okafor",  "email": "mokafor@hartford.gov",      "organization": "Hartford City Council",  "role": "Finance Cmte",    "eligibility": "active",   "voted_count": 21, "last_seen": "2026-04-27T15:28:00Z" },
+  { "id": "v_003", "name": "Linnea Hartwell", "email": "lhartwell@bylaws.coop",     "organization": "Foundry Co-op",          "role": "Bylaws Cmte",     "eligibility": "active",   "voted_count": 14, "last_seen": "2026-04-27T14:51:00Z" },
+  { "id": "v_004", "name": "Sara Polaris",    "email": "spolaris@polaristech.com",  "organization": "Polaris Tech Conf",      "role": "Organizer",       "eligibility": "active",   "voted_count": 9,  "last_seen": "2026-04-27T15:14:00Z" },
+  { "id": "v_005", "name": "Devon Park",      "email": "dpark@northbridge.org",     "organization": "Northbridge HOA",        "role": "Board Member",    "eligibility": "active",   "voted_count": 12, "last_seen": "2026-04-26T18:02:00Z" },
+  { "id": "v_006", "name": "Casey Wong",      "email": "cwong@northbridge.org",     "organization": "Northbridge HOA",        "role": "Board Member",    "eligibility": "active",   "voted_count": 11, "last_seen": "2026-04-27T09:45:00Z" },
+  { "id": "v_007", "name": "Riley Banner",    "email": "rbanner@hartford.gov",      "organization": "Hartford City Council",  "role": "Clerk",           "eligibility": "active",   "voted_count": 22, "last_seen": "2026-04-27T15:50:00Z" },
+  { "id": "v_008", "name": "Henry Cho",       "email": "hcho@foundry.coop",         "organization": "Foundry Co-op",          "role": "Member",          "eligibility": "pending",  "voted_count": 0,  "last_seen": null },
+  { "id": "v_009", "name": "Maya Chen",       "email": "mchen@polaristech.com",     "organization": "Polaris Tech Conf",      "role": "Speaker",         "eligibility": "active",   "voted_count": 4,  "last_seen": "2026-04-27T15:05:00Z" },
+  { "id": "v_010", "name": "Sam Rivera",      "email": "srivera@hartford.gov",      "organization": "Hartford City Council",  "role": "Council Member",  "eligibility": "active",   "voted_count": 17, "last_seen": "2026-04-27T15:40:00Z" },
+  { "id": "v_011", "name": "Avery Kim",       "email": "akim@hartford.gov",         "organization": "Hartford City Council",  "role": "Council Member",  "eligibility": "active",   "voted_count": 19, "last_seen": "2026-04-27T15:29:00Z" },
+  { "id": "v_012", "name": "Jordan Pace",     "email": "jpace@northbridge.org",     "organization": "Northbridge HOA",        "role": "Treasurer",       "eligibility": "revoked", "voted_count": 6,  "last_seen": "2026-04-20T11:00:00Z" }
+]

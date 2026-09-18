@@ -1,0 +1,7 @@
+# Handlers that are intentionally not exercised by the UI yet.
+# Both expose CRUD over their underlying tables for future expansion
+# (applications joins candidates ↔ jobs; scorecards rate interviews) but
+# are not surfaced as user-facing flows in the v1 ATS UI — the
+# applicant-tracking workflow uses candidates+stage+interviews directly.
+applications
+scorecards

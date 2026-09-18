@@ -1,0 +1,174 @@
+import type { UiTranslations } from '../types.js'
+
+export const ui: UiTranslations = {
+  'about.cta.help': 'Hilfeartikel durchsuchen',
+  'about.cta.signup': 'Courier kostenlos testen',
+  'about.eyebrow': 'Über Courier',
+  'about.principle.calm': 'Standardmäßig ruhig.',
+  'about.principle.calm.desc':
+    'Keine schreienden Abzeichen, keine ungebetenen Benachrichtigungen, keine Animationen, die Ihren Blick erzwingen.',
+  'about.principle.fast.desc':
+    'Jede Aktion ist nur einen Tastendruck entfernt. Der Posteingang lädt nach einer neuen Anmeldung in unter 200 ms.',
+  'about.principle.honest.desc':
+    'Verschlüsselung bei Übertragung und Speicherung, transparente Aufbewahrung und Datenexport mit einem Klick.',
+  'about.story': 'Warum wir Courier gebaut haben',
+  'about.story.p1':
+    'Die meisten E-Mail-Clients optimieren auf Engagement — sie holen Sie zurück, zersplittern Ihre Aufmerksamkeit, schlagen den nächsten Tipp vor. Courier macht das Gegenteil. Wir messen Erfolg an der Zeit, die Sie NICHT in Ihrem Postfach verbringen: schnell sortieren, beruhigt aufschieben und mit der Arbeit weitermachen, die zählt.',
+  'about.subtitle':
+    'Courier ist ein ruhiger Drei-Spalten-Posteingang, gebaut von einem kleinen Team, das Informationen verarbeiten und nicht auf sie reagieren wollte.',
+  'about.team.body':
+    'Wir sind ein verteiltes Team aus Designerinnen und Ingenieuren, das früher zu viele Stunden am Tag in einem lauten Postfach verbracht hat. Courier ist der Posteingang, den wir selbst nutzen wollten.',
+  'about.title': 'E-Mail für konzentriertes Arbeiten',
+  'help.cta.about': 'Über Courier',
+  'help.cta.pricing': 'Preise ansehen',
+  'help.eyebrow': 'Hilfezentrum',
+  'help.faq.compose.a':
+    'Klicken Sie in der Seitenleiste auf „Verfassen“ (oder drücken Sie in jeder Posteingangsansicht auf „c“), geben Sie mindestens einen Empfänger, einen Betreff und einen Nachrichtentext ein und klicken Sie auf „Senden“. Die neue Nachricht erscheint sofort in Ihrem Ordner „Gesendet“.',
+  'help.faq.compose.q': 'Wie sende ich meine erste Nachricht?',
+  'help.faq.export.a':
+    'Ja. Einstellungen → Konto → Datenexport erstellt ein herunterladbares Archiv (mbox + JSON) mit jeder Nachricht, jedem Label und jedem Kontakt. Eine Premium-Stufe ist nicht erforderlich.',
+  'help.faq.labels.a':
+    'Ordner sind exklusiv (eine Nachricht liegt in genau einem): Posteingang, Gesendet, Entwürfe, Spam, Papierkorb, Archiv. Labels sind additiv — Sie können einer E-Mail mehrere zuweisen und in der Suchleiste nach Kombinationen filtern.',
+  'help.faq.password.a':
+    'Nutzen Sie den Link „Passwort vergessen?“ auf der Anmeldeseite. Wir senden einen Reset-Link, der eine Stunde lang gültig ist, an die E-Mail-Adresse Ihres Kontos.',
+  'help.faq.shortcuts.a':
+    'Ja. „j“ / „k“ wechseln zwischen Konversationen, „s“ schaltet einen Stern um, „e“ archiviert, „#“ verschiebt in den Papierkorb und „/“ fokussiert das Suchfeld. Die Kurzbefehl-Dokumentation öffnet sich in jeder Posteingangsansicht mit „?“.',
+  'help.faq.support.a':
+    'Schreiben Sie an support@courier.example. Wir beantworten jede Nachricht innerhalb eines Werktags, montags bis freitags 9–17 Uhr UTC.',
+  'help.subtitle':
+    'Schnelle Antworten auf die häufigsten Fragen. Fehlt etwas? Öffnen Sie die Einstellungen und nutzen Sie das integrierte Feedback-Formular oder schreiben Sie an support@courier.example.',
+  'help.title': 'Wie können wir helfen?',
+  'landing.brand.scrollTop': 'Nach oben',
+  'landing.ctaBody':
+    'Schließen Sie sich Tausenden von Profis an, die ihren Posteingang vor dem Mittagessen abgearbeitet haben.',
+  'landing.ctaTitle': 'Mehr verarbeiten, weniger reagieren.',
+  'landing.eyebrow': 'E-Mail für konzentriertes Arbeiten',
+  'landing.featuresBody':
+    'Hören Sie auf, Ihren Posteingang zu verwalten, und erledigen Sie Ihre Arbeit.',
+  'landing.featuresTitle': 'Für tiefes Arbeiten entwickelt',
+  'landing.help': 'Hilfe',
+  'landing.heroDemo': 'Demo ansehen',
+  'landing.heroSubtitle':
+    'Courier ist ein ruhiger Drei-Spalten-Posteingang für Wissensarbeiter, die Informationen verarbeiten statt auf sie reagieren wollen.',
+  'landing.proof': 'Von konzentrierten Teams weltweit geschätzt',
+  'landing.signIn': 'Anmelden',
+  'meridian.archive.empty': 'Das Archiv ist leer.',
+  'meridian.compose.addRecipient': 'Weiteren Empfänger hinzufügen',
+  'meridian.compose.bodyPlaceholder': 'Schreiben Sie Ihre Nachricht…',
+  'meridian.compose.cc': 'Cc',
+  'meridian.compose.ccPlaceholder': 'cc@example.com',
+  'meridian.compose.discard': 'Entwurf verwerfen',
+  'meridian.compose.invalidEmail': '„{{value}}“ ist keine gültige E-Mail',
+  'meridian.compose.needRecipient': 'Fügen Sie zuerst mindestens einen Empfänger hinzu.',
+  'meridian.compose.replyTo': 'Im Thread {{id}} antworten',
+  'meridian.compose.savedAt': 'Entwurf gespeichert um {{time}}',
+  'meridian.compose.sentWithError':
+    'In „Gesendet“ gespeichert, aber Zustellung fehlgeschlagen: {{error}}',
+  'meridian.compose.subject': 'Betr.',
+  'meridian.compose.subjectPlaceholder': 'Betreff',
+  'meridian.compose.title': 'Neue Nachricht',
+  'meridian.compose.to': 'An',
+  'meridian.drafts.continue': 'Weiter bearbeiten',
+  'meridian.drafts.count': '{{count}} Nachrichten',
+  'meridian.drafts.delete': 'Entwurf löschen',
+  'meridian.drafts.empty': 'Noch keine Entwürfe — fangen Sie zu schreiben an.',
+  'meridian.drafts.lastSaved': 'Gespeichert {{at}}',
+  'meridian.drafts.noRecipients': '(noch keine Empfänger)',
+  'meridian.drafts.selectDraft': 'Wählen Sie einen Entwurf zur Vorschau.',
+  'meridian.drafts.title': 'Entwürfe',
+  'meridian.drafts.to': 'An',
+  'meridian.drafts.watermark': 'Entwurf',
+  'meridian.folder.count': '{{count}} Nachrichten',
+  'meridian.folder.deleteForever': 'Endgültig löschen',
+  'meridian.folder.restore': 'In den Posteingang verschieben',
+  'meridian.forgot.subtitle':
+    'Geben Sie die zu Ihrem Postfach gehörende E-Mail-Adresse ein, und wir senden einen Reset-Link.',
+  'meridian.forgot.success':
+    'Sofern ein Konto mit dieser E-Mail existiert, ist der Reset-Link unterwegs.',
+  'meridian.inbox.empty': 'Hier liegen noch keine Nachrichten.',
+  'meridian.inbox.loading': 'Wird geladen…',
+  'meridian.inbox.next': 'Weiter',
+  'meridian.inbox.noSubject': '(kein Betreff)',
+  'meridian.inbox.openCompose': 'Verfassen öffnen',
+  'meridian.inbox.previous': 'Zurück',
+  'meridian.inbox.replyFailed': 'Antwort gespeichert, aber Zustellung fehlgeschlagen: {{error}}',
+  'meridian.inbox.replySent': 'Antwort gesendet.',
+  'meridian.inbox.replyTo': 'An {{name}} antworten',
+  'meridian.inbox.selectMessage': 'Wählen Sie eine Nachricht zum Lesen',
+  'meridian.inbox.spam': 'Spam',
+  'meridian.inbox.viewThread': 'Thread ansehen',
+  'meridian.login.hidePassword': 'Passwort ausblenden',
+  'meridian.login.noAccount': 'Sie haben noch kein Konto?',
+  'meridian.login.showPassword': 'Passwort anzeigen',
+  'meridian.message.toLine': 'an {{recipients}}',
+  'meridian.notFound.eyebrow': 'Fehler 404',
+  'meridian.notFound.title': 'Dieser Thread wurde archiviert.',
+  'meridian.notFound.toInbox': 'Mein Postfach öffnen',
+  'meridian.reset.newLabel': 'Neues Passwort',
+  'meridian.reset.showPassword': 'Passwort anzeigen',
+  'meridian.reset.subtitle': 'Wählen Sie ein starkes Passwort — mindestens 8 Zeichen.',
+  'meridian.sent.empty': 'Sie haben noch nichts gesendet.',
+  'meridian.sent.title': 'Gesendet',
+  'meridian.settings.noName': '(kein Name festgelegt)',
+  'meridian.settings.section.${section}': 'Passen Sie Ihre {{appName}} Erfahrung',
+  'meridian.settings.signature': 'Signatur',
+  'meridian.settings.signatureSaved': 'Signatur gespeichert.',
+  'meridian.sidebar.compose': 'Verfassen',
+  'meridian.sidebar.labels': 'Labels',
+  'meridian.sidebar.noLabels': 'Noch keine Labels',
+  'meridian.sidebar.storage': 'Speicher',
+  'meridian.sidebar.storageLabel': '{{used}} von {{quota}}',
+  'meridian.signup.emailPlaceholder': 'morgan@company.com',
+  'meridian.signup.heading': 'Erstellen Sie Ihr Courier-Postfach',
+  'meridian.signup.namePlaceholder': 'Morgan Chen',
+  'meridian.signup.showPassword': 'Passwort anzeigen',
+  'meridian.signup.subtitle': 'Bearbeiten Sie Ihr Postfach vor dem Mittagessen.',
+  'meridian.spam.empty': 'Kein Spam.',
+  'meridian.spam.title': 'Spam',
+  'meridian.starred.empty': 'Keine markierten Nachrichten.',
+  'meridian.starred.loading': 'Wird geladen…',
+  'meridian.starred.removeStar': 'Markierung entfernen',
+  'meridian.starred.total': '{{count}} insgesamt',
+  'meridian.thread.back': 'Zurück zum Posteingang',
+  'meridian.thread.empty': 'Keine Nachrichten in diesem Thread.',
+  'meridian.thread.eyebrow': 'Thread Nr. {{id}}',
+  'meridian.thread.notFound': 'Thread nicht gefunden.',
+  'meridian.thread.star': 'Markierung hinzufügen',
+  'meridian.thread.unstar': 'Markierung entfernen',
+  'meridian.time.yesterday': 'Gestern',
+  'meridian.topBar.searchPlaceholder': 'E-Mails durchsuchen',
+  'meridian.trash.empty': 'Der Papierkorb ist leer.',
+  'meridian.trash.title': 'Papierkorb',
+  'nav.legal': 'Rechtliches',
+  'planUpdated.description':
+    'Ihr Abonnement ist nun aktiv und Ihre Abrechnung wurde aktualisiert. Willkommen in Ihrem frisch aufgesetzten Courier-Postfach.',
+  'pricing.heading': 'Entwürfe',
+  'pricing.limit.emails': 'E-Mails',
+  'pricing.limit.folders': 'Ordner',
+  'pricing.limit.labels': 'Labels',
+  'privacy.collect.account':
+    'Kontodaten: Name, E-Mail-Adresse, gehashtes Passwort und das Datum Ihrer Registrierung.',
+  'privacy.intro':
+    'Diese Datenschutzerklärung erklärt, welche Daten Courier erhebt, warum wir sie erheben, wie wir sie schützen und welche Wahlmöglichkeiten Sie haben. Wir möchten konkret statt juristisch sein; bei Unklarheiten schreiben Sie an privacy@courier.example.',
+  'privacy.lastUpdated': 'Zuletzt aktualisiert: 1. April 2026',
+  'privacy.linkTerms': 'Unsere Nutzungsbedingungen lesen →',
+  'privacy.rights.body':
+    'Sie können alle Daten, die wir über Sie führen, unter Einstellungen → Konto → Datenexport herunterladen und Ihr Konto mit einem Klick löschen — alle Datensätze werden binnen 24 Stunden entfernt, Audit-Protokolle nach 30 Tagen gelöscht.',
+  'privacy.security.body':
+    'E-Mail-Inhalte und Anhänge werden im Ruhezustand mit AES-256 verschlüsselt. Verbindungen zu und von unserem Dienst nutzen TLS 1.3. Passwörter werden mit bcrypt gehasht; wir protokollieren oder speichern niemals Klartextpasswörter. Der Produktivzugriff ist auf Bereitschaftsingenieure beschränkt und wird monatlich auditiert.',
+  'privacy.share.body':
+    'Wir geben Daten nur an die Subunternehmer weiter, die wir zum Betrieb von Courier benötigen (E-Mail-Versand via Mailgun, Abrechnung via Stripe, Hosting via AWS). Jeder ist vertraglich verpflichtet, Ihre Daten ausschließlich zur Erbringung seiner Leistung für uns zu nutzen. Wir verkaufen, vermieten oder tauschen Ihre Daten mit niemandem.',
+  'terms.acceptable.spam':
+    'Keine unerwünschten Massennachrichten. Wir schließen Konten ohne Vorwarnung, die Spam versenden.',
+  'terms.account.body':
+    'Sie sind für die Vertraulichkeit Ihres Passworts und für jede Aktivität verantwortlich, die über Ihr Konto stattfindet. Benachrichtigen Sie uns unter security@courier.example, wenn Sie vermuten, dass Ihr Konto kompromittiert wurde.',
+  'terms.billing.body':
+    'Bezahlte Tarife verlängern sich gemäß dem bei der Registrierung gewählten Rhythmus. Sie können jederzeit unter Einstellungen → Abrechnung kündigen und behalten den Zugriff bis zum Ende des Abrechnungszeitraums. Erstattungen werden für Ausfälle ausgegeben, die den SLA überschreiten.',
+  'terms.intro':
+    'Diese Bedingungen regeln Ihre Nutzung von Courier. Indem Sie ein Konto anlegen oder über uns E-Mails versenden, erklären Sie sich an diese Bedingungen gebunden. Wir bemühen uns um Regeln, denen ein Mensch tatsächlich folgen kann.',
+  'terms.lastUpdated': 'Gültig ab: 1. April 2026',
+  'terms.termination.body':
+    'Sie können Ihr Konto jederzeit löschen. Wir können ein Konto sperren, das gegen diese Bedingungen verstößt; in diesem Fall begründen wir die Maßnahme und ermöglichen Ihnen zuvor den Export Ihrer Daten.',
+  'terms.warranty.body':
+    'Der Dienst wird wie er ist bereitgestellt. Wir arbeiten hart daran, ihn zuverlässig und sicher zu halten, können aber keinen unterbrechungsfreien Zugriff garantieren. Soweit gesetzlich zulässig, ist unsere Gesamthaftung auf den in den vorangegangenen 12 Monaten an uns gezahlten Betrag begrenzt.',
+}

@@ -1,0 +1,296 @@
+import { describe, expect, it, vi } from 'vitest'
+
+// Mock bonds to avoid requiring real connections
+vi.mock('../bonds/index.js', () => ({
+  setupBonds: vi.fn(),
+}))
+
+// Mock middleware to avoid loading @molecule/* middleware packages
+vi.mock('../middleware/body-parser.js', () => ({
+  bodyParserMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+vi.mock('../middleware/cookie-parser.js', () => ({
+  cookieParserMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+vi.mock('../middleware/cors.js', () => ({
+  corsMiddleware: (_req: unknown, _res: unknown, next: () => void) => next(),
+}))
+
+// Mock all @molecule/* packages
+vi.mock('@molecule/api-bond', () => ({
+  unbond: vi.fn(),
+  unbondAll: vi.fn(),
+  getAll: vi.fn(() => new Map()),
+  unexpectBond: vi.fn(),
+  getAnalytics: vi.fn(),
+  expectBond: vi.fn(),
+  bond: vi.fn(),
+  get: vi.fn(),
+  isBonded: vi.fn(() => false),
+  require: vi.fn(),
+  getLogger: vi.fn(() => ({
+    info: vi.fn(),
+    warn: vi.fn(),
+    error: vi.fn(),
+    debug: vi.fn(),
+    trace: vi.fn(),
+  })),
+}))
+
+vi.mock('@molecule/api-config', () => ({}))
+
+vi.mock('@molecule/api-config-env', () => ({}))
+
+vi.mock('@molecule/api-database', () => ({
+  findById: vi.fn(),
+  findMany: vi.fn(() => []),
+  findOne: vi.fn(),
+  updateById: vi.fn(),
+  deleteById: vi.fn(),
+  getProvider: vi.fn(),
+  setProvider: vi.fn(),
+  hasProvider: vi.fn(() => false),
+  requireProvider: vi.fn(),
+  setPool: vi.fn(),
+  setStore: vi.fn(),
+  query: vi.fn(),
+  count: vi.fn(async () => 0),
+  create: vi.fn(async () => ({ data: null, affected: 0 })),
+  deleteMany: vi.fn(async () => ({ data: null, affected: 0 })),
+  updateMany: vi.fn(async () => ({ data: null, affected: 0 })),
+}))
+
+vi.mock('@molecule/api-database-postgresql', () => ({
+  // scripts/migrate.ts calls createMigrator(dir) at module load (re-exported
+  // through @molecule/api-bonds-default-express) — it must return a runner fn.
+  createMigrator: vi.fn(() => vi.fn(async () => undefined)),
+}))
+
+vi.mock('@molecule/api-entitlements', () => ({
+  enforceLimit: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+  defineTiers: vi.fn(() => ({
+    plans: {},
+    defaultPlanKey: 'free',
+    categoryOrder: [],
+  })),
+  setProvider: vi.fn(),
+  getEffectiveTier: vi.fn(async () => ({
+    planKey: 'free',
+    category: 'free',
+    name: 'Free',
+    limits: {},
+  })),
+}))
+
+vi.mock('@molecule/api-i18n', () => ({
+  t: (key: string, _vars?: unknown, opts?: { defaultValue?: string }) => opts?.defaultValue ?? key,
+}))
+
+vi.mock('@molecule/api-import-export', () => ({
+  importCSV: vi.fn(async () => ({ headers: [], rows: [] })),
+  exportCSV: vi.fn(async () => ''),
+}))
+
+vi.mock('@molecule/api-import-export-csv', () => ({}))
+
+vi.mock('@molecule/api-jwt-jsonwebtoken', () => ({}))
+
+vi.mock('@molecule/api-locales-body-parser', () => ({}))
+
+vi.mock('@molecule/api-locales-config', () => ({}))
+
+vi.mock('@molecule/api-locales-device', () => ({}))
+
+vi.mock('@molecule/api-locales-resource', () => ({}))
+
+vi.mock('@molecule/api-locales-secrets', () => ({}))
+
+vi.mock('@molecule/api-locales-secrets-doppler', () => ({}))
+
+vi.mock('@molecule/api-locales-tag', () => ({}))
+
+vi.mock('@molecule/api-locales-user', () => ({}))
+
+vi.mock('@molecule/api-locales-user-payments', () => ({}))
+
+vi.mock('@molecule/api-logger', () => ({
+  logger: { info: vi.fn(), warn: vi.fn(), error: vi.fn(), debug: vi.fn(), trace: vi.fn() },
+}))
+
+vi.mock(
+  '@molecule/api-middleware-body-parser',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-body-parser-express', () => ({}))
+
+vi.mock(
+  '@molecule/api-middleware-cookie-parser',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-cookie-parser-express', () => ({}))
+
+vi.mock(
+  '@molecule/api-middleware-cors',
+  () =>
+    new Proxy(
+      {},
+      {
+        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),
+      },
+    ),
+)
+
+vi.mock('@molecule/api-middleware-cors-express', () => ({}))
+
+vi.mock('@molecule/api-middleware-validation', () => ({
+  validateBody: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+  validateQuery: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+  validateParams: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+}))
+
+vi.mock('@molecule/api-password-bcrypt', () => ({}))
+
+vi.mock('@molecule/api-payments', () => ({}))
+
+vi.mock('@molecule/api-payments-stripe', () => ({}))
+
+vi.mock('@molecule/api-realtime', () => ({
+  broadcast: vi.fn(),
+}))
+
+vi.mock('@molecule/api-realtime-socketio', () => ({}))
+
+vi.mock('@molecule/api-resource', () => ({
+  createRequestHandler: (fn: unknown) => fn,
+}))
+
+vi.mock('@molecule/api-resource-device', () => ({
+  createRequestHandlerMap: () => ({
+    auth: vi.fn(),
+    query: vi.fn(),
+    authUser: vi.fn(),
+    read: vi.fn(),
+    update: vi.fn(),
+    del: vi.fn(),
+  }),
+}))
+
+vi.mock('@molecule/api-resource-tag', () => ({
+  requestHandlerMap: {},
+}))
+
+vi.mock('@molecule/api-resource-user', () => ({
+  createRequestHandlerMap: () => ({
+    create: vi.fn(),
+    logIn: vi.fn(),
+    logInOAuth: vi.fn(),
+    forgotPassword: vi.fn(),
+    authSelf: vi.fn(),
+    read: vi.fn(),
+    update: vi.fn(),
+    del: vi.fn(),
+    updatePassword: vi.fn(),
+    verifyTwoFactor: vi.fn(),
+    updatePlan: vi.fn(),
+    verifyPayment: vi.fn(),
+    handlePaymentNotification: vi.fn(),
+    // The default route mounter fronts credential/2FA routes with these
+    // rate limiters unconditionally; Express throws on undefined middleware.
+    rateLimitAuth: vi.fn(),
+    rateLimitTwoFactor: vi.fn(),
+  }),
+  authorization: {
+    verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),
+  },
+}))
+
+vi.mock('@molecule/api-search', () => ({
+  index: vi.fn(),
+  remove: vi.fn(),
+  search: vi.fn(async () => ({ hits: [] })),
+}))
+
+vi.mock('@molecule/api-search-meilisearch', () => ({}))
+
+vi.mock('@molecule/api-secrets', () => ({
+  // Credentialed provider packages self-register their secret definitions at
+  // module init (molecule e649a9be), so the mock must expose registerSecrets.
+  registerSecrets: vi.fn(),
+  resolveAll: vi.fn(async () => undefined),
+}))
+
+vi.mock('@molecule/api-secrets-env', () => ({}))
+
+vi.mock('@molecule/api-two-factor-otplib', () => ({}))
+
+vi.mock('@molecule/api-utilities-validation', () => ({}))
+
+describe('server', () => {
+  it('exports a create function', async () => {
+    const { create } = await import('../server.js')
+    expect(typeof create).toBe('function')
+  })
+})
+
+describe('bonds/index', () => {
+  it('exports setupBonds function', async () => {
+    const bonds = (await import('../bonds/index.js')) as Record<string, unknown>
+    expect(typeof bonds.setupBonds).toBe('function')
+  })
+})
+
+describe('router', () => {
+  it('exports a router', async () => {
+    const { router } = await import('../App/router.js')
+    expect(router).toBeDefined()
+  })
+})
+
+describe('handlers', () => {
+  it('exports a router with mounted entity routers', async () => {
+    const mod = (await import('../handlers/index.js')) as { default: unknown }
+    expect(mod.default).toBeDefined()
+  })
+
+  it('every entity handler exports a router (default)', async () => {
+    const mods = await Promise.all([
+      import('../handlers/spreadsheets.js'),
+      import('../handlers/sheets.js'),
+      import('../handlers/columns.js'),
+      import('../handlers/rows.js'),
+      import('../handlers/automations.js'),
+      import('../handlers/charts.js'),
+      import('../handlers/versions.js'),
+      import('../handlers/collaborators.js'),
+      import('../handlers/integrations.js'),
+      import('../handlers/templates.js'),
+      import('../handlers/notifications.js'),
+      import('../handlers/import-export.js'),
+    ])
+    for (const m of mods) {
+      expect((m as { default: unknown }).default).toBeDefined()
+    }
+  })
+})
+
+describe('tiers', () => {
+  it('exports setupEntitlements + getPricingTiers', async () => {
+    const mod = await import('../tiers.js')
+    expect(typeof mod.setupEntitlements).toBe('function')
+    expect(typeof mod.getPricingTiers).toBe('function')
+  })
+})

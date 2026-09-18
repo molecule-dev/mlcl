@@ -1,0 +1,67 @@
+{
+  "billing/tiers": {
+    "data": [
+      {
+        "key": "free",
+        "name": "Free",
+        "prices": [
+          { "period": "month", "price": "$0", "stripePriceId": null }
+        ],
+        "limits": {
+          "maxFollows": 5,
+          "maxPosts": 5,
+          "maxStories": 5,
+          "advancedFeatures": false,
+          "canExport": false,
+          "retentionDays": 90
+        }
+      },
+      {
+        "key": "pro",
+        "name": "Pro",
+        "prices": [
+          { "period": "month", "price": "$15/mo", "stripePriceId": "price_social_media_pro_monthly" },
+          { "period": "year", "price": "$150/yr", "stripePriceId": "price_social_media_pro_yearly", "savings": "2 months free" }
+        ],
+        "limits": {
+          "maxFollows": 500,
+          "maxPosts": 500,
+          "maxStories": 500,
+          "advancedFeatures": true,
+          "canExport": true,
+          "retentionDays": 365
+        }
+      },
+      {
+        "key": "team",
+        "name": "Team",
+        "prices": [
+          { "period": "month", "price": "$49/mo", "stripePriceId": "price_social_media_team_monthly" },
+          { "period": "year", "price": "$490/yr", "stripePriceId": "price_social_media_team_yearly", "savings": "2 months free" }
+        ],
+        "limits": {
+          "maxFollows": 999999,
+          "maxPosts": 999999,
+          "maxStories": 999999,
+          "advancedFeatures": true,
+          "canExport": true,
+          "retentionDays": 0
+        }
+      }
+    ]
+  },
+  "billing/status": {
+    "planKey": "free",
+    "category": "free",
+    "name": "Free",
+    "limits": {
+      "maxFollows": 5,
+      "maxPosts": 5,
+      "maxStories": 5,
+      "advancedFeatures": false,
+      "canExport": false,
+      "retentionDays": 90
+    },
+    "isFree": true
+  }
+}

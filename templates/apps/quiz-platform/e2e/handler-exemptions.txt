@@ -1,0 +1,7 @@
+# Handlers that intentionally do not expose any HTTP endpoint and therefore
+# cannot be exercised by a spec network assertion.
+#
+# - _seed: server-startup-only routine that pre-populates demo data when a
+#   user signs up; it has no Express router and never appears in a URL path.
+
+_seed

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "prj01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "name": "Website Redesign",
+    "description": "Complete redesign of the company website with new branding, improved UX, and mobile-first approach. Target launch: Q2 2026.",
+    "status": "active",
+    "color": "#3B82F6",
+    "start_date": "2026-02-01T00:00:00Z",
+    "due_date": "2026-06-30T00:00:00Z",
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-01-25T10:00:00Z",
+    "updated_at": "2026-03-28T09:00:00Z"
+  },
+  {
+    "id": "prj02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "name": "Mobile App v2.0",
+    "description": "Major update to the mobile app including offline support, push notifications, biometric auth, and redesigned navigation.",
+    "status": "active",
+    "color": "#10B981",
+    "start_date": "2026-01-15T00:00:00Z",
+    "due_date": "2026-05-31T00:00:00Z",
+    "owner_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-01-10T09:00:00Z",
+    "updated_at": "2026-03-27T14:00:00Z"
+  },
+  {
+    "id": "prj03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "name": "API Platform Migration",
+    "description": "Migrate from monolithic REST API to microservices architecture. Phase 1: Auth & Users. Phase 2: Products & Orders. Phase 3: Analytics.",
+    "status": "active",
+    "color": "#8B5CF6",
+    "start_date": "2025-11-01T00:00:00Z",
+    "due_date": "2026-08-31T00:00:00Z",
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2025-10-15T10:00:00Z",
+    "updated_at": "2026-03-25T11:00:00Z"
+  },
+  {
+    "id": "prj04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "name": "Customer Onboarding Revamp",
+    "description": "Redesign the customer onboarding flow to reduce time-to-value. Includes interactive tutorials, progress tracking, and personalized setup wizard.",
+    "status": "on_hold",
+    "color": "#F59E0B",
+    "start_date": "2026-03-01T00:00:00Z",
+    "due_date": "2026-07-15T00:00:00Z",
+    "owner_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
+    "created_at": "2026-02-20T14:00:00Z",
+    "updated_at": "2026-03-20T09:00:00Z"
+  },
+  {
+    "id": "prj05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "name": "Q4 2025 Marketing Campaign",
+    "description": "Holiday season marketing campaign including email sequences, social media content, landing pages, and paid advertising.",
+    "status": "archived",
+    "color": "#EC4899",
+    "start_date": "2025-10-01T00:00:00Z",
+    "due_date": "2025-12-31T00:00:00Z",
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2025-09-15T10:00:00Z",
+    "updated_at": "2026-01-05T09:00:00Z"
+  },
+  {
+    "id": "prj06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "name": "Security Audit & Compliance",
+    "description": "Annual security audit covering SOC 2 Type II compliance, penetration testing, vulnerability scanning, and policy documentation updates.",
+    "status": "active",
+    "color": "#EF4444",
+    "start_date": "2026-03-01T00:00:00Z",
+    "due_date": "2026-04-30T00:00:00Z",
+    "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
+    "created_at": "2026-02-25T10:00:00Z",
+    "updated_at": "2026-03-28T14:00:00Z"
+  }
+]

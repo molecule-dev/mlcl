@@ -1,0 +1,51 @@
+{
+  "id": "host_overview_default",
+  "host_id": "h_maya",
+  "host_name": "Maya",
+  "metrics": {
+    "monthly_revenue_cents": 824500,
+    "monthly_revenue_delta_pct": 18.4,
+    "occupancy_rate_pct": 72,
+    "occupancy_delta_pct": 6.1,
+    "active_bookings": 14,
+    "active_bookings_delta": 3,
+    "response_rate_pct": 96
+  },
+  "upcoming_bookings": [
+    {
+      "id": "r_001",
+      "guest_name": "Anika R.",
+      "venue_name": "The Aerie Loft",
+      "starts_at_iso": "2026-05-12T15:00:00Z",
+      "ends_at_iso": "2026-05-12T22:00:00Z",
+      "guest_count": 45,
+      "total_cents": 134750
+    },
+    {
+      "id": "r_010",
+      "guest_name": "Studio LeRoux",
+      "venue_name": "The Aerie Loft",
+      "starts_at_iso": "2026-05-18T08:00:00Z",
+      "ends_at_iso": "2026-05-18T18:00:00Z",
+      "guest_count": 24,
+      "total_cents": 192500
+    },
+    {
+      "id": "r_011",
+      "guest_name": "Vihaan + Sam",
+      "venue_name": "The Aerie Loft",
+      "starts_at_iso": "2026-05-22T18:00:00Z",
+      "ends_at_iso": "2026-05-22T23:00:00Z",
+      "guest_count": 60,
+      "total_cents": 96250
+    }
+  ],
+  "performance": [
+    { "month": "Nov", "revenue_cents": 612000, "bookings": 9 },
+    { "month": "Dec", "revenue_cents": 580000, "bookings": 8 },
+    { "month": "Jan", "revenue_cents": 654000, "bookings": 10 },
+    { "month": "Feb", "revenue_cents": 698500, "bookings": 11 },
+    { "month": "Mar", "revenue_cents": 740000, "bookings": 12 },
+    { "month": "Apr", "revenue_cents": 824500, "bookings": 14 }
+  ]
+}

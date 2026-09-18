@@ -1,0 +1,201 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --color-primary: #5b47e0;
+  --color-primary-hover: #7c6af0;
+  --color-primary-dark: #4636b8;
+  --color-primary-light: #ede9fe;
+  --color-secondary: #06b6d4;
+  --color-secondary-hover: #0891b2;
+  --color-accent: #e6a817;
+  --color-accent-hover: #f0c040;
+  --color-accent-dark: #c48e10;
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-warning: #e6a817;
+  --color-warning-light: #fef9e7;
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-info: #3b82f6;
+  --color-info-light: #dbeafe;
+  --color-cited: #8b5cf6;
+  --color-cited-light: #ede9fe;
+  --color-bg: #faf9fe;
+  --color-bg-secondary: #f8f7fc;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #faf9fe;
+  --color-border: #e4e2f0;
+  --color-border-secondary: #d0cde0;
+  --color-border-focus: #5b47e0;
+  --color-text: #1e1b2e;
+  --color-text-secondary: #57546b; /* was #6b6880 — 3.95:1 as kbd text on surface-container-high #dddde0 (axe serious); #57546b = 5.4:1 */
+  --color-text-muted: #74727d; /* darkened from #9ca3af — was 2.42:1 (fail); #74727d = 4.51:1 */
+  --color-text-inverse: #ffffff;
+  --color-code-block: #1e1b2e;
+  --color-code-text: #d4d0f0;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px rgba(30, 27, 46, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(30, 27, 46, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(30, 27, 46, 0.1);
+
+  /* Knowledge graph SVG tokens */
+  --color-graph-edge: #a78bfa;
+  --color-graph-label: #1e1b2e;
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #5b47e0;
+  --mol-color-primary-light: #ede9fe;
+  --mol-color-primary-dark: #4636b8;
+  --mol-color-secondary: #06b6d4;
+  --mol-color-background: #faf9fe;
+  --mol-color-background-secondary: #f8f7fc;
+  --mol-color-background-tertiary: #f0eefb;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f8f7fc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1e1b2e;
+  --mol-color-text-secondary: #57546b; /* keep in sync with --color-text-secondary above (contrast fix) */
+  --mol-color-text-tertiary: #74727d;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e4e2f0;
+  --mol-color-border-secondary: #d0cde0;
+  --mol-color-border-focus: #5b47e0;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #e6a817;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #3b82f6;
+
+  /* Stitch / Material-3 tokens — light mode defaults */
+  --color-on-primary: #ffffff; /* white on violet — 6.14:1 passes */
+  --color-on-secondary: #0b1120; /* dark on cyan — avoids white fail */
+  --color-on-tertiary: #0b1120; /* dark on gold — avoids white fail */
+  --color-on-error: #ffffff; /* white on light-mode red #dc2626 = 4.83:1 (dark maxes 4.35 — white wins) */
+}
+
+/* Dark mode — productivity/AI cool-neutral.
+   Cool slate-blue surfaces (knowledge-base / Notion-AI feel — neutral
+   cool greys so the violet brand and the warm-gold citation accent
+   read crisply against text-heavy article chrome). Brand violet stays
+   at the brand stop (#5b47e0) for primary CTAs; `--color-on-primary`
+   STAYS white so the violet CTA buttons keep their light-on-violet
+   character. Citation highlight stays purple to signal provenance. */
+[data-mol-mode='dark'] {
+  --color-primary: #5b47e0; /* keep brand violet at brand stop */
+  --color-primary-hover: #7c6af0;
+  --color-primary-dark: #4636b8;
+  --color-primary-light: #2e1065;
+  --color-secondary: #22d3ee;
+  --color-secondary-hover: #67e8f9;
+  --color-accent: #f0c040;
+  --color-accent-hover: #facc15;
+  --color-accent-dark: #ca8a04;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+
+  --color-success: #4ade80;
+  --color-success-light: #14532d;
+  --color-warning: #fbbf24;
+  --color-warning-light: #3a2d10;
+  --color-error: #f87171;
+  --color-error-light: #3f1818;
+  --color-info: #60a5fa;
+  --color-info-light: #1e3a5c;
+  --color-cited: #c4b5fd;
+  --color-cited-light: #2e1065;
+
+  /* Surfaces — cool slate so chart/code accents pop */
+  --color-bg: #0b1120;
+  --color-bg-secondary: #131b2e;
+  --color-bg-card: #1a2235;
+  --color-bg-sidebar: #080d1a;
+  --color-border: #29334a;
+  --color-border-secondary: #3a4663;
+  --color-border-focus: #8b7af5;
+
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #8b96a8;
+  --color-text-inverse: #0b1120;
+  --color-code-block: #0a111c;
+  --color-code-text: #ede9fe;
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #5b47e0;
+  --mol-color-primary-light: #2e1065;
+  --mol-color-primary-dark: #4636b8;
+  --mol-color-secondary: #22d3ee;
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #131b2e;
+  --mol-color-background-tertiary: #1a2235;
+  --mol-color-surface: #0b1120;
+  --mol-color-surface-secondary: #1a2235;
+  --mol-color-input-background: #080d1a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #8b96a8;
+  --mol-color-text-inverse: #0b1120;
+  --mol-color-border: #29334a;
+  --mol-color-border-secondary: #3a4663;
+  --mol-color-border-focus: #8b7af5;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on violet: `on-primary` stays white. */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0b1120;
+  --color-surface-bright: #1a2235;
+  --color-surface-dim: #060a14;
+  --color-surface-container-lowest: #03060f;
+  --color-surface-container-low: #0e1525;
+  --color-surface-container: #131b2e;
+  --color-surface-container-high: #1a2235;
+  --color-surface-container-highest: #29334a;
+  --color-surface-variant: #1a2235;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #5b47e0;
+  --color-primary: #5b47e0; /* keep brand violet at brand stop */
+  --color-primary-container: #2e1065;
+  --color-on-primary: #ffffff; /* white on violet — readable in both modes */
+  --color-on-primary-container: #ede9fe;
+  --color-secondary: #22d3ee;
+  --color-secondary-container: #0e4f5e;
+  --color-on-secondary: #0b1120;
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #f0c040;
+  --color-tertiary-container: #4a3a10;
+  --color-on-tertiary: #0b1120;
+  --color-on-tertiary-container: #fef9e7;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #607080; /* lifted from #4a5568 — was 2.50:1 (fail ≥3:1); #607080 = 3.70:1 */
+  --color-outline-variant: #29334a;
+  --color-surface-tint: #7c6af0;
+
+  /* Knowledge graph SVG tokens — dark values */
+  --color-graph-edge: #7c6af0;
+  --color-graph-label: #ede9fe;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}

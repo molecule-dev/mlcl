@@ -1,0 +1,89 @@
+{
+  "label": "Crypto Tracker",
+  "description": "CoinGecko-like cryptocurrency tracker with portfolio, price charts, alerts, and market data — with built-in Stripe-backed subscription tiers",
+  "cluster": "finance",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-bookmark",
+    "@molecule/api-resource-notification",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-search-meilisearch",
+    "@molecule/api-encryption-aes",
+    "@molecule/app-data-table",
+    "@molecule/app-virtual-scroll",
+    "@molecule/app-date-range-picker",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react",
+    "@molecule/app-sidebar-layout-react",
+    "@molecule/app-notification-feed-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Crypto Tracker"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ENCRYPTION_KEY": {
+      "description": "AES key for encrypting API keys",
+      "required": true
+    },
+    "MEILISEARCH_HOST": {
+      "description": "Meilisearch host URL",
+      "default": "http://localhost:7700"
+    },
+    "MEILISEARCH_API_KEY": {
+      "description": "Meilisearch API key",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_CRYPTO_TRACKER_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_CRYPTO_TRACKER_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_CRYPTO_TRACKER_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_CRYPTO_TRACKER_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "search",
+    "notifications",
+    "alerts",
+    "subscriptions"
+  ]
+}

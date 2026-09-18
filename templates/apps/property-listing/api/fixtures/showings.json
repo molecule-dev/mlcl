@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "property_title": "142 Oakwood Drive",
+    "client_name": "Sarah Jenkins",
+    "date": "2026-04-22T10:30:00Z",
+    "time": "10:30 AM",
+    "month": "APR",
+    "day": "22",
+    "address": "142 Oakwood Drive",
+    "client": "Sarah Jenkins",
+    "isHighlighted": true
+  },
+  {
+    "id": "2",
+    "property_title": "Highland Estates Apt 4",
+    "client_name": "Mark Thompson",
+    "date": "2026-04-23T14:15:00Z",
+    "time": "2:15 PM",
+    "month": "APR",
+    "day": "23",
+    "address": "Highland Estates Apt 4",
+    "client": "Mark Thompson",
+    "isHighlighted": false
+  },
+  {
+    "id": "3",
+    "property_title": "92 Willow Creek Rd",
+    "client_name": "Elena Rodriguez",
+    "date": "2026-04-23T16:00:00Z",
+    "time": "4:00 PM",
+    "month": "APR",
+    "day": "23",
+    "address": "92 Willow Creek Rd",
+    "client": "Elena Rodriguez",
+    "isHighlighted": false
+  },
+  {
+    "id": "4",
+    "property_title": "45 Maple Avenue",
+    "client_name": "John Smith",
+    "date": "2026-04-24T09:00:00Z",
+    "time": "9:00 AM",
+    "month": "APR",
+    "day": "24",
+    "address": "45 Maple Avenue",
+    "client": "John Smith",
+    "isHighlighted": false
+  },
+  {
+    "id": "5",
+    "property_title": "789 Pine Street",
+    "client_name": "Alice Johnson",
+    "date": "2026-04-25T15:30:00Z",
+    "time": "3:30 PM",
+    "month": "APR",
+    "day": "25",
+    "address": "789 Pine Street",
+    "client": "Alice Johnson",
+    "isHighlighted": false
+  }
+]

@@ -1,0 +1,220 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #075e54;
+  --mol-color-primary-light: #dcf8c6;
+  --mol-color-primary-dark: #064e46;
+  --mol-color-secondary: #25d366;
+  --mol-color-background: #efeae2;
+  --mol-color-background-secondary: #f0f2f5;
+  --mol-color-background-tertiary: #e9edef;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f2f5;
+  --mol-color-input-background: #f0f2f5;
+  --mol-color-text: #111b21;
+  --mol-color-text-secondary: #5c6b76;
+  --mol-color-text-tertiary: #aebac1;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e9edef;
+  --mol-color-border-secondary: #d1d7db;
+  --mol-color-border-focus: #075e54;
+  --mol-color-success: #25d366;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #027eb5;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-on-primary: var(--color-foreground-inverse);
+
+  /* Brand colors */
+  --color-primary: #075e54;
+  --color-primary-hover: #064e46;
+  --color-primary-light: #dcf8c6;
+  --color-secondary: #25d366;
+  --color-secondary-hover: #1da851;
+
+  /* Auth CTA accent — indigo highlight for submit buttons and links */
+  --color-accent: #4f52d3; /* #6366f1 was 4.47:1 with white (fail); #4f52d3 = 6.03:1 */
+  --color-accent-light: #6163d0; /* #818cf8 was 2.98:1 with white (fail); #6163d0 = 5.00:1 */
+
+  /* Background */
+  --color-bg: #efeae2;
+  --color-bg-chat: #e5ddd5;
+  --color-bg-sidebar: #ffffff;
+  --color-bg-message-sent: #dcf8c6;
+  --color-bg-message-received: #ffffff;
+  --color-bg-input: #f0f2f5;
+
+  /* Text */
+  --color-text-light: #ffffff;
+  --color-text-link: #027eb5;
+
+  /* Borders */
+  --color-border: #e9edef;
+  --color-border-light: #f0f2f5;
+
+  /* Bubble tokens (used by Conversation.tsx) */
+  --color-bubble-self: #dcf8c6;
+  --color-bubble-self-text: #111b21;
+  --color-bubble-other: #ffffff;
+  --color-bubble-other-text: #111b21;
+
+  /* Presence tokens (used by Contacts.tsx) */
+  --color-presence-online: #25d366;
+  --color-presence-away: #f59e0b;
+  --color-presence-offline: #aebac1;
+
+  /* Status */
+  --color-online: #25d366;
+  --color-read: #53bdeb;
+  --color-delivered: #667781;
+
+  /* Typography */
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.6875rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.1875rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Layout */
+  --sidebar-width: 340px;
+  --header-height: 60px;
+  --message-input-height: 62px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-bubble: 7.5px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  --shadow-md: 0 2px 5px rgba(11, 20, 26, 0.15);
+}
+
+/* Dark mode — social chat rich-neutral dark.
+   Rich charcoal canvas (slight cool tint for social/chat feel). Brand
+   teal kept at brand stop (#075e54) for badges; primary shifts brighter
+   for CTAs so on-primary white reads cleanly. Sent bubbles get the deep
+   brand-teal fill; received bubbles use elevated charcoal so chat
+   contrast stays comfortable in low light. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #007a60;
+  --mol-color-primary-light: #053f3a;
+  --mol-color-primary-dark: #075e54;
+  --mol-color-secondary: #25d366;
+  --mol-color-background: #0e1419;
+  --mol-color-background-secondary: #1a2229;
+  --mol-color-background-tertiary: #232f37;
+  --mol-color-surface: #0e1419;
+  --mol-color-surface-secondary: #1a2229;
+  --mol-color-input-background: #0a1218;
+  --mol-color-text: #ececec;
+  --mol-color-text-secondary: #a3b1ba;
+  --mol-color-text-tertiary: #6b7c85;
+  --mol-color-text-inverse: #0e1419;
+  --mol-color-border: #232d34;
+  --mol-color-border-secondary: #2a3640;
+  --mol-color-border-focus: #007a60;
+  --mol-color-success: #25d366;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #d63030;
+  --mol-color-info: #53bdeb;
+
+  /* Auth CTA accent — indigo is brand-consistent in dark mode */
+  --color-accent: #6163d0; /* #818cf8 was 2.98:1 with white (fail); #6163d0 = 5.00:1 */
+  --color-accent-light: #696bce; /* #a5b4fc was 1.99:1 with white (fail); #696bce = 4.57:1 */
+
+  /* Brand colors */
+  --color-primary: #075e54; /* keep brand teal at brand stop */
+  --color-primary-hover: #007a60;
+  --color-primary-light: #053f3a;
+  --color-secondary: #25d366;
+  --color-secondary-hover: #1da851;
+
+  /* Chat-specific backgrounds */
+  --color-bg: #0e1419;
+  --color-bg-chat: #0b141a;
+  --color-bg-sidebar: #1a2229;
+  --color-bg-message-sent: #075e54;
+  --color-bg-message-received: #1f2a32;
+  --color-bg-input: #232f37;
+
+  /* Text */
+  --color-text-light: #ffffff; /* white text on brand-teal sent bubbles */
+  --color-text-link: #53bdeb;
+
+  /* Borders */
+  --color-border: #232d34;
+  --color-border-light: #2a3640;
+
+  /* Bubble tokens */
+  --color-bubble-self: #075e54;
+  --color-bubble-self-text: #ececec;
+  --color-bubble-other: #1f2a32;
+  --color-bubble-other-text: #ececec;
+
+  /* Presence tokens */
+  --color-presence-online: #25d366;
+  --color-presence-away: #fbbf24;
+  --color-presence-offline: #6b7c85;
+
+  /* Status */
+  --color-online: #25d366;
+  --color-read: #53bdeb;
+  --color-delivered: #8696a0;
+
+  /* Stitch / Material-3 bridge — brand teal at brand stop, on-primary white. */
+  --color-background: #0e1419;
+  --color-on-background: #ececec;
+  --color-surface: #1a2229;
+  --color-surface-bright: #232f37;
+  --color-surface-dim: #0a1218;
+  --color-surface-container-lowest: #060d11;
+  --color-surface-container-low: #10181e;
+  --color-surface-container: #1a2229;
+  --color-surface-container-high: #212d36;
+  --color-surface-container-highest: #2a3640;
+  --color-surface-variant: #212d36;
+  --color-on-surface: #ececec;
+  --color-on-surface-variant: #a3b1ba;
+  --color-inverse-surface: #ececec;
+  --color-inverse-on-surface: #0e1419;
+  --color-inverse-primary: #075e54;
+  --color-primary: #075e54; /* keep brand teal at brand stop */
+  --color-primary-container: #053f3a;
+  --color-on-primary: #ffffff; /* white on teal — readable in both modes */
+  --color-on-primary-container: #b2f0e6;
+  --color-secondary: #25d366;
+  --color-secondary-container: #064e46;
+  --color-on-secondary: #0e1419;
+  --color-on-secondary-container: #b2f0d4;
+  --color-tertiary: #53bdeb;
+  --color-tertiary-container: #0a3d52;
+  --color-on-tertiary: #0e1419;
+  --color-on-tertiary-container: #c9e8f8;
+  --color-error: #d63030;
+  --color-error-container: #5a1818;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5c7481;
+  --color-outline-variant: #232d34;
+  --color-surface-tint: #007a60;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

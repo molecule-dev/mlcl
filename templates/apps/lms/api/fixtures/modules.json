@@ -1,0 +1,92 @@
+[
+  {
+    "id": "mod01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "HTML Foundations",
+    "description": "Learn the building blocks of the web: HTML elements, attributes, semantic markup, and document structure.",
+    "position": 0,
+    "created_at": "2025-08-16T10:00:00Z",
+    "updated_at": "2025-09-01T08:00:00Z"
+  },
+  {
+    "id": "mod02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "CSS Styling & Layout",
+    "description": "Master CSS selectors, flexbox, grid, responsive design, and modern CSS features like custom properties and container queries.",
+    "position": 1,
+    "created_at": "2025-08-17T10:00:00Z",
+    "updated_at": "2025-09-01T08:00:00Z"
+  },
+  {
+    "id": "mod03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "course_id": "crs01a2b-3c4d-4e5f-a6b7-c8d9e0f1a2b3",
+    "title": "JavaScript Essentials",
+    "description": "Variables, functions, control flow, DOM manipulation, events, and asynchronous programming with promises and async/await.",
+    "position": 2,
+    "created_at": "2025-08-18T10:00:00Z",
+    "updated_at": "2025-09-01T08:00:00Z"
+  },
+  {
+    "id": "mod04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "title": "Generics & Type Parameters",
+    "description": "Understanding generic types, constraints, default type parameters, and generic utility types.",
+    "position": 0,
+    "created_at": "2025-12-05T10:00:00Z",
+    "updated_at": "2026-01-15T08:00:00Z"
+  },
+  {
+    "id": "mod05e6f-7a8b-4c9d-e0f1-a2b3c4d5e6f7",
+    "course_id": "crs02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
+    "title": "Conditional & Mapped Types",
+    "description": "Advanced type-level programming with conditional types, infer keyword, mapped types, and template literal types.",
+    "position": 1,
+    "created_at": "2025-12-06T10:00:00Z",
+    "updated_at": "2026-01-15T08:00:00Z"
+  },
+  {
+    "id": "mod06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "title": "Relational Database Design",
+    "description": "Entity-relationship modeling, normalization forms (1NF through BCNF), and schema design best practices.",
+    "position": 0,
+    "created_at": "2025-10-12T10:00:00Z",
+    "updated_at": "2025-11-01T08:00:00Z"
+  },
+  {
+    "id": "mod07a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "course_id": "crs03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
+    "title": "Advanced PostgreSQL",
+    "description": "CTEs, window functions, JSONB operations, full-text search, and performance tuning with EXPLAIN ANALYZE.",
+    "position": 1,
+    "created_at": "2025-10-13T10:00:00Z",
+    "updated_at": "2025-11-01T08:00:00Z"
+  },
+  {
+    "id": "mod08b9c-0d1e-4f2a-b3c4-d5e6f7a8b9c0",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "React Hooks Deep Dive",
+    "description": "useState, useEffect, useContext, useReducer, useMemo, useCallback, and custom hooks patterns.",
+    "position": 0,
+    "created_at": "2026-01-12T10:00:00Z",
+    "updated_at": "2026-02-01T08:00:00Z"
+  },
+  {
+    "id": "mod09c0d-1e2f-4a3b-c4d5-e6f7a8b9c0d1",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "State Management Patterns",
+    "description": "Context API, Zustand, and server state management with TanStack Query. When to use each approach.",
+    "position": 1,
+    "created_at": "2026-01-13T10:00:00Z",
+    "updated_at": "2026-02-01T08:00:00Z"
+  },
+  {
+    "id": "mod10d1e-2f3a-4b4c-d5e6-f7a8b9c0d1e2",
+    "course_id": "crs04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
+    "title": "Testing React Applications",
+    "description": "Unit testing with Vitest, component testing with Testing Library, and E2E testing with Playwright.",
+    "position": 2,
+    "created_at": "2026-01-14T10:00:00Z",
+    "updated_at": "2026-02-01T08:00:00Z"
+  }
+]

@@ -1,0 +1,13 @@
+Polish complete: 2026-04-30T00:50:00Z
+Pipeline: polish-app.md via polish-remaining-fleet driver
+Cluster: hospitality (no polished sibling — adapted personal-finance NetWorthCard + crm StatsRow patterns)
+Components: 8 bespoke (RevenueHeroCard, KitchenStatTriad, OrderTicketCard, MenuItemCard, TableTile, SettingsPanel, AuthShell, AuthBrandHeader)
+Pages rewritten: Landing, OrderDashboard (signature kanban), Menu, MenuItemDetail, OrderDetail, OrderHistory, Tables, TableDetail, Reservations, Customers, CustomerDetail, Analytics, Notifications, Settings, Billing, Profile, GuestMenu, GuestCart, NotFound
+Auth branded: Login, Signup, ForgotPassword, ResetPassword (Hearth split-card with brand panel)
+Material 3 tokens filled: yes (already complete)
+Fonts loaded: Inter + DM Sans + JetBrains Mono + Material Symbols Outlined
+Sweep 1 chrome conformance: yes (Header/Footer/RootErrorBoundary delegate to @molecule/app-* packages)
+Screen-map coverage: 22/22
+Compliance: clean (check-rules-compliance.mjs)
+Typecheck: clean
+Brand: Hearth — primary #e8590c (warm orange), accent #059669 (kitchen green), DM Sans display

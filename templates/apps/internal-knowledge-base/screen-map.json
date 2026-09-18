@@ -1,0 +1,170 @@
+{
+  "app": "internal-knowledge-base",
+  "designProjectId": "15555682158447073471",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-login.html",
+      "designScreenId": "62c8d221b5b143d1a7c382c4f8464f3d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-knowledge-base-login.html",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Work email, Password, Confirm Password fields. H1 'Create your workspace'. Button 'Create workspace'. Bottom link 'Already have a workspace? Sign in'. Remove workspace URL field and Forgot password link."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-knowledge-base-login.html",
+      "derivationNotes": "Same centered card layout as Login with only Email field. H1 'Reset your password', subhead 'Enter your email and we'll send you a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. Remove workspace URL, password, Stay signed in row, SSO."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-knowledge-base-login.html",
+      "derivationNotes": "Same centered card layout as Login with New Password and Confirm Password fields. H1 'Set a new password'. Button 'Reset password'. Bottom link 'Back to sign in'. Remove workspace URL, email, Stay signed in row, SSO."
+    },
+    {
+      "name": "Home",
+      "templateFile": "app/pages/Home.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/home",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-home.html",
+      "designScreenId": "7f9d9154023546ffaabcf764a9a7d534"
+    },
+    {
+      "name": "SpacesIndex",
+      "templateFile": "app/pages/SpacesIndex.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/spaces",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-spaces-index.html",
+      "designScreenId": "55f392e7c1f24e53bf510ccf987f0702"
+    },
+    {
+      "name": "SpaceHome",
+      "templateFile": "app/pages/SpaceHome.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/spaces/:key",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-space-home.html",
+      "designScreenId": "98861a348f6442f2b2adaf358416d0f6"
+    },
+    {
+      "name": "ArticleView",
+      "templateFile": "app/pages/ArticleView.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/article/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-article-view.html",
+      "designScreenId": "548c62f9cf4c4fafaadd2c6812659015"
+    },
+    {
+      "name": "ArticleEditor",
+      "templateFile": "app/pages/ArticleEditor.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/article/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-article-editor.html",
+      "designScreenId": "706efdb9b7714f709f4c786dd5563487"
+    },
+    {
+      "name": "SearchResults",
+      "templateFile": "app/pages/SearchResults.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-search-results.html",
+      "designScreenId": "91fc1baf4b234606bc5874466de77eca"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-settings.html",
+      "designScreenId": "9fe2ce4c64bd48d6971351223e904a1f"
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-landing.html",
+      "designScreenId": "971fc63121f740f9bba332e36c07b3f7"
+    },
+    {
+      "name": "Drafts",
+      "templateFile": "app/pages/Drafts.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/drafts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-drafts.html",
+      "designScreenId": "1f8f3c5fb50d43ec9157afd6ceda61a7"
+    },
+    {
+      "name": "Bookmarks",
+      "templateFile": "app/pages/Bookmarks.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/bookmarks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-bookmarks.html",
+      "designScreenId": "36995fcfc54d4db1b35ac379762905fe"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-internal-knowledge-base-notifications.html",
+      "designScreenId": "ef3f8bf374f34708b0b2ee338c5b7f0d"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/InternalKnowledgeBaseLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-internal-knowledge-base-settings.html",
+      "derivationNotes": "Use the same Cairn shell (sidebar + top bar) and 720px clamped main column as Settings. Replace settings sections with: (1) profile header card showing 96px avatar, full name 'Maya Patel', title 'Senior Operations Engineer', timezone, pronouns, and a primary 'Edit profile' button; (2) 'About' block with multi-line bio in text-secondary and links to website/Slack; (3) 'Authoring stats' tile row — total articles published, drafts, bookmarks given, articles followed; (4) 'Spaces I maintain' list — pill rows for Engineering / People Ops with 'Editor' permission badges; (5) 'Recent articles by Maya' — vertical list of 5 article rows with title, space pill, updated time, status dot. Keep typography, colors, borders, radii identical to Settings."
+    }
+  ]
+}

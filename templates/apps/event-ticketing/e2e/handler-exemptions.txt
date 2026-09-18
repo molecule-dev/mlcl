@@ -1,0 +1,5 @@
+# Mount aliases — both endpoints ARE called from specs but the gate-3
+# heuristic only checks /api/<filename>{,s}, which does not match the
+# real mount paths for these two files.
+tickets    # mounted at /api/ticket-tiers
+my-tickets # mounted at /api/tickets

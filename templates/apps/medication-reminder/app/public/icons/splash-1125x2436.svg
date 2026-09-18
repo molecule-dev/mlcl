@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1125" height="2436" viewBox="0 0 1125 2436">
+  <rect width="1125" height="2436" fill="#ffffff"/>
+  <svg x="422" y="1078" width="281" height="281" viewBox="0 0 32 32">
+
+  <!-- Capsiva: tilted capsule mark in cyan-aqua brand -->
+  <!-- Two-tone pill with a soft pulse highlight, 45° angle for energy -->
+  <g transform="rotate(-45 16 16)">
+    <rect x="3" y="12" width="13" height="8" rx="4" fill="#0891b2"/>
+    <rect x="16" y="12" width="13" height="8" rx="4" fill="#06b6d4"/>
+    <line x1="16" y1="12.5" x2="16" y2="19.5" stroke="#ffffff" stroke-width="0.8" opacity="0.7"/>
+    <circle cx="22.5" cy="14.5" r="1" fill="#ffffff" opacity="0.55"/>
+    <circle cx="25.5" cy="16.5" r="0.6" fill="#ffffff" opacity="0.4"/>
+  </g>
+
+  </svg>
+</svg>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "usr-1",
+    "name": "Riley Carter",
+    "email": "riley@faultline.dev",
+    "role": "owner",
+    "assigned_issues": 14,
+    "resolved_30d": 28,
+    "active": true
+  },
+  {
+    "id": "usr-2",
+    "name": "Morgan Reyes",
+    "email": "morgan@faultline.dev",
+    "role": "engineer",
+    "assigned_issues": 9,
+    "resolved_30d": 19,
+    "active": true
+  },
+  {
+    "id": "usr-3",
+    "name": "Sasha Liu",
+    "email": "sasha@faultline.dev",
+    "role": "engineer",
+    "assigned_issues": 11,
+    "resolved_30d": 22,
+    "active": true
+  },
+  {
+    "id": "usr-4",
+    "name": "Jordan Park",
+    "email": "jordan@faultline.dev",
+    "role": "engineer",
+    "assigned_issues": 6,
+    "resolved_30d": 13,
+    "active": false
+  }
+]

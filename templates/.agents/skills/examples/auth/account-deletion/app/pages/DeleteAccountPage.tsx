@@ -1,0 +1,136 @@
+import { useEffect, useState, type FormEvent } from 'react'
+
+import { getClassMap } from '@molecule/app-ui'
+import { useTranslation } from '@molecule/app-react'
+
+const cm = getClassMap()
+
+export function DeleteAccountPage() {
+  const { t } = useTranslation()
+  const [email, setEmail] = useState<string | null>(null)
+  const [confirmEmail, setConfirmEmail] = useState('')
+  const [deleting, setDeleting] = useState(false)
+  const [deleted, setDeleted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  // Load the current user's email so we can gate the button on an exact
+  // (case-insensitive) match before hitting the server. The DELETE handler
+  // re-validates this server-side (see api/handlers/me.ts).
+  useEffect(() => {
+    fetch('/api/me')
+      .then((r) => r.json())
+      .then((p: { email: string }) => setEmail(p.email))
+  }, [])
+
+  const matches = email != null && confirmEmail.trim().toLowerCase() === email.toLowerCase()
+
+  async function submit(e: FormEvent): Promise<void> {
+    e.preventDefault()
+    if (!matches) return
+    setDeleting(true)
+    setError(null)
+    const res = await fetch('/api/me', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ confirm_email: confirmEmail.trim() }),
+    })
+    setDeleting(false)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      setError(
+        body.error ??
+          t('account.deleteFailed', undefined, { defaultValue: 'Could not delete your account' }),
+      )
+      return
+    }
+    // The server has revoked every device session, so we are now signed out.
+    setDeleted(true)
+  }
+
+  if (deleted) {
+    return (
+      <div
+        className={cm.flex({ direction: 'col', gap: 'md' })}
+        style={{ maxWidth: '28rem', padding: '1.5rem' }}
+      >
+        <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
+          {t('account.deletedTitle', undefined, {
+            defaultValue: 'Your account is scheduled for deletion',
+          })}
+        </h1>
+        <p>
+          {t('account.deletedBody', undefined, {
+            defaultValue:
+              'You have been signed out. Your data will be permanently deleted in 30 days. Sign back in before then to cancel.',
+          })}
+        </p>
+        <button
+          onClick={() => {
+            window.location.href = '/'
+          }}
+          data-mol-id="delete-account-return-home"
+          className={cm.button({ variant: 'solid' })}
+        >
+          {t('account.returnHome', undefined, { defaultValue: 'Return to home' })}
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <form
+      onSubmit={submit}
+      className={cm.flex({ direction: 'col', gap: 'md' })}
+      style={{ maxWidth: '28rem', padding: '1.5rem' }}
+    >
+      <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
+        {t('account.deleteTitle', undefined, { defaultValue: 'Delete account' })}
+      </h1>
+
+      <div className={cm.alert({ variant: 'warning' })} role="alert">
+        <p>
+          {t('account.deleteWarning', undefined, {
+            defaultValue:
+              'This deletes your account and all associated data. You have a 30-day grace period to change your mind — sign back in to cancel. After that, deletion is permanent and cannot be undone.',
+          })}
+        </p>
+      </div>
+
+      <label className={cm.flex({ direction: 'col', gap: 'xs' })}>
+        <span>
+          {email
+            ? t('account.typeEmail', { email }, { defaultValue: 'Type {{email}} to confirm' })
+            : t('account.typeEmailLoading', undefined, {
+                defaultValue: 'Type your email to confirm',
+              })}
+        </span>
+        <input
+          type="email"
+          autoComplete="off"
+          value={confirmEmail}
+          onChange={(e) => setConfirmEmail(e.target.value)}
+          placeholder={t('account.emailPlaceholder', undefined, {
+            defaultValue: 'you@example.com',
+          })}
+          data-mol-id="delete-account-confirm-email"
+          className={cm.input({ error: confirmEmail.length > 0 && !matches })}
+        />
+      </label>
+
+      {error ? <p className={cm.textError}>{error}</p> : null}
+
+      <button
+        type="submit"
+        disabled={!matches || deleting}
+        data-mol-id="delete-account-submit"
+        className={cm.button({ variant: 'solid', color: 'error' })}
+      >
+        {deleting
+          ? t('account.deleting', undefined, { defaultValue: 'Deleting…' })
+          : t('account.deleteConfirm', undefined, {
+              defaultValue: 'Permanently delete my account',
+            })}
+      </button>
+    </form>
+  )
+}

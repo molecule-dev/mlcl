@@ -1,0 +1,58 @@
+[
+  {
+    "id": "vault_payments",
+    "name": "Payments",
+    "slug": "payments",
+    "description": "Stripe, Adyen and PCI-bound credentials.",
+    "environment": "production",
+    "secrets_count": 24,
+    "members_count": 6,
+    "next_rotation": "2026-05-12T09:00:00Z",
+    "color": "#00d992",
+    "owner": "platform",
+    "compliance": ["soc2", "pci-dss"],
+    "updated_at": "2026-04-29T18:42:00Z"
+  },
+  {
+    "id": "vault_observability",
+    "name": "Observability",
+    "slug": "observability",
+    "description": "Datadog, Sentry, Honeycomb pipeline tokens.",
+    "environment": "production",
+    "secrets_count": 18,
+    "members_count": 9,
+    "next_rotation": "2026-05-04T16:00:00Z",
+    "color": "#a78bfa",
+    "owner": "sre",
+    "compliance": ["soc2"],
+    "updated_at": "2026-04-30T01:11:00Z"
+  },
+  {
+    "id": "vault_data_pipelines",
+    "name": "Data Pipelines",
+    "slug": "data-pipelines",
+    "description": "Snowflake, Airbyte, dbt service accounts.",
+    "environment": "staging",
+    "secrets_count": 31,
+    "members_count": 4,
+    "next_rotation": "2026-05-01T03:00:00Z",
+    "color": "#38bdf8",
+    "owner": "data-platform",
+    "compliance": ["soc2"],
+    "updated_at": "2026-04-28T09:14:00Z"
+  },
+  {
+    "id": "vault_internal",
+    "name": "Internal Tooling",
+    "slug": "internal",
+    "description": "GitHub PATs, Linear, Notion, Slack.",
+    "environment": "production",
+    "secrets_count": 12,
+    "members_count": 22,
+    "next_rotation": "2026-06-02T12:00:00Z",
+    "color": "#f59e0b",
+    "owner": "developer-experience",
+    "compliance": [],
+    "updated_at": "2026-04-29T22:00:00Z"
+  }
+]

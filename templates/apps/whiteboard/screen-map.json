@@ -1,0 +1,179 @@
+{
+  "app": "whiteboard",
+  "designProjectId": "18169984841395281234",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-landing.html",
+      "designScreenId": "31f99ecf9c6548ae9484398be871f238"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-login.html",
+      "designScreenId": "0fa4d41316474e7f8f435a5e66828b85"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-whiteboard-login.html",
+      "derivationNotes": "Same split layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. No 'Remember me' / 'Forgot password' row. Left decorative canvas panel stays the same."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-whiteboard-login.html",
+      "derivationNotes": "Same split layout as Login with only Email field on the right. Heading 'Reset your password', subtext 'Enter your email to receive a reset link'. Button 'Send reset link'. Bottom link 'Back to sign in'. No password, no social buttons. Left decorative canvas panel stays the same."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-whiteboard-login.html",
+      "derivationNotes": "Same split layout as Login with New Password and Confirm Password fields. Heading 'Set new password'. Button 'Reset password'. Bottom link 'Back to sign in'. No email field, no social buttons. Left decorative canvas panel stays the same."
+    },
+    {
+      "name": "Boards",
+      "templateFile": "app/pages/Boards.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/boards",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-boards.html",
+      "designScreenId": "eec81117403e46dc87fde5331603c009"
+    },
+    {
+      "name": "BoardCanvas",
+      "templateFile": "app/pages/BoardCanvas.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/board/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-board-canvas.html",
+      "designScreenId": "860fafcab60d44bda13976aaf97d25b8"
+    },
+    {
+      "name": "Templates",
+      "templateFile": "app/pages/Templates.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/templates",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-templates.html",
+      "designScreenId": "d0fd63f02b40435e8c5ca5108d9f396f"
+    },
+    {
+      "name": "Shared",
+      "templateFile": "app/pages/Shared.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/shared",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-shared.html",
+      "designScreenId": "a1f2eb74c7c24196989659e79a516a7c"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-settings.html",
+      "designScreenId": "03bc038195c3408ea5811398fde26293"
+    },
+    {
+      "name": "TemplateDetail",
+      "templateFile": "app/pages/TemplateDetail.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/templates/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-template-detail.html",
+      "designScreenId": "11c19d3fb13e4fb3a43f83d4fab32bd8"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-notifications.html",
+      "designScreenId": "169e8a75932f4a6eac05d5d9abebdf3b"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-profile.html",
+      "designScreenId": "8ab698b24cec4224b2aff5c5814fd922"
+    },
+    {
+      "name": "Workspace",
+      "templateFile": "app/pages/Workspace.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/workspace",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-workspace.html",
+      "designScreenId": "9dea0083a44349928af9d3286d80f581"
+    },
+    {
+      "name": "Billing",
+      "templateFile": "app/pages/Billing.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/billing",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-billing.html",
+      "designScreenId": "a0e182146444469da160c689c01c1a1b"
+    },
+    {
+      "name": "VersionHistory",
+      "templateFile": "app/pages/VersionHistory.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/board/:id/history",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-version-history.html",
+      "designScreenId": "5e8ef12b928c4f40ad88506d857ff340"
+    },
+    {
+      "name": "PresentationMode",
+      "templateFile": "app/pages/PresentationMode.tsx",
+      "components": ["app/components/WhiteboardLayout.tsx"],
+      "route": "/board/:id/present",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-whiteboard-presentation-mode.html",
+      "designScreenId": "53344c71dbc04e2992f540734d7e3759"
+    }
+  ]
+}

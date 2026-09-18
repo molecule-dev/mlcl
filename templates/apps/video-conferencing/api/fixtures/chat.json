@@ -1,0 +1,6 @@
+[
+  { "id": "c1", "user_name": "Sarah Kim",  "content": "Hey everyone — kicking us off.",                                  "created_at_label": "2:01 PM" },
+  { "id": "c2", "user_name": "David Park", "content": "Quick agenda check: pricing, retention, then ML roadmap?",        "created_at_label": "2:01 PM" },
+  { "id": "c3", "user_name": "You",        "content": "Works for me — I have notes on retention.",                       "created_at_label": "2:02 PM", "is_own": true },
+  { "id": "c4", "user_name": "Maya Reyes", "content": "Sharing the deck now — top-right corner has the new flow.",       "created_at_label": "2:03 PM" }
+]

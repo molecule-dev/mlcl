@@ -1,0 +1,149 @@
+{
+  "app": "social-media",
+  "designProjectId": "13886880291200328576",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-social-media-landing.html",
+      "designScreenId": "c984c1c5afae462994d3d7791bb331ad"
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-social-media-login.html",
+      "designScreenId": "bb466c076e414f77a6e34db7bd4f141d"
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-social-media-login.html",
+      "derivationNotes": "Same 55/45 split layout and masonry collage left panel as Login. Right-side auth card uses Full Name, Username, Email, Password, Confirm Password fields. Heading changes to 'Join the feed'. Subtext 'Create an account to start sharing'. Primary button 'Create account' with pink-to-violet gradient. Bottom link 'Already have an account? Sign in'. No 'Forgot password?' link. Keep SSO options (Google, Apple, Phone) and the '2.4M creators online today' indicator."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-social-media-login.html",
+      "derivationNotes": "Same 55/45 split layout and masonry collage left panel as Login. Right-side card shows only Email field. Heading 'Forgot your password?'. Subtext 'Enter your email and we\u2019ll send a reset link'. Primary button 'Send reset link' with pink-to-violet gradient. Bottom link 'Back to sign in'. No password field, no SSO options."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-social-media-login.html",
+      "derivationNotes": "Same 55/45 split layout and masonry collage left panel as Login. Right-side card shows New Password and Confirm Password fields with eye toggles. Heading 'Set a new password'. Subtext 'Choose something strong \u2014 at least 12 characters'. Primary button 'Reset password' with pink-to-violet gradient. Bottom link 'Back to sign in'. No email field, no SSO options."
+    },
+    {
+      "name": "Feed",
+      "templateFile": "app/pages/Feed.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/feed",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-feed.html",
+      "designScreenId": "1dbac0b7a8904392a06e4d9caa82a0a5"
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/profile/:handle",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-profile.html",
+      "designScreenId": "dc8afc1fe064450ab9a5d44760d2d8cd"
+    },
+    {
+      "name": "PostDetail",
+      "templateFile": "app/pages/PostDetail.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/posts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-post-detail.html",
+      "designScreenId": "78df7fa2d8264446912e02bee8772095"
+    },
+    {
+      "name": "Explore",
+      "templateFile": "app/pages/Explore.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/explore",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-explore.html",
+      "designScreenId": "9102028e03d14fa6baac44906db28914"
+    },
+    {
+      "name": "Messages",
+      "templateFile": "app/pages/Messages.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/messages",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-messages.html",
+      "designScreenId": "e222ea9e697b48b1a87043e91273c022"
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-notifications.html",
+      "designScreenId": "e608e4c6242b4ff380cbe9325086d304"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-settings.html",
+      "designScreenId": "1294fc12480a40679d27cec10aa62919"
+    },
+    {
+      "name": "Search",
+      "templateFile": "app/pages/Search.tsx",
+      "components": ["app/components/SocialMediaLayout.tsx"],
+      "route": "/search",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-social-media-search.html",
+      "designScreenId": "4b001302cb0742e3bd649f62b3c8a03b"
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-social-media-pricing.html",
+      "designScreenId": "b2d7b06cc15d4dcf92fbf91a34d3ffa3"
+    }
+  ]
+}

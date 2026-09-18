@@ -1,0 +1,186 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via base.css @theme block === */
+  --mol-color-primary: #c0392b;
+  --mol-color-primary-light: #fbecea;
+  --mol-color-primary-dark: #a93226;
+  --mol-color-secondary: #d4a017;
+  --mol-color-background: #faf8f6;
+  --mol-color-background-secondary: #f5f0eb;
+  --mol-color-background-tertiary: #ede5dd;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #fdf6f0;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #374151;
+  --mol-color-text-tertiary: #6b7280;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #f0ebe6;
+  --mol-color-border-secondary: #e8ddd5;
+  --mol-color-border-focus: #c0392b;
+  --mol-color-success: #256e40; /* #2d8a4e was 3.93:1 on success-light #dcfce7 (fail); #256e40 = 5.65:1, same green hue */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #c0392b;
+  --mol-color-info: #3b82f6;
+
+  /* === App-specific aliases === */
+  --color-primary: #c0392b;
+  --color-primary-light: #d44637;
+  --color-primary-dark: #a93226;
+  --color-secondary: #d4a017;
+  --color-secondary-light: #e0b530;
+  --color-accent: #d4a017;
+  --color-background: #faf8f6;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fdf6f0;
+  --color-text: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-border: #f0ebe6;
+  --color-error: #c0392b;
+  --color-success: #256e40; /* matches --mol-color-success (see above) */
+  --color-star: #d4a017;
+  --color-on-secondary: #1a0d00; /* dark on gold — #ffffff was 2.38:1 (fail); #1a0d00 = 8.03:1 */
+
+  /* Material-3 bridge — light mode tokens so bg-primary, text-on-surface etc.
+     work correctly in both modes without relying on the dark-only block. */
+  --color-on-background: #111827;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #374151;
+  --color-surface-variant: #f5f0eb;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #ede5dd;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf8f6;
+  --color-surface-container: #f5f0eb;
+  --color-surface-container-high: #ede5dd;
+  --color-surface-container-highest: #e8ddd5;
+  --color-inverse-surface: #111827;
+  --color-inverse-on-surface: #faf8f6;
+  --color-inverse-primary: #fbecea;
+  --color-primary-container: #fbecea;
+  --color-on-primary: #ffffff; /* white on brick-red #c0392b = 5.44:1 */
+  --color-on-primary-container: #5c0a0a;
+  --color-secondary-container: #fef9e5;
+  --color-on-secondary-container: #1a0d00;
+  --color-tertiary: #d4a017;
+  --color-tertiary-container: #fef9e5;
+  --color-on-tertiary: #1a0d00; /* dark on gold — 8.03:1 */
+  --color-on-tertiary-container: #1a0d00;
+  --color-error-container: #fbecea;
+  --color-on-error: #ffffff; /* white on #c0392b = 5.44:1 */
+  --color-on-error-container: #5c0a0a;
+  --color-outline: #9a8a80;
+  --color-outline-variant: #e8ddd5;
+  --color-surface-tint: #c0392b;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading: '"DM Serif Display"', Georgia, 'Times New Roman', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode — candlelit dining room with warm earth tones.
+   Warm dark espresso/cocoa surfaces evoke an evening restaurant ambience.
+   Brand brick-red preserved at brand stop; CTA buttons keep white text.
+   Star/gold accent stays warm and luminous. */
+[data-mol-mode='dark'] {
+  /* --mol-color-* tokens — provider bridge */
+  --mol-color-primary: #c0392b;
+  --mol-color-primary-light: #3a1410;
+  --mol-color-primary-dark: #a93226;
+  --mol-color-secondary: #c9b5a0;
+  --mol-color-background: #171210;
+  --mol-color-background-secondary: #221c19;
+  --mol-color-background-tertiary: #2e2620;
+  --mol-color-surface: #171210;
+  --mol-color-surface-secondary: #221c19;
+  --mol-color-input-background: #100c0a;
+  --mol-color-text: #faf6f0;
+  --mol-color-text-secondary: #d9c9b5;
+  --mol-color-text-tertiary: #a89880;
+  --mol-color-text-inverse: #171210;
+  --mol-color-border: #3a2e22;
+  --mol-color-border-secondary: #4a3a2c;
+  --mol-color-border-focus: #c0392b;
+  --mol-color-success: #34d058;
+  --mol-color-warning: #f5b400;
+  --mol-color-error: #f25c5c;
+  --mol-color-info: #5ec0ff;
+
+  /* App-specific aliases — candlelit restaurant shell */
+  --color-primary: #c0392b;
+  --color-primary-light: #3a1410;
+  --color-primary-dark: #a93226;
+  --color-secondary: #d4a017;
+  --color-secondary-light: #e0b530;
+  --color-accent: #d4a017;
+  --color-background: #171210;
+  --color-surface: #221c19;
+  --color-surface-hover: #2e2620;
+  --color-border: #3a2e22;
+  --color-text: #faf6f0;
+  --color-text-secondary: #d9c9b5;
+  --color-text-muted: #a89880;
+  --color-error: #f25c5c;
+  --color-success: #66bb6a;
+  --color-star: #f0c14b;
+
+  /* @theme token dark variants */
+  --color-on-background: #faf6f0;
+  --color-surface-bright: #2e2620;
+  --color-surface-dim: #0e0a08;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #1c1714;
+  --color-surface-container: #221c19;
+  --color-surface-container-high: #2e2620;
+  --color-surface-container-highest: #3a2e22;
+  --color-surface-variant: #2e2620;
+  --color-on-surface: #faf6f0;
+  --color-on-surface-variant: #d9c9b5;
+  --color-inverse-surface: #faf6f0;
+  --color-inverse-on-surface: #171210;
+  --color-inverse-primary: #3a1410;
+  --color-primary-container: #3a1410;
+  --color-on-primary: #ffffff; /* white on brick red */
+  --color-on-primary-container: #ffd9d4;
+  --color-secondary-container: #3a2a08;
+  --color-on-secondary: #1a0d00; /* dark on gold — #ffffff was 2.38:1 (fail); #1a0d00 = 8.03:1 */
+  --color-on-secondary-container: #f5e3b8;
+  --color-tertiary: #d4a017;
+  --color-tertiary-container: #3a2a08;
+  --color-on-tertiary: #1a1100;
+  --color-on-tertiary-container: #f5e3b8;
+  --color-error: #f25c5c;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on light-red — #ffffff was 3.25:1 (fail); #3a0000 = 5.48:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #7a6e62; /* lifted from #5a4e42 (2.30:1 fail) → 3.75:1 on dark surface */
+  --color-outline-variant: #3a2e22;
+  --color-surface-tint: #e57373;
+
+  /* Shadows — deep, candle-warm */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,162 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #4f46e5;
+  --mol-color-primary-light: #e0e7ff;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #0ea5e9;
+  --mol-color-secondary-light: #f0f9ff;
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f8fafc;
+  --mol-color-background-tertiary: #f0f9ff;
+  --mol-color-surface: #ffffff;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #0f172a;
+  --mol-color-text-secondary: #475569;
+  --mol-color-text-tertiary: #616e7c; /* #94a3b8 was 2.56:1 on white (fail ≥4.5:1); #616e7c = 5.21:1 */
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-focus: #4f46e5;
+  --mol-color-success: #10b981;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #ef4444;
+  --mol-color-info: #06b6d4;
+
+  /* Light-mode M3 on-* overrides for colors that fail with white text */
+  --color-on-secondary: #083344; /* white on #0ea5e9 = 2.77:1 (fail); #083344 = 4.83:1 */
+  --color-on-error: #3a0000; /* white on #ef4444 = 3.76:1 (fail); #3a0000 = 6.43:1 */
+
+  /* Hero gradient — secondary indigo stop used in auth/landing branded panels */
+  --color-primary-gradient-to: #6366f1;
+  /* Status gradient endpoints (booking confirmation icon backgrounds) */
+  --color-danger-gradient-to: #f97316;
+  --color-success-gradient-to: #34d399;
+
+  /* Legacy aliases (kept for any inline styles referencing these names) */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #e0e7ff;
+  --color-secondary: #0ea5e9;
+  --color-secondary-hover: #0284c7;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #06b6d4;
+
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f0f9ff;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #616e7c; /* #94a3b8 was 2.56:1 on white (fail ≥4.5:1); #616e7c = 5.21:1 */
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 14rem;
+}
+
+/* Dark mode overrides — calm indigo-on-slate for late-evening scheduling.
+   Brand indigo (#4f46e5) stays at the brand stop so CTA buttons keep their
+   light-on-indigo character. `--color-on-primary` stays white. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #4f46e5; /* brand indigo — stays at brand stop */
+  --mol-color-primary-light: #312e81;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #38bdf8;
+  --mol-color-secondary-light: #0c4a6e;
+  --mol-color-background: #0b1120;
+  --mol-color-background-secondary: #0f172a;
+  --mol-color-background-tertiary: #111b30;
+  --mol-color-surface: #0b1120;
+  --mol-color-input-background: #0f172a;
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #cbd5e1;
+  --mol-color-text-tertiary: #7a8a9e; /* #64748b was 3.96:1 on #0b1120 (fail ≥4.5:1); #7a8a9e = 5.34:1 */
+  --mol-color-text-inverse: #0b1120;
+  --mol-color-border: #1e293b;
+  --mol-color-border-focus: #818cf8;
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Legacy aliases */
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-light: #312e81;
+  --color-secondary: #38bdf8;
+  --color-secondary-hover: #7dd3fc;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #22d3ee;
+  --color-bg: #0b1120;
+  --color-bg-secondary: #0f172a;
+  --color-bg-tertiary: #111b30;
+  --color-border: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #7a8a9e; /* #64748b was 3.96:1 on #0b1120 (fail ≥4.5:1); #7a8a9e = 5.34:1 */
+
+  /* Hero gradient — lifted slightly for warm shimmer on dark canvas */
+  --color-primary-gradient-to: #818cf8;
+  /* Status gradient endpoints */
+  --color-danger-gradient-to: #fb923c;
+  --color-success-gradient-to: #6ee7b7;
+
+  /* Stitch / Material-3 bridge — brand indigo at brand stop, on-primary white. */
+  --color-background: #0b1120;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0b1120;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #050a12;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #0c1525;
+  --color-surface-container: #0f172a;
+  --color-surface-container-high: #172033;
+  --color-surface-container-highest: #1e293b;
+  --color-surface-variant: #172033;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #cbd5e1;
+  --color-inverse-surface: #f1f5f9;
+  --color-inverse-on-surface: #0b1120;
+  --color-inverse-primary: #4f46e5;
+  --color-primary: #4f46e5; /* brand indigo — stays at brand stop */
+  --color-primary-container: #312e81;
+  --color-on-primary: #ffffff; /* white on indigo — readable always */
+  --color-on-primary-container: #e0e7ff;
+  --color-secondary: #38bdf8;
+  --color-secondary-container: #0c4a6e;
+  --color-on-secondary: #0b1120; /* dark on sky-blue — #ffffff was 2.14:1 (fail); #0b1120 = 8.79:1 */
+  --color-on-secondary-container: #bae6fd;
+  --color-tertiary: #818cf8;
+  --color-tertiary-container: #312e81;
+  --color-on-tertiary: #0b1120; /* dark on indigo — #ffffff was 2.98:1 (fail); #0b1120 = 6.31:1 */
+  --color-on-tertiary-container: #e0e7ff;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — #ffffff was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #5c6680; /* #475569 was 2.48:1 vs surface (fail ≥3:1); #5c6680 = 3.29:1 */
+  --color-outline-variant: #1e293b;
+  --color-surface-tint: #818cf8;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "l1",
+    "test_name": "LDL Cholesterol",
+    "category": "lipids",
+    "value": 142,
+    "unit": "mg/dL",
+    "flag": "high",
+    "reference_low": 0,
+    "reference_high": 100,
+    "collected_at": "2026-04-12",
+    "trend": [96, 102, 118, 124, 142]
+  },
+  {
+    "id": "l2",
+    "test_name": "HbA1c",
+    "category": "diabetes",
+    "value": 6.8,
+    "unit": "%",
+    "flag": "caution",
+    "reference_low": 4.0,
+    "reference_high": 5.7,
+    "collected_at": "2026-04-12",
+    "trend": [5.9, 6.2, 6.4, 6.6, 6.8]
+  },
+  {
+    "id": "l3",
+    "test_name": "TSH",
+    "category": "endocrine",
+    "value": 2.1,
+    "unit": "mIU/L",
+    "flag": "normal",
+    "reference_low": 0.4,
+    "reference_high": 4.0,
+    "collected_at": "2026-04-12"
+  },
+  {
+    "id": "l4",
+    "test_name": "Vitamin D",
+    "category": "nutrition",
+    "value": 24,
+    "unit": "ng/mL",
+    "flag": "low",
+    "reference_low": 30,
+    "reference_high": 100,
+    "collected_at": "2026-04-12"
+  },
+  {
+    "id": "l5",
+    "test_name": "eGFR",
+    "category": "renal",
+    "value": 92,
+    "unit": "mL/min",
+    "flag": "normal",
+    "reference_low": 60,
+    "reference_high": 200,
+    "collected_at": "2026-04-12"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ded_001",
+    "employee_id": "emp_001",
+    "name": "Health Insurance — Family Plan",
+    "type": "insurance",
+    "amount": 312.50,
+    "is_percentage": false,
+    "is_pretax": true,
+    "is_active": true
+  },
+  {
+    "id": "ded_002",
+    "employee_id": "emp_001",
+    "name": "401(k) Contribution",
+    "type": "retirement",
+    "amount": 6,
+    "is_percentage": true,
+    "is_pretax": true,
+    "is_active": true
+  },
+  {
+    "id": "ded_003",
+    "employee_id": "emp_001",
+    "name": "Dental + Vision",
+    "type": "insurance",
+    "amount": 42.10,
+    "is_percentage": false,
+    "is_pretax": true,
+    "is_active": true
+  },
+  {
+    "id": "ded_004",
+    "employee_id": "emp_001",
+    "name": "Commuter Benefit (post-tax)",
+    "type": "other",
+    "amount": 75,
+    "is_percentage": false,
+    "is_pretax": false,
+    "is_active": true
+  }
+]

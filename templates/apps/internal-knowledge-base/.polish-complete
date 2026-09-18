@@ -1,0 +1,20 @@
+date: 2026-04-30
+sibling: document-collaboration (also referenced: blog, online-store)
+brand: Cairn — "Stack knowledge, find your way" (deep teal #0f766e + signal amber #d97706)
+
+bespoke components: 7
+  - CairnTrailHero
+  - CairnArticleStatusPill
+  - CairnSpaceCard
+  - CairnArticleRow
+  - CairnKpiCard
+  - CairnAuthBrandPanel
+  - CairnLayout (sidebar-layout-react shell)
+
+screens: 16 (all screen-map.json routes wired)
+chrome: Sweep 1 (header/footer/legal/notification-feed/root-error-boundary/sidebar-layout)
+http: useHttpClient + unwrapList/unwrapSingle envelope helpers
+auth: useAuth().login + http.post for register/forgot/reset
+classmap coverage: 100%
+typecheck: clean
+compliance gate: clean

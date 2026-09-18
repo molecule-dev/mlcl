@@ -1,0 +1,191 @@
+:root {
+  /* ── Bridge variables (feed into @theme) ── */
+  --mol-color-primary: #047857;
+  --mol-color-primary-light: #d1fae5;
+  --mol-color-secondary: #5254e3; /* aligned with --color-secondary fix for on-secondary contrast */
+  --mol-color-secondary-light: #e0e7ff;
+  --mol-color-success: #10b981;
+  --mol-color-error: #ef4444;
+  --mol-color-warning: #f59e0b;
+  --mol-color-info: #3b82f6;
+  --mol-color-background: #f9fafb;
+  --mol-color-surface: #ffffff;
+  --mol-color-border: #e5e7eb;
+  --mol-color-border-focus: #059669;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #6b7280;
+  --mol-color-text-tertiary: #9ca3af;
+  --mol-color-text-inverse: #ffffff;
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #047857;
+  --color-secondary-hover: #4f46e5;
+  --color-danger-hover: #dc2626;
+  --color-surface-hover: #f3f4f6;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --spacing-card: 1.25rem;
+  --spacing-section: 2rem;
+
+  /* ── Material-3 / Stitch bridge tokens (light palette) ── */
+  --color-background: #f9fafb;
+  --color-on-background: #111827;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f3f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f9fafb;
+  --color-surface-container: #f3f4f6;
+  --color-surface-container-high: #eef0f2;
+  --color-surface-container-highest: #e5e7eb;
+  --color-surface-variant: #f3f4f6;
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #6b7280;
+  --color-inverse-surface: #1f2937;
+  --color-inverse-on-surface: #f9fafb;
+  --color-inverse-primary: #34d399;
+  /* emerald-700, not emerald-600. #059669 measures 3.77:1 on white — it fails AA
+     BOTH ways here: as text (text-primary / hover:text-primary-hover on the
+     landing, login and dashboard) and as a fill with white on it (3.76:1). One
+     step darker clears both at 5.48:1 and keeps the emerald identity. The dark
+     theme keeps #10b981; darkening only helps against light surfaces. */
+  --color-primary: #047857;
+  --color-primary-container: #d1fae5;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #064e3b;
+  --color-secondary: #5254e3; /* #6366f1 gave white on-secondary 4.47:1 (fail); #5254e3 = 5.62:1 */
+  --color-secondary-container: #e0e7ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #312e81;
+  --color-tertiary: #e11d48;
+  --color-tertiary-container: #ffe4e6;
+  --color-on-tertiary: #ffffff; /* white on #e11d48 = 4.70:1 — pass */
+  --color-on-tertiary-container: #881337;
+  --color-error: #ef4444;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #ef4444 = 4.53:1 — pass */
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #6b7280; /* #9ca3af was 2.54:1 vs white surface (fail ≥3:1); #6b7280 = 4.83:1 */
+  --color-outline-variant: #e5e7eb;
+  --color-surface-tint: #059669;
+
+  /* ── Backward-compat aliases ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-text-inverse: var(--color-foreground-inverse);
+  --color-bg: var(--color-background);
+  --color-danger: var(--color-error);
+}
+
+/* Dark mode — cool-slate professional finance dark.
+   Finance tone: cool-slate near-black surfaces, brand green kept at the
+   brand stop (#059669) for badges and surface accents and shifted brighter
+   for hero CTAs so white text reads cleanly. Income/primary semantics stay
+   green, expense/error stays red across modes.
+   `--color-on-primary` STAYS white in both modes so green CTA buttons keep
+   their light-on-green character. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #10b981;
+  --mol-color-primary-light: #064e3b;
+  --mol-color-primary-dark: #059669;
+  --mol-color-secondary: #818cf8;
+  --mol-color-secondary-light: #312e81;
+
+  --mol-color-background: #0b1322;
+  --mol-color-surface: #16213a;
+  --mol-color-border: #2a3553;
+  --mol-color-border-focus: #34d399;
+
+  --mol-color-text: #f1f5f9;
+  --mol-color-text-secondary: #c1cad8;
+  --mol-color-text-tertiary: #8693ab;
+  --mol-color-text-inverse: #0b1322;
+
+  --mol-color-success: #34d399;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #60a5fa;
+
+  --color-primary-hover: #34d399;
+  --color-secondary-hover: #a5b4fc;
+  --color-danger-hover: #fca5a5;
+  --color-surface-hover: #1f2c46;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+
+  /* Stitch / Material-3 token dark variants — override the @theme block in
+     index.css so `bg-surface`, `text-on-surface`, etc. flip on
+     data-mol-mode="dark". Domain semantics preserved: income/primary stays
+     green (brighter), expense/error stays red (brighter). */
+  --color-background: #0b1322;
+  --color-on-background: #f1f5f9;
+  --color-surface: #0b1322;
+  --color-surface-bright: #16213a;
+  --color-surface-dim: #060b18;
+  --color-surface-container-lowest: #02050d;
+  --color-surface-container-low: #0d1626;
+  --color-surface-container: #111b30;
+  --color-surface-container-high: #16213a;
+  --color-surface-container-highest: #1f2c46;
+  --color-surface-variant: #16213a;
+  --color-on-surface: #f1f5f9;
+  --color-on-surface-variant: #c1cad8;
+  --color-inverse-surface: #e1e8fd;
+  --color-inverse-on-surface: #16213a;
+  --color-inverse-primary: #059669;
+  --color-primary: #059669;
+  --color-primary-container: #064e3b;
+  --color-primary-fixed: #064e3b;
+  --color-primary-fixed-dim: #10b981;
+  --color-on-primary: #000d07; /* #ffffff was 3.77:1 on #059669 (fail); #000d07 = 5.25:1 */
+  --color-on-primary-container: #d1fae5;
+  --color-on-primary-fixed: #d1fae5;
+  --color-on-primary-fixed-variant: #6ee7b7;
+  --color-secondary: #a5b4fc;
+  --color-secondary-container: #312e81;
+  --color-secondary-fixed: #312e81;
+  --color-secondary-fixed-dim: #818cf8;
+  --color-on-secondary: #0b1322;
+  --color-on-secondary-container: #e0e7ff;
+  --color-on-secondary-fixed: #e0e7ff;
+  --color-on-secondary-fixed-variant: #c0c1ff;
+  --color-tertiary: #ffb3ae;
+  --color-tertiary-container: #5a1818;
+  --color-tertiary-fixed: #7f2928;
+  --color-tertiary-fixed-dim: #ffdad7;
+  --color-on-tertiary: #3e0012; /* #ffffff was 1.71:1 on #ffb3ae (fail); #3e0012 = 10.14:1 */
+  --color-on-tertiary-container: #ffdad7;
+  --color-on-tertiary-fixed: #ffdad7;
+  --color-on-tertiary-fixed-variant: #ffb3ae;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* #ffffff was 2.77:1 on #f87171 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #6b7d98; /* #5a677f was 3.26:1 vs surface — marginal; #6b7d98 = 4.43:1 vs surface, 5.11:1 vs bg */
+  --color-outline-variant: #2a3553;
+  --color-surface-tint: #34d399;
+}

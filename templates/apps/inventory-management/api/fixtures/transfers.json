@@ -1,0 +1,57 @@
+[
+  {
+    "id": "t-001",
+    "reference": "TRF-2026-0418",
+    "from_warehouse_id": "w-001",
+    "from_warehouse": "Portland Main Distribution",
+    "to_warehouse_id": "w-002",
+    "to_warehouse": "Austin Makers Hub",
+    "status": "in_transit",
+    "items": [
+      { "product_id": "p-001", "sku": "WNC-AUDIO-301", "name": "Sterling Studio Headphones — Black", "quantity": 24 },
+      { "product_id": "p-005", "sku": "OUTD-LMP-219", "name": "Camp Lantern Mk II", "quantity": 60 }
+    ],
+    "total_units": 84,
+    "carrier": "FreightLine",
+    "tracking_number": "FRL-2398-1129",
+    "shipped_at": "2026-04-26T07:30:00Z",
+    "expected_at": "2026-04-30T17:00:00Z",
+    "created_by": "Selah Okafor",
+    "notes": "Replenish pre-summer demo stock for Austin maker fairs."
+  },
+  {
+    "id": "t-002",
+    "reference": "TRF-2026-0419",
+    "from_warehouse_id": "w-001",
+    "from_warehouse": "Portland Main Distribution",
+    "to_warehouse_id": "w-003",
+    "to_warehouse": "Atlanta Cross-Dock",
+    "status": "received",
+    "items": [
+      { "product_id": "p-006", "sku": "FOOD-BEAN-020", "name": "Single-Origin Espresso — 12oz", "quantity": 240 }
+    ],
+    "total_units": 240,
+    "carrier": "Regional Trucking",
+    "tracking_number": "REG-1183-4422",
+    "shipped_at": "2026-04-22T08:00:00Z",
+    "received_at": "2026-04-25T15:18:00Z",
+    "expected_at": "2026-04-25T17:00:00Z",
+    "created_by": "Selah Okafor"
+  },
+  {
+    "id": "t-003",
+    "reference": "TRF-2026-0420",
+    "from_warehouse_id": "w-002",
+    "from_warehouse": "Austin Makers Hub",
+    "to_warehouse_id": "w-001",
+    "to_warehouse": "Portland Main Distribution",
+    "status": "pending",
+    "items": [
+      { "product_id": "p-007", "sku": "TXT-RUG-088", "name": "Wool Runner — Indigo", "quantity": 6 },
+      { "product_id": "p-002", "sku": "TBL-OAK-018", "name": "Heritage Oak Side Table", "quantity": 4 }
+    ],
+    "total_units": 10,
+    "expected_at": "2026-05-04T17:00:00Z",
+    "created_by": "Reuben Hsu"
+  }
+]

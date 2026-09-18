@@ -1,0 +1,198 @@
+import { useEffect, useState } from 'react'
+
+import { DataTableCard } from '@molecule/app-data-table-ui-react'
+import { PaginationBar } from '@molecule/app-pagination-bar-react'
+import { getClassMap } from '@molecule/app-ui'
+import { useTranslation } from '@molecule/app-react'
+
+const cm = getClassMap()
+const PAGE_SIZE = 25
+const STATUSES = ['open', 'paid', 'shipped', 'delivered'] as const
+
+type SortDir = 'asc' | 'desc'
+
+type Order = {
+  id: string
+  total: number
+  status: string
+  created_at: string
+}
+
+type Page = { rows: Order[]; total: number }
+
+/** Clickable column header that shows an up/down arrow for the active sort. */
+function SortableHeader({
+  label,
+  field,
+  sort,
+  onSort,
+}: {
+  label: string
+  field: string
+  sort: { field: string; dir: SortDir }
+  onSort: (next: { field: string; dir: SortDir }) => void
+}) {
+  const isActive = sort.field === field
+  const nextDir: SortDir = isActive && sort.dir === 'asc' ? 'desc' : 'asc'
+  return (
+    <button
+      type="button"
+      onClick={() => onSort({ field, dir: nextDir })}
+      className={cm.flex({ align: 'center', gap: 'xs' })}
+      style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+    >
+      {label}
+      <span aria-hidden="true" style={{ fontSize: '0.7em' }}>
+        {isActive ? (sort.dir === 'asc' ? ' ▲' : ' ▼') : ' ⇅'}
+      </span>
+    </button>
+  )
+}
+
+export function OrdersPage() {
+  const { t } = useTranslation()
+  const [page, setPage] = useState<Page>({ rows: [], total: 0 })
+  const [pageIndex, setPageIndex] = useState(1)
+  const [loading, setLoading] = useState(false)
+  const [sort, setSort] = useState<{ field: string; dir: SortDir }>({
+    field: 'created_at',
+    dir: 'desc',
+  })
+  const [statusFilter, setStatusFilter] = useState<string | null>(null)
+
+  useEffect(() => {
+    setLoading(true)
+    const params = new URLSearchParams({
+      limit: String(PAGE_SIZE),
+      offset: String((pageIndex - 1) * PAGE_SIZE),
+      sort: sort.field,
+      dir: sort.dir,
+    })
+    if (statusFilter) params.set('status', statusFilter)
+    fetch(`/api/orders?${params.toString()}`)
+      .then((r) => r.json())
+      .then((data: Page) => {
+        setPage(data)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [pageIndex, sort, statusFilter])
+
+  const handleSort = (next: { field: string; dir: SortDir }): void => {
+    setSort(next)
+    setPageIndex(1)
+  }
+
+  const totalPages = Math.max(1, Math.ceil(page.total / PAGE_SIZE))
+
+  const columns = [
+    {
+      key: 'created_at',
+      header: (
+        <SortableHeader
+          label={t('orders.col.date', undefined, { defaultValue: 'Date' })}
+          field="created_at"
+          sort={sort}
+          onSort={handleSort}
+        />
+      ),
+      cell: (o: Order) => new Date(o.created_at).toLocaleDateString(),
+    },
+    {
+      key: 'total',
+      header: (
+        <SortableHeader
+          label={t('orders.col.total', undefined, { defaultValue: 'Total' })}
+          field="total"
+          sort={sort}
+          onSort={handleSort}
+        />
+      ),
+      cell: (o: Order) => `$${(o.total / 100).toFixed(2)}`,
+    },
+    {
+      key: 'status',
+      header: (
+        <SortableHeader
+          label={t('orders.col.status', undefined, { defaultValue: 'Status' })}
+          field="status"
+          sort={sort}
+          onSort={handleSort}
+        />
+      ),
+      cell: (o: Order) => t(`orders.status.${o.status}`, undefined, { defaultValue: o.status }),
+    },
+  ]
+
+  return (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), cm.sp('p', 6))}>
+      <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
+        {t('orders.title', undefined, { defaultValue: 'Orders' })}
+      </h1>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.sp('p', 1),
+          'rounded-full border border-outline-variant/40 w-fit',
+        )}
+      >
+        <button
+          type="button"
+          onClick={() => {
+            setStatusFilter(null)
+            setPageIndex(1)
+          }}
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full transition-colors',
+            statusFilter === null
+              ? 'bg-primary text-on-primary shadow-sm'
+              : 'text-on-surface-variant hover:bg-surface-container-low',
+          )}
+        >
+          {t('orders.all', undefined, { defaultValue: 'All' })}
+        </button>
+        {STATUSES.map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => {
+              setStatusFilter(s)
+              setPageIndex(1)
+            }}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              'rounded-full transition-colors',
+              statusFilter === s
+                ? 'bg-primary text-on-primary shadow-sm'
+                : 'text-on-surface-variant hover:bg-surface-container-low',
+            )}
+          >
+            {t(`orders.status.${s}`, undefined, { defaultValue: s })}
+          </button>
+        ))}
+      </div>
+      <DataTableCard
+        columns={columns}
+        rows={page.rows}
+        rowKey={(o: Order) => o.id}
+        loading={loading}
+        emptyMessage={t('orders.empty', undefined, { defaultValue: 'No orders found.' })}
+        dataMolId="orders-table"
+      />
+      <PaginationBar
+        page={pageIndex}
+        totalPages={totalPages}
+        pageSize={PAGE_SIZE}
+        total={page.total}
+        onPageChange={setPageIndex}
+      />
+    </div>
+  )
+}

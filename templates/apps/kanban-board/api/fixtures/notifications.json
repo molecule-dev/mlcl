@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ntf-001",
+    "user_id": "usr-you",
+    "type": "mention",
+    "title": "Diego Alvarez mentioned you",
+    "body": "@you can you sanity check the bundle diff before I roll this out? — Investigate the slow board-load 95th percentile",
+    "data": { "board_name": "Q2 Product Launch" },
+    "read_at": null,
+    "created_at": "2026-04-29T10:02:00Z"
+  },
+  {
+    "id": "ntf-002",
+    "user_id": "usr-you",
+    "type": "assignment",
+    "title": "Sarah Chen assigned you a card",
+    "body": "Add bulk actions to the backlog view",
+    "data": { "board_name": "Q2 Product Launch" },
+    "read_at": null,
+    "created_at": "2026-04-29T09:47:00Z"
+  },
+  {
+    "id": "ntf-003",
+    "user_id": "usr-you",
+    "type": "due_soon",
+    "title": "Card due tomorrow",
+    "body": "Migrate dashboard charts to the new color tokens — checklist 5/8.",
+    "data": { "board_name": "Q2 Product Launch" },
+    "read_at": null,
+    "created_at": "2026-04-29T09:30:00Z"
+  },
+  {
+    "id": "ntf-004",
+    "user_id": "usr-you",
+    "type": "comment",
+    "title": "Priya Patel left a comment",
+    "body": "\"Two-tab cursor still flickers on disconnect, ticket attached.\" — QA pass on the realtime collaborator cursors",
+    "data": { "board_name": "Q2 Product Launch" },
+    "read_at": "2026-04-29T08:30:00Z",
+    "created_at": "2026-04-29T08:14:00Z"
+  },
+  {
+    "id": "ntf-005",
+    "user_id": "usr-you",
+    "type": "board_invite",
+    "title": "Rin Takeda invited you to a board",
+    "body": "Growth Experiments",
+    "data": { "board_name": "Growth Experiments" },
+    "read_at": "2026-04-28T18:10:00Z",
+    "created_at": "2026-04-28T17:55:00Z"
+  },
+  {
+    "id": "ntf-006",
+    "user_id": "usr-you",
+    "type": "card_moved",
+    "title": "Marcus Liu moved your card to Done",
+    "body": "Ship the new keyboard-shortcuts cheatsheet",
+    "data": { "board_name": "Q2 Product Launch" },
+    "read_at": "2026-04-28T17:02:00Z",
+    "created_at": "2026-04-28T16:42:00Z"
+  }
+]

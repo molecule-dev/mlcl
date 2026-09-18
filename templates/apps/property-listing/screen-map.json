@@ -1,0 +1,167 @@
+{
+  "app": "property-listing",
+  "designProjectId": "10538250254866311210",
+  "screens": [
+    {
+      "name": "AgentAnalyticsPage",
+      "templateFile": "app/pages/AgentAnalyticsPage.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/analytics",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-agent-analytics.html",
+      "designScreenId": "e09903028467445d8483ea11540ff199",
+      "generationPrompt": "Agent Analytics dashboard page for a luxury real estate platform. Left sidebar navigation with forest green (#00523a) accent, Analytics active. Main content: KPI cards (Total Views, Total Leads, Conversion Rate, Avg Days on Market), line chart for Property Views Over Time, donut chart for Lead Sources, Top Performing Listings table. Surface hierarchy (#f8faf9 background, #ffffff cards), tonal layering, Manrope headlines, Inter body. Earth-tone light mode."
+    },
+    {
+      "name": "AgentDashboard",
+      "templateFile": "app/pages/AgentDashboard.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/dashboard",
+      "auth": true,
+      "type": "design_match",
+      "designFile": "design-property-listing-agent-dashboard.html",
+      "designScreenId": "135219702a23467994ae7ba2662a24bf"
+    },
+    {
+      "name": "AgentLeadsPage",
+      "templateFile": "app/pages/AgentLeadsPage.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/leads",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-agent-leads.html",
+      "designScreenId": "4ed297a3dfa145589fc89e792383c988",
+      "generationPrompt": "Agent Leads management page for a luxury real estate platform. Left sidebar with Leads highlighted. Filter chips (All, New, Contacted, Qualified, Lost), search input, leads table with Name, Email, Phone, Interested Property, Status chips, Last Contact Date, Actions. Tonal layering, no 1px borders. Manrope headlines, Inter body. Earth-tone light mode."
+    },
+    {
+      "name": "AgentListingsPage",
+      "templateFile": "app/pages/AgentListingsPage.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/listings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-agent-listings.html",
+      "designScreenId": "eaad5da357084405893607612277c1d5",
+      "generationPrompt": "Agent Listings management page for a luxury real estate platform. Left sidebar with Listings highlighted. 'My Listings' title with 'Add New Listing' gradient button. Filter chips (All, Active, Pending, Sold, Draft). Property card grid with thumbnails, glassmorphic price overlays, address, specs, status badges, edit/delete actions. Tonal layering, no borders. Earth-tone light mode."
+    },
+    {
+      "name": "AgentProfilePage",
+      "templateFile": "app/pages/AgentProfilePage.tsx",
+      "components": ["app/components/PublicListingLayout.tsx"],
+      "route": "/agent/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-property-listing-agent-profile.html",
+      "designScreenId": "2e9debf2ef984f2d82fc8de128818889",
+      "generationPrompt": "Public Agent Profile page for a luxury real estate platform. Hero with large profile photo, agent name in Manrope, title, location, contact buttons. Stats row (Listings, Sales, Avg Sale Price, Years Experience). Bio section. Active Listings grid with property cards and glassmorphic price overlays. Contact form with name/email/message fields. Tonal layering, no borders. Earth-tone light mode."
+    },
+    {
+      "name": "AgentShowingsPage",
+      "templateFile": "app/pages/AgentShowingsPage.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/showings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-agent-showings.html",
+      "designScreenId": "19ba685dd56b4791942a54dc439e7d38",
+      "generationPrompt": "Agent Showings schedule page for a luxury real estate platform. Left sidebar with Showings highlighted. 'Schedule Showing' gradient button. Calendar/List view toggle. List view: showing cards grouped by Today/Tomorrow/This Week, each with date/time, property thumbnail, address, client name, status chips (Confirmed green, Pending amber, Cancelled red). Tonal layering, no borders. Earth-tone light mode."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-listing-login.html",
+      "derivationNotes": "Same centered auth card layout as Login but with only an email field, a 'Send Reset Link' primary gradient button, and a 'Back to Login' link. Remove password field, social login buttons, and signup link."
+    },
+    {
+      "name": "ListingEditorPage",
+      "templateFile": "app/pages/ListingEditorPage.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/listings/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-listing-editor.html",
+      "designScreenId": "50911504055f4ed19b3302405236e79b",
+      "generationPrompt": "Listing Editor page for a luxury real estate platform. Left sidebar with Listings highlighted. Multi-section form: Image Upload drag-and-drop zone, Basic Info fields (Title, Address, City, State, Zip), Property Details (Price, Beds, Baths, SqFt, Lot Size, Year Built), Property Type/Status dropdowns, Description rich text area, Amenities selection chips (Pool, Garage, AC, etc.), Save as Draft/Publish buttons. Ghost borders, xl radius inputs. Earth-tone light mode."
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": "design-property-listing-login.html",
+      "designScreenId": "a2ccbadffd30472f983b4fe1a0fbf6d3",
+      "generationPrompt": "Login page for PropertyHub. Centered auth card on #f8faf9 background. Logo, 'Welcome Back' headline in Manrope, email/password inputs with ghost borders, primary gradient 'Sign In' button (#00523a to #1a6b4f), 'Forgot Password?' link in secondary blue, social login (Google, GitHub), 'Sign Up' link. Tonal layering, no borders. Earth-tone light mode."
+    },
+    {
+      "name": "PropertyDetailPage",
+      "templateFile": "app/pages/PropertyDetailPage.tsx",
+      "components": ["app/components/PublicListingLayout.tsx"],
+      "route": "/property/:id",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-property-listing-property-detail.html",
+      "designScreenId": "9736e33a2c0f459cb6199656eb49d5f2"
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-listing-login.html",
+      "derivationNotes": "Same centered auth card layout as Login but with 'Reset Your Password' headline, New Password and Confirm Password fields only, a 'Reset Password' primary gradient button, and a 'Back to Login' link. Remove email field, social login, and signup link."
+    },
+    {
+      "name": "SavedPropertiesPage",
+      "templateFile": "app/pages/SavedPropertiesPage.tsx",
+      "components": ["app/components/PublicListingLayout.tsx"],
+      "route": "/saved",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-property-listing-saved-properties.html",
+      "designScreenId": "dae7159a738045e596bf15f22e388f99"
+    },
+    {
+      "name": "SearchPage",
+      "templateFile": "app/pages/SearchPage.tsx",
+      "components": ["app/components/PublicListingLayout.tsx"],
+      "route": "/",
+      "auth": false,
+      "type": "design_match",
+      "designFile": "design-property-listing-search.html",
+      "designScreenId": "673bcc8aff4640f9bfea57cc01d47501"
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/AgentLayout.tsx"],
+      "route": "/admin/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": "design-property-listing-settings.html",
+      "designScreenId": "304f7f0cb0da4fa3a970078b4e457a84",
+      "generationPrompt": "Settings page for a luxury real estate platform. Left sidebar with Settings highlighted. Sections: Profile (avatar, name, email, phone, bio), Notification Preferences (toggle switches for Email, SMS, New Leads, Showings), Password (current/new/confirm fields with Update button), Danger Zone (Delete Account in error red). Save Changes gradient button. Ghost borders, xl radius. Earth-tone light mode."
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "design-property-listing-login.html",
+      "derivationNotes": "Same centered auth card layout as Login but with 'Create Account' headline, additional First Name and Last Name fields above email, password and confirm password fields, a 'Create Account' primary gradient button, and 'Already have an account? Sign In' link. Keep social login buttons."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+multi-vendor-marketplace polish — completed 2026-04-29
+
+Brand: Vendry — "Every maker, one marketplace"
+Palette: warm coral primary (#d95030), teal accent (#2a9d8f), purple vendor (#7c3aed)
+Cluster sibling: online-store (commerce/marketplace patterns)
+
+Bespoke components (7):
+  - VendryAuthShell.tsx        — two-panel auth shell (gradient brand panel + form card)
+  - VendryKpiCard.tsx          — left-accent KPI card with optional trend pill
+  - VendryMarketHero.tsx       — gradient hero with frosted-glass stats card + decorative orbs
+  - VendryOrderCard.tsx        — multi-vendor order card with per-vendor item groups + tracking
+  - VendryProductCard.tsx      — marketplace product card with vendor attribution + sale badges
+  - VendryVendorCard.tsx       — vendor summary card with banner, avatar, verified badge, stats
+  - SettingsPanel.tsx          — settings tab panel scaffold
+
+Pages wired (20 from screen-map.json):
+  Public:        Landing, Catalog, ProductDetail, VendorStorefront, VendorOnboarding
+  Auth:          Login, Signup, ForgotPassword, ResetPassword
+  Shopper:       Cart, Checkout, Orders, OrderDetail, Notifications, Settings
+  Vendor admin:  VendorDashboard, VendorProducts, VendorProductForm, VendorOrders, VendorPayouts
+
+Chrome:        delegated to @molecule/app-{header,footer,shell-layout,root-error-boundary}-react
+Material 3:    derivative tokens filled via fill-material3-tokens.mjs
+Fonts:         Material Symbols Outlined + Inter (per index.html + index.css)
+Classmap cov:  90%

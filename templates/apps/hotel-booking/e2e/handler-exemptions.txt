@@ -1,0 +1,5 @@
+# Helper files in api/src/handlers/ that are NOT routers.
+# They export shared functions consumed by other handlers (decorators,
+# seed routines) and have no mounted /api endpoint of their own.
+_decorate
+_seed

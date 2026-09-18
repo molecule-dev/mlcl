@@ -1,0 +1,548 @@
+import { Link } from 'react-router'
+
+import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
+import { LiveResultsHero } from '../components/LiveResultsHero.js'
+
+const FEATURES = [
+  {
+    key: 'live',
+    icon: 'sensors',
+    defaultTitle: 'Live results, instant tally',
+    defaultBody:
+      'Watch ballots arrive in real time. Animated bars, tabular percentages, and quorum-met indicators keep the room oriented.',
+  },
+  {
+    key: 'quorum',
+    icon: 'how_to_vote',
+    defaultTitle: 'Quorum that proves itself',
+    defaultBody:
+      'Eligibility rolls, weighted votes, and audit logs make every result defensible. Export a signed PDF in one click.',
+  },
+  {
+    key: 'qa',
+    icon: 'forum',
+    defaultTitle: 'Audience Q&A on stage',
+    defaultBody:
+      'Crowd-sourced questions sorted by upvotes. Promote one to the projector. Mark answered. Move on.',
+  },
+  {
+    key: 'transparency',
+    icon: 'verified',
+    defaultTitle: 'Transparent by design',
+    defaultBody:
+      'Public results pages, immutable timestamps, and per-vote receipts. Trust is in the timeline, not the takeaway.',
+  },
+] as const
+
+const PRICING = [
+  {
+    key: 'free',
+    title: 'Free',
+    price: 'Free',
+    blurb: 'For small boards, classrooms, and community groups.',
+    bullets: ['5 active polls', 'Live results', 'Audience Q&A', 'Community support'],
+    cta: 'Start free',
+  },
+  {
+    key: 'pro',
+    title: 'Pro',
+    price: '$15',
+    period: '/mo',
+    blurb: 'For event hosts and conference organizers running concurrent polls.',
+    bullets: ['500 polls', 'Presenter mode', 'CSV/JSON exports', 'Advanced analytics'],
+    cta: 'Start with Pro',
+    featured: true,
+  },
+  {
+    key: 'team',
+    title: 'Team',
+    price: '$49',
+    period: '/mo',
+    blurb: 'For unions, HOAs, and shareholder meetings that need governance.',
+    bullets: [
+      'Unlimited polls',
+      'Unlimited data retention',
+      'Immutable audit log',
+      'Priority support',
+    ],
+    cta: 'Start with Team',
+  },
+] as const
+
+const SOCIAL_PROOF = [
+  { defaultLabel: 'Hartford City Council', key: 'hartford' },
+  { defaultLabel: 'Northbridge HOA', key: 'northbridge' },
+  { defaultLabel: 'Polaris Tech Conf', key: 'polaris' },
+  { defaultLabel: 'Foundry Co-op', key: 'foundry' },
+] as const
+
+const SAMPLE_OPTIONS = [
+  { id: 'a', label: 'Approve revised charter', votes: 412 },
+  { id: 'b', label: 'Send back for amendments', votes: 168 },
+  { id: 'c', label: 'Abstain', votes: 47 },
+]
+
+export function Landing() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const isAuthenticated = useIsAuthenticated()
+
+  return (
+    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
+      <nav
+        className={cm.cn(
+          'sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md',
+        )}
+      >
+        <div
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 4),
+            cm.flex({ align: 'center', justify: 'between' }),
+          )}
+        >
+          <Link
+            to="/"
+            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
+          >
+            {APP_NAME}
+          </Link>
+          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+            <Link
+              to="/pricing"
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'text-on-surface-variant hover:text-on-surface transition-colors',
+              )}
+            >
+              {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
+            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                data-mol-id="nav-go-to-dashboard"
+                className={cm.cn(
+                  cm.sp('px', 5),
+                  cm.sp('py', 2),
+                  cm.fontWeight('bold'),
+                  cm.textSize('sm'),
+                  'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                )}
+              >
+                {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'text-on-surface-variant hover:text-on-surface transition-colors',
+                  )}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    cm.sp('px', 5),
+                    cm.sp('py', 2),
+                    cm.fontWeight('bold'),
+                    cm.textSize('sm'),
+                    'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                  )}
+                >
+                  {t('landing.getStarted', {}, { defaultValue: 'Start a poll' })}
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <section
+          className={cm.cn(
+            cm.maxW('7xl'),
+            cm.mxAuto,
+            cm.sp('px', 6),
+            cm.sp('py', 16),
+            'relative overflow-hidden lg:py-24',
+          )}
+        >
+          <div
+            aria-hidden="true"
+            className={cm.cn(
+              'absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl',
+            )}
+          />
+          <div
+            aria-hidden="true"
+            className={cm.cn(
+              'absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-secondary-fixed/15 blur-3xl',
+            )}
+          />
+          <div className={cm.cn('relative grid gap-12 lg:grid-cols-2 lg:items-center')}>
+            <div>
+              <span
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 1),
+                  'inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest',
+                )}
+              >
+                <span className="material-symbols-outlined text-[14px]" aria-hidden="true">
+                  campaign
+                </span>
+                {t('landing.eyebrow', {}, { defaultValue: 'Live polling, audited results' })}
+              </span>
+              <h1
+                className={cm.cn(
+                  cm.sp('mt', 5),
+                  'text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-on-surface',
+                )}
+              >
+                {t(
+                  'landing.heroTitle',
+                  { tagline: APP_TAGLINE },
+                  { defaultValue: 'Every voice counted.' },
+                )}
+              </h1>
+              <p
+                className={cm.cn(
+                  cm.sp('mt', 6),
+                  cm.textSize('lg'),
+                  cm.maxW('xl'),
+                  'leading-relaxed font-medium text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'landing.heroSubtitle',
+                  {},
+                  {
+                    defaultValue:
+                      'Live polls, board votes, and audience Q&A in one moderation console. Real-time tallies, defensible quorum, and presenter-ready projection — built for the people who run the room.',
+                  },
+                )}
+              </p>
+              <div
+                className={cm.cn(
+                  cm.sp('mt', 8),
+                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                )}
+              >
+                <Link
+                  to="/signup"
+                  className={cm.cn(
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.fontWeight('bold'),
+                    'rounded-xl bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                  )}
+                >
+                  {t('landing.heroCta', {}, { defaultValue: 'Start a poll free' })}
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className={cm.cn(
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    cm.fontWeight('semibold'),
+                    'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+                  )}
+                >
+                  {t('landing.heroSecondary', {}, { defaultValue: 'See live demo →' })}
+                </Link>
+              </div>
+              <p
+                className={cm.cn(
+                  cm.sp('mt', 4),
+                  cm.textSize('xs'),
+                  'font-medium text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'landing.heroProof',
+                  {},
+                  {
+                    defaultValue:
+                      'No credit card required. Upgrade any time as your assembly grows.',
+                  },
+                )}
+              </p>
+            </div>
+
+            <div className="relative">
+              <LiveResultsHero
+                eyebrow={t(
+                  'landing.previewEyebrow',
+                  {},
+                  { defaultValue: 'Hartford · Charter Vote' },
+                )}
+                title={t(
+                  'landing.previewTitle',
+                  {},
+                  { defaultValue: 'Adopt the revised 2026 charter?' },
+                )}
+                totalVotes={627}
+                state="live"
+                options={SAMPLE_OPTIONS}
+                caption={t(
+                  'landing.previewCaption',
+                  {},
+                  { defaultValue: 'Quorum 78% met · closes in 6m 14s' },
+                )}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 6))}>
+          <p
+            className={cm.cn(
+              cm.textCenter,
+              'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('landing.socialEyebrow', {}, { defaultValue: 'Trusted by organizers at' })}
+          </p>
+          <div
+            className={cm.cn(
+              cm.sp('mt', 4),
+              cm.flex({ align: 'center', justify: 'center', gap: 'lg', wrap: 'wrap' }),
+              'opacity-70',
+            )}
+          >
+            {SOCIAL_PROOF.map((s) => (
+              <span
+                key={s.key}
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  'font-bold tracking-tight text-on-surface-variant',
+                )}
+              >
+                {t(`landing.social.${s.key}`, {}, { defaultValue: s.defaultLabel })}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
+          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
+            <p className="text-[10px] font-black uppercase tracking-widest text-primary">
+              {t('landing.featuresEyebrow', {}, { defaultValue: 'How it works' })}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.textSize('4xl'),
+                'font-extrabold tracking-tight text-on-surface',
+              )}
+            >
+              {t(
+                'landing.featuresHeading',
+                {},
+                { defaultValue: 'Defensible decisions in minutes.' },
+              )}
+            </h2>
+            <p
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.textSize('base'),
+                'font-medium text-on-surface-variant',
+              )}
+            >
+              {t(
+                'landing.featuresSubheading',
+                {},
+                {
+                  defaultValue:
+                    'Four pillars take a meeting from "show of hands" to a fully-audited result.',
+                },
+              )}
+            </p>
+          </div>
+          <div className={cm.grid({ cols: 4, gap: 'md' })}>
+            {FEATURES.map((f) => (
+              <div
+                key={f.key}
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md transition-all',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    'inline-flex p-2 rounded-lg bg-primary/10 text-primary material-symbols-outlined text-[28px]',
+                  )}
+                  aria-hidden="true"
+                >
+                  {f.icon}
+                </span>
+                <h3
+                  className={cm.cn(
+                    cm.sp('mt', 4),
+                    cm.textSize('lg'),
+                    'font-extrabold tracking-tight text-on-surface',
+                  )}
+                >
+                  {t(`landing.feature.${f.key}.title`, {}, { defaultValue: f.defaultTitle })}
+                </h3>
+                <p
+                  className={cm.cn(
+                    cm.sp('mt', 2),
+                    cm.textSize('sm'),
+                    'leading-relaxed text-on-surface-variant',
+                  )}
+                >
+                  {t(`landing.feature.${f.key}.body`, {}, { defaultValue: f.defaultBody })}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('px', 6), cm.sp('py', 16))}>
+          <div className={cm.cn(cm.maxW('2xl'), cm.mxAuto, cm.textCenter, cm.sp('mb', 12))}>
+            <p className="text-[10px] font-black uppercase tracking-widest text-primary">
+              {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.textSize('4xl'),
+                'font-extrabold tracking-tight text-on-surface',
+              )}
+            >
+              {t('landing.pricingHeading', {}, { defaultValue: 'Plans for every assembly.' })}
+            </h2>
+          </div>
+          <div className={cm.grid({ cols: 3, gap: 'md' })}>
+            {PRICING.map((p) => {
+              const featured = 'featured' in p && p.featured
+              return (
+                <div
+                  key={p.key}
+                  className={cm.cn(
+                    cm.sp('p', 6),
+                    'rounded-2xl border transition-all',
+                    featured
+                      ? 'bg-gradient-to-br from-primary to-primary-container text-on-primary border-primary shadow-md shadow-primary/20'
+                      : 'bg-surface-container-lowest border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md',
+                  )}
+                >
+                  <p
+                    className={cm.cn(
+                      'text-[10px] font-black uppercase tracking-widest',
+                      featured ? 'text-on-primary/80' : 'text-on-surface-variant',
+                    )}
+                  >
+                    {t(`landing.plan.${p.key}.label`, {}, { defaultValue: p.title })}
+                  </p>
+                  <p className={cm.cn(cm.sp('mt', 3), 'flex items-baseline gap-2')}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('4xl'),
+                        'font-extrabold tracking-tight tabular-nums',
+                        featured ? 'text-on-primary' : 'text-on-surface',
+                      )}
+                    >
+                      {p.price}
+                    </span>
+                    {'period' in p && p.period ? (
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          'font-semibold',
+                          featured ? 'text-on-primary/80' : 'text-on-surface-variant',
+                        )}
+                      >
+                        {p.period}
+                      </span>
+                    ) : null}
+                  </p>
+                  <p
+                    className={cm.cn(
+                      cm.sp('mt', 2),
+                      cm.textSize('sm'),
+                      'font-medium',
+                      featured ? 'text-on-primary/80' : 'text-on-surface-variant',
+                    )}
+                  >
+                    {t(`landing.plan.${p.key}.blurb`, {}, { defaultValue: p.blurb })}
+                  </p>
+                  <ul className={cm.cn(cm.sp('mt', 6), cm.stack(3))}>
+                    {p.bullets.map((b, i) => (
+                      <li
+                        key={i}
+                        className={cm.cn(
+                          cm.flex({ align: 'start', gap: 'sm' }),
+                          cm.textSize('sm'),
+                          featured ? 'text-on-primary' : 'text-on-surface',
+                        )}
+                      >
+                        <span
+                          className={cm.cn(
+                            'material-symbols-outlined text-[18px] mt-0.5',
+                            featured ? 'text-on-primary/80' : 'text-primary',
+                          )}
+                          aria-hidden="true"
+                        >
+                          check_circle
+                        </span>
+                        <span>
+                          {t(`landing.plan.${p.key}.bullet${i}`, {}, { defaultValue: b })}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/signup"
+                    className={cm.cn(
+                      cm.sp('mt', 8),
+                      cm.sp('py', 3),
+                      cm.sp('px', 4),
+                      cm.fontWeight('bold'),
+                      cm.textSize('sm'),
+                      cm.textCenter,
+                      'block rounded-xl transition-all',
+                      featured
+                        ? 'bg-surface/95 text-primary hover:bg-surface'
+                        : 'bg-primary/10 text-primary hover:bg-primary/15',
+                    )}
+                  >
+                    {t(`landing.plan.${p.key}.cta`, {}, { defaultValue: p.cta })}
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      </main>
+
+      <footer
+        className={cm.cn(
+          cm.sp('py', 8),
+          cm.textCenter,
+          cm.textSize('sm'),
+          'border-t border-outline-variant/30 bg-surface-container-low text-on-surface-variant',
+        )}
+      >
+        <p>
+          {t(
+            'landing.copyright',
+            { year: new Date().getFullYear(), app: APP_NAME },
+            { defaultValue: '© {{year}} {{app}}. Built with Molecule.' },
+          )}
+        </p>
+      </footer>
+    </div>
+  )
+}

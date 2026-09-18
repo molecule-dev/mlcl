@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cls-001",
+    "course_code": "MTH 202",
+    "course_title": "Calculus II",
+    "title": "Lecture 14 — Vector fields & flux",
+    "instructor_id": "ins-maya-okafor",
+    "instructor_name": "Prof. Maya Okafor",
+    "starts_at": "2026-04-30T13:00:00Z",
+    "ends_at": "2026-04-30T14:30:00Z",
+    "is_live": true,
+    "participant_count": 28,
+    "room_color": "lavender",
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T13:00:00Z"
+  },
+  {
+    "id": "cls-002",
+    "course_code": "LIT 240",
+    "course_title": "World Literature",
+    "title": "Magical realism — Borges & Murakami",
+    "instructor_id": "ins-imani-davies",
+    "instructor_name": "Prof. Imani Davies",
+    "starts_at": "2026-04-30T15:00:00Z",
+    "ends_at": "2026-04-30T16:30:00Z",
+    "is_live": false,
+    "participant_count": 22,
+    "room_color": "marigold",
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T11:00:00Z"
+  },
+  {
+    "id": "cls-003",
+    "course_code": "BIO 211",
+    "course_title": "Cellular Biology",
+    "title": "Mitochondrial structure",
+    "instructor_id": "ins-eunji-park",
+    "instructor_name": "Dr. Eun-ji Park",
+    "starts_at": "2026-04-30T18:00:00Z",
+    "ends_at": "2026-04-30T19:30:00Z",
+    "is_live": false,
+    "participant_count": 18,
+    "room_color": "aurora",
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-04-30T11:00:00Z"
+  }
+]
