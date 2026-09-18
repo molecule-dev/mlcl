@@ -52,6 +52,10 @@ const FORBIDDEN_TARBALL_PATHS = [
   /\/playwright-report\//,
   /\/e2e\/results\.json$/,
   /\/\.DS_Store$/,
+  // Generated test key material (api/.keys/** from local vitest runs) — never
+  // ships, and the gate makes that a checked invariant instead of an accident
+  // of npm's dot-directory rules.
+  /\/\.keys\//,
   /\.log$/,
 ]
 
