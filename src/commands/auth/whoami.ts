@@ -10,7 +10,9 @@ export default class Whoami extends Command {
 
   public async run(): Promise<{ id: string; email?: string }> {
     if (!readCredentials() && !process.env.MOLECULE_TOKEN)
-      this.error('Not logged in — run  first (or set MOLECULE_TOKEN for CI).', { exit: 1 })
+      this.error('Not logged in — run `mlcl login` first (or set MOLECULE_TOKEN for CI).', {
+        exit: 1,
+      })
     const me = await whoami()
     this.log(`${ui.id(me.email ?? me.id)} ${ui.dim(`(${me.id})`)}`)
     return me
