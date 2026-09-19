@@ -4,6 +4,7 @@ import { readCredentials, whoami } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
 
 export default class Whoami extends Command {
+  static override aliases = ['whoami']
   static override description = 'Show the logged-in molecule.dev account'
 
   static override enableJsonFlag = true

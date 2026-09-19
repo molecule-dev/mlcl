@@ -13,7 +13,15 @@ import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { loadEnvFile, setEnvValue, unsetEnvValue } from '../../lib/env-store.js'
-import { createDeployment, listProjects, putProjectEnv, whoami } from '../../lib/platform.js'
+import {
+  AuthorizationPendingError,
+  createDeployment,
+  listProjects,
+  pollDeviceToken,
+  putProjectEnv,
+  requestDeviceCode,
+  whoami,
+} from '../../lib/platform.js'
 import DbUrl from '../db/url.js'
 import EnvGet from '../env/get.js'
 import EnvSet from '../env/set.js'
@@ -129,6 +137,7 @@ describe('platform API client (mock api.molecule.dev)', () => {
   let server: Server
   let base: string
   const requests: Array<{ method: string; path: string; auth?: string; body?: unknown }> = []
+  let cliApproved = false
 
   beforeEach(async () => {
     requests.length = 0
@@ -146,6 +155,28 @@ describe('platform API client (mock api.molecule.dev)', () => {
           'GET /users/me': { id: 'u_1', email: 'dev@example.com' },
           'GET /projects': [{ id: 'p_1', name: 'blog', role: 'owner' }],
           'POST /projects/p_1/deployments': { id: 'd_1', status: 'building' },
+        }
+        if (req.url === '/cli/device-code') {
+          res.writeHead(201, { 'content-type': 'application/json' })
+          res.end(
+            JSON.stringify({
+              deviceCode: 'd'.repeat(64),
+              userCode: 'ABCD-EFGH',
+              verificationUrl: '/cli?code=ABCD-EFGH',
+              expiresIn: 60,
+              interval: 1,
+            }),
+          )
+          return
+        }
+        if (req.url === '/cli/device-token') {
+          res.writeHead(cliApproved ? 200 : 400, { 'content-type': 'application/json' })
+          res.end(
+            JSON.stringify(
+              cliApproved ? { token: 'jwt_dev_1' } : { error: 'authorization_pending' },
+            ),
+          )
+          return
         }
         const json = responses[`${req.method} ${req.url}`]
         res.writeHead(json ? 200 : 204, { 'content-type': 'application/json' })
@@ -183,5 +214,18 @@ describe('platform API client (mock api.molecule.dev)', () => {
     const deployment = await createDeployment('p_1', 'tok')
     expect(deployment).toMatchObject({ id: 'd_1', status: 'building' })
     expect(requests[0]).toMatchObject({ method: 'POST', path: '/projects/p_1/deployments' })
+  })
+
+  it('device-code login: request → pending polls → approved delivers the token once', async () => {
+    const session = await requestDeviceCode()
+    expect(session.userCode).toBe('ABCD-EFGH')
+    expect(session.deviceCode).toHaveLength(64)
+    expect(session.verificationPath).toContain('code=ABCD-EFGH')
+
+    await expect(pollDeviceToken(session.deviceCode)).rejects.toBeInstanceOf(
+      AuthorizationPendingError,
+    )
+    cliApproved = true
+    await expect(pollDeviceToken(session.deviceCode)).resolves.toBe('jwt_dev_1')
   })
 })

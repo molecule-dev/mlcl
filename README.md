@@ -121,8 +121,9 @@ npx mlcl db url                        # print DATABASE_URL (resolves .env)
 # Local staging environment (per-branch, Docker Compose):
 npx mlcl stage up && npx mlcl stage logs --service api
 
-# molecule.dev platform operations (mlcl login once):
-npx mlcl login                         # store your token (~/.mlcl/credentials.json)
+# molecule.dev platform operations (log in once):
+npx mlcl login                         # opens your browser → click Approve → done
+npx mlcl login --no-browser            # SSH/remote: prints the URL instead of opening it
 npx mlcl project list                  # your projects + roles
 npx mlcl env push --project <id>       # local .env → the project's env (IDE editor route)
 npx mlcl env pull --project <id>       # project env → local (secrets skipped, write-only)

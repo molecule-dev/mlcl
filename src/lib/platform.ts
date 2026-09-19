@@ -10,10 +10,16 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 
 const DEFAULT_BASE = 'https://api.molecule.dev/api'
+const DEFAULT_SITE = 'https://www.molecule.dev'
 const CREDENTIALS_FILE = join(homedir(), '.mlcl', 'credentials.json')
 
 export function apiBaseUrl(): string {
   return process.env.MOLECULE_API_URL ?? DEFAULT_BASE
+}
+
+/** The site origin for browser-facing URLs (device-code approval). */
+export function siteBaseUrl(): string {
+  return process.env.MOLECULE_SITE_URL ?? DEFAULT_SITE
 }
 
 export interface StoredCredentials {
@@ -135,4 +141,57 @@ export function getDeployment(
   token?: string,
 ): Promise<PlatformDeployment & { buildLog?: string }> {
   return request(`/projects/${projectId}/deployments/${deploymentId}`, { token })
+}
+
+export interface DeviceCodeSession {
+  deviceCode: string
+  userCode: string
+  /** Site-relative approval path, e.g. /cli?code=ABCD-EFGH. */
+  verificationPath: string
+  expiresIn: number
+  interval: number
+}
+
+/** POST /cli/device-code — start the browser-based login dance (anonymous). */
+export async function requestDeviceCode(): Promise<DeviceCodeSession> {
+  const response = await fetch(`${apiBaseUrl()}/cli/device-code`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: '{}',
+    signal: AbortSignal.timeout(15_000),
+  })
+  const data = (await response.json()) as {
+    deviceCode?: string
+    userCode?: string
+    verificationUrl?: string
+    expiresIn?: number
+    interval?: number
+    error?: string
+  }
+  if (!response.ok || !data.deviceCode || !data.userCode) {
+    throw new PlatformApiError(response.status, data.error ?? 'device-code request failed')
+  }
+  return {
+    deviceCode: data.deviceCode,
+    userCode: data.userCode,
+    verificationPath: data.verificationUrl ?? `/cli?code=${data.userCode}`,
+    expiresIn: data.expiresIn ?? 600,
+    interval: data.interval ?? 2,
+  }
+}
+
+export class AuthorizationPendingError extends Error {}
+
+/** POST /cli/device-token — poll; resolves with the token once approved. */
+export async function pollDeviceToken(deviceCode: string): Promise<string> {
+  const response = await fetch(`${apiBaseUrl()}/cli/device-token`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ deviceCode }),
+    signal: AbortSignal.timeout(15_000),
+  })
+  const data = (await response.json()) as { token?: string; error?: string }
+  if (response.ok && data.token) return data.token
+  if (data.error === 'authorization_pending') throw new AuthorizationPendingError('pending')
+  throw new PlatformApiError(response.status, data.error ?? 'device-token poll failed')
 }
