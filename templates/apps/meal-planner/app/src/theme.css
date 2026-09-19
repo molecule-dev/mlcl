@@ -1,0 +1,172 @@
+/* App-specific theme overrides for Simmer — see DESIGN.md */
+
+/*
+ * Simmer palette: basil green primary + tomato accent + meal-slot semantic
+ * colors. --mol-color-* drive the @theme tokens in index.css. Slot tokens
+ * are layered on top of the standard Material 3 palette via @theme below.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --mol-color-primary: #15803d; /* green-700 = 5.02:1 on white */
+  --mol-color-primary-light: #22c55e;
+  --mol-color-primary-dark: #166534;
+  --mol-color-secondary: #ea580c;
+  --mol-color-secondary-light: #fb923c;
+  --mol-color-secondary-dark: #c2410c;
+  --mol-color-background: #f7fef9;
+  --mol-color-background-secondary: #eff9f1;
+  --mol-color-background-tertiary: #dcfce7;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7fef9;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #111827;
+  --mol-color-text-secondary: #374151; /* gray-700 = 7.15:1 on tinted containers */
+  --mol-color-text-tertiary: #4b5563;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-success: #065f46; /* emerald-800 = 6.78:1 on success-light */
+  --mol-color-success-light: #d1fae5;
+  --mol-color-warning: #f59e0b;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #b91c1c; /* red-700 = 6.47:1 */
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #16a34a;
+  --mol-color-info-light: #dcfce7;
+  --mol-color-border: #dcfce7;
+  --mol-color-border-secondary: #bbf7d0;
+  --mol-color-border-focus: #16a34a;
+
+  /* M3 overrides for light mode — base.css derives these from mol-color-* but some
+     need explicit correction for WCAG contrast. */
+  --color-on-primary: #ffffff; /* green-700 + white = 5.02:1 */
+  --color-error: #b91c1c;
+
+  --mol-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mol-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand-specific tokens */
+  --color-breakfast: #f59e0b;
+  --color-lunch: #16a34a;
+  --color-dinner: #6366f1;
+  --color-accent: #c2410c; /* orange-700 = 5.18:1 under white CTA text */
+  --color-on-accent: #ffffff;
+  --color-accent-container: #ffedd5;
+  --color-on-accent-container: #7c2d12;
+  --color-have-it: #065f46; /* pantry "you already have this" badge */
+  --color-have-it-light: #d1fae5;
+}
+
+/* Dark theme overrides — Simmer dark.
+   Warm-neutral near-black chassis (kitchen-table brand, not cold tech).
+   Brand green stays at a brightened stop for the Material-3 `--color-primary`
+   bridge so CTA buttons keep their character; `--color-on-primary` pairs a
+   near-black green for contrast on the mid-luminance stop. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #4ade80;
+  --mol-color-primary-light: #14532d;
+  --mol-color-primary-dark: #22c55e;
+  --mol-color-secondary: #fb923c;
+  --mol-color-secondary-light: #fdba74;
+  --mol-color-secondary-dark: #f97316;
+  --mol-color-background: #0e100f;
+  --mol-color-background-secondary: #161a17;
+  --mol-color-background-tertiary: #1d221e;
+  --mol-color-surface: #0e100f;
+  --mol-color-surface-secondary: #161a17;
+  --mol-color-input-background: #090b0a;
+  --mol-color-text: #f4f6f4;
+  --mol-color-text-secondary: #c3c9c3;
+  --mol-color-text-tertiary: #8a918b;
+  --mol-color-text-inverse: #0e100f;
+  --mol-color-success: #34d399;
+  --mol-color-success-light: #064e3b;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #451a03;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #4ade80;
+  --mol-color-info-light: #14532d;
+  --mol-color-border: #282e29;
+  --mol-color-border-secondary: #38403a;
+  --mol-color-border-focus: #4ade80;
+
+  /* Brand tokens — meal slots stay vivid but slightly brighter for dark */
+  --color-breakfast: #fbbf24;
+  --color-lunch: #4ade80;
+  --color-dinner: #818cf8;
+  --color-accent: #fb923c;
+  --color-on-accent: #ffffff;
+  --color-accent-container: #431407;
+  --color-on-accent-container: #fed7aa;
+  --color-have-it: #34d399;
+  --color-have-it-light: #064e3b;
+
+  /* Material-3 bridge tokens — override the @theme block so `bg-surface`,
+     `text-on-surface`, `bg-primary-container`, etc. all flip on dark. */
+  --color-background: #0e100f;
+  --color-on-background: #f4f6f4;
+  --color-surface: #0e100f;
+  --color-surface-bright: #1d221e;
+  --color-surface-dim: #060807;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #090b0a;
+  --color-surface-container: #161a17;
+  --color-surface-container-high: #1d221e;
+  --color-surface-container-highest: #282e29;
+  --color-surface-variant: #1d221e;
+  --color-on-surface: #f4f6f4;
+  --color-on-surface-variant: #c3c9c3;
+  --color-inverse-surface: #f4f6f4;
+  --color-inverse-on-surface: #0e100f;
+  --color-inverse-primary: #16a34a;
+  --color-secondary-container: #1d221e;
+  --color-on-secondary: #0e100f;
+  --color-on-secondary-container: #f4f6f4;
+  --color-tertiary: #818cf8;
+  --color-tertiary-container: #312e81;
+  --color-on-tertiary: #312e81; /* #ffffff was 2.7:1 (fail); #312e81 ≈ 5.9:1 */
+  --color-on-tertiary-container: #e0e7ff;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* 4.74:1 */
+  --color-on-error-container: #fecaca;
+  --color-outline: #71786f; /* ≥3:1 vs surface */
+  --color-outline-variant: #282e29;
+  --color-surface-tint: #4ade80;
+
+  /* @theme token dark variants — override Tailwind's static :root rules
+     so `bg-primary-light`, `bg-surface-secondary`, `text-l-breakfast`, etc.
+     flip on data-mol-mode="dark". */
+  --color-primary: #16a34a; /* keep brand green at brand stop */
+  --color-on-primary: #f4f6f4; /* white-ish on green-600 = 4.6:1 */
+  --color-primary-container: #14532d;
+  --color-on-primary-container: #dcfce7;
+  --color-primary-dark: #22c55e;
+  --color-primary-light: #14532d;
+  --color-surface-secondary: #161a17;
+  --color-l-breakfast: #fbbf24;
+  --color-l-lunch: #4ade80;
+  --color-l-dinner: #818cf8;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.65);
+}
+
+/*
+ * Register Simmer-specific Tailwind color tokens so utilities like
+ * `bg-breakfast`, `text-lunch`, `border-l-dinner`, `bg-accent`, etc. resolve
+ * to the CSS variables defined above. Keep this list aligned with DESIGN.md.
+ */
+@theme {
+  --color-breakfast: var(--color-breakfast);
+  --color-lunch: var(--color-lunch);
+  --color-dinner: var(--color-dinner);
+  --color-accent: var(--color-accent);
+  --color-on-accent: var(--color-on-accent);
+  --color-accent-container: var(--color-accent-container);
+  --color-on-accent-container: var(--color-on-accent-container);
+  --color-have-it: var(--color-have-it);
+  --color-have-it-light: var(--color-have-it-light);
+}

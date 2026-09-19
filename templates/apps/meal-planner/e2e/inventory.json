@@ -1,0 +1,1484 @@
+{
+  "slug": "meal-planner",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-grocerylist",
+      "path": "/groceries",
+      "component": "GroceryList",
+      "file": "app/src/pages/GroceryList.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-onboarding",
+      "path": "/onboarding",
+      "component": "Onboarding",
+      "file": "app/src/pages/Onboarding.tsx"
+    },
+    {
+      "id": "page-pantry",
+      "path": "/pantry",
+      "component": "Pantry",
+      "file": "app/src/pages/Pantry.tsx"
+    },
+    {
+      "id": "page-mealplan",
+      "path": "/plan",
+      "component": "MealPlan",
+      "file": "app/src/pages/MealPlan.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-recipes",
+      "path": "/recipes",
+      "component": "Recipes",
+      "file": "app/src/pages/Recipes.tsx"
+    },
+    {
+      "id": "page-recipedetail",
+      "path": "/recipes/:id",
+      "component": "RecipeDetail",
+      "file": "app/src/pages/RecipeDetail.tsx"
+    },
+    {
+      "id": "page-recipeedit",
+      "path": "/recipes/:id/edit",
+      "component": "RecipeEdit",
+      "file": "app/src/pages/RecipeEdit.tsx"
+    },
+    {
+      "id": "page-recipeedit",
+      "path": "/recipes/new",
+      "component": "RecipeEdit",
+      "file": "app/src/pages/RecipeEdit.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "button-recipepicker-117",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/RecipePicker.tsx",
+      "line": 117,
+      "label": "button at app/src/components/RecipePicker.tsx:117",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipepicker-140-close",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/RecipePicker.tsx",
+      "line": 140,
+      "label": "close",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-recipepicker-156",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/RecipePicker.tsx",
+      "line": 156,
+      "label": "input at app/src/components/RecipePicker.tsx:156",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-recipepicker-192",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/RecipePicker.tsx",
+      "line": 192,
+      "label": "button at app/src/components/RecipePicker.tsx:192",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-simmerauthshell-82",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SimmerAuthShell.tsx",
+      "line": 82,
+      "label": "link at app/src/components/SimmerAuthShell.tsx:82",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-simmerauthshell-108-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SimmerAuthShell.tsx",
+      "line": 108,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-simmertextfield-37",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/SimmerTextField.tsx",
+      "line": 37,
+      "label": "input at app/src/components/SimmerTextField.tsx:37",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-simmertextfield-50",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SimmerTextField.tsx",
+      "line": 50,
+      "label": "button at app/src/components/SimmerTextField.tsx:50",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-44-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 44,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-56-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 56,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-70-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 70,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-weeknavigator-33-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/WeekNavigator.tsx",
+      "line": 33,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-weeknavigator-52-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/WeekNavigator.tsx",
+      "line": 52,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-weeknavigator-70",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/WeekNavigator.tsx",
+      "line": 70,
+      "label": "button at app/src/components/WeekNavigator.tsx:70",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-42-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 42,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-93-------submitted---t-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 93,
+      "label": ", ) : submitted ? t(simmer.forgot.resend, , { defaultValue: ",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-grocerylist-203",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 203,
+      "label": "button at app/src/pages/GroceryList.tsx:203",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-grocerylist-225",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 225,
+      "label": "button at app/src/pages/GroceryList.tsx:225",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-grocerylist-281",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 281,
+      "label": "input at app/src/pages/GroceryList.tsx:281",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-grocerylist-295-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 295,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-grocerylist-376",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 376,
+      "label": "input at app/src/pages/GroceryList.tsx:376",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-grocerylist-420-close",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 420,
+      "label": "close",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-117-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 117,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-127-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 127,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-138-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 138,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-153-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 153,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-163-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 163,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-234-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 234,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-247",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 247,
+      "label": "link at app/src/pages/Landing.tsx:247",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-589-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 589,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-658-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 658,
+      "label": ", )}",
+      "href": "/about",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-661-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 661,
+      "label": ", )}",
+      "href": "/pricing",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-664-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 664,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-667-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 667,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-670-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 670,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-673-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 673,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-56-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 56,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-90",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 90,
+      "label": "input at app/src/pages/Login.tsx:90",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-103-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 103,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-127-------t-auth-login-s",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 127,
+      "label": ", ) : t(auth.login.signInButton, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mealplan-141",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MealPlan.tsx",
+      "line": 141,
+      "label": "button at app/src/pages/MealPlan.tsx:141",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mealplan-220",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MealPlan.tsx",
+      "line": 220,
+      "label": "button at app/src/pages/MealPlan.tsx:220",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mealplan-251",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MealPlan.tsx",
+      "line": 251,
+      "label": "button at app/src/pages/MealPlan.tsx:251",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mealplan-278-close",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MealPlan.tsx",
+      "line": 278,
+      "label": "close",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-mealplan-296",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MealPlan.tsx",
+      "line": 296,
+      "label": "button at app/src/pages/MealPlan.tsx:296",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-56-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 56,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-67-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 67,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-onboarding-173",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Onboarding.tsx",
+      "line": 173,
+      "label": "button at app/src/pages/Onboarding.tsx:173",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-onboarding-216",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Onboarding.tsx",
+      "line": 216,
+      "label": "button at app/src/pages/Onboarding.tsx:216",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-onboarding-251",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Onboarding.tsx",
+      "line": 251,
+      "label": "button at app/src/pages/Onboarding.tsx:251",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-onboarding-265--stepindex-----steps",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Onboarding.tsx",
+      "line": 265,
+      "label": "{stepIndex === STEPS.length - 1",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-pantry-155",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 155,
+      "label": "input at app/src/pages/Pantry.tsx:155",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-pantry-169",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 169,
+      "label": "input at app/src/pages/Pantry.tsx:169",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-pantry-181",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 181,
+      "label": "input at app/src/pages/Pantry.tsx:181",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-pantry-192-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 192,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-pantry-219",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 219,
+      "label": "input at app/src/pages/Pantry.tsx:219",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-pantry-303",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 303,
+      "label": "button at app/src/pages/Pantry.tsx:303",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pantry-321",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 321,
+      "label": "button at app/src/pages/Pantry.tsx:321",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pantry-339-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 339,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-94-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 94,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-162",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 162,
+      "label": "button at app/src/pages/RecipeDetail.tsx:162",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-181",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 181,
+      "label": "button at app/src/pages/RecipeDetail.tsx:181",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-244-remove",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 244,
+      "label": "remove",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-268-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 268,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-447",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 447,
+      "label": "button at app/src/pages/RecipeDetail.tsx:447",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-461",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 461,
+      "label": "button at app/src/pages/RecipeDetail.tsx:461",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipedetail-477",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeDetail.tsx",
+      "line": 477,
+      "label": "button at app/src/pages/RecipeDetail.tsx:477",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-248",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 248,
+      "label": "input at app/src/pages/RecipeEdit.tsx:248",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-recipeedit-270",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 270,
+      "label": "textarea at app/src/pages/RecipeEdit.tsx:270",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-298",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 298,
+      "label": "input at app/src/pages/RecipeEdit.tsx:298",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-317",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 317,
+      "label": "input at app/src/pages/RecipeEdit.tsx:317",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-337",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 337,
+      "label": "button at app/src/pages/RecipeEdit.tsx:337",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-376",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 376,
+      "label": "input at app/src/pages/RecipeEdit.tsx:376",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-388",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 388,
+      "label": "input at app/src/pages/RecipeEdit.tsx:388",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-recipeedit-402",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 402,
+      "label": "input at app/src/pages/RecipeEdit.tsx:402",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-411",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 411,
+      "label": "button at app/src/pages/RecipeEdit.tsx:411",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-435",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 435,
+      "label": "button at app/src/pages/RecipeEdit.tsx:435",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-recipeedit-480",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 480,
+      "label": "textarea at app/src/pages/RecipeEdit.tsx:480",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-492",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 492,
+      "label": "button at app/src/pages/RecipeEdit.tsx:492",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-516",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 516,
+      "label": "button at app/src/pages/RecipeEdit.tsx:516",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-538--saving",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 538,
+      "label": "{saving",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipeedit-553-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 553,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipes-91",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 91,
+      "label": "button at app/src/pages/Recipes.tsx:91",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-recipes-122",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 122,
+      "label": "input at app/src/pages/Recipes.tsx:122",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-recipes-139",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 139,
+      "label": "button at app/src/pages/Recipes.tsx:139",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipes-163",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 163,
+      "label": "button at app/src/pages/Recipes.tsx:163",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipes-184",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 184,
+      "label": "button at app/src/pages/Recipes.tsx:184",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipes-251",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 251,
+      "label": "button at app/src/pages/Recipes.tsx:251",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-recipes-331-add",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Recipes.tsx",
+      "line": 331,
+      "label": "add",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-64-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 64,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-127-------t-auth-resetpa",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 127,
+      "label": ", ) : t(auth.resetPassword.button, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-settings-245--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 245,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-339",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 339,
+      "label": "button at app/src/pages/Settings.tsx:339",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-395",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 395,
+      "label": "button at app/src/pages/Settings.tsx:395",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-425",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 425,
+      "label": "button at app/src/pages/Settings.tsx:425",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-448",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 448,
+      "label": "input at app/src/pages/Settings.tsx:448",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-464--deleting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 464,
+      "label": "{deleting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-483",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 483,
+      "label": "button at app/src/pages/Settings.tsx:483",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-95-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 95,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-177-------t-auth-signup-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 177,
+      "label": ", ) : t(auth.signup.createAccount, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-forgotpassword-50",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 50,
+      "label": "form at app/src/pages/ForgotPassword.tsx:50",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-grocerylist-280",
+      "file": "app/src/pages/GroceryList.tsx",
+      "line": 280,
+      "label": "form at app/src/pages/GroceryList.tsx:280",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-65",
+      "file": "app/src/pages/Login.tsx",
+      "line": 65,
+      "label": "form at app/src/pages/Login.tsx:65",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-pantry-151",
+      "file": "app/src/pages/Pantry.tsx",
+      "line": 151,
+      "label": "form at app/src/pages/Pantry.tsx:151",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-recipeedit-229",
+      "file": "app/src/pages/RecipeEdit.tsx",
+      "line": 229,
+      "label": "form at app/src/pages/RecipeEdit.tsx:229",
+      "onSubmit": true,
+      "fields": [
+        {
+          "name": "recipe-description",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "form-resetpassword-72",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 72,
+      "label": "form at app/src/pages/ResetPassword.tsx:72",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-440",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 440,
+      "label": "form at app/src/pages/Settings.tsx:440",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-104",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 104,
+      "label": "form at app/src/pages/Signup.tsx:104",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-grocery-list--id",
+      "method": "DELETE",
+      "mountedPath": "/grocery-list/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 347,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-delete-grocery-list-checked",
+      "method": "DELETE",
+      "mountedPath": "/grocery-list/checked",
+      "rawPath": "/checked",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 317,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-delete-meal-plan--id",
+      "method": "DELETE",
+      "mountedPath": "/meal-plan/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/meal-plan.ts",
+      "line": 208,
+      "resource": "meal-plan"
+    },
+    {
+      "id": "route-delete-pantry--id",
+      "method": "DELETE",
+      "mountedPath": "/pantry/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/pantry.ts",
+      "line": 140,
+      "resource": "pantry"
+    },
+    {
+      "id": "route-delete-recipes--id",
+      "method": "DELETE",
+      "mountedPath": "/recipes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 357,
+      "resource": "recipes"
+    },
+    {
+      "id": "route-get-grocery-list-",
+      "method": "GET",
+      "mountedPath": "/grocery-list",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 206,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-get-grocery-list-count",
+      "method": "GET",
+      "mountedPath": "/grocery-list/count",
+      "rawPath": "/count",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 375,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-get-meal-plan-",
+      "method": "GET",
+      "mountedPath": "/meal-plan",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/meal-plan.ts",
+      "line": 105,
+      "resource": "meal-plan"
+    },
+    {
+      "id": "route-get-pantry-",
+      "method": "GET",
+      "mountedPath": "/pantry",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/pantry.ts",
+      "line": 55,
+      "resource": "pantry"
+    },
+    {
+      "id": "route-get-recipes-",
+      "method": "GET",
+      "mountedPath": "/recipes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 121,
+      "resource": "recipes"
+    },
+    {
+      "id": "route-get-recipes--id",
+      "method": "GET",
+      "mountedPath": "/recipes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 222,
+      "resource": "recipes"
+    },
+    {
+      "id": "route-get-recipes-tags",
+      "method": "GET",
+      "mountedPath": "/recipes/tags",
+      "rawPath": "/tags",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 196,
+      "resource": "recipes"
+    },
+    {
+      "id": "route-post-grocery-list-",
+      "method": "POST",
+      "mountedPath": "/grocery-list",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 262,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-post-grocery-list-regenerate",
+      "method": "POST",
+      "mountedPath": "/grocery-list/regenerate",
+      "rawPath": "/regenerate",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 235,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-post-meal-plan-",
+      "method": "POST",
+      "mountedPath": "/meal-plan",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/meal-plan.ts",
+      "line": 141,
+      "resource": "meal-plan"
+    },
+    {
+      "id": "route-post-pantry-",
+      "method": "POST",
+      "mountedPath": "/pantry",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/pantry.ts",
+      "line": 89,
+      "resource": "pantry"
+    },
+    {
+      "id": "route-post-recipes-",
+      "method": "POST",
+      "mountedPath": "/recipes",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 251,
+      "resource": "recipes"
+    },
+    {
+      "id": "route-put-grocery-list--id",
+      "method": "PUT",
+      "mountedPath": "/grocery-list/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/grocery-list.ts",
+      "line": 290,
+      "resource": "grocery-list"
+    },
+    {
+      "id": "route-put-meal-plan--id",
+      "method": "PUT",
+      "mountedPath": "/meal-plan/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/meal-plan.ts",
+      "line": 181,
+      "resource": "meal-plan"
+    },
+    {
+      "id": "route-put-pantry--id",
+      "method": "PUT",
+      "mountedPath": "/pantry/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/pantry.ts",
+      "line": 114,
+      "resource": "pantry"
+    },
+    {
+      "id": "route-put-recipes--id",
+      "method": "PUT",
+      "mountedPath": "/recipes/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/recipes.ts",
+      "line": 313,
+      "resource": "recipes"
+    }
+  ],
+  "totals": {
+    "pages": 18,
+    "elements": 100,
+    "forms": 8,
+    "routes": 21
+  }
+}

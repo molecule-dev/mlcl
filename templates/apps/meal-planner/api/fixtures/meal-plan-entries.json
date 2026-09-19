@@ -1,0 +1,82 @@
+[
+  {
+    "id": "p-001",
+    "week_start": "2026-09-14",
+    "day": 0,
+    "meal_slot": "breakfast",
+    "recipe_id": "r-seed-004",
+    "servings": 2,
+    "recipe": {
+      "id": "r-seed-004",
+      "title": "Overnight Oats, Three Ways",
+      "servings": 2,
+      "prep_minutes": 10,
+      "cook_minutes": 0,
+      "image_emoji": "🥣"
+    }
+  },
+  {
+    "id": "p-002",
+    "week_start": "2026-09-14",
+    "day": 0,
+    "meal_slot": "dinner",
+    "recipe_id": "r-seed-002",
+    "servings": 2,
+    "recipe": {
+      "id": "r-seed-002",
+      "title": "Weeknight Tomato Pasta",
+      "servings": 2,
+      "prep_minutes": 5,
+      "cook_minutes": 15,
+      "image_emoji": "🍝"
+    }
+  },
+  {
+    "id": "p-003",
+    "week_start": "2026-09-14",
+    "day": 1,
+    "meal_slot": "lunch",
+    "recipe_id": "r-seed-003",
+    "servings": 3,
+    "recipe": {
+      "id": "r-seed-003",
+      "title": "Crispy Chickpea Grain Bowl",
+      "servings": 3,
+      "prep_minutes": 15,
+      "cook_minutes": 25,
+      "image_emoji": "🥗"
+    }
+  },
+  {
+    "id": "p-004",
+    "week_start": "2026-09-14",
+    "day": 1,
+    "meal_slot": "dinner",
+    "recipe_id": "r-seed-001",
+    "servings": 4,
+    "recipe": {
+      "id": "r-seed-001",
+      "title": "Sheet-Pan Harissa Chicken",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 35,
+      "image_emoji": "🍗"
+    }
+  },
+  {
+    "id": "p-005",
+    "week_start": "2026-09-14",
+    "day": 2,
+    "meal_slot": "dinner",
+    "recipe_id": "r-seed-006",
+    "servings": 4,
+    "recipe": {
+      "id": "r-seed-006",
+      "title": "Black Bean Tacos With Pickled Onion",
+      "servings": 4,
+      "prep_minutes": 15,
+      "cook_minutes": 10,
+      "image_emoji": "🌮"
+    }
+  }
+]

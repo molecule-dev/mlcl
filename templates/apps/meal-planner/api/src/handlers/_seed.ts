@@ -1,0 +1,409 @@
+/**
+ * Demo seed for meal-planner.
+ *
+ * Two layers:
+ *
+ * 1. **Globals** (`seedGlobalRecipesIfEmpty`) — a starter recipe catalog
+ *    (user_id NULL → shared, read-only) with full ingredient lists and
+ *    steps, so /recipes and /recipes/:id render real content on first
+ *    boot. Idempotent: skipped if any shared recipe row already exists.
+ *
+ * 2. **Per-user** (`seedDemoForUser` / `seedPantryForUser`) — a starter
+ *    pantry and a partially-filled plan for the CURRENT week, plus the
+ *    grocery list generated from that plan through the exact aggregation
+ *    the regenerate button uses. Idempotent per user.
+ *
+ * @module
+ */
+import { count, create, findMany } from '@molecule/api-database'
+
+import { regenerateForWeek } from './grocery-list.js'
+
+interface SeedRecipeDef {
+  title: string
+  description: string
+  servings: number
+  prep_minutes: number
+  cook_minutes: number
+  tags: string[]
+  image_emoji: string
+  ingredients: ReadonlyArray<{ item_name: string; quantity: number; unit: string }>
+  steps: ReadonlyArray<string>
+}
+
+const RECIPES: readonly SeedRecipeDef[] = [
+  {
+    title: 'Sheet-Pan Harissa Chicken',
+    description:
+      'One pan, forty minutes: harissa-rubbed thighs over sweet potatoes and red onion, finished with lemon and herbs.',
+    servings: 4,
+    prep_minutes: 15,
+    cook_minutes: 35,
+    tags: ['dinner', 'one-pan', 'gluten-free'],
+    image_emoji: '🍗',
+    ingredients: [
+      { item_name: 'chicken thighs', quantity: 8, unit: '' },
+      { item_name: 'sweet potato', quantity: 2, unit: '' },
+      { item_name: 'red onion', quantity: 1, unit: '' },
+      { item_name: 'harissa paste', quantity: 3, unit: 'tbsp' },
+      { item_name: 'olive oil', quantity: 2, unit: 'tbsp' },
+      { item_name: 'lemon', quantity: 1, unit: '' },
+      { item_name: 'cumin', quantity: 1, unit: 'tsp' },
+      { item_name: 'parsley', quantity: 0.5, unit: 'bunch' },
+    ],
+    steps: [
+      'Heat the oven to 220°C / 425°F.',
+      'Whisk harissa, olive oil, cumin and a pinch of salt into a rub.',
+      'Cube the sweet potatoes, cut the onion into wedges, toss with oil and salt on a sheet pan.',
+      'Coat the chicken in the rub and nestle it among the vegetables.',
+      'Roast 30–35 minutes until the chicken is cooked through and the edges char.',
+      'Finish with lemon juice and torn parsley.',
+    ],
+  },
+  {
+    title: 'Weeknight Tomato Pasta',
+    description:
+      'A 20-minute pantry dinner: garlic, crushed tomatoes and basil over spaghetti, with a butter finish.',
+    servings: 2,
+    prep_minutes: 5,
+    cook_minutes: 15,
+    tags: ['dinner', 'quick', 'vegetarian', 'pasta'],
+    image_emoji: '🍝',
+    ingredients: [
+      { item_name: 'spaghetti', quantity: 200, unit: 'g' },
+      { item_name: 'crushed tomatoes', quantity: 400, unit: 'g' },
+      { item_name: 'garlic', quantity: 3, unit: 'cloves' },
+      { item_name: 'basil', quantity: 0.25, unit: 'bunch' },
+      { item_name: 'butter', quantity: 1, unit: 'tbsp' },
+      { item_name: 'parmesan', quantity: 30, unit: 'g' },
+      { item_name: 'olive oil', quantity: 2, unit: 'tbsp' },
+    ],
+    steps: [
+      'Boil the pasta in well-salted water.',
+      'Meanwhile, sizzle sliced garlic in olive oil until just golden.',
+      'Add the crushed tomatoes and simmer 8 minutes.',
+      'Toss the pasta into the sauce with a splash of pasta water and the butter.',
+      'Off heat, fold in basil and grated parmesan.',
+    ],
+  },
+  {
+    title: 'Crispy Chickpea Grain Bowl',
+    description:
+      'Spiced roasted chickpeas over quinoa with cucumber, feta and a lemon-tahini drizzle. Packs for lunch.',
+    servings: 3,
+    prep_minutes: 15,
+    cook_minutes: 25,
+    tags: ['lunch', 'vegetarian', 'meal-prep'],
+    image_emoji: '🥗',
+    ingredients: [
+      { item_name: 'chickpeas', quantity: 2, unit: 'cans' },
+      { item_name: 'quinoa', quantity: 150, unit: 'g' },
+      { item_name: 'cucumber', quantity: 1, unit: '' },
+      { item_name: 'feta', quantity: 100, unit: 'g' },
+      { item_name: 'tahini', quantity: 2, unit: 'tbsp' },
+      { item_name: 'lemon', quantity: 1, unit: '' },
+      { item_name: 'smoked paprika', quantity: 1, unit: 'tsp' },
+      { item_name: 'olive oil', quantity: 3, unit: 'tbsp' },
+    ],
+    steps: [
+      'Cook the quinoa in salted water, fluff and cool slightly.',
+      'Pat the chickpeas dry, toss with oil and smoked paprika, roast at 200°C until crisp.',
+      'Whisk tahini, lemon juice and water into a pourable dressing.',
+      'Dice the cucumber, crumble the feta.',
+      'Build the bowls and drizzle with dressing.',
+    ],
+  },
+  {
+    title: 'Overnight Oats, Three Ways',
+    description:
+      'Base recipe for make-ahead breakfasts: oats soaked in milk with chia, flavored morning-of.',
+    servings: 2,
+    prep_minutes: 10,
+    cook_minutes: 0,
+    tags: ['breakfast', 'quick', 'meal-prep', 'vegetarian'],
+    image_emoji: '🥣',
+    ingredients: [
+      { item_name: 'rolled oats', quantity: 120, unit: 'g' },
+      { item_name: 'milk', quantity: 300, unit: 'ml' },
+      { item_name: 'chia seeds', quantity: 2, unit: 'tbsp' },
+      { item_name: 'greek yogurt', quantity: 100, unit: 'g' },
+      { item_name: 'maple syrup', quantity: 1, unit: 'tbsp' },
+      { item_name: 'blueberries', quantity: 100, unit: 'g' },
+    ],
+    steps: [
+      'Stir oats, milk, chia and a pinch of salt in a jar.',
+      'Refrigerate overnight.',
+      'In the morning, loosen with yogurt and sweeten to taste.',
+      'Top with blueberries (or apple and cinnamon, or banana and peanut butter).',
+    ],
+  },
+  {
+    title: 'Miso Salmon With Bok Choy',
+    description:
+      'Broiled miso-glazed salmon over blistered bok choy with rice — a 25-minute restaurant-feel dinner.',
+    servings: 2,
+    prep_minutes: 10,
+    cook_minutes: 15,
+    tags: ['dinner', 'quick', 'gluten-free'],
+    image_emoji: '🐟',
+    ingredients: [
+      { item_name: 'salmon fillets', quantity: 2, unit: '' },
+      { item_name: 'white miso', quantity: 2, unit: 'tbsp' },
+      { item_name: 'bok choy', quantity: 3, unit: '' },
+      { item_name: 'rice', quantity: 150, unit: 'g' },
+      { item_name: 'mirin', quantity: 1, unit: 'tbsp' },
+      { item_name: 'scallions', quantity: 2, unit: '' },
+      { item_name: 'sesame oil', quantity: 1, unit: 'tsp' },
+    ],
+    steps: [
+      'Start the rice.',
+      'Whisk miso, mirin and a little sesame oil into a glaze.',
+      'Brush the glaze over the salmon; halve the bok choy.',
+      'Broil salmon 6–8 minutes until caramelized at the edges.',
+      'Sear the bok choy cut-side down in a hot pan, 2 minutes.',
+      'Serve over rice with sliced scallions.',
+    ],
+  },
+  {
+    title: 'Black Bean Tacos With Pickled Onion',
+    description:
+      'Fifteen-minute tacos: smoky black beans, quick-pickled red onion, avocado and lime.',
+    servings: 4,
+    prep_minutes: 15,
+    cook_minutes: 10,
+    tags: ['dinner', 'quick', 'vegan'],
+    image_emoji: '🌮',
+    ingredients: [
+      { item_name: 'black beans', quantity: 2, unit: 'cans' },
+      { item_name: 'tortillas', quantity: 8, unit: '' },
+      { item_name: 'red onion', quantity: 1, unit: '' },
+      { item_name: 'avocado', quantity: 2, unit: '' },
+      { item_name: 'lime', quantity: 2, unit: '' },
+      { item_name: 'cumin', quantity: 1, unit: 'tsp' },
+      { item_name: 'cilantro', quantity: 0.25, unit: 'bunch' },
+    ],
+    steps: [
+      'Slice the onion thinly; cover with lime juice and a pinch of salt while you cook.',
+      'Simmer the beans with cumin and a splash of water, mashing lightly.',
+      'Char the tortillas in a dry pan.',
+      'Fill with beans, avocado, pickled onion and cilantro.',
+    ],
+  },
+  {
+    title: 'Lemon-Ricotta Pancakes',
+    description:
+      'Cloud-soft weekend pancakes with lemon zest and ricotta, ready in twenty minutes.',
+    servings: 3,
+    prep_minutes: 10,
+    cook_minutes: 10,
+    tags: ['breakfast', 'vegetarian'],
+    image_emoji: '🥞',
+    ingredients: [
+      { item_name: 'flour', quantity: 150, unit: 'g' },
+      { item_name: 'ricotta', quantity: 200, unit: 'g' },
+      { item_name: 'eggs', quantity: 3, unit: '' },
+      { item_name: 'milk', quantity: 100, unit: 'ml' },
+      { item_name: 'lemon', quantity: 1, unit: '' },
+      { item_name: 'baking powder', quantity: 2, unit: 'tsp' },
+      { item_name: 'butter', quantity: 2, unit: 'tbsp' },
+      { item_name: 'maple syrup', quantity: 3, unit: 'tbsp' },
+    ],
+    steps: [
+      'Whisk ricotta, egg yolks, milk and lemon zest.',
+      'Fold in flour and baking powder.',
+      'Beat the whites to soft peaks and fold them in gently.',
+      'Fry spoonfuls in butter over medium heat until golden both sides.',
+      'Serve with maple syrup.',
+    ],
+  },
+  {
+    title: 'Roast Carrot & Red Lentil Soup',
+    description:
+      'A big-batch blender soup: roasted carrots, red lentils, ginger and coconut milk. Freezes well.',
+    servings: 5,
+    prep_minutes: 15,
+    cook_minutes: 40,
+    tags: ['lunch', 'vegan', 'meal-prep', 'gluten-free'],
+    image_emoji: '🍲',
+    ingredients: [
+      { item_name: 'carrots', quantity: 600, unit: 'g' },
+      { item_name: 'red lentils', quantity: 200, unit: 'g' },
+      { item_name: 'coconut milk', quantity: 400, unit: 'ml' },
+      { item_name: 'ginger', quantity: 20, unit: 'g' },
+      { item_name: 'onion', quantity: 1, unit: '' },
+      { item_name: 'vegetable broth', quantity: 750, unit: 'ml' },
+      { item_name: 'cumin', quantity: 1, unit: 'tsp' },
+    ],
+    steps: [
+      'Roast the carrots tossed with oil at 200°C until tender and blistered.',
+      'Soften the onion and ginger in a pot; add cumin.',
+      'Add lentils, broth and the roasted carrots; simmer 20 minutes.',
+      'Blend smooth, then stir in the coconut milk.',
+      'Season and finish with lemon juice.',
+    ],
+  },
+]
+
+/** Staples most kitchens already have — the per-user pantry starter set. */
+const PANTRY_STARTER: ReadonlyArray<{ name: string; quantity: number; unit: string }> = [
+  { name: 'olive oil', quantity: 500, unit: 'ml' },
+  { name: 'salt', quantity: 200, unit: 'g' },
+  { name: 'black peppercorns', quantity: 50, unit: 'g' },
+  { name: 'flour', quantity: 1, unit: 'kg' },
+  { name: 'garlic', quantity: 1, unit: 'head' },
+  { name: 'rice', quantity: 500, unit: 'g' },
+  { name: 'butter', quantity: 250, unit: 'g' },
+]
+
+/**
+ * Seed the shared recipe catalog if empty. Returns the number of recipes
+ * created (0 when the catalog already exists).
+ */
+export async function seedGlobalRecipesIfEmpty(): Promise<{ recipesCreated: number }> {
+  const existingShared = await count('recipes', [{ field: 'user_id', operator: 'is_null' }])
+  if (existingShared > 0) return { recipesCreated: 0 }
+
+  let recipesCreated = 0
+  for (const def of RECIPES) {
+    await create('recipes', {
+      user_id: null,
+      title: def.title,
+      description: def.description,
+      servings: def.servings,
+      prep_minutes: def.prep_minutes,
+      cook_minutes: def.cook_minutes,
+      tags: JSON.stringify(def.tags),
+      image_emoji: def.image_emoji,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    })
+    recipesCreated++
+  }
+  // Ingredients + steps attach by title lookup: create() hands back the row.
+  // (Re-query rather than trusting insertion order across drivers.)
+  const rows = await findMany<{ id: string; title: string }>('recipes', {
+    where: [{ field: 'user_id', operator: 'is_null' }],
+    limit: 100,
+  })
+  const byTitle = new Map(rows.map((r) => [r.title, r.id]))
+  for (const def of RECIPES) {
+    const recipeId = byTitle.get(def.title)
+    if (!recipeId) continue
+    for (let i = 0; i < def.ingredients.length; i++) {
+      const ingredient = def.ingredients[i]
+      await create('recipe_ingredients', {
+        recipe_id: recipeId,
+        item_name: ingredient.item_name,
+        quantity: ingredient.quantity,
+        unit: ingredient.unit,
+        position: i,
+        created_at: new Date().toISOString(),
+      })
+    }
+    for (let i = 0; i < def.steps.length; i++) {
+      const step = def.steps[i]
+      await create('recipe_steps', {
+        recipe_id: recipeId,
+        position: i,
+        text: step,
+        created_at: new Date().toISOString(),
+      })
+    }
+  }
+  return { recipesCreated }
+}
+
+/** Seed the user's pantry staples if they track no pantry items yet. */
+export async function seedPantryForUser(userId: string): Promise<{ pantryCreated: number }> {
+  if (!userId) return { pantryCreated: 0 }
+  const existing = await count('pantry_items', [{ field: 'user_id', operator: '=', value: userId }])
+  if (existing > 0) return { pantryCreated: 0 }
+
+  let pantryCreated = 0
+  for (const item of PANTRY_STARTER) {
+    await create('pantry_items', {
+      user_id: userId,
+      name: item.name,
+      quantity: item.quantity,
+      unit: item.unit,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    })
+    pantryCreated++
+  }
+  return { pantryCreated }
+}
+
+/** Monday (ISO) of the week containing `today`, as YYYY-MM-DD. */
+function currentWeekStart(): string {
+  const now = new Date()
+  const dow = (now.getUTCDay() + 6) % 7 // 0=Mon..6=Sun
+  now.setUTCDate(now.getUTCDate() - dow)
+  return now.toISOString().slice(0, 10)
+}
+
+/**
+ * Seed a partially-filled plan for the current week (Mon–Wed dinners, one
+ * breakfast, one lunch) and generate the matching grocery list. Idempotent:
+ * skipped once the user has any meal_plan_entries row of their own.
+ */
+export async function seedDemoForUser(userId: string): Promise<{
+  entriesCreated: number
+  groceryCreated: number
+}> {
+  if (!userId) return { entriesCreated: 0, groceryCreated: 0 }
+  const existing = await count('meal_plan_entries', [
+    { field: 'user_id', operator: '=', value: userId },
+  ])
+  if (existing > 0) return { entriesCreated: 0, groceryCreated: 0 }
+
+  const shared = await findMany<{ id: string; title: string; tags: string }>('recipes', {
+    where: [{ field: 'user_id', operator: 'is_null' }],
+    orderBy: [{ field: 'title', direction: 'asc' }],
+    limit: 100,
+  })
+  type SharedRecipeLite = { id: string; title: string; tags: string }
+  const wantsTag = (tag: string): SharedRecipeLite | undefined =>
+    shared.find((r): boolean => {
+      try {
+        const tags: unknown = JSON.parse(r.tags)
+        return Array.isArray(tags) && tags.includes(tag)
+      } catch (_error) {
+        // A malformed tags column just means that recipe can't match.
+        return false
+      }
+    })
+
+  const week = currentWeekStart()
+  const starterPlan: ReadonlyArray<{
+    day: number
+    meal_slot: string
+    recipeId: string | undefined
+    servings: number
+  }> = [
+    { day: 0, meal_slot: 'dinner', recipeId: wantsTag('pasta')?.id, servings: 2 },
+    { day: 1, meal_slot: 'dinner', recipeId: wantsTag('one-pan')?.id, servings: 4 },
+    { day: 2, meal_slot: 'dinner', recipeId: wantsTag('vegan')?.id, servings: 4 },
+    { day: 0, meal_slot: 'breakfast', recipeId: wantsTag('breakfast')?.id, servings: 2 },
+    { day: 1, meal_slot: 'lunch', recipeId: wantsTag('meal-prep')?.id, servings: 3 },
+  ]
+
+  let entriesCreated = 0
+  for (const entry of starterPlan) {
+    if (!entry.recipeId) continue
+    await create('meal_plan_entries', {
+      user_id: userId,
+      week_start: week,
+      day: entry.day,
+      meal_slot: entry.meal_slot,
+      recipe_id: entry.recipeId,
+      servings: entry.servings,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    })
+    entriesCreated++
+  }
+
+  const groceryCreated = entriesCreated > 0 ? await regenerateForWeek(userId, week) : 0
+  return { entriesCreated, groceryCreated }
+}

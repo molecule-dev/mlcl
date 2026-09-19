@@ -1,0 +1,92 @@
+[
+  {
+    "id": "g-001",
+    "week_start": "2026-09-14",
+    "name": "spaghetti",
+    "quantity": 200,
+    "unit": "g",
+    "category": "pantry",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": false
+  },
+  {
+    "id": "g-002",
+    "week_start": "2026-09-14",
+    "name": "crushed tomatoes",
+    "quantity": 400,
+    "unit": "g",
+    "category": "pantry",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": false
+  },
+  {
+    "id": "g-003",
+    "week_start": "2026-09-14",
+    "name": "basil",
+    "quantity": 0.25,
+    "unit": "bunch",
+    "category": "produce",
+    "source": "plan",
+    "checked": true,
+    "in_pantry": false
+  },
+  {
+    "id": "g-004",
+    "week_start": "2026-09-14",
+    "name": "parmesan",
+    "quantity": 30,
+    "unit": "g",
+    "category": "dairy",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": false
+  },
+  {
+    "id": "g-005",
+    "week_start": "2026-09-14",
+    "name": "chicken thighs",
+    "quantity": 8,
+    "unit": "",
+    "category": "meat",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": false
+  },
+  {
+    "id": "g-006",
+    "week_start": "2026-09-14",
+    "name": "sweet potato",
+    "quantity": 2,
+    "unit": "",
+    "category": "produce",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": false
+  },
+  {
+    "id": "g-007",
+    "week_start": "2026-09-14",
+    "name": "garlic",
+    "quantity": 3,
+    "unit": "cloves",
+    "category": "produce",
+    "source": "plan",
+    "checked": false,
+    "in_pantry": true,
+    "pantry_quantity": 1,
+    "pantry_unit": "head"
+  },
+  {
+    "id": "g-008",
+    "week_start": "2026-09-14",
+    "name": "dish soap",
+    "quantity": 1,
+    "unit": "",
+    "category": "other",
+    "source": "manual",
+    "checked": false,
+    "in_pantry": false
+  }
+]

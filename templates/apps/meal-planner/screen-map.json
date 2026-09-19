@@ -1,0 +1,131 @@
+{
+  "app": "meal-planner",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "MealPlan",
+      "templateFile": "app/pages/MealPlan.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/plan",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Recipes",
+      "templateFile": "app/pages/Recipes.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/recipes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "RecipeDetail",
+      "templateFile": "app/pages/RecipeDetail.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/recipes/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "RecipeEdit",
+      "templateFile": "app/pages/RecipeEdit.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/recipes/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "RecipeEditExisting",
+      "templateFile": "app/pages/RecipeEdit.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/recipes/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "GroceryList",
+      "templateFile": "app/pages/GroceryList.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/groceries",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Pantry",
+      "templateFile": "app/pages/Pantry.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/pantry",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/SimmerAppShell.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Onboarding",
+      "templateFile": "app/pages/Onboarding.tsx",
+      "components": [],
+      "route": "/onboarding",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

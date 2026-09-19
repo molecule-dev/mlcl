@@ -1,0 +1,9 @@
+[
+  { "name": "olive oil", "quantity": 500, "unit": "ml" },
+  { "name": "salt", "quantity": 200, "unit": "g" },
+  { "name": "black peppercorns", "quantity": 50, "unit": "g" },
+  { "name": "flour", "quantity": 1, "unit": "kg" },
+  { "name": "garlic", "quantity": 1, "unit": "head" },
+  { "name": "rice", "quantity": 500, "unit": "g" },
+  { "name": "butter", "quantity": 250, "unit": "g" }
+]

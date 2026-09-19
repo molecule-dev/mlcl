@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+<g>
+  <!-- Simmer: a simmering pot with a lid and steam -->
+  <rect x="7" y="13" width="18" height="3" rx="1.5" fill="#15803d" />
+  <path d="M8 16 h16 a8 8.5 0 0 1 -4.5 7.4 q-3.5 1.3 -7 0 a8 8.5 0 0 1 -4.5 -7.4 z"
+    fill="#15803d" fill-opacity="0.22" stroke="#15803d" stroke-width="2" stroke-linejoin="round" />
+  <path d="M13 10 q1 -1.6 0 -3.2" fill="none" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
+  <path d="M19 10 q1 -1.6 0 -3.2" fill="none" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
+</g>
+</svg>
