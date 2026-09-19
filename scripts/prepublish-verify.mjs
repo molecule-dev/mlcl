@@ -188,12 +188,12 @@ const depth = parseInt(
   execFileSync('git', ['rev-list', '--count', 'HEAD'], { encoding: 'utf8' }),
   10,
 )
-if (depth > 5 && !process.env.MLCL_ALLOW_DEEP_HISTORY) {
+if (depth > 200 && !process.env.MLCL_ALLOW_DEEP_HISTORY) {
   fail(
-    `history depth ${depth} > 5 — public history must start from the fresh initial commit (set MLCL_ALLOW_DEEP_HISTORY=1 only if deep history is intended)`,
+    `history depth ${depth} > 200 — public history started fresh on 2026-09-18; a count this large means the pre-wipe history came back or the wrong repo is being published (set MLCL_ALLOW_DEEP_HISTORY=1 only if intentionally shipping deep history)`,
   )
 } else {
-  ok(`depth ${depth}${depth > 5 ? ' (explicitly allowed)' : ''}`)
+  ok(`depth ${depth}`)
 }
 
 console.log(failed ? '\nPREPUBLISH BLOCKED — fix the findings above' : '\nprepublish checks passed')

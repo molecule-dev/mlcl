@@ -286,9 +286,11 @@ export default class Create extends Command {
       const templateAppPkg = join(templateInstanceDir, 'app', 'package.json')
       const { existsSync } = await import('node:fs')
       if (existsSync(templateAppPkg)) {
-        const { copyTemplateInstance, ensureAgentsMd } = await import('../lib/scaffold.js')
+        const { copyTemplateInstance, ensureAgentsMd, ensureRootNpmrc } =
+          await import('../lib/scaffold.js')
         await copyTemplateInstance(templateInstanceDir, projectPath, projectName)
         await ensureAgentsMd(projectPath)
+        await ensureRootNpmrc(projectPath)
         say(`Copied template "${flags.template}" → ${projectPath}`)
         if (!flags['skip-install']) {
           const { execa } = await import('execa')
@@ -718,10 +720,12 @@ export default class Create extends Command {
     await scaffoldSecurityWorkflow(projectPath, projectName)
 
     // AGENTS.md for external coding agents (Claude Code, Codex, Cursor, …) —
-    // the molecule conventions in context on project open.
+    // the molecule conventions in context on project open. The .npmrc carries
+    // legacy-peer-deps so a default `npm install` resolves (see its comment).
     {
-      const { ensureAgentsMd } = await import('../lib/scaffold.js')
+      const { ensureAgentsMd, ensureRootNpmrc } = await import('../lib/scaffold.js')
       await ensureAgentsMd(projectPath)
+      await ensureRootNpmrc(projectPath)
     }
 
     spinner?.stop(t('commands.create.spinners.created'))

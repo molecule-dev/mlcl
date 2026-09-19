@@ -55,6 +55,7 @@ vi.mock('@molecule/api-database-postgresql', () => ({
   // (re-exported through @molecule/api-bonds-default-express) — return a
   // no-op runner so importing server.ts doesn't touch a real database.
   createMigrator: vi.fn(() => vi.fn(async () => {})),
+  deriveSsl: vi.fn(() => undefined),
 }))
 
 vi.mock('@molecule/api-encryption-aes', () => ({}))

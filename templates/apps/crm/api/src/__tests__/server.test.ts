@@ -41,7 +41,7 @@ vi.mock('@molecule/api-config', () => ({}))
 
 vi.mock('@molecule/api-config-env', () => ({}))
 
-vi.mock('@molecule/api-database-postgresql', () => ({}))
+vi.mock('@molecule/api-database-postgresql', () => ({ deriveSsl: vi.fn(() => undefined) }))
 
 vi.mock('@molecule/api-emails-mailgun', () => ({}))
 

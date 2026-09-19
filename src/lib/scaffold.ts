@@ -1856,6 +1856,21 @@ export async function ensureAgentsMd(projectRoot: string): Promise<void> {
   await writeFile(target, await loadTemplate('shared/AGENTS.md.tpl'))
 }
 
+/**
+ * Write the project-root .npmrc carrying `legacy-peer-deps=true` — required
+ * because eslint-plugin-jsx-a11y 6.x (the latest release) still declares
+ * `peer eslint ^9` while the fleet pins eslint 10, so a DEFAULT strict-peer
+ * `npm install` fails on resolution alone. The file explains itself and says
+ * when to delete it. Never clobbers an existing .npmrc (user's own config
+ * wins; the template fleet's own npmrc entries would also be lost).
+ */
+export async function ensureRootNpmrc(projectRoot: string): Promise<void> {
+  const target = join(projectRoot, '.npmrc')
+  const { existsSync } = await import('node:fs')
+  if (existsSync(target)) return
+  await writeFile(target, await loadTemplate('shared/npmrc.tpl'))
+}
+
 export async function scaffoldSecurityWorkflow(
   projectRoot: string,
   projectName: string,

@@ -45,6 +45,7 @@ vi.mock('@molecule/api-database-postgresql', () => ({
   // scripts/migrate.ts calls createMigrator(dir) at module load (re-exported
   // through @molecule/api-bonds-default-express) — it must return a runner fn.
   createMigrator: vi.fn(() => vi.fn(async () => undefined)),
+  deriveSsl: vi.fn(() => undefined),
 }))
 
 vi.mock('@molecule/api-emails-mailgun', () => ({}))
