@@ -92,6 +92,17 @@ const fail = (msg) => {
 }
 const ok = (msg) => console.log(`  ✓ ${msg}`)
 
+// ── 0. intentional-publish switch ────────────────────────────────────────────
+// Publishing is deliberately held until the agent-facing roadmap is fleshed
+// out (owner decision 2026-09-19). A logged-in stray `npm publish` must not
+// ship accidentally — require an explicit opt-in.
+if (!process.env.MLCL_ALLOW_PUBLISH) {
+  console.error(
+    '  ✗ publish is intentionally deferred (agent-roadmap work pending). Re-run with MLCL_ALLOW_PUBLISH=1 when the release is approved.',
+  )
+  process.exit(1)
+}
+
 // ── 1. required files ────────────────────────────────────────────────────────
 console.log('required files:')
 for (const f of ['LICENSE', 'README.md', 'bin/run.js']) {
