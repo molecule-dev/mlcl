@@ -59,6 +59,21 @@
       },
       "agent": {
         "description": "Make your AI coding agent molecule-aware"
+      },
+      "env": {
+        "description": "Manage environment variables (local .env + molecule.dev project env)"
+      },
+      "db": {
+        "description": "Database operations (migrate, reset, console)"
+      },
+      "auth": {
+        "description": "molecule.dev account login/logout"
+      },
+      "project": {
+        "description": "molecule.dev project operations"
+      },
+      "deploy": {
+        "description": "Deploy to molecule.dev production"
       }
     },
     "hooks": {

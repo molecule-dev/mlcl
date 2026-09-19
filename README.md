@@ -101,6 +101,34 @@ npx mlcl swap @molecule/api-emails-ses -r @molecule/api-emails-mailgun   # sever
 npx mlcl inject --dry-run
 ```
 
+## Operate the project (env, database, deploy)
+
+The IDE's operational surface, on your machine:
+
+```bash
+# Environment variables — local .env (format-preserving, values masked on list):
+npx mlcl env list --raw
+npx mlcl env set STRIPE_SECRET_KEY=sk_test_…
+npx mlcl env get DATABASE_URL          # for scripts: $(mlcl env get DATABASE_URL)
+npx mlcl env unset STRIPE_SECRET_KEY   # comments out, value preserved
+
+# Database:
+npx mlcl db migrate                    # runs the scaffolded migrate.ts
+npx mlcl db reset --force              # drop/recreate + migrate (DESTRUCTIVE)
+npx mlcl db console                    # psql on the project DB
+npx mlcl db url                        # print DATABASE_URL (resolves .env)
+
+# Local staging environment (per-branch, Docker Compose):
+npx mlcl stage up && npx mlcl stage logs --service api
+
+# molecule.dev platform operations (mlcl login once):
+npx mlcl login                         # store your token (~/.mlcl/credentials.json)
+npx mlcl project list                  # your projects + roles
+npx mlcl env push --project <id>       # local .env → the project's env (IDE editor route)
+npx mlcl env pull --project <id>       # project env → local (secrets skipped, write-only)
+npx mlcl deploy --project <id> --follow  # production deploy, same pipeline as the IDE button
+```
+
 Read any installed package's usage reference — generated, always current:
 
 ```bash
@@ -216,11 +244,26 @@ USAGE
 <!-- commands -->
 * [`mlcl add MOLECULE`](#mlcl-add-molecule)
 * [`mlcl agent init`](#mlcl-agent-init)
+* [`mlcl auth login`](#mlcl-auth-login)
+* [`mlcl auth logout`](#mlcl-auth-logout)
+* [`mlcl auth whoami`](#mlcl-auth-whoami)
 * [`mlcl create [NAME]`](#mlcl-create-name)
+* [`mlcl db console`](#mlcl-db-console)
+* [`mlcl db migrate`](#mlcl-db-migrate)
+* [`mlcl db reset`](#mlcl-db-reset)
+* [`mlcl db url`](#mlcl-db-url)
+* [`mlcl deploy`](#mlcl-deploy)
+* [`mlcl env get KEY`](#mlcl-env-get-key)
+* [`mlcl env list`](#mlcl-env-list)
+* [`mlcl env pull`](#mlcl-env-pull)
+* [`mlcl env push`](#mlcl-env-push)
+* [`mlcl env set PAIR [VALUE]`](#mlcl-env-set-pair-value)
+* [`mlcl env unset KEY`](#mlcl-env-unset-key)
 * [`mlcl help [COMMAND]`](#mlcl-help-command)
 * [`mlcl init`](#mlcl-init)
 * [`mlcl inject`](#mlcl-inject)
 * [`mlcl mcp install`](#mlcl-mcp-install)
+* [`mlcl project list`](#mlcl-project-list)
 * [`mlcl search QUERY`](#mlcl-search-query)
 * [`mlcl stage down`](#mlcl-stage-down)
 * [`mlcl stage list`](#mlcl-stage-list)
@@ -288,6 +331,60 @@ EXAMPLES
 
 _See code: [src/commands/agent/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/agent/init.ts)_
 
+## `mlcl auth login`
+
+Log the CLI in to molecule.dev (stores a session token at ~/.mlcl/credentials.json, 0600)
+
+```
+USAGE
+  $ mlcl auth login [--token <value>]
+
+FLAGS
+  --token=<value>  A molecule.dev session token. Without this flag the command prompts for one — grab it from the
+                   molecule.dev IDE (browser devtools on an api.molecule.dev request) until personal access tokens ship.
+
+DESCRIPTION
+  Log the CLI in to molecule.dev (stores a session token at ~/.mlcl/credentials.json, 0600)
+
+EXAMPLES
+  $ mlcl login
+
+  $ mlcl login --token <jwt>
+```
+
+_See code: [src/commands/auth/login.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/auth/login.ts)_
+
+## `mlcl auth logout`
+
+Remove the stored molecule.dev token
+
+```
+USAGE
+  $ mlcl auth logout
+
+DESCRIPTION
+  Remove the stored molecule.dev token
+```
+
+_See code: [src/commands/auth/logout.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/auth/logout.ts)_
+
+## `mlcl auth whoami`
+
+Show the logged-in molecule.dev account
+
+```
+USAGE
+  $ mlcl auth whoami [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Show the logged-in molecule.dev account
+```
+
+_See code: [src/commands/auth/whoami.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/auth/whoami.ts)_
+
 ## `mlcl create [NAME]`
 
 Create a new project
@@ -328,6 +425,260 @@ EXAMPLES
 ```
 
 _See code: [src/commands/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/create.ts)_
+
+## `mlcl db console`
+
+Open a psql console on the project database (mlcl db url | psql, with flags forwarded)
+
+```
+USAGE
+  $ mlcl db console
+
+DESCRIPTION
+  Open a psql console on the project database (mlcl db url | psql, with flags forwarded)
+
+EXAMPLES
+  $ mlcl db console
+
+  $ mlcl db console -- -c "\dt"
+```
+
+_See code: [src/commands/db/console.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/console.ts)_
+
+## `mlcl db migrate`
+
+Run the project’s database migrations (the scaffolded api/src/scripts/migrate.ts)
+
+```
+USAGE
+  $ mlcl db migrate [--fresh]
+
+FLAGS
+  --fresh  Drop/recreate the database first (DESTRUCTIVE)
+
+DESCRIPTION
+  Run the project’s database migrations (the scaffolded api/src/scripts/migrate.ts)
+
+EXAMPLES
+  $ mlcl db migrate
+
+  $ mlcl db migrate --fresh
+```
+
+_See code: [src/commands/db/migrate.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/migrate.ts)_
+
+## `mlcl db reset`
+
+Drop and recreate the project database, then run migrations + package setup SQL
+
+```
+USAGE
+  $ mlcl db reset [--force]
+
+FLAGS
+  --force  Skip the confirmation prompt
+
+DESCRIPTION
+  Drop and recreate the project database, then run migrations + package setup SQL
+
+EXAMPLES
+  $ mlcl db reset
+```
+
+_See code: [src/commands/db/reset.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/reset.ts)_
+
+## `mlcl db url`
+
+Print the project’s DATABASE_URL (resolving .env when not exported)
+
+```
+USAGE
+  $ mlcl db url [--json] [--app]
+
+FLAGS
+  --app  Read from app/.env (rare)
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Print the project’s DATABASE_URL (resolving .env when not exported)
+
+EXAMPLES
+  $ mlcl db url
+
+  psql "$(mlcl db url)"
+```
+
+_See code: [src/commands/db/url.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/url.ts)_
+
+## `mlcl deploy`
+
+Deploy a molecule.dev project to production (builds in the sandbox, launches the runtime container — same pipeline as the IDE’s Deploy button)
+
+```
+USAGE
+  $ mlcl deploy -p <value> [--follow]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --follow           Poll until the deploy finishes and print the live URL
+
+DESCRIPTION
+  Deploy a molecule.dev project to production (builds in the sandbox, launches the runtime container — same pipeline as
+  the IDE’s Deploy button)
+
+EXAMPLES
+  $ mlcl deploy --project <id>
+
+  $ mlcl deploy --project <id> --follow
+```
+
+_See code: [src/commands/deploy/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/index.ts)_
+
+## `mlcl env get KEY`
+
+Print one environment variable value (for scripts: mlcl env get DATABASE_URL)
+
+```
+USAGE
+  $ mlcl env get KEY [--json]
+
+ARGUMENTS
+  KEY  Variable name
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Print one environment variable value (for scripts: mlcl env get DATABASE_URL)
+
+EXAMPLES
+  $ mlcl env get DATABASE_URL
+
+  $ mlcl env get VITE_API_URL --app
+```
+
+_See code: [src/commands/env/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/get.ts)_
+
+## `mlcl env list`
+
+List environment variables in the project .env (values masked unless --raw)
+
+```
+USAGE
+  $ mlcl env list [--app] [--raw] [--json]
+
+FLAGS
+  --app   Target app/.env instead of api/.env (full-stack projects)
+  --json  Machine-readable output
+  --raw   Show unmasked values
+
+DESCRIPTION
+  List environment variables in the project .env (values masked unless --raw)
+
+EXAMPLES
+  $ mlcl env list
+
+  $ mlcl env list --app --raw
+```
+
+_See code: [src/commands/env/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/list.ts)_
+
+## `mlcl env pull`
+
+Pull the project’s environment variables from molecule.dev into the local .env (masked server-side values are skipped with a warning)
+
+```
+USAGE
+  $ mlcl env pull -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Pull the project’s environment variables from molecule.dev into the local .env (masked server-side values are skipped
+  with a warning)
+
+EXAMPLES
+  $ mlcl env pull --project <id>
+```
+
+_See code: [src/commands/env/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/pull.ts)_
+
+## `mlcl env push`
+
+Push local .env values up to the molecule.dev project (upserts through the same route the IDE env editor saves to)
+
+```
+USAGE
+  $ mlcl env push -p <value> [--keys <value>] [--scope all|dev|prod]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --keys=<value>     Comma-separated allowlist of keys to push (default: all set keys)
+      --scope=<option>   [default: all] Platform scope for the values
+                         <options: all|dev|prod>
+
+DESCRIPTION
+  Push local .env values up to the molecule.dev project (upserts through the same route the IDE env editor saves to)
+
+EXAMPLES
+  $ mlcl env push --project <id>
+
+  $ mlcl env push --project <id> --keys STRIPE_SECRET_KEY,MAILGUN_API_KEY
+```
+
+_See code: [src/commands/env/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/push.ts)_
+
+## `mlcl env set PAIR [VALUE]`
+
+Set an environment variable in the project .env (creates the key or updates in place)
+
+```
+USAGE
+  $ mlcl env set PAIR [VALUE] [--app]
+
+ARGUMENTS
+  PAIR     KEY=VALUE (or pass VALUE as a second arg)
+  [VALUE]  Value when KEY given alone
+
+FLAGS
+  --app  Target app/.env instead of api/.env
+
+DESCRIPTION
+  Set an environment variable in the project .env (creates the key or updates in place)
+
+EXAMPLES
+  $ mlcl env set STRIPE_SECRET_KEY=sk_test_…
+
+  $ mlcl env set VITE_API_URL https://api.example.com --app
+```
+
+_See code: [src/commands/env/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/set.ts)_
+
+## `mlcl env unset KEY`
+
+Comment out an environment variable (value preserved in the file for easy restore)
+
+```
+USAGE
+  $ mlcl env unset KEY [--app]
+
+ARGUMENTS
+  KEY  Variable name
+
+FLAGS
+  --app  Target app/.env instead of api/.env
+
+DESCRIPTION
+  Comment out an environment variable (value preserved in the file for easy restore)
+
+EXAMPLES
+  $ mlcl env unset STRIPE_SECRET_KEY
+```
+
+_See code: [src/commands/env/unset.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/unset.ts)_
 
 ## `mlcl help [COMMAND]`
 
@@ -449,6 +800,29 @@ EXAMPLES
 ```
 
 _See code: [src/commands/mcp/install.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/mcp/install.ts)_
+
+## `mlcl project list`
+
+List your molecule.dev projects (owned + team, with roles)
+
+```
+USAGE
+  $ mlcl project list [--json] [--open]
+
+FLAGS
+  --open  Print only projects with a live preview
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List your molecule.dev projects (owned + team, with roles)
+
+EXAMPLES
+  $ mlcl project list
+```
+
+_See code: [src/commands/project/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/list.ts)_
 
 ## `mlcl search QUERY`
 
