@@ -9,6 +9,9 @@ Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
 connecting this ONE server delivers both the capability and the context.
 
+The broader agent guide (all harnesses, all wiring methods, example agent
+workflows): [mlcl docs/AGENTS-AND-HARNESSES.md](https://github.com/molecule-dev/mlcl/blob/main/docs/AGENTS-AND-HARNESSES.md).
+
 ## Install
 
 The one command that works everywhere (uses your harness's own installer when it has one, writes the standard config when it doesn't):
@@ -63,6 +66,44 @@ registry listings (one-click) and, for Claude Code, the full plugin —
 | `swap_provider` | Swap a wired provider (`mlcl swap`) |
 | `read_package_doc` | A package's generated usage README (walks up to hoisted node_modules) |
 | `agent_init` | Write the molecule conventions into this project's agent files |
+
+Plus the `molecule://conventions` resource — the molecule doctrine
+(packages before hand-rolled code, bonds for providers, ClassMap, i18n) that
+your agent can read as context.
+
+### Example calls
+
+```jsonc
+// search_packages — capability search, agent-side package discovery
+{ "query": "payments", "limit": 3 }
+// → [{"name":"@molecule/api-payments-stripe","stack":"api","category":"payments",
+//      "description":"Stripe payment provider…","install":"mlcl add @molecule/api-payments-stripe --inject"}, …]
+
+// scaffold_project — unattended scaffold, JSON result
+{ "name": "my-store", "template": "online-store", "skip_install": false }
+// → {"project":"my-store","path":"/abs/my-store","type":"full-stack",
+//     "packages":[…],"secrets":["STRIPE_SECRET_KEY",…]}
+
+// custom stack instead of a template
+{ "name": "api", "type": "api", "packages": "@molecule/api-database-postgresql,@molecule/api-resource-user" }
+
+// add_package / swap_provider — grow and reconfigure
+{ "name": "@molecule/api-emails-mailgun" }
+{ "new_provider": "@molecule/api-database-mysql", "replace": "postgresql" }
+
+// read_package_doc — the package's own generated usage reference
+{ "name": "api-payments-stripe", "directory": "/abs/my-project/api" }
+
+// agent_init — make the current project molecule-aware (idempotent)
+{ "directory": "/abs/my-project" }
+```
+
+## Configuration
+
+- The server shells out to the `mlcl` binary (published package, resolved
+  from PATH). Override for local/dev: `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`.
+- All write tools are explicit CLI invocations with explicit arguments — no
+  background behavior, no telemetry.
 
 ## Requirements
 

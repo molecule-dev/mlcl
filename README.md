@@ -16,74 +16,119 @@ another by changing one wiring file, not rewriting your app.
 - **Own everything**: the output is plain TypeScript you can read, edit, and
   deploy anywhere. Apache-2.0 packages; your app is yours.
 
-## Quickstart
+## Install
+
+```bash
+npm install -g mlcl   # or just use npx mlcl … everywhere
+```
+
+Node.js ≥ 22.
+
+## Quickstart (60 seconds)
 
 ```bash
 npx mlcl create my-app --template blog --no-interactive
 cd my-app
-npm run dev
+# put credentials in api/.env and app/.env (local defaults work for Postgres/SQLite)
+npm run dev            # api on :4000-ish, app on :3000
 ```
 
-Or build exactly the stack you want:
+You get: Express API with routes and migrations, React app with real screens,
+auth, i18n, tests, e2e specs, `.env` templates, CI security workflows, and an
+`AGENTS.md` that teaches any AI coding agent the project's conventions.
+
+## Pick a starting point
+
+**Option A — flagship template (recommended).** A complete, polished app you
+shape from:
 
 ```bash
+npx mlcl templates                       # browse all 134
+npx mlcl templates --json | head -30     # machine-readable
+npx mlcl create store --template online-store --no-interactive
+```
+
+Templates carry their own framework and full package list — no other flags
+needed. Try: `blog`, `crm`, `team-chat`, `online-store`, `project-management`,
+`helpdesk-ticketing`, `ai-chatbot-builder`, `database-admin`, …
+(the full gallery with screenshots: <https://www.molecule.dev/templates>).
+
+**Option B — exactly the stack you want:**
+
+```bash
+# Find packages by capability, not by guessing names:
+npx mlcl search payments
+npx mlcl search "send emails" --stack api
+npx mlcl search "social login" --json
+
+# Compose them:
 npx mlcl create my-api \
   --type api \
   --packages @molecule/api-database-postgresql,@molecule/api-resource-user \
   --no-interactive
+
+npx mlcl create my-app \
+  --type full-stack --framework react \
+  --packages @molecule/api-database-postgresql,@molecule/app-auth \
+  --no-interactive
 ```
 
-Discover what exists before you write it:
+Types: `api` · `app` · `full-stack` · `static` · `status-page` · `status-page-edge`.
+The scaffold auto-resolves default providers, transitive companions, locale
+bonds, and template-required packages — you name the capabilities, mlcl closes
+the dependency set.
+
+## Grow and reconfigure the project
 
 ```bash
-mlcl search payments        # find packages by capability
-mlcl templates              # list flagship templates
+# Add a capability: installs the package AND generates its bond wiring,
+# peer deps, migrations, and routes in one step:
+npx mlcl add @molecule/api-emails-mailgun --inject
+
+# Add without wiring (just the dependency):
+npx mlcl add @molecule/api-logger
+
+# Swap a provider — same interface, different vendor, no rewrite:
+npx mlcl swap @molecule/api-database-mysql            # PostgreSQL → MySQL
+npx mlcl swap @molecule/api-emails-ses -r mailgun     # several wired? name the one to replace
+
+# Preview what injection would do, change nothing:
+npx mlcl inject --dry-run
 ```
 
-Then grow the project package by package:
+Read any installed package's usage reference — generated, always current:
 
 ```bash
-mlcl add @molecule/api-emails-mailgun --inject   # install + wire the bond
-mlcl swap @molecule/api-database-mysql          # swap a provider (optional -r <old>)
+less node_modules/@molecule/api-emails-mailgun/README.md
 ```
 
-See [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md) for using
-`mlcl` in an app you already have.
-
-## For AI agents
-
-`mlcl` is designed to be driven by coding agents (Claude Code, Codex, Cursor,
-Pi, …) as much as by humans:
-
-- **Non-interactive by flag** — every prompt has a flag; `--no-interactive`
-  with `--type`/`--packages`/`--template` runs start to finish unattended.
-- **`--json` on core commands** — machine-readable results for scripting and
-  tool use.
-- **`mlcl search` / `mlcl templates`** — discover packages and templates
-  without scraping docs.
-- **LLM-oriented docs** — every `@molecule/*` package on npm carries a
-  generated README describing its API and wiring; the full catalog is at
-  <https://www.molecule.dev/llms.txt> and <https://www.molecule.dev/llms-full.txt>.
-- **Scaffolded projects carry an AGENTS.md** — your agent gets the project's
-  conventions (bonds, ClassMap styling, handler patterns) in context on open.
-- **`npx mlcl agent init`** — one command makes any harness molecule-aware:
-  writes the conventions + quickstart into the files the detected agent reads
-  (the AGENTS.md standard section, Cursor rules, a Claude Code skill). Run it
-  in a project, or `--agent claude-code --global` for every project.
-
-A minimal agent workflow:
+**Machine-readable results** (for scripts, CI, and agents):
 
 ```bash
 npx mlcl search auth --json
-npx mlcl create my-app --type full-stack --framework react \
-  --packages @molecule/api-database-postgresql,@molecule/app-auth \
+npx mlcl create app --type api --packages @molecule/api-database-sqlite \
   --no-interactive --json
 ```
 
-### Paste this into your agent
+`create --json` prints a single result object — path, type, packages,
+secrets to fill in `.env` — and suppresses all progress chatter.
 
-To hand a user intent pre-formed, paste this block into Claude Code, Codex,
-Cursor, or Pi:
+## Using it with AI agents
+
+Most people build through an agent (Claude Code, Codex, Cursor, Gemini CLI,
+OpenCode, Windsurf, Cline, Zed, …). Four ways to wire molecule in — pick any:
+
+| Method | What to run / paste | Get |
+|---|---|---|
+| **Zero setup** | paste the block below into any agent chat | the agent scaffolds + follows conventions via the CLI |
+| **One command** | `npx mlcl agent init` | conventions written into the files your harness reads (AGENTS.md, Cursor rules, Claude skill, Gemini extension, Windsurf rule) |
+| **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness |
+| **Claude Code plugin** | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
+
+The full guide with every harness, config path, and example workflow:
+[docs/AGENTS-AND-HARNESSES.md](docs/AGENTS-AND-HARNESSES.md).
+
+The paste-anywhere block:
 
 ```text
 Build this app with molecule.dev: run `npx mlcl templates` and pick the closest
@@ -96,16 +141,39 @@ user-facing text, and each package's README at
 node_modules/@molecule/<name>/README.md for usage.
 ```
 
-## Requirements
+Every project `mlcl create` scaffolds ships an `AGENTS.md` — so whichever
+agent opens the project (even one that has never heard of molecule) gets the
+conventions in context immediately.
 
-- Node.js ≥ 22
+## Using it in an app you already have
 
-## Documentation
+`mlcl add` / `mlcl inject` / `mlcl swap` work on any project with a
+`package.json` — no re-scaffolding. The realistic flow (build a feature in
+the molecule.dev IDE, export, integrate locally) plus the exact conventions
+each command looks for: [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md).
 
-- [Molecule.dev](https://www.molecule.dev) — what the platform is
-- [Package catalog](https://www.molecule.dev/packages) — every `@molecule/*` package
-- [Templates](https://www.molecule.dev/templates) — the flagship app gallery
-- [Integrating into an existing app](docs/INTEGRATE-EXISTING-APP.md)
+## Package authors
+
+```bash
+npx mlcl init --name api-my-feature --type core --description "Interface for …"
+npx mlcl init --name api-my-feature-redis --type provider --category my-feature
+npx mlcl validate ./packages/api-my-feature
+```
+
+## FAQ
+
+**Why does my scaffolded project have a `.npmrc` with `legacy-peer-deps=true`?**
+One pinned dev dependency (`eslint-plugin-jsx-a11y`) still declares eslint ^9
+peers while the toolchain pins eslint 10. The file explains itself and tells
+you when to delete it.
+
+**Where are the docs for package X?** In the package:
+`node_modules/@molecule/<name>/README.md` — generated from source, always
+current. Online: <https://www.molecule.dev/packages>. Everything concatenated
+for LLM consumption: <https://www.molecule.dev/llms-full.txt>.
+
+**Where do secrets go?** `.env` files at each workspace root; the scaffold
+prints every key it expects. Never in code.
 
 <!-- usage -->
 ```sh-session
@@ -592,6 +660,14 @@ EXAMPLES
 
 _See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/validate.ts)_
 <!-- commandsstop -->
+
+## Documentation
+
+- [Molecule.dev](https://www.molecule.dev) — the platform
+- [Package catalog](https://www.molecule.dev/packages) — every `@molecule/*` package
+- [Templates gallery](https://www.molecule.dev/templates)
+- [AI agents guide](docs/AGENTS-AND-HARNESSES.md) — every harness, every method
+- [Integrating into an existing app](docs/INTEGRATE-EXISTING-APP.md)
 
 ## License
 
