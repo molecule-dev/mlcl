@@ -1,0 +1,32 @@
+[
+  {
+    "id": "asg-001",
+    "wedding_id": "wd-001",
+    "table_id": "tbl-002",
+    "guest_id": "gst-001"
+  },
+  {
+    "id": "asg-002",
+    "wedding_id": "wd-001",
+    "table_id": "tbl-002",
+    "guest_id": "gst-002"
+  },
+  {
+    "id": "asg-003",
+    "wedding_id": "wd-001",
+    "table_id": "tbl-002",
+    "guest_id": "gst-003"
+  },
+  {
+    "id": "asg-004",
+    "wedding_id": "wd-001",
+    "table_id": "tbl-004",
+    "guest_id": "gst-004"
+  },
+  {
+    "id": "asg-005",
+    "wedding_id": "wd-001",
+    "table_id": "tbl-004",
+    "guest_id": "gst-005"
+  }
+]

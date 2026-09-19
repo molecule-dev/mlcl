@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tbl-001",
+    "wedding_id": "wd-001",
+    "name": "Table 1 \u2014 Sweetheart",
+    "capacity": 2
+  },
+  {
+    "id": "tbl-002",
+    "wedding_id": "wd-001",
+    "name": "Table 2 \u2014 Family",
+    "capacity": 10
+  },
+  {
+    "id": "tbl-003",
+    "wedding_id": "wd-001",
+    "name": "Table 3 \u2014 Family",
+    "capacity": 10
+  },
+  {
+    "id": "tbl-004",
+    "wedding_id": "wd-001",
+    "name": "Table 4 \u2014 Friends",
+    "capacity": 8
+  },
+  {
+    "id": "tbl-005",
+    "wedding_id": "wd-001",
+    "name": "Table 5 \u2014 Friends",
+    "capacity": 8
+  }
+]

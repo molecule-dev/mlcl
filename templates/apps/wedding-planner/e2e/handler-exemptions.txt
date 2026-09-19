@@ -1,0 +1,4 @@
+# Mount aliases — endpoints ARE exercised but the coverage heuristic only
+# checks /api/<filename>{,s} literal strings, which does not match how these
+# are actually reached.
+rsvp-meals  # meal options are read through GET /api/public/rsvp/:code, never hit directly

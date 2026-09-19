@@ -1,0 +1,286 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #9f1239;
+  --mol-color-primary-light: #ffe4e6;
+  --mol-color-primary-dark: #881337;
+  --mol-color-secondary: #4a044e;
+  --mol-color-background: #fff1f2;
+  --mol-color-background-secondary: #fff5f6;
+  --mol-color-background-tertiary: #ffe4e6;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #fff1f2;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #3d0a26;
+  --mol-color-text-secondary: #4a3542;
+  --mol-color-text-tertiary: #6f7287;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #ffe4e6;
+  --mol-color-border-secondary: #fecdd3;
+  --mol-color-border-focus: #9f1239;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0d9488;
+
+  /* Brand — rose primary, plum secondary (per DESIGN.md). */
+  --color-primary: #9f1239;
+  --color-primary-light: #be123d;
+  --color-primary-dark: #881337;
+  --color-primary-mid: #740b46; /* gradient midpoint between primary and secondary */
+  --color-secondary: #4a044e;
+  --color-secondary-light: #86198f;
+  --color-accent: #b45309; /* champagne gold — amber-700, 4.6:1 on white */
+  --color-accent-light: #d97706;
+  --color-accent-dark: #92400e; /* amber-800 — 5.3:1 as badge text on #fef3c7 */
+  --color-tertiary: #0f766e; /* teal-700 — 4.5:1 as 24px icon on white */
+
+  --color-background: #fff1f2;
+  --color-background-secondary: #fff5f6;
+  --color-background-tertiary: #ffe4e6;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #fff1f2;
+  --color-surface-hover: #fdf0f3;
+
+  --color-text: #3d0a26;
+  --color-text-secondary: #4a3542;
+  --color-text-muted: #6f7287;
+  --color-foreground: #3d0a26;
+  --color-foreground-secondary: #6b7280;
+  --color-foreground-tertiary: #4b5563;
+  --color-foreground-inverse: #ffffff;
+
+  --color-border: #ffe4e6;
+  --color-border-secondary: #fecdd3;
+
+  --color-error: #dc2626;
+  --color-error-light: #fee2e2;
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+  --color-info: #0d9488;
+  --color-info-light: #ccfbf1;
+
+  /* === App-specific status tokens (used in inline styles) ===
+     RSVP chips (guest list, dashboard tally) */
+  --color-status-neutral-bg: #f3f4f6;
+  --color-status-neutral: #4b5563;
+  --color-rsvp-pending-bg: #fef3c7;
+  --color-rsvp-pending: #92400e;
+  --color-rsvp-yes-bg: #dcfce7;
+  --color-rsvp-yes: #166534;
+  --color-rsvp-no-bg: #fee2e2;
+  --color-rsvp-no: #b91c1c;
+  --color-rsvp-maybe-bg: #ede9fe;
+  --color-rsvp-maybe: #6d28d9;
+  /* Vendor pipeline chips */
+  --color-vendor-researching-bg: #f3f4f6;
+  --color-vendor-researching: #4b5563;
+  --color-vendor-contacted-bg: #dbeafe;
+  --color-vendor-contacted: #1e40af;
+  --color-vendor-booked-bg: #ccfbf1;
+  --color-vendor-booked: #0f766e;
+  --color-vendor-paid-bg: #fef3c7;
+  --color-vendor-paid: #92400e;
+  /* Budget health */
+  --color-budget-over-bg: #fee2e2;
+  --color-budget-over: #b91c1c;
+  --color-budget-ok-bg: #dcfce7;
+  --color-budget-ok: #166534;
+  --color-toggle-off: #e5e7eb;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(116, 11, 70, 0.05);
+  --shadow-md: 0 4px 12px rgba(116, 11, 70, 0.08);
+  --shadow-lg: 0 8px 24px rgba(116, 11, 70, 0.14);
+
+  /* === Stitch / Material-3 @theme token light variants ===
+     These ensure bg-primary, text-on-surface, bg-surface-container etc. all
+     resolve correctly in light mode. */
+  --color-on-primary: #ffffff; /* white on #9f1239 — 6.7:1 ✓ */
+  --color-primary-container: #ffe4e6;
+  --color-on-primary-container: #500724;
+  --color-secondary-container: #fae8ff;
+  --color-on-secondary: #ffffff; /* white on #4a044e — 13.2:1 ✓ */
+  --color-on-secondary-container: #4a044e;
+  --color-tertiary: #0d9488;
+  --color-tertiary-container: #ccfbf1;
+  --color-on-tertiary: #134e4a; /* dark on teal — 5.9:1; white was 2.8:1 fail */
+  --color-on-tertiary-container: #134e4a;
+  --color-on-background: #3d0a26;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f7e8eb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fff1f2;
+  --color-surface-container: #ffe9ec;
+  --color-surface-container-high: #ffe0e5;
+  --color-surface-container-highest: #fbd6dc;
+  --color-surface-variant: #fff5f6;
+  --color-on-surface: #3d0a26;
+  --color-on-surface-variant: #4a3542;
+  --color-inverse-surface: #3d0a26;
+  --color-inverse-on-surface: #fff1f2;
+  --color-inverse-primary: #fecdd3;
+  --color-surface-tint: #9f1239;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* white on #dc2626 — 4.83:1 ✓ */
+  --color-on-error-container: #450a0a;
+  --color-outline: #6f7287; /* 4.59:1 on #ffffff ✓ (neutral kept for contrast) */
+  --color-outline-variant: #fecdd3;
+}
+
+[data-mol-mode='dark'] {
+  /* Dark mode overrides — candlelit reception: soft pink primary against deep
+     plum so cards and charts still feel celebratory without glare.
+     `--color-on-primary` uses dark text on the bright pink for contrast. */
+
+  /* === @theme bridge — mol-color provider tokens === */
+  --mol-color-primary: #f9a8d4;
+  --mol-color-primary-light: #6d052e;
+  --mol-color-primary-dark: #ec4899;
+  --mol-color-secondary: #a21caf;
+  --mol-color-background: #190b13;
+  --mol-color-background-secondary: #22101a;
+  --mol-color-background-tertiary: #2c1622;
+  --mol-color-surface: #2c1622;
+  --mol-color-surface-secondary: #3a1f2d;
+  --mol-color-input-background: #190b13;
+  --mol-color-text: #fdf2f8;
+  --mol-color-text-secondary: #fda4af;
+  --mol-color-text-tertiary: #d09eb1;
+  --mol-color-text-inverse: #190b13;
+  --mol-color-border: #4c1d2e;
+  --mol-color-border-secondary: #6d052e;
+  --mol-color-border-focus: #f9a8d4;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #2dd4bf;
+
+  /* === App-specific tokens === */
+  --color-primary: #f9a8d4;
+  --color-primary-light: #fbcfe8;
+  --color-primary-dark: #f472b6;
+  --color-primary-mid: #be185d; /* gradient midpoint — dark-mode equivalent of #740b46 */
+  --color-secondary: #a21caf; /* white text 6.1:1 */
+  --color-secondary-light: #c026d3;
+  --color-accent: #fbbf24;
+  --color-accent-light: #fcd34d;
+  --color-accent-dark: #d97706;
+  --color-tertiary: #2dd4bf;
+
+  --color-background: #190b13;
+  --color-background-secondary: #22101a;
+  --color-background-tertiary: #2c1622;
+  --color-surface: #2c1622;
+  --color-surface-secondary: #3a1f2d;
+  --color-surface-hover: #482637;
+
+  --color-text: #fdf2f8;
+  --color-text-secondary: #fda4af;
+  --color-text-muted: #d6b8c4;
+  --color-foreground: #fdf2f8;
+  --color-foreground-secondary: #fda4af;
+  --color-foreground-tertiary: #fecdd3;
+  --color-foreground-inverse: #3d0a26;
+
+  --color-border: #4c1d2e;
+  --color-border-secondary: #6d052e;
+
+  --color-error: #f87171;
+  --color-error-light: #4c1d1d;
+  --color-success: #4ade80;
+  --color-success-light: #14532d;
+  --color-warning: #fbbf24;
+  --color-warning-light: #3a2d10;
+  --color-info: #2dd4bf;
+  --color-info-light: #134e4a;
+
+  /* === Stitch / Material-3 @theme token dark variants ===
+     Override the @theme block so `bg-surface`, `text-on-surface`, `bg-primary`
+     etc. flip cleanly. on-primary uses dark text on bright pink for contrast. */
+  --color-on-background: #fdf2f8;
+  --color-surface-bright: #3a1f2d;
+  --color-surface-dim: #0a0406;
+  --color-surface-container-lowest: #0d0509;
+  --color-surface-container-low: #170b11;
+  --color-surface-container: #22101a;
+  --color-surface-container-high: #2c1622;
+  --color-surface-container-highest: #3a1f2d;
+  --color-surface-variant: #3a1f2d;
+  --color-on-surface: #fdf2f8;
+  --color-on-surface-variant: #fda4af;
+  --color-inverse-surface: #fdf2f8;
+  --color-inverse-on-surface: #190b13;
+  --color-inverse-primary: #9f1239;
+  --color-primary-container: #6d052e;
+  --color-on-primary: #4c0519; /* dark on pink-300 #f9a8d4 — 7.6:1; white was 1.9:1 fail */
+  --color-on-primary-container: #ffe4e6;
+  --color-secondary-container: #4a044e;
+  --color-on-secondary: #ffffff; /* white on #a21caf — 6.1:1 */
+  --color-on-secondary-container: #fae8ff;
+  --color-tertiary: #2dd4bf;
+  --color-tertiary-container: #134e4a;
+  --color-on-tertiary: #0c0a1d; /* dark on teal #2dd4bf — 9.8:1; white was 2.1:1 fail */
+  --color-on-tertiary-container: #ccfbf1;
+  --color-error-container: #4c1d1d;
+  --color-on-error: #690005; /* dark on light-red #f87171 — 4.74:1; white was 2.77:1 fail */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #d09eb1; /* brightened for contrast on plum surface */
+  --color-outline-variant: #4c1d2e;
+  --color-surface-tint: #f9a8d4;
+
+  /* === App-specific status tokens — dark overrides === */
+  --color-status-neutral-bg: #1e293b;
+  --color-status-neutral: #94a3b8;
+  --color-rsvp-pending-bg: #3a2d10;
+  --color-rsvp-pending: #fbbf24;
+  --color-rsvp-yes-bg: #14532d;
+  --color-rsvp-yes: #4ade80;
+  --color-rsvp-no-bg: #4c1d1d;
+  --color-rsvp-no: #f87171;
+  --color-rsvp-maybe-bg: #3730a3;
+  --color-rsvp-maybe: #c4b5fd;
+  --color-vendor-researching-bg: #1e293b;
+  --color-vendor-researching: #94a3b8;
+  --color-vendor-contacted-bg: #172554;
+  --color-vendor-contacted: #93c5fd;
+  --color-vendor-booked-bg: #134e4a;
+  --color-vendor-booked: #5eead4;
+  --color-vendor-paid-bg: #3a2d10;
+  --color-vendor-paid: #fbbf24;
+  --color-budget-over-bg: #4c1d1d;
+  --color-budget-over: #f87171;
+  --color-budget-ok-bg: #14532d;
+  --color-budget-ok: #4ade80;
+  --color-toggle-off: #374151;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

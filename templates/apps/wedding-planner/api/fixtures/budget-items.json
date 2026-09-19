@@ -1,0 +1,92 @@
+[
+  {
+    "id": "bud-001",
+    "wedding_id": "wd-001",
+    "category": "venue",
+    "label": "Ceremony + reception venue",
+    "estimated_cents": 950000,
+    "actual_cents": 950000,
+    "vendor": "Linden Hall Estate",
+    "notes": null
+  },
+  {
+    "id": "bud-002",
+    "wedding_id": "wd-001",
+    "category": "catering",
+    "label": "Plated dinner (120 guests)",
+    "estimated_cents": 720000,
+    "actual_cents": null,
+    "vendor": "Golden Fig Catering",
+    "notes": null
+  },
+  {
+    "id": "bud-003",
+    "wedding_id": "wd-001",
+    "category": "catering",
+    "label": "Bar package",
+    "estimated_cents": 180000,
+    "actual_cents": null,
+    "vendor": null,
+    "notes": null
+  },
+  {
+    "id": "bud-004",
+    "wedding_id": "wd-001",
+    "category": "photography",
+    "label": "Photographer (10h)",
+    "estimated_cents": 320000,
+    "actual_cents": 295000,
+    "vendor": "Alder & Lens Studio",
+    "notes": "Booked at a winter-rate discount"
+  },
+  {
+    "id": "bud-005",
+    "wedding_id": "wd-001",
+    "category": "attire",
+    "label": "Wedding attire + alterations",
+    "estimated_cents": 240000,
+    "actual_cents": null,
+    "vendor": null,
+    "notes": null
+  },
+  {
+    "id": "bud-006",
+    "wedding_id": "wd-001",
+    "category": "flowers",
+    "label": "Florals + ceremony arch",
+    "estimated_cents": 140000,
+    "actual_cents": null,
+    "vendor": null,
+    "notes": null
+  },
+  {
+    "id": "bud-007",
+    "wedding_id": "wd-001",
+    "category": "music",
+    "label": "Band + DJ",
+    "estimated_cents": 260000,
+    "actual_cents": null,
+    "vendor": null,
+    "notes": null
+  },
+  {
+    "id": "bud-008",
+    "wedding_id": "wd-001",
+    "category": "stationery",
+    "label": "Invitations + RSVP cards",
+    "estimated_cents": 45000,
+    "actual_cents": 41250,
+    "vendor": null,
+    "notes": null
+  },
+  {
+    "id": "bud-009",
+    "wedding_id": "wd-001",
+    "category": "other",
+    "label": "Hair + makeup",
+    "estimated_cents": 60000,
+    "actual_cents": null,
+    "vendor": null,
+    "notes": null
+  }
+]

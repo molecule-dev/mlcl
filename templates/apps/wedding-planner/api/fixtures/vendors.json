@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ven-001",
+    "wedding_id": "wd-001",
+    "category": "venue",
+    "name": "Linden Hall Estate",
+    "contact": "events@lindenhall.example",
+    "status": "paid",
+    "notes": "Deposit + balance both settled"
+  },
+  {
+    "id": "ven-002",
+    "wedding_id": "wd-001",
+    "category": "catering",
+    "name": "Golden Fig Catering",
+    "contact": "hello@goldenfig.example",
+    "status": "booked",
+    "notes": "Tasting confirmed for October"
+  },
+  {
+    "id": "ven-003",
+    "wedding_id": "wd-001",
+    "category": "photography",
+    "name": "Alder & Lens Studio",
+    "contact": "studio@alderlens.example",
+    "status": "booked",
+    "notes": null
+  },
+  {
+    "id": "ven-004",
+    "wedding_id": "wd-001",
+    "category": "flowers",
+    "name": "Petal + Stem",
+    "contact": "orders@petalstem.example",
+    "status": "contacted",
+    "notes": "Awaiting seasonal quote"
+  },
+  {
+    "id": "ven-005",
+    "wedding_id": "wd-001",
+    "category": "music",
+    "name": "The Nightingale Quartet",
+    "contact": null,
+    "status": "contacted",
+    "notes": null
+  },
+  {
+    "id": "ven-006",
+    "wedding_id": "wd-001",
+    "category": "attire",
+    "name": "Maison Blanche Bridal",
+    "contact": null,
+    "status": "researching",
+    "notes": null
+  }
+]

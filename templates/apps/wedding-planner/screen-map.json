@@ -1,0 +1,158 @@
+{
+  "app": "wedding-planner",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": ["app/components/AuthShell.tsx"],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": ["app/components/AuthShell.tsx"],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": ["app/components/AuthShell.tsx"],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": ["app/components/AuthShell.tsx"],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Rsvp",
+      "templateFile": "app/pages/Rsvp.tsx",
+      "components": [],
+      "route": "/rsvp/:code",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Guests",
+      "templateFile": "app/pages/Guests.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/guests",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Budget",
+      "templateFile": "app/pages/Budget.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/budget",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Vendors",
+      "templateFile": "app/pages/Vendors.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/vendors",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Tasks",
+      "templateFile": "app/pages/Tasks.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/tasks",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "SeatingChart",
+      "templateFile": "app/pages/SeatingChart.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/seating",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PlanUpdated",
+      "templateFile": "app/pages/PlanUpdated.tsx",
+      "components": ["app/components/WeddingLayout.tsx"],
+      "route": "/plan-updated",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

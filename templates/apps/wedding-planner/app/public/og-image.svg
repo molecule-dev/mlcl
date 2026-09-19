@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+
+  <!-- Everly: two interlocked wedding rings with a sparkle. -->
+  <g fill="none" stroke-linecap="round">
+    <circle cx="12" cy="19" r="8" stroke="#9f1239" stroke-width="2.6" />
+    <circle cx="21" cy="14" r="7" stroke="#b45309" stroke-width="2.2" />
+    <path d="M21 4.2 l1.05 2.45 2.45 1.05 -2.45 1.05 -1.05 2.45 -1.05 -2.45 -2.45 -1.05 2.45 -1.05 z"
+          fill="#b45309" stroke="none" />
+  </g>
+
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#333333">Everly</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#888888">Plan your wedding with a guest list, RSVP collection, budget tracking, vendor checklist, and seating chart — all in one calm place.</text>
+</svg>

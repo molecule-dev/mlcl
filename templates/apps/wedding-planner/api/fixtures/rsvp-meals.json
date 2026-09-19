@@ -1,0 +1,30 @@
+[
+  {
+    "id": "meal-001",
+    "wedding_id": "wd-001",
+    "name": "Herb chicken",
+    "description": "Roasted half chicken, thyme jus, seasonal vegetables",
+    "position": 0
+  },
+  {
+    "id": "meal-002",
+    "wedding_id": "wd-001",
+    "name": "Seared salmon",
+    "description": "Atlantic salmon, lemon beurre blanc, herb rice",
+    "position": 1
+  },
+  {
+    "id": "meal-003",
+    "wedding_id": "wd-001",
+    "name": "Mushroom risotto",
+    "description": "Carnaroli rice, wild mushrooms, parmesan (vegetarian)",
+    "position": 2
+  },
+  {
+    "id": "meal-004",
+    "wedding_id": "wd-001",
+    "name": "Beef tenderloin",
+    "description": "Grass-fed tenderloin, red wine reduction, potato gratin",
+    "position": 3
+  }
+]
