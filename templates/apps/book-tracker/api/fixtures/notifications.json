@@ -1,0 +1,7 @@
+[
+  { "id": "nt_001", "user_id": "demo", "type": "challenge_milestone", "title": "Challenge: 15 of 24 books", "body": "You are past the halfway mark of this year's reading challenge.", "href": "/challenge", "read": false, "created_at": "2026-09-18T08:00:00Z" },
+  { "id": "nt_002", "user_id": "demo", "type": "finished", "title": "Finished Thinking in Systems", "body": "Rate it and write a review to close it out.", "href": "/books/bk_003", "read": false, "created_at": "2026-08-30T09:20:00Z" },
+  { "id": "nt_003", "user_id": "demo", "type": "stalled", "title": "Piranesi is waiting", "body": "No progress logged in five days. A chapter tonight keeps it moving.", "href": "/books/bk_002", "read": true, "created_at": "2026-09-11T19:00:00Z" },
+  { "id": "nt_004", "user_id": "demo", "type": "weekly_digest", "title": "Your week in books", "body": "76 pages across 3 sittings. Sunday is a good catch-up day.", "href": "/stats", "read": true, "created_at": "2026-09-14T18:30:00Z" },
+  { "id": "nt_005", "user_id": "demo", "type": "challenge_milestone", "title": "Challenge goal set", "body": "24 books in 2026. That is two a month — very doable.", "href": "/challenge", "read": true, "created_at": "2026-01-02T10:00:00Z" }
+]

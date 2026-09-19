@@ -1,0 +1,61 @@
+{
+  "today": {
+    "date": "2026-09-19",
+    "currently_reading": [
+      { "user_book_id": "ub_001", "book_id": "bk_001", "title": "The Left Hand of Darkness", "author": "Ursula K. Le Guin", "cover_style": "indigo", "page_count": 304, "current_page": 187, "percent": 62, "started_at": "2026-08-24" },
+      { "user_book_id": "ub_002", "book_id": "bk_002", "title": "Piranesi", "author": "Susanna Clarke", "cover_style": "teal", "page_count": 245, "current_page": 96, "percent": 39, "started_at": "2026-09-06" }
+    ],
+    "minutes_today": 45,
+    "pages_today": 23,
+    "challenge": {
+      "year": 2026,
+      "goal_books": 24,
+      "books_read": 15,
+      "percent": 0.63,
+      "on_pace": true,
+      "books_behind": 0,
+      "pace_needed_per_week": 1.2,
+      "day_of_year": 262,
+      "days_in_year": 365
+    },
+    "motivational_message": "A few pages a day keeps the to-read pile honest."
+  },
+  "overview": {
+    "total_books": 12,
+    "shelved_books": 12,
+    "by_shelf": { "want_to_read": 5, "reading": 2, "read": 4, "dnf": 1 },
+    "finished_books": 4,
+    "finished_this_year": 4,
+    "pages_read": 1329,
+    "avg_rating": 4.5,
+    "weekly_pages": [
+      { "week": "2026-06-29", "pages": 98 },
+      { "week": "2026-07-06", "pages": 132 },
+      { "week": "2026-07-13", "pages": 120 },
+      { "week": "2026-07-20", "pages": 155 },
+      { "week": "2026-07-27", "pages": 141 },
+      { "week": "2026-08-03", "pages": 187 },
+      { "week": "2026-08-10", "pages": 164 },
+      { "week": "2026-08-17", "pages": 96 },
+      { "week": "2026-08-24", "pages": 138 },
+      { "week": "2026-08-31", "pages": 112 },
+      { "week": "2026-09-07", "pages": 90 },
+      { "week": "2026-09-14", "pages": 76 }
+    ],
+    "by_genre": [
+      { "genre": "sci-fi", "count": 2 },
+      { "genre": "nonfiction", "count": 2 },
+      { "genre": "fiction", "count": 1 },
+      { "genre": "mythology", "count": 1 },
+      { "genre": "nature", "count": 1 }
+    ],
+    "recent": [
+      { "user_book_id": "ub_002", "book_id": "bk_002", "title": "Piranesi", "author": "Susanna Clarke", "shelf": "reading", "rating": null, "finished_at": null, "updated_at": "2026-09-19T21:10:00Z" },
+      { "user_book_id": "ub_001", "book_id": "bk_001", "title": "The Left Hand of Darkness", "author": "Ursula K. Le Guin", "shelf": "reading", "rating": null, "finished_at": null, "updated_at": "2026-09-19T19:42:00Z" },
+      { "user_book_id": "ub_003", "book_id": "bk_003", "title": "Thinking in Systems", "author": "Donella Meadows", "shelf": "read", "rating": 5, "finished_at": "2026-08-29", "updated_at": "2026-08-30T09:15:00Z" },
+      { "user_book_id": "ub_010", "book_id": "bk_010", "title": "Braiding Sweetgrass", "author": "Robin Wall Kimmerer", "shelf": "read", "rating": 5, "finished_at": "2026-08-10", "updated_at": "2026-08-11T08:30:00Z" },
+      { "user_book_id": "ub_005", "book_id": "bk_005", "title": "Klara and the Sun", "author": "Kazuo Ishiguro", "shelf": "read", "rating": 4, "finished_at": "2026-06-20", "updated_at": "2026-06-21T10:05:00Z" },
+      { "user_book_id": "ub_004", "book_id": "bk_004", "title": "The Song of Achilles", "author": "Madeline Miller", "shelf": "read", "rating": 4, "finished_at": "2026-07-17", "updated_at": "2026-07-18T22:40:00Z" }
+    ]
+  }
+}

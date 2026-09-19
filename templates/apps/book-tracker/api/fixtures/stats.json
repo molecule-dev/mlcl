@@ -1,0 +1,41 @@
+{
+  "monthly": {
+    "year": 2026,
+    "months": [
+      { "month": 1, "label": "2026-01", "books": 2, "pages": 612 },
+      { "month": 2, "label": "2026-02", "books": 1, "pages": 245 },
+      { "month": 3, "label": "2026-03", "books": 2, "pages": 701 },
+      { "month": 4, "label": "2026-04", "books": 0, "pages": 0 },
+      { "month": 5, "label": "2026-05", "books": 1, "pages": 303 },
+      { "month": 6, "label": "2026-06", "books": 2, "pages": 741 },
+      { "month": 7, "label": "2026-07", "books": 3, "pages": 1179 },
+      { "month": 8, "label": "2026-08", "books": 3, "pages": 951 },
+      { "month": 9, "label": "2026-09", "books": 1, "pages": 204 },
+      { "month": 10, "label": "2026-10", "books": 0, "pages": 0 },
+      { "month": 11, "label": "2026-11", "books": 0, "pages": 0 },
+      { "month": 12, "label": "2026-12", "books": 0, "pages": 0 }
+    ]
+  },
+  "genres": {
+    "year": 2026,
+    "by_genre": [
+      { "genre": "fiction", "count": 4, "avg_rating": 4.2 },
+      { "genre": "nonfiction", "count": 3, "avg_rating": 4.7 },
+      { "genre": "sci-fi", "count": 2, "avg_rating": 4.5 },
+      { "genre": "mythology", "count": 1, "avg_rating": 4.0 },
+      { "genre": "nature", "count": 1, "avg_rating": 5.0 }
+    ]
+  },
+  "ratings": {
+    "year": 2026,
+    "distribution": [
+      { "stars": 1, "count": 0 },
+      { "stars": 2, "count": 0 },
+      { "stars": 3, "count": 1 },
+      { "stars": 4, "count": 2 },
+      { "stars": 5, "count": 2 }
+    ],
+    "average": 4.2,
+    "rated_count": 5
+  }
+}

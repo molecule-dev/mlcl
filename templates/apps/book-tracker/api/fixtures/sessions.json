@@ -1,0 +1,7 @@
+[
+  { "id": "rs_001", "user_book_id": "ub_001", "user_id": "demo", "date": "2026-09-19", "minutes": 25, "pages_read": 14, "note": "Crossing the ice sheet chapters.", "created_at": "2026-09-19T21:00:00Z" },
+  { "id": "rs_002", "user_book_id": "ub_001", "user_id": "demo", "date": "2026-09-18", "minutes": 40, "pages_read": 22, "note": null, "created_at": "2026-09-18T20:15:00Z" },
+  { "id": "rs_003", "user_book_id": "ub_001", "user_id": "demo", "date": "2026-09-16", "minutes": 30, "pages_read": 18, "note": null, "created_at": "2026-09-16T19:45:00Z" },
+  { "id": "rs_004", "user_book_id": "ub_002", "user_id": "demo", "date": "2026-09-12", "minutes": 35, "pages_read": 26, "note": "The statues on the second-floor vestibule.", "created_at": "2026-09-12T18:20:00Z" },
+  { "id": "rs_005", "user_book_id": "ub_003", "user_id": "demo", "date": "2026-08-29", "minutes": 55, "pages_read": 31, "note": "Finished the leverage points chapter.", "created_at": "2026-08-29T17:00:00Z" }
+]

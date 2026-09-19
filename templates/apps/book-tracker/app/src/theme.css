@@ -1,0 +1,265 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #115e59;
+  --mol-color-secondary: #b45309;
+  --mol-color-background: #faf9f7;
+  --mol-color-background-secondary: #f0f7f5;
+  --mol-color-background-tertiary: #e6f2ef;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f0f7f5;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1c1917;
+  --mol-color-text-secondary: #57534e;
+  --mol-color-text-tertiary: #a8a29e;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7e5e4;
+  --mol-color-border-secondary: #efedeb;
+  --mol-color-border-focus: #0f766e;
+  --mol-color-success: #15803d;
+  --mol-color-warning: #b45309;
+  --mol-color-error: #b91c1c;
+  --mol-color-info: #0369a1;
+
+  /* Brand */
+  --color-primary: #0f766e;
+  --color-primary-hover: #0d655e;
+  --color-primary-light: #ccfbf1;
+  --color-primary-dark: #115e59;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ccfbf1;
+  --color-on-primary-container: #042f2e;
+  --color-secondary: #b45309;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary-container: #451a03;
+  --color-tertiary: #92400e;
+  --color-tertiary-container: #fef3c7;
+  --color-on-tertiary: #451a03; /* 6.97:1 (amber-900 on amber-100) */
+  --color-on-tertiary-container: #451a03;
+  --color-background: #faf9f7;
+  --color-on-background: #1c1917;
+  --color-surface: #ffffff;
+  --color-surface-bright: #f0f7f5;
+  --color-surface-dim: #efedeb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f7f5;
+  --color-surface-container: #e6f2ef;
+  --color-surface-container-high: #d8e9e5;
+  --color-surface-container-highest: #c9dfd9;
+  --color-surface-variant: #e6f2ef;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #57534e;
+  --color-outline: #57534e; /* 7.4:1 vs #fff (stone-600, ≥3:1 large + ≥4.5 body) */
+  --color-outline-variant: #e7e5e4;
+  --color-surface-tint: #0f766e;
+  --color-inverse-surface: #1c1917;
+  --color-inverse-on-surface: #f0f7f5;
+  --color-inverse-primary: #5eead4;
+  --color-error: #b91c1c;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* 5.9:1 on red-700 */
+  --color-on-error-container: #450a0a;
+
+  /* Surface (aliases) */
+  --color-surface-hover: #f0f7f5;
+  --color-surface-active: #e6f2ef;
+
+  /* Sidebar */
+  --color-sidebar-bg: #ffffff;
+  --color-sidebar-hover: #f0f7f5;
+  --color-sidebar-active: #e6f2ef;
+  --color-sidebar-text: #1c1917;
+  --color-sidebar-text-muted: #a8a29e;
+
+  /* Text (aliases) */
+  --color-text: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #a8a29e;
+  --color-text-inverse: #ffffff;
+
+  /* Borders (aliases) */
+  --color-border: #e7e5e4;
+  --color-border-light: #efedeb;
+  --color-border-focus: #0f766e;
+
+  /* Hero gradient — dark enough for white text in both modes */
+  --color-gradient-hero-start: #115e59; /* 5.85:1 vs white */
+  --color-gradient-hero-end: #92400e; /* 5.51:1 vs white */
+
+  /* Reading accents */
+  --color-flame: #b45309; /* kept: shared copy treats this as the warm accent */
+  --color-challenge-glow: #fef3c7;
+  --color-achievement: #d97706;
+
+  /* Status */
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-error: #b91c1c;
+  --color-info: #0369a1;
+
+  /* Heatmap — pages-read intensity */
+  --color-heatmap-empty: #ebedf0;
+  --color-heatmap-level1: #99f6e4;
+  --color-heatmap-level2: #5eead4;
+  --color-heatmap-level3: #14b8a6;
+  --color-heatmap-level4: #115e59;
+
+  /* Book cover styles (AddBook swatches + BookCover gradient stops) */
+  --color-cover-teal: #0f766e;
+  --color-cover-amber: #b45309;
+  --color-cover-wine: #831843;
+  --color-cover-indigo: #3730a3;
+  --color-cover-forest: #166534;
+  --color-cover-slate: #334155;
+  --color-cover-plum: #581c87;
+  --color-cover-clay: #9a3412;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-streak: 2.5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Layout */
+  --content-max-width: 700px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-round: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 2px 8px rgba(15, 118, 110, 0.08);
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-normal: 250ms ease;
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark mode overrides — brand-calibrated library dark palette */
+[data-mol-mode='dark'] {
+  /* === @theme bridge === */
+  --mol-color-primary: #5eead4;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #99f6e4;
+  --mol-color-secondary: #fbbf24;
+  --mol-color-background: #171512;
+  --mol-color-background-secondary: #211e1a;
+  --mol-color-background-tertiary: #2a2621;
+  --mol-color-surface: #211e1a;
+  --mol-color-surface-secondary: #2a2621;
+  --mol-color-input-background: #171512;
+  --mol-color-text: #e7e5e4;
+  --mol-color-text-secondary: #a8a29e;
+  --mol-color-text-tertiary: #78716c;
+  --mol-color-text-inverse: #171512;
+  --mol-color-border: #3a352e;
+  --mol-color-border-secondary: #2a2621;
+  --mol-color-border-focus: #5eead4;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #7dd3fc;
+
+  /* Brand */
+  --color-primary: #5eead4;
+  --color-primary-hover: #99f6e4;
+  --color-primary-light: #134e4a;
+  --color-primary-dark: #99f6e4;
+  --color-on-primary: #042f2e; /* 9.9:1 on teal-300 */
+  --color-primary-container: #134e4a;
+  --color-on-primary-container: #ccfbf1;
+  --color-secondary: #fbbf24;
+  --color-on-secondary: #171512; /* 10.6:1 on amber-400 */
+  --color-secondary-container: #3a2f1a;
+  --color-on-secondary-container: #fef3c7;
+  --color-tertiary: #fcd34d;
+  --color-tertiary-container: #3a2f1a;
+  --color-on-tertiary: #171512;
+  --color-on-tertiary-container: #fef3c7;
+  --color-background: #171512;
+  --color-on-background: #e7e5e4;
+  --color-surface: #211e1a;
+  --color-surface-bright: #2a2621;
+  --color-surface-dim: #100e0c;
+  --color-surface-container-lowest: #100e0c;
+  --color-surface-container-low: #1c1917;
+  --color-surface-container: #211e1a;
+  --color-surface-container-high: #2a2621;
+  --color-surface-container-highest: #3a352e;
+  --color-surface-variant: #2a2621;
+  --color-on-surface: #e7e5e4;
+  --color-on-surface-variant: #a8a29e;
+  --color-outline: #a8a29e; /* 6.3:1 vs surface #211e1a */
+  --color-outline-variant: #3a352e;
+  --color-surface-tint: #5eead4;
+  --color-inverse-surface: #e7e5e4;
+  --color-inverse-on-surface: #171512;
+  --color-inverse-primary: #0f766e;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #450a0a; /* 6.7:1 on red-400 */
+  --color-on-error-container: #fecaca;
+
+  --color-surface-hover: #2a2621;
+  --color-surface-active: #3a352e;
+
+  --color-sidebar-bg: #211e1a;
+  --color-sidebar-hover: #2a2621;
+  --color-sidebar-active: #3a352e;
+  --color-sidebar-text: #e7e5e4;
+  --color-sidebar-text-muted: #78716c;
+
+  --color-text: #e7e5e4;
+  --color-text-secondary: #a8a29e;
+  --color-text-muted: #78716c;
+  --color-text-inverse: #171512;
+
+  --color-border: #3a352e;
+  --color-border-light: #2a2621;
+  --color-border-focus: #5eead4;
+
+  /* Hero gradient — dark enough for white text */
+  --color-gradient-hero-start: #134e4a; /* 9.7:1 vs white */
+  --color-gradient-hero-end: #451a03; /* 12.4:1 vs white */
+
+  /* Reading accents — keep warm glow vivid */
+  --color-flame: #fbbf24;
+  --color-challenge-glow: #3a2f1a;
+  --color-achievement: #fcd34d;
+
+  /* Status — brighter for dark contrast */
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-info: #7dd3fc;
+
+  --color-heatmap-empty: #2a2621;
+  --color-heatmap-level1: #134e4a;
+  --color-heatmap-level2: #0f766e;
+  --color-heatmap-level3: #2dd4bf;
+  --color-heatmap-level4: #5eead4;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
+}

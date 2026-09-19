@@ -1,0 +1,148 @@
+{
+  "app": "book-tracker",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card layout as Login with First Name, Last Name, Email, Password, Confirm Password fields. Heading 'Start your library'. Button text 'Create account'. Bottom link 'Already have an account? Sign in'. Pagebound wordmark and tagline preserved."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password', subtitle 'Enter your email to receive a reset link'. Gradient button 'Send reset link'. Bottom link 'Back to Sign in'. Pagebound wordmark preserved."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Gradient button 'Reset password'. Bottom link 'Back to Sign in'. Pagebound wordmark preserved."
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Books",
+      "templateFile": "app/pages/Books.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/books",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "BookDetail",
+      "templateFile": "app/pages/BookDetail.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/books/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "AddBook",
+      "templateFile": "app/pages/AddBook.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/books/new",
+      "auth": true,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/BookDetail.tsx",
+      "derivationNotes": "Same layout chrome as BookDetail (sidebar, header, content) but in form-creation mode: a single centered form card with Title (text), Author (text), Page count (number), Cover style swatch row (8 cover colors with live cover preview), Genre pill toggles (fiction/nonfiction/sci-fi/fantasy/mystery/history/biography/science/poetry/classics/mythology/nature), Shelve-as selector (Want to read / Reading / Read), Description textarea. Heading 'Add book'. Primary button 'Add book' uses the teal→amber gradient. Secondary 'Cancel' link returns to /books."
+    },
+    {
+      "name": "Challenge",
+      "templateFile": "app/pages/Challenge.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/challenge",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Reviews",
+      "templateFile": "app/pages/Reviews.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/reviews",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Profile",
+      "templateFile": "app/pages/Profile.tsx",
+      "components": ["app/components/BookshelfLayout.tsx"],
+      "route": "/profile",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}
