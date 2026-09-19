@@ -6,7 +6,7 @@ fleet, list flagship app templates, scaffold projects, add/wire packages, swap
 providers, and read package docs.
 
 > **Status:** built and tested; publishes to npm at launch. The `npx -y
-> molecule-mcp` entries below are the install-time interface. The
+molecule-mcp` entries below are the install-time interface. The
 > `@molecule/*` packages themselves are public on npm today.
 
 Also ships the molecule doctrine as a resource (`molecule://conventions`) and
@@ -26,26 +26,26 @@ npx mlcl mcp install
 
 Or use your harness's native command / config directly:
 
-| Harness | Install |
-|---|---|
-| Claude Code | `claude mcp add molecule -- npx -y molecule-mcp` *(or the plugin: `/plugin install molecule@molecule`)* |
-| Cursor | `cursor mcp add molecule -- npx -y molecule-mcp` |
-| Codex | `codex mcp add molecule -- npx -y molecule-mcp` (or `~/.codex/config.toml` `[mcp_servers.molecule]`) |
-| Gemini CLI | `gemini mcp add molecule npx -y molecule-mcp` *(no `--` separator)* |
-| Windsurf | edit `~/.codeium/windsurf/mcp_config.json` → `mcpServers.molecule` |
-| VS Code / Copilot | `.vscode/mcp.json` → `servers.molecule` |
-| OpenCode | `opencode.json` → `mcp.molecule = {type:"local", command:["npx","-y","molecule-mcp"]}` |
-| Amp | `~/.config/amp/settings.json` → `mcpServers.molecule` |
-| Crush | `~/.config/crush/config.json` → `mcpServers.molecule` |
-| Kiro | `.kiro/settings/mcp.json` (or `~/.kiro/settings/mcp.json`) → `mcpServers.molecule` |
-| Trae | `.trae/mcp.json` (or `~/.trae/mcp.json`) → `mcpServers.molecule` |
-| Zed | `.zed/settings.json` → `agent.mcp_servers.molecule` |
-| Goose | `~/.config/goose/config.yaml` under `extensions:` (or `goose configure`) |
-| Junie (JetBrains) | `/mcp` in Junie → add server, command `npx -y molecule-mcp` |
-| Cline / Kilo Code | MCP Servers → Configure → `mcpServers.molecule` (same shape) |
-| Continue | `config.json` → `mcpServers.molecule` |
-| Aider | recent versions support MCP — add `molecule`, command `npx -y molecule-mcp` |
-| Any MCP client | command: `npx`, args: `["-y", "molecule-mcp"]` |
+| Harness           | Install                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------- |
+| Claude Code       | `claude mcp add molecule -- npx -y molecule-mcp` _(or the plugin: `/plugin install molecule@molecule`)_ |
+| Cursor            | `cursor mcp add molecule -- npx -y molecule-mcp`                                                        |
+| Codex             | `codex mcp add molecule -- npx -y molecule-mcp` (or `~/.codex/config.toml` `[mcp_servers.molecule]`)    |
+| Gemini CLI        | `gemini mcp add molecule npx -y molecule-mcp` _(no `--` separator)_                                     |
+| Windsurf          | edit `~/.codeium/windsurf/mcp_config.json` → `mcpServers.molecule`                                      |
+| VS Code / Copilot | `.vscode/mcp.json` → `servers.molecule`                                                                 |
+| OpenCode          | `opencode.json` → `mcp.molecule = {type:"local", command:["npx","-y","molecule-mcp"]}`                  |
+| Amp               | `~/.config/amp/settings.json` → `mcpServers.molecule`                                                   |
+| Crush             | `~/.config/crush/config.json` → `mcpServers.molecule`                                                   |
+| Kiro              | `.kiro/settings/mcp.json` (or `~/.kiro/settings/mcp.json`) → `mcpServers.molecule`                      |
+| Trae              | `.trae/mcp.json` (or `~/.trae/mcp.json`) → `mcpServers.molecule`                                        |
+| Zed               | `.zed/settings.json` → `agent.mcp_servers.molecule`                                                     |
+| Goose             | `~/.config/goose/config.yaml` under `extensions:` (or `goose configure`)                                |
+| Junie (JetBrains) | `/mcp` in Junie → add server, command `npx -y molecule-mcp`                                             |
+| Cline / Kilo Code | MCP Servers → Configure → `mcpServers.molecule` (same shape)                                            |
+| Continue          | `config.json` → `mcpServers.molecule`                                                                   |
+| Aider             | recent versions support MCP — add `molecule`, command `npx -y molecule-mcp`                             |
+| Any MCP client    | command: `npx`, args: `["-y", "molecule-mcp"]`                                                          |
 
 `mlcl mcp install` writes/merges the JSON-config harnesses (Windsurf, VS Code,
 OpenCode, Amp, Crush, Kiro, Trae, Zed, Cursor-project) idempotently and never
@@ -64,15 +64,17 @@ registry listings (one-click), and for Claude Code the full plugin —
 
 ## Tools
 
-| Tool | What it does |
-|---|---|
-| `search_packages` | Search `@molecule/*` by capability ("payments", "social login") |
-| `list_templates` | The flagship app gallery (blog, crm, team-chat, …) |
-| `scaffold_project` | `mlcl create` unattended, JSON result |
-| `add_package` | Install + wire a package (`mlcl add --inject`) |
-| `swap_provider` | Swap a wired provider (`mlcl swap`) |
-| `read_package_doc` | A package's generated usage README (walks up to hoisted node_modules) |
-| `agent_init` | Write the molecule conventions into this project's agent files |
+| Tool                   | What it does                                                          |
+| ---------------------- | --------------------------------------------------------------------- |
+| `search_packages`      | Search `@molecule/*` by capability ("payments", "social login")       |
+| `list_templates`       | The flagship app gallery (blog, crm, team-chat, …)                    |
+| `scaffold_project`     | `mlcl create` unattended, JSON result                                 |
+| `add_package`          | Install + wire a package (`mlcl add --inject`)                        |
+| `swap_provider`        | Swap a wired provider (`mlcl swap`)                                   |
+| `read_package_doc`     | A package's generated usage README (walks up to hoisted node_modules) |
+| `agent_init`           | Write the molecule conventions into this project's agent files        |
+| `login` / `login_poll` | Browser device-code login (same token as the CLI — see below)         |
+| `whoami` / `logout`    | Login status / clear the token                                        |
 
 Plus the `molecule://conventions` resource — the molecule doctrine
 (packages before hand-rolled code, bonds for providers, ClassMap, i18n) that
@@ -116,6 +118,14 @@ your agent can read as context.
   chat connectors, v0 MCP integrations, bolt.new Connectors, and the short
   install (`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
   Deploy runbook: [DEPLOY.md](DEPLOY.md).
+
+## Login (platform features)
+
+Deploy/env-push/project tools need molecule.dev auth, and the login is the
+SAME one the CLI uses — call the `login` tool, show the returned URL + code
+to the user, poll with `login_poll` until `logged_in`. The token lands in
+`~/.mlcl/credentials.json` and covers every surface at once (this server,
+the mlcl CLI, and any CLI process it spawns). CI: set `MOLECULE_TOKEN`.
 
 ## Configuration
 

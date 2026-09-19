@@ -18,6 +18,7 @@ import { dirname, join } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
+import { clearCredentials, pollLogin, readCredentials, startLogin, whoami } from './auth.js'
 import { tracked } from './telemetry.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { execa } from 'execa'
@@ -255,6 +256,87 @@ server.registerResource(
         text: readFileSync(join(import.meta.dirname, '..', 'assets', 'conventions.md'), 'utf8'),
       },
     ],
+  }),
+)
+
+// ── Auth surface — the same device-code login + credentials file as the CLI. ──
+
+server.registerTool(
+  'login',
+  {
+    title: 'Log in to molecule.dev',
+    description:
+      'Start the browser login flow. Returns a URL and a code — show BOTH to the user and ask them to open the URL (they may need to log in first, then click Approve). Then call login_poll with the returned deviceCode until it says logged_in.',
+    inputSchema: {},
+  },
+  tracked('login', async () => {
+    const session = await startLogin()
+    return text(
+      JSON.stringify(
+        {
+          next: 'Show this URL to the user, then poll:',
+          url: session.url,
+          code: session.userCode,
+          deviceCode: session.deviceCode,
+        },
+        null,
+        2,
+      ),
+    )
+  }),
+)
+
+server.registerTool(
+  'login_poll',
+  {
+    title: 'Poll the molecule.dev login',
+    description:
+      'Check whether the user approved the login. Poll every few seconds after showing the login URL; logged_in means the token is stored and every surface (this server, the mlcl CLI, deploys) is authenticated.',
+    inputSchema: { deviceCode: z.string().describe('The deviceCode returned by the login tool') },
+  },
+  tracked('login_poll', async ({ deviceCode }) =>
+    text(JSON.stringify(await pollLogin(deviceCode))),
+  ),
+)
+
+server.registerTool(
+  'logout',
+  {
+    title: 'Log out of molecule.dev',
+    description:
+      'Remove the stored molecule.dev token (affects this server and the mlcl CLI alike).',
+    inputSchema: {},
+  },
+  tracked('logout', async () => {
+    clearCredentials()
+    return text('Logged out — stored token cleared.')
+  }),
+)
+
+server.registerTool(
+  'whoami',
+  {
+    title: 'Check molecule.dev login status',
+    description:
+      'Returns the logged-in account, or a prompt to run login. Call this before platform operations (deploy, env push) to give a clear not-logged-in error instead of a 401.',
+    inputSchema: {},
+  },
+  tracked('whoami', async () => {
+    if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
+      return text(JSON.stringify({ loggedIn: false, hint: 'Call the login tool first.' }))
+    }
+    try {
+      const me = await whoami()
+      return text(
+        me
+          ? JSON.stringify({ loggedIn: true, ...me })
+          : JSON.stringify({ loggedIn: false, hint: 'Token invalid — run login.' }),
+      )
+    } catch (_error) {
+      return text(
+        JSON.stringify({ loggedIn: false, hint: 'Could not reach molecule.dev — retry whoami.' }),
+      )
+    }
   }),
 )
 
