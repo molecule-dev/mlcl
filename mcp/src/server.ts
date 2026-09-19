@@ -17,6 +17,8 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+
+import { tracked } from './telemetry.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { execa } from 'execa'
 import { z } from 'zod'
@@ -58,12 +60,12 @@ server.registerTool(
       limit: z.number().int().min(1).max(100).optional(),
     },
   },
-  async ({ query, stack, limit }) => {
+  tracked('search_packages', async ({ query, stack, limit }) => {
     const args = ['search', query, '--json']
     if (stack) args.push('--stack', stack)
     if (limit) args.push('--limit', String(limit))
     return text(await runCli(args))
-  },
+  }),
 )
 
 server.registerTool(
@@ -74,7 +76,7 @@ server.registerTool(
       'List the flagship full-stack app templates (blog, crm, team-chat, …) with slugs, descriptions, and package counts — the fastest starting point for a new app.',
     inputSchema: {},
   },
-  async () => text(await runCli(['templates', '--json'])),
+  tracked('list_templates', async () => text(await runCli(['templates', '--json']))),
 )
 
 server.registerTool(
@@ -101,17 +103,20 @@ server.registerTool(
       directory: z.string().optional().describe('Directory to scaffold in (default cwd)'),
     },
   },
-  async ({ name, template, type, framework, packages, skip_install, directory }) => {
-    const args = ['create', name, '--no-interactive', '--json']
-    if (template) args.push('--template', template)
-    if (type) args.push('--type', type)
-    if (framework) args.push('--framework', framework)
-    if (packages) args.push('--packages', packages)
-    if (skip_install) args.push('--skip-install')
-    const out = await runCli(args, directory)
-    const start = out.indexOf('{')
-    return text(start === -1 ? out : out.slice(start))
-  },
+  tracked(
+    'scaffold_project',
+    async ({ name, template, type, framework, packages, skip_install, directory }) => {
+      const args = ['create', name, '--no-interactive', '--json']
+      if (template) args.push('--template', template)
+      if (type) args.push('--type', type)
+      if (framework) args.push('--framework', framework)
+      if (packages) args.push('--packages', packages)
+      if (skip_install) args.push('--skip-install')
+      const out = await runCli(args, directory)
+      const start = out.indexOf('{')
+      return text(start === -1 ? out : out.slice(start))
+    },
+  ),
 )
 
 server.registerTool(
@@ -128,7 +133,9 @@ server.registerTool(
         .describe('Project root containing package.json (default cwd)'),
     },
   },
-  async ({ name, directory }) => text(await runCli(['add', name, '--inject'], directory)),
+  tracked('add_package', async ({ name, directory }) =>
+    text(await runCli(['add', name, '--inject'], directory)),
+  ),
 )
 
 server.registerTool(
@@ -148,11 +155,11 @@ server.registerTool(
       directory: z.string().optional(),
     },
   },
-  async ({ new_provider, replace, directory }) => {
+  tracked('swap_provider', async ({ new_provider, replace, directory }) => {
     const args = ['swap', new_provider, '--no-interactive', '--install']
     if (replace) args.push('-r', replace)
     return text(await runCli(args, directory))
-  },
+  }),
 )
 
 server.registerTool(
@@ -169,7 +176,7 @@ server.registerTool(
         .describe('Project root to resolve node_modules from (default cwd)'),
     },
   },
-  async ({ name, directory }) => {
+  tracked('read_package_doc', async ({ name, directory }) => {
     const short = name.replace(/^@molecule\//, '')
     const base = directory ?? process.cwd()
     // Walk UP from the given directory like Node's module resolution: in a
@@ -193,7 +200,7 @@ server.registerTool(
     return text(
       `No local README found for @molecule/${short} — is it installed near ${base}? Run search_packages to find it, add_package to install it, or browse https://www.molecule.dev/packages/${short}`,
     )
-  },
+  }),
 )
 
 /** base, base/.., base/../.. — bounded like node_modules lookup. */
@@ -224,7 +231,9 @@ server.registerTool(
       directory: z.string().optional().describe('Project root (default cwd)'),
     },
   },
-  async ({ directory }) => text(await runCli(['agent', 'init'], directory ?? process.cwd())),
+  tracked('agent_init', async ({ directory }) =>
+    text(await runCli(['agent', 'init'], directory ?? process.cwd())),
+  ),
 )
 
 server.registerResource(

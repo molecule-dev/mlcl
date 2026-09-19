@@ -16,6 +16,8 @@
 import { readFileSync } from 'node:fs'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+
+import { tracked } from './telemetry.js'
 import { z } from 'zod'
 
 const REGISTRY_URL =
@@ -83,7 +85,7 @@ export function buildRemoteServer(): McpServer {
         limit: z.number().int().min(1).max(100).optional(),
       },
     },
-    async ({ query, limit }) => {
+    tracked('search_packages', async ({ query, limit }) => {
       const registry = await fetchJson<{ packages: Record<string, RegistryEntry> }>(
         REGISTRY_URL,
         REGISTRY_FILE,
@@ -105,7 +107,7 @@ export function buildRemoteServer(): McpServer {
           install: `npx mlcl add ${hit.name} --inject`,
         }))
       return text(JSON.stringify(hits, null, 2))
-    },
+    }),
   )
 
   server.registerTool(
@@ -116,7 +118,7 @@ export function buildRemoteServer(): McpServer {
         'List the flagship full-stack app templates (blog, crm, team-chat, …) — the fastest starting point for a new app.',
       inputSchema: {},
     },
-    async () => {
+    tracked('list_templates', async () => {
       const t = await fetchJson<{
         templates: Record<
           string,
@@ -134,7 +136,7 @@ export function buildRemoteServer(): McpServer {
           create: `npx mlcl create my-app --template ${slug} --no-interactive`,
         }))
       return text(JSON.stringify(list, null, 2))
-    },
+    }),
   )
 
   server.registerTool(
@@ -147,7 +149,7 @@ export function buildRemoteServer(): McpServer {
         name: z.string().describe('Package name, with or without the @molecule/ scope'),
       },
     },
-    async ({ name }) => {
+    tracked('read_package_doc', async ({ name }) => {
       const short = name.replace(/^@molecule\//, '')
       try {
         const meta = (await (
@@ -169,7 +171,7 @@ export function buildRemoteServer(): McpServer {
       return text(
         `Doc not fetched for @molecule/${short} — browse https://www.molecule.dev/packages/${short}`,
       )
-    },
+    }),
   )
 
   server.registerResource(

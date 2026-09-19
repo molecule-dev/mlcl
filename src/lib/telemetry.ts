@@ -1,0 +1,100 @@
+/**
+ * Anonymous, opt-out usage telemetry for the mlcl CLI — dogfoods the
+ * molecule analytics bond family end to end: this module bonds
+ * `@molecule/api-analytics` (the same interface scaffolded apps consume) with
+ * the `@molecule/api-analytics-http` provider, POSTing events to
+ * molecule.dev's first-party ingestion route.
+ *
+ * Posture (see README "Telemetry"):
+ *   - OPT-OUT: on by default; `MOLECULE_TELEMETRY=0` disables entirely.
+ *   - ANONYMOUS: no accounts, no paths, no argument values, no project names.
+ *     Events carry: command name, outcome, duration, CLI/Node versions,
+ *     platform/arch, and a random install id (uuid in ~/.mlcl/telemetry-id —
+ *     delete the file to rotate it).
+ *   - NEVER BREAKS THE CLI: every emit is fire-and-forget with a 5s timeout;
+ *     failures are swallowed (logged only under MLCL_DEBUG=1).
+ *   - NO-OP WITHOUT ENDPOINT: unset URL (or unreachable endpoint) = silence.
+ */
+import { randomUUID } from 'node:crypto'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { homedir } from 'node:os'
+import { join } from 'node:path'
+
+const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
+const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
+
+export function telemetryEnabled(): boolean {
+  return process.env.MOLECULE_TELEMETRY !== '0'
+}
+
+export function telemetryUrl(): string | undefined {
+  return process.env.MOLECULE_TELEMETRY_URL ?? DEFAULT_URL
+}
+
+/** Random per-install id — the ONLY cross-event identifier. Rotate by deleting the file. */
+export function anonymousInstallId(): string {
+  try {
+    if (existsSync(ID_FILE)) return readFileSync(ID_FILE, 'utf8').trim()
+    const id = randomUUID()
+    mkdirSync(join(ID_FILE, '..'), { recursive: true })
+    writeFileSync(ID_FILE, id)
+    return id
+  } catch (_error) {
+    // An unreadable/writable-less home dir just means no stable install id —
+    // 'unknown' still groups this machine's events coarsely.
+    return 'unknown'
+  }
+}
+
+let providerReady = false
+
+async function ensureProvider(): Promise<void> {
+  if (providerReady) return
+  providerReady = true
+  const { setProvider } = await import('@molecule/api-analytics')
+  const { createHttpAnalyticsProvider } = await import('@molecule/api-analytics-http')
+  setProvider(
+    createHttpAnalyticsProvider({
+      url: telemetryUrl(),
+      source: 'mlcl',
+      onError: (error) => {
+        if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] emit failed:', error)
+      },
+    }),
+  )
+}
+
+export interface TelemetryEventProps {
+  command: string
+  ok: boolean
+  durationMs: number
+  errorName?: string
+}
+
+/** Fire-and-forget event emission — resolves immediately; never throws. */
+export function trackCliEvent(props: TelemetryEventProps): void {
+  if (!telemetryEnabled()) return
+  void (async () => {
+    try {
+      await ensureProvider()
+      const { track } = await import('@molecule/api-analytics')
+      await track({
+        name: 'cli.command',
+        anonymousId: anonymousInstallId(),
+        properties: {
+          command: props.command,
+          ok: props.ok,
+          durationMs: Math.round(props.durationMs),
+          errorName: props.errorName,
+          cliVersion: '2.0.0',
+          nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
+          platform: process.platform,
+          arch: process.arch,
+        },
+      })
+    } catch (_error) {
+      // Never break the CLI over telemetry — the bond already swallows emit
+      // failures; this guards the lazy-import/bonding path itself.
+    }
+  })()
+}

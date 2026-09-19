@@ -166,6 +166,24 @@ npx mlcl init --name api-my-feature-redis --type provider --category my-feature
 npx mlcl validate ./packages/api-my-feature
 ```
 
+## Telemetry & privacy
+
+`mlcl` (and `molecule-mcp`) collect **anonymous, opt-out usage telemetry** so
+development is data-driven: which commands run, whether they succeed, and how
+long they take. The pipeline is molecule dogfooding itself — the CLI bonds the
+same `@molecule/api-analytics` interface scaffolded apps use.
+
+- **What's collected:** command/tool name, outcome (ok/failed), duration,
+  CLI/server version, Node major version, platform/arch — nothing else. No
+  paths, no project names, no argument values, no user identity, no code.
+- **The only identifier** is a random per-install id (a UUID at
+  `~/.mlcl/telemetry-id`). Delete the file to rotate it.
+- **Opt out:** `MOLECULE_TELEMETRY=0` (env var, checked per run). Point it
+  elsewhere with `MOLECULE_TELEMETRY_URL`, or inspect traffic yourself with
+  `MLCL_DEBUG=1` (emit failures are logged).
+- **Never breaks anything:** emission is fire-and-forget with a 5s timeout;
+  failures are swallowed. With no reachable endpoint the CLI is silent.
+
 ## FAQ
 
 **Why does my scaffolded project have a `.npmrc` with `legacy-peer-deps=true`?**

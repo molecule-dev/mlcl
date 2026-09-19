@@ -51,6 +51,9 @@ public, which is a launch-day step), `PORT`.
 
 1. mlcl repo public + `mlcl`/`molecule-mcp` published (the default URLs depend
    on the public repo).
+   1b. Platform deploy carries the `/v1/telemetry/cli` ingestion route
+   (molecule-dev api — Resource/Telemetry) so CLI/MCP telemetry lands in the
+   analyticsEvents dashboards from day one.
 2. `fly deploy` + cert + DNS for `mcp.molecule.dev`.
 3. Verify: `claude mcp add --transport https https://mcp.molecule.dev/mcp`
    then `/mcp` shows `molecule-remote` with the read tools.

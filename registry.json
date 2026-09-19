@@ -2042,6 +2042,32 @@
       },
       "path": "packages/api/core/analytics"
     },
+    "@molecule/api-analytics-http": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "analytics",
+      "label": "HTTP Analytics Provider",
+      "description": "Generic HTTP analytics provider — POSTs track/identify/page events to a configured first-party endpoint (built for mlcl/molecule-mcp telemetry).",
+      "stack": "api",
+      "implements": "@molecule/api-analytics",
+      "exports": [
+        "createHttpAnalyticsProvider",
+        "HttpAnalyticsProviderOptions"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-analytics"
+      ],
+      "moleculePeers": [],
+      "path": "packages/api/bonds/analytics/http",
+      "intentHints": [
+        "analytics http provider",
+        "telemetry",
+        "first-party analytics",
+        "cli telemetry"
+      ]
+    },
     "@molecule/api-analytics-mixpanel": {
       "language": "typescript",
       "runtime": "node",

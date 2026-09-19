@@ -60,6 +60,11 @@
       "agent": {
         "description": "Make your AI coding agent molecule-aware"
       }
+    },
+    "hooks": {
+      "init": "./dist/hooks/telemetry-init.js",
+      "postrun": "./dist/hooks/telemetry-done.js",
+      "command_error": "./dist/hooks/telemetry-done.js"
     }
   },
   "scripts": {
@@ -105,7 +110,9 @@
     "zod": "4.4.3",
     "@molecule/api-staging": "1.0.1",
     "@molecule/api-staging-state": "1.0.1",
-    "@molecule/api-ci-github-actions": "1.0.1"
+    "@molecule/api-ci-github-actions": "1.0.1",
+    "@molecule/api-analytics": "1.0.1",
+    "@molecule/api-analytics-http": "1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

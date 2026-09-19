@@ -125,7 +125,9 @@ your agent can read as context.
   (default: the mlcl repo's raw GitHub URLs once public; `*_FILE` overrides
   for local dev) and `PORT`.
 - All write tools are explicit CLI invocations with explicit arguments — no
-  background behavior, no telemetry.
+  background behavior. Anonymous opt-out tool-call telemetry (name/outcome/
+  duration only; `MOLECULE_TELEMETRY=0` disables — see the mlcl README's
+  "Telemetry & privacy" section).
 
 ## Requirements
 
