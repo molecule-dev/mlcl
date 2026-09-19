@@ -31,6 +31,16 @@ staged with exact copy so submission is paste-and-click.
 - **awesome-claude-code** — the plugin entry (`molecule@molecule`), not just the MCP server
 - Hugging Face smolagents / community skill lists if the Agent-Skills format takes off — our SKILL.md files already conform
 
+## Vibecoding platforms (needs the hosted remote MCP)
+
+Lovable (chat connectors), v0 (MCP integrations), and bolt.new (Connectors)
+all accept MCP servers — but REMOTE (HTTP URL) ones, and molecule-mcp ships
+stdio-only today. A hosted `https://mcp.molecule.dev` (read tools:
+search/templates/docs) unlocks all three as additional surfaces AND gives
+every CLI harness the short one-URL install. Do it post-launch; the
+graduation-path story for their exported apps is meanwhile covered by
+[FROM-VIBECODING.md](FROM-VIBECODING.md).
+
 ## Claude Code plugin (separate track)
 
 Already staged at `integrations/claude-code/` — at launch: move contents to the

@@ -668,6 +668,7 @@ _See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/
 - [Templates gallery](https://www.molecule.dev/templates)
 - [AI agents guide](docs/AGENTS-AND-HARNESSES.md) — every harness, every method
 - [Integrating into an existing app](docs/INTEGRATE-EXISTING-APP.md)
+- [Graduating from a vibe-coded prototype](docs/FROM-VIBECODING.md) — Lovable / v0 / bolt.new / Replit → production
 
 ## License
 
