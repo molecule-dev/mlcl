@@ -1,6 +1,6 @@
 {
   "name": "molecule",
-  "description": "Build full-stack apps with Molecule — scaffold from 130+ flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
+  "description": "Build full-stack apps with Molecule — scaffold from 134 flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
   "version": "0.1.0",
   "author": {
     "name": "Molecule Dev, Inc.",

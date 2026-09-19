@@ -4,6 +4,11 @@ Molecule is built agent-first: the CLI is non-interactive by flag, emits JSON,
 and every scaffolded project teaches your agent its conventions. This guide
 covers every supported harness and every wiring method, with examples.
 
+> **Status:** `mlcl` and `molecule-mcp` publish to npm at launch — until then
+> run from a repo checkout (`node mlcl/bin/run.js …`) and point the MCP server
+> at it via `MOLECULE_MCP_CLI`. The `@molecule/*` packages themselves are
+> public on npm today.
+
 **The one-paragraph version:** run `npx mlcl agent init` (context) and
 `npx mlcl mcp install` (tools) — or install the Claude Code plugin, or just
 paste the prompt block from the README into any agent. Then ask your agent to
@@ -15,14 +20,14 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 
 ## What your agent gets
 
-| Surface                | What it provides                                                                                                                     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `mlcl` CLI (`npx`)     | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`) |
-| Scaffolded `AGENTS.md` | the project's conventions, in context the moment any agent opens the project                                                         |
-| `agent init`           | those same conventions written into any existing project / harness's instruction files                                               |
-| `molecule` MCP server  | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool   |
-| Claude Code plugin     | two skills + the MCP server, marketplace-updated                                                                                     |
-| Package READMEs        | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design           |
+| Surface                          | What it provides                                                                                                                     |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `mlcl` CLI (`npx`)               | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`) |
+| Scaffolded `AGENTS.md`           | the project's conventions, in context the moment any agent opens the project                                                         |
+| `agent init`                     | those same conventions written into any existing project / harness's instruction files                                               |
+| `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool   |
+| Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                     |
+| Package READMEs                  | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design           |
 
 ---
 
@@ -107,7 +112,7 @@ The standard entry (what `mlcl mcp install` writes) is
 `{"command": "npx", "args": ["-y", "molecule-mcp"]}` — adjust only if your
 client needs a different shape (OpenCode does; the installer knows).
 
-## Method 4 — the Claude Code plugin (the deluxe path)
+## Method 4 — the Claude Code plugin (the deluxe path; repo goes public at launch)
 
 ```
 /plugin marketplace add molecule-dev/molecule-claude-code
@@ -121,7 +126,7 @@ MCP server, updated through the marketplace. Skills trigger on intent
 ## Method 5 — the hosted remote endpoint (no local install)
 
 The read-only face of the server, served over HTTP at
-`https://mcp.molecule.dev/mcp` (live at launch — see mcp/DEPLOY.md). Tools:
+`https://mcp.molecule.dev/mcp` (live at launch — see [../mcp/DEPLOY.md](../mcp/DEPLOY.md)). Tools:
 `search_packages`, `list_templates`, `read_package_doc`, and the
 `molecule://conventions` resource; the catalog streams live from the public
 repo and docs from npm.

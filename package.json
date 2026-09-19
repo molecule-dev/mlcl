@@ -1,7 +1,7 @@
 {
   "name": "mlcl",
   "version": "2.0.0",
-  "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from hundreds of composable, swappable @molecule/* packages",
+  "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from 900+ composable, swappable @molecule/* packages",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
   "type": "module",
@@ -16,7 +16,8 @@
     "cli",
     "ai",
     "ai-agent",
-    "code-generation"
+    "code-generation",
+    "mcp"
   ],
   "homepage": "https://molecule.dev",
   "repository": {
@@ -38,7 +39,8 @@
     "/bin",
     "/dist",
     "/templates",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/docs"
   ],
   "oclif": {
     "bin": "mlcl",
@@ -49,9 +51,6 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "molecule": {
-        "description": "Manage molecules in your project"
-      },
       "stage": {
         "description": "Manage staging environments (up, down, status, logs)"
       },

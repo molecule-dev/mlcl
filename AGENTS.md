@@ -32,13 +32,13 @@ Repo layout beyond `src/` (agent-facing surfaces — keep their docs in sync):
 
 - `mcp/` — the `molecule-mcp` package (own package.json, not an npm workspace
   member). stdio mode wraps this CLI; `remote.ts`/`http.ts` are the hosted
-  read-only face (`mcp.molecule.dev`, see mcp/DEPLOY.md).
+  read-only face slated for `mcp.molecule.dev` — NOT yet deployed; see mcp/DEPLOY.md).
   **Invariant:** `mcp/assets/conventions.md` is a copy of
   `templates/shared/agent-init-section.md.tpl` — update both together.
 - `integrations/claude-code/` — the Claude Code plugin + marketplace skeleton;
   launch runbook in its README.
 - `docs/` — user-facing guides (AGENTS-AND-HARNESSES, INTEGRATE-EXISTING-APP,
-  FROM-VIBECODING, LISTINGS). These ship on GitHub/npm — no internal narrative.
+  FROM-VIBECODING, LISTINGS). These ship on GitHub and in the npm tarball (files array includes /docs) — no internal narrative.
 
 ---
 
@@ -158,14 +158,14 @@ node bin/run.js sync-registry    # Sync exports, routes, tables, toolchain, fram
 node bin/run.js sync-docs        # Regenerate/validate all README.md files
 ```
 
-Also update PLAN.md to mark completed items.
+Also update the plan doc in the workspace `internal/mlcl/plans/` to mark completed items.
 
 ### Why this is easy to forget — and what guards it
 
 `registry.json` lives in **mlcl**, but a package's exports (the source of truth)
 live in the **molecule** repo. They are separate repos: a changed export drifts
 the registry silently, mlcl's CI never checks out molecule, and nothing reconciles
-them but a manual `sync-registry --scan-exports`. (This is how 815 packages' export
+them but a manual `sync-registry --scan-exports`. (This is how the then-815-package fleet' export
 lists went stale once — every component package's `.tsx` re-exports recorded as a
 bare `"*"`.)
 
@@ -199,17 +199,17 @@ router. The filter is by map MEMBERSHIP, never by name — grade keys its own
   as unit tests (tables, routes), so a stale registry fails the suite.
 - **`npm run registry:check`** (mlcl) / **`npm run verify:registry`** (workspace
   root) — the comprehensive `sync-registry --check`: exports, routes **and** tables,
-  toolchain, frameworks. Needs a full build, so it works **locally** (the workspace
-  symlinks resolve `@molecule/*`) but not in an mlcl-only CI checkout until packages
-  are published.
+  toolchain, frameworks. Needs a full build; the published fleet installs fine in
+  an mlcl-only checkout now that `@molecule/*` is on npm, but the full
+  molecule-side build is still workspace-only.
 - **mlcl CI `registry-sync` job** (`.github/workflows/ci.yml`) — the only gate that
   catches drift introduced from the molecule side without an mlcl commit. It checks
   out **both** repos as siblings and runs `verify:registry-exports` (the tsx,
   build-free export check) on every push/PR. Inert until enabled: set the repo
   **variable** `REGISTRY_SYNC_CHECK=true`. `molecule` is a public repo, so no
   token/secret is needed (the default `GITHUB_TOKEN` checks it out anonymously).
-  Post-MVP (once packages publish and a full build works in CI), this can be
-  upgraded to the comprehensive `registry:check`.
+  Once a full molecule build works in mlcl CI, this can be upgraded to the
+  comprehensive `registry:check`.
 
 When any of these fail, the fix is always: `node bin/run.js sync-registry
 --scan-exports` / `--scan-routes` (in mlcl; the failure names which) then commit
@@ -482,7 +482,7 @@ The injector uses AI (Anthropic API) for code generation when `ANTHROPIC_API_KEY
 
 Hard-won lessons. Violating any of these wastes time.
 
-1. **Never stop partway through a task.** Before starting batch work, create a complete checklist. Process every item exhaustively. Track remaining items in a persistent file (`mlcl/.agents/plans/`) so the next session can resume. "Done" means every item is checked off.
+1. **Never stop partway through a task.** Before starting batch work, create a complete checklist. Process every item exhaustively. Track remaining items in a persistent file (workspace `internal/mlcl/plans/`) so the next session can resume. "Done" means every item is checked off.
 
 2. **Verify assumptions before building on them.** When debugging, log actual input values at the entry point FIRST. Do not build logic based on what you THINK a parameter contains. One `console.log` beats 30 minutes of guessing. Start from the call site and work inward.
 
@@ -492,6 +492,6 @@ Hard-won lessons. Violating any of these wastes time.
 
 5. **Respect ClassMap architecture in templates.** All page styling uses `getClassMap()` + `cm.*` methods. NEVER replace ClassMap with inline styles or raw Tailwind. Inline styles are only allowed for things ClassMap can't express (colored border accents, specific widths, SVG attributes).
 
-6. **All project knowledge lives in the repo.** Agent guidelines, pitfalls, debugging lessons, and behavioral rules must be committed to version-controlled files (AGENTS.md, `.agents/plans/`, code comments). Never store project knowledge in `~/.claude/` — it's invisible to other developers and machines.
+6. **All project knowledge lives in the repo.** Agent guidelines, pitfalls, debugging lessons, and behavioral rules must be committed to version-controlled files (AGENTS.md, workspace `internal/mlcl/plans/`, code comments). Never store project knowledge in `~/.claude/` — it's invisible to other developers and machines.
 
-7. **Injector `projectPath` is the workspace path.** In `src/lib/injector.ts`, `projectPath` is the workspace directory (e.g., `blog/app`), NOT the project root (`blog`). Use `join(projectPath, '..')` to access project-level files like `theme.css`. See Pitfall #15 in `.agents/plans/flagship-pitfalls.md`.
+7. **Injector `projectPath` is the workspace path.** In `src/lib/injector.ts`, `projectPath` is the workspace directory (e.g., `blog/app`), NOT the project root (`blog`). Use `join(projectPath, '..')` to access project-level files like `theme.css`. See Pitfall #15 in the workspace `internal/mlcl/plans/flagship-pitfalls.md`.

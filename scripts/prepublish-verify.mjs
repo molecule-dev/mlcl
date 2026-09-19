@@ -41,9 +41,10 @@ const BINARY_EXT = new Set([
 ])
 const FORBIDDEN_TARBALL_PATHS = [
   /^\.agents\//,
-  /^docs\//,
   /^AGENTS\.md$/,
   /^\.claude/,
+  // NOTE: docs/ is deliberately SHIPPED (files array) — the user-facing
+  // guides are npm content. Only internal dot-dirs above stay out.
   // npm's `files` array BYPASSES .gitignore/.npmignore (verified empirically):
   // anything a local e2e/playwright run drops under templates/ would ship in
   // the tarball. These patterns refuse that loudly instead of publishing junk.

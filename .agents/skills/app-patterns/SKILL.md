@@ -220,7 +220,7 @@ Templates wire i18n in `config.ts` using `createSimpleI18nProvider` with English
 Interface definitions live in the actual package source code. To look up any core interface, read its `src/types.ts` in the molecule repo:
 
 ```
-~/molecule-workspace/molecule/packages/app/core/{name}/src/types.ts
+~/Repos/molecule-workspace/molecule/packages/app/core/{name}/src/types.ts
 ```
 
 Each package's README.md also documents its interfaces, provider pattern, and available methods. When working on a frontend package, read the relevant source — don't rely on cached summaries.
@@ -250,7 +250,7 @@ Key rules:
 - Always check `isSupported()` before calling methods
 - Reference: `packages/app/native/{name}/src/types.ts` for each interface
 
-Scan `~/molecule-workspace/molecule/packages/app/native/` for all available native capability packages.
+Scan `~/Repos/molecule-workspace/molecule/packages/app/native/` for all available native capability packages.
 
 ### Feature Package Pattern
 
@@ -269,4 +269,4 @@ export interface MapProvider {
 
 Features are typically more complex than native capabilities and may have framework-specific bindings.
 
-Scan `~/molecule-workspace/molecule/packages/app/features/` for available feature packages. Read each package's `src/types.ts` for the interface definition.
+Scan `~/Repos/molecule-workspace/molecule/packages/app/features/` for available feature packages. Read each package's `src/types.ts` for the interface definition.

@@ -13,6 +13,10 @@ description: Using the mlcl CLI to create projects, inject packages, swap provid
 | `mlcl inject`        | Run injection on an existing project (regenerate wiring)                 |
 | `mlcl add`           | Add a molecule package to an existing project                            |
 | `mlcl swap`          | Replace a provider with another implementing the same interface          |
+| `mlcl search`        | Search @molecule/* packages by name or capability                        |
+| `mlcl templates`     | List the flagship app templates                                          |
+| `mlcl agent init`    | Make a coding agent molecule-aware (AGENTS.md + harness files)           |
+| `mlcl mcp install`   | Register the molecule MCP server with a coding agent                     |
 | `mlcl init`          | Scaffold a new `@molecule/*` package and register it                     |
 | `mlcl sync-registry` | Sync registry.json with source packages (exports, toolchain, frameworks) |
 | `mlcl sync-docs`     | Generate/validate README.md files from source + registry                 |
@@ -58,10 +62,10 @@ You do NOT need to list every package. The CLI auto-resolves several categories:
 | **Companion locales** | Locale bonds for included feature/resource packages are auto-detected         | Including `@molecule/api-resource-user` auto-includes `@molecule/api-locales-user`                                                                 |
 | **Core interfaces**   | When a provider is included, its core interface is auto-included              | `@molecule/api-database-postgresql` auto-includes `@molecule/api-database`                                                                         |
 
-**What to pass in `--packages`:** Only the explicitly chosen providers, resources, and features. For demo-project (the full demo project), this is:
+**What to pass in `--packages`:** Only the explicitly chosen providers, resources, and features. For the current demo set, read `molecule-dev/{api,app}/package.json` — the manifests are the source of truth (the dependency set grows with the platform). A representative slice:
 
 ```
-@molecule/api-ai-anthropic,@molecule/api-code-sandbox-docker,@molecule/api-database-postgresql,@molecule/api-emails-mailgun,@molecule/api-i18n-simple,@molecule/api-middleware-body-parser-express,@molecule/api-middleware-cookie-parser-express,@molecule/api-middleware-cors-express,@molecule/api-oauth-github,@molecule/api-oauth-gitlab,@molecule/api-oauth-google,@molecule/api-oauth-twitter,@molecule/api-payments-apple,@molecule/api-payments-google,@molecule/api-payments-stripe,@molecule/api-push-notifications-web-push,@molecule/api-resource-conversation,@molecule/api-resource-device,@molecule/api-resource-payment,@molecule/api-resource-project,@molecule/api-resource-user,@molecule/api-secrets-env,@molecule/api-uploads-s3,@molecule/app-ai-chat-http,@molecule/app-code-editor-monaco,@molecule/app-i18n-react-i18next,@molecule/app-ide-default,@molecule/app-live-preview-iframe,@molecule/app-push,@molecule/app-routing,@molecule/app-state-zustand
+@molecule/api-database-postgresql,@molecule/api-emails-mailgun,@molecule/api-oauth-github,@molecule/api-payments-stripe,@molecule/api-resource-user,@molecule/app-auth,@molecule/app-i18n-react-i18next,@molecule/app-state-zustand
 ```
 
 ### Workspace Usage
@@ -73,10 +77,14 @@ In the molecule-workspace, `@molecule/*` packages resolve locally via npm worksp
 node bin/run.js create ../molecule-dev --type full-stack --framework react --no-interactive --skip-install --packages <list>
 
 # Then install from workspace root (NOT from molecule-dev/)
-cd ~/molecule-workspace && npm install
+cd ~/Repos/molecule-workspace && npm install
 ```
 
-`--skip-install` is essential in the workspace because `npm install` inside the created project directory would try to fetch `@molecule/*` from the npm registry (they don't exist there). Installing from the workspace root resolves them locally.
+`--skip-install` matters in the workspace because `npm install` inside the created
+project directory would resolve the PUBLISHED `@molecule/*` versions from npm,
+shadowing the workspace's local links to `molecule/packages/*/dist` — uncommitted
+local package changes would silently not apply. Installing from the workspace
+root keeps everything resolving through the workspace.
 
 ---
 
@@ -366,10 +374,10 @@ export { requestHandlerMap } from '@molecule/api-resource-device'
 
 ## Operational Pitfalls
 
-### "Cannot find module @molecule/*" during npm install
+### Workspace links lost / wrong versions after npm install
 
-**Cause:** Running `npm install` inside `molecule-dev/api` or `molecule-dev/app` instead of the workspace root.
-**Fix:** Always `cd ~/molecule-workspace && npm install`.
+**Cause:** Running `npm install` inside `molecule-dev/api` or `molecule-dev/app` instead of the workspace root — the nested install resolves published registry copies instead of the workspace links (and can shadow them).
+**Fix:** Always `cd ~/Repos/molecule-workspace && npm install`.
 
 ### TypeScript errors after mlcl create
 
@@ -416,7 +424,7 @@ After creating a project:
 2. **Build** — `cd molecule-dev/api && npm run build` and `cd molecule-dev/app && npm run build`
 3. **Test** — `cd molecule-dev/api && npm test` and `cd molecule-dev/app && npm test`
 4. **Configure .env** — Copy `.env.example` to `.env` and fill in secret values (API keys, database URL, etc.)
-5. **Run database migrations** — Execute SQL files in `api/setup/` against your database
+5. **Run database migrations** — Execute SQL files in `api/migrations/` (resource DDL in `api/__setup__/`) against your database
 6. **Start dev server** — `cd molecule-dev && npm run dev` (or run api and app separately)
 
 ### Customizing branding

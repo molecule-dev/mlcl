@@ -103,7 +103,7 @@ src/routes.ts              → Declarative route definitions
 src/requestHandlerMap.ts   → Maps names → handlers, conditional on bonds
 src/handlers/              → DataStore methods, never raw queries
 src/authorizers/           → Auth middleware
-src/__setup__/             → SQL migrations
+setup/                     → SQL from resource packages (legacy: src/__setup__/)
 README.md / package.json
 ```
 
@@ -112,7 +112,7 @@ README.md / package.json
 Interface definitions live in the actual package source code. To look up a core API interface, read its `src/types.ts` in the molecule repo:
 
 ```
-~/molecule-workspace/molecule/packages/api/core/{name}/src/types.ts
+~/Repos/molecule-workspace/molecule/packages/api/core/{name}/src/types.ts
 ```
 
 ---
@@ -416,7 +416,7 @@ router.delete('/:id', async (req, res) => {
 })
 ```
 
-Extract it to a `requireOwned(table, id, userId, res)` helper (→ the row, or `null` after sending 404) and reuse it across the resource's routes so no route forgets. For **shared/collaborative** resources widen the check to membership (owner OR a `<resource>_members` row) — the write-path authz must match the read-path (and realtime join-guard) authz. **Global/admin-managed** resources (a shared catalog, plans) use a `requireAdmin`-style role authorizer instead. (This mirrors the scaffolded `auth` skill's "Ownership Scoping — the #1 rule".)
+Extract it to a `requireOwned(table, id, userId, res)` helper (→ the row, or `null` after sending 404) and reuse it across the resource's routes so no route forgets. For **shared/collaborative** resources widen the check to membership (owner OR a `<resource>_members` row) — the write-path authz must match the read-path (and realtime join-guard) authz. **Global/admin-managed** resources (a shared catalog, plans) use a `requireAdmin`-style role authorizer instead.
 
 ### Wiring
 
@@ -507,14 +507,7 @@ When a handler includes optional behavior that should not break the main flow, w
 // From read handler — reading two-factor secrets is optional
 if (session?.userId === id) {
   try {
-    const secrets = (
-      await dbQuery<types.SecretProps>(
-        `SELECT "pendingTwoFactorSecret", "twoFactorSecret"
-         FROM "${tableName}Secrets"
-         WHERE "id" = $1`,
-        [id],
-      )
-    )?.rows?.[0]
+    const secrets = await findById<types.SecretProps>(`${tableName}Secrets`, id)
 
     if (secrets) {
       body.twoFactorEnabled = user.twoFactorEnabled || false

@@ -14,7 +14,7 @@ Templates live in `templates/app/{framework}/`.
 Each `@molecule/app-ui-{framework}` package has its own approach (components vs class generators vs raw ClassMap). Read the package's README.md or `src/index.ts` for available exports:
 
 ```
-~/molecule-workspace/molecule/packages/app/frameworks/{framework}-ui/
+~/Repos/molecule-workspace/molecule/packages/app/frameworks/{framework}-ui/
 ```
 
 The ClassMap interface itself is defined in `@molecule/app-ui` — read its `src/types.ts` for all available methods (`cm.button()`, `cm.container()`, `cm.sp()`, etc.).

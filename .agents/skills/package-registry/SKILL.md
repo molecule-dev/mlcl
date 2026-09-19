@@ -9,7 +9,7 @@ description: Look up existing molecule packages, check what exists in a category
 
 To look up packages programmatically, use `loadRegistry('api' | 'app')` which returns `InferredPackage[]` from the registry. Use `getRawRegistry()` to get the raw `Registry` object.
 
-To validate package placement: `npx tsx scripts/validate-packages.ts`
+To validate package placement: `mlcl validate <package-dir>`
 
 ## Registry Structure
 

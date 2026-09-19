@@ -8,7 +8,7 @@
     {
       "name": "molecule",
       "source": "./plugins/molecule",
-      "description": "Build full-stack apps with Molecule — scaffold from 130+ flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
+      "description": "Build full-stack apps with Molecule — scaffold from 134 flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
       "category": "development"
     }
   ]

@@ -8,7 +8,7 @@ via `.mcp.json`, so tools like `search_packages` / `list_templates` /
 ## Layout
 
 ```
-.claude-plugin/marketplace.json     # marketplace "molecule" (this repo root)
+.claude-plugin/marketplace.json     # marketplace "molecule" (future standalone repo root — see runbook below)
 plugins/molecule/                   # the plugin
   .claude-plugin/plugin.json        # manifest (only file allowed in .claude-plugin/)
   skills/build-with-molecule/SKILL.md

@@ -5,12 +5,16 @@ The [Molecule.dev](https://molecule.dev) MCP server — structured tools over th
 fleet, list flagship app templates, scaffold projects, add/wire packages, swap
 providers, and read package docs.
 
+> **Status:** built and tested; publishes to npm at launch. The `npx -y
+> molecule-mcp` entries below are the install-time interface. The
+> `@molecule/*` packages themselves are public on npm today.
+
 Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
 connecting this ONE server delivers both the capability and the context.
 
 The broader agent guide (all harnesses, all wiring methods, example agent
-workflows): [mlcl docs/AGENTS-AND-HARNESSES.md](https://github.com/molecule-dev/mlcl/blob/main/docs/AGENTS-AND-HARNESSES.md).
+workflows): [../docs/AGENTS-AND-HARNESSES.md](../docs/AGENTS-AND-HARNESSES.md) (in the mlcl repo).
 
 ## Install
 
@@ -43,13 +47,14 @@ Or use your harness's native command / config directly:
 | Aider | recent versions support MCP — add `molecule`, command `npx -y molecule-mcp` |
 | Any MCP client | command: `npx`, args: `["-y", "molecule-mcp"]` |
 
-`mlcl mcp install` writes/merges all of the JSON-config rows above idempotently
-and never clobbers existing servers; for YAML/UI harnesses (Goose, Junie,
-Cline, Continue, Aider) it prints the exact snippet instead of risking a
+`mlcl mcp install` writes/merges the JSON-config harnesses (Windsurf, VS Code,
+OpenCode, Amp, Crush, Kiro, Trae, Zed, Cursor-project) idempotently and never
+clobbers existing servers; for the YAML/UI harnesses (Goose, Junie,
+Cline/Kilo, Continue, Aider) it prints the exact snippet instead of risking a
 mangled config.
 
 Why the long form? A stdio MCP server is a local process the client spawns, so
-the client needs its launch command. Shorter paths: the hosted endpoint —
+the client needs its launch command. Shorter paths (all at launch): the hosted endpoint —
 `claude mcp add --transport https https://mcp.molecule.dev/mcp`, one URL for
 any HTTP-capable client, or paste it into Lovable/v0/bolt connector forms —
 the [Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
@@ -91,7 +96,7 @@ your agent can read as context.
 
 // add_package / swap_provider — grow and reconfigure
 { "name": "@molecule/api-emails-mailgun" }
-{ "new_provider": "@molecule/api-database-mysql", "replace": "postgresql" }
+{ "new_provider": "@molecule/api-database-mysql", "replace": "@molecule/api-database-postgresql" }
 
 // read_package_doc — the package's own generated usage reference
 { "name": "api-payments-stripe", "directory": "/abs/my-project/api" }
@@ -105,27 +110,27 @@ your agent can read as context.
 - **Local stdio** (default, `molecule-mcp`): full tool set, wraps the local
   `mlcl` CLI. What every CLI harness registers.
 - **Hosted HTTP** (`molecule-mcp-serve` / `node dist/http.js`): the read-only
-  face at `https://mcp.molecule.dev/mcp` — search/templates/docs/conventions
-  served from the live registry and npm, no local install needed. This is the
-  surface URL-based clients use: Lovable chat connectors, v0 MCP integrations,
-  bolt.new Connectors, and the short install
-  (`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
+  face, slated for `https://mcp.molecule.dev/mcp` (deploys at launch) —
+  search/templates/docs/conventions served from the live registry and npm, no
+  local install needed. This is the surface URL-based clients use: Lovable
+  chat connectors, v0 MCP integrations, bolt.new Connectors, and the short
+  install (`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
   Deploy runbook: [DEPLOY.md](DEPLOY.md).
 
 ## Configuration
 
-- Local mode shells out to the `mlcl` binary (published package, resolved
-  from PATH). Override for local/dev: `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`.
+- Local mode shells out to the `mlcl` binary (resolved from PATH; override
+  for local/dev with `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`).
 - Remote mode env: `MOLECULE_REGISTRY_URL` / `MOLECULE_TEMPLATES_URL`
-  (default: the public mlcl repo's raw GitHub URLs; `*_FILE` overrides for
-  local dev) and `PORT`.
+  (default: the mlcl repo's raw GitHub URLs once public; `*_FILE` overrides
+  for local dev) and `PORT`.
 - All write tools are explicit CLI invocations with explicit arguments — no
   background behavior, no telemetry.
 
 ## Requirements
 
-- Node.js ≥ 22; local mode additionally needs `mlcl` resolvable (the
-  published npm package; override with `MOLECULE_MCP_CLI=/path/to/bin/run.js`
+- Node.js ≥ 22; local mode additionally needs `mlcl` resolvable (override
+  with `MOLECULE_MCP_CLI=/path/to/bin/run.js`
   for local/dev use).
 
 ## License

@@ -7,7 +7,7 @@ description: Testing patterns for molecule packages. Vitest setup, mock factorie
 
 ## Test Framework
 
-All molecule packages use **vitest** (version 4.0.18). The testing infrastructure package is `@molecule/api-testing`, which provides mock factories, pre-configured singletons, helpers, and fixtures.
+All molecule packages use **vitest** (fleet pins 4.1.11). The testing infrastructure package is `@molecule/api-testing`, which provides mock factories, pre-configured singletons, helpers, and fixtures.
 
 ---
 

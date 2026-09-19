@@ -35,7 +35,7 @@ npx mlcl add @molecule/api-payments-stripe --inject # billing that isn't duct ta
 #    Read node_modules/@molecule/<name>/README.md for its API.
 
 # 5. Swap anything, anytime:
-npx mlcl swap @molecule/api-emails-ses -r mailgun
+npx mlcl swap @molecule/api-emails-ses -r @molecule/api-emails-mailgun
 ```
 
 Details on what `add`/`inject`/`swap` expect from your project's layout —
@@ -51,17 +51,17 @@ while molecule's local server is a stdio process. The hosted read-only face
 (`mcp.molecule.dev` — search/templates/package-docs/conventions, no local
 install required) is built and deploys at launch; point any of those
 builders' connector forms at its URL and their agents can consult the package
-fleet mid-build the same way Claude Code can today.
+fleet mid-build the same way a CLI harness can via the local server.
 
 ## The honest comparison
 
-|                         | vibe-coded prototype | molecule build                    |
-| ----------------------- | -------------------- | --------------------------------- |
-| Time to first demo      | minutes              | minutes (130+ flagship templates) |
-| Auth/payments/email     | stubbed or glued     | production packages, swappable    |
-| Provider change         | rewrite              | `mlcl swap`                       |
-| Agent works on it later | improvises           | follows the scaffolded AGENTS.md  |
-| Ownership               | exported code        | exported code — same              |
+|                         | vibe-coded prototype | molecule build                   |
+| ----------------------- | -------------------- | -------------------------------- |
+| Time to first demo      | minutes              | minutes (134 flagship templates) |
+| Auth/payments/email     | stubbed or glued     | production packages, swappable   |
+| Provider change         | rewrite              | `mlcl swap`                      |
+| Agent works on it later | improvises           | follows the scaffolded AGENTS.md |
+| Ownership               | exported code        | exported code — same             |
 
 The prototype tools are great at the demo. Molecule is what's still standing
 at version 3.

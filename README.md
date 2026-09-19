@@ -1,6 +1,6 @@
 # mlcl — the Molecule.dev CLI
 
-Scaffold and manage production full-stack apps from hundreds of composable,
+Scaffold and manage production full-stack apps from 900+ composable,
 swappable `@molecule/*` packages.
 
 `mlcl create` gives you a real, conventional TypeScript project — Express API,
@@ -9,7 +9,7 @@ is a package behind a **bond** (a swappable provider interface), so you can
 change PostgreSQL for MySQL, Mailgun for SES, or one OAuth provider for
 another by changing one wiring file, not rewriting your app.
 
-- **Start from a working app**: 130+ flagship templates (blog, CRM, team chat,
+- **Start from a working app**: 134 flagship templates (blog, CRM, team chat,
   online store, …) — real screens, real handlers, real data models.
 - **Stay decoupled**: cores define interfaces; bonds implement them. Your code
   talks to `bond('email')`, never to a vendor SDK.
@@ -23,6 +23,11 @@ npm install -g mlcl   # or just use npx mlcl … everywhere
 ```
 
 Node.js ≥ 22.
+
+> **Status:** `mlcl` (and `molecule-mcp`) publish to npm at launch — the
+> `npx mlcl …` commands throughout this README are the install-time interface.
+> Until then, run from a repo checkout: `node mlcl/bin/run.js …`. The
+> `@molecule/*` packages themselves are public on npm today.
 
 ## Quickstart (60 seconds)
 
@@ -90,7 +95,7 @@ npx mlcl add @molecule/api-logger
 
 # Swap a provider — same interface, different vendor, no rewrite:
 npx mlcl swap @molecule/api-database-mysql            # PostgreSQL → MySQL
-npx mlcl swap @molecule/api-emails-ses -r mailgun     # several wired? name the one to replace
+npx mlcl swap @molecule/api-emails-ses -r @molecule/api-emails-mailgun   # several wired? name the one to replace
 
 # Preview what injection would do, change nothing:
 npx mlcl inject --dry-run
@@ -124,7 +129,7 @@ OpenCode, Windsurf, Cline, Zed, …). Four ways to wire molecule in — pick any
 | **One command** | `npx mlcl agent init` | conventions written into the files your harness reads (AGENTS.md, Cursor rules, Claude skill, Gemini extension, Windsurf rule) |
 | **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness — works across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro, Trae, Zed, Amp, Crush, Cline, VS Code, … |
 | **Hosted URL** (at launch) | `claude mcp add --transport https https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new connectors | the read tools (search/templates/docs/conventions) with no local install |
-| **Claude Code plugin** | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
+| **Claude Code plugin** (at launch) | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
 
 The full guide with every harness, config path, and example workflow:
 [docs/AGENTS-AND-HARNESSES.md](docs/AGENTS-AND-HARNESSES.md).

@@ -36,7 +36,7 @@ bring it back to your own repo with the `mlcl` CLI.**
    packages, wire them, or swap providers — see below. These commands operate
    directly on your real files; nothing is ported into the IDE.
 
-> **Why the CLI and not an MCP server?** See
+> **CLI or MCP server?** See
 > [Surface decision](#surface-decision-cli-vs-mcp-server) at the bottom.
 
 ---
@@ -72,8 +72,8 @@ mlcl add @molecule/api-emails-mailgun
 range) and runs `npm install`.
 
 **Version resolution.** It first asks npm for the published version. If that
-lookup fails — the package isn't on the public registry yet (the current MVP
-state), you're offline, or you use a private registry — it **falls back to the
+lookup fails — you're offline, or your registry doesn't proxy the
+`@molecule/*` scope — it **falls back to the
 exact lockstep version recorded in the molecule registry** and warns you so you
 can adjust it:
 
@@ -132,7 +132,7 @@ This:
    and rewires `src/bonds/index.ts`.
 4. Runs `npm install`, syncs assets, and formats.
 
-Flags: `--replace <pkg>` (required when more than one provider for the interface
+Flags: `-r, --replace <full-package-name>` (required when more than one provider for the interface
 is installed), `--no-interactive`, `--no-install`, `--no-format`.
 
 > If your app uses the bond convention but was never scaffolded by `mlcl create`
@@ -143,13 +143,10 @@ is installed), `--no-interactive`, `--no-install`, `--no-format`.
 
 ## Caveats & what to do when conventions don't line up
 
-- **`@molecule/*` packages are not on the public npm registry yet.** During the
-  MVP, `npm install @molecule/x` will 404. Two ways forward:
-  - Bring the packages in via your IDE export (the exported project already
-    references them), or
-  - Point your `package.json` at local/file or a private registry. `mlcl add`'s
-    registry-version fallback keeps the command working in the meantime, but the
-    install step still needs the package to be resolvable by your package manager.
+- **`@molecule/*` packages are public on npm** (Apache-2.0). `mlcl add` and a
+  plain `npm install @molecule/<name>` both resolve from the registry; the
+  registry-version fallback only matters when you're offline or behind a
+  registry that doesn't proxy the scope.
 - **No `src/bonds/` directory.** If your existing app doesn't follow the bond
   convention, `mlcl swap` can't find where wiring lives. Easiest fix: scaffold
   the feature in the IDE (which produces `src/bonds/`), copy that directory in,
@@ -172,18 +169,16 @@ is installed), `--no-interactive`, `--no-install`, `--no-format`.
 
 ## Surface decision: CLI vs MCP server
 
-ADV1 asks which surface to ship for external-app integration: the **CLI**
-(`mlcl add`/`swap`/`inject`) or a dedicated **MCP server / bridge**. The MVP
-answer is the **CLI**.
+Which surface serves external-app integration: the **CLI**
+(`mlcl add`/`swap`/`inject`) or a dedicated **MCP server / bridge**? The CLI
+is the primary surface.
 
-**Why the CLI is the MVP surface:**
+**Why the CLI is the primary surface:**
 
-- It already exists and works end-to-end on a real, non-scaffold project
-  (verified: `add` with registry-version fallback, `swap` on a flat app with no
-  `molecule.projectType` marker, the result type-checks).
-- It operates **directly on the user's files in their own dev environment** —
-  exactly what ADV1 wants ("port it over to their usual dev environment"). There
-  is nothing to host, no process to keep alive, no auth.
+- It works end-to-end on a real, non-scaffold project — including `swap` on a
+  flat app with no `molecule.projectType` marker.
+- It operates **directly on the user's files in their own dev environment**.
+  There is nothing to host, no process to keep alive, no auth.
 - It is the most universal surface: every editor, agent, and CI runner has a
   terminal. No editor-specific integration is required.
 - "Export" is just getting the IDE's generated files into the user's repo
@@ -191,13 +186,13 @@ answer is the **CLI**.
   the local CLI does the integration. No bridge process is needed to connect the
   two.
 
-**MCP server — shipped (2026-09-19), layered on the CLI exactly as planned.**
-`molecule-mcp` is a thin structured wrapper over these same `mlcl`
-operations: a local stdio mode (full tool set, wraps the local CLI — what
-`mlcl mcp install` registers) and a hosted read-only HTTP mode at
-`https://mcp.molecule.dev/mcp` (search/templates/docs/conventions; the surface
-URL-based clients like Lovable/v0/bolt connectors use). The CLI remains the
-source of truth and the most universal surface; the MCP server serves agents
-that prefer structured tools over shelling out. Everything in this guide
-still applies unchanged — see
+**MCP server — built (2026-09-19), layered on the CLI exactly as planned;
+publishes to npm at launch.** `molecule-mcp` is a thin structured wrapper over
+these same `mlcl` operations: a local stdio mode (full tool set, wraps the
+local CLI — what `mlcl mcp install` registers) and a hosted read-only HTTP
+mode at `https://mcp.molecule.dev/mcp` (search/templates/docs/conventions;
+deploys at launch — the surface URL-based clients like Lovable/v0/bolt
+connectors use). The CLI remains the source of truth and the most universal
+surface; the MCP server serves agents that prefer structured tools over
+shelling out. Everything in this guide still applies unchanged — see
 [AGENTS-AND-HARNESSES.md](AGENTS-AND-HARNESSES.md) for the full wiring guide.

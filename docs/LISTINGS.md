@@ -6,10 +6,10 @@ staged with exact copy so submission is paste-and-click.
 ## Canonical listing copy
 
 - **Name:** `molecule` (server `molecule-mcp`) · **Display:** Molecule.dev
-- **Tagline:** Build production full-stack apps from 800+ composable, swappable packages — scaffold, extend, and swap providers with one command.
+- **Tagline:** Build production full-stack apps from 900+ composable, swappable packages — scaffold, extend, and swap providers with one command.
 - **Short description (≤100 chars):** Scaffold, extend, and provider-swap production full-stack apps with Molecule.
 - **Long description:**
-  > Molecule.dev scaffolds real, production-grade TypeScript apps from hundreds of composable `@molecule/*` packages behind swappable bonds. This server gives your agent structured tools to search the package fleet, list 130+ flagship app templates, scaffold projects unattended, add/wire packages, swap providers without rewrites, and read each package's generated docs — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
+  > Molecule.dev scaffolds real, production-grade TypeScript apps from 900+ composable `@molecule/*` packages behind swappable bonds. This server gives your agent structured tools to search the package fleet, list 134 flagship app templates, scaffold projects unattended, add/wire packages, swap providers without rewrites, and read each package's generated docs — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
 - **Tags/categories:** scaffolding, boilerplate, fullstack, code-generation, typescript, developer-tools
 - **Links:** repo `github.com/molecule-dev/mlcl` · npm `npmjs.com/package/molecule-mcp` · site `molecule.dev` · docs `…/blob/main/docs/AGENTS-AND-HARNESSES.md`
 - **Install line:** `npx mlcl mcp install` (or the standard entry `npx -y molecule-mcp`)
@@ -31,15 +31,16 @@ staged with exact copy so submission is paste-and-click.
 - **awesome-claude-code** — the plugin entry (`molecule@molecule`), not just the MCP server
 - Hugging Face smolagents / community skill lists if the Agent-Skills format takes off — our SKILL.md files already conform
 
-## Vibecoding platforms (hosted remote MCP — BUILT, deploy at launch)
+## Vibecoding platforms (hosted remote MCP — built, deploys with launch)
 
 Lovable (chat connectors), v0 (MCP integrations), and bolt.new (Connectors)
-all accept MCP servers — but REMOTE (HTTP URL) ones, and molecule-mcp ships
-stdio-only today. A hosted `https://mcp.molecule.dev` (read tools:
-search/templates/docs) unlocks all three as additional surfaces AND gives
-every CLI harness the short one-URL install. Do it post-launch; the
-graduation-path story for their exported apps is meanwhile covered by
-[FROM-VIBECODING.md](FROM-VIBECODING.md).
+all accept MCP servers — but REMOTE (HTTP URL) ones. molecule-mcp's hosted
+read-only face is built (`mcp/src/http.ts` + `remote.ts`; deploy runbook in
+`mcp/DEPLOY.md`): `https://mcp.molecule.dev/mcp` serving the read tools
+(search/templates/docs + the conventions resource). Deploying it unlocks all
+three builders as additional surfaces AND gives every CLI harness the short
+one-URL install. The graduation-path story for their exported apps is
+meanwhile covered by [FROM-VIBECODING.md](FROM-VIBECODING.md).
 
 ## Claude Code plugin (separate track)
 

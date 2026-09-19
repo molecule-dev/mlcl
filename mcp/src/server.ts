@@ -139,7 +139,12 @@ server.registerTool(
       'Swap a wired provider for another implementing the same interface (e.g. @molecule/api-database-mysql for PostgreSQL) without rewriting the app. Use -r when the category has several providers wired.',
     inputSchema: {
       new_provider: z.string().describe('New provider package, e.g. @molecule/api-database-mysql'),
-      replace: z.string().optional().describe('Provider to replace when several are wired'),
+      replace: z
+        .string()
+        .optional()
+        .describe(
+          'Full package name of the provider to replace, e.g. @molecule/api-emails-mailgun (required when several are wired)',
+        ),
       directory: z.string().optional(),
     },
   },

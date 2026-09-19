@@ -197,12 +197,12 @@ To look up a core interface's required export, methods, and provider pattern, re
 
 ```
 # API core interfaces
-~/molecule-workspace/molecule/packages/api/core/{name}/README.md
-~/molecule-workspace/molecule/packages/api/core/{name}/src/types.ts
+~/Repos/molecule-workspace/molecule/packages/api/core/{name}/README.md
+~/Repos/molecule-workspace/molecule/packages/api/core/{name}/src/types.ts
 
 # App core interfaces
-~/molecule-workspace/molecule/packages/app/core/{name}/README.md
-~/molecule-workspace/molecule/packages/app/core/{name}/src/types.ts
+~/Repos/molecule-workspace/molecule/packages/app/core/{name}/README.md
+~/Repos/molecule-workspace/molecule/packages/app/core/{name}/src/types.ts
 ```
 
 Each README.md documents the interface, required export shape, provider pattern (`setProvider`/`getProvider`/`hasProvider`), and available methods. Always read the source — don't rely on cached summaries.
