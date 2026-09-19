@@ -1,0 +1,15 @@
+{
+  "name": "molecule",
+  "owner": {
+    "name": "Molecule Dev, Inc.",
+    "url": "https://molecule.dev"
+  },
+  "plugins": [
+    {
+      "name": "molecule",
+      "source": "./plugins/molecule",
+      "description": "Build full-stack apps with Molecule — scaffold from 130+ flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
+      "category": "development"
+    }
+  ]
+}

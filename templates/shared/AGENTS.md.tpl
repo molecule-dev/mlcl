@@ -5,7 +5,7 @@ This project was scaffolded with [mlcl](https://molecule.dev) — the Molecule.d
 ## The molecule way
 
 - **Capabilities come from `@molecule/*` packages behind swappable bonds.** Before hand-rolling a feature, check for a package: `npx mlcl search <capability>` (or browse <https://www.molecule.dev/packages>). Install and wire one with `npx mlcl add @molecule/<name> --inject`.
-- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `npx mlcl swap <category> <from> <to>`, or by editing the one bond file. Do not import vendor SDKs outside a bond — that is the single rule that keeps the app swappable.
+- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `npx mlcl swap @molecule/<new-provider>` (pass `-r <provider>` when the category has several wired), or by editing the one bond file. Do not import vendor SDKs outside a bond — that is the single rule that keeps the app swappable.
 - **Read a package's docs before using it.** Every `@molecule/*` package ships a generated README at `node_modules/@molecule/<name>/README.md` with its API, examples, and wiring.
 - **Styling** goes through the ClassMap bond — `getClassMap()` from `@molecule/app-ui` and its framework bindings — not raw utility-class strings or ad-hoc CSS.
 - **All user-facing text through i18n** — `t('key', values, { defaultValue })` with translations in the locale bonds; never hardcode strings in components.

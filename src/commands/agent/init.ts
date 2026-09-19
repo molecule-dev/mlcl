@@ -29,6 +29,12 @@ const CURSOR_RULE = (body: string): string =>
 const CLAUDE_SKILL = (body: string): string =>
   `---\nname: molecule\ndescription: Build and extend full-stack apps with Molecule — scaffold with mlcl, prefer @molecule/* packages, swap providers via bonds\n---\n\n${body}`
 
+const GEMINI_EXTENSION = (body: string): string =>
+  `# Molecule\n\nGemini CLI extension: the molecule conventions + mlcl quickstart.\n\n${body.replace(/^## Molecule\n/, '')}`
+
+const WINDSURF_RULE = (body: string): string =>
+  `---\ntrigger: always_on\ndescription: Molecule conventions — build and extend apps with mlcl + @molecule packages\n---\n\n${body}`
+
 /** Detect which agent harness is active in a directory, if any. */
 function detectHarness(root: string): string {
   for (const [harness, markers] of Object.entries(HARNESS_MARKERS)) {
@@ -139,8 +145,27 @@ export default class AgentInit extends Command {
       writeFileSync(skillPath, CLAUDE_SKILL(body))
       this.log(`Wrote claude skill → .claude/skills/molecule/SKILL.md`)
     }
+    if (harness === 'gemini') {
+      // Gemini CLI extensions: a directory with a GEMINI.md context file.
+      const extPath = join(root, '.gemini', 'extensions', 'molecule', 'GEMINI.md')
+      mkdirSync(join(extPath, '..'), { recursive: true })
+      writeFileSync(extPath, GEMINI_EXTENSION(body))
+      this.log(`Wrote gemini extension → .gemini/extensions/molecule/GEMINI.md`)
+    }
+    if (harness === 'windsurf') {
+      // Windsurf rules live in .windsurf/rules with trigger frontmatter.
+      const rulePath = join(root, '.windsurf', 'rules', 'molecule.md')
+      mkdirSync(join(rulePath, '..'), { recursive: true })
+      writeFileSync(rulePath, WINDSURF_RULE(body))
+      this.log(`Wrote windsurf rule → .windsurf/rules/molecule.md`)
+    }
 
     this.log(`\nHarness: ${harness}. Next: ask your agent to build something —`)
     this.log('  "Build me a blog with molecule" — it now knows to reach for mlcl.')
+    this.log(
+      `\nFor structured tools (search_packages, scaffold_project, …), add the molecule MCP server:`,
+    )
+    this.log('  Claude Code plugin: /plugin marketplace add molecule-dev/molecule-claude-code')
+    this.log('  Other MCP clients:  npx -y molecule-mcp   (available once molecule-mcp publishes)')
   }
 }

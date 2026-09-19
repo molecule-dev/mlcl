@@ -18,7 +18,7 @@ OAuth provider for another by changing one wiring file, not rewriting the app).
 **Extending any project:**
 
 - `npx mlcl add @molecule/<name> --inject` — install + wire a package
-- `npx mlcl swap <category> <from> <to>` — swap a provider
+- `npx mlcl swap @molecule/<new-provider>` — swap in a different provider for a wired capability
 
 **Inside a molecule-built project:** follow its AGENTS.md — prefer
 `@molecule/*` packages over hand-rolled code, keep provider wiring in

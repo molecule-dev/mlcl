@@ -1,0 +1,13 @@
+{
+  "name": "molecule",
+  "description": "Build full-stack apps with Molecule — scaffold from 130+ flagship templates or composable @molecule/* packages, extend and swap providers via bonds",
+  "version": "0.1.0",
+  "author": {
+    "name": "Molecule Dev, Inc.",
+    "url": "https://molecule.dev"
+  },
+  "homepage": "https://molecule.dev",
+  "repository": "https://github.com/molecule-dev/mlcl",
+  "license": "Apache-2.0",
+  "keywords": ["molecule", "scaffold", "fullstack", "ai-agents"]
+}

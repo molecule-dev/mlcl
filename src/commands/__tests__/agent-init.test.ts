@@ -106,6 +106,22 @@ describe('mlcl agent init', () => {
     expect(skill).toContain('node_modules/@molecule/<name>/README.md')
   })
 
+  it('adds a gemini extension when .gemini/ exists', async () => {
+    await mkdir(join(dir, '.gemini'), { recursive: true })
+    await run()
+    const ext = await readFile(join(dir, '.gemini', 'extensions', 'molecule', 'GEMINI.md'), 'utf8')
+    expect(ext).toContain('# Molecule')
+    expect(ext).toContain('npx mlcl create <name> --template <slug> --no-interactive')
+  })
+
+  it('adds a windsurf rule when .windsurf/ exists', async () => {
+    await mkdir(join(dir, '.windsurf'), { recursive: true })
+    await run()
+    const rule = await readFile(join(dir, '.windsurf', 'rules', 'molecule.md'), 'utf8')
+    expect(rule).toMatch(/^---\ntrigger: always_on\ndescription: .+\n---/)
+    expect(rule).toContain('npx mlcl swap')
+  })
+
   it('detects codex via .codex marker and relies on AGENTS.md alone', async () => {
     await mkdir(join(dir, '.codex'), { recursive: true })
     const cmd = await run()

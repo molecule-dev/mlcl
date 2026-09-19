@@ -44,7 +44,7 @@ Then grow the project package by package:
 
 ```bash
 mlcl add @molecule/api-emails-mailgun --inject   # install + wire the bond
-mlcl swap database postgresql mysql              # swap a provider
+mlcl swap @molecule/api-database-mysql          # swap a provider (optional -r <old>)
 ```
 
 See [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md) for using
