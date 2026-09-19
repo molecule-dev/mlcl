@@ -165,7 +165,23 @@ export default class AgentInit extends Command {
     this.log(
       `\nFor structured tools (search_packages, scaffold_project, …), add the molecule MCP server:`,
     )
-    this.log('  Claude Code plugin: /plugin marketplace add molecule-dev/molecule-claude-code')
-    this.log('  Other MCP clients:  npx -y molecule-mcp   (available once molecule-mcp publishes)')
+    for (const line of MCP_INSTALL_HINTS[harness] ?? MCP_INSTALL_HINTS.generic)
+      this.log(`  ${line}`)
   }
+}
+
+/** The harness's OWN native install command, printed by agent init. */
+const MCP_INSTALL_HINTS: Record<string, string[]> = {
+  'claude-code': [
+    'claude mcp add molecule -- npx -y molecule-mcp',
+    '(or the full plugin: /plugin marketplace add molecule-dev/molecule-claude-code)',
+  ],
+  cursor: ['cursor mcp add molecule -- npx -y molecule-mcp'],
+  gemini: ['gemini mcp add molecule npx -y molecule-mcp   # note: no -- separator'],
+  codex: ['codex mcp add molecule -- npx -y molecule-mcp'],
+  windsurf: [
+    'Windsurf Settings → MCP → Add Server, or ~/.codeium/windsurf/mcp_config.json:',
+    '  {"mcpServers":{"molecule":{"command":"npx","args":["-y","molecule-mcp"]}}}',
+  ],
+  generic: ['any MCP client → command: npx, args: ["-y", "molecule-mcp"]'],
 }
