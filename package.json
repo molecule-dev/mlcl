@@ -55,6 +55,9 @@
       "stage": {
         "description": "Manage staging environments (up, down, status, logs)"
       },
+      "mcp": {
+        "description": "Register the molecule MCP server with coding agents"
+      },
       "agent": {
         "description": "Make your AI coding agent molecule-aware"
       }

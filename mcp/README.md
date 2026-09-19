@@ -9,7 +9,15 @@ Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
 connecting this ONE server delivers both the capability and the context.
 
-## Install — one native command per harness
+## Install
+
+The one command that works everywhere (uses your harness's own installer when it has one, writes the standard config when it doesn't):
+
+```bash
+npx mlcl mcp install
+```
+
+Or use your harness's native command directly:
 
 | Harness | Command |
 |---|---|
@@ -21,9 +29,12 @@ connecting this ONE server delivers both the capability and the context.
 | VS Code / Copilot | `.vscode/mcp.json`: `{"servers":{"molecule":{"command":"npx","args":["-y","molecule-mcp"]}}}` |
 | Any MCP client | command: `npx`, args: `["-y", "molecule-mcp"]` |
 
-Claude Code users can instead install the full plugin (skills + this server,
-marketplace-updated): `/plugin marketplace add molecule-dev/molecule-claude-code`
-then `/plugin install molecule@molecule`.
+Why the long form? A stdio MCP server is a local process the client spawns, so
+the client needs its launch command. Shorter paths: the
+[Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
+registry listings (one-click) and, for Claude Code, the full plugin —
+`/plugin marketplace add molecule-dev/molecule-claude-code` then
+`/plugin install molecule@molecule` (skills + this server, marketplace-updated).
 
 ## Tools
 

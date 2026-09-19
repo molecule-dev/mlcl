@@ -128,6 +128,7 @@ USAGE
 * [`mlcl help [COMMAND]`](#mlcl-help-command)
 * [`mlcl init`](#mlcl-init)
 * [`mlcl inject`](#mlcl-inject)
+* [`mlcl mcp install`](#mlcl-mcp-install)
 * [`mlcl search QUERY`](#mlcl-search-query)
 * [`mlcl stage down`](#mlcl-stage-down)
 * [`mlcl stage list`](#mlcl-stage-list)
@@ -326,6 +327,33 @@ EXAMPLES
 ```
 
 _See code: [src/commands/inject.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/inject.ts)_
+
+## `mlcl mcp install`
+
+Register the molecule MCP server with your coding agent — one command that uses the harness’s own native installer when it has one (claude/cursor/gemini/codex) and writes the standard config for the rest
+
+```
+USAGE
+  $ mlcl mcp install [--agent claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|auto] [--project]
+
+FLAGS
+  --agent=<option>  Which harness to configure (default: auto-detect)
+                    <options: claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|auto>
+  --project         Register at project level where the harness supports it (default: user/global)
+
+DESCRIPTION
+  Register the molecule MCP server with your coding agent — one command that uses the harness’s own native installer
+  when it has one (claude/cursor/gemini/codex) and writes the standard config for the rest
+
+EXAMPLES
+  $ mlcl mcp install             # detect the harness and register
+
+  $ mlcl mcp install --agent cursor
+
+  $ mlcl mcp install --agent vscode --project
+```
+
+_See code: [src/commands/mcp/install.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/mcp/install.ts)_
 
 ## `mlcl search QUERY`
 
