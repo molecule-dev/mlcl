@@ -8,6 +8,11 @@
  */
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
+
+/** Dev-only diagnostic printer — silent unless MLCL_DEBUG=1. */
+function mlclDebug(msg: string): void {
+  if (process.env.MLCL_DEBUG === '1') console.error(msg)
+}
 import {
   copyFile,
   mkdir,
@@ -452,7 +457,7 @@ export async function injectPreviewNavBridge(htmlPath: string): Promise<boolean>
   const closingBodyIndex = html.lastIndexOf('</body>')
   if (closingBodyIndex === -1) {
     // No </body> to anchor against — not a document we can safely augment.
-    console.error(`[scaffold] injectPreviewNavBridge: no </body> in ${htmlPath}; skipped`)
+    mlclDebug(`[scaffold] injectPreviewNavBridge: no </body> in ${htmlPath}; skipped`)
     return false
   }
   const next =
@@ -752,7 +757,7 @@ export async function injectPreviewSnapshotBridge(htmlPath: string): Promise<boo
   const closingBodyIndex = html.lastIndexOf('</body>')
   if (closingBodyIndex === -1) {
     // No </body> to anchor against — not a document we can safely augment.
-    console.error(`[scaffold] injectPreviewSnapshotBridge: no </body> in ${htmlPath}; skipped`)
+    mlclDebug(`[scaffold] injectPreviewSnapshotBridge: no </body> in ${htmlPath}; skipped`)
     return false
   }
   const next =
@@ -916,7 +921,7 @@ export async function injectPreviewRuntimeBridge(htmlPath: string): Promise<bool
   const closingBodyIndex = html.lastIndexOf('</body>')
   if (closingBodyIndex === -1) {
     // No </body> to anchor against — not a document we can safely augment.
-    console.error(`[scaffold] injectPreviewRuntimeBridge: no </body> in ${htmlPath}; skipped`)
+    mlclDebug(`[scaffold] injectPreviewRuntimeBridge: no </body> in ${htmlPath}; skipped`)
     return false
   }
   const next =
@@ -1391,7 +1396,7 @@ export async function injectPreviewInteractBridge(htmlPath: string): Promise<boo
   const closingBodyIndex = html.lastIndexOf('</body>')
   if (closingBodyIndex === -1) {
     // No </body> to anchor against — not a document we can safely augment.
-    console.error(`[scaffold] injectPreviewInteractBridge: no </body> in ${htmlPath}; skipped`)
+    mlclDebug(`[scaffold] injectPreviewInteractBridge: no </body> in ${htmlPath}; skipped`)
     return false
   }
   const next =
@@ -2082,7 +2087,7 @@ export async function copyTemplateInstance(
     )
     if (fixed !== css) {
       await writeFile(indexCssPath, fixed)
-      console.error(
+      mlclDebug(
         `[scaffold] Rewrote @source node_modules paths in app/src/index.css to use nmPrefix="${nmPrefix}"`,
       )
     }
@@ -2213,7 +2218,7 @@ export async function copyTemplateInstance(
       }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
-      console.warn(`[scaffold] copySqlSetupScripts skipped: ${msg}`)
+      mlclDebug(`[scaffold] copySqlSetupScripts skipped: ${msg}`)
     }
 
     // Overwrite the template's checked-in api/src/scripts/migrate.ts with
@@ -2231,7 +2236,7 @@ export async function copyTemplateInstance(
         await writeFile(migrateScriptPath, fresh)
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
-        console.warn(`[scaffold] migrate.ts refresh skipped: ${msg}`)
+        mlclDebug(`[scaffold] migrate.ts refresh skipped: ${msg}`)
       }
     }
   }
@@ -2342,7 +2347,7 @@ export async function ensureMoleculePeerClosure(
       manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as typeof manifest
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
-      console.warn(`[scaffold] peer-closure skipped for ${rel}: ${msg}`)
+      mlclDebug(`[scaffold] peer-closure skipped for ${rel}: ${msg}`)
       continue
     }
     const deps = manifest.dependencies ?? {}
@@ -2775,7 +2780,7 @@ export async function createApiProject(
   apiFramework: string = 'express',
   npmOverrides: Record<string, string> = {},
 ): Promise<void> {
-  console.error(`[scaffold] createApiProject: ${projectPath} (framework: ${apiFramework})`)
+  mlclDebug(`[scaffold] createApiProject: ${projectPath} (framework: ${apiFramework})`)
   await mkdir(projectPath, { recursive: true })
 
   const toolchain = loadToolchain()
@@ -2925,7 +2930,7 @@ export async function createFullStackProject(
   npmOverrides: Record<string, string> = {},
 ): Promise<void> {
   await mkdir(projectPath, { recursive: true })
-  console.error(`[scaffold] createFullStackProject: ${projectPath}`)
+  mlclDebug(`[scaffold] createFullStackProject: ${projectPath}`)
 
   // Root package.json with workspaces. The root is the npm install root, so any
   // `overrides` a selected bond requires (e.g. pinning a patched `ws` for the
@@ -2961,9 +2966,9 @@ export async function createFullStackProject(
   // something a runnable user project needs. See POLISH_ARTIFACTS at top.
 
   // Scaffold both sub-projects
-  console.error(`[scaffold] Creating API project: ${join(projectPath, 'api')}`)
+  mlclDebug(`[scaffold] Creating API project: ${join(projectPath, 'api')}`)
   await createApiProject(join(projectPath, 'api'), `${projectName}-api`, apiFramework)
-  console.error(`[scaffold] Creating App project: ${join(projectPath, 'app')}`)
+  mlclDebug(`[scaffold] Creating App project: ${join(projectPath, 'app')}`)
   await createAppProject(
     join(projectPath, 'app'),
     `${projectName}-app`,
@@ -3053,7 +3058,7 @@ export async function createStaticProject(
     throw new Error(`static projects support the react framework only (got "${framework}")`)
   }
   await mkdir(projectPath, { recursive: true })
-  console.error(`[scaffold] createStaticProject: ${projectPath}`)
+  mlclDebug(`[scaffold] createStaticProject: ${projectPath}`)
 
   const rootPackageJson = {
     name: projectName,
@@ -3194,7 +3199,7 @@ export async function copyTemplateDomainFiles(
 ): Promise<void> {
   const templateDir = join(cliRoot, 'templates', 'apps', templateName)
   if (!existsSync(templateDir)) {
-    console.error(`[scaffold] Template directory not found: ${templateDir}`)
+    mlclDebug(`[scaffold] Template directory not found: ${templateDir}`)
     return
   }
 
@@ -3227,7 +3232,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(pagesDestDir, file))
       }
     }
-    console.error(
+    mlclDebug(
       `[scaffold] Copied ${files.length} template pages from ${relative(cliRoot, sourcePagesDir)}`,
     )
   }
@@ -3250,7 +3255,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(handlersDestDir, file))
       }
     }
-    console.error(
+    mlclDebug(
       `[scaffold] Copied ${files.length} template handlers from ${relative(cliRoot, handlersDir)}`,
     )
   }
@@ -3262,7 +3267,7 @@ export async function copyTemplateDomainFiles(
   const tiersFile = existsSync(tiersSrcFile) ? tiersSrcFile : tiersFlatFile
   if (apiPath && existsSync(tiersFile)) {
     await copyFile(tiersFile, join(apiPath, 'src', 'tiers.ts'))
-    console.error(`[scaffold] Copied template api/tiers.ts from ${relative(cliRoot, tiersFile)}`)
+    mlclDebug(`[scaffold] Copied template api/tiers.ts from ${relative(cliRoot, tiersFile)}`)
   }
 
   // Copy API routes/ (template-provided route modules — billing, etc.).
@@ -3282,7 +3287,7 @@ export async function copyTemplateDomainFiles(
         routeFiles.push(file)
       }
     }
-    console.error(
+    mlclDebug(
       `[scaffold] Copied ${files.length} template routes from ${relative(cliRoot, routesDir)}`,
     )
   }
@@ -3296,7 +3301,7 @@ export async function copyTemplateDomainFiles(
   const apiServer = join(templateDir, 'api', 'src', 'server.ts')
   if (apiPath && existsSync(apiServer)) {
     await copyFile(apiServer, join(apiPath, 'src', 'server.ts'))
-    console.error(`[scaffold] Overrode api/src/server.ts with template-specific version`)
+    mlclDebug(`[scaffold] Overrode api/src/server.ts with template-specific version`)
   }
 
   // The base scaffold ships migrations for users / devices / payments
@@ -3313,7 +3318,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(migrationsDestDir, file))
       }
     }
-    console.error(`[scaffold] Copied ${files.length} template migrations`)
+    mlclDebug(`[scaffold] Copied ${files.length} template migrations`)
   }
 
   // Copy locales
@@ -3337,7 +3342,7 @@ export async function copyTemplateDomainFiles(
   const appTsx = existsSync(appTsxSrc) ? appTsxSrc : appTsxFlat
   if (existsSync(appTsx)) {
     await copyFile(appTsx, join(appPath, 'src', 'App.tsx'))
-    console.error(
+    mlclDebug(
       `[scaffold] Overrode App.tsx with template-specific version (${relative(cliRoot, appTsx)})`,
     )
   }
@@ -3367,12 +3372,12 @@ export async function copyTemplateDomainFiles(
       return count
     }
     const e2eCount = await copyTree(e2eSrcDir, e2eDestDir)
-    console.error(`[scaffold] Copied ${e2eCount} e2e files to ${relative(cliRoot, e2eDestDir)}`)
+    mlclDebug(`[scaffold] Copied ${e2eCount} e2e files to ${relative(cliRoot, e2eDestDir)}`)
   }
   const playwrightConfig = join(templateDir, 'playwright.config.ts')
   if (existsSync(playwrightConfig)) {
     await copyFile(playwrightConfig, join(appPath, 'playwright.config.ts'))
-    console.error(`[scaffold] Copied playwright.config.ts`)
+    mlclDebug(`[scaffold] Copied playwright.config.ts`)
   }
   // `e2e/bonds.ts` (which browser: the live preview in a sandbox, real Playwright
   // elsewhere) — the specs just copied import it through their `_helpers.ts`.
@@ -3392,7 +3397,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(componentsDestDir, file))
       }
     }
-    console.error(`[scaffold] Copied ${files.length} template-specific components`)
+    mlclDebug(`[scaffold] Copied ${files.length} template-specific components`)
   }
 
   // Copy template-specific utility modules (e.g. httpUnpack, formatters)
@@ -3410,7 +3415,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(utilsDestDir, file))
       }
     }
-    console.error(`[scaffold] Copied ${files.length} template-specific utils`)
+    mlclDebug(`[scaffold] Copied ${files.length} template-specific utils`)
   }
 
   // Copy template-specific shared TS types (e.g. agent-public.ts)
@@ -3428,7 +3433,7 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(typesDestDir, file))
       }
     }
-    console.error(`[scaffold] Copied ${files.length} template-specific types`)
+    mlclDebug(`[scaffold] Copied ${files.length} template-specific types`)
   }
 
   // Copy template-specific shared library modules (e.g. demo-ticket-display.ts)
@@ -3446,14 +3451,14 @@ export async function copyTemplateDomainFiles(
         await copyFile(src, join(libDestDir, file))
       }
     }
-    console.error(`[scaffold] Copied ${files.length} template-specific lib files`)
+    mlclDebug(`[scaffold] Copied ${files.length} template-specific lib files`)
   }
 
   // Copy app bonds override (merges with scaffold default)
   const appBonds = join(templateDir, 'app', 'bonds.ts')
   if (existsSync(appBonds)) {
     await copyFile(appBonds, join(appPath, 'src', 'bonds', 'app-bonds.ts'))
-    console.error(`[scaffold] Copied template app bonds`)
+    mlclDebug(`[scaffold] Copied template app bonds`)
   }
 
   // Copy theme.css — prepend the self-documenting "recolor here, not the bond"
@@ -3512,9 +3517,7 @@ export async function copyTemplateDomainFiles(
       )
     }
     await writeFile(indexCssPath, `${augmented.trimEnd()}\n\n${polishContent.trimEnd()}\n`)
-    console.error(
-      `[scaffold] Appended polish-v2 CSS (${polishContent.length} bytes) to src/index.css`,
-    )
+    mlclDebug(`[scaffold] Appended polish-v2 CSS (${polishContent.length} bytes) to src/index.css`)
   }
 
   // Inject per-app design-resources block (the Material Symbols utility-class
@@ -3537,11 +3540,11 @@ export async function copyTemplateDomainFiles(
           `<!-- mol:design-resources -->\n    ${block}\n    <!-- /mol:design-resources -->`,
         )
         await writeFile(indexHtmlPath, replaced)
-        console.error(
+        mlclDebug(
           `[scaffold] Injected design-resources HTML (${block.length} bytes) into index.html`,
         )
       } else {
-        console.error(
+        mlclDebug(
           `[scaffold] WARNING: index.html missing <!-- mol:design-resources --> placeholder; cannot inject fonts`,
         )
       }
@@ -3574,7 +3577,7 @@ export async function copyTemplateDomainFiles(
           // Splice extras in just before the closing `}` of `export const ui = {`.
           const closeIdx = ui.lastIndexOf('}')
           if (closeIdx < 0) {
-            console.error(
+            mlclDebug(
               `[scaffold] WARNING: cannot find closing } in ${targetUi}; skipping locale extras`,
             )
             continue
@@ -3584,7 +3587,7 @@ export async function copyTemplateDomainFiles(
           const merged = `${before}\n${partialContent}\n${after}`
           await writeFile(targetUi, merged)
         }
-        console.error(
+        mlclDebug(
           `[scaffold] Injected polish-v2 i18n extras (${partialContent.length} bytes) into ${locales.length} locale ui.ts files`,
         )
       }
@@ -3648,7 +3651,7 @@ export async function applyTemplatePostInjectOverrides(
     }
   }
   if (totalCount > 0) {
-    console.error(
+    mlclDebug(
       `[scaffold] Re-applied ${totalCount} bonds override(s) post-inject for ${templateName}`,
     )
   }
@@ -3720,7 +3723,7 @@ export async function wireTemplateApiRouters(apiPath: string): Promise<void> {
   routerContent += '\n' + mountLines.join('\n') + '\n'
 
   await writeFile(apiRouterPath, routerContent)
-  console.error(
+  mlclDebug(
     `[scaffold] Wired template handlers/routes into App/router.ts (${mountLines.length} mounts)`,
   )
 }
@@ -3800,7 +3803,7 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
   routerContent += `\nrouter.use(handlers)\n`
 
   await writeFile(apiRouterPath, routerContent)
-  console.error(`[scaffold] Wired base handlers/index.ts into App/router.ts`)
+  mlclDebug(`[scaffold] Wired base handlers/index.ts into App/router.ts`)
 }
 
 /**
@@ -3852,7 +3855,7 @@ export async function createAppProject(
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
 ): Promise<void> {
-  console.error(`[scaffold] createAppProject: ${projectPath} (framework: ${framework})`)
+  mlclDebug(`[scaffold] createAppProject: ${projectPath} (framework: ${framework})`)
 
   // React Native uses Metro (not Vite/npm-resolved node deps) and socket.io-client
   // there uses the platform WebSocket, not the Node-only `ws` package, so npm
@@ -4033,7 +4036,7 @@ export async function createAppProject(
   await writeFile(join(projectPath, 'tsconfig.json'), formatJson(tsconfig))
 
   // vite.config.ts (framework-specific, from registry)
-  console.error(`[scaffold] Generating vite.config.ts + package.json`)
+  mlclDebug(`[scaffold] Generating vite.config.ts + package.json`)
   const viteImport = fwConfig.vitePlugin?.import ?? ''
   const vitePlugin = fwConfig.vitePlugin?.usage ?? ''
   const plugins = [vitePlugin, buildTooling?.vitePlugin?.usage, 'VitePWA(pwaOptions)']
@@ -4132,10 +4135,10 @@ export async function createAppProject(
       publicDir,
     })
     if (result.written) {
-      console.error(`[scaffold] Injected logo (glyph=${result.glyph}, color=${brandColor})`)
+      mlclDebug(`[scaffold] Injected logo (glyph=${result.glyph}, color=${brandColor})`)
     }
   } catch (err) {
-    console.error(`[scaffold] Logo injection skipped: ${(err as Error).message}`)
+    mlclDebug(`[scaffold] Logo injection skipped: ${(err as Error).message}`)
   }
 
   // Placeholder bonds/index.ts (SvelteKit uses src/lib/bonds/)
@@ -4153,10 +4156,10 @@ export async function createAppProject(
 
   // CSS entry point — conditionally include styling provider CSS
   const nmPrefix = resolveNmPrefix(projectPath)
-  console.error(`[scaffold] resolveNmPrefix(${projectPath}) → "${nmPrefix}"`)
+  mlclDebug(`[scaffold] resolveNmPrefix(${projectPath}) → "${nmPrefix}"`)
   const baseCss = await loadTemplate('app/shared/index.css.tpl')
   if (buildTooling?.cssTemplate) {
-    console.error(
+    mlclDebug(
       `[scaffold] CSS template: ${buildTooling.cssTemplate} (framework: ${fwConfig.uiFramework ?? framework})`,
     )
     const stylingCss = await loadTemplate(buildTooling.cssTemplate, {
@@ -4167,12 +4170,12 @@ export async function createAppProject(
       // without this, adopting the bond generates zero of its classes.
       EXTRA_UI_SOURCE_SCANS: buildExtraUiSourceScans(selectedPackages, nmPrefix),
     })
-    console.error(
+    mlclDebug(
       `[scaffold] Writing CSS (${stylingCss.length} bytes) → ${join(projectPath, 'src', 'index.css')}`,
     )
     await writeFile(join(projectPath, 'src', 'index.css'), stylingCss)
   } else {
-    console.error(`[scaffold] No CSS template — using base CSS`)
+    mlclDebug(`[scaffold] No CSS template — using base CSS`)
     await writeFile(join(projectPath, 'src', 'index.css'), baseCss)
   }
 
@@ -4914,7 +4917,7 @@ function resolveNmPrefix(projectPath: string): string {
       try {
         const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'))
         if (Array.isArray(pkg.workspaces)) {
-          console.error(`[scaffold] resolveNmPrefix: found workspace root at ${dir}`)
+          mlclDebug(`[scaffold] resolveNmPrefix: found workspace root at ${dir}`)
           nmDir = dir
         }
       } catch (_error) {

@@ -39,6 +39,7 @@ import {
   scaffoldSecurityWorkflow,
 } from '../lib/scaffold.js'
 import type { InferredPackage, MoleculeSecret } from '../lib/schema.js'
+import { ui } from '../lib/ui.js'
 
 /**
  * Package families a `static` site never ships: nobody logs in (auth, OAuth,
@@ -211,8 +212,8 @@ export default class Create extends Command {
         else flags.packages = flags.packages + ',' + (template.packages || []).join(',')
         flags['no-interactive'] = true
 
-        say(`Using template: ${template.label || flags.template}`)
-        say(`Packages: ${(template.packages || []).length} from template (${source})`)
+        say(`${ui.heading(`Using template`)} ${ui.id(template.label || flags.template)}`)
+        say(ui.dim(`Packages: ${(template.packages || []).length} from template (${source})`))
       } catch (error) {
         if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
           this.error('Template registry not found. Run from the mlcl directory.')
@@ -291,12 +292,14 @@ export default class Create extends Command {
         await copyTemplateInstance(templateInstanceDir, projectPath, projectName)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
-        say(`Copied template "${flags.template}" → ${projectPath}`)
+        say(
+          `${ui.check('Scaffolded')} ${ui.id(flags.template)} ${ui.dim('→')} ${ui.id(projectPath)}`,
+        )
         if (!flags['skip-install']) {
           const { execa } = await import('execa')
           try {
             await execa('npm', ['install'], { cwd: projectPath })
-            say('Installed dependencies.')
+            say(ui.check('Installed dependencies.'))
           } catch (error) {
             this.warn(
               `npm install failed — run it manually. ${error instanceof Error ? error.message : String(error)}`,
@@ -304,10 +307,10 @@ export default class Create extends Command {
           }
         }
         say('')
-        say(chalk.bold(t('commands.create.messages.nextSteps')))
-        say(`  cd ${projectName}`)
-        say(`  # edit api/.env and app/.env with your credentials`)
-        say(`  npm run dev`)
+        say(ui.heading(t('commands.create.messages.nextSteps')))
+        say(`  ${ui.cmd(`cd ${projectName}`)}`)
+        say(`  ${ui.dim('# edit api/.env and app/.env with your credentials')}`)
+        say(`  ${ui.cmd('npm run dev')}`)
         if (flags.json) {
           this.log(
             JSON.stringify(
