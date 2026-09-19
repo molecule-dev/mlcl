@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f8f8"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+
+<g stroke="#15803d" stroke-width="1.6" stroke-linecap="round" fill="none">
+  <line x1="16" y1="11" x2="10" y2="5"  />
+  <line x1="16" y1="11" x2="22" y2="5"  />
+  <line x1="16" y1="11" x2="10" y2="27" />
+  <line x1="16" y1="11" x2="22" y2="27" />
+  <line x1="10" y1="5"  x2="22" y2="5"  />
+</g>
+<g fill="#15803d">
+  <circle cx="10" cy="5"  r="2.6" />
+  <circle cx="22" cy="5"  r="2.6" />
+  <circle cx="16" cy="11" r="3.2" />
+  <circle cx="10" cy="27" r="2.4" />
+  <circle cx="22" cy="27" r="2.4" />
+</g>
+
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#333333">Branches</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#888888">Build your family tree — people, relationships, a navigable tree view, and a life timeline for every relative.</text>
+</svg>

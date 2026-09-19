@@ -1,0 +1,23 @@
+[
+  { "from_key": "david", "to_key": "walter", "kind": "parent" },
+  { "from_key": "david", "to_key": "margaret", "kind": "parent" },
+  { "from_key": "susan", "to_key": "walter", "kind": "parent" },
+  { "from_key": "susan", "to_key": "margaret", "kind": "parent" },
+  { "from_key": "lucia", "to_key": "frank", "kind": "parent" },
+  { "from_key": "lucia", "to_key": "rosa", "kind": "parent" },
+  { "from_key": "jordan", "to_key": "david", "kind": "parent" },
+  { "from_key": "jordan", "to_key": "lucia", "kind": "parent" },
+  { "from_key": "elena", "to_key": "david", "kind": "parent" },
+  { "from_key": "elena", "to_key": "lucia", "kind": "parent" },
+  { "from_key": "marcus", "to_key": "david", "kind": "parent" },
+  { "from_key": "marcus", "to_key": "lucia", "kind": "parent" },
+  { "from_key": "nathan", "to_key": "susan", "kind": "parent" },
+  { "from_key": "nathan", "to_key": "alan", "kind": "parent" },
+  { "from_key": "ava", "to_key": "jordan", "kind": "parent" },
+  { "from_key": "ava", "to_key": "maya", "kind": "parent" },
+  { "from_key": "walter", "to_key": "margaret", "kind": "partner" },
+  { "from_key": "frank", "to_key": "rosa", "kind": "partner" },
+  { "from_key": "david", "to_key": "lucia", "kind": "partner" },
+  { "from_key": "susan", "to_key": "alan", "kind": "partner" },
+  { "from_key": "jordan", "to_key": "maya", "kind": "partner" }
+]

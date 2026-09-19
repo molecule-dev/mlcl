@@ -1,0 +1,176 @@
+/*
+ * Branches — warm, rooted, archival.
+ * Brand forest green (#15803d) + amber accent on near-white surfaces.
+ *
+ * Material 3 derivative tokens (--color-on-*, --color-*-container,
+ * --color-surface-container-*) are filled by index.css using
+ * color-mix() against these base tokens.
+ */
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* Brand */
+  --mol-color-primary: #15803d;
+  --mol-color-primary-light: #16a34a;
+  --mol-color-primary-dark: #166534;
+  --mol-color-secondary: #b45309; /* amber-700 — white text = 5.0:1 (passes AA) */
+  --mol-color-secondary-light: #d97706;
+  --mol-color-secondary-dark: #92400e;
+
+  /* Semantic — genealogy statuses (living, deceased, living-abroad, hint) */
+  --mol-color-success: #16a34a;
+  --mol-color-success-light: #dcfce7;
+  --mol-color-warning: #d97706;
+  --mol-color-warning-light: #fef3c7;
+  --mol-color-error: #dc2626;
+  --mol-color-error-light: #fee2e2;
+  --mol-color-info: #0f766e;
+  --mol-color-info-light: #ccfbf1;
+
+  /* Surfaces — soft green-tinted near-whites */
+  --mol-color-background: #f2fbf4;
+  --mol-color-background-secondary: #e8f8ec;
+  --mol-color-background-tertiary: #d7f0dd;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f9fef9;
+  --mol-color-input-background: #ffffff;
+
+  /* Text */
+  --mol-color-text: #1f2937;
+  --mol-color-text-secondary: #44543e; /* slate-ish green-700 blend = 6.9:1 on cards */
+  --mol-color-text-tertiary: #44543e;
+  --mol-color-text-inverse: #ffffff;
+
+  /* Borders */
+  --mol-color-border: #e2e8f0;
+  --mol-color-border-secondary: #cbd5e1;
+  --mol-color-border-focus: #15803d;
+
+  /* Genealogy-domain tokens — referenced by bespoke components */
+  --color-tree-parent: #15803d;
+  --color-tree-parent-bg: #dcfce7;
+  --color-tree-partner: #b45309;
+  --color-tree-partner-bg: #fef3c7;
+  --color-tree-sibling: #0f766e;
+  --color-tree-sibling-bg: #ccfbf1;
+  --color-tree-child: #6d28d9;
+  --color-tree-child-bg: #ede9fe;
+  --color-tree-root: #166534;
+  --color-tree-root-bg: #bbf7d0;
+  --color-tree-deceased: #6b7280;
+  --color-tree-deceased-bg: #f3f4f6;
+  --color-tree-connector: #94a3b8;
+
+  /* Archival serif for names on tree cards */
+  --mol-font-tree: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+
+  /* Hero card dark background — deep forest */
+  --color-hero-bg: #122416;
+  --color-hero-bg-gradient-end: #1b4332;
+}
+
+/* Dark mode — Branches warm-forest dark.
+   Near-black with green warmth (roots/heritage, not a cold dashboard). Brand
+   green kept at brand stop (#15803d) for accents/links; surfaces lift with a
+   touch of green warmth. `--color-on-primary` STAYS white so green CTAs keep
+   their light-on-green character. Genealogy semantic tokens preserved. */
+[data-mol-mode='dark'] {
+  /* Brand — keep green primary at brand stop for accents/links */
+  --mol-color-primary: #15803d;
+  --mol-color-primary-light: #4ade80;
+  --mol-color-primary-dark: #166534;
+  --mol-color-secondary: #fbbf24;
+  --mol-color-secondary-light: #fcd34d;
+  --mol-color-secondary-dark: #d97706;
+
+  /* Semantic — brighter for dark contrast */
+  --mol-color-success: #4ade80;
+  --mol-color-success-light: #14532d;
+  --mol-color-warning: #fbbf24;
+  --mol-color-warning-light: #422006;
+  --mol-color-error: #f87171;
+  --mol-color-error-light: #450a0a;
+  --mol-color-info: #5eead4;
+  --mol-color-info-light: #042f2e;
+
+  /* Surfaces — warm-neutral near-black with green warmth */
+  --mol-color-background: #0c1310;
+  --mol-color-background-secondary: #121b16;
+  --mol-color-background-tertiary: #1a251e;
+  --mol-color-surface: #121b16;
+  --mol-color-surface-secondary: #1a251e;
+  --mol-color-input-background: #0a100d;
+
+  /* Text — tiered for legibility */
+  --mol-color-text: #edf2ee;
+  --mol-color-text-secondary: #a8b5ab;
+  --mol-color-text-tertiary: #7f8c84;
+  --mol-color-text-inverse: #0c1310;
+
+  /* Borders — lifted off bg with subtle green warmth */
+  --mol-color-border: #243128;
+  --mol-color-border-secondary: #344338;
+  --mol-color-border-focus: #4ade80;
+
+  /* Genealogy-domain tokens — preserve semantics */
+  --color-tree-parent: #4ade80;
+  --color-tree-parent-bg: #14532d;
+  --color-tree-partner: #fbbf24;
+  --color-tree-partner-bg: #422006;
+  --color-tree-sibling: #5eead4;
+  --color-tree-sibling-bg: #042f2e;
+  --color-tree-child: #c4b5fd;
+  --color-tree-child-bg: #2e1065;
+  --color-tree-root: #4ade80;
+  --color-tree-root-bg: #14532d;
+  --color-tree-deceased: #94a3b8;
+  --color-tree-deceased-bg: #1f2937;
+  --color-tree-connector: #475569;
+
+  /* @theme bridge — flip bg-* / text-* tokens cleanly. Brand green at brand
+     stop; CTA buttons keep white text on green: on-primary stays white. */
+  --color-primary: #15803d; /* keep brand green at brand stop */
+  --color-on-primary: #ffffff; /* white on green — readable in both modes */
+  --color-primary-container: #1b4332;
+  --color-on-primary-container: #dcfce7;
+  --color-secondary: #fbbf24;
+  --color-on-secondary: #0c1310;
+  --color-secondary-container: #422006;
+  --color-on-secondary-container: #fef3c7;
+  --color-tertiary: #5eead4;
+  --color-tertiary-container: #042f2e;
+  --color-on-tertiary: #0c1310;
+  --color-on-tertiary-container: #ccfbf1;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on bright red — white was 2.77:1 (fail) */
+  --color-on-error-container: #fecaca;
+  --color-inverse-surface: #edf2ee;
+  --color-inverse-on-surface: #0c1310;
+  --color-inverse-primary: #15803d;
+  --color-background: #0c1310;
+  --color-on-background: #edf2ee;
+  --color-surface: #121b16;
+  --color-surface-bright: #243128;
+  --color-surface-dim: #070c09;
+  --color-surface-container-lowest: #050807;
+  --color-surface-container-low: #0f1713;
+  --color-surface-container: #121b16;
+  --color-surface-container-high: #1a251e;
+  --color-surface-container-highest: #243128;
+  --color-surface-variant: #1a251e;
+  --color-on-surface: #edf2ee;
+  --color-on-surface-variant: #a8b5ab;
+  --color-outline: #5b6a5f;
+  --color-outline-variant: #243128;
+  --color-surface-tint: #15803d;
+
+  /* Hero card — slightly brighter in dark mode so it reads against near-black bg */
+  --color-hero-bg: #14261a;
+  --color-hero-bg-gradient-end: #1c3a29;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+}
