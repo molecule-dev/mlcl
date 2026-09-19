@@ -9,7 +9,8 @@ export default class Whoami extends Command {
   static override enableJsonFlag = true
 
   public async run(): Promise<{ id: string; email?: string }> {
-    if (!readCredentials()) this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
+    if (!readCredentials() && !process.env.MOLECULE_TOKEN)
+      this.error('Not logged in — run  first (or set MOLECULE_TOKEN for CI).', { exit: 1 })
     const me = await whoami()
     this.log(`${ui.id(me.email ?? me.id)} ${ui.dim(`(${me.id})`)}`)
     return me

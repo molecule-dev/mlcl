@@ -28,7 +28,7 @@ export default class EnvPush extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(EnvPush)
-    if (!readCredentials()) {
+    if (!readCredentials() && !process.env.MOLECULE_TOKEN) {
       this.error('Not logged in — run `mlcl login` first.', { exit: 1 })
     }
     const file = loadEnvFile(defaultEnvPath())

@@ -56,7 +56,8 @@ async function request<T>(
   path: string,
   init: { method?: string; body?: unknown; token?: string } = {},
 ): Promise<T> {
-  const token = init.token ?? readCredentials()?.token
+  // Precedence: explicit arg > CI env var (MOLECULE_TOKEN) > stored credentials file.
+  const token = init.token ?? process.env.MOLECULE_TOKEN ?? readCredentials()?.token
   const response = await fetch(`${apiBaseUrl()}${path}`, {
     method: init.method ?? 'GET',
     headers: {
