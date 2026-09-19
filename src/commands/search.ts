@@ -1,6 +1,7 @@
 import { Args, Command, Flags } from '@oclif/core'
 
 import { loadRegistry } from '../lib/registry.js'
+import { ui } from '../lib/ui.js'
 
 interface SearchHit {
   name: string
@@ -101,16 +102,18 @@ export default class Search extends Command {
     }
 
     if (hits.length === 0) {
-      this.log(`No @molecule/* packages matched "${q}".`)
-      this.log('Browse the full catalog: https://www.molecule.dev/packages')
+      this.log(ui.warn(`No @molecule/* packages matched "${q}".`))
+      this.log(ui.dim('Browse the full catalog: https://www.molecule.dev/packages'))
       return
     }
 
-    this.log(`\n${hits.length} package${hits.length === 1 ? '' : 's'} matched "${q}":\n`)
+    this.log(
+      `\n${ui.heading(`${hits.length} package${hits.length === 1 ? '' : 's'} matched`)} ${ui.dim(`"${q}"`)}\n`,
+    )
     for (const hit of hits) {
-      this.log(`  ${hit.name}  [${hit.stack}${hit.category ? `: ${hit.category}` : ''}]`)
-      if (hit.description) this.log(`      ${hit.description}`)
-      this.log(`      add with: mlcl add ${hit.name} --inject`)
+      this.log(`  ${ui.id(hit.name)}  ${ui.badge(hit.stack, hit.category)}`)
+      if (hit.description) this.log(`      ${ui.dim(hit.description)}`)
+      this.log(`      ${ui.dim('add with:')} ${ui.cmd(`mlcl add ${hit.name} --inject`)}`)
     }
     this.log('')
   }

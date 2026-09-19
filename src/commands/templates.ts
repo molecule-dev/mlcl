@@ -3,6 +3,8 @@ import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
 
+import { ui } from '../lib/ui.js'
+
 interface TemplateEntry {
   label?: string
   description?: string
@@ -64,11 +66,13 @@ export default class Templates extends Command {
     }
 
     this.log(
-      `\n${entries.length} templates — scaffold with: mlcl create <name> --template <slug>\n`,
+      `\n${ui.heading(`${entries.length} templates`)} ${ui.dim('— scaffold with:')} ${ui.cmd('mlcl create <name> --template <slug>')}\n`,
     )
     for (const [slug, t] of entries) {
-      this.log(`  ${slug.padEnd(28)} ${(t.label ?? slug) + (t.type ? ` (${t.type})` : '')}`)
-      if (t.description) this.log(`  ${''.padEnd(28)} ${t.description}`)
+      this.log(
+        `  ${ui.id(slug.padEnd(28))} ${(t.label ?? slug) + (t.type ? ui.dim(` (${t.type})`) : '')}`,
+      )
+      if (t.description) this.log(`  ${''.padEnd(28)} ${ui.dim(t.description)}`)
     }
     this.log('')
   }

@@ -5,6 +5,8 @@ import { join } from 'node:path'
 import { Command, Flags } from '@oclif/core'
 import { execaSync } from 'execa'
 
+import { ui } from '../../lib/ui.js'
+
 /**
  * Harnesses with a NATIVE `mcp add` CLI. We shell out to their own command —
  * it owns the config format, scopes, and validation, so we never guess.
@@ -227,22 +229,28 @@ export default class McpInstall extends Command {
 
     const cli = CLI_INSTALLERS.find((c) => c.harness === harness)
     if (cli) {
-      this.log(`Running ${cli.bin}'s own installer…`)
+      this.log(ui.dim(`Running ${cli.bin}'s own installer…`))
       const { failed, stdout, stderr } = execaSync(cli.bin, [...cli.args])
       if (failed) {
         this.error(`${cli.bin} mcp add failed: ${stderr.trim() || stdout.trim()}`)
       }
-      this.log(`✓ Registered with ${cli.bin} (${stdout.trim().split('\n').pop() || 'ok'})`)
       this.log(
-        '\nVerify inside the harness (e.g. /mcp) — tools appear once molecule-mcp publishes.',
+        ui.check(`Registered with ${ui.id(cli.bin)} (${stdout.trim().split('\n').pop() || 'ok'})`),
+      )
+      this.log(
+        ui.dim(
+          '\nVerify inside the harness (e.g. /mcp) — tools appear once molecule-mcp publishes.',
+        ),
       )
       return
     }
 
     const instructions = INSTRUCTION_ONLY[harness]
     if (instructions) {
-      this.log(`${harness} has no safe programmatic config writer — add the server by hand:\n`)
-      for (const line of instructions) this.log(`  ${line}`)
+      this.log(
+        `${ui.heading(harness)} ${ui.dim('has no safe programmatic config writer — add the server by hand:')}\n`,
+      )
+      for (const line of instructions) this.log(`  ${ui.cmd(line)}`)
       return
     }
 
@@ -252,9 +260,11 @@ export default class McpInstall extends Command {
     const result = mergeServerEntry(path, fileInstaller.keys, fileInstaller.entry)
     this.log(
       result === 'skipped'
-        ? `Already registered → ${path}`
-        : `${result === 'created' ? 'Wrote' : 'Updated'} ${path} (molecule server added)`,
+        ? ui.ok(`Already registered → ${path}`)
+        : `${ui.check(result === 'created' ? 'Wrote' : 'Updated')} ${ui.id(path)} ${ui.dim('(molecule server added)')}`,
     )
-    this.log('\nRestart the harness to pick it up — tools appear once molecule-mcp publishes.')
+    this.log(
+      ui.dim('\nRestart the harness to pick it up — tools appear once molecule-mcp publishes.'),
+    )
   }
 }

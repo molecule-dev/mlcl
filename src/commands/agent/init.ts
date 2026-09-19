@@ -4,6 +4,8 @@ import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
 
+import { ui } from '../../lib/ui.js'
+
 const SECTION_MARKER = '## Molecule'
 
 /** Per-harness file markers used by --agent auto detection (project root). */
@@ -118,10 +120,12 @@ export default class AgentInit extends Command {
       mkdirSync(join(target, '..'), { recursive: true })
       const result = ensureSection(target, body, flags.force)
       this.log(
-        `${result === 'skipped' ? 'Already present' : 'Updated'} (molecule section): ${target}`,
+        result === 'skipped'
+          ? ui.ok(`Already present (molecule section): ${target}`)
+          : `${ui.check('Updated')} molecule section → ${ui.id(target)}`,
       )
       this.log(
-        `Harness: ${harness} (global). Your agent now knows the molecule way in every session.`,
+        `${ui.heading(`Harness: ${harness}`)} ${ui.dim('(global). Your agent now knows the molecule way in every session.')}`,
       )
       return
     }
@@ -129,7 +133,9 @@ export default class AgentInit extends Command {
     // AGENTS.md — the cross-harness standard section every major agent reads.
     const agentsResult = ensureSection(join(root, 'AGENTS.md'), body, flags.force)
     this.log(
-      `${agentsResult === 'skipped' ? 'Already present' : 'Wrote'} molecule section → AGENTS.md`,
+      agentsResult === 'skipped'
+        ? ui.ok('Already present: molecule section in AGENTS.md')
+        : `${ui.check('Wrote')} molecule section → ${ui.id('AGENTS.md')}`,
     )
 
     // Harness-specific surfaces on top of the standard.
@@ -137,36 +143,42 @@ export default class AgentInit extends Command {
       const rulePath = join(root, '.cursor', 'rules', 'molecule.mdc')
       mkdirSync(join(rulePath, '..'), { recursive: true })
       writeFileSync(rulePath, CURSOR_RULE(body))
-      this.log(`Wrote cursor rule → .cursor/rules/molecule.mdc`)
+      this.log(`${ui.check('Wrote')} cursor rule → ${ui.id('.cursor/rules/molecule.mdc')}`)
     }
     if (harness === 'claude-code') {
       const skillPath = join(root, '.claude', 'skills', 'molecule', 'SKILL.md')
       mkdirSync(join(skillPath, '..'), { recursive: true })
       writeFileSync(skillPath, CLAUDE_SKILL(body))
-      this.log(`Wrote claude skill → .claude/skills/molecule/SKILL.md`)
+      this.log(`${ui.check('Wrote')} claude skill → ${ui.id('.claude/skills/molecule/SKILL.md')}`)
     }
     if (harness === 'gemini') {
       // Gemini CLI extensions: a directory with a GEMINI.md context file.
       const extPath = join(root, '.gemini', 'extensions', 'molecule', 'GEMINI.md')
       mkdirSync(join(extPath, '..'), { recursive: true })
       writeFileSync(extPath, GEMINI_EXTENSION(body))
-      this.log(`Wrote gemini extension → .gemini/extensions/molecule/GEMINI.md`)
+      this.log(
+        `${ui.check('Wrote')} gemini extension → ${ui.id('.gemini/extensions/molecule/GEMINI.md')}`,
+      )
     }
     if (harness === 'windsurf') {
       // Windsurf rules live in .windsurf/rules with trigger frontmatter.
       const rulePath = join(root, '.windsurf', 'rules', 'molecule.md')
       mkdirSync(join(rulePath, '..'), { recursive: true })
       writeFileSync(rulePath, WINDSURF_RULE(body))
-      this.log(`Wrote windsurf rule → .windsurf/rules/molecule.md`)
+      this.log(`${ui.check('Wrote')} windsurf rule → ${ui.id('.windsurf/rules/molecule.md')}`)
     }
 
-    this.log(`\nHarness: ${harness}. Next: ask your agent to build something —`)
-    this.log('  "Build me a blog with molecule" — it now knows to reach for mlcl.')
     this.log(
-      `\nFor structured tools (search_packages, scaffold_project, …), add the molecule MCP server:`,
+      `\n${ui.heading(`Harness: ${harness}`)}. ${ui.dim('Next: ask your agent to build something —')}`,
+    )
+    this.log(
+      `  ${ui.cmd('"Build me a blog with molecule"')} ${ui.dim('— it now knows to reach for mlcl.')}`,
+    )
+    this.log(
+      `\n${ui.dim('For structured tools (search_packages, scaffold_project, …), add the molecule MCP server:')}`,
     )
     for (const line of MCP_INSTALL_HINTS[harness] ?? MCP_INSTALL_HINTS.generic)
-      this.log(`  ${line}`)
+      this.log(`  ${ui.cmd(line)}`)
   }
 }
 
