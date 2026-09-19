@@ -1,0 +1,176 @@
+{
+  "app": "newsletter",
+  "screens": [
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": [],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Help",
+      "templateFile": "app/pages/Help.tsx",
+      "components": [],
+      "route": "/help",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "IssueDetail",
+      "templateFile": "app/pages/IssueDetail.tsx",
+      "components": [],
+      "route": "/issues/:id/detail",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "IssueEditor",
+      "templateFile": "app/pages/IssueEditor.tsx",
+      "components": [],
+      "route": "/issues/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Issues",
+      "templateFile": "app/pages/Issues.tsx",
+      "components": [],
+      "route": "/issues",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PlanUpdated",
+      "templateFile": "app/pages/PlanUpdated.tsx",
+      "components": [],
+      "route": "/plan-updated",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PublicIssue",
+      "templateFile": "app/pages/PublicIssue.tsx",
+      "components": [],
+      "route": "/issues/:id",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Subscribers",
+      "templateFile": "app/pages/Subscribers.tsx",
+      "components": [],
+      "route": "/subscribers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Unsubscribe",
+      "templateFile": "app/pages/Unsubscribe.tsx",
+      "components": [],
+      "route": "/unsubscribe/:token",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}
