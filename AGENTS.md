@@ -28,6 +28,18 @@ The `mlcl` CLI manages `@molecule/*` packages — a modular, composable ecosyste
 - Core packages define contracts (interfaces only, zero implementation)
 - Provider/bond packages implement those contracts and are swappable
 
+Repo layout beyond `src/` (agent-facing surfaces — keep their docs in sync):
+
+- `mcp/` — the `molecule-mcp` package (own package.json, not an npm workspace
+  member). stdio mode wraps this CLI; `remote.ts`/`http.ts` are the hosted
+  read-only face (`mcp.molecule.dev`, see mcp/DEPLOY.md).
+  **Invariant:** `mcp/assets/conventions.md` is a copy of
+  `templates/shared/agent-init-section.md.tpl` — update both together.
+- `integrations/claude-code/` — the Claude Code plugin + marketplace skeleton;
+  launch runbook in its README.
+- `docs/` — user-facing guides (AGENTS-AND-HARNESSES, INTEGRATE-EXISTING-APP,
+  FROM-VIBECODING, LISTINGS). These ship on GitHub/npm — no internal narrative.
+
 ---
 
 ## Dogfooding Principle

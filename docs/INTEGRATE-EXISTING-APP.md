@@ -191,11 +191,13 @@ answer is the **CLI**.
   the local CLI does the integration. No bridge process is needed to connect the
   two.
 
-**MCP server = research / post-MVP, not built now.** An MCP server would be a
-thin transport wrapper around the _same_ `mlcl` operations, adding tool schemas,
-auth, and lifecycle for no new capability at MVP. It becomes worthwhile later,
-when we want an agent running _inside_ the user's editor (e.g. Claude in their
-IDE) to drive `add`/`swap`/`inject` with structured results and package
-discovery without shelling out. That is an enhancement layered on top of the CLI
-primitives this guide already documents — track it as future work, not an MVP
-blocker.
+**MCP server — shipped (2026-09-19), layered on the CLI exactly as planned.**
+`molecule-mcp` is a thin structured wrapper over these same `mlcl`
+operations: a local stdio mode (full tool set, wraps the local CLI — what
+`mlcl mcp install` registers) and a hosted read-only HTTP mode at
+`https://mcp.molecule.dev/mcp` (search/templates/docs/conventions; the surface
+URL-based clients like Lovable/v0/bolt connectors use). The CLI remains the
+source of truth and the most universal surface; the MCP server serves agents
+that prefer structured tools over shelling out. Everything in this guide
+still applies unchanged — see
+[AGENTS-AND-HARNESSES.md](AGENTS-AND-HARNESSES.md) for the full wiring guide.

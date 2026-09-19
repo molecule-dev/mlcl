@@ -122,7 +122,8 @@ OpenCode, Windsurf, Cline, Zed, …). Four ways to wire molecule in — pick any
 |---|---|---|
 | **Zero setup** | paste the block below into any agent chat | the agent scaffolds + follows conventions via the CLI |
 | **One command** | `npx mlcl agent init` | conventions written into the files your harness reads (AGENTS.md, Cursor rules, Claude skill, Gemini extension, Windsurf rule) |
-| **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness |
+| **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness — works across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro, Trae, Zed, Amp, Crush, Cline, VS Code, … |
+| **Hosted URL** (at launch) | `claude mcp add --transport https https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new connectors | the read tools (search/templates/docs/conventions) with no local install |
 | **Claude Code plugin** | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
 
 The full guide with every harness, config path, and example workflow:
@@ -402,11 +403,14 @@ Register the molecule MCP server with your coding agent — one command that use
 
 ```
 USAGE
-  $ mlcl mcp install [--agent claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|auto] [--project]
+  $ mlcl mcp install [--agent
+    claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|opencode|amp|crush|kiro|trae|zed|goose|junie|cline|co
+    ntinue|aider|auto] [--project]
 
 FLAGS
   --agent=<option>  Which harness to configure (default: auto-detect)
-                    <options: claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|auto>
+                    <options: claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|opencode|amp|crush|kiro|tra
+                    e|zed|goose|junie|cline|continue|aider|auto>
   --project         Register at project level where the harness supports it (default: user/global)
 
 DESCRIPTION

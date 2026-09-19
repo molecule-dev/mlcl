@@ -49,9 +49,11 @@ Cline, Continue, Aider) it prints the exact snippet instead of risking a
 mangled config.
 
 Why the long form? A stdio MCP server is a local process the client spawns, so
-the client needs its launch command. Shorter paths: the
-[Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
-registry listings (one-click) and, for Claude Code, the full plugin —
+the client needs its launch command. Shorter paths: the hosted endpoint —
+`claude mcp add --transport https https://mcp.molecule.dev/mcp`, one URL for
+any HTTP-capable client, or paste it into Lovable/v0/bolt connector forms —
+the [Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
+registry listings (one-click), and for Claude Code the full plugin —
 `/plugin marketplace add molecule-dev/molecule-claude-code` then
 `/plugin install molecule@molecule` (skills + this server, marketplace-updated).
 
