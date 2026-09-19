@@ -1,0 +1,20 @@
+# Smithery build configuration for molecule-mcp.
+# Smithery indexes the repo ROOT's smithery.yaml — when molecule-mcp graduates
+# to its own repo (or if Smithery adds subdirectory support), this file moves
+# with it. The build below assumes the mcp/ working directory.
+# Docs: https://smithery.ai/docs
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON schema for user-provided config (none required — the server wraps
+    # the mlcl CLI and is read-heavy by default).
+    type: object
+    properties: {}
+  command: node
+  args:
+    - dist/index.js
+build:
+  workingDirectory: ./
+  commands:
+    - npm install
+    - npm run build
