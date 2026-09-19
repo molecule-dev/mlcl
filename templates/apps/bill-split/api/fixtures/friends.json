@@ -1,0 +1,7 @@
+[
+  { "id": "m-maya", "name": "Maya Chen", "email": "maya.chen@example.com", "is_self": false, "created_at": "2026-08-28T10:00:00.000Z" },
+  { "id": "m-jordan", "name": "Jordan Reyes", "email": "jordan.reyes@example.com", "is_self": false, "created_at": "2026-08-28T10:02:00.000Z" },
+  { "id": "m-priya", "name": "Priya Nair", "email": "priya.nair@example.com", "is_self": false, "created_at": "2026-08-28T10:05:00.000Z" },
+  { "id": "m-tomas", "name": "Tomás Duarte", "email": "tomas.duarte@example.com", "is_self": false, "created_at": "2026-08-28T10:07:00.000Z" },
+  { "id": "m-aisha", "name": "Aisha Bello", "email": "aisha.bello@example.com", "is_self": false, "created_at": "2026-08-28T10:09:00.000Z" }
+]

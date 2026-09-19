@@ -1,0 +1,149 @@
+{
+  "app": "bill-split",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Groups",
+      "templateFile": "app/pages/Groups.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/groups",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "GroupDetail",
+      "templateFile": "app/pages/GroupDetail.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/groups/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "NewExpense",
+      "templateFile": "app/pages/NewExpense.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/expenses/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Balances",
+      "templateFile": "app/pages/Balances.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/balances",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Activity",
+      "templateFile": "app/pages/Activity.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/activity",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Friends",
+      "templateFile": "app/pages/Friends.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/friends",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/BillSplitLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

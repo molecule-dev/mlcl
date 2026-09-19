@@ -1,0 +1,48 @@
+[
+  {
+    "id": "g-cabin-2401",
+    "name": "Alpine Cabin Weekend",
+    "description": "Cabin rental, groceries and ski passes for the long weekend.",
+    "currency": "USD",
+    "created_at": "2026-08-29T10:00:00.000Z",
+    "member_count": 4,
+    "members": [
+      { "id": "m-self", "name": "You", "is_self": true },
+      { "id": "m-maya", "name": "Maya Chen", "is_self": false },
+      { "id": "m-jordan", "name": "Jordan Reyes", "is_self": false },
+      { "id": "m-priya", "name": "Priya Nair", "is_self": false }
+    ],
+    "my_balance_cents": 32500,
+    "total_expenses_cents": 138000
+  },
+  {
+    "id": "g-flat-4b",
+    "name": "Flat 4B — Household",
+    "description": "Rent, groceries and internet for the flat.",
+    "currency": "USD",
+    "created_at": "2026-07-21T09:00:00.000Z",
+    "member_count": 3,
+    "members": [
+      { "id": "m-self", "name": "You", "is_self": true },
+      { "id": "m-tomas", "name": "Tomás Duarte", "is_self": false },
+      { "id": "m-aisha", "name": "Aisha Bello", "is_self": false }
+    ],
+    "my_balance_cents": -116167,
+    "total_expenses_cents": 374750
+  },
+  {
+    "id": "g-lisbon",
+    "name": "Lisbon Trip",
+    "description": "Hotel, dinners and one very good surf lesson.",
+    "currency": "USD",
+    "created_at": "2026-08-20T14:30:00.000Z",
+    "member_count": 3,
+    "members": [
+      { "id": "m-self", "name": "You", "is_self": true },
+      { "id": "m-maya", "name": "Maya Chen", "is_self": false },
+      { "id": "m-priya", "name": "Priya Nair", "is_self": false }
+    ],
+    "my_balance_cents": 45000,
+    "total_expenses_cents": 135000
+  }
+]

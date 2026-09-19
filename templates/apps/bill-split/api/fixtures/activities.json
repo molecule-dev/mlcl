@@ -1,0 +1,50 @@
+[
+  {
+    "id": "a-7001",
+    "group_id": "g-lisbon",
+    "group_name": "Lisbon Trip",
+    "kind": "expense_added",
+    "payload": { "actor": "Maya Chen", "description": "Surf lesson in Costa da Caparica", "amount_cents": 21000, "payer_name": "Maya Chen" },
+    "created_at": "2026-09-18T08:30:00.000Z"
+  },
+  {
+    "id": "a-7000",
+    "group_id": "g-flat-4b",
+    "group_name": "Flat 4B — Household",
+    "kind": "expense_added",
+    "payload": { "actor": "Aisha Bello", "description": "Fibre internet", "amount_cents": 6000, "payer_name": "Aisha Bello" },
+    "created_at": "2026-09-16T18:05:00.000Z"
+  },
+  {
+    "id": "a-6999",
+    "group_id": "g-flat-4b",
+    "group_name": "Flat 4B — Household",
+    "kind": "expense_added",
+    "payload": { "actor": "You", "description": "Weekly groceries", "amount_cents": 8750, "payer_name": "You" },
+    "created_at": "2026-09-15T17:45:00.000Z"
+  },
+  {
+    "id": "a-6998",
+    "group_id": "g-cabin-2401",
+    "group_name": "Alpine Cabin Weekend",
+    "kind": "settlement_recorded",
+    "payload": { "actor": "You", "amount_cents": 10000, "from_name": "You", "to_name": "Maya Chen", "method": "transfer" },
+    "created_at": "2026-09-13T12:00:00.000Z"
+  },
+  {
+    "id": "a-6997",
+    "group_id": "g-cabin-2401",
+    "group_name": "Alpine Cabin Weekend",
+    "kind": "expense_added",
+    "payload": { "actor": "Jordan Reyes", "description": "Ski passes — 2 days", "amount_cents": 46000, "payer_name": "Jordan Reyes" },
+    "created_at": "2026-09-09T09:12:00.000Z"
+  },
+  {
+    "id": "a-6996",
+    "group_id": "g-lisbon",
+    "group_name": "Lisbon Trip",
+    "kind": "group_created",
+    "payload": { "actor": "You", "group_name": "Lisbon Trip", "member_count": 3 },
+    "created_at": "2026-08-20T14:30:00.000Z"
+  }
+]

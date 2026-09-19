@@ -1,0 +1,15 @@
+[
+  {
+    "id": "s-901",
+    "group_id": "g-cabin-2401",
+    "from_member_id": "m-self",
+    "from_name": "You",
+    "to_member_id": "m-maya",
+    "to_name": "Maya Chen",
+    "amount_cents": 10000,
+    "method": "transfer",
+    "date": "2026-09-13T12:00:00.000Z",
+    "note": "First chunk of the cabin rental",
+    "created_at": "2026-09-13T12:00:00.000Z"
+  }
+]

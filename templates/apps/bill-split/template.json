@@ -1,0 +1,33 @@
+{
+  "label": "Bill Split",
+  "description": "Splitwise-like group expense splitting with shared costs, per-member balances, simplified settle-up suggestions, and activity feed",
+  "cluster": "finance",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-permissions-custom",
+    "@molecule/api-emails-mailgun"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Bill Split"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for auth emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": ["auth", "groups", "balances", "activity"]
+}

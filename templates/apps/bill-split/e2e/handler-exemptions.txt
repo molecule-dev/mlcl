@@ -1,0 +1,4 @@
+# `_seed` is internal demo seeding — invoked from inside the dashboard /
+# groups handlers on first authenticated request. It has no public route and
+# is exempt from the per-handler spec coverage check.
+_seed

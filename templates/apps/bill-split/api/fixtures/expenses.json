@@ -1,0 +1,105 @@
+[
+  {
+    "id": "e-5011",
+    "group_id": "g-flat-4b",
+    "payer_member_id": "m-aisha",
+    "payer_name": "Aisha Bello",
+    "amount_cents": 6000,
+    "description": "Fibre internet",
+    "category": "utilities",
+    "date": "2026-09-16T18:00:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 2000 },
+      { "member_id": "m-tomas", "amount_cents": 2000 },
+      { "member_id": "m-aisha", "amount_cents": 2000 }
+    ],
+    "created_at": "2026-09-16T18:05:00.000Z"
+  },
+  {
+    "id": "e-5010",
+    "group_id": "g-flat-4b",
+    "payer_member_id": "m-self",
+    "payer_name": "You",
+    "amount_cents": 8750,
+    "description": "Weekly groceries",
+    "category": "groceries",
+    "date": "2026-09-15T17:40:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 2917 },
+      { "member_id": "m-tomas", "amount_cents": 2917 },
+      { "member_id": "m-aisha", "amount_cents": 2916 }
+    ],
+    "created_at": "2026-09-15T17:45:00.000Z"
+  },
+  {
+    "id": "e-5009",
+    "group_id": "g-cabin-2401",
+    "payer_member_id": "m-jordan",
+    "payer_name": "Jordan Reyes",
+    "amount_cents": 46000,
+    "description": "Ski passes — 2 days",
+    "category": "activities",
+    "date": "2026-09-09T09:10:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 11500 },
+      { "member_id": "m-maya", "amount_cents": 11500 },
+      { "member_id": "m-jordan", "amount_cents": 11500 },
+      { "member_id": "m-priya", "amount_cents": 11500 }
+    ],
+    "created_at": "2026-09-09T09:12:00.000Z"
+  },
+  {
+    "id": "e-5008",
+    "group_id": "g-cabin-2401",
+    "payer_member_id": "m-self",
+    "payer_name": "You",
+    "amount_cents": 12000,
+    "description": "Groceries and firewood",
+    "category": "groceries",
+    "date": "2026-09-08T16:20:00.000Z",
+    "split_method": "exact",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 3000 },
+      { "member_id": "m-maya", "amount_cents": 3000 },
+      { "member_id": "m-jordan", "amount_cents": 4500 },
+      { "member_id": "m-priya", "amount_cents": 1500 }
+    ],
+    "created_at": "2026-09-08T16:25:00.000Z"
+  },
+  {
+    "id": "e-5006",
+    "group_id": "g-lisbon",
+    "payer_member_id": "m-maya",
+    "payer_name": "Maya Chen",
+    "amount_cents": 21000,
+    "description": "Surf lesson in Costa da Caparica",
+    "category": "activities",
+    "date": "2026-09-07T11:00:00.000Z",
+    "split_method": "shares",
+    "shares": [
+      { "member_id": "m-maya", "amount_cents": 14000 },
+      { "member_id": "m-self", "amount_cents": 7000 }
+    ],
+    "created_at": "2026-09-07T11:30:00.000Z"
+  },
+  {
+    "id": "e-5001",
+    "group_id": "g-lisbon",
+    "payer_member_id": "m-self",
+    "payer_name": "You",
+    "amount_cents": 90000,
+    "description": "Hotel Belém — 3 nights",
+    "category": "lodging",
+    "date": "2026-09-05T15:00:00.000Z",
+    "split_method": "equal",
+    "shares": [
+      { "member_id": "m-self", "amount_cents": 30000 },
+      { "member_id": "m-maya", "amount_cents": 30000 },
+      { "member_id": "m-priya", "amount_cents": 30000 }
+    ],
+    "created_at": "2026-09-05T15:10:00.000Z"
+  }
+]
