@@ -54,6 +54,9 @@
       },
       "stage": {
         "description": "Manage staging environments (up, down, status, logs)"
+      },
+      "agent": {
+        "description": "Make your AI coding agent molecule-aware"
       }
     }
   },

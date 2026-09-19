@@ -66,6 +66,10 @@ Pi, …) as much as by humans:
   <https://www.molecule.dev/llms.txt> and <https://www.molecule.dev/llms-full.txt>.
 - **Scaffolded projects carry an AGENTS.md** — your agent gets the project's
   conventions (bonds, ClassMap styling, handler patterns) in context on open.
+- **`npx mlcl agent init`** — one command makes any harness molecule-aware:
+  writes the conventions + quickstart into the files the detected agent reads
+  (the AGENTS.md standard section, Cursor rules, a Claude Code skill). Run it
+  in a project, or `--agent claude-code --global` for every project.
 
 A minimal agent workflow:
 
@@ -74,6 +78,22 @@ npx mlcl search auth --json
 npx mlcl create my-app --type full-stack --framework react \
   --packages @molecule/api-database-postgresql,@molecule/app-auth \
   --no-interactive --json
+```
+
+### Paste this into your agent
+
+To hand a user intent pre-formed, paste this block into Claude Code, Codex,
+Cursor, or Pi:
+
+```text
+Build this app with molecule.dev: run `npx mlcl templates` and pick the closest
+flagship template (or `npx mlcl search <capability>` to find packages for a
+custom stack); scaffold with `npx mlcl create <name> --template <slug>
+--no-interactive --json`; then follow the scaffolded AGENTS.md conventions —
+prefer @molecule/* packages over hand-rolled code, provider wiring only in
+src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
+user-facing text, and each package's README at
+node_modules/@molecule/<name>/README.md for usage.
 ```
 
 ## Requirements
@@ -103,6 +123,7 @@ USAGE
 
 <!-- commands -->
 * [`mlcl add MOLECULE`](#mlcl-add-molecule)
+* [`mlcl agent init`](#mlcl-agent-init)
 * [`mlcl create [NAME]`](#mlcl-create-name)
 * [`mlcl help [COMMAND]`](#mlcl-help-command)
 * [`mlcl init`](#mlcl-init)
@@ -145,6 +166,34 @@ EXAMPLES
 ```
 
 _See code: [src/commands/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/add.ts)_
+
+## `mlcl agent init`
+
+Make your AI coding agent (Claude Code, Codex, Cursor, Pi, …) molecule-aware: writes the Molecule conventions + mlcl quickstart into the agent instruction files it reads
+
+```
+USAGE
+  $ mlcl agent init [--agent auto|claude-code|cursor|codex|zcode|gemini|windsurf|generic|pi] [--global] [--force]
+
+FLAGS
+  --agent=<option>  Which harness to target (default: auto-detect from project markers)
+                    <options: auto|claude-code|cursor|codex|zcode|gemini|windsurf|generic|pi>
+  --force           Rewrite the Molecule section even if already present
+  --global          Write to the harness-wide instructions file instead of this project (claude-code, codex, gemini)
+
+DESCRIPTION
+  Make your AI coding agent (Claude Code, Codex, Cursor, Pi, …) molecule-aware: writes the Molecule conventions + mlcl
+  quickstart into the agent instruction files it reads
+
+EXAMPLES
+  $ mlcl agent init            # detect harness in this project and wire it up
+
+  $ mlcl agent init --agent cursor
+
+  $ mlcl agent init --agent claude-code --global   # every project, not just this one
+```
+
+_See code: [src/commands/agent/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/agent/init.ts)_
 
 ## `mlcl create [NAME]`
 
