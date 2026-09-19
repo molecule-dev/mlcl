@@ -1,0 +1,60 @@
+[
+  {
+    "id": "pol-1",
+    "name": "Platform P1",
+    "description": "Page the primary on-call, then the secondary, then the channel.",
+    "repeat_cycles": 2,
+    "is_active": true,
+    "rules": [
+      {
+        "id": "rul-1",
+        "position": 0,
+        "notify_member_id": "mem-1",
+        "notify_member_name": "Riley Carter",
+        "notify_channel": null,
+        "wait_minutes": 0
+      },
+      {
+        "id": "rul-2",
+        "position": 1,
+        "notify_member_id": "mem-2",
+        "notify_member_name": "Morgan Reyes",
+        "notify_channel": null,
+        "wait_minutes": 15
+      },
+      {
+        "id": "rul-3",
+        "position": 2,
+        "notify_member_id": null,
+        "notify_member_name": null,
+        "notify_channel": "#platform-incidents",
+        "wait_minutes": 15
+      }
+    ]
+  },
+  {
+    "id": "pol-2",
+    "name": "Services P2",
+    "description": "Slower ladder for services-tier incidents.",
+    "repeat_cycles": 1,
+    "is_active": true,
+    "rules": [
+      {
+        "id": "rul-4",
+        "position": 0,
+        "notify_member_id": "mem-3",
+        "notify_member_name": "Sasha Lin",
+        "notify_channel": null,
+        "wait_minutes": 0
+      },
+      {
+        "id": "rul-5",
+        "position": 1,
+        "notify_member_id": "mem-4",
+        "notify_member_name": "Jordan Park",
+        "notify_channel": null,
+        "wait_minutes": 20
+      }
+    ]
+  }
+]

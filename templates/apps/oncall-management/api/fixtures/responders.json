@@ -1,0 +1,67 @@
+[
+  {
+    "id": "mem-1",
+    "name": "Riley Carter",
+    "email": "riley@klaxon.dev",
+    "role": "owner",
+    "timezone": "America/New_York",
+    "oncall": true,
+    "member_status": "active",
+    "assigned_incidents": 2,
+    "acked_30d": 31,
+    "resolved_30d": 28,
+    "last_active": "2m ago"
+  },
+  {
+    "id": "mem-2",
+    "name": "Morgan Reyes",
+    "email": "morgan@klaxon.dev",
+    "role": "admin",
+    "timezone": "America/New_York",
+    "oncall": false,
+    "member_status": "active",
+    "assigned_incidents": 1,
+    "acked_30d": 26,
+    "resolved_30d": 19,
+    "last_active": "just now"
+  },
+  {
+    "id": "mem-3",
+    "name": "Sasha Lin",
+    "email": "sasha@klaxon.dev",
+    "role": "responder",
+    "timezone": "Europe/Berlin",
+    "oncall": true,
+    "member_status": "active",
+    "assigned_incidents": 1,
+    "acked_30d": 22,
+    "resolved_30d": 17,
+    "last_active": "3h ago"
+  },
+  {
+    "id": "mem-4",
+    "name": "Jordan Park",
+    "email": "jordan@klaxon.dev",
+    "role": "responder",
+    "timezone": "America/Los_Angeles",
+    "oncall": false,
+    "member_status": "active",
+    "assigned_incidents": 0,
+    "acked_30d": 14,
+    "resolved_30d": 11,
+    "last_active": "35m ago"
+  },
+  {
+    "id": "mem-5",
+    "name": "Priya Patel",
+    "email": "priya@klaxon.dev",
+    "role": "viewer",
+    "timezone": "Asia/Kolkata",
+    "oncall": false,
+    "member_status": "invited",
+    "assigned_incidents": 0,
+    "acked_30d": 0,
+    "resolved_30d": 0,
+    "last_active": "pending"
+  }
+]

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1242" height="2208" viewBox="0 0 1242 2208">
+  <rect width="1242" height="2208" fill="#ffffff"/>
+  <svg x="466" y="949" width="311" height="311" viewBox="0 0 32 32">
+
+  <!-- Klaxon mark: a paging bell with radiating alert arcs. -->
+  <g fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 5 C 12 5, 9.5 8, 9.5 12 L 9.5 17 L 7.5 20.5 L 24.5 20.5 L 22.5 17 L 22.5 12 C 22.5 8, 20 5, 16 5 Z"
+          fill="#06b6d4" fill-opacity="0.18" />
+    <path d="M13.5 24 C 13.5 25.4, 14.6 26.5, 16 26.5 C 17.4 26.5, 18.5 25.4, 18.5 24" />
+    <path d="M4.5 12 C 4 13.5, 4 15, 4.5 16.5" stroke-opacity="0.55" />
+    <path d="M27.5 12 C 28 13.5, 28 15, 27.5 16.5" stroke-opacity="0.55" />
+  </g>
+
+  </svg>
+</svg>

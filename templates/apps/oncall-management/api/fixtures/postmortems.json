@@ -1,0 +1,89 @@
+[
+  {
+    "id": "pm-1",
+    "incident_id": "inc-6",
+    "title": "Postmortem: cart service outage during flash sale",
+    "summary": "A flash-sale traffic spike exhausted the cart service database connection pool. The pool had no statement timeout, so a slow pricing query held connections until every worker starved. The incident ran 38 minutes: 4 to ack, 34 to roll back the pricing query and drain the pool.",
+    "contributing_factors": [
+      "Pricing query shipped without a statement timeout",
+      "Connection pool sized for normal traffic, not sale traffic",
+      "No load test in CI for the flash-sale profile"
+    ],
+    "status": "published",
+    "incident": {
+      "id": "inc-6",
+      "title": "Cart service outage during flash sale",
+      "severity": "critical",
+      "status": "resolved",
+      "service": "checkout-api",
+      "triggered_at": "2026-09-13T14:05:00Z",
+      "resolved_at": "2026-09-13T14:43:00Z"
+    },
+    "open_action_items": 3,
+    "action_items": [
+      {
+        "id": "ai-1",
+        "description": "Add a 5s statement timeout to every cart-service query",
+        "owner_member_id": "mem-1",
+        "owner_name": "Riley Carter",
+        "status": "done",
+        "due_at": "2026-09-26T00:00:00Z"
+      },
+      {
+        "id": "ai-2",
+        "description": "Raise pool ceiling and add saturation alerting at 80%",
+        "owner_member_id": "mem-2",
+        "owner_name": "Morgan Reyes",
+        "status": "in_progress",
+        "due_at": "2026-10-03T00:00:00Z"
+      },
+      {
+        "id": "ai-3",
+        "description": "Add a flash-sale load profile to the CI pipeline",
+        "owner_member_id": "mem-4",
+        "owner_name": "Jordan Park",
+        "status": "open",
+        "due_at": "2026-10-19T00:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": "pm-2",
+    "incident_id": "inc-4",
+    "title": "Postmortem: SSO login throttling misconfiguration",
+    "summary": "A config migration reset the SSO throttle window from 10 attempts to 2, locking out frequent SSO users for ~2 hours until the hotfix shipped.",
+    "contributing_factors": [
+      "Throttle defaults lived in code, not in the config store",
+      "Config migration lacked a regression test"
+    ],
+    "status": "draft",
+    "incident": {
+      "id": "inc-4",
+      "title": "Login throttling misconfigured for SSO users",
+      "severity": "warning",
+      "status": "resolved",
+      "service": "auth-api",
+      "triggered_at": "2026-09-18T12:00:00Z",
+      "resolved_at": "2026-09-18T15:00:00Z"
+    },
+    "open_action_items": 2,
+    "action_items": [
+      {
+        "id": "ai-4",
+        "description": "Move throttle defaults into the config store",
+        "owner_member_id": "mem-4",
+        "owner_name": "Jordan Park",
+        "status": "open",
+        "due_at": "2026-10-03T00:00:00Z"
+      },
+      {
+        "id": "ai-5",
+        "description": "Add a regression test covering config migrations",
+        "owner_member_id": "mem-3",
+        "owner_name": "Sasha Lin",
+        "status": "open",
+        "due_at": "2026-10-10T00:00:00Z"
+      }
+    ]
+  }
+]

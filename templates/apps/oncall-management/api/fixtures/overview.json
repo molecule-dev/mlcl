@@ -1,0 +1,59 @@
+{
+  "oncall_now": [
+    {
+      "schedule_id": "sch-1",
+      "schedule_name": "Platform Primary",
+      "rotation_type": "weekly",
+      "handoff_time": "09:00",
+      "oncall": {
+        "member_id": "mem-1",
+        "name": "Riley Carter",
+        "start_at": "2026-09-14T09:00:00Z",
+        "end_at": "2026-09-21T09:00:00Z",
+        "is_override": false,
+        "note": null
+      }
+    },
+    {
+      "schedule_id": "sch-2",
+      "schedule_name": "API Services",
+      "rotation_type": "daily",
+      "handoff_time": "10:00",
+      "oncall": {
+        "member_id": "mem-3",
+        "name": "Sasha Lin",
+        "start_at": "2026-09-18T10:00:00Z",
+        "end_at": "2026-09-19T10:00:00Z",
+        "is_override": false,
+        "note": null
+      }
+    }
+  ],
+  "counts": { "open": 3, "triggered": 1, "acknowledged": 2, "critical_open": 2, "resolved_7d": 2 },
+  "by_severity": { "critical": 2, "warning": 1, "info": 0 },
+  "incidents_per_day": [1, 0, 2, 0, 1, 1, 0, 0, 1, 0, 0, 1, 2, 3],
+  "pages_24h": 2,
+  "mttr_minutes": 84,
+  "recent_activity": [
+    {
+      "id": "evt-4",
+      "kind": "ack",
+      "actor": "Morgan Reyes",
+      "text": "Acknowledged 23 minutes after the page.",
+      "at": "2026-09-19T13:08:00Z",
+      "incident_id": "inc-2",
+      "incident_title": "Payment authorization latency above 4s",
+      "incident_severity": "critical"
+    },
+    {
+      "id": "evt-6",
+      "kind": "resolve",
+      "actor": "Jordan Park",
+      "text": "Resolved — total incident duration 180 minutes.",
+      "at": "2026-09-18T15:00:00Z",
+      "incident_id": "inc-4",
+      "incident_title": "Login throttling misconfigured for SSO users",
+      "incident_severity": "warning"
+    }
+  ]
+}

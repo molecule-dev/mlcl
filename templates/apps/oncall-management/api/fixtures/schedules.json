@@ -1,0 +1,49 @@
+[
+  {
+    "id": "sch-1",
+    "name": "Platform Primary",
+    "description": "Main weekly rotation for customer-facing platform services.",
+    "timezone": "America/New_York",
+    "rotation_type": "weekly",
+    "handoff_time": "09:00",
+    "members": ["mem-1", "mem-2", "mem-3", "mem-4"],
+    "is_active": true,
+    "current_oncall": {
+      "member_id": "mem-1",
+      "name": "Riley Carter",
+      "start_at": "2026-09-14T09:00:00Z",
+      "end_at": "2026-09-21T09:00:00Z",
+      "is_override": false,
+      "note": null
+    }
+  },
+  {
+    "id": "sch-2",
+    "name": "API Services",
+    "description": "Daily rotation covering the public API surface.",
+    "timezone": "Europe/Berlin",
+    "rotation_type": "daily",
+    "handoff_time": "10:00",
+    "members": ["mem-3", "mem-4"],
+    "is_active": true,
+    "current_oncall": {
+      "member_id": "mem-3",
+      "name": "Sasha Lin",
+      "start_at": "2026-09-18T10:00:00Z",
+      "end_at": "2026-09-19T10:00:00Z",
+      "is_override": false,
+      "note": null
+    }
+  },
+  {
+    "id": "sch-3",
+    "name": "Weekend Cover",
+    "description": "Saturday handoff rotation for weekend coverage.",
+    "timezone": "America/New_York",
+    "rotation_type": "weekly",
+    "handoff_time": "00:00",
+    "members": ["mem-2", "mem-4"],
+    "is_active": true,
+    "current_oncall": null
+  }
+]
