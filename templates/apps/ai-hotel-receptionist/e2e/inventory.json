@@ -1,0 +1,1225 @@
+{
+  "slug": "ai-hotel-receptionist",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-account",
+      "path": "/account",
+      "component": "Account",
+      "file": "app/src/pages/Account.tsx"
+    },
+    {
+      "id": "page-calls",
+      "path": "/calls",
+      "component": "Calls",
+      "file": "app/src/pages/Calls.tsx"
+    },
+    {
+      "id": "page-calldetail",
+      "path": "/calls/:id",
+      "component": "CallDetail",
+      "file": "app/src/pages/CallDetail.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-guests",
+      "path": "/guests",
+      "component": "Guests",
+      "file": "app/src/pages/Guests.tsx"
+    },
+    {
+      "id": "page-guestdetail",
+      "path": "/guests/:id",
+      "component": "GuestDetail",
+      "file": "app/src/pages/GuestDetail.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-reservations",
+      "path": "/reservations",
+      "component": "Reservations",
+      "file": "app/src/pages/Reservations.tsx"
+    },
+    {
+      "id": "page-reservationdetail",
+      "path": "/reservations/:id",
+      "component": "ReservationDetail",
+      "file": "app/src/pages/ReservationDetail.tsx"
+    },
+    {
+      "id": "page-newreservation",
+      "path": "/reservations/new",
+      "component": "NewReservation",
+      "file": "app/src/pages/NewReservation.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-roomsrates",
+      "path": "/rooms",
+      "component": "RoomsRates",
+      "file": "app/src/pages/RoomsRates.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-callsimulator",
+      "path": "/simulator",
+      "component": "CallSimulator",
+      "file": "app/src/pages/CallSimulator.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    },
+    {
+      "id": "page-voiceagents",
+      "path": "/voice-agents",
+      "component": "VoiceAgents",
+      "file": "app/src/pages/VoiceAgents.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-switchboardauthshell-68-support-agent",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/SwitchboardAuthShell.tsx",
+      "line": 68,
+      "label": "support_agent",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-switchboardauthshell-233-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SwitchboardAuthShell.tsx",
+      "line": 233,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-switchboardauthshell-241-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/SwitchboardAuthShell.tsx",
+      "line": 241,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-calldetail-118-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CallDetail.tsx",
+      "line": 118,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-callsimulator-268",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 268,
+      "label": "select at app/src/pages/CallSimulator.tsx:268",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-callsimulator-291",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 291,
+      "label": "select at app/src/pages/CallSimulator.tsx:291",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-callsimulator-310",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 310,
+      "label": "select at app/src/pages/CallSimulator.tsx:310",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-callsimulator-326",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 326,
+      "label": "button at app/src/pages/CallSimulator.tsx:326",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-callsimulator-350",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 350,
+      "label": "button at app/src/pages/CallSimulator.tsx:350",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-callsimulator-380",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 380,
+      "label": "button at app/src/pages/CallSimulator.tsx:380",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-callsimulator-409-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 409,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-callsimulator-476",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 476,
+      "label": "input at app/src/pages/CallSimulator.tsx:476",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-callsimulator-493",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/CallSimulator.tsx",
+      "line": 493,
+      "label": "button at app/src/pages/CallSimulator.tsx:493",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-calls-54-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Calls.tsx",
+      "line": 54,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-calls-101-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Calls.tsx",
+      "line": 101,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-130-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 130,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-235",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 235,
+      "label": "link at app/src/pages/Dashboard.tsx:235",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-271",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 271,
+      "label": "link at app/src/pages/Dashboard.tsx:271",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-300",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 300,
+      "label": "link at app/src/pages/Dashboard.tsx:300",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-330-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 330,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-346-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 346,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-46-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 46,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-87",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 87,
+      "label": "input at app/src/pages/ForgotPassword.tsx:87",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-119",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 119,
+      "label": "button at app/src/pages/ForgotPassword.tsx:119",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-guestdetail-98-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GuestDetail.tsx",
+      "line": 98,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-guestdetail-165--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GuestDetail.tsx",
+      "line": 165,
+      "label": "→",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-guests-61",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Guests.tsx",
+      "line": 61,
+      "label": "input at app/src/pages/Guests.tsx:61",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-guests-103",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Guests.tsx",
+      "line": 103,
+      "label": "link at app/src/pages/Guests.tsx:103",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-126-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 126,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-138-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 138,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-60-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 60,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-85",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 85,
+      "label": "input at app/src/pages/Login.tsx:85",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-113-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 113,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-125",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 125,
+      "label": "input at app/src/pages/Login.tsx:125",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-157",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 157,
+      "label": "button at app/src/pages/Login.tsx:157",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-newreservation-121-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 121,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-newreservation-155",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 155,
+      "label": "input at app/src/pages/NewReservation.tsx:155",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newreservation-169",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 169,
+      "label": "input at app/src/pages/NewReservation.tsx:169",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newreservation-183",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 183,
+      "label": "input at app/src/pages/NewReservation.tsx:183",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-newreservation-195",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 195,
+      "label": "button at app/src/pages/NewReservation.tsx:195",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-newreservation-251",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 251,
+      "label": "input at app/src/pages/NewReservation.tsx:251",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newreservation-292",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 292,
+      "label": "input at app/src/pages/NewReservation.tsx:292",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newreservation-306",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 306,
+      "label": "input at app/src/pages/NewReservation.tsx:306",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "textarea-newreservation-320",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 320,
+      "label": "textarea at app/src/pages/NewReservation.tsx:320",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-newreservation-330",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/NewReservation.tsx",
+      "line": 330,
+      "label": "button at app/src/pages/NewReservation.tsx:330",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-30-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 30,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservationdetail-137-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 137,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reservationdetail-217",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 217,
+      "label": "button at app/src/pages/ReservationDetail.tsx:217",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reservationdetail-246",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 246,
+      "label": "button at app/src/pages/ReservationDetail.tsx:246",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservations-66-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Reservations.tsx",
+      "line": 66,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reservations-83",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Reservations.tsx",
+      "line": 83,
+      "label": "button at app/src/pages/Reservations.tsx:83",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservations-159",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Reservations.tsx",
+      "line": 159,
+      "label": "link at app/src/pages/Reservations.tsx:159",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-47-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 47,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-71",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 71,
+      "label": "input at app/src/pages/ResetPassword.tsx:71",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-99",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 99,
+      "label": "input at app/src/pages/ResetPassword.tsx:99",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-145",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 145,
+      "label": "button at app/src/pages/ResetPassword.tsx:145",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-roomsrates-188",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/RoomsRates.tsx",
+      "line": 188,
+      "label": "select at app/src/pages/RoomsRates.tsx:188",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-73-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-99",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 99,
+      "label": "input at app/src/pages/Signup.tsx:99",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-125",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 125,
+      "label": "input at app/src/pages/Signup.tsx:125",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-153",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 153,
+      "label": "input at app/src/pages/Signup.tsx:153",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-181",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 181,
+      "label": "input at app/src/pages/Signup.tsx:181",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-209",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 209,
+      "label": "input at app/src/pages/Signup.tsx:209",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-255",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 255,
+      "label": "button at app/src/pages/Signup.tsx:255",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-voiceagents-139-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/VoiceAgents.tsx",
+      "line": 139,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-voiceagents-169",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/VoiceAgents.tsx",
+      "line": 169,
+      "label": "button at app/src/pages/VoiceAgents.tsx:169",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-voiceagents-196",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/VoiceAgents.tsx",
+      "line": 196,
+      "label": "button at app/src/pages/VoiceAgents.tsx:196",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-forgotpassword-72",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 72,
+      "label": "<expr>",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-70",
+      "file": "app/src/pages/Login.tsx",
+      "line": 70,
+      "label": "<expr>",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-56",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 56,
+      "label": "<expr>",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-83",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 83,
+      "label": "<expr>",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-guests--id",
+      "method": "DELETE",
+      "mountedPath": "/guests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/guests.ts",
+      "line": 133,
+      "resource": "guests"
+    },
+    {
+      "id": "route-delete-rate-plans--id",
+      "method": "DELETE",
+      "mountedPath": "/rate-plans/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rate-plans.ts",
+      "line": 129,
+      "resource": "rate-plans"
+    },
+    {
+      "id": "route-delete-room-types--id",
+      "method": "DELETE",
+      "mountedPath": "/room-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/room-types.ts",
+      "line": 100,
+      "resource": "room-types"
+    },
+    {
+      "id": "route-delete-rooms--id",
+      "method": "DELETE",
+      "mountedPath": "/rooms/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 119,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-delete-voice-agents--id",
+      "method": "DELETE",
+      "mountedPath": "/voice-agents/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/voice-agents.ts",
+      "line": 153,
+      "resource": "voice-agents"
+    },
+    {
+      "id": "route-get-availability-",
+      "method": "GET",
+      "mountedPath": "/availability",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/availability.ts",
+      "line": 28,
+      "resource": "availability"
+    },
+    {
+      "id": "route-get-calls-",
+      "method": "GET",
+      "mountedPath": "/calls",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/calls.ts",
+      "line": 93,
+      "resource": "calls"
+    },
+    {
+      "id": "route-get-calls--id",
+      "method": "GET",
+      "mountedPath": "/calls/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/calls.ts",
+      "line": 117,
+      "resource": "calls"
+    },
+    {
+      "id": "route-get-dashboard-",
+      "method": "GET",
+      "mountedPath": "/dashboard",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/dashboard.ts",
+      "line": 22,
+      "resource": "dashboard"
+    },
+    {
+      "id": "route-get-guests-",
+      "method": "GET",
+      "mountedPath": "/guests",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/guests.ts",
+      "line": 33,
+      "resource": "guests"
+    },
+    {
+      "id": "route-get-guests--id",
+      "method": "GET",
+      "mountedPath": "/guests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/guests.ts",
+      "line": 55,
+      "resource": "guests"
+    },
+    {
+      "id": "route-get-rate-plans-",
+      "method": "GET",
+      "mountedPath": "/rate-plans",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rate-plans.ts",
+      "line": 61,
+      "resource": "rate-plans"
+    },
+    {
+      "id": "route-get-reservations-",
+      "method": "GET",
+      "mountedPath": "/reservations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 76,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-get-reservations--id",
+      "method": "GET",
+      "mountedPath": "/reservations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 104,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-get-room-types-",
+      "method": "GET",
+      "mountedPath": "/room-types",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/room-types.ts",
+      "line": 33,
+      "resource": "room-types"
+    },
+    {
+      "id": "route-get-rooms-",
+      "method": "GET",
+      "mountedPath": "/rooms",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 44,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-get-voice-agents-",
+      "method": "GET",
+      "mountedPath": "/voice-agents",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/voice-agents.ts",
+      "line": 44,
+      "resource": "voice-agents"
+    },
+    {
+      "id": "route-get-voice-agents--id",
+      "method": "GET",
+      "mountedPath": "/voice-agents/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/voice-agents.ts",
+      "line": 62,
+      "resource": "voice-agents"
+    },
+    {
+      "id": "route-patch-guests--id",
+      "method": "PATCH",
+      "mountedPath": "/guests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/guests.ts",
+      "line": 103,
+      "resource": "guests"
+    },
+    {
+      "id": "route-patch-rate-plans--id",
+      "method": "PATCH",
+      "mountedPath": "/rate-plans/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rate-plans.ts",
+      "line": 105,
+      "resource": "rate-plans"
+    },
+    {
+      "id": "route-patch-reservations--id",
+      "method": "PATCH",
+      "mountedPath": "/reservations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 161,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-patch-room-types--id",
+      "method": "PATCH",
+      "mountedPath": "/room-types/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/room-types.ts",
+      "line": 70,
+      "resource": "room-types"
+    },
+    {
+      "id": "route-patch-rooms--id",
+      "method": "PATCH",
+      "mountedPath": "/rooms/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 89,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-patch-voice-agents--id",
+      "method": "PATCH",
+      "mountedPath": "/voice-agents/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/voice-agents.ts",
+      "line": 115,
+      "resource": "voice-agents"
+    },
+    {
+      "id": "route-post-calls-",
+      "method": "POST",
+      "mountedPath": "/calls",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/calls.ts",
+      "line": 148,
+      "resource": "calls"
+    },
+    {
+      "id": "route-post-calls--id-utterance",
+      "method": "POST",
+      "mountedPath": "/calls/:id/utterance",
+      "rawPath": "/:id/utterance",
+      "handlerFile": "api/src/handlers/calls.ts",
+      "line": 203,
+      "resource": "calls"
+    },
+    {
+      "id": "route-post-guests-",
+      "method": "POST",
+      "mountedPath": "/guests",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/guests.ts",
+      "line": 79,
+      "resource": "guests"
+    },
+    {
+      "id": "route-post-rate-plans-",
+      "method": "POST",
+      "mountedPath": "/rate-plans",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rate-plans.ts",
+      "line": 79,
+      "resource": "rate-plans"
+    },
+    {
+      "id": "route-post-reservations-",
+      "method": "POST",
+      "mountedPath": "/reservations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 128,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-post-room-types-",
+      "method": "POST",
+      "mountedPath": "/room-types",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/room-types.ts",
+      "line": 47,
+      "resource": "room-types"
+    },
+    {
+      "id": "route-post-rooms-",
+      "method": "POST",
+      "mountedPath": "/rooms",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/rooms.ts",
+      "line": 66,
+      "resource": "rooms"
+    },
+    {
+      "id": "route-post-speech-synthesize",
+      "method": "POST",
+      "mountedPath": "/speech/synthesize",
+      "rawPath": "/synthesize",
+      "handlerFile": "api/src/handlers/speech.ts",
+      "line": 31,
+      "resource": "speech"
+    },
+    {
+      "id": "route-post-voice-agents-",
+      "method": "POST",
+      "mountedPath": "/voice-agents",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/voice-agents.ts",
+      "line": 86,
+      "resource": "voice-agents"
+    },
+    {
+      "id": "route-post-voice-inbound",
+      "method": "POST",
+      "mountedPath": "/voice/inbound",
+      "rawPath": "/inbound",
+      "handlerFile": "api/src/handlers/voice.ts",
+      "line": 45,
+      "resource": "voice"
+    },
+    {
+      "id": "route-put-calls--id-end",
+      "method": "PUT",
+      "mountedPath": "/calls/:id/end",
+      "rawPath": "/:id/end",
+      "handlerFile": "api/src/handlers/calls.ts",
+      "line": 311,
+      "resource": "calls"
+    },
+    {
+      "id": "route-put-reservations--id-status",
+      "method": "PUT",
+      "mountedPath": "/reservations/:id/status",
+      "rawPath": "/:id/status",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 206,
+      "resource": "reservations"
+    }
+  ],
+  "totals": {
+    "pages": 19,
+    "elements": 67,
+    "forms": 4,
+    "routes": 36
+  }
+}

@@ -1,0 +1,11 @@
+[
+  { "id": "88888888-8888-4888-8888-888888888801", "call_id": "77777777-7777-4777-8777-777777777701", "role": "agent", "text": "Gracias por llamar. Le atiende recepción — ¿en qué puedo ayudarle?", "language": "es" },
+  { "id": "88888888-8888-4888-8888-888888888802", "call_id": "77777777-7777-4777-8777-777777777701", "role": "caller", "text": "Hola, buenas noches. ¿Tienen habitaciones libres para este fin de semana, para dos personas?", "language": "es" },
+  { "id": "88888888-8888-4888-8888-888888888803", "call_id": "77777777-7777-4777-8777-777777777701", "role": "agent", "text": "Sí, señora. Para el fin de semana queda la Standard Queen a 129 dólares por noche. ¿Desea que se la reserve?", "language": "es" },
+  { "id": "88888888-8888-4888-8888-888888888804", "call_id": "77777777-7777-4777-8777-777777777701", "role": "caller", "text": "Sí, la primera, por favor. A nombre de Lucía Herrera.", "language": "es" },
+  { "id": "88888888-8888-4888-8888-888888888805", "call_id": "77777777-7777-4777-8777-777777777701", "role": "agent", "text": "Perfecto, todo está listo. Su código de confirmación es K7PW2MFX. Estaremos encantados de recibirla.", "language": "es" },
+  { "id": "88888888-8888-4888-8888-888888888806", "call_id": "77777777-7777-4777-8777-777777777702", "role": "agent", "text": "Merci de votre appel. Ici la réception — comment puis-je vous aider ?", "language": "fr" },
+  { "id": "88888888-8888-4888-8888-888888888807", "call_id": "77777777-7777-4777-8777-777777777702", "role": "caller", "text": "Bonjour, à quelle heure sert-on le petit-déjeuner ?", "language": "fr" },
+  { "id": "88888888-8888-4888-8888-888888888808", "call_id": "77777777-7777-4777-8777-777777777702", "role": "agent", "text": "Le petit-déjeuner est servi de 6 h 30 à 10 h 30 en semaine, et jusqu’à 11 h le week-end. Autre chose ?", "language": "fr" },
+  { "id": "88888888-8888-4888-8888-888888888809", "call_id": "77777777-7777-4777-8777-777777777702", "role": "caller", "text": "Non merci, c’est parfait.", "language": "fr" }
+]

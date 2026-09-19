@@ -1,0 +1,158 @@
+{
+  "app": "ai-hotel-receptionist",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Reservations",
+      "templateFile": "app/pages/Reservations.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/reservations",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ReservationDetail",
+      "templateFile": "app/pages/ReservationDetail.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/reservations/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "NewReservation",
+      "templateFile": "app/pages/NewReservation.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/reservations/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "RoomsRates",
+      "templateFile": "app/pages/RoomsRates.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/rooms",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Guests",
+      "templateFile": "app/pages/Guests.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/guests",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "GuestDetail",
+      "templateFile": "app/pages/GuestDetail.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/guests/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "VoiceAgents",
+      "templateFile": "app/pages/VoiceAgents.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/voice-agents",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Calls",
+      "templateFile": "app/pages/Calls.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/calls",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "CallDetail",
+      "templateFile": "app/pages/CallDetail.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/calls/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "CallSimulator",
+      "templateFile": "app/pages/CallSimulator.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/simulator",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Account",
+      "templateFile": "app/pages/Account.tsx",
+      "components": ["app/components/SwitchboardLayout.tsx"],
+      "route": "/account",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

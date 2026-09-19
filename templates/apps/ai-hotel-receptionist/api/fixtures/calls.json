@@ -1,0 +1,4 @@
+[
+  { "id": "77777777-7777-4777-8777-777777777701", "voice_agent_id": "55555555-5555-4555-8555-555555555501", "user_id": null, "direction": "inbound", "detected_language": "es", "started_at": "2026-09-18T21:04:00Z", "ended_at": "2026-09-18T21:06:34Z", "duration_seconds": 154, "outcome": "booked", "summary": "Caller booked a Standard Queen for the weekend for two guests.", "recording_url": null, "mode": "llm" },
+  { "id": "77777777-7777-4777-8777-777777777702", "voice_agent_id": "55555555-5555-4555-8555-555555555501", "user_id": null, "direction": "inbound", "detected_language": "fr", "started_at": "2026-09-19T06:40:00Z", "ended_at": "2026-09-19T06:41:01Z", "duration_seconds": 61, "outcome": "info", "summary": "Caller asked about breakfast hours and late checkout.", "recording_url": null, "mode": "llm" }
+]

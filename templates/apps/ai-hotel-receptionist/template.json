@@ -1,0 +1,51 @@
+{
+  "label": "AI Hotel Receptionist",
+  "description": "Multilingual AI voice receptionist + PMS: the phone agent answers in the caller's own language and books available rooms — plus rooms, rates, reservations, and guest management",
+  "cluster": "real-estate-travel",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-ai-agents",
+    "@molecule/api-ai-agents-llm",
+    "@molecule/api-ai-anthropic",
+    "@molecule/api-ai-speech-openai",
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/app-sidebar-layout-react",
+    "@molecule/app-status-timeline-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "AI Hotel Receptionist"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "ANTHROPIC_API_KEY": {
+      "description": "Anthropic API key for the Claude voice-receptionist agent",
+      "required": false
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for text-to-speech of agent replies (optional; transcript works without it)",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "pms",
+    "ai-voice",
+    "multilingual",
+    "call-simulation"
+  ]
+}

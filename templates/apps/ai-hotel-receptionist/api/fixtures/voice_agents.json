@@ -1,0 +1,4 @@
+[
+  { "id": "55555555-5555-4555-8555-555555555501", "name": "Front Desk — Multilingual", "phone_number": "+1 555 0100", "languages": ["en", "es", "fr", "de", "zh", "ja"], "voice_by_language": {}, "upsell_enabled": true, "max_discount_percent": 10, "transfer_to_human_on": ["explicit_request", "complaint", "payment_issue"], "after_hours_message": null, "active": true },
+  { "id": "55555555-5555-4555-8555-555555555502", "name": "Night Line", "phone_number": "+1 555 0199", "languages": ["en", "es", "fr"], "voice_by_language": {}, "upsell_enabled": false, "max_discount_percent": 0, "transfer_to_human_on": ["explicit_request", "complaint", "payment_issue", "group_booking"], "after_hours_message": "Thank you for calling. The front desk is closed for the night — I can still check availability and book a room for you.", "active": true }
+]

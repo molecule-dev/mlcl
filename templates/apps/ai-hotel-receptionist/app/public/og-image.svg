@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00695c" />
+      <stop offset="1" stop-color="#004d43" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1080" cy="90" r="180" fill="#f59e0b" fill-opacity="0.18" />
+  <circle cx="120" cy="560" r="140" fill="#ffffff" fill-opacity="0.06" />
+  <g transform="translate(96 200)" fill="#ffffff">
+    <text x="0" y="64" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold">Switchboard</text>
+    <text x="0" y="140" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#a5f1e5">Every call answered &#8212; in the guest&#8217;s own language.</text>
+    <text x="0" y="190" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#ffffff" fill-opacity="0.85">EN &#183; ES &#183; FR &#183; DE &#183; &#20013;&#25991; &#183; &#26085;&#26412;&#35486; &#8212; AI voice receptionist + hotel PMS</text>
+  </g>
+</svg>

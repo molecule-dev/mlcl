@@ -1,0 +1,8 @@
+[
+  { "id": "44444444-4444-4444-8444-444444444401", "name": "Amelie Fontaine", "email": "amelie.fontaine@example.com", "phone": "+33 6 12 34 56 78", "preferred_language": "fr", "notes": "Prefers a high floor; allergic to feather pillows.", "stay_count": 6 },
+  { "id": "44444444-4444-4444-8444-444444444402", "name": "Diego Ramírez", "email": "diego.ramirez@example.com", "phone": "+34 611 22 33 44", "preferred_language": "es", "notes": "Repeat guest — always asks for late checkout.", "stay_count": 4 },
+  { "id": "44444444-4444-4444-8444-444444444403", "name": "Hannah Weber", "email": "hannah.weber@example.com", "phone": "+49 151 2345 6789", "preferred_language": "de", "notes": "Business traveler; needs a desk and quiet room.", "stay_count": 2 },
+  { "id": "44444444-4444-4444-8444-444444444404", "name": "Chen Wei", "email": "chen.wei@example.com", "phone": "+86 138 0013 8000", "preferred_language": "zh", "notes": "Vegetarian breakfast.", "stay_count": 1 },
+  { "id": "44444444-4444-4444-8444-444444444405", "name": "Oliver Grant", "email": "oliver.grant@example.com", "phone": "+1 415 555 0132", "preferred_language": "en", "notes": "Anniversary stay — add a welcome note.", "stay_count": 3 },
+  { "id": "44444444-4444-4444-8444-444444444406", "name": "Sakura Tanaka", "email": "sakura.tanaka@example.com", "phone": "+81 90 1234 5678", "preferred_language": "ja", "notes": "Arriving late (~23:00).", "stay_count": 0 }
+]

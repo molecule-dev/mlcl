@@ -1,0 +1,128 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #00695c;
+  --mol-color-primary-light: #26a69a;
+  --mol-color-secondary: #455a64;
+  --mol-color-background: #f4f7f6;
+  --mol-color-text: #1c2b2a;
+  --mol-color-text-secondary: #4f6462;
+  --mol-color-text-tertiary: #5d7371;
+  --mol-color-border: #dce5e3;
+
+  --color-primary: #00695c;
+  --color-primary-container: #004d43;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #a5f1e5;
+  --color-primary-light: #26a69a;
+  --color-primary-dark: #004d43;
+  --color-secondary: #455a64;
+  --color-secondary-light: #78909c;
+  --color-accent: #f59e0b;
+  --color-background: #f4f7f6;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f0f5f4;
+  --color-text: #1c2b2a;
+  --color-text-secondary: #4f6462;
+  --color-text-muted: #5d7371;
+  --color-border: #dce5e3;
+  --color-error: #c62828;
+  --color-success: #2e7d32;
+  --color-star: #f59e0b;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: 'Arimo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode — night-desk teal. Ops tone: cool near-black surfaces with a
+   faint teal cast (the front desk at 2 a.m.), brand teal brightened for
+   hero CTAs so white text keeps its light-on-teal character.
+   `--color-on-primary` STAYS white in both modes. */
+[data-mol-mode='dark'] {
+  /* === @theme bridge dark overrides === */
+  --mol-color-primary: #26a69a;
+  --mol-color-primary-light: #4db6ac;
+  --mol-color-secondary: #90a4ae;
+  --mol-color-background: #0c1413;
+  --mol-color-text: #e5efed;
+  --mol-color-text-secondary: #b2c4c1;
+  --mol-color-border: #1f2e2c;
+
+  --color-primary: #26a69a;
+  --color-primary-light: #4db6ac;
+  --color-primary-dark: #004d43;
+  --color-secondary: #90a4ae;
+  --color-secondary-light: #b0bec5;
+  --color-accent: #fbbf24;
+  --color-background: #0c1413;
+  --color-surface: #12201e;
+  --color-surface-hover: #182927;
+  --color-text: #e5efed;
+  --color-text-secondary: #b2c4c1;
+  --color-text-muted: #93a8a5;
+  --color-border: #1f2e2c;
+  --color-error: #f87171;
+  --color-success: #4ade80;
+  --color-star: #fbbf24;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on teal: `on-primary` stays white. */
+  --color-on-background: #e5efed;
+  --color-surface-bright: #182927;
+  --color-surface-dim: #08100f;
+  --color-surface-container-lowest: #060d0c;
+  --color-surface-container-low: #101c1a;
+  --color-surface-container: #12201e;
+  --color-surface-container-high: #182927;
+  --color-surface-container-highest: #1f302e;
+  --color-surface-variant: #182927;
+  --color-on-surface: #e5efed;
+  --color-on-surface-variant: #b2c4c1;
+  --color-inverse-surface: #e5efed;
+  --color-inverse-on-surface: #12201e;
+  --color-inverse-primary: #00695c;
+  --color-primary-container: #00352f;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #a5f1e5;
+  --color-secondary-container: #263238;
+  --color-on-secondary: #e5efed;
+  --color-on-secondary-container: #cfd8dc;
+  --color-tertiary: #fbbf24;
+  --color-tertiary-container: #4a3506;
+  --color-on-tertiary: #1a1208;
+  --color-on-tertiary-container: #fde9b8;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #748980;
+  --color-outline-variant: #1f2e2c;
+  --color-surface-tint: #4db6ac;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.65);
+}

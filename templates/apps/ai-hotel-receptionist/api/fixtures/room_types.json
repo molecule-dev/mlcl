@@ -1,0 +1,6 @@
+[
+  { "id": "11111111-1111-4111-8111-111111111101", "name": "Standard Queen", "description": "Cozy 24 m² room with a queen bed, writing desk, and garden-side window.", "occupancy": 2, "base_rate_cents": 12900, "amenities": ["Wi-Fi", "Smart TV", "Coffee maker", "Rain shower"] },
+  { "id": "11111111-1111-4111-8111-111111111102", "name": "Deluxe King", "description": "32 m² king room with a reading nook, city view, and marble bathroom.", "occupancy": 3, "base_rate_cents": 18900, "amenities": ["Wi-Fi", "Smart TV", "Nespresso", "Bathtub", "City view"] },
+  { "id": "11111111-1111-4111-8111-111111111103", "name": "Junior Suite", "description": "48 m² corner suite with a separate lounge, sofa bed, and terrace access.", "occupancy": 4, "base_rate_cents": 27900, "amenities": ["Wi-Fi", "Lounge", "Terrace", "Nespresso", "Soaking tub"] },
+  { "id": "11111111-1111-4111-8111-111111111104", "name": "Family Room", "description": "Two connected doubles sleeping up to five, with a play corner for kids.", "occupancy": 5, "base_rate_cents": 23900, "amenities": ["Wi-Fi", "Two bedrooms", "Play corner", "Mini fridge"] }
+]

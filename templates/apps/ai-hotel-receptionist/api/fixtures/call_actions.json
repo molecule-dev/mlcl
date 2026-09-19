@@ -1,0 +1,5 @@
+[
+  { "id": "99999999-9999-4999-8999-999999999901", "call_id": "77777777-7777-4777-8777-777777777701", "tool": "search_availability", "arguments": { "check_in": "2026-09-25", "check_out": "2026-09-27", "guests": 2 }, "result": { "available": true, "options": [{ "name": "Standard Queen", "total_cents": 29670 }] } },
+  { "id": "99999999-9999-4999-8999-999999999902", "call_id": "77777777-7777-4777-8777-777777777701", "tool": "create_reservation", "arguments": { "room_type": "Standard Queen", "guest_name": "Lucía Herrera", "guests": 2 }, "result": { "confirmation_code": "K7PW2MFX", "total_cents": 29670 } },
+  { "id": "99999999-9999-4999-8999-999999999903", "call_id": "77777777-7777-4777-8777-777777777702", "tool": "search_availability", "arguments": { "check_in": "2026-09-26", "check_out": "2026-09-27", "guests": 1 }, "result": { "available": true, "options": [] } }
+]
