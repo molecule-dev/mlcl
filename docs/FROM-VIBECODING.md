@@ -47,9 +47,10 @@ the molecule.dev IDE first — are in
 
 Lovable (chat connectors), v0 (MCP integrations), and bolt.new (Connectors)
 all speak MCP in 2026 — but they connect to **remote** MCP servers by URL,
-and molecule's server currently ships as a local stdio process. A hosted
-`mcp.molecule.dev` (search/templates/package-docs tools) is on the roadmap;
-when it lands, those builders' agents will be able to consult the package
+while molecule's local server is a stdio process. The hosted read-only face
+(`mcp.molecule.dev` — search/templates/package-docs/conventions, no local
+install required) is built and deploys at launch; point any of those
+builders' connector forms at its URL and their agents can consult the package
 fleet mid-build the same way Claude Code can today.
 
 ## The honest comparison

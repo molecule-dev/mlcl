@@ -10,7 +10,8 @@
     "node": ">=22"
   },
   "bin": {
-    "molecule-mcp": "./bin/run.js"
+    "molecule-mcp": "./bin/run.js",
+    "molecule-mcp-serve": "./bin/serve.js"
   },
   "files": [
     "/bin",
@@ -20,12 +21,14 @@
   ],
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "serve": "node dist/http.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.17.0",
     "execa": "10.0.0",
-    "zod": "3.25.76"
+    "zod": "3.25.76",
+    "express": "5.2.1"
   },
   "devDependencies": {
     "@types/node": "26.1.2",

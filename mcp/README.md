@@ -98,17 +98,33 @@ your agent can read as context.
 { "directory": "/abs/my-project" }
 ```
 
+## Two modes: local (stdio) and hosted (HTTP)
+
+- **Local stdio** (default, `molecule-mcp`): full tool set, wraps the local
+  `mlcl` CLI. What every CLI harness registers.
+- **Hosted HTTP** (`molecule-mcp-serve` / `node dist/http.js`): the read-only
+  face at `https://mcp.molecule.dev/mcp` — search/templates/docs/conventions
+  served from the live registry and npm, no local install needed. This is the
+  surface URL-based clients use: Lovable chat connectors, v0 MCP integrations,
+  bolt.new Connectors, and the short install
+  (`claude mcp add --transport https https://mcp.molecule.dev/mcp`).
+  Deploy runbook: [DEPLOY.md](DEPLOY.md).
+
 ## Configuration
 
-- The server shells out to the `mlcl` binary (published package, resolved
+- Local mode shells out to the `mlcl` binary (published package, resolved
   from PATH). Override for local/dev: `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`.
+- Remote mode env: `MOLECULE_REGISTRY_URL` / `MOLECULE_TEMPLATES_URL`
+  (default: the public mlcl repo's raw GitHub URLs; `*_FILE` overrides for
+  local dev) and `PORT`.
 - All write tools are explicit CLI invocations with explicit arguments — no
   background behavior, no telemetry.
 
 ## Requirements
 
-- Node.js ≥ 22, `mlcl` resolvable (the published npm package; override with
-  `MOLECULE_MCP_CLI=/path/to/bin/run.js` for local/dev use).
+- Node.js ≥ 22; local mode additionally needs `mlcl` resolvable (the
+  published npm package; override with `MOLECULE_MCP_CLI=/path/to/bin/run.js`
+  for local/dev use).
 
 ## License
 
