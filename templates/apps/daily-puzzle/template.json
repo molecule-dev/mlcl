@@ -1,0 +1,62 @@
+{
+  "label": "Daily Puzzle",
+  "description": "Wordle-like daily word puzzle with streaks, per-day stats, emoji share cards, and a global stats leaderboard",
+  "cluster": "education",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-reporting-database",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Daily Puzzle"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_DAILY_PUZZLE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_DAILY_PUZZLE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_DAILY_PUZZLE_FAMILY_MONTHLY": {
+      "description": "Stripe price ID for the Family Monthly plan",
+      "required": false
+    },
+    "STRIPE_DAILY_PUZZLE_FAMILY_YEARLY": {
+      "description": "Stripe price ID for the Family Yearly plan",
+      "required": false
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": ["auth", "stats", "leaderboard", "subscriptions"]
+}

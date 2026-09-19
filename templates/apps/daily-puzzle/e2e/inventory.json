@@ -1,0 +1,918 @@
+{
+  "slug": "daily-puzzle",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-archive",
+      "path": "/archive",
+      "component": "Archive",
+      "file": "app/src/pages/Archive.tsx"
+    },
+    {
+      "id": "page-archiveplay",
+      "path": "/archive/:date",
+      "component": "ArchivePlay",
+      "file": "app/src/pages/ArchivePlay.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-howtoplay",
+      "path": "/how-to-play",
+      "component": "HowToPlay",
+      "file": "app/src/pages/HowToPlay.tsx"
+    },
+    {
+      "id": "page-leaderboard",
+      "path": "/leaderboard",
+      "component": "Leaderboard",
+      "file": "app/src/pages/Leaderboard.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-play",
+      "path": "/play",
+      "component": "Play",
+      "file": "app/src/pages/Play.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-stats",
+      "path": "/stats",
+      "component": "Stats",
+      "file": "app/src/pages/Stats.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-puzzlegame-265-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 265,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-puzzlegame-286-lexlet-home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 286,
+      "label": "Lexlet home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-puzzlegame-305-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 305,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-puzzlegame-376-------t-play-share--",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 376,
+      "label": ", ) : t(play.share, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-puzzlegame-386-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 386,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-puzzlegame-393-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 393,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-puzzlegame-400-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PuzzleGame.tsx",
+      "line": 400,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-puzzlekeyboard-64-enter",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/PuzzleKeyboard.tsx",
+      "line": 64,
+      "label": "Enter",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-puzzlekeyboard-75",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/PuzzleKeyboard.tsx",
+      "line": 75,
+      "label": "button at app/src/components/PuzzleKeyboard.tsx:75",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-puzzlekeyboard-87--",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/PuzzleKeyboard.tsx",
+      "line": 87,
+      "label": "⌫",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-about-160-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/About.tsx",
+      "line": 160,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-archive-91--span-classname-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Archive.tsx",
+      "line": 91,
+      "label": "<span className=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-49---app-name--home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 49,
+      "label": "${APP_NAME} home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-129-mail",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 129,
+      "label": "mail",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-166-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 166,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-howtoplay-141-------t-howtoplay-ct",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/HowToPlay.tsx",
+      "line": 141,
+      "label": ", ) : t(howToPlay.cta.signup, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-howtoplay-150-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/HowToPlay.tsx",
+      "line": 150,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-62---app-name--home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 62,
+      "label": "${APP_NAME} home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-66-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 66,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-75-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 75,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-84-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 84,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-93-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 93,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-106-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 106,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-115-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 115,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-124-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 124,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-175-------t-landing-hero",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 175,
+      "label": ", ) : t(landing.hero.cta.start, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-184-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 184,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-253-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 253,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-320-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 320,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-342-------t-landing-cta-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 342,
+      "label": ", ) : t(landing.cta.start, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-leaderboard-221-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Leaderboard.tsx",
+      "line": 221,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-leaderboard-228-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Leaderboard.tsx",
+      "line": 228,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-57---app-name--home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 57,
+      "label": "${APP_NAME} home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-138-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 138,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-145-bolt--isloggingin---",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 145,
+      "label": "bolt {isLoggingIn ? t(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-192-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 192,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-42-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 42,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-50-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 50,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-planupdated-85-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 85,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-119-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 119,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-132-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 132,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pricing-174",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 174,
+      "label": "button at app/src/pages/Pricing.tsx:174",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pricing-188",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 188,
+      "label": "button at app/src/pages/Pricing.tsx:188",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-pricing-293",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 293,
+      "label": "button at app/src/pages/Pricing.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pricing-328-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 328,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-privacy-134-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Privacy.tsx",
+      "line": 134,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-62---app-name--home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 62,
+      "label": "${APP_NAME} home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-147-bolt--issubmitting--",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 147,
+      "label": "bolt {isSubmitting ? t",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-176-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 176,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-207-------t-nav-editprof",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 207,
+      "label": ", ) : t(nav.editProfile, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-239",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 239,
+      "label": "input at app/src/pages/Settings.tsx:239",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-257",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 257,
+      "label": "input at app/src/pages/Settings.tsx:257",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-275",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 275,
+      "label": "input at app/src/pages/Settings.tsx:275",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-287-------t-common-savep",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 287,
+      "label": ", ) : t(common.saveProfile, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-347--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 347,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-428-------t-settings-dan",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 428,
+      "label": ", ) : t(settings.danger.confirm, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-441-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 441,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-453-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 453,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-60---app-name--home",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 60,
+      "label": "${APP_NAME} home",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-147-rocket-launch--issig",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 147,
+      "label": "rocket_launch {isSigningUp",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-194-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 194,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-stats-133-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Stats.tsx",
+      "line": 133,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-stats-140-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Stats.tsx",
+      "line": 140,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-terms-100-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Terms.tsx",
+      "line": 100,
+      "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-forgotpassword-120",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 120,
+      "label": "form at app/src/pages/ForgotPassword.tsx:120",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-120",
+      "file": "app/src/pages/Login.tsx",
+      "line": 120,
+      "label": "form at app/src/pages/Login.tsx:120",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-115",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 115,
+      "label": "form at app/src/pages/ResetPassword.tsx:115",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-settings-222",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 222,
+      "label": "form at app/src/pages/Settings.tsx:222",
+      "onSubmit": false,
+      "fields": []
+    },
+    {
+      "id": "form-signup-123",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 123,
+      "label": "form at app/src/pages/Signup.tsx:123",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-get-leaderboard-",
+      "method": "GET",
+      "mountedPath": "/leaderboard",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/leaderboard.ts",
+      "line": 21,
+      "resource": "leaderboard"
+    },
+    {
+      "id": "route-get-puzzles--date",
+      "method": "GET",
+      "mountedPath": "/puzzles/:date",
+      "rawPath": "/:date",
+      "handlerFile": "api/src/handlers/puzzles.ts",
+      "line": 267,
+      "resource": "puzzles"
+    },
+    {
+      "id": "route-get-puzzles-archive",
+      "method": "GET",
+      "mountedPath": "/puzzles/archive",
+      "rawPath": "/archive",
+      "handlerFile": "api/src/handlers/puzzles.ts",
+      "line": 213,
+      "resource": "puzzles"
+    },
+    {
+      "id": "route-get-puzzles-today",
+      "method": "GET",
+      "mountedPath": "/puzzles/today",
+      "rawPath": "/today",
+      "handlerFile": "api/src/handlers/puzzles.ts",
+      "line": 187,
+      "resource": "puzzles"
+    },
+    {
+      "id": "route-get-stats-me",
+      "method": "GET",
+      "mountedPath": "/stats/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/stats.ts",
+      "line": 12,
+      "resource": "stats"
+    },
+    {
+      "id": "route-post-puzzles--date-guess",
+      "method": "POST",
+      "mountedPath": "/puzzles/:date/guess",
+      "rawPath": "/:date/guess",
+      "handlerFile": "api/src/handlers/puzzles.ts",
+      "line": 305,
+      "resource": "puzzles"
+    }
+  ],
+  "totals": {
+    "pages": 17,
+    "elements": 64,
+    "forms": 5,
+    "routes": 6
+  }
+}

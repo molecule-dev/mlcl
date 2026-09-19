@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f6f9f4"/>
+  <svg x="520" y="90" width="160" height="160" viewBox="0 0 32 32">
+    <g transform="rotate(-6 16 16)">
+      <rect x="3" y="3" width="12" height="12" rx="3" fill="#2e7d32"/>
+      <rect x="17" y="3" width="12" height="12" rx="3" fill="#787c7e" opacity="0.4"/>
+      <rect x="3" y="17" width="12" height="12" rx="3" fill="#b45309"/>
+      <rect x="17" y="17" width="12" height="12" rx="3" fill="#787c7e"/>
+    </g>
+  </svg>
+  <text x="600" y="350" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="700" font-size="56" fill="#1b2a1f">Lexlet</text>
+  <text x="600" y="420" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="28" fill="#4b5b4e">One word. Every day. Six tries.</text>
+  <text x="600" y="560" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="22" fill="#7c8a7e">Built with Molecule.dev</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Lexlet mark: a 2x2 letter-tile grid — green correct, amber present, gray absent. -->
+  <g transform="rotate(-6 16 16)">
+    <rect x="3" y="3" width="12" height="12" rx="3" fill="#2e7d32"/>
+    <rect x="17" y="3" width="12" height="12" rx="3" fill="#787c7e" opacity="0.4"/>
+    <rect x="3" y="17" width="12" height="12" rx="3" fill="#b45309"/>
+    <rect x="17" y="17" width="12" height="12" rx="3" fill="#787c7e"/>
+  </g>
+</svg>

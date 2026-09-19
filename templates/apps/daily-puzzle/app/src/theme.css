@@ -1,0 +1,213 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  /* Lexlet palette — the game IS the brand: primary green = the "correct"
+     tile, secondary amber = the "present" tile. Recolor the app HERE, never
+     in components (see base.css layering note — this file wins). */
+  --puzzle-primary: #2e7d32;
+  --puzzle-primary-hover: #1b5e20;
+  --puzzle-secondary: #b45309;
+  --puzzle-secondary-hover: #92400e;
+  --puzzle-accent: #0e7490;
+  --puzzle-gradient-from: #0b120c;
+  --puzzle-gradient-to: #14301a;
+  --puzzle-background: #f6f9f4;
+  --puzzle-surface: #ffffff;
+  --puzzle-surface-hover: #eef4ec;
+  --puzzle-border: #d8e4d4;
+  --puzzle-text: #1b2a1f;
+  --puzzle-text-muted: #4b5b4e;
+  --puzzle-text-light: #7c8a7e;
+  --puzzle-success: #15803d;
+  --puzzle-warning: #b45309;
+  --puzzle-danger: #dc2626;
+  /* Tile + keyboard states — the one place the game's three feedback
+     colors live. Absent keeps the classic neutral gray in both modes. */
+  --puzzle-tile-absent: #787c7e;
+  --puzzle-key-bg: #d3dcd3;
+  --puzzle-key-fg: #1b2a1f;
+  --puzzle-gold: #d97706;
+  --puzzle-silver: #94a3b8;
+  --puzzle-bronze: #b45309;
+  --puzzle-logo-tile-a: #2e7d32;
+  --puzzle-logo-tile-b: #b45309;
+  --puzzle-logo-tile-c: #787c7e;
+  --puzzle-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --puzzle-font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --puzzle-radius: 12px;
+  --puzzle-radius-sm: 6px;
+  --puzzle-radius-lg: 16px;
+  --puzzle-shadow: 0 2px 8px color-mix(in srgb, #2e7d32 10%, transparent);
+  --puzzle-shadow-lg: 0 8px 24px color-mix(in srgb, #2e7d32 15%, transparent);
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #2e7d32;
+  --mol-color-primary-light: #e3ede0;
+  --mol-color-primary-dark: #1b5e20;
+  --mol-color-secondary: #b45309;
+  --mol-color-background: #f6f9f4;
+  --mol-color-background-secondary: #eef4ec;
+  --mol-color-background-tertiary: #e3ede0;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #eef4ec;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1b2a1f;
+  --mol-color-text-secondary: #4b5b4e;
+  --mol-color-text-tertiary: #7c8a7e;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #d8e4d4;
+  --mol-color-border-secondary: #c4d4c0;
+  --mol-color-border-focus: #2e7d32;
+  --mol-color-success: #15803d;
+  --mol-color-warning: #92400e;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0e7490;
+
+  /* Stitch / Material-3 tokens — light mode defaults */
+  --color-background: #f6f9f4;
+  --color-on-background: #1b2a1f;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e6efe4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4ec;
+  --color-surface-container: #e9f1e7;
+  --color-surface-container-high: #e3ede0;
+  --color-surface-container-highest: #d8e4d4;
+  --color-surface-variant: #e3ede0;
+  --color-on-surface: #1b2a1f;
+  --color-on-surface-variant: #44543f;
+  --color-inverse-surface: #1b2a1f;
+  --color-inverse-on-surface: #eef4ec;
+  --color-inverse-primary: #a5d6a7;
+  --color-primary: #2e7d32;
+  --color-primary-container: #dcf0da;
+  --color-on-primary: #ffffff; /* white on green — 5.13:1 passes */
+  --color-on-primary-container: #0d2a10;
+  --color-secondary: #b45309;
+  --color-secondary-container: #fdebd3;
+  --color-on-secondary: #ffffff; /* white on amber — 4.83:1 passes */
+  --color-on-secondary-container: #3d2405;
+  --color-tertiary: #0e7490;
+  --color-tertiary-container: #d0ecf4;
+  --color-on-tertiary: #08303c; /* dark on cyan — white was 3.9:1 (fail); #08303c = 8.9:1 */
+  --color-on-tertiary-container: #08303c;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #5a0000;
+  --color-outline: #5f6f5f; /* ≥3:1 vs surface white */
+  --color-outline-variant: #d8e4d4;
+  --color-surface-tint: #2e7d32;
+}
+
+/* Dark mode — paper-to-slate flip with the same green identity.
+   `--color-on-primary` STAYS white in both modes so green CTA buttons and
+   the "correct" tile keep their light-on-green character. */
+[data-mol-mode='dark'] {
+  /* Brand — keep base at brand stop, brighten hover */
+  --puzzle-primary: #43a047;
+  --puzzle-primary-hover: #66bb6a;
+  --puzzle-secondary: #f59e0b;
+  --puzzle-secondary-hover: #fbbf24;
+  --puzzle-accent: #22d3ee;
+
+  /* Gradient endpoints */
+  --puzzle-gradient-from: #0b120c;
+  --puzzle-gradient-to: #16351d;
+
+  /* Surfaces — depth-layered green-tinted darks */
+  --puzzle-background: #0b120c;
+  --puzzle-surface: #111a12;
+  --puzzle-surface-hover: #182419;
+  --puzzle-border: #243526;
+
+  /* Text */
+  --puzzle-text: #eef5ee;
+  --puzzle-text-muted: #a5c2a8;
+  --puzzle-text-light: #7a957e;
+
+  /* Status — brighter on dark */
+  --puzzle-success: #4ade80;
+  --puzzle-warning: #fbbf24;
+  --puzzle-danger: #f87171;
+
+  /* Tiles — correct keeps white-on-green (on-primary stays white below);
+     absent goes to the classic dark-mode slate. */
+  --puzzle-tile-absent: #3a3a3c;
+  --puzzle-key-bg: #2c3a2e;
+  --puzzle-key-fg: #eef5ee;
+
+  /* Podium */
+  --puzzle-gold: #fcd34d;
+  --puzzle-silver: #cbd5e1;
+  --puzzle-bronze: #f59e0b;
+
+  /* Provider bridge — drives molecule packages that read --mol-color-* */
+  --mol-color-primary: #43a047;
+  --mol-color-primary-light: #1b5e20;
+  --mol-color-primary-dark: #143d17;
+  --mol-color-secondary: #f59e0b;
+  --mol-color-background: #0b120c;
+  --mol-color-background-secondary: #111a12;
+  --mol-color-background-tertiary: #182419;
+  --mol-color-surface: #0b120c;
+  --mol-color-surface-secondary: #111a12;
+  --mol-color-input-background: #060b07;
+  --mol-color-text: #eef5ee;
+  --mol-color-text-secondary: #a5c2a8;
+  --mol-color-text-tertiary: #7a957e;
+  --mol-color-text-inverse: #0b120c;
+  --mol-color-border: #243526;
+  --mol-color-border-secondary: #33492f;
+  --mol-color-border-focus: #66bb6a;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTA buttons keep white text on green: `on-primary` stays white. */
+  --color-background: #0b120c;
+  --color-on-background: #eef5ee;
+  --color-surface: #0b120c;
+  --color-surface-bright: #182419;
+  --color-surface-dim: #060b07;
+  --color-surface-container-lowest: #040805;
+  --color-surface-container-low: #0e1710;
+  --color-surface-container: #111a12;
+  --color-surface-container-high: #182419;
+  --color-surface-container-highest: #243526;
+  --color-surface-variant: #182419;
+  --color-on-surface: #eef5ee;
+  --color-on-surface-variant: #a5c2a8;
+  --color-inverse-surface: #eef5ee;
+  --color-inverse-on-surface: #111a12;
+  --color-inverse-primary: #2e7d32;
+  --color-primary: #43a047;
+  --color-primary-container: #1b5e20;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #dcf0da;
+  --color-secondary: #f59e0b;
+  --color-secondary-container: #713612;
+  --color-on-secondary: #0b120c; /* dark on amber — white was 2.15:1 (fail); #0b120c = 8.9:1 */
+  --color-on-secondary-container: #fdebd3;
+  --color-tertiary: #22d3ee;
+  --color-tertiary-container: #155e75;
+  --color-on-tertiary: #0b120c; /* dark on cyan — white was 1.81:1 (fail); #0b120c = 10.93:1 */
+  --color-on-tertiary-container: #d0ecf4;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #3a0000; /* dark on red — white was 2.77:1 (fail); #3a0000 = 6.43:1 */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8fa592;
+  --color-outline-variant: #243526;
+  --color-surface-tint: #66bb6a;
+
+  /* Shadows */
+  --puzzle-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --puzzle-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.65);
+}

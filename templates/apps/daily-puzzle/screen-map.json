@@ -1,0 +1,113 @@
+{
+  "app": "daily-puzzle",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "HowToPlay",
+      "templateFile": "app/pages/HowToPlay.tsx",
+      "components": [],
+      "route": "/how-to-play",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Play",
+      "templateFile": "app/pages/Play.tsx",
+      "components": ["app/components/PuzzleBoard.tsx", "app/components/PuzzleKeyboard.tsx"],
+      "route": "/play",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Stats",
+      "templateFile": "app/pages/Stats.tsx",
+      "components": ["app/components/GuessDistribution.tsx"],
+      "route": "/stats",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Archive",
+      "templateFile": "app/pages/Archive.tsx",
+      "components": [],
+      "route": "/archive",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ArchivePlay",
+      "templateFile": "app/pages/ArchivePlay.tsx",
+      "components": ["app/components/PuzzleBoard.tsx", "app/components/PuzzleKeyboard.tsx"],
+      "route": "/archive/:date",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Leaderboard",
+      "templateFile": "app/pages/Leaderboard.tsx",
+      "components": [],
+      "route": "/leaderboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}
