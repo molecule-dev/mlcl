@@ -32,7 +32,7 @@ await client.connect(clientSide)
 const { tools } = await client.listTools()
 const names = tools.map((t) => t.name)
 check(
-  'listTools exposes all six tools',
+  'listTools exposes all seven tools',
   [
     'search_packages',
     'list_templates',
@@ -63,6 +63,28 @@ check(
   'list_templates returns 134 slugs',
   Array.isArray(tplList) && tplList.length >= 130 && tplList.some((t) => t.slug === 'blog'),
 )
+
+// 3b. conventions resource — the doctrine ships WITH the server
+const resources = await client.listResources()
+check(
+  'conventions resource exposed',
+  resources.resources.some((r) => r.uri === 'molecule://conventions'),
+)
+const conventions = await client.readResource({ uri: 'molecule://conventions' })
+check(
+  'conventions carries the quickstart',
+  /mlcl create <name> --template <slug> --no-interactive/.test(conventions.contents[0].text),
+)
+
+// 3c. agent_init tool — the server can self-install the doctrine in a project
+const initDir = mkdtempSync(join(tmpdir(), 'mcp-agent-init-'))
+const initResult = await client.callTool({ name: 'agent_init', arguments: { directory: initDir } })
+check(
+  'agent_init writes AGENTS.md',
+  existsSync(join(initDir, 'AGENTS.md')),
+  initResult.content[0].text,
+)
+rmSync(initDir, { recursive: true, force: true })
 
 // 4. scaffold_project — a REAL scaffold through MCP (skip-install for speed)
 const dir = mkdtempSync(join(tmpdir(), 'mcp-e2e-'))

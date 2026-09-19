@@ -204,5 +204,45 @@ function candidateDirs(base: string): string[] {
   return dirs
 }
 
+// ── Self-installation surface ────────────────────────────────────────────────
+// Once a harness adds this ONE server, it also carries the molecule doctrine
+// (resource below) and can wire a project's agent files itself — so the
+// install story per harness is a single MCP config line, nothing else.
+
+server.registerTool(
+  'agent_init',
+  {
+    title: 'Make this project molecule-aware',
+    description:
+      'Write the molecule conventions + mlcl quickstart into the agent instruction files the active harness reads (AGENTS.md standard section, plus Cursor rules / Claude skill / Gemini extension / Windsurf rule when their markers are present). Idempotent — never clobbers user edits.',
+    inputSchema: {
+      directory: z.string().optional().describe('Project root (default cwd)'),
+    },
+  },
+  async ({ directory }) => text(await runCli(['agent', 'init'], directory ?? process.cwd())),
+)
+
+server.registerResource(
+  'conventions',
+  'molecule://conventions',
+  {
+    title: 'The molecule way',
+    description:
+      'The molecule conventions for building and extending apps — packages before hand-rolled code, bonds for providers, ClassMap styling, i18n text, plus the mlcl quickstart commands. Read this before working in a molecule-built project.',
+    mimeType: 'text/markdown',
+  },
+  async () => ({
+    contents: [
+      {
+        uri: 'molecule://conventions',
+        mimeType: 'text/markdown',
+        // Bundled copy of mlcl's templates/shared/agent-init-section.md.tpl —
+        // keep the two in sync when the doctrine changes.
+        text: readFileSync(join(import.meta.dirname, '..', 'assets', 'conventions.md'), 'utf8'),
+      },
+    ],
+  }),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }
