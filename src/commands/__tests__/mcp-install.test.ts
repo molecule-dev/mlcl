@@ -78,4 +78,38 @@ describe('mlcl mcp install', () => {
     await expect(run([])).rejects.toThrow(/--agent/)
     delete process.env.MLCL_NO_PATH_DETECT
   })
+
+  it('writes zed config under the nested agent.mcp_servers key, preserving settings', async () => {
+    const path = join(project, '.zed', 'settings.json')
+    mkdirSync(join(path, '..'), { recursive: true })
+    writeFileSync(path, JSON.stringify({ theme: 'one-dark', agent: { enabled: true } }))
+    await run(['--agent', 'zed'])
+    const cfg = JSON.parse(readFileSync(path, 'utf8'))
+    expect(cfg.theme).toBe('one-dark')
+    expect(cfg.agent.enabled).toBe(true)
+    expect(cfg.agent.mcp_servers.molecule).toEqual({ command: 'npx', args: ['-y', 'molecule-mcp'] })
+  })
+
+  it('writes kiro workspace config', async () => {
+    await run(['--agent', 'kiro', '--project'])
+    const cfg = JSON.parse(readFileSync(join(project, '.kiro', 'settings', 'mcp.json'), 'utf8'))
+    expect(cfg.mcpServers.molecule.command).toBe('npx')
+  })
+
+  it('writes trae global config', async () => {
+    await run(['--agent', 'trae'])
+    const cfg = JSON.parse(readFileSync(join(home, '.trae', 'mcp.json'), 'utf8'))
+    expect(cfg.mcpServers.molecule.args).toEqual(['-y', 'molecule-mcp'])
+  })
+
+  it('writes opencode config in its command-array shape', async () => {
+    await run(['--agent', 'opencode', '--project'])
+    const cfg = JSON.parse(readFileSync(join(project, 'opencode.json'), 'utf8'))
+    expect(cfg.mcp.molecule).toEqual({ type: 'local', command: ['npx', '-y', 'molecule-mcp'] })
+  })
+
+  it('prints instructions instead of writing for YAML/UI harnesses', async () => {
+    await run(['--agent', 'goose'])
+    expect(existsSync(join(home, '.config', 'goose'))).toBe(false)
+  })
 })

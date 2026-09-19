@@ -33,43 +33,127 @@ const CLI_INSTALLERS = [
   },
 ] as const
 
-/** Config-file harnesses: write/merge the standard mcpServers JSON shape. */
-const FILE_INSTALLERS: Record<
-  string,
-  (project: boolean) => { path: string; key: string; top: string }
-> = {
-  windsurf: () => ({
-    path: join(homedir(), '.codeium', 'windsurf', 'mcp_config.json'),
-    key: 'mcpServers',
-    top: 'mcpServers',
-  }),
-  vscode: (project) => ({
-    path: project
-      ? join(process.cwd(), '.vscode', 'mcp.json')
-      : join(process.cwd(), '.vscode', 'mcp.json'),
-    key: 'servers',
-    top: 'servers',
-  }),
-  'cursor-project': () => ({
-    path: join(process.cwd(), '.cursor', 'mcp.json'),
-    key: 'mcpServers',
-    top: 'mcpServers',
-  }),
+/**
+ * Config-file harnesses. Each declares where its config lives, the (possibly
+ * nested) key path servers live under, and the entry shape it expects — most
+ * use `{command, args}`, OpenCode uses `{type:"local", command:[...]}`.
+ */
+interface FileInstaller {
+  path: (project: boolean) => string
+  keys: string[]
+  entry: Record<string, unknown>
 }
 
-const SERVER_ENTRY = { command: 'npx', args: ['-y', 'molecule-mcp'] }
+const STANDARD_ENTRY = { command: 'npx', args: ['-y', 'molecule-mcp'] }
 
-function mergeServerEntry(path: string, key: string): 'created' | 'added' | 'skipped' {
+const FILE_INSTALLERS: Record<string, FileInstaller> = {
+  windsurf: {
+    path: () => join(homedir(), '.codeium', 'windsurf', 'mcp_config.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  vscode: {
+    path: () => join(process.cwd(), '.vscode', 'mcp.json'),
+    keys: ['servers'],
+    entry: STANDARD_ENTRY,
+  },
+  'cursor-project': {
+    path: () => join(process.cwd(), '.cursor', 'mcp.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  opencode: {
+    // OpenCode: project opencode.json (or global ~/.config/opencode/opencode.json)
+    path: (project) =>
+      project
+        ? join(process.cwd(), 'opencode.json')
+        : join(homedir(), '.config', 'opencode', 'opencode.json'),
+    keys: ['mcp'],
+    entry: { type: 'local', command: ['npx', '-y', 'molecule-mcp'] },
+  },
+  amp: {
+    path: () => join(homedir(), '.config', 'amp', 'settings.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  crush: {
+    path: () => join(homedir(), '.config', 'crush', 'config.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  kiro: {
+    path: (project) =>
+      project
+        ? join(process.cwd(), '.kiro', 'settings', 'mcp.json')
+        : join(homedir(), '.kiro', 'settings', 'mcp.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  trae: {
+    path: (project) =>
+      project ? join(process.cwd(), '.trae', 'mcp.json') : join(homedir(), '.trae', 'mcp.json'),
+    keys: ['mcpServers'],
+    entry: STANDARD_ENTRY,
+  },
+  zed: {
+    path: () => join(process.cwd(), '.zed', 'settings.json'),
+    keys: ['agent', 'mcp_servers'],
+    entry: STANDARD_ENTRY,
+  },
+}
+
+/**
+ * Harnesses with no safe programmatic writer (YAML configs, extension
+ * global-storage, or in-app UIs) — we print the exact snippet instead of
+ * risking a mangled config.
+ */
+const INSTRUCTION_ONLY: Record<string, string[]> = {
+  goose: [
+    'Add to ~/.config/goose/config.yaml under `extensions:` (goose configure also works):',
+    '  molecule:',
+    '    bundled: false',
+    '    command: npx',
+    '    args: [-y, molecule-mcp]',
+    '    description: Molecule.dev package tools',
+    '    type: stdio',
+  ],
+  junie: ['In Junie, run /mcp and add a server with command: npx -y molecule-mcp'],
+  cline: [
+    'Cline → MCP Servers → Configure: add mcpServers.molecule = {"command":"npx","args":["-y","molecule-mcp"]}',
+    '(kilo code and other Cline forks use the same settings shape)',
+  ],
+  continue: [
+    'In Continue\'s config.json, add: "mcpServers": {"molecule": {"command": "npx", "args": ["-y", "molecule-mcp"]}}',
+  ],
+  aider: [
+    'Recent Aider versions: enable MCP and add molecule with command npx -y molecule-mcp (see aider docs for the current key) — otherwise use the mlcl CLI directly; aider reads AGENTS.md conventions too.',
+  ],
+}
+
+function mergeServerEntry(
+  path: string,
+  keys: string[],
+  entry: Record<string, unknown>,
+): 'created' | 'added' | 'skipped' {
   let config: Record<string, unknown> = {}
+  let preexisting = false
   if (existsSync(path)) {
     config = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>
-    const servers = config[key] as Record<string, unknown> | undefined
-    if (servers?.molecule) return 'skipped'
+    preexisting = true
   }
-  config[key] = { ...((config[key] as object) ?? {}), molecule: SERVER_ENTRY }
+  // Walk/create the (possibly nested) key path, then set servers.molecule.
+  let node: Record<string, unknown> = config
+  for (const key of keys.slice(0, -1)) {
+    node[key] ??= {}
+    node = node[key] as Record<string, unknown>
+  }
+  const last = keys[keys.length - 1]
+  const servers = (node[last] as Record<string, unknown> | undefined) ?? {}
+  if (servers.molecule) return 'skipped'
+  node[last] = { ...servers, molecule: entry }
   mkdirSync(join(path, '..'), { recursive: true })
   writeFileSync(path, `${JSON.stringify(config, null, 2)}\n`)
-  return existsSync(path) && Object.keys(config).length > 1 ? 'added' : 'created'
+  return preexisting ? 'added' : 'created'
 }
 
 export default class McpInstall extends Command {
@@ -85,13 +169,28 @@ export default class McpInstall extends Command {
   static override flags = {
     agent: Flags.string({
       description: 'Which harness to configure (default: auto-detect)',
-      options: [...CLI_INSTALLERS.map((c) => c.harness), ...Object.keys(FILE_INSTALLERS), 'auto'],
+      options: [
+        ...CLI_INSTALLERS.map((c) => c.harness),
+        ...Object.keys(FILE_INSTALLERS),
+        ...Object.keys(INSTRUCTION_ONLY),
+        'auto',
+      ],
     }),
     project: Flags.boolean({
       description: 'Register at project level where the harness supports it (default: user/global)',
       default: false,
     }),
   }
+
+  /** Project markers for file-config harnesses, checked in priority order. */
+  static readonly PROJECT_MARKERS: [string, string][] = [
+    ['cursor-project', '.cursor'],
+    ['vscode', '.vscode'],
+    ['zed', '.zed'],
+    ['kiro', '.kiro'],
+    ['trae', '.trae'],
+    ['opencode', 'opencode.json'],
+  ]
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(McpInstall)
@@ -115,15 +214,14 @@ export default class McpInstall extends Command {
             })
       harness =
         onPath?.harness ??
-        (existsSync(join(process.cwd(), '.cursor'))
-          ? 'cursor-project'
-          : existsSync(join(process.cwd(), '.vscode'))
-            ? 'vscode'
-            : null)
+        McpInstall.PROJECT_MARKERS.find(([, marker]) =>
+          existsSync(join(process.cwd(), marker)),
+        )?.[0] ??
+        null
     }
     if (!harness) {
       this.error(
-        'Could not detect a harness. Re-run with --agent <claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project>.',
+        `Could not detect a harness. Re-run with --agent <${[...CLI_INSTALLERS.map((c) => c.harness), ...Object.keys(FILE_INSTALLERS), ...Object.keys(INSTRUCTION_ONLY)].join('|')}>.`,
       )
     }
 
@@ -141,10 +239,17 @@ export default class McpInstall extends Command {
       return
     }
 
+    const instructions = INSTRUCTION_ONLY[harness]
+    if (instructions) {
+      this.log(`${harness} has no safe programmatic config writer — add the server by hand:\n`)
+      for (const line of instructions) this.log(`  ${line}`)
+      return
+    }
+
     const fileInstaller = FILE_INSTALLERS[harness]
     if (!fileInstaller) this.error(`No installer for harness "${harness}".`)
-    const { path, key } = fileInstaller(flags.project)
-    const result = mergeServerEntry(path, key)
+    const path = fileInstaller.path(flags.project)
+    const result = mergeServerEntry(path, fileInstaller.keys, fileInstaller.entry)
     this.log(
       result === 'skipped'
         ? `Already registered → ${path}`
