@@ -39,6 +39,7 @@
     "@molecule/app-lifecycle": "1.0.1",
     "@molecule/app-live-preview": "1.0.1",
     "@molecule/app-locales-auth": "1.0.1",
+    "@molecule/app-locales-auth-shell": "1.0.0",
     "@molecule/app-locales-common": "1.0.2",
     "@molecule/app-locales-footer": "1.0.2",
     "@molecule/app-locales-forms": "1.0.1",

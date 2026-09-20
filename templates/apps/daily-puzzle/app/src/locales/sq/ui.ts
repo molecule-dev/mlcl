@@ -65,6 +65,7 @@ export const ui: UiTranslations = {
   'landing.streaks.body':
     'Çdo ditë e zgjidhur shton një në serinë tënde. Humbe një ditë dhe ajo rivendoset — presioni i qetë që i sjell lojtarët përsëri çdo mëngjes. Ndjek shkallën e fitores, seritë, dhe shpërndarjen e përpjekjeve në faqen e Statistikave, dhe ri-luaj çdo ditë të kaluar nga Arkivi si praktikë pa ndikuar serinë.',
   'landing.streaks.cta': 'Shiko si funksionon',
+  'landing.streaks.title': "Seri që urren t'i prishësh",
   'leaderboard.daily.title': 'Zgjidhjet e sotme',
   'leaderboard.loadError': 'Nuk mund të ngarkohej renditja.',
   'leaderboard.streaks.title': 'Liderët e serive',

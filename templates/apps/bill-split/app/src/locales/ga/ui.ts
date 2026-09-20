@@ -46,6 +46,7 @@ export const ui: UiTranslations = {
   'dashboard.owedToYou': 'I bhfiacha leat',
   'dashboard.summaryFallback':
     'Achoimre bheo níl ar fáil — athnuaigh chun triail eile a bhaint as.',
+  'dashboard.title': 'Do staid airgeadais',
   'dashboard.youOwe': 'Tá tú i bhfiacha',
   'dashboard.youOweHint': 'Ar fud do ghrúpaí go léir, fós le híoc amach.',
   'form.category': 'Catagóir',
@@ -130,6 +131,8 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Teanga',
   'settings.notifications.title': 'Fógraí',
   'settings.profile.saved': 'Sábháilte ✓',
+  'settings.settlement.subtitle':
+    'Réamhlíonta nuair a thaifeadáid tú socrú. Ní aistrítear airgead riamh ag Evenly — lipéadaítear leis seo an bealach ar aisíoc sibh a chéile amháin.',
   'settings.settlement.title': 'Modh socraithe roghnach',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Taispeáin pasfhocal',

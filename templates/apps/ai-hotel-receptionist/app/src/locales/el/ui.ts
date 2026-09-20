@@ -66,6 +66,8 @@ export const ui: UiTranslations = {
   'forgotPassword.formLabel': 'Φόρμα αιτήματος συνδέσμου επαναφοράς',
   'forgotPassword.sendingEllipsis': 'Αποστολή…',
   'forgotPassword.sendResetLink': 'Αποστολή συνδέσμου επαναφοράς',
+  'forgotPassword.sentNotice':
+    "Εάν αυτή η διεύθυνση έχει λογαριασμό, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν.",
   'form.firstName': 'Όνομα',
   'form.lastName': 'Επώνυμο',
   'guestDetail.email': 'Email',

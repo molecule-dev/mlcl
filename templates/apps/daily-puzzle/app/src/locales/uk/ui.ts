@@ -1,6 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про додаток',
   'about.title': 'Про {{app}}',
   'archive.loadError': 'Не вдалося завантажити архів.',
@@ -21,6 +22,7 @@ export const ui: UiTranslations = {
   'auth.resetPassword.button': 'Скинути пароль',
   'auth.resetPassword.title': 'Скиньте свій пароль',
   'auth.signup.or': 'або зареєструватися через',
+  'auth.username': "Ім'я користувача",
   'common.cancel': 'Скасувати',
   'common.couldNotSaveProfile': 'Не вдалося зберегти профіль.',
   'common.deletingEllipsis': 'Видалення…',
@@ -30,6 +32,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Збереження…',
   'common.sendingEllipsis': 'Надсилання…',
   'common.startingEllipsis': 'Запуск…',
+  'form.name': "Ім'я",
   'howToPlay.cta.home': 'Назад на головну',
   'howToPlay.cta.play': 'Грати сьогоднішню головоломку',
   'howToPlay.cta.signup': 'Почати грати безкоштовно',
@@ -52,6 +55,8 @@ export const ui: UiTranslations = {
   'landing.hero.cta.play': 'Грати сьогоднішню головоломку',
   'landing.hero.cta.start': 'Почати грати безкоштовно',
   'landing.hero.headline': 'Одне слово. Щодня. Шість спроб.',
+  'landing.hero.subhead':
+    "Вгадайте приховане слово з п'яти букв, спостерігайте, як перевертаються плитки, і зберігайте свою серію — весь світ грає те саме слово щодня.",
   'landing.how.title': 'Невеликий щоденний ритуал',
   'landing.nav.community': 'Таблиця лідерів',
   'landing.nav.how': 'Як це працює',
@@ -61,6 +66,7 @@ export const ui: UiTranslations = {
     'Кожен розгаданий день додає один до вашої серії. Пропустіть день — і серія скинеться. Це тихий тиск, який повертає гравців кожного ранку. Відстежуйте відсоток перемог, серії та розподіл ваших спроб на сторінці статистики, а також переграйте будь-який минулий день з архіву як практику без впливу на серію.',
   'landing.streaks.cta': 'Дивитися, як це працює',
   'landing.streaks.title': 'Серії, які не хочеться обривати',
+  'leaderboard.daily.title': "Сьогоднішні розв'язання",
   'leaderboard.loadError': 'Не вдалося завантажити таблицю лідерів.',
   'leaderboard.streaks.title': 'Лідери серій',
   'leaderboard.title': 'Таблиця лідерів',

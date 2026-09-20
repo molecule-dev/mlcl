@@ -53,6 +53,7 @@ export const ui: UiTranslations = {
   'dashboard.loadError': 'Не атрымалася загрузіць сённяшнюю дошку.',
   'dashboard.noArrivals': 'На сёння не запланавана прыбыццяў.',
   'dashboard.noCalls': 'Пока няма званкоў — паспрабуйце Сімулятар званкоў.',
+  'dashboard.noDepartures': 'Няма запланаваных адпраўленняў на сёння.',
   'dashboard.occupancy': 'Запоўненасць',
   'dashboard.occupancyLabel': 'Запоўненасць',
   'dashboard.recentCalls': 'Апошнія званкі',

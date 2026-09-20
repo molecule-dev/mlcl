@@ -15,6 +15,7 @@ export const ui: UiTranslations = {
   'auth.passwordMask': '••••••••',
   'auth.passwordPlaceholderEmail': 'jy@voorbeeld.com',
   'auth.resetPassword.confirmPassword': 'Bevestig wagwoord',
+  'auth.resetPassword.title': "Stel 'n nuwe wagwoord",
   'auth.signup.createAccount': 'Skep rekening',
   'auth.signup.createYourAccount': 'Skep jou rekening',
   'auth.signup.passwordMismatch': 'Wagwoorde stem nie ooreen nie',
@@ -34,6 +35,7 @@ export const ui: UiTranslations = {
   'calls.empty': 'Nog geen oproepe nie — die simulator is een klik weg.',
   'calls.heading': 'Oproepe',
   'calls.loadError': 'Kon nie oproep laai nie.',
+  'calls.openSimulator': "Simuleer 'n oproep",
   'calls.subheading':
     'Elke gesprek met sy bespeurde taal, uitkoms, en die agent se nutsgoedtydlyn.',
   'common.backToList': 'Terug na die lys',
@@ -64,6 +66,7 @@ export const ui: UiTranslations = {
   'forgotPassword.formLabel': 'Versoek terugstelskakel vorm',
   'forgotPassword.sendingEllipsis': 'Stuur…',
   'forgotPassword.sendResetLink': 'Stuur terugstelskakel',
+  'forgotPassword.sentNotice': "As daardie adres 'n rekening het, is 'n herstel skakel op pad.",
   'form.firstName': 'Voornaam',
   'form.lastName': 'Van',
   'guestDetail.email': 'E-pos',
@@ -97,6 +100,8 @@ export const ui: UiTranslations = {
   'newReservation.heading': 'Nuwe bespreking',
   'newReservation.notes': 'Notas (opsioneel)',
   'newReservation.searchButton': 'Soek beskikbaarheid',
+  'newReservation.subheading':
+    "Soek beskikbaarheid, kies 'n kamertipe, en bevestig — dieselfde reëls wat die stem-agent gebruik.",
   'newReservation.totalOf': '{{total}} totaal',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Hierdie lyn is nie gekoppel nie',
@@ -108,6 +113,8 @@ export const ui: UiTranslations = {
   'reservationDetail.nights': 'Nagte',
   'reservationDetail.roomType': 'Kamertipe',
   'reservationDetail.source': 'Bron',
+  'reservationDetail.terminal':
+    "Hierdie bespreking is in 'n finale toestand — geen verdere oorgange nie.",
   'reservationDetail.total': 'Totaal',
   'reservations.dates': 'Datums',
   'reservations.empty': 'Geen besprekings pas hierdie filter nie.',
@@ -160,6 +167,9 @@ export const ui: UiTranslations = {
   'voiceAgents.heading': 'Stemagente',
   'voiceAgents.languagesLabel': 'Tale gepraat',
   'voiceAgents.loadError': 'Kon nie stemagente laai nie.',
+  'voiceAgents.simulateCall': "Simuleer 'n oproep",
+  'voiceAgents.subheading':
+    "Konfigureer die foon-ontvangers: watter tale hulle praat, en die reëls wat hulle tydens 'n oproep volg.",
   'voiceAgents.updateError': 'Kon nie die agent opdateer nie.',
   'voiceAgents.upsellOff': 'Upsell: af',
   'voiceAgents.upsellOn': 'Upsell: aan',

@@ -14,10 +14,8 @@
  */
 
 import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default-react'
-import * as aiChatLocales from '@molecule/app-locales-ai-chat'
 import * as authLocales from '@molecule/app-locales-auth'
-import * as calendarLocales from '@molecule/app-locales-calendar'
-import * as codeEditorLocales from '@molecule/app-locales-code-editor'
+import * as authShellLocales from '@molecule/app-locales-auth-shell'
 import * as footerLocales from '@molecule/app-locales-footer'
 import * as formsLocales from '@molecule/app-locales-forms'
 import * as httpLocales from '@molecule/app-locales-http'
@@ -25,7 +23,6 @@ import * as i18nLocales from '@molecule/app-locales-i18n'
 import * as iconsLocales from '@molecule/app-locales-icons'
 import * as ideLocales from '@molecule/app-locales-ide'
 import * as livePreviewLocales from '@molecule/app-locales-live-preview'
-import * as mapsLocales from '@molecule/app-locales-maps'
 import * as oauthButtonsLocales from '@molecule/app-locales-oauth-buttons'
 import * as pushLocales from '@molecule/app-locales-push'
 import * as reactLocales from '@molecule/app-locales-react'
@@ -39,17 +36,15 @@ import * as versionLocales from '@molecule/app-locales-version'
 
 import { ui as en } from '../locales/en/ui.js'
 
-const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
+const lazyLoadUi = (code: string) =>
   import(`../locales/${code}/ui.ts`).then((m: { ui: Record<string, string> }) => m.ui)
 
 export const i18nProvider = setupI18nProvider({
   enUi: en,
   lazyLoadUi,
   packageLocales: [
-    aiChatLocales,
     authLocales,
-    calendarLocales,
-    codeEditorLocales,
+    authShellLocales,
     footerLocales,
     formsLocales,
     httpLocales,
@@ -57,7 +52,6 @@ export const i18nProvider = setupI18nProvider({
     iconsLocales,
     ideLocales,
     livePreviewLocales,
-    mapsLocales,
     oauthButtonsLocales,
     pushLocales,
     reactLocales,

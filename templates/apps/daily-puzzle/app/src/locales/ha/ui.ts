@@ -57,10 +57,13 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Kalma ɗaya. Kowace rana. Gwaje-gwaje shida.',
   'landing.hero.subhead':
     'Yi tsinkaya da kalmar haruffa biyar da aka ɓoye, kalli fale-falen su juya, kuma kiyaye streak ɗin ka — dukan duniya tana wasa da kalma ɗaya kowace rana.',
+  'landing.how.title': "Ƙaramin al'ada na yau da kullun",
   'landing.nav.community': 'Jerin matsayi',
   'landing.nav.how': 'Yadda yake aiki',
   'landing.nav.playToday': 'Wasa yau',
   'landing.nav.streaks': 'Streaks da kididdiga',
+  'landing.streaks.body':
+    "Kowace ranar da aka warware tana ƙara ɗaya zuwa jerin nasarorinku. Ku rasa rana tana sake farawa — matsin lamba mai shiru wanda ke dawo da 'yan wasa kowace safiya. Ku bi diddigin adadin cin nasara, jerin nasarori, da rarraba hasashenku akan shafin Ƙididdiga, kuma ku sake kunna kowace rana da ta wuce daga Tarihi a matsayin horarwa mai aminci ga jerin nasarori.",
   'landing.streaks.cta': 'Duba yadda yake aiki',
   'landing.streaks.title': 'Streaks da ba ka son ya karye',
   'leaderboard.daily.title': 'Warware na yau',
@@ -73,6 +76,7 @@ export const ui: UiTranslations = {
   'nav.editProfile': 'Gyara bayanan martaba',
   'nav.getStarted': 'Fara',
   'nav.leaderboard': 'Jerin matsayi',
+  'nav.legal': 'Doka',
   'nav.loadingPlans': 'Ana loda tsare-tsare…',
   'nav.preferences': 'Abubuwan zaɓi',
   'nav.pricing': 'Farashin',

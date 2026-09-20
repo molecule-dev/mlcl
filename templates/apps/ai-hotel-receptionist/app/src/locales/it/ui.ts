@@ -27,6 +27,7 @@ export const ui: UiTranslations = {
   'callDetail.noMessages': 'Nessun messaggio in questa chiamata.',
   'callDetail.outcome': 'Esito',
   'callDetail.result': 'risultato',
+  'callDetail.timeline': "Azioni dell'agente",
   'callDetail.timelineLabel': 'Timeline strumenti agente',
   'callDetail.transcript': 'Trascrizione',
   'callDetail.transcriptLabel': 'Trascrizione',
@@ -35,6 +36,8 @@ export const ui: UiTranslations = {
   'calls.heading': 'Chiamate',
   'calls.loadError': 'Impossibile caricare la chiamata.',
   'calls.openSimulator': 'Simula una chiamata',
+  'calls.subheading':
+    "Ogni conversazione con lingua rilevata, esito e cronologia degli strumenti dell'agente.",
   'common.backToList': 'Torna alla lista',
   'common.guestsShort': 'ospiti',
   'common.loadingEllipsis': 'Caricamento…',
@@ -63,6 +66,8 @@ export const ui: UiTranslations = {
   'forgotPassword.formLabel': 'Modulo richiesta link di reimpostazione',
   'forgotPassword.sendingEllipsis': 'Invio…',
   'forgotPassword.sendResetLink': 'Invia link di reimpostazione',
+  'forgotPassword.sentNotice':
+    'Se questo indirizzo ha un account, un link di reimpostazione è in arrivo.',
   'form.firstName': 'Nome',
   'form.lastName': 'Cognome',
   'guestDetail.email': 'Email',
@@ -74,8 +79,11 @@ export const ui: UiTranslations = {
   'guestDetail.stayHistoryLabel': 'Storico soggiorni',
   'guests.empty': 'Nessun ospite corrisponde a quella ricerca.',
   'guests.heading': 'Ospiti',
+  'guests.loadError': "Impossibile caricare l'ospite.",
   'guests.searchLabel': 'Cerca ospiti',
   'guests.stays': '{{count}} soggiorni',
+  'landing.features.subheading':
+    "Un unico spazio di lavoro per la linea telefonica e la struttura: l'agente vocale utilizza le stesse regole di disponibilità e prezzi del tuo staff.",
   'landing.hero.ctaPrimary': 'Inizia a rispondere in 6 lingue',
   'landing.hero.ctaSecondary': 'Accedi alla reception',
   'landing.hero.eyebrow': 'Receptionist AI per hotel + PMS',
@@ -93,6 +101,8 @@ export const ui: UiTranslations = {
   'newReservation.heading': 'Nuova prenotazione',
   'newReservation.notes': 'Note (opzionale)',
   'newReservation.searchButton': 'Cerca disponibilità',
+  'newReservation.subheading':
+    "Cerca disponibilità, scegli una tipologia di camera e conferma — le stesse regole utilizzate dall'agente vocale.",
   'newReservation.totalOf': '{{total}} totale',
   'notFound.eyebrow': '404',
   'notFound.heading': 'Questa linea non è connessa',
@@ -138,6 +148,7 @@ export const ui: UiTranslations = {
   'signup.eyebrow': 'Diventi membro',
   'signup.formLabel': 'Modulo creazione account',
   'simulator.agent': 'Agente vocale',
+  'simulator.agentActions': "Azioni dell'agente in questa chiamata",
   'simulator.callerLanguage': 'Il chiamante parla',
   'simulator.callInProgress': 'Linea aperta',
   'simulator.dialingEllipsis': 'Composizione…',
@@ -150,6 +161,7 @@ export const ui: UiTranslations = {
   'simulator.startCall': 'Avvia la chiamata',
   'simulator.startError': 'Impossibile avviare la chiamata.',
   'simulator.transcriptLabel': 'Trascrizione chiamata',
+  'simulator.turnError': "Il turno dell'agente è fallito — riprova.",
   'simulator.utteranceLabel': 'Espressione del chiamante',
   'simulator.viewCallDetail': 'Apri il record della chiamata',
   'voiceAgents.empty': 'Nessun agente vocale configurato ancora.',
@@ -159,6 +171,7 @@ export const ui: UiTranslations = {
   'voiceAgents.simulateCall': 'Simula una chiamata',
   'voiceAgents.subheading':
     'Configura i receptionist telefonici: quali lingue parlano e le regole che seguono durante una chiamata.',
+  'voiceAgents.updateError': "Impossibile aggiornare l'agente.",
   'voiceAgents.upsellOff': 'Upsell: off',
   'voiceAgents.upsellOn': 'Upsell: on',
 }

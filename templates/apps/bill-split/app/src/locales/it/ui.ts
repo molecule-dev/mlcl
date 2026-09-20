@@ -35,7 +35,9 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Accesso in corso…',
   'common.startFree': 'Inizia gratis',
   'dashboard.activity.title': 'Attività recente',
+  'dashboard.activity.viewAll': "Visualizza tutta l'attività",
   'dashboard.addExpense': 'Aggiungi spesa',
+  'dashboard.eyebrow': 'Oggi, in sintesi',
   'dashboard.groups.title': 'I tuoi gruppi',
   'dashboard.groups.viewAll': 'Vedi tutti i gruppi',
   'dashboard.net': 'Posizione netta',
@@ -58,6 +60,7 @@ export const ui: UiTranslations = {
   'friends.listTitle': 'Persone con cui dividi',
   'friends.name': 'Nome',
   'friends.namePlaceholder': 'Priya Nair',
+  'friends.removeFailed': "Impossibile rimuovere quell'amico.",
   'friends.subtitle':
     'Le persone con cui dividi. Aggiungile una volta tramite email e inseriscile in qualsiasi gruppo.',
   'friends.title': 'Amici',
@@ -120,6 +123,8 @@ export const ui: UiTranslations = {
   'resetPassword.hidePassword': 'Nascondi password',
   'resetPassword.newPasswordLabel': 'Nuova password',
   'resetPassword.showPassword': 'Mostra password',
+  'resetPassword.subheading':
+    "Incolla il codice dall'email che ti abbiamo appena inviato e scegli una nuova password.",
   'resetPassword.submit': 'Ripristina password e accedi',
   'settings.eyebrow': 'Preferenze area di lavoro',
   'settings.language.title': 'Lingua',

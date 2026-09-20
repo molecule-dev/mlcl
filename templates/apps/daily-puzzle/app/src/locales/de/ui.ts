@@ -59,6 +59,7 @@ export const ui: UiTranslations = {
     'Errate das versteckte fünfbuchstabige Wort, schau zu wie die Kacheln umdrehen und halte deine Serie am Leben – die ganze Welt spielt jeden Tag dasselbe Wort.',
   'landing.how.title': 'Ein kleines tägliches Ritual',
   'landing.nav.community': 'Bestenliste',
+  'landing.nav.how': "So funktioniert's",
   'landing.nav.playToday': 'Heute spielen',
   'landing.nav.streaks': 'Serien & Statistiken',
   'landing.streaks.body':

@@ -120,6 +120,7 @@ export const ui: UiTranslations = {
   'settings.email': 'Электронная пошта',
   'settings.guest': 'Госць',
   'settings.language.title': 'Мова',
+  'settings.subhead': 'Наладзьце свой профіль, гук і адлюстраванне ў табліцы лідэраў.',
   'settings.upgrade': 'Абнавіць',
   'signup.eyebrow': 'Бясплатна назаўсёды — адно слова ў дзень',
   'signup.headline': 'Пачніце вашу серыю.',

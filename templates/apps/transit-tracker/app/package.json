@@ -34,6 +34,7 @@
     "@molecule/app-i18n-default-react": "1.0.1",
     "@molecule/app-icons": "1.0.1",
     "@molecule/app-icons-molecule": "1.0.1",
+    "@molecule/app-legal-pages-react": "1.1.1",
     "@molecule/app-lifecycle": "1.0.1",
     "@molecule/app-locales-auth": "1.0.1",
     "@molecule/app-locales-auth-shell": "1.0.1",

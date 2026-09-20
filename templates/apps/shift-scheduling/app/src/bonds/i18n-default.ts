@@ -16,7 +16,8 @@
 import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default-react'
 import * as aiChatLocales from '@molecule/app-locales-ai-chat'
 import * as authLocales from '@molecule/app-locales-auth'
-import * as calendarLocales from '@molecule/app-locales-calendar'
+import * as authShellLocales from '@molecule/app-locales-auth-shell'
+import * as billingLocales from '@molecule/app-locales-billing'
 import * as codeEditorLocales from '@molecule/app-locales-code-editor'
 import * as footerLocales from '@molecule/app-locales-footer'
 import * as formsLocales from '@molecule/app-locales-forms'
@@ -39,7 +40,7 @@ import * as versionLocales from '@molecule/app-locales-version'
 
 import { ui as en } from '../locales/en/ui.js'
 
-const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
+const lazyLoadUi = (code: string) =>
   import(`../locales/${code}/ui.ts`).then((m: { ui: Record<string, string> }) => m.ui)
 
 export const i18nProvider = setupI18nProvider({
@@ -48,7 +49,8 @@ export const i18nProvider = setupI18nProvider({
   packageLocales: [
     aiChatLocales,
     authLocales,
-    calendarLocales,
+    authShellLocales,
+    billingLocales,
     codeEditorLocales,
     footerLocales,
     formsLocales,

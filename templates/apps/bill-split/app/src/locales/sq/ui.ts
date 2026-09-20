@@ -48,6 +48,7 @@ export const ui: UiTranslations = {
     'Përmbledhja direkte nuk është e disponueshme — ju lutemi rifreskoni për të provuar përsëri.',
   'dashboard.title': 'Pozicioni juaj financiar',
   'dashboard.youOwe': 'Keni borxh',
+  'dashboard.youOweHint': "Në të gjitha grupet tuaja, ende për t'u paguar.",
   'form.category': 'Kategoria',
   'form.date': 'Data',
   'form.displayName': 'Emri i shfaqur',

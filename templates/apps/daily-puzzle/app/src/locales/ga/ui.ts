@@ -43,6 +43,7 @@ export const ui: UiTranslations = {
   'howToPlay.title': 'Conas imirt',
   'landing.community.body':
     'Toisc go n-imríonn gach duine an focal céanna, is portráid ghrúpa laethúil í an tábla ceannas: cé mhéad a réitigh é, i gcé mhéad buille faoi thuairim, agus cad iad na streaks atá fós ina seasamh. Léim isteach — tá an focal ag fanacht.',
+  'landing.community.card.title': 'Inniu i súil na huaire',
   'landing.community.cta': 'Féach ar an tábla ceannas',
   'landing.community.title': 'An pháirc iomlán, focal amháin',
   'landing.cta.body': 'Sé iarraidh. Gan spoilers. Feicfidh mé amárach thú.',
@@ -85,6 +86,7 @@ export const ui: UiTranslations = {
   'notFound.backHome': 'Ar ais abhaile',
   'notFound.backToDiscover': 'Ar ais go dtí an baile',
   'notFound.body': 'Bain triail as cód difriúil nó téigh ar ais chuig an tolglann.',
+  'notFound.eyebrow': "404 · Níl a leithéid d'fhocal ann",
   'notFound.title': 'Tá an bealach sin folamh.',
   'planUpdated.message': 'Tá do phlean beo.',
   'planUpdated.verifying': 'Do íocaíocht á dearbhú…',

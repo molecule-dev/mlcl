@@ -62,6 +62,8 @@ export const ui: UiTranslations = {
   'landing.nav.how': 'Nasıl çalışır',
   'landing.nav.playToday': 'Bugün oyna',
   'landing.nav.streaks': 'Seriler ve istatistikler',
+  'landing.streaks.body':
+    "Çözülen her gün serinize bir ekler. Bir gün kaçırırsanız sıfırlanır — oyuncuları her sabah geri getiren sessiz baskı. İstatistikler sayfasında kazanma oranını, serileri ve tahmin dağılımını takip edin ve geçmiş günleri Arşiv'den seri güvenli pratik olarak yeniden oynayın.",
   'landing.streaks.cta': 'Nasıl çalıştığını gör',
   'landing.streaks.title': 'Kırmaktan nefret ettiğiniz seriler',
   'leaderboard.daily.title': 'Bugünün çözümleri',
