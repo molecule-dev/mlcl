@@ -16,7 +16,7 @@ export default class ProjectSettingsCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(ProjectSettingsCmd)
+    const { flags } = await this.parse(ProjectSettingsCmd)
     const fields: Record<string, unknown> = {}
     if (flags.name) fields.name = flags.name
     if (Object.keys(fields).length === 0) this.error('Provide --name (or patch fields via --json)')

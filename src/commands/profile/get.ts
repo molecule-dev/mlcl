@@ -13,7 +13,6 @@ export default class ProfileGetCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(ProfileGetCmd)
     const p = await getProfile()
     this.log(`  ${ui.id('id')}       ${p.id}`)
     this.log(`  ${ui.id('email')}    ${p.email ?? ''}`)

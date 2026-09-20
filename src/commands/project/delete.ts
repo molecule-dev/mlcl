@@ -16,7 +16,7 @@ export default class ProjectDeleteCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(ProjectDeleteCmd)
+    const { flags } = await this.parse(ProjectDeleteCmd)
     if (!flags.force) {
       this.log(
         ui.warn(

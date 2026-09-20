@@ -13,7 +13,7 @@ export default class DbInfoCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(DbInfoCmd)
+    const { flags } = await this.parse(DbInfoCmd)
     const info = await getDatabaseInfo(flags.project)
     this.log(`  ${ui.id('host')}     ${info.host ?? ''}`)
     this.log(`  ${ui.id('port')}     ${info.port ?? ''}`)

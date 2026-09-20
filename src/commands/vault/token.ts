@@ -16,7 +16,7 @@ export default class VaultTokenCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(VaultTokenCmd)
+    const { flags } = await this.parse(VaultTokenCmd)
     if (flags.revoke) {
       await revokeVaultToken(flags.project)
       this.log(ui.check('Revoked.'))

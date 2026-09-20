@@ -13,7 +13,7 @@ export default class DbTablesCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(DbTablesCmd)
+    const { flags } = await this.parse(DbTablesCmd)
     const tables = await getDatabaseTables(flags.project)
     this.log(ui.heading(`${tables.length} tables`))
     for (const t of tables) this.log(`  ${ui.id(t.name)}  ${t.columns?.length ?? 0} columns`)

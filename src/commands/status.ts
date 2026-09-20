@@ -13,7 +13,6 @@ export default class StatusCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(StatusCmd)
     const events = await getStatusHistory()
     for (const e of events)
       this.log(

@@ -18,7 +18,7 @@ export default class ProfileUpdateCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(ProfileUpdateCmd)
+    const { flags } = await this.parse(ProfileUpdateCmd)
     const fields: Record<string, string> = {}
     if (flags.name) fields.name = flags.name
     if (flags.username) fields.username = flags.username

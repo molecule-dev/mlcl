@@ -13,7 +13,6 @@ export default class InvitationsListCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(InvitationsListCmd)
     const invites = await listInvitations()
     this.log(ui.heading(`${invites.length} pending invites`))
     for (const i of invites)

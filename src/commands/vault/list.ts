@@ -13,7 +13,7 @@ export default class VaultListCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(VaultListCmd)
+    const { flags } = await this.parse(VaultListCmd)
     const secrets = await listVault(flags.project)
     this.log(ui.heading(`${secrets.length} secrets`))
     for (const s of secrets) this.log(`  ${ui.id(s.key)}  ${s.description ?? ''}`)

@@ -13,7 +13,7 @@ export default class ActivitiesListCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(ActivitiesListCmd)
+    const { flags } = await this.parse(ActivitiesListCmd)
     const acts = await listActivities(flags.project)
     this.log(ui.heading(`${acts.length} activities`))
     for (const a of acts)

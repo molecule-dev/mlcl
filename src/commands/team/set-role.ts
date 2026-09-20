@@ -18,8 +18,8 @@ export default class TeamSetRoleCmd extends Command {
 
   public async run(): Promise<void> {
     requireAuth()
-    const { flags, args: arg } = await this.parse(TeamSetRoleCmd)
-    const { memberId, role } = arg
+    const { flags, args } = await this.parse(TeamSetRoleCmd)
+    const { memberId, role } = args
     if (!memberId || !role) this.error('Provide <memberId> <role>')
     await setMemberRole(flags.project, memberId, role)
     this.log(ui.check('Role updated.'))
