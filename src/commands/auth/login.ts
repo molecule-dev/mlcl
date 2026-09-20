@@ -5,6 +5,7 @@ import { Command } from '@oclif/core'
 
 import {
   AuthorizationPendingError,
+  PlatformApiError,
   pollDeviceToken,
   requestDeviceCode,
   siteBaseUrl,
@@ -57,7 +58,21 @@ export default class Login extends Command {
     }
 
     // Device-code dance: print code + URL, open browser, poll until approved.
-    const session = await requestDeviceCode()
+    let session
+    try {
+      session = await requestDeviceCode()
+    } catch (error) {
+      if (error instanceof PlatformApiError && error.status === 404) {
+        this.error(
+          'This molecule.dev API does not support CLI login yet (the /cli routes deploy with the platform). ' +
+            'For local testing, start the molecule-dev dev server and point the CLI at it:\n' +
+            '  export MOLECULE_API_URL=http://localhost:4000/api\n' +
+            '  export MOLECULE_SITE_URL=http://localhost:5173',
+          { exit: 1 },
+        )
+      }
+      throw error
+    }
     const url = `${siteBaseUrl()}${session.verificationPath}`
     this.log(`\n${ui.heading('Log in to molecule.dev')}`)
     this.log(`  ${ui.dim('Code:')} ${ui.cmd(session.userCode)}`)
