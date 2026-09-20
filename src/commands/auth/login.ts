@@ -80,6 +80,10 @@ export default class Login extends Command {
     this.log(ui.dim('Waiting for approval…'))
 
     const deadline = Date.now() + session.expiresIn * 1000
+    // A dev-stack restart (or any transient API blip) mid-poll must not kill
+    // the login — tolerate consecutive network failures, bounded so a genuinely
+    // dead endpoint still terminates before the code window closes.
+    let consecutiveFailures = 0
     for (;;) {
       await new Promise((r) => setTimeout(r, session.interval * 1000))
       if (Date.now() > deadline)
@@ -89,7 +93,14 @@ export default class Login extends Command {
         await this.storeVerified(token)
         return
       } catch (error) {
-        if (error instanceof AuthorizationPendingError) continue
+        if (error instanceof AuthorizationPendingError) {
+          consecutiveFailures = 0
+          continue
+        }
+        if (consecutiveFailures < 10) {
+          consecutiveFailures++
+          continue
+        }
         throw error
       }
     }
