@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-landing.html",
+      "designScreenId": "6638be3abf074d9bb1e22f9f1336ec1e"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-login.html",
+      "designScreenId": "74b751cc90bb47f6b872b18e0038ec8a"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-signup.html",
+      "designScreenId": "b8af454ba73b45d5a425617c381bf488"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-forgot-password.html",
+      "designScreenId": "074bc2c82c7a461c81e84ed4d57b1dd3"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-reset-password.html",
+      "designScreenId": "8a8228300a7b4cf5b7c4b7dc43f99b6f"
     },
     {
       "name": "HowToPlay",
@@ -53,25 +58,33 @@
       "route": "/how-to-play",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-how-to-play.html",
+      "designScreenId": "f403cd742f7d42839e5e2f57ac0b6b67"
     },
     {
       "name": "Play",
       "templateFile": "app/pages/Play.tsx",
-      "components": ["app/components/PuzzleBoard.tsx", "app/components/PuzzleKeyboard.tsx"],
+      "components": [
+        "app/components/PuzzleBoard.tsx",
+        "app/components/PuzzleKeyboard.tsx"
+      ],
       "route": "/play",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-play.html",
+      "designScreenId": "2a249d8987404a80b2a5bcf015fc4eaa"
     },
     {
       "name": "Stats",
       "templateFile": "app/pages/Stats.tsx",
-      "components": ["app/components/GuessDistribution.tsx"],
+      "components": [
+        "app/components/GuessDistribution.tsx"
+      ],
       "route": "/stats",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-stats.html",
+      "designScreenId": "ea48e3d7a9b24cd1b82593d9a0e81559"
     },
     {
       "name": "Archive",
@@ -80,16 +93,21 @@
       "route": "/archive",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-archive.html",
+      "designScreenId": "e4a6d6fc829246c6b4e560bea4e412fb"
     },
     {
       "name": "ArchivePlay",
       "templateFile": "app/pages/ArchivePlay.tsx",
-      "components": ["app/components/PuzzleBoard.tsx", "app/components/PuzzleKeyboard.tsx"],
+      "components": [
+        "app/components/PuzzleBoard.tsx",
+        "app/components/PuzzleKeyboard.tsx"
+      ],
       "route": "/archive/:date",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-archive-play.html",
+      "designScreenId": "ba7bf0d8d1d940e5b961520aea6fc70c"
     },
     {
       "name": "Leaderboard",
@@ -98,7 +116,8 @@
       "route": "/leaderboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-leaderboard.html",
+      "designScreenId": "24f4c3635adb4ad79f834d0a3028aba2"
     },
     {
       "name": "Settings",
@@ -107,7 +126,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-daily-puzzle-settings.html",
+      "designScreenId": "9eff670465dd444c8a130d9e8ff4baa3"
     }
   ]
 }
