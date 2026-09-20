@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-landing.html",
+      "designScreenId": "52f1b3c0852e4df186132374aec703e7"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-login.html",
+      "designScreenId": "1f80982ac1d24189bb32755122670494"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-signup.html",
+      "designScreenId": "a3682c3b41a44274b66d8662c821cc89"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-forgot-password.html",
+      "designScreenId": "7ffc0409b6c345189026530e613fb842"
     },
     {
       "name": "ResetPassword",
@@ -44,79 +48,104 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-reset-password.html",
+      "designScreenId": "94f9fc96c844476dbd569fc21092f30e"
     },
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-dashboard.html",
+      "designScreenId": "d9c9fd39ebdc4a279137ede85352d569"
     },
     {
       "name": "Groups",
       "templateFile": "app/pages/Groups.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/groups",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-groups.html",
+      "designScreenId": "4a410b7bd3644841b8b4c35208f2dc8d"
     },
     {
       "name": "GroupDetail",
       "templateFile": "app/pages/GroupDetail.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/groups/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-group-detail.html",
+      "designScreenId": "9a9168a55e5c4dcd840fdb00e0c2eb38"
     },
     {
       "name": "NewExpense",
       "templateFile": "app/pages/NewExpense.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/expenses/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-new-expense.html",
+      "designScreenId": "2d2247b3aefd4d6c9b19430e8ea20de5"
     },
     {
       "name": "Balances",
       "templateFile": "app/pages/Balances.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/balances",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-balances.html",
+      "designScreenId": "c5acae009e264efd9d065f410383a42f"
     },
     {
       "name": "Activity",
       "templateFile": "app/pages/Activity.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/activity",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-activity.html",
+      "designScreenId": "58d154df7b224aacbb362da75b20c067"
     },
     {
       "name": "Friends",
       "templateFile": "app/pages/Friends.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/friends",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-friends.html",
+      "designScreenId": "1f78718a4b4d41e4b2816f3e4469c7ab"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/BillSplitLayout.tsx"],
+      "components": [
+        "app/components/BillSplitLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-settings.html",
+      "designScreenId": "1f016af2429746559c4a0b46f6b1c0e3"
     },
     {
       "name": "About",
@@ -125,7 +154,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-about.html",
+      "designScreenId": "f2af75dbf68e4554a5b7e4cef226edb3"
     },
     {
       "name": "Privacy",
@@ -134,7 +164,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-privacy.html",
+      "designScreenId": "021c8fc195b240aabf5a87bc9e026c4e"
     },
     {
       "name": "Terms",
@@ -143,7 +174,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-bill-split-terms.html",
+      "designScreenId": "4b258067e90a4f799d2ecf5106a1d4f8"
     }
   ]
 }
