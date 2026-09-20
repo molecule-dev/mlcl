@@ -77,6 +77,33 @@
       },
       "device": {
         "description": "Manage molecule.dev devices/sessions (list, revoke, rename)"
+      },
+      "sandbox": {
+        "description": "Manage project sandboxes (status, start, stop, exec)"
+      },
+      "snapshot": {
+        "description": "Sandbox snapshots (create, list, restore, rm)"
+      },
+      "git": {
+        "description": "Platform-mediated git (push, pull)"
+      },
+      "domain": {
+        "description": "Custom domains (list, add, verify, rm)"
+      },
+      "apikey": {
+        "description": "Project API keys (list, create, rm)"
+      },
+      "team": {
+        "description": "Project team (list, invite, revoke, set-role, rm)"
+      },
+      "share": {
+        "description": "Public share links (list, create, rm)"
+      },
+      "build": {
+        "description": "Mobile/desktop builds (mobile, desktop, list, status)"
+      },
+      "usage": {
+        "description": "Usage and pricing tiers"
       }
     },
     "hooks": {

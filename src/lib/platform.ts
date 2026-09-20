@@ -135,8 +135,16 @@ export interface PlatformEnvVar {
 }
 
 /** GET /projects/:id/env — the IDE's env editor data (values masked server-side). */
-export function getProjectEnv(projectId: string, token?: string): Promise<PlatformEnvVar[]> {
-  return request(`/projects/${projectId}/env`, { token })
+export async function getProjectEnv(projectId: string, token?: string): Promise<PlatformEnvVar[]> {
+  const raw = (await request<unknown>(`/projects/${projectId}/env`, { token })) as {
+    envVars?: Record<string, { value?: string; masked?: boolean; scope?: string }>
+  }
+  return Object.entries(raw.envVars ?? {}).map(([key, v]) => ({
+    key,
+    value: v?.value,
+    masked: v?.masked,
+    scope: v?.scope as PlatformEnvVar['scope'],
+  }))
 }
 
 /** PUT /projects/:id/env — upsert values (same route the IDE editor saves through). */
@@ -277,4 +285,372 @@ export function localDeviceId(): string | null {
     // device offline — the network calls will surface the real problem.
     return null
   }
+}
+
+/** Platform list endpoints wrap rows in various envelopes — unwrap any of them. */
+function unwrapRows<T>(raw: unknown, ...keys: string[]): T[] {
+  if (Array.isArray(raw)) return raw as T[]
+  const obj = raw as Record<string, unknown>
+  if (obj && typeof obj === 'object') {
+    for (const key of keys) {
+      if (Array.isArray(obj[key])) return obj[key] as T[]
+    }
+    if (Array.isArray(obj.data)) return obj.data as T[]
+  }
+  return []
+}
+
+// ── Sandbox ──────────────────────────────────────────────────────────────────
+
+export interface SandboxStatus {
+  status?: string
+  previewUrl?: string
+  [k: string]: unknown
+}
+
+export function sandboxAction(
+  projectId: string,
+  action: 'start' | 'stop' | 'restart',
+  token?: string,
+): Promise<SandboxStatus> {
+  return request(`/projects/${projectId}/sandbox/${action}`, { method: 'POST', body: {}, token })
+}
+
+export function getSandboxStatus(projectId: string, token?: string): Promise<SandboxStatus> {
+  return request(`/projects/${projectId}/sandbox/status`, { token })
+}
+
+export function sandboxExec(
+  projectId: string,
+  command: string,
+  token?: string,
+): Promise<{ stdout?: string; stderr?: string; exitCode?: number }> {
+  return request(`/projects/${projectId}/sandbox/exec`, {
+    method: 'POST',
+    body: { command },
+    token,
+  })
+}
+
+// ── Snapshots ────────────────────────────────────────────────────────────────
+
+export interface Snapshot {
+  id: string
+  createdAt?: string
+  label?: string
+}
+
+export async function listSnapshots(projectId: string, token?: string): Promise<Snapshot[]> {
+  return unwrapRows<Snapshot>(await request<unknown>(`/projects/${projectId}/snapshots`, { token }))
+}
+
+export function createSnapshot(projectId: string, token?: string): Promise<Snapshot> {
+  return request(`/projects/${projectId}/snapshots`, { method: 'POST', body: {}, token })
+}
+
+export function restoreSnapshot(
+  projectId: string,
+  snapshotId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/snapshots/${snapshotId}/restore`, {
+    method: 'POST',
+    body: {},
+    token,
+  })
+}
+
+export function deleteSnapshot(
+  projectId: string,
+  snapshotId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/snapshots/${snapshotId}`, { method: 'DELETE', token })
+}
+
+// ── Git (platform-mediated push/pull) ────────────────────────────────────────
+
+export function gitPush(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/git-push`, { method: 'POST', body: {}, token })
+}
+
+export function gitPull(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/git-pull`, { method: 'POST', body: {}, token })
+}
+
+// ── Deployments (list/detail/cancel) + CI workflows ──────────────────────────
+
+export async function listDeployments(
+  projectId: string,
+  token?: string,
+): Promise<PlatformDeployment[]> {
+  return unwrapRows<PlatformDeployment>(
+    await request<unknown>(`/projects/${projectId}/deployments`, { token }),
+  )
+}
+
+export function cancelDeployment(
+  projectId: string,
+  deploymentId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/deployments/${deploymentId}`, { method: 'DELETE', token })
+}
+
+export function getWorkflowYaml(
+  projectId: string,
+  platform: 'github' | 'gitlab',
+  token?: string,
+): Promise<string> {
+  return request<string>(`/projects/${projectId}/workflows/${platform}`, { token })
+}
+
+export function applyWorkflow(
+  projectId: string,
+  platform: 'github' | 'gitlab',
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/workflows/${platform}/apply`, {
+    method: 'POST',
+    body: {},
+    token,
+  })
+}
+
+// ── Domains ──────────────────────────────────────────────────────────────────
+
+export interface CustomDomain {
+  id: string
+  domain: string
+  verified?: boolean
+  status?: string
+}
+
+export async function listDomains(projectId: string, token?: string): Promise<CustomDomain[]> {
+  return unwrapRows<CustomDomain>(
+    await request<unknown>(`/projects/${projectId}/domains`, { token }),
+    'domains',
+  )
+}
+
+export function addDomain(
+  projectId: string,
+  domain: string,
+  token?: string,
+): Promise<CustomDomain> {
+  return request(`/projects/${projectId}/domains`, { method: 'POST', body: { domain }, token })
+}
+
+export function verifyDomain(
+  projectId: string,
+  domainId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/domains/${domainId}/verify`, {
+    method: 'POST',
+    body: {},
+    token,
+  })
+}
+
+export function removeDomain(
+  projectId: string,
+  domainId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/domains/${domainId}`, { method: 'DELETE', token })
+}
+
+// ── API keys ─────────────────────────────────────────────────────────────────
+
+export interface ProjectApiKey {
+  id: string
+  name?: string
+  key?: string
+  createdAt?: string
+}
+
+export async function listApiKeys(projectId: string, token?: string): Promise<ProjectApiKey[]> {
+  return unwrapRows<ProjectApiKey>(
+    await request<unknown>(`/projects/${projectId}/api-keys`, { token }),
+    'apiKeys',
+  )
+}
+
+export function createApiKey(
+  projectId: string,
+  name: string,
+  token?: string,
+): Promise<ProjectApiKey> {
+  return request(`/projects/${projectId}/api-keys`, { method: 'POST', body: { name }, token })
+}
+
+export function revokeApiKey(projectId: string, keyId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/api-keys/${keyId}`, { method: 'DELETE', token })
+}
+
+// ── Team ─────────────────────────────────────────────────────────────────────
+
+export interface TeamMember {
+  userId: string
+  email?: string
+  role: string
+}
+export interface TeamInvite {
+  id: string
+  email?: string
+  role: string
+}
+
+export async function listTeam(
+  projectId: string,
+  token?: string,
+): Promise<{ members?: TeamMember[]; invites?: TeamInvite[] }> {
+  const raw = (await request<unknown>(`/projects/${projectId}/team`, { token })) as {
+    data?: { members?: TeamMember[]; invites?: TeamInvite[] }
+    members?: TeamMember[]
+    invites?: TeamInvite[]
+  }
+  return raw.data ?? { members: raw.members, invites: raw.invites }
+}
+
+export function inviteMember(
+  projectId: string,
+  email: string,
+  role: string,
+  token?: string,
+): Promise<TeamInvite> {
+  return request(`/projects/${projectId}/team/invite`, {
+    method: 'POST',
+    body: { email, role },
+    token,
+  })
+}
+
+export function revokeInvite(
+  projectId: string,
+  inviteId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/team/invites/${inviteId}`, { method: 'DELETE', token })
+}
+
+export function setMemberRole(
+  projectId: string,
+  memberId: string,
+  role: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/team/${memberId}`, {
+    method: 'PATCH',
+    body: { role },
+    token,
+  })
+}
+
+export function removeMember(
+  projectId: string,
+  memberId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/team/${memberId}`, { method: 'DELETE', token })
+}
+
+// ── Shares ───────────────────────────────────────────────────────────────────
+
+export interface ShareLink {
+  id: string
+  slug: string
+  url?: string
+  createdAt?: string
+}
+
+export async function listShares(projectId: string, token?: string): Promise<ShareLink[]> {
+  return unwrapRows<ShareLink>(await request<unknown>(`/projects/${projectId}/shares`, { token }))
+}
+
+export function createShare(projectId: string, token?: string): Promise<ShareLink> {
+  return request(`/projects/${projectId}/shares`, { method: 'POST', body: {}, token })
+}
+
+export function removeShare(projectId: string, shareId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/shares/${shareId}`, { method: 'DELETE', token })
+}
+
+// ── Builds ───────────────────────────────────────────────────────────────────
+
+export interface ProjectBuild {
+  id: string
+  status: string
+  platform?: string
+  createdAt?: string
+}
+
+export function startBuild(
+  projectId: string,
+  platform: 'mobile' | 'desktop',
+  token?: string,
+): Promise<ProjectBuild> {
+  return request(`/projects/${projectId}/builds/${platform}`, { method: 'POST', body: {}, token })
+}
+
+export async function listBuilds(projectId: string, token?: string): Promise<ProjectBuild[]> {
+  return unwrapRows<ProjectBuild>(
+    await request<unknown>(`/projects/${projectId}/builds`, { token }),
+  )
+}
+
+export function getBuild(
+  projectId: string,
+  buildId: string,
+  token?: string,
+): Promise<ProjectBuild> {
+  return request(`/projects/${projectId}/builds/${buildId}`, { token })
+}
+
+// ── Usage ────────────────────────────────────────────────────────────────────
+
+export function getUsage(
+  scope: 'account' | 'project',
+  projectId: string | undefined,
+  token?: string,
+): Promise<unknown> {
+  return request(
+    scope === 'project' && projectId ? `/projects/${projectId}/usage` : '/account/usage',
+    { token },
+  )
+}
+
+export async function getTiers(token?: string): Promise<unknown[]> {
+  return unwrapRows<unknown>(await request<unknown>('/tiers', { token }), 'data')
+}
+
+// ── DB backups + export ──────────────────────────────────────────────────────
+
+export interface DbBackup {
+  id: string
+  createdAt?: string
+  status?: string
+}
+
+export async function listBackups(projectId: string, token?: string): Promise<DbBackup[]> {
+  return unwrapRows<DbBackup>(
+    await request<unknown>(`/projects/${projectId}/database/backups`, { token }),
+  )
+}
+
+export function createBackup(projectId: string, token?: string): Promise<DbBackup> {
+  return request(`/projects/${projectId}/database/backups`, { method: 'POST', body: {}, token })
+}
+
+export function restoreBackup(
+  projectId: string,
+  backupId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/database/backups/${backupId}/restore`, {
+    method: 'POST',
+    body: {},
+    token,
+  })
 }

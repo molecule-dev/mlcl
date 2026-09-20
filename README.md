@@ -129,6 +129,22 @@ npx mlcl env push --project <id>       # local .env → the project's env (IDE e
 npx mlcl env pull --project <id>       # project env → local (secrets skipped, write-only)
 npx mlcl deploy --project <id> --follow  # production deploy, same pipeline as the IDE button
 
+# Platform operations against a project (mlcl project open <id> first for URLs):
+npx mlcl sandbox status|start|stop|restart --project <id>
+npx mlcl sandbox exec --project <id> -- npm test
+npx mlcl snapshot create|list|restore|rm --project <id>
+npx mlcl git push|pull --project <id>
+npx mlcl deploy list|status|cancel --project <id>
+npx mlcl deploy workflow-github --project <id> [--apply]
+npx mlcl domain list|add|verify|rm --project <id>
+npx mlcl apikey list|create|rm --project <id>
+npx mlcl team list|invite|revoke|set-role|rm --project <id>
+npx mlcl share list|create|rm --project <id>
+npx mlcl build mobile|desktop|list|status --project <id>
+npx mlcl usage [--project <id>] && npx mlcl usage tiers
+npx mlcl db backup|backup-list|restore --project <id>
+npx mlcl project open <id>                    # prints workspace + preview URLs
+
 # Devices/sessions (the kill-switch for a stolen login — each CLI token is a device):
 npx mlcl device list                   # all logged-in browsers + CLIs, current marked
 npx mlcl device current                # this machine's device id (offline)
