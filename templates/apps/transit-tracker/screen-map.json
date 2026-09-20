@@ -1,0 +1,153 @@
+{
+  "app": "transit-tracker",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Nearby",
+      "templateFile": "app/pages/Nearby.tsx",
+      "components": ["app/components/StopSearchCard.tsx", "app/components/StopListItem.tsx"],
+      "route": "/nearby",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "StopBoard",
+      "templateFile": "app/pages/StopBoard.tsx",
+      "components": [
+        "app/components/ArrivalsBoard.tsx",
+        "app/components/ArrivalRow.tsx",
+        "app/components/LineBadge.tsx"
+      ],
+      "route": "/stops/:code",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "RouteDetail",
+      "templateFile": "app/pages/RouteDetail.tsx",
+      "components": ["app/components/LineMapSvg.tsx", "app/components/LineBadge.tsx"],
+      "route": "/lines/:code",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "TripPlanner",
+      "templateFile": "app/pages/TripPlanner.tsx",
+      "components": ["app/components/StopPicker.tsx", "app/components/ItineraryCard.tsx"],
+      "route": "/plan",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Alerts",
+      "templateFile": "app/pages/Alerts.tsx",
+      "components": ["app/components/ServiceAlertCard.tsx"],
+      "route": "/alerts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "SavedStops",
+      "templateFile": "app/pages/SavedStops.tsx",
+      "components": ["app/components/StopListItem.tsx"],
+      "route": "/saved",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PlanUpdated",
+      "templateFile": "app/pages/PlanUpdated.tsx",
+      "components": [],
+      "route": "/plan-updated",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

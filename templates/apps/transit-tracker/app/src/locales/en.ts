@@ -1,0 +1,36 @@
+export default {
+  common: {
+    loading: 'Loading...',
+    delete: 'Delete',
+    back: 'Back',
+  },
+  search: {
+    title: 'Search Flights',
+    from: 'From (city or airport)',
+    to: 'To (city or airport)',
+    passengers: 'passenger(s)',
+    roundtrip: 'Round Trip',
+    oneway: 'One Way',
+    multicity: 'Multi-City',
+    economy: 'Economy',
+    premiumEconomy: 'Premium Economy',
+    business: 'Business',
+    first: 'First',
+    search: 'Search',
+    sortPrice: 'Cheapest',
+    sortDuration: 'Fastest',
+    sortDeparture: 'Departure Time',
+    noFlights: 'No flights found for this route',
+  },
+  flight: {
+    nonstop: 'Nonstop',
+    stops: 'stop(s)',
+    legsRequired: 'Flight legs are required',
+  },
+  alerts: {
+    title: 'Price Alerts',
+    target: 'Target',
+    current: 'Current lowest',
+    none: 'No price alerts set',
+  },
+}

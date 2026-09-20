@@ -1,0 +1,875 @@
+{
+  "city": "Averton",
+  "lines": [
+    {
+      "code": "M1",
+      "name": "Red Line",
+      "kind": "metro",
+      "color": "#d32f2f",
+      "polyline": [
+        [
+          44.92,
+          -93.42
+        ],
+        [
+          44.905,
+          -93.405
+        ],
+        [
+          44.893,
+          -93.392
+        ],
+        [
+          44.882,
+          -93.382
+        ],
+        [
+          44.872,
+          -93.362
+        ],
+        [
+          44.862,
+          -93.34
+        ],
+        [
+          44.85,
+          -93.33
+        ],
+        [
+          44.838,
+          -93.308
+        ],
+        [
+          44.826,
+          -93.298
+        ],
+        [
+          44.812,
+          -93.282
+        ]
+      ]
+    },
+    {
+      "code": "M2",
+      "name": "Blue Line",
+      "kind": "metro",
+      "color": "#1976d2",
+      "polyline": [
+        [
+          44.87,
+          -93.55
+        ],
+        [
+          44.868,
+          -93.502
+        ],
+        [
+          44.866,
+          -93.46
+        ],
+        [
+          44.864,
+          -93.42
+        ],
+        [
+          44.863,
+          -93.38
+        ],
+        [
+          44.862,
+          -93.34
+        ],
+        [
+          44.86,
+          -93.292
+        ],
+        [
+          44.859,
+          -93.244
+        ],
+        [
+          44.857,
+          -93.196
+        ]
+      ]
+    },
+    {
+      "code": "T1",
+      "name": "Green Line",
+      "kind": "tram",
+      "color": "#2e7d32",
+      "polyline": [
+        [
+          44.895,
+          -93.272
+        ],
+        [
+          44.884,
+          -93.282
+        ],
+        [
+          44.876,
+          -93.29
+        ],
+        [
+          44.868,
+          -93.298
+        ],
+        [
+          44.862,
+          -93.34
+        ],
+        [
+          44.863,
+          -93.38
+        ],
+        [
+          44.87,
+          -93.418
+        ]
+      ]
+    },
+    {
+      "code": "B1",
+      "name": "Orange Line",
+      "kind": "bus",
+      "color": "#ef6c00",
+      "polyline": [
+        [
+          44.93,
+          -93.244
+        ],
+        [
+          44.918,
+          -93.252
+        ],
+        [
+          44.9,
+          -93.262
+        ],
+        [
+          44.895,
+          -93.272
+        ],
+        [
+          44.862,
+          -93.34
+        ],
+        [
+          44.872,
+          -93.362
+        ],
+        [
+          44.888,
+          -93.374
+        ],
+        [
+          44.902,
+          -93.384
+        ]
+      ]
+    },
+    {
+      "code": "B2",
+      "name": "Purple Line",
+      "kind": "bus",
+      "color": "#6d28d9",
+      "polyline": [
+        [
+          44.828,
+          -93.462
+        ],
+        [
+          44.84,
+          -93.448
+        ],
+        [
+          44.853,
+          -93.434
+        ],
+        [
+          44.864,
+          -93.42
+        ],
+        [
+          44.872,
+          -93.362
+        ],
+        [
+          44.88,
+          -93.352
+        ],
+        [
+          44.89,
+          -93.34
+        ],
+        [
+          44.902,
+          -93.33
+        ]
+      ]
+    },
+    {
+      "code": "B3",
+      "name": "Teal Line",
+      "kind": "bus",
+      "color": "#00838f",
+      "polyline": [
+        [
+          44.857,
+          -93.196
+        ],
+        [
+          44.858,
+          -93.244
+        ],
+        [
+          44.86,
+          -93.292
+        ],
+        [
+          44.863,
+          -93.38
+        ],
+        [
+          44.87,
+          -93.418
+        ],
+        [
+          44.878,
+          -93.442
+        ]
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "code": "NOR",
+      "name": "Northgate",
+      "lat": 44.92,
+      "lng": -93.42,
+      "hub": false
+    },
+    {
+      "code": "FEN",
+      "name": "Fenwick Park",
+      "lat": 44.905,
+      "lng": -93.405,
+      "hub": false
+    },
+    {
+      "code": "MAP",
+      "name": "Maple Heights",
+      "lat": 44.893,
+      "lng": -93.392,
+      "hub": false
+    },
+    {
+      "code": "CKR",
+      "name": "Clocktower Row",
+      "lat": 44.882,
+      "lng": -93.382,
+      "hub": false
+    },
+    {
+      "code": "CMK",
+      "name": "Central Market",
+      "lat": 44.872,
+      "lng": -93.362,
+      "hub": true
+    },
+    {
+      "code": "UNI",
+      "name": "Union Station",
+      "lat": 44.862,
+      "lng": -93.34,
+      "hub": true
+    },
+    {
+      "code": "RIV",
+      "name": "Riverside Quay",
+      "lat": 44.85,
+      "lng": -93.33,
+      "hub": false
+    },
+    {
+      "code": "GRO",
+      "name": "Grove Street",
+      "lat": 44.838,
+      "lng": -93.308,
+      "hub": false
+    },
+    {
+      "code": "PIN",
+      "name": "Pine Hollow",
+      "lat": 44.826,
+      "lng": -93.298,
+      "hub": false
+    },
+    {
+      "code": "HRB",
+      "name": "Harborfront",
+      "lat": 44.812,
+      "lng": -93.282,
+      "hub": false
+    },
+    {
+      "code": "WFL",
+      "name": "Westfield",
+      "lat": 44.87,
+      "lng": -93.55,
+      "hub": false
+    },
+    {
+      "code": "OAK",
+      "name": "Oakwood",
+      "lat": 44.868,
+      "lng": -93.502,
+      "hub": false
+    },
+    {
+      "code": "ELM",
+      "name": "Elm Ridge",
+      "lat": 44.866,
+      "lng": -93.46,
+      "hub": false
+    },
+    {
+      "code": "SUN",
+      "name": "Sundance Plaza",
+      "lat": 44.864,
+      "lng": -93.42,
+      "hub": true
+    },
+    {
+      "code": "MUS",
+      "name": "Museum District",
+      "lat": 44.863,
+      "lng": -93.38,
+      "hub": true
+    },
+    {
+      "code": "OLD",
+      "name": "Old Foundry",
+      "lat": 44.86,
+      "lng": -93.292,
+      "hub": true
+    },
+    {
+      "code": "BIR",
+      "name": "Birchwood",
+      "lat": 44.859,
+      "lng": -93.244,
+      "hub": false
+    },
+    {
+      "code": "EBR",
+      "name": "Eastbrook",
+      "lat": 44.857,
+      "lng": -93.196,
+      "hub": true
+    },
+    {
+      "code": "OML",
+      "name": "Old Mill",
+      "lat": 44.895,
+      "lng": -93.272,
+      "hub": true
+    },
+    {
+      "code": "WWR",
+      "name": "Willow Wharf",
+      "lat": 44.884,
+      "lng": -93.282,
+      "hub": false
+    },
+    {
+      "code": "LAV",
+      "name": "Lavender Row",
+      "lat": 44.876,
+      "lng": -93.29,
+      "hub": false
+    },
+    {
+      "code": "CAT",
+      "name": "Cathedral Green",
+      "lat": 44.868,
+      "lng": -93.298,
+      "hub": false
+    },
+    {
+      "code": "LAK",
+      "name": "Lakeview Terrace",
+      "lat": 44.87,
+      "lng": -93.418,
+      "hub": true
+    },
+    {
+      "code": "APT",
+      "name": "Averton Airport",
+      "lat": 44.93,
+      "lng": -93.244,
+      "hub": false
+    },
+    {
+      "code": "QUA",
+      "name": "Quarry District",
+      "lat": 44.918,
+      "lng": -93.252,
+      "hub": false
+    },
+    {
+      "code": "IND",
+      "name": "Industry Flats",
+      "lat": 44.9,
+      "lng": -93.262,
+      "hub": false
+    },
+    {
+      "code": "HIL",
+      "name": "Hillcrest",
+      "lat": 44.888,
+      "lng": -93.374,
+      "hub": false
+    },
+    {
+      "code": "UVT",
+      "name": "University Village",
+      "lat": 44.902,
+      "lng": -93.384,
+      "hub": false
+    },
+    {
+      "code": "SNB",
+      "name": "Stonebridge",
+      "lat": 44.828,
+      "lng": -93.462,
+      "hub": false
+    },
+    {
+      "code": "RVB",
+      "name": "Riverbend",
+      "lat": 44.84,
+      "lng": -93.448,
+      "hub": false
+    },
+    {
+      "code": "WGL",
+      "name": "Willow Glen",
+      "lat": 44.853,
+      "lng": -93.434,
+      "hub": false
+    },
+    {
+      "code": "GDE",
+      "name": "Garden District",
+      "lat": 44.88,
+      "lng": -93.352,
+      "hub": false
+    },
+    {
+      "code": "LTH",
+      "name": "Larch Terrace",
+      "lat": 44.89,
+      "lng": -93.34,
+      "hub": false
+    },
+    {
+      "code": "HOS",
+      "name": "City Hospital",
+      "lat": 44.902,
+      "lng": -93.33,
+      "hub": false
+    },
+    {
+      "code": "CNC",
+      "name": "Canal North",
+      "lat": 44.858,
+      "lng": -93.244,
+      "hub": false
+    },
+    {
+      "code": "KNG",
+      "name": "Kingfisher Park",
+      "lat": 44.878,
+      "lng": -93.442,
+      "hub": false
+    }
+  ],
+  "positions": [
+    {
+      "line_code": "M1",
+      "stop_code": "NOR",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "FEN",
+      "sequence": 2,
+      "travel_seconds_from_prev": 140
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "MAP",
+      "sequence": 3,
+      "travel_seconds_from_prev": 130
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "CKR",
+      "sequence": 4,
+      "travel_seconds_from_prev": 120
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "CMK",
+      "sequence": 5,
+      "travel_seconds_from_prev": 110
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "UNI",
+      "sequence": 6,
+      "travel_seconds_from_prev": 120
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "RIV",
+      "sequence": 7,
+      "travel_seconds_from_prev": 100
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "GRO",
+      "sequence": 8,
+      "travel_seconds_from_prev": 130
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "PIN",
+      "sequence": 9,
+      "travel_seconds_from_prev": 110
+    },
+    {
+      "line_code": "M1",
+      "stop_code": "HRB",
+      "sequence": 10,
+      "travel_seconds_from_prev": 120
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "WFL",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "OAK",
+      "sequence": 2,
+      "travel_seconds_from_prev": 180
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "ELM",
+      "sequence": 3,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "SUN",
+      "sequence": 4,
+      "travel_seconds_from_prev": 150
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "MUS",
+      "sequence": 5,
+      "travel_seconds_from_prev": 140
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "UNI",
+      "sequence": 6,
+      "travel_seconds_from_prev": 140
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "OLD",
+      "sequence": 7,
+      "travel_seconds_from_prev": 130
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "BIR",
+      "sequence": 8,
+      "travel_seconds_from_prev": 150
+    },
+    {
+      "line_code": "M2",
+      "stop_code": "EBR",
+      "sequence": 9,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "OML",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "WWR",
+      "sequence": 2,
+      "travel_seconds_from_prev": 100
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "LAV",
+      "sequence": 3,
+      "travel_seconds_from_prev": 90
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "CAT",
+      "sequence": 4,
+      "travel_seconds_from_prev": 90
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "UNI",
+      "sequence": 5,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "MUS",
+      "sequence": 6,
+      "travel_seconds_from_prev": 150
+    },
+    {
+      "line_code": "T1",
+      "stop_code": "LAK",
+      "sequence": 7,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "APT",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "QUA",
+      "sequence": 2,
+      "travel_seconds_from_prev": 180
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "IND",
+      "sequence": 3,
+      "travel_seconds_from_prev": 220
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "OML",
+      "sequence": 4,
+      "travel_seconds_from_prev": 120
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "UNI",
+      "sequence": 5,
+      "travel_seconds_from_prev": 300
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "CMK",
+      "sequence": 6,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "HIL",
+      "sequence": 7,
+      "travel_seconds_from_prev": 150
+    },
+    {
+      "line_code": "B1",
+      "stop_code": "UVT",
+      "sequence": 8,
+      "travel_seconds_from_prev": 140
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "SNB",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "RVB",
+      "sequence": 2,
+      "travel_seconds_from_prev": 150
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "WGL",
+      "sequence": 3,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "SUN",
+      "sequence": 4,
+      "travel_seconds_from_prev": 170
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "CMK",
+      "sequence": 5,
+      "travel_seconds_from_prev": 240
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "GDE",
+      "sequence": 6,
+      "travel_seconds_from_prev": 100
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "LTH",
+      "sequence": 7,
+      "travel_seconds_from_prev": 120
+    },
+    {
+      "line_code": "B2",
+      "stop_code": "HOS",
+      "sequence": 8,
+      "travel_seconds_from_prev": 140
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "EBR",
+      "sequence": 1,
+      "travel_seconds_from_prev": 0
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "CNC",
+      "sequence": 2,
+      "travel_seconds_from_prev": 170
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "OLD",
+      "sequence": 3,
+      "travel_seconds_from_prev": 160
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "MUS",
+      "sequence": 4,
+      "travel_seconds_from_prev": 300
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "LAK",
+      "sequence": 5,
+      "travel_seconds_from_prev": 170
+    },
+    {
+      "line_code": "B3",
+      "stop_code": "KNG",
+      "sequence": 6,
+      "travel_seconds_from_prev": 130
+    }
+  ],
+  "schedules": [
+    {
+      "line_code": "M1",
+      "direction": 0,
+      "first_departure": "05:10",
+      "last_departure": "00:40",
+      "headway_seconds": 360
+    },
+    {
+      "line_code": "M1",
+      "direction": 1,
+      "first_departure": "05:20",
+      "last_departure": "00:50",
+      "headway_seconds": 360
+    },
+    {
+      "line_code": "M2",
+      "direction": 0,
+      "first_departure": "05:15",
+      "last_departure": "00:35",
+      "headway_seconds": 420
+    },
+    {
+      "line_code": "M2",
+      "direction": 1,
+      "first_departure": "05:25",
+      "last_departure": "00:45",
+      "headway_seconds": 420
+    },
+    {
+      "line_code": "T1",
+      "direction": 0,
+      "first_departure": "05:45",
+      "last_departure": "23:15",
+      "headway_seconds": 480
+    },
+    {
+      "line_code": "T1",
+      "direction": 1,
+      "first_departure": "05:55",
+      "last_departure": "23:25",
+      "headway_seconds": 480
+    },
+    {
+      "line_code": "B1",
+      "direction": 0,
+      "first_departure": "05:00",
+      "last_departure": "23:30",
+      "headway_seconds": 600
+    },
+    {
+      "line_code": "B1",
+      "direction": 1,
+      "first_departure": "05:10",
+      "last_departure": "23:40",
+      "headway_seconds": 600
+    },
+    {
+      "line_code": "B2",
+      "direction": 0,
+      "first_departure": "05:30",
+      "last_departure": "22:50",
+      "headway_seconds": 720
+    },
+    {
+      "line_code": "B2",
+      "direction": 1,
+      "first_departure": "05:40",
+      "last_departure": "23:00",
+      "headway_seconds": 720
+    },
+    {
+      "line_code": "B3",
+      "direction": 0,
+      "first_departure": "05:40",
+      "last_departure": "23:00",
+      "headway_seconds": 660
+    },
+    {
+      "line_code": "B3",
+      "direction": 1,
+      "first_departure": "05:50",
+      "last_departure": "23:10",
+      "headway_seconds": 660
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Handlers that intentionally do not expose any HTTP endpoint and therefore
+# cannot be exercised by a spec network assertion.
+#
+# - _seed: boot-time + first-read routine that pre-populates the mock
+#   transit network and service alerts; it has no Express router and never
+#   appears in a URL path.
+
+_seed

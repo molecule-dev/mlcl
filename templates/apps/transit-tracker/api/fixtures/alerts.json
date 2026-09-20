@@ -1,0 +1,42 @@
+[
+  {
+    "line_code": "M1",
+    "severity": "warning",
+    "title": "Single-tracking at Clocktower Row",
+    "body": "Trains share the southbound platform evenings this week while track maintenance continues. Allow 4-6 extra minutes between Clocktower Row and Central Market.",
+    "starts_days_ago": 2,
+    "ends_days_from_now": 5
+  },
+  {
+    "line_code": null,
+    "severity": "info",
+    "title": "Holiday service hours",
+    "body": "All lines run a Sunday schedule on public holidays. The trip planner already reflects reduced frequencies.",
+    "starts_days_ago": 1,
+    "ends_days_from_now": 30
+  },
+  {
+    "line_code": "B2",
+    "severity": "severe",
+    "title": "Detour via Stonebridge",
+    "body": "Water-main work closes Riverbend Avenue. Purple Line buses detour via Stonebridge, skipping Riverbend in both directions until further notice.",
+    "starts_days_ago": 0,
+    "ends_days_from_now": 12
+  },
+  {
+    "line_code": "T1",
+    "severity": "warning",
+    "title": "Tram speed restrictions",
+    "body": "Green Line trams run at reduced speed across the Old Mill bridge. Add 3-4 minutes to Cathedral Green trips.",
+    "starts_days_ago": 5,
+    "ends_days_from_now": 3
+  },
+  {
+    "line_code": "M2",
+    "severity": "info",
+    "title": "New shelter at Eastbrook",
+    "body": "A covered waiting shelter with real-time display is now open on the eastbound platform at Eastbrook.",
+    "starts_days_ago": 3,
+    "ends_days_from_now": 20
+  }
+]

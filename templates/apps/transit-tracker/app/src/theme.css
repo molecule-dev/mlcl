@@ -1,0 +1,217 @@
+:root {
+  --color-primary: #0d5c63;
+  --color-primary-light: #11707a;
+  --color-primary-dark: #084148;
+  --color-secondary: #3f6c9a;
+  --color-secondary-light: #6d97c2;
+  --color-accent: #e8a020;
+  --color-accent-light: #f0b349;
+  --color-accent-dark: #c4850f;
+  --color-background: #f3f7f6;
+  --color-surface: #ffffff;
+  --color-surface-secondary: #f3f7f6;
+  --color-surface-hover: #e9f1f0;
+  --color-text: #10201f;
+  --color-text-secondary: #354645;
+  --color-text-muted: #667876;
+  --color-border: #e0e8e7;
+
+  /* Transit-domain tokens — line colors come from DATA (transit_lines.color);
+     these are the SEMANTIC board states. */
+  --color-due: #e8a020;
+  --color-due-light: #fdf3e0;
+  --color-live: #16a34a;
+  --color-live-light: #dcfce7;
+  --color-warning: #d97706;
+  --color-warning-light: #fef3c7;
+  --color-severe: #dc2626;
+  --color-severe-light: #fee2e2;
+  --color-hub: #7c3aed;
+  --color-hub-light: #ede9fe;
+
+  --color-error: #dc2626;
+  --color-success: #16a34a;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #0d5c63;
+  --mol-color-primary-light: #d5ecea;
+  --mol-color-primary-dark: #084148;
+  --mol-color-secondary: #3f6c9a;
+  --mol-color-background: #f3f7f6;
+  --mol-color-background-secondary: #e9f1f0;
+  --mol-color-background-tertiary: #dfeae9;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f3f7f6;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #10201f;
+  --mol-color-text-secondary: #354645;
+  --mol-color-text-tertiary: #667876;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e0e8e7;
+  --mol-color-border-secondary: #cfdedd;
+  --mol-color-border-focus: #0d5c63;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #3f6c9a;
+
+  /* === M3 bridge tokens (light) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #10201f;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #dce8e7;
+  --color-surface-container-lowest: #f8fbfa;
+  --color-surface-container-low: #f3f7f6;
+  --color-surface-container: #e9f1f0;
+  --color-surface-container-high: #dfeae9;
+  --color-surface-container-highest: #d4e2e1;
+  --color-surface-variant: #dfeae9;
+  --color-on-surface: #10201f;
+  --color-on-surface-variant: #354645;
+  --color-inverse-surface: #1c3231;
+  --color-inverse-on-surface: #edf5f4;
+  --color-inverse-primary: #8ad8d0;
+  --color-primary-container: #d5ecea;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #084148;
+  --color-secondary-container: #d5e6f5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #0d2d4a;
+  --color-tertiary: #e8a020;
+  --color-tertiary-container: #fdf3e0;
+  --color-on-tertiary: #3d2a00; /* dark on amber — 6.9:1 contrast (white only 2.1:1) */
+  --color-on-tertiary-container: #7a5406;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #93a7a5;
+  --color-outline-variant: #e0e8e7;
+  --color-surface-tint: #0d5c63;
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-board: '"DM Sans", -apple-system, sans-serif';
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(8, 33, 36, 0.08);
+  --shadow-lg: 0 12px 32px rgba(8, 33, 36, 0.14);
+}
+
+/* Dark mode overrides — brand-calibrated dark palette (night-service
+   tones). Deep teal-black surfaces evoke a lit transit board at night; the
+   brand teal lifts to #5bd6cc for legibility, while the amber accent stays
+   vivid (departures-board heritage).
+   `--color-on-primary` is near-black (#04262a) — lifted teal makes white
+   only ~2.2:1, so dark text rides on it instead. */
+[data-mol-mode='dark'] {
+  --color-primary: #5bd6cc;
+  --color-primary-light: #8ae4dc;
+  --color-primary-dark: #2bb3aa;
+  --color-secondary: #7fb0dd;
+  --color-secondary-light: #a7cbec;
+  --color-accent: #f5b73f;
+  --color-accent-light: #f9ca6b;
+  --color-accent-dark: #d99b1a;
+
+  --color-background: #0a1a1d;
+  --color-surface: #122427;
+  --color-surface-secondary: #182f33;
+  --color-surface-hover: #1f3a3f;
+  --color-text: #ecf5f4;
+  --color-text-secondary: #c3d6d4;
+  --color-text-muted: #93aaa8;
+  --color-border: #24444a;
+
+  /* Board-state tokens — brighter, semantic intent preserved */
+  --color-due: #f5b73f;
+  --color-due-light: rgba(245, 183, 63, 0.18);
+  --color-live: #4ade80;
+  --color-live-light: rgba(74, 222, 128, 0.18);
+  --color-warning: #fbbf24;
+  --color-warning-light: rgba(251, 191, 36, 0.18);
+  --color-severe: #f87171;
+  --color-severe-light: rgba(248, 113, 113, 0.18);
+  --color-hub: #a78bfa;
+  --color-hub-light: rgba(167, 139, 250, 0.2);
+
+  --color-error: #f87171;
+  --color-success: #4ade80;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #5bd6cc;
+  --mol-color-primary-light: #0d5c63;
+  --mol-color-primary-dark: #2bb3aa;
+  --mol-color-secondary: #7fb0dd;
+  --mol-color-background: #0a1a1d;
+  --mol-color-background-secondary: #0f2124;
+  --mol-color-background-tertiary: #122427;
+  --mol-color-surface: #122427;
+  --mol-color-surface-secondary: #182f33;
+  --mol-color-input-background: #081518;
+  --mol-color-text: #ecf5f4;
+  --mol-color-text-secondary: #c3d6d4;
+  --mol-color-text-tertiary: #93aaa8;
+  --mol-color-text-inverse: #0a1a1d;
+  --mol-color-border: #24444a;
+  --mol-color-border-secondary: #33565c;
+  --mol-color-border-focus: #5bd6cc;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #7fb0dd;
+
+  /* === M3 bridge tokens (dark) — fed into bg-surface, text-on-surface, etc. === */
+  --color-on-background: #ecf5f4;
+  --color-surface-bright: #1f3a3f;
+  --color-surface-dim: #061113;
+  --color-surface-container-lowest: #040d0f;
+  --color-surface-container-low: #0a1a1d;
+  --color-surface-container: #0f2124;
+  --color-surface-container-high: #122427;
+  --color-surface-container-highest: #182f33;
+  --color-surface-variant: #182f33;
+  --color-on-surface: #ecf5f4;
+  --color-on-surface-variant: #93aaa8;
+  --color-inverse-surface: #ecf5f4;
+  --color-inverse-on-surface: #0a1a1d;
+  --color-inverse-primary: #0d5c63;
+  --color-primary-container: #0d5c63;
+  --color-on-primary: #04262a; /* near-black on lifted teal — 8.9:1 contrast (white only 2.2:1) */
+  --color-on-primary-container: #c6ece8;
+  --color-secondary-container: #14364f;
+  --color-on-secondary: #0a1a1d;
+  --color-on-secondary-container: #cfe2f5;
+  --color-tertiary: #f5b73f;
+  --color-tertiary-container: #432c00;
+  --color-on-tertiary: #3d2a00; /* dark on amber — 7.6:1 contrast (white only 2.0:1) */
+  --color-on-tertiary-container: #fde3ae;
+  --color-error-container: #450a0a;
+  --color-on-error: #690005; /* dark on light-red error — 5.9:1 contrast (white only 2.8:1) */
+  --color-on-error-container: #fecaca;
+  --color-outline: #476a6f;
+  --color-outline-variant: #24444a;
+  --color-surface-tint: #5bd6cc;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+}

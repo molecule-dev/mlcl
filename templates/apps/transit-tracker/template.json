@@ -1,0 +1,68 @@
+{
+  "label": "Transit Tracker",
+  "description": "Citymapper-like transit tracker with stops, routes, live arrival boards (simulated feed), service alerts, and a trip planner — with built-in Stripe-backed subscription tiers",
+  "cluster": "civic",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/app-billing-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Transit Tracker"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for transactional emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_TRANSIT_TRACKER_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_TRANSIT_TRACKER_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_TRANSIT_TRACKER_FAMILY_MONTHLY": {
+      "description": "Stripe price ID for the Family Monthly plan",
+      "required": false
+    },
+    "STRIPE_TRANSIT_TRACKER_FAMILY_YEARLY": {
+      "description": "Stripe price ID for the Family Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "landing",
+  "features": [
+    "auth",
+    "live-arrivals",
+    "trip-planner",
+    "service-alerts",
+    "saved-stops",
+    "subscriptions"
+  ]
+}

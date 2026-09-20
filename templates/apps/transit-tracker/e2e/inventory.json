@@ -1,0 +1,912 @@
+{
+  "slug": "transit-tracker",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-alerts",
+      "path": "/alerts",
+      "component": "Alerts",
+      "file": "app/src/pages/Alerts.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-routedetail",
+      "path": "/lines/:code",
+      "component": "RouteDetail",
+      "file": "app/src/pages/RouteDetail.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-nearby",
+      "path": "/nearby",
+      "component": "Nearby",
+      "file": "app/src/pages/Nearby.tsx"
+    },
+    {
+      "id": "page-tripplanner",
+      "path": "/plan",
+      "component": "TripPlanner",
+      "file": "app/src/pages/TripPlanner.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-savedstops",
+      "path": "/saved",
+      "component": "SavedStops",
+      "file": "app/src/pages/SavedStops.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-stopboard",
+      "path": "/stops/:code",
+      "component": "StopBoard",
+      "file": "app/src/pages/StopBoard.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "button-arrivalsboard-55",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ArrivalsBoard.tsx",
+      "line": 55,
+      "label": "button at app/src/components/ArrivalsBoard.tsx:55",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-itinerarycard-90",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/ItineraryCard.tsx",
+      "line": 90,
+      "label": "button at app/src/components/ItineraryCard.tsx:90",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingfooter-55-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingFooter.tsx",
+      "line": 55,
+      "label": ", )}",
+      "href": "/about",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingfooter-58-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingFooter.tsx",
+      "line": 58,
+      "label": ", )}",
+      "href": "/nearby",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingfooter-61-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingFooter.tsx",
+      "line": 61,
+      "label": ", )}",
+      "href": "/saved",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingfooter-71-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingFooter.tsx",
+      "line": 71,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingfooter-74-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingFooter.tsx",
+      "line": 74,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-35--span-classname----c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 35,
+      "label": "<span className=), cm.w(8), cm.h(8), cm.roundedFull,",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-64-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 64,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-74-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 74,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-85-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 85,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-100-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 100,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landingtopnav-110--------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/LandingTopNav.tsx",
+      "line": 110,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-metropulseauthshell-80--span-classname----c",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MetroPulseAuthShell.tsx",
+      "line": 80,
+      "label": "<span className=), cm.w(8), cm.h(8), cm.roundedFull,",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-stoplistitem-25",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/StopListItem.tsx",
+      "line": 25,
+      "label": "link at app/src/components/StopListItem.tsx:25",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-stoppicker-37",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/StopPicker.tsx",
+      "line": 37,
+      "label": "select at app/src/components/StopPicker.tsx:37",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-stopsearchcard-93",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/StopSearchCard.tsx",
+      "line": 93,
+      "label": "input at app/src/components/StopSearchCard.tsx:93",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-stopsearchcard-115",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/StopSearchCard.tsx",
+      "line": 115,
+      "label": "button at app/src/components/StopSearchCard.tsx:115",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-alerts-83",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Alerts.tsx",
+      "line": 83,
+      "label": "button at app/src/pages/Alerts.tsx:83",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-alerts-134-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Alerts.tsx",
+      "line": 134,
+      "label": ", )}",
+      "href": "/plan",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-47-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 47,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-95",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 95,
+      "label": "input at app/src/pages/ForgotPassword.tsx:95",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-128--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 128,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-280-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 280,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-410-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 410,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-421-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 421,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-60-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 60,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-77",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 77,
+      "label": "input at app/src/pages/Login.tsx:77",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-107-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 107,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-118",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 118,
+      "label": "input at app/src/pages/Login.tsx:118",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-147--isloggingin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 147,
+      "label": "{isLoggingIn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-nearby-118-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Nearby.tsx",
+      "line": 118,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-67-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 67,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-83",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 83,
+      "label": "input at app/src/pages/ResetPassword.tsx:83",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-107",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 107,
+      "label": "input at app/src/pages/ResetPassword.tsx:107",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-135",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 135,
+      "label": "input at app/src/pages/ResetPassword.tsx:135",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-159",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 159,
+      "label": "input at app/src/pages/ResetPassword.tsx:159",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-187--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 187,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-routedetail-93-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/RouteDetail.tsx",
+      "line": 93,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-routedetail-187--span-classname--cm-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/RouteDetail.tsx",
+      "line": 187,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-savedstops-105",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SavedStops.tsx",
+      "line": 105,
+      "label": "link at app/src/pages/SavedStops.tsx:105",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-savedstops-134--row-hub---transfer-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SavedStops.tsx",
+      "line": 134,
+      "label": "{row.hub ? transfer_w",
+      "href": "/stops/${row.code}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-savedstops-150",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/SavedStops.tsx",
+      "line": 150,
+      "label": "button at app/src/pages/SavedStops.tsx:150",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-199",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 199,
+      "label": "button at app/src/pages/Settings.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-287",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 287,
+      "label": "button at app/src/pages/Settings.tsx:287",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-359--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 359,
+      "label": "<span className={cm.cn( inline-block h-5 w-5 transform round",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-380",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 380,
+      "label": "button at app/src/pages/Settings.tsx:380",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-452",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 452,
+      "label": "input at app/src/pages/Settings.tsx:452",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-75-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 75,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-93",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 93,
+      "label": "input at app/src/pages/Signup.tsx:93",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-117",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 117,
+      "label": "input at app/src/pages/Signup.tsx:117",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-142",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 142,
+      "label": "input at app/src/pages/Signup.tsx:142",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-171",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 171,
+      "label": "input at app/src/pages/Signup.tsx:171",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-200",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 200,
+      "label": "input at app/src/pages/Signup.tsx:200",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-228--issigningup",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 228,
+      "label": "{isSigningUp",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-stopboard-110-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/StopBoard.tsx",
+      "line": 110,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-stopboard-155",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/StopBoard.tsx",
+      "line": 155,
+      "label": "button at app/src/pages/StopBoard.tsx:155",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-stopboard-189",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/StopBoard.tsx",
+      "line": 189,
+      "label": "link at app/src/pages/StopBoard.tsx:189",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-tripplanner-123",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TripPlanner.tsx",
+      "line": 123,
+      "label": "button at app/src/pages/TripPlanner.tsx:123",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-tripplanner-148",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/TripPlanner.tsx",
+      "line": 148,
+      "label": "button at app/src/pages/TripPlanner.tsx:148",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-stopsearchcard-79",
+      "file": "app/src/components/StopSearchCard.tsx",
+      "line": 79,
+      "label": "form at app/src/components/StopSearchCard.tsx:79",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-84",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 84,
+      "label": "form at app/src/pages/ForgotPassword.tsx:84",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-66",
+      "file": "app/src/pages/Login.tsx",
+      "line": 66,
+      "label": "form at app/src/pages/Login.tsx:66",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-72",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 72,
+      "label": "form at app/src/pages/ResetPassword.tsx:72",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-81",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 81,
+      "label": "form at app/src/pages/Signup.tsx:81",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-tripplanner-103",
+      "file": "app/src/pages/TripPlanner.tsx",
+      "line": 103,
+      "label": "form at app/src/pages/TripPlanner.tsx:103",
+      "onSubmit": false,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-saved-stops--code",
+      "method": "DELETE",
+      "mountedPath": "/saved-stops/:code",
+      "rawPath": "/:code",
+      "handlerFile": "api/src/handlers/saved-stops.ts",
+      "line": 111,
+      "resource": "saved-stops"
+    },
+    {
+      "id": "route-get-alerts-",
+      "method": "GET",
+      "mountedPath": "/alerts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/alerts.ts",
+      "line": 24,
+      "resource": "alerts"
+    },
+    {
+      "id": "route-get-arrivals--code",
+      "method": "GET",
+      "mountedPath": "/arrivals/:code",
+      "rawPath": "/:code",
+      "handlerFile": "api/src/handlers/arrivals.ts",
+      "line": 45,
+      "resource": "arrivals"
+    },
+    {
+      "id": "route-get-network-lines",
+      "method": "GET",
+      "mountedPath": "/network/lines",
+      "rawPath": "/lines",
+      "handlerFile": "api/src/handlers/network.ts",
+      "line": 103,
+      "resource": "network"
+    },
+    {
+      "id": "route-get-network-lines--code",
+      "method": "GET",
+      "mountedPath": "/network/lines/:code",
+      "rawPath": "/lines/:code",
+      "handlerFile": "api/src/handlers/network.ts",
+      "line": 121,
+      "resource": "network"
+    },
+    {
+      "id": "route-get-network-stops",
+      "method": "GET",
+      "mountedPath": "/network/stops",
+      "rawPath": "/stops",
+      "handlerFile": "api/src/handlers/network.ts",
+      "line": 173,
+      "resource": "network"
+    },
+    {
+      "id": "route-get-network-stops--code",
+      "method": "GET",
+      "mountedPath": "/network/stops/:code",
+      "rawPath": "/stops/:code",
+      "handlerFile": "api/src/handlers/network.ts",
+      "line": 227,
+      "resource": "network"
+    },
+    {
+      "id": "route-get-saved-stops-",
+      "method": "GET",
+      "mountedPath": "/saved-stops",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/saved-stops.ts",
+      "line": 23,
+      "resource": "saved-stops"
+    },
+    {
+      "id": "route-post-saved-stops-",
+      "method": "POST",
+      "mountedPath": "/saved-stops",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/saved-stops.ts",
+      "line": 70,
+      "resource": "saved-stops"
+    },
+    {
+      "id": "route-post-trips-plan",
+      "method": "POST",
+      "mountedPath": "/trips/plan",
+      "rawPath": "/plan",
+      "handlerFile": "api/src/handlers/trips.ts",
+      "line": 26,
+      "resource": "trips"
+    }
+  ],
+  "totals": {
+    "pages": 16,
+    "elements": 60,
+    "forms": 6,
+    "routes": 10
+  }
+}
