@@ -42,6 +42,14 @@ three builders as additional surfaces AND gives every CLI harness the short
 one-URL install. The graduation-path story for their exported apps is
 meanwhile covered by [FROM-VIBECODING.md](FROM-VIBECODING.md).
 
+## Post-publish reminder
+
+- Remove any local test alias (`alias mlcl="node bin/run.js"`) — after
+  publishing, the real command is `mlcl` (global install) or `npx mlcl`.
+  For continued LOCAL development against the checkout, use a distinct name
+  (`alias mlcl-dev="node ~/Repos/molecule-workspace/mlcl/bin/run.js"`) so the
+  published binary and the dev tree never shadow each other.
+
 ## Claude Code plugin (separate track)
 
 Already staged at `integrations/claude-code/` — at launch: move contents to the
