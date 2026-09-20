@@ -8,7 +8,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-about.html",
+      "designScreenId": "46677820a2bc48258d6bdc5a89e0f9fa"
     },
     {
       "name": "Dashboard",
@@ -17,7 +18,8 @@
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-dashboard.html",
+      "designScreenId": "c10759bb69604ac682840ef2e91f30fa"
     },
     {
       "name": "ForgotPassword",
@@ -26,7 +28,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-forgot-password.html",
+      "designScreenId": "8a6b0f0f546845579777d525f027b932"
     },
     {
       "name": "Help",
@@ -35,7 +38,8 @@
       "route": "/help",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-help.html",
+      "designScreenId": "239be90bece04861ae86dcc241bc3640"
     },
     {
       "name": "IssueDetail",
@@ -44,7 +48,8 @@
       "route": "/issues/:id/detail",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-issue-detail.html",
+      "designScreenId": "2d34aab27d504081880d8aed0c12f3fa"
     },
     {
       "name": "IssueEditor",
@@ -53,7 +58,8 @@
       "route": "/issues/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-issue-editor.html",
+      "designScreenId": "a422eadad23444d8bd87d93051d1a83c"
     },
     {
       "name": "Issues",
@@ -62,7 +68,8 @@
       "route": "/issues",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-issues.html",
+      "designScreenId": "67620c91e7594747936823e7b2b1e698"
     },
     {
       "name": "Landing",
@@ -71,7 +78,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-landing.html",
+      "designScreenId": "9c90109c5f544bce856af271a205045b"
     },
     {
       "name": "Login",
@@ -80,7 +88,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-login.html",
+      "designScreenId": "01847be3095c4a9892e99d1e2ea26578"
     },
     {
       "name": "PlanUpdated",
@@ -89,7 +98,8 @@
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-plan-updated.html",
+      "designScreenId": "96f5a9454df84ccbb703298b4994564e"
     },
     {
       "name": "Pricing",
@@ -98,7 +108,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-pricing.html",
+      "designScreenId": "ddae069ba22a4d748fda66b30d790183"
     },
     {
       "name": "Privacy",
@@ -107,7 +118,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-privacy.html",
+      "designScreenId": "1b6fe851a13e4bd28729e7185355db98"
     },
     {
       "name": "PublicIssue",
@@ -116,7 +128,8 @@
       "route": "/issues/:id",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-public-issue.html",
+      "designScreenId": "3cfc1aa6dbc047a0be42935241d194f8"
     },
     {
       "name": "ResetPassword",
@@ -125,7 +138,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-reset-password.html",
+      "designScreenId": "e4019a1b9d7242419cb0512358c28cf5"
     },
     {
       "name": "Settings",
@@ -134,7 +148,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-settings.html",
+      "designScreenId": "c6fcceeb1daf44b19ffc301bb0dcd878"
     },
     {
       "name": "Signup",
@@ -143,7 +158,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-signup.html",
+      "designScreenId": "03f41316f5234ef58c12248d2d6376a6"
     },
     {
       "name": "Subscribers",
@@ -152,7 +168,8 @@
       "route": "/subscribers",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-subscribers.html",
+      "designScreenId": "39eb2c092a2245dd80fadb25dddeaaa2"
     },
     {
       "name": "Terms",
@@ -161,7 +178,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-terms.html",
+      "designScreenId": "9c22928a94b6411185e98eecf6d8ec37"
     },
     {
       "name": "Unsubscribe",
@@ -170,7 +188,8 @@
       "route": "/unsubscribe/:token",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-newsletter-unsubscribe.html",
+      "designScreenId": "2a21cd069b90493ebabaf5bc97e9747c"
     }
   ]
 }
