@@ -40,7 +40,10 @@
     "/dist",
     "/templates",
     "/oclif.manifest.json",
-    "/docs"
+    "/docs/AGENTS-AND-HARNESSES.md",
+    "/docs/INTEGRATE-EXISTING-APP.md",
+    "/docs/FROM-VIBECODING.md",
+    "/docs/DASHBOARDS.md"
   ],
   "oclif": {
     "bin": "mlcl",

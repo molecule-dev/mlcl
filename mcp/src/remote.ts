@@ -151,6 +151,9 @@ export function buildRemoteServer(): McpServer {
     },
     tracked('read_package_doc', async ({ name }) => {
       const short = name.replace(/^@molecule\//, '')
+      if (!/^[A-Za-z0-9._-]+$/.test(short)) {
+        return text(`Invalid package name "${short}" — expected @molecule/<name>.`)
+      }
       try {
         const meta = (await (
           await fetch(`https://registry.npmjs.org/@molecule%2F${short}`)

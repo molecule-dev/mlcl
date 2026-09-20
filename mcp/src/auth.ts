@@ -51,8 +51,9 @@ export function readCredentials(): StoredCredentials | null {
 }
 
 function writeCredentials(creds: StoredCredentials): void {
-  mkdirSync(join(CREDENTIALS_FILE, '..'), { recursive: true })
-  writeFileSync(CREDENTIALS_FILE, `${JSON.stringify(creds, null, 2)}\n`)
+  mkdirSync(join(CREDENTIALS_FILE, '..'), { recursive: true, mode: 0o700 })
+  // mode-at-creation: no world-readable TOCTOU window before a follow-up chmod.
+  writeFileSync(CREDENTIALS_FILE, `${JSON.stringify(creds, null, 2)}\n`, { mode: 0o600 })
   chmodSync(CREDENTIALS_FILE, 0o600)
 }
 
@@ -96,8 +97,15 @@ export async function startLogin(): Promise<LoginSession> {
   if (status !== 201 || !data.deviceCode || !data.userCode) {
     throw new Error(data.error ?? `device-code request failed (${status})`)
   }
+  // Validate the verification path (same charset as the CLI) — a compromised
+  // API cannot steer the browser opener at another scheme or inject escapes.
+  const rawPath = data.verificationUrl ?? `/cli?code=${data.userCode}`
+  const verificationPath =
+    rawPath.startsWith('/') && /^\/[A-Za-z0-9/?&=%._-]*$/.test(rawPath)
+      ? rawPath
+      : `/cli?code=${data.userCode}`
   return {
-    url: `${siteBase()}${data.verificationUrl ?? `/cli?code=${data.userCode}`}`,
+    url: `${siteBase()}${verificationPath}`,
     userCode: data.userCode,
     deviceCode: data.deviceCode,
   }

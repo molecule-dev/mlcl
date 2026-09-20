@@ -206,7 +206,7 @@ async function main() {
     // S6c: quoting round-trip for space/# values
     await run(['env', 'set', 'QV', 'has space and # hash'])
     const stored = readFileSync(join(dir, 'api', '.env'), 'utf8')
-    check('S6c value quoted on disk', /QV='has space and # hash'/.test(stored), stored)
+    check('S6c value quoted on disk', /QV=.has space and # hash./.test(stored), stored)
     const got = await run(['env', 'get', 'QV'])
     check('S6d value reads back intact', got.out.trim().endsWith('has space and # hash'), got.out)
 

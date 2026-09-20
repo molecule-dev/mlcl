@@ -42,26 +42,33 @@ export function loadEnvFile(path: string): EnvFile {
 
 function stripQuotes(value: string): string {
   const trimmed = value.trim()
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
+  if (trimmed.startsWith('"') && trimmed.endsWith('"') && trimmed.length >= 2) {
+    // Unescape double-quote escaping (the write counterpart in quoteValue).
+    return trimmed.slice(1, -1).replaceAll('\\"', '"').replaceAll('\\\\', '\\')
+  }
+  if (trimmed.startsWith("'") && trimmed.endsWith("'") && trimmed.length >= 2) {
     return trimmed.slice(1, -1)
   }
   return trimmed
 }
 
 /**
- * Dotenv-safe write form: single-quote values that contain whitespace, `#`,
- * or quotes (single-quoted dotenv values keep ` # ` from becoming a comment
- * and preserve interior spacing); escape interior single quotes as '\''.
+ * Dotenv-safe write form: double-quote values that contain whitespace, `#`,
+ * or quotes. Double-quote + escape is round-trippable by stripQuotes and
+ * standard dotenv parsers — POSIX single-quote escaping is not.
  */
 function quoteValue(value: string): string {
   if (/^[A-Za-z0-9._/@:+-]*$/.test(value)) return value
-  return `'${value.replaceAll("'", `'\\''`)}'`
+  const escaped = value.replaceAll('\\', '\\\\').replaceAll('"', '\\"')
+  return `"${escaped}"`
 }
 
 export function setEnvValue(file: EnvFile, key: string, value: string): boolean {
+  // Key validation: `env pull` passes server-controlled keys — a key with
+  // a newline injects arbitrary KEY=VALUE lines (same poisoning class).
+  if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(key)) {
+    throw new Error(`invalid env key: ${JSON.stringify(key.slice(0, 20))}`)
+  }
   // A newline in a value would inject additional KEY=VALUE lines into the
   // .env (env-file poisoning — reachable from `env pull` remote values too).
   // Values are single-line by contract; refuse rather than escape.
@@ -84,6 +91,9 @@ export function setEnvValue(file: EnvFile, key: string, value: string): boolean 
 }
 
 export function unsetEnvValue(file: EnvFile, key: string): boolean {
+  if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(key)) {
+    throw new Error(`invalid env key: ${JSON.stringify(key.slice(0, 20))}`)
+  }
   const existing = file.entries.find((e) => e.key === key && !e.commented)
   if (!existing) return false
   if (/[\n\r]/.test(existing.value)) {
