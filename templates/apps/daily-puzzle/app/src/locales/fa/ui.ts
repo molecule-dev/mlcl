@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
     'کلمه پنج حرفی مخفی را حدس بزنید، کاشی‌ها را ببینید که برمی‌گردند، و رکورد خود را حفظ کنید — کل دنیا هر روز یک کلمه یکسان بازی می‌کند.',
   'landing.how.title': 'یک آیین کوچک روزانه',
   'landing.nav.community': 'جدول رتبه‌بندی',
-  'landing.nav.how': 'نحوه عملکرد',
+  'landing.nav.how': 'چگونه کار می‌کند؟',
   'landing.nav.playToday': 'امروز بازی کنید',
   'landing.nav.streaks': 'رکورد و آمار',
   'landing.streaks.body':
@@ -97,7 +97,7 @@ export const ui: UiTranslations = {
   'play.lost': 'حدس‌ها تمام شد',
   'play.notInWordList': 'در فهرست کلمات نیست',
   'play.practiceBadge': 'تمرین — بدون تأثیر رکورد',
-  'play.share': 'اشتراک‌گذاری',
+  'play.share': 'اشتراک گذاری',
   'play.shareCopied': 'در حافظه کپی شد',
   'play.submitError': 'مشکلی پیش آمد — دوباره امتحان کنید',
   'play.title': 'پازل امروز',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'بارگذاری پلن‌ها امکان‌پذیر نبود.',
   'pricing.subhead':
     'کلمه روزانه همیشه رایگان است. برای بازپخش نامحدود بایگانی و آمار دقیق‌تر ارتقا دهید.',
-  'pricing.yearly': 'سالانه',
+  'pricing.yearly': 'Yearly',
   'privacy.title': 'اطلاعیه حریم خصوصی',
   'settings.account': 'حساب کاربری',
   'settings.danger.body': 'حذف دائمی حساب {{appName}} و تمام تاریخچه پازل‌ها.',

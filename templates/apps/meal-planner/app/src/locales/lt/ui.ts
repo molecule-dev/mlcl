@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Išsaugokite pamėgtus receptus, patalpinkite juos į savaitę ir apsipirkite pagal pirkimų sąrašą, kuris susirašo pats. 17 val. "ką šiandien gaminsime?" baigėsi.',
   'simmer.landing.hero.cardBadge': '7 vakarienės suplanuotos',
-  'simmer.landing.hero.cardTitle': 'Ši savaitė',
+  'simmer.landing.hero.cardTitle': 'Šią savaitę',
   'simmer.landing.hero.eyebrow': 'Savaitės maitinimosi planavimas',
   'simmer.landing.hero.listHint': 'Pirkimų sąrašas paruoštas',
   'simmer.landing.hero.primary': 'Pradėti — nemokamai',
@@ -166,7 +166,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Jūsų vardas ir pavardė',
   'simmer.week.nextLabel': 'Kita savaitė',
   'simmer.week.prevLabel': 'Ankstesnė savaitė',
-  'simmer.week.today': 'Ši savaitė',
+  'simmer.week.today': 'Šią savaitę',
   'terms.title': 'Paslaugų teikimo sąlygos',
   'userMenu.guestName': 'Jūsų paskyra',
   'userMenu.navLabel': 'Paskyros meniu',

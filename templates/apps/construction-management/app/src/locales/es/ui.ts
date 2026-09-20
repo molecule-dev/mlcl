@@ -213,7 +213,7 @@ export const ui: UiTranslations = {
   'subs.heading': 'Subcontratistas',
   'subs.loadError': 'No se pudieron cargar los subcontratistas.',
   'subs.newButton': 'Agregar subcontratista',
-  'subs.saving': 'Agregando…',
+  'subs.saving': 'Añadiendo…',
   'subs.statusError': 'Cambio de estado rechazado.',
   'subs.submit': 'Agregar subcontratista',
   'subs.terminate': 'Terminar',

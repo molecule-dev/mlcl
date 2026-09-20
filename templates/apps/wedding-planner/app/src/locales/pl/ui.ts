@@ -96,7 +96,7 @@ export const ui: UiTranslations = {
   'guests.filterStatusAria': 'Filtruj według statusu RSVP',
   'guests.form.email': 'E-mail (opcjonalnie)',
   'guests.form.group': 'Grupa (opcjonalnie)',
-  'guests.form.name': 'Imię i nazwisko',
+  'guests.form.name': 'Nazwa',
   'guests.form.plusOnes': 'Osoby towarzyszące',
   'guests.form.rsvp': 'Status RSVP',
   'guests.form.saving': 'Zapisywanie…',

@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Сачувајте рецепте које волите, ставите их у недељу и купујте са листе која се пише сама. Питање "шта за вечеру?" у 17 сати је завршено.',
   'simmer.landing.hero.cardBadge': '7 вечера планирано',
-  'simmer.landing.hero.cardTitle': 'Ова недеља',
+  'simmer.landing.hero.cardTitle': 'Ове недеље',
   'simmer.landing.hero.eyebrow': 'Недељно планирање оброка',
   'simmer.landing.hero.listHint': 'Листа за куповину спремна',
   'simmer.landing.hero.primary': 'Почните — бесплатно',
@@ -164,7 +164,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Ваше пуно име',
   'simmer.week.nextLabel': 'Следећа недеља',
   'simmer.week.prevLabel': 'Претходна недеља',
-  'simmer.week.today': 'Ова недеља',
+  'simmer.week.today': 'Ове недеље',
   'terms.title': 'Услови коришћења',
   'userMenu.guestName': 'Ваш налог',
   'userMenu.navLabel': 'Мени налога',

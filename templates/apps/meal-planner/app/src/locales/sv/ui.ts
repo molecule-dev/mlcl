@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Spara recepten du älskar, lägg dem på veckan och handla från en inköpslista som skriver sig själv. 17-frågan "vad blir det för middag?" är över.',
   'simmer.landing.hero.cardBadge': '7 middagar planerade',
-  'simmer.landing.hero.cardTitle': 'Den här veckan',
+  'simmer.landing.hero.cardTitle': 'Denna vecka',
   'simmer.landing.hero.eyebrow': 'Veckoplanering av måltider',
   'simmer.landing.hero.listHint': 'Inköpslista klar',
   'simmer.landing.hero.primary': 'Kom igång — gratis',
@@ -166,7 +166,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Ditt fullständiga namn',
   'simmer.week.nextLabel': 'Nästa vecka',
   'simmer.week.prevLabel': 'Föregående vecka',
-  'simmer.week.today': 'Den här veckan',
+  'simmer.week.today': 'Denna vecka',
   'terms.title': 'Användarvillkor',
   'userMenu.guestName': 'Ditt konto',
   'userMenu.navLabel': 'Kontomeny',

@@ -42,7 +42,7 @@ export const ui: UiTranslations = {
   'bookDetail.sessionsEmpty': 'Ingen økter logget ennå.',
   'bookDetail.sessionsHeading': 'Leselogg',
   'bookDetail.stat.finished': 'Ferdig',
-  'bookDetail.stat.progress': 'Framgang',
+  'bookDetail.stat.progress': 'Fremgang',
   'bookDetail.stat.started': 'Startet',
   'books.addLabel': 'Legg til bok',
   'books.author': 'Forfatter',

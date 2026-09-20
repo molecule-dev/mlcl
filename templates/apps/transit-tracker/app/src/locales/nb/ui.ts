@@ -114,7 +114,7 @@ export const ui: UiTranslations = {
   'stopBoard.savedLabel': 'Lagret',
   'stopBoard.saveLabel': 'Lagre stopp',
   'stopPicker.chooseStop': 'Velg et stopp…',
-  'transitLayout.primaryNavLabel': 'Hovednavigasjon',
+  'transitLayout.primaryNavLabel': 'Primær navigasjon',
   'tripPlanner.error': 'Kunne ikke planlegge denne reisen. Vennligst prøv igjen.',
   'tripPlanner.eyebrow': 'Reiseplanlegger',
   'tripPlanner.originLabel': 'Fra',

@@ -102,7 +102,7 @@ export const ui: UiTranslations = {
   'nav.profile': 'โปรไฟล์',
   'nav.settings': 'การตั้งค่า',
   'newExpense.amount': 'จำนวนเงิน (USD)',
-  'newExpense.description': 'รายละเอียด',
+  'newExpense.description': 'คำอธิบาย',
   'newExpense.descriptionPlaceholder': 'ของชำและฟืน',
   'newExpense.exactShareFor': 'ส่วนแบ่งที่แน่นอนสำหรับ{{name}}',
   'newExpense.group': 'กลุ่ม',

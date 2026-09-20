@@ -81,7 +81,7 @@ export const ui: UiTranslations = {
     'Не успяхме да намерим страницата, която търсиш. Опитай да се върнеш към седмицата си.',
   'simmer.notFound.heading': 'Тази рафт е празна',
   'simmer.notFound.planCta': 'Към твоя план',
-  'simmer.onboarding.back': 'Назад',
+  'simmer.onboarding.back': 'Обратно',
   'simmer.onboarding.diet.body':
     'Рецептите с етикети за съвпадение изплуват отгоре в твоята кутия.',
   'simmer.onboarding.diet.heading': 'Нещо за пропускане?',

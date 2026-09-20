@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'friends.emailPlaceholder': 'anna@przyklad.pl',
   'friends.eyebrow': 'Twoja książka adresowa',
   'friends.listTitle': 'Osoby, z którymi się rozliczasz',
-  'friends.name': 'Imię i nazwisko',
+  'friends.name': 'Nazwa',
   'friends.namePlaceholder': 'Anna Kowalska',
   'friends.removeFailed': 'Nie można usunąć tego znajomego.',
   'friends.subtitle':
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Dodaj wydatek',
   'newExpense.totalLabel': 'Suma wydatku',
   'newExpense.weightFor': 'Waga udziału dla {{name}}',
-  'newExpense.youOption': 'Ty',
+  'newExpense.youOption': 'Pan/Pani',
   'resetPassword.hidePassword': 'Ukryj hasło',
   'resetPassword.newPasswordLabel': 'Nowe hasło',
   'resetPassword.showPassword': 'Pokaż hasło',

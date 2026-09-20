@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
   'simmer.notFound.body': 'صفحه‌ای که دنبالش بودید را نیافتیم. سعی کنید به هفته خود برگردید.',
   'simmer.notFound.heading': 'این قفسه خالی است',
   'simmer.notFound.planCta': 'رفتن به برنامه شما',
-  'simmer.onboarding.back': 'بازگشت',
+  'simmer.onboarding.back': 'برگشت',
   'simmer.onboarding.diet.body': 'دستور پخت‌های برچسب‌گذاری شده در بالای جعبه شما قرار می‌گیرند.',
   'simmer.onboarding.diet.heading': 'چیزی هست که رد کنید؟',
   'simmer.onboarding.start': 'شروع برنامه‌ریزی',

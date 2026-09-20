@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
   'signup.eyebrow': 'Bergabung',
   'status.declined': 'Ditolak',
   'status.inProgress': 'Dalam proses',
-  'status.open': 'Terbuka',
+  'status.open': 'Buka',
   'status.planned': 'Direncanakan',
   'status.shipped': 'Dikirim',
   'submit.boardLabel': 'Papan',

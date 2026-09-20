@@ -113,10 +113,10 @@ export const ui: UiTranslations = {
   'stopBoard.savedLabel': 'ذخیره شده',
   'stopBoard.saveLabel': 'ذخیره ایستگاه',
   'stopPicker.chooseStop': 'یک ایستگاه انتخاب کنید…',
-  'transitLayout.primaryNavLabel': 'ناوبری اصلی',
+  'transitLayout.primaryNavLabel': 'ناوبری اولیه',
   'tripPlanner.error': 'برنامه‌ریزی این سفر ممکن نشد. لطفاً دوباره تلاش کنید.',
   'tripPlanner.eyebrow': 'برنامه‌ریز سفر',
-  'tripPlanner.originLabel': 'از',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'در حال برنامه‌ریزی…',
   'tripPlanner.submit': 'یافتن سفرها',
   'tripPlanner.subtitle':

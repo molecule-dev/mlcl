@@ -145,7 +145,7 @@ export const ui: UiTranslations = {
   'simmer.recipes.create': 'ახალი რეცეპტი',
   'simmer.recipes.empty.title': 'რეცეპტები არ შეესაბამება',
   'simmer.recipes.eyebrow': '{{count}} რეცეპტი, თქვენი და საწყისი კატალოგი',
-  'simmer.recipes.fetchError': 'რეცეպტების ჩატვირთვა ვერ მოხერხდა.',
+  'simmer.recipes.fetchError': 'რეცეპტების ჩატვირთვა ვერ მოხერხდა.',
   'simmer.recipes.heading': 'რეცეპტების ყუთი',
   'simmer.recipes.loading': 'რეცეპტები იტვირთება…',
   'simmer.recipes.searchPlaceholder': 'ძიება სათაურით ან ტეგით…',

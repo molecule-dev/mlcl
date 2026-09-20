@@ -29,7 +29,7 @@ export const ui: UiTranslations = {
   'availability.heading': 'Elérhetőség',
   'availability.newWindow.day': 'Nap',
   'availability.pickStaff': 'Először válasszon egy munkatársat.',
-  'availability.showFor': 'Megjelenítés',
+  'availability.showFor': 'Megmutat',
   'availability.subheading':
     'Hetente ismétlődő időablakok és egyszeri tiltott időszakok. Ezeken kívüli ütemezés megengedett, de megjelölésre kerül.',
   'availability.windowsHeading': 'Heti időablakok',
@@ -98,7 +98,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': '{{tagline}}.',
   'landing.preview.open': '3 nyitott műszak',
   'landing.preview.pending': '2 jóváhagyásra vár',
-  'landing.pricingEyebrow': 'Árak',
+  'landing.pricingEyebrow': 'Árazás',
   'landing.pricingHeading': 'Csomagok minden csapatmérethez.',
   'landing.socialEyebrow': 'Csapatok műszakban tartása:',
   'login.createAccount': 'Munkaterület létrehozása',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Nyissa meg a beosztást, tegye közzé a hetet, tartsa minden műszakot lefedve.',
   'loginBrandPanel.badge.claimed': 'Igényelt',
-  'loginBrandPanel.badge.open': 'Nyitott',
+  'loginBrandPanel.badge.open': 'Megnyitás',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. Óradíjas csapatok számára készült.',
   'loginBrandPanel.headline': 'Minden műszak,',
@@ -207,7 +207,7 @@ export const ui: UiTranslations = {
   'staff.column.contact': 'Kapcsolat',
   'staff.column.name': 'Név',
   'staff.column.status': 'Állapot',
-  'staff.column.thisWeek': 'Ez a hét',
+  'staff.column.thisWeek': 'Ezen a héten',
   'staff.compose.heading': 'Új munkatárs',
   'staff.compose.submit': 'Munkatárs hozzáadása',
   'staff.empty': 'Nincs találat.',

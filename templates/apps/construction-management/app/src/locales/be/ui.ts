@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Апавяшчаць мяне, калі RFI адказаны або закрыты.',
   'notificationsSettings.rfiLabel': 'Абнаўленні RFI',
   'notificationsSettings.saveButton': 'Захаваць налады',
-  'planUpdated.heading': 'Ваш тарыфны план абноўлены',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Дзякуй!',
   'profileSettings.description':
     'Абнавіце сваю асабістую інфармацыю і тое, як бачаць вас іншыя ў праектах.',
@@ -212,7 +212,7 @@ export const ui: UiTranslations = {
   'subs.heading': 'Субпадрадчыкі',
   'subs.loadError': 'Не ўдалося загрузіць субпадрадчыкаў.',
   'subs.newButton': 'Дадаць субпадрадчыка',
-  'subs.saving': 'Даданне…',
+  'subs.saving': 'Дадаецца…',
   'subs.statusError': 'Змена статусу адхілена.',
   'subs.submit': 'Дадаць субпадрадчыка',
   'subs.terminate': 'Спыніць',

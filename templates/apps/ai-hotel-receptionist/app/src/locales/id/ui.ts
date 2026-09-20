@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'account.email': 'Email',
+  'account.email': 'E-mail',
   'account.heading': 'Akun Anda',
   'account.loadError': 'Gagal memuat akun Anda.',
   'account.name': 'Nama',
@@ -70,7 +70,7 @@ export const ui: UiTranslations = {
     'Jika alamat tersebut memiliki akun, tautan reset sedang dalam perjalanan.',
   'form.firstName': 'Nama depan',
   'form.lastName': 'Nama belakang',
-  'guestDetail.email': 'Email',
+  'guestDetail.email': 'E-mail',
   'guestDetail.noStays': 'Belum ada reservasi yang terhubung dengan tamu ini.',
   'guestDetail.phone': 'Telepon',
   'guestDetail.preferredLanguage': 'Bahasa pilihan',

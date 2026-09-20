@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Jarri gurekin harremanetan',
-  'about.eyebrow': 'Honi buruz',
+  'about.eyebrow': 'Buruz',
   'auth.backToSignIn': 'Itzuli saio-hasierara',
   'auth.forgotPassword.enterEmailDescription':
     'Idatzi zure helbide elektronikoa eta berrezartzeko esteka bidaliko dizugu.',
@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'dashboard.campaignProgress': 'Kanpainaren aurrerapena',
   'dashboard.donorCount': 'Emaileak',
   'dashboard.giftsYtd': 'Aurtengo dohaintzak',
-  'dashboard.heading': 'Arbela',
+  'dashboard.heading': 'Aginte-panela',
   'dashboard.loadError': 'Ezin izan da arbela kargatu.',
   'dashboard.noCampaigns': 'Ez dago kanpainerik oraindik — sortu bat helburu bat jarraitzeko.',
   'dashboard.noGifts': 'Ez dago erregistratutako dohaintzarik oraindik.',
@@ -63,7 +63,7 @@ export const ui: UiTranslations = {
   'donors.lastGift': 'Azken dohaintza',
   'donors.lifetime': 'Bizitza osoko dohaintzak',
   'donors.loadError': 'Ezin izan dira emaileak kargatu.',
-  'donors.new.email': 'Helbide elektronikoa',
+  'donors.new.email': 'Posta elektronikoa',
   'donors.new.error': 'Ezin izan da emailea gehitu.',
   'donors.new.heading': 'Emaile berria',
   'donors.new.isOrganization': 'Emaile hau erakunde edo fundazio bat da',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'gifts.detail.note': 'Oharra',
   'gifts.detail.receiptHint':
     'Urte amaiera: sortu emaile honen zerga ordainagiria Ordainagiriak orritik — dohaintza hau sartuko da.',
-  'gifts.detail.recorded': 'Erregistratua',
+  'gifts.detail.recorded': 'Grabatua',
   'gifts.empty': 'Ez dago bat datorren dohaintzarik.',
   'gifts.filterByMethod': 'Iragazi metodoaren arabera',
   'gifts.heading': 'Dohaintzak',
@@ -156,7 +156,7 @@ export const ui: UiTranslations = {
   'receipts.loadError': 'Ezin izan dira ordainagiriak kargatu.',
   'receipts.notFound': 'Ez da ordainagiria aurkitu.',
   'receipts.pickDonor': 'Aukeratu emaile bat lehenik.',
-  'receipts.preview': 'Aurrebista',
+  'receipts.preview': 'Preview',
   'receipts.previewError': 'Ezin izan da ordainagiria aurreikusi.',
   'receipts.previewing': 'Aurreikusten…',
   'receipts.print': 'Inprimatu ordainagiria',
@@ -173,7 +173,7 @@ export const ui: UiTranslations = {
   'resetPassword.emailLabel': 'HELBIDE ELEKTRONIKOA',
   'resetPassword.showPassword': 'Erakutsi pasahitza',
   'resetPassword.submit': 'Berrezarri pasahitza',
-  'settings.appearance.description': 'Txandakatu argi eta ilun moduen artean.',
+  'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
   'settings.appearance.title': 'Itxura',
   'settings.billing': 'Fakturazioa',
   'settings.eyebrow': 'Erakundea eta dohaintzak',

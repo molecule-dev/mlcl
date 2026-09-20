@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Pranešti man, kai į RFI atsakoma arba jis uždaromas.',
   'notificationsSettings.rfiLabel': 'RFI atnaujinimai',
   'notificationsSettings.saveButton': 'Išsaugoti nuostatas',
-  'planUpdated.heading': 'Jūsų planas atnaujintas',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Ačiū!',
   'profileSettings.description':
     'Atnaujinkite savo asmeninę informaciją ir kaip kiti jus mato projektuose.',
@@ -122,7 +122,7 @@ export const ui: UiTranslations = {
   'project.openRfis': 'Atviri RFI →',
   'project.openSubs': 'Atviri subrangovai →',
   'project.phase': 'Dabartinė fazė',
-  'project.progressLabel': 'Eiga',
+  'project.progressLabel': 'Pažanga',
   'projects.backToList': '← Grįžti į projektus',
   'projects.createButton': 'Sukurti projektą',
   'projects.createError': 'Nepavyko sukurti projekto.',

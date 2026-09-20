@@ -53,7 +53,7 @@ export const ui: UiTranslations = {
   'dailyLogs.saving': 'Registrerar…',
   'dailyLogs.submit': 'Registrera logg',
   'dashboard.crewCount': '{{count}} på plats',
-  'dashboard.heading': 'Översikt',
+  'dashboard.heading': 'Instrumentpanel',
   'dashboard.kpi.highPunch': 'Högseveritet-punchpunkter',
   'dashboard.kpi.logsToday': 'Loggade arbetstimmar',
   'dashboard.kpi.openRfis': 'Öppna RFI:er',

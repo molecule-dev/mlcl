@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Siaradwch â ni',
-  'about.eyebrow': 'Amdanom',
+  'about.eyebrow': 'Ynglŷn â',
   'auth.backToSignIn': 'Yn ôl i fewngofnodi',
   'auth.forgotPassword.enterEmailDescription':
     'Rhowch eich e-bost a byddwn yn anfon dolen ailosod atoch.',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'gifts.detail.note': 'Nodyn',
   'gifts.detail.receiptHint':
     "Diwedd blwyddyn: cynhyrchwch dderbynneb treth y rhoddwr hwn o'r dudalen Derbynebau — bydd y rhodd hon yn cael ei chynnwys.",
-  'gifts.detail.recorded': "Wedi'i gofnodi",
+  'gifts.detail.recorded': "Wedi'i recordio",
   'gifts.empty': 'Dim rhoddion yn cydweddu.',
   'gifts.filterByMethod': 'Hidlo yn ôl dull',
   'gifts.heading': 'Rhoddion',
@@ -125,8 +125,8 @@ export const ui: UiTranslations = {
   'gifts.notFound': 'Rhodd heb ei chanfod.',
   'gifts.receiptedOnly': 'Â derbynneb',
   'gifts.unreceiptedOnly': 'Heb dderbynneb',
-  'landing.getStarted': 'Dechrau am ddim',
-  'landing.heroCta': 'Dechrau am ddim',
+  'landing.getStarted': 'Dechreuwch am ddim',
+  'landing.heroCta': 'Dechreuwch am ddim',
   'landing.mockLive': 'Heddiw',
   'landing.pricingLink': 'Prisio',
   'layout.primaryNavLabel': 'Prif lywio',
@@ -156,7 +156,7 @@ export const ui: UiTranslations = {
   'receipts.loadError': 'Methwyd llwytho derbynebau.',
   'receipts.notFound': 'Derbynneb heb ei chanfod.',
   'receipts.pickDonor': 'Dewiswch roddwr yn gyntaf.',
-  'receipts.preview': 'Rhagolwg',
+  'receipts.preview': 'Preview',
   'receipts.previewError': 'Methwyd rhagolwg y dderbynneb.',
   'receipts.previewing': 'Yn rhagolwg…',
   'receipts.print': 'Argraffu derbynneb',
@@ -173,7 +173,7 @@ export const ui: UiTranslations = {
   'resetPassword.emailLabel': 'E-BOST',
   'resetPassword.showPassword': 'Dangos cyfrinair',
   'resetPassword.submit': 'Ailosod Cyfrinair',
-  'settings.appearance.description': 'Toglo rhwng modd golau a thywyll.',
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
   'settings.appearance.title': 'Ymddangosiad',
   'settings.billing': 'Bilio',
   'settings.eyebrow': 'Sefydliad a rhoi',

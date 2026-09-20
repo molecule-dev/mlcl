@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'నోటిఫికేషన్‌లు',
   'settings.profile.currency': 'కరెన్సీ',
   'settings.profile.home': 'హోం స్టాప్',
-  'settings.saving': 'సేవ్ చేస్తోంది…',
+  'settings.saving': 'సేవ్ అవుతోంది…',
   'signup.eyebrow': '{{app}}లో చేరండి',
   'stop.hubChip': 'ఇంటర్‌చేంజ్',
   'stopBoard.backToNearby': 'అన్ని స్టాప్‌లకు తిరిగి వెళ్లండి',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'tripPlanner.error': 'ఈ ప్రయాణం ప్లాన్ చేయడం సాధ్యం కాలేదు. దయచేసి మళ్లీ ప్రయత్నించండి.',
   'tripPlanner.eyebrow': 'ట్రిప్ ప్లానర్',
-  'tripPlanner.originLabel': 'నుండి',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'ప్లాన్ చేస్తోంది…',
   'tripPlanner.submit': 'ప్రయాణాలను కనుగొనండి',
   'tripPlanner.subtitle':

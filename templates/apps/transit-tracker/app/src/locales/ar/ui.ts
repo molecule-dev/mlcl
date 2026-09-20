@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'لوحة المغادرات',
   'stopBoard.linesHeading': 'الخطوط التي تخدم هذه المحطة',
   'stopBoard.notFoundTitle': 'لم يتم العثور على المحطة',
-  'stopBoard.savedLabel': 'محفوظة',
+  'stopBoard.savedLabel': 'تم الحفظ',
   'stopBoard.saveLabel': 'حفظ المحطة',
   'stopPicker.chooseStop': 'اختر محطة…',
   'transitLayout.primaryNavLabel': 'التنقل الرئيسي',

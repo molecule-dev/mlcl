@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'சேமிக்கிறது…',
   'common.signingInEllipsis': 'உள்நுழைகிறது…',
   'common.startFree': 'இலவசமாகத் தொடங்கு',
-  'dashboard.activity.title': 'சமீபத்திய செயல்பாடு',
+  'dashboard.activity.title': 'சமீபத்திய நடவடிக்கைகள்',
   'dashboard.activity.viewAll': 'அனைத்து செயல்பாடுகளையும் பார்',
   'dashboard.addExpense': 'செலவைச் சேர்',
   'dashboard.eyebrow': 'இன்று, ஒரு பார்வையில்',

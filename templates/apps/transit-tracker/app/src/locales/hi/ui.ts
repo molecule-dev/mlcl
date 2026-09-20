@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'खाता बनाएं',
   'auth.signup.createYourAccount': 'अपना खाता बनाएं',
   'auth.signup.passwordsDoNotMatchPeriod': 'पासवर्ड मेल नहीं खाते।',
-  'common.about': 'के बारे में',
+  'common.about': 'परिचय',
   'common.atLeast8Characters': 'कम से कम 8 अक्षर',
   'common.couldNotSaveChanges': 'परिवर्तन सहेजे नहीं जा सके।',
   'common.creatingAccountEllipsis': 'खाता बनाया जा रहा है…',

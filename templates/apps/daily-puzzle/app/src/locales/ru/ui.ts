@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
-  'about.eyebrow': 'О приложении',
+  'about.eyebrow': 'О',
   'about.title': 'О {{app}}',
   'archive.loadError': 'Не удалось загрузить архив.',
   'archive.missed': 'Пропущено',
@@ -97,7 +97,7 @@ export const ui: UiTranslations = {
   'play.lost': 'Попытки закончились',
   'play.notInWordList': 'Нет в списке слов',
   'play.practiceBadge': 'Тренировка — не влияет на серию',
-  'play.share': 'Поделиться',
+  'play.share': 'Делиться',
   'play.shareCopied': 'Скопировано в буфер обмена',
   'play.submitError': 'Что-то пошло не так — попробуйте снова',
   'play.title': 'Сегодняшний пазл',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Не удалось загрузить тарифы.',
   'pricing.subhead':
     'Ежедневное слово всегда бесплатно. Обновитесь для неограниченных повторов из архива и более подробной статистики.',
-  'pricing.yearly': 'Годовой',
+  'pricing.yearly': 'Yearly',
   'privacy.title': 'Уведомление о конфиденциальности',
   'settings.account': 'Аккаунт',
   'settings.danger.body': 'Навсегда удалить ваш аккаунт {{appName}} и всю историю головоломок.',

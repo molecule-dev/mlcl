@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'RFI चे उत्तर दिले किंवा बंद केल्यावर मला सूचित करा.',
   'notificationsSettings.rfiLabel': 'RFI अपडेट्स',
   'notificationsSettings.saveButton': 'प्राधान्ये जतन करा',
-  'planUpdated.heading': 'तुमची योजना अपडेट केली गेली आहे',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'धन्यवाद!',
   'profileSettings.description':
     'तुमची वैयक्तिक माहिती आणि प्रकल्पांमध्ये इतर तुम्हाला कसे पाहतात ते अपडेट करा.',
@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
   'settings.devices': 'डिव्हाइसेस',
   'settings.logOut': 'साइन आउट करा',
   'settings.notifications': 'सूचना',
-  'settings.signOutDevice': 'साइन आउट करा',
+  'settings.signOutDevice': 'साइन आउट',
   'settings.thisDevice': 'हे डिव्हाइस',
   'signup.email': 'ईमेल पत्ता',
   'signup.error': 'खाते तयार करता आले नाही. कृपया पुन्हा प्रयत्न करा.',

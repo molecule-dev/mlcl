@@ -157,7 +157,7 @@ export const ui: UiTranslations = {
   'settings.changePassword': 'পাসওয়ার্ড পরিবর্তন করুন',
   'settings.changePasswordModal.changing': 'পরিবর্তন হচ্ছে…',
   'settings.changePasswordModal.title': 'পাসওয়ার্ড পরিবর্তন করুন',
-  'settings.dangerZone': 'বিপদজনক জোন',
+  'settings.dangerZone': 'বিপদজনক এলাকা',
   'settings.deleteAccount': 'অ্যাকাউন্ট মুছুন',
   'settings.deleteAccountModal.title': 'অ্যাকাউন্ট মুছুন',
   'settings.devices': 'ডিভাইস',

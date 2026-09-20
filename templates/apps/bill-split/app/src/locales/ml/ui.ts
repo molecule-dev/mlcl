@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'ചെലവ് ചേർക്കുക',
   'newExpense.totalLabel': 'ചെലവ് മൊത്തം',
   'newExpense.weightFor': '{{name}}-നുള്ള ഓഹരി ഭാരം',
-  'newExpense.youOption': 'നിങ്ങൾ',
+  'newExpense.youOption': 'നീ',
   'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്‌വേഡ്',
   'resetPassword.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',

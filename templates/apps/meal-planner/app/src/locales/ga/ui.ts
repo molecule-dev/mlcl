@@ -104,7 +104,7 @@ export const ui: UiTranslations = {
   'simmer.plan.eyebrow': '{{count}} béile pleanáilte',
   'simmer.plan.fetchError': 'Níorbh fhéidir an plean a luchtú.',
   'simmer.plan.loading': 'Ag luchtú na seachtaine…',
-  'simmer.plan.regenerate': 'Liosta grósaeir',
+  'simmer.plan.regenerate': 'Liosta siopadóireachta',
   'simmer.plan.regenerating': 'Ag tógáil liosta…',
   'simmer.plan.removeError': 'Níorbh fhéidir an béile pleanáilte a bhaint.',
   'simmer.recipe.addToWeek': 'Cuir leis an tseachtain',

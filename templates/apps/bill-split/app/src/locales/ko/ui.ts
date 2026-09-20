@@ -118,7 +118,7 @@ export const ui: UiTranslations = {
   'newExpense.title': '지출 추가',
   'newExpense.totalLabel': '지출 총액',
   'newExpense.weightFor': '{{name}}의 비중',
-  'newExpense.youOption': '나',
+  'newExpense.youOption': '회원님',
   'resetPassword.hidePassword': '비밀번호 숨기기',
   'resetPassword.newPasswordLabel': '새 비밀번호',
   'resetPassword.showPassword': '비밀번호 표시',

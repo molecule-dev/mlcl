@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'Izaziso',
   'settings.profile.currency': 'Imali',
   'settings.profile.home': 'Isiteshi sasekhaya',
-  'settings.saving': 'Iyalondoloza…',
+  'settings.saving': 'Ilondoloza...',
   'signup.eyebrow': 'Joyina i-{{app}}',
   'stop.hubChip': 'Indawo yokushintshela',
   'stopBoard.backToNearby': 'Buyela kuzo zonke iziteshi',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'tripPlanner.error': 'Ayikwazanga ukuhlela lolu hambo. Sicela uzame futhi.',
   'tripPlanner.eyebrow': 'Uhleli lohambo',
-  'tripPlanner.originLabel': 'Kusuka ku',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Iyahlela…',
   'tripPlanner.submit': 'Thola izingendo',
   'tripPlanner.subtitle':

@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'login.remember': '30日間ログイン状態を保持',
   'login.subheading': 'シフト表を開いて、週を公開し、全シフトをカバー。',
   'loginBrandPanel.badge.claimed': '申請済み',
-  'loginBrandPanel.badge.open': '空き',
+  'loginBrandPanel.badge.open': '開く',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. 時給スタッフのために開発。',
   'loginBrandPanel.headline': 'すべてのシフトを、',
   'nav.about': '概要',

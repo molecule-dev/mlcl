@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Par',
+  'about.eyebrow': 'Par mums',
   'activity.emptyTitle': 'Pagaidām kluss',
   'activity.eyebrow': 'Viss, kas notika',
   'activity.title': 'Aktivitāte',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Saglabā…',
   'common.signingInEllipsis': 'Pierakstās…',
   'common.startFree': 'Sākt bez maksas',
-  'dashboard.activity.title': 'Jaunākā aktivitāte',
+  'dashboard.activity.title': 'Jaunākās aktivitātes',
   'dashboard.activity.viewAll': 'Skatīt visu aktivitāti',
   'dashboard.addExpense': 'Pievienot izdevumu',
   'dashboard.eyebrow': 'Šodien, īsumā',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Pievienot izdevumu',
   'newExpense.totalLabel': 'Izdevuma kopsumma',
   'newExpense.weightFor': 'Daļas svars {{name}}',
-  'newExpense.youOption': 'Jūs',
+  'newExpense.youOption': 'Tu',
   'resetPassword.hidePassword': 'Paslēpt paroli',
   'resetPassword.newPasswordLabel': 'Jaunā parole',
   'resetPassword.showPassword': 'Rādīt paroli',

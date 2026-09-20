@@ -194,7 +194,7 @@ export const ui: UiTranslations = {
   'signup.showPassword': 'Mostrar contrasinal',
   'tasks.eyebrow': 'Cronoloxía',
   'tasks.form.category': 'Categoría',
-  'tasks.form.due': 'Vencemento',
+  'tasks.form.due': 'Vencido',
   'tasks.form.saving': 'Engadindo…',
   'tasks.form.submit': 'Engadir tarefa',
   'tasks.form.title': 'Tarefa',

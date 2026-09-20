@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'के बारे में',
+  'about.eyebrow': 'परिचय',
   'activity.emptyTitle': 'अभी शांत है',
   'activity.eyebrow': 'जो कुछ हुआ',
   'activity.title': 'गतिविधि',
@@ -91,7 +91,7 @@ export const ui: UiTranslations = {
   'groups.new': 'नया समूह',
   'groups.title': 'समूह',
   'groups.youAreOwed': 'आपका बकाया है',
-  'groups.youOwe': 'आपका कर्ज है',
+  'groups.youOwe': 'आपका कर्ज',
   'landing.heroSubtitle':
     'एक खर्च जोड़ें, इसे न्यायसंगत तरीके से विभाजित करें, और Evenly चालू शेष राशि रखता है। जब निपटान का समय आता है, तो यह न्यूनतम स्थानांतरण सुझाता है जो सभी को शून्य कर देता है — कोई स्प्रेडशीट औपचारिकता नहीं।',
   'landing.sampleCardLabel': 'आपके समूहों में निपटाया गया · इस महीने',
@@ -128,7 +128,7 @@ export const ui: UiTranslations = {
   'resetPassword.submit': 'पासवर्ड रीसेट करें और साइन इन करें',
   'settings.eyebrow': 'कार्यक्षेत्र प्राथमिकताएं',
   'settings.language.title': 'भाषा',
-  'settings.notifications.title': 'सूचनाएं',
+  'settings.notifications.title': 'सूचनाएँ',
   'settings.profile.saved': 'सहेजा गया ✓',
   'settings.settlement.subtitle':
     'जब आप निपटान रिकॉर्ड करते हैं तो पूर्व-भरा जाता है। Evenly कभी पैसे नहीं ले जाता — यह केवल लेबल करता है कि आपने एक-दूसरे को कैसे वापस भुगतान किया।',

@@ -81,7 +81,7 @@ export const ui: UiTranslations = {
     'Nismo mogli pronaći stranicu koju tražite. Pokušajte se vratiti na svoj tjedan.',
   'simmer.notFound.heading': 'Ova polica je prazna',
   'simmer.notFound.planCta': 'Idi na svoj plan',
-  'simmer.onboarding.back': 'Natrag',
+  'simmer.onboarding.back': 'Nazad',
   'simmer.onboarding.diet.body':
     'Recepti označeni tako da odgovaraju isplutaju na vrh vašeg sandučića.',
   'simmer.onboarding.diet.heading': 'Nešto što treba preskočiti?',
@@ -140,7 +140,7 @@ export const ui: UiTranslations = {
   'simmer.recipeEdit.steps': 'Koraci',
   'simmer.recipeEdit.tagsLabel': 'Oznake (odvojene zarezom)',
   'simmer.recipeEdit.tagsPlaceholder': 'večera, brzo, tjestenina',
-  'simmer.recipeEdit.titleLabel': 'Naslov',
+  'simmer.recipeEdit.titleLabel': 'Titula',
   'simmer.recipeEdit.titlePlaceholder': 'npr. Nedjeljna Bolonjeza',
   'simmer.recipeEdit.unitLabel': 'Jedinica',
   'simmer.recipes.addCard': 'Dodaj recept',

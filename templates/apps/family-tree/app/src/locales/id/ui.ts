@@ -76,7 +76,7 @@ export const ui: UiTranslations = {
   'personDetail.born': 'Lahir',
   'personDetail.datesUnknown': 'Tanggal tidak diketahui',
   'personDetail.died': 'Meninggal',
-  'personDetail.edit': 'Edit',
+  'personDetail.edit': 'Sunting',
   'personDetail.gender': 'Jenis kelamin',
   'personDetail.inPlace': ' — {{place}}',
   'personDetail.loadError': 'Gagal memuat orang.',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
     'Menghapus akun Anda, setiap orang, dan setiap hubungan. Tidak dapat dibatalkan.',
   'settings.deleting': 'Menghapus…',
   'settings.deviceCountOne': '1 perangkat',
-  'settings.emailLabel': 'Email',
+  'settings.emailLabel': 'E-mail',
   'settings.exportAction': 'Ekspor pohon',
   'settings.exportBody':
     'Unduh setiap orang dan hubungan sebagai file JSON — pohon Anda, portabel.',

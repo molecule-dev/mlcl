@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Կապվեք մեզ հետ',
-  'about.eyebrow': 'Մեր մասին',
+  'about.eyebrow': 'Մասին',
   'about.title': '{{app}}-ի մասին',
   'archive.loadError': 'Հնարավոր չեղավ բեռնել արխիվը։',
   'archive.missed': 'Բաց թողնված',
@@ -33,7 +33,7 @@ export const ui: UiTranslations = {
   'common.sendingEllipsis': 'Ուղարկվում է…',
   'common.startingEllipsis': 'Սկսվում է…',
   'form.name': 'Անուն',
-  'howToPlay.cta.home': 'Վերադառնալ գլխավոր',
+  'howToPlay.cta.home': 'Վերադարձ դեպի տուն',
   'howToPlay.cta.play': 'Խաղացեք այսօրվա հանելուկը',
   'howToPlay.cta.signup': 'Սկսեք խաղալ անվճար',
   'howToPlay.example.absent': 'Մոխրագույն՝ բառում չկա։',
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
     'Գուշակեք թաքնված հինգ տառից բառը, դիտեք փայտակների շրջումը և պահպանեք ձեր շարքը՝ ամբողջ աշխարհը խաղում է նույն բառը ամեն օր։',
   'landing.how.title': 'Փոքրիկ ամենօրյա ծիսակատարություն',
   'landing.nav.community': 'Առաջատարների ցուցակ',
-  'landing.nav.how': 'Ինչպես է աշխատում',
+  'landing.nav.how': 'Ինչպես է այն աշխատում',
   'landing.nav.playToday': 'Խաղացեք այսօր',
   'landing.nav.streaks': 'Շարքեր և վիճակագրություն',
   'landing.streaks.body':
@@ -81,10 +81,10 @@ export const ui: UiTranslations = {
   'nav.preferences': 'Նախապատվություններ',
   'nav.pricing': 'Գներ',
   'nav.settings': 'Կարգավորումներ',
-  'nav.signIn': 'Մուտք',
+  'nav.signIn': 'Մուտք գործել',
   'nav.stats': 'Վիճակագրություն',
   'notFound.backHome': 'Վերադառնալ գլխավոր',
-  'notFound.backToDiscover': 'Վերադառնալ գլխավոր',
+  'notFound.backToDiscover': 'Վերադարձ դեպի տուն',
   'notFound.body': 'Փորձեք այլ կոդ կամ վերադարձեք լոբբի։',
   'notFound.eyebrow': '404 · Այդպիսի բառ չկա',
   'notFound.title': 'Այդ ուղին դատարկ է։',
@@ -92,7 +92,7 @@ export const ui: UiTranslations = {
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'play.alreadyFinished': 'Դուք արդեն ավարտել եք այս հանելուկը',
   'play.answerWas': 'Բառը եղել է',
-  'play.backHome': 'Վերադառնալ գլխավոր',
+  'play.backHome': 'Վերադարձ դեպի տուն',
   'play.loadError': 'Հնարավոր չեղավ բեռնել հանելուկը։ Փորձեք կրկին։',
   'play.lost': 'Փորձերը սպառվեցին',
   'play.notInWordList': 'Բառերի ցուցակում չկա',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Հնարավոր չեղավ բեռնել պլանները։',
   'pricing.subhead':
     'Օրվա բառը միշտ անվճար է։ Արդիականացրեք՝ ստանալու անսահմանափակ արխիվի վերախաղ և ավելի մանրակրկիտ վիճակագրություն։',
-  'pricing.yearly': 'Տարեկան',
+  'pricing.yearly': 'Yearly',
   'privacy.title': 'Գաղտնիության ծանուցում',
   'settings.account': 'Հաշիվ',
   'settings.danger.body':

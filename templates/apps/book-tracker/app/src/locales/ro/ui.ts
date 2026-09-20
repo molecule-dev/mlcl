@@ -62,7 +62,7 @@ export const ui: UiTranslations = {
   'challenge.onPace': 'Pe drumul cel bun',
   'challenge.saveGoal': 'Salvează obiectivul',
   'challenge.stat.pace': 'Ritm către obiectiv',
-  'challenge.stat.read': 'Terminate',
+  'challenge.stat.read': 'Terminată',
   'challengeHeroCard.behindPace': '{{count}} în urmă',
   'challengeHeroCard.booksSuffix': 'cărți terminate',
   'challengeHeroCard.onPace': 'Pe drumul cel bun',
@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
   'settings.reminders.weekly': 'Rezumat săptămânal de pagini (duminică seara)',
   'settings.revokeDeviceWarning':
     'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
-  'settings.signOutDevice': 'Deconectează',
+  'settings.signOutDevice': 'Deconectați-vă',
   'settings.thisDevice': 'Acest dispozitiv',
   'settings.unnamedDevice': 'Dispozitiv',
   'signup.eyebrow': 'Prima zi începe acum',

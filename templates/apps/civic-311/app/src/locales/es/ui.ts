@@ -135,7 +135,7 @@ export const ui: UiTranslations = {
   'reportIssue.descriptionLabel': 'Descríbelo',
   'reportIssue.error': 'No se pudo enviar el reporte. Inténtalo de nuevo.',
   'reportIssue.photoError': 'No se pudo cargar la foto. Inténtalo de nuevo.',
-  'reportIssue.submit': 'Enviar reporte',
+  'reportIssue.submit': 'Enviar informe',
   'reportIssue.submitAnyway': 'Este es un problema diferente — enviar de todos modos',
   'reportIssue.uploading': 'Cargando…',
   'resetPassword.error': 'Error al restablecer. El enlace puede haber expirado.',

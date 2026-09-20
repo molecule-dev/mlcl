@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'सेव्ह करत आहे…',
   'common.signingInEllipsis': 'साइन इन करत आहे…',
   'common.startFree': 'मोफत सुरू करा',
-  'dashboard.activity.title': 'अलीकडील क्रियाकलाप',
+  'dashboard.activity.title': 'अलीकडील घडामोडी',
   'dashboard.activity.viewAll': 'सर्व क्रियाकलाप पहा',
   'dashboard.addExpense': 'खर्च जोडा',
   'dashboard.eyebrow': 'आज, एका दृष्टीक्षेपात',

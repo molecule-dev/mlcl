@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'Создать аккаунт',
   'auth.signup.createYourAccount': 'Создайте ваш аккаунт',
   'auth.signup.passwordsDoNotMatchPeriod': 'Пароли не совпадают.',
-  'common.about': 'О приложении',
+  'common.about': 'О',
   'common.atLeast8Characters': 'Минимум 8 символов',
   'common.couldNotSaveChanges': 'Не удалось сохранить изменения.',
   'common.creatingAccountEllipsis': 'Создание аккаунта…',
@@ -82,7 +82,7 @@ export const ui: UiTranslations = {
   'nearby.error': 'Не удалось загрузить сеть. Попробуйте ещё раз.',
   'nearby.eyebrow': 'Городской транспорт',
   'nearby.loading': 'Загрузка остановок…',
-  'nearby.manageSaved': 'Управление',
+  'nearby.manageSaved': 'Управлять',
   'nearby.savedHeading': 'Ваши сохранённые остановки',
   'nearby.subtitle':
     'Найдите по названию или коду, или просмотрите все остановки — пересадочные первыми.',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Основная навигация',
   'tripPlanner.error': 'Не удалось спланировать эту поездку. Попробуйте ещё раз.',
   'tripPlanner.eyebrow': 'Планировщик поездок',
-  'tripPlanner.originLabel': 'Откуда',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Планирование…',
   'tripPlanner.submit': 'Найти маршруты',
   'tripPlanner.subtitle':

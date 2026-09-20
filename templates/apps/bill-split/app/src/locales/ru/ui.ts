@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'О приложении',
+  'about.eyebrow': 'О',
   'activity.emptyTitle': 'Пока тихо',
   'activity.eyebrow': 'Всё, что произошло',
   'activity.title': 'Активность',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Сохранение…',
   'common.signingInEllipsis': 'Вход…',
   'common.startFree': 'Начать бесплатно',
-  'dashboard.activity.title': 'Последняя активность',
+  'dashboard.activity.title': 'Последние события',
   'dashboard.activity.viewAll': 'Смотреть всю активность',
   'dashboard.addExpense': 'Добавить расход',
   'dashboard.eyebrow': 'Сегодня, краткий обзор',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Полное имя',
   'friends.add': 'Добавить друга',
   'friends.count': '{{count}} друзей',
-  'friends.email': 'Email',
+  'friends.email': 'Электронная почта',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Ваша адресная книга',
   'friends.listTitle': 'Люди, с которыми вы делитесь',
@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Добавить расход',
   'newExpense.totalLabel': 'Общая сумма расхода',
   'newExpense.weightFor': 'Вес доли для {{name}}',
-  'newExpense.youOption': 'Вы',
+  'newExpense.youOption': 'Ты',
   'resetPassword.hidePassword': 'Скрыть пароль',
   'resetPassword.newPasswordLabel': 'Новый пароль',
   'resetPassword.showPassword': 'Показать пароль',

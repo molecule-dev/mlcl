@@ -37,8 +37,8 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Кирүүдө…',
   'common.whatYouGet': 'Сиз эмне аласыз',
   'editPerson.back': 'Профилге кайтуу',
-  'editPerson.error': 'Өзгөртүүлөрдү сактоо мүмкүн эмес.',
-  'editPerson.submit': 'Өзгөртүүлөрдү сактоо',
+  'editPerson.error': 'Өзгөртүүлөр сакталган жок.',
+  'editPerson.submit': 'Өзгөрүүлөрдү сактоо',
   'editPerson.subtitle':
     'Даталар, жерлер жана изилдөө эскертмелери. Мамилелер профилден башкарылат.',
   'editPerson.title': '{{name}} түзөтүү',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'settings.deleteModalTitle': 'Аккаунтуңузду өчүрөсүзбү?',
   'settings.deleteWarn':
     'Аккаунтуңузду, ар бир адамды жана ар бир мамилени өчүрөт. Артка кайтаруу жок.',
-  'settings.deleting': 'Өчүрүлүүдө…',
+  'settings.deleting': 'Жок кылынууда…',
   'settings.deviceCountOne': '1 түзмөк',
   'settings.emailLabel': 'Электрондук почта',
   'settings.exportAction': 'Дарак-тубарды экспорттоо',
@@ -125,7 +125,7 @@ export const ui: UiTranslations = {
   'settings.savePassword': 'Сырсөздү сактоо',
   'settings.signOutDevice': 'Чыгуу',
   'settings.subtitle': 'Сиздин аккаунтуңуз, дарак-тубарыңыз, маалыматыңыз — башка эч нерсе жок.',
-  'settings.title': 'Жөндөөлөр',
+  'settings.title': 'Орнотуулар',
   'settings.twoFactor': 'Эки факторлуу аутентификация',
   'settings.twoFactorConfirm': 'Иштетүү',
   'settings.twoFactorDisableTitle': 'Эки факторлууну өчүрүү',
@@ -150,6 +150,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'Көрүнүштү кайра коюу',
   'tree.stats': '{{people}} адам · {{generations}} муун',
   'tree.title': 'Үй-бүлө дарак-тубары',
-  'tree.zoomIn': 'Чоңойтуу',
-  'tree.zoomOut': 'Кичирейтүү',
+  'tree.zoomIn': 'Жакындатуу',
+  'tree.zoomOut': 'Жакындатуу',
 }

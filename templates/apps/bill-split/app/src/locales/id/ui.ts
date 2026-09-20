@@ -55,7 +55,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Nama lengkap',
   'friends.add': 'Tambah teman',
   'friends.count': '{{count}} teman',
-  'friends.email': 'Email',
+  'friends.email': 'E-mail',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Buku alamat Anda',
   'friends.listTitle': 'Orang yang Anda patungan dengannya',

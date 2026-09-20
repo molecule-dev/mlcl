@@ -48,7 +48,7 @@ export const ui: UiTranslations = {
   'common.timeAgo.days': '{{days}} hari lalu',
   'common.timeAgo.hours': '{{hours}} jam lalu',
   'common.timeAgo.now': 'baru saja',
-  'common.timeAgo.yesterday': 'kemarin',
+  'common.timeAgo.yesterday': 'Kemarin',
   'explore.allCategories': 'Semua kategori',
   'explore.allStatuses': 'Semua status',
   'explore.aResident': 'Seorang warga',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'notifications.empty':
     'Belum ada apa-apa. Simpan area pantauan dan Anda akan mendengar tentang laporan terdekat di sini.',
   'notifications.loadError': 'Tidak dapat memuat notifikasi. Coba lagi sebentar.',
-  'notifications.markRead': 'Tandai sudah dibaca',
+  'notifications.markRead': 'Tandai dibaca',
   'notifications.pageTitle': 'Notifikasi — {{appName}}',
   'planUpdated.subtitle': 'Terima kasih',
   'planUpdated.title': 'Paket diperbarui',

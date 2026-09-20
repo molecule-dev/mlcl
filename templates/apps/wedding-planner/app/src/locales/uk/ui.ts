@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': "Зв'яжіться з нами",
-  'about.eyebrow': 'Про додаток',
+  'about.eyebrow': 'Про нас',
   'about.pageTitle': 'Про {{app}}',
   'auth.forgotPassword.email': 'Електронна пошта',
   'auth.forgotPassword.sendResetLink': 'Надіслати посилання для скидання',
@@ -88,7 +88,7 @@ export const ui: UiTranslations = {
   'guests.col.plusOnes': '+1',
   'guests.col.rsvp': 'RSVP',
   'guests.col.side': 'Сторона',
-  'guests.count': '{{count}} гостей',
+  'guests.count': '{{count}} гості',
   'guests.eyebrow': 'Список гостей',
   'guests.filterAllSides': 'Всі сторони',
   'guests.filterAllStatuses': 'Всі статуси',
@@ -96,7 +96,7 @@ export const ui: UiTranslations = {
   'guests.filterStatusAria': 'Фільтрувати за статусом RSVP',
   'guests.form.email': "Електронна пошта (необов'язково)",
   'guests.form.group': "Група (необов'язково)",
-  'guests.form.name': "Ім'я",
+  'guests.form.name': 'Назва',
   'guests.form.plusOnes': 'Супутники',
   'guests.form.rsvp': 'Статус RSVP',
   'guests.form.saving': 'Збереження…',

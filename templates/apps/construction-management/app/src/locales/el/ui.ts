@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'dailyLogs.saving': 'Καταχώριση…',
   'dailyLogs.submit': 'Καταχώριση αρχείου',
   'dashboard.crewCount': '{{count}} στο εργοτάξιο',
-  'dashboard.heading': 'Πίνακας Ελέγχου',
+  'dashboard.heading': 'Πίνακας ελέγχου',
   'dashboard.kpi.highPunch': 'Στοιχεία punch υψηλής σοβαρότητας',
   'dashboard.kpi.logsToday': 'Ώρες συνεργείου που καταγράφηκαν',
   'dashboard.kpi.openRfis': 'Ανοιχτά RFI',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Ειδοποίηση όταν απαντηθεί ή κλείσει ένα RFI.',
   'notificationsSettings.rfiLabel': 'Ενημερώσεις RFI',
   'notificationsSettings.saveButton': 'Αποθήκευση Προτιμήσεων',
-  'planUpdated.heading': 'Το πακέτο σας ενημερώθηκε',
+  'planUpdated.heading': 'Το πρόγραμμά σας έχει ενημερωθεί',
   'planUpdated.subheading': 'Ευχαριστούμε!',
   'profileSettings.description':
     'Ενημερώστε τα προσωπικά σας στοιχεία και πώς σας βλέπουν οι άλλοι στα έργα.',

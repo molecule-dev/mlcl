@@ -2,12 +2,12 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': "Зв'яжіться з нами",
-  'about.eyebrow': 'Про додаток',
+  'about.eyebrow': 'Про нас',
   'about.title': 'Про {{app}}',
   'archive.loadError': 'Не вдалося завантажити архів.',
   'archive.missed': 'Пропущено',
   'archive.notPlayed': 'Не зіграно',
-  'archive.title': 'Архів',
+  'archive.title': 'Архівувати',
   'auth.backToHome': 'Назад на головну',
   'auth.backToHomeArrow': '← Назад на головну',
   'auth.backToSignIn': 'Назад до входу',
@@ -72,7 +72,7 @@ export const ui: UiTranslations = {
   'leaderboard.title': 'Таблиця лідерів',
   'login.headline': 'З поверненням.',
   'login.streakPill': 'Серія з {{days}} днів на вас чекає',
-  'nav.archive': 'Архів',
+  'nav.archive': 'Архівувати',
   'nav.editProfile': 'Редагувати профіль',
   'nav.getStarted': 'Почати',
   'nav.leaderboard': 'Таблиця лідерів',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Не вдалося завантажити плани.',
   'pricing.subhead':
     'Щоденне слово завжди безкоштовне. Оновіть план для необмеженого доступу до архіву та глибшої статистики.',
-  'pricing.yearly': 'Річний',
+  'pricing.yearly': 'Щорічно',
   'privacy.title': 'Повідомлення про конфіденційність',
   'settings.account': 'Обліковий запис',
   'settings.danger.body':

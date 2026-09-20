@@ -2,12 +2,12 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Sprechen Sie mit uns',
-  'about.eyebrow': 'Über uns',
+  'about.eyebrow': 'Über',
   'about.title': 'Über {{app}}',
   'archive.loadError': 'Das Archiv konnte nicht geladen werden.',
   'archive.missed': 'Verpasst',
   'archive.notPlayed': 'Nicht gespielt',
-  'archive.title': 'Archiv',
+  'archive.title': 'Archivieren',
   'auth.backToHome': 'Zurück zur Startseite',
   'auth.backToHomeArrow': '← Zurück zur Startseite',
   'auth.backToSignIn': 'Zurück zur Anmeldung',
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
     'Errate das versteckte fünfbuchstabige Wort, schau zu wie die Kacheln umdrehen und halte deine Serie am Leben – die ganze Welt spielt jeden Tag dasselbe Wort.',
   'landing.how.title': 'Ein kleines tägliches Ritual',
   'landing.nav.community': 'Bestenliste',
-  'landing.nav.how': "So funktioniert's",
+  'landing.nav.how': 'So funktioniert es',
   'landing.nav.playToday': 'Heute spielen',
   'landing.nav.streaks': 'Serien & Statistiken',
   'landing.streaks.body':
@@ -72,7 +72,7 @@ export const ui: UiTranslations = {
   'leaderboard.title': 'Bestenliste',
   'login.headline': 'Willkommen zurück.',
   'login.streakPill': '{{days}}-Tage-Serie wartet',
-  'nav.archive': 'Archiv',
+  'nav.archive': 'Archivieren',
   'nav.editProfile': 'Profil bearbeiten',
   'nav.getStarted': 'Loslegen',
   'nav.leaderboard': 'Bestenliste',

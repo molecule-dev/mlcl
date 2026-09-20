@@ -53,7 +53,7 @@ export const ui: UiTranslations = {
   'books.loadError': 'Не вдалося завантажити книги.',
   'books.pageCount': 'Кількість сторінок',
   'books.pages': '{{count}} стор.',
-  'books.title': 'Назва',
+  'books.title': 'Заголовок',
   'challenge.eyebrow': 'Читайте більше, усвідомлено',
   'challenge.finishedEmpty': 'Поки що жодної завершеної книги — перша буде найсолодшою.',
   'challenge.goalLabel': 'Книг у {{year}}',

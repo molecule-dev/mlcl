@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Про додаток',
+  'about.eyebrow': 'Про нас',
   'activity.emptyTitle': 'Поки що тихо',
   'activity.eyebrow': 'Все, що сталося',
   'activity.title': 'Активність',
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Ваша адресна книга',
   'friends.listTitle': 'Люди, з якими ви ділите витрати',
-  'friends.name': "Ім'я",
+  'friends.name': 'Назва',
   'friends.namePlaceholder': 'Priya Nair',
   'friends.removeFailed': 'Не вдалося видалити цього друга.',
   'friends.subtitle':

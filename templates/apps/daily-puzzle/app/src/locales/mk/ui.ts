@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Контактирајте не',
-  'about.eyebrow': 'За нас',
+  'about.eyebrow': 'За',
   'about.title': 'За {{app}}',
   'archive.loadError': 'Не може да се вчита архивата.',
   'archive.missed': 'Пропуштено',
@@ -33,7 +33,7 @@ export const ui: UiTranslations = {
   'common.sendingEllipsis': 'Се испраќа…',
   'common.startingEllipsis': 'Се стартува…',
   'form.name': 'Име',
-  'howToPlay.cta.home': 'Назад кон почетна',
+  'howToPlay.cta.home': 'Назад кон дома',
   'howToPlay.cta.play': 'Играјте ја денешната загатка',
   'howToPlay.cta.signup': 'Започнете да играте бесплатно',
   'howToPlay.example.absent': 'Сиво: не е во зборот.',
@@ -84,7 +84,7 @@ export const ui: UiTranslations = {
   'nav.signIn': 'Најави се',
   'nav.stats': 'Статистики',
   'notFound.backHome': 'Назад кон почетна',
-  'notFound.backToDiscover': 'Назад кон почетна',
+  'notFound.backToDiscover': 'Назад кон дома',
   'notFound.body': 'Пробајте друг код или вратете се на почетната страница.',
   'notFound.eyebrow': '404 · Нема таков збор',
   'notFound.title': 'Таа рута е празна.',
@@ -92,7 +92,7 @@ export const ui: UiTranslations = {
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'play.alreadyFinished': 'Веќе ја завршивте оваа загатка',
   'play.answerWas': 'Зборот беше',
-  'play.backHome': 'Назад кон почетна',
+  'play.backHome': 'Назад кон дома',
   'play.loadError': 'Не може да се вчита загатката. Обидете се повторно.',
   'play.lost': 'Немате повеќе обиди',
   'play.notInWordList': 'Не е на листата на зборови',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Не може да се вчитаат плановите.',
   'pricing.subhead':
     'Дневниот збор е секогаш бесплатен. Надградете се за неограничени повторувања од архивата и подетални статистики.',
-  'pricing.yearly': 'Годишен',
+  'pricing.yearly': 'Yearly',
   'privacy.title': 'Известување за приватност',
   'settings.account': 'Сметка',
   'settings.danger.body':

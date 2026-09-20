@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
   'settings.security.new': 'Nieuw wachtwoord',
   'settings.subscription.cancel': 'Plan annuleren',
   'settings.subscription.choose': 'Kiezen',
-  'settings.subscriptionCancelled': 'Abonnement geannuleerd.',
+  'settings.subscriptionCancelled': 'Abonnement opgezegd.',
   'signup.eyebrow': 'Word lid',
   'signup.namePlaceholder': 'Alex Rivera',
   'signup.showPassword': 'Wachtwoord tonen',

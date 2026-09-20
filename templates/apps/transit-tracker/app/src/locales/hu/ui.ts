@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Elsődleges navigáció',
   'tripPlanner.error': 'Nem sikerült megtervezni az utat. Kérjük, próbálja újra.',
   'tripPlanner.eyebrow': 'Útvonaltervező',
-  'tripPlanner.originLabel': 'Honnan',
+  'tripPlanner.originLabel': 'Feladó',
   'tripPlanner.planning': 'Tervezés…',
   'tripPlanner.submit': 'Utak keresése',
   'tripPlanner.subtitle':

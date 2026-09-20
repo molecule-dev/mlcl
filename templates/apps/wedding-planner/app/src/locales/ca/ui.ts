@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': "Posa't en contacte",
-  'about.eyebrow': 'Quant a',
+  'about.eyebrow': 'Sobre',
   'about.pageTitle': 'Quant a {{app}}',
   'auth.forgotPassword.email': 'Correu electrònic',
   'auth.forgotPassword.sendResetLink': "Envia l'enllaç de restabliment",
@@ -137,7 +137,7 @@ export const ui: UiTranslations = {
   'nav.about': 'Quant a',
   'nav.appearance': 'Aparença',
   'nav.dashboard': 'Ves al tauler',
-  'nav.logIn': 'Inicia sessió',
+  'nav.logIn': 'Inicia la sessió',
   'nav.planAndBilling': 'Pla i facturació',
   'nav.privacy': 'Privadesa',
   'nav.settings': 'Configuració',

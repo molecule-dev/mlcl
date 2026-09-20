@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Siaradwch â ni',
-  'about.eyebrow': 'Amdanom',
+  'about.eyebrow': 'Ynglŷn â',
   'addPerson.back': 'Pob person',
   'addPerson.error': "Methu cadw'r person hwn.",
   'addPerson.submit': 'Ychwanegu person',
@@ -37,7 +37,7 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Yn mewngofnodi…',
   'common.whatYouGet': 'Beth gewch chi',
   'editPerson.back': "Yn ôl i'r proffil",
-  'editPerson.error': 'Methu cadw newidiadau.',
+  'editPerson.error': "Methwyd cadw'r newidiadau.",
   'editPerson.submit': 'Cadw newidiadau',
   'editPerson.subtitle':
     "Dyddiadau, lleoedd, a nodiadau ymchwil. Rheolir perthnasoedd o'r proffil.",
@@ -52,7 +52,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'Marw',
   'lifeTimeline.diedIn': 'Marw yn {{place}}',
   'login.emailLabel': 'E-BOST',
-  'login.emailPlaceholder': 'chi@enghraifft.com',
+  'login.emailPlaceholder': 'chi@example.com',
   'login.hidePassword': 'Cuddio cyfrinair',
   'login.passwordLabel': 'CYFRINAIR',
   'login.showPassword': 'Dangos cyfrinair',

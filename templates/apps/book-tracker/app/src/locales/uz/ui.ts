@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
   'settings.reminders.weekly': 'Haftalik sahifalar xulosasi (Yakshanba kechqurunlari)',
   'settings.revokeDeviceWarning':
     'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
-  'settings.signOutDevice': 'Chiqish',
+  'settings.signOutDevice': 'tizimdan chiqish',
   'settings.thisDevice': 'Bu qurilma',
   'settings.unnamedDevice': 'Qurilma',
   'signup.eyebrow': 'Birinchi kun hozir boshlanadi',

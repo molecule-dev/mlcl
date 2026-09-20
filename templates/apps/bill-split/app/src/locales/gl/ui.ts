@@ -127,7 +127,7 @@ export const ui: UiTranslations = {
     'Pega o código do correo electrónico que acabamos de enviar e escolle un novo contrasinal.',
   'resetPassword.submit': 'Restablecer contrasinal e iniciar sesión',
   'settings.eyebrow': 'Preferencias do espazo de traballo',
-  'settings.language.title': 'Idioma',
+  'settings.language.title': 'Lingua',
   'settings.notifications.title': 'Notificacións',
   'settings.profile.saved': 'Gardado ✓',
   'settings.settlement.subtitle':

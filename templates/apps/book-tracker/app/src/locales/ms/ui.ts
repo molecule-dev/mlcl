@@ -9,7 +9,7 @@ export const ui: UiTranslations = {
   'addBook.eyebrow': 'Kembangkan perpustakaan',
   'addBook.genresLabel': 'Genre',
   'addBook.heading': 'Tambah buku',
-  'addBook.previewTitle': 'Tanpa tajuk',
+  'addBook.previewTitle': 'Tanpa nama',
   'addBook.shelfLabel': 'Letakkan sebagai',
   'addBook.titlePlaceholder': 'cth. The Left Hand of Darkness',
   'auth.backToSignIn': 'Kembali ke log masuk',

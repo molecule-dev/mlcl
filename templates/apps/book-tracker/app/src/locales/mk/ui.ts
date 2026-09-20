@@ -62,7 +62,7 @@ export const ui: UiTranslations = {
   'challenge.onPace': 'Според темпо',
   'challenge.saveGoal': 'Зачувај цел',
   'challenge.stat.pace': 'Темпо до цел',
-  'challenge.stat.read': 'Завршени',
+  'challenge.stat.read': 'Завршена',
   'challengeHeroCard.behindPace': '{{count}} назад',
   'challengeHeroCard.booksSuffix': 'завршени книги',
   'challengeHeroCard.onPace': 'Според темпо',

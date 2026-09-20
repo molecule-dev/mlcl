@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Obvesti me, ko je na RFI odgovorjeno ali je zaprt.',
   'notificationsSettings.rfiLabel': 'Posodobitve RFI',
   'notificationsSettings.saveButton': 'Shrani nastavitve',
-  'planUpdated.heading': 'Vaš načrt je posodobljen',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Hvala!',
   'profileSettings.description':
     'Posodobite svoje osebne podatke in kako vas drugi vidijo v projektih.',

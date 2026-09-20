@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'Sortu kontua',
   'auth.signup.createYourAccount': 'Sortu zure kontua',
   'auth.signup.passwordsDoNotMatchPeriod': 'Pasahitzak ez datoz bat.',
-  'common.about': 'Honi buruz',
+  'common.about': 'Buruz',
   'common.atLeast8Characters': 'Gutxienez 8 karaktere',
   'common.couldNotSaveChanges': 'Ezin izan dira aldaketak gorde.',
   'common.creatingAccountEllipsis': 'Kontua sortzen…',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Nabigazio nagusia',
   'tripPlanner.error': 'Ezin izan da bidaia hau planifikatu. Saiatu berriro.',
   'tripPlanner.eyebrow': 'Bidaia planifikatzailea',
-  'tripPlanner.originLabel': 'Nondik',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Planifikatzen…',
   'tripPlanner.submit': 'Bilatu bidaiak',
   'tripPlanner.subtitle':

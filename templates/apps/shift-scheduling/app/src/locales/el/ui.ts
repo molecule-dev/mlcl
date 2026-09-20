@@ -29,7 +29,7 @@ export const ui: UiTranslations = {
   'availability.heading': 'Διαθεσιμότητα',
   'availability.newWindow.day': 'Ημέρα',
   'availability.pickStaff': 'Επιλέξτε πρώτα ένα μέλος προσωπικού.',
-  'availability.showFor': 'Εμφάνιση',
+  'availability.showFor': 'Επίδειξη',
   'availability.subheading':
     'Επαναλαμβανόμενα εβδομαδιαία παράθυρα και μεμονωμένες μη διαθέσιμες ημερομηνίες. Ο προγραμματισμός εκτός αυτών επιτρέπεται αλλά επισημαίνεται.',
   'availability.windowsHeading': 'Εβδομαδιαία παράθυρα',
@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.subheading':
     'Εισαγάγετε το email εργασίας σας και θα σας στείλουμε σύνδεσμο επαναφοράς.',
   'form.date': 'Ημερομηνία',
-  'form.email': 'Email',
+  'form.email': 'E-mail',
   'form.firstName': 'Όνομα',
   'form.lastName': 'Επώνυμο',
   'form.role': 'Ρόλος',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Ανοίξτε το πρόγραμμα, δημοσιεύστε την εβδομάδα, διατηρήστε κάθε βάρδια καλυμμένη.',
   'loginBrandPanel.badge.claimed': 'Διεκδικημένη',
-  'loginBrandPanel.badge.open': 'Ανοιχτή',
+  'loginBrandPanel.badge.open': 'Άνοιγμα',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. Φτιαγμένο για ωριαίες ομάδες.',
   'loginBrandPanel.headline': 'Κάθε βάρδια,',
   'nav.about': 'Σχετικά',
@@ -135,7 +135,7 @@ export const ui: UiTranslations = {
   'pricing.limits.shifts': 'βάρδιες ανά εβδομάδα',
   'requestStatus.approved': 'Εγκρίθηκε',
   'requestStatus.denied': 'Απορρίφθηκε',
-  'requestStatus.pending': 'Εκκρεμεί',
+  'requestStatus.pending': 'Σε εκκρεμότητα',
   'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading':
     'Επιλέξτε έναν ισχυρό κωδικό — τουλάχιστον 12 χαρακτήρες με μεικτά κεφαλαία.',

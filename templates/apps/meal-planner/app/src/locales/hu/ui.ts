@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Mentsd el a kedvenc receptjeidet, tedd őket a hétre, és vásárolj egy bevásárlólistáról, ami magától írja magát. A 17 órai "mi lesz vacsorára?" kérdés a múlté.',
   'simmer.landing.hero.cardBadge': '7 vacsora megtervezve',
-  'simmer.landing.hero.cardTitle': 'Ez a hét',
+  'simmer.landing.hero.cardTitle': 'Ezen a héten',
   'simmer.landing.hero.eyebrow': 'Heti étkezés tervezés',
   'simmer.landing.hero.listHint': 'Bevásárlólista kész',
   'simmer.landing.hero.primary': 'Kezdés — ingyen',
@@ -164,7 +164,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Teljes neved',
   'simmer.week.nextLabel': 'Következő hét',
   'simmer.week.prevLabel': 'Előző hét',
-  'simmer.week.today': 'Ez a hét',
+  'simmer.week.today': 'Ezen a héten',
   'terms.title': 'Szolgáltatási feltételek',
   'userMenu.guestName': 'Fiókod',
   'userMenu.navLabel': 'Fiók menü',

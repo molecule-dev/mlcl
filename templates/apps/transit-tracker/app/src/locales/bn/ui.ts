@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'বিজ্ঞপ্তি',
   'settings.profile.currency': 'মুদ্রা',
   'settings.profile.home': 'হোম স্টপ',
-  'settings.saving': 'সংরক্ষণ হচ্ছে…',
+  'settings.saving': 'সঞ্চয়…',
   'signup.eyebrow': '{{app}} এ যোগ দিন',
   'stop.hubChip': 'ইন্টারচেঞ্জ',
   'stopBoard.backToNearby': 'সব স্টপে ফিরে যান',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'tripPlanner.error': 'এই ভ্রমণ পরিকল্পনা করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'tripPlanner.eyebrow': 'ট্রিপ প্ল্যানার',
-  'tripPlanner.originLabel': 'থেকে',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'পরিকল্পনা হচ্ছে…',
   'tripPlanner.submit': 'ভ্রমণ খুঁজুন',
   'tripPlanner.subtitle':

@@ -37,7 +37,7 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Logger ind…',
   'common.whatYouGet': 'Hvad du får',
   'editPerson.back': 'Tilbage til profil',
-  'editPerson.error': 'Kunne ikke gemme ændringer.',
+  'editPerson.error': 'Ændringerne kunne ikke gemmes.',
   'editPerson.submit': 'Gem ændringer',
   'editPerson.subtitle': 'Datoer, steder og forskningsnotater. Relationer håndteres fra profilen.',
   'editPerson.title': 'Rediger {{name}}',

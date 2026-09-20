@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'お問い合わせ',
-  'about.eyebrow': 'について',
+  'about.eyebrow': '概要',
   'addPerson.back': 'すべての人物',
   'addPerson.error': 'この人物を保存できませんでした。',
   'addPerson.submit': '人物を追加',
@@ -25,7 +25,7 @@ export const ui: UiTranslations = {
   'auth.resetPassword.button': 'パスワードをリセット',
   'auth.resetPassword.title': 'パスワードをリセット',
   'auth.signup.createAccount': 'アカウントを作成',
-  'branchesLayout.primaryNavLabel': 'プライマリナビゲーション',
+  'branchesLayout.primaryNavLabel': 'メインナビゲーション',
   'common.advancedFeatures': '高度な機能',
   'common.cancel': 'キャンセル',
   'common.dataExport': 'データエクスポート',
@@ -135,7 +135,7 @@ export const ui: UiTranslations = {
   'settings.twoFactorTurnOff': '無効にする',
   'settings.twoFactorTurnOn': '有効にする',
   'settings.unnamedDevice': 'このデバイス',
-  'settings.viewPlans': 'プランを表示',
+  'settings.viewPlans': 'プランを見る',
   'signup.emailLabel': 'メールアドレス',
   'signup.firstNameLabel': '名',
   'signup.lastNameLabel': '姓',
@@ -148,6 +148,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'ビューをリセット',
   'tree.stats': '{{people}}人 · {{generations}}世代',
   'tree.title': '家系図',
-  'tree.zoomIn': 'ズームイン',
-  'tree.zoomOut': 'ズームアウト',
+  'tree.zoomIn': '拡大',
+  'tree.zoomOut': '縮小',
 }

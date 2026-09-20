@@ -132,7 +132,7 @@ export const ui: UiTranslations = {
   'projects.field.name': 'Nama projek',
   'projects.heading': 'Projek',
   'projects.loadError': 'Gagal memuatkan projek.',
-  'projects.newButton': 'Projek baru',
+  'projects.newButton': 'Projek baharu',
   'projects.notFound': 'Projek tidak dijumpai',
   'projects.searchPlaceholder': 'Cari nama atau kod…',
   'punch.assign': 'Tugaskan',

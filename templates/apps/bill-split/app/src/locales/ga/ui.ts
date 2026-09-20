@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Maidir leis',
+  'about.eyebrow': 'Maidir',
   'activity.emptyTitle': 'Ciúin faoi láthair',
   'activity.eyebrow': 'Gach rud a tharla',
   'activity.title': 'Gníomhaíocht',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Cuir costas leis',
   'newExpense.totalLabel': 'Iomlán an chostais',
   'newExpense.weightFor': 'Meáchan sciar do {{name}}',
-  'newExpense.youOption': 'Tú féin',
+  'newExpense.youOption': 'Tusa',
   'resetPassword.hidePassword': 'Folaigh pasfhocal',
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
   'resetPassword.showPassword': 'Taispeáin pasfhocal',

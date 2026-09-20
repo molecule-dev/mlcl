@@ -62,7 +62,7 @@ export const ui: UiTranslations = {
   'challenge.onPace': 'In linea',
   'challenge.saveGoal': 'Salva obiettivo',
   'challenge.stat.pace': "Ritmo verso l'obiettivo",
-  'challenge.stat.read': 'Finiti',
+  'challenge.stat.read': 'Finito',
   'challengeHeroCard.behindPace': '{{count}} indietro',
   'challengeHeroCard.booksSuffix': 'libri finiti',
   'challengeHeroCard.onPace': 'In linea',
@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
   'settings.reminders.weekly': 'Riepilogo pagine settimanale (domenica sera)',
   'settings.revokeDeviceWarning':
     "L'accesso di questo dispositivo verrà revocato a breve. Disconnetterlo?",
-  'settings.signOutDevice': 'Disconnetti',
+  'settings.signOutDevice': 'Esci',
   'settings.thisDevice': 'Questo dispositivo',
   'settings.unnamedDevice': 'Dispositivo',
   'signup.eyebrow': 'Il giorno uno inizia ora',

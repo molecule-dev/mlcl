@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
     'Teka perkataan lima huruf yang tersembunyi, tonton jubin terbalik, dan kekalkan streak anda — seluruh dunia main perkataan yang sama setiap hari.',
   'landing.how.title': 'Ritual harian yang ringkas',
   'landing.nav.community': 'Papan pendahulu',
-  'landing.nav.how': 'Bagaimana ia berfungsi',
+  'landing.nav.how': 'Cara ia berfungsi',
   'landing.nav.playToday': 'Main hari ini',
   'landing.nav.streaks': 'Streak & statistik',
   'landing.streaks.body':

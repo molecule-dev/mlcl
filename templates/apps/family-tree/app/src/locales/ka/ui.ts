@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'დაგვიკავშირდით',
-  'about.eyebrow': 'ჩვენს შესახებ',
+  'about.eyebrow': 'შესახებ',
   'addPerson.back': 'ყველა ადამიანი',
   'addPerson.error': 'ამ ადამიანის შენახვა ვერ მოხერხდა.',
   'addPerson.submit': 'ადამიანის დამატება',
@@ -25,7 +25,7 @@ export const ui: UiTranslations = {
   'auth.resetPassword.button': 'პაროლის აღდგენა',
   'auth.resetPassword.title': 'აღადგინეთ თქვენი პაროლი',
   'auth.signup.createAccount': 'ანგარიშის შექმნა',
-  'branchesLayout.primaryNavLabel': 'მთავარი ნავიგაცია',
+  'branchesLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'common.advancedFeatures': 'დამატებითი ფუნქციები',
   'common.cancel': 'გაუქმება',
   'common.dataExport': 'მონაცემების ექსპორტი',
@@ -52,7 +52,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'გარდაცვლილი',
   'lifeTimeline.diedIn': 'გარდაიცვალა {{place}}-ში',
   'login.emailLabel': 'ელფოსტა',
-  'login.emailPlaceholder': 'you@example.com',
+  'login.emailPlaceholder': 'თქვენ@example.com',
   'login.hidePassword': 'პაროლის დამალვა',
   'login.passwordLabel': 'პაროლი',
   'login.showPassword': 'პაროლის ჩვენება',
@@ -108,14 +108,14 @@ export const ui: UiTranslations = {
   'settings.deleteModalTitle': 'წაიშალოს თქვენი ანგარიში?',
   'settings.deleteWarn':
     'შლის თქვენს ანგარიშს, ყველა ადამიანს და ყველა ურთიერთობას. გაუქმება შეუძლებელია.',
-  'settings.deleting': 'იშლება…',
+  'settings.deleting': 'წაშლა…',
   'settings.deviceCountOne': '1 მოწყობილობა',
-  'settings.emailLabel': 'ელფოსტა',
+  'settings.emailLabel': 'ელ. ფოსტა',
   'settings.exportAction': 'ხის ექსპორტი',
   'settings.exportBody':
     'ჩამოტვირთეთ ყველა ადამიანი და ურთიერთობა JSON ფაილად — თქვენი ხე, პორტატული.',
   'settings.exportError': 'ექსპორტი ვერ მოხერხდა.',
-  'settings.exporting': 'ექსპორტირდება…',
+  'settings.exporting': 'ექსპორტი…',
   'settings.loadError': 'პარამეტრების ჩატვირთვა ვერ მოხერხდა.',
   'settings.logOut': 'გასვლა',
   'settings.nameLabel': 'სახელი',
@@ -148,6 +148,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'ხედის გადატვირთვა',
   'tree.stats': '{{people}} ადამიანი · {{generations}} თაობა',
   'tree.title': 'საოჯახო ხე',
-  'tree.zoomIn': 'გადიდება',
-  'tree.zoomOut': 'დაპატარავება',
+  'tree.zoomIn': 'მასშტაბირება',
+  'tree.zoomOut': 'მასშტაბირება',
 }

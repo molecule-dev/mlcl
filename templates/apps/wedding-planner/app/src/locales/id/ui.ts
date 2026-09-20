@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.body':
     'Cara Anda muncul di perencana Anda dan kepada siapa pun yang Anda bagikan.',
   'settings.profile.heading': 'Profil',
-  'settings.profileSaved': 'Profil tersimpan.',
+  'settings.profileSaved': 'Profil disimpan.',
   'settings.security.heading': 'Keamanan',
   'settings.security.new': 'Kata sandi baru',
   'settings.subscription.cancel': 'Batalkan paket',
@@ -193,7 +193,7 @@ export const ui: UiTranslations = {
   'signup.showPassword': 'Tampilkan kata sandi',
   'tasks.eyebrow': 'Timeline',
   'tasks.form.category': 'Kategori',
-  'tasks.form.due': 'Tenggat',
+  'tasks.form.due': 'Jatuh tempo',
   'tasks.form.saving': 'Menambahkan…',
   'tasks.form.submit': 'Tambah tugas',
   'tasks.form.title': 'Tugas',

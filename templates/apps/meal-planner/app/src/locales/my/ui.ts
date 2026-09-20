@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'သင်ကြိုက်နှစ်သက်သောချက်နည်းများကိုသိမ်းဆည်းပြီး အပတ်ပေါ်သို့ထည့်ကာ အလိုအလျောက်ရေးသားထားသောဈေးဝယ်စာရင်းမှဈေးဝယ်ပါ။ ညနေ ၅ နာရီ ညစာစိုးရိမ်မှုပြီးဆုံးပါပြီ။',
   'simmer.landing.hero.cardBadge': 'ညစာ ၇ ရက်စီစဉ်ပြီး',
-  'simmer.landing.hero.cardTitle': 'ဤအပတ်',
+  'simmer.landing.hero.cardTitle': 'ဒီတစ်ပတ်',
   'simmer.landing.hero.eyebrow': 'အပတ်စဉ်အစားအစာစီစဉ်ခြင်း',
   'simmer.landing.hero.listHint': 'ဈေးဝယ်စာရင်းအဆင်သင့်ဖြစ်ပြီ',
   'simmer.landing.hero.primary': 'စတင်ရန် — အခမဲ့',
@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'သင့်အမည်အပြည့်အစုံ',
   'simmer.week.nextLabel': 'နောက်အပတ်',
   'simmer.week.prevLabel': 'ပြီးခဲ့သောအပတ်',
-  'simmer.week.today': 'ဤအပတ်',
+  'simmer.week.today': 'ဒီတစ်ပတ်',
   'terms.title': 'ဝန်ဆောင်မှုစည်းမျဉ်းများ',
   'userMenu.guestName': 'သင့်အကောင့်',
   'userMenu.navLabel': 'အကောင့်မီနူး',

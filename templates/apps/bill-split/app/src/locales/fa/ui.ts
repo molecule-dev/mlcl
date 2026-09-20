@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'در حال ذخیره…',
   'common.signingInEllipsis': 'در حال ورود…',
   'common.startFree': 'شروع رایگان',
-  'dashboard.activity.title': 'فعالیت‌های اخیر',
+  'dashboard.activity.title': 'فعالیت اخیر',
   'dashboard.activity.viewAll': 'نمایش همه فعالیت‌ها',
   'dashboard.addExpense': 'افزودن هزینه',
   'dashboard.eyebrow': 'امروز، در یک نگاه',

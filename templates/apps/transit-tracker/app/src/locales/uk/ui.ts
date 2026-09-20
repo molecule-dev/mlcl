@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'Створити обліковий запис',
   'auth.signup.createYourAccount': 'Створіть свій обліковий запис',
   'auth.signup.passwordsDoNotMatchPeriod': 'Паролі не збігаються.',
-  'common.about': 'Про застосунок',
+  'common.about': 'Про нас',
   'common.atLeast8Characters': 'Щонайменше 8 символів',
   'common.couldNotSaveChanges': 'Не вдалося зберегти зміни.',
   'common.creatingAccountEllipsis': 'Створення облікового запису…',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Основна навігація',
   'tripPlanner.error': 'Не вдалося спланувати цю поїздку. Спробуйте ще раз.',
   'tripPlanner.eyebrow': 'Планувальник поїздок',
-  'tripPlanner.originLabel': 'Звідки',
+  'tripPlanner.originLabel': 'Від',
   'tripPlanner.planning': 'Планування…',
   'tripPlanner.submit': 'Знайти поїздки',
   'tripPlanner.subtitle':

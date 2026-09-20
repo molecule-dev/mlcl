@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'claims.actionFailed': 'Veiksmas nepavyko.',
   'common.advancedFeatures': 'Išplėstinės funkcijos',
   'common.and': 'ir',
-  'common.approve': 'Patvirtinti',
+  'common.approve': 'Approve',
   'common.cancel': 'Atšaukti',
   'common.creatingWorkspaceEllipsis': 'Kuriama darbo erdvė…',
   'common.dataExport': 'Duomenų eksportas',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Atidarykite grafiką, paskelbkite savaitę, išlaikykite kiekvieną pamainą užpildytą.',
   'loginBrandPanel.badge.claimed': 'Užimta',
-  'loginBrandPanel.badge.open': 'Laisva',
+  'loginBrandPanel.badge.open': 'Atidaryti',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. Sukurta valandinėms komandoms.',
   'loginBrandPanel.headline': 'Kiekviena pamaina,',
   'nav.about': 'Apie',

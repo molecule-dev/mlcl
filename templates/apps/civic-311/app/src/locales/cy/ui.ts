@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Cysylltwch â ni',
-  'about.eyebrow': 'Ynghylch',
+  'about.eyebrow': 'Ynglŷn â',
   'about.title': 'Ynghylch {{app}}',
   'app.name': '{{appName}}',
   'auth.backToSignIn': 'Yn ôl i fewngofnodi',
@@ -47,8 +47,8 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Cyflwyno…',
   'common.timeAgo.days': '{{days}}d yn ôl',
   'common.timeAgo.hours': '{{hours}}a yn ôl',
-  'common.timeAgo.now': 'nawr',
-  'common.timeAgo.yesterday': 'ddoe',
+  'common.timeAgo.now': 'nawr yn unig',
+  'common.timeAgo.yesterday': 'yesterday',
   'explore.allCategories': 'Pob categori',
   'explore.allStatuses': 'Pob statws',
   'explore.aResident': 'Preswylydd',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'notifications.empty':
     'Dim byd eto. Cadwch ardal wylio a byddwch yn clywed am adroddiadau cyfagos yma.',
   'notifications.loadError': 'Methwyd llwytho hysbysiadau. Rhowch gynnig arall arni mewn munud.',
-  'notifications.markRead': "Nodi fel wedi'i ddarllen",
+  'notifications.markRead': "Marcio wedi'i ddarllen",
   'notifications.pageTitle': 'Hysbysiadau — {{appName}}',
   'planUpdated.subtitle': 'Diolch',
   'planUpdated.title': "Cynllun wedi'i ddiweddaru",
@@ -134,7 +134,7 @@ export const ui: UiTranslations = {
   'reportIssue.descriptionLabel': 'Disgrifiwch ef',
   'reportIssue.error': 'Methwyd cyflwyno adroddiad. Rhowch gynnig arall arni.',
   'reportIssue.photoError': 'Methwyd llwytho llun. Rhowch gynnig arall arni.',
-  'reportIssue.submit': 'Cyflwyno adroddiad',
+  'reportIssue.submit': 'Submit report',
   'reportIssue.submitAnyway': 'Mae hwn yn fater gwahanol — cyflwyno beth bynnag',
   'reportIssue.uploading': 'Llwytho…',
   'resetPassword.error': 'Methodd ailosod. Efallai bod y ddolen wedi dod i ben.',

@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'friends.emailPlaceholder': 'priya@priklad.cz',
   'friends.eyebrow': 'Váš adresář',
   'friends.listTitle': 'Lidé, se kterými dělíte náklady',
-  'friends.name': 'Jméno',
+  'friends.name': 'Název',
   'friends.namePlaceholder': 'Priya Nair',
   'friends.removeFailed': 'Nepodařilo se odstranit tohoto přítele.',
   'friends.subtitle':

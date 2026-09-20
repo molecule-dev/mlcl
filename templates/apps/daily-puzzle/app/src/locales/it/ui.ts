@@ -2,12 +2,12 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Contattaci',
-  'about.eyebrow': 'Info',
+  'about.eyebrow': 'Informazioni',
   'about.title': 'Informazioni su {{app}}',
   'archive.loadError': "Impossibile caricare l'archivio.",
   'archive.missed': 'Persi',
   'archive.notPlayed': 'Non giocati',
-  'archive.title': 'Archivio',
+  'archive.title': 'Archivia',
   'auth.backToHome': 'Torna alla home',
   'auth.backToHomeArrow': '← Torna alla home',
   'auth.backToSignIn': "Torna all'accesso",
@@ -72,7 +72,7 @@ export const ui: UiTranslations = {
   'leaderboard.title': 'Classifica',
   'login.headline': 'Bentornato.',
   'login.streakPill': 'Serie di {{days}} giorni in attesa',
-  'nav.archive': 'Archivio',
+  'nav.archive': 'Archivia',
   'nav.editProfile': 'Modifica profilo',
   'nav.getStarted': 'Inizia',
   'nav.leaderboard': 'Classifica',

@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Qed jissejvja…',
   'common.signingInEllipsis': 'Qed tidħol…',
   'common.startFree': "Ibda b'xejn",
-  'dashboard.activity.title': 'Attività reċenti',
+  'dashboard.activity.title': 'Attività riċenti',
   'dashboard.activity.viewAll': 'Ara l-attività kollha',
   'dashboard.addExpense': 'Żid nfiq',
   'dashboard.eyebrow': "Illum, f'daqqa",

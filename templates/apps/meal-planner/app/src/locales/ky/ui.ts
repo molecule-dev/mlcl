@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Жактырган рецепттериңизди сактап, жумага киргизип, өзү жазылган азык-түлүк тизмесинен соода кылыңыз. Кечки саат 5тогу кечки тамак дилеммасы аяктады.',
   'simmer.landing.hero.cardBadge': '7 кечки тамак пландаштырылды',
-  'simmer.landing.hero.cardTitle': 'Бул жума',
+  'simmer.landing.hero.cardTitle': 'Бул аптада',
   'simmer.landing.hero.eyebrow': 'Жумалык тамактануу пландоосу',
   'simmer.landing.hero.listHint': 'Азык-түлүк тизмеси даяр',
   'simmer.landing.hero.primary': 'Баштоо — акысыз',
@@ -163,7 +163,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Толук атыңыз',
   'simmer.week.nextLabel': 'Кийинки жума',
   'simmer.week.prevLabel': 'Мурунку жума',
-  'simmer.week.today': 'Бул жума',
+  'simmer.week.today': 'Бул аптада',
   'terms.title': 'Кызмат көрсөтүү шарттары',
   'userMenu.guestName': 'Аккаунтуңуз',
   'userMenu.navLabel': 'Аккаунт менюсу',

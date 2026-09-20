@@ -29,7 +29,7 @@ export const ui: UiTranslations = {
   'availability.heading': 'उपलब्धता',
   'availability.newWindow.day': 'दिन',
   'availability.pickStaff': 'पहले एक स्टाफ सदस्य चुनें।',
-  'availability.showFor': 'दिखाएं',
+  'availability.showFor': 'दिखाएँ',
   'availability.subheading':
     'साप्ताहिक विंडो और एकबारगी ब्लैक-आउट तिथियां। इनके बाहर शेड्यूलिंग की अनुमति है लेकिन फ्लैग की जाती है।',
   'availability.windowsHeading': 'साप्ताहिक विंडो',
@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'login.remember': '30 दिनों के लिए मुझे याद रखें',
   'login.subheading': 'रोस्टर खोलें, सप्ताह प्रकाशित करें, हर शिफ्ट कवर रखें।',
   'loginBrandPanel.badge.claimed': 'क्लेम किया गया',
-  'loginBrandPanel.badge.open': 'ओपन',
+  'loginBrandPanel.badge.open': 'खोलें',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. घंटेवार टीमों के लिए बनाया गया।',
   'loginBrandPanel.headline': 'हर शिफ्ट,',
   'nav.about': 'के बारे में',

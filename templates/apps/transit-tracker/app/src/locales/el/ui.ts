@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'Πίνακας αναχωρήσεων',
   'stopBoard.linesHeading': 'Γραμμές που εξυπηρετούν αυτή τη στάση',
   'stopBoard.notFoundTitle': 'Η στάση δεν βρέθηκε',
-  'stopBoard.savedLabel': 'Αποθηκευμένη',
+  'stopBoard.savedLabel': 'Αποθηκεύτηκε',
   'stopBoard.saveLabel': 'Αποθήκευση στάσης',
   'stopPicker.chooseStop': 'Επιλέξτε στάση…',
   'transitLayout.primaryNavLabel': 'Κύρια πλοήγηση',

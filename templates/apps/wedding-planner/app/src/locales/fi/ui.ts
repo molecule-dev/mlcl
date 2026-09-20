@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ota yhteyttä',
-  'about.eyebrow': 'Tietoa',
+  'about.eyebrow': 'Tietoja',
   'about.pageTitle': 'Tietoa {{app}}',
   'auth.forgotPassword.email': 'Sähköposti',
   'auth.forgotPassword.sendResetLink': 'Lähetä palautuslinkki',
@@ -82,13 +82,13 @@ export const ui: UiTranslations = {
   'form.firstName': 'Etunimi',
   'form.lastName': 'Sukunimi',
   'guests.addGuest': 'Lisää vieras',
-  'guests.col.contact': 'Yhteystieto',
+  'guests.col.contact': 'Yhteyshenkilö',
   'guests.col.group': 'Ryhmä',
   'guests.col.meal': 'Ruoka',
   'guests.col.plusOnes': '+1',
   'guests.col.rsvp': 'RSVP',
   'guests.col.side': 'Puoli',
-  'guests.count': '{{count}} vierasta',
+  'guests.count': '{{count}} vieraat',
   'guests.eyebrow': 'Vieraslista',
   'guests.filterAllSides': 'Kaikki puolet',
   'guests.filterAllStatuses': 'Kaikki tilat',
@@ -208,5 +208,5 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Lisää',
   'vendors.noContact': 'Ei yhteystietoa vielä',
   'vendors.title': 'Palveluntarjoajat',
-  'weddingLayout.primaryNavLabel': 'Päävalikko',
+  'weddingLayout.primaryNavLabel': 'Päänavigaatio',
 }

@@ -162,7 +162,7 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.title': 'खाता मेटाउनुहोस्',
   'settings.devices': 'उपकरणहरू',
   'settings.failedToDeleteAccount': 'खाता मेटाउन असफल।',
-  'settings.loading': 'लोड हुँदैछ…',
+  'settings.loading': 'लोड हुँदै...',
   'settings.logOut': 'साइन आउट गर्नुहोस्',
   'settings.noDevices': 'अझै कुनै उपकरण दर्ता गरिएको छैन।',
   'settings.notifications': 'सूचनाहरू',

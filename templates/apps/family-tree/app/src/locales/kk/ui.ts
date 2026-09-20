@@ -37,7 +37,7 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Кіруде…',
   'common.whatYouGet': 'Не аласыз',
   'editPerson.back': 'Профильге оралу',
-  'editPerson.error': 'Өзгерістерді сақтау мүмкін болмады.',
+  'editPerson.error': 'Өзгертулер сақталмады.',
   'editPerson.submit': 'Өзгерістерді сақтау',
   'editPerson.subtitle':
     'Күндер, орындар және зерттеу жазбалары. Қарым-қатынастар профильден басқарылады.',
@@ -138,7 +138,7 @@ export const ui: UiTranslations = {
   'settings.twoFactorTurnOff': 'Өшіру',
   'settings.twoFactorTurnOn': 'Қосу',
   'settings.unnamedDevice': 'Бұл құрылғы',
-  'settings.viewPlans': 'Жоспарларды көру',
+  'settings.viewPlans': 'Жоспарларды қарау',
   'signup.emailLabel': 'ЭЛЕКТРОНДЫҚ ПОШТА',
   'signup.firstNameLabel': 'АТЫ',
   'signup.lastNameLabel': 'ТЕГІ',
@@ -152,5 +152,5 @@ export const ui: UiTranslations = {
   'tree.stats': '{{people}} адам · {{generations}} ұрпақ',
   'tree.title': 'Отбасылық ағаш',
   'tree.zoomIn': 'Үлкейту',
-  'tree.zoomOut': 'Кішірейту',
+  'tree.zoomOut': 'Ұзақтау',
 }

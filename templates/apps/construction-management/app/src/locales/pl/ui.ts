@@ -53,7 +53,7 @@ export const ui: UiTranslations = {
   'dailyLogs.saving': 'Tworzenie…',
   'dailyLogs.submit': 'Utwórz raport',
   'dashboard.crewCount': '{{count}} na miejscu',
-  'dashboard.heading': 'Panel główny',
+  'dashboard.heading': 'Pulpit',
   'dashboard.kpi.highPunch': 'Pozycje listy usterek o wysokiej wadze',
   'dashboard.kpi.logsToday': 'Zarejestrowane godziny ekipy',
   'dashboard.kpi.openRfis': 'Otwarte RFI',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
     'Powiadom mnie, gdy RFI zostanie udzielone odpowiedzi lub zamknięte.',
   'notificationsSettings.rfiLabel': 'Aktualizacje RFI',
   'notificationsSettings.saveButton': 'Zapisz preferencje',
-  'planUpdated.heading': 'Twój plan został zaktualizowany',
+  'planUpdated.heading': 'Pana/Pani plan został zaktualizowany',
   'planUpdated.subheading': 'Dziękujemy!',
   'profileSettings.description':
     'Zaktualizuj swoje dane osobowe i sposób, w jaki inni widzą Cię w projektach.',

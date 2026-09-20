@@ -162,7 +162,7 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.title': 'Skrap rekening',
   'settings.devices': 'Toestelle',
   'settings.failedToDeleteAccount': 'Kon nie rekening skrap nie.',
-  'settings.loading': 'Laai…',
+  'settings.loading': 'Laai tans…',
   'settings.logOut': 'Teken uit',
   'settings.noDevices': 'Nog geen toestelle geregistreer nie.',
   'settings.notifications': 'Kennisgewings',

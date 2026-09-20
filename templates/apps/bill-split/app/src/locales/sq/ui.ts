@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Shto shpenzim',
   'newExpense.totalLabel': 'Totali i shpenzimit',
   'newExpense.weightFor': 'Pesha e pjesës për {{name}}',
-  'newExpense.youOption': 'Ju',
+  'newExpense.youOption': 'Ti',
   'resetPassword.hidePassword': 'Fshih fjalëkalimin',
   'resetPassword.newPasswordLabel': 'Fjalëkalimi i ri',
   'resetPassword.showPassword': 'Shfaq fjalëkalimin',
@@ -129,7 +129,7 @@ export const ui: UiTranslations = {
   'resetPassword.submit': 'Rivendos fjalëkalimin & identifikohu',
   'settings.eyebrow': 'Preferencat e hapësirës së punës',
   'settings.language.title': 'Gjuha',
-  'settings.notifications.title': 'Njoftimet',
+  'settings.notifications.title': 'Njoftime',
   'settings.profile.saved': 'U ruajt ✓',
   'settings.settlement.subtitle':
     'Para-mbushur kur regjistroni një shlyerje. Evenly nuk lëviz kurrë para — kjo vetëm etiket se si u paguarit njëri-tjetrit mbrapsht.',

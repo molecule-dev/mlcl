@@ -82,7 +82,7 @@ export const ui: UiTranslations = {
   'nearby.error': 'நெட்வொர்க்கை ஏற்ற முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
   'nearby.eyebrow': 'நகர போக்குவரத்து',
   'nearby.loading': 'நிறுத்தங்கள் ஏற்றப்படுகின்றன…',
-  'nearby.manageSaved': 'நிர்வகி',
+  'nearby.manageSaved': 'நிர்வகிக்கவும்',
   'nearby.savedHeading': 'உங்கள் சேமித்த நிறுத்தங்கள்',
   'nearby.subtitle':
     'பெயர் அல்லது குறியீட்டின் மூலம் தேடுங்கள், அல்லது ஒவ்வொரு நிறுத்தத்தையும் உலாவவும் — பரிமாற்றங்கள் முதலில்.',
@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'அறிவிப்புகள்',
   'settings.profile.currency': 'நாணயம்',
   'settings.profile.home': 'வீட்டு நிறுத்தம்',
-  'settings.saving': 'சேமிக்கப்படுகிறது…',
+  'settings.saving': 'சேமிப்பு…',
   'signup.eyebrow': '{{app}} இல் சேரவும்',
   'stop.hubChip': 'பரிமாற்றம்',
   'stopBoard.backToNearby': 'அனைத்து நிறுத்தங்களுக்கும் திரும்பவும்',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'tripPlanner.error': 'இந்த பயணத்தைத் திட்டமிட முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
   'tripPlanner.eyebrow': 'பயணத் திட்டமிடுபவர்',
-  'tripPlanner.originLabel': 'இருந்து',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'திட்டமிடுகிறது…',
   'tripPlanner.submit': 'பயணங்களைக் கண்டறியவும்',
   'tripPlanner.subtitle':

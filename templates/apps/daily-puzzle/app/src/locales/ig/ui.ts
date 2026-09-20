@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Gwa anyị okwu',
-  'about.eyebrow': 'Gbasara',
+  'about.eyebrow': 'Banyere',
   'about.title': 'Gbasara {{app}}',
   'archive.loadError': 'Enweghị ike ibu ebe nchekwa ahụ.',
   'archive.missed': 'Atụfuru',
@@ -81,7 +81,7 @@ export const ui: UiTranslations = {
   'nav.preferences': 'Mmasị',
   'nav.pricing': 'Ọnụahịa',
   'nav.settings': 'Ntọala',
-  'nav.signIn': 'Banye',
+  'nav.signIn': 'banye',
   'nav.stats': 'Stats',
   'notFound.backHome': "Laghachi n'ụlọ",
   'notFound.backToDiscover': "Laghachi n'ụlọ",
@@ -97,7 +97,7 @@ export const ui: UiTranslations = {
   'play.lost': 'Mmegharị gwụrụ',
   'play.notInWordList': 'Ọ nọghị na ndepụta okwu',
   'play.practiceBadge': 'Mmemme — enweghị mmetụta streak',
-  'play.share': 'Kesaa',
+  'play.share': 'Kekọrịta',
   'play.shareCopied': 'Edepụtara na klipbọọdụ',
   'play.submitError': 'Ihe adịghị mma mere — nwaa ọzọ',
   'play.title': 'Egwuregwu taa',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Enweghị ike ibu atụmatụ.',
   'pricing.subhead':
     "Okwu kwa ụbọchị bụ n'efu mgbe niile. Kwalite maka mmegharị nchekwa na-enweghị njedebe na ndekọ miri emi.",
-  'pricing.yearly': 'Kwa afọ',
+  'pricing.yearly': 'Yearly',
   'privacy.title': 'Ọkwa nzuzo',
   'settings.account': 'Akaụntụ',
   'settings.danger.body':

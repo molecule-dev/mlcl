@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'ເພີ່ມລາຍຈ່າຍ',
   'newExpense.totalLabel': 'ລາຍຈ່າຍທັງໝົດ',
   'newExpense.weightFor': 'ນ້ຳໜັກສ່ວນແບ່ງສຳລັບ {{name}}',
-  'newExpense.youOption': 'ທ່ານ',
+  'newExpense.youOption': 'ເຈົ້າ',
   'resetPassword.hidePassword': 'ເຊື່ອງລະຫັດຜ່ານ',
   'resetPassword.newPasswordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.showPassword': 'ສະແດງລະຫັດຜ່ານ',

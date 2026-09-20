@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hubungi kami',
-  'about.eyebrow': 'Perihal',
+  'about.eyebrow': 'Tentang',
   'addPerson.back': 'Semua orang',
   'addPerson.error': 'Tidak dapat menyimpan orang ini.',
   'addPerson.submit': 'Tambah orang',
@@ -77,7 +77,7 @@ export const ui: UiTranslations = {
   'personDetail.born': 'Lahir',
   'personDetail.datesUnknown': 'Tarikh tidak diketahui',
   'personDetail.died': 'Meninggal',
-  'personDetail.edit': 'Edit',
+  'personDetail.edit': 'Sunting',
   'personDetail.gender': 'Jantina',
   'personDetail.inPlace': ' — {{place}}',
   'personDetail.loadError': 'Gagal memuatkan orang.',

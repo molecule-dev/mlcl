@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'notifications.empty':
     'Tiada apa-apa lagi. Simpan kawasan pantau dan anda akan mendengar tentang laporan berdekatan di sini.',
   'notifications.loadError': 'Tidak dapat memuatkan pemberitahuan. Cuba lagi sebentar.',
-  'notifications.markRead': 'Tandakan telah dibaca',
+  'notifications.markRead': 'Tandakan sebagai dibaca',
   'notifications.pageTitle': 'Pemberitahuan — {{appName}}',
   'planUpdated.subtitle': 'Terima kasih',
   'planUpdated.title': 'Pelan dikemas kini',
@@ -134,7 +134,7 @@ export const ui: UiTranslations = {
   'reportIssue.descriptionLabel': 'Huraikan ia',
   'reportIssue.error': 'Tidak dapat menghantar laporan. Cuba lagi.',
   'reportIssue.photoError': 'Tidak dapat memuat naik foto. Cuba lagi.',
-  'reportIssue.submit': 'Hantar laporan',
+  'reportIssue.submit': 'Submit report',
   'reportIssue.submitAnyway': 'Ini adalah isu berbeza — hantar juga',
   'reportIssue.uploading': 'Memuat naik…',
   'resetPassword.error': 'Tetap semula gagal. Pautan mungkin telah tamat tempoh.',

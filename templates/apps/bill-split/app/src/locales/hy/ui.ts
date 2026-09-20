@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Մեր մասին',
+  'about.eyebrow': 'Մասին',
   'activity.emptyTitle': 'Առայժմ հանգիստ է',
   'activity.eyebrow': 'Ամեն ինչ, որ տեղի ունեցավ',
   'activity.title': 'Գործունեություն',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Պահպանվում է…',
   'common.signingInEllipsis': 'Մուտք է գործվում…',
   'common.startFree': 'Սկսել անվճար',
-  'dashboard.activity.title': 'Վերջին գործունեություն',
+  'dashboard.activity.title': 'Վերջին գործունեությունը',
   'dashboard.activity.viewAll': 'Դիտել ամբողջ գործունեությունը',
   'dashboard.addExpense': 'Ավելացնել ծախս',
   'dashboard.eyebrow': 'Այսօր՝ մի հայացքով',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Ավելացնել ծախս',
   'newExpense.totalLabel': 'Ծախսի ընդհանուրը',
   'newExpense.weightFor': 'Բաժնի կշիռ {{name}}-ի համար',
-  'newExpense.youOption': 'Դուք',
+  'newExpense.youOption': 'Դու',
   'resetPassword.hidePassword': 'Թաքցնել գաղտնաբառը',
   'resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.showPassword': 'Ցուցադրել գաղտնաբառը',

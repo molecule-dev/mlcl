@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'reservationDetail.guest': 'Gæst',
   'reservationDetail.guests': 'Gæster',
   'reservationDetail.nights': 'Nætter',
-  'reservationDetail.roomType': 'Værelsetyype',
+  'reservationDetail.roomType': 'VærelseType',
   'reservationDetail.source': 'Kilde',
   'reservationDetail.terminal':
     'Denne reservation er i en endelig tilstand — ingen yderligere ændringer.',

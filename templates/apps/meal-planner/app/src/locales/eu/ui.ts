@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Gorde maite dituzun errezetak, bota astean zehar, eta egin erosketak berez idazten den zerrenda batetik. 17:00etan afarirako paniko garaia amaitu da.',
   'simmer.landing.hero.cardBadge': '7 afari planifikatuta',
-  'simmer.landing.hero.cardTitle': 'Aste hau',
+  'simmer.landing.hero.cardTitle': 'Aste honetan',
   'simmer.landing.hero.eyebrow': 'Asteko otorduen planifikazioa',
   'simmer.landing.hero.listHint': 'Erosketak zerrenda prest',
   'simmer.landing.hero.primary': 'Hasi — doan',
@@ -167,7 +167,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Zure izen osoa',
   'simmer.week.nextLabel': 'Hurrengo astea',
   'simmer.week.prevLabel': 'Aurreko astea',
-  'simmer.week.today': 'Aste hau',
+  'simmer.week.today': 'Aste honetan',
   'terms.title': 'Zerbitzu baldintzak',
   'userMenu.guestName': 'Zure kontua',
   'userMenu.navLabel': 'Kontuaren menua',

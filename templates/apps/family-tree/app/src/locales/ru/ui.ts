@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
-  'about.eyebrow': 'О нас',
+  'about.eyebrow': 'О',
   'addPerson.back': 'Все люди',
   'addPerson.error': 'Не удалось сохранить этого человека.',
   'addPerson.submit': 'Добавить человека',
@@ -38,7 +38,7 @@ export const ui: UiTranslations = {
   'common.whatYouGet': 'Что вы получаете',
   'editPerson.back': 'Вернуться к профилю',
   'editPerson.error': 'Не удалось сохранить изменения.',
-  'editPerson.submit': 'Сохранить изменения',
+  'editPerson.submit': 'Сохраните изменения',
   'editPerson.subtitle': 'Даты, места и заметки. Связи управляются из профиля.',
   'editPerson.title': 'Редактировать {{name}}',
   'forgotPassword.checkEmail': 'Проверьте почту',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordAction': 'Изменить пароль',
   'settings.changingPassword': 'Изменение…',
   'settings.confirmRevoke': 'Подтвердить выход',
-  'settings.currentDevice': 'Текущее',
+  'settings.currentDevice': 'Текущий',
   'settings.deleteAccount': 'Удалить аккаунт',
   'settings.deleteError': 'Не удалось удалить аккаунт.',
   'settings.deleteForever': 'Удалить навсегда',
@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'settings.deleteWarn': 'Удалит ваш аккаунт, всех людей и все связи. Отменить невозможно.',
   'settings.deleting': 'Удаление…',
   'settings.deviceCountOne': '1 устройство',
-  'settings.emailLabel': 'Email',
+  'settings.emailLabel': 'Электронная почта',
   'settings.exportAction': 'Экспортировать дерево',
   'settings.exportBody':
     'Скачайте всех людей и связи в виде JSON-файла — ваше дерево, портативное.',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'settings.noDevices': 'Нет других устройств со входом.',
   'settings.revoking': 'Выход…',
   'settings.savePassword': 'Сохранить пароль',
-  'settings.signOutDevice': 'Выйти',
+  'settings.signOutDevice': 'выход',
   'settings.subtitle': 'Ваш аккаунт, ваше дерево, ваши данные — ничего лишнего.',
   'settings.title': 'Настройки',
   'settings.twoFactor': 'Двухфакторная аутентификация',
@@ -146,6 +146,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'Сбросить вид',
   'tree.stats': '{{people}} людей · {{generations}} поколений',
   'tree.title': 'Семейное дерево',
-  'tree.zoomIn': 'Увеличить',
-  'tree.zoomOut': 'Уменьшить',
+  'tree.zoomIn': 'Увеличить масштаб',
+  'tree.zoomOut': 'Отдалиться',
 }

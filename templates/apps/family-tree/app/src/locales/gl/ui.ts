@@ -136,7 +136,7 @@ export const ui: UiTranslations = {
   'settings.twoFactorTurnOff': 'Desactivar',
   'settings.twoFactorTurnOn': 'Activar',
   'settings.unnamedDevice': 'Este dispositivo',
-  'settings.viewPlans': 'Ver plans',
+  'settings.viewPlans': 'Ver planos',
   'signup.emailLabel': 'CORREO ELECTRÓNICO',
   'signup.firstNameLabel': 'NOME',
   'signup.lastNameLabel': 'APELIDOS',
@@ -149,6 +149,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'Restablecer vista',
   'tree.stats': '{{people}} persoas · {{generations}} xeracións',
   'tree.title': 'Árbore xenealóxica',
-  'tree.zoomIn': 'Ampliar',
-  'tree.zoomOut': 'Reducir',
+  'tree.zoomIn': 'Achegar',
+  'tree.zoomOut': 'Reducir zoom',
 }

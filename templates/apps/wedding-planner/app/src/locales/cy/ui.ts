@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Cysylltwch â ni',
-  'about.eyebrow': 'Amdanom',
+  'about.eyebrow': 'Ynglŷn â',
   'about.pageTitle': 'Ynghylch {{app}}',
   'auth.forgotPassword.email': 'E-bost',
   'auth.forgotPassword.sendResetLink': 'Anfon dolen ailosod',
@@ -39,7 +39,7 @@ export const ui: UiTranslations = {
   'budget.spentOver': 'Gwario — dros yr amcangyfrif',
   'budget.spentWithin': 'Gwario — o fewn yr amcangyfrif',
   'budget.title': 'Cyllideb',
-  'common.actions': 'Gweithredoedd',
+  'common.actions': 'Camau gweithredu',
   'common.back': 'Nôl',
   'common.cancel': 'Canslo',
   'common.checkYourInbox': 'Gwiriwch eich blwch derbyn',
@@ -89,7 +89,7 @@ export const ui: UiTranslations = {
   'guests.col.plusOnes': '+1',
   'guests.col.rsvp': 'RSVP',
   'guests.col.side': 'Ochr',
-  'guests.count': '{{count}} gwestai',
+  'guests.count': '{{count}} gwesteion',
   'guests.eyebrow': 'Rhestr gwesteion',
   'guests.filterAllSides': 'Pob ochr',
   'guests.filterAllStatuses': 'Pob statws',
@@ -195,7 +195,7 @@ export const ui: UiTranslations = {
   'signup.showPassword': 'Dangos cyfrinair',
   'tasks.eyebrow': 'Llinell amser',
   'tasks.form.category': 'Categori',
-  'tasks.form.due': 'Erbyn',
+  'tasks.form.due': 'Dyledus',
   'tasks.form.saving': 'Yn ychwanegu…',
   'tasks.form.submit': 'Ychwanegu tasg',
   'tasks.form.title': 'Tasg',
@@ -210,5 +210,5 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ychwanegu',
   'vendors.noContact': 'Dim cyswllt eto',
   'vendors.title': 'Cyflenwyr',
-  'weddingLayout.primaryNavLabel': 'Llywio cynradd',
+  'weddingLayout.primaryNavLabel': 'Prif lywio',
 }

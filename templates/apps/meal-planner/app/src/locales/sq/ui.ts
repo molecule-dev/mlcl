@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
   'simmer.notFound.body': 'Nuk e gjetëm faqen që kërkonit. Provo të kthehesh te java jote.',
   'simmer.notFound.heading': 'Kjo rafte është bosh',
   'simmer.notFound.planCta': 'Shko te plani yt',
-  'simmer.onboarding.back': 'Prapa',
+  'simmer.onboarding.back': 'Mbrapa',
   'simmer.onboarding.diet.body':
     'Recetat e etiketuara për përputhje dalin në krye të kutisë tënde.',
   'simmer.onboarding.diet.heading': 'Diçka për të anashkaluar?',

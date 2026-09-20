@@ -1,10 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'O aplikaciji',
+  'about.eyebrow': 'O nas',
   'activity.emptyTitle': 'Trenutno mirno',
   'activity.eyebrow': 'Vse, kar se je zgodilo',
-  'activity.title': 'Aktivnost',
+  'activity.title': 'Dejavnost',
   'auth.backToSignIn': 'Nazaj na prijavo',
   'auth.login.alreadyHaveAccount': 'Imate že račun?',
   'auth.login.forgotPassword': 'Ste pozabili geslo?',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Shranjevanje …',
   'common.signingInEllipsis': 'Prijavljanje …',
   'common.startFree': 'Začni brezplačno',
-  'dashboard.activity.title': 'Nedavna aktivnost',
+  'dashboard.activity.title': 'Nedavna dejavnost',
   'dashboard.activity.viewAll': 'Prikaži vso aktivnost',
   'dashboard.addExpense': 'Dodaj strošek',
   'dashboard.eyebrow': 'Danes, na hitro',
@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Dodaj strošek',
   'newExpense.totalLabel': 'Skupni strošek',
   'newExpense.weightFor': 'Utež deleža za {{name}}',
-  'newExpense.youOption': 'Vi',
+  'newExpense.youOption': 'Ti',
   'resetPassword.hidePassword': 'Skrij geslo',
   'resetPassword.newPasswordLabel': 'Novo geslo',
   'resetPassword.showPassword': 'Prikaži geslo',

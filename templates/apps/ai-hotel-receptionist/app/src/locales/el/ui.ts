@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'account.email': 'Email',
+  'account.email': 'E-mail',
   'account.heading': 'Ο λογαριασμός σας',
   'account.loadError': 'Αποτυχία φόρτωσης του λογαριασμού σας.',
   'account.name': 'Όνομα',
@@ -70,7 +70,7 @@ export const ui: UiTranslations = {
     "Εάν αυτή η διεύθυνση έχει λογαριασμό, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν.",
   'form.firstName': 'Όνομα',
   'form.lastName': 'Επώνυμο',
-  'guestDetail.email': 'Email',
+  'guestDetail.email': 'E-mail',
   'guestDetail.noStays': 'Δεν υπάρχουν ακόμα κρατήσεις που να συνδέονται με αυτόν τον επισκέπτη.',
   'guestDetail.phone': 'Τηλέφωνο',
   'guestDetail.preferredLanguage': 'Προτιμώμενη γλώσσα',
@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'reservationDetail.total': 'Σύνολο',
   'reservations.dates': 'Ημερομηνίες',
   'reservations.empty': 'Δεν υπάρχουν κρατήσεις που να ταιριάζουν με αυτό το φίλτρο.',
-  'reservations.filterAll': 'Όλες',
+  'reservations.filterAll': 'Όλα',
   'reservations.guest': 'Επισκέπτης',
   'reservations.guestsCol': 'Επισκέπτες',
   'reservations.heading': 'Κρατήσεις',

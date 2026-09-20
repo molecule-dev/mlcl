@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Gbasara',
+  'about.eyebrow': 'Banyere',
   'activity.emptyTitle': 'Ọ dị jụụ ugbu a',
   'activity.eyebrow': 'Ihe niile mere',
   'activity.title': 'Ọrụ',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Na-echekwa…',
   'common.signingInEllipsis': 'Na-abanye…',
   'common.startFree': "Malite n'efu",
-  'dashboard.activity.title': 'Ọrụ na-adịbeghị anya',
+  'dashboard.activity.title': 'Ihe omume ọhụrụ',
   'dashboard.activity.viewAll': 'Lee ọrụ niile',
   'dashboard.addExpense': 'Tinye mmefu ego',
   'dashboard.eyebrow': 'Taa, na nkenke',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Aha zuru ezu',
   'friends.add': 'Tinye enyi',
   'friends.count': '{{count}} ndị enyi',
-  'friends.email': 'Email',
+  'friends.email': 'Ozi-e',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Akwụkwọ adreesị gị',
   'friends.listTitle': 'Ndị ị na-ekewa',

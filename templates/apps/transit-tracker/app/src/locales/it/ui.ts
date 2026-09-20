@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'Tabella partenze',
   'stopBoard.linesHeading': 'Linee che servono questa fermata',
   'stopBoard.notFoundTitle': 'Fermata non trovata',
-  'stopBoard.savedLabel': 'Salvata',
+  'stopBoard.savedLabel': 'Salvato',
   'stopBoard.saveLabel': 'Salva fermata',
   'stopPicker.chooseStop': 'Scegli una fermata…',
   'transitLayout.primaryNavLabel': 'Navigazione principale',

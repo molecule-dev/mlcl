@@ -164,7 +164,7 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.title': 'Konto löschen',
   'settings.devices': 'Geräte',
   'settings.failedToDeleteAccount': 'Konto konnte nicht gelöscht werden.',
-  'settings.loading': 'Lädt…',
+  'settings.loading': 'Wird geladen…',
   'settings.logOut': 'Abmelden',
   'settings.noDevices': 'Noch keine Geräte registriert.',
   'settings.notifications': 'Benachrichtigungen',

@@ -177,7 +177,7 @@ export const ui: UiTranslations = {
   'settings.reminders.stalled': 'یادآوری کتاب متوقف شده (۵ روز بدون ثبت)',
   'settings.reminders.weekly': 'خلاصه صفحات هفتگی (عصر یکشنبه)',
   'settings.revokeDeviceWarning': 'دسترسی این دستگاه به زودی لغو خواهد شد. خروج از آن؟',
-  'settings.signOutDevice': 'خروج',
+  'settings.signOutDevice': 'خروج از سیستم',
   'settings.thisDevice': 'این دستگاه',
   'settings.unnamedDevice': 'دستگاه',
   'signup.eyebrow': 'روز اول از همین حالا شروع می‌شود',

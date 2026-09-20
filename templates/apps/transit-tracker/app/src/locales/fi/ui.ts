@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'Luo tili',
   'auth.signup.createYourAccount': 'Luo tilisi',
   'auth.signup.passwordsDoNotMatchPeriod': 'Salasanat eivät täsmää.',
-  'common.about': 'Tietoa',
+  'common.about': 'Tietoja',
   'common.atLeast8Characters': 'Vähintään 8 merkkiä',
   'common.couldNotSaveChanges': 'Muutoksia ei voitu tallentaa.',
   'common.creatingAccountEllipsis': 'Luodaan tiliä…',
@@ -116,7 +116,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Päänavigaatio',
   'tripPlanner.error': 'Matkaa ei voitu suunnitella. Yritä uudelleen.',
   'tripPlanner.eyebrow': 'Reittiopas',
-  'tripPlanner.originLabel': 'Mistä',
+  'tripPlanner.originLabel': 'Lähettäjä',
   'tripPlanner.planning': 'Suunnitellaan…',
   'tripPlanner.submit': 'Etsi reittejä',
   'tripPlanner.subtitle':

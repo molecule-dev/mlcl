@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'Tablero de salidas',
   'stopBoard.linesHeading': 'Líneas que sirven esta parada',
   'stopBoard.notFoundTitle': 'Parada no encontrada',
-  'stopBoard.savedLabel': 'Guardada',
+  'stopBoard.savedLabel': 'Guardado',
   'stopBoard.saveLabel': 'Guardar parada',
   'stopPicker.chooseStop': 'Elige una parada…',
   'transitLayout.primaryNavLabel': 'Navegación principal',

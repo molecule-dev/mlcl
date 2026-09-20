@@ -29,14 +29,14 @@ export const ui: UiTranslations = {
   'availability.heading': 'இருப்பு நிலை',
   'availability.newWindow.day': 'நாள்',
   'availability.pickStaff': 'முதலில் ஒரு ஊழியரைத் தேர்ந்தெடுக்கவும்.',
-  'availability.showFor': 'காண்பி',
+  'availability.showFor': 'காட்டு',
   'availability.subheading':
     'வாராந்திர மீண்டும் நிகழும் சாளரங்கள் மற்றும் ஒருமுறை கருப்புக் காலம் தேதிகள். அவற்றுக்கு வெளியே திட்டமிடுதல் அனுமதிக்கப்படுகிறது ஆனால் குறியிடப்படுகிறது.',
   'availability.windowsHeading': 'வாராந்திர சாளரங்கள்',
   'claims.actionFailed': 'செயல் தோல்வியடைந்தது.',
   'common.advancedFeatures': 'மேம்பட்ட அம்சங்கள்',
   'common.and': 'மற்றும்',
-  'common.approve': 'அங்கீகரி',
+  'common.approve': 'Approve',
   'common.cancel': 'ரத்து செய்',
   'common.creatingWorkspaceEllipsis': 'பணியிடம் உருவாக்கப்படுகிறது…',
   'common.dataExport': 'தரவு ஏற்றுமதி',
@@ -86,7 +86,7 @@ export const ui: UiTranslations = {
   'form.lastName': 'கடைசி பெயர்',
   'form.role': 'பதவி',
   'landing.eyebrow': 'திட்டமிடுதல் — குழு அரட்டை இல்லாமல்',
-  'landing.featuresEyebrow': 'இது எவ்வாறு செயல்படுகிறது',
+  'landing.featuresEyebrow': 'இது எப்படி வேலை செய்கிறது',
   'landing.featuresHeading': 'உருவாக்கு. வெளியிடு. சுவாசி.',
   'landing.featuresSubheading':
     'வெற்று வாரத்திலிருந்து வெளியிடப்பட்ட பட்டியலுக்கு நிர்வாகியை அழைத்துச் செல்லும் நான்கு மேற்பரப்புகள் — மற்றும் வாழ்க்கை நடக்கும்போது அதை நிலைக்க வைக்கவும்.',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'பட்டியலைத் திறக்கவும், வாரத்தை வெளியிடவும், ஒவ்வொரு ஷிஃப்ட்டையும் பாதுகாக்கவும்.',
   'loginBrandPanel.badge.claimed': 'உரிமைகோரப்பட்டது',
-  'loginBrandPanel.badge.open': 'திறந்தது',
+  'loginBrandPanel.badge.open': 'திறந்த',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. மணிநேர குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'loginBrandPanel.headline': 'ஒவ்வொரு ஷிஃப்ட்டும்,',
@@ -137,7 +137,7 @@ export const ui: UiTranslations = {
   'pricing.limits.shifts': 'வாரத்திற்கு ஷிஃப்ட்கள்',
   'requestStatus.approved': 'அங்கீகரிக்கப்பட்டது',
   'requestStatus.denied': 'நிராகரிக்கப்பட்டது',
-  'requestStatus.pending': 'நிலுவையில்',
+  'requestStatus.pending': 'நிலுவையில் உள்ளது',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'வலுவான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தது 12 எழுத்துகள் கலப்பு எழுத்துக்களுடன்.',
@@ -168,7 +168,7 @@ export const ui: UiTranslations = {
   'settings.audit.empty': 'இன்னும் மாற்றங்கள் இல்லை.',
   'settings.audit.heading': 'சமீபத்திய மாற்றங்கள்',
   'settings.billing': 'பில்லிங்',
-  'settings.closeCta': 'மூடு',
+  'settings.closeCta': 'அருகில்',
   'settings.company.displayName': 'உங்கள் காட்சிப் பெயர்',
   'settings.company.workspace': 'பணியிட பெயர்',
   'settings.profileSaveError': 'சுயவிவரத்தைச் சேமிக்க முடியவில்லை.',

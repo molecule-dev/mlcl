@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
   'settings.security.new': 'Nytt lösenord',
   'settings.subscription.cancel': 'Avsluta abonnemang',
   'settings.subscription.choose': 'Välj',
-  'settings.subscriptionCancelled': 'Prenumeration avslutad.',
+  'settings.subscriptionCancelled': 'Prenumerationen avbruten.',
   'signup.eyebrow': 'Bli medlem',
   'signup.namePlaceholder': 'Alex Rivera',
   'signup.showPassword': 'Visa lösenord',
@@ -208,5 +208,5 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Lägg till',
   'vendors.noContact': 'Ingen kontakt än',
   'vendors.title': 'Leverantörer',
-  'weddingLayout.primaryNavLabel': 'Primär navigering',
+  'weddingLayout.primaryNavLabel': 'Huvudnavigering',
 }

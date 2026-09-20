@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'Tableau des départs',
   'stopBoard.linesHeading': 'Lignes desservant cet arrêt',
   'stopBoard.notFoundTitle': 'Arrêt introuvable',
-  'stopBoard.savedLabel': 'Sauvegardé',
+  'stopBoard.savedLabel': 'Enregistré',
   'stopBoard.saveLabel': "Sauvegarder l'arrêt",
   'stopPicker.chooseStop': 'Choisir un arrêt…',
   'transitLayout.primaryNavLabel': 'Navigation principale',

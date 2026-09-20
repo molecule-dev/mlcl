@@ -139,7 +139,7 @@ export const ui: UiTranslations = {
   'simmer.recipeEdit.steps': 'Քայլեր',
   'simmer.recipeEdit.tagsLabel': 'Պիտակներ (ստորակետով առանձնացված)',
   'simmer.recipeEdit.tagsPlaceholder': 'ընթրիք, արագ, մակարոն',
-  'simmer.recipeEdit.titleLabel': 'Անվանում',
+  'simmer.recipeEdit.titleLabel': 'Վերնագիր',
   'simmer.recipeEdit.titlePlaceholder': 'օրինակ՝ Կիրակի բոլոնեզ',
   'simmer.recipeEdit.unitLabel': 'Միավոր',
   'simmer.recipes.addCard': 'Ավելացնել բաղադրատոմս',

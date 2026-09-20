@@ -140,7 +140,7 @@ export const ui: UiTranslations = {
   'simmer.recipeEdit.steps': 'Шаги',
   'simmer.recipeEdit.tagsLabel': 'Теги (через запятую)',
   'simmer.recipeEdit.tagsPlaceholder': 'ужин, быстро, паста',
-  'simmer.recipeEdit.titleLabel': 'Название',
+  'simmer.recipeEdit.titleLabel': 'Заголовок',
   'simmer.recipeEdit.titlePlaceholder': 'например, Воскресное болоньезе',
   'simmer.recipeEdit.unitLabel': 'Единица',
   'simmer.recipes.addCard': 'Добавить рецепт',

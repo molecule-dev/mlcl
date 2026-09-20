@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Rhowch wybod i mi pan gaiff RFI ei ateb neu ei gau.',
   'notificationsSettings.rfiLabel': 'Diweddariadau RFI',
   'notificationsSettings.saveButton': 'Cadw Dewisiadau',
-  'planUpdated.heading': "Mae eich cynllun wedi'i ddiweddaru",
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Diolch yn fawr!',
   'profileSettings.description':
     'Diweddaru eich gwybodaeth bersonol a sut mae eraill yn eich gweld ar draws prosiectau.',
@@ -127,7 +127,7 @@ export const ui: UiTranslations = {
   'projects.backToList': '← Yn ôl i brosiectau',
   'projects.createButton': 'Creu prosiect',
   'projects.createError': "Methu creu'r prosiect.",
-  'projects.creating': 'Yn creu…',
+  'projects.creating': "Wrthi'n creu…",
   'projects.empty': 'Dim prosiectau eto — creu eich safle gwaith cyntaf.',
   'projects.field.budget': 'Cyllideb (USD)',
   'projects.field.name': 'Enw prosiect',

@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Захоўвайце рэцэпты, якія вам падабаюцца, дадавайце іх у тыдзень і рабіце пакупкі па спісе, які складаецца сам. Канец пытанню ў 17:00 "што на вячэру?".',
   'simmer.landing.hero.cardBadge': '7 вячэр распланавана',
-  'simmer.landing.hero.cardTitle': 'Гэты тыдзень',
+  'simmer.landing.hero.cardTitle': 'На гэтым тыдні',
   'simmer.landing.hero.eyebrow': 'Тыднёвае планаванне ежы',
   'simmer.landing.hero.listHint': 'Спіс пакупак гатовы',
   'simmer.landing.hero.primary': 'Пачаць — бясплатна',
@@ -165,7 +165,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Ваша поўнае імя',
   'simmer.week.nextLabel': 'Наступны тыдзень',
   'simmer.week.prevLabel': 'Папярэдні тыдзень',
-  'simmer.week.today': 'Гэты тыдзень',
+  'simmer.week.today': 'На гэтым тыдні',
   'terms.title': 'Умовы выкарыстання',
   'userMenu.guestName': 'Ваш уліковы запіс',
   'userMenu.navLabel': 'Меню ўліковага запісу',

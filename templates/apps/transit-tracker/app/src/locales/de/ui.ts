@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'Benachrichtigungen',
   'settings.profile.currency': 'Währung',
   'settings.profile.home': 'Heimat-Haltestelle',
-  'settings.saving': 'Speichere…',
+  'settings.saving': 'Wird gespeichert…',
   'signup.eyebrow': '{{app}} beitreten',
   'stop.hubChip': 'Umsteigestelle',
   'stopBoard.backToNearby': 'Zurück zu allen Haltestellen',

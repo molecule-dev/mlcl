@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'account.email': 'E-mail',
-  'account.heading': 'Fiókod',
+  'account.heading': 'Az Ön fiókja',
   'account.loadError': 'A fiók betöltése sikertelen.',
   'account.name': 'Név',
   'account.username': 'Felhasználónév',

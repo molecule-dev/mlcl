@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Birincil gezinme',
   'tripPlanner.error': 'Bu yolculuk planlanamadı. Lütfen tekrar deneyin.',
   'tripPlanner.eyebrow': 'Yolculuk planlayıcı',
-  'tripPlanner.originLabel': 'Nereden',
+  'tripPlanner.originLabel': 'Başlangıç',
   'tripPlanner.planning': 'Planlanıyor…',
   'tripPlanner.submit': 'Yolculukları bul',
   'tripPlanner.subtitle':

@@ -64,7 +64,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'നിങ്ങൾക്ക് ഇഷ്ടമുള്ള പാചകക്കുറിപ്പുകൾ സേവ് ചെയ്യുക, അവ ആഴ്‌ചയിലേക്ക് ഇടുക, തന്നെ എഴുതുന്ന പലചരക്ക് ലിസ്റ്റിൽ നിന്ന് ഷോപ്പ് ചെയ്യുക. വൈകുന്നേരം 5 മണിയിലെ അത്താഴ പരിഭ്രാന്തി അവസാനിച്ചു.',
   'simmer.landing.hero.cardBadge': '7 അത്താഴം ആസൂത്രണം ചെയ്‌തു',
-  'simmer.landing.hero.cardTitle': 'ഈ ആഴ്‌ച',
+  'simmer.landing.hero.cardTitle': 'ഈ ആഴ്ച',
   'simmer.landing.hero.eyebrow': 'പ്രതിവാര ഭക്ഷണാസൂത്രണം',
   'simmer.landing.hero.listHint': 'പലചരക്ക് ലിസ്റ്റ് തയ്യാർ',
   'simmer.landing.hero.primary': 'ആരംഭിക്കുക — സൗജന്യം',
@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'നിങ്ങളുടെ പൂർണ്ണ നാമം',
   'simmer.week.nextLabel': 'അടുത്ത ആഴ്‌ച',
   'simmer.week.prevLabel': 'മുൻ ആഴ്‌ച',
-  'simmer.week.today': 'ഈ ആഴ്‌ച',
+  'simmer.week.today': 'ഈ ആഴ്ച',
   'terms.title': 'സേവന നിബന്ധനകൾ',
   'userMenu.guestName': 'നിങ്ങളുടെ അക്കൗണ്ട്',
   'userMenu.navLabel': 'അക്കൗണ്ട് മെനു',

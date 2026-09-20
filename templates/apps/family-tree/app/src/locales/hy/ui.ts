@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Կապ մեզ հետ',
-  'about.eyebrow': 'Մեր մասին',
+  'about.eyebrow': 'Մասին',
   'addPerson.back': 'Բոլոր անձինք',
   'addPerson.error': 'Չհաջողվեց պահպանել այս անձին:',
   'addPerson.submit': 'Ավելացնել անձ',
@@ -37,7 +37,7 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Մուտք է գործվում…',
   'common.whatYouGet': 'Ինչ եք ստանում',
   'editPerson.back': 'Վերադառնալ պրոֆիլին',
-  'editPerson.error': 'Չհաջողվեց պահպանել փոփոխությունները:',
+  'editPerson.error': 'Չհաջողվեց պահպանել փոփոխությունները։',
   'editPerson.submit': 'Պահպանել փոփոխությունները',
   'editPerson.subtitle':
     'Ամսաթվեր, վայրեր և հետազոտական նշումներ: Հարաբերությունները կառավարվում են պրոֆիլից:',
@@ -52,7 +52,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'Մահացել է',
   'lifeTimeline.diedIn': 'Մահացել է {{place}}-ում',
   'login.emailLabel': 'ԷԼ․ ՓՈՍՏ',
-  'login.emailPlaceholder': 'դուք@օրինակ.com',
+  'login.emailPlaceholder': 'դու@example.com',
   'login.hidePassword': 'Թաքցնել գաղտնաբառը',
   'login.passwordLabel': 'ԳԱՂՏՆԱԲԱՌ',
   'login.showPassword': 'Ցույց տալ գաղտնաբառը',
@@ -108,21 +108,21 @@ export const ui: UiTranslations = {
   'settings.deleteModalTitle': 'Ջնջե՞լ ձեր հաշիվը:',
   'settings.deleteWarn':
     'Ջնջում է ձեր հաշիվը, յուրաքանչյուր անձին և յուրաքանչյուր հարաբերությունը: Հետ վերադարձ չկա:',
-  'settings.deleting': 'Ջնջում…',
+  'settings.deleting': 'Ջնջվում է…',
   'settings.deviceCountOne': '1 սարք',
   'settings.emailLabel': 'Էլ․ փոստ',
   'settings.exportAction': 'Արտահանել ծառը',
   'settings.exportBody':
     'Ներբեռնեք յուրաքանչյուր անձին և հարաբերությունը որպես JSON ֆայլ — ձեր ծառը՝ դյուրափոխելի:',
   'settings.exportError': 'Արտահանումը ձախողվեց:',
-  'settings.exporting': 'Արտահանում…',
+  'settings.exporting': 'Արտահանվում է…',
   'settings.loadError': 'Չհաջողվեց բեռնել կարգավորումները:',
   'settings.logOut': 'Դուրս գալ',
   'settings.nameLabel': 'Անուն',
   'settings.noDevices': 'Այլ մուտք գործած սարքեր չկան:',
   'settings.revoking': 'Դուրս է գալիս…',
   'settings.savePassword': 'Պահպանել գաղտնաբառը',
-  'settings.signOutDevice': 'Դուրս գալ',
+  'settings.signOutDevice': 'Ելք',
   'settings.subtitle': 'Ձեր հաշիվը, ձեր ծառը, ձեր տվյալները — ոչինչ ավելի:',
   'settings.title': 'Կարգավորումներ',
   'settings.twoFactor': 'Երկկարգի նույնականացում',
@@ -149,5 +149,5 @@ export const ui: UiTranslations = {
   'tree.stats': '{{people}} անձ · {{generations}} սերունդ',
   'tree.title': 'Ընտանեկան ծառ',
   'tree.zoomIn': 'Մեծացնել',
-  'tree.zoomOut': 'Փոքրացնել',
+  'tree.zoomOut': 'Փոքրացնել մասշտաբը',
 }

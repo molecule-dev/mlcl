@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'claims.actionFailed': 'പ്രവർത്തനം പരാജയപ്പെട്ടു.',
   'common.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ',
   'common.and': 'ഒപ്പം',
-  'common.approve': 'അംഗീകരിക്കുക',
+  'common.approve': 'Approve',
   'common.cancel': 'റദ്ദാക്കുക',
   'common.creatingWorkspaceEllipsis': 'വർക്ക്‌സ്‌പേസ് സൃഷ്ടിക്കുന്നു…',
   'common.dataExport': 'ഡാറ്റ എക്‌സ്‌പോർട്ട്',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'റോസ്റ്റർ തുറക്കുക, ആഴ്ച പ്രസിദ്ധീകരിക്കുക, എല്ലാ ഷിഫ്റ്റും കവർ ചെയ്യപ്പെടാൻ സൂക്ഷിക്കുക.',
   'loginBrandPanel.badge.claimed': 'ക്ലെയിം ചെയ്തത്',
-  'loginBrandPanel.badge.open': 'ഓപ്പൺ',
+  'loginBrandPanel.badge.open': 'തുറക്കുക',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. മണിക്കൂർ ടീമുകൾക്കായി നിർമ്മിച്ചത്.',
   'loginBrandPanel.headline': 'ഓരോ ഷിഫ്റ്റും,',
@@ -138,7 +138,7 @@ export const ui: UiTranslations = {
   'pricing.limits.shifts': 'ആഴ്ചയിൽ ഷിഫ്റ്റുകൾ',
   'requestStatus.approved': 'അംഗീകരിച്ചു',
   'requestStatus.denied': 'നിരസിച്ചു',
-  'requestStatus.pending': 'തീർപ്പാക്കാത്തത്',
+  'requestStatus.pending': 'തീർച്ചപ്പെടുത്തിയിട്ടില്ല',
   'resetPassword.passwordLabel': 'പുതിയ പാസ്‌വേഡ്',
   'resetPassword.subheading':
     'ശക്തമായ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക — കുറഞ്ഞത് 12 അക്ഷരങ്ങൾ മിക്‌സ്ഡ് കേസോടെ.',
@@ -159,7 +159,7 @@ export const ui: UiTranslations = {
   'schedule.publishFailed': 'പ്രസിദ്ധീകരിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'schedule.publishWeek': 'ആഴ്ച പ്രസിദ്ധീകരിക്കുക',
   'schedule.staffColumn': 'സ്റ്റാഫ്',
-  'schedule.state.published': 'പ്രസിദ്ധീകരിച്ചു',
+  'schedule.state.published': 'പ്രസിദ്ധീകരിച്ചത്',
   'schedule.subheading':
     'ഷിഫ്റ്റുകൾ അസൈൻ ചെയ്യുക, വിടവുകൾ ഓപ്പണായി വിടുക, ആഴ്ച തയ്യാറാകുമ്പോൾ പ്രസിദ്ധീകരിക്കുക.',
   'schedule.submitFailed': 'ഷിഫ്റ്റ് സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -207,7 +207,7 @@ export const ui: UiTranslations = {
   'staff.addCta': 'സ്റ്റാഫ് ചേർക്കുക',
   'staff.column.contact': 'ബന്ധപ്പെടുക',
   'staff.column.name': 'പേര്',
-  'staff.column.status': 'സ്റ്റാറ്റസ്',
+  'staff.column.status': 'പദവി',
   'staff.column.thisWeek': 'ഈ ആഴ്ച',
   'staff.compose.heading': 'പുതിയ സ്റ്റാഫ് അംഗം',
   'staff.compose.submit': 'സ്റ്റാഫ് അംഗം ചേർക്കുക',

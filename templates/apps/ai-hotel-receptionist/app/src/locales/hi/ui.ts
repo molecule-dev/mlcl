@@ -70,7 +70,7 @@ export const ui: UiTranslations = {
   'form.lastName': 'अंतिम नाम',
   'guestDetail.email': 'ईमेल',
   'guestDetail.noStays': 'इस अतिथि से अभी तक कोई आरक्षण जुड़ा नहीं है।',
-  'guestDetail.phone': 'फोन',
+  'guestDetail.phone': 'फ़ोन',
   'guestDetail.preferredLanguage': 'पसंदीदा भाषा',
   'guestDetail.stayCount': 'पूर्ण ठहराव',
   'guestDetail.stayHistory': 'ठहराव का इतिहास',

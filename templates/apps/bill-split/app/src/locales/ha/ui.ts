@@ -1,10 +1,10 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Game da mu',
+  'about.eyebrow': 'Game da',
   'activity.emptyTitle': 'Babu kome a yanzu',
   'activity.eyebrow': 'Duk abin da ya faru',
-  'activity.title': 'Ayyuka',
+  'activity.title': 'Aiki',
   'auth.backToSignIn': 'Koma zuwa shiga',
   'auth.login.alreadyHaveAccount': 'Kuna da asusun?',
   'auth.login.forgotPassword': 'Ka manta da kalmar sirri?',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Ana ajiyewa…',
   'common.signingInEllipsis': 'Ana shigawa…',
   'common.startFree': 'Fara kyauta',
-  'dashboard.activity.title': 'Ayyukan kwanan nan',
+  'dashboard.activity.title': 'Ayyukan da aka yi kwanan nan',
   'dashboard.activity.viewAll': 'Duba duk ayyuka',
   'dashboard.addExpense': 'Ƙara kashe kuɗi',
   'dashboard.eyebrow': 'Yau, a taƙaice',
@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'nav.profile': 'Bayanan martaba',
   'nav.settings': 'Saitunan',
   'newExpense.amount': 'Adadi (USD)',
-  'newExpense.description': 'Bayanin',
+  'newExpense.description': 'Bayani',
   'newExpense.descriptionPlaceholder': 'Kayan abinci da itacen wuta',
   'newExpense.exactShareFor': 'Ainihin rabo don {{name}}',
   'newExpense.group': 'Ƙungiya',

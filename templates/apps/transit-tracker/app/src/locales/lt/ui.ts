@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'Pranešimai',
   'settings.profile.currency': 'Valiuta',
   'settings.profile.home': 'Pagrindinė stotelė',
-  'settings.saving': 'Išsaugoma…',
+  'settings.saving': 'Įrašoma…',
   'signup.eyebrow': 'Prisijunkite prie {{app}}',
   'stop.hubChip': 'Persėdimo stotelė',
   'stopBoard.backToNearby': 'Atgal į visas stoteles',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'tripPlanner.error': 'Nepavyko suplanuoti šios kelionės. Bandykite dar kartą.',
   'tripPlanner.eyebrow': 'Kelionės planuoklis',
-  'tripPlanner.originLabel': 'Iš',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Planuojama…',
   'tripPlanner.submit': 'Rasti keliones',
   'tripPlanner.subtitle':

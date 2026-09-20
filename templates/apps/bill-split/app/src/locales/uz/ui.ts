@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': "To'liq ism",
   'friends.add': "Do'st qo'shish",
   'friends.count': "{{count}} do'st",
-  'friends.email': 'Email',
+  'friends.email': 'Elektron pochta',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Manzillar kitobingiz',
   'friends.listTitle': "Siz bilan bo'lishadigan odamlar",

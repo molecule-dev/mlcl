@@ -122,7 +122,7 @@ export const ui: UiTranslations = {
   'project.openRfis': 'Buka RFI →',
   'project.openSubs': 'Buka subkontraktor →',
   'project.phase': 'Fase saat ini',
-  'project.progressLabel': 'Progres',
+  'project.progressLabel': 'Kemajuan',
   'projects.backToList': '← Kembali ke proyek',
   'projects.createButton': 'Buat proyek',
   'projects.createError': 'Gagal membuat proyek.',

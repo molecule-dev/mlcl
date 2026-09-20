@@ -157,7 +157,7 @@ export const ui: UiTranslations = {
   'settings.changePassword': 'パスワード変更',
   'settings.changePasswordModal.changing': '変更中…',
   'settings.changePasswordModal.title': 'パスワード変更',
-  'settings.dangerZone': '危険区域',
+  'settings.dangerZone': '危険ゾーン',
   'settings.deleteAccount': 'アカウント削除',
   'settings.deleteAccountModal.title': 'アカウント削除',
   'settings.devices': 'デバイス',

@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Haqqında',
+  'about.eyebrow': 'Haqqımızda',
   'activity.emptyTitle': 'Hələlik sakit',
   'activity.eyebrow': 'Baş verənlərin hamısı',
   'activity.title': 'Fəaliyyət',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Xərc əlavə et',
   'newExpense.totalLabel': 'Xərc cəmi',
   'newExpense.weightFor': '{{name}} üçün pay çəkisi',
-  'newExpense.youOption': 'Siz',
+  'newExpense.youOption': 'Sən',
   'resetPassword.hidePassword': 'Şifrəni gizlət',
   'resetPassword.newPasswordLabel': 'Yeni şifrə',
   'resetPassword.showPassword': 'Şifrəni göstər',

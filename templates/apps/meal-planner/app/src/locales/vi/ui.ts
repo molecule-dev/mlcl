@@ -140,7 +140,7 @@ export const ui: UiTranslations = {
   'simmer.recipeEdit.steps': 'Các bước',
   'simmer.recipeEdit.tagsLabel': 'Thẻ (phân cách bằng dấu phẩy)',
   'simmer.recipeEdit.tagsPlaceholder': 'bữa tối, nhanh, mì ý',
-  'simmer.recipeEdit.titleLabel': 'Tên',
+  'simmer.recipeEdit.titleLabel': 'Tiêu đề',
   'simmer.recipeEdit.titlePlaceholder': 'ví dụ: Bolognese Chủ nhật',
   'simmer.recipeEdit.unitLabel': 'Đơn vị',
   'simmer.recipes.addCard': 'Thêm công thức',

@@ -116,7 +116,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'メインナビゲーション',
   'tripPlanner.error': '旅程を計画できませんでした。もう一度お試しください。',
   'tripPlanner.eyebrow': '旅程プランナー',
-  'tripPlanner.originLabel': '出発地',
+  'tripPlanner.originLabel': '～',
   'tripPlanner.planning': '計画中…',
   'tripPlanner.submit': '旅程を検索',
   'tripPlanner.subtitle': '最速、最少乗り換え、直通オプション — 実際の出発時刻で表示。',

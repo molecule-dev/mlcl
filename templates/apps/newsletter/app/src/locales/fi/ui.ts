@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.pageTitle': 'Tietoa {{appName}}',
+  'about.pageTitle': 'Tietoja {{appName}}',
   'auth.backToSignIn': 'Takaisin kirjautumiseen',
   'auth.error.loginFailed': 'Kirjautuminen epäonnistui',
   'auth.forgotPassword.email': 'Sähköposti',
@@ -73,7 +73,7 @@ export const ui: UiTranslations = {
   'issueEditor.savedAt': ' · tallennettu {{time}}',
   'issueEditor.saveDraft': 'Tallenna luonnos',
   'issueEditor.saveFailed': 'Tallennus epäonnistui',
-  'issueEditor.schedule': 'Ajoita',
+  'issueEditor.schedule': 'Aikatauluta',
   'issueEditor.scheduleFailed': 'Ajoitus epäonnistui',
   'issueEditor.scheduleTitle': 'Ajoita myöhemmäksi',
   'issueEditor.subjectLabel': 'Aihe',
@@ -106,7 +106,7 @@ export const ui: UiTranslations = {
   'landingFooter.membership': 'Jäsenyys',
   'landingFooter.rssFeed': 'RSS-syöte',
   'landingFooter.website': 'Verkkosivusto',
-  'landingTopNavBar.archive': 'Arkisto',
+  'landingTopNavBar.archive': 'Arkistoi',
   'landingTopNavBar.brandName': '{{appName}}',
   'landingTopNavBar.membership': 'Hinnoittelu',
   'landingTopNavBar.startWriting': 'Aloita kirjoittaminen',
@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
   'settingsPublication.subtitle':
     'Nimi, jonka lukijat näkevät, ja lähettäjän nimi, josta numerot saapuvat.',
   'settingsPublication.title': 'Julkaisu',
-  'settingsSideNavBar.archive': 'Arkisto',
+  'settingsSideNavBar.archive': 'Arkistoi',
   'settingsTopNavBar.brandName': 'Tilin asetukset',
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numerot',

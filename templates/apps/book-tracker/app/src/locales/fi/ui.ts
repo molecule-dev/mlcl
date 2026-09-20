@@ -53,7 +53,7 @@ export const ui: UiTranslations = {
   'books.loadError': 'Kirjojen lataus epäonnistui.',
   'books.pageCount': 'Sivumäärä',
   'books.pages': '{{count}} s',
-  'books.title': 'Nimi',
+  'books.title': 'Otsikko',
   'challenge.eyebrow': 'Lue enemmän, tarkoituksella',
   'challenge.finishedEmpty': 'Ei vielä valmiita kirjoja — ensimmäinen on makeimpia.',
   'challenge.goalLabel': 'Kirjaa vuonna {{year}}',

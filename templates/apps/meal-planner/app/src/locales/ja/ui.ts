@@ -50,6 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'アイテムを追加できませんでした。',
   'simmer.groceries.clearChecked': 'チェック済みをクリア',
   'simmer.groceries.empty.title': 'まだ買い物リストはありません',
+  'simmer.groceries.eyebrow': '{{checked}} {{total}}のアイテムのうち、獲得した数',
   'simmer.groceries.fetchError': 'リストを読み込めませんでした。',
   'simmer.groceries.heading': '買い物リスト',
   'simmer.groceries.loading': 'リストを読み込み中…',

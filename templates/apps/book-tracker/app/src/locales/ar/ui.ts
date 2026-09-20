@@ -157,7 +157,7 @@ export const ui: UiTranslations = {
   'settings.changePassword': 'تغيير كلمة المرور',
   'settings.changePasswordModal.changing': 'جارٍ التغيير…',
   'settings.changePasswordModal.title': 'تغيير كلمة المرور',
-  'settings.dangerZone': 'منطقة خطرة',
+  'settings.dangerZone': 'منطقة الخطر',
   'settings.deleteAccount': 'حذف الحساب',
   'settings.deleteAccountModal.title': 'حذف الحساب',
   'settings.devices': 'الأجهزة',

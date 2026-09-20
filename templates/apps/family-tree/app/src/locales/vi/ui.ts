@@ -52,7 +52,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'Mất',
   'lifeTimeline.diedIn': 'Mất tại {{place}}',
   'login.emailLabel': 'EMAIL',
-  'login.emailPlaceholder': 'ban@example.com',
+  'login.emailPlaceholder': 'ban@vidu.com',
   'login.hidePassword': 'Ẩn mật khẩu',
   'login.passwordLabel': 'MẬT KHẨU',
   'login.showPassword': 'Hiện mật khẩu',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'settings.deleteWarn': 'Xóa tài khoản, mọi người và mọi mối quan hệ của bạn. Không thể hoàn tác.',
   'settings.deleting': 'Đang xóa…',
   'settings.deviceCountOne': '1 thiết bị',
-  'settings.emailLabel': 'Email',
+  'settings.emailLabel': 'E-mail',
   'settings.exportAction': 'Xuất cây',
   'settings.exportBody':
     'Tải xuống mọi người và mối quan hệ dưới dạng tệp JSON — cây của bạn, có thể di chuyển.',

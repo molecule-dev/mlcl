@@ -125,7 +125,7 @@ export const ui: UiTranslations = {
   'settings.savePassword': 'Guardar contraseña',
   'settings.signOutDevice': 'Cerrar sesión',
   'settings.subtitle': 'Tu cuenta, tu árbol, tus datos — nada más.',
-  'settings.title': 'Configuración',
+  'settings.title': 'Ajustes',
   'settings.twoFactor': 'Autenticación de dos factores',
   'settings.twoFactorConfirm': 'Habilitar',
   'settings.twoFactorDisableTitle': 'Desactivar dos factores',

@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
     'Elimina il tuo account, ogni persona e ogni relazione. Non è possibile annullare.',
   'settings.deleting': 'Eliminazione…',
   'settings.deviceCountOne': '1 dispositivo',
-  'settings.emailLabel': 'Email',
+  'settings.emailLabel': 'E-mail',
   'settings.exportAction': 'Esporta albero',
   'settings.exportBody':
     'Scarica ogni persona e relazione come file JSON — il tuo albero, portatile.',
@@ -122,7 +122,7 @@ export const ui: UiTranslations = {
   'settings.noDevices': 'Nessun altro dispositivo connesso.',
   'settings.revoking': 'Disconnessione…',
   'settings.savePassword': 'Salva password',
-  'settings.signOutDevice': 'Disconnetti',
+  'settings.signOutDevice': 'Esci',
   'settings.subtitle': "Il tuo account, il tuo albero, i tuoi dati — nient'altro.",
   'settings.title': 'Impostazioni',
   'settings.twoFactor': 'Autenticazione a due fattori',

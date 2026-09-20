@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'stopBoard.eyebrow': 'Panou plecări',
   'stopBoard.linesHeading': 'Linii care deservesc această stație',
   'stopBoard.notFoundTitle': 'Stația nu a fost găsită',
-  'stopBoard.savedLabel': 'Salvată',
+  'stopBoard.savedLabel': 'Salvat',
   'stopBoard.saveLabel': 'Salvează stația',
   'stopPicker.chooseStop': 'Alege o stație…',
   'transitLayout.primaryNavLabel': 'Navigare principală',

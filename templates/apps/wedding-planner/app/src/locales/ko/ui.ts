@@ -88,7 +88,7 @@ export const ui: UiTranslations = {
   'guests.col.plusOnes': '+1',
   'guests.col.rsvp': '참석 확인',
   'guests.col.side': '측',
-  'guests.count': '{{count}}명 게스트',
+  'guests.count': '투숙객 {{count}}명',
   'guests.eyebrow': '게스트 리스트',
   'guests.filterAllSides': '모든 측',
   'guests.filterAllStatuses': '모든 상태',
@@ -170,6 +170,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': '추가 중…',
   'seating.form.submit': '테이블 추가',
   'seating.poolTitle': '미배치 게스트',
+  'seating.subtitle':
+    '{{seated}} {{capacity}}석 중 좌석 배정 완료 · {{pool}}명의 손님이 수영장에서 대기 중',
   'seating.title': '좌석 배치도',
   'settings.billing': '결제',
   'settings.changePassword': '비밀번호 변경',
@@ -191,7 +193,7 @@ export const ui: UiTranslations = {
   'signup.showPassword': '비밀번호 표시',
   'tasks.eyebrow': '타임라인',
   'tasks.form.category': '카테고리',
-  'tasks.form.due': '마감일',
+  'tasks.form.due': '기한',
   'tasks.form.saving': '추가 중…',
   'tasks.form.submit': '작업 추가',
   'tasks.form.title': '작업',
@@ -206,5 +208,5 @@ export const ui: UiTranslations = {
   'vendors.form.submit': '추가',
   'vendors.noContact': '아직 연락 없음',
   'vendors.title': '업체',
-  'weddingLayout.primaryNavLabel': '주 내비게이션',
+  'weddingLayout.primaryNavLabel': '기본 탐색',
 }

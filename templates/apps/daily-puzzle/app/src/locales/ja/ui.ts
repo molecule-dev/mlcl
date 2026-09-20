@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'お問い合わせ',
-  'about.eyebrow': 'について',
+  'about.eyebrow': '概要',
   'about.title': '{{app}}について',
   'archive.loadError': 'アーカイブを読み込めませんでした。',
   'archive.missed': '未プレイ',
@@ -74,7 +74,7 @@ export const ui: UiTranslations = {
   'login.streakPill': '{{days}}日間のストリークが待っています',
   'nav.archive': 'アーカイブ',
   'nav.editProfile': 'プロフィール編集',
-  'nav.getStarted': '始める',
+  'nav.getStarted': 'はじめる',
   'nav.leaderboard': 'リーダーボード',
   'nav.legal': '法的情報',
   'nav.loadingPlans': 'プランを読み込み中…',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'プランを読み込めませんでした。',
   'pricing.subhead':
     '毎日の単語は常に無料です。アップグレードでアーカイブの無制限再プレイと詳細な統計を利用できます。',
-  'pricing.yearly': '年間',
+  'pricing.yearly': '年額',
   'privacy.title': 'プライバシーポリシー',
   'settings.account': 'アカウント',
   'settings.danger.body': '{{appName}}アカウントとすべてのパズル履歴を完全に削除します。',

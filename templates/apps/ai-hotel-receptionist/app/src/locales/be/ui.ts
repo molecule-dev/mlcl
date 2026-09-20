@@ -7,7 +7,7 @@ export const ui: UiTranslations = {
   'account.name': 'Імя',
   'account.username': 'Імя карыстальніка',
   'auth.forgotPassword.email': 'Электронная пошта',
-  'auth.forgotPassword.title': 'Скінуць пароль',
+  'auth.forgotPassword.title': 'Скіньце пароль',
   'auth.login.forgotShort': 'Забыліся?',
   'auth.login.password': 'Пароль',
   'auth.login.signInButton': 'Увайсці',

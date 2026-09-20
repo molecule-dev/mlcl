@@ -37,7 +37,7 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Kirjaudutaan sisään…',
   'common.whatYouGet': 'Mitä saat',
   'editPerson.back': 'Takaisin profiiliin',
-  'editPerson.error': 'Muutosten tallennus epäonnistui.',
+  'editPerson.error': 'Muutoksia ei voitu tallentaa.',
   'editPerson.submit': 'Tallenna muutokset',
   'editPerson.subtitle':
     'Päivämäärät, paikat ja tutkimusmuistiinpanot. Suhteita hallitaan profiilista.',
@@ -135,7 +135,7 @@ export const ui: UiTranslations = {
   'settings.twoFactorTurnOff': 'Poista käytöstä',
   'settings.twoFactorTurnOn': 'Ota käyttöön',
   'settings.unnamedDevice': 'Tämä laite',
-  'settings.viewPlans': 'Näytä suunnitelmat',
+  'settings.viewPlans': 'Katso suunnitelmat',
   'signup.emailLabel': 'SÄHKÖPOSTI',
   'signup.firstNameLabel': 'ETUNIMI',
   'signup.lastNameLabel': 'SUKUNIMI',

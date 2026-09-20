@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'login.remember': 'Recuérdame por 30 días',
   'login.subheading': 'Abre la plantilla, publica la semana, mantén cada turno cubierto.',
   'loginBrandPanel.badge.claimed': 'Reclamado',
-  'loginBrandPanel.badge.open': 'Abierto',
+  'loginBrandPanel.badge.open': 'Abrir',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. Creado para equipos por horas.',
   'loginBrandPanel.headline': 'Cada turno,',
   'nav.about': 'Acerca de',

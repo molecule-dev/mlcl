@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Honi buruz',
+  'about.eyebrow': 'Buruz',
   'activity.emptyTitle': 'Une honetan lasai',
   'activity.eyebrow': 'Gertatu den guztia',
   'activity.title': 'Jarduera',
@@ -55,7 +55,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Izen osoa',
   'friends.add': 'Gehitu laguna',
   'friends.count': '{{count}} lagun',
-  'friends.email': 'Helbide elektronikoa',
+  'friends.email': 'Posta elektronikoa',
   'friends.emailPlaceholder': 'priya@adibidea.eus',
   'friends.eyebrow': 'Zure helbide-liburua',
   'friends.listTitle': 'Zurekin zatitzen duten pertsonak',

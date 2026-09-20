@@ -106,7 +106,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'ជូនដំណឹងខ្ញុំនៅពេល RFI ត្រូវបានឆ្លើយ ឬបិទ។',
   'notificationsSettings.rfiLabel': 'ការអាប់ដេត RFI',
   'notificationsSettings.saveButton': 'រក្សាទុកចំណូលចិត្ត',
-  'planUpdated.heading': 'ផែនការរបស់អ្នកត្រូវបានអាប់ដេត',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'អរគុណ!',
   'profileSettings.description':
     'អាប់ដេតព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នក និងរបៀបអ្នកដទៃឃើញអ្នកនៅទូទាំងគម្រោង។',

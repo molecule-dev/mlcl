@@ -1,13 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'account.email': 'Email',
-  'account.heading': 'Tài khoản của bạn',
+  'account.email': 'E-mail',
+  'account.heading': 'Tài khoản của quý vị',
   'account.loadError': 'Không thể tải tài khoản của bạn.',
   'account.name': 'Tên',
   'account.username': 'Tên người dùng',
   'auth.forgotPassword.email': 'Email',
-  'auth.forgotPassword.title': 'Đặt lại mật khẩu',
+  'auth.forgotPassword.title': 'Đặt lại mật khẩu của quý vị',
   'auth.login.forgotShort': 'Quên?',
   'auth.login.password': 'Mật khẩu',
   'auth.login.signInButton': 'Đăng nhập',
@@ -69,7 +69,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentNotice': 'Nếu địa chỉ đó có tài khoản, liên kết đặt lại đang được gửi đến.',
   'form.firstName': 'Họ',
   'form.lastName': 'Tên',
-  'guestDetail.email': 'Email',
+  'guestDetail.email': 'E-mail',
   'guestDetail.noStays': 'Chưa có đặt phòng nào liên kết với khách này.',
   'guestDetail.phone': 'Điện thoại',
   'guestDetail.preferredLanguage': 'Ngôn ngữ ưa thích',
@@ -115,7 +115,7 @@ export const ui: UiTranslations = {
   'reservationDetail.source': 'Nguồn',
   'reservationDetail.terminal':
     'Đặt phòng này đã ở trạng thái cuối cùng — không có chuyển tiếp nào khác.',
-  'reservationDetail.total': 'Tổng',
+  'reservationDetail.total': 'Tổng cộng',
   'reservations.dates': 'Ngày',
   'reservations.empty': 'Không có đặt phòng nào phù hợp với bộ lọc này.',
   'reservations.filterAll': 'Tất cả',
@@ -126,7 +126,7 @@ export const ui: UiTranslations = {
   'reservations.newButton': 'Đặt phòng mới',
   'reservations.source': 'Nguồn',
   'reservations.status': 'Trạng thái',
-  'reservations.total': 'Tổng',
+  'reservations.total': 'Tổng cộng',
   'resetPassword.eyebrow': 'Khôi phục tài khoản',
   'resetPassword.formLabel': 'Biểu mẫu đặt mật khẩu mới',
   'resetPassword.resetButton': 'Đặt lại mật khẩu',

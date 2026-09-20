@@ -118,7 +118,7 @@ export const ui: UiTranslations = {
   'postDetail.commentCount': '{{count}} коментара',
   'postDetail.commentPlaceholder': 'Добавете контекст, случай на употреба или +1 с подробности…',
   'postDetail.commentsTitle': 'Коментари',
-  'postDetail.commentSubmit': 'Коментирай',
+  'postDetail.commentSubmit': 'Comment',
   'postDetail.mergedInto': 'Тази заявка беше обединена в',
   'postDetail.mergedUnknown': 'друга заявка',
   'postDetail.mergedVotesNote': ' — гласовете й сега се броят там.',
@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
   'status.planned': 'Планирано',
   'status.shipped': 'Пуснато',
   'submit.boardLabel': 'Дъска',
-  'submit.bodyLabel': 'Подробности',
+  'submit.bodyLabel': 'Детайли',
   'submit.bodyPlaceholder':
     'Какъв проблем решава това? Как го заобикаляте днес? Кой друг се нуждае от това?',
   'submit.cta': 'Публикувай заявка',

@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'account.email': 'Имејл',
+  'account.email': 'Е-пошта',
   'account.heading': 'Ваш налог',
   'account.loadError': 'Учитавање налога није успело.',
   'account.name': 'Име',
@@ -69,7 +69,7 @@ export const ui: UiTranslations = {
   'forgotPassword.sentNotice': 'Ако постоји налог на тој адреси, линк за ресетовање је на путу.',
   'form.firstName': 'Име',
   'form.lastName': 'Презиме',
-  'guestDetail.email': 'Имејл',
+  'guestDetail.email': 'Е-пошта',
   'guestDetail.noStays': 'Још нема резервација повезаних са овим гостом.',
   'guestDetail.phone': 'Телефон',
   'guestDetail.preferredLanguage': 'Жељени језик',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'reservationDetail.total': 'Укупно',
   'reservations.dates': 'Датуми',
   'reservations.empty': 'Ниједна резервација не одговара овом филтеру.',
-  'reservations.filterAll': 'Све',
+  'reservations.filterAll': 'All',
   'reservations.guest': 'Гост',
   'reservations.guestsCol': 'Гости',
   'reservations.heading': 'Резервације',
@@ -128,7 +128,7 @@ export const ui: UiTranslations = {
   'reservations.total': 'Укупно',
   'resetPassword.eyebrow': 'Опоравак налога',
   'resetPassword.formLabel': 'Формулар за постављање нове лозинке',
-  'resetPassword.resetButton': 'Ресетујте лозинку',
+  'resetPassword.resetButton': 'Ресетуј лозинку',
   'resetPassword.resettingEllipsis': 'Ресетовање…',
   'roomsRates.baseRate': 'Основна цена',
   'roomsRates.floor': 'спрат {{floor}}',

@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Ynghylch',
+  'about.eyebrow': 'Ynglŷn â',
   'activity.emptyTitle': 'Tawel am y tro',
   'activity.eyebrow': 'Popeth a ddigwyddodd',
   'activity.title': 'Gweithgaredd',

@@ -123,7 +123,7 @@ export const ui: UiTranslations = {
   'projects.backToList': '← 프로젝트로 돌아가기',
   'projects.createButton': '프로젝트 만들기',
   'projects.createError': '프로젝트를 만들지 못했습니다.',
-  'projects.creating': '만드는 중…',
+  'projects.creating': '생성 중…',
   'projects.empty': '아직 프로젝트가 없습니다 — 첫 현장을 만드세요.',
   'projects.field.budget': '예산 (USD)',
   'projects.field.name': '프로젝트 이름',

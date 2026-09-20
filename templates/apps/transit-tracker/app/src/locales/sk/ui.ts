@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'auth.signup.createAccount': 'Vytvoriť účet',
   'auth.signup.createYourAccount': 'Vytvorte si účet',
   'auth.signup.passwordsDoNotMatchPeriod': 'Heslá sa nezhodujú.',
-  'common.about': 'O aplikácii',
+  'common.about': 'O nás',
   'common.atLeast8Characters': 'Minimálne 8 znakov',
   'common.couldNotSaveChanges': 'Nepodarilo sa uložiť zmeny.',
   'common.creatingAccountEllipsis': 'Vytvára sa účet…',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Hlavná navigácia',
   'tripPlanner.error': 'Nepodarilo sa naplánovať túto cestu. Skúste to znova.',
   'tripPlanner.eyebrow': 'Plánovač ciest',
-  'tripPlanner.originLabel': 'Z',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Plánuje sa…',
   'tripPlanner.submit': 'Nájsť cesty',
   'tripPlanner.subtitle':

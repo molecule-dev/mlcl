@@ -50,6 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'Öğe eklenemedi.',
   'simmer.groceries.clearChecked': 'İşaretlileri temizle',
   'simmer.groceries.empty.title': 'Henüz alışveriş edilecek bir şey yok',
+  'simmer.groceries.eyebrow': "{{checked}} {{total}}'dan alınan ürünler",
   'simmer.groceries.fetchError': 'Liste yüklenemedi.',
   'simmer.groceries.heading': 'Alışveriş listesi',
   'simmer.groceries.loading': 'Liste yükleniyor…',

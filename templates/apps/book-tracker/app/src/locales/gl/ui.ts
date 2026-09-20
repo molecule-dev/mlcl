@@ -62,7 +62,7 @@ export const ui: UiTranslations = {
   'challenge.onPace': 'No ritmo',
   'challenge.saveGoal': 'Gardar obxectivo',
   'challenge.stat.pace': 'Ritmo cara ao obxectivo',
-  'challenge.stat.read': 'Rematados',
+  'challenge.stat.read': 'Rematado',
   'challengeHeroCard.behindPace': '{{count}} de atraso',
   'challengeHeroCard.booksSuffix': 'libros rematados',
   'challengeHeroCard.onPace': 'No ritmo',

@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'claims.actionFailed': 'Акцијата не успеа.',
   'common.advancedFeatures': 'Напредни функции',
   'common.and': 'и',
-  'common.approve': 'Одобри',
+  'common.approve': 'Approve',
   'common.cancel': 'Откажи',
   'common.creatingWorkspaceEllipsis': 'Се креира работен простор…',
   'common.dataExport': 'Извоз на податоци',
@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Отворете го распоредот, објавете ја неделата, одржувајте ја секоја смена покриена.',
   'loginBrandPanel.badge.claimed': 'Превземена',
-  'loginBrandPanel.badge.open': 'Отворена',
+  'loginBrandPanel.badge.open': 'Отвори',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. Изградено за тимови кои работат на часови.',
   'loginBrandPanel.headline': 'Секоја смена,',
@@ -136,7 +136,7 @@ export const ui: UiTranslations = {
   'pricing.limits.shifts': 'смени неделно',
   'requestStatus.approved': 'Одобрено',
   'requestStatus.denied': 'Одбиено',
-  'requestStatus.pending': 'На чекање',
+  'requestStatus.pending': 'Во исчекување',
   'resetPassword.passwordLabel': 'Нова лозинка',
   'resetPassword.subheading': 'Изберете силна лозинка — најмалку 12 знаци со мешани букви.',
   'schedule.addShift': 'Додај смена',

@@ -102,7 +102,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'Kennisgewings',
   'settings.profile.currency': 'Geldeenheid',
   'settings.profile.home': 'Tuis-stop',
-  'settings.saving': 'Stoor…',
+  'settings.saving': 'Stoor …',
   'signup.eyebrow': 'Sluit by {{app}} aan',
   'stop.hubChip': 'Ruiltepunt',
   'stopBoard.backToNearby': 'Terug na alle stops',
@@ -116,7 +116,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Primêre navigasie',
   'tripPlanner.error': 'Kon nie hierdie reis beplan nie. Probeer asseblief weer.',
   'tripPlanner.eyebrow': 'Reisbeplanner',
-  'tripPlanner.originLabel': 'Van',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Beplan…',
   'tripPlanner.submit': 'Vind reise',
   'tripPlanner.subtitle':

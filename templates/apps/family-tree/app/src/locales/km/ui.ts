@@ -98,7 +98,7 @@ export const ui: UiTranslations = {
   'settings.account': 'គណនី',
   'settings.addedAgo': 'បានបន្ថែម {{ago}}',
   'settings.billing': 'វិក្កយបត្រ',
-  'settings.changePasswordAction': 'ផ្លាស់ប្តូរពាក្យសម្ងាត់',
+  'settings.changePasswordAction': 'ប្តូរពាក្យសម្ងាត់',
   'settings.changingPassword': 'កំពុងផ្លាស់ប្តូរ…',
   'settings.confirmRevoke': 'បញ្ជាក់ការចាកចេញ',
   'settings.currentDevice': 'បច្ចុប្បន្ន',
@@ -149,5 +149,5 @@ export const ui: UiTranslations = {
   'tree.stats': '{{people}} មនុស្ស · {{generations}} កំណើត',
   'tree.title': 'ដើមឈើគ្រួសារ',
   'tree.zoomIn': 'ពង្រីក',
-  'tree.zoomOut': 'បង្រួម',
+  'tree.zoomOut': 'ពង្រីក​ចេញ',
 }

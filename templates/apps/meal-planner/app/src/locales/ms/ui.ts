@@ -104,7 +104,7 @@ export const ui: UiTranslations = {
   'simmer.plan.eyebrow': '{{count}} hidangan dirancang',
   'simmer.plan.fetchError': 'Tidak dapat memuatkan rancangan.',
   'simmer.plan.loading': 'Memuatkan minggu…',
-  'simmer.plan.regenerate': 'Senarai runcit',
+  'simmer.plan.regenerate': 'Senarai barangan runcit',
   'simmer.plan.regenerating': 'Membina senarai…',
   'simmer.plan.removeError': 'Tidak dapat membuang hidangan yang dirancang.',
   'simmer.recipe.addToWeek': 'Tambah ke minggu',

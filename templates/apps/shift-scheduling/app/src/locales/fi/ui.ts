@@ -29,7 +29,7 @@ export const ui: UiTranslations = {
   'availability.heading': 'Saatavuus',
   'availability.newWindow.day': 'Päivä',
   'availability.pickStaff': 'Valitse ensin henkilöstönjäsen.',
-  'availability.showFor': 'Näytä',
+  'availability.showFor': 'Show',
   'availability.subheading':
     'Toistuvat viikoittaiset aikaikkunat ja kertaluonteiset poissaolopäivät. Niiden ulkopuolinen aikataulutus on sallittua, mutta merkitään.',
   'availability.windowsHeading': 'Viikoittaiset aikaikkunat',
@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'login.remember': 'Muista minut 30 päivää',
   'login.subheading': 'Avaa työvuorolista, julkaise viikko, pidä jokainen vuoro katettuna.',
   'loginBrandPanel.badge.claimed': 'Varattu',
-  'loginBrandPanel.badge.open': 'Avoin',
+  'loginBrandPanel.badge.open': 'Avaa',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. Rakennettu tuntipalkkaisille tiimeille.',
   'loginBrandPanel.headline': 'Jokainen vuoro,',
@@ -199,7 +199,7 @@ export const ui: UiTranslations = {
   'signup.haveAccount': 'Onko sinulla jo työtila?',
   'signup.subheading': 'Käynnistä {{app}}-työtila 60 sekunnissa. Kutsu tiimi myöhemmin.',
   'staff.addCta': 'Lisää henkilöstöä',
-  'staff.column.contact': 'Yhteystiedot',
+  'staff.column.contact': 'Yhteyshenkilö',
   'staff.column.name': 'Nimi',
   'staff.column.status': 'Tila',
   'staff.column.thisWeek': 'Tällä viikolla',

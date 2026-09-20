@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Fulde navn',
   'friends.add': 'Tilføj ven',
   'friends.count': '{{count}} venner',
-  'friends.email': 'Email',
+  'friends.email': 'E-mail',
   'friends.emailPlaceholder': 'priya@eksempel.dk',
   'friends.eyebrow': 'Din adressebog',
   'friends.listTitle': 'Personer du deler med',

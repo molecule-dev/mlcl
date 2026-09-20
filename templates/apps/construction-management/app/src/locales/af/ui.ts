@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
     "Stel my in kennis wanneer 'n RFI beantwoord of gesluit word.",
   'notificationsSettings.rfiLabel': 'RFI opdaterings',
   'notificationsSettings.saveButton': 'Stoor Voorkeure',
-  'planUpdated.heading': 'Jou plan is opgedateer',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Dankie!',
   'profileSettings.description':
     'Dateer jou persoonlike inligting op en hoe ander jou oor projekte sien.',
@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
   'settings.devices': 'Toestelle',
   'settings.logOut': 'Meld af',
   'settings.notifications': 'Kennisgewings',
-  'settings.signOutDevice': 'Meld af',
+  'settings.signOutDevice': 'Teken uit',
   'settings.thisDevice': 'Hierdie toestel',
   'signup.email': 'E-posadres',
   'signup.error': 'Kon nie rekening skep nie. Probeer asseblief weer.',

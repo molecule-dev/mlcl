@@ -43,7 +43,7 @@ export const ui: UiTranslations = {
   'nav.terms': 'Condicions',
   'privacy.title': 'Política de privadesa',
   'settings.account': 'Compte',
-  'settings.language.title': 'Idioma',
+  'settings.language.title': 'Llengua',
   'settings.logOut': 'Tanca la sessió',
   'simmer.auth.legalPrefix': 'En continuar acceptes les nostres',
   'simmer.forgot.resend': 'Envia un altre enllaç de restabliment',

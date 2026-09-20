@@ -166,7 +166,7 @@ export const ui: UiTranslations = {
   'settings.logOut': 'Çıkış yap',
   'settings.noDevices': 'Henüz kayıtlı cihaz yok.',
   'settings.notifications': 'Bildirimler',
-  'settings.password': 'Şifre',
+  'settings.password': 'Parola',
   'settings.reading.countDnf': 'Yarım bırakılan kitapları istatistiklere dahil et',
   'settings.reading.dailyGoalPages': 'Günlük sayfa hedefi',
   'settings.reading.monday': 'Pazartesi',

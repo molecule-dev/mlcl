@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Sprechen Sie mit uns',
-  'about.eyebrow': 'Über uns',
+  'about.eyebrow': 'Über',
   'addPerson.back': 'Alle Personen',
   'addPerson.error': 'Person konnte nicht gespeichert werden.',
   'addPerson.submit': 'Person hinzufügen',
@@ -53,7 +53,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'Gestorben',
   'lifeTimeline.diedIn': 'Gestorben in {{place}}',
   'login.emailLabel': 'E-MAIL',
-  'login.emailPlaceholder': 'sie@beispiel.de',
+  'login.emailPlaceholder': 'sie@beispiel.com',
   'login.hidePassword': 'Passwort verbergen',
   'login.passwordLabel': 'PASSWORT',
   'login.showPassword': 'Passwort anzeigen',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'settings.exportBody':
     'Laden Sie jede Person und Beziehung als JSON-Datei herunter – Ihr Stammbaum, portabel.',
   'settings.exportError': 'Export fehlgeschlagen.',
-  'settings.exporting': 'Wird exportiert…',
+  'settings.exporting': 'Exportieren…',
   'settings.loadError': 'Einstellungen konnten nicht geladen werden.',
   'settings.logOut': 'Abmelden',
   'settings.nameLabel': 'Name',
@@ -137,7 +137,7 @@ export const ui: UiTranslations = {
   'settings.twoFactorTurnOff': 'Deaktivieren',
   'settings.twoFactorTurnOn': 'Aktivieren',
   'settings.unnamedDevice': 'Dieses Gerät',
-  'settings.viewPlans': 'Pläne ansehen',
+  'settings.viewPlans': 'Tarife ansehen',
   'signup.emailLabel': 'E-MAIL',
   'signup.firstNameLabel': 'VORNAME',
   'signup.lastNameLabel': 'NACHNAME',

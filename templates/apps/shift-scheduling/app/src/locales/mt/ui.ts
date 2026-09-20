@@ -36,7 +36,7 @@ export const ui: UiTranslations = {
   'claims.actionFailed': 'Azzjoni falliet.',
   'common.advancedFeatures': 'Karatteristiċi avvanzati',
   'common.and': 'u',
-  'common.approve': 'Approva',
+  'common.approve': 'Approve',
   'common.cancel': 'Ikkanċella',
   'common.creatingWorkspaceEllipsis': 'Qed jinħoloq workspace…',
   'common.dataExport': "Esportazzjoni ta' data",

@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'login.remember': '30일 동안 로그인 유지',
   'login.subheading': '명단을 열고, 주간 일정을 게시하고, 모든 근무를 관리하세요.',
   'loginBrandPanel.badge.claimed': '신청됨',
-  'loginBrandPanel.badge.open': '오픈',
+  'loginBrandPanel.badge.open': '열기',
   'loginBrandPanel.copyright': '© {{year}} {{app}} Scheduling Co. 시급 근로 팀을 위해 제작.',
   'loginBrandPanel.headline': '모든 근무,',
   'nav.about': '소개',

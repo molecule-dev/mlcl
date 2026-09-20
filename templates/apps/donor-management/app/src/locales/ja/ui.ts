@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'お問い合わせ',
-  'about.eyebrow': 'について',
+  'about.eyebrow': '概要',
   'auth.backToSignIn': 'サインインに戻る',
   'auth.forgotPassword.enterEmailDescription':
     'メールアドレスを入力してください。リセットリンクをお送りします。',
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'donors.giftCount': '({{count}}件の寄付)',
   'donors.gifts': '寄付',
   'donors.givingHistory': '寄付履歴',
-  'donors.heading': '寄付者',
+  'donors.heading': '寄付者数',
   'donors.lastGift': '最後の寄付',
   'donors.lifetime': '累計寄付額',
   'donors.loadError': '寄付者の読み込みに失敗しました。',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'gifts.detail.note': 'メモ',
   'gifts.detail.receiptHint':
     '年末:領収書ページからこの寄付者の税務領収書を生成してください — この寄付が含まれます。',
-  'gifts.detail.recorded': '記録日時',
+  'gifts.detail.recorded': '録音済み',
   'gifts.empty': '該当する寄付がありません。',
   'gifts.filterByMethod': '方法で絞り込み',
   'gifts.heading': '寄付',
@@ -124,7 +124,7 @@ export const ui: UiTranslations = {
   'gifts.new.submit': '寄付を記録',
   'gifts.notFound': '寄付が見つかりません。',
   'gifts.receiptedOnly': '領収済みのみ',
-  'gifts.unreceiptedOnly': '未領収のみ',
+  'gifts.unreceiptedOnly': '未領収',
   'landing.getStarted': '無料で始める',
   'landing.heroCta': '無料で始める',
   'landing.mockLive': '今日',
@@ -156,7 +156,7 @@ export const ui: UiTranslations = {
   'receipts.loadError': '領収書の読み込みに失敗しました。',
   'receipts.notFound': '領収書が見つかりません。',
   'receipts.pickDonor': 'まず寄付者を選択してください。',
-  'receipts.preview': 'プレビュー',
+  'receipts.preview': 'Preview',
   'receipts.previewError': '領収書のプレビューに失敗しました。',
   'receipts.previewing': 'プレビュー中…',
   'receipts.print': '領収書を印刷',

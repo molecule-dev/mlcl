@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'Tungkol',
+  'about.eyebrow': 'Tungkol Sa Amin',
   'activity.emptyTitle': 'Tahimik pa ngayon',
   'activity.eyebrow': 'Lahat ng nangyari',
   'activity.title': 'Aktibidad',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Buong pangalan',
   'friends.add': 'Magdagdag ng kaibigan',
   'friends.count': '{{count}} kaibigan',
-  'friends.email': 'Email',
+  'friends.email': 'I-email',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'Iyong address book',
   'friends.listTitle': 'Mga taong kasama mo sa hatian',
@@ -128,7 +128,7 @@ export const ui: UiTranslations = {
   'resetPassword.submit': 'I-reset ang password at mag-sign in',
   'settings.eyebrow': 'Mga preferences ng workspace',
   'settings.language.title': 'Wika',
-  'settings.notifications.title': 'Mga Notipikasyon',
+  'settings.notifications.title': 'Mga Notification',
   'settings.profile.saved': 'Na-save na ✓',
   'settings.settlement.subtitle':
     'Pre-filled kapag nag-record ka ng settle-up. Hindi gumagalaw ng pera ang Evenly — label lang ito kung paano kayo nagbayaran.',

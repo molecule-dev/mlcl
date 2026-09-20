@@ -102,7 +102,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'ការជូនដំណឹង',
   'settings.profile.currency': 'រូបិយប័ណ្ណ',
   'settings.profile.home': 'ស្ថានីយ៍ផ្ទះ',
-  'settings.saving': 'កំពុងរក្សាទុក…',
+  'settings.saving': 'កំពុងរក្សាទុក...',
   'signup.eyebrow': 'ចូលរួម {{app}}',
   'stop.hubChip': 'ចំណុចផ្លាស់ប្ដូរ',
   'stopBoard.backToNearby': 'ត្រឡប់ទៅស្ថានីយ៍ទាំងអស់',
@@ -116,7 +116,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'tripPlanner.error': 'មិនអាចរៀបចំដំណើរនេះបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'tripPlanner.eyebrow': 'កម្មវិធីរៀបចំដំណើរ',
-  'tripPlanner.originLabel': 'ពី',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'កំពុងរៀបចំ…',
   'tripPlanner.submit': 'រកដំណើរ',
   'tripPlanner.subtitle':

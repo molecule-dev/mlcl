@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'dailyLogs.saving': 'Kaydediliyor…',
   'dailyLogs.submit': 'Rapor kaydet',
   'dashboard.crewCount': 'Sahada {{count}} kişi',
-  'dashboard.heading': 'Kontrol Paneli',
+  'dashboard.heading': 'Pano',
   'dashboard.kpi.highPunch': 'Yüksek öncelikli eksiklik kalemleri',
   'dashboard.kpi.logsToday': 'Kaydedilen ekip saatleri',
   'dashboard.kpi.openRfis': "Açık RFI'lar",
@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiLabel': 'RFI güncellemeleri',
   'notificationsSettings.saveButton': 'Tercihleri Kaydet',
   'planUpdated.heading': 'Planınız güncellendi',
-  'planUpdated.subheading': 'Teşekkür ederiz!',
+  'planUpdated.subheading': 'Teşekkürler!',
   'profileSettings.description':
     'Kişisel bilgilerinizi ve projelerde diğerlerinin sizi nasıl gördüğünü güncelleyin.',
   'profileSettings.displayNameLabel': 'Görünen Ad',

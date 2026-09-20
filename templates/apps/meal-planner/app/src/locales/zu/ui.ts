@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Londoloza izindlela zokupheka ozithandayo, uzibeke esontwen, bese uthenga kusukela ohlwini lwempahla yokudla oluzibhalela lona. Ukuthi "yini yokudla" nga-5pm sekuphelile.',
   'simmer.landing.hero.cardBadge': 'Izidlo zakusihlwa ezingu-7 zihleliwe',
-  'simmer.landing.hero.cardTitle': 'Liviki leli',
+  'simmer.landing.hero.cardTitle': 'Kuleli viki',
   'simmer.landing.hero.eyebrow': 'Ukuhlela izidlo zeviki',
   'simmer.landing.hero.listHint': 'Uhlu lwempahla yokudla sekulungile',
   'simmer.landing.hero.primary': 'Qala — mahhala',
@@ -169,7 +169,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Igama lakho eliphelele',
   'simmer.week.nextLabel': 'Liviki elizayo',
   'simmer.week.prevLabel': 'Liviki eledlule',
-  'simmer.week.today': 'Liviki leli',
+  'simmer.week.today': 'Kuleli viki',
   'terms.title': 'Imigomo yenkonzo',
   'userMenu.guestName': 'I-akhawunti yakho',
   'userMenu.navLabel': 'Imenyu ye-akhawunti',

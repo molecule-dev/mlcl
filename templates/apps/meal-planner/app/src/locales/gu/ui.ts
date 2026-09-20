@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
     'તમે જે પેજ શોધી રહ્યા હતા તે અમને મળ્યું નહીં. તમારા અઠવાડિયા પર પાછા જવાનો પ્રયાસ કરો.',
   'simmer.notFound.heading': 'આ શેલ્ફ ખાલી છે',
   'simmer.notFound.planCta': 'તમારા પ્લાન પર જાઓ',
-  'simmer.onboarding.back': 'પાછા',
+  'simmer.onboarding.back': 'પાછળ',
   'simmer.onboarding.diet.body': 'મેચ થતી ટેગ કરેલી રેસિપી તમારા બોક્સની ટોચ પર આવે છે.',
   'simmer.onboarding.diet.heading': 'કંઈ છોડવાનું છે?',
   'simmer.onboarding.start': 'પ્લાનિંગ શરૂ કરો',

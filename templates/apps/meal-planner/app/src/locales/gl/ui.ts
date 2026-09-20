@@ -43,7 +43,7 @@ export const ui: UiTranslations = {
   'nav.terms': 'Termos',
   'privacy.title': 'Política de privacidade',
   'settings.account': 'Conta',
-  'settings.language.title': 'Idioma',
+  'settings.language.title': 'Lingua',
   'settings.logOut': 'Pechar sesión',
   'simmer.auth.legalPrefix': 'Ao continuar aceptas os nosos',
   'simmer.forgot.resend': 'Enviar outra ligazón de restablecemento',
@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
   'simmer.notFound.body': 'Non puidemos atopar a páxina que buscabas. Proba volvendo á túa semana.',
   'simmer.notFound.heading': 'Esta prateleira está baleira',
   'simmer.notFound.planCta': 'Ir ao teu plan',
-  'simmer.onboarding.back': 'Atrás',
+  'simmer.onboarding.back': 'Volver',
   'simmer.onboarding.diet.body':
     'As receitas etiquetadas para coincidir flutan ao principio da túa caixa.',
   'simmer.onboarding.diet.heading': 'Algo que omitir?',

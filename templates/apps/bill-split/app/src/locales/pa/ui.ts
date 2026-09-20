@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'ਸੇਵ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'common.signingInEllipsis': 'ਸਾਈਨ ਇਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'common.startFree': 'ਮੁਫਤ ਸ਼ੁਰੂ ਕਰੋ',
-  'dashboard.activity.title': 'ਹਾਲ ਦੀ ਗਤੀਵਿਧੀ',
+  'dashboard.activity.title': 'ਹਾਲੀਆ ਗਤੀਵਿਧੀ',
   'dashboard.activity.viewAll': 'ਸਾਰੀ ਗਤੀਵਿਧੀ ਦੇਖੋ',
   'dashboard.addExpense': 'ਖਰਚਾ ਜੋੜੋ',
   'dashboard.eyebrow': 'ਅੱਜ, ਇੱਕ ਨਜ਼ਰ ਵਿੱਚ',

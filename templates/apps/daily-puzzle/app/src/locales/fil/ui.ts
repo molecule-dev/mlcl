@@ -2,12 +2,12 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Makipag-ugnayan sa amin',
-  'about.eyebrow': 'Tungkol',
+  'about.eyebrow': 'Tungkol Sa Amin',
   'about.title': 'Tungkol sa {{app}}',
   'archive.loadError': 'Hindi ma-load ang archive.',
   'archive.missed': 'Nalampasan',
   'archive.notPlayed': 'Hindi nilaro',
-  'archive.title': 'Archive',
+  'archive.title': 'I-archive',
   'auth.backToHome': 'Bumalik sa home',
   'auth.backToHomeArrow': '← Bumalik sa home',
   'auth.backToSignIn': 'Bumalik sa sign in',
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
     'Hulaan ang nakatagong limang-letra na salita, panoorin ang mga tiles na lumipat, at panatilihing buhay ang iyong streak — ang buong mundo ay naglalaro ng parehong salita araw-araw.',
   'landing.how.title': 'Isang maliit na arawang ritwal',
   'landing.nav.community': 'Leaderboard',
-  'landing.nav.how': 'Paano gumagana',
+  'landing.nav.how': 'Paano ito gumagana',
   'landing.nav.playToday': 'Maglaro ngayon',
   'landing.nav.streaks': 'Streaks at stats',
   'landing.streaks.body':
@@ -72,7 +72,7 @@ export const ui: UiTranslations = {
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'Maligayang pagbabalik.',
   'login.streakPill': 'Naghihintay ang {{days}}-araw na streak',
-  'nav.archive': 'Archive',
+  'nav.archive': 'I-archive',
   'nav.editProfile': 'I-edit ang profile',
   'nav.getStarted': 'Magsimula',
   'nav.leaderboard': 'Leaderboard',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'pricing.loadError': 'Hindi ma-load ang mga plano.',
   'pricing.subhead':
     'Ang arawang salita ay palaging libre. Mag-upgrade para sa walang hanggang archive replays at mas malalim na stats.',
-  'pricing.yearly': 'Taun-taon',
+  'pricing.yearly': 'Taon-taon',
   'privacy.title': 'Paunawa sa privacy',
   'settings.account': 'Account',
   'settings.danger.body':

@@ -65,7 +65,7 @@ export const ui: UiTranslations = {
   'simmer.landing.hero.body':
     'Vistaðu uppskriftirnar sem þú elskar, settu þær á vikuna og verslaðu úr innkaupalista sem skrifar sig sjálfur. Klukkan 17 "hvað er í mat?" er búin.',
   'simmer.landing.hero.cardBadge': '7 kvöldverðir skipulagðir',
-  'simmer.landing.hero.cardTitle': 'Þessi vika',
+  'simmer.landing.hero.cardTitle': 'Í þessari viku',
   'simmer.landing.hero.eyebrow': 'Vikuleg matarskipulagning',
   'simmer.landing.hero.listHint': 'Innkaupalisti tilbúinn',
   'simmer.landing.hero.primary': 'Byrjaðu — ókeypis',
@@ -165,7 +165,7 @@ export const ui: UiTranslations = {
   'simmer.signup.namePlaceholder': 'Fullt nafn þitt',
   'simmer.week.nextLabel': 'Næsta vika',
   'simmer.week.prevLabel': 'Fyrri vika',
-  'simmer.week.today': 'Þessi vika',
+  'simmer.week.today': 'Í þessari viku',
   'terms.title': 'Þjónustuskilmálar',
   'userMenu.guestName': 'Reikningurinn þinn',
   'userMenu.navLabel': 'Reikningsvalmynd',

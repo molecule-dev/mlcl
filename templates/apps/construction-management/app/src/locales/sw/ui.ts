@@ -109,7 +109,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Nijulishe wakati RFI imejibiwa au imefungwa.',
   'notificationsSettings.rfiLabel': 'Visasisho vya RFI',
   'notificationsSettings.saveButton': 'Hifadhi Mapendeleo',
-  'planUpdated.heading': 'Mpango wako umesasishwa',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Asante!',
   'profileSettings.description':
     'Sasisha maelezo yako binafsi na jinsi wengine wanavyokuona katika miradi.',
@@ -190,7 +190,7 @@ export const ui: UiTranslations = {
   'settings.devices': 'Vifaa',
   'settings.logOut': 'Ondoka',
   'settings.notifications': 'Arifa',
-  'settings.signOutDevice': 'Ondoka',
+  'settings.signOutDevice': 'Toka',
   'settings.thisDevice': 'Kifaa hiki',
   'signup.email': 'Barua pepe',
   'signup.error': 'Imeshindwa kufungua akaunti. Tafadhali jaribu tena.',

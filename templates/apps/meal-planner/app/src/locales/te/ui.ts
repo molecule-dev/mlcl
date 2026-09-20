@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
     'మీరు వెతుకుతున్న పేజీని మేము కనుగొనలేకపోయాము. మీ వారానికి తిరిగి వెళ్లడానికి ప్రయత్నించండి.',
   'simmer.notFound.heading': 'ఈ షెల్ఫ్ ఖాళీగా ఉంది',
   'simmer.notFound.planCta': 'మీ ప్లాన్‌కు వెళ్లండి',
-  'simmer.onboarding.back': 'వెనక్కి',
+  'simmer.onboarding.back': 'వెనుక',
   'simmer.onboarding.diet.body': 'మ్యాచ్ అయ్యేలా ట్యాగ్ చేసిన వంటకాలు మీ బాక్స్ పైన కనిపిస్తాయి.',
   'simmer.onboarding.diet.heading': 'ఏదైనా స్కిప్ చేయాలా?',
   'simmer.onboarding.start': 'ప్లానింగ్ ప్రారంభించండి',

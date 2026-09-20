@@ -9,7 +9,7 @@ export const ui: UiTranslations = {
   'addBook.eyebrow': 'Bővítsd a könyvtárat',
   'addBook.genresLabel': 'Műfajok',
   'addBook.heading': 'Könyv hozzáadása',
-  'addBook.previewTitle': 'Cím nélkül',
+  'addBook.previewTitle': 'Névtelen',
   'addBook.shelfLabel': 'Polc',
   'addBook.titlePlaceholder': 'pl. A sötétség bal keze',
   'auth.backToSignIn': 'Vissza a bejelentkezéshez',
@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
   'settings.reminders.weekly': 'Heti oldal összegzés (vasárnap este)',
   'settings.revokeDeviceWarning':
     'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
-  'settings.signOutDevice': 'Kijelentkeztetés',
+  'settings.signOutDevice': 'Kijelentkezés',
   'settings.thisDevice': 'Ez az eszköz',
   'settings.unnamedDevice': 'Eszköz',
   'signup.eyebrow': 'Az első nap most kezdődik',

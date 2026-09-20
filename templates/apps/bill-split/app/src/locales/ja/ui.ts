@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'について',
+  'about.eyebrow': '概要',
   'activity.emptyTitle': '今のところ静かです',
   'activity.eyebrow': 'すべての出来事',
   'activity.title': 'アクティビティ',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'フルネーム',
   'friends.add': '友達を追加',
   'friends.count': '{{count}}人の友達',
-  'friends.email': 'メール',
+  'friends.email': 'メールアドレス',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'あなたのアドレス帳',
   'friends.listTitle': '割り勘する相手',

@@ -128,7 +128,7 @@ export const ui: UiTranslations = {
     "Enganxa el codi del correu que t'acabem d'enviar i tria una contrasenya nova.",
   'resetPassword.submit': 'Restablir contrasenya i iniciar sessió',
   'settings.eyebrow': "Preferències de l'espai de treball",
-  'settings.language.title': 'Idioma',
+  'settings.language.title': 'Llengua',
   'settings.notifications.title': 'Notificacions',
   'settings.profile.saved': 'Desat ✓',
   'settings.settlement.subtitle':

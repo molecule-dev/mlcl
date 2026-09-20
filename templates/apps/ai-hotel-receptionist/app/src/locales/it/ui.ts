@@ -1,13 +1,13 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'account.email': 'Email',
-  'account.heading': 'Il tuo account',
+  'account.email': 'E-mail',
+  'account.heading': 'Il Suo account',
   'account.loadError': 'Impossibile caricare il tuo account.',
   'account.name': 'Nome',
   'account.username': 'Nome utente',
   'auth.forgotPassword.email': 'Email',
-  'auth.forgotPassword.title': 'Reimposta la tua password',
+  'auth.forgotPassword.title': 'Reimposti la Sua password',
   'auth.login.forgotShort': 'Dimenticata?',
   'auth.login.password': 'Password',
   'auth.login.signInButton': 'Accedi',
@@ -64,13 +64,13 @@ export const ui: UiTranslations = {
   'dashboard.viewAllCalls': 'Visualizza tutte le chiamate',
   'forgotPassword.eyebrow': 'Recupero account',
   'forgotPassword.formLabel': 'Modulo richiesta link di reimpostazione',
-  'forgotPassword.sendingEllipsis': 'Invio…',
+  'forgotPassword.sendingEllipsis': 'Invio in corso…',
   'forgotPassword.sendResetLink': 'Invia link di reimpostazione',
   'forgotPassword.sentNotice':
     'Se questo indirizzo ha un account, un link di reimpostazione è in arrivo.',
   'form.firstName': 'Nome',
   'form.lastName': 'Cognome',
-  'guestDetail.email': 'Email',
+  'guestDetail.email': 'E-mail',
   'guestDetail.noStays': 'Nessuna prenotazione ancora collegata a questo ospite.',
   'guestDetail.phone': 'Telefono',
   'guestDetail.preferredLanguage': 'Lingua preferita',

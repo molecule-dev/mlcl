@@ -114,10 +114,10 @@ export const ui: UiTranslations = {
   'stopBoard.savedLabel': 'Uloženo',
   'stopBoard.saveLabel': 'Uložit zastávku',
   'stopPicker.chooseStop': 'Vyberte zastávku…',
-  'transitLayout.primaryNavLabel': 'Hlavní navigace',
+  'transitLayout.primaryNavLabel': 'Primární navigace',
   'tripPlanner.error': 'Nelze naplánovat tuto cestu. Zkuste to prosím znovu.',
   'tripPlanner.eyebrow': 'Plánovač cest',
-  'tripPlanner.originLabel': 'Z',
+  'tripPlanner.originLabel': 'Z účtu',
   'tripPlanner.planning': 'Plánování…',
   'tripPlanner.submit': 'Najít spoje',
   'tripPlanner.subtitle':

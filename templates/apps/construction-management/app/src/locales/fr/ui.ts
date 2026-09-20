@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
     "Me notifier lorsqu'une DI reçoit une réponse ou est clôturée.",
   'notificationsSettings.rfiLabel': 'Mises à jour des DI',
   'notificationsSettings.saveButton': 'Enregistrer les préférences',
-  'planUpdated.heading': 'Votre forfait a été mis à jour',
+  'planUpdated.heading': 'Votre formule a été mise à jour',
   'planUpdated.subheading': 'Merci !',
   'profileSettings.description':
     'Mettez à jour vos informations personnelles et votre apparence pour les autres utilisateurs.',
@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
   'rfis.respondError': 'Échec de la réponse.',
   'rfis.respondLabel': 'Ajouter une réponse ou une clarification',
   'rfis.saving': 'Création…',
-  'rfis.submit': 'Créer la DI',
+  'rfis.submit': 'Créer une DI',
   'settings.billing': 'Facturation',
   'settings.devices': 'Appareils',
   'settings.logOut': 'Se déconnecter',
@@ -216,7 +216,7 @@ export const ui: UiTranslations = {
   'subs.newButton': 'Ajouter un sous-traitant',
   'subs.saving': 'Ajout…',
   'subs.statusError': 'Changement de statut refusé.',
-  'subs.submit': 'Ajouter le sous-traitant',
+  'subs.submit': 'Ajouter un sous-traitant',
   'subs.terminate': 'Résilier',
   'userMenu.guestName': 'Chef de chantier',
 }

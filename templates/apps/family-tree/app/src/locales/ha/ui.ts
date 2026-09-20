@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Yi magana da mu',
-  'about.eyebrow': 'Game da mu',
+  'about.eyebrow': 'Game da',
   'addPerson.back': 'Dukan mutane',
   'addPerson.error': 'Ba a iya adana wannan mutum ba.',
   'addPerson.submit': 'Ƙara mutum',
@@ -37,8 +37,8 @@ export const ui: UiTranslations = {
   'common.signingInEllipsis': 'Ana shiga…',
   'common.whatYouGet': 'Abin da zaka samu',
   'editPerson.back': 'Koma zuwa bayanin martaba',
-  'editPerson.error': 'Ba a iya adana canje-canje ba.',
-  'editPerson.submit': 'Adana canje-canje',
+  'editPerson.error': 'Ba za a iya adana canje-canje ba.',
+  'editPerson.submit': 'Ajiye canje-canje',
   'editPerson.subtitle':
     'Kwanakai, wurare, da bayanan bincike. Ana sarrafa dangantaka daga bayanin martaba.',
   'editPerson.title': 'Gyara {{name}}',
@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'settings.deleteModalTitle': 'Share asusun ka?',
   'settings.deleteWarn':
     'Yana share asusun ka, kowane mutum, da kowace dangantaka. Babu komawa baya.',
-  'settings.deleting': 'Ana sharewa…',
+  'settings.deleting': 'Ana gogewa…',
   'settings.deviceCountOne': "Na'ura 1",
   'settings.emailLabel': 'Imel',
   'settings.exportAction': 'Fitar da itace',
@@ -148,6 +148,6 @@ export const ui: UiTranslations = {
   'tree.resetView': 'Sake saita kallo',
   'tree.stats': 'Mutane {{people}} · Tsararraki {{generations}}',
   'tree.title': 'Itacen iyali',
-  'tree.zoomIn': 'Ƙara girma',
-  'tree.zoomOut': 'Rage girma',
+  'tree.zoomIn': 'Zuƙowa ciki',
+  'tree.zoomOut': 'A rage girman',
 }

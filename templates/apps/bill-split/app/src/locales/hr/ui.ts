@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'O aplikaciji',
+  'about.eyebrow': 'Oko',
   'activity.emptyTitle': 'Trenutno mirno',
   'activity.eyebrow': 'Sve što se dogodilo',
   'activity.title': 'Aktivnost',
@@ -55,7 +55,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Puno ime',
   'friends.add': 'Dodaj prijatelja',
   'friends.count': '{{count}} prijatelja',
-  'friends.email': 'E-adresa',
+  'friends.email': 'E-pošta',
   'friends.emailPlaceholder': 'priya@primjer.com',
   'friends.eyebrow': 'Vaš adresar',
   'friends.listTitle': 'Osobe s kojima dijelite troškove',
@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Dodaj trošak',
   'newExpense.totalLabel': 'Ukupan trošak',
   'newExpense.weightFor': 'Težina udjela za {{name}}',
-  'newExpense.youOption': 'Vi',
+  'newExpense.youOption': 'Vas',
   'resetPassword.hidePassword': 'Sakrij lozinku',
   'resetPassword.newPasswordLabel': 'Nova lozinka',
   'resetPassword.showPassword': 'Prikaži lozinku',

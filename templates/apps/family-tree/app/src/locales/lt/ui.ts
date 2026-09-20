@@ -51,7 +51,7 @@ export const ui: UiTranslations = {
   'lifeTimeline.died': 'Mirė',
   'lifeTimeline.diedIn': 'Mirė {{place}}',
   'login.emailLabel': 'EL. PAŠTAS',
-  'login.emailPlaceholder': 'tu@pavyzdys.lt',
+  'login.emailPlaceholder': 'you@example.com',
   'login.hidePassword': 'Slėpti slaptažodį',
   'login.passwordLabel': 'SLAPTAŽODIS',
   'login.showPassword': 'Rodyti slaptažodį',
@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'settings.deleteModalTitle': 'Ištrinti jūsų paskyrą?',
   'settings.deleteWarn':
     'Ištrina jūsų paskyrą, kiekvieną asmenį ir kiekvieną ryšį. Nėra atšaukimo.',
-  'settings.deleting': 'Trinama…',
+  'settings.deleting': 'Ištrinama…',
   'settings.deviceCountOne': '1 įrenginys',
   'settings.emailLabel': 'El. paštas',
   'settings.exportAction': 'Eksportuoti medį',

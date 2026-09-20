@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Võta ühendust',
-  'about.eyebrow': 'Meist',
+  'about.eyebrow': 'Teave',
   'about.pageTitle': 'Rakendusest {{app}}',
   'auth.forgotPassword.email': 'E-post',
   'auth.forgotPassword.sendResetLink': 'Saada lähtestuslink',
@@ -39,7 +39,7 @@ export const ui: UiTranslations = {
   'budget.spentOver': 'Kulutatud — üle hinnangu',
   'budget.spentWithin': 'Kulutatud — hinnangu piires',
   'budget.title': 'Eelarve',
-  'common.actions': 'Tegevused',
+  'common.actions': 'Toimingud',
   'common.back': 'Tagasi',
   'common.cancel': 'Tühista',
   'common.checkYourInbox': 'Kontrolli postkasti',
@@ -88,7 +88,7 @@ export const ui: UiTranslations = {
   'guests.col.plusOnes': '+1',
   'guests.col.rsvp': 'RSVP',
   'guests.col.side': 'Pool',
-  'guests.count': '{{count}} külalist',
+  'guests.count': '{{count}} külalised',
   'guests.eyebrow': 'Külaliste nimekiri',
   'guests.filterAllSides': 'Kõik pooled',
   'guests.filterAllStatuses': 'Kõik olekud',
@@ -161,7 +161,7 @@ export const ui: UiTranslations = {
   'rsvp.notFoundTitle': 'Me ei leidnud seda koodi',
   'rsvp.plusOnes': 'Kaasa tulevad külalised',
   'rsvp.respondEyebrow': 'RSVP',
-  'rsvp.sending': 'Saatmine…',
+  'rsvp.sending': 'Saadetakse…',
   'rsvp.submit': 'Saada minu vastus',
   'seating.emptyTable': 'Kedagi pole veel istutatud',
   'seating.eyebrow': 'Vastuvõtt',
@@ -208,5 +208,5 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Lisa',
   'vendors.noContact': 'Kontakti pole veel',
   'vendors.title': 'Teenusepakkujad',
-  'weddingLayout.primaryNavLabel': 'Peamine navigatsioon',
+  'weddingLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Контактирајте не',
-  'about.eyebrow': 'За нас',
+  'about.eyebrow': 'За',
   'auth.backToSignIn': 'Назад кон најава',
   'auth.forgotPassword.enterEmailDescription':
     'Внесете ја вашата е-пошта и ќе ви испратиме линк за ресетирање.',
@@ -100,7 +100,7 @@ export const ui: UiTranslations = {
   'gifts.detail.note': 'Белешка',
   'gifts.detail.receiptHint':
     'Крај на година: генерирајте даночна потврда за овој донатор од страната Потврди — овој подарок ќе биде вклучен.',
-  'gifts.detail.recorded': 'Евидентирано',
+  'gifts.detail.recorded': 'Снимено',
   'gifts.empty': 'Нема совпаѓања.',
   'gifts.filterByMethod': 'Филтрирај по метод',
   'gifts.heading': 'Подароци',
@@ -125,8 +125,8 @@ export const ui: UiTranslations = {
   'gifts.notFound': 'Подарокот не е пронајден.',
   'gifts.receiptedOnly': 'Потврдени',
   'gifts.unreceiptedOnly': 'Без потврда',
-  'landing.getStarted': 'Започни бесплатно',
-  'landing.heroCta': 'Започни бесплатно',
+  'landing.getStarted': 'Започнете бесплатно',
+  'landing.heroCta': 'Започнете бесплатно',
   'landing.mockLive': 'Денес',
   'landing.pricingLink': 'Цени',
   'layout.primaryNavLabel': 'Примарна навигација',
@@ -156,7 +156,7 @@ export const ui: UiTranslations = {
   'receipts.loadError': 'Неуспешно вчитување на потврдите.',
   'receipts.notFound': 'Потврдата не е пронајдена.',
   'receipts.pickDonor': 'Прво изберете донатор.',
-  'receipts.preview': 'Преглед',
+  'receipts.preview': 'Preview',
   'receipts.previewError': 'Неуспешен преглед на потврдата.',
   'receipts.previewing': 'Се прегледува…',
   'receipts.print': 'Печати потврда',
@@ -173,7 +173,7 @@ export const ui: UiTranslations = {
   'resetPassword.emailLabel': 'Е-ПОШТА',
   'resetPassword.showPassword': 'Прикажи лозинка',
   'resetPassword.submit': 'Ресетирај лозинка',
-  'settings.appearance.description': 'Префрли помеѓу светол и темен режим.',
+  'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
   'settings.appearance.title': 'Изглед',
   'settings.billing': 'Наплата',
   'settings.eyebrow': 'Организација и донации',

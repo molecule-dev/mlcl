@@ -111,7 +111,7 @@ export const ui: UiTranslations = {
     'Сповіщати мене, коли на RFI отримано відповідь або його закрито.',
   'notificationsSettings.rfiLabel': 'Оновлення RFI',
   'notificationsSettings.saveButton': 'Зберегти налаштування',
-  'planUpdated.heading': 'Ваш тариф оновлено',
+  'planUpdated.heading': 'Ваш план оновлено',
   'planUpdated.subheading': 'Дякуємо!',
   'profileSettings.description':
     'Оновіть свою особисту інформацію та те, як вас бачать інші учасники проєктів.',

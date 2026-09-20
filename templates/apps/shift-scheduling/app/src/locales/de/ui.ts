@@ -86,7 +86,7 @@ export const ui: UiTranslations = {
   'form.lastName': 'Nachname',
   'form.role': 'Rolle',
   'landing.eyebrow': 'Dienstplanung – ohne Gruppenchat',
-  'landing.featuresEyebrow': "So funktioniert's",
+  'landing.featuresEyebrow': 'So funktioniert es',
   'landing.featuresHeading': 'Erstellen. Veröffentlichen. Durchatmen.',
   'landing.featuresSubheading':
     'Vier Ansichten, die einen Manager von einer leeren Woche zu einem veröffentlichten Dienstplan führen – und ihn aufrechterhalten, wenn das Leben dazwischenkommt.',
@@ -110,7 +110,7 @@ export const ui: UiTranslations = {
   'login.subheading':
     'Öffnen Sie den Dienstplan, veröffentlichen Sie die Woche, halten Sie jede Schicht besetzt.',
   'loginBrandPanel.badge.claimed': 'Übernommen',
-  'loginBrandPanel.badge.open': 'Offen',
+  'loginBrandPanel.badge.open': 'Öffnen',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. Entwickelt für Stundenlohn-Teams.',
   'loginBrandPanel.headline': 'Jede Schicht,',

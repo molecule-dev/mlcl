@@ -80,7 +80,7 @@ export const ui: UiTranslations = {
     'हम वह पेज नहीं ढूंढ सके जिसे आप खोज रहे थे। अपने सप्ताह पर वापस जाने का प्रयास करें।',
   'simmer.notFound.heading': 'यह शेल्फ खाली है',
   'simmer.notFound.planCta': 'अपनी योजना पर जाएं',
-  'simmer.onboarding.back': 'पीछे',
+  'simmer.onboarding.back': 'वापस',
   'simmer.onboarding.diet.body': 'मेल खाने वाली टैग की गई रेसिपी आपके बॉक्स के शीर्ष पर आती हैं।',
   'simmer.onboarding.diet.heading': 'कुछ छोड़ना है?',
   'simmer.onboarding.start': 'योजना शुरू करें',

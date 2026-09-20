@@ -103,7 +103,7 @@ export const ui: UiTranslations = {
   'settings.notifications': 'Obavještenja',
   'settings.profile.currency': 'Valuta',
   'settings.profile.home': 'Početna stanica',
-  'settings.saving': 'Čuvanje…',
+  'settings.saving': 'Spremanje…',
   'signup.eyebrow': 'Pridružite se {{app}}',
   'stop.hubChip': 'Presjedanje',
   'stopBoard.backToNearby': 'Nazad na sve stanice',
@@ -117,7 +117,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'Primarna navigacija',
   'tripPlanner.error': 'Nije moguće planirati ovo putovanje. Molimo pokušajte ponovo.',
   'tripPlanner.eyebrow': 'Planer putovanja',
-  'tripPlanner.originLabel': 'Od',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'Planiranje…',
   'tripPlanner.submit': 'Pronađi putovanja',
   'tripPlanner.subtitle':

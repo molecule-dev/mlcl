@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'O aplikácii',
+  'about.eyebrow': 'O nás',
   'activity.emptyTitle': 'Zatiaľ ticho',
   'activity.eyebrow': 'Všetko, co sa stalo',
   'activity.title': 'Aktivita',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Celé meno',
   'friends.add': 'Pridať priateľa',
   'friends.count': '{{count}} priateľov',
-  'friends.email': 'Email',
+  'friends.email': 'E-mail',
   'friends.emailPlaceholder': 'priya@priklad.sk',
   'friends.eyebrow': 'Váš zoznam kontaktov',
   'friends.listTitle': 'Ľudia, s ktorými delíte',
@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Pridať výdavok',
   'newExpense.totalLabel': 'Celkový výdavok',
   'newExpense.weightFor': 'Váha podielu pre {{name}}',
-  'newExpense.youOption': 'Vy',
+  'newExpense.youOption': 'Ty',
   'resetPassword.hidePassword': 'Skryť heslo',
   'resetPassword.newPasswordLabel': 'Nové heslo',
   'resetPassword.showPassword': 'Zobraziť heslo',
@@ -128,7 +128,7 @@ export const ui: UiTranslations = {
   'resetPassword.submit': 'Obnoviť heslo a prihlásiť sa',
   'settings.eyebrow': 'Predvoľby pracovného priestoru',
   'settings.language.title': 'Jazyk',
-  'settings.notifications.title': 'Oznámenia',
+  'settings.notifications.title': 'Upozornenia',
   'settings.profile.saved': 'Uložené ✓',
   'settings.settlement.subtitle':
     'Predvyplnené, keď zaznamenávate vyrovnanie. Evenly nikdy nepresúva peniaze — toto len označuje, ako ste si navzájom vyplatili.',

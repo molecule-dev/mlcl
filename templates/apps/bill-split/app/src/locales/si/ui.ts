@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'පිළිබඳව',
+  'about.eyebrow': 'ගැන',
   'activity.emptyTitle': 'දැනට නිහඬයි',
   'activity.eyebrow': 'සිදු වූ සියල්ල',
   'activity.title': 'ක්‍රියාකාරකම්',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'සුරකිමින්…',
   'common.signingInEllipsis': 'ඇතුල් වෙමින්…',
   'common.startFree': 'නොමිලේ ආරම්භ කරන්න',
-  'dashboard.activity.title': 'මෑත ක්‍රියාකාරකම්',
+  'dashboard.activity.title': 'මෑත කාලීන ක්‍රියාකාරකම්',
   'dashboard.activity.viewAll': 'සියලු ක්‍රියාකාරකම් බලන්න',
   'dashboard.addExpense': 'වියදමක් එකතු කරන්න',
   'dashboard.eyebrow': 'අද, එකෙනෙකින්',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'සම්පූර්ණ නම',
   'friends.add': 'මිතුරෙකු එකතු කරන්න',
   'friends.count': 'මිතුරන් {{count}}',
-  'friends.email': 'ඊමේල්',
+  'friends.email': 'විද්යුත් තැපෑල',
   'friends.emailPlaceholder': 'priya@example.com',
   'friends.eyebrow': 'ඔබේ ලිපින පොත',
   'friends.listTitle': 'ඔබ බෙදාගන්නා පුද්ගලයින්',
@@ -102,7 +102,7 @@ export const ui: UiTranslations = {
   'nav.profile': 'පැතිකඩ',
   'nav.settings': 'සැකසීම්',
   'newExpense.amount': 'මුදල (USD)',
-  'newExpense.description': 'විස්තරය',
+  'newExpense.description': 'විස්තර',
   'newExpense.descriptionPlaceholder': 'ගබඩා භාණ්ඩ සහ දර ලී',
   'newExpense.exactShareFor': '{{name}} සඳහා නිශ්චිත කොටස',
   'newExpense.group': 'කණ්ඩායම',

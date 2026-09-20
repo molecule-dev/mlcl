@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Dodaj trošak',
   'newExpense.totalLabel': 'Ukupan trošak',
   'newExpense.weightFor': 'Težina udjela za {{name}}',
-  'newExpense.youOption': 'Vi',
+  'newExpense.youOption': 'Ti',
   'resetPassword.hidePassword': 'Sakrij lozinku',
   'resetPassword.newPasswordLabel': 'Nova lozinka',
   'resetPassword.showPassword': 'Prikaži lozinku',

@@ -108,7 +108,7 @@ export const ui: UiTranslations = {
   'notificationsSettings.rfiDescription': 'Обавести ме када је RFI одговорен или затворен.',
   'notificationsSettings.rfiLabel': 'Ажурирања RFI-ова',
   'notificationsSettings.saveButton': 'Сачувај поставке',
-  'planUpdated.heading': 'Ваш план је ажуриран',
+  'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Хвала вам!',
   'profileSettings.description':
     'Ажурирајте своје личне податке и како вас други виде у пројектима.',
@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
   'settings.devices': 'Уређаји',
   'settings.logOut': 'Одјави се',
   'settings.notifications': 'Обавештења',
-  'settings.signOutDevice': 'Одјави се',
+  'settings.signOutDevice': 'Одјавите се',
   'settings.thisDevice': 'Овај уређај',
   'signup.email': 'Имејл адреса',
   'signup.error': 'Није могуће направити налог. Покушајте поново.',

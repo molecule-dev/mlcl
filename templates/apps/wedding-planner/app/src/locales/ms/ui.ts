@@ -2,7 +2,7 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hubungi kami',
-  'about.eyebrow': 'Perihal',
+  'about.eyebrow': 'Tentang',
   'about.pageTitle': 'Perihal {{app}}',
   'auth.forgotPassword.email': 'E-mel',
   'auth.forgotPassword.sendResetLink': 'Hantar pautan set semula',
@@ -82,7 +82,7 @@ export const ui: UiTranslations = {
   'form.firstName': 'Nama pertama',
   'form.lastName': 'Nama keluarga',
   'guests.addGuest': 'Tambah tetamu',
-  'guests.col.contact': 'Hubungan',
+  'guests.col.contact': 'Kenalan',
   'guests.col.group': 'Kumpulan',
   'guests.col.meal': 'Hidangan',
   'guests.col.plusOnes': '+1',
@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
   'settings.emailUpdated': 'E-mel dikemas kini.',
   'settings.eyebrow': '{{app}} · Akaun',
   'settings.notSignedIn': 'Belum log masuk.',
-  'settings.passwordUpdated': 'Kata laluan dikemas kini.',
+  'settings.passwordUpdated': 'Kata laluan dikemaskini.',
   'settings.planUpdated': 'Pelan dikemas kini.',
   'settings.profile.body':
     'Bagaimana anda kelihatan pada perancang anda dan kepada sesiapa yang anda kongsi.',

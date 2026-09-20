@@ -177,7 +177,7 @@ export const ui: UiTranslations = {
   'settings.reminders.stalled': 'Подсетник за заустављену књигу (није забележено 5 дана)',
   'settings.reminders.weekly': 'Недељни преглед страница (недељом увече)',
   'settings.revokeDeviceWarning': 'Приступ овом уређају ће ускоро бити опозван. Одјавити га?',
-  'settings.signOutDevice': 'Одјави се',
+  'settings.signOutDevice': 'Одјавите се',
   'settings.thisDevice': 'Овај уређај',
   'settings.unnamedDevice': 'Уређај',
   'signup.eyebrow': 'Први дан почиње сада',

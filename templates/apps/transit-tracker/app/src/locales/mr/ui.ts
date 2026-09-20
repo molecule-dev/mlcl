@@ -82,7 +82,7 @@ export const ui: UiTranslations = {
   'nearby.error': 'नेटवर्क लोड करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
   'nearby.eyebrow': 'शहर ट्रान्झिट',
   'nearby.loading': 'थांबे लोड होत आहेत…',
-  'nearby.manageSaved': 'व्यवस्थापित करा',
+  'nearby.manageSaved': 'व्यवस्थापन करा',
   'nearby.savedHeading': 'तुमचे जतन केलेले थांबे',
   'nearby.subtitle': 'नाव किंवा कोडने शोधा, किंवा प्रत्येक थांबा पहा — प्रथम इंटरचेंज.',
   'nearby.title': 'तुमचा थांबा शोधा',
@@ -116,7 +116,7 @@ export const ui: UiTranslations = {
   'transitLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'tripPlanner.error': 'या प्रवासाचे नियोजन करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
   'tripPlanner.eyebrow': 'ट्रिप प्लॅनर',
-  'tripPlanner.originLabel': 'पासून',
+  'tripPlanner.originLabel': 'From',
   'tripPlanner.planning': 'नियोजन करत आहे…',
   'tripPlanner.submit': 'प्रवास शोधा',
   'tripPlanner.subtitle':

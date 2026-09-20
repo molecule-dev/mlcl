@@ -2,9 +2,9 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'account.email': 'E-mail',
-  'account.heading': 'Twoje konto',
+  'account.heading': 'Pana/Pani konto',
   'account.loadError': 'Nie udało się załadować Twojego konta.',
-  'account.name': 'Imię i nazwisko',
+  'account.name': 'Nazwa',
   'account.username': 'Nazwa użytkownika',
   'auth.forgotPassword.email': 'E-mail',
   'auth.forgotPassword.title': 'Zresetuj hasło',
@@ -123,7 +123,7 @@ export const ui: UiTranslations = {
   'reservations.loadError': 'Nie udało się załadować rezerwacji.',
   'reservations.newButton': 'Nowa rezerwacja',
   'reservations.source': 'Źródło',
-  'reservations.status': 'Status',
+  'reservations.status': 'Stan',
   'reservations.total': 'Razem',
   'resetPassword.eyebrow': 'Odzyskiwanie konta',
   'resetPassword.formLabel': 'Formularz ustawiania nowego hasła',

@@ -1,7 +1,7 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
-  'about.eyebrow': 'О апликацији',
+  'about.eyebrow': 'О нама',
   'activity.emptyTitle': 'Тренутно нема ничег',
   'activity.eyebrow': 'Све што се десило',
   'activity.title': 'Активност',
@@ -34,7 +34,7 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Чување…',
   'common.signingInEllipsis': 'Пријављивање…',
   'common.startFree': 'Почни бесплатно',
-  'dashboard.activity.title': 'Скорашња активност',
+  'dashboard.activity.title': 'Недавне активности',
   'dashboard.activity.viewAll': 'Прикажи сву активност',
   'dashboard.addExpense': 'Додај трошак',
   'dashboard.eyebrow': 'Данас, у кратким цртама',
@@ -54,7 +54,7 @@ export const ui: UiTranslations = {
   'form.fullName': 'Пуно име',
   'friends.add': 'Додај пријатеља',
   'friends.count': '{{count}} пријатеља',
-  'friends.email': 'Имејл',
+  'friends.email': 'Е-пошта',
   'friends.emailPlaceholder': 'marija@primer.com',
   'friends.eyebrow': 'Ваш адресар',
   'friends.listTitle': 'Људи са којима делите',
@@ -119,7 +119,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Додај трошак',
   'newExpense.totalLabel': 'Укупан трошак',
   'newExpense.weightFor': 'Тежина удела за {{name}}',
-  'newExpense.youOption': 'Ви',
+  'newExpense.youOption': 'Ти',
   'resetPassword.hidePassword': 'Сакриј лозинку',
   'resetPassword.newPasswordLabel': 'Нова лозинка',
   'resetPassword.showPassword': 'Прикажи лозинку',

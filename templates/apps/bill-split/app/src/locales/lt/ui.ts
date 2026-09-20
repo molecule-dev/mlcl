@@ -120,7 +120,7 @@ export const ui: UiTranslations = {
   'newExpense.title': 'Pridėti išlaidą',
   'newExpense.totalLabel': 'Išlaidų suma',
   'newExpense.weightFor': 'Dalies svoris {{name}}',
-  'newExpense.youOption': 'Jūs',
+  'newExpense.youOption': 'Tu',
   'resetPassword.hidePassword': 'Slėpti slaptažodį',
   'resetPassword.newPasswordLabel': 'Naujas slaptažodis',
   'resetPassword.showPassword': 'Rodyti slaptažodį',

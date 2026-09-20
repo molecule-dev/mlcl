@@ -9,7 +9,7 @@ export const ui: UiTranslations = {
   'addBook.eyebrow': 'Udvid biblioteket',
   'addBook.genresLabel': 'Genrer',
   'addBook.heading': 'Tilføj en bog',
-  'addBook.previewTitle': 'Uden titel',
+  'addBook.previewTitle': 'Unavngivet',
   'addBook.shelfLabel': 'Placer som',
   'addBook.titlePlaceholder': 'f.eks. Mørkets venstre hånd',
   'auth.backToSignIn': 'Tilbage til log ind',
