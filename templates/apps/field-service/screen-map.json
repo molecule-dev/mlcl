@@ -1,0 +1,239 @@
+{
+  "app": "field-service",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Customers",
+      "templateFile": "app/pages/Customers.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/customers",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "NewCustomer",
+      "templateFile": "app/pages/NewCustomer.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/customers/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "CustomerDetail",
+      "templateFile": "app/pages/CustomerDetail.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/customers/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Quotes",
+      "templateFile": "app/pages/Quotes.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/quotes",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "QuoteNew",
+      "templateFile": "app/pages/QuoteNew.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/quotes/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "QuoteDetail",
+      "templateFile": "app/pages/QuoteDetail.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/quotes/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "QuoteEdit",
+      "templateFile": "app/pages/QuoteEdit.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/quotes/:id/edit",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Jobs",
+      "templateFile": "app/pages/Jobs.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/jobs",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "JobDetail",
+      "templateFile": "app/pages/JobDetail.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/jobs/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dispatch",
+      "templateFile": "app/pages/Dispatch.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/dispatch",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Technicians",
+      "templateFile": "app/pages/Technicians.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/technicians",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Invoices",
+      "templateFile": "app/pages/Invoices.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/invoices",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "InvoiceDetail",
+      "templateFile": "app/pages/InvoiceDetail.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/invoices/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PlanUpdated",
+      "templateFile": "app/pages/PlanUpdated.tsx",
+      "components": ["app/components/ToolbeltLayout.tsx"],
+      "route": "/plan-updated",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

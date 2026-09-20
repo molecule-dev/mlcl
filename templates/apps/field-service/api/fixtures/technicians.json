@@ -1,0 +1,8 @@
+[
+  { "id": "tec_001", "name": "Ray Delgado", "trade": "hvac", "phone": "(555) 101-2233", "email": "ray@toolbelt.test", "skills": ["EPA 608 Universal", "Heat pump cert"], "active": true, "active_jobs": 2, "created_at": "2026-07-15T09:00:00.000Z" },
+  { "id": "tec_002", "name": "Priya Nair", "trade": "plumbing", "phone": "(555) 102-3344", "email": "priya@toolbelt.test", "skills": ["Backflow prevention"], "active": true, "active_jobs": 2, "created_at": "2026-07-15T09:05:00.000Z" },
+  { "id": "tec_003", "name": "Marcus Webb", "trade": "electrical", "phone": "(555) 103-4455", "email": "marcus@toolbelt.test", "skills": ["Master electrician", "OSHA 30"], "active": true, "active_jobs": 0, "created_at": "2026-07-22T09:00:00.000Z" },
+  { "id": "tec_004", "name": "Dana Kowalski", "trade": "general", "phone": "(555) 104-5566", "email": "dana@toolbelt.test", "skills": ["Appliance repair"], "active": true, "active_jobs": 1, "created_at": "2026-08-05T09:00:00.000Z" },
+  { "id": "tec_005", "name": "Tomás Rivera", "trade": "hvac", "phone": "(555) 105-6677", "email": "tomas@toolbelt.test", "skills": ["EPA 608 Universal"], "active": true, "active_jobs": 1, "created_at": "2026-08-19T09:00:00.000Z" },
+  { "id": "tec_006", "name": "Grace Liu", "trade": "plumbing", "phone": "(555) 106-7788", "email": "grace@toolbelt.test", "skills": [], "active": false, "active_jobs": 0, "created_at": "2026-09-02T09:00:00.000Z" }
+]

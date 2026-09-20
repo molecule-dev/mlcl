@@ -1,0 +1,10 @@
+[
+  { "id": "cus_001", "name": "Halberd Bakery", "email": "ops@halberdbakery.com", "phone": "(555) 210-4417", "address": "214 Grand St, Hoboken, NJ 07030", "notes": "Rooftop units; loading-dock access after 6am. Ask for Dorota.", "created_at": "2026-08-02T14:03:00.000Z" },
+  { "id": "cus_002", "name": "Cedar & Vine Dental", "email": "front@cedarandvine.dental", "phone": "(555) 322-8890", "address": "89 Cedar Ln, Montclair, NJ 07042", "notes": "After-hours work only — patients in the building weekdays.", "created_at": "2026-08-09T09:15:00.000Z" },
+  { "id": "cus_003", "name": "Jodie Marlowe", "email": "j.marlowe@homemail.com", "phone": "(555) 441-9021", "address": "7 Fern Way, Maplewood, NJ 07040", "notes": "", "created_at": "2026-08-14T17:40:00.000Z" },
+  { "id": "cus_004", "name": "Northside Laundromat", "email": "manager@northsidelaundry.com", "phone": "(555) 518-3344", "address": "1330 Northside Ave, Newark, NJ 07107", "notes": "Coin-op store; call the manager before touching the dryers.", "created_at": "2026-08-20T11:05:00.000Z" },
+  { "id": "cus_005", "name": "Brookfield Property Group", "email": "facilities@brookfieldpg.com", "phone": "(555) 627-7781", "address": "400 Brookfield Plaza, Jersey City, NJ 07302", "notes": "Property manager for 6 units — always bill the unit, not the plaza office.", "created_at": "2026-08-26T08:30:00.000Z" },
+  { "id": "cus_006", "name": "Fern Hollow Cafe", "email": "hello@fernhollow.cafe", "phone": "(555) 733-1290", "address": "12 Fern Hollow Rd, South Orange, NJ 07079", "notes": "Service before 8am or after 3pm to miss the rush.", "created_at": "2026-09-01T13:20:00.000Z" },
+  { "id": "cus_007", "name": "Luis & Carmen Ortiz", "email": "l.ortiz@homemail.com", "phone": "(555) 819-4402", "address": "58 Lakeview Ter, Bloomfield, NJ 07003", "notes": "Two dogs — call ahead so they can crate them.", "created_at": "2026-09-06T16:45:00.000Z" },
+  { "id": "cus_008", "name": "Summit Gym", "email": "ops@summitgym.fit", "phone": "(555) 902-6633", "address": "9 Summit Plaza, Paterson, NJ 07501", "notes": "", "created_at": "2026-09-10T10:10:00.000Z" }
+]

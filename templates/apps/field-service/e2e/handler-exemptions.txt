@@ -1,0 +1,6 @@
+# Handlers that are NOT mounted as a public/api route — they're internal
+# helpers consumed by other handlers. They have no /api/<base> mount, so
+# the verify-app-coverage handler-coverage gate cannot cover them via a
+# spec network assertion.
+_seed       # per-user demo data seeder, called transitively from list endpoints
+_shape      # DB-row → FE-shape pure transformers, no I/O

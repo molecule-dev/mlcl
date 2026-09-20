@@ -1,0 +1,64 @@
+{
+  "label": "Field Service",
+  "description": "Jobber-like field service management with quotes, job dispatch scheduling, technician assignment, checklists, and invoicing — with built-in Stripe-backed subscription tiers",
+  "cluster": "business-saas",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-resource-user",
+    "@molecule/api-cron-node-cron",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-email-templates",
+    "@molecule/api-resource-payment",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-entitlements",
+    "@molecule/app-billing-react",
+    "@molecule/app-sidebar-layout-react",
+    "@molecule/app-notification-feed-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Toolbelt"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for quote and invoice emails",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_FIELD_SERVICE_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_FIELD_SERVICE_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_FIELD_SERVICE_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_FIELD_SERVICE_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "admin",
+  "features": ["auth", "search", "calendar", "notifications", "subscriptions"]
+}
