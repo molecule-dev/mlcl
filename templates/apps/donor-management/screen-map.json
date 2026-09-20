@@ -1,0 +1,194 @@
+{
+  "app": "donor-management",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Donors",
+      "templateFile": "app/pages/Donors.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/donors",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "NewDonor",
+      "templateFile": "app/pages/NewDonor.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/donors/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "DonorDetail",
+      "templateFile": "app/pages/DonorDetail.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/donors/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Gifts",
+      "templateFile": "app/pages/Gifts.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/gifts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "NewGift",
+      "templateFile": "app/pages/NewGift.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/gifts/new",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "GiftDetail",
+      "templateFile": "app/pages/GiftDetail.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/gifts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Campaigns",
+      "templateFile": "app/pages/Campaigns.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/campaigns",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Receipts",
+      "templateFile": "app/pages/Receipts.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/receipts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ReceiptDetail",
+      "templateFile": "app/pages/ReceiptDetail.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/receipts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "PlanUpdated",
+      "templateFile": "app/pages/PlanUpdated.tsx",
+      "components": ["app/components/DonorLayout.tsx"],
+      "route": "/plan-updated",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cam-2001",
+    "name": "Year-End Appeal",
+    "description": "Annual year-end giving drive across mail, email and social.",
+    "goal_cents": 5000000,
+    "starts_on": "2026-10-01",
+    "ends_on": "2026-12-31",
+    "status": "active",
+    "created_at": "2026-09-15T10:00:00Z",
+    "raised_cents": 1310000,
+    "gift_count": 3
+  },
+  {
+    "id": "cam-2002",
+    "name": "Spring Gala",
+    "description": "Evening fundraiser with dinner, auction and program.",
+    "goal_cents": 2500000,
+    "starts_on": "2025-03-01",
+    "ends_on": "2025-05-31",
+    "status": "completed",
+    "created_at": "2025-02-20T10:00:00Z",
+    "raised_cents": 262000,
+    "gift_count": 2
+  },
+  {
+    "id": "cam-2003",
+    "name": "Monthly Sustainers",
+    "description": "Recurring monthly giving program — steady support for general operations.",
+    "goal_cents": 1800000,
+    "starts_on": "2025-01-01",
+    "ends_on": null,
+    "status": "active",
+    "created_at": "2025-01-02T10:00:00Z",
+    "raised_cents": 120000,
+    "gift_count": 10
+  }
+]

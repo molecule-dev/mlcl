@@ -1,0 +1,216 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-primary-dark: #115e59;
+  --mol-color-secondary: #b45309;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #0891b2;
+
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f4faf8;
+  --mol-color-background-tertiary: #e9f4f0;
+  --mol-color-surface: #f4faf8;
+  --mol-color-surface-secondary: #e9f4f0;
+  --mol-color-input-background: #ffffff;
+  --mol-color-border: #d8e8e2;
+  --mol-color-border-secondary: #b7d2ca;
+  --mol-color-border-focus: #0f766e;
+  --mol-color-text: #10201c;
+  --mol-color-text-secondary: #4b5f59;
+  --mol-color-text-tertiary: #93a8a1;
+  --mol-color-text-inverse: #ffffff;
+
+  /* ── M3 light tokens — ensure on-* pairs pass 4.5:1 in light mode ── */
+  --color-background: #ffffff;
+  --color-on-background: #10201c;
+  --color-surface: #f4faf8;
+  --color-on-surface: #10201c;
+  --color-on-surface-variant: #4b5f59;
+  --color-primary: #0f766e;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ccfbf1;
+  --color-on-primary-container: #042f2a;
+  --color-secondary: #b45309;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fef3c7;
+  --color-on-secondary-container: #451a03;
+  --color-tertiary: #9d174d;
+  --color-tertiary-container: #fce7f3;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #3f0720;
+  --color-error: #dc2626;
+  --color-error-container: #fef2f2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
+  --color-outline: #93a8a1;
+  --color-outline-variant: #d8e8e2;
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Backward-compat aliases (inline styles / legacy references) ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-bg: var(--color-background);
+  --color-bg-secondary: var(--color-background-secondary);
+  --color-bg-tertiary: var(--color-background-tertiary);
+  --color-danger: var(--color-error);
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #115e59;
+  --color-secondary-hover: #92400e;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 16rem;
+
+  /* Donor tag badge tokens (bg + text pairs) */
+  --color-tag-monthly-bg: #ecfdf5;
+  --color-tag-monthly-text: #047857;
+  --color-tag-major-bg: #fdf2f8;
+  --color-tag-major-text: #9d174d;
+  --color-tag-volunteer-bg: #eff6ff;
+  --color-tag-volunteer-text: #1d4ed8;
+  --color-tag-board-bg: #fef3c7;
+  --color-tag-board-text: #b45309;
+  --color-tag-lapsed-bg: #f1f5f9;
+  --color-tag-lapsed-text: #475569;
+  --color-tag-new-bg: #f0fdfa;
+  --color-tag-new-text: #0f766e;
+
+  /* Campaign status badge tokens (bg + text pairs) */
+  --color-status-draft-bg: #f1f5f9;
+  --color-status-draft-text: #475569;
+  --color-status-active-bg: #ecfdf5;
+  --color-status-active-text: #047857;
+  --color-status-completed-bg: #eff6ff;
+  --color-status-completed-text: #1d4ed8;
+  --color-status-archived-bg: #fef2f2;
+  --color-status-archived-text: #b91c1c;
+}
+
+/* Dark mode — deep sea-neutral dark. Teal surfaces with a cool cast; brand
+   teal kept at brand stop (#0f766e... brightened to #14b8a6 for dark canvas
+   contrast) for accents/links/CTAs. `--color-on-primary` STAYS dark-teal on
+   the brightened fill so CTAs keep their character in both modes. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #14b8a6;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #d97706;
+  --mol-color-background: #0c1513;
+  --mol-color-background-secondary: #13201d;
+  --mol-color-background-tertiary: #1b2b28;
+  --mol-color-surface: #13201d;
+  --mol-color-surface-secondary: #1b2b28;
+  --mol-color-input-background: #0a1110;
+  --mol-color-text: #e6eeec;
+  --mol-color-text-secondary: #9db3ad;
+  --mol-color-text-tertiary: #5e7470;
+  --mol-color-text-inverse: #0c1513;
+  --mol-color-border: #243733;
+  --mol-color-border-secondary: #354b46;
+  --mol-color-border-focus: #14b8a6;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  --color-primary-hover: #2dd4bf;
+  --color-primary-light: #134e4a;
+  --color-secondary-hover: #f59e0b;
+
+  /* Donor tag badge tokens — darkened for dark canvas */
+  --color-tag-monthly-bg: #14532d;
+  --color-tag-monthly-text: #4ade80;
+  --color-tag-major-bg: #500724;
+  --color-tag-major-text: #f9a8d4;
+  --color-tag-volunteer-bg: #1e3a8a;
+  --color-tag-volunteer-text: #93c5fd;
+  --color-tag-board-bg: #451a03;
+  --color-tag-board-text: #fbbf24;
+  --color-tag-lapsed-bg: #1e293b;
+  --color-tag-lapsed-text: #cbd5e1;
+  --color-tag-new-bg: #134e4a;
+  --color-tag-new-text: #5eead4;
+
+  /* Campaign status badge tokens — darkened for dark canvas */
+  --color-status-draft-bg: #1e293b;
+  --color-status-draft-text: #cbd5e1;
+  --color-status-active-bg: #14532d;
+  --color-status-active-text: #4ade80;
+  --color-status-completed-bg: #1e3a8a;
+  --color-status-completed-text: #93c5fd;
+  --color-status-archived-bg: #5a1818;
+  --color-status-archived-text: #f87171;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* M3 token dark variants — override the light block so `bg-surface`,
+     `text-on-surface`, `bg-primary` etc. flip cleanly. CTA buttons keep
+     dark-teal text on the brightened teal fill. */
+  --color-background: #0c1513;
+  --color-on-background: #e6eeec;
+  --color-surface: #0c1513;
+  --color-surface-bright: #243733;
+  --color-surface-dim: #060c0a;
+  --color-surface-container-lowest: #040807;
+  --color-surface-container-low: #101b18;
+  --color-surface-container: #13201d;
+  --color-surface-container-high: #1b2b28;
+  --color-surface-container-highest: #243733;
+  --color-surface-variant: #1b2b28;
+  --color-on-surface: #e6eeec;
+  --color-on-surface-variant: #b3c7c1;
+  --color-inverse-surface: #dde7e4;
+  --color-inverse-on-surface: #13201d;
+  --color-inverse-primary: #0f766e;
+  --color-primary: #14b8a6;
+  --color-primary-container: #134e4a;
+  --color-on-primary: #042f2a;
+  --color-on-primary-container: #99f6e4;
+  --color-primary-fixed: #99f6e4;
+  --color-primary-fixed-dim: #5eead4;
+  --color-on-primary-fixed: #042f2a;
+  --color-on-primary-fixed-variant: #0f766e;
+  --color-secondary: #d97706;
+  --color-secondary-container: #451a03;
+  --color-on-secondary: #0c1513;
+  --color-on-secondary-container: #e6eeec;
+  --color-secondary-fixed: #e2e8f0;
+  --color-secondary-fixed-dim: #cbd5e1;
+  --color-on-secondary-fixed: #0c1513;
+  --color-on-secondary-fixed-variant: #4b5f59;
+  --color-tertiary: #f9a8d4;
+  --color-tertiary-container: #500724;
+  --color-on-tertiary: #2d0517;
+  --color-on-tertiary-container: #fdd8ea;
+  --color-tertiary-fixed: #fdd8ea;
+  --color-tertiary-fixed-dim: #f9a8d4;
+  --color-on-tertiary-fixed: #2d0517;
+  --color-on-tertiary-fixed-variant: #831843;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #4b615c;
+  --color-outline-variant: #354b46;
+  --color-surface-tint: #14b8a6;
+}

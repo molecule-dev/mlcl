@@ -1,0 +1,274 @@
+import { useEffect, useState } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router'
+
+import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
+import type { Campaign, Donor } from '../types.js'
+
+const METHODS = ['check', 'card', 'cash', 'ach'] as const
+const FUNDS = ['general', 'programs', 'equipment', 'capital', 'endowment'] as const
+
+const today = (): string => new Date().toISOString().slice(0, 10)
+
+export function NewGift() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const http = useHttpClient()
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const [donors, setDonors] = useState<Donor[]>([])
+  const [campaigns, setCampaigns] = useState<Campaign[]>([])
+  const [form, setForm] = useState({
+    donor_id: searchParams.get('donor_id') ?? '',
+    amount: '',
+    gift_date: today(),
+    method: 'card' as (typeof METHODS)[number],
+    fund: 'general' as (typeof FUNDS)[number],
+    campaign_id: '',
+    note: '',
+  })
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    Promise.all([
+      http.get('/donors').then((r) => unwrapList<Donor>(r)),
+      http.get('/campaigns').then((r) => unwrapList<Campaign>(r)),
+    ])
+      .then(([d, c]) => {
+        if (cancelled) return
+        setDonors(d)
+        setCampaigns(c)
+      })
+      .catch(() => {
+        if (!cancelled)
+          setError(t('gifts.new.loadError', {}, { defaultValue: 'Failed to load donors.' }))
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, t])
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault()
+    const amountCents = Math.round(Number(form.amount) * 100)
+    if (!form.donor_id) {
+      setError(t('gifts.new.donorRequired', {}, { defaultValue: 'Pick a donor.' }))
+      return
+    }
+    if (!Number.isFinite(amountCents) || amountCents <= 0) {
+      setError(
+        t('gifts.new.amountRequired', {}, { defaultValue: 'Enter an amount greater than zero.' }),
+      )
+      return
+    }
+    setSubmitting(true)
+    setError(null)
+    try {
+      const res = await http.post('/gifts', {
+        donor_id: form.donor_id,
+        amount_cents: amountCents,
+        gift_date: form.gift_date,
+        method: form.method,
+        fund: form.fund,
+        campaign_id: form.campaign_id || null,
+        note: form.note.trim(),
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      navigate(created?.id ? `/gifts/${created.id}` : '/gifts')
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : t('gifts.new.error', {}, { defaultValue: 'Failed to record the gift.' }),
+      )
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const inputCls = cm.cn(
+    cm.sp('px', 3),
+    cm.sp('py', 2),
+    cm.textSize('sm'),
+    'border border-outline-variant rounded-md w-full',
+  )
+
+  return (
+    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('2xl'), cm.mxAuto)}>
+      <nav className={cm.sp('mb', 4)}>
+        <Link to="/gifts" className={cm.cn(cm.textSize('sm'), 'text-primary hover:underline')}>
+          ← {t('gifts.backToList', {}, { defaultValue: 'Back to gifts' })}
+        </Link>
+      </nav>
+      <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
+        {t('gifts.new.heading', {}, { defaultValue: 'Record a gift' })}
+      </h1>
+
+      <form onSubmit={submit} className={cm.cn(cm.card(), cm.sp('p', 6), cm.stack(4))}>
+        <label className={cm.stack(1)}>
+          <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+            {t('gifts.new.donor', {}, { defaultValue: 'Donor' })}
+          </span>
+          <select
+            required
+            value={form.donor_id}
+            onChange={(e) => setForm({ ...form, donor_id: e.target.value })}
+            className={inputCls}
+          >
+            <option value="">
+              {t('gifts.new.pickDonor', {}, { defaultValue: 'Select a donor…' })}
+            </option>
+            {donors.map((d) => (
+              <option key={d.id} value={d.id}>
+                {d.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <label className={cm.stack(1)}>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {t('gifts.new.amount', {}, { defaultValue: 'Amount (USD)' })}
+            </span>
+            <input
+              type="number"
+              step="0.01"
+              min="0.01"
+              required
+              value={form.amount}
+              onChange={(e) => setForm({ ...form, amount: e.target.value })}
+              placeholder="125.00"
+              className={inputCls}
+            />
+          </label>
+          <label className={cm.stack(1)}>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {t('gifts.new.date', {}, { defaultValue: 'Date' })}
+            </span>
+            <input
+              type="date"
+              required
+              value={form.gift_date}
+              onChange={(e) => setForm({ ...form, gift_date: e.target.value })}
+              className={inputCls}
+            />
+          </label>
+        </div>
+
+        <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <label className={cm.stack(1)}>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {t('gifts.new.method', {}, { defaultValue: 'Method' })}
+            </span>
+            <select
+              value={form.method}
+              onChange={(e) =>
+                setForm({ ...form, method: e.target.value as (typeof METHODS)[number] })
+              }
+              className={inputCls}
+            >
+              {METHODS.map((m) => (
+                <option key={m} value={m}>
+                  {t(`gift.method.${m}`, {}, { defaultValue: m })}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className={cm.stack(1)}>
+            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {t('gifts.new.fund', {}, { defaultValue: 'Fund / designation' })}
+            </span>
+            <select
+              value={form.fund}
+              onChange={(e) => setForm({ ...form, fund: e.target.value as (typeof FUNDS)[number] })}
+              className={inputCls}
+            >
+              {FUNDS.map((f) => (
+                <option key={f} value={f}>
+                  {t(`gift.fund.${f}`, {}, { defaultValue: f })}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        <label className={cm.stack(1)}>
+          <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+            {t('gifts.new.campaign', {}, { defaultValue: 'Campaign (optional)' })}
+          </span>
+          <select
+            value={form.campaign_id}
+            onChange={(e) => setForm({ ...form, campaign_id: e.target.value })}
+            className={inputCls}
+          >
+            <option value="">
+              {t('gifts.new.noCampaign', {}, { defaultValue: 'No campaign' })}
+            </option>
+            {campaigns.map((c) => (
+              <option key={c.id} value={c.id}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className={cm.stack(1)}>
+          <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+            {t('gifts.new.note', {}, { defaultValue: 'Note' })}
+          </span>
+          <textarea
+            rows={2}
+            value={form.note}
+            onChange={(e) => setForm({ ...form, note: e.target.value })}
+            placeholder={t(
+              'gifts.new.notePlaceholder',
+              {},
+              { defaultValue: 'In memory of…, gala table, matching gift…' },
+            )}
+            className={inputCls}
+          />
+        </label>
+
+        {error ? (
+          <p className={'text-error text-sm'} role="alert">
+            {error}
+          </p>
+        ) : null}
+
+        <div className={cm.flex({ gap: 'sm', justify: 'end' })}>
+          <Link
+            to="/gifts"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              'border border-outline-variant rounded-md',
+            )}
+          >
+            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+          </Link>
+          <button
+            type="submit"
+            disabled={submitting}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary rounded-md disabled:opacity-50',
+            )}
+          >
+            {submitting
+              ? t('gifts.new.saving', {}, { defaultValue: 'Recording…' })
+              : t('gifts.new.submit', {}, { defaultValue: 'Record gift' })}
+          </button>
+        </div>
+      </form>
+    </div>
+  )
+}

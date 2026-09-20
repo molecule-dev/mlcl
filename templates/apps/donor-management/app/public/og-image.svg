@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f4faf8"/>
+  <circle cx="1050" cy="90" r="220" fill="#ccfbf1"/>
+  <circle cx="120" cy="560" r="180" fill="#ccfbf1" fill-opacity="0.6"/>
+  <svg x="500" y="115" width="200" height="200" viewBox="0 0 32 32">
+    <rect x="1" y="1" width="30" height="30" rx="8" fill="#0f766e"/>
+    <path d="M16 24.5c-.35 0-.68-.12-.95-.35C11.4 20.9 7 17.1 7 12.9 7 10.2 9.1 8.2 11.7 8.2c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.6 0 4.7 2 4.7 4.7 0 4.2-4.4 8-8.05 11.25-.27.23-.6.35-.95.35Z" fill="#ffffff"/>
+    <circle cx="16" cy="15" r="2.6" fill="#5eead4"/>
+  </svg>
+  <text x="600" y="395" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="600" font-size="48" fill="#10201c">Givingly</text>
+  <text x="600" y="455" dominant-baseline="middle" text-anchor="middle"
+    font-family="system-ui,sans-serif" font-weight="400" font-size="24" fill="#4b5f59">Built with Molecule.dev</text>
+</svg>

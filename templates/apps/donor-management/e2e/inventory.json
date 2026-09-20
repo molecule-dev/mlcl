@@ -1,0 +1,1408 @@
+{
+  "slug": "donor-management",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-campaigns",
+      "path": "/campaigns",
+      "component": "Campaigns",
+      "file": "app/src/pages/Campaigns.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-donors",
+      "path": "/donors",
+      "component": "Donors",
+      "file": "app/src/pages/Donors.tsx"
+    },
+    {
+      "id": "page-donordetail",
+      "path": "/donors/:id",
+      "component": "DonorDetail",
+      "file": "app/src/pages/DonorDetail.tsx"
+    },
+    {
+      "id": "page-newdonor",
+      "path": "/donors/new",
+      "component": "NewDonor",
+      "file": "app/src/pages/NewDonor.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-gifts",
+      "path": "/gifts",
+      "component": "Gifts",
+      "file": "app/src/pages/Gifts.tsx"
+    },
+    {
+      "id": "page-giftdetail",
+      "path": "/gifts/:id",
+      "component": "GiftDetail",
+      "file": "app/src/pages/GiftDetail.tsx"
+    },
+    {
+      "id": "page-newgift",
+      "path": "/gifts/new",
+      "component": "NewGift",
+      "file": "app/src/pages/NewGift.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-receipts",
+      "path": "/receipts",
+      "component": "Receipts",
+      "file": "app/src/pages/Receipts.tsx"
+    },
+    {
+      "id": "page-receiptdetail",
+      "path": "/receipts/:id",
+      "component": "ReceiptDetail",
+      "file": "app/src/pages/ReceiptDetail.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-usermenu-55-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 55,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-usermenu-68-----",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 68,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-campaigns-136-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Campaigns.tsx",
+      "line": 136,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-55-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 55,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-67-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 67,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-137",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 137,
+      "label": "link at app/src/pages/Dashboard.tsx:137",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-187",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 187,
+      "label": "link at app/src/pages/Dashboard.tsx:187",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-199",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 199,
+      "label": "link at app/src/pages/Dashboard.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donordetail-80-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 80,
+      "label": "← , )}",
+      "href": "/donors",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donordetail-90-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 90,
+      "label": "← , )}",
+      "href": "/donors",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donordetail-125-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 125,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donordetail-160",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 160,
+      "label": "link at app/src/pages/DonorDetail.tsx:160",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-donordetail-196",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 196,
+      "label": "textarea at app/src/pages/DonorDetail.tsx:196",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-donordetail-212--savingnote",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 212,
+      "label": "{savingNote",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donors-76-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Donors.tsx",
+      "line": 76,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-donors-91",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Donors.tsx",
+      "line": 91,
+      "label": "input at app/src/pages/Donors.tsx:91",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-donors-103",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Donors.tsx",
+      "line": 103,
+      "label": "select at app/src/pages/Donors.tsx:103",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-donors-154",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Donors.tsx",
+      "line": 154,
+      "label": "link at app/src/pages/Donors.tsx:154",
+      "href": "/donors/${d.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-116-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 116,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-161",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 161,
+      "label": "input at app/src/pages/ForgotPassword.tsx:161",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-199",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 199,
+      "label": "button at app/src/pages/ForgotPassword.tsx:199",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-234-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 234,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-giftdetail-51-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GiftDetail.tsx",
+      "line": 51,
+      "label": "← , )}",
+      "href": "/gifts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-giftdetail-61-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GiftDetail.tsx",
+      "line": 61,
+      "label": "← , )}",
+      "href": "/gifts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-giftdetail-79-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GiftDetail.tsx",
+      "line": 79,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-giftdetail-106",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/GiftDetail.tsx",
+      "line": 106,
+      "label": "link at app/src/pages/GiftDetail.tsx:106",
+      "href": "/donors/${gift.donor_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-gifts-69-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 69,
+      "label": "+ , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-gifts-84",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 84,
+      "label": "select at app/src/pages/Gifts.tsx:84",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-gifts-104",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 104,
+      "label": "select at app/src/pages/Gifts.tsx:104",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-gifts-154",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 154,
+      "label": "link at app/src/pages/Gifts.tsx:154",
+      "href": "/gifts/${g.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-gifts-157",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 157,
+      "label": "link at app/src/pages/Gifts.tsx:157",
+      "href": "/donors/${g.donor_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-gifts-173-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Gifts.tsx",
+      "line": 173,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-64",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 64,
+      "label": "link at app/src/pages/Landing.tsx:64",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-69-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 69,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-79-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 79,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-85-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 85,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-91-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 91,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-150------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 150,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-161-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 161,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-318------arrow-forward",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 318,
+      "label": ", )} arrow_forward",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-94",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 94,
+      "label": "input at app/src/pages/Login.tsx:94",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-132-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 132,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-141",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 141,
+      "label": "input at app/src/pages/Login.tsx:141",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-157",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 157,
+      "label": "button at app/src/pages/Login.tsx:157",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-192",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 192,
+      "label": "button at app/src/pages/Login.tsx:192",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-222-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 222,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-newdonor-74-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 74,
+      "label": "← , )}",
+      "href": "/donors",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-newdonor-87",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 87,
+      "label": "input at app/src/pages/NewDonor.tsx:87",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newdonor-105",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 105,
+      "label": "input at app/src/pages/NewDonor.tsx:105",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newdonor-116",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 116,
+      "label": "input at app/src/pages/NewDonor.tsx:116",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newdonor-128",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 128,
+      "label": "input at app/src/pages/NewDonor.tsx:128",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newdonor-159",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 159,
+      "label": "input at app/src/pages/NewDonor.tsx:159",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newdonor-177",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 177,
+      "label": "input at app/src/pages/NewDonor.tsx:177",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-newdonor-198-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 198,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-newdonor-209--submitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 209,
+      "label": "{submitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-newgift-101-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 101,
+      "label": "← , )}",
+      "href": "/gifts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-newgift-114",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 114,
+      "label": "select at app/src/pages/NewGift.tsx:114",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-newgift-136",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 136,
+      "label": "input at app/src/pages/NewGift.tsx:136",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-newgift-151",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 151,
+      "label": "input at app/src/pages/NewGift.tsx:151",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-newgift-166",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 166,
+      "label": "select at app/src/pages/NewGift.tsx:166",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-newgift-184",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 184,
+      "label": "select at app/src/pages/NewGift.tsx:184",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-newgift-204",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 204,
+      "label": "select at app/src/pages/NewGift.tsx:204",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-newgift-222",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 222,
+      "label": "textarea at app/src/pages/NewGift.tsx:222",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-newgift-242-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 242,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-newgift-253--submitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 253,
+      "label": "{submitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-receiptdetail-63-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReceiptDetail.tsx",
+      "line": 63,
+      "label": "← , )}",
+      "href": "/receipts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-receiptdetail-74-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReceiptDetail.tsx",
+      "line": 74,
+      "label": "← , )}",
+      "href": "/receipts",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-receiptdetail-78",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ReceiptDetail.tsx",
+      "line": 78,
+      "label": "button at app/src/pages/ReceiptDetail.tsx:78",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-receipts-129",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 129,
+      "label": "select at app/src/pages/Receipts.tsx:129",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-receipts-144",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 144,
+      "label": "select at app/src/pages/Receipts.tsx:144",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-receipts-157",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 157,
+      "label": "button at app/src/pages/Receipts.tsx:157",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-receipts-223",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 223,
+      "label": "button at app/src/pages/Receipts.tsx:223",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-receipts-286",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 286,
+      "label": "link at app/src/pages/Receipts.tsx:286",
+      "href": "/receipts/${r.id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-receipts-289",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Receipts.tsx",
+      "line": 289,
+      "label": "link at app/src/pages/Receipts.tsx:289",
+      "href": "/donors/${r.donor_id}",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-122",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 122,
+      "label": "input at app/src/pages/ResetPassword.tsx:122",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-155",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 155,
+      "label": "input at app/src/pages/ResetPassword.tsx:155",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-188",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 188,
+      "label": "input at app/src/pages/ResetPassword.tsx:188",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-209",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 209,
+      "label": "button at app/src/pages/ResetPassword.tsx:209",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-244",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 244,
+      "label": "button at app/src/pages/ResetPassword.tsx:244",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-271-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 271,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-279-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 279,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-166",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 166,
+      "label": "button at app/src/pages/Settings.tsx:166",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-336",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 336,
+      "label": "button at app/src/pages/Settings.tsx:336",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-399",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 399,
+      "label": "input at app/src/pages/Settings.tsx:399",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-425",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 425,
+      "label": "input at app/src/pages/Settings.tsx:425",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-96",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 96,
+      "label": "input at app/src/pages/Signup.tsx:96",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-124",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 124,
+      "label": "input at app/src/pages/Signup.tsx:124",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-158",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 158,
+      "label": "input at app/src/pages/Signup.tsx:158",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-179",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 179,
+      "label": "button at app/src/pages/Signup.tsx:179",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-214",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 214,
+      "label": "button at app/src/pages/Signup.tsx:214",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-244-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 244,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-donordetail-195",
+      "file": "app/src/pages/DonorDetail.tsx",
+      "line": 195,
+      "label": "form at app/src/pages/DonorDetail.tsx:195",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-146",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 146,
+      "label": "form at app/src/pages/ForgotPassword.tsx:146",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-82",
+      "file": "app/src/pages/Login.tsx",
+      "line": 82,
+      "label": "form at app/src/pages/Login.tsx:82",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-newdonor-82",
+      "file": "app/src/pages/NewDonor.tsx",
+      "line": 82,
+      "label": "form at app/src/pages/NewDonor.tsx:82",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-newgift-109",
+      "file": "app/src/pages/NewGift.tsx",
+      "line": 109,
+      "label": "form at app/src/pages/NewGift.tsx:109",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-110",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 110,
+      "label": "form at app/src/pages/ResetPassword.tsx:110",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-84",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 84,
+      "label": "form at app/src/pages/Signup.tsx:84",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-campaigns--id",
+      "method": "DELETE",
+      "mountedPath": "/campaigns/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/campaigns.ts",
+      "line": 183,
+      "resource": "campaigns"
+    },
+    {
+      "id": "route-delete-donors--id",
+      "method": "DELETE",
+      "mountedPath": "/donors/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 231,
+      "resource": "donors"
+    },
+    {
+      "id": "route-delete-gifts--id",
+      "method": "DELETE",
+      "mountedPath": "/gifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/gifts.ts",
+      "line": 243,
+      "resource": "gifts"
+    },
+    {
+      "id": "route-delete-receipts--id",
+      "method": "DELETE",
+      "mountedPath": "/receipts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 307,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-get-campaigns-",
+      "method": "GET",
+      "mountedPath": "/campaigns",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/campaigns.ts",
+      "line": 57,
+      "resource": "campaigns"
+    },
+    {
+      "id": "route-get-campaigns--id",
+      "method": "GET",
+      "mountedPath": "/campaigns/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/campaigns.ts",
+      "line": 87,
+      "resource": "campaigns"
+    },
+    {
+      "id": "route-get-dashboard-summary",
+      "method": "GET",
+      "mountedPath": "/dashboard/summary",
+      "rawPath": "/summary",
+      "handlerFile": "api/src/handlers/dashboard.ts",
+      "line": 42,
+      "resource": "dashboard"
+    },
+    {
+      "id": "route-get-donors-",
+      "method": "GET",
+      "mountedPath": "/donors",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 78,
+      "resource": "donors"
+    },
+    {
+      "id": "route-get-donors--id",
+      "method": "GET",
+      "mountedPath": "/donors/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 121,
+      "resource": "donors"
+    },
+    {
+      "id": "route-get-donors--id-notes",
+      "method": "GET",
+      "mountedPath": "/donors/:id/notes",
+      "rawPath": "/:id/notes",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 252,
+      "resource": "donors"
+    },
+    {
+      "id": "route-get-gifts-",
+      "method": "GET",
+      "mountedPath": "/gifts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/gifts.ts",
+      "line": 61,
+      "resource": "gifts"
+    },
+    {
+      "id": "route-get-gifts--id",
+      "method": "GET",
+      "mountedPath": "/gifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/gifts.ts",
+      "line": 108,
+      "resource": "gifts"
+    },
+    {
+      "id": "route-get-receipts-",
+      "method": "GET",
+      "mountedPath": "/receipts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 78,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-get-receipts--id",
+      "method": "GET",
+      "mountedPath": "/receipts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 249,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-get-receipts-preview",
+      "method": "GET",
+      "mountedPath": "/receipts/preview",
+      "rawPath": "/preview",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 122,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-post-campaigns-",
+      "method": "POST",
+      "mountedPath": "/campaigns",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/campaigns.ts",
+      "line": 111,
+      "resource": "campaigns"
+    },
+    {
+      "id": "route-post-donors-",
+      "method": "POST",
+      "mountedPath": "/donors",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 165,
+      "resource": "donors"
+    },
+    {
+      "id": "route-post-donors--id-notes",
+      "method": "POST",
+      "mountedPath": "/donors/:id/notes",
+      "rawPath": "/:id/notes",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 280,
+      "resource": "donors"
+    },
+    {
+      "id": "route-post-gifts-",
+      "method": "POST",
+      "mountedPath": "/gifts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/gifts.ts",
+      "line": 134,
+      "resource": "gifts"
+    },
+    {
+      "id": "route-post-receipts-generate",
+      "method": "POST",
+      "mountedPath": "/receipts/generate",
+      "rawPath": "/generate",
+      "handlerFile": "api/src/handlers/receipts.ts",
+      "line": 159,
+      "resource": "receipts"
+    },
+    {
+      "id": "route-put-campaigns--id",
+      "method": "PUT",
+      "mountedPath": "/campaigns/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/campaigns.ts",
+      "line": 147,
+      "resource": "campaigns"
+    },
+    {
+      "id": "route-put-donors--id",
+      "method": "PUT",
+      "mountedPath": "/donors/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/donors.ts",
+      "line": 201,
+      "resource": "donors"
+    },
+    {
+      "id": "route-put-gifts--id",
+      "method": "PUT",
+      "mountedPath": "/gifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/gifts.ts",
+      "line": 186,
+      "resource": "gifts"
+    }
+  ],
+  "totals": {
+    "pages": 21,
+    "elements": 91,
+    "forms": 7,
+    "routes": 23
+  }
+}
