@@ -3,7 +3,6 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.pageTitle': '{{app}} hakkında',
-  'addBook.authorPlaceholder': 'örn. Ursula K. Le Guin',
   'addBook.coverLabel': 'Kapak',
   'addBook.createButton': 'Kitap ekle',
   'addBook.descriptionPlaceholder': 'Listenizde neden olduğu hakkında bir satır.',
@@ -47,10 +46,13 @@ export const ui: UiTranslations = {
   'bookDetail.stat.started': 'Başlandı',
   'books.addLabel': 'Kitap ekle',
   'books.author': 'Yazar',
+  'books.empty': 'Henüz kitap yok. Kütüphanenizi başlatmak için bir tane ekleyin.',
+  'books.emptyFiltered': 'Bu rafa veya aramaya uyan kitap yok.',
   'books.filterLabel': 'Kitapları rafa göre filtrele',
   'books.heading': 'Raflarınız',
   'books.loadError': 'Kitaplar yüklenemedi.',
   'books.pageCount': 'Sayfa sayısı',
+  'books.pages': '{{count}} s',
   'books.title': 'Başlık',
   'challenge.eyebrow': 'Daha fazla oku, kasıtlı olarak',
   'challenge.finishedEmpty': 'Henüz bitirilen kitap yok — ilki en tatlısıdır.',
@@ -103,9 +105,6 @@ export const ui: UiTranslations = {
   'form.timezone': 'Saat dilimi',
   'landing.ctaTitle': 'Bu gece bir sayfa. Sonra bir tane daha.',
   'landing.eyebrow': 'Her kitap. Her sayfa. Bir raf.',
-  'landing.featuresBody':
-    'Raflar, ilerleme, meydan okuma, incelemeler — bir okuma alışkanlığının ihtiyaç duyduğu dört şey ve gereksiz hiçbir şey.',
-  'landing.featuresTitle': 'Kitapları bitiren insanlar için tasarlandı',
   'landing.heroCta': 'Kütüphanenizi başlatın',
   'landing.heroCtaSecondary': 'Canlı görün',
   'landing.heroSubtitle':
@@ -116,7 +115,6 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Kütüphanenizi başlatın',
   'nav.about': 'Hakkında',
   'nav.accountMenu': 'Hesap menüsü',
-  'nav.achievements': 'Başarılar',
   'nav.failedToLoad': 'Yüklenemedi.',
   'nav.failedToLoadNotifications': 'Bildirimler yüklenemedi.',
   'nav.noNewNotifications': 'Yeni bildirim yok.',
@@ -195,7 +193,7 @@ export const ui: UiTranslations = {
   'stats.heading': 'Okuma istatistikleri',
   'stats.heatmapTitle': 'Okuma tutarlılığı',
   'stats.loadError': 'İstatistikler yüklenemedi.',
-  'stats.monthlyHeading': "{{year}}'da tamamlananlar",
+  'stats.monthlyHeading': '{{year}} yılında bitirildi',
   'stats.ratingsEyebrow': 'Değerlendirme dağılımı',
   'userMenu.guestName': 'Oluşturucu',
 }

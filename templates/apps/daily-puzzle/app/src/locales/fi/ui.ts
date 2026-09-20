@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Arkistoa ei voitu ladata.',
   'archive.missed': 'Väliin jäänyt',
   'archive.notPlayed': 'Ei pelattu',
-  'archive.subhead':
-    'Pelaa mikä tahansa mennyt päivä harjoituksena — ei putkilukuja, ei tilastoja, pelkkää hauskaa.',
   'archive.title': 'Arkisto',
   'auth.backToHome': 'Takaisin etusivulle',
   'auth.backToHomeArrow': '← Takaisin etusivulle',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Putket joita ei halua katkaista',
   'leaderboard.daily.title': 'Tämän päivän ratkaisut',
   'leaderboard.loadError': 'Tulostaulua ei voitu ladata.',
-  'leaderboard.streaks.empty': 'Ei vielä putkia — ole ensimmäinen.',
-  'leaderboard.streaks.subhead': 'Kaikkien aikojen pisimmät voittoputket.',
   'leaderboard.streaks.title': 'Putkijohtajat',
-  'leaderboard.subhead': 'Miten kentällä pärjättiin tänään ja kenellä on pisimmät putket.',
   'leaderboard.title': 'Tulostaulu',
   'login.headline': 'Tervetuloa takaisin.',
   'login.streakPill': '{{days}} päivän putki odottaa',
@@ -134,8 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Pisin putki',
   'stats.played': 'Pelattu',
   'stats.playToday': 'Pelaa tämän päivän pulma',
-  'stats.subhead':
-    'Vain luokitellut päivittäiset pulmat — arkistoharjoitukset eivät koskaan laske.',
   'stats.title': 'Tilastosi',
   'stats.winRate': 'Voittoprosentti',
   'status.monthly': 'Kuukausittain',

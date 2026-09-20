@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Не удалось загрузить архив.',
   'archive.missed': 'Пропущено',
   'archive.notPlayed': 'Не сыграно',
-  'archive.subhead':
-    'Переиграйте любой прошлый день для тренировки — без серий, без статистики, только удовольствие.',
   'archive.title': 'Архив',
   'auth.backToHome': 'Вернуться на главную',
   'auth.backToHomeArrow': '← Вернуться на главную',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серии, которые не хочется прерывать',
   'leaderboard.daily.title': 'Решения за сегодня',
   'leaderboard.loadError': 'Не удалось загрузить таблицу лидеров.',
-  'leaderboard.streaks.empty': 'Серий пока нет — будьте первым.',
-  'leaderboard.streaks.subhead': 'Самые длинные серии побед за всё время.',
   'leaderboard.streaks.title': 'Лидеры по сериям',
-  'leaderboard.subhead': 'Как сыграли сегодня, и кто держит самые длинные серии.',
   'leaderboard.title': 'Таблица лидеров',
   'login.headline': 'С возвращением.',
   'login.streakPill': 'Серия из {{days}} дней ждёт',
@@ -134,8 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Макс. серия',
   'stats.played': 'Сыграно',
   'stats.playToday': 'Играть в сегодняшний пазл',
-  'stats.subhead':
-    'Только ежедневные рейтинговые головоломки — тренировки в архиве не учитываются.',
   'stats.title': 'Ваша статистика',
   'stats.winRate': 'Процент побед',
   'status.monthly': 'Месячный',

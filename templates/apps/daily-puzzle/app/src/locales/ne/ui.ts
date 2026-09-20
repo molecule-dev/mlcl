@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'अभिलेख लोड गर्न सकिएन।',
   'archive.missed': 'छुटेको',
   'archive.notPlayed': 'खेलिएको छैन',
-  'archive.subhead':
-    'कुनै पनि विगतको दिन अभ्यासको रूपमा पुन: खेल्नुहोस् — कुनै स्ट्रिक छैन, कुनै तथ्याङ्क छैन, सबै रमाइलो।',
   'archive.title': 'अभिलेख',
   'auth.backToHome': 'होममा फर्कनुहोस्',
   'auth.backToHomeArrow': '← होममा फर्कनुहोस्',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'तोड्न नचाहिने स्ट्रिकहरू',
   'leaderboard.daily.title': 'आजका समाधानहरू',
   'leaderboard.loadError': 'लिडरबोर्ड लोड गर्न सकिएन।',
-  'leaderboard.streaks.empty': 'अझैसम्म कुनै स्ट्रिक छैन — पहिलो हुनुहोस्।',
-  'leaderboard.streaks.subhead': 'सबै समयका सबैभन्दा लामो जीत स्ट्रिकहरू।',
   'leaderboard.streaks.title': 'स्ट्रिक नेताहरू',
-  'leaderboard.subhead':
-    'आज क्षेत्रले कस्तो प्रदर्शन गर्‍यो, र सबैभन्दा लामो स्ट्रिक कसले राखेको छ।',
   'leaderboard.title': 'लिडरबोर्ड',
   'login.headline': 'फेरि स्वागत छ।',
   'login.streakPill': '{{days}}-दिनको स्ट्रिक पर्खिरहेको',
@@ -136,7 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'अधिकतम स्ट्रिक',
   'stats.played': 'खेलेको',
   'stats.playToday': 'आजको पजल खेल्नुहोस्',
-  'stats.subhead': 'मात्र दर्जाबद्ध दैनिक पजलहरू — अभिलेख अभ्यास कहिल्यै गणना हुँदैन।',
   'stats.title': 'तपाईंको तथ्याङ्क',
   'stats.winRate': 'जीत दर',
   'status.monthly': 'मासिक',

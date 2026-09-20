@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Hindi ma-load ang archive.',
   'archive.missed': 'Nalampasan',
   'archive.notPlayed': 'Hindi nilaro',
-  'archive.subhead':
-    'Ulitin ang anumang nakaraang araw bilang pagsasanay — walang streaks, walang stats, puro kasiyahan lang.',
   'archive.title': 'Archive',
   'auth.backToHome': 'Bumalik sa home',
   'auth.backToHomeArrow': '← Bumalik sa home',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Mga streaks na ayaw mong maputol',
   'leaderboard.daily.title': 'Mga nakasolve ngayon',
   'leaderboard.loadError': 'Hindi ma-load ang leaderboard.',
-  'leaderboard.streaks.empty': 'Wala pang streaks — maging una.',
-  'leaderboard.streaks.subhead': 'Pinakamahaba na mga win streaks.',
   'leaderboard.streaks.title': 'Mga pinuno sa streak',
-  'leaderboard.subhead':
-    'Kung paano gumaling ang larangan ngayon, at sino ang may pinakamahaba na streaks.',
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'Maligayang pagbabalik.',
   'login.streakPill': 'Naghihintay ang {{days}}-araw na streak',
@@ -136,7 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Max na streak',
   'stats.played': 'Nilaro',
   'stats.playToday': 'Laruin ang puzzle ngayong araw',
-  'stats.subhead': 'Mga ranked daily puzzles lang — hindi kabilang ang pagsasanay sa archive.',
   'stats.title': 'Iyong stats',
   'stats.winRate': 'Win rate',
   'status.monthly': 'Buwanan',

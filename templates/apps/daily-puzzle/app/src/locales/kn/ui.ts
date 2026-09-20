@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'ಆರ್ಕೈವ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'archive.missed': 'ತಪ್ಪಿಸಿಕೊಂಡದ್ದು',
   'archive.notPlayed': 'ಆಡಿಲ್ಲ',
-  'archive.subhead':
-    'ಯಾವುದೇ ಹಿಂದಿನ ದಿನವನ್ನು ಅಭ್ಯಾಸವಾಗಿ ಮರುಪಂದ್ಯ ಮಾಡಿ — ಯಾವುದೇ ಸ್ಟ್ರೀಕ್‌ಗಳಿಲ್ಲ, ಯಾವುದೇ ಅಂಕಿಅಂಶಗಳಿಲ್ಲ, ಎಲ್ಲಾ ವಿನೋದ.',
   'archive.title': 'ಆರ್ಕೈವ್',
   'auth.backToHome': 'ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'auth.backToHomeArrow': '← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ಮುರಿಯಲು ನೀವು ದ್ವೇಷಿಸುವ ಸ್ಟ್ರೀಕ್‌ಗಳು',
   'leaderboard.daily.title': 'ಇಂದಿನ ಪರಿಹಾರಗಳು',
   'leaderboard.loadError': 'ಲೀಡರ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
-  'leaderboard.streaks.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಸ್ಟ್ರೀಕ್‌ಗಳಿಲ್ಲ — ಮೊದಲಿಗರಾಗಿ.',
-  'leaderboard.streaks.subhead': 'ಸರ್ವಕಾಲದ ದೀರ್ಘತಮ ವಿಜಯ ಸ್ಟ್ರೀಕ್‌ಗಳು.',
   'leaderboard.streaks.title': 'ಸ್ಟ್ರೀಕ್ ಮುಂಚೂಣಿಯವರು',
-  'leaderboard.subhead':
-    'ಇಂದು ಕ್ಷೇತ್ರವು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸಿತು, ಮತ್ತು ಯಾರು ದೀರ್ಘತಮ ಸ್ಟ್ರೀಕ್‌ಗಳನ್ನು ಹಿಡಿದಿದ್ದಾರೆ.',
   'leaderboard.title': 'ಲೀಡರ್‌ಬೋರ್ಡ್',
   'login.headline': 'ಮತ್ತೆ ಸ್ವಾಗತ.',
   'login.streakPill': '{{days}}-ದಿನದ ಸ್ಟ್ರೀಕ್ ಕಾಯುತ್ತಿದೆ',
@@ -137,7 +131,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'ಗರಿಷ್ಠ ಸ್ಟ್ರೀಕ್',
   'stats.played': 'ಆಡಲಾಗಿದೆ',
   'stats.playToday': 'ಇಂದಿನ ಪಝಲ್ ಆಡಿ',
-  'stats.subhead': 'ಶ್ರೇಣೀಕೃತ ದೈನಂದಿನ ಪಝಲ್‌ಗಳು ಮಾತ್ರ — ಆರ್ಕೈವ್ ಅಭ್ಯಾಸ ಎಂದಿಗೂ ಎಣಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'stats.title': 'ನಿಮ್ಮ ಅಂಕಿಅಂಶಗಳು',
   'stats.winRate': 'ವಿನ್ ರೇಟ್',
   'status.monthly': 'ಮಾಸಿಕ',

@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'ആർക്കൈവ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'archive.missed': 'നഷ്‌ടമായത്',
   'archive.notPlayed': 'കളിച്ചിട്ടില്ല',
-  'archive.subhead':
-    'കഴിഞ്ഞ ഏതൊരു ദിവസവും പരിശീലനമായി വീണ്ടും കളിക്കൂ — സ്ട്രീക്കുകളില്ല, സ്ഥിതിവിവരക്കണക്കുകളില്ല, എല്ലാ രസവും.',
   'archive.title': 'ആർക്കൈവ്',
   'auth.backToHome': 'ഹോമിലേക്ക് മടങ്ങുക',
   'auth.backToHomeArrow': '← ഹോമിലേക്ക് മടങ്ങുക',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'തകർക്കാൻ നിങ്ങൾ വെറുക്കുന്ന സ്ട്രീക്കുകൾ',
   'leaderboard.daily.title': 'ഇന്നത്തെ പരിഹാരങ്ങൾ',
   'leaderboard.loadError': 'ലീഡർബോർഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
-  'leaderboard.streaks.empty': 'സ്ട്രീക്കുകളൊന്നുമില്ല — ആദ്യത്തെയാളാകൂ.',
-  'leaderboard.streaks.subhead': 'എക്കാലത്തെയും ദൈർഘ്യമേറിയ വിജയ സ്ട്രീക്കുകൾ.',
   'leaderboard.streaks.title': 'സ്ട്രീക്ക് ലീഡർമാർ',
-  'leaderboard.subhead':
-    'ഇന്ന് ഫീൽഡ് എങ്ങനെ പ്രവർത്തിച്ചു, ആരാണ് ഏറ്റവും ദൈർഘ്യമേറിയ സ്ട്രീക്കുകൾ കൈവശം വച്ചിരിക്കുന്നത്.',
   'leaderboard.title': 'ലീഡർബോർഡ്',
   'login.headline': 'തിരികെ സ്വാഗതം.',
   'login.streakPill': '{{days}}-ദിവസത്തെ സ്ട്രീക്ക് കാത്തിരിക്കുന്നു',
@@ -137,8 +131,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'പരമാവധി സ്ട്രീക്ക്',
   'stats.played': 'കളിച്ചത്',
   'stats.playToday': 'ഇന്നത്തെ പസിൽ കളിക്കൂ',
-  'stats.subhead':
-    'റാങ്ക് ചെയ്ത ദൈനംദിന പസിലുകൾ മാത്രം — ആർക്കൈവ് പരിശീലനം ഒരിക്കലും കണക്കാക്കില്ല.',
   'stats.title': 'നിങ്ങളുടെ സ്ഥിതിവിവരക്കണക്കുകൾ',
   'stats.winRate': 'വിജയ നിരക്ക്',
   'status.monthly': 'പ്രതിമാസം',

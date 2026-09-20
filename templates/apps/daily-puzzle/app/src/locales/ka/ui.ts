@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'არქივის ჩატვირთვა ვერ მოხერხდა.',
   'archive.missed': 'გამოტოვებული',
   'archive.notPlayed': 'არ არის ნათამაშები',
-  'archive.subhead':
-    'გაიმეორეთ ნებისმიერი წარსული დღე პრაქტიკისთვის — გარეშე სერიებისა, სტატისტიკის, მხოლოდ გართობა.',
   'archive.title': 'არქივი',
   'auth.backToHome': 'უკან მთავარზე',
   'auth.backToHomeArrow': '← უკან მთავარზე',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'სერიები, რომელთა გაწყვეტაც არ გინდა',
   'leaderboard.daily.title': 'დღევანდელი ამოხსნები',
   'leaderboard.loadError': 'ლიდერბორდის ჩატვირთვა ვერ მოხერხდა.',
-  'leaderboard.streaks.empty': 'ჯერ არ არის სერიები — იყავით პირველი.',
-  'leaderboard.streaks.subhead': 'ყოველდროინდელი ყველაზე გრძელი მოგებების სერიები.',
   'leaderboard.streaks.title': 'სერიის ლიდერები',
-  'leaderboard.subhead': 'როგორ ჩააბარა დღეს ველმა და ვის უჭირავს ყველაზე გრძელი სერიები.',
   'leaderboard.title': 'ლიდერბორდი',
   'login.headline': 'კეთილი იყოს თქვენი დაბრუნება.',
   'login.streakPill': '{{days}}-დღიანი სერია გელოდებათ',
@@ -135,8 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'მაქს. სერია',
   'stats.played': 'ნათამაშები',
   'stats.playToday': 'დღევანდელი თავსატეხის თამაში',
-  'stats.subhead':
-    'მხოლოდ ყოველდღიური რანჟირებული თავსატეხები — არქივის პრაქტიკა არასდროს ითვლება.',
   'stats.title': 'თქვენი სტატისტიკა',
   'stats.winRate': 'მოგების პროცენტი',
   'status.monthly': 'ყოველთვიური',

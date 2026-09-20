@@ -3,7 +3,6 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Labhair linn',
   'about.pageTitle': 'Faoi {{app}}',
-  'addBook.authorPlaceholder': 'm.sh. Ursula K. Le Guin',
   'addBook.coverLabel': 'Clúdach',
   'addBook.createButton': 'Cuir leabhar leis',
   'addBook.descriptionPlaceholder': 'Líne amháin faoi cén fáth atá sé ar do liosta.',
@@ -47,10 +46,13 @@ export const ui: UiTranslations = {
   'bookDetail.stat.started': 'Tosaíthe',
   'books.addLabel': 'Cuir leabhar leis',
   'books.author': 'Údar',
+  'books.empty': 'Níl aon leabhar fós. Cuir ceann leis chun do leabharlann a thosú.',
+  'books.emptyFiltered': 'Níl aon leabhar ag teacht leis an seilf nó an cuardach seo.',
   'books.filterLabel': 'Scag leabhair de réir seilfe',
   'books.heading': 'Do sheilfeanna',
   'books.loadError': 'Theip ar lódáil na leabhar.',
   'books.pageCount': 'Líon leathanaigh',
+  'books.pages': '{{count}} lch',
   'books.title': 'Teideal',
   'challenge.eyebrow': "Léigh níos mó, d'aon ghnó",
   'challenge.finishedEmpty':
@@ -104,9 +106,6 @@ export const ui: UiTranslations = {
   'form.timezone': 'Crios ama',
   'landing.ctaTitle': 'Leathanach amháin anocht. Ansin ceann eile.',
   'landing.eyebrow': 'Gach leabhar. Gach leathanach. Seilf amháin.',
-  'landing.featuresBody':
-    'Seilfeanna, dul chun cinn, dúshlán, léirmheasanna — na ceithre rud a theastaíonn ó nós léitheoireachta agus faic nach dteastaíonn.',
-  'landing.featuresTitle': 'Tógtha do dhaoine a chríochnaíonn leabhair',
   'landing.heroCta': 'Tosaigh do leabharlann',
   'landing.heroCtaSecondary': 'Féach beo é',
   'landing.heroSubtitle':
@@ -117,7 +116,6 @@ export const ui: UiTranslations = {
   'login.signupLink': 'Tosaigh do leabharlann',
   'nav.about': 'Faoi',
   'nav.accountMenu': 'Roghchlár cuntais',
-  'nav.achievements': 'Éachtaí',
   'nav.failedToLoad': 'Theip ar lódáil.',
   'nav.failedToLoadNotifications': 'Theip ar lódáil fógraí.',
   'nav.noNewNotifications': 'Níl aon fhógraí nua.',
@@ -130,7 +128,7 @@ export const ui: UiTranslations = {
   'notifications.markError': 'Níorbh fhéidir gach ceann a mharcáil mar léite.',
   'planUpdated.message': 'Nuashonraíodh do phlean.',
   'planUpdated.thankYou': 'Go raibh maith agat!',
-  'planUpdated.verifying': "D'íocaíocht á dheimhniú…",
+  'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'Roghnaigh do phlean {{app}}',
   'profile.action.plan': 'Bainistigh síntiús',
   'profile.action.settings': 'Socruithe cuntais',

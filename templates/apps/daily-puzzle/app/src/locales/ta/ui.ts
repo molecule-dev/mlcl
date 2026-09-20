@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'காப்பகத்தை ஏற்ற முடியவில்லை.',
   'archive.missed': 'தவறவிட்டது',
   'archive.notPlayed': 'விளையாடவில்லை',
-  'archive.subhead':
-    'கடந்த எந்த நாளையும் பயிற்சியாக மீண்டும் விளையாடுங்கள் — ஸ்ட்ரீக்குகள் இல்லை, புள்ளிவிவரங்கள் இல்லை, முழு வேடிக்கையும் உண்டு.',
   'archive.title': 'காப்பகம்',
   'auth.backToHome': 'முகப்புக்குத் திரும்பு',
   'auth.backToHomeArrow': '← முகப்புக்குத் திரும்பு',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'உடைக்க வெறுக்கும் ஸ்ட்ரீக்குகள்',
   'leaderboard.daily.title': 'இன்றைய தீர்வுகள்',
   'leaderboard.loadError': 'லீடர்போர்டை ஏற்ற முடியவில்லை.',
-  'leaderboard.streaks.empty': 'இன்னும் ஸ்ட்ரீக்குகள் இல்லை — முதலில் இருங்கள்.',
-  'leaderboard.streaks.subhead': 'அனைத்து காலத்திலும் மிக நீண்ட வெற்றி ஸ்ட்ரீக்குகள்.',
   'leaderboard.streaks.title': 'ஸ்ட்ரீக் தலைவர்கள்',
-  'leaderboard.subhead':
-    'இன்று களம் எப்படி செயல்பட்டது, யார் மிக நீண்ட ஸ்ட்ரீக்குகளை வைத்திருக்கிறார்கள்.',
   'leaderboard.title': 'லீடர்போர்டு',
   'login.headline': 'மீண்டும் வருக.',
   'login.streakPill': '{{days}}-நாள் ஸ்ட்ரீக் காத்திருக்கிறது',
@@ -137,8 +131,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'அதிகபட்ச ஸ்ட்ரீக்',
   'stats.played': 'விளையாடியது',
   'stats.playToday': 'இன்றைய புதிரை விளையாடுங்கள்',
-  'stats.subhead':
-    'தரவரிசைப்படுத்தப்பட்ட தினசரி புதிர்கள் மட்டும் — காப்பக பயிற்சி எப்போதும் கணக்கிடப்படாது.',
   'stats.title': 'உங்கள் புள்ளிவிவரங்கள்',
   'stats.winRate': 'வெற்றி விகிதம்',
   'status.monthly': 'மாதாந்திர',

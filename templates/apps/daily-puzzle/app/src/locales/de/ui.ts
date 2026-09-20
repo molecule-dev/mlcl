@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Das Archiv konnte nicht geladen werden.',
   'archive.missed': 'Verpasst',
   'archive.notPlayed': 'Nicht gespielt',
-  'archive.subhead':
-    'Spiele vergangene Tage als Übung nach – keine Serien, keine Statistiken, nur Spaß.',
   'archive.title': 'Archiv',
   'auth.backToHome': 'Zurück zur Startseite',
   'auth.backToHomeArrow': '← Zurück zur Startseite',
@@ -61,7 +59,6 @@ export const ui: UiTranslations = {
     'Errate das versteckte fünfbuchstabige Wort, schau zu wie die Kacheln umdrehen und halte deine Serie am Leben – die ganze Welt spielt jeden Tag dasselbe Wort.',
   'landing.how.title': 'Ein kleines tägliches Ritual',
   'landing.nav.community': 'Bestenliste',
-  'landing.nav.how': "So funktioniert's",
   'landing.nav.playToday': 'Heute spielen',
   'landing.nav.streaks': 'Serien & Statistiken',
   'landing.streaks.body':
@@ -70,11 +67,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serien, die man ungern bricht',
   'leaderboard.daily.title': 'Heutige Lösungen',
   'leaderboard.loadError': 'Die Bestenliste konnte nicht geladen werden.',
-  'leaderboard.streaks.empty': 'Noch keine Serien – sei der Erste.',
-  'leaderboard.streaks.subhead': 'Die längsten Gewinnserien aller Zeiten.',
   'leaderboard.streaks.title': 'Serien-Anführer',
-  'leaderboard.subhead':
-    'Wie die Spieler heute abgeschnitten haben und wer die längsten Serien hält.',
   'leaderboard.title': 'Bestenliste',
   'login.headline': 'Willkommen zurück.',
   'login.streakPill': '{{days}}-Tage-Serie wartet',
@@ -135,7 +128,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Max. Serie',
   'stats.played': 'Gespielt',
   'stats.playToday': 'Heutiges Rätsel spielen',
-  'stats.subhead': 'Nur gewertete Tagesrätsel – Archiv-Übungen zählen nie.',
   'stats.title': 'Deine Statistiken',
   'stats.winRate': 'Gewinnrate',
   'status.monthly': 'Monatlich',

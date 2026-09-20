@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Nu s-a putut încărca arhiva.',
   'archive.missed': 'Ratat',
   'archive.notPlayed': 'Nejucat',
-  'archive.subhead':
-    'Rejoacă orice zi trecută ca antrenament — fără serii, fără statistici, toată distracția.',
   'archive.title': 'Arhivă',
   'auth.backToHome': 'Înapoi la pagina principală',
   'auth.backToHomeArrow': '← Înapoi la pagina principală',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serii pe care urăști să le întrerupi',
   'leaderboard.daily.title': 'Rezolvări de azi',
   'leaderboard.loadError': 'Nu s-a putut încărca clasamentul.',
-  'leaderboard.streaks.empty': 'Încă nu sunt serii — fii primul.',
-  'leaderboard.streaks.subhead': 'Cele mai lungi serii de câștiguri din toate timpurile.',
   'leaderboard.streaks.title': 'Lideri ai seriilor',
-  'leaderboard.subhead': 'Cum s-a descurcat terenul astăzi și cine deține cele mai lungi serii.',
   'leaderboard.title': 'Clasament',
   'login.headline': 'Bine ai revenit.',
   'login.streakPill': 'Serie de {{days}} zile te așteaptă',
@@ -135,8 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Serie maximă',
   'stats.played': 'Jucate',
   'stats.playToday': 'Joacă puzzle-ul de azi',
-  'stats.subhead':
-    'Doar puzzle-urile zilnice clasate — antrenamentul din arhivă nu contează niciodată.',
   'stats.title': 'Statisticile tale',
   'stats.winRate': 'Rată de câștig',
   'status.monthly': 'Lunar',

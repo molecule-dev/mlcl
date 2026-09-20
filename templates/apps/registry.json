@@ -509,6 +509,57 @@
         "email-send"
       ]
     },
+    "ai-hotel-receptionist": {
+      "label": "AI Hotel Receptionist",
+      "description": "Multilingual AI voice receptionist + PMS: the phone agent answers in the caller's own language and books available rooms — plus rooms, rates, reservations, and guest management",
+      "cluster": "real-estate-travel",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-ai-agents",
+        "@molecule/api-ai-agents-llm",
+        "@molecule/api-ai-anthropic",
+        "@molecule/api-ai-speech-openai",
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/app-sidebar-layout-react",
+        "@molecule/app-status-timeline-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "AI Hotel Receptionist"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "ANTHROPIC_API_KEY": {
+          "description": "Anthropic API key for the Claude voice-receptionist agent",
+          "required": false
+        },
+        "OPENAI_API_KEY": {
+          "description": "OpenAI API key for text-to-speech of agent replies (optional; transcript works without it)",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "landing",
+      "features": [
+        "auth",
+        "pms",
+        "ai-voice",
+        "multilingual",
+        "call-simulation"
+      ]
+    },
     "ai-image-generator": {
       "label": "AI Image Generator",
       "description": "Text-to-image generation with gallery, variations, and style control",
@@ -1201,6 +1252,44 @@
         "reports"
       ]
     },
+    "bill-split": {
+      "label": "Bill Split",
+      "description": "Splitwise-like group expense splitting with shared costs, per-member balances, simplified settle-up suggestions, and activity feed",
+      "cluster": "finance",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-permissions-custom",
+        "@molecule/api-emails-mailgun"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Bill Split"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for auth emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "groups",
+        "balances",
+        "activity"
+      ]
+    },
     "blog": {
       "label": "Blog / Publishing Platform",
       "description": "Medium-like content publishing with rich text, SEO, RSS, drafts, and scheduling",
@@ -1267,6 +1356,91 @@
         "drafts",
         "rich-text",
         "image-upload"
+      ]
+    },
+    "book-tracker": {
+      "label": "Book Tracker",
+      "description": "Goodreads-like reading tracker with shelves, book logging, reviews, ratings, reading challenges, and yearly stats — with built-in Stripe-backed subscription tiers",
+      "cluster": "content-social",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-resource-tag",
+        "@molecule/api-cron-node-cron",
+        "@molecule/api-push-notifications-web-push",
+        "@molecule/api-reporting-database",
+        "@molecule/app-keyboard-shortcuts-hotkeys",
+        "@molecule/app-command-palette-cmdk",
+        "@molecule/app-sidebar-layout-react",
+        "@molecule/app-notification-feed-react",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Pagebound"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "VAPID_PUBLIC_KEY": {
+          "description": "VAPID public key for push notifications",
+          "required": true
+        },
+        "VAPID_PRIVATE_KEY": {
+          "description": "VAPID private key for push notifications",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_BOOK_TRACKER_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_BOOK_TRACKER_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_BOOK_TRACKER_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_BOOK_TRACKER_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "notifications",
+        "shelves",
+        "reading-challenge",
+        "reviews",
+        "statistics",
+        "subscriptions"
       ]
     },
     "budget-planner": {
@@ -1396,6 +1570,85 @@
         "realtime"
       ]
     },
+    "civic-311": {
+      "label": "Civic 311",
+      "description": "SeeClickFix-like civic issue reporter with photo + map pin, status workflow, duplicate detection, and watch areas — including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+      "cluster": "community-civic",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-uploads",
+        "@molecule/api-uploads-s3",
+        "@molecule/app-billing-react",
+        "@molecule/app-shell-layout-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "CivicPulse"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_CIVIC_311_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_CIVIC_311_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_CIVIC_311_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_CIVIC_311_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for notifications",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        },
+        "ADMIN_EMAILS": {
+          "description": "Comma-separated emails of city staff accounts (role elevation allow-list)",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "issue-reporting",
+        "photo-uploads",
+        "map-pins",
+        "status-workflow",
+        "duplicate-detection",
+        "confirmations",
+        "watch-areas",
+        "notifications",
+        "subscriptions"
+      ]
+    },
     "clipboard-manager": {
       "label": "Clipboard Manager",
       "description": "Paste-like clipboard history with search, categories, encrypted snippets, and keyboard-driven workflow",
@@ -1495,6 +1748,74 @@
         "folders",
         "sharing",
         "preview"
+      ]
+    },
+    "construction-management": {
+      "label": "Construction Management",
+      "description": "Procore-like construction project management with daily logs, punch lists, RFIs, subcontractors, and per-project photo documentation — including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+      "cluster": "business-saas",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-entitlements",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-resource-user",
+        "@molecule/app-billing-react",
+        "@molecule/app-sidebar-layout-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Groundwork"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for RFI and daily-log digest emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_CONSTRUCTION_MANAGEMENT_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_CONSTRUCTION_MANAGEMENT_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_CONSTRUCTION_MANAGEMENT_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_CONSTRUCTION_MANAGEMENT_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "daily-logs",
+        "punch-list",
+        "rfis",
+        "subcontractors",
+        "subscriptions"
       ]
     },
     "contract-management": {
@@ -2033,6 +2354,73 @@
         "notifications"
       ]
     },
+    "daily-puzzle": {
+      "label": "Daily Puzzle",
+      "description": "Wordle-like daily word puzzle with streaks, per-day stats, emoji share cards, and a global stats leaderboard",
+      "cluster": "education",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-reporting-database",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Daily Puzzle"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_DAILY_PUZZLE_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_DAILY_PUZZLE_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_DAILY_PUZZLE_FAMILY_MONTHLY": {
+          "description": "Stripe price ID for the Family Monthly plan",
+          "required": false
+        },
+        "STRIPE_DAILY_PUZZLE_FAMILY_YEARLY": {
+          "description": "Stripe price ID for the Family Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "stats",
+        "leaderboard",
+        "subscriptions"
+      ]
+    },
     "database-admin": {
       "label": "Database Admin",
       "description": "pgAdmin-like database manager with schema browser, query runner, and data visualization",
@@ -2399,6 +2787,75 @@
         "sharing"
       ]
     },
+    "donor-management": {
+      "label": "Donor Management",
+      "description": "Kindful-like nonprofit donor CRM with donor profiles, gift history, fundraising campaigns, and year-end tax receipts — with built-in Stripe-backed subscription tiers",
+      "cluster": "business-saas",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-entitlements",
+        "@molecule/api-resource-payment",
+        "@molecule/api-resource-user",
+        "@molecule/api-payments-stripe",
+        "@molecule/app-billing-react",
+        "@molecule/app-sidebar-layout-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Givingly"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for auth and receipt emails",
+          "required": true
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_DONOR_MANAGEMENT_PLUS_MONTHLY": {
+          "description": "Stripe price ID for the Plus Monthly plan",
+          "required": false
+        },
+        "STRIPE_DONOR_MANAGEMENT_PLUS_YEARLY": {
+          "description": "Stripe price ID for the Plus Yearly plan",
+          "required": false
+        },
+        "STRIPE_DONOR_MANAGEMENT_ORG_MONTHLY": {
+          "description": "Stripe price ID for the Organization Monthly plan",
+          "required": false
+        },
+        "STRIPE_DONOR_MANAGEMENT_ORG_YEARLY": {
+          "description": "Stripe price ID for the Organization Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "admin",
+      "features": [
+        "auth",
+        "donors",
+        "gifts",
+        "campaigns",
+        "tax-receipts",
+        "subscriptions"
+      ]
+    },
     "email-client": {
       "label": "Email Client",
       "description": "Gmail-like email client with IMAP/SMTP, labels, compose, threads, and search",
@@ -2718,6 +3175,77 @@
         "import-export"
       ]
     },
+    "family-tree": {
+      "label": "Family Tree",
+      "description": "Ancestry-lite family tree builder with people, relationships, a navigable tree view, and per-person life timelines — with built-in Stripe-backed subscription tiers",
+      "cluster": "content-social",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-middleware-validation",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-email-templates",
+        "@molecule/app-data-table",
+        "@molecule/app-timeline",
+        "@molecule/app-command-palette",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Branches"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for email notifications",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun domain",
+          "required": false
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_FAMILY_TREE_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_FAMILY_TREE_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_FAMILY_TREE_FAMILY_MONTHLY": {
+          "description": "Stripe price ID for the Family Monthly plan",
+          "required": false
+        },
+        "STRIPE_FAMILY_TREE_FAMILY_YEARLY": {
+          "description": "Stripe price ID for the Family Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "family-tree",
+        "people-directory",
+        "life-timelines",
+        "subscriptions"
+      ]
+    },
     "feature-flag-manager": {
       "label": "Feature Flag Manager",
       "description": "LaunchDarkly-like feature flags with targeting rules, rollout percentages, and audit log",
@@ -2749,6 +3277,156 @@
       "features": [
         "auth",
         "search"
+      ]
+    },
+    "feedback-roadmap": {
+      "label": "Feedback & Roadmap",
+      "description": "Canny-like feedback boards with voting, official statuses, a public roadmap, and a changelog — with built-in Stripe-backed subscription tiers",
+      "cluster": "business-saas",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-search-meilisearch",
+        "@molecule/api-permissions-custom",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "SignalLoop"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MEILISEARCH_HOST": {
+          "description": "MeiliSearch server URL",
+          "default": "http://localhost:7700"
+        },
+        "MEILISEARCH_API_KEY": {
+          "description": "MeiliSearch API key",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_FEEDBACK_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_FEEDBACK_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_FEEDBACK_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_FEEDBACK_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "search",
+        "voting",
+        "boards",
+        "roadmap",
+        "changelog",
+        "admin-workflow",
+        "subscriptions"
+      ]
+    },
+    "field-service": {
+      "label": "Field Service",
+      "description": "Jobber-like field service management with quotes, job dispatch scheduling, technician assignment, checklists, and invoicing — with built-in Stripe-backed subscription tiers",
+      "cluster": "business-saas",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-cron-node-cron",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-email-templates",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/app-billing-react",
+        "@molecule/app-sidebar-layout-react",
+        "@molecule/app-notification-feed-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Toolbelt"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for quote and invoice emails",
+          "required": true
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_FIELD_SERVICE_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_FIELD_SERVICE_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_FIELD_SERVICE_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_FIELD_SERVICE_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "admin",
+      "features": [
+        "auth",
+        "search",
+        "calendar",
+        "notifications",
+        "subscriptions"
       ]
     },
     "flashcard-app": {
@@ -4212,6 +4890,72 @@
         "realtime"
       ]
     },
+    "meal-planner": {
+      "label": "Meal Planner",
+      "description": "Paprika/Mealime-like recipe manager with weekly meal planning, auto-generated grocery lists, and pantry tracking — with built-in Stripe-backed subscription tiers",
+      "cluster": "food-home",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-import-export-csv",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Meal Planner"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_MEAL_PLANNER_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_MEAL_PLANNER_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_MEAL_PLANNER_FAMILY_MONTHLY": {
+          "description": "Stripe price ID for the Family Monthly plan",
+          "required": false
+        },
+        "STRIPE_MEAL_PLANNER_FAMILY_YEARLY": {
+          "description": "Stripe price ID for the Family Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "search",
+        "subscriptions"
+      ]
+    },
     "medication-reminder": {
       "label": "Medication Reminder",
       "description": "Medisafe-like medication reminder with schedules, dose tracking, refill alerts, and adherence reports",
@@ -4765,6 +5509,76 @@
         "personalization"
       ]
     },
+    "newsletter": {
+      "label": "Newsletter Publishing Platform",
+      "description": "Substack/beehiiv-like newsletter publishing with issues, subscriber management, open/click analytics, and paid tiers",
+      "cluster": "content-social",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-entitlements",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-resource-payment",
+        "@molecule/api-resource-user",
+        "@molecule/app-billing-react",
+        "@molecule/app-shell-layout-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Dispatch"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_NEWSLETTER_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_NEWSLETTER_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_NEWSLETTER_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_NEWSLETTER_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "rss",
+        "scheduling",
+        "drafts",
+        "markdown",
+        "paid-tiers",
+        "open-analytics"
+      ]
+    },
     "note-taking": {
       "label": "Note-taking",
       "description": "Notion-like note-taking with block editor, nested pages, databases, and templates",
@@ -4864,6 +5678,82 @@
         "key-results",
         "check-ins",
         "progress-tracking"
+      ]
+    },
+    "oncall-management": {
+      "label": "Oncall Management",
+      "description": "PagerDuty-like on-call management with rotation schedules, escalation policies, incident alerting, acknowledge/resolve workflow, and postmortems — with built-in Stripe-backed subscription tiers",
+      "cluster": "operations-iot",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-resource-notification",
+        "@molecule/api-search-meilisearch",
+        "@molecule/api-notifications-webhook",
+        "@molecule/api-emails-mailgun",
+        "@molecule/api-cron-node-cron",
+        "@molecule/api-reporting-database",
+        "@molecule/app-data-table",
+        "@molecule/app-virtual-scroll",
+        "@molecule/app-command-palette",
+        "@molecule/app-keyboard-shortcuts",
+        "@molecule/app-charts",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Oncall Management"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_ONCALL_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_ONCALL_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_ONCALL_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_ONCALL_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "notifications",
+        "search",
+        "subscriptions"
       ]
     },
     "online-store": {
@@ -6039,6 +6929,81 @@
         "search"
       ]
     },
+    "shift-scheduling": {
+      "label": "Shift Scheduling",
+      "description": "When I Work-like shift scheduling with weekly rosters, availability windows, swap/drop approvals, open-shift claiming, and timesheet export — with built-in Stripe-backed subscription tiers",
+      "cluster": "business-saas",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-permissions-custom",
+        "@molecule/api-audit-database",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-command-palette",
+        "@molecule/app-kpi-card-react",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Shiftly"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key",
+          "required": true
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_SHIFT_SCHEDULING_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_SHIFT_SCHEDULING_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_SHIFT_SCHEDULING_TEAM_MONTHLY": {
+          "description": "Stripe price ID for the Team Monthly plan",
+          "required": false
+        },
+        "STRIPE_SHIFT_SCHEDULING_TEAM_YEARLY": {
+          "description": "Stripe price ID for the Team Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "schedule",
+        "open-shifts",
+        "swap-approvals",
+        "availability",
+        "staff-roster",
+        "timesheets",
+        "audit-log",
+        "subscriptions"
+      ]
+    },
     "sleep-tracker": {
       "label": "Sleep Tracker",
       "description": "Sleep Cycle-like sleep tracker with sleep logs, quality scores, trends, smart alarm, and sleep hygiene tips",
@@ -6764,6 +7729,74 @@
         "projects"
       ]
     },
+    "transit-tracker": {
+      "label": "Transit Tracker",
+      "description": "Citymapper-like transit tracker with stops, routes, live arrival boards (simulated feed), service alerts, and a trip planner — with built-in Stripe-backed subscription tiers",
+      "cluster": "civic",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Transit Tracker"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_TRANSIT_TRACKER_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_TRANSIT_TRACKER_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_TRANSIT_TRACKER_FAMILY_MONTHLY": {
+          "description": "Stripe price ID for the Family Monthly plan",
+          "required": false
+        },
+        "STRIPE_TRANSIT_TRACKER_FAMILY_YEARLY": {
+          "description": "Stripe price ID for the Family Yearly plan",
+          "required": false
+        }
+      },
+      "layout": "landing",
+      "features": [
+        "auth",
+        "live-arrivals",
+        "trip-planner",
+        "service-alerts",
+        "saved-stops",
+        "subscriptions"
+      ]
+    },
     "travel-booking": {
       "label": "Travel Booking",
       "description": "Booking.com-like travel platform with search, compare, book, and itinerary management",
@@ -7408,6 +8441,72 @@
       "features": [
         "auth",
         "search"
+      ]
+    },
+    "wedding-planner": {
+      "label": "Wedding Planner",
+      "description": "Zola/The-Knot-like wedding planner with guest list + RSVP collection, budget tracking, vendor checklist, and seating chart — with built-in Stripe-backed subscription tiers",
+      "cluster": "productivity",
+      "type": "full-stack",
+      "framework": "react",
+      "packages": [
+        "@molecule/api-database-postgresql",
+        "@molecule/api-resource-user",
+        "@molecule/api-resource-payment",
+        "@molecule/api-payments-stripe",
+        "@molecule/api-entitlements",
+        "@molecule/api-email-templates",
+        "@molecule/api-emails-mailgun",
+        "@molecule/app-billing-react",
+        "@molecule/app-kpi-card-react"
+      ],
+      "env": {
+        "APP_NAME": {
+          "description": "Application name",
+          "default": "Wedding Planner"
+        },
+        "DATABASE_URL": {
+          "description": "PostgreSQL connection string",
+          "required": true
+        },
+        "STRIPE_SECRET_KEY": {
+          "description": "Stripe secret API key (sk_test_... in test mode)",
+          "required": true
+        },
+        "STRIPE_WEBHOOK_SECRET": {
+          "description": "Stripe webhook signing secret (whsec_...)",
+          "required": true
+        },
+        "STRIPE_WEDDING_PLANNER_PRO_MONTHLY": {
+          "description": "Stripe price ID for the Pro Monthly plan",
+          "required": false
+        },
+        "STRIPE_WEDDING_PLANNER_PRO_YEARLY": {
+          "description": "Stripe price ID for the Pro Yearly plan",
+          "required": false
+        },
+        "STRIPE_WEDDING_PLANNER_FAMILY_MONTHLY": {
+          "description": "Stripe price ID for the Family Monthly plan",
+          "required": false
+        },
+        "STRIPE_WEDDING_PLANNER_FAMILY_YEARLY": {
+          "description": "Stripe price ID for the Family Yearly plan",
+          "required": false
+        },
+        "MAILGUN_API_KEY": {
+          "description": "Mailgun API key for transactional emails",
+          "required": false
+        },
+        "MAILGUN_DOMAIN": {
+          "description": "Mailgun sending domain",
+          "required": false
+        }
+      },
+      "layout": "dashboard",
+      "features": [
+        "auth",
+        "subscriptions",
+        "checklists"
       ]
     },
     "whiteboard": {

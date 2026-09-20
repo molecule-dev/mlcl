@@ -1,6 +1,6 @@
 # Flagship template index
 
-134 templates, grouped by cluster. Use `inspect_template(slug)` to read a template's full CATALOG.md.
+150 templates, grouped by cluster. Use `inspect_template(slug)` to read a template's full CATALOG.md.
 
 ## ai-first
 
@@ -24,16 +24,25 @@
 
 - `accounting-invoicing` — **Accounting / Invoicing**: QuickBooks-like accounting with invoices, expenses, reports, and reconciliation
 - `applicant-tracking` — **Applicant Tracking**: Greenhouse-like ATS with job posts, applications, pipeline, and scoring
+- `construction-management` — **Construction Management**: Procore-like construction project management with daily logs, punch lists, RFIs, subcontractors, and per-project photo documentation — including a built-in subscription tier (Free / Pro / Team) backed by Stripe
 - `contract-management` — **Contract Management**: DocuSign-like contract management with templates, signing, expiry, and alerts — with built-in Stripe-backed subscription tiers
 - `crm` — **CRM**: Salesforce-like CRM with contacts, deals, pipeline, and activities — including a built-in subscription tier (Free / Pro / Team) backed by Stripe
+- `donor-management` — **Donor Management**: Kindful-like nonprofit donor CRM with donor profiles, gift history, fundraising campaigns, and year-end tax receipts — with built-in Stripe-backed subscription tiers
 - `employee-onboarding` — **Employee Onboarding**: Onboarding portal with task checklists, documents, progress tracking, and welcome flows
+- `feedback-roadmap` — **Feedback & Roadmap**: Canny-like feedback boards with voting, official statuses, a public roadmap, and a changelog — with built-in Stripe-backed subscription tiers
+- `field-service` — **Field Service**: Jobber-like field service management with quotes, job dispatch scheduling, technician assignment, checklists, and invoicing — with built-in Stripe-backed subscription tiers
 - `helpdesk-ticketing` — **Helpdesk / Ticketing**: Zendesk-like support system with tickets, SLA, and knowledge base
 - `hr-management` — **HR Management**: BambooHR-like HR system with employee records, PTO, and org chart
 - `internal-knowledge-base` — **Internal Knowledge Base**: Confluence-like knowledge base with articles, spaces, search, and permissions
 - `meeting-scheduler` — **Meeting Scheduler**: Calendly-like scheduling with availability, booking, and calendar sync
 - `okr-goal-tracking` — **OKR / Goal Tracking**: Lattice-like OKR tracking with objectives, key results, and check-ins
 - `project-management` — **Project Management**: Asana-like task management with Kanban, milestones, and team views
+- `shift-scheduling` — **Shift Scheduling**: When I Work-like shift scheduling with weekly rosters, availability windows, swap/drop approvals, open-shift claiming, and timesheet export — with built-in Stripe-backed subscription tiers
 - `survey-feedback-tool` — **Survey / Feedback Tool**: Typeform-like survey builder with form creation, responses, and analytics
+
+## civic
+
+- `transit-tracker` — **Transit Tracker**: Citymapper-like transit tracker with stops, routes, live arrival boards (simulated feed), service alerts, and a trip planner — with built-in Stripe-backed subscription tiers
 
 ## communication
 
@@ -48,13 +57,20 @@
 - `video-conferencing` — **Video Conferencing**: Zoom-like video meetings with WebRTC, screen sharing, recording, and chat
 - `whiteboard` — **Whiteboard**: Miro-like collaborative canvas with shapes, sticky notes, drawing, and real-time cursors
 
+## community-civic
+
+- `civic-311` — **Civic 311**: SeeClickFix-like civic issue reporter with photo + map pin, status workflow, duplicate detection, and watch areas — including a built-in subscription tier (Free / Pro / Team) backed by Stripe
+
 ## content-social
 
 - `blog` — **Blog / Publishing Platform**: Medium-like content publishing with rich text, SEO, RSS, drafts, and scheduling
+- `book-tracker` — **Book Tracker**: Goodreads-like reading tracker with shelves, book logging, reviews, ratings, reading challenges, and yearly stats — with built-in Stripe-backed subscription tiers
+- `family-tree` — **Family Tree**: Ancestry-lite family tree builder with people, relationships, a navigable tree view, and per-person life timelines — with built-in Stripe-backed subscription tiers
 - `forum` — **Forum / Community**: Reddit-like discussions with threads, voting, reputation, and moderation — with built-in Stripe-backed subscription tiers
 - `link-aggregator` — **Link Aggregator**: HN/Pinboard-like with link submission, voting, and karma
 - `music-streaming` — **Music Streaming**: Spotify-like music with playlists, queue, and artist pages
 - `news-aggregator` — **News Aggregator**: Flipboard-like news with RSS parsing, categories, and personalization
+- `newsletter` — **Newsletter Publishing Platform**: Substack/beehiiv-like newsletter publishing with issues, subscriber management, open/click analytics, and paid tiers
 - `photo-sharing` — **Photo Sharing**: Flickr-like photo community with albums, galleries, and EXIF
 - `podcast` — **Podcast Platform**: Podcast hosting with audio player, episodes, RSS, and subscriptions
 - `social-media` — **Social Media Feed**: Instagram-like social with posts, stories, followers, and feed
@@ -102,6 +118,7 @@
 ## education
 
 - `course-marketplace` — **Course Marketplace**: Udemy-like course marketplace with listings, enrollment, video lessons, and certificates
+- `daily-puzzle` — **Daily Puzzle**: Wordle-like daily word puzzle with streaks, per-day stats, emoji share cards, and a global stats leaderboard
 - `flashcard-app` — **Flashcard App**: Anki-like flashcard app with spaced repetition, decks, and study statistics
 - `language-learning` — **Language Learning**: Duolingo-like language learning app with lessons, exercises, streaks, and XP
 - `lms` — **LMS**: Canvas-like learning management system with courses, assignments, grades, and discussions
@@ -113,6 +130,7 @@
 ## finance
 
 - `banking-dashboard` — **Banking Dashboard**: Neobank-like dashboard with accounts, transfers, transaction history, and statements
+- `bill-split` — **Bill Split**: Splitwise-like group expense splitting with shared costs, per-member balances, simplified settle-up suggestions, and activity feed
 - `budget-planner` — **Budget Planner**: YNAB-like envelope budgeting with categories, assignments, spending reports, and goal tracking
 - `crypto-tracker` — **Crypto Tracker**: CoinGecko-like cryptocurrency tracker with portfolio, price charts, alerts, and market data
 - `expense-report` — **Expense Report**: Expensify-like expense management with receipts, approval workflow, policies, and reimbursement tracking
@@ -120,6 +138,10 @@
 - `invoice-billing` — **Invoice / Billing**: FreshBooks-like invoicing with clients, invoices, recurring billing, payments, and tax reports
 - `payroll-manager` — **Payroll Manager**: Gusto-like payroll management with employees, pay runs, tax calculations, and compliance reports
 - `personal-finance` — **Personal Finance Tracker**: Mint-like finance tracking with accounts, transactions, budgets, and savings goals
+
+## food-home
+
+- `meal-planner` — **Meal Planner**: Paprika/Mealime-like recipe manager with weekly meal planning, auto-generated grocery lists, and pantry tracking — with built-in Stripe-backed subscription tiers
 
 ## health-fitness
 
@@ -142,6 +164,7 @@
 - `inventory-management` — **Inventory Management**: Cin7-like inventory management with stock levels, SKUs, warehouses, and low-stock alerts
 - `iot-device-manager` — **IoT Device Manager**: AWS IoT-like platform with device registry, telemetry ingestion, remote commands, and firmware update management
 - `job-board` — **Job Board**: Indeed-like job board with postings, applications, employer dashboard, and search
+- `oncall-management` — **Oncall Management**: PagerDuty-like on-call management with rotation schedules, escalation policies, incident alerting, acknowledge/resolve workflow, and postmortems — with built-in Stripe-backed subscription tiers
 - `pet-care` — **Pet Care**: Rover-like pet care platform with pet profiles, vet records, sitter bookings, and health tracking
 - `smart-home-dashboard` — **Smart Home Dashboard**: Home Assistant-like app with devices, automations, scenes, and energy monitoring
 - `sports-league` — **Sports League**: ESPN fantasy-like app with teams, schedules, scores, and standings
@@ -161,9 +184,11 @@
 - `spreadsheet` — **Spreadsheet**: Airtable-like spreadsheet with grid views, column types, formulas, real-time collaboration, and CSV import/export
 - `time-tracking` — **Time Tracking**: Toggl-like time tracking with timer, projects, reports, and billing
 - `to-do-list` — **To-do List**: Todoist-like task management with projects, labels, recurring tasks, and reminders
+- `wedding-planner` — **Wedding Planner**: Zola/The-Knot-like wedding planner with guest list + RSVP collection, budget tracking, vendor checklist, and seating chart — with built-in Stripe-backed subscription tiers
 
 ## real-estate-travel
 
+- `ai-hotel-receptionist` — **AI Hotel Receptionist**: Multilingual AI voice receptionist + PMS: the phone agent answers in the caller's own language and books available rooms — plus rooms, rates, reservations, and guest management
 - `event-ticketing` — **Event Ticketing**: Eventbrite-like event platform with creation, ticketing, check-in, and analytics
 - `flight-search` — **Flight Search**: Kayak-like flight search with routes, price comparison, alerts, and multi-city trips
 - `hotel-booking` — **Hotel Booking**: Hotels.com-like hotel booking with rooms, availability, rates, amenities, and loyalty rewards

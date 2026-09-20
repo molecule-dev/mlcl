@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Imeshindwa kupakia kumbukumbu.',
   'archive.missed': 'Imekosekana',
   'archive.notPlayed': 'Haijachezwa',
-  'archive.subhead':
-    'Rudia siku yoyote iliyopita kama mazoezi — hakuna mfululizo, hakuna takwimu, furaha tu.',
   'archive.title': 'Kumbukumbu',
   'auth.backToHome': 'Rudi mwanzoni',
   'auth.backToHomeArrow': '← Rudi mwanzoni',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Mifululizo unayochukia kuivunja',
   'leaderboard.daily.title': 'Ufumbuzi wa leo',
   'leaderboard.loadError': 'Imeshindwa kupakia ubao wa viongozi.',
-  'leaderboard.streaks.empty': 'Hakuna mifululizo bado — kuwa wa kwanza.',
-  'leaderboard.streaks.subhead': 'Mifululizo mirefu zaidi ya ushindi ya wakati wote.',
   'leaderboard.streaks.title': 'Viongozi wa mfululizo',
-  'leaderboard.subhead':
-    'Jinsi wachezaji walivyofanya leo, na nani anashikilia mifululizo mirefu zaidi.',
   'leaderboard.title': 'Ubao wa viongozi',
   'login.headline': 'Karibu tena.',
   'login.streakPill': 'Mfululizo wa siku {{days}} unasubiri',
@@ -136,7 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Mfululizo wa juu zaidi',
   'stats.played': 'Imechezwa',
   'stats.playToday': 'Cheza fumbo la leo',
-  'stats.subhead': 'Mafumbo yaliyopangwa kwa daraja tu — mazoezi ya kumbukumbu hayahesabiwi kamwe.',
   'stats.title': 'Takwimu zako',
   'stats.winRate': 'Kiwango cha ushindi',
   'status.monthly': 'Kila mwezi',

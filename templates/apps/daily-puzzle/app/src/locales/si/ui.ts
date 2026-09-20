@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'ලේඛනාගාරය පූරණය කළ නොහැකි විය.',
   'archive.missed': 'මග හැරුණු',
   'archive.notPlayed': 'ක්‍රීඩා නොකළ',
-  'archive.subhead':
-    'අතීත දිනයක් පුහුණුව ලෙස නැවත ක්‍රීඩා කරන්න - ස්ට්‍රීක් නැත, සංඛ්‍යාලේඛන නැත, විනෝදය පමණයි.',
   'archive.title': 'ලේඛනාගාරය',
   'auth.backToHome': 'මුල් පිටුවට ආපසු',
   'auth.backToHomeArrow': '← මුල් පිටුවට ආපසු',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'කැඩීමට අකමැති ස්ට්‍රීක්',
   'leaderboard.daily.title': 'අද විසඳුම්',
   'leaderboard.loadError': 'ලීඩර්බෝඩ් පූරණය කළ නොහැකි විය.',
-  'leaderboard.streaks.empty': 'තවමත් ස්ට්‍රීක් නැත - පළමුවැන්නා වන්න.',
-  'leaderboard.streaks.subhead': 'සර්වකාලීන දිගුම ජයග්‍රහණ ස්ට්‍රීක්.',
   'leaderboard.streaks.title': 'ස්ට්‍රීක් නායකයින්',
-  'leaderboard.subhead':
-    'අද ක්ෂේත්‍රය කෙසේ ක්‍රියා කළාද, සහ දිගුම ස්ට්‍රීක් තබා ගෙන සිටින්නේ කවුද.',
   'leaderboard.title': 'ලීඩර්බෝඩ්',
   'login.headline': 'නැවත සාදරයෙන් පිළිගනිමු.',
   'login.streakPill': '{{days}}-දින ස්ට්‍රීක් රැඳී සිටී',
@@ -135,7 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'උපරිම ස්ට්‍රීක්',
   'stats.played': 'ක්‍රීඩා කළා',
   'stats.playToday': 'අද ප්‍රහේලිකාව ක්‍රීඩා කරන්න',
-  'stats.subhead': 'ශ්‍රේණිගත දෛනික ප්‍රහේලිකා පමණයි - ලේඛනාගාර පුහුණුව කිසිදා ගණන් නොගනී.',
   'stats.title': 'ඔබේ සංඛ්‍යාලේඛන',
   'stats.winRate': 'ජයග්‍රහණ අනුපාතය',
   'status.monthly': 'මාසික',

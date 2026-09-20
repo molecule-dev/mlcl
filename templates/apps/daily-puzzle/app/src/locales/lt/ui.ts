@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Nepavyko įkelti archyvo.',
   'archive.missed': 'Praleista',
   'archive.notPlayed': 'Nežaista',
-  'archive.subhead':
-    'Pakartokite bet kurią praėjusią dieną kaip pratybą — be serijų, be statistikos, tik linksma.',
   'archive.title': 'Archyvas',
   'auth.backToHome': 'Atgal į pradžią',
   'auth.backToHomeArrow': '← Atgal į pradžią',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serijos, kurių nesinori nutraukti',
   'leaderboard.daily.title': 'Šiandienos sprendimai',
   'leaderboard.loadError': 'Nepavyko įkelti lyderių lentelės.',
-  'leaderboard.streaks.empty': 'Serijų dar nėra — būkite pirmas.',
-  'leaderboard.streaks.subhead': 'Ilgiausios visų laikų pergalių serijos.',
   'leaderboard.streaks.title': 'Serijų lyderiai',
-  'leaderboard.subhead': 'Kaip šiandien sekėsi žaidėjams ir kas turi ilgiausias serijas.',
   'leaderboard.title': 'Lyderių lentelė',
   'login.headline': 'Sveiki sugrįžę.',
   'login.streakPill': 'Laukia {{days}} dienų serija',
@@ -135,8 +130,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Maksimali serija',
   'stats.played': 'Žaista',
   'stats.playToday': 'Žaisti šiandienos galvosūkį',
-  'stats.subhead':
-    'Tik reitinguojami kasdieniai galvosūkiai — archyvo pratybos niekada neskaičiuojamos.',
   'stats.title': 'Jūsų statistika',
   'stats.winRate': 'Laimėjimų procentas',
   'status.monthly': 'Mėnesinis',

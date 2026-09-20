@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'ఆర్కైవ్‌ను లోడ్ చేయడం సాధ్యం కాలేదు.',
   'archive.missed': 'తప్పిపోయింది',
   'archive.notPlayed': 'ఆడలేదు',
-  'archive.subhead':
-    'గత రోజులన్నింటినీ ప్రాక్టీస్‌గా మళ్లీ ఆడండి — స్ట్రీక్‌లు లేవు, గణాంకాలు లేవు, అంతా సరదా మాత్రమే.',
   'archive.title': 'ఆర్కైవ్',
   'auth.backToHome': 'హోమ్‌కు తిరిగి వెళ్లండి',
   'auth.backToHomeArrow': '← హోమ్‌కు తిరిగి వెళ్లండి',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'విరగ్గొట్టడానికి మీరు ఇష్టపడని స్ట్రీక్‌లు',
   'leaderboard.daily.title': 'ఈరోజు పరిష్కరించినవి',
   'leaderboard.loadError': 'లీడర్‌బోర్డ్‌ను లోడ్ చేయడం సాధ్యం కాలేదు.',
-  'leaderboard.streaks.empty': 'ఇంకా స్ట్రీక్‌లు లేవు — మొదటివారు కండి.',
-  'leaderboard.streaks.subhead': 'ఆల్-టైమ్ అతి పొడవైన విన్ స్ట్రీక్‌లు.',
   'leaderboard.streaks.title': 'స్ట్రీక్ లీడర్లు',
-  'leaderboard.subhead':
-    'ఈరోజు ఫీల్డ్ ఎలా ఆడింది, మరియు ఎవరు అతి పొడవైన స్ట్రీక్‌లను కలిగి ఉన్నారు.',
   'leaderboard.title': 'లీడర్‌బోర్డ్',
   'login.headline': 'తిరిగి స్వాగతం.',
   'login.streakPill': '{{days}}-రోజుల స్ట్రీక్ వేచి ఉంది',
@@ -135,8 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'గరిష్ట స్ట్రీక్',
   'stats.played': 'ఆడారు',
   'stats.playToday': 'నేటి పజిల్ ఆడండి',
-  'stats.subhead':
-    'ర్యాంక్ చేయబడిన రోజువారీ పజిల్స్ మాత్రమే — ఆర్కైవ్ ప్రాక్టీస్ ఎప్పుడూ లెక్కించబడదు.',
   'stats.title': 'మీ గణాంకాలు',
   'stats.winRate': 'గెలుపు రేటు',
   'status.monthly': 'నెలవారీ',

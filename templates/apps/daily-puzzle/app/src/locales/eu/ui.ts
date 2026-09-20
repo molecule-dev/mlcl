@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Ezin izan da artxiboa kargatu.',
   'archive.missed': 'Galduta',
   'archive.notPlayed': 'Ez jokatu',
-  'archive.subhead':
-    'Berriz jokatu edozein egun iragankoa praktika gisa — sekuentziarik ez, estatistikarik ez, dibertsio guztia.',
   'archive.title': 'Artxiboa',
   'auth.backToHome': 'Atzera hasierara',
   'auth.backToHomeArrow': '← Atzera hasierara',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Apurtzeko gorroto dituzun sekuentziak',
   'leaderboard.daily.title': 'Gaurko ebazpenak',
   'leaderboard.loadError': 'Ezin izan da sailkapen-taula kargatu.',
-  'leaderboard.streaks.empty': 'Ez dago sekuentziarik oraindik — izan lehena.',
-  'leaderboard.streaks.subhead': 'Denbora guztiko sekuentzia luzeenak.',
   'leaderboard.streaks.title': 'Sekuentzia-liderrak',
-  'leaderboard.subhead':
-    'Gaur nola jardun duen eremuak, eta nortzuk mantentzen dituzten sekuentzia luzeenak.',
   'leaderboard.title': 'Sailkapen-taula',
   'login.headline': 'Ongietorri berriz.',
   'login.streakPill': '{{days}} eguneko sekuentzia zain',
@@ -135,7 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Gehieneko sekuentzia',
   'stats.played': 'Jokatuta',
   'stats.playToday': 'Jokatu gaurko puzzlea',
-  'stats.subhead': 'Eguneko puzzle sailkatuak soilik — artxiboko praktikak ez du inoiz zenbatzen.',
   'stats.title': 'Zure estatistikak',
   'stats.winRate': 'Irabazpen-tasa',
   'status.monthly': 'Hilekoa',

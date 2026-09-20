@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Tidak dapat memuat arsip.',
   'archive.missed': 'Terlewat',
   'archive.notPlayed': 'Belum dimainkan',
-  'archive.subhead':
-    'Mainkan ulang hari sebelumnya sebagai latihan — tanpa streak, tanpa statistik, semua kesenangannya.',
   'archive.title': 'Arsip',
   'auth.backToHome': 'Kembali ke beranda',
   'auth.backToHomeArrow': '← Kembali ke beranda',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streak yang tak ingin diputus',
   'leaderboard.daily.title': 'Yang menyelesaikan hari ini',
   'leaderboard.loadError': 'Tidak dapat memuat papan peringkat.',
-  'leaderboard.streaks.empty': 'Belum ada streak — jadilah yang pertama.',
-  'leaderboard.streaks.subhead': 'Streak kemenangan terpanjang sepanjang masa.',
   'leaderboard.streaks.title': 'Pemimpin streak',
-  'leaderboard.subhead':
-    'Bagaimana para pemain hari ini, dan siapa yang memegang streak terpanjang.',
   'leaderboard.title': 'Papan peringkat',
   'login.headline': 'Selamat datang kembali.',
   'login.streakPill': 'Streak {{days}} hari menunggu',
@@ -135,7 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Streak maksimal',
   'stats.played': 'Dimainkan',
   'stats.playToday': 'Mainkan teka-teki hari ini',
-  'stats.subhead': 'Hanya teka-teki harian berperingkat — latihan arsip tidak pernah dihitung.',
   'stats.title': 'Statistik Anda',
   'stats.winRate': 'Tingkat kemenangan',
   'status.monthly': 'Bulanan',

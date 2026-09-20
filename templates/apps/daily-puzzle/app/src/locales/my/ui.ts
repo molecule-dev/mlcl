@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'မော်ကွန်းကို ဖွင့်၍မရပါ။',
   'archive.missed': 'လွတ်သွားသော',
   'archive.notPlayed': 'မကစားရသေး',
-  'archive.subhead':
-    'အတိတ်နေ့တစ်နေ့ကို လေ့ကျင့်ရန် ပြန်ကစားပါ — streak မရှိ၊ စာရင်းအင်းမရှိ၊ ပျော်စရာအားလုံးရှိ။',
   'archive.title': 'မော်ကွန်း',
   'auth.backToHome': 'ပင်မသို့ ပြန်သွားရန်',
   'auth.backToHomeArrow': '← ပင်မသို့ ပြန်သွားရန်',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ချိုးချင်မရဲသော streak များ',
   'leaderboard.daily.title': 'ယနေ့ဖြေရှင်းမှုများ',
   'leaderboard.loadError': 'Leaderboard ကို ဖွင့်၍မရပါ။',
-  'leaderboard.streaks.empty': 'Streak မရှိသေးပါ — ပထမဦးဆုံးဖြစ်ပါ။',
-  'leaderboard.streaks.subhead': 'အချိန်တိုင်း အရှည်ဆုံး win streak များ။',
   'leaderboard.streaks.title': 'Streak ခေါင်းဆောင်များ',
-  'leaderboard.subhead':
-    'ယနေ့လယ်ကွင်းတွင် မည်သို့ဖြစ်ခဲ့သည်၊ နှင့် အရှည်ဆုံး streak များကို မည်သူများက ကိုင်ထားသည်။',
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'ပြန်လည်ကြိုဆိုပါတယ်။',
   'login.streakPill': '{{days}}-ရက် streak စောင့်နေသည်',
@@ -137,8 +131,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Max streak',
   'stats.played': 'ကစားခဲ့သော',
   'stats.playToday': 'ယနေ့ပဟေဠိကို ကစားပါ',
-  'stats.subhead':
-    'အဆင့်သတ်မှတ်ထားသော နေ့စဉ်ပဟေဠိများသာ — မော်ကွန်းလေ့ကျင့်မှုက ဘယ်တော့မှ မရေတွက်ပါ။',
   'stats.title': 'သင့်စာရင်းအင်း',
   'stats.winRate': 'Win rate',
   'status.monthly': 'လစဉ်',

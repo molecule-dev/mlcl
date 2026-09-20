@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'មិនអាចផ្ទុកបណ្ណសារបានទេ។',
   'archive.missed': 'បានខកខាន',
   'archive.notPlayed': 'មិនបានលេង',
-  'archive.subhead':
-    'លេងឡើងវិញថ្ងៃកន្លងមកណាមួយដើម្បីអនុវត្ត — គ្មានស្ទ្រីក គ្មានស្ថិតិ មានតែការសប្បាយ។',
   'archive.title': 'បណ្ណសារ',
   'auth.backToHome': 'ត្រឡប់ទៅទំព័រដើម',
   'auth.backToHomeArrow': '← ត្រឡប់ទៅទំព័រដើម',
@@ -70,10 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ស្ទ្រីកដែលអ្នកស្អប់បំបែក',
   'leaderboard.daily.title': 'ការដោះស្រាយថ្ងៃនេះ',
   'leaderboard.loadError': 'មិនអាចផ្ទុកតារាងឈ្នះបានទេ។',
-  'leaderboard.streaks.empty': 'មិនទាន់មានស្ទ្រីកនៅឡើយ — ក្លាយជាអ្នកដំបូង។',
-  'leaderboard.streaks.subhead': 'ស្ទ្រីកឈ្នះវែងបំផុតពេញមួយជីវិត។',
   'leaderboard.streaks.title': 'អ្នកនាំមុខស្ទ្រីក',
-  'leaderboard.subhead': 'របៀបដែលគេធ្វើបានថ្ងៃនេះ និងអ្នកណាកំពុងកាន់ស្ទ្រីកវែងបំផុត។',
   'leaderboard.title': 'តារាងឈ្នះ',
   'login.headline': 'សូមស្វាគមន៍ការត្រឡប់មកវិញ។',
   'login.streakPill': 'ស្ទ្រីក {{days}} ថ្ងៃកំពុងរង់ចាំ',
@@ -134,8 +129,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'ស្ទ្រីកអតិបរមា',
   'stats.played': 'បានលេង',
   'stats.playToday': 'លេងល្បែងថ្ងៃនេះ',
-  'stats.subhead':
-    'ល្បែងប្រចាំថ្ងៃដែលមានចំណាត់ថ្នាក់តែប៉ុណ្ណោះ — ការអនុវត្តបណ្ណសារមិនត្រូវរាប់បញ្ចូលទេ។',
   'stats.title': 'ស្ថិតិរបស់អ្នក',
   'stats.winRate': 'អត្រាឈ្នះ',
   'status.monthly': 'ប្រចាំខែ',

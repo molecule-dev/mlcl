@@ -7,8 +7,6 @@ export const ui: UiTranslations = {
   'archive.loadError': 'Ayikwazanga ukulayisha i-archive.',
   'archive.missed': 'Uphuthelwe',
   'archive.notPlayed': 'Awukadlalanga',
-  'archive.subhead':
-    'Dlala noma yiluphi usuku oludlule njengomzilizi — akukho zikhwela, akukho manani, konke okujabulisayo.',
   'archive.title': 'I-Archive',
   'auth.backToHome': 'Buyela ekhaya',
   'auth.backToHomeArrow': '← Buyela ekhaya',
@@ -70,11 +68,7 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Izikhwela ozonda ukuzephula',
   'leaderboard.daily.title': 'Izixazululo zanamuhla',
   'leaderboard.loadError': 'Ayikwazanga ukulayisha ibhodi eliholayo.',
-  'leaderboard.streaks.empty': 'Azikho izikhwela okwamanje — yiba owokuqala.',
-  'leaderboard.streaks.subhead': 'Izikhwela ezithe xaxa zokunqoba zonke izikhathi.',
   'leaderboard.streaks.title': 'Abaholi bezikhwela',
-  'leaderboard.subhead':
-    'Indlela inkambu eziphathe ngayo namuhla, nokuthi ubani obambe izikhwela ezide kakhulu.',
   'leaderboard.title': 'Ibhodi eliholayo',
   'login.headline': 'Siyakwamukela emuva.',
   'login.streakPill': 'Isikhwela sezinsuku ezi-{{days}} silinde',
@@ -137,7 +131,6 @@ export const ui: UiTranslations = {
   'stats.maxStreak': 'Isikhwela esikhulu kunazo zonke',
   'stats.played': 'Kudlaliwe',
   'stats.playToday': 'Dlala iphazili lanamuhla',
-  'stats.subhead': 'Amaphazili ansuku zonke abhalwe kuphela — umzilizi we-archive awubalwa nhlobo.',
   'stats.title': 'Amanani akho',
   'stats.winRate': 'Isilinganiso sokunqoba',
   'status.monthly': 'Nyanga yonke',
