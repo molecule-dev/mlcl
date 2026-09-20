@@ -10,7 +10,7 @@
  *   login_poll  → pending | logged_in — the agent polls after the user clicks
  *   logout      → clears the stored token
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync, chmodSync } from 'node:fs'
+import { chmodSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
@@ -57,7 +57,8 @@ function writeCredentials(creds: StoredCredentials): void {
 }
 
 export function clearCredentials(): void {
-  if (existsSync(CREDENTIALS_FILE)) writeFileSync(CREDENTIALS_FILE, '')
+  // Unlink, not truncate — no empty inode lingers in page cache/fs slack.
+  if (existsSync(CREDENTIALS_FILE)) rmSync(CREDENTIALS_FILE, { force: true })
 }
 
 async function postJson<T>(

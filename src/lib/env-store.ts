@@ -4,7 +4,7 @@
  * never rewrites lines it did not change. Monorepo-aware: a full-stack
  * scaffold keeps api/.env and app/.env, so callers address a workspace.
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 export interface EnvEntry {
@@ -51,17 +51,34 @@ function stripQuotes(value: string): string {
   return trimmed
 }
 
+/**
+ * Dotenv-safe write form: single-quote values that contain whitespace, `#`,
+ * or quotes (single-quoted dotenv values keep ` # ` from becoming a comment
+ * and preserve interior spacing); escape interior single quotes as '\''.
+ */
+function quoteValue(value: string): string {
+  if (/^[A-Za-z0-9._/@:+-]*$/.test(value)) return value
+  return `'${value.replaceAll("'", `'\\''`)}'`
+}
+
 export function setEnvValue(file: EnvFile, key: string, value: string): boolean {
+  // A newline in a value would inject additional KEY=VALUE lines into the
+  // .env (env-file poisoning — reachable from `env pull` remote values too).
+  // Values are single-line by contract; refuse rather than escape.
+  if (/[\n\r]/.test(value)) {
+    throw new Error('env values must be single-line (no \\n or \\r)')
+  }
+  const written = quoteValue(value)
   const existing = file.entries.find((e) => e.key === key && !e.commented)
   if (existing) {
     const lines = file.raw.split('\n')
-    lines[existing.line - 1] = `${key}=${value}`
+    lines[existing.line - 1] = `${key}=${written}`
     file.raw = lines.join('\n')
     existing.value = value
     return false
   }
   const prefix = file.raw.length > 0 && !file.raw.endsWith('\n') ? '\n' : ''
-  file.raw = `${file.raw}${prefix}${key}=${value}\n`
+  file.raw = `${file.raw}${prefix}${key}=${written}\n`
   file.entries.push({ key, value, commented: false, line: file.raw.split('\n').length - 1 })
   return true
 }
@@ -69,15 +86,20 @@ export function setEnvValue(file: EnvFile, key: string, value: string): boolean 
 export function unsetEnvValue(file: EnvFile, key: string): boolean {
   const existing = file.entries.find((e) => e.key === key && !e.commented)
   if (!existing) return false
+  if (/[\n\r]/.test(existing.value)) {
+    throw new Error('refusing to unset a multi-line value — fix the .env by hand')
+  }
   const lines = file.raw.split('\n')
-  lines[existing.line - 1] = `# ${key}=${existing.value}`
+  lines[existing.line - 1] = `# ${key}=${quoteValue(existing.value)}`
   file.raw = lines.join('\n')
   existing.commented = true
   return true
 }
 
 export function saveEnvFile(file: EnvFile): void {
-  writeFileSync(file.path, file.raw)
+  // 0600 — .env carries provider secrets (same standard as scaffold.ts).
+  writeFileSync(file.path, file.raw, { mode: 0o600 })
+  chmodSync(file.path, 0o600)
 }
 
 /** The default .env path for a workspace: cwd-relative api/.env or app/.env, else .env. */

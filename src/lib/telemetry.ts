@@ -39,8 +39,8 @@ export function anonymousInstallId(): string {
   try {
     if (existsSync(ID_FILE)) return readFileSync(ID_FILE, 'utf8').trim()
     const id = randomUUID()
-    mkdirSync(join(ID_FILE, '..'), { recursive: true })
-    writeFileSync(ID_FILE, id)
+    mkdirSync(join(ID_FILE, '..'), { recursive: true, mode: 0o700 })
+    writeFileSync(ID_FILE, id, { mode: 0o600 })
     return id
   } catch (_error) {
     // An unreadable/writable-less home dir just means no stable install id —

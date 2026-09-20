@@ -5,7 +5,7 @@
  * it as the session bearer. Override the target with MOLECULE_API_URL
  * (default: the production API) — tests point it at a local mock.
  */
-import { chmodSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
@@ -51,13 +51,15 @@ export function readCredentials(): StoredCredentials | null {
 }
 
 export function writeCredentials(creds: StoredCredentials): void {
-  mkdirSync(join(CREDENTIALS_FILE, '..'), { recursive: true })
-  writeFileSync(CREDENTIALS_FILE, `${JSON.stringify(creds, null, 2)}\n`)
+  mkdirSync(join(CREDENTIALS_FILE, '..'), { recursive: true, mode: 0o700 })
+  // mode-at-creation: no world-readable TOCTOU window before a follow-up chmod.
+  writeFileSync(CREDENTIALS_FILE, `${JSON.stringify(creds, null, 2)}\n`, { mode: 0o600 })
   chmodSync(CREDENTIALS_FILE, 0o600)
 }
 
 export function clearCredentials(): void {
-  if (existsSync(CREDENTIALS_FILE)) writeFileSync(CREDENTIALS_FILE, '')
+  // Unlink, not truncate — no empty inode lingers in page cache/fs slack.
+  if (existsSync(CREDENTIALS_FILE)) rmSync(CREDENTIALS_FILE, { force: true })
 }
 
 export class PlatformApiError extends Error {
@@ -195,10 +197,19 @@ export async function requestDeviceCode(): Promise<DeviceCodeSession> {
   if (!response.ok || !data.deviceCode || !data.userCode) {
     throw new PlatformApiError(response.status, data.error ?? 'device-code request failed')
   }
+  // The verification path is server-controlled but goes to a browser opener
+  // and a terminal — validate it is a plain internal path (starts with /, no
+  // control chars, strict charset) so a compromised API cannot steer xdg-open
+  // at another scheme or inject terminal escapes.
+  const rawPath = data.verificationUrl ?? `/cli?code=${data.userCode}`
+  const verificationPath =
+    rawPath.startsWith('/') && /^\/[A-Za-z0-9/?&=%._-]*$/.test(rawPath)
+      ? rawPath
+      : `/cli?code=${data.userCode}`
   return {
     deviceCode: data.deviceCode,
     userCode: data.userCode,
-    verificationPath: data.verificationUrl ?? `/cli?code=${data.userCode}`,
+    verificationPath,
     expiresIn: data.expiresIn ?? 600,
     interval: data.interval ?? 2,
   }

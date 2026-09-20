@@ -179,6 +179,10 @@ server.registerTool(
   },
   tracked('read_package_doc', async ({ name, directory }) => {
     const short = name.replace(/^@molecule\//, '')
+    // Path-join guard: a crafted name must not escape node_modules.
+    if (!/^[A-Za-z0-9._-]+$/.test(short)) {
+      return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
+    }
     const base = directory ?? process.cwd()
     // Walk UP from the given directory like Node's module resolution: in a
     // full-stack scaffold the packages hoist to the PROJECT ROOT's

@@ -45,7 +45,11 @@ export default class Login extends Command {
   static override flags = {
     token: Flags.string({
       description:
-        'Headless: pass a token directly instead of the browser flow (CI: prefer the MOLECULE_TOKEN env var).',
+        'Headless: pass a token directly (EXPOSES it in the process list — prefer --with-token or the MOLECULE_TOKEN env var).',
+    }),
+    'with-token': Flags.boolean({
+      description: 'Read the token from stdin (gh-style; safe for process lists).',
+      default: false,
     }),
     'no-browser': Flags.boolean({
       description: 'Print the approval URL without trying to open a browser (SSH/remote).',
@@ -56,7 +60,25 @@ export default class Login extends Command {
   public async run(): Promise<void> {
     const { flags } = await this.parse(Login)
 
+    if (flags['with-token']) {
+      const token = await new Promise<string>((resolve) => {
+        let data = ''
+        process.stdin.setEncoding('utf8')
+        process.stdin.on('data', (c) => (data += c))
+        process.stdin.on('end', () => resolve(data.trim()))
+        if (process.stdin.isTTY) process.stdin.resume()
+      })
+      if (!token) this.error('No token on stdin')
+      await this.storeVerified(token)
+      return
+    }
+
     if (flags.token) {
+      this.log(
+        ui.warn(
+          'Note: --token <value> is visible in the process list — prefer --with-token (stdin) next time.',
+        ),
+      )
       await this.storeVerified(flags.token)
       return
     }
