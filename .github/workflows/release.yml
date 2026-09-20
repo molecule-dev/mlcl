@@ -1,0 +1,113 @@
+name: Release
+
+# PUBLISH-ONLY — publishes mlcl (and molecule-mcp if staged) via CI, never from
+# a laptop. Versioning is a LOCAL step (bump package.json + commit + push).
+# Then dispatch this workflow: it builds, runs the full gate suite, and
+# publishes what package.json declares and npm is missing.
+#
+# Gates that MUST pass before publish (in order):
+#   1. npm run build (TypeScript compiles clean)
+#   2. npm test (989+ tests incl. toolchain drift, registry sync)
+#   3. scripts/prepublish-verify.mjs (tarball hygiene + secrets + paths)
+#   4. scripts/check-parity-coverage.mjs (IDE⇄CLI parity manifest covers all routes)
+#
+# Auth paths (either works):
+#   - vars.NPM_TRUSTED_PUBLISHING == 'true'  → OIDC (npm ≥11.5.1), no stored secret
+#   - secrets.NPM_TOKEN != ''                 → legacy token
+#
+# molecule-mcp (in mcp/) publishes from the same dispatch when its version
+# differs from npm. It flips `private` to false via the MCP_PUBLISH input.
+on:
+  workflow_dispatch:
+    inputs:
+      mcp_publish:
+        description: 'Also publish molecule-mcp (flips its private flag in this run only)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # npm provenance (signed attestations)
+    steps:
+      - name: Assert an npm auth path exists
+        env:
+          OIDC_ON: ${{ vars.NPM_TRUSTED_PUBLISHING }}
+          HAS_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
+        run: |
+          if [ "$OIDC_ON" != "true" ] && [ "$HAS_TOKEN" != "true" ]; then
+            echo "::error::No npm auth path: set the NPM_TRUSTED_PUBLISHING repo variable (OIDC) or the NPM_TOKEN secret."
+            exit 1
+          fi
+          echo "auth path: $([ "$OIDC_ON" = "true" ] && echo OIDC || echo token)"
+
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      # OIDC trusted publishing needs npm ≥11.5.1; Node 22 bundles 10.x.
+      - run: npm install -g npm@latest
+      - run: npm --version
+
+      - run: npm ci
+
+      # ---- GATE 1: Build ----------------------------------------------------
+      - name: Build mlcl
+        run: npm run build
+
+      # ---- GATE 2: Test suite ------------------------------------------------
+      - name: Run full test suite
+        run: npm test
+
+      # ---- GATE 3: Prepublish verification (tarball hygiene) ----------------
+      - name: Prepublish gate
+        run: node scripts/prepublish-verify.mjs
+        env:
+          MLCL_ALLOW_PUBLISH: '1' # CI IS the authorized publish path
+
+      # ---- GATE 4: Parity coverage (needs molecule-dev sibling) --------------
+      # This is best-effort in CI — the molecule-dev sibling isn't always a
+      # CI checkout. Run it when present, skip with a notice when not.
+      - name: Parity coverage gate
+        run: |
+          if [ -f ../molecule-dev/api/src/App/router.ts ]; then
+            node scripts/check-parity-coverage.mjs
+          else
+            echo "::notice::molecule-dev sibling not present — parity coverage skipped (run locally before release)"
+          fi
+
+      # ---- PUBLISH mlcl ------------------------------------------------------
+      - name: Publish mlcl
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # ---- PUBLISH molecule-mcp (optional) ------------------------------------
+      - name: Publish molecule-mcp
+        if: inputs.mcp_publish
+        run: |
+          cd mcp
+          # Flip private → publishable for this run only (no commit needed).
+          node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
+          npm install
+          npm run build
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish summary
+        run: |
+          echo "✓ mlcl@$(node -e "console.log(require('./package.json').version)") published"
+          if [ "${{ inputs.mcp_publish }}" = "true" ]; then
+            echo "✓ molecule-mcp@$(node -e "console.log(require('./mcp/package.json').version)") published"
+          fi

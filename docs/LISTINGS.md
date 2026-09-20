@@ -1,6 +1,6 @@
 # Distribution listings — runbook + canonical copy
 
-Execute the day `mlcl` + `molecule-mcp` publish. Every directory below is
+Execute AFTER the GitHub Release workflow publishes (see below — never `npm publish` from a laptop). Every directory below is
 staged with exact copy so submission is paste-and-click.
 
 ## Canonical listing copy
@@ -41,6 +41,20 @@ read-only face is built (`mcp/src/http.ts` + `remote.ts`; deploy runbook in
 three builders as additional surfaces AND gives every CLI harness the short
 one-URL install. The graduation-path story for their exported apps is
 meanwhile covered by [FROM-VIBECODING.md](FROM-VIBECODING.md).
+
+## Publish flow (CI-only, never laptop)
+
+**Never `npm publish` from a local machine.** The Release workflow
+(`mlcl/.github/workflows/release.yml`) is the ONLY publish path:
+
+1. Bump `package.json` version + commit + push
+2. GitHub → Actions → Release → Run workflow
+3. CI runs all gates (build → tests → prepublish → parity)
+4. CI publishes with `NPM_TOKEN` or OIDC provenance
+5. molecule-mcp publishes in the same dispatch when `mcp_publish` is checked
+
+The `MLCL_ALLOW_PUBLISH=1` env var is a CI-ONLY concept — the workflow sets
+it because CI IS the authorized publish path. Never set it locally.
 
 ## Post-publish reminder
 
