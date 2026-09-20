@@ -282,37 +282,180 @@ USAGE
 <!-- usagestop -->
 
 <!-- commands -->
+* [`mlcl account delete`](#mlcl-account-delete)
+* [`mlcl account export`](#mlcl-account-export)
+* [`mlcl activities list`](#mlcl-activities-list)
 * [`mlcl add MOLECULE`](#mlcl-add-molecule)
 * [`mlcl agent init`](#mlcl-agent-init)
+* [`mlcl apikey create`](#mlcl-apikey-create)
+* [`mlcl apikey list`](#mlcl-apikey-list)
+* [`mlcl apikey rm KEYID`](#mlcl-apikey-rm-keyid)
 * [`mlcl auth login`](#mlcl-auth-login)
 * [`mlcl auth logout`](#mlcl-auth-logout)
 * [`mlcl auth whoami`](#mlcl-auth-whoami)
+* [`mlcl build desktop`](#mlcl-build-desktop)
+* [`mlcl build list`](#mlcl-build-list)
+* [`mlcl build mobile`](#mlcl-build-mobile)
+* [`mlcl build status`](#mlcl-build-status)
 * [`mlcl create [NAME]`](#mlcl-create-name)
+* [`mlcl db backup`](#mlcl-db-backup)
+* [`mlcl db backup-list`](#mlcl-db-backup-list)
 * [`mlcl db console`](#mlcl-db-console)
+* [`mlcl db info`](#mlcl-db-info)
 * [`mlcl db migrate`](#mlcl-db-migrate)
+* [`mlcl db query SQL`](#mlcl-db-query-sql)
 * [`mlcl db reset`](#mlcl-db-reset)
+* [`mlcl db restore BACKUPID`](#mlcl-db-restore-backupid)
+* [`mlcl db tables`](#mlcl-db-tables)
 * [`mlcl db url`](#mlcl-db-url)
 * [`mlcl deploy`](#mlcl-deploy)
+* [`mlcl deploy cancel`](#mlcl-deploy-cancel)
+* [`mlcl deploy list`](#mlcl-deploy-list)
+* [`mlcl deploy status`](#mlcl-deploy-status)
+* [`mlcl deploy workflow-github`](#mlcl-deploy-workflow-github)
+* [`mlcl deploy workflow-gitlab`](#mlcl-deploy-workflow-gitlab)
+* [`mlcl device current`](#mlcl-device-current)
+* [`mlcl device list`](#mlcl-device-list)
+* [`mlcl device rename ID NAME`](#mlcl-device-rename-id-name)
+* [`mlcl device revoke [ID]`](#mlcl-device-revoke-id)
+* [`mlcl domain add DOMAIN`](#mlcl-domain-add-domain)
+* [`mlcl domain list`](#mlcl-domain-list)
+* [`mlcl domain rm DOMAINID`](#mlcl-domain-rm-domainid)
+* [`mlcl domain verify DOMAINID`](#mlcl-domain-verify-domainid)
+* [`mlcl egress approve HOST`](#mlcl-egress-approve-host)
+* [`mlcl egress get`](#mlcl-egress-get)
+* [`mlcl egress revoke HOST`](#mlcl-egress-revoke-host)
+* [`mlcl env detected`](#mlcl-env-detected)
 * [`mlcl env get KEY`](#mlcl-env-get-key)
 * [`mlcl env list`](#mlcl-env-list)
 * [`mlcl env pull`](#mlcl-env-pull)
 * [`mlcl env push`](#mlcl-env-push)
 * [`mlcl env set PAIR [VALUE]`](#mlcl-env-set-pair-value)
 * [`mlcl env unset KEY`](#mlcl-env-unset-key)
+* [`mlcl git pull`](#mlcl-git-pull)
+* [`mlcl git push`](#mlcl-git-push)
+* [`mlcl git ssh-key PATH`](#mlcl-git-ssh-key-path)
 * [`mlcl help [COMMAND]`](#mlcl-help-command)
+* [`mlcl import repos`](#mlcl-import-repos)
+* [`mlcl import source`](#mlcl-import-source)
+* [`mlcl import upload PATH`](#mlcl-import-upload-path)
 * [`mlcl init`](#mlcl-init)
 * [`mlcl inject`](#mlcl-inject)
+* [`mlcl invitations accept INVITEID`](#mlcl-invitations-accept-inviteid)
+* [`mlcl invitations decline INVITEID`](#mlcl-invitations-decline-inviteid)
+* [`mlcl invitations list`](#mlcl-invitations-list)
+* [`mlcl login`](#mlcl-login)
+* [`mlcl logout`](#mlcl-logout)
+* [`mlcl logs`](#mlcl-logs)
 * [`mlcl mcp install`](#mlcl-mcp-install)
+* [`mlcl models`](#mlcl-models)
+* [`mlcl profile get`](#mlcl-profile-get)
+* [`mlcl profile update`](#mlcl-profile-update)
+* [`mlcl project delete`](#mlcl-project-delete)
+* [`mlcl project get ID`](#mlcl-project-get-id)
 * [`mlcl project list`](#mlcl-project-list)
+* [`mlcl project open NAMEORID`](#mlcl-project-open-nameorid)
+* [`mlcl project settings`](#mlcl-project-settings)
+* [`mlcl sandbox exec`](#mlcl-sandbox-exec)
+* [`mlcl sandbox restart`](#mlcl-sandbox-restart)
+* [`mlcl sandbox start`](#mlcl-sandbox-start)
+* [`mlcl sandbox status`](#mlcl-sandbox-status)
+* [`mlcl sandbox stop`](#mlcl-sandbox-stop)
 * [`mlcl search QUERY`](#mlcl-search-query)
+* [`mlcl share clone SLUG`](#mlcl-share-clone-slug)
+* [`mlcl share create`](#mlcl-share-create)
+* [`mlcl share list`](#mlcl-share-list)
+* [`mlcl share rm SHAREID`](#mlcl-share-rm-shareid)
+* [`mlcl snapshot create`](#mlcl-snapshot-create)
+* [`mlcl snapshot list`](#mlcl-snapshot-list)
+* [`mlcl snapshot restore SNAPID`](#mlcl-snapshot-restore-snapid)
+* [`mlcl snapshot rm SNAPID`](#mlcl-snapshot-rm-snapid)
 * [`mlcl stage down`](#mlcl-stage-down)
 * [`mlcl stage list`](#mlcl-stage-list)
 * [`mlcl stage logs`](#mlcl-stage-logs)
 * [`mlcl stage status [SLUG]`](#mlcl-stage-status-slug)
 * [`mlcl stage up`](#mlcl-stage-up)
+* [`mlcl status`](#mlcl-status)
 * [`mlcl swap MOLECULE`](#mlcl-swap-molecule)
+* [`mlcl tasks cancel TASKID`](#mlcl-tasks-cancel-taskid)
+* [`mlcl tasks list`](#mlcl-tasks-list)
+* [`mlcl team invite`](#mlcl-team-invite)
+* [`mlcl team list`](#mlcl-team-list)
+* [`mlcl team revoke INVITEID`](#mlcl-team-revoke-inviteid)
+* [`mlcl team rm MEMBERID`](#mlcl-team-rm-memberid)
+* [`mlcl team set-role MEMBERID ROLE`](#mlcl-team-set-role-memberid-role)
 * [`mlcl templates`](#mlcl-templates)
+* [`mlcl usage`](#mlcl-usage)
+* [`mlcl usage chat`](#mlcl-usage-chat)
+* [`mlcl usage tiers`](#mlcl-usage-tiers)
 * [`mlcl validate`](#mlcl-validate)
+* [`mlcl vault broker`](#mlcl-vault-broker)
+* [`mlcl vault list`](#mlcl-vault-list)
+* [`mlcl vault rm KEY`](#mlcl-vault-rm-key)
+* [`mlcl vault set KEY VALUE`](#mlcl-vault-set-key-value)
+* [`mlcl vault token`](#mlcl-vault-token)
+* [`mlcl whoami`](#mlcl-whoami)
+
+## `mlcl account delete`
+
+Delete your molecule.dev account (DESTRUCTIVE — all projects, sandboxes, data)
+
+```
+USAGE
+  $ mlcl account delete -p <value> [--force]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --force            skip confirmation
+
+DESCRIPTION
+  Delete your molecule.dev account (DESTRUCTIVE — all projects, sandboxes, data)
+
+EXAMPLES
+  $ mlcl account delete --force
+```
+
+_See code: [src/commands/account/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/account/delete.ts)_
+
+## `mlcl account export`
+
+GDPR data export (all your data as JSON)
+
+```
+USAGE
+  $ mlcl account export -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  GDPR data export (all your data as JSON)
+
+EXAMPLES
+  $ mlcl account export
+```
+
+_See code: [src/commands/account/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/account/export.ts)_
+
+## `mlcl activities list`
+
+List captured side effects (emails, webhooks, etc.) for a project
+
+```
+USAGE
+  $ mlcl activities list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List captured side effects (emails, webhooks, etc.) for a project
+
+EXAMPLES
+  $ mlcl activities list --project <id>
+```
+
+_See code: [src/commands/activities/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/activities/list.ts)_
 
 ## `mlcl add MOLECULE`
 
@@ -371,23 +514,95 @@ EXAMPLES
 
 _See code: [src/commands/agent/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/agent/init.ts)_
 
-## `mlcl auth login`
+## `mlcl apikey create`
 
-Log the CLI in to molecule.dev (stores a session token at ~/.mlcl/credentials.json, 0600)
+Mint a project API key
 
 ```
 USAGE
-  $ mlcl auth login [--token <value>]
+  $ mlcl apikey create -p <value> --name <value>
 
 FLAGS
-  --token=<value>  A molecule.dev session token. Without this flag the command prompts for one — grab it from the
-                   molecule.dev IDE (browser devtools on an api.molecule.dev request) until personal access tokens ship.
+  -p, --project=<value>  (required) molecule.dev project id
+      --name=<value>     (required) key name
 
 DESCRIPTION
-  Log the CLI in to molecule.dev (stores a session token at ~/.mlcl/credentials.json, 0600)
+  Mint a project API key
+
+EXAMPLES
+  $ mlcl apikey create --project <id> --name ci
+```
+
+_See code: [src/commands/apikey/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/apikey/create.ts)_
+
+## `mlcl apikey list`
+
+List project API keys
+
+```
+USAGE
+  $ mlcl apikey list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List project API keys
+
+EXAMPLES
+  $ mlcl apikey list --project <id>
+```
+
+_See code: [src/commands/apikey/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/apikey/list.ts)_
+
+## `mlcl apikey rm KEYID`
+
+Revoke a project API key
+
+```
+USAGE
+  $ mlcl apikey rm KEYID -p <value>
+
+ARGUMENTS
+  KEYID  key id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Revoke a project API key
+
+EXAMPLES
+  $ mlcl apikey rm --project <id> <keyId>
+```
+
+_See code: [src/commands/apikey/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/apikey/rm.ts)_
+
+## `mlcl auth login`
+
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at ~/.mlcl/credentials.json
+
+```
+USAGE
+  $ mlcl auth login [--token <value>] [--with-token] [--no-browser]
+
+FLAGS
+  --no-browser     Print the approval URL without trying to open a browser (SSH/remote).
+  --token=<value>  Headless: pass a token directly (EXPOSES it in the process list — prefer --with-token or the
+                   MOLECULE_TOKEN env var).
+  --with-token     Read the token from stdin (gh-style; safe for process lists).
+
+DESCRIPTION
+  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at
+  ~/.mlcl/credentials.json
+
+ALIASES
+  $ mlcl login
 
 EXAMPLES
   $ mlcl login
+
+  $ mlcl login --no-browser
 
   $ mlcl login --token <jwt>
 ```
@@ -404,6 +619,9 @@ USAGE
 
 DESCRIPTION
   Remove the stored molecule.dev token
+
+ALIASES
+  $ mlcl logout
 ```
 
 _See code: [src/commands/auth/logout.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/auth/logout.ts)_
@@ -421,9 +639,93 @@ GLOBAL FLAGS
 
 DESCRIPTION
   Show the logged-in molecule.dev account
+
+ALIASES
+  $ mlcl whoami
 ```
 
 _See code: [src/commands/auth/whoami.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/auth/whoami.ts)_
+
+## `mlcl build desktop`
+
+Start a desktop build
+
+```
+USAGE
+  $ mlcl build desktop -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Start a desktop build
+
+EXAMPLES
+  $ mlcl build desktop --project <id>
+```
+
+_See code: [src/commands/build/desktop.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/build/desktop.ts)_
+
+## `mlcl build list`
+
+List builds
+
+```
+USAGE
+  $ mlcl build list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List builds
+
+EXAMPLES
+  $ mlcl build list --project <id>
+```
+
+_See code: [src/commands/build/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/build/list.ts)_
+
+## `mlcl build mobile`
+
+Start a mobile build
+
+```
+USAGE
+  $ mlcl build mobile -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Start a mobile build
+
+EXAMPLES
+  $ mlcl build mobile --project <id>
+```
+
+_See code: [src/commands/build/mobile.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/build/mobile.ts)_
+
+## `mlcl build status`
+
+Build detail incl. log
+
+```
+USAGE
+  $ mlcl build status -p <value> --build <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --build=<value>    (required)
+
+DESCRIPTION
+  Build detail incl. log
+
+EXAMPLES
+  $ mlcl build status --project <id> --build <id>
+```
+
+_See code: [src/commands/build/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/build/status.ts)_
 
 ## `mlcl create [NAME]`
 
@@ -466,6 +768,46 @@ EXAMPLES
 
 _See code: [src/commands/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/create.ts)_
 
+## `mlcl db backup`
+
+Create a cloud database backup
+
+```
+USAGE
+  $ mlcl db backup -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Create a cloud database backup
+
+EXAMPLES
+  $ mlcl db backup --project <id>
+```
+
+_See code: [src/commands/db/backup.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/backup.ts)_
+
+## `mlcl db backup-list`
+
+List cloud database backups
+
+```
+USAGE
+  $ mlcl db backup-list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List cloud database backups
+
+EXAMPLES
+  $ mlcl db backup-list --project <id>
+```
+
+_See code: [src/commands/db/backup-list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/backup-list.ts)_
+
 ## `mlcl db console`
 
 Open a psql console on the project database (mlcl db url | psql, with flags forwarded)
@@ -484,6 +826,26 @@ EXAMPLES
 ```
 
 _See code: [src/commands/db/console.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/console.ts)_
+
+## `mlcl db info`
+
+Cloud database connection info (password masked)
+
+```
+USAGE
+  $ mlcl db info -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Cloud database connection info (password masked)
+
+EXAMPLES
+  $ mlcl db info --project <id>
+```
+
+_See code: [src/commands/db/info.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/info.ts)_
 
 ## `mlcl db migrate`
 
@@ -507,6 +869,29 @@ EXAMPLES
 
 _See code: [src/commands/db/migrate.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/migrate.ts)_
 
+## `mlcl db query SQL`
+
+Run SQL against the cloud database (read queries recommended)
+
+```
+USAGE
+  $ mlcl db query SQL -p <value>
+
+ARGUMENTS
+  SQL  SQL statement
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Run SQL against the cloud database (read queries recommended)
+
+EXAMPLES
+  $ mlcl db query --project <id> "SELECT * FROM users LIMIT 5"
+```
+
+_See code: [src/commands/db/query.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/query.ts)_
+
 ## `mlcl db reset`
 
 Drop and recreate the project database, then run migrations + package setup SQL
@@ -526,6 +911,49 @@ EXAMPLES
 ```
 
 _See code: [src/commands/db/reset.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/reset.ts)_
+
+## `mlcl db restore BACKUPID`
+
+Restore a cloud backup (DESTRUCTIVE)
+
+```
+USAGE
+  $ mlcl db restore BACKUPID -p <value>
+
+ARGUMENTS
+  BACKUPID  backup id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Restore a cloud backup (DESTRUCTIVE)
+
+EXAMPLES
+  $ mlcl db restore --project <id> <backupId>
+```
+
+_See code: [src/commands/db/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/restore.ts)_
+
+## `mlcl db tables`
+
+Cloud database schema tables
+
+```
+USAGE
+  $ mlcl db tables -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Cloud database schema tables
+
+EXAMPLES
+  $ mlcl db tables --project <id>
+```
+
+_See code: [src/commands/db/tables.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/db/tables.ts)_
 
 ## `mlcl db url`
 
@@ -575,6 +1003,372 @@ EXAMPLES
 ```
 
 _See code: [src/commands/deploy/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/index.ts)_
+
+## `mlcl deploy cancel`
+
+Cancel a running deployment
+
+```
+USAGE
+  $ mlcl deploy cancel -p <value> --deployment <value>
+
+FLAGS
+  -p, --project=<value>     (required) molecule.dev project id
+      --deployment=<value>  (required) deployment id
+
+DESCRIPTION
+  Cancel a running deployment
+
+EXAMPLES
+  $ mlcl deploy cancel --project <id> --deployment <id>
+```
+
+_See code: [src/commands/deploy/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/cancel.ts)_
+
+## `mlcl deploy list`
+
+List deployments
+
+```
+USAGE
+  $ mlcl deploy list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List deployments
+
+EXAMPLES
+  $ mlcl deploy list --project <id>
+```
+
+_See code: [src/commands/deploy/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/list.ts)_
+
+## `mlcl deploy status`
+
+Deployment detail (incl. build log)
+
+```
+USAGE
+  $ mlcl deploy status -p <value> --deployment <value>
+
+FLAGS
+  -p, --project=<value>     (required) molecule.dev project id
+      --deployment=<value>  (required) deployment id
+
+DESCRIPTION
+  Deployment detail (incl. build log)
+
+EXAMPLES
+  $ mlcl deploy status --project <id> --deployment <id>
+```
+
+_See code: [src/commands/deploy/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/status.ts)_
+
+## `mlcl deploy workflow-github`
+
+Generate the GitHub Actions deploy workflow (--apply writes it into the sandbox)
+
+```
+USAGE
+  $ mlcl deploy workflow-github -p <value> [--apply]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --apply            write into the sandbox repo
+
+DESCRIPTION
+  Generate the GitHub Actions deploy workflow (--apply writes it into the sandbox)
+
+EXAMPLES
+  $ mlcl deploy workflow-github --project <id> [--apply]
+```
+
+_See code: [src/commands/deploy/workflow-github.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/workflow-github.ts)_
+
+## `mlcl deploy workflow-gitlab`
+
+Generate the GitLab CI deploy workflow (--apply writes it into the sandbox)
+
+```
+USAGE
+  $ mlcl deploy workflow-gitlab -p <value> [--apply]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --apply            write into the sandbox repo
+
+DESCRIPTION
+  Generate the GitLab CI deploy workflow (--apply writes it into the sandbox)
+
+EXAMPLES
+  $ mlcl deploy workflow-gitlab --project <id> [--apply]
+```
+
+_See code: [src/commands/deploy/workflow-gitlab.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/deploy/workflow-gitlab.ts)_
+
+## `mlcl device current`
+
+Print the device id this CLI is logged in as (offline — decodes the local token)
+
+```
+USAGE
+  $ mlcl device current [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Print the device id this CLI is logged in as (offline — decodes the local token)
+```
+
+_See code: [src/commands/device/current.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/device/current.ts)_
+
+## `mlcl device list`
+
+List your molecule.dev devices/sessions (browsers + CLIs) — revoking one kills its token
+
+```
+USAGE
+  $ mlcl device list [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List your molecule.dev devices/sessions (browsers + CLIs) — revoking one kills its token
+
+EXAMPLES
+  $ mlcl device list
+
+  $ mlcl device list --json
+```
+
+_See code: [src/commands/device/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/device/list.ts)_
+
+## `mlcl device rename ID NAME`
+
+Rename a device (how it appears in the IDE session list)
+
+```
+USAGE
+  $ mlcl device rename ID NAME
+
+ARGUMENTS
+  ID    Device id
+  NAME  New name
+
+DESCRIPTION
+  Rename a device (how it appears in the IDE session list)
+
+EXAMPLES
+  $ mlcl device rename <id> "work laptop"
+```
+
+_See code: [src/commands/device/rename.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/device/rename.ts)_
+
+## `mlcl device revoke [ID]`
+
+Revoke a device/session — kills every token bound to it, including a stolen CLI login. --all-but-current signs out everywhere except this machine.
+
+```
+USAGE
+  $ mlcl device revoke [ID] [--all-but-current] [--force]
+
+ARGUMENTS
+  [ID]  Device id (from mlcl device list)
+
+FLAGS
+  --all-but-current  Revoke every device EXCEPT the one this CLI is logged in as
+  --force            Skip the self-revocation confirmation
+
+DESCRIPTION
+  Revoke a device/session — kills every token bound to it, including a stolen CLI login. --all-but-current signs out
+  everywhere except this machine.
+
+EXAMPLES
+  $ mlcl device revoke <id>
+
+  $ mlcl device revoke --all-but-current
+```
+
+_See code: [src/commands/device/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/device/revoke.ts)_
+
+## `mlcl domain add DOMAIN`
+
+Attach a custom domain
+
+```
+USAGE
+  $ mlcl domain add DOMAIN -p <value>
+
+ARGUMENTS
+  DOMAIN  domain name
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Attach a custom domain
+
+EXAMPLES
+  $ mlcl domain add --project <id> app.example.com
+```
+
+_See code: [src/commands/domain/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/domain/add.ts)_
+
+## `mlcl domain list`
+
+List custom domains
+
+```
+USAGE
+  $ mlcl domain list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List custom domains
+
+EXAMPLES
+  $ mlcl domain list --project <id>
+```
+
+_See code: [src/commands/domain/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/domain/list.ts)_
+
+## `mlcl domain rm DOMAINID`
+
+Remove a custom domain
+
+```
+USAGE
+  $ mlcl domain rm DOMAINID -p <value>
+
+ARGUMENTS
+  DOMAINID  domain id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Remove a custom domain
+
+EXAMPLES
+  $ mlcl domain rm --project <id> <domainId>
+```
+
+_See code: [src/commands/domain/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/domain/rm.ts)_
+
+## `mlcl domain verify DOMAINID`
+
+Trigger DNS verification
+
+```
+USAGE
+  $ mlcl domain verify DOMAINID -p <value>
+
+ARGUMENTS
+  DOMAINID  domain id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Trigger DNS verification
+
+EXAMPLES
+  $ mlcl domain verify --project <id> <domainId>
+```
+
+_See code: [src/commands/domain/verify.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/domain/verify.ts)_
+
+## `mlcl egress approve HOST`
+
+Approved a host
+
+```
+USAGE
+  $ mlcl egress approve HOST -p <value>
+
+ARGUMENTS
+  HOST  hostname to allow
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Approved a host
+
+EXAMPLES
+  $ mlcl egress/approve --project <id> <host>
+```
+
+_See code: [src/commands/egress/approve.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/egress/approve.ts)_
+
+## `mlcl egress get`
+
+View sandbox network egress policy (allowlist + denials)
+
+```
+USAGE
+  $ mlcl egress get -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  View sandbox network egress policy (allowlist + denials)
+
+EXAMPLES
+  $ mlcl egress get --project <id>
+```
+
+_See code: [src/commands/egress/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/egress/get.ts)_
+
+## `mlcl egress revoke HOST`
+
+Revoked a host
+
+```
+USAGE
+  $ mlcl egress revoke HOST -p <value>
+
+ARGUMENTS
+  HOST  hostname to revoke
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Revoked a host
+
+EXAMPLES
+  $ mlcl egress/revoke --project <id> <host>
+```
+
+_See code: [src/commands/egress/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/egress/revoke.ts)_
+
+## `mlcl env detected`
+
+List env keys detected from code + registry (what the app looks for)
+
+```
+USAGE
+  $ mlcl env detected -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List env keys detected from code + registry (what the app looks for)
+
+EXAMPLES
+  $ mlcl env detected --project <id>
+```
+
+_See code: [src/commands/env/detected.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/detected.ts)_
 
 ## `mlcl env get KEY`
 
@@ -720,6 +1514,69 @@ EXAMPLES
 
 _See code: [src/commands/env/unset.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/env/unset.ts)_
 
+## `mlcl git pull`
+
+Pull the connected remote into the sandbox
+
+```
+USAGE
+  $ mlcl git pull -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Pull the connected remote into the sandbox
+
+EXAMPLES
+  $ mlcl git pull --project <id>
+```
+
+_See code: [src/commands/git/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/git/pull.ts)_
+
+## `mlcl git push`
+
+Push the sandbox repo to the connected remote (platform-mediated)
+
+```
+USAGE
+  $ mlcl git push -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Push the sandbox repo to the connected remote (platform-mediated)
+
+EXAMPLES
+  $ mlcl git push --project <id>
+```
+
+_See code: [src/commands/git/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/git/push.ts)_
+
+## `mlcl git ssh-key PATH`
+
+Store an SSH private key for git push from the sandbox
+
+```
+USAGE
+  $ mlcl git ssh-key PATH -p <value>
+
+ARGUMENTS
+  PATH  path to SSH private key
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Store an SSH private key for git push from the sandbox
+
+EXAMPLES
+  $ mlcl git ssh-key --project <id> ~/.ssh/id_ed25519
+```
+
+_See code: [src/commands/git/ssh-key.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/git/ssh-key.ts)_
+
 ## `mlcl help [COMMAND]`
 
 Display help for mlcl.
@@ -739,6 +1596,71 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/6.2.55/src/commands/help.ts)_
+
+## `mlcl import repos`
+
+List repos available for import from the connected git source
+
+```
+USAGE
+  $ mlcl import repos -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List repos available for import from the connected git source
+
+EXAMPLES
+  $ mlcl import repos --project <id>
+```
+
+_See code: [src/commands/import/repos.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/import/repos.ts)_
+
+## `mlcl import source`
+
+View or set the git import source for a project
+
+```
+USAGE
+  $ mlcl import source -p <value> [--set <value>] [--clear]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --clear            clear the source
+      --set=<value>      repo URL to import from
+
+DESCRIPTION
+  View or set the git import source for a project
+
+EXAMPLES
+  $ mlcl import source --project <id> [--set <repo-url>]
+```
+
+_See code: [src/commands/import/source.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/import/source.ts)_
+
+## `mlcl import upload PATH`
+
+Upload a repo tarball (.tar.gz) for import into the sandbox
+
+```
+USAGE
+  $ mlcl import upload PATH -p <value>
+
+ARGUMENTS
+  PATH  path to .tar.gz
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Upload a repo tarball (.tar.gz) for import into the sandbox
+
+EXAMPLES
+  $ mlcl import upload --project <id> ~/repo.tar.gz
+```
+
+_See code: [src/commands/import/upload.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/import/upload.ts)_
 
 ## `mlcl init`
 
@@ -811,6 +1733,138 @@ EXAMPLES
 
 _See code: [src/commands/inject.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/inject.ts)_
 
+## `mlcl invitations accept INVITEID`
+
+Accept a team invitation
+
+```
+USAGE
+  $ mlcl invitations accept INVITEID -p <value>
+
+ARGUMENTS
+  INVITEID  invitation id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Accept a team invitation
+
+EXAMPLES
+  $ mlcl invitations accept <inviteId>
+```
+
+_See code: [src/commands/invitations/accept.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/invitations/accept.ts)_
+
+## `mlcl invitations decline INVITEID`
+
+Decline a team invitation
+
+```
+USAGE
+  $ mlcl invitations decline INVITEID -p <value>
+
+ARGUMENTS
+  INVITEID  invitation id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Decline a team invitation
+
+EXAMPLES
+  $ mlcl invitations decline <inviteId>
+```
+
+_See code: [src/commands/invitations/decline.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/invitations/decline.ts)_
+
+## `mlcl invitations list`
+
+List your pending team invitations
+
+```
+USAGE
+  $ mlcl invitations list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List your pending team invitations
+
+EXAMPLES
+  $ mlcl invitations list
+```
+
+_See code: [src/commands/invitations/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/invitations/list.ts)_
+
+## `mlcl login`
+
+Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at ~/.mlcl/credentials.json
+
+```
+USAGE
+  $ mlcl login [--token <value>] [--with-token] [--no-browser]
+
+FLAGS
+  --no-browser     Print the approval URL without trying to open a browser (SSH/remote).
+  --token=<value>  Headless: pass a token directly (EXPOSES it in the process list — prefer --with-token or the
+                   MOLECULE_TOKEN env var).
+  --with-token     Read the token from stdin (gh-style; safe for process lists).
+
+DESCRIPTION
+  Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 1-year token at
+  ~/.mlcl/credentials.json
+
+ALIASES
+  $ mlcl login
+
+EXAMPLES
+  $ mlcl login
+
+  $ mlcl login --no-browser
+
+  $ mlcl login --token <jwt>
+```
+
+## `mlcl logout`
+
+Remove the stored molecule.dev token
+
+```
+USAGE
+  $ mlcl logout
+
+DESCRIPTION
+  Remove the stored molecule.dev token
+
+ALIASES
+  $ mlcl logout
+```
+
+## `mlcl logs`
+
+Fetch runtime logs (last N lines) — use --stream for live tailing
+
+```
+USAGE
+  $ mlcl logs -p <value> [--tail <value>] [--stream]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --stream           live tail (SSE)
+      --tail=<value>     [default: 100] number of lines
+
+DESCRIPTION
+  Fetch runtime logs (last N lines) — use --stream for live tailing
+
+EXAMPLES
+  $ mlcl logs --project <id> [--tail 100] [--stream]
+```
+
+_See code: [src/commands/logs/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/logs/index.ts)_
+
 ## `mlcl mcp install`
 
 Register the molecule MCP server with your coding agent — one command that uses the harness’s own native installer when it has one (claude/cursor/gemini/codex) and writes the standard config for the rest
@@ -841,6 +1895,113 @@ EXAMPLES
 
 _See code: [src/commands/mcp/install.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/mcp/install.ts)_
 
+## `mlcl models`
+
+AI model catalog (all models, defaults marked)
+
+```
+USAGE
+  $ mlcl models -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  AI model catalog (all models, defaults marked)
+
+EXAMPLES
+  $ mlcl models [--json]
+```
+
+_See code: [src/commands/models.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/models.ts)_
+
+## `mlcl profile get`
+
+Show your molecule.dev profile
+
+```
+USAGE
+  $ mlcl profile get -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Show your molecule.dev profile
+
+EXAMPLES
+  $ mlcl profile get
+```
+
+_See code: [src/commands/profile/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/profile/get.ts)_
+
+## `mlcl profile update`
+
+Update your profile
+
+```
+USAGE
+  $ mlcl profile update -p <value> [--name <value>] [--username <value>] [--bio <value>]
+
+FLAGS
+  -p, --project=<value>   (required) molecule.dev project id
+      --bio=<value>       bio
+      --name=<value>      display name
+      --username=<value>  username
+
+DESCRIPTION
+  Update your profile
+
+EXAMPLES
+  $ mlcl profile update --name "Your Name" --bio "..."
+```
+
+_See code: [src/commands/profile/update.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/profile/update.ts)_
+
+## `mlcl project delete`
+
+Delete a project (DESTRUCTIVE — tears down sandbox, prod, DB)
+
+```
+USAGE
+  $ mlcl project delete -p <value> [--force]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --force            skip confirmation
+
+DESCRIPTION
+  Delete a project (DESTRUCTIVE — tears down sandbox, prod, DB)
+
+EXAMPLES
+  $ mlcl project delete --project <id> --force
+```
+
+_See code: [src/commands/project/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/delete.ts)_
+
+## `mlcl project get ID`
+
+Project detail (settings, URLs, role)
+
+```
+USAGE
+  $ mlcl project get ID -p <value>
+
+ARGUMENTS
+  ID  project id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Project detail (settings, URLs, role)
+
+EXAMPLES
+  $ mlcl project get <id>
+```
+
+_See code: [src/commands/project/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/get.ts)_
+
 ## `mlcl project list`
 
 List your molecule.dev projects (owned + team, with roles)
@@ -863,6 +2024,149 @@ EXAMPLES
 ```
 
 _See code: [src/commands/project/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/list.ts)_
+
+## `mlcl project open NAMEORID`
+
+Print the IDE workspace + preview URLs for a project (or open them)
+
+```
+USAGE
+  $ mlcl project open NAMEORID
+
+ARGUMENTS
+  NAMEORID  Project id or name
+
+DESCRIPTION
+  Print the IDE workspace + preview URLs for a project (or open them)
+
+EXAMPLES
+  $ mlcl project open <id>
+
+  $ mlcl project open blog --browser
+```
+
+_See code: [src/commands/project/open.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/open.ts)_
+
+## `mlcl project settings`
+
+Update project settings
+
+```
+USAGE
+  $ mlcl project settings -p <value> [--name <value>]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --name=<value>     new project name
+
+DESCRIPTION
+  Update project settings
+
+EXAMPLES
+  $ mlcl project settings --project <id> --name "New Name"
+```
+
+_See code: [src/commands/project/settings.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/project/settings.ts)_
+
+## `mlcl sandbox exec`
+
+Run a command in the project sandbox
+
+```
+USAGE
+  $ mlcl sandbox exec -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Run a command in the project sandbox
+
+EXAMPLES
+  $ mlcl sandbox exec --project <id> -- npm test
+```
+
+_See code: [src/commands/sandbox/exec.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/sandbox/exec.ts)_
+
+## `mlcl sandbox restart`
+
+Restart a project sandbox
+
+```
+USAGE
+  $ mlcl sandbox restart -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Restart a project sandbox
+
+EXAMPLES
+  $ mlcl sandbox restart --project <id>
+```
+
+_See code: [src/commands/sandbox/restart.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/sandbox/restart.ts)_
+
+## `mlcl sandbox start`
+
+Boot a project sandbox
+
+```
+USAGE
+  $ mlcl sandbox start -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Boot a project sandbox
+
+EXAMPLES
+  $ mlcl sandbox start --project <id>
+```
+
+_See code: [src/commands/sandbox/start.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/sandbox/start.ts)_
+
+## `mlcl sandbox status`
+
+Sandbox status for a project
+
+```
+USAGE
+  $ mlcl sandbox status -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Sandbox status for a project
+
+EXAMPLES
+  $ mlcl sandbox status --project <id>
+```
+
+_See code: [src/commands/sandbox/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/sandbox/status.ts)_
+
+## `mlcl sandbox stop`
+
+Hibernate a project sandbox
+
+```
+USAGE
+  $ mlcl sandbox stop -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Hibernate a project sandbox
+
+EXAMPLES
+  $ mlcl sandbox stop --project <id>
+```
+
+_See code: [src/commands/sandbox/stop.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/sandbox/stop.ts)_
 
 ## `mlcl search QUERY`
 
@@ -893,6 +2197,175 @@ EXAMPLES
 ```
 
 _See code: [src/commands/search.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/search.ts)_
+
+## `mlcl share clone SLUG`
+
+Clone a shared project into your account
+
+```
+USAGE
+  $ mlcl share clone SLUG
+
+ARGUMENTS
+  SLUG  share slug (from the share URL)
+
+DESCRIPTION
+  Clone a shared project into your account
+
+EXAMPLES
+  $ mlcl share clone <slug>
+```
+
+_See code: [src/commands/share/clone.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/share/clone.ts)_
+
+## `mlcl share create`
+
+Mint a public share link
+
+```
+USAGE
+  $ mlcl share create -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Mint a public share link
+
+EXAMPLES
+  $ mlcl share create --project <id>
+```
+
+_See code: [src/commands/share/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/share/create.ts)_
+
+## `mlcl share list`
+
+List public share links
+
+```
+USAGE
+  $ mlcl share list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List public share links
+
+EXAMPLES
+  $ mlcl share list --project <id>
+```
+
+_See code: [src/commands/share/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/share/list.ts)_
+
+## `mlcl share rm SHAREID`
+
+Revoke a share link
+
+```
+USAGE
+  $ mlcl share rm SHAREID -p <value>
+
+ARGUMENTS
+  SHAREID  share id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Revoke a share link
+
+EXAMPLES
+  $ mlcl share rm --project <id> <shareId>
+```
+
+_See code: [src/commands/share/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/share/rm.ts)_
+
+## `mlcl snapshot create`
+
+Create a sandbox snapshot
+
+```
+USAGE
+  $ mlcl snapshot create -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Create a sandbox snapshot
+
+EXAMPLES
+  $ mlcl snapshot create --project <id>
+```
+
+_See code: [src/commands/snapshot/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/snapshot/create.ts)_
+
+## `mlcl snapshot list`
+
+List sandbox snapshots
+
+```
+USAGE
+  $ mlcl snapshot list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List sandbox snapshots
+
+EXAMPLES
+  $ mlcl snapshot list --project <id>
+```
+
+_See code: [src/commands/snapshot/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/snapshot/list.ts)_
+
+## `mlcl snapshot restore SNAPID`
+
+Restore a sandbox snapshot (destructive)
+
+```
+USAGE
+  $ mlcl snapshot restore SNAPID -p <value>
+
+ARGUMENTS
+  SNAPID  snapshot id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Restore a sandbox snapshot (destructive)
+
+EXAMPLES
+  $ mlcl snapshot restore --project <id> <snapId>
+```
+
+_See code: [src/commands/snapshot/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/snapshot/restore.ts)_
+
+## `mlcl snapshot rm SNAPID`
+
+Delete a sandbox snapshot
+
+```
+USAGE
+  $ mlcl snapshot rm SNAPID -p <value>
+
+ARGUMENTS
+  SNAPID  snapshot id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Delete a sandbox snapshot
+
+EXAMPLES
+  $ mlcl snapshot rm --project <id> <snapId>
+```
+
+_See code: [src/commands/snapshot/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/snapshot/rm.ts)_
 
 ## `mlcl stage down`
 
@@ -1024,6 +2497,26 @@ EXAMPLES
 
 _See code: [src/commands/stage/up.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/stage/up.ts)_
 
+## `mlcl status`
+
+molecule.dev status history (30 days)
+
+```
+USAGE
+  $ mlcl status -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  molecule.dev status history (30 days)
+
+EXAMPLES
+  $ mlcl status
+```
+
+_See code: [src/commands/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/status.ts)_
+
 ## `mlcl swap MOLECULE`
 
 Swap a molecule provider for another implementing the same interface
@@ -1054,6 +2547,161 @@ EXAMPLES
 
 _See code: [src/commands/swap.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/swap.ts)_
 
+## `mlcl tasks cancel TASKID`
+
+Cancelled a taskId
+
+```
+USAGE
+  $ mlcl tasks cancel TASKID -p <value>
+
+ARGUMENTS
+  TASKID  task id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Cancelled a taskId
+
+EXAMPLES
+  $ mlcl tasks/cancel --project <id> <taskId>
+```
+
+_See code: [src/commands/tasks/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/tasks/cancel.ts)_
+
+## `mlcl tasks list`
+
+List scheduled/idle AI tasks for a project
+
+```
+USAGE
+  $ mlcl tasks list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List scheduled/idle AI tasks for a project
+
+EXAMPLES
+  $ mlcl tasks list --project <id>
+```
+
+_See code: [src/commands/tasks/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/tasks/list.ts)_
+
+## `mlcl team invite`
+
+Invite a member by email
+
+```
+USAGE
+  $ mlcl team invite -p <value> --email <value> [--role <value>]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --email=<value>    (required)
+      --role=<value>     [default: editor] viewer|editor|admin
+
+DESCRIPTION
+  Invite a member by email
+
+EXAMPLES
+  $ mlcl team invite --project <id> --email x@y.com --role editor
+```
+
+_See code: [src/commands/team/invite.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/team/invite.ts)_
+
+## `mlcl team list`
+
+List project team + pending invites
+
+```
+USAGE
+  $ mlcl team list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List project team + pending invites
+
+EXAMPLES
+  $ mlcl team list --project <id>
+```
+
+_See code: [src/commands/team/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/team/list.ts)_
+
+## `mlcl team revoke INVITEID`
+
+Revoke a pending invite
+
+```
+USAGE
+  $ mlcl team revoke INVITEID -p <value>
+
+ARGUMENTS
+  INVITEID  invite id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Revoke a pending invite
+
+EXAMPLES
+  $ mlcl team revoke --project <id> <inviteId>
+```
+
+_See code: [src/commands/team/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/team/revoke.ts)_
+
+## `mlcl team rm MEMBERID`
+
+Remove a member
+
+```
+USAGE
+  $ mlcl team rm MEMBERID -p <value>
+
+ARGUMENTS
+  MEMBERID  member id
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Remove a member
+
+EXAMPLES
+  $ mlcl team rm --project <id> <memberId>
+```
+
+_See code: [src/commands/team/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/team/rm.ts)_
+
+## `mlcl team set-role MEMBERID ROLE`
+
+Change a member role
+
+```
+USAGE
+  $ mlcl team set-role MEMBERID ROLE -p <value>
+
+ARGUMENTS
+  MEMBERID  member id
+  ROLE      viewer|editor|admin
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Change a member role
+
+EXAMPLES
+  $ mlcl team set-role --project <id> <memberId> <role>
+```
+
+_See code: [src/commands/team/set-role.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/team/set-role.ts)_
+
 ## `mlcl templates`
 
 List flagship app templates for mlcl create --template <slug> (blog, crm, team-chat, …)
@@ -1075,6 +2723,63 @@ EXAMPLES
 ```
 
 _See code: [src/commands/templates.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/templates.ts)_
+
+## `mlcl usage`
+
+Usage rollup (account, or --project)
+
+```
+USAGE
+  $ mlcl usage [-p <value>]
+
+FLAGS
+  -p, --project=<value>  project id (default: account)
+
+DESCRIPTION
+  Usage rollup (account, or --project)
+
+EXAMPLES
+  $ mlcl usage [--project <id>]
+```
+
+_See code: [src/commands/usage/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/usage/index.ts)_
+
+## `mlcl usage chat`
+
+AI chat usage for a project (turns, tokens, cost)
+
+```
+USAGE
+  $ mlcl usage chat -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  AI chat usage for a project (turns, tokens, cost)
+
+EXAMPLES
+  $ mlcl usage chat --project <id>
+```
+
+_See code: [src/commands/usage/chat.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/usage/chat.ts)_
+
+## `mlcl usage tiers`
+
+Public pricing tiers
+
+```
+USAGE
+  $ mlcl usage tiers
+
+DESCRIPTION
+  Public pricing tiers
+
+EXAMPLES
+  $ mlcl usage tiers
+```
+
+_See code: [src/commands/usage/tiers.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/usage/tiers.ts)_
 
 ## `mlcl validate`
 
@@ -1100,6 +2805,133 @@ EXAMPLES
 ```
 
 _See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/validate.ts)_
+
+## `mlcl vault broker`
+
+Enable/disable the credential broker (metered AI/API proxy for your app)
+
+```
+USAGE
+  $ mlcl vault broker -p <value> [--disable]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --disable          disable instead of enable
+
+DESCRIPTION
+  Enable/disable the credential broker (metered AI/API proxy for your app)
+
+EXAMPLES
+  $ mlcl vault broker --project <id> [--disable]
+```
+
+_See code: [src/commands/vault/broker.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/vault/broker.ts)_
+
+## `mlcl vault list`
+
+List vault secrets for a project
+
+```
+USAGE
+  $ mlcl vault list -p <value>
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  List vault secrets for a project
+
+EXAMPLES
+  $ mlcl vault list --project <id>
+```
+
+_See code: [src/commands/vault/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/vault/list.ts)_
+
+## `mlcl vault rm KEY`
+
+Delete a vault secret
+
+```
+USAGE
+  $ mlcl vault rm KEY -p <value>
+
+ARGUMENTS
+  KEY  secret key
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Delete a vault secret
+
+EXAMPLES
+  $ mlcl vault rm --project <id> <key>
+```
+
+_See code: [src/commands/vault/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/vault/rm.ts)_
+
+## `mlcl vault set KEY VALUE`
+
+Write a vault secret
+
+```
+USAGE
+  $ mlcl vault set KEY VALUE -p <value>
+
+ARGUMENTS
+  KEY    secret key
+  VALUE  secret value
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+
+DESCRIPTION
+  Write a vault secret
+
+EXAMPLES
+  $ mlcl vault set --project <id> <key> <value>
+```
+
+_See code: [src/commands/vault/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/vault/set.ts)_
+
+## `mlcl vault token`
+
+Mint a runtime vault token (mvt_…)
+
+```
+USAGE
+  $ mlcl vault token -p <value> [--revoke]
+
+FLAGS
+  -p, --project=<value>  (required) molecule.dev project id
+      --revoke           revoke instead of mint
+
+DESCRIPTION
+  Mint a runtime vault token (mvt_…)
+
+EXAMPLES
+  $ mlcl vault token --project <id>
+```
+
+_See code: [src/commands/vault/token.ts](https://github.com/molecule-dev/mlcl/blob/v2.0.0/src/commands/vault/token.ts)_
+
+## `mlcl whoami`
+
+Show the logged-in molecule.dev account
+
+```
+USAGE
+  $ mlcl whoami [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Show the logged-in molecule.dev account
+
+ALIASES
+  $ mlcl whoami
+```
 <!-- commandsstop -->
 
 ## Documentation
