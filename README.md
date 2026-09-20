@@ -143,7 +143,23 @@ npx mlcl share list|create|rm --project <id>
 npx mlcl build mobile|desktop|list|status --project <id>
 npx mlcl usage [--project <id>] && npx mlcl usage tiers
 npx mlcl db backup|backup-list|restore --project <id>
+npx mlcl db info|tables|query --project <id>  # cloud DB inspection
 npx mlcl project open <id>                    # prints workspace + preview URLs
+npx mlcl project get|settings|delete --project <id>
+npx mlcl logs --project <id> [--stream]       # runtime logs (live tail)
+npx mlcl egress get/approve/revoke --project <id>
+npx mlcl vault list/set/rm --project <id>     # managed secrets
+npx mlcl vault token --project <id>           # mint/revoke mvt_ runtime tokens
+npx mlcl vault broker --project <id>          # enable/disable credential broker
+npx mlcl import repos/source/upload --project <id>
+npx mlcl git ssh-key --project <id> <key-path>
+npx mlcl invitations list/accept/decline
+npx mlcl profile get/update
+npx mlcl status                               # molecule.dev status feed
+npx mlcl activities list --project <id>
+npx mlcl tasks list/cancel --project <id>
+npx mlcl models                               # AI model catalog
+npx mlcl account delete/export
 
 # Devices/sessions (the kill-switch for a stolen login — each CLI token is a device):
 npx mlcl device list                   # all logged-in browsers + CLIs, current marked

@@ -113,6 +113,21 @@
       },
       "vault": {
         "description": "Project vault secrets (list, set, rm, token)"
+      },
+      "account": {
+        "description": "Account management (delete, export)"
+      },
+      "import": {
+        "description": "Git repo import (repos, source, upload)"
+      },
+      "egress": {
+        "description": "Sandbox network egress policy (get, approve, revoke)"
+      },
+      "logs": {
+        "description": "Runtime logs (fetch, live stream)"
+      },
+      "tasks": {
+        "description": "Scheduled AI tasks (list, cancel)"
       }
     },
     "hooks": {

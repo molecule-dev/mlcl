@@ -31,8 +31,8 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Password/OAuth signup+login | POST /users, /users/log-in, oauth                      | ide-only (browser flows; the CLI's device-code path covers auth) | —                                              | —                    | ➖     |
 | Password change / reset     | PATCH /users/:id/password, forgot/reset                | ide-only                                                         | —                                              | —                    | ➖     |
 | Profile update              | PATCH /users/:id                                       | parity                                                           | `profile update`                               | —                    | ✅     |
-| Account delete              | DELETE /users/:id                                      | gap                                                              | —                                              | —                    | ⬜     |
-| GDPR data export            | GET /users/:id/data-export                             | gap                                                              | —                                              | —                    | ⬜     |
+| Account delete              | DELETE /users/:id                                      | parity                                                           | `account delete`                               | —                    | ✅     |
+| GDPR data export            | GET /users/:id/data-export                             | parity                                                           | `account export`                               | —                    | ✅     |
 | Guest claim                 | POST /guest/claim                                      | ide-only (signup boundary flow)                                  | —                                              | —                    | ➖     |
 
 ## Projects
@@ -46,21 +46,21 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                                             | `create --template`                              | `scaffold_project` | 🔶     |
 | Update settings              | PATCH /projects/:id       | parity                                                                                       | `project settings`                               | —                  | ✅     |
 | Delete project               | DELETE /projects/:id      | parity                                                                                       | `project delete`                                 | —                  | ✅     |
-| Clone shared project         | POST /share/:slug/clone   | gap                                                                                          | —                                                | —                  | ⬜     |
+| Clone shared project         | POST /share/:slug/clone   | parity                                                                                       | `share clone`                                    | —                  | ✅     |
 
 ## Sandbox & files
 
-| Capability                   | Route(s)                             | Decision                                                                       | CLI                     | MCP    | Status         |
-| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ | ----------------------- | ------ | -------------- |
-| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                         | `sandbox status`        | —      | ✅             |
-| Start / stop / restart       | POST .../sandbox/start               | stop                                                                           | restart                 | parity | `sandbox start | stop | restart` | —   | ✅  |
-| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                         | `sandbox exec -- <cmd>` | —      | ✅             |
-| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                         | `snapshot create        | list   | restore        | rm`  | —        | ✅  |
-| File CRUD/search             | GET/PUT/DELETE /files/*, search      | local-equivalent (the CLI works on the LOCAL checkout — files are right there) | —                       | —      | ➖             |
-| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                 | —                       | —      | ➖             |
-| Egress policy                | GET /egress, allowlist POST/DELETE   | gap                                                                            | —                       | —      | ⬜             |
-| Logs / log stream            | GET /logs, /logs/stream              | gap                                                                            | —                       | —      | ⬜             |
-| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                              | —                       | —      | ➖             |
+| Capability                   | Route(s)                             | Decision                                                                       | CLI                         | MCP    | Status         |
+| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------ | --------------------------- | ------ | -------------- |
+| Sandbox status               | GET /projects/:id/sandbox/status     | parity                                                                         | `sandbox status`            | —      | ✅             |
+| Start / stop / restart       | POST .../sandbox/start               | stop                                                                           | restart                     | parity | `sandbox start | stop | restart` | —   | ✅  |
+| Exec in sandbox              | POST /projects/:id/sandbox/exec      | parity                                                                         | `sandbox exec -- <cmd>`     | —      | ✅             |
+| Snapshots                    | POST/GET /snapshots, restore, DELETE | parity                                                                         | `snapshot create            | list   | restore        | rm`  | —        | ✅  |
+| File CRUD/search             | GET/PUT/DELETE /files/*, search      | local-equivalent (the CLI works on the LOCAL checkout — files are right there) | —                           | —      | ➖             |
+| Terminal / LSP / presence WS | /ws/projects/:id/*                   | ide-only (interactive sockets)                                                 | —                           | —      | ➖             |
+| Egress policy                | GET /egress, allowlist POST/DELETE   | parity                                                                         | `egress get/approve/revoke` | —      | ✅             |
+| Logs / log stream            | GET /logs, /logs/stream              | parity                                                                         | `logs [--stream]`           | —      | ✅             |
+| Preview health               | GET /preview/health/stream           | ide-only (SSE UI)                                                              | —                           | —      | ➖             |
 
 ## Git
 
@@ -69,8 +69,8 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Status / diff / revert | git-status, git-diff, git-revert                | local-equivalent (local `git` in the checkout) | —                                                    | —   | ➖     |
 | Push to remote         | POST /git-push                                  | parity                                         | `git push` (platform-mediated, reuses sandbox creds) | —   | ✅     |
 | Pull from remote       | POST /git-pull                                  | parity                                         | `git pull`                                           | —   | ✅     |
-| Repo import            | git-repos, git-import-source, git-import-upload | gap                                            | —                                                    | —   | ⬜     |
-| SSH key store          | PUT /git-ssh-key                                | gap                                            | —                                                    | —   | ⬜     |
+| Repo import            | git-repos, git-import-source, git-import-upload | parity                                         | `import repos/source/upload`                         | —   | ✅     |
+| SSH key store          | PUT /git-ssh-key                                | parity                                         | `git ssh-key`                                        | —   | ✅     |
 | OAuth for git          | git-auth/:provider                              | ide-only (browser round-trip)                  | —                                                    | —   | ➖     |
 
 ## Deploy & CI
@@ -85,15 +85,15 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Environment & secrets
 
-| Capability              | Route(s)                 | Decision         | CLI                      | MCP | Status |
-| ----------------------- | ------------------------ | ---------------- | ------------------------ | --- | ------ |
-| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset` | —   | ✅     |
-| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`          | —   | ✅     |
-| Env detected keys       | GET /env/detected        | gap              | —                        | —   | ⬜     |
-| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`      | —   | ✅     |
-| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]` | —   | ✅     |
-| Credential broker       | /vault/broker            | gap              | —                        | —   | ⬜     |
-| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`  | —   | ✅     |
+| Capability              | Route(s)                 | Decision         | CLI                        | MCP | Status |
+| ----------------------- | ------------------------ | ---------------- | -------------------------- | --- | ------ |
+| Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset`   | —   | ✅     |
+| Platform env read/write | GET/PUT /env             | parity           | `env pull/push`            | —   | ✅     |
+| Env detected keys       | GET /env/detected        | parity           | `env detected`             | —   | ✅     |
+| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`        | —   | ✅     |
+| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]`   | —   | ✅     |
+| Credential broker       | /vault/broker            | parity           | `vault broker [--disable]` | —   | ✅     |
+| Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`    | —   | ✅     |
 
 ## Database
 
@@ -125,15 +125,15 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Build list/detail | GET /builds(/:id)           | parity                                          | `build list/status` | —   | ✅     |
 | Test discovery    | GET /tests                  | local-equivalent (scaffolded vitest/playwright) | —                   | —   | ➖     |
 | Test run (SSE)    | POST /tests/run             | local-equivalent                                | —                   | —   | ➖     |
-| Scheduled tasks   | GET/DELETE /scheduled-tasks | gap                                             | —                   | —   | ⬜     |
+| Scheduled tasks   | GET/DELETE /scheduled-tasks | parity                                          | `tasks list/cancel` | —   | ✅     |
 
 ## AI / chat (Synthase)
 
-| Capability    | Route(s)        | Decision                                                                      | CLI | MCP | Status |
-| ------------- | --------------- | ----------------------------------------------------------------------------- | --- | --- | ------ |
-| Chat turn     | POST /chat      | ide-only (the IDE's premium; agents use their OWN harness + molecule tooling) | —   | —   | ➖     |
-| Model catalog | GET /ai/models  | gap                                                                           | —   | —   | ⬜     |
-| Chat usage    | GET /chat-usage | gap                                                                           | —   | —   | ⬜     |
+| Capability    | Route(s)        | Decision                                                                      | CLI          | MCP | Status |
+| ------------- | --------------- | ----------------------------------------------------------------------------- | ------------ | --- | ------ |
+| Chat turn     | POST /chat      | ide-only (the IDE's premium; agents use their OWN harness + molecule tooling) | —            | —   | ➖     |
+| Model catalog | GET /ai/models  | parity                                                                        | `models`     | —   | ✅     |
+| Chat usage    | GET /chat-usage | parity                                                                        | `usage chat` | —   | ✅     |
 
 ## Usage & billing
 

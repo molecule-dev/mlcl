@@ -844,3 +844,242 @@ export function queryDatabase(
 ): Promise<{ rows?: unknown[]; error?: string }> {
   return request(`/projects/${projectId}/database/query`, { method: 'POST', body: { sql }, token })
 }
+
+// ── Account deletion + GDPR export ──────────────────────────────────────────
+
+export function deleteAccount(token?: string): Promise<unknown> {
+  return whoami(token).then((me) => request(`/users/${me.id}`, { method: 'DELETE', token }))
+}
+
+export function exportAccountData(token?: string): Promise<unknown> {
+  return whoami(token).then((me) => request(`/users/${me.id}/data-export`, { token }))
+}
+
+// ── Clone shared project ────────────────────────────────────────────────────
+
+export function cloneSharedProject(slug: string, token?: string): Promise<PlatformProject> {
+  return request(`/share/${slug}/clone`, { method: 'POST', body: {}, token })
+}
+
+// ── Repo import ─────────────────────────────────────────────────────────────
+
+export interface ImportRepo {
+  name: string
+  url: string
+  owner?: string
+  private?: boolean
+}
+
+export async function listImportRepos(projectId: string, token?: string): Promise<ImportRepo[]> {
+  return unwrapRows<ImportRepo>(
+    await request<unknown>(`/projects/${projectId}/git-repos`, { token }),
+    'repos',
+  )
+}
+
+export async function getImportSource(
+  projectId: string,
+  token?: string,
+): Promise<{ source?: string; repo?: string }> {
+  const raw = await request<unknown>(`/projects/${projectId}/git-import-source`, { token })
+  return (
+    (raw as { props?: { source?: string; repo?: string } }).props ??
+    (raw as { source?: string; repo?: string })
+  )
+}
+
+export function setImportSource(
+  projectId: string,
+  source: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/git-import-source`, {
+    method: 'POST',
+    body: { source },
+    token,
+  })
+}
+
+export function clearImportSource(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/git-import-source`, { method: 'DELETE', token })
+}
+
+export function uploadImportTarball(
+  projectId: string,
+  tarballPath: string,
+  token?: string,
+): Promise<unknown> {
+  const body = readFileSync(tarballPath)
+  return fetch(`${apiBaseUrl()}/projects/${projectId}/git-import-upload`, {
+    method: 'POST',
+    headers: {
+      ...(token ? { authorization: `Bearer ${token}` } : {}),
+      'content-type': 'application/gzip',
+    },
+    body,
+    signal: AbortSignal.timeout(120_000),
+  }).then(async (r) => {
+    if (!r.ok) throw new PlatformApiError(r.status, `import upload failed (${r.status})`)
+    return r.text().then((t) => (t ? JSON.parse(t) : {}))
+  })
+}
+
+// ── SSH key store ───────────────────────────────────────────────────────────
+
+export function setSshKey(projectId: string, key: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/git-ssh-key`, { method: 'PUT', body: { key }, token })
+}
+
+// ── Egress policy ───────────────────────────────────────────────────────────
+
+export interface EgressPolicy {
+  defaultPolicy?: string
+  allowlist?: Array<{ host: string; approvedAt?: string }>
+  denials?: Array<{ host: string; deniedAt?: string }>
+}
+
+export async function getEgressPolicy(projectId: string, token?: string): Promise<EgressPolicy> {
+  const raw = await request<unknown>(`/projects/${projectId}/egress`, { token })
+  return (raw as { props?: EgressPolicy }).props ?? (raw as EgressPolicy)
+}
+
+export function approveEgressDestination(
+  projectId: string,
+  host: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/egress/allowlist`, {
+    method: 'POST',
+    body: { host },
+    token,
+  })
+}
+
+export function revokeEgressDestination(
+  projectId: string,
+  host: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/egress/allowlist`, {
+    method: 'DELETE',
+    body: { host },
+    token,
+  })
+}
+
+// ── Logs ────────────────────────────────────────────────────────────────────
+
+export interface LogLine {
+  timestamp: string
+  level: string
+  message: string
+  service?: string
+}
+
+export async function getLogs(projectId: string, tail = 100, token?: string): Promise<LogLine[]> {
+  return unwrapRows<LogLine>(
+    await request<unknown>(`/projects/${projectId}/logs?tail=${tail}`, { token }),
+    'logs',
+  )
+}
+
+/** Stream logs via SSE — calls onLine for each log line, resolves when stream ends. */
+export async function streamLogs(
+  projectId: string,
+  onLine: (line: LogLine) => void,
+  token?: string,
+): Promise<void> {
+  const response = await fetch(`${apiBaseUrl()}/projects/${projectId}/logs/stream`, {
+    headers: token ? { authorization: `Bearer ${token}` } : {},
+    signal: AbortSignal.timeout(600_000),
+  })
+  if (!response.ok || !response.body)
+    throw new PlatformApiError(response.status, 'log stream failed')
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  let buf = ''
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    buf += decoder.decode(value, { stream: true })
+    const lines = buf.split('\n')
+    buf = lines.pop() ?? ''
+    for (const line of lines) {
+      if (line.startsWith('data: ')) {
+        try {
+          onLine(JSON.parse(line.slice(6)) as LogLine)
+        } catch (_error) {
+          // Non-JSON SSE data line — skip it.
+        }
+      }
+    }
+  }
+}
+
+// ── Env detected keys ───────────────────────────────────────────────────────
+
+export async function getDetectedEnvKeys(projectId: string, token?: string): Promise<string[]> {
+  const raw = await request<unknown>(`/projects/${projectId}/env/detected`, { token })
+  const props = (raw as { props?: { keys?: string[] } }).props ?? (raw as { keys?: string[] })
+  return props.keys ?? []
+}
+
+// ── Credential broker ───────────────────────────────────────────────────────
+
+export function enableBroker(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/vault/broker`, { method: 'POST', body: {}, token })
+}
+
+export function disableBroker(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/vault/broker`, { method: 'DELETE', token })
+}
+
+// ── Scheduled tasks ─────────────────────────────────────────────────────────
+
+export interface ScheduledTask {
+  id: string
+  type: string
+  prompt?: string
+  status: string
+  createdAt?: string
+}
+
+export async function listScheduledTasks(
+  projectId: string,
+  token?: string,
+): Promise<ScheduledTask[]> {
+  return unwrapRows<ScheduledTask>(
+    await request<unknown>(`/projects/${projectId}/scheduled-tasks`, { token }),
+    'tasks',
+  )
+}
+
+export function cancelScheduledTask(
+  projectId: string,
+  taskId: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/scheduled-tasks/${taskId}`, { method: 'DELETE', token })
+}
+
+// ── Model catalog ───────────────────────────────────────────────────────────
+
+export interface AiModel {
+  id: string
+  name?: string
+  provider?: string
+  contextWindow?: number
+  isDefault?: boolean
+}
+
+export async function getAiModels(token?: string): Promise<AiModel[]> {
+  const raw = await request<unknown>('/ai/models', { token })
+  return unwrapRows<AiModel>(raw, 'models', 'data')
+}
+
+// ── Chat usage ──────────────────────────────────────────────────────────────
+
+export async function getChatUsage(projectId: string, token?: string): Promise<unknown> {
+  const raw = await request<unknown>(`/projects/${projectId}/chat-usage`, { token })
+  return (raw as { props?: unknown }).props ?? raw
+}
