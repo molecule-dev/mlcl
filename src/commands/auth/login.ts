@@ -20,10 +20,14 @@ function openBrowser(url: string): void {
     process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start' : 'xdg-open'
   try {
     const child = spawn(cmd, [url], { stdio: 'ignore', detached: true })
+    // spawn failures (ENOENT — no opener on PATH) arrive ASYNC on the child's
+    // 'error' event, not as a throw; without a listener they crash the process.
+    child.on('error', () => {
+      /* no opener — the URL is printed either way */
+    })
     child.unref()
   } catch (_error) {
-    // No browser opener on this machine — the URL is printed either way, so
-    // failing to open is a non-event, not a failure to handle.
+    // Synchronous spawn misuse only — same posture as above.
   }
 }
 
