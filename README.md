@@ -9,7 +9,7 @@ is a package behind a **bond** (a swappable provider interface), so you can
 change PostgreSQL for MySQL, Mailgun for SES, or one OAuth provider for
 another by changing one wiring file, not rewriting your app.
 
-- **Start from a working app**: 134 flagship templates (blog, CRM, team chat,
+- **Start from a working app**: 150 flagship templates (blog, CRM, team chat,
   online store, …) — real screens, real handlers, real data models.
 - **Stay decoupled**: cores define interfaces; bonds implement them. Your code
   talks to `bond('email')`, never to a vendor SDK.
@@ -48,7 +48,7 @@ auth, i18n, tests, e2e specs, `.env` templates, CI security workflows, and an
 shape from:
 
 ```bash
-npx mlcl templates                       # browse all 134
+npx mlcl templates                       # browse all 150
 npx mlcl templates --json | head -30     # machine-readable
 npx mlcl create store --template online-store --no-interactive
 ```

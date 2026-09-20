@@ -57,7 +57,7 @@ fleet mid-build the same way a CLI harness can via the local server.
 
 |                         | vibe-coded prototype | molecule build                   |
 | ----------------------- | -------------------- | -------------------------------- |
-| Time to first demo      | minutes              | minutes (134 flagship templates) |
+| Time to first demo      | minutes              | minutes (150 flagship templates) |
 | Auth/payments/email     | stubbed or glued     | production packages, swappable   |
 | Provider change         | rewrite              | `mlcl swap`                      |
 | Agent works on it later | improvises           | follows the scaffolded AGENTS.md |

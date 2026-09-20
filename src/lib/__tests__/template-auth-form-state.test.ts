@@ -14,7 +14,7 @@ describe('TPL1 — template auth views wire useAuthFormState (no local email sta
   const result = scanAuthViews()
 
   it('scans a meaningful number of auth views', () => {
-    // Sanity floor: 133+ templates, several auth views each.
+    // Sanity floor: every template in the fleet, several auth views each.
     expect(result.scanned).toBeGreaterThan(400)
   })
 

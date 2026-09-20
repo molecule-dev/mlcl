@@ -158,7 +158,7 @@ function withHeader(content: string, header: string): string {
 // Nothing in the project said so, so these notices say it at the point of use:
 // a README beside the placeholder data and a header on the seed module the
 // executor has to open to change the seeding. Same channel as the theme and
-// branding headers above, injected once here so it reaches every app — all 133
+// branding headers above, injected once here so it reaches every app — every flagship
 // flagship templates and any future one — without sweeping N template dirs.
 // ---------------------------------------------------------------------------
 
@@ -439,7 +439,7 @@ const PREVIEW_NAV_BRIDGE_SCRIPT = `    <!-- mol:nav-bridge -->
  * host's Back/Forward nav-commands via its own history (PV3 — no cold reload).
  *
  * Called from BOTH scaffold paths so the sender reaches every app from one place:
- * `copyTemplateInstance` (the 133 flagship templates ship a static index.html that
+ * `copyTemplateInstance` (the flagship templates ship a static index.html that
  * predates this protocol) and `createAppProject` (custom builds written from
  * `index.html.tpl`). The bridge is inserted immediately before the closing
  * `</body>`; it is a no-op when already present (a re-run, or a future template
@@ -471,7 +471,7 @@ export async function injectPreviewNavBridge(htmlPath: string): Promise<boolean>
 //
 // One injected script serves two preview concerns the baked per-template sender
 // can't cover on its own, both delivered from this ONE place so they reach all
-// 133 flagship templates AND custom builds without sweeping N hand-curated
+// flagship templates AND custom builds without sweeping N hand-curated
 // index.html files (the same single-source rule as injectPreviewNavBridge):
 //
 //   • P2-16 (snapshot): rasterize the last STABLE render to a small downscaled
@@ -741,7 +741,7 @@ const PREVIEW_SNAPSHOT_BRIDGE_SCRIPT = `    <!-- mol:snapshot-bridge -->
  * the file is missing / already has the bridge / has no `</body>`.
  *
  * Called from BOTH scaffold paths (right after `injectPreviewNavBridge`) so the
- * bridge reaches every app from one place: `copyTemplateInstance` (the 133 flagship
+ * bridge reaches every app from one place: `copyTemplateInstance` (the flagship
  * templates) and `createAppProject` (custom builds). Adds the P2-16 last-good-frame
  * snapshot sender + the P2-15 self-healing `molecule:ready` re-send/beat.
  *
@@ -769,7 +769,7 @@ export async function injectPreviewSnapshotBridge(htmlPath: string): Promise<boo
 // ---------------------------------------------------------------------------
 // PV-RUNTIME — the third injected preview `<script>`: runtime-FAILURE detection.
 //
-// The baked per-template sender (in the 133 flagship index.html files) captures
+// The baked per-template sender (in the flagship index.html files) captures
 // runtime errors + posts a heartbeat — but a CUSTOM build (no template) has NO
 // baked sender, so without this it has ZERO runtime-failure detection: a frozen,
 // blank, or throwing custom app would never reach the IDE or Synthase. Delivered
@@ -907,7 +907,7 @@ const PREVIEW_RUNTIME_BRIDGE_SCRIPT = `    <!-- mol:runtime-bridge -->
  *
  * Called from BOTH scaffold paths (right after `injectPreviewSnapshotBridge`) so the
  * runtime-failure detection reaches every app from one place: `copyTemplateInstance`
- * (the 133 flagship templates) and `createAppProject` (custom builds — which have NO
+ * (the flagship templates) and `createAppProject` (custom builds — which have NO
  * baked sender and thus depend on this for any runtime detection at all).
  *
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
@@ -1381,7 +1381,7 @@ const PREVIEW_INTERACT_BRIDGE_SCRIPT = `    <!-- mol:interact-bridge -->
  *
  * Called from BOTH scaffold paths (right after `injectPreviewRuntimeBridge`) so the
  * live-preview control reaches every app from one place: `copyTemplateInstance` (the
- * 133 flagship templates) and `createAppProject` (custom builds). Without it, only
+ * flagship templates) and `createAppProject` (custom builds). Without it, only
  * IMPORTED apps (which get the runtime-proxy bundle) could be driven by Synthase — a
  * scaffolded app's preview would have no interaction channel.
  *
@@ -1418,7 +1418,7 @@ export async function injectPreviewInteractBridge(htmlPath: string): Promise<boo
 // activity. This injects the missing producer half into EVERY scaffolded app's
 // API boot, from one place — both `copyTemplateInstance` (the baked flagship
 // fast path) and the package-driven path (custom builds via `create.ts`) — so
-// it reaches all 133 flagships + custom builds without sweeping N hand-curated
+// it reaches all flagships + custom builds without sweeping N hand-curated
 // `bonds/index.ts` files (the same approach as `injectPreviewNavBridge`).
 // ---------------------------------------------------------------------------
 
@@ -1635,7 +1635,7 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
   // 2a. Add the import, then canonicalize the whole import block via the shared
   //     sorter (same grouping as the project's simple-import-sort) so the new
   //     line lands in the exact slot the linter expects — no per-file position
-  //     math, no `--max-warnings 0` regression across 133 varied templates.
+  //     math, no `--max-warnings 0` regression across the template fleet.
   const firstImport = src.search(/^import /m)
   if (firstImport < 0) return false
   src =
@@ -2123,7 +2123,7 @@ export async function copyTemplateInstance(
   }
   // Say, beside the template's placeholder posts / fixtures / seed rows, that
   // the user's own content REPLACES them. Same in-file channel as the headers
-  // above, one place for all 133 flagships.
+  // above, one place for all flagships.
   await stampDemoContentNotices(join(destDir, 'app'), join(destDir, 'api'))
   // The throwaway-script convention the system prompt names, made real.
   await ensureScratchDir(destDir)
@@ -2143,7 +2143,7 @@ export async function copyTemplateInstance(
 
   // Inject the snapshot + self-healing-readiness bridge (P2-16 blurred last-good
   // frame + P2-15 stuck-overlay self-heal). Same single-source rule as the nav
-  // bridge — one place reaches all 133 flagships. Idempotent; no-op outside the IDE.
+  // bridge — one place reaches every flagship. Idempotent; no-op outside the IDE.
   await injectPreviewSnapshotBridge(indexHtmlPath)
 
   // Inject the runtime-failure-detection bridge (heartbeat → freeze detection,
@@ -2153,14 +2153,14 @@ export async function copyTemplateInstance(
 
   // Inject the live-preview control bridge (Synthase reads the on-screen UI by
   // data-mol-id + clicks/fills to verify a feature end-to-end). Same single-source
-  // rule as the other bridges — one place reaches all 133 flagships. Idempotent;
+  // rule as the other bridges — one place reaches every flagship. Idempotent;
   // no-op outside the IDE. Mirrors molecule-dev's imported-app proxy bundle.
   await injectPreviewInteractBridge(indexHtmlPath)
 
   // Wire the IDE8 activity-capture PRODUCER into the copied API boot so a
   // captured email/webhook/push fired in a molecule.dev sandbox surfaces in the
   // Activity panel. Flagship templates ship a hand-curated bonds/index.ts that
-  // predates the producer; this is the single place it reaches all 133 of them.
+  // predates the producer; this is the single place it reaches every one of them.
   // Idempotent; no-op outside the IDE (guarded on MOLECULE_ACTIVITY_URL).
   await injectActivityCaptureBoot(join(destDir, 'api'))
 
@@ -2228,7 +2228,7 @@ export async function copyTemplateInstance(
     // and silently skip resource-package DDL we just dropped above. By
     // re-emitting from the template at scaffold time, every fresh smoke-
     // app picks up new mechanics in the .tpl without us having to re-poll
-    // 133 frozen template copies.
+    // every frozen template copy.
     const migrateScriptPath = join(apiPathForSetup, 'src', 'scripts', 'migrate.ts')
     if (existsSync(migrateScriptPath)) {
       try {
@@ -3737,7 +3737,7 @@ export async function wireTemplateApiRouters(apiPath: string): Promise<void> {
  * `router.ts.tpl` had no `handlers/` directory at all — resource routes are
  * injected inline — so the two scaffold shapes diverged. The AI executor learns
  * the "register feature endpoints in `handlers/index.ts`" pattern from the
- * scaffolded AGENTS.md + api-patterns skill + all 133 templates, so on a custom
+ * scaffolded AGENTS.md + api-patterns skill + every template, so on a custom
  * build it hit a `read_file: handlers/index.ts: No such file` miss every time.
  * Emitting the same empty anchor makes custom == template structurally.
  *
