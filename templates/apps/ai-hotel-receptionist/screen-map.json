@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-landing.html",
+      "designScreenId": "54c73de2d82f4a0cb4ec11c35bcd5841"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-login.html",
+      "designScreenId": "63b24dd39b6e486697acb398fcb2b312"
     },
     {
       "name": "Signup",
@@ -49,7 +51,9 @@
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
@@ -58,7 +62,9 @@
     {
       "name": "Reservations",
       "templateFile": "app/pages/Reservations.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/reservations",
       "auth": true,
       "type": "generate_new",
@@ -67,7 +73,9 @@
     {
       "name": "ReservationDetail",
       "templateFile": "app/pages/ReservationDetail.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/reservations/:id",
       "auth": true,
       "type": "generate_new",
@@ -76,7 +84,9 @@
     {
       "name": "NewReservation",
       "templateFile": "app/pages/NewReservation.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/reservations/new",
       "auth": true,
       "type": "generate_new",
@@ -85,7 +95,9 @@
     {
       "name": "RoomsRates",
       "templateFile": "app/pages/RoomsRates.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/rooms",
       "auth": true,
       "type": "generate_new",
@@ -94,7 +106,9 @@
     {
       "name": "Guests",
       "templateFile": "app/pages/Guests.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/guests",
       "auth": true,
       "type": "generate_new",
@@ -103,7 +117,9 @@
     {
       "name": "GuestDetail",
       "templateFile": "app/pages/GuestDetail.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/guests/:id",
       "auth": true,
       "type": "generate_new",
@@ -112,7 +128,9 @@
     {
       "name": "VoiceAgents",
       "templateFile": "app/pages/VoiceAgents.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/voice-agents",
       "auth": true,
       "type": "generate_new",
@@ -121,7 +139,9 @@
     {
       "name": "Calls",
       "templateFile": "app/pages/Calls.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/calls",
       "auth": true,
       "type": "generate_new",
@@ -130,7 +150,9 @@
     {
       "name": "CallDetail",
       "templateFile": "app/pages/CallDetail.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/calls/:id",
       "auth": true,
       "type": "generate_new",
@@ -139,7 +161,9 @@
     {
       "name": "CallSimulator",
       "templateFile": "app/pages/CallSimulator.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/simulator",
       "auth": true,
       "type": "generate_new",
@@ -148,7 +172,9 @@
     {
       "name": "Account",
       "templateFile": "app/pages/Account.tsx",
-      "components": ["app/components/SwitchboardLayout.tsx"],
+      "components": [
+        "app/components/SwitchboardLayout.tsx"
+      ],
       "route": "/account",
       "auth": true,
       "type": "generate_new",

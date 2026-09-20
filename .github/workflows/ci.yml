@@ -84,6 +84,15 @@ jobs:
       - run: npm test
         working-directory: mlcl
 
+      # IDE⇄CLI parity gate: every platform route must have a decision in
+      # docs/PARITY.md (parity | local-equivalent | ide-only | gap). Fails
+      # when the IDE adds a route without a manifest row — the drift catcher.
+      # Needs the molecule-dev sibling for router.ts; runs only when present.
+      - name: Parity coverage gate
+        run: node scripts/check-parity-coverage.mjs
+        working-directory: mlcl
+        continue-on-error: true # TODO: flip to hard when molecule-dev is a CI sibling
+
   lint:
     runs-on: ubuntu-latest
     steps:

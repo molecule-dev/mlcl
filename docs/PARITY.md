@@ -30,7 +30,7 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Device revoke (kill-switch) | DELETE /devices/:id                                    | parity                                                           | `device revoke [--all-but-current]`            | `revoke_device`      | ✅     |
 | Password/OAuth signup+login | POST /users, /users/log-in, oauth                      | ide-only (browser flows; the CLI's device-code path covers auth) | —                                              | —                    | ➖     |
 | Password change / reset     | PATCH /users/:id/password, forgot/reset                | ide-only                                                         | —                                              | —                    | ➖     |
-| Profile update              | PATCH /users/:id                                       | gap                                                              | —                                              | —                    | ⬜     |
+| Profile update              | PATCH /users/:id                                       | parity                                                           | `profile update`                               | —                    | ✅     |
 | Account delete              | DELETE /users/:id                                      | gap                                                              | —                                              | —                    | ⬜     |
 | GDPR data export            | GET /users/:id/data-export                             | gap                                                              | —                                              | —                    | ⬜     |
 | Guest claim                 | POST /guest/claim                                      | ide-only (signup boundary flow)                                  | —                                              | —                    | ➖     |
@@ -40,12 +40,12 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Capability                   | Route(s)                  | Decision                                                                                     | CLI                                              | MCP                | Status |
 | ---------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------ | ------------------ | ------ |
 | List projects                | GET /projects             | parity                                                                                       | `project list`                                   | —                  | ✅     |
-| Project detail               | GET /projects/:id         | gap                                                                                          | —                                                | —                  | ⬜     |
+| Project detail               | GET /projects/:id         | parity                                                                                       | `project get`                                    | —                  | ✅     |
 | Open in IDE (deep link)      | — (URL shape)             | parity                                                                                       | `project open` (prints workspace + preview URLs) | —                  | ✅     |
 | Create project               | POST /projects            | local-equivalent (`create` scaffolds locally; cloud create via `project create --cloud` gap) | `create`                                         | `scaffold_project` | 🔶     |
 | Create from template (cloud) | POST /templates/:slug/use | local-equivalent                                                                             | `create --template`                              | `scaffold_project` | 🔶     |
-| Update settings              | PATCH /projects/:id       | gap                                                                                          | —                                                | —                  | ⬜     |
-| Delete project               | DELETE /projects/:id      | gap                                                                                          | —                                                | —                  | ⬜     |
+| Update settings              | PATCH /projects/:id       | parity                                                                                       | `project settings`                               | —                  | ✅     |
+| Delete project               | DELETE /projects/:id      | parity                                                                                       | `project delete`                                 | —                  | ✅     |
 | Clone shared project         | POST /share/:slug/clone   | gap                                                                                          | —                                                | —                  | ⬜     |
 
 ## Sandbox & files
@@ -90,8 +90,8 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Local .env CRUD         | —                        | local-equivalent | `env list/get/set/unset` | —   | ✅     |
 | Platform env read/write | GET/PUT /env             | parity           | `env pull/push`          | —   | ✅     |
 | Env detected keys       | GET /env/detected        | gap              | —                        | —   | ⬜     |
-| Vault secrets           | /vault CRUD              | gap              | —                        | —   | ⬜     |
-| Vault runtime tokens    | /vault/token mint/revoke | gap              | —                        | —   | ⬜     |
+| Vault secrets           | /vault CRUD              | parity           | `vault list/set/rm`      | —   | ✅     |
+| Vault runtime tokens    | /vault/token mint/revoke | parity           | `vault token [--revoke]` | —   | ✅     |
 | Credential broker       | /vault/broker            | gap              | —                        | —   | ⬜     |
 | Project API keys (mk_)  | /api-keys CRUD           | parity           | `apikey list/create/rm`  | —   | ✅     |
 
@@ -100,21 +100,21 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Capability                      | Route(s)             | Decision         | CLI                             | MCP | Status |
 | ------------------------------- | -------------------- | ---------------- | ------------------------------- | --- | ------ |
 | Local migrate/reset/console/url | —                    | local-equivalent | `db migrate/reset/console/url`  | —   | ✅     |
-| Cloud connection info           | GET /database        | gap              | —                               | —   | ⬜     |
-| SQL console (cloud)             | POST /database/query | gap              | —                               | —   | ⬜     |
-| Schema tables                   | GET /database/tables | gap              | —                               | —   | ⬜     |
+| Cloud connection info           | GET /database        | parity           | `db info`                       | —   | ✅     |
+| SQL console (cloud)             | POST /database/query | parity           | `db query`                      | —   | ✅     |
+| Schema tables                   | GET /database/tables | parity           | `db info`                       | —   | ✅     |
 | Backups create/list/restore     | /database/backups    | parity           | `db backup list/create/restore` | —   | ✅     |
 | Project eject/export            | GET /export          | parity           | `project export [dir]`          | —   | ✅     |
 
 ## Team & sharing
 
-| Capability                    | Route(s)                         | Decision | CLI                          | MCP | Status |
-| ----------------------------- | -------------------------------- | -------- | ---------------------------- | --- | ------ |
-| Project team list             | GET /team                        | parity   | `team list`                  | —   | ✅     |
-| Invite member                 | POST /team/invite                | parity   | `team invite <email> --role` | —   | ✅     |
-| Revoke invite / remove / role | DELETE/PATCH /team/*             | parity   | `team revoke/set-role/rm`    | —   | ✅     |
-| My invitations                | GET /invitations, accept/decline | gap      | —                            | —   | ⬜     |
-| Share links mint/revoke       | POST/GET/DELETE /shares          | parity   | `share list/create/rm`       | —   | ✅     |
+| Capability                    | Route(s)                         | Decision | CLI                               | MCP | Status |
+| ----------------------------- | -------------------------------- | -------- | --------------------------------- | --- | ------ |
+| Project team list             | GET /team                        | parity   | `team list`                       | —   | ✅     |
+| Invite member                 | POST /team/invite                | parity   | `team invite <email> --role`      | —   | ✅     |
+| Revoke invite / remove / role | DELETE/PATCH /team/*             | parity   | `team revoke/set-role/rm`         | —   | ✅     |
+| My invitations                | GET /invitations, accept/decline | parity   | `invitations list/accept/decline` | —   | ✅     |
+| Share links mint/revoke       | POST/GET/DELETE /shares          | parity   | `share list/create/rm`            | —   | ✅     |
 
 ## Builds & tests
 
@@ -157,12 +157,12 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 ## Ops
 
-| Capability             | Route(s)                  | Decision            | CLI      | MCP      | Status |
-| ---------------------- | ------------------------- | ------------------- | -------- | -------- | ------ |
-| Telemetry              | POST /v1/telemetry/cli    | parity (opt-out)    | built-in | built-in | ✅     |
-| Status page            | GET /status/history, /rss | gap                 | —        | —        | ⬜     |
-| Activities list/export | GET /activities           | gap                 | —        | —        | ⬜     |
-| Analytics dashboards   | /analytics/*              | ide-only (admin UI) | —        | —        | ➖     |
+| Capability             | Route(s)                  | Decision            | CLI               | MCP      | Status |
+| ---------------------- | ------------------------- | ------------------- | ----------------- | -------- | ------ |
+| Telemetry              | POST /v1/telemetry/cli    | parity (opt-out)    | built-in          | built-in | ✅     |
+| Status page            | GET /status/history, /rss | parity              | `status`          | —        | ✅     |
+| Activities list/export | GET /activities           | parity              | `activities list` | —        | ✅     |
+| Analytics dashboards   | /analytics/*              | ide-only (admin UI) | —                 | —        | ➖     |
 
 ---
 

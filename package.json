@@ -104,6 +104,15 @@
       },
       "usage": {
         "description": "Usage and pricing tiers"
+      },
+      "invitations": {
+        "description": "Pending team invitations (list, accept, decline)"
+      },
+      "profile": {
+        "description": "Your molecule.dev profile (get, update)"
+      },
+      "vault": {
+        "description": "Project vault secrets (list, set, rm, token)"
       }
     },
     "hooks": {

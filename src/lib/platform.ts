@@ -654,3 +654,193 @@ export function restoreBackup(
     token,
   })
 }
+
+// ── Invitations ──────────────────────────────────────────────────────────────
+
+export interface Invitation {
+  id: string
+  email?: string
+  role: string
+  projectId?: string
+  projectName?: string
+}
+
+export async function listInvitations(token?: string): Promise<Invitation[]> {
+  return unwrapRows<Invitation>(await request<unknown>('/invitations', { token }))
+}
+
+export function acceptInvitation(inviteId: string, token?: string): Promise<unknown> {
+  return request(`/invitations/${inviteId}/accept`, { method: 'POST', body: {}, token })
+}
+
+export function declineInvitation(inviteId: string, token?: string): Promise<unknown> {
+  return request(`/invitations/${inviteId}/decline`, { method: 'POST', body: {}, token })
+}
+
+// ── Profile ──────────────────────────────────────────────────────────────────
+
+export async function getProfile(token?: string): Promise<{
+  id: string
+  email?: string
+  name?: string
+  username?: string
+  avatar?: string
+  bio?: string
+}> {
+  const me = await whoami(token)
+  const raw = await request<unknown>(`/users/${me.id}`, { token })
+  const props =
+    (raw as { props?: Record<string, unknown> }).props ?? (raw as Record<string, unknown>)
+  return {
+    id: me.id,
+    email: (props.email as string) ?? me.email,
+    name: props.name as string | undefined,
+    username: props.username as string | undefined,
+    avatar: props.avatar as string | undefined,
+    bio: props.bio as string | undefined,
+  }
+}
+
+export function updateProfile(
+  fields: { name?: string; username?: string; bio?: string; avatar?: string },
+  token?: string,
+): Promise<unknown> {
+  return whoami(token).then((me) =>
+    request(`/users/${me.id}`, { method: 'PATCH', body: fields, token }),
+  )
+}
+
+// ── Status ───────────────────────────────────────────────────────────────────
+
+export interface StatusEvent {
+  date: string
+  status: string
+  components?: Record<string, string>
+}
+
+export async function getStatusHistory(token?: string): Promise<StatusEvent[]> {
+  return unwrapRows<StatusEvent>(await request<unknown>('/status/history', { token }))
+}
+
+// ── Activities ───────────────────────────────────────────────────────────────
+
+export interface Activity {
+  id: string
+  type: string
+  status: string
+  recipient?: string
+  summary?: string
+  createdAt?: string
+}
+
+export async function listActivities(projectId: string, token?: string): Promise<Activity[]> {
+  return unwrapRows<Activity>(
+    await request<unknown>(`/projects/${projectId}/activities`, { token }),
+  )
+}
+
+// ── Vault ────────────────────────────────────────────────────────────────────
+
+export interface VaultSecret {
+  key: string
+  description?: string
+  createdAt?: string
+}
+
+export async function listVault(projectId: string, token?: string): Promise<VaultSecret[]> {
+  const raw = (await request<unknown>(`/projects/${projectId}/vault`, { token })) as {
+    secrets?: VaultSecret[]
+    data?: VaultSecret[]
+  }
+  return raw.secrets ?? raw.data ?? []
+}
+
+export function setVaultSecret(
+  projectId: string,
+  key: string,
+  value: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/vault/${encodeURIComponent(key)}`, {
+    method: 'PUT',
+    body: { value },
+    token,
+  })
+}
+
+export function deleteVaultSecret(
+  projectId: string,
+  key: string,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}/vault/${encodeURIComponent(key)}`, {
+    method: 'DELETE',
+    token,
+  })
+}
+
+export function mintVaultToken(projectId: string, token?: string): Promise<{ token: string }> {
+  return request(`/projects/${projectId}/vault/token`, { method: 'POST', body: {}, token })
+}
+
+export function revokeVaultToken(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}/vault/token`, { method: 'DELETE', token })
+}
+
+// ── Project CRUD completion ──────────────────────────────────────────────────
+
+export async function getProject(projectId: string, token?: string): Promise<PlatformProject> {
+  const raw = await request<unknown>(`/projects/${projectId}`, { token })
+  const props = (raw as { props?: PlatformProject }).props ?? (raw as PlatformProject)
+  return props
+}
+
+export function updateProject(
+  projectId: string,
+  settings: Record<string, unknown>,
+  token?: string,
+): Promise<unknown> {
+  return request(`/projects/${projectId}`, { method: 'PATCH', body: settings, token })
+}
+
+export function deleteProject(projectId: string, token?: string): Promise<unknown> {
+  return request(`/projects/${projectId}`, { method: 'DELETE', token })
+}
+
+// ── Cloud DB inspection ──────────────────────────────────────────────────────
+
+export interface DatabaseInfo {
+  host?: string
+  port?: number
+  database?: string
+  username?: string
+  passwordMasked?: string
+}
+
+export async function getDatabaseInfo(projectId: string, token?: string): Promise<DatabaseInfo> {
+  const raw = await request<unknown>(`/projects/${projectId}/database`, { token })
+  return (raw as { props?: DatabaseInfo }).props ?? (raw as DatabaseInfo)
+}
+
+export interface DatabaseTable {
+  name: string
+  columns?: Array<{ name: string; type: string }>
+}
+
+export async function getDatabaseTables(
+  projectId: string,
+  token?: string,
+): Promise<DatabaseTable[]> {
+  return unwrapRows<DatabaseTable>(
+    await request<unknown>(`/projects/${projectId}/database/tables`, { token }),
+    'tables',
+  )
+}
+
+export function queryDatabase(
+  projectId: string,
+  sql: string,
+  token?: string,
+): Promise<{ rows?: unknown[]; error?: string }> {
+  return request(`/projects/${projectId}/database/query`, { method: 'POST', body: { sql }, token })
+}
