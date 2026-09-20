@@ -1,0 +1,29 @@
+# Handlers exempted from the handler-exercised-by-spec coverage gate.
+# Format: one base name per line (matching api/src/handlers/<base>.ts).
+# Comments start with #.
+
+# photos.ts mounts under /api/issues/photo (NOT /api/photos) — the serve
+# URL shape persisted on issues.photo_url. The gate's candidate list
+# derives /api/photos from the filename, which never matches the real
+# mounted path. report-issue.spec.ts + 99-user-journey.spec.ts POST the
+# upload endpoint (captured via captureNetwork assertions on
+# /api/issues/photo) and report-issue.spec.ts asserts the photo_url
+# serve route on the created row — so the handler IS tested; the gate
+# just can't auto-derive the path.
+photos
+
+# users-me.ts mounts under /api/users (not /api/users-me) and exposes
+# /me/* endpoints. The gate's candidate list checks /api/users-me-style
+# paths — none of which match the actual mounted path /api/users/me.
+# The signup helper in e2e/_helpers.ts hits /api/users/me directly, so
+# this handler IS tested — the gate just can't auto-derive the path.
+users-me
+
+# _test.ts is the dev-only e2e setup router (POST /api/_test/promote-staff),
+# 404 in production unless ENABLE_E2E_TEST_ENDPOINTS=true. It IS exercised —
+# the shared promoteToStaff() helper POSTs it, and notifications.spec.ts +
+# 99-user-journey.spec.ts call it before driving staff-only writes. The
+# gate scans only *.spec.ts for the URL literal; those specs call the
+# endpoint via page.request with a template string built from API_BASE,
+# which the literal scan can't see — hence this explicit exemption.
+_test

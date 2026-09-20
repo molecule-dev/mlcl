@@ -1,0 +1,369 @@
+[
+  {
+    "id": "aaaaaaaa-1111-4111-8111-111111111111",
+    "reporter_index": 0,
+    "category": "pothole",
+    "description": "Deep pothole right in the bike lane on the avenue approach — cyclists swerve into traffic to avoid it. Roughly a foot wide and getting deeper every week.",
+    "status": "in_review",
+    "x": 34,
+    "y": 27,
+    "days_ago": 9,
+    "confirmations_from": [
+      1,
+      2
+    ],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 0,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 9
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 8
+      },
+      {
+        "kind": "note",
+        "actor_index": 3,
+        "text": "Streets crew has inspected the site. Scheduled for a hot-mix patch this week; full repave goes on next season's list.",
+        "days_ago": 8
+      },
+      {
+        "kind": "comment",
+        "actor_index": 1,
+        "text": "Hit this on my commute Monday — it bent my front rim. Please prioritize.",
+        "days_ago": 7
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "acknowledged",
+        "to": "in_review",
+        "days_ago": 2
+      }
+    ],
+    "official_note": "Streets crew has inspected the site. Scheduled for a hot-mix patch this week; full repave goes on next season's list."
+  },
+  {
+    "id": "aaaaaaaa-2222-4222-8222-222222222222",
+    "reporter_index": 1,
+    "category": "streetlight",
+    "description": "Streetlight out at the corner for three weeks now — the whole crossing is pitch dark after 6pm and the school kids cross there.",
+    "status": "resolved",
+    "x": 62,
+    "y": 51,
+    "days_ago": 21,
+    "resolved_days_ago": 3,
+    "confirmations_from": [
+      0
+    ],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 1,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 21
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 19
+      },
+      {
+        "kind": "comment",
+        "actor_index": 2,
+        "text": "Also noticed the next light south is flickering — same circuit?",
+        "days_ago": 12
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "acknowledged",
+        "to": "in_review",
+        "days_ago": 10
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "in_review",
+        "to": "resolved",
+        "days_ago": 3
+      },
+      {
+        "kind": "note",
+        "actor_index": 3,
+        "text": "Replaced the photocell and the fixture. Both lights on that circuit are confirmed working tonight. Thanks for the report!",
+        "days_ago": 3
+      }
+    ],
+    "official_note": "Replaced the photocell and the fixture. Both lights on that circuit are confirmed working tonight. Thanks for the report!"
+  },
+  {
+    "id": "aaaaaaaa-3333-4333-8333-333333333333",
+    "reporter_index": 2,
+    "category": "graffiti",
+    "description": "Fresh tags covering the underpass walls on both sides. Reported before it spreads to the storefronts.",
+    "status": "acknowledged",
+    "x": 71,
+    "y": 18,
+    "days_ago": 4,
+    "confirmations_from": [],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 2,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 4
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 3
+      },
+      {
+        "kind": "note",
+        "actor_index": 3,
+        "text": "Logged with the abatement contractor. Crews typically paint over new tags within 10 business days.",
+        "days_ago": 3
+      }
+    ],
+    "official_note": "Logged with the abatement contractor. Crews typically paint over new tags within 10 business days."
+  },
+  {
+    "id": "aaaaaaaa-4444-4444-8444-444444444444",
+    "reporter_index": 0,
+    "category": "trash",
+    "description": "Bulk items dumped beside the bins again — mattresses and a couch. Wind scatters loose bags across the lane by morning.",
+    "status": "submitted",
+    "x": 45,
+    "y": 66,
+    "days_ago": 1,
+    "confirmations_from": [
+      2
+    ],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 0,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 1
+      }
+    ]
+  },
+  {
+    "id": "aaaaaaaa-5555-4555-8555-555555555555",
+    "reporter_index": 1,
+    "category": "tree",
+    "description": "Large limb cracked and hanging over the sidewalk after the storm — pedestrians are ducking around it. Looks ready to drop.",
+    "status": "in_review",
+    "x": 18,
+    "y": 44,
+    "days_ago": 6,
+    "confirmations_from": [
+      0,
+      2
+    ],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 1,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 6
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 5
+      },
+      {
+        "kind": "comment",
+        "actor_index": 0,
+        "text": "Walked under it this morning — it's sagging noticeably lower than yesterday.",
+        "days_ago": 4
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "acknowledged",
+        "to": "in_review",
+        "days_ago": 1
+      }
+    ]
+  },
+  {
+    "id": "aaaaaaaa-6666-4666-8666-666666666666",
+    "reporter_index": 2,
+    "category": "parking",
+    "description": "Delivery trucks idling in the crosswalk during school pickup hours — kids have to walk into the travel lane to get around them.",
+    "status": "submitted",
+    "x": 56,
+    "y": 33,
+    "days_ago": 2,
+    "confirmations_from": [],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 2,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 2
+      }
+    ]
+  },
+  {
+    "id": "aaaaaaaa-7777-4777-8777-777777777777",
+    "reporter_index": 0,
+    "category": "pothole",
+    "description": "Cluster of small potholes forming at the bus stop pull-out. Passengers step off the bus straight into them.",
+    "status": "acknowledged",
+    "x": 36,
+    "y": 25,
+    "days_ago": 5,
+    "confirmations_from": [],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 0,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 5
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 4
+      }
+    ]
+  },
+  {
+    "id": "aaaaaaaa-8888-4888-8888-888888888888",
+    "reporter_index": 1,
+    "category": "other",
+    "description": "Crosswalk paint at this intersection has worn completely away — cars don't stop because they can't see it. Near-miss this morning.",
+    "status": "dismissed",
+    "x": 80,
+    "y": 70,
+    "days_ago": 15,
+    "resolved_days_ago": 10,
+    "confirmations_from": [],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 1,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 15
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "in_review",
+        "days_ago": 12
+      },
+      {
+        "kind": "note",
+        "actor_index": 3,
+        "text": "This intersection is on the county system, not the city's — re-filed with the county roads desk on your behalf (ref CR-2291).",
+        "days_ago": 10
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "in_review",
+        "to": "dismissed",
+        "days_ago": 10
+      }
+    ],
+    "official_note": "This intersection is on the county system, not the city's — re-filed with the county roads desk on your behalf (ref CR-2291)."
+  },
+  {
+    "id": "aaaaaaaa-9999-4999-8999-999999999999",
+    "reporter_index": 2,
+    "category": "trash",
+    "description": "Recycling not collected on this block for the second week running — bins are overflowing and wind is scattering everything.",
+    "status": "resolved",
+    "x": 27,
+    "y": 72,
+    "days_ago": 11,
+    "resolved_days_ago": 8,
+    "confirmations_from": [
+      0,
+      1
+    ],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 2,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 11
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "submitted",
+        "to": "acknowledged",
+        "days_ago": 10
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "acknowledged",
+        "to": "in_review",
+        "days_ago": 9
+      },
+      {
+        "kind": "status_change",
+        "actor_index": 3,
+        "from": "in_review",
+        "to": "resolved",
+        "days_ago": 8
+      },
+      {
+        "kind": "note",
+        "actor_index": 3,
+        "text": "Route had a truck breakdown — collection completed this morning including the backlog. Credit applied to the block's accounts.",
+        "days_ago": 8
+      }
+    ],
+    "official_note": "Route had a truck breakdown — collection completed this morning including the backlog. Credit applied to the block's accounts."
+  },
+  {
+    "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    "reporter_index": 0,
+    "category": "streetlight",
+    "description": "Light cycling on and off every few minutes outside the library — strobing badly after dusk.",
+    "status": "submitted",
+    "x": 50,
+    "y": 40,
+    "days_ago": 1,
+    "confirmations_from": [],
+    "events": [
+      {
+        "kind": "status_change",
+        "actor_index": 0,
+        "from": null,
+        "to": "submitted",
+        "days_ago": 1
+      }
+    ]
+  }
+]

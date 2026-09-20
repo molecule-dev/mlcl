@@ -1,0 +1,170 @@
+{
+  "app": "civic-311",
+  "screens": [
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": [],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card as Login with Full name, Email, Password fields. Heading 'Join your neighbors'. Button 'Create account'. Bottom link 'Already have an account? Sign in'. CivicPulse wordmark and Riverton 311 tagline preserved."
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card as Login with only Email field. Heading 'Reset your password'. Gradient button 'Send reset link'. Bottom link 'Back to Sign in'. CivicPulse wordmark preserved."
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "derive_from",
+      "designFile": null,
+      "deriveFrom": "app/pages/Login.tsx",
+      "derivationNotes": "Same centered card as Login with New Password and Confirm Password fields. Heading 'Set new password'. Gradient button 'Reset password'. Bottom link 'Back to Sign in'. CivicPulse wordmark preserved."
+    },
+    {
+      "name": "Explore",
+      "templateFile": "app/pages/Explore.tsx",
+      "components": [
+        "app/components/MiniMap.tsx",
+        "app/components/SideNavBar.tsx"
+      ],
+      "route": "/explore",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ReportIssue",
+      "templateFile": "app/pages/ReportIssue.tsx",
+      "components": [
+        "app/components/MiniMap.tsx",
+        "app/components/SideNavBar.tsx"
+      ],
+      "route": "/report",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "MyReports",
+      "templateFile": "app/pages/MyReports.tsx",
+      "components": ["app/components/SideNavBar.tsx"],
+      "route": "/my-reports",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ReportDetail",
+      "templateFile": "app/pages/ReportDetail.tsx",
+      "components": [
+        "app/components/MiniMap.tsx",
+        "app/components/SideNavBar.tsx"
+      ],
+      "route": "/reports/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "WatchAreas",
+      "templateFile": "app/pages/WatchAreas.tsx",
+      "components": [
+        "app/components/MiniMap.tsx",
+        "app/components/SideNavBar.tsx"
+      ],
+      "route": "/watch-areas",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Notifications",
+      "templateFile": "app/pages/Notifications.tsx",
+      "components": ["app/components/SideNavBar.tsx"],
+      "route": "/notifications",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": [
+        "app/components/SideNavBar.tsx",
+        "app/components/SettingsTopBar.tsx"
+      ],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Pricing",
+      "templateFile": "app/pages/Pricing.tsx",
+      "components": [],
+      "route": "/pricing",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "About",
+      "templateFile": "app/pages/About.tsx",
+      "components": [],
+      "route": "/about",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Terms",
+      "templateFile": "app/pages/Terms.tsx",
+      "components": [],
+      "route": "/terms",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Privacy",
+      "templateFile": "app/pages/Privacy.tsx",
+      "components": [],
+      "route": "/privacy",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

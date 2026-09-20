@@ -1,0 +1,23 @@
+[
+  {
+    "user_index": 0,
+    "name": "Around home",
+    "x": 34,
+    "y": 27,
+    "radius": 8
+  },
+  {
+    "user_index": 0,
+    "name": "Library corridor",
+    "x": 50,
+    "y": 40,
+    "radius": 5
+  },
+  {
+    "user_index": 1,
+    "name": "School route",
+    "x": 56,
+    "y": 33,
+    "radius": 10
+  }
+]

@@ -1,0 +1,204 @@
+:root {
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  /* ── @theme bridge variables (feed into Tailwind @theme → --color-*) ── */
+  --mol-color-primary: #0f766e;
+  --mol-color-primary-light: #ccfbf1;
+  --mol-color-secondary: #b45309; /* darkened from #d97706 — white text was 3.1:1 (fail); #b45309 = 4.6:1 */
+  --mol-color-success: #15803d; /* green-700 = 5.0:1 on white */
+  --mol-color-warning: #f59e0b;
+  --mol-color-error: #dc2626; /* darkened from #ef4444 — #dc2626 = 4.83:1 */
+  --mol-color-info: #0e7490;
+
+  --mol-color-background: #ffffff;
+  --mol-color-background-secondary: #f6faf9;
+  --mol-color-background-tertiary: #ecf3f1;
+  --mol-color-border: #dbe5e2;
+  --mol-color-text: #10201d;
+  --mol-color-text-secondary: #3f5652;
+  --mol-color-text-tertiary: #58706b; /* darkened — 4.7:1 on white */
+
+  --mol-font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Backward-compat aliases (inline styles / legacy references) ── */
+  --color-text: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-secondary);
+  --color-text-muted: var(--color-foreground-tertiary);
+  --color-bg: var(--color-background);
+  --color-bg-secondary: var(--color-background-secondary);
+  --color-bg-tertiary: var(--color-background-tertiary);
+  --color-danger: var(--color-error);
+
+  /* ── M3 on-primary for light — deep teal primary takes white text ── */
+  --color-on-primary: #ffffff;
+
+  /* ── App-specific variables ── */
+  --color-primary-hover: #115e59;
+  --color-secondary-hover: #92400e;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --spacing-page: 1.5rem;
+  --sidebar-width: 15rem;
+
+  /* Issue status colors (submitted → acknowledged → in_review → resolved/dismissed) */
+  --color-status-submitted: #0e7490;
+  --color-status-acknowledged: #2563eb;
+  --color-status-in-review: #f59e0b;
+  --color-status-resolved: #16a34a;
+  --color-status-dismissed: #6b7280;
+
+  /* Category accents (map pins + chips) */
+  --color-cat-pothole: #b45309;
+  --color-cat-streetlight: #b8860b;
+  --color-cat-graffiti: #9333ea;
+  --color-cat-trash: #0f766e;
+  --color-cat-tree: #15803d;
+  --color-cat-parking: #dc2626;
+  --color-cat-other: #475569;
+
+  /* Official note highlight */
+  --color-internal-note: #ecfdf5;
+
+  /* Map chrome — grid + water tint for the fictional city */
+  --color-map-grid: #d7e3df;
+  --color-map-water: #cfe8f5;
+  --color-map-park: #dcf0e2;
+  --color-map-road: #f8fafc;
+
+  /* Layout chrome — sidebar CTA and icon accent */
+  --color-nav-cta: #0f766e;
+  --color-nav-cta-hover: #115e59;
+  --color-on-nav-cta: #ffffff;
+  --color-nav-muted: #58706b;
+  --color-nav-surface-warm: #ecfdf5;
+}
+
+/* Dark mode — civic cool-slate dark with the teal brand brightened so
+   chips/links/focus rings read on dark surfaces. `--color-on-primary`
+   STAYS white at the brand stop so primary CTAs remain readable.
+   Status and category semantics keep their hue meaning. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #2dd4bf;
+  --mol-color-primary-light: #134e4a;
+  --mol-color-primary-dark: #0f766e;
+  --mol-color-secondary: #94a3b8;
+  --mol-color-background: #0d1715;
+  --mol-color-background-secondary: #16211f;
+  --mol-color-background-tertiary: #22302d;
+  --mol-color-surface: #16211f;
+  --mol-color-surface-secondary: #22302d;
+  --mol-color-input-background: #0a1211;
+  --mol-color-text: #eef6f4;
+  --mol-color-text-secondary: #c3d4d0;
+  --mol-color-text-tertiary: #93a8a3;
+  --mol-color-text-inverse: #0d1715;
+  --mol-color-border: #22302d;
+  --mol-color-border-secondary: #364743;
+  --mol-color-border-focus: #2dd4bf;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #22d3ee;
+
+  --color-primary-hover: #5eead4;
+  --color-primary-light: #134e4a;
+  --color-secondary-hover: #fbbf24;
+  --color-danger: #f87171;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Issue status colors */
+  --color-status-submitted: #22d3ee;
+  --color-status-acknowledged: #60a5fa;
+  --color-status-in-review: #fbbf24;
+  --color-status-resolved: #4ade80;
+  --color-status-dismissed: #94a3b8;
+
+  /* Category accents */
+  --color-cat-pothole: #f59e0b;
+  --color-cat-streetlight: #fcd34d;
+  --color-cat-graffiti: #c084fc;
+  --color-cat-trash: #2dd4bf;
+  --color-cat-tree: #4ade80;
+  --color-cat-parking: #f87171;
+  --color-cat-other: #94a3b8;
+
+  /* Official note highlight */
+  --color-internal-note: #0a2e1f;
+
+  /* Map chrome */
+  --color-map-grid: #2a3a36;
+  --color-map-water: #123340;
+  --color-map-park: #14352a;
+  --color-map-road: #22302d;
+
+  /* Layout chrome */
+  --color-nav-cta: #2dd4bf;
+  --color-nav-cta-hover: #14b8a6;
+  --color-on-nav-cta: #0d1715;
+  --color-nav-muted: #93a8a3;
+  --color-nav-surface-warm: #10312a;
+
+  /* M3 @theme token dark variants — brand teal kept at the brand stop;
+     on-primary stays white so primary buttons remain readable in both
+     modes. */
+  --color-background: #0d1715;
+  --color-on-background: #eef6f4;
+  --color-surface: #0d1715;
+  --color-surface-bright: #22302d;
+  --color-surface-dim: #08100e;
+  --color-surface-container-lowest: #060d0b;
+  --color-surface-container-low: #101a18;
+  --color-surface-container: #16211f;
+  --color-surface-container-high: #1c2926;
+  --color-surface-container-highest: #22302d;
+  --color-surface-variant: #16211f;
+  --color-on-surface: #eef6f4;
+  --color-on-surface-variant: #c3d4d0;
+  --color-inverse-surface: #eef6f4;
+  --color-inverse-on-surface: #0d1715;
+  --color-inverse-primary: #0f766e;
+  --color-primary: #0f766e;
+  --color-primary-container: #0b4f49;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #99f6e4;
+  --color-primary-fixed: #99f6e4;
+  --color-primary-fixed-dim: #5eead4;
+  --color-on-primary-fixed: #032726;
+  --color-on-primary-fixed-variant: #0b4f49;
+  --color-secondary: #b8ccc7;
+  --color-secondary-container: #374b47;
+  --color-on-secondary: #1c2b28;
+  --color-on-secondary-container: #d3e6e1;
+  --color-secondary-fixed: #d3e6e1;
+  --color-secondary-fixed-dim: #b8ccc7;
+  --color-on-secondary-fixed: #032726;
+  --color-on-secondary-fixed-variant: #374b47;
+  --color-tertiary: #fcd34d;
+  --color-tertiary-container: #92400e;
+  --color-on-tertiary: #2d1600;
+  --color-on-tertiary-container: #fde68a;
+  --color-tertiary-fixed: #fde68a;
+  --color-tertiary-fixed-dim: #fcd34d;
+  --color-on-tertiary-fixed: #2d1600;
+  --color-on-tertiary-fixed-variant: #6a3b00;
+  --color-error: #f87171;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #58706b;
+  --color-outline-variant: #22302d;
+  --color-surface-tint: #2dd4bf;
+}

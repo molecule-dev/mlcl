@@ -1,0 +1,24 @@
+[
+  {
+    "user_index": 0,
+    "kind": "watch_area_issue",
+    "issue_index": 5,
+    "message": "Dan Alvarez reported a new tree issue near 2nd Ave & W 18th St",
+    "days_ago": 6
+  },
+  {
+    "user_index": 1,
+    "kind": "status_change",
+    "issue_index": 1,
+    "message": "Your streetlight report at 6th Ave & E 20th St is now resolved",
+    "days_ago": 3,
+    "read": true
+  },
+  {
+    "user_index": 2,
+    "kind": "confirmation",
+    "issue_index": 8,
+    "message": "Maya Okafor confirmed your trash report at 3rd Ave & W 29th St",
+    "days_ago": 10
+  }
+]

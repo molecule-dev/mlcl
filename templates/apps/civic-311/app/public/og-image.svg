@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f766e"/>
+  <g stroke="#134e4a" stroke-width="3" opacity="0.6">
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+  </g>
+  <g>
+    <path d="M600 210c-33 0-60 26-60 59 0 43 60 111 60 111s60-68 60-111c0-33-27-59-60-59z" fill="#ffffff"/>
+    <circle cx="600" cy="269" r="24" fill="#0f766e"/>
+  </g>
+  <text x="600" y="470" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="84" font-weight="800" fill="#ffffff" letter-spacing="-2">CivicPulse</text>
+  <text x="600" y="530" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="500" fill="#99f6e4">311 reporting for the City of Riverton</text>
+</svg>
