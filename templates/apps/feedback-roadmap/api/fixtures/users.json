@@ -1,0 +1,50 @@
+[
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000001",
+    "email": "owner@signalloop.test",
+    "name": "Priya Nair",
+    "username": "priya",
+    "role": "admin",
+    "bio": "Head of product at Loopwork. Reads every board, ships every Friday."
+  },
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000002",
+    "email": "dev@signalloop.test",
+    "name": "Marcus Bell",
+    "username": "marcus",
+    "role": "admin",
+    "bio": "Platform lead. Answers 'when will it ship' with quarters, not dates."
+  },
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000003",
+    "email": "hana@signalloop.test",
+    "name": "Hana Okafor",
+    "username": "hana",
+    "role": "member",
+    "bio": "Runs a 12-person studio on Loopwork. Power voter."
+  },
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000004",
+    "email": "tomas@signalloop.test",
+    "name": "Tomas Lindqvist",
+    "username": "tomas",
+    "role": "member",
+    "bio": "Freelance PM. Files suspiciously well-written feature requests."
+  },
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000005",
+    "email": "wren@signalloop.test",
+    "name": "Wren Castillo",
+    "username": "wren",
+    "role": "member",
+    "bio": "Support lead elsewhere, feedback power user here."
+  },
+  {
+    "user_id": "aaaaaaaa-0000-4000-8000-000000000006",
+    "email": "june@signalloop.test",
+    "name": "June Park",
+    "username": "june",
+    "role": "member",
+    "bio": "Design systems nerd. Will upvote anything about tokens."
+  }
+]

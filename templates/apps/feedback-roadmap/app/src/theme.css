@@ -1,0 +1,243 @@
+:root {
+  /* === @theme bridge — fed into ClassMap via index.css @theme block === */
+  --mol-color-primary: #5046e5;
+  --mol-color-primary-light: #eeecfb;
+  --mol-color-primary-dark: #4338ca;
+  --mol-color-secondary: #b45309;
+  --mol-color-background: #f7f7fc;
+  --mol-color-background-secondary: #f0eef9;
+  --mol-color-background-tertiary: #e8e5f6;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f7f7fc;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #191727;
+  --mol-color-text-secondary: #565273;
+  --mol-color-text-tertiary: #8f8bab;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e9e7f4;
+  --mol-color-border-secondary: #d6d2ec;
+  --mol-color-border-focus: #5046e5;
+  --mol-color-success: #16a34a;
+  --mol-color-warning: #d97706;
+  --mol-color-error: #dc2626;
+  --mol-color-info: #5046e5;
+  --mol-font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* === Material-3 / Stitch token set (light) === */
+  --color-primary: #5046e5;
+  --color-on-primary: #ffffff; /* 7.0:1 on iris-600 — passes */
+  --color-primary-container: #eeecfb;
+  --color-on-primary-container: #1d1450;
+  --color-secondary: #b45309;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdf0e3;
+  --color-on-secondary-container: #3d1c00;
+  --color-tertiary: #0f766e;
+  --color-tertiary-container: #d9f2ef;
+  --color-on-tertiary: #042f2b; /* dark on teal — 8.0:1 */
+  --color-on-tertiary-container: #042f2b;
+  --color-background: #f7f7fc;
+  --color-on-background: #191727;
+  --color-surface: #ffffff;
+  --color-surface-bright: #f7f7fc;
+  --color-surface-dim: #eceaf6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f7fc;
+  --color-surface-container: #f0eef9;
+  --color-surface-container-high: #e8e5f6;
+  --color-surface-container-highest: #ddd9f1;
+  --color-surface-variant: #f0eef9;
+  --color-on-surface: #191727;
+  --color-on-surface-variant: #565273;
+  --color-outline: #6d6a92; /* 4.6:1 vs #ffffff — outline ≥3:1 */
+  --color-outline-variant: #e9e7f4;
+  --color-surface-tint: #5046e5;
+  --color-inverse-surface: #191727;
+  --color-inverse-on-surface: #f7f7fc;
+  --color-inverse-primary: #c3bdff;
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff; /* 4.83:1 on #dc2626 — passes */
+  --color-on-error-container: #7f1d1d;
+
+  /* === Backward-compat aliases (inline styles can use these short names) === */
+  --color-text: var(--mol-color-text);
+  --color-text-secondary: var(--mol-color-text-secondary);
+  --color-text-tertiary: var(--mol-color-text-tertiary);
+  --color-text-on-primary: var(--mol-color-text-inverse);
+  --color-primary-hover: #6a5ff0;
+
+  /* === Feedback-specific tokens (inline styles only, NOT in @theme) === */
+  /* Post status workflow: open → planned → in_progress → shipped / declined */
+  --color-status-open: #475569; /* slate-600 — 7.4:1 on its 12% tint */
+  --color-status-open-light: #eef2f6;
+  --color-status-planned: #5046e5;
+  --color-status-planned-light: #eeecfb;
+  --color-status-inprogress: #b45309;
+  --color-status-inprogress-light: #fdf0e3;
+  --color-status-shipped: #15803d; /* green-700 — 4.6:1 on #dcfce7 pill */
+  --color-status-shipped-light: #dcfce7;
+  --color-status-declined: #be123c; /* rose-700 — 5.9:1 on its tint */
+  --color-status-declined-light: #ffe4e9;
+  --color-status-merged: #6d28d9;
+  --color-status-merged-light: #ede9fe;
+
+  --color-vote: #5046e5;
+  --color-vote-active: #6a5ff0;
+  --color-vote-bg: #eeecfb;
+  --color-vote-divider: #e9e7f4;
+  --color-official-border: #5046e5; /* admin-response card accent */
+  --color-official-bg: #f4f2fd;
+  --color-roadmap-planned-bar: #c3bdff;
+  --color-changelog-date: #6d28d9;
+
+  /* Typography */
+  --font-family-serif: 'Charter', 'Bitstream Charter', Georgia, 'Noto Serif', serif;
+  --font-family-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono:
+    'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Layout */
+  --content-width: 780px;
+  --page-width: 1120px;
+  --sidebar-width: 300px;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Dark mode — violet-tinted near-black surfaces that keep the iris brand
+   at its brand stop for primary CTAs. Status tokens brighten one step so
+   every badge still reads on dark; text-inverse stays white so the iris
+   CTA keeps its light-on-iris character in both modes. */
+[data-mol-mode='dark'] {
+  --mol-color-primary: #a5a0ff;
+  --mol-color-primary-light: #232046;
+  --mol-color-primary-dark: #5046e5;
+  --mol-color-secondary: #f59e0b;
+  --mol-color-background: #100f1a;
+  --mol-color-background-secondary: #181726;
+  --mol-color-background-tertiary: #211f33;
+  --mol-color-surface: #151423;
+  --mol-color-surface-secondary: #1c1a2d;
+  --mol-color-input-background: #0c0b16;
+  --mol-color-text: #edecf7;
+  --mol-color-text-secondary: #a9a6c6;
+  --mol-color-text-tertiary: #6f6c92;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #26243a;
+  --mol-color-border-secondary: #373355;
+  --mol-color-border-focus: #a5a0ff;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #a5a0ff;
+
+  --color-primary-hover: #bcb8ff;
+  --color-primary-light: #232046;
+
+  /* Stitch / Material-3 token dark variants — override the @theme block
+     so `bg-surface`, `text-on-surface`, `bg-primary` etc. flip cleanly.
+     CTAs keep white text on iris: `on-primary` stays white. */
+  --color-background: #100f1a;
+  --color-on-background: #edecf7;
+  --color-surface: #151423;
+  --color-surface-bright: #211f33;
+  --color-surface-dim: #0a0912;
+  --color-surface-container-lowest: #050410;
+  --color-surface-container-low: #12111f;
+  --color-surface-container: #181726;
+  --color-surface-container-high: #211f33;
+  --color-surface-container-highest: #26243a;
+  --color-surface-variant: #211f33;
+  --color-on-surface: #edecf7;
+  --color-on-surface-variant: #a9a6c6;
+  --color-inverse-surface: #edecf7;
+  --color-inverse-on-surface: #100f1a;
+  --color-inverse-primary: #5046e5;
+  --color-primary: #5046e5; /* keep brand iris at brand stop */
+  --color-primary-container: #232046;
+  --color-on-primary: #ffffff; /* white on iris — readable in both modes */
+  --color-on-primary-container: #ddd9ff;
+  --color-secondary: #f59e0b;
+  --color-secondary-container: #54290a;
+  --color-on-secondary: #100f1a; /* dark on amber — 8.5:1 (was #fff = 2.2:1 FAIL) */
+  --color-on-secondary-container: #fde5c8;
+  --color-tertiary: #2dd4bf;
+  --color-tertiary-container: #0d3d39;
+  --color-on-tertiary: #0a2622;
+  --color-on-tertiary-container: #b2ece5;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #4c0519; /* 5.1:1 (was #fff = 2.7:1 FAIL) */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8c89b0; /* 4.6:1 vs surface (≥3:1 outline bar) */
+  --color-outline-variant: #26243a;
+  --color-surface-tint: #a5a0ff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.65);
+
+  /* Status tokens — brighter steps for dark-bg visibility */
+  --color-status-open: #a8b3c2;
+  --color-status-open-light: rgba(148, 163, 184, 0.16);
+  --color-status-planned: #a5a0ff;
+  --color-status-planned-light: rgba(165, 160, 255, 0.16);
+  --color-status-inprogress: #fbbf24;
+  --color-status-inprogress-light: rgba(251, 191, 36, 0.15);
+  --color-status-shipped: #4ade80;
+  --color-status-shipped-light: rgba(74, 222, 128, 0.16);
+  --color-status-declined: #fb7185;
+  --color-status-declined-light: rgba(251, 113, 133, 0.16);
+  --color-status-merged: #c4b5fd;
+  --color-status-merged-light: rgba(196, 181, 253, 0.15);
+
+  --color-vote: #a5a0ff;
+  --color-vote-active: #c3bdff;
+  --color-vote-bg: rgba(165, 160, 255, 0.15);
+  --color-vote-divider: #26243a;
+  --color-official-border: #a5a0ff;
+  --color-official-bg: rgba(165, 160, 255, 0.1);
+  --color-roadmap-planned-bar: #5046e5;
+  --color-changelog-date: #c4b5fd;
+}

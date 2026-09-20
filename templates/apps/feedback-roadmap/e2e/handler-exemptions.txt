@@ -1,0 +1,11 @@
+# Handlers exempted from the handler-exercised-by-spec coverage gate.
+# Format: one base name per line (matching api/src/handlers/<base>.ts).
+# Comments start with #.
+
+# _test.ts is the dev-only e2e setup router (POST /api/_test/promote-admin),
+# 404 in production unless ENABLE_E2E_TEST_ENDPOINTS=true. It IS exercised —
+# the shared promoteToAdmin() helper in e2e/_helpers.ts POSTs it before every
+# admin workflow spec. The gate scans only *.spec.ts for the URL literal; the
+# helper lives in _helpers.ts, which the literal scan can't see — hence this
+# explicit exemption.
+_test

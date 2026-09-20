@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1136" viewBox="0 0 640 1136">
+  <rect width="640" height="1136" fill="#ffffff"/>
+  <svg x="240" y="488" width="160" height="160" viewBox="0 0 32 32">
+
+  <!-- SignalLoop mark: an upvote chevron inside a loop - feedback in, signal out. -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="#5046e5"/>
+  <path d="M 8 12 A 9 9 0 1 1 7.2 18.6"
+        fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M 11.5 18.5 L 16 11.5 L 20.5 18.5 Z"
+        fill="#ffffff"/>
+
+  </svg>
+</svg>

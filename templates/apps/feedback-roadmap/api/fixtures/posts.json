@@ -1,0 +1,174 @@
+[
+  {
+    "id": "cccccccc-0000-4000-8000-000000000001",
+    "board": "feature-requests",
+    "author": 3,
+    "title": "Recurring revenue dashboard with per-plan cohort breakdown",
+    "body": "We currently eyeball MRR in a spreadsheet. A dashboard that splits active subscriptions by plan, with a 30/60/90-day retention cohort view, would replace three manual exports a week. Bonus points for a CSV of the underlying rows.",
+    "status": "planned",
+    "roadmap_label": "Q1 2027",
+    "admin_response": "Cohorts are the single most requested analytics feature — slotted for the analytics revamp. Design preview lands in the changelog first.",
+    "days_ago": 41
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000002",
+    "board": "feature-requests",
+    "author": 5,
+    "title": "Slack notifications when a post I voted on changes status",
+    "body": "I want to know the moment something I upvoted moves to Planned or Shipped. Email works but a Slack message with the status badge and a deep link would land where the team already lives.",
+    "status": "in_progress",
+    "roadmap_label": "Q4 2026",
+    "admin_response": "Under active build. Webhook plumbing is done; the Slack app review is the long pole.",
+    "days_ago": 36
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000003",
+    "board": "feature-requests",
+    "author": 6,
+    "title": "Design token theming for customer-facing boards",
+    "body": "Let me point the public board at my own token set — brand color, radius, font — so the feedback page stops looking like it belongs to a different product. A simple CSS variable override panel would be enough.",
+    "status": "shipped",
+    "roadmap_label": "Q3 2026",
+    "admin_response": "Shipped as Board Theming in the appearance tab of board settings.",
+    "shipped_days_ago": 6,
+    "days_ago": 64
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000004",
+    "board": "feature-requests",
+    "author": 4,
+    "title": "Merge duplicate posts automatically before they split the vote",
+    "body": "Three people filed 'dark mode' three ways this month and each collected votes. Suggesting near-duplicates at submit time — or a one-click merge for admins that pools the votes — would keep demand signal honest.",
+    "status": "shipped",
+    "roadmap_label": "Q3 2026",
+    "admin_response": "Shipped: duplicate suggestions at submit time plus admin merge with vote pooling.",
+    "shipped_days_ago": 19,
+    "days_ago": 55
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000005",
+    "board": "feature-requests",
+    "author": 3,
+    "title": "Custom fields on feedback posts",
+    "body": "Let admins add structured fields — account tier, product area, severity — so the board can be filtered like a real database instead of searched like a mailbox.",
+    "status": "open",
+    "days_ago": 12
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000006",
+    "board": "feature-requests",
+    "author": 5,
+    "title": "Weekly digest email of top open posts",
+    "body": "A Monday digest with the five highest-voted open requests and anything that just moved on the roadmap. Enough to keep the team subscribed without another Slack channel.",
+    "status": "open",
+    "days_ago": 9
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000007",
+    "board": "feature-requests",
+    "author": 6,
+    "title": "Public API with webhook subscription for status changes",
+    "body": "Everything the Slack integration does, but as a documented REST API plus outgoing webhooks, so we can wire feedback events into our own tooling.",
+    "status": "declined",
+    "admin_response": "Declined for now — the current single-tenant data model makes safe multi-customer API scopes a rewrite, not a feature. Revisiting after the multi-workspace split.",
+    "days_ago": 33
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000008",
+    "board": "bug-reports",
+    "author": 4,
+    "title": "Vote count desyncs between board list and post detail",
+    "body": "The board list showed 214 votes, clicking through showed 209, a refresh showed 214 again. Looks like a cached aggregate racing the live count on the detail endpoint.",
+    "status": "in_progress",
+    "roadmap_label": "Q4 2026",
+    "admin_response": "Reproduced — the list reads a denormalized counter while detail recomputes. Fix rides along with the vote-event pipeline.",
+    "days_ago": 7
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000009",
+    "board": "bug-reports",
+    "author": 5,
+    "title": "Comment box loses draft when the session expires mid-typing",
+    "body": "Wrote a three-paragraph reply, hit submit, got logged out, and the text was gone. Either warn before expiry or keep the draft in localStorage and restore it after re-login.",
+    "status": "open",
+    "days_ago": 4
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000a",
+    "board": "bug-reports",
+    "author": 3,
+    "title": "Board slug collisions on rename create dead links",
+    "body": "Renaming a board to a slug that an archived board already held silently broke every external link to the old slug. Either reject the rename or redirect.",
+    "status": "shipped",
+    "roadmap_label": "Q3 2026",
+    "admin_response": "Shipped: renames now generate a collision-free slug and the old slug 308-redirects.",
+    "shipped_days_ago": 27,
+    "days_ago": 48
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000b",
+    "board": "integrations",
+    "author": 6,
+    "title": "Two-way GitHub link: roadmap item to pull request",
+    "body": "When a planned post has a tracking issue, show the PR/issue state right on the roadmap card, and post back to the issue when the feature ships. Closed-loop from request to release note.",
+    "status": "planned",
+    "roadmap_label": "Q1 2027",
+    "admin_response": "Confirmed with the platform team — the roadmap card gets a live issue chip, shipping posts a closing comment.",
+    "days_ago": 28
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000c",
+    "board": "integrations",
+    "author": 4,
+    "title": "Import historical feedback from a CSV",
+    "body": "We have two years of feature requests in a spreadsheet. An importer that maps columns to boards and preserves original dates would let us start with real signal instead of a blank board.",
+    "status": "open",
+    "days_ago": 15
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000d",
+    "board": "integrations",
+    "author": 3,
+    "title": "Linear sync for the in-progress column",
+    "body": "Anything an admin marks in-progress should appear as a Linear issue in the project we pick, and status changes should flow both directions.",
+    "status": "open",
+    "days_ago": 2
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000e",
+    "board": "praise",
+    "author": 5,
+    "title": "The changelog page is the first one my execs actually read",
+    "body": "Shipped items with dates and plain-language summaries have replaced our quarterly 'what did product even do' deck. Please never remove it.",
+    "status": "open",
+    "days_ago": 11
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-00000000000f",
+    "board": "feature-requests",
+    "author": 6,
+    "title": "Dark theme for the whole app",
+    "body": "Please add a proper dark theme across the boards, roadmap, and admin views — my eyes at 11pm beg you.",
+    "status": "open",
+    "merged_into": "cccccccc-0000-4000-8000-000000000011",
+    "days_ago": 5
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000011",
+    "board": "feature-requests",
+    "author": 4,
+    "title": "Add dark mode to the web app",
+    "body": "A system-following dark mode for boards, roadmap, and the admin views. Every tool I live in all day has one; this is the last bright tab.",
+    "status": "open",
+    "days_ago": 18
+  },
+  {
+    "id": "cccccccc-0000-4000-8000-000000000010",
+    "board": "bug-reports",
+    "author": 6,
+    "title": "Mobile: vote button requires two taps on iOS Safari",
+    "body": "First tap focuses, second tap registers. Suspect the touch target is behind a sticky header on small viewports.",
+    "status": "open",
+    "days_ago": 1
+  }
+]
