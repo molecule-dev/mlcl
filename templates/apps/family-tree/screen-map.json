@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-landing.html",
+      "designScreenId": "3822bbed49b44f0f823fe4e5c58bd0cc"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-login.html",
+      "designScreenId": "4060708b4cf3456490a5feed801738d5"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-signup.html",
+      "designScreenId": "b122b6f3d2e24e54aed115591047b9f6"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-forgot-password.html",
+      "designScreenId": "8ebf7e5b1363473d897e8ef3a9b60953"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-reset-password.html",
+      "designScreenId": "6efb2600867b40a3a972e2b03f98698c"
     },
     {
       "name": "Pricing",
@@ -53,7 +58,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-pricing.html",
+      "designScreenId": "1fdd6a7a0c164591a05d73614a978d7a"
     },
     {
       "name": "About",
@@ -62,7 +68,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-about.html",
+      "designScreenId": "48dabe61de5f4590831f26f8697cb371"
     },
     {
       "name": "Privacy",
@@ -71,7 +78,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-privacy.html",
+      "designScreenId": "eeffd1bae1fd4359a0e61b633adc5bd4"
     },
     {
       "name": "Terms",
@@ -80,7 +88,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-terms.html",
+      "designScreenId": "0a10f16a665a446e807e911a28bcf182"
     },
     {
       "name": "Tree",
@@ -89,7 +98,8 @@
       "route": "/tree",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-tree.html",
+      "designScreenId": "2b459454c451485daad25f1a8d591dd0"
     },
     {
       "name": "People",
@@ -98,7 +108,8 @@
       "route": "/people",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-people.html",
+      "designScreenId": "3771ec25fd3a48ac8c2b625b3c35e970"
     },
     {
       "name": "PersonDetail",
@@ -107,7 +118,8 @@
       "route": "/people/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-person-detail.html",
+      "designScreenId": "14606b3c98ac417dbe281eeb051ef5cd"
     },
     {
       "name": "AddPerson",
@@ -116,7 +128,8 @@
       "route": "/people/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-add-person.html",
+      "designScreenId": "cd8f98a2f1854e4d82ca4efa07410bfd"
     },
     {
       "name": "EditPerson",
@@ -125,7 +138,8 @@
       "route": "/people/:id/edit",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-edit-person.html",
+      "designScreenId": "14b2bc4a2d7c4844955d2b5d23c80a95"
     },
     {
       "name": "AddRelative",
@@ -134,7 +148,8 @@
       "route": "/people/:id/add-relative",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-add-relative.html",
+      "designScreenId": "1309a2f4869340cb95228948a7dd4f80"
     },
     {
       "name": "Settings",
@@ -143,7 +158,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-settings.html",
+      "designScreenId": "e51caf6efb024627a253973d75b3587f"
     },
     {
       "name": "PlanUpdated",
@@ -152,7 +168,8 @@
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-family-tree-plan-updated.html",
+      "designScreenId": "be43b1944be44763a53f32c86df4be46"
     }
   ]
 }
