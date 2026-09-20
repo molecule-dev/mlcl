@@ -8,43 +8,56 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-landing.html",
+      "designScreenId": "cb648610bb694c4b840b900a4b1e9407"
     },
     {
       "name": "Login",
       "templateFile": "app/pages/Login.tsx",
-      "components": ["app/components/AuthShell.tsx"],
+      "components": [
+        "app/components/AuthShell.tsx"
+      ],
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-login.html",
+      "designScreenId": "e3453c14a4f74acfbbec287689d983ea"
     },
     {
       "name": "Signup",
       "templateFile": "app/pages/Signup.tsx",
-      "components": ["app/components/AuthShell.tsx"],
+      "components": [
+        "app/components/AuthShell.tsx"
+      ],
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-signup.html",
+      "designScreenId": "3f4a8fc21c3b4da1a9b98d1ecc6a8084"
     },
     {
       "name": "ForgotPassword",
       "templateFile": "app/pages/ForgotPassword.tsx",
-      "components": ["app/components/AuthShell.tsx"],
+      "components": [
+        "app/components/AuthShell.tsx"
+      ],
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-forgot-password.html",
+      "designScreenId": "c0c18ff31d444e15a20552166e9a5bc8"
     },
     {
       "name": "ResetPassword",
       "templateFile": "app/pages/ResetPassword.tsx",
-      "components": ["app/components/AuthShell.tsx"],
+      "components": [
+        "app/components/AuthShell.tsx"
+      ],
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-reset-password.html",
+      "designScreenId": "5886d0fe37e04d5dbb59662cddd4cb10"
     },
     {
       "name": "Rsvp",
@@ -53,106 +66,143 @@
       "route": "/rsvp/:code",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-rsvp.html",
+      "designScreenId": "b77866a4c7b943a7b4e8ba96a4c61ef9"
     },
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-dashboard.html",
+      "designScreenId": "ea1ddde1072e4d83b4509204f379bca9"
     },
     {
       "name": "Guests",
       "templateFile": "app/pages/Guests.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/guests",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-guests.html",
+      "designScreenId": "38e9733367674b6ea2db153d8269199d"
     },
     {
       "name": "Budget",
       "templateFile": "app/pages/Budget.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/budget",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-budget.html",
+      "designScreenId": "c6907fb09fff4f2dba657a778f3a45cb"
     },
     {
       "name": "Vendors",
       "templateFile": "app/pages/Vendors.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/vendors",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-vendors.html",
+      "designScreenId": "1836bb8470de4cd2aef09ab78f62e386"
     },
     {
       "name": "Tasks",
       "templateFile": "app/pages/Tasks.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/tasks",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-tasks.html",
+      "designScreenId": "22a15f7afef34d84a6c6534eea9b4432"
     },
     {
       "name": "SeatingChart",
       "templateFile": "app/pages/SeatingChart.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/seating",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-seating-chart.html",
+      "designScreenId": "d2febd261fed4141a34dc61007d289af"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-settings.html",
+      "designScreenId": "ea892247247247a5a8c6f628fd5e118a"
     },
     {
       "name": "PlanUpdated",
       "templateFile": "app/pages/PlanUpdated.tsx",
-      "components": ["app/components/WeddingLayout.tsx"],
+      "components": [
+        "app/components/WeddingLayout.tsx"
+      ],
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-plan-updated.html",
+      "designScreenId": "29cc8fd653544341a359be42b2546e1c"
     },
     {
       "name": "About",
       "templateFile": "app/pages/About.tsx",
-      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "components": [
+        "app/components/Header.tsx",
+        "app/components/Footer.tsx"
+      ],
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-about.html",
+      "designScreenId": "0c90f33b35e545abb2b2623da019fae2"
     },
     {
       "name": "Privacy",
       "templateFile": "app/pages/Privacy.tsx",
-      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "components": [
+        "app/components/Header.tsx",
+        "app/components/Footer.tsx"
+      ],
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-privacy.html",
+      "designScreenId": "5108982c9d9941af9d8cf6da0d7a58bf"
     },
     {
       "name": "Terms",
       "templateFile": "app/pages/Terms.tsx",
-      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "components": [
+        "app/components/Header.tsx",
+        "app/components/Footer.tsx"
+      ],
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-wedding-planner-terms.html",
+      "designScreenId": "a297bd7d950440c1a27d8a586df9d90d"
     }
   ]
 }
