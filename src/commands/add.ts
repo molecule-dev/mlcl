@@ -10,6 +10,7 @@ import { execa } from 'execa'
 
 import { t } from '../lib/i18n.js'
 import { resolveAddVersion } from '../lib/integrate.js'
+import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
 
@@ -47,6 +48,7 @@ export default class Add extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Add)
+    setTelemetryContext({ packages: args.molecule })
     const moleculeName = args.molecule
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))

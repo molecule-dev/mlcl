@@ -12,6 +12,7 @@ import {
   whoami,
   writeCredentials,
 } from '../../lib/platform.js'
+import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
 /** Best-effort browser open (no new dependency; silently skips on failure). */
@@ -59,6 +60,9 @@ export default class Login extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(Login)
+    setTelemetryContext({
+      loginMethod: flags['with-token'] ? 'stdin' : flags.token ? 'argv' : 'device-code',
+    })
 
     if (flags['with-token']) {
       const token = await new Promise<string>((resolve) => {

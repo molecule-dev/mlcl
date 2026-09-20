@@ -4,6 +4,7 @@ import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
 
+import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
 const SECTION_MARKER = '## Molecule'
@@ -104,6 +105,7 @@ export default class AgentInit extends Command {
     const { flags } = await this.parse(AgentInit)
     const root = process.cwd()
     const harness = flags.agent === 'auto' || !flags.agent ? detectHarness(root) : flags.agent!
+    setTelemetryContext({ harness })
 
     const body = readFileSync(
       join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),

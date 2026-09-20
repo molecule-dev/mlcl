@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { Command, Flags } from '@oclif/core'
 import { execaSync } from 'execa'
 
+import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
 /**
@@ -221,6 +222,7 @@ export default class McpInstall extends Command {
         )?.[0] ??
         null
     }
+    setTelemetryContext({ harness: harness ?? 'unknown' })
     if (!harness) {
       this.error(
         `Could not detect a harness. Re-run with --agent <${[...CLI_INSTALLERS.map((c) => c.harness), ...Object.keys(FILE_INSTALLERS), ...Object.keys(INSTRUCTION_ONLY)].join('|')}>.`,

@@ -1,6 +1,7 @@
 import { Command, Flags } from '@oclif/core'
 
 import { createDeployment, getDeployment, readCredentials } from '../../lib/platform.js'
+import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
 export default class Deploy extends Command {
@@ -42,12 +43,14 @@ export default class Deploy extends Command {
     for (let i = 0; i < 120; i++) {
       await new Promise((r) => setTimeout(r, 5_000))
       const state = await getDeployment(flags.project, deployment.id)
+      setTelemetryContext({ deployOutcome: 'succeeded' })
       if (state.status === 'live' || state.status === 'running' || state.status === 'succeeded') {
         this.log(
           `${ui.check('Live')} ${state.liveUrl ? ui.cmd(state.liveUrl) : ui.dim('(URL in the IDE dashboard)')}`,
         )
         return
       }
+      setTelemetryContext({ deployOutcome: state.status })
       if (state.status === 'failed' || state.status === 'cancelled' || state.status === 'error') {
         this.log(ui.cross(`Deployment ${state.status}.`))
         if (state.buildLog) this.log(ui.dim(state.buildLog.split('\n').slice(-40).join('\n')))

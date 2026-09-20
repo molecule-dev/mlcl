@@ -1,6 +1,7 @@
 import { Args, Command, Flags } from '@oclif/core'
 
 import { loadRegistry } from '../lib/registry.js'
+import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
 
 interface SearchHit {
@@ -65,6 +66,7 @@ export default class Search extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Search)
+    setTelemetryContext({ searchQuery: (args.query ?? '').slice(0, 100) })
     const q = (args.query ?? '').trim()
     if (!q) this.error('Provide a search query, e.g. mlcl search payments')
 

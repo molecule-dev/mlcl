@@ -72,6 +72,17 @@ export interface TelemetryEventProps {
   ok: boolean
   durationMs: number
   errorName?: string
+  /** Product metadata — no PII, no user content. */
+  template?: string
+  packages?: string
+  searchQuery?: string
+  harness?: string
+  projectType?: string
+  framework?: string
+  loginMethod?: string
+  deployOutcome?: string
+  swapFrom?: string
+  swapTo?: string
 }
 
 /** Fire-and-forget event emission — resolves immediately; never throws. */
@@ -89,6 +100,16 @@ export function trackCliEvent(props: TelemetryEventProps): void {
           ok: props.ok,
           durationMs: Math.round(props.durationMs),
           errorName: props.errorName,
+          template: props.template,
+          packages: props.packages?.slice(0, 200),
+          searchQuery: props.searchQuery?.slice(0, 100),
+          harness: props.harness,
+          projectType: props.projectType,
+          framework: props.framework,
+          loginMethod: props.loginMethod,
+          deployOutcome: props.deployOutcome,
+          swapFrom: props.swapFrom?.slice(0, 80),
+          swapTo: props.swapTo?.slice(0, 80),
           cliVersion: '2.0.0',
           nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
           platform: process.platform,
@@ -100,4 +121,24 @@ export function trackCliEvent(props: TelemetryEventProps): void {
       // failures; this guards the lazy-import/bonding path itself.
     }
   })()
+}
+
+/**
+ * Stash product metadata for the postrun hook to pick up. Commands call this
+ * with their parsed flags — the hook reads and clears it after the command
+ * finishes, so it never leaks between invocations.
+ *
+ * @example
+ * ```typescript
+ * setTelemetryContext({ template: flags.template, packages: flags.packages })
+ * ```
+ */
+export function setTelemetryContext(context: Record<string, string | undefined>): void {
+  const g = globalThis as { __mlclTelemetryContext?: Record<string, string> }
+  const existing = g.__mlclTelemetryContext ?? {}
+  const clean: Record<string, string> = {}
+  for (const [k, v] of Object.entries({ ...existing, ...context })) {
+    if (typeof v === 'string' && v.length > 0) clean[k] = v
+  }
+  g.__mlclTelemetryContext = clean
 }

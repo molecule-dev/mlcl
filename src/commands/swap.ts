@@ -20,6 +20,7 @@ import {
 import { getMoleculeVersion, getPackageStack, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
+import { setTelemetryContext } from '../lib/telemetry.js'
 
 export default class Swap extends Command {
   static override description = t('commands.swap.description')
@@ -60,6 +61,11 @@ export default class Swap extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Swap)
+
+    setTelemetryContext({
+      swapTo: args.molecule?.slice(0, 80),
+      swapFrom: flags.replace?.slice(0, 80),
+    })
     const newName = args.molecule
 
     p.intro(chalk.bgCyan(` ${t('commands.swap.labels.intro')} `))
