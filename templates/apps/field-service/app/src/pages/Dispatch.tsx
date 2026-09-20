@@ -58,8 +58,8 @@ export function Dispatch() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get('/technicians').then((r) => unwrapList<Technician>(r)),
-      http.get('/jobs').then((r) => unwrapList<Job>(r)),
+      http.get('/api/technicians').then((r) => unwrapList<Technician>(r)),
+      http.get('/api/jobs').then((r) => unwrapList<Job>(r)),
     ])
       .then(([techs, js]) => {
         if (cancelled) return
@@ -141,7 +141,7 @@ export function Dispatch() {
     try {
       const start = new Date(`${assignDay}T${assignTime || '09:00'}:00`)
       const end = new Date(start.getTime() + 2 * 60 * 60 * 1000)
-      await http.post(`/jobs/${pickedJob.id}/assign`, {
+      await http.post(`/api/jobs/${pickedJob.id}/assign`, {
         technician_id: assignTechId,
         scheduled_start: start.toISOString(),
         scheduled_end: end.toISOString(),
@@ -149,7 +149,7 @@ export function Dispatch() {
       setPickedJobId(null)
       setAssignTechId('')
       setAssignDay('')
-      const refreshed = await http.get('/jobs')
+      const refreshed = await http.get('/api/jobs')
       setJobs(unwrapList<Job>(refreshed))
     } catch (err) {
       setActionError(err instanceof Error ? err.message : String(err))

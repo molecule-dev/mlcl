@@ -87,8 +87,8 @@ export function JobDetail() {
     setLoading(true)
     try {
       const [jobRes, techRes] = await Promise.all([
-        http.get(`/jobs/${id}`),
-        http.get('/technicians'),
+        http.get(`/api/jobs/${id}`),
+        http.get('/api/technicians'),
       ])
       setJob(unwrapSingle<Job>(jobRes))
       setTechnicians(unwrapList<Technician>(techRes))
@@ -109,7 +109,7 @@ export function JobDetail() {
     setActing(true)
     setError(null)
     try {
-      await http.post(`/jobs/${id}/status`, { status: next })
+      await http.post(`/api/jobs/${id}/status`, { status: next })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -123,7 +123,7 @@ export function JobDetail() {
     setActing(true)
     setError(null)
     try {
-      await http.post(`/jobs/${id}/assign`, {
+      await http.post(`/api/jobs/${id}/assign`, {
         technician_id: assignTech || null,
         scheduled_start: assignStart ? new Date(assignStart).toISOString() : undefined,
         scheduled_end: assignEnd ? new Date(assignEnd).toISOString() : undefined,
@@ -141,14 +141,14 @@ export function JobDetail() {
 
   async function toggleChecklist(itemId: string) {
     if (!id) return
-    await http.post(`/jobs/${id}/checklist/${itemId}/toggle`)
+    await http.post(`/api/jobs/${id}/checklist/${itemId}/toggle`)
     await load()
   }
 
   async function addChecklistItem(e: React.FormEvent) {
     e.preventDefault()
     if (!id || !newChecklist.trim()) return
-    await http.post(`/jobs/${id}/checklist`, { label: newChecklist.trim() })
+    await http.post(`/api/jobs/${id}/checklist`, { label: newChecklist.trim() })
     setNewChecklist('')
     await load()
   }
@@ -156,7 +156,7 @@ export function JobDetail() {
   async function addNote(e: React.FormEvent) {
     e.preventDefault()
     if (!id || !newNote.trim()) return
-    await http.post(`/jobs/${id}/notes`, { body: newNote.trim() })
+    await http.post(`/api/jobs/${id}/notes`, { body: newNote.trim() })
     setNewNote('')
     await load()
   }
@@ -167,7 +167,7 @@ export function JobDetail() {
     setInvoiceMsg(null)
     setError(null)
     try {
-      const res = await http.post(`/jobs/${id}/invoice`)
+      const res = await http.post(`/api/jobs/${id}/invoice`)
       const created = unwrapSingle<{ id?: string; number?: string }>(res)
       if (created?.id) {
         navigate(`/invoices/${created.id}`)

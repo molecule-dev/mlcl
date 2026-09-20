@@ -35,8 +35,8 @@ export function NewGift() {
   useEffect(() => {
     let cancelled = false
     Promise.all([
-      http.get('/donors').then((r) => unwrapList<Donor>(r)),
-      http.get('/campaigns').then((r) => unwrapList<Campaign>(r)),
+      http.get('/api/donors').then((r) => unwrapList<Donor>(r)),
+      http.get('/api/campaigns').then((r) => unwrapList<Campaign>(r)),
     ])
       .then(([d, c]) => {
         if (cancelled) return
@@ -68,7 +68,7 @@ export function NewGift() {
     setSubmitting(true)
     setError(null)
     try {
-      const res = await http.post('/gifts', {
+      const res = await http.post('/api/gifts', {
         donor_id: form.donor_id,
         amount_cents: amountCents,
         gift_date: form.gift_date,

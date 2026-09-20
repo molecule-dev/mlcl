@@ -111,7 +111,7 @@ export function Settings() {
     setError(null)
     try {
       const next = { ...(oauthData ?? {}), companySettings: settings }
-      await http.patch(`/users/${userId}`, { oauthData: next })
+      await http.patch(`/api/users/${userId}`, { oauthData: next })
       setOauthData(next)
       setSavedAt(new Date().toISOString())
     } catch (err) {

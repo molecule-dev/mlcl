@@ -50,7 +50,7 @@ export function DonorDetail() {
     if (!id || !noteBody.trim()) return
     setSavingNote(true)
     try {
-      const res = await http.post(`/donors/${id}/notes`, {
+      const res = await http.post(`/api/donors/${id}/notes`, {
         body: noteBody.trim(),
         author: auth.user?.name ?? '',
       })

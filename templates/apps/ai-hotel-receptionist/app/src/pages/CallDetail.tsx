@@ -61,7 +61,7 @@ export function CallDetail() {
     if (!id) return
     ;(async () => {
       try {
-        const res = await http.get('/calls/' + id)
+        const res = await http.get('/api/calls/' + id)
         if (cancelled) return
         setCall(unwrapSingle<CallDetailPayload>(res))
       } catch (_e) {

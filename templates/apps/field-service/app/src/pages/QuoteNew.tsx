@@ -65,7 +65,7 @@ export function QuoteNew() {
             setSubmitting(true)
             setError(null)
             try {
-              const res = await http.post('/quotes', payload)
+              const res = await http.post('/api/quotes', payload)
               const created = unwrapSingle<{ id?: string }>(res)
               navigate(created?.id ? `/quotes/${created.id}` : '/quotes')
             } catch (err) {

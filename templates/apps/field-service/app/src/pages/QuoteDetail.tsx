@@ -38,7 +38,7 @@ export function QuoteDetail() {
     if (!id) return
     setLoading(true)
     try {
-      const res = await http.get(`/quotes/${id}`)
+      const res = await http.get(`/api/quotes/${id}`)
       setQuote(unwrapSingle<Quote>(res))
       setError(null)
     } catch (_error) {
@@ -57,7 +57,7 @@ export function QuoteDetail() {
     setActing(true)
     setError(null)
     try {
-      await http.post(`/quotes/${id}/${action}`)
+      await http.post(`/api/quotes/${id}/${action}`)
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

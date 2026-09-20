@@ -33,7 +33,7 @@ export function NewDonor() {
     setSubmitting(true)
     setError(null)
     try {
-      const res = await http.post('/donors', {
+      const res = await http.post('/api/donors', {
         name: form.name.trim(),
         email: form.email.trim() || null,
         phone: form.phone.trim() || null,

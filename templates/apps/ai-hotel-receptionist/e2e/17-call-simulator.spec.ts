@@ -21,10 +21,11 @@ test.describe('/simulator (scripted call)', () => {
 
   test('start → offer → confirm books a room and records both tool calls', async ({ page }) => {
     await signup(page)
+    // Array, not Set — page.evaluate must serialize across the boundary.
     const phoneCodesBefore = await page.evaluate(async () => {
       const resp = await fetch('/api/reservations?source=phone', { credentials: 'include' })
       const body = (await resp.json()) as { data: Array<{ confirmation_code: string }> }
-      return new Set(body.data.map((r) => r.confirmation_code))
+      return body.data.map((r) => r.confirmation_code)
     })
 
     await page.goto(APP_BASE + '/simulator')
@@ -51,7 +52,7 @@ test.describe('/simulator (scripted call)', () => {
       .locator('[data-mol-id="simulator-utterance"]')
       .fill('Hello, I would like to book a room for two nights')
     await page.locator('[data-mol-id="simulator-send"]').click()
-    const turn1 = (await utterance1.json()) as UtterancePayload
+    const turn1 = (await (await utterance1).json()) as UtterancePayload
     expect(
       turn1.actions.some((a) => a.tool === 'search_availability'),
       'search tool must run',
@@ -67,7 +68,7 @@ test.describe('/simulator (scripted call)', () => {
     )
     await page.locator('[data-mol-id="simulator-utterance"]').fill('Yes, the first one please')
     await page.locator('[data-mol-id="simulator-send"]').click()
-    const turn2 = (await utterance2.json()) as UtterancePayload
+    const turn2 = (await (await utterance2).json()) as UtterancePayload
     const booking = turn2.actions.find((a) => a.tool === 'create_reservation')
     expect(booking, 'booking tool must run').toBeDefined()
     await expect(
@@ -112,7 +113,7 @@ test.describe('/simulator (scripted call)', () => {
       .locator('[data-mol-id="simulator-utterance"]')
       .fill('Hola, ¿tienen habitaciones libres este fin de semana?')
     await page.locator('[data-mol-id="simulator-send"]').click()
-    const turn = (await utterance.json()) as UtterancePayload
+    const turn = (await (await utterance).json()) as UtterancePayload
     expect(turn.detected_language, 'Spanish must be detected').toBe('es')
     expect(turn.reply_language, 'agent replies in the caller language').toBe('es')
     expect(turn.reply).toMatch(/habitaci|disponible|fin de semana/i)

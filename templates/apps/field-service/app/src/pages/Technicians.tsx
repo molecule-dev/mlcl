@@ -71,7 +71,7 @@ export function Technicians() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/technicians', {
+      await http.post('/api/technicians', {
         name: form.name.trim(),
         trade: form.trade,
         phone: form.phone.trim() || null,

@@ -30,7 +30,7 @@ export function Guests() {
     ;(async () => {
       try {
         const query = search.trim() === '' ? '' : '?search=' + encodeURIComponent(search.trim())
-        const res = await http.get('/guests' + query)
+        const res = await http.get('/api/guests' + query)
         if (cancelled) return
         setGuests(unwrapList<GuestRow>(res))
       } catch (_e) {

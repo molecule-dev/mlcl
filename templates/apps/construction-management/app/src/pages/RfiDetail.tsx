@@ -66,7 +66,7 @@ export function RfiDetail() {
 
   async function refresh(): Promise<void> {
     if (!rfiId) return
-    const res = await http.get(`/rfis/${rfiId}`)
+    const res = await http.get(`/api/rfis/${rfiId}`)
     setRfi(unwrapSingle<Rfi>(res))
   }
 
@@ -75,7 +75,7 @@ export function RfiDetail() {
     if (!rfiId) return
     setSaving(true)
     try {
-      await http.post(`/rfis/${rfiId}/responses`, { body, is_final: isFinal })
+      await http.post(`/api/rfis/${rfiId}/responses`, { body, is_final: isFinal })
       setBody('')
       setIsFinal(false)
       await refresh()
@@ -93,7 +93,7 @@ export function RfiDetail() {
   async function handleClose(): Promise<void> {
     if (!rfiId) return
     try {
-      await http.post(`/rfis/${rfiId}/status`, { status: 'closed' })
+      await http.post(`/api/rfis/${rfiId}/status`, { status: 'closed' })
       await refresh()
     } catch (err) {
       setError(

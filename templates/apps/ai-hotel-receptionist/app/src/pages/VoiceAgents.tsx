@@ -40,7 +40,7 @@ export function VoiceAgents() {
 
   const load = useCallback(async () => {
     try {
-      const res = await http.get('/voice-agents')
+      const res = await http.get('/api/voice-agents')
       setAgents(unwrapList<VoiceAgentRow>(res))
       setError(null)
     } catch (_e) {
@@ -58,7 +58,7 @@ export function VoiceAgents() {
       const current = asStringArray(agent.languages)
       const next = current.includes(lang) ? current.filter((l) => l !== lang) : [...current, lang]
       if (next.length === 0) return // an agent must speak at least one language
-      await http.patch('/voice-agents/' + agent.id, { languages: next })
+      await http.patch('/api/voice-agents/' + agent.id, { languages: next })
       await load()
     } catch (_e) {
       setError(t('voiceAgents.updateError', {}, { defaultValue: 'Could not update the agent.' }))
@@ -70,7 +70,7 @@ export function VoiceAgents() {
   const toggleUpsell = async (agent: VoiceAgentRow) => {
     setBusyId(agent.id)
     try {
-      await http.patch('/voice-agents/' + agent.id, { upsell_enabled: !agent.upsell_enabled })
+      await http.patch('/api/voice-agents/' + agent.id, { upsell_enabled: !agent.upsell_enabled })
       await load()
     } catch (_e) {
       setError(t('voiceAgents.updateError', {}, { defaultValue: 'Could not update the agent.' }))

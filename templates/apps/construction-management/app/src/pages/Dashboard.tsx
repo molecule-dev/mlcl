@@ -65,10 +65,10 @@ export function Dashboard() {
     async function load(): Promise<void> {
       try {
         const [p, r, pi, l] = await Promise.all([
-          http.get('/projects'),
-          http.get('/rfis'),
-          http.get('/punch-items'),
-          http.get('/daily-logs'),
+          http.get('/api/projects'),
+          http.get('/api/rfis'),
+          http.get('/api/punch-items'),
+          http.get('/api/daily-logs'),
         ])
         if (cancelled) return
         setProjects(unwrapList<Project>(p))

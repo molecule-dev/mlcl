@@ -73,7 +73,7 @@ export function Rfis() {
     setSaving(true)
     setFormError(null)
     try {
-      await http.post('/rfis', {
+      await http.post('/api/rfis', {
         project_id: projectId,
         title,
         question,
@@ -81,7 +81,7 @@ export function Rfis() {
         drawings_ref: drawingsRef || undefined,
         due_date: dueDate || null,
       })
-      const refreshed = await http.get(`/rfis?project_id=${projectId}`)
+      const refreshed = await http.get(`/api/rfis?project_id=${projectId}`)
       setList(unwrapList<Rfi>(refreshed))
       setShowForm(false)
       setTitle('')

@@ -88,7 +88,7 @@ export function DailyLogs() {
     setSaving(true)
     setFormError(null)
     try {
-      const res = await http.post('/daily-logs', {
+      const res = await http.post('/api/daily-logs', {
         project_id: projectId,
         log_date: logDate,
         weather,
@@ -117,11 +117,11 @@ export function DailyLogs() {
     e.preventDefault()
     if (!entryLogId) return
     try {
-      await http.post(`/daily-logs/${entryLogId}/entries`, {
+      await http.post(`/api/daily-logs/${entryLogId}/entries`, {
         area: entryArea,
         work_performed: entryWork,
       })
-      const refreshed = await http.get(`/daily-logs/${entryLogId}`)
+      const refreshed = await http.get(`/api/daily-logs/${entryLogId}`)
       const fresh = unwrapSingle<DailyLog>(refreshed)
       if (fresh) setLogs((prev) => prev.map((l) => (l.id === entryLogId ? fresh : l)))
       setEntryLogId(null)

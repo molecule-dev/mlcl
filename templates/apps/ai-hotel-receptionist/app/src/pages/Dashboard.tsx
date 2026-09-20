@@ -62,7 +62,7 @@ export function Dashboard() {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await http.get('/dashboard')
+        const res = await http.get('/api/dashboard')
         if (cancelled) return
         setData(unwrapSingle<DashboardPayload>(res))
       } catch (_e) {

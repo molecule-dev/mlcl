@@ -34,8 +34,8 @@ export function QuoteEdit() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get(`/quotes/${id}`).then((r) => unwrapSingle<Quote>(r)),
-      http.get('/customers').then((r) => unwrapList<{ id: string; name: string }>(r)),
+      http.get(`/api/quotes/${id}`).then((r) => unwrapSingle<Quote>(r)),
+      http.get('/api/customers').then((r) => unwrapList<{ id: string; name: string }>(r)),
     ])
       .then(([q, cs]) => {
         if (cancelled) return
@@ -84,7 +84,7 @@ export function QuoteEdit() {
             setSubmitting(true)
             setError(null)
             try {
-              await http.put(`/quotes/${id}`, payload)
+              await http.put(`/api/quotes/${id}`, payload)
               navigate(`/quotes/${id}`)
             } catch (err) {
               setError(

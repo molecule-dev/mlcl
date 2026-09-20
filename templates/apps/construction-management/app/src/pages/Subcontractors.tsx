@@ -60,7 +60,7 @@ export function Subcontractors() {
 
   async function refresh(): Promise<void> {
     if (!projectId) return
-    const res = await http.get(`/subcontractors?project_id=${projectId}`)
+    const res = await http.get(`/api/subcontractors?project_id=${projectId}`)
     setList(unwrapList<Subcontractor>(res))
   }
 
@@ -70,7 +70,7 @@ export function Subcontractors() {
     setSaving(true)
     setFormError(null)
     try {
-      await http.post('/subcontractors', {
+      await http.post('/api/subcontractors', {
         project_id: projectId,
         trade,
         company,
@@ -96,7 +96,7 @@ export function Subcontractors() {
 
   async function setStatus(sub: Subcontractor, next: string): Promise<void> {
     try {
-      await http.put(`/subcontractors/${sub.id}`, { status: next })
+      await http.put(`/api/subcontractors/${sub.id}`, { status: next })
       await refresh()
     } catch (err) {
       setError(

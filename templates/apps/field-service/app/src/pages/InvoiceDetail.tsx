@@ -37,7 +37,7 @@ export function InvoiceDetail() {
     if (!id) return
     setLoading(true)
     try {
-      const res = await http.get(`/invoices/${id}`)
+      const res = await http.get(`/api/invoices/${id}`)
       setInvoice(unwrapSingle<Invoice>(res))
       setError(null)
     } catch (_error) {
@@ -56,7 +56,7 @@ export function InvoiceDetail() {
     setActing(true)
     setError(null)
     try {
-      await http.post(`/invoices/${id}/${action}`)
+      await http.post(`/api/invoices/${id}/${action}`)
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

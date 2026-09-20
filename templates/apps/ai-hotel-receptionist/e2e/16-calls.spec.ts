@@ -27,8 +27,13 @@ test.describe('/calls', () => {
 
   test('opening a call record shows transcript and tool timeline', async ({ page }) => {
     await signup(page)
+    // outcome=booked guarantees tool actions exist on the record — the plain
+    // newest call may be a one-utterance info call (or one left by an earlier
+    // test run) with an empty tool timeline.
     const detail = (await page.evaluate(async () => {
-      const list = await fetch('/api/calls', { credentials: 'include' }).then((r) => r.json())
+      const list = await fetch('/api/calls?outcome=booked', { credentials: 'include' }).then((r) =>
+        r.json(),
+      )
       const first = (list as { data: Array<{ id: string }> }).data[0]!
       return fetch('/api/calls/' + first.id, { credentials: 'include' }).then((r) => r.json())
     })) as {

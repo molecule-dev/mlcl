@@ -25,7 +25,7 @@ export function Account() {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await http.get('/users/me')
+        const res = await http.get('/api/users/me')
         if (cancelled) return
         setSelf(unwrapSingle<SelfPayload>(res))
       } catch (_e) {

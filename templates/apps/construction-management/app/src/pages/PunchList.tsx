@@ -74,7 +74,7 @@ export function PunchList() {
 
   async function refresh(): Promise<void> {
     if (!projectId) return
-    const res = await http.get(`/punch-items?project_id=${projectId}`)
+    const res = await http.get(`/api/punch-items?project_id=${projectId}`)
     setItems(unwrapList<PunchItem>(res))
   }
 
@@ -84,7 +84,7 @@ export function PunchList() {
     setSaving(true)
     setFormError(null)
     try {
-      await http.post('/punch-items', {
+      await http.post('/api/punch-items', {
         project_id: projectId,
         location,
         severity,
@@ -111,7 +111,7 @@ export function PunchList() {
 
   async function transition(item: PunchItem, next: 'in_progress' | 'closed'): Promise<void> {
     try {
-      await http.post(`/punch-items/${item.id}/status`, { status: next })
+      await http.post(`/api/punch-items/${item.id}/status`, { status: next })
       await refresh()
     } catch (err) {
       setError(
@@ -126,7 +126,7 @@ export function PunchList() {
     e.preventDefault()
     if (!assignId) return
     try {
-      await http.put(`/punch-items/${assignId}`, { assignee: assignName || null })
+      await http.put(`/api/punch-items/${assignId}`, { assignee: assignName || null })
       await refresh()
       setAssignId(null)
       setAssignName('')

@@ -55,9 +55,9 @@ export function RoomsRates() {
   const load = useCallback(async () => {
     try {
       const [typesRes, roomsRes, plansRes] = await Promise.all([
-        http.get('/room-types'),
-        http.get('/rooms'),
-        http.get('/rate-plans'),
+        http.get('/api/room-types'),
+        http.get('/api/rooms'),
+        http.get('/api/rate-plans'),
       ])
       setRoomTypes(unwrapList<RoomTypeRow>(typesRes))
       setRooms(unwrapList<RoomRow>(roomsRes))
@@ -74,7 +74,7 @@ export function RoomsRates() {
 
   const setRoomStatus = async (roomId: string, status: string) => {
     try {
-      await http.patch('/rooms/' + roomId, { status })
+      await http.patch('/api/rooms/' + roomId, { status })
       await load()
     } catch (_e) {
       setError(

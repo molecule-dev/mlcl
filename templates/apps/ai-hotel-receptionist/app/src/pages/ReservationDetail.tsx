@@ -54,8 +54,8 @@ export function ReservationDetail() {
     if (!id) return
     try {
       const [res, typesRes] = await Promise.all([
-        http.get('/reservations/' + id),
-        http.get('/room-types'),
+        http.get('/api/reservations/' + id),
+        http.get('/api/room-types'),
       ])
       setReservation(unwrapSingle<ReservationRow>(res))
       const list = unwrapList<RoomTypeRow>(typesRes)
@@ -105,7 +105,7 @@ export function ReservationDetail() {
   const transition = async (next: string) => {
     setBusy(true)
     try {
-      await http.put('/reservations/' + reservation.id + '/status', { status: next })
+      await http.put('/api/reservations/' + reservation.id + '/status', { status: next })
       await load()
     } catch (_e) {
       setError(

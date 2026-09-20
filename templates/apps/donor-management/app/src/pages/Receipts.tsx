@@ -26,8 +26,8 @@ export function Receipts() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get('/receipts').then((r) => unwrapList<Receipt>(r)),
-      http.get('/donors').then((r) => unwrapList<Donor>(r)),
+      http.get('/api/receipts').then((r) => unwrapList<Receipt>(r)),
+      http.get('/api/donors').then((r) => unwrapList<Donor>(r)),
     ])
       .then(([rc, dn]) => {
         if (cancelled) return
@@ -54,7 +54,7 @@ export function Receipts() {
     setPreviewing(true)
     setError(null)
     try {
-      const res = await http.get(`/receipts/preview?donor_id=${donorId}&year=${year}`)
+      const res = await http.get(`/api/receipts/preview?donor_id=${donorId}&year=${year}`)
       setPreview(unwrapSingle<ReceiptPreview>(res))
     } catch (err) {
       setPreview(null)
@@ -73,7 +73,7 @@ export function Receipts() {
     setGenerating(true)
     setError(null)
     try {
-      const res = await http.post('/receipts/generate', { donor_id: donorId, year })
+      const res = await http.post('/api/receipts/generate', { donor_id: donorId, year })
       const created = unwrapSingle<Receipt>(res)
       setPreview(null)
       if (created) setReceipts((prev) => [created, ...prev])

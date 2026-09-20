@@ -42,7 +42,7 @@ export function GuestDetail() {
     if (!id) return
     ;(async () => {
       try {
-        const res = await http.get('/guests/' + id)
+        const res = await http.get('/api/guests/' + id)
         if (cancelled) return
         setGuest(unwrapSingle<GuestDetailPayload>(res))
       } catch (_e) {

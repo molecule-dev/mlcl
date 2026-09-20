@@ -45,7 +45,7 @@ export function Reservations() {
     ;(async () => {
       try {
         const query = status === 'all' ? '' : '?status=' + status
-        const res = await http.get('/reservations' + query)
+        const res = await http.get('/api/reservations' + query)
         if (cancelled) return
         setRows(unwrapList<ReservationRow>(res))
       } catch (_e) {

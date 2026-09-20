@@ -30,7 +30,7 @@ export function Calls() {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await http.get('/calls')
+        const res = await http.get('/api/calls')
         if (cancelled) return
         setCalls(unwrapList<CallRow>(res))
       } catch (_e) {

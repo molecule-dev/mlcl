@@ -98,7 +98,7 @@ export function CallSimulator() {
 
   useEffect(() => {
     ;(async () => {
-      const res = await http.get('/voice-agents').catch(() => null)
+      const res = await http.get('/api/voice-agents').catch(() => null)
       const list = unwrapList<VoiceAgentRow>(res)
       setAgents(list)
       const preset = searchParams.get('agent')
@@ -118,7 +118,7 @@ export function CallSimulator() {
 
   const speak = async (text: string, lang: string) => {
     try {
-      const res = await http.post('/speech/synthesize', { text, language: lang })
+      const res = await http.post('/api/speech/synthesize', { text, language: lang })
       const body = (res as unknown as { data?: unknown }).data
       if (body instanceof Blob && body.size > 0) {
         const url = URL.createObjectURL(body)
@@ -144,7 +144,7 @@ export function CallSimulator() {
     setBusy(true)
     setError(null)
     try {
-      const res = await http.post('/calls', {
+      const res = await http.post('/api/calls', {
         voice_agent_id: agentId,
         language,
         mode,
@@ -175,7 +175,7 @@ export function CallSimulator() {
       { id: nextEntryId('caller'), role: 'caller', text, language: null },
     ])
     try {
-      const res = await http.post('/calls/' + callId + '/utterance', { text })
+      const res = await http.post('/api/calls/' + callId + '/utterance', { text })
       const payload = unwrapSingle<UtteranceResponse>(res)
       if (!payload) throw new Error('no reply')
       setDetectedLanguage(payload.detected_language)
@@ -209,7 +209,7 @@ export function CallSimulator() {
     if (!callId) return
     setBusy(true)
     try {
-      const res = await http.put('/calls/' + callId + '/end', {})
+      const res = await http.put('/api/calls/' + callId + '/end', {})
       const payload = unwrapSingle<{ outcome: string }>(res)
       setOutcome(payload?.outcome ?? 'info')
     } catch (_e) {

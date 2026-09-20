@@ -59,10 +59,10 @@ export function CustomerDetail() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get(`/customers/${id}`).then((r) => unwrapSingle<Customer>(r)),
-      http.get('/jobs').then((r) => unwrapList<Job>(r)),
-      http.get('/quotes').then((r) => unwrapList<Quote>(r)),
-      http.get('/invoices').then((r) => unwrapList<Invoice>(r)),
+      http.get(`/api/customers/${id}`).then((r) => unwrapSingle<Customer>(r)),
+      http.get('/api/jobs').then((r) => unwrapList<Job>(r)),
+      http.get('/api/quotes').then((r) => unwrapList<Quote>(r)),
+      http.get('/api/invoices').then((r) => unwrapList<Invoice>(r)),
     ])
       .then(([c, j, q, i]) => {
         if (cancelled) return

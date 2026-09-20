@@ -49,9 +49,9 @@ export function Dashboard() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get('/jobs').then((r) => unwrapList<Job>(r)),
-      http.get('/quotes').then((r) => unwrapList<Quote>(r)),
-      http.get('/invoices').then((r) => unwrapList<Invoice>(r)),
+      http.get('/api/jobs').then((r) => unwrapList<Job>(r)),
+      http.get('/api/quotes').then((r) => unwrapList<Quote>(r)),
+      http.get('/api/invoices').then((r) => unwrapList<Invoice>(r)),
     ])
       .then(([j, q, i]) => {
         if (cancelled) return

@@ -53,7 +53,7 @@ export function NewReservation() {
 
   useEffect(() => {
     ;(async () => {
-      const res = await http.get('/room-types').catch(() => null)
+      const res = await http.get('/api/room-types').catch(() => null)
       setRoomTypes(unwrapList<RoomTypeRow>(res))
     })()
   }, [http])
@@ -90,7 +90,7 @@ export function NewReservation() {
     setBusy(true)
     setError(null)
     try {
-      const res = await http.post('/reservations', {
+      const res = await http.post('/api/reservations', {
         room_type_id: selected,
         guest_name: guestName,
         guest_contact: guestContact || undefined,

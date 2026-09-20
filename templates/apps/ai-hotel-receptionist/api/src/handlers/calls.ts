@@ -294,19 +294,21 @@ router.post(
       })
       const newActions = actionsAfter.slice(actionsBefore.length)
 
-      const patch: Record<string, unknown> = {}
-      if (!call.detected_language) patch.detected_language = detected
+      // Always track the caller's latest detected language — a caller may
+      // start in the greeting's picker language and switch mid-call, and the
+      // call record + response must reflect the language actually detected
+      // for THIS turn (startCall pre-seeds detected_language from the picker,
+      // so an only-when-unset patch would report the stale greeting choice).
+      const patch: Record<string, unknown> = { detected_language: detected }
 
       // Persist the detected language BEFORE responding so a read-after-write
       // GET /calls/:id from the client never races this update.
-      if (Object.keys(patch).length > 0) {
-        await updateById('calls', call.id, patch).catch((error) => {
-          logger.error('calls.detectLanguageUpdate', error)
-        })
-      }
+      await updateById('calls', call.id, patch).catch((error) => {
+        logger.error('calls.detectLanguageUpdate', error)
+      })
 
       res.json({
-        detected_language: call.detected_language ?? detected,
+        detected_language: detected,
         reply_language: replyLanguage,
         engine,
         reply,

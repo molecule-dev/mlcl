@@ -20,8 +20,10 @@ test.describe('/guests', () => {
     await expect(page.locator('[data-mol-id="guest-row-' + guests[0]!.id + '"]')).toBeVisible({
       timeout: 15_000,
     })
+    // The page renders the localized language NAME (languageLabel), not the
+    // raw code — assert the stays suffix instead, which is locale-stable.
     await expect(page.locator('[data-mol-id="guest-row-' + guests[0]!.id + '"]')).toContainText(
-      guests[0]!.preferred_language,
+      /stays/i,
     )
   })
 

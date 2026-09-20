@@ -30,7 +30,7 @@ export function NewCustomer() {
     setSubmitting(true)
     setError(null)
     try {
-      const res = await http.post('/customers', {
+      const res = await http.post('/api/customers', {
         name: form.name.trim(),
         email: form.email.trim() || null,
         phone: form.phone.trim() || null,

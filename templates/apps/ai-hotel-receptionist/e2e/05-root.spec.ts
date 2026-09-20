@@ -29,7 +29,9 @@ test.describe('/ (landing)', () => {
 
   test('feature cards render the PMS + simulator story', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await expect(page.getByText(/Detects the caller/i)).toBeVisible()
+    // Heading role: the hero paragraph also mentions detecting the caller's
+    // language, so a bare getByText match is ambiguous (strict mode).
+    await expect(page.getByRole('heading', { name: /Detects the caller/i })).toBeVisible()
     await expect(page.getByText(/Books rooms on the call/i)).toBeVisible()
     await expect(page.getByText(/A real PMS behind it/i)).toBeVisible()
     await expect(page.getByText(/Try it on the Call Simulator/i)).toBeVisible()

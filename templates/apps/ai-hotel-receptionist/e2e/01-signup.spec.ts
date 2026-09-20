@@ -14,6 +14,11 @@ test.describe('/signup', () => {
 
   test('password mismatch is flagged inline', async ({ page }) => {
     await page.goto(APP_BASE + '/signup')
+    // Fill every required field — native validation would otherwise block
+    // submit before the mismatch check ever runs.
+    await page.getByLabel(/First name/i).fill('Mismatch')
+    await page.getByLabel(/Last name/i).fill('Tester')
+    await page.getByLabel(/Email/i).fill('mismatch.tester@example.com')
     await page.locator('#password').fill('TestPass123!')
     await page.locator('#confirmPassword').fill('DifferentPass99!')
     await page

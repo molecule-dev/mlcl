@@ -88,7 +88,7 @@ export function Projects() {
     setSaving(true)
     setFormError(null)
     try {
-      const res = await http.post('/projects', {
+      const res = await http.post('/api/projects', {
         name,
         code: code || undefined,
         phase,
