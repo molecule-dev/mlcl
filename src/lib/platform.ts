@@ -94,8 +94,21 @@ async function request<T>(
 }
 
 /** GET /users/me — verifies the token and returns the account. */
-export function whoami(token?: string): Promise<{ id: string; email?: string; name?: string }> {
-  return request('/users/me', { token })
+export async function whoami(
+  token?: string,
+): Promise<{ id: string; email?: string; name?: string }> {
+  const raw = await request<{
+    props?: { id?: string; email?: string; name?: string }
+    id?: string
+    email?: string
+    name?: string
+  }>('/users/me', { token })
+  // The platform wraps user payloads as { props: { ... } }.
+  return {
+    id: raw.props?.id ?? raw.id ?? 'unknown',
+    email: raw.props?.email ?? raw.email,
+    name: raw.props?.name ?? raw.name,
+  }
 }
 
 export interface PlatformProject {

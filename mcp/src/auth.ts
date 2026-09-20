@@ -139,5 +139,10 @@ export async function whoami(): Promise<{ email?: string; id?: string } | null> 
     signal: AbortSignal.timeout(15_000),
   })
   if (!me.ok) return null
-  return (await me.json()) as { email?: string; id?: string }
+  const raw = (await me.json()) as {
+    props?: { email?: string; id?: string }
+    email?: string
+    id?: string
+  }
+  return { email: raw.props?.email ?? raw.email, id: raw.props?.id ?? raw.id }
 }
