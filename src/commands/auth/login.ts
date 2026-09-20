@@ -65,9 +65,8 @@ export default class Login extends Command {
       if (error instanceof PlatformApiError && error.status === 404) {
         this.error(
           'This molecule.dev API does not support CLI login yet (the /cli routes deploy with the platform). ' +
-            'For local testing, start the molecule-dev dev server and point the CLI at it:\n' +
-            '  export MOLECULE_API_URL=http://localhost:4000/api\n' +
-            '  export MOLECULE_SITE_URL=http://localhost:3000',
+            'For local testing, start the molecule-dev dev server and run with MOLECULE_ENV=local ' +
+            '(sets API→localhost:4000, site→localhost:3000, telemetry off).',
           { exit: 1 },
         )
       }

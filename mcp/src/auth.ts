@@ -18,11 +18,18 @@ const DEFAULT_API = 'https://api.molecule.dev/api'
 const DEFAULT_SITE = 'https://www.molecule.dev'
 const CREDENTIALS_FILE = join(homedir(), '.mlcl', 'credentials.json')
 
+/** MOLECULE_ENV=local — same one-switch local-dev defaults as the CLI. */
+function isLocalEnv(): boolean {
+  return process.env.MOLECULE_ENV === 'local'
+}
+
 function apiBase(): string {
+  if (isLocalEnv()) return process.env.MOLECULE_API_URL ?? 'http://localhost:4000/api'
   return process.env.MOLECULE_API_URL ?? DEFAULT_API
 }
 
 function siteBase(): string {
+  if (isLocalEnv()) return process.env.MOLECULE_SITE_URL ?? 'http://localhost:3000'
   return process.env.MOLECULE_SITE_URL ?? DEFAULT_SITE
 }
 

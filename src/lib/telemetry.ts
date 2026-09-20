@@ -24,6 +24,9 @@ const DEFAULT_URL = 'https://api.molecule.dev/v1/telemetry/cli'
 const ID_FILE = join(homedir(), '.mlcl', 'telemetry-id')
 
 export function telemetryEnabled(): boolean {
+  // Local-dev runs never report — MOLECULE_ENV=local implies opt-out unless
+  // telemetry is EXPLICITLY re-enabled (MOLECULE_TELEMETRY=1).
+  if (process.env.MOLECULE_ENV === 'local') return process.env.MOLECULE_TELEMETRY === '1'
   return process.env.MOLECULE_TELEMETRY !== '0'
 }
 

@@ -47,8 +47,9 @@ meanwhile covered by [FROM-VIBECODING.md](FROM-VIBECODING.md).
 - Remove any local test alias (`alias mlcl="node bin/run.js"`) — after
   publishing, the real command is `mlcl` (global install) or `npx mlcl`.
   For continued LOCAL development against the checkout, use a distinct name
-  (`alias mlcl-dev="node ~/Repos/molecule-workspace/mlcl/bin/run.js"`) so the
-  published binary and the dev tree never shadow each other.
+  with the one-switch local profile:
+  `alias mlcl-dev="MOLECULE_ENV=local node ~/Repos/molecule-workspace/mlcl/bin/run.js"`
+  (local API/site URLs, telemetry off — explicit MOLECULE_* vars still win).
 
 ## Claude Code plugin (separate track)
 
