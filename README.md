@@ -128,6 +128,13 @@ npx mlcl project list                  # your projects + roles
 npx mlcl env push --project <id>       # local .env → the project's env (IDE editor route)
 npx mlcl env pull --project <id>       # project env → local (secrets skipped, write-only)
 npx mlcl deploy --project <id> --follow  # production deploy, same pipeline as the IDE button
+
+# Devices/sessions (the kill-switch for a stolen login — each CLI token is a device):
+npx mlcl device list                   # all logged-in browsers + CLIs, current marked
+npx mlcl device current                # this machine's device id (offline)
+npx mlcl device rename <id> "laptop"   # label it in the IDE session list
+npx mlcl device revoke <id>            # kills that token (~10s)
+npx mlcl device revoke --all-but-current   # sign out everywhere except here
 ```
 
 Read any installed package's usage reference — generated, always current:

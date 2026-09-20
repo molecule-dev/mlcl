@@ -230,3 +230,51 @@ export async function pollDeviceToken(deviceCode: string): Promise<string> {
   if (data.error === 'authorization_pending') throw new AuthorizationPendingError('pending')
   throw new PlatformApiError(response.status, data.error ?? 'device-token poll failed')
 }
+
+export interface PlatformDevice {
+  id: string
+  name?: string
+  createdAt?: string
+  updatedAt?: string
+  /** True when this row is the session the list was requested from. */
+  current?: boolean
+  props?: Omit<PlatformDevice, 'props'>
+}
+
+/** GET /devices — the caller's device rows (list marks the current session's row). */
+export async function listDevices(token?: string): Promise<PlatformDevice[]> {
+  const raw = await request<unknown>('/devices', { token })
+  const rows = Array.isArray(raw) ? raw : ((raw as { devices?: unknown[] })?.devices ?? [])
+  return rows.map((row) => {
+    const r = row as PlatformDevice & { props?: Omit<PlatformDevice, 'props'> }
+    return r.props ? { ...r.props, current: r.current } : r
+  })
+}
+
+/** PATCH /devices/:id — rename a device. */
+export function renameDevice(deviceId: string, name: string, token?: string): Promise<unknown> {
+  return request(`/devices/${deviceId}`, { method: 'PATCH', body: { name }, token })
+}
+
+/** DELETE /devices/:id — revoke a device (kills every session bound to it, incl. CLI tokens). */
+export function revokeDevice(deviceId: string, token?: string): Promise<unknown> {
+  return request(`/devices/${deviceId}`, { method: 'DELETE', token })
+}
+
+/** Decode the LOCAL token's deviceId claim (no network) — which row is this machine. */
+export function localDeviceId(): string | null {
+  const token = process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+  if (!token) return null
+  const part = token.split('.')[1]
+  if (!part) return null
+  try {
+    const payload = JSON.parse(Buffer.from(part, 'base64url').toString('utf8')) as {
+      deviceId?: string
+    }
+    return payload.deviceId ?? null
+  } catch (_error) {
+    // A malformed local token just means we cannot identify the current
+    // device offline — the network calls will surface the real problem.
+    return null
+  }
+}

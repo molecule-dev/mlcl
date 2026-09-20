@@ -18,7 +18,15 @@ import { dirname, join } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
-import { clearCredentials, pollLogin, readCredentials, startLogin, whoami } from './auth.js'
+import {
+  clearCredentials,
+  listDevices,
+  pollLogin,
+  readCredentials,
+  revokeDevice,
+  startLogin,
+  whoami,
+} from './auth.js'
 import { tracked } from './telemetry.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { execa } from 'execa'
@@ -341,6 +349,31 @@ server.registerTool(
         JSON.stringify({ loggedIn: false, hint: 'Could not reach molecule.dev — retry whoami.' }),
       )
     }
+  }),
+)
+
+server.registerTool(
+  'list_devices',
+  {
+    title: 'List molecule.dev devices/sessions',
+    description:
+      "List the account's logged-in devices (browsers + CLIs), marking which one is the current session. Use before revoke_device; revoking a row kills its token — the response to a lost/stolen machine report.",
+    inputSchema: {},
+  },
+  tracked('list_devices', async () => text(JSON.stringify(await listDevices(), null, 2))),
+)
+
+server.registerTool(
+  'revoke_device',
+  {
+    title: 'Revoke a molecule.dev device/session',
+    description:
+      'Revoke one device by id (from list_devices) — every token bound to it dies within ~10s. This is the kill-switch for a stolen machine or a CLI login the user wants to end. Irreversible.',
+    inputSchema: { deviceId: z.string().describe('Device id from list_devices') },
+  },
+  tracked('revoke_device', async ({ deviceId }) => {
+    await revokeDevice(deviceId)
+    return text(`Revoked ${deviceId}. Tokens bound to it die within ~10s.`)
   }),
 )
 

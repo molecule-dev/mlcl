@@ -147,3 +147,39 @@ export async function whoami(): Promise<{ email?: string; id?: string } | null> 
   }
   return { email: raw.props?.email ?? raw.email, id: raw.props?.id ?? raw.id }
 }
+
+export interface McpDevice {
+  id: string
+  name?: string
+  current?: boolean
+  updatedAt?: string
+}
+
+/** GET /devices with the current machine marked. */
+export async function listDevices(): Promise<McpDevice[]> {
+  const token = process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+  if (!token) throw new Error('Not logged in — call the login tool first.')
+  const r = await fetch(`${apiBase()}/devices`, {
+    headers: { authorization: `Bearer ${token}` },
+    signal: AbortSignal.timeout(15_000),
+  })
+  if (!r.ok) throw new Error(`devices list failed (${r.status})`)
+  const raw = (await r.json()) as unknown
+  const rows = Array.isArray(raw) ? raw : ((raw as { devices?: unknown[] })?.devices ?? [])
+  return rows.map((row) => {
+    const d = row as McpDevice & { props?: Omit<McpDevice, 'props'> }
+    return d.props ? { ...d.props, current: d.current } : d
+  })
+}
+
+/** DELETE /devices/:id — revocation kills the bound token. */
+export async function revokeDevice(deviceId: string): Promise<void> {
+  const token = process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+  if (!token) throw new Error('Not logged in — call the login tool first.')
+  const r = await fetch(`${apiBase()}/devices/${encodeURIComponent(deviceId)}`, {
+    method: 'DELETE',
+    headers: { authorization: `Bearer ${token}` },
+    signal: AbortSignal.timeout(15_000),
+  })
+  if (!r.ok) throw new Error(`device revoke failed (${r.status})`)
+}
