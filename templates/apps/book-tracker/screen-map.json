@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-landing.html",
+      "designScreenId": "38bf43cf74b04ca2ad06e9843b0d2f24"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-login.html",
+      "designScreenId": "5493646242d44c95a11ae83e65d59c70"
     },
     {
       "name": "Signup",
@@ -55,34 +57,45 @@
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-dashboard.html",
+      "designScreenId": "6cbf729a96c24c42b060fcb9f4731b2a"
     },
     {
       "name": "Books",
       "templateFile": "app/pages/Books.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/books",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-books.html",
+      "designScreenId": "bdf2ab35e010483e999919261e3942f5"
     },
     {
       "name": "BookDetail",
       "templateFile": "app/pages/BookDetail.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/books/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-book-detail.html",
+      "designScreenId": "192ed71178154c748a686d5d644df478"
     },
     {
       "name": "AddBook",
       "templateFile": "app/pages/AddBook.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/books/new",
       "auth": true,
       "type": "derive_from",
@@ -93,56 +106,74 @@
     {
       "name": "Challenge",
       "templateFile": "app/pages/Challenge.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/challenge",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-challenge.html",
+      "designScreenId": "1daeb2d6de634020a9e4c8dade48535e"
     },
     {
       "name": "Reviews",
       "templateFile": "app/pages/Reviews.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/reviews",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-reviews.html",
+      "designScreenId": "af97eb5c72a24d639b5bc8958b445ec6"
     },
     {
       "name": "Stats",
       "templateFile": "app/pages/Stats.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/stats",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-stats.html",
+      "designScreenId": "c794d3a313ce44538f0e3d8c5e75fee1"
     },
     {
       "name": "Notifications",
       "templateFile": "app/pages/Notifications.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/notifications",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-notifications.html",
+      "designScreenId": "dad0da519843481596a76a7b651682e0"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-settings.html",
+      "designScreenId": "d4d611a42b4644f7b7d22312578a738c"
     },
     {
       "name": "Profile",
       "templateFile": "app/pages/Profile.tsx",
-      "components": ["app/components/BookshelfLayout.tsx"],
+      "components": [
+        "app/components/BookshelfLayout.tsx"
+      ],
       "route": "/profile",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-book-tracker-profile.html",
+      "designScreenId": "987bc51acb8e4d47bb3cd25bdf46e537"
     }
   ]
 }
