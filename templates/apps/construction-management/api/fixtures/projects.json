@@ -1,0 +1,41 @@
+[
+  {
+    "id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "code": "HVT-204",
+    "name": "Harborview Office Tower",
+    "description": "12-story Class A office tower over two levels of below-grade parking. Structural steel superstructure with curtain-wall envelope.",
+    "phase": "structure",
+    "budget_cents": 1840000000,
+    "progress": 62,
+    "start_date": "2026-02-18",
+    "end_date": "2027-07-31",
+    "created_at": "2026-02-18T08:00:00Z",
+    "updated_at": "2026-09-17T16:00:00Z"
+  },
+  {
+    "id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "code": "EGR-118",
+    "name": "Eastgate Retail Fit-Out",
+    "description": "Interior fit-out of 18,000 sq ft shell space into a grocery anchor plus two inline retail bays. TI package with full MEP upgrade.",
+    "phase": "mechanicals",
+    "budget_cents": 292000000,
+    "progress": 45,
+    "start_date": "2026-06-15",
+    "end_date": "2027-01-15",
+    "created_at": "2026-06-15T08:00:00Z",
+    "updated_at": "2026-09-16T11:00:00Z"
+  },
+  {
+    "id": "a1b2c3d4-0003-4000-8000-000000000003",
+    "code": "LPS-071",
+    "name": "Lakeside Parking Structure",
+    "description": "Precast concrete parking structure, 480 stalls over four levels. Closeout phase: punch, sealant, and striping warranty items.",
+    "phase": "closeout",
+    "budget_cents": 610000000,
+    "progress": 94,
+    "start_date": "2025-08-10",
+    "end_date": "2026-10-10",
+    "created_at": "2025-08-10T08:00:00Z",
+    "updated_at": "2026-09-15T09:00:00Z"
+  }
+]

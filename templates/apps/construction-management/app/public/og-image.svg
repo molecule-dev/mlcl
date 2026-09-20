@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Groundwork — construction project management">
+  <rect width="1200" height="630" fill="#1c1917"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#c2410c"/>
+  <g transform="translate(96,120)">
+    <rect x="0" y="0" width="72" height="72" rx="16" fill="#c2410c"/>
+    <path d="M36 14 62 58H10L36 14Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M22 44h28" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="196" y="160" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" fill="#faf9f7">Groundwork</text>
+  <text x="96" y="280" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="500" fill="#d6d3d1">Run the job from groundbreaking to closeout.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">
+    <rect x="96" y="360" width="252" height="60" rx="30" fill="#292524"/>
+    <text x="130" y="398" fill="#fb923c">Daily logs</text>
+    <rect x="372" y="360" width="252" height="60" rx="30" fill="#292524"/>
+    <text x="406" y="398" fill="#fb923c">Punch lists</text>
+    <rect x="648" y="360" width="180" height="60" rx="30" fill="#292524"/>
+    <text x="682" y="398" fill="#fb923c">RFIs</text>
+    <rect x="852" y="360" width="300" height="60" rx="30" fill="#292524"/>
+    <text x="886" y="398" fill="#fb923c">Subcontractors</text>
+  </g>
+  <text x="96" y="540" font-family="Inter, Arial, sans-serif" font-size="24" fill="#78716c">Construction project management for commercial jobsites</text>
+</svg>

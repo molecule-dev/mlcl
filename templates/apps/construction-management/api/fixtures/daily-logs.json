@@ -1,0 +1,83 @@
+[
+  {
+    "id": "b2c3d4e5-0001-4000-8000-000000000001",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "log_date": "2026-09-19",
+    "weather": "partly_cloudy",
+    "crew_count": 34,
+    "hours": 268,
+    "notes": "Crane #2 annual inspection passed at 07:30. Deliveries staged on Level 1.",
+    "entries": [
+      {
+        "id": "c3d4e5f6-0001-4000-8000-000000000001",
+        "area": "Level 8 — Grid C4",
+        "work_performed": "Steel erection crew set four beams at Line C; bolt-up trailing one bay behind.",
+        "created_at": "2026-09-19T16:30:00Z"
+      },
+      {
+        "id": "c3d4e5f6-0002-4000-8000-000000000002",
+        "area": "Level 7 — Grid A2",
+        "work_performed": "Metal deck installation across bays A2–A5; 60% of level decked.",
+        "created_at": "2026-09-19T16:35:00Z"
+      },
+      {
+        "id": "c3d4e5f6-0003-4000-8000-000000000003",
+        "area": "Site — east laydown",
+        "work_performed": "Received 14 bundles of deck; staged for tomorrow morning hoisting.",
+        "created_at": "2026-09-19T16:40:00Z"
+      }
+    ],
+    "created_at": "2026-09-19T16:30:00Z"
+  },
+  {
+    "id": "b2c3d4e5-0002-4000-8000-000000000002",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "log_date": "2026-09-18",
+    "weather": "rain",
+    "crew_count": 21,
+    "hours": 154,
+    "notes": "Rain stopped exterior hoisting after 13:00; interior work continued.",
+    "entries": [
+      {
+        "id": "c3d4e5f6-0004-4000-8000-000000000004",
+        "area": "Level 8 — Grid D1",
+        "work_performed": "Morning-only steel setting; two beams placed before weather hold.",
+        "created_at": "2026-09-18T16:00:00Z"
+      },
+      {
+        "id": "c3d4e5f6-0005-4000-8000-000000000005",
+        "area": "Level 2 — core",
+        "work_performed": "Plumbing rough-in continued in the north core; risers through Level 4.",
+        "created_at": "2026-09-18T16:05:00Z"
+      }
+    ],
+    "created_at": "2026-09-18T16:00:00Z"
+  },
+  {
+    "id": "b2c3d4e5-0003-4000-8000-000000000003",
+    "project_id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "project": "Eastgate Retail Fit-Out",
+    "log_date": "2026-09-19",
+    "weather": "partly_cloudy",
+    "crew_count": 17,
+    "hours": 129,
+    "notes": "Health inspector walk-through scheduled for next week; deli prep area priority.",
+    "entries": [
+      {
+        "id": "c3d4e5f6-0006-4000-8000-000000000006",
+        "area": "Grocery — ceiling plenum",
+        "work_performed": "Duct main installation over aisles 4–9; hangers and mains complete.",
+        "created_at": "2026-09-19T15:45:00Z"
+      },
+      {
+        "id": "c3d4e5f6-0007-4000-8000-000000000007",
+        "area": "Bay 2 — back-of-house",
+        "work_performed": "Electrical rough-in for the freezer room; panels landed and labeled.",
+        "created_at": "2026-09-19T15:50:00Z"
+      }
+    ],
+    "created_at": "2026-09-19T15:45:00Z"
+  }
+]

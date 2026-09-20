@@ -1,0 +1,189 @@
+:root {
+  /* ── Brand: Groundwork ──
+     Safety-orange primary (jobsite hi-vis), warm stone paper neutrals,
+     blueprint-teal secondary. Money-and-steel, no pastels. */
+  --color-primary: #c2410c;
+  --color-primary-light: #fed7aa;
+  --color-primary-dark: #9a3412;
+  --color-secondary: #155e75;
+  --color-secondary-light: #67e8f9;
+  --color-accent: #4d7c0f;
+  --color-danger: #b91c1c;
+  --color-warning: #b45309;
+  --color-success: #15803d;
+  --color-background: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f2ee;
+  --color-text: #1c1917;
+  --color-text-secondary: #44403c;
+  --color-text-muted: #78716c;
+  --color-border: #e7e5e4;
+  --color-border-active: #c2410c;
+
+  /* === @mol-color-* provider bridge tokens === */
+  --mol-color-primary: #c2410c;
+  --mol-color-primary-light: #ffedd5;
+  --mol-color-primary-dark: #9a3412;
+  --mol-color-secondary: #155e75;
+  --mol-color-background: #faf9f7;
+  --mol-color-background-secondary: #f5f2ee;
+  --mol-color-background-tertiary: #efece7;
+  --mol-color-surface: #ffffff;
+  --mol-color-surface-secondary: #f5f2ee;
+  --mol-color-input-background: #ffffff;
+  --mol-color-text: #1c1917;
+  --mol-color-text-secondary: #44403c;
+  --mol-color-text-tertiary: #78716c;
+  --mol-color-text-inverse: #ffffff;
+  --mol-color-border: #e7e5e4;
+  --mol-color-border-secondary: #d6d3d1;
+  --mol-color-border-focus: #c2410c;
+  --mol-color-success: #15803d;
+  --mol-color-warning: #b45309;
+  --mol-color-error: #b91c1c;
+  --mol-color-info: #155e75;
+
+  /* === M3 bridge tokens (light) === */
+  --color-on-background: #1c1917;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f5f2ee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #faf9f7;
+  --color-surface-container: #f5f2ee;
+  --color-surface-container-high: #efece7;
+  --color-surface-container-highest: #e7e5e4;
+  --color-surface-variant: #f5f2ee;
+  --color-on-surface: #1c1917;
+  --color-on-surface-variant: #44403c;
+  --color-inverse-surface: #2e2a27;
+  --color-inverse-on-surface: #f5f2ee;
+  --color-inverse-primary: #fb923c;
+  --color-primary-container: #ffedd5;
+  --color-on-primary: #ffffff; /* white on safety orange #c2410c — 4.8:1 */
+  --color-on-primary-container: #431407;
+  --color-secondary-container: #cffafe;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #083344;
+  --color-tertiary: #4d7c0f;
+  --color-tertiary-container: #ecfccb;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #1a2e05;
+  --color-error: #b91c1c;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #7f1d1d;
+  --color-outline: #57534e;
+  --color-outline-variant: #e7e5e4;
+  --color-surface-tint: #c2410c;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* Headline font — picked up by shared molecule pages
+     (PricingPage, PlanUpdated, …) via `var(--font-headline)`. */
+  --font-headline: 'Inter', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.07);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.1);
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Dark mode — jobsite-after-dark warm charcoal surfaces.
+   The safety-orange brand stop (#c2410c) is kept for CTA fills so the
+   workspace color reads consistently in both modes; link/accent text uses
+   the brighter hi-vis stop (#fb923c) for contrast on dark surfaces. */
+[data-mol-mode='dark'] {
+  /* Provider bridge (--mol-color-*) */
+  --mol-color-primary: #fb923c;
+  --mol-color-primary-light: #431407;
+  --mol-color-primary-dark: #7c2d12;
+  --mol-color-secondary: #67e8f9;
+  --mol-color-background: #171412;
+  --mol-color-background-secondary: #1f1b18;
+  --mol-color-background-tertiary: #292524;
+  --mol-color-surface: #1f1b18;
+  --mol-color-surface-secondary: #292524;
+  --mol-color-input-background: #131010;
+  --mol-color-text: #f5f5f4;
+  --mol-color-text-secondary: #d6d3d1;
+  --mol-color-text-tertiary: #a8a29e;
+  --mol-color-text-inverse: #171412;
+  --mol-color-border: #292524;
+  --mol-color-border-secondary: #44403c;
+  --mol-color-border-focus: #fb923c;
+  --mol-color-success: #4ade80;
+  --mol-color-warning: #fbbf24;
+  --mol-color-error: #f87171;
+  --mol-color-info: #67e8f9;
+
+  /* App brand tokens */
+  --color-primary: #c2410c; /* brand stop for CTA fills */
+  --color-primary-light: #431407;
+  --color-primary-dark: #7c2d12;
+  --color-secondary: #67e8f9;
+  --color-secondary-light: #67e8f9;
+  --color-accent: #a3e635;
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-success: #4ade80;
+  --color-background: #171412;
+  --color-surface: #1f1b18;
+  --color-surface-alt: #292524;
+  --color-text: #f5f5f4;
+  --color-text-secondary: #d6d3d1;
+  --color-text-muted: #a8a29e;
+  --color-border: #292524;
+  --color-border-active: #fb923c;
+
+  /* M3 dark variants. `--color-primary` STAYS at the brand stop;
+     `--color-on-primary` stays white (4.8:1 on #c2410c). */
+  --color-on-background: #f5f5f4;
+  --color-surface-bright: #38322e;
+  --color-surface-dim: #131010;
+  --color-surface-container-lowest: #0e0c0b;
+  --color-surface-container-low: #1b1815;
+  --color-surface-container: #1f1b18;
+  --color-surface-container-high: #26211e;
+  --color-surface-container-highest: #2e2a27;
+  --color-surface-variant: #292524;
+  --color-on-surface: #f5f5f4;
+  --color-on-surface-variant: #d6d3d1;
+  --color-inverse-surface: #f5f5f4;
+  --color-inverse-on-surface: #1f1b18;
+  --color-inverse-primary: #c2410c;
+  --color-primary-container: #431407;
+  --color-on-primary: #ffffff; /* white on safety orange — readable always */
+  --color-on-primary-container: #fed7aa;
+  --color-secondary-container: #083344;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #cffafe;
+  --color-tertiary: #a3e635;
+  --color-tertiary-container: #1a2e05;
+  --color-on-tertiary: #1a2e05; /* dark on lime tertiary — high contrast */
+  --color-on-tertiary-container: #ecfccb;
+  --color-error: #f87171;
+  --color-error-container: #5a1818;
+  --color-on-error: #690005; /* dark on light-red error — 5.9:1 contrast */
+  --color-on-error-container: #ffdad6;
+  --color-outline: #8a8178;
+  --color-outline-variant: #292524;
+  --color-surface-tint: #fb923c;
+
+  /* Shadows — deeper for dark bg */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 10px 15px rgb(0 0 0 / 0.65);
+}

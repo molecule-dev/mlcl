@@ -1,0 +1,68 @@
+{
+  "label": "Construction Management",
+  "description": "Procore-like construction project management with daily logs, punch lists, RFIs, subcontractors, and per-project photo documentation — including a built-in subscription tier (Free / Pro / Team) backed by Stripe",
+  "cluster": "business-saas",
+  "type": "full-stack",
+  "framework": "react",
+  "packages": [
+    "@molecule/api-database-postgresql",
+    "@molecule/api-email-templates",
+    "@molecule/api-emails-mailgun",
+    "@molecule/api-entitlements",
+    "@molecule/api-payments-stripe",
+    "@molecule/api-resource-user",
+    "@molecule/app-billing-react",
+    "@molecule/app-sidebar-layout-react"
+  ],
+  "env": {
+    "APP_NAME": {
+      "description": "Application name",
+      "default": "Groundwork"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API key for RFI and daily-log digest emails",
+      "required": false
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": false
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret API key (sk_test_... in test mode)",
+      "required": true
+    },
+    "STRIPE_WEBHOOK_SECRET": {
+      "description": "Stripe webhook signing secret (whsec_...)",
+      "required": true
+    },
+    "STRIPE_CONSTRUCTION_MANAGEMENT_PRO_MONTHLY": {
+      "description": "Stripe price ID for the Pro Monthly plan",
+      "required": false
+    },
+    "STRIPE_CONSTRUCTION_MANAGEMENT_PRO_YEARLY": {
+      "description": "Stripe price ID for the Pro Yearly plan",
+      "required": false
+    },
+    "STRIPE_CONSTRUCTION_MANAGEMENT_TEAM_MONTHLY": {
+      "description": "Stripe price ID for the Team Monthly plan",
+      "required": false
+    },
+    "STRIPE_CONSTRUCTION_MANAGEMENT_TEAM_YEARLY": {
+      "description": "Stripe price ID for the Team Yearly plan",
+      "required": false
+    }
+  },
+  "layout": "dashboard",
+  "features": [
+    "auth",
+    "daily-logs",
+    "punch-list",
+    "rfis",
+    "subcontractors",
+    "subscriptions"
+  ]
+}

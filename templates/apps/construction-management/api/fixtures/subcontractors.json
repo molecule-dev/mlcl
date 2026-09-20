@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1728394a-0001-4000-8000-000000000001",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "trade": "structural steel",
+    "company": "Keystone Steel Erectors",
+    "contact": "Dana Whitfield (555) 210-3344",
+    "contract_value_cents": 412000000,
+    "status": "active",
+    "created_at": "2026-07-21T09:00:00Z"
+  },
+  {
+    "id": "1728394a-0002-4000-8000-000000000002",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "trade": "plumbing",
+    "company": "Delta Mechanical",
+    "contact": "Ike Potvin (555) 218-9021",
+    "contract_value_cents": 168500000,
+    "status": "active",
+    "created_at": "2026-07-21T09:05:00Z"
+  },
+  {
+    "id": "1728394a-0003-4000-8000-000000000003",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "trade": "curtain wall",
+    "company": "Clearspan Facades",
+    "contact": "Marisol Vega (555) 226-7710",
+    "contract_value_cents": 296000000,
+    "status": "invited",
+    "created_at": "2026-07-21T09:10:00Z"
+  },
+  {
+    "id": "1728394a-0004-4000-8000-000000000004",
+    "project_id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "project": "Eastgate Retail Fit-Out",
+    "trade": "sheet metal",
+    "company": "Northline Sheet Metal",
+    "contact": "Pearl Okafor (555) 241-6650",
+    "contract_value_cents": 62800000,
+    "status": "active",
+    "created_at": "2026-07-21T09:15:00Z"
+  },
+  {
+    "id": "1728394a-0005-4000-8000-000000000005",
+    "project_id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "project": "Eastgate Retail Fit-Out",
+    "trade": "electrical",
+    "company": "Brightway Electric",
+    "contact": "Chuck Nwosu (555) 248-2207",
+    "contract_value_cents": 71300000,
+    "status": "active",
+    "created_at": "2026-07-21T09:20:00Z"
+  },
+  {
+    "id": "1728394a-0006-4000-8000-000000000006",
+    "project_id": "a1b2c3d4-0003-4000-8000-000000000003",
+    "project": "Lakeside Parking Structure",
+    "trade": "sealants",
+    "company": "Shorecrete Sealants",
+    "contact": "Ben Alvarez (555) 262-4471",
+    "contract_value_cents": 12400000,
+    "status": "active",
+    "created_at": "2026-07-21T09:25:00Z"
+  }
+]

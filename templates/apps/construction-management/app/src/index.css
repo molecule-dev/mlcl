@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+/* Scan molecule packages for Tailwind class names */
+@source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
+@source "../../../../../../node_modules/@molecule/app-ui-react/dist";
+
+/*
+ * Safelist for dynamically-generated UIClassMap utility classes.
+ *
+ * Tailwind's static scanner cannot detect class names built at runtime via
+ * string interpolation (e.g. `${property}-${scale}`). The ClassMap methods
+ * below generate class names dynamically — we enumerate all combinations here
+ * so Tailwind includes them in the CSS output.
+ *
+ * DO NOT remove these. If you add a new dynamic ClassMap method, add its
+ * combinations here too.
+ *
+ * NOTE: The compound sp() overload (cm.sp({ p, pr, ... })) returns a
+ * Record<string, string> style object — it bypasses class generation entirely
+ * and is NOT affected by this scanner limitation.
+ */
+
+/* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
+
+@import '@molecule/app-ui-tailwind/base.css';
+
+/* Groundwork shared custom utilities. Statically-referenced Tailwind classes
+   are picked up by the scanner; these are the few hand-written helpers the
+   auth + marketing surfaces share. */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  vertical-align: middle;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #9a3412 0%, #c2410c 55%, #ea580c 100%);
+}
+
+.custom-shadow {
+  box-shadow: 0 10px 30px -10px rgba(28, 25, 23, 0.12);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 10px;
+}

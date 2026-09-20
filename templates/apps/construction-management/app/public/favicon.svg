@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Groundwork logo">
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#c2410c"/>
+  <path d="M16 6.5 26 25H6L16 6.5Z" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="M10.5 19.5h11" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="16" cy="15.2" r="1.7" fill="#ffffff"/>
+</svg>

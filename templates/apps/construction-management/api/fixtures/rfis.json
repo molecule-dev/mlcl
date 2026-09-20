@@ -1,0 +1,67 @@
+[
+  {
+    "id": "e5f6a7b8-0001-4000-8000-000000000001",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "number": 1,
+    "title": "Deck opening size at stair S-2",
+    "question": "Structural drawings show a 1400x2600 opening at stair S-2, but the architectural intent requires 1600 wide for the smoke barrier. Which dimension governs the deck opening, and is a trimmer channel required at the wide side?",
+    "originator": "Keystone Steel Erectors",
+    "drawings_ref": "S-302 / A-511",
+    "due_date": "2026-09-23",
+    "status": "open",
+    "responses": [],
+    "created_at": "2026-09-13T10:00:00Z"
+  },
+  {
+    "id": "e5f6a7b8-0002-4000-8000-000000000002",
+    "project_id": "a1b2c3d4-0001-4000-8000-000000000001",
+    "project": "Harborview Office Tower",
+    "number": 2,
+    "title": "Firestop rating at plumbing risers",
+    "question": "Confirm the required firestop assembly for the 100mm plumbing risers penetrating the Level 6 floor at the north core. Spec section 078400 lists two systems; the riser cluster is tight to the beam face.",
+    "originator": "Delta Mechanical",
+    "drawings_ref": "P-201",
+    "due_date": "2026-09-17",
+    "status": "answered",
+    "responses": [
+      {
+        "id": "f6a7b8c9-0001-4000-8000-000000000001",
+        "author": "A-E reviewer",
+        "body": "Use system W-L-1043 for the 100mm risers. Maintain 25mm minimum to the beam face; where the cluster is tighter, shift the bundle per the attached sketch.",
+        "is_final": true,
+        "created_at": "2026-09-12T15:00:00Z"
+      }
+    ],
+    "created_at": "2026-09-08T09:00:00Z"
+  },
+  {
+    "id": "e5f6a7b8-0003-4000-8000-000000000003",
+    "project_id": "a1b2c3d4-0002-4000-8000-000000000002",
+    "project": "Eastgate Retail Fit-Out",
+    "number": 1,
+    "title": "Freezer room vapor barrier tie-in",
+    "question": "The freezer room vapor barrier needs to tie into the slab vapor retarder, but the refrigeration supplier embedded their curb in the wrong location relative to the drawing. Do we field-relocate the curb or patch and seal around it?",
+    "originator": "Delta Mechanical",
+    "drawings_ref": "A-402 / R-101",
+    "due_date": null,
+    "status": "closed",
+    "responses": [
+      {
+        "id": "f6a7b8c9-0002-4000-8000-000000000002",
+        "author": "A-E reviewer",
+        "body": "Relocating the curb is not acceptable — it must sit on the thickened slab edge. See correction sketch R-101-R1.",
+        "is_final": false,
+        "created_at": "2026-09-04T11:00:00Z"
+      },
+      {
+        "id": "f6a7b8c9-0003-4000-8000-000000000003",
+        "author": "A-E reviewer",
+        "body": "Final: relocate the curb 300mm north per sketch R-101-R1; refrigeration supplier to re-pour the housekeeping pad at their cost. Close this RFI and log the repair on the punch list.",
+        "is_final": true,
+        "created_at": "2026-09-07T10:00:00Z"
+      }
+    ],
+    "created_at": "2026-09-01T14:00:00Z"
+  }
+]
