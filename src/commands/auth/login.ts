@@ -67,7 +67,7 @@ export default class Login extends Command {
           'This molecule.dev API does not support CLI login yet (the /cli routes deploy with the platform). ' +
             'For local testing, start the molecule-dev dev server and point the CLI at it:\n' +
             '  export MOLECULE_API_URL=http://localhost:4000/api\n' +
-            '  export MOLECULE_SITE_URL=http://localhost:5173',
+            '  export MOLECULE_SITE_URL=http://localhost:3000',
           { exit: 1 },
         )
       }
