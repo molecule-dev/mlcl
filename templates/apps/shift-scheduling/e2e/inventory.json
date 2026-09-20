@@ -1,0 +1,1557 @@
+{
+  "slug": "shift-scheduling",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-availability",
+      "path": "/availability",
+      "component": "Availability",
+      "file": "app/src/pages/Availability.tsx"
+    },
+    {
+      "id": "page-dashboard",
+      "path": "/dashboard",
+      "component": "Dashboard",
+      "file": "app/src/pages/Dashboard.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-openshifts",
+      "path": "/open-shifts",
+      "component": "OpenShifts",
+      "file": "app/src/pages/OpenShifts.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-schedule",
+      "path": "/schedule",
+      "component": "Schedule",
+      "file": "app/src/pages/Schedule.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-shiftdetail",
+      "path": "/shifts/:id",
+      "component": "ShiftDetail",
+      "file": "app/src/pages/ShiftDetail.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-staff",
+      "path": "/staff",
+      "component": "Staff",
+      "file": "app/src/pages/Staff.tsx"
+    },
+    {
+      "id": "page-swaprequests",
+      "path": "/swap-requests",
+      "component": "SwapRequests",
+      "file": "app/src/pages/SwapRequests.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    },
+    {
+      "id": "page-timesheets",
+      "path": "/timesheets",
+      "component": "Timesheets",
+      "file": "app/src/pages/Timesheets.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-usermenu-19-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 19,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-usermenu-32-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/UserMenu.tsx",
+      "line": 32,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-availability-184",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 184,
+      "label": "select at app/src/pages/Availability.tsx:184",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-availability-260-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 260,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-availability-293",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 293,
+      "label": "select at app/src/pages/Availability.tsx:293",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-availability-317",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 317,
+      "label": "input at app/src/pages/Availability.tsx:317",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-availability-336",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 336,
+      "label": "input at app/src/pages/Availability.tsx:336",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-availability-348",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 348,
+      "label": "button at app/src/pages/Availability.tsx:348",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-availability-400-delete",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 400,
+      "label": "delete",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-availability-432",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 432,
+      "label": "input at app/src/pages/Availability.tsx:432",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-availability-451",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 451,
+      "label": "input at app/src/pages/Availability.tsx:451",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-availability-462",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Availability.tsx",
+      "line": 462,
+      "label": "button at app/src/pages/Availability.tsx:462",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-141-edit-calendar",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 141,
+      "label": "edit_calendar",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-dashboard-357-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 357,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-154",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 154,
+      "label": "input at app/src/pages/ForgotPassword.tsx:154",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-175",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 175,
+      "label": "button at app/src/pages/ForgotPassword.tsx:175",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-207-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 207,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-124",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 124,
+      "label": "link at app/src/pages/Landing.tsx:124",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-134-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 134,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-144-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 144,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-155-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 155,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-170-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 170,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-180-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 180,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-265-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 265,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-276-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 276,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-608",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 608,
+      "label": "link at app/src/pages/Landing.tsx:608",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-647-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 647,
+      "label": ", )}",
+      "href": "/pricing",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-650-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 650,
+      "label": ", )}",
+      "href": "/about",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-653-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 653,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-656-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 656,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-136",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 136,
+      "label": "input at app/src/pages/Login.tsx:136",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-142-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 142,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-154",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 154,
+      "label": "button at app/src/pages/Login.tsx:154",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-185-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 185,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-202-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 202,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-211-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 211,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-275",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 275,
+      "label": "input at app/src/pages/Login.tsx:275",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-openshifts-210",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/OpenShifts.tsx",
+      "line": 210,
+      "label": "button at app/src/pages/OpenShifts.tsx:210",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-openshifts-270",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/OpenShifts.tsx",
+      "line": 270,
+      "label": "select at app/src/pages/OpenShifts.tsx:270",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-openshifts-293-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/OpenShifts.tsx",
+      "line": 293,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-openshifts-306",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/OpenShifts.tsx",
+      "line": 306,
+      "label": "button at app/src/pages/OpenShifts.tsx:306",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-openshifts-332-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/OpenShifts.tsx",
+      "line": 332,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-115-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 115,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-166",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 166,
+      "label": "button at app/src/pages/ResetPassword.tsx:166",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-194-------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 194,
+      "label": "← , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-243",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 243,
+      "label": "input at app/src/pages/ResetPassword.tsx:243",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-schedule-242",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 242,
+      "label": "button at app/src/pages/Schedule.tsx:242",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-261",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 261,
+      "label": "button at app/src/pages/Schedule.tsx:261",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-schedule-307",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 307,
+      "label": "select at app/src/pages/Schedule.tsx:307",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-schedule-334",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 334,
+      "label": "input at app/src/pages/Schedule.tsx:334",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-schedule-360",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 360,
+      "label": "input at app/src/pages/Schedule.tsx:360",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-schedule-381",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 381,
+      "label": "input at app/src/pages/Schedule.tsx:381",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-schedule-400",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 400,
+      "label": "input at app/src/pages/Schedule.tsx:400",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-schedule-419",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 419,
+      "label": "input at app/src/pages/Schedule.tsx:419",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-schedule-440",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 440,
+      "label": "button at app/src/pages/Schedule.tsx:440",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-470-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 470,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-492-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 492,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-schedule-505",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 505,
+      "label": "button at app/src/pages/Schedule.tsx:505",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-schedule-634",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Schedule.tsx",
+      "line": 634,
+      "label": "link at app/src/pages/Schedule.tsx:634",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-174----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 174,
+      "label": ", )",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-419",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 419,
+      "label": "input at app/src/pages/Settings.tsx:419",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-438",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 438,
+      "label": "input at app/src/pages/Settings.tsx:438",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-453",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 453,
+      "label": "button at app/src/pages/Settings.tsx:453",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-shiftdetail-220-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 220,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-shiftdetail-231-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 231,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-281",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 281,
+      "label": "button at app/src/pages/ShiftDetail.tsx:281",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-394",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 394,
+      "label": "button at app/src/pages/ShiftDetail.tsx:394",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-shiftdetail-424",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 424,
+      "label": "select at app/src/pages/ShiftDetail.tsx:424",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-shiftdetail-454",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 454,
+      "label": "input at app/src/pages/ShiftDetail.tsx:454",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-468",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 468,
+      "label": "button at app/src/pages/ShiftDetail.tsx:468",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-527",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 527,
+      "label": "button at app/src/pages/ShiftDetail.tsx:527",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-541",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 541,
+      "label": "button at app/src/pages/ShiftDetail.tsx:541",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-597",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 597,
+      "label": "button at app/src/pages/ShiftDetail.tsx:597",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-shiftdetail-611",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ShiftDetail.tsx",
+      "line": 611,
+      "label": "button at app/src/pages/ShiftDetail.tsx:611",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-201",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 201,
+      "label": "button at app/src/pages/Signup.tsx:201",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-232-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 232,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-249-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 249,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-signup-258-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 258,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-322",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 322,
+      "label": "input at app/src/pages/Signup.tsx:322",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-staff-171",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 171,
+      "label": "button at app/src/pages/Staff.tsx:171",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-staff-212",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 212,
+      "label": "input at app/src/pages/Staff.tsx:212",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-staff-231",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 231,
+      "label": "input at app/src/pages/Staff.tsx:231",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-staff-250",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 250,
+      "label": "input at app/src/pages/Staff.tsx:250",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-staff-269",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 269,
+      "label": "input at app/src/pages/Staff.tsx:269",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-staff-295",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 295,
+      "label": "input at app/src/pages/Staff.tsx:295",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-staff-318",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 318,
+      "label": "button at app/src/pages/Staff.tsx:318",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-staff-352",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 352,
+      "label": "button at app/src/pages/Staff.tsx:352",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-staff-369",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 369,
+      "label": "input at app/src/pages/Staff.tsx:369",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-staff-463",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Staff.tsx",
+      "line": 463,
+      "label": "button at app/src/pages/Staff.tsx:463",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-swaprequests-138",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/SwapRequests.tsx",
+      "line": 138,
+      "label": "select at app/src/pages/SwapRequests.tsx:138",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-swaprequests-160",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/SwapRequests.tsx",
+      "line": 160,
+      "label": "button at app/src/pages/SwapRequests.tsx:160",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-swaprequests-292----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SwapRequests.tsx",
+      "line": 292,
+      "label": "· ·",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-swaprequests-307",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/SwapRequests.tsx",
+      "line": 307,
+      "label": "button at app/src/pages/SwapRequests.tsx:307",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-swaprequests-321",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/SwapRequests.tsx",
+      "line": 321,
+      "label": "button at app/src/pages/SwapRequests.tsx:321",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-timesheets-178",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Timesheets.tsx",
+      "line": 178,
+      "label": "button at app/src/pages/Timesheets.tsx:178",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-timesheets-208-chevron-left",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Timesheets.tsx",
+      "line": 208,
+      "label": "chevron_left",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-timesheets-229-chevron-right",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Timesheets.tsx",
+      "line": 229,
+      "label": "chevron_right",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-timesheets-309",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Timesheets.tsx",
+      "line": 309,
+      "label": "button at app/src/pages/Timesheets.tsx:309",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-forgotpassword-125",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 125,
+      "label": "form at app/src/pages/ForgotPassword.tsx:125",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-104",
+      "file": "app/src/pages/Login.tsx",
+      "line": 104,
+      "label": "form at app/src/pages/Login.tsx:104",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-146",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 146,
+      "label": "form at app/src/pages/ResetPassword.tsx:146",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-138",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 138,
+      "label": "form at app/src/pages/Signup.tsx:138",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-availabilities--id",
+      "method": "DELETE",
+      "mountedPath": "/availabilities/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 137,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-delete-availabilities-blackouts--id",
+      "method": "DELETE",
+      "mountedPath": "/availabilities/blackouts/:id",
+      "rawPath": "/blackouts/:id",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 232,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-delete-shifts--id",
+      "method": "DELETE",
+      "mountedPath": "/shifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 308,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-delete-staff--id",
+      "method": "DELETE",
+      "mountedPath": "/staff/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 220,
+      "resource": "staff"
+    },
+    {
+      "id": "route-get-audit-",
+      "method": "GET",
+      "mountedPath": "/audit",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/audit.ts",
+      "line": 44,
+      "resource": "audit"
+    },
+    {
+      "id": "route-get-availabilities-",
+      "method": "GET",
+      "mountedPath": "/availabilities",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 52,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-get-availabilities-blackouts",
+      "method": "GET",
+      "mountedPath": "/availabilities/blackouts",
+      "rawPath": "/blackouts",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 164,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-get-claims-",
+      "method": "GET",
+      "mountedPath": "/claims",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/claims.ts",
+      "line": 38,
+      "resource": "claims"
+    },
+    {
+      "id": "route-get-claims--id",
+      "method": "GET",
+      "mountedPath": "/claims/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/claims.ts",
+      "line": 65,
+      "resource": "claims"
+    },
+    {
+      "id": "route-get-open-shifts-",
+      "method": "GET",
+      "mountedPath": "/open-shifts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/open-shifts.ts",
+      "line": 16,
+      "resource": "open-shifts"
+    },
+    {
+      "id": "route-get-profile-me",
+      "method": "GET",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 37,
+      "resource": "profile"
+    },
+    {
+      "id": "route-get-shifts-",
+      "method": "GET",
+      "mountedPath": "/shifts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 126,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-get-shifts--id",
+      "method": "GET",
+      "mountedPath": "/shifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 151,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-get-staff-",
+      "method": "GET",
+      "mountedPath": "/staff",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 43,
+      "resource": "staff"
+    },
+    {
+      "id": "route-get-staff--id",
+      "method": "GET",
+      "mountedPath": "/staff/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 85,
+      "resource": "staff"
+    },
+    {
+      "id": "route-get-swap-requests-",
+      "method": "GET",
+      "mountedPath": "/swap-requests",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/swap-requests.ts",
+      "line": 49,
+      "resource": "swap-requests"
+    },
+    {
+      "id": "route-get-swap-requests--id",
+      "method": "GET",
+      "mountedPath": "/swap-requests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/swap-requests.ts",
+      "line": 81,
+      "resource": "swap-requests"
+    },
+    {
+      "id": "route-get-timesheets-",
+      "method": "GET",
+      "mountedPath": "/timesheets",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/timesheets.ts",
+      "line": 54,
+      "resource": "timesheets"
+    },
+    {
+      "id": "route-patch-claims--id",
+      "method": "PATCH",
+      "mountedPath": "/claims/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/claims.ts",
+      "line": 249,
+      "resource": "claims"
+    },
+    {
+      "id": "route-patch-profile-me",
+      "method": "PATCH",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 63,
+      "resource": "profile"
+    },
+    {
+      "id": "route-patch-shifts--id",
+      "method": "PATCH",
+      "mountedPath": "/shifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 305,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-patch-staff--id",
+      "method": "PATCH",
+      "mountedPath": "/staff/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 218,
+      "resource": "staff"
+    },
+    {
+      "id": "route-patch-swap-requests--id",
+      "method": "PATCH",
+      "mountedPath": "/swap-requests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/swap-requests.ts",
+      "line": 271,
+      "resource": "swap-requests"
+    },
+    {
+      "id": "route-post-availabilities-",
+      "method": "POST",
+      "mountedPath": "/availabilities",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 89,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-post-availabilities-blackouts",
+      "method": "POST",
+      "mountedPath": "/availabilities/blackouts",
+      "rawPath": "/blackouts",
+      "handlerFile": "api/src/handlers/availabilities.ts",
+      "line": 198,
+      "resource": "availabilities"
+    },
+    {
+      "id": "route-post-claims-",
+      "method": "POST",
+      "mountedPath": "/claims",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/claims.ts",
+      "line": 87,
+      "resource": "claims"
+    },
+    {
+      "id": "route-post-reset-password-",
+      "method": "POST",
+      "mountedPath": "/reset-password",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reset-password.ts",
+      "line": 50,
+      "resource": "reset-password"
+    },
+    {
+      "id": "route-post-shifts-",
+      "method": "POST",
+      "mountedPath": "/shifts",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 193,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-post-shifts-publish",
+      "method": "POST",
+      "mountedPath": "/shifts/publish",
+      "rawPath": "/publish",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 336,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-post-staff-",
+      "method": "POST",
+      "mountedPath": "/staff",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 143,
+      "resource": "staff"
+    },
+    {
+      "id": "route-post-swap-requests-",
+      "method": "POST",
+      "mountedPath": "/swap-requests",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/swap-requests.ts",
+      "line": 104,
+      "resource": "swap-requests"
+    },
+    {
+      "id": "route-put-claims--id",
+      "method": "PUT",
+      "mountedPath": "/claims/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/claims.ts",
+      "line": 250,
+      "resource": "claims"
+    },
+    {
+      "id": "route-put-shifts--id",
+      "method": "PUT",
+      "mountedPath": "/shifts/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/shifts.ts",
+      "line": 306,
+      "resource": "shifts"
+    },
+    {
+      "id": "route-put-staff--id",
+      "method": "PUT",
+      "mountedPath": "/staff/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/staff.ts",
+      "line": 217,
+      "resource": "staff"
+    },
+    {
+      "id": "route-put-swap-requests--id",
+      "method": "PUT",
+      "mountedPath": "/swap-requests/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/swap-requests.ts",
+      "line": 272,
+      "resource": "swap-requests"
+    }
+  ],
+  "totals": {
+    "pages": 19,
+    "elements": 98,
+    "forms": 4,
+    "routes": 35
+  }
+}

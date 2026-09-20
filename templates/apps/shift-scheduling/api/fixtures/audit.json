@@ -1,0 +1,6 @@
+[
+  { "id": "aud_001", "occurred_at": "2026-10-01T18:22:00.000Z", "actor_name": "Dana Whitfield", "actor_initial": "D", "action": "published", "target_label": "a shift", "target_link": "/shifts/shf_003", "details": "A week went live for the team." },
+  { "id": "aud_002", "occurred_at": "2026-10-01T15:06:00.000Z", "actor_name": "Dana Whitfield", "actor_initial": "D", "action": "created", "target_label": "Ha-eun Seo", "target_link": "/staff", "details": "Added to the roster." },
+  { "id": "aud_003", "occurred_at": "2026-09-29T08:30:00.000Z", "actor_name": "Dana Whitfield", "actor_initial": "D", "action": "approved", "target_label": "a swap request", "target_link": "/swap-requests", "details": "Manager approved the request." },
+  { "id": "aud_004", "occurred_at": "2026-09-28T09:14:00.000Z", "actor_name": "Dana Whitfield", "actor_initial": "D", "action": "updated", "target_label": "Kenji Watanabe", "target_link": "/staff", "details": "Roster fields changed." }
+]

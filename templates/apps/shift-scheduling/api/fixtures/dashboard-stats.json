@@ -1,0 +1,24 @@
+{
+  "week_start": "2026-10-05",
+  "staff_total": 10,
+  "active_staff": 10,
+  "open_shifts": 3,
+  "pending_swap_requests": 2,
+  "pending_claims": 1,
+  "pending_approvals": 3,
+  "hours_scheduled": 118.5,
+  "max_hours_budget": 310,
+  "coverage_by_day": [
+    { "label": "Mon", "date": "2026-10-05", "shifts": 3, "open": 0, "hours": 24 },
+    { "label": "Tue", "date": "2026-10-06", "shifts": 3, "open": 1, "hours": 21 },
+    { "label": "Wed", "date": "2026-10-07", "shifts": 2, "open": 0, "hours": 16 },
+    { "label": "Thu", "date": "2026-10-08", "shifts": 2, "open": 0, "hours": 16 },
+    { "label": "Fri", "date": "2026-10-09", "shifts": 2, "open": 1, "hours": 15.5 },
+    { "label": "Sat", "date": "2026-10-10", "shifts": 2, "open": 0, "hours": 16 },
+    { "label": "Sun", "date": "2026-10-11", "shifts": 1, "open": 1, "hours": 10 }
+  ],
+  "today_shifts": [
+    { "id": "shf_001", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "is_open": false, "role": "Shift Lead", "starts_at": "2026-10-05T06:00:00.000Z", "ends_at": "2026-10-05T14:00:00.000Z", "date": "2026-10-05", "start_time": "06:00", "end_time": "14:00", "time_label": "06:00–14:00", "duration_hours": 8, "published": true, "notes": "", "assigned_via": "assigned", "availability_warning": null },
+    { "id": "shf_002", "staff_id": "stf_003", "staff_name": "Priya Raman", "staff_initial": "P", "is_open": false, "role": "Barista", "starts_at": "2026-10-05T07:00:00.000Z", "ends_at": "2026-10-05T15:00:00.000Z", "date": "2026-10-05", "start_time": "07:00", "end_time": "15:00", "time_label": "07:00–15:00", "duration_hours": 8, "published": true, "notes": "", "assigned_via": "assigned", "availability_warning": null }
+  ]
+}

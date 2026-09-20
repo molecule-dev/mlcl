@@ -1,0 +1,12 @@
+[
+  { "id": "stf_001", "name": "Dana Whitfield", "first_name": "Dana", "last_name": "Whitfield", "avatar_initial": "D", "email": "dana.whitfield@shiftly.example", "phone": "+1 (415) 555-0111", "role": "Shift Lead", "max_weekly_hours": 40, "status": "active" },
+  { "id": "stf_002", "name": "Marcus Oyelaran", "first_name": "Marcus", "last_name": "Oyelaran", "avatar_initial": "M", "email": "marcus.oyelaran@shiftly.example", "phone": "+1 (415) 555-0112", "role": "Shift Lead", "max_weekly_hours": 40, "status": "active" },
+  { "id": "stf_003", "name": "Priya Raman", "first_name": "Priya", "last_name": "Raman", "avatar_initial": "P", "email": "priya.raman@shiftly.example", "phone": "+1 (415) 555-0113", "role": "Barista", "max_weekly_hours": 30, "status": "active" },
+  { "id": "stf_004", "name": "Tomás Ibarra", "first_name": "Tomás", "last_name": "Ibarra", "avatar_initial": "T", "email": "tomas.ibarra@shiftly.example", "phone": "+1 (415) 555-0114", "role": "Barista", "max_weekly_hours": 25, "status": "active" },
+  { "id": "stf_005", "name": "Jules Fontaine", "first_name": "Jules", "last_name": "Fontaine", "avatar_initial": "J", "email": "jules.fontaine@shiftly.example", "phone": "+1 (415) 555-0115", "role": "Barista", "max_weekly_hours": 20, "status": "active" },
+  { "id": "stf_006", "name": "Kenji Watanabe", "first_name": "Kenji", "last_name": "Watanabe", "avatar_initial": "K", "email": "kenji.watanabe@shiftly.example", "phone": "+1 (415) 555-0116", "role": "Barista", "max_weekly_hours": 35, "status": "active" },
+  { "id": "stf_007", "name": "Aaliyah Brooks", "first_name": "Aaliyah", "last_name": "Brooks", "avatar_initial": "A", "email": "aaliyah.brooks@shiftly.example", "phone": "+1 (415) 555-0117", "role": "Cashier", "max_weekly_hours": 25, "status": "active" },
+  { "id": "stf_008", "name": "Noah Lindqvist", "first_name": "Noah", "last_name": "Lindqvist", "avatar_initial": "N", "email": "noah.lindqvist@shiftly.example", "phone": "+1 (415) 555-0118", "role": "Cashier", "max_weekly_hours": 20, "status": "active" },
+  { "id": "stf_009", "name": "Rosa Delgado", "first_name": "Rosa", "last_name": "Delgado", "avatar_initial": "R", "email": "rosa.delgado@shiftly.example", "phone": "+1 (415) 555-0119", "role": "Cook", "max_weekly_hours": 40, "status": "active" },
+  { "id": "stf_010", "name": "Emeka Nwosu", "first_name": "Emeka", "last_name": "Nwosu", "avatar_initial": "E", "email": "emeka.nwosu@shiftly.example", "phone": "+1 (415) 555-0120", "role": "Cook", "max_weekly_hours": 35, "status": "active" }
+]

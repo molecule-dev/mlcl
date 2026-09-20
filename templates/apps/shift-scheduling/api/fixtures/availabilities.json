@@ -1,0 +1,22 @@
+[
+  { "id": "av_001", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "weekday": 1, "start_time": "06:00", "end_time": "16:00" },
+  { "id": "av_002", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "weekday": 2, "start_time": "06:00", "end_time": "16:00" },
+  { "id": "av_003", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "weekday": 3, "start_time": "06:00", "end_time": "16:00" },
+  { "id": "av_004", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "weekday": 4, "start_time": "06:00", "end_time": "16:00" },
+  { "id": "av_005", "staff_id": "stf_001", "staff_name": "Dana Whitfield", "staff_initial": "D", "weekday": 5, "start_time": "06:00", "end_time": "14:00" },
+  { "id": "av_006", "staff_id": "stf_002", "staff_name": "Marcus Oyelaran", "staff_initial": "M", "weekday": 3, "start_time": "12:00", "end_time": "22:00" },
+  { "id": "av_007", "staff_id": "stf_002", "staff_name": "Marcus Oyelaran", "staff_initial": "M", "weekday": 4, "start_time": "12:00", "end_time": "22:00" },
+  { "id": "av_008", "staff_id": "stf_002", "staff_name": "Marcus Oyelaran", "staff_initial": "M", "weekday": 5, "start_time": "12:00", "end_time": "22:00" },
+  { "id": "av_009", "staff_id": "stf_002", "staff_name": "Marcus Oyelaran", "staff_initial": "M", "weekday": 6, "start_time": "08:00", "end_time": "22:00" },
+  { "id": "av_010", "staff_id": "stf_003", "staff_name": "Priya Raman", "staff_initial": "P", "weekday": 1, "start_time": "07:00", "end_time": "15:00" },
+  { "id": "av_011", "staff_id": "stf_003", "staff_name": "Priya Raman", "staff_initial": "P", "weekday": 2, "start_time": "07:00", "end_time": "15:00" },
+  { "id": "av_012", "staff_id": "stf_003", "staff_name": "Priya Raman", "staff_initial": "P", "weekday": 4, "start_time": "07:00", "end_time": "15:00" },
+  { "id": "av_013", "staff_id": "stf_004", "staff_name": "Tomás Ibarra", "staff_initial": "T", "weekday": 2, "start_time": "14:00", "end_time": "22:00" },
+  { "id": "av_014", "staff_id": "stf_004", "staff_name": "Tomás Ibarra", "staff_initial": "T", "weekday": 4, "start_time": "14:00", "end_time": "22:00" },
+  { "id": "av_015", "staff_id": "stf_005", "staff_name": "Jules Fontaine", "staff_initial": "J", "weekday": 5, "start_time": "14:00", "end_time": "22:00" },
+  { "id": "av_016", "staff_id": "stf_005", "staff_name": "Jules Fontaine", "staff_initial": "J", "weekday": 6, "start_time": "09:00", "end_time": "20:00" },
+  { "id": "av_017", "staff_id": "stf_009", "staff_name": "Rosa Delgado", "staff_initial": "R", "weekday": 1, "start_time": "07:00", "end_time": "15:00" },
+  { "id": "av_018", "staff_id": "stf_009", "staff_name": "Rosa Delgado", "staff_initial": "R", "weekday": 2, "start_time": "07:00", "end_time": "15:00" },
+  { "id": "av_019", "staff_id": "stf_010", "staff_name": "Emeka Nwosu", "staff_initial": "E", "weekday": 5, "start_time": "10:00", "end_time": "18:00" },
+  { "id": "av_020", "staff_id": "stf_010", "staff_name": "Emeka Nwosu", "staff_initial": "E", "weekday": 6, "start_time": "10:00", "end_time": "18:00" }
+]

@@ -1,0 +1,131 @@
+{
+  "app": "shift-scheduling",
+  "screens": [
+    {
+      "name": "Login",
+      "templateFile": "app/pages/Login.tsx",
+      "components": [],
+      "route": "/login",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Signup",
+      "templateFile": "app/pages/Signup.tsx",
+      "components": [],
+      "route": "/signup",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ForgotPassword",
+      "templateFile": "app/pages/ForgotPassword.tsx",
+      "components": [],
+      "route": "/forgot-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ResetPassword",
+      "templateFile": "app/pages/ResetPassword.tsx",
+      "components": [],
+      "route": "/reset-password",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Landing",
+      "templateFile": "app/pages/Landing.tsx",
+      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "route": "/",
+      "auth": false,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Dashboard",
+      "templateFile": "app/pages/Dashboard.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/dashboard",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Schedule",
+      "templateFile": "app/pages/Schedule.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/schedule",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "ShiftDetail",
+      "templateFile": "app/pages/ShiftDetail.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/shifts/:id",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "OpenShifts",
+      "templateFile": "app/pages/OpenShifts.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/open-shifts",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "SwapRequests",
+      "templateFile": "app/pages/SwapRequests.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/swap-requests",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Availability",
+      "templateFile": "app/pages/Availability.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/availability",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Staff",
+      "templateFile": "app/pages/Staff.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/staff",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Timesheets",
+      "templateFile": "app/pages/Timesheets.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/timesheets",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    },
+    {
+      "name": "Settings",
+      "templateFile": "app/pages/Settings.tsx",
+      "components": ["app/components/ShiftlyLayout.tsx"],
+      "route": "/settings",
+      "auth": true,
+      "type": "generate_new",
+      "designFile": null
+    }
+  ]
+}

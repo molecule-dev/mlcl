@@ -1,0 +1,4 @@
+[
+  { "id": "clm_001", "shift_id": "shf_003", "shift_role": "Barista", "shift_date": "2026-10-06", "shift_time_label": "14:00–22:00", "staff_id": "stf_005", "staff_name": "Jules Fontaine", "staff_initial": "J", "status": "pending", "submitted_at": "2026-10-01T19:44:00.000Z" },
+  { "id": "clm_002", "shift_id": "shf_012", "shift_role": "Barista", "shift_date": "2026-10-11", "shift_time_label": "09:00–17:00", "staff_id": "stf_010", "staff_name": "Emeka Nwosu", "staff_initial": "E", "status": "approved", "submitted_at": "2026-09-30T11:02:00.000Z" }
+]
