@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-landing.html",
+      "designScreenId": "dd3fc8c1457740c580e0ee22bf897231"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-login.html",
+      "designScreenId": "bbb23d282460438f9530407b59886bc9"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-signup.html",
+      "designScreenId": "d9e6b3367c7d431992716391a45ea873"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-forgot-password.html",
+      "designScreenId": "fbe8f78af18c4b1ba13bab6ee3016b4c"
     },
     {
       "name": "ResetPassword",
@@ -44,79 +48,104 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-reset-password.html",
+      "designScreenId": "94b94126ae5f4514a1d38db071fe9a7e"
     },
     {
       "name": "MealPlan",
       "templateFile": "app/pages/MealPlan.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/plan",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-meal-plan.html",
+      "designScreenId": "3aa054c7acaa41f3944014dd8fff3586"
     },
     {
       "name": "Recipes",
       "templateFile": "app/pages/Recipes.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/recipes",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-recipes.html",
+      "designScreenId": "fc5fe583aeb244deb293acf366fce40b"
     },
     {
       "name": "RecipeDetail",
       "templateFile": "app/pages/RecipeDetail.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/recipes/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-recipe-detail.html",
+      "designScreenId": "57ac6f94d56d4a45b5bb268d8b37af70"
     },
     {
       "name": "RecipeEdit",
       "templateFile": "app/pages/RecipeEdit.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/recipes/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-recipe-edit.html",
+      "designScreenId": "cf486c9f14864e5c8b319d8715b1f958"
     },
     {
       "name": "RecipeEditExisting",
       "templateFile": "app/pages/RecipeEdit.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/recipes/:id/edit",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-recipe-edit-existing.html",
+      "designScreenId": "e63ca6322d2e441e910e6027de6641d2"
     },
     {
       "name": "GroceryList",
       "templateFile": "app/pages/GroceryList.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/groceries",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-grocery-list.html",
+      "designScreenId": "2a594e3576534afd86f685579ec1c74e"
     },
     {
       "name": "Pantry",
       "templateFile": "app/pages/Pantry.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/pantry",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-pantry.html",
+      "designScreenId": "a2a38ba078d0476d8d2f1ad24537c0cd"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/SimmerAppShell.tsx"],
+      "components": [
+        "app/components/SimmerAppShell.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-settings.html",
+      "designScreenId": "5854d1a865214586a9600cc01354d872"
     },
     {
       "name": "Onboarding",
@@ -125,7 +154,8 @@
       "route": "/onboarding",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-meal-planner-onboarding.html",
+      "designScreenId": "db17511c955742e4baa04bf530e03482"
     }
   ]
 }
