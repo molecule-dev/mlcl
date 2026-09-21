@@ -31,53 +31,50 @@ export function MyLearning() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>('all')
   const [enrollments, setEnrollments] = useState<EnrolledCourse[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [continueHrefByCourse, setContinueHrefByCourse] = useState<Record<string, string>>({})
 
-  useEffect(() => {
-    let alive = true
+  const load = async () => {
     setLoading(true)
-    api<EnrolledCourse[]>('/enrollments')
-      .then(async (rows) => {
-        if (!alive) return
-        const safe = Array.isArray(rows) ? rows : []
-        setEnrollments(safe)
-        // Pre-resolve "continue from" link for each course by finding the
-        // first incomplete lesson. Done in parallel; falls back to course
-        // detail page if /lessons/course/:id fails or the course is empty.
-        const entries = await Promise.all(
-          safe.map(async (e) => {
-            const courseId = String(e.course_id)
-            try {
-              const lessons = await api<Lesson[]>(`/lessons/course/${courseId}`)
-              const ordered = [...lessons].sort(
-                (a, b) =>
-                  Number(a.sort_order ?? a.order_index ?? 0) -
-                  Number(b.sort_order ?? b.order_index ?? 0),
-              )
-              const next = ordered.find((l) => l.is_completed !== true) ?? ordered[0]
-              if (next) return [courseId, `/lesson/${next.id}`] as const
-              // intentional noop: lesson-fetch failure falls through to course detail URL
-            } catch (_error) {
-              // ignore; fall through to course detail
-            }
-            return [courseId, `/courses/${courseId}`] as const
-          }),
-        )
-        if (!alive) return
-        const map: Record<string, string> = {}
-        for (const [k, v] of entries) map[k] = v
-        setContinueHrefByCourse(map)
-      })
-      .catch(() => {
-        if (!alive) return
-        setEnrollments([])
-      })
-      .finally(() => {
-        if (alive) setLoading(false)
-      })
-    return () => {
-      alive = false
+    setLoadError(null)
+    try {
+      const rows = await api<EnrolledCourse[]>('/enrollments')
+      const safe = Array.isArray(rows) ? rows : []
+      setEnrollments(safe)
+      // Pre-resolve "continue from" link for each course by finding the
+      // first incomplete lesson. Done in parallel; falls back to course
+      // detail page if /lessons/course/:id fails or the course is empty.
+      const entries = await Promise.all(
+        safe.map(async (e) => {
+          const courseId = String(e.course_id)
+          try {
+            const lessons = await api<Lesson[]>(`/lessons/course/${courseId}`)
+            const ordered = [...lessons].sort(
+              (a, b) =>
+                Number(a.sort_order ?? a.order_index ?? 0) -
+                Number(b.sort_order ?? b.order_index ?? 0),
+            )
+            const next = ordered.find((l) => l.is_completed !== true) ?? ordered[0]
+            if (next) return [courseId, `/lesson/${next.id}`] as const
+            // intentional noop: lesson-fetch failure falls through to course detail URL
+          } catch (_error) {
+            // ignore; fall through to course detail
+          }
+          return [courseId, `/courses/${courseId}`] as const
+        }),
+      )
+      const map: Record<string, string> = {}
+      for (const [k, v] of entries) map[k] = v
+      setContinueHrefByCourse(map)
+    } catch (err) {
+      setLoadError(err instanceof Error ? err.message : 'Could not load your library. Try again.')
+    } finally {
+      setLoading(false)
     }
+  }
+
+  useEffect(() => {
+    void load()
   }, [])
 
   const filtered = useMemo(() => {
@@ -238,7 +235,7 @@ export function MyLearning() {
               'flex flex-col md:flex-row md:items-center justify-between gap-6 border-b-2 border-surface-container-high pb-4 mb-8',
             )}
           >
-            <div className={cm.cn('flex overflow-x-auto gap-2')}>
+            <div className={cm.cn('flex flex-wrap gap-2')}>
               {FILTERS.map((f) => (
                 <button
                   key={f}
@@ -246,7 +243,7 @@ export function MyLearning() {
                   data-mol-id={`filter-${f}`}
                   onClick={() => setFilter(f)}
                   className={cm.cn(
-                    'whitespace-nowrap px-4 py-2 text-sm transition-colors',
+                    'whitespace-nowrap px-4 py-2.5 text-sm min-h-[40px] transition-colors',
                     filter === f
                       ? 'text-primary font-bold border-b-2 border-primary -mb-[18px]'
                       : 'text-on-surface-variant font-medium hover:text-primary',
@@ -265,6 +262,36 @@ export function MyLearning() {
             >
               {t('myLearning.loading', {}, { defaultValue: 'Loading your library…' })}
             </p>
+          ) : loadError ? (
+            <div
+              data-mol-id="my-learning-error"
+              className={cm.cn(
+                'bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-5xl text-error mb-3')}
+                aria-hidden="true"
+              >
+                wifi_off
+              </span>
+              <p className={cm.cn('text-lg font-bold text-on-surface mb-2')}>
+                {t('myLearning.error.title', {}, { defaultValue: 'Could not load your library' })}
+              </p>
+              <p className={cm.cn('text-on-surface-variant text-sm mb-6')}>{loadError}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  void load()
+                }}
+                data-mol-id="my-learning-retry"
+                className={cm.cn(
+                  'inline-block bg-primary-container text-on-primary px-5 py-2.5 rounded-xl font-bold hover:bg-primary transition-colors',
+                )}
+              >
+                {t('common.retry', {}, { defaultValue: 'Try again' })}
+              </button>
+            </div>
           ) : filtered.length === 0 ? (
             <div
               data-mol-id="my-learning-empty"

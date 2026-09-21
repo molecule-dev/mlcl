@@ -93,7 +93,17 @@ router.get(
       const userId = getUserId(res)
       const courseId = String(req.params.courseId)
       const course = await findById<Record<string, unknown>>('courses', courseId)
-      if (!course || course.status !== 'published') {
+      if (!course) {
+        res
+          .status(404)
+          .json({ error: t('catalog.notFound', undefined, { defaultValue: 'Course not found' }) })
+        return
+      }
+      // Drafts stay world-404 (same contract as GET /courses/:id) but the
+      // OWNER must be able to read their own draft's curriculum — the
+      // instructor editor loads it the moment a new draft is created, and a
+      // 404 here left the editor's lesson list permanently empty.
+      if (course.status !== 'published' && course.instructor_id !== userId) {
         res
           .status(404)
           .json({ error: t('catalog.notFound', undefined, { defaultValue: 'Course not found' }) })

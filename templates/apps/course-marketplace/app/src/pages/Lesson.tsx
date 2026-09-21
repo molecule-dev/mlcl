@@ -12,6 +12,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -56,6 +57,7 @@ export function Lesson() {
   const [tab, setTab] = useState<Tab>('overview')
   const [notes, setNotes] = useState('')
   const [completing, setCompleting] = useState(false)
+  const [completeError, setCompleteError] = useState<string | null>(null)
   const [watchedSec, setWatchedSec] = useState(0)
   const watchedRef = useRef(0)
 
@@ -111,6 +113,7 @@ export function Lesson() {
   const onMarkComplete = async () => {
     if (!lesson || completing) return
     setCompleting(true)
+    setCompleteError(null)
     try {
       await api(`/lessons/${lesson.id}/progress`, {
         method: 'POST',
@@ -125,10 +128,17 @@ export function Lesson() {
       setSiblingLessons((prev) =>
         prev.map((l) => (l.id === lesson.id ? { ...l, is_completed: true } : l)),
       )
+      track({
+        name: 'lesson.completed',
+        properties: {
+          lessonId: String(lesson.id),
+          courseId: String(lesson.course_id),
+        },
+      })
       if (next) navigate(`/lesson/${next.id}`)
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to mark complete'
-      alert(message)
+      setCompleteError(message)
     } finally {
       setCompleting(false)
     }
@@ -266,6 +276,20 @@ export function Lesson() {
           </div>
         </div>
       </header>
+
+      {completeError && (
+        <div className={cm.cn('max-w-screen-2xl mx-auto w-full px-6 pt-4')}>
+          <p
+            role="alert"
+            data-mol-id="lesson-complete-error"
+            className={cm.cn(
+              'px-4 py-3 rounded-xl bg-error-container text-on-error-container text-sm',
+            )}
+          >
+            {completeError}
+          </p>
+        </div>
+      )}
 
       <div className={cm.cn('flex-1 grid lg:grid-cols-[1fr_340px]')}>
         <main className={cm.cn(cm.sp('p', 6), 'space-y-6')}>

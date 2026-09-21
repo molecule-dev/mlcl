@@ -10,6 +10,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -131,6 +132,7 @@ export function InstructorCourseEditor() {
         method: 'PATCH',
         body: { status: 'published' },
       })
+      track({ name: 'course.published', properties: { courseId: String(id) } })
       await reload()
       setStatusMessage(t('status.published', {}, { defaultValue: 'Published' }))
     } catch (err) {

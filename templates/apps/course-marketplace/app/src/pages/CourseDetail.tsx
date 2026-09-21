@@ -14,6 +14,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -161,10 +162,18 @@ export function CourseDetail() {
         body: { course_id: courseId },
       })
       if (res.free && res.enrollmentId) {
+        track({
+          name: 'course.enrolled',
+          properties: { courseId: String(courseId), status: 'free' },
+        })
         navigate(`/my-learning`)
         return
       }
       if (res.url) {
+        track({
+          name: 'course.checkout_started',
+          properties: { courseId: String(courseId) },
+        })
         window.location.href = res.url
         return
       }

@@ -39,6 +39,13 @@ test.describe('signup page', () => {
   test('duplicate email cannot register twice', async ({ page }) => {
     const email = uniqueEmail('signup-dup')
     const password = 'TestPass123!'
+    // The duplicate register POST is EXPECTED to fail with 403 ("Email is
+    // already registered.") — the page renders it inline. Allow that one
+    // console resource error before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     // Pre-create the account via API.
     await page.request.post(`${API_BASE}/users`, {
       data: { name: 'Dup User', email, password },

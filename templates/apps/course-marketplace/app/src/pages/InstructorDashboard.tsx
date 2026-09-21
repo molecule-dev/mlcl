@@ -15,6 +15,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -133,6 +134,7 @@ export function InstructorDashboard() {
           price_cents: 0,
         },
       })
+      track({ name: 'course.created', properties: { courseId: String(draft.id) } })
       navigate(`/instructor/courses/${draft.id}/edit`)
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to create course'
@@ -397,81 +399,88 @@ export function InstructorDashboard() {
               )}
             </p>
           ) : (
-            <table data-mol-id="instructor-courses-table" className={cm.cn('w-full text-sm')}>
-              <thead className={cm.cn('bg-surface-container-low/40')}>
-                <tr
-                  className={cm.cn(
-                    'text-left text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  <th className={cm.cn('px-8 py-3')}>
-                    {t('form.title', {}, { defaultValue: 'Title' })}
-                  </th>
-                  <th className={cm.cn('px-3 py-3 text-right')}>
-                    {t('instructorDashboard.col.students', {}, { defaultValue: 'Students' })}
-                  </th>
-                  <th className={cm.cn('px-3 py-3 text-right')}>
-                    {t('form.rating', {}, { defaultValue: 'Rating' })}
-                  </th>
-                  <th className={cm.cn('px-3 py-3 text-right')}>
-                    {t('instructorDashboard.col.revenue', {}, { defaultValue: 'Revenue' })}
-                  </th>
-                  <th className={cm.cn('px-8 py-3 text-right')}>
-                    {t('nav.status', {}, { defaultValue: 'Status' })}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className={cm.cn('divide-y divide-outline-variant/15')}>
-                {courses.map((c) => (
+            <div className={cm.cn('overflow-x-auto')}>
+              <table
+                data-mol-id="instructor-courses-table"
+                className={cm.cn('w-full text-sm min-w-[640px]')}
+              >
+                <thead className={cm.cn('bg-surface-container-low/40')}>
                   <tr
-                    key={c.id}
-                    data-mol-id={`instructor-course-row-${c.id}`}
-                    className={cm.cn('hover:bg-surface-container-low/40 transition-colors')}
+                    className={cm.cn(
+                      'text-left text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
                   >
-                    <td className={cm.cn('px-8 py-4')}>
-                      <Link
-                        to={`/instructor/courses/${c.id}/edit`}
-                        className={'font-bold text-on-surface hover:text-primary transition-colors'}
-                      >
-                        {c.title}
-                      </Link>
-                    </td>
-                    <td
-                      className={cm.cn('px-3 py-4 text-right text-on-surface')}
-                      style={{ fontVariantNumeric: 'tabular-nums' }}
-                    >
-                      {(c.total_enrollments ?? 0).toLocaleString()}
-                    </td>
-                    <td
-                      className={cm.cn('px-3 py-4 text-right text-on-surface')}
-                      style={{ fontVariantNumeric: 'tabular-nums' }}
-                    >
-                      {c.rating_avg && c.rating_avg > 0 ? c.rating_avg.toFixed(1) : '—'}
-                    </td>
-                    <td
-                      className={cm.cn('px-3 py-4 text-right text-on-surface font-bold')}
-                      style={{ fontVariantNumeric: 'tabular-nums' }}
-                    >
-                      {dollars(earningsByCourse.get(String(c.id)) ?? 0)}
-                    </td>
-                    <td className={cm.cn('px-8 py-4 text-right')}>
-                      <span
-                        className={cm.cn(
-                          'inline-block px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full',
-                          c.status === 'published'
-                            ? 'bg-[var(--color-lectura-green-bg)] text-[var(--color-lectura-green)]'
-                            : c.status === 'archived'
-                              ? 'bg-surface-container-high text-on-surface-variant'
-                              : 'bg-secondary-container text-on-secondary-container',
-                        )}
-                      >
-                        {c.status ?? 'draft'}
-                      </span>
-                    </td>
+                    <th className={cm.cn('px-8 py-3')}>
+                      {t('form.title', {}, { defaultValue: 'Title' })}
+                    </th>
+                    <th className={cm.cn('px-3 py-3 text-right')}>
+                      {t('instructorDashboard.col.students', {}, { defaultValue: 'Students' })}
+                    </th>
+                    <th className={cm.cn('px-3 py-3 text-right')}>
+                      {t('form.rating', {}, { defaultValue: 'Rating' })}
+                    </th>
+                    <th className={cm.cn('px-3 py-3 text-right')}>
+                      {t('instructorDashboard.col.revenue', {}, { defaultValue: 'Revenue' })}
+                    </th>
+                    <th className={cm.cn('px-8 py-3 text-right')}>
+                      {t('nav.status', {}, { defaultValue: 'Status' })}
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className={cm.cn('divide-y divide-outline-variant/15')}>
+                  {courses.map((c) => (
+                    <tr
+                      key={c.id}
+                      data-mol-id={`instructor-course-row-${c.id}`}
+                      className={cm.cn('hover:bg-surface-container-low/40 transition-colors')}
+                    >
+                      <td className={cm.cn('px-8 py-4')}>
+                        <Link
+                          to={`/instructor/courses/${c.id}/edit`}
+                          className={
+                            'font-bold text-on-surface hover:text-primary transition-colors'
+                          }
+                        >
+                          {c.title}
+                        </Link>
+                      </td>
+                      <td
+                        className={cm.cn('px-3 py-4 text-right text-on-surface')}
+                        style={{ fontVariantNumeric: 'tabular-nums' }}
+                      >
+                        {(c.total_enrollments ?? 0).toLocaleString()}
+                      </td>
+                      <td
+                        className={cm.cn('px-3 py-4 text-right text-on-surface')}
+                        style={{ fontVariantNumeric: 'tabular-nums' }}
+                      >
+                        {c.rating_avg && c.rating_avg > 0 ? c.rating_avg.toFixed(1) : '—'}
+                      </td>
+                      <td
+                        className={cm.cn('px-3 py-4 text-right text-on-surface font-bold')}
+                        style={{ fontVariantNumeric: 'tabular-nums' }}
+                      >
+                        {dollars(earningsByCourse.get(String(c.id)) ?? 0)}
+                      </td>
+                      <td className={cm.cn('px-8 py-4 text-right')}>
+                        <span
+                          className={cm.cn(
+                            'inline-block px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full',
+                            c.status === 'published'
+                              ? 'bg-[var(--color-lectura-green-bg)] text-[var(--color-lectura-green)]'
+                              : c.status === 'archived'
+                                ? 'bg-surface-container-high text-on-surface-variant'
+                                : 'bg-secondary-container text-on-secondary-container',
+                          )}
+                        >
+                          {c.status ?? 'draft'}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </section>
       </main>

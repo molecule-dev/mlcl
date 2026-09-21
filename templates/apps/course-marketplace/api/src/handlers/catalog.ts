@@ -110,10 +110,27 @@ router.get('/categories', async (_req: Request, res: Response) => {
       if (!r.category) continue
       counts.set(r.category, (counts.get(r.category) ?? 0) + 1)
     }
+    // Merge case-variant duplicates ("Design" vs "design" — category is a
+    // free-text column, so both exist in practice) into one bucket keyed
+    // case-insensitively, keeping the most-used spelling as the display name.
+    const merged = new Map<string, { name: string; nameCount: number; courseCount: number }>()
+    for (const [name, courseCount] of counts) {
+      const key = name.toLowerCase()
+      const existing = merged.get(key)
+      if (!existing) {
+        merged.set(key, { name, nameCount: courseCount, courseCount })
+      } else {
+        existing.courseCount += courseCount
+        if (courseCount > existing.nameCount) {
+          existing.name = name
+          existing.nameCount = courseCount
+        }
+      }
+    }
     res.json(
-      Array.from(counts.entries())
-        .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([name, courseCount]) => ({ name, courseCount })),
+      Array.from(merged.values())
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(({ name, courseCount }) => ({ name, courseCount })),
     )
   } catch (error) {
     console.error(error)

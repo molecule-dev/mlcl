@@ -9,9 +9,10 @@
  * course. Without a session_id, the page falls back to a simple
  * "Looking for a checkout?" message and a link back to the catalog.
  */
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,6 +39,8 @@ export function Checkout() {
   const [course, setCourse] = useState<CourseSummary | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(!!sessionId)
+  // Guard so the enroll event fires exactly once even though the poll re-runs.
+  const trackedEnrollment = useRef(false)
 
   useEffect(() => {
     if (!sessionId) return
@@ -49,6 +52,13 @@ export function Checkout() {
         const s = await api<SessionStatus>(`/checkout/session/${sessionId}`)
         if (!alive) return
         setStatus(s)
+        if (s.enrollmentId && s.paymentStatus === 'paid' && !trackedEnrollment.current) {
+          trackedEnrollment.current = true
+          track({
+            name: 'course.enrolled',
+            properties: { courseId: String(s.courseId ?? ''), status: 'paid' },
+          })
+        }
         if (s.courseId) {
           api<CourseSummary>(`/courses/${s.courseId}`)
             .then((c) => {

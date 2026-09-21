@@ -63,13 +63,18 @@ export function Notifications() {
 
   const [items, setItems] = useState<Notification[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
   const [marking, setMarking] = useState(false)
 
   const load = async () => {
     setLoading(true)
+    setLoadError(null)
     try {
       const rows = await api<Notification[]>('/notifications')
       setItems(Array.isArray(rows) ? rows : [])
+    } catch (err) {
+      setLoadError(err instanceof Error ? err.message : 'Could not load notifications. Try again.')
     } finally {
       setLoading(false)
     }
@@ -82,14 +87,14 @@ export function Notifications() {
   const onMarkAllRead = async () => {
     if (marking) return
     setMarking(true)
+    setActionError(null)
     try {
       await api('/notifications/read-all', { method: 'POST' })
       setItems((prev) =>
         prev.map((n) => ({ ...n, unread: false, read_at: new Date().toISOString() })),
       )
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Failed to mark all read'
-      alert(message)
+      setActionError(err instanceof Error ? err.message : 'Failed to mark all read. Try again.')
     } finally {
       setMarking(false)
     }
@@ -153,6 +158,17 @@ export function Notifications() {
               : t('common.markAllRead', {}, { defaultValue: 'Mark all read' })}
           </button>
         </header>
+        {actionError && (
+          <p
+            role="alert"
+            data-mol-id="notifications-action-error"
+            className={cm.cn(
+              'mb-4 px-4 py-3 rounded-xl bg-error-container text-on-error-container text-sm',
+            )}
+          >
+            {actionError}
+          </p>
+        )}
         {loading ? (
           <p
             data-mol-id="notifications-loading"
@@ -160,6 +176,34 @@ export function Notifications() {
           >
             {t('nav.loadingNotifications', {}, { defaultValue: 'Loading notifications…' })}
           </p>
+        ) : loadError ? (
+          <div
+            data-mol-id="notifications-error"
+            className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center')}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-5xl text-error mb-3')}
+              aria-hidden="true"
+            >
+              wifi_off
+            </span>
+            <p className={cm.cn('text-lg font-bold text-on-surface mb-2')}>
+              {t('notifications.error.title', {}, { defaultValue: 'Could not load activity' })}
+            </p>
+            <p className={cm.cn('text-on-surface-variant text-sm mb-6')}>{loadError}</p>
+            <button
+              type="button"
+              onClick={() => {
+                void load()
+              }}
+              data-mol-id="notifications-retry"
+              className={cm.cn(
+                'inline-block bg-primary-container text-on-primary px-5 py-2.5 rounded-xl font-bold hover:bg-primary transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
         ) : items.length === 0 ? (
           <div
             data-mol-id="notifications-empty"
