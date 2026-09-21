@@ -9,7 +9,7 @@ import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { loadContent } from '../config.js'
 
 interface SimmerAuthShellProps {
-  /** h2 heading ("Welcome back", "Create your account", …). */
+  /** Page heading rendered as the h1 ("Welcome back", "Create your account", …). */
   heading: string
   /** Short paragraph below the heading. */
   subheading?: string
@@ -117,7 +117,7 @@ export function SimmerAuthShell({ heading, subheading, footer, children }: Simme
           </Link>
 
           <header className={cm.cn(cm.textCenter, 'lg:text-left')}>
-            <h2
+            <h1
               className={cm.cn(
                 cm.fontWeight('bold'),
                 cm.sp('mb', 2),
@@ -125,7 +125,7 @@ export function SimmerAuthShell({ heading, subheading, footer, children }: Simme
               )}
             >
               {heading}
-            </h2>
+            </h1>
             {subheading ? (
               <p className={cm.cn(cm.textSize('lg'), 'text-on-surface-variant')}>{subheading}</p>
             ) : null}

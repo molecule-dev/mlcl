@@ -123,6 +123,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                cm.sp('py', 2),
                 'text-on-surface-variant hover:text-primary transition-colors',
               )}
             >
@@ -133,6 +134,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                cm.sp('py', 2),
                 'text-on-surface-variant hover:text-primary transition-colors',
               )}
             >
@@ -159,6 +161,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('medium'),
+                    cm.sp('py', 2),
                     'text-on-surface-variant hover:text-primary transition-colors',
                   )}
                 >
@@ -661,27 +664,45 @@ export function Landing() {
           </div>
           <div
             className={cm.cn(
-              cm.flex({ wrap: 'wrap', justify: 'center', gap: 'lg' }),
+              cm.flex({ wrap: 'wrap', justify: 'center', align: 'center', gap: 'lg' }),
               cm.textSize('sm'),
               'text-on-surface-variant',
             )}
           >
-            <Link to="/about" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/about"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('nav.about', {}, { defaultValue: 'About' })}
             </Link>
-            <Link to="/pricing" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/pricing"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
-            <Link to="/terms" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/terms"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('nav.terms', {}, { defaultValue: 'Terms' })}
             </Link>
-            <Link to="/privacy" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/privacy"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
             </Link>
-            <Link to="/login" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/login"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
             </Link>
-            <Link to="/signup" className={cm.cn('hover:text-primary transition-colors')}>
+            <Link
+              to="/signup"
+              className={cm.cn(cm.sp('py', 2), 'inline-block hover:text-primary transition-colors')}
+            >
               {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
             </Link>
           </div>

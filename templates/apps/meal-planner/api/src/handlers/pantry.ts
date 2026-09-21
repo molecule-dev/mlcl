@@ -15,6 +15,7 @@ import type { WhereCondition } from '@molecule/api-database'
 import { count, create, deleteMany, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { MealPlannerLimits } from '../tiers.js'
@@ -67,8 +68,10 @@ router.get(
     // content; idempotent per user.
     try {
       await seedPantryForUser(userId)
-    } catch (_error) {
-      // Demo seeding is best-effort; an empty pantry is still valid.
+    } catch (error) {
+      // Demo seeding is best-effort; an empty pantry is still valid. But a
+      // repeated silent failure reads as a broken app — log it.
+      logger.error('pantry.seed', error)
     }
     const { q, page, limit } = req.query as unknown as z.infer<typeof listQuerySchema>
     const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]

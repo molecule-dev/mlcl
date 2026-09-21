@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -92,6 +93,10 @@ export function GroceryList() {
     )
     try {
       await http.put(`/api/grocery-list/${item.id}`, { checked: !item.checked })
+      void track({
+        name: 'grocery-list.item-checked',
+        properties: { item_id: item.id, checked: !item.checked, week_start: weekStart },
+      })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -130,6 +135,7 @@ export function GroceryList() {
         category: 'other',
       })
       setManualName('')
+      void track({ name: 'grocery-list.item-added', properties: { name, week_start: weekStart } })
       loadList(weekStart)
     } catch (err: unknown) {
       setError(
@@ -147,6 +153,10 @@ export function GroceryList() {
     setError(null)
     try {
       await http.post('/api/grocery-list/regenerate', { week_start: weekStart })
+      void track({
+        name: 'grocery-list.generated',
+        properties: { week_start: weekStart, source: 'groceries' },
+      })
       loadList(weekStart)
     } catch (e: unknown) {
       setError(
@@ -324,9 +334,9 @@ export function GroceryList() {
           >
             shopping_cart
           </span>
-          <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
             {t('simmer.groceries.empty.title', {}, { defaultValue: 'Nothing to shop for yet' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
             {t(
               'simmer.groceries.empty.body',
@@ -347,7 +357,7 @@ export function GroceryList() {
                 'bg-surface rounded-2xl shadow-sm',
               )}
             >
-              <h3
+              <h2
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),
                   cm.textSize('sm'),
@@ -362,7 +372,7 @@ export function GroceryList() {
                 <span className={cm.cn('ml-auto', 'text-on-surface-variant/70')}>
                   {group.items.length}
                 </span>
-              </h3>
+              </h2>
               <ul
                 className={cm.cn(
                   cm.flex({ direction: 'col' }),
@@ -446,7 +456,7 @@ export function GroceryList() {
                       onClick={() => void removeItem(item)}
                       className={cm.cn(
                         cm.flex({ align: 'center', justify: 'center' }),
-                        'w-8 h-8 flex-none rounded-full text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-error focus:opacity-100 transition-opacity',
+                        'w-8 h-8 flex-none rounded-full text-on-surface-variant opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:text-error focus:opacity-100 transition-opacity',
                       )}
                     >
                       <span

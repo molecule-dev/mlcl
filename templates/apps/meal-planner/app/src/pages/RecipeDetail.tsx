@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -91,9 +92,9 @@ export function RecipeDetail() {
         >
           menu_book
         </span>
-        <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
           {t('simmer.recipe.notFound', {}, { defaultValue: 'Recipe not found' })}
-        </h3>
+        </h2>
         <button
           type="button"
           data-mol-id="recipe-notfound-back"
@@ -126,6 +127,7 @@ export function RecipeDetail() {
     if (!id) return
     try {
       await http.delete(`/api/recipes/${id}`)
+      void track({ name: 'recipe.deleted', properties: { recipe_id: id } })
       navigate('/recipes', { replace: true })
     } catch (e: unknown) {
       setError(

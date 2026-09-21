@@ -232,9 +232,9 @@ export function Recipes() {
           >
             menu_book
           </span>
-          <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
             {t('simmer.recipes.empty.title', {}, { defaultValue: 'No recipes match' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
             {t(
               'simmer.recipes.empty.body',
@@ -278,7 +278,7 @@ export function Recipes() {
                     )}
                   </span>
                 </div>
-                <h3
+                <h2
                   className={cm.cn(
                     cm.textSize('lg'),
                     cm.fontWeight('bold'),
@@ -287,7 +287,7 @@ export function Recipes() {
                   )}
                 >
                   {r.title}
-                </h3>
+                </h2>
                 <p
                   className={cm.cn(
                     cm.textSize('sm'),
@@ -310,7 +310,12 @@ export function Recipes() {
                       { defaultValue: 'Serves {{count}}' },
                     )}
                   </span>
-                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      'flex-wrap justify-end min-w-0',
+                    )}
+                  >
                     {(r.tags ?? []).slice(0, 3).map((tag) => (
                       <span
                         key={tag}

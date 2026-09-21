@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -93,6 +94,10 @@ export function MealPlan() {
     setEntries((prev) => prev?.filter((e) => e.id !== entryId) ?? prev)
     try {
       await http.delete(`/api/meal-plan/${entryId}`)
+      void track({
+        name: 'meal-plan.removed',
+        properties: { entry_id: entryId, week_start: weekStart },
+      })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -112,6 +117,10 @@ export function MealPlan() {
     setError(null)
     try {
       await http.post('/api/grocery-list/regenerate', { week_start: weekStart })
+      void track({
+        name: 'grocery-list.generated',
+        properties: { week_start: weekStart, source: 'plan', items: plannedCount },
+      })
       navigate(`/groceries?week=${weekStart}`)
     } catch (e: unknown) {
       setError(
@@ -299,7 +308,7 @@ export function MealPlan() {
                                 className={cm.cn(
                                   cm.textSize('xs'),
                                   cm.fontWeight('semibold'),
-                                  'text-on-surface line-clamp-3',
+                                  'text-on-surface line-clamp-3 pr-5',
                                 )}
                               >
                                 {entry.recipe?.title ??
@@ -328,7 +337,7 @@ export function MealPlan() {
                               onClick={() => void removeEntry(entry.id)}
                               className={cm.cn(
                                 cm.flex({ align: 'center', justify: 'center' }),
-                                'absolute top-1 right-1 w-6 h-6 rounded-full bg-surface/80 text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-error focus:opacity-100 transition-opacity',
+                                'absolute top-1 right-1 w-8 h-8 rounded-full bg-surface/80 text-on-surface-variant opacity-100 md:opacity-0 md:group-hover:opacity-100 hover:text-error focus:opacity-100 transition-opacity',
                               )}
                             >
                               <span
@@ -344,7 +353,7 @@ export function MealPlan() {
                       {cellEntries.length > 0 ? (
                         <button
                           type="button"
-                          data-mol-id={`cell-add-more-${slot}-${day}`}
+                          data-mol-id={`cell-append-${slot}-${day}`}
                           aria-label={t(
                             'simmer.plan.addMore',
                             {
@@ -359,7 +368,7 @@ export function MealPlan() {
                           onClick={() => setPicker({ day, mealSlot: slot })}
                           className={cm.cn(
                             cm.flex({ align: 'center', justify: 'center' }),
-                            'w-full h-6 rounded-md border border-dashed border-outline/30 text-on-surface-variant/50 hover:border-primary/50 hover:text-primary transition-colors',
+                            'w-full h-8 rounded-md border border-dashed border-outline/30 text-on-surface-variant/50 hover:border-primary/50 hover:text-primary transition-colors',
                           )}
                         >
                           <span

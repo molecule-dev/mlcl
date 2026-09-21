@@ -19,6 +19,7 @@ import { getUserId, idParamSchema } from '@molecule/api-bonds-default-express'
 import { create, deleteMany, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { MealPlannerLimits } from '../tiers.js'
@@ -123,8 +124,10 @@ router.get(
     // so the plan and list pages render real content. Idempotent per user.
     try {
       await seedDemoForUser(userId, week)
-    } catch (_error) {
-      // Demo seeding is best-effort; an empty plan is still valid.
+    } catch (error) {
+      // Demo seeding is best-effort; an empty plan is still valid. But a
+      // repeated silent failure reads as a broken app — log it.
+      logger.error('meal_plan.seed', error)
     }
     const entries = await findMany<EntryRow>('meal_plan_entries', {
       where: [

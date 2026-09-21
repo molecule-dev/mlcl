@@ -230,9 +230,9 @@ export function Settings() {
       ) : null}
 
       <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
-        <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 4), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 4), 'text-on-surface')}>
           {t('settings.account', {}, { defaultValue: 'Account' })}
-        </h3>
+        </h2>
         <ul
           className={cm.cn(cm.flex({ direction: 'col' }), 'list-none divide-y divide-outline/30')}
         >
@@ -302,9 +302,9 @@ export function Settings() {
         id="profile"
         className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm scroll-mt-24')}
       >
-        <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 4), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 4), 'text-on-surface')}>
           {t('simmer.settings.profile.label', {}, { defaultValue: 'Profile' })}
-        </h3>
+        </h2>
         <div className={cm.stack(6)}>
           <AccountSection />
           <AuthSection />
@@ -322,9 +322,9 @@ export function Settings() {
         id="export"
         className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm scroll-mt-24')}
       >
-        <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 2), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 2), 'text-on-surface')}>
           {t('simmer.settings.export.label', {}, { defaultValue: 'Export data' })}
-        </h3>
+        </h2>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
           {t(
             'simmer.settings.export.description',
@@ -356,9 +356,9 @@ export function Settings() {
       </section>
 
       <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
-        <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 3), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 3), 'text-on-surface')}>
           {t('settings.language.title', {}, { defaultValue: 'Language' })}
-        </h3>
+        </h2>
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mb', 4), 'text-on-surface-variant')}>
           {t(
             'common.chooseTheLanguage',
@@ -371,9 +371,9 @@ export function Settings() {
 
       <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
         <div className={cm.sp('mb', 6)}>
-          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
             {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {t(
               'common.toggleLightDark',
@@ -385,9 +385,9 @@ export function Settings() {
         <ThemeToggle />
       </section>
       <section className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}>
-        <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 3), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 3), 'text-on-surface')}>
           {t('simmer.settings.session.title', {}, { defaultValue: 'Session' })}
-        </h3>
+        </h2>
         <button
           type="button"
           data-mol-id="settings-sign-out"
@@ -407,9 +407,9 @@ export function Settings() {
       <section
         className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm border border-error/30')}
       >
-        <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface mb-1')}>
+        <h2 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface mb-1')}>
           {t('nav.dangerZone', {}, { defaultValue: 'Danger zone' })}
-        </h3>
+        </h2>
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mb-4')}>
           {t(
             'simmer.settings.danger.body',

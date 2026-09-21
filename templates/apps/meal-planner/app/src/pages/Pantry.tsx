@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -80,6 +81,7 @@ export function Pantry() {
       setName('')
       setQuantity('1')
       setUnit('')
+      void track({ name: 'pantry.item-added', properties: { name: trimmed } })
       loadPantry()
     } catch (err: unknown) {
       setError(
@@ -248,9 +250,9 @@ export function Pantry() {
           >
             kitchen
           </span>
-          <h3 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
             {t('simmer.pantry.empty.title', {}, { defaultValue: 'Your pantry is empty' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
             {t(
               'simmer.pantry.empty.body',
@@ -271,7 +273,7 @@ export function Pantry() {
                 'bg-surface rounded-2xl shadow-sm',
               )}
             >
-              <h3
+              <h2
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),
                   cm.textSize('sm'),
@@ -286,7 +288,7 @@ export function Pantry() {
                 <span className={cm.cn('ml-auto', 'text-on-surface-variant/70')}>
                   {group.items.length}
                 </span>
-              </h3>
+              </h2>
               <ul
                 className={cm.cn(
                   cm.flex({ direction: 'col' }),

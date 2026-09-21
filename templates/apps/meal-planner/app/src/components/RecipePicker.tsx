@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -45,6 +46,19 @@ export function RecipePicker({
   const [query, setQuery] = useState('')
   const [busyId, setBusyId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const searchRef = useRef<HTMLInputElement>(null)
+
+  // Modal a11y: keyboard users get Escape-to-close and land on the search
+  // input instead of wherever the page focus happened to be.
+  useEffect(() => {
+    if (!open) return
+    searchRef.current?.focus()
+    const onKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [open, onClose])
 
   useEffect(() => {
     if (!open) return
@@ -94,6 +108,10 @@ export function RecipePicker({
         recipe_id: recipeId,
         servings: 2,
       })
+      void track({
+        name: 'meal-plan.assigned',
+        properties: { recipe_id: recipeId, week_start: weekStart, day, meal_slot: mealSlot },
+      })
       onAssigned()
       onClose()
     } catch (e: unknown) {
@@ -134,9 +152,9 @@ export function RecipePicker({
             'border-b border-outline/30',
           )}
         >
-          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
             {t('simmer.picker.title', {}, { defaultValue: 'Add a recipe to the plan' })}
-          </h3>
+          </h2>
           <button
             type="button"
             data-mol-id="picker-close"
@@ -154,6 +172,7 @@ export function RecipePicker({
         </div>
         <div className={cm.cn(cm.sp('p', 4))}>
           <input
+            ref={searchRef}
             type="search"
             data-mol-id="picker-search"
             value={query}

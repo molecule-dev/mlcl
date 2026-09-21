@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -166,10 +167,13 @@ export function RecipeEdit() {
     try {
       if (isEdit && id) {
         await http.put(`/api/recipes/${id}`, payload)
+        void track({ name: 'recipe.updated', properties: { recipe_id: id } })
         navigate(`/recipes/${id}`, { replace: true })
       } else {
         const res = await http.post<{ id: string }>('/api/recipes', payload)
-        navigate(`/recipes/${(res.data as { id: string }).id}`, { replace: true })
+        const newId = (res.data as { id: string }).id
+        void track({ name: 'recipe.created', properties: { recipe_id: newId } })
+        navigate(`/recipes/${newId}`, { replace: true })
       }
     } catch (err: unknown) {
       setError(
