@@ -133,6 +133,7 @@ function Landing() {
           </p>
           {subscribed ? (
             <p
+              id="landing-subscribed"
               data-mol-id="landing-subscribed"
               role="status"
               className={cm.cn(
@@ -181,6 +182,7 @@ function Landing() {
               />
               <button
                 type="submit"
+                id="landing-subscribe-submit"
                 data-mol-id="landing-subscribe-submit"
                 disabled={subscribing}
                 className={cm.cn(

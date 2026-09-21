@@ -42,6 +42,8 @@ test.describe('subscribers page', () => {
   })
 
   test('duplicate manual add is rejected with a visible message', async ({ page }) => {
+    // Expected-4xx flow: the duplicate email is rejected with 409.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 409' })
     const { accessToken } = await signup(page, uniqueEmail('subs-dupe'))
     const { email } = await seedSubscriber(page, accessToken)
     await page.goto(APP_BASE + '/subscribers')

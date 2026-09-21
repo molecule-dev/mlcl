@@ -29,7 +29,15 @@ test.describe('public issue page', () => {
   test('a draft issue is NOT publicly readable', async ({ page }) => {
     const { accessToken } = await signup(page, uniqueEmail('pub-draft'))
     const { id } = await seedIssue(page, accessToken, { status: 'draft' })
+    // Expected-4xx flow: the anonymous read of a draft answers 404 (that IS
+    // the "does not exist" state the page renders below).
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
+    // Be truly anonymous: signup leaves the httpOnly `token` cookie behind
+    // (localStorage.clear() does not touch it), and the author IS allowed to
+    // read their own draft — the 404 "does not exist" state requires no
+    // session at all.
     await page.evaluate(() => window.localStorage.clear()).catch(() => {})
+    await page.context().clearCookies()
     await page.goto(APP_BASE + `/issues/${id}`)
     await expect(page.getByText(/does not exist|still a draft/i)).toBeVisible({ timeout: 15000 })
   })
@@ -65,6 +73,9 @@ test.describe('public issue page', () => {
   })
 
   test('an unknown unsubscribe token shows the invalid-link state', async ({ page }) => {
+    // Expected-4xx flow: the page probes the token against the API, which
+    // answers 404 (the invalid-link state is exactly what we assert next).
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/unsubscribe/definitely-not-a-token')
     await expect(page.getByText(/not valid/i)).toBeVisible({ timeout: 15000 })
   })

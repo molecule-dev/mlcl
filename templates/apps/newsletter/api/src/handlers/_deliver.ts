@@ -94,15 +94,18 @@ export async function deliverIssueToSubscribers(issueId: string): Promise<number
  * clicked_at. Creates the row on first delivery.
  */
 export async function refreshIssueStats(issueId: string): Promise<void> {
+  // `is_not_null`, NOT `!= null`: the SQL bonds translate `!=` to a plain
+  // parameterized comparison, and `opened_at != NULL` is never true in SQL —
+  // which silently pinned opened/clicked at 0 forever.
   const [delivered, opened, clicked] = await Promise.all([
     count('sends', [{ field: 'issue_id', operator: '=', value: issueId }]),
     count('sends', [
       { field: 'issue_id', operator: '=', value: issueId },
-      { field: 'opened_at', operator: '!=', value: null },
+      { field: 'opened_at', operator: 'is_not_null' },
     ]),
     count('sends', [
       { field: 'issue_id', operator: '=', value: issueId },
-      { field: 'clicked_at', operator: '!=', value: null },
+      { field: 'clicked_at', operator: 'is_not_null' },
     ]),
   ])
   const existing = await findMany<{ id: string }>('issue_stats', {

@@ -15,6 +15,8 @@ test.describe('login page', () => {
   })
 
   test('login with bogus credentials stays on /login (network 4xx)', async ({ page }) => {
+    // Expected-4xx flow: the API answers 403 for bad credentials.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#login-email').fill('nobody-' + Date.now() + '@flagship.test')
     await page.locator('#login-password').fill('WrongPass!9999')

@@ -81,7 +81,10 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     const where: WhereCondition[] = []
     if (status) where.push({ field: 'status', operator: '=', value: status })
     if (tier) where.push({ field: 'tier', operator: '=', value: tier })
-    if (q) where.push({ field: 'email', operator: 'ilike', value: `%${q}%` })
+    // `ilike` is the contains-operator: the bond escapes LIKE metacharacters
+    // in the value and wraps it with %…% itself. Pre-wrapping here turned the
+    // wildcards into literal text, so every email search matched NOTHING.
+    if (q) where.push({ field: 'email', operator: 'ilike', value: q })
 
     const subscribers = await findMany('subscribers', {
       where,

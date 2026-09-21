@@ -444,7 +444,9 @@ function Subscribers() {
                             ? 'subscribers.paidTier'
                             : 'subscribers.freeTier',
                           {},
-                          { defaultValue: subscriber.tier ?? 'free' },
+                          // Capitalized to match the tier select's labels —
+                          // the raw enum ('paid') leaked here before.
+                          { defaultValue: subscriber.tier === 'paid' ? 'Paid' : 'Free' },
                         )}
                       </td>
                       <td className={cm.cn(cm.sp('py', 3), 'text-on-surface-variant')}>

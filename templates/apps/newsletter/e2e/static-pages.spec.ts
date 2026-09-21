@@ -15,11 +15,15 @@ test.describe('pricing page', () => {
   })
 
   test('GET /api/billing/tiers serves the ladder', async ({ page }) => {
+    // The shared billing router serves `{ data: [...] }` (fleet convention —
+    // see createBillingRouter in @molecule/api-bonds-default-express).
     const res = await page.request.get(APP_BASE + '/api/billing/tiers')
-    if (res.ok()) {
-      const body = (await res.json()) as { tiers?: unknown[] }
-      expect(Array.isArray(body.tiers)).toBe(true)
-    }
+    expect(res.status()).toBe(200)
+    const body = (await res.json()) as { data?: Array<{ key: string }> }
+    expect(Array.isArray(body.data)).toBe(true)
+    expect(body.data!.map((tier) => tier.key)).toEqual(
+      expect.arrayContaining(['free', 'pro', 'team']),
+    )
   })
 })
 
