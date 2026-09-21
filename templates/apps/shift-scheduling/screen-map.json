@@ -8,7 +8,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-login.html",
+      "designScreenId": "5b7468db064640b996bca996e71b324c"
     },
     {
       "name": "Signup",
@@ -17,7 +18,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-signup.html",
+      "designScreenId": "1b2067b13c91498aa4d715f82f03d7f2"
     },
     {
       "name": "ForgotPassword",
@@ -26,7 +28,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-forgot-password.html",
+      "designScreenId": "0176c02f520740cab1cbf0fbbde2fdce"
     },
     {
       "name": "ResetPassword",
@@ -35,97 +38,129 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-reset-password.html",
+      "designScreenId": "0f77fd51f8024f0b8550bc7a8e298a56"
     },
     {
       "name": "Landing",
       "templateFile": "app/pages/Landing.tsx",
-      "components": ["app/components/Header.tsx", "app/components/Footer.tsx"],
+      "components": [
+        "app/components/Header.tsx",
+        "app/components/Footer.tsx"
+      ],
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-landing.html",
+      "designScreenId": "da6629266fdd4e9e845bce7d9012df56"
     },
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-dashboard.html",
+      "designScreenId": "b714ab5d1a9644a093c5b002b0502c9b"
     },
     {
       "name": "Schedule",
       "templateFile": "app/pages/Schedule.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/schedule",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-schedule.html",
+      "designScreenId": "e959914906574735bdc8aa533f9b56a7"
     },
     {
       "name": "ShiftDetail",
       "templateFile": "app/pages/ShiftDetail.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/shifts/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-shift-detail.html",
+      "designScreenId": "8d4f2e4c75cb45639af799c30eef2525"
     },
     {
       "name": "OpenShifts",
       "templateFile": "app/pages/OpenShifts.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/open-shifts",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-open-shifts.html",
+      "designScreenId": "d8177a028616486cbd2298a52c96332c"
     },
     {
       "name": "SwapRequests",
       "templateFile": "app/pages/SwapRequests.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/swap-requests",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-swap-requests.html",
+      "designScreenId": "a89f3ef13e9b48a885c4957d7779f379"
     },
     {
       "name": "Availability",
       "templateFile": "app/pages/Availability.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/availability",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-availability.html",
+      "designScreenId": "899594f42d3845dea4bb3f4336d4d204"
     },
     {
       "name": "Staff",
       "templateFile": "app/pages/Staff.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/staff",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-staff.html",
+      "designScreenId": "351a616ba96446d2ab855ba9bd035f28"
     },
     {
       "name": "Timesheets",
       "templateFile": "app/pages/Timesheets.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/timesheets",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-timesheets.html",
+      "designScreenId": "05ec9df3291247f9aef7495ba1b81ca4"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/ShiftlyLayout.tsx"],
+      "components": [
+        "app/components/ShiftlyLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-shift-scheduling-settings.html",
+      "designScreenId": "48c6200333074d8fb0d0423f8dabea58"
     }
   ]
 }
