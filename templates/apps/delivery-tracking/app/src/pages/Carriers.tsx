@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -77,6 +78,10 @@ export function Carriers() {
         code: draft.code.trim().toUpperCase(),
         tracking_url_template: draft.tracking_url_template.trim() || undefined,
         base_url: draft.base_url.trim() || undefined,
+      })
+      track({
+        name: 'carrier.connected',
+        properties: { code: draft.code.trim().toUpperCase(), name: draft.name.trim() },
       })
       setCreatorOpen(false)
       setDraft({ name: '', code: '', tracking_url_template: '', base_url: '' })
@@ -224,6 +229,33 @@ export function Carriers() {
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : list.length === 0 ? (
+        <div className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'carriers.empty',
+              {},
+              {
+                defaultValue:
+                  'No carriers connected yet. Connect your first carrier to start tracking.',
+              },
+            )}
+          </p>
+          <button
+            type="button"
+            data-mol-id="button-add-carrier-empty"
+            onClick={() => setCreatorOpen(true)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary rounded-md inline-flex items-center justify-center min-h-10',
+            )}
+          >
+            {t('carriers.emptyCta', {}, { defaultValue: 'Connect carrier' })}
+          </button>
+        </div>
       ) : (
         <ul className={'space-y-2'}>
           {list.map((c) => (
@@ -235,6 +267,8 @@ export function Carriers() {
                   cm.sp('p', 5),
                   cm.flex({ align: 'center', gap: 'md' }),
                   'hover:bg-surface-container',
+                  // Stats wrap below the identity row on narrow screens.
+                  'flex-wrap',
                 )}
               >
                 <div

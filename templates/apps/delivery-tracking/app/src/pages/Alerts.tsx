@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -88,6 +89,10 @@ export function Alerts() {
 
   const acknowledge = async (alert: Alert) => {
     setList((curr) => curr.map((a) => (a.id === alert.id ? { ...a, resolved: true } : a)))
+    track({
+      name: 'alert.acknowledged',
+      properties: { alert_id: alert.id, shipment_id: alert.shipment_id, severity: alert.severity },
+    })
     try {
       await http.patch(`/api/alerts/${alert.id}/read`, { read: true })
     } catch (error) {
@@ -128,6 +133,8 @@ export function Alerts() {
                 cm.textSize('xs'),
                 cm.fontWeight('medium'),
                 'rounded-full',
+                // 40px hit target on touch; compact on pointer devices.
+                'inline-flex items-center justify-center min-h-10 md:min-h-0',
                 active
                   ? 'bg-primary text-on-primary'
                   : cm.cn('bg-surface border border-outline-variant', 'text-on-surface-variant'),
@@ -145,7 +152,33 @@ export function Alerts() {
       </nav>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 16), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
+          <button
+            type="button"
+            data-mol-id="button-retry-alerts"
+            onClick={() => {
+              setError(null)
+              setLoading(true)
+              http
+                .get('/api/alerts')
+                .then((res) => setList(unwrapList<Alert>(res)))
+                .catch(() =>
+                  setError(t('alerts.loadError', {}, { defaultValue: 'Failed to load alerts.' })),
+                )
+                .finally(() => setLoading(false))
+            }}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('alerts.loading', {}, { defaultValue: 'Loading…' })}
@@ -166,7 +199,11 @@ export function Alerts() {
                   a.resolved ? 'opacity-60' : '',
                 )}
               >
-                <div className={cm.flex({ align: 'start', gap: 'md' })}>
+                {/* Stack icon / content / action vertically below sm — the
+                    one-row layout overlaps its own text at 390px. */}
+                <div
+                  className={cm.cn(cm.flex({ align: 'start', gap: 'md' }), 'flex-col sm:flex-row')}
+                >
                   <div
                     className={cm.cn(
                       cm.flex({ align: 'center', justify: 'center' }),
@@ -181,12 +218,14 @@ export function Alerts() {
                     </span>
                   </div>
                   <div className={cm.cn(cm.flex1, 'min-w-0')}>
-                    <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
+                    {/* Wrap so the timestamp drops to its own line instead of
+                        overlapping the acknowledge button on narrow screens. */}
+                    <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'sm' }), 'flex-wrap')}>
                       <Link
                         to={`/shipments/${a.shipment_id}`}
                         className={cm.cn(cm.textSize('xs'), 'font-mono', 'text-on-surface-variant')}
                       >
-                        {a.tracking_number}
+                        {a.tracking_number || '—'}
                       </Link>
                       <span
                         className={cm.cn(
@@ -219,22 +258,32 @@ export function Alerts() {
                     >
                       {a.message}
                     </p>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'text-on-surface-variant',
-                        cm.sp('mt', 1),
-                      )}
-                    >
-                      {t(
-                        'alerts.customerLabel',
-                        { customer: a.customer },
-                        { defaultValue: 'Customer: {{customer}}' },
-                      )}
-                      {a.assigned_to
-                        ? ` · ${t('alerts.assignedLabel', { who: a.assigned_to }, { defaultValue: 'assigned to {{who}}' })}`
-                        : ''}
-                    </p>
+                    {/* System alerts have no customer — don't render a bare label. */}
+                    {a.customer || a.assigned_to ? (
+                      <p
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'text-on-surface-variant',
+                          cm.sp('mt', 1),
+                        )}
+                      >
+                        {a.customer
+                          ? t(
+                              'alerts.customerLabel',
+                              { customer: a.customer },
+                              { defaultValue: 'Customer: {{customer}}' },
+                            )
+                          : ''}
+                        {a.customer && a.assigned_to ? ' · ' : ''}
+                        {a.assigned_to
+                          ? t(
+                              'alerts.assignedLabel',
+                              { who: a.assigned_to },
+                              { defaultValue: 'assigned to {{who}}' },
+                            )
+                          : ''}
+                      </p>
+                    ) : null}
                   </div>
                   {!a.resolved && (
                     <button
@@ -246,7 +295,9 @@ export function Alerts() {
                         cm.sp('py', 2),
                         cm.textSize('xs'),
                         cm.fontWeight('semibold'),
-                        'border border-outline-variant rounded shrink-0',
+                        'border border-outline-variant rounded',
+                        'self-start sm:shrink-0',
+                        'inline-flex items-center justify-center min-h-10 md:min-h-0',
                       )}
                     >
                       {t('alerts.acknowledgeLabel', {}, { defaultValue: 'Acknowledge' })}

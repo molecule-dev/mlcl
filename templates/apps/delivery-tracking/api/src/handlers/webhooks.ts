@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -100,7 +101,8 @@ router.get('/', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(await decorateWebhooks(webhooks))
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -136,7 +138,8 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
     }
     const [decorated] = await decorateWebhooks([created])
     res.status(201).json({ ...decorated, secret })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -166,7 +169,8 @@ router.put('/:id', validateBody(updateWebhookSchema), async (req: Request, res: 
     }
     const result = await updateById<Record<string, unknown>>('webhooks', id, updates)
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -192,7 +196,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     }
     await deleteById('webhooks', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -222,7 +227,8 @@ router.get('/:id/events', async (req: Request, res: Response) => {
       limit: 200,
     })
     res.json(events)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -269,7 +275,8 @@ router.post('/:id/incoming', async (req: Request, res: Response) => {
       created_at: new Date(),
     })
     res.status(201).json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`webhooks.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

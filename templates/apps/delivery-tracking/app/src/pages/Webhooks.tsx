@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,10 @@ export function Webhooks() {
         events: [...draft.events],
       })
       const data = (res?.data ?? {}) as { secret?: string }
+      track({
+        name: 'webhook.created',
+        properties: { url: draft.url.trim(), events: [...draft.events] },
+      })
       setCreatedSecret(data.secret ?? null)
       setDraft({ url: '', events: new Set(['shipment.delivered', 'shipment.exception']) })
       setCreatorOpen(false)
@@ -352,65 +357,80 @@ export function Webhooks() {
         >
           {t('webhooks.endpointsHeading', {}, { defaultValue: 'Endpoints' })}
         </h2>
-        <ul className={'space-y-2'}>
-          {endpoints.map((e) => {
-            const active = selectedEndpoint === e.id
-            return (
-              <li key={e.id}>
-                <button
-                  type="button"
-                  onClick={() => setSelectedEndpoint(active ? null : e.id)}
-                  className={cm.cn(
-                    cm.sp('px', 3),
-                    cm.sp('py', 3),
-                    cm.flex({ align: 'center', gap: 'md' }),
-                    'block w-full rounded text-left',
-                    active ? 'bg-primary-container' : 'hover:bg-surface-container',
-                  )}
-                >
-                  <span
-                    style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '50%',
-                      backgroundColor: e.active
-                        ? 'var(--color-status-delivered)'
-                        : 'var(--color-status-pending)',
-                      flexShrink: 0,
-                    }}
-                    aria-hidden="true"
-                  />
-                  <code className={cm.cn(cm.textSize('xs'), 'font-mono', cm.flex1, 'truncate')}>
-                    {e.url}
-                  </code>
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'shrink-0')}>
-                    {t(
-                      'webhooks.eventCount',
-                      { count: e.events.length },
-                      { defaultValue: '{{count}} events' },
+        {endpoints.length === 0 ? (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('py', 4))}>
+            {t(
+              'webhooks.endpointsEmpty',
+              {},
+              {
+                defaultValue:
+                  'No webhook endpoints yet. Create one to receive shipment status callbacks.',
+              },
+            )}
+          </p>
+        ) : (
+          <ul className={'space-y-2'}>
+            {endpoints.map((e) => {
+              const active = selectedEndpoint === e.id
+              return (
+                <li key={e.id}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedEndpoint(active ? null : e.id)}
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 3),
+                      cm.flex({ align: 'center', gap: 'md' }),
+                      'block w-full rounded text-left',
+                      active ? 'bg-primary-container' : 'hover:bg-surface-container',
                     )}
-                  </span>
-                  {e.last_delivery && (
+                  >
                     <span
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'text-on-surface-variant',
-                        'shrink-0 font-mono',
-                      )}
+                      style={{
+                        width: '8px',
+                        height: '8px',
+                        borderRadius: '50%',
+                        backgroundColor: e.active
+                          ? 'var(--color-status-delivered)'
+                          : 'var(--color-status-pending)',
+                        flexShrink: 0,
+                      }}
+                      aria-hidden="true"
+                    />
+                    <code className={cm.cn(cm.textSize('xs'), 'font-mono', cm.flex1, 'truncate')}>
+                      {e.url}
+                    </code>
+                    <span
+                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'shrink-0')}
                     >
-                      {new Date(e.last_delivery).toLocaleString(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                        hour: 'numeric',
-                        minute: '2-digit',
-                      })}
+                      {t(
+                        'webhooks.eventCount',
+                        { count: e.events.length },
+                        { defaultValue: '{{count}} events' },
+                      )}
                     </span>
-                  )}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
+                    {e.last_delivery && (
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'text-on-surface-variant',
+                          'shrink-0 font-mono',
+                        )}
+                      >
+                        {new Date(e.last_delivery).toLocaleString(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                          hour: 'numeric',
+                          minute: '2-digit',
+                        })}
+                      </span>
+                    )}
+                  </button>
+                </li>
+              )
+            })}
+          </ul>
+        )}
       </section>
 
       <section className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>

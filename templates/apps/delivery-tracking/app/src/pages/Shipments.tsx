@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,13 +120,20 @@ export function Shipments() {
     }
     setSubmitting(true)
     try {
-      await http.post('/api/shipments', {
+      const res = await http.post<{ id?: string }>('/api/shipments', {
         tracking_number: draft.tracking_number.trim(),
         carrier_id: draft.carrier_id || undefined,
         recipient_name: draft.recipient_name.trim() || undefined,
         recipient_email: draft.recipient_email.trim() || undefined,
         origin: draft.origin.trim() || undefined,
         destination: draft.destination.trim(),
+      })
+      track({
+        name: 'shipment.created',
+        properties: {
+          shipment_id: res?.data?.id,
+          tracking_number: draft.tracking_number.trim(),
+        },
       })
       setCreatorOpen(false)
       setDraft({
@@ -186,6 +194,7 @@ export function Shipments() {
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
             'bg-primary text-on-primary rounded-md',
+            'inline-flex items-center justify-center min-h-10',
           )}
         >
           + {t('shipments.createLabel', {}, { defaultValue: 'New shipment' })}
@@ -197,7 +206,12 @@ export function Shipments() {
           role="dialog"
           aria-modal="true"
           data-mol-id="dialog-new-shipment"
-          className={cm.cn(cm.overlay, cm.flex({ align: 'center', justify: 'center' }), 'z-50')}
+          className={cm.cn(
+            cm.overlay,
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.sp('p', 4),
+            'z-50',
+          )}
         >
           <form
             onSubmit={submitNew}
@@ -347,7 +361,7 @@ export function Shipments() {
         </div>
       ) : null}
 
-      <div className={cm.flex({ align: 'center', gap: 'md' })}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}>
         <input
           type="search"
           value={search}
@@ -360,13 +374,13 @@ export function Shipments() {
           className={cm.cn(
             cm.sp('px', 3),
             cm.sp('py', 2),
-            'border border-outline-variant rounded-md flex-1 max-w-md font-mono',
+            'border border-outline-variant rounded-md flex-1 min-w-0 max-w-md font-mono',
             cm.textSize('sm'),
           )}
         />
         <nav
           aria-label={t('shipments.filterLabel', {}, { defaultValue: 'Filter shipments' })}
-          className={cm.flex({ gap: 'xs', align: 'center' })}
+          className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
         >
           {FILTERS.map((f) => {
             const active = filter === f
@@ -381,6 +395,8 @@ export function Shipments() {
                   cm.textSize('xs'),
                   cm.fontWeight('medium'),
                   'rounded-full',
+                  // 40px hit target on touch; compact on pointer devices.
+                  'inline-flex items-center justify-center min-h-10 md:min-h-0',
                   active
                     ? 'bg-primary text-on-primary'
                     : cm.cn('bg-surface border border-outline-variant', 'text-on-surface-variant'),
@@ -399,11 +415,49 @@ export function Shipments() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 16), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
+          <button
+            type="button"
+            data-mol-id="button-retry-shipments"
+            onClick={() => {
+              setError(null)
+              void refresh()
+            }}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('shipments.loading', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : visible.length === 0 ? (
+        <div className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter)}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {list.length === 0
+              ? t(
+                  'shipments.emptyAll',
+                  {},
+                  {
+                    defaultValue:
+                      'No shipments yet. Create your first shipment to start tracking deliveries.',
+                  },
+                )
+              : t(
+                  'shipments.emptyFiltered',
+                  {},
+                  { defaultValue: 'No shipments match this filter or search.' },
+                )}
+          </p>
+        </div>
       ) : (
         <div className={cm.cn(cm.card(), 'overflow-x-auto')}>
           <table className={'w-full text-left text-sm'}>
@@ -426,7 +480,13 @@ export function Shipments() {
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                     <Link
                       to={`/shipments/${s.id}`}
-                      className={cm.cn(cm.fontWeight('medium'), 'font-mono', cm.textSize('xs'))}
+                      className={cm.cn(
+                        cm.fontWeight('medium'),
+                        'font-mono',
+                        cm.textSize('xs'),
+                        // Enlarge the tap target without changing the row layout.
+                        'inline-block p-2 -m-2',
+                      )}
                     >
                       {s.tracking_number}
                     </Link>

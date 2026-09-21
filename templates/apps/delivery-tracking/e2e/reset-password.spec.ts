@@ -26,6 +26,8 @@ test.describe('/reset-password', () => {
   test('submitting with bad token fires POST /api/users/reset-password (captureNetwork)', async ({
     page,
   }) => {
+    // A bad token is rejected 401 by design; the console error is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(
       APP_BASE + '/reset-password?email=bad-recipient@parcel.test&token=invalid-token-12345',
     )

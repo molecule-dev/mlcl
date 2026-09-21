@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -70,6 +71,10 @@ export function Team() {
       await http.post('/api/team-members/invite', {
         email: draft.email.trim().toLowerCase(),
         role: draft.role,
+      })
+      track({
+        name: 'team_member.invited',
+        properties: { email: draft.email.trim().toLowerCase(), role: draft.role },
       })
       setInviteOpen(false)
       setDraft({ email: '', role: 'operator' })
@@ -281,6 +286,18 @@ export function Team() {
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : members.length === 0 ? (
+        <div className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter)}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'team.empty',
+              {},
+              {
+                defaultValue: 'No team members yet. Invite a teammate to collaborate on shipments.',
+              },
+            )}
+          </p>
+        </div>
       ) : (
         <ul className={'space-y-2'}>
           {members.map((m) => (

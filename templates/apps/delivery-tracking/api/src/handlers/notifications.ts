@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, findMany, findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -64,7 +65,8 @@ router.get('/', async (_req: Request, res: Response) => {
       }
     })
     res.json(items)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`notifications.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -95,7 +97,8 @@ router.post('/read-all', async (_req: Request, res: Response) => {
       updated++
     }
     res.json({ updated })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`notifications.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -123,7 +126,8 @@ router.get('/preferences', async (_req: Request, res: Response) => {
       return
     }
     res.json(prefs)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`notifications.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -188,7 +192,8 @@ router.put('/preferences', validateBody(preferencesSchema), async (req: Request,
       row = await upsertPreferences()
     }
     res.json(row)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`notifications.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -212,7 +217,8 @@ router.get('/log', async (req: Request, res: Response) => {
       offset: (Number(page) - 1) * Number(limit),
     })
     res.json(notifications)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`notifications.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

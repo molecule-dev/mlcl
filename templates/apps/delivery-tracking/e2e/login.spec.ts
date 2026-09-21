@@ -26,6 +26,8 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // The rejected log-in 403s by design; the console error is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/Email Address/i).fill('nonexistent@parcel.test')
     await page.getByLabel(/^Password$/i).fill('WrongPassword!')

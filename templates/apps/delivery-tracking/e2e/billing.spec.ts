@@ -22,6 +22,8 @@ test.describe('billing API (consumed by /pricing + PlanUpdated)', () => {
   })
 
   test('POST /api/billing/checkout without priceId returns a 400', async ({ page }) => {
+    // The deliberate 4xx logs a browser console error; expected here.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 400' })
     await signup(page)
     const { status } = await apiRequest<any>(page, 'POST', '/api/billing/checkout', {})
     expect(status).toBe(400)

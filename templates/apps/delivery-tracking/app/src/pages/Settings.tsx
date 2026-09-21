@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -32,16 +32,21 @@ export function Settings() {
   const [section, setSection] = useState<Section>('organization')
 
   const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefsLoaded, setPrefsLoaded] = useState(false)
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [prefsSavedAt, setPrefsSavedAt] = useState<string | null>(null)
   const [prefsError, setPrefsError] = useState<string | null>(null)
+  // Set once the user changes a pref locally; the in-flight initial GET must
+  // never clobber that change when it resolves (slow-network race that
+  // silently reverted a just-saved toggle).
+  const prefsDirtyRef = useRef(false)
 
   useEffect(() => {
     let cancelled = false
     http
       .get<{ data?: Preferences } | Preferences>('/api/notifications/preferences')
       .then((res) => {
-        if (cancelled) return
+        if (cancelled || prefsDirtyRef.current) return
         const data = (res?.data ?? {}) as Partial<Preferences> & { data?: Partial<Preferences> }
         const d = (data.data ?? data) as Partial<Preferences>
         setPrefs({
@@ -51,12 +56,16 @@ export function Settings() {
         })
       })
       .catch(() => null)
+      .finally(() => {
+        if (!cancelled) setPrefsLoaded(true)
+      })
     return () => {
       cancelled = true
     }
   }, [http])
 
   async function togglePref<K extends keyof Preferences>(key: K, value: boolean) {
+    prefsDirtyRef.current = true
     const next = { ...prefs, [key]: value }
     setPrefs(next)
     setSavingPrefs(true)
@@ -154,36 +163,47 @@ export function Settings() {
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
                 {t('settings.notifications.heading', {}, { defaultValue: 'Notifications' })}
               </h2>
-              <PrefToggle
-                dataId="toggle-email-exception"
-                label={t(
-                  'settings.notifications.exceptions',
-                  {},
-                  { defaultValue: 'Email me when a shipment exception occurs' },
-                )}
-                checked={prefs.email_on_exception}
-                onChange={(v) => togglePref('email_on_exception', v)}
-              />
-              <PrefToggle
-                dataId="toggle-email-delivered"
-                label={t(
-                  'settings.notifications.delivered',
-                  {},
-                  { defaultValue: 'Email me when a shipment is delivered' },
-                )}
-                checked={prefs.email_on_delivered}
-                onChange={(v) => togglePref('email_on_delivered', v)}
-              />
-              <PrefToggle
-                dataId="toggle-push-status"
-                label={t(
-                  'settings.notifications.pushStatus',
-                  {},
-                  { defaultValue: 'Push notification on status change' },
-                )}
-                checked={prefs.push_on_status_change}
-                onChange={(v) => togglePref('push_on_status_change', v)}
-              />
+              {!prefsLoaded ? (
+                <p
+                  className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+                  data-mol-id="prefs-loading"
+                >
+                  {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+                </p>
+              ) : (
+                <>
+                  <PrefToggle
+                    dataId="toggle-email-exception"
+                    label={t(
+                      'settings.notifications.exceptions',
+                      {},
+                      { defaultValue: 'Email me when a shipment exception occurs' },
+                    )}
+                    checked={prefs.email_on_exception}
+                    onChange={(v) => togglePref('email_on_exception', v)}
+                  />
+                  <PrefToggle
+                    dataId="toggle-email-delivered"
+                    label={t(
+                      'settings.notifications.delivered',
+                      {},
+                      { defaultValue: 'Email me when a shipment is delivered' },
+                    )}
+                    checked={prefs.email_on_delivered}
+                    onChange={(v) => togglePref('email_on_delivered', v)}
+                  />
+                  <PrefToggle
+                    dataId="toggle-push-status"
+                    label={t(
+                      'settings.notifications.pushStatus',
+                      {},
+                      { defaultValue: 'Push notification on status change' },
+                    )}
+                    checked={prefs.push_on_status_change}
+                    onChange={(v) => togglePref('push_on_status_change', v)}
+                  />
+                </>
+              )}
               {prefsError ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{prefsError}</p>
               ) : null}

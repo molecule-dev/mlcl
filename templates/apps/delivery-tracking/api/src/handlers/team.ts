@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -89,7 +90,8 @@ router.get('/', async (_req: Request, res: Response) => {
       }),
     ])
     res.json(await decorateMembers(members, owner ?? null))
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`team.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -126,7 +128,8 @@ router.post('/invite', validateBody(inviteSchema), async (req: Request, res: Res
       created_at: new Date(),
     })
     res.status(201).json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`team.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -152,7 +155,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     }
     await deleteById('team_members', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`team.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

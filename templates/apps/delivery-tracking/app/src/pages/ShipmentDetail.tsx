@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -116,7 +117,10 @@ export function ShipmentDetail() {
     const room = `shipment:${id}`
     let active = true
     let connection: RealtimeConnection | null = null
-    const onUpdate = () => setRefreshKey((k) => k + 1)
+    const onUpdate = () => {
+      track({ name: 'delivery.updated', properties: { shipment_id: id, source: 'realtime' } })
+      setRefreshKey((k) => k + 1)
+    }
     getRealtimeConnection()
       .then((conn) => {
         if (!active) return
@@ -136,7 +140,42 @@ export function ShipmentDetail() {
     }
   }, [id])
 
-  if (error) return <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+  if (error)
+    return (
+      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.textCenter, 'space-y-4')}>
+        <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.flex({ justify: 'center', gap: 'sm' }))}>
+          <button
+            type="button"
+            data-mol-id="button-retry-shipment"
+            onClick={() => {
+              setError(null)
+              setRefreshKey((k) => k + 1)
+            }}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+          <Link
+            to="/shipments"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              'border border-outline-variant rounded-md inline-flex items-center justify-center min-h-10',
+            )}
+          >
+            {t('shipmentDetail.backLink', {}, { defaultValue: 'All shipments' })}
+          </Link>
+        </div>
+      </div>
+    )
   if (loading)
     return (
       <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
@@ -160,7 +199,7 @@ export function ShipmentDetail() {
       </Link>
 
       <header className={cm.cn(cm.card(), cm.sp('p', 6), 'space-y-4')}>
-        <div className={cm.flex({ align: 'start', justify: 'between' })}>
+        <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), 'gap-3 flex-wrap')}>
           <div>
             <p
               className={cm.cn(
@@ -348,37 +387,59 @@ export function ShipmentDetail() {
         <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 4))}>
           {t('shipmentDetail.timelineHeading', {}, { defaultValue: 'Tracking timeline' })}
         </h2>
-        <ol data-mol-id="shipment-timeline" className={'space-y-4'}>
-          {events.map((e) => (
-            <li key={e.id} className={cm.flex({ align: 'start', gap: 'md' })}>
-              <span
-                className={'shrink-0 mt-1.5'}
-                style={{
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  backgroundColor: EVENT_DOT[e.status],
-                }}
-                aria-hidden="true"
-              />
-              <div className={cm.flex1}>
-                <div className={cm.flex({ align: 'baseline', gap: 'sm' })}>
-                  <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                    {e.description}
-                  </p>
-                  <span
-                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'font-mono')}
+        {events.length === 0 ? (
+          <p
+            className={cm.cn(
+              cm.textSize('sm'),
+              'text-on-surface-variant',
+              cm.sp('py', 6),
+              cm.textCenter,
+            )}
+          >
+            {t(
+              'shipmentDetail.timelineEmpty',
+              {},
+              {
+                defaultValue:
+                  'No tracking events yet — updates appear here as the carrier scans the parcel.',
+              },
+            )}
+          </p>
+        ) : (
+          <ol data-mol-id="shipment-timeline" className={'space-y-4'}>
+            {events.map((e) => (
+              <li key={e.id} className={cm.flex({ align: 'start', gap: 'md' })}>
+                <span
+                  className={'shrink-0 mt-1.5'}
+                  style={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    backgroundColor: EVENT_DOT[e.status],
+                  }}
+                  aria-hidden="true"
+                />
+                <div className={cm.flex1}>
+                  <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'sm' }), 'flex-wrap')}>
+                    <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                      {e.description}
+                    </p>
+                    <span
+                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'font-mono')}
+                    >
+                      {new Date(e.timestamp).toLocaleString()}
+                    </span>
+                  </div>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}
                   >
-                    {new Date(e.timestamp).toLocaleString()}
-                  </span>
+                    {e.location}
+                  </p>
                 </div>
-                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
-                  {e.location}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
     </div>
   )

@@ -5,6 +5,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { type AlertRow, decorateAlerts } from '../lib/decorate.js'
@@ -42,7 +43,8 @@ router.get('/', async (req: Request, res: Response) => {
       limit: 200,
     })
     res.json(await decorateAlerts(rows))
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`alerts.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -68,7 +70,8 @@ router.post('/', validateBody(createAlertSchema), async (req: Request, res: Resp
       created_at: new Date(),
     })
     res.status(201).json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`alerts.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -96,7 +99,8 @@ router.patch('/:id/read', validateBody(markReadSchema), async (req: Request, res
       read_at: req.body?.read === false ? null : new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`alerts.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -122,7 +126,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     }
     await deleteById('alerts', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`alerts.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

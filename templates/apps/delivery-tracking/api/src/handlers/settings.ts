@@ -19,6 +19,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -54,7 +55,8 @@ router.get('/organization', async (_req: Request, res: Response) => {
       timezone: row?.timezone ?? '',
       business_hours: row?.business_hours ?? '',
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`settings.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -87,7 +89,8 @@ router.put('/organization', validateBody(orgUpdateSchema), async (req: Request, 
       timezone: body.timezone ?? '',
       business_hours: body.business_hours ?? '',
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`settings.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -126,7 +129,8 @@ router.get('/api-keys', async (_req: Request, res: Response) => {
       secretKeyMasked: maskSecret(row.api_secret_key),
       webhookSecretMasked: maskSecret(row.api_webhook_secret),
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`settings.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -150,7 +154,8 @@ router.post('/api-keys/rotate', async (_req: Request, res: Response) => {
       webhookSecret: fresh.webhookSecret,
       webhookSecretMasked: maskSecret(fresh.webhookSecret),
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error?.(`settings.request failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
