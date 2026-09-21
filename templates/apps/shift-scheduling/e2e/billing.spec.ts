@@ -41,7 +41,14 @@ test.describe('billing', () => {
     const hasPriceIds =
       Boolean(pro?.prices.some((p) => p.stripePriceId)) &&
       Boolean(team?.prices.some((p) => p.stripePriceId))
-    if (!hasPriceIds) test.skip(true, 'no Stripe price ids for paid tiers — env not configured')
+    if (!hasPriceIds) {
+      // Unconfigured env: the tiers contract still holds — both paid tiers
+      // present with null prices (the documented unconfigured state).
+      // Assert the contract, never skip.
+      for (const p of [...(pro?.prices ?? []), ...(team?.prices ?? [])]) {
+        expect(p.stripePriceId).toBeNull()
+      }
+    }
   })
 
   test('Pricing page renders Free, Pro, Team', async ({ page }) => {
@@ -63,7 +70,17 @@ test.describe('billing', () => {
     }
     const pro = tiers.find((t) => t.key === 'pro')
     const priceId = pro?.prices.find((p) => p.stripePriceId)?.stripePriceId
-    if (!priceId) test.skip(true, 'no Stripe price id for pro tier — env not configured')
+    if (!priceId) {
+      // Unconfigured env: checkout must refuse loudly rather than 500 — the
+      // documented unconfigured contract is a 4xx naming the missing price.
+      const res = await page.request.post(`${API_BASE}/billing/checkout`, {
+        headers: apiHeaders(accessToken),
+        data: { priceId: null },
+      })
+      expect(res.status()).toBeGreaterThanOrEqual(400)
+      expect(res.status()).toBeLessThan(500)
+      return
+    }
     const res = await page.request.post(`${API_BASE}/billing/checkout`, {
       headers: apiHeaders(accessToken),
       data: { priceId },

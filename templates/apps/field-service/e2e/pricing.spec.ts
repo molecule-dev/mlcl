@@ -45,9 +45,24 @@ test.describe('pricing', () => {
     }
     const pro = tiersBody.data.find((t) => t.key === 'pro')
     const proPriceId = pro?.prices.find((p) => !!p.stripePriceId)?.stripePriceId ?? null
-    test.skip(!proPriceId, 'no Pro priceId configured (STRIPE_FIELD_SERVICE_PRO_MONTHLY blank)')
+    if (!proPriceId) {
+      // Unconfigured env (STRIPE_FIELD_SERVICE_PRO_MONTHLY blank): the pro
+      // tier still ships in the contract with null prices, and checkout must
+      // refuse loudly (4xx), never 500. Assert that; never skip.
+      expect(pro, 'pro tier present').toBeDefined()
+      for (const p of pro?.prices ?? []) {
+        expect(p.stripePriceId).toBeNull()
+      }
+      const refused = await page.request.post(API_BASE + '/billing/checkout', {
+        data: { priceId: null },
+        headers: apiHeaders(accessToken),
+      })
+      expect(refused.status(), 'unconfigured checkout refuses as 4xx').toBeGreaterThanOrEqual(400)
+      expect(refused.status()).toBeLessThan(500)
+      return
+    }
     const checkout = await page.request.post(API_BASE + '/billing/checkout', {
-      data: { priceId: proPriceId! },
+      data: { priceId: proPriceId },
       headers: apiHeaders(accessToken),
     })
     expect(checkout.status(), 'POST /api/billing/checkout').toBe(200)

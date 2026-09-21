@@ -41,6 +41,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **jobs** — `api/src/handlers/jobs.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **quotes** — `api/src/handlers/quotes.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **technicians** — `api/src/handlers/technicians.ts`
 
 ## Screens (26)
