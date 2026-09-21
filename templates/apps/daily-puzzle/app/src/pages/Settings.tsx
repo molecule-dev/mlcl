@@ -79,6 +79,7 @@ export function Settings() {
   const [email, setEmail] = useState('')
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileMsg, setProfileMsg] = useState<string | null>(null)
+  const [profileMsgError, setProfileMsgError] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [deleting, setDeleting] = useState(false)
 
@@ -104,6 +105,7 @@ export function Settings() {
     if (!user?.id) return
     setSavingProfile(true)
     setProfileMsg(null)
+    setProfileMsgError(false)
     try {
       // Backend rejects an empty username/email; only send fields the user has set.
       const payload: Record<string, string> = {}
@@ -119,7 +121,8 @@ export function Settings() {
       setProfileMsg(t('common.savedPeriod', {}, { defaultValue: 'Saved.' }))
       setEditing(false)
     } catch (_error) {
-      // Save failed; message shown in UI via setProfileMsg below
+      // Save failed; the message renders below in the error color.
+      setProfileMsgError(true)
       setProfileMsg(
         t('common.couldNotSaveProfile', {}, { defaultValue: 'Could not save profile.' }),
       )
@@ -302,8 +305,12 @@ export function Settings() {
 
           {profileMsg ? (
             <p
-              className={cm.cn('text-xs font-bold mt-3 text-success')}
+              className={cm.cn(
+                'text-xs font-bold mt-3',
+                profileMsgError ? 'text-error' : 'text-success',
+              )}
               data-testid="profile-message"
+              role="status"
             >
               {profileMsg}
             </p>
@@ -348,6 +355,11 @@ export function Settings() {
                   type="button"
                   onClick={() => setPrefs((p) => ({ ...p, [pref.key]: !p[pref.key] }))}
                   aria-pressed={enabled}
+                  aria-label={t(
+                    `settings.preferences.${pref.key}.title`,
+                    {},
+                    { defaultValue: pref.title },
+                  )}
                   data-testid={`pref-${pref.key}`}
                   className={cm.cn(
                     'relative w-12 h-7 rounded-full transition-colors',

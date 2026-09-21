@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findMany, findOne, query, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import {
@@ -15,6 +16,7 @@ import {
   MAX_GUESSES,
   normalizeGuess,
   pickWordForDate,
+  serializeStats,
   todayUtc,
   type UserStats,
   WORD_LENGTH,
@@ -197,7 +199,7 @@ router.get('/today', async (_req: Request, res: Response) => {
     ])
     return res.json(buildState(puzzle, guesses, result, false))
   } catch (error) {
-    console.error(error)
+    logger.error('puzzle.today_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -253,7 +255,7 @@ router.get('/archive', async (_req: Request, res: Response) => {
       }),
     })
   } catch (error) {
-    console.error(error)
+    logger.error('puzzle.archive_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -289,7 +291,7 @@ router.get('/:date', async (req: Request, res: Response) => {
     ])
     return res.json(buildState(puzzle, guesses, result, date < todayUtc()))
   } catch (error) {
-    console.error(error)
+    logger.error('puzzle.load_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -389,10 +391,12 @@ router.post('/:date/guess', validateBody(guessBodySchema), async (req: Request, 
       status: finished ? (solved ? 'won' : 'lost') : 'playing',
       attempts: allGuesses.length,
       answer: finished ? puzzle.word : undefined,
-      stats,
+      // Same camelCase shape as GET /api/stats/me — the result card and the
+      // share text read currentStreak/winRate off this.
+      stats: stats ? serializeStats(stats) : undefined,
     })
   } catch (error) {
-    console.error(error)
+    logger.error('puzzle.guess_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

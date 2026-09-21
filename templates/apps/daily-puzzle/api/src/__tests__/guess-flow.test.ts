@@ -188,12 +188,26 @@ describe('finishing a ranked daily game', () => {
     })
     const res = await guess('crane')
     expect(res.statusCode).toBe(201)
-    const body = res.body as { status: string; answer: string; stats: { current_streak: number } }
+    const body = res.body as {
+      status: string
+      answer: string
+      stats: Record<string, unknown> | undefined
+    }
     expect(body.status).toBe('won')
     expect(body.answer).toBe('crane')
     expect(resultsCreate()?.[1]).toMatchObject({ solved: true, attempts: 3, practice: false })
     // 1+1 played, streak 1+1, and the '3' bin appended to the existing '4'.
     expect(statsRecord()).toMatchObject({ played: 2, wins: 2, current_streak: 2 })
+    // The response stats use the SAME camelCase wire shape as GET /api/stats/me
+    // (serializeStats) — the result card reads currentStreak/winRate off it.
+    expect(body.stats).toMatchObject({
+      played: 2,
+      wins: 2,
+      winRate: 100,
+      currentStreak: 2,
+      maxStreak: 2,
+      distribution: { '3': 1, '4': 1, '1': 0, '2': 0, '5': 0, '6': 0 },
+    })
   })
 
   it('a sixth wrong guess records a loss with the answer revealed', async () => {

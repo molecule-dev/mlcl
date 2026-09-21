@@ -119,6 +119,35 @@ export function normalizeGuess(value: unknown): string | null {
 }
 
 /**
+ * The wire shape of a stats projection — camelCase, winRate derived, and the
+ * distribution padded to all six bins. BOTH stats surfaces must serialize
+ * through this: GET /api/stats/me AND the game-ending guess response (the
+ * result card reads currentStreak/winRate off it). Before this helper the
+ * guess route leaked the raw snake_case row, so the card rendered
+ * "Streak: 🔥" / "Win rate: %" with no values.
+ */
+export function serializeStats(stats: UserStats): {
+  played: number
+  wins: number
+  winRate: number
+  currentStreak: number
+  maxStreak: number
+  distribution: Record<string, number>
+} {
+  const distribution: Record<string, number> = {}
+  for (let i = 1; i <= MAX_GUESSES; i++)
+    distribution[String(i)] = stats.distribution?.[String(i)] ?? 0
+  return {
+    played: stats.played,
+    wins: stats.wins,
+    winRate: stats.played > 0 ? Math.round((100 * stats.wins) / stats.played) : 0,
+    currentStreak: stats.current_streak,
+    maxStreak: stats.max_streak,
+    distribution,
+  }
+}
+
+/**
  * Turn finished guesses into the shareable emoji grid (🟩🟨⬛ + header/footer),
  * built client-side from feedback the API already returned — but the mapping
  * lives here so a server-side test pins the exact emoji semantics.

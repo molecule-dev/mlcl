@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany, findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { aggregate, type Filter } from '@molecule/api-reporting'
 
 import { isValidDateKey, todayUtc } from '../lib/puzzle-engine.js'
@@ -111,7 +112,7 @@ router.get('/', async (req: Request, res: Response) => {
       })),
     })
   } catch (error) {
-    console.error(error)
+    logger.error('leaderboard.load_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

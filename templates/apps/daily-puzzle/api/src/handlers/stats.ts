@@ -3,8 +3,9 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
-import { emptyStats, MAX_GUESSES, type UserStats } from '../lib/puzzle-engine.js'
+import { emptyStats, serializeStats, type UserStats } from '../lib/puzzle-engine.js'
 
 const router = Router()
 
@@ -21,24 +22,11 @@ router.get('/me', async (_req: Request, res: Response) => {
     const row = await findOne<UserStats & { user_id: string }>('user_stats', [
       { field: 'user_id', operator: '=', value: userId },
     ])
-    const stats = row ?? emptyStats()
-
-    // Distribution always carries all six bins so the histogram renders a
-    // full frame even before the first game.
-    const distribution: Record<string, number> = {}
-    for (let i = 1; i <= MAX_GUESSES; i++)
-      distribution[String(i)] = stats.distribution?.[String(i)] ?? 0
-
-    return res.json({
-      played: stats.played,
-      wins: stats.wins,
-      winRate: stats.played > 0 ? Math.round((100 * stats.wins) / stats.played) : 0,
-      currentStreak: stats.current_streak,
-      maxStreak: stats.max_streak,
-      distribution,
-    })
+    // Shared serializer: camelCase + winRate + all six bins, identical to
+    // the game-ending guess response.
+    return res.json(serializeStats(row ?? emptyStats()))
   } catch (error) {
-    console.error(error)
+    logger.error('stats.load_failed', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

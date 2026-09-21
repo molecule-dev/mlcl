@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -42,6 +43,14 @@ function unwrap<T>(res: unknown): T {
     return (res as { data: T }).data
   }
   return res as T
+}
+
+/** Streak lengths worth a dedicated analytics event (ranked wins only). */
+const STREAK_MILESTONES = [3, 5, 7, 10, 14, 21, 30, 50, 100]
+
+/** Fire-and-forget domain event — analytics is a silent no-op without a key. */
+function trackEvent(name: string, properties: Record<string, unknown>): void {
+  void track({ name, properties }).catch(() => undefined)
 }
 
 /**
@@ -149,6 +158,23 @@ export function PuzzleGame({ date }: PuzzleGameProps) {
         )
         if (body.stats) setFinalStats(body.stats)
         setInput('')
+
+        // Domain events — fire-and-forget, never block or fail the game.
+        const gameProps = {
+          puzzleNumber: state.puzzleNumber,
+          attempts: body.attempts,
+          practice: state.practice,
+        }
+        trackEvent('guess.submitted', gameProps)
+        if (body.status === 'won' || body.status === 'lost') {
+          trackEvent('puzzle.completed', { ...gameProps, status: body.status })
+          if (!state.practice && body.stats && body.status === 'won') {
+            const streak = body.stats.currentStreak
+            if (STREAK_MILESTONES.includes(streak)) {
+              trackEvent('streak.milestone', { streak, ...gameProps })
+            }
+          }
+        }
       } catch (err) {
         const status = (err as { status?: number }).status ?? 0
         if (status === 422) {
@@ -218,6 +244,11 @@ export function PuzzleGame({ date }: PuzzleGameProps) {
 
   const handleShare = useCallback(async () => {
     if (!state) return
+    trackEvent('puzzle.shared', {
+      puzzleNumber: state.puzzleNumber,
+      status: state.status,
+      practice: state.practice,
+    })
     const text = buildShareText(
       state.puzzleNumber,
       state.guesses,
@@ -306,7 +337,10 @@ export function PuzzleGame({ date }: PuzzleGameProps) {
             to="/stats"
             className={cm.cn(
               cm.textSize('sm'),
-              'font-semibold text-on-surface-variant hover:text-primary transition-colors',
+              // p-2/-m-2 grows the ~20px text link to a ~36px touch target
+              // with zero visual shift — this is the only tap control on the
+              // game screen besides the keyboard.
+              'p-2 -m-2 font-semibold text-on-surface-variant hover:text-primary transition-colors',
             )}
             data-mol-id="play-stats-link"
           >

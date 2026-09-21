@@ -101,7 +101,9 @@ export function Stats() {
 
       {stats && (
         <>
-          <div className={cm.cn(cm.grid({ cols: 4 }), 'gap-3 mb-8')}>
+          {/* 2x2 on phones, full row from lg — a 1-col ramp wastes a whole
+              card per two-digit number, and 4-across cramps below sm. */}
+          <div className={cm.cn('grid grid-cols-2 lg:grid-cols-4', 'gap-3 mb-8')}>
             <StatCard
               value={stats.played}
               label={t('stats.played', {}, { defaultValue: 'Played' })}
