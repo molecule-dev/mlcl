@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-landing.html",
+      "designScreenId": "d3bb23b2ee3d44cc8a62a80dad7bfb32"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-login.html",
+      "designScreenId": "05fe07c7c351444cb1f540e73a19dae8"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-signup.html",
+      "designScreenId": "c2dfcea0288c47d781429ae4bd37eb6e"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-forgot-password.html",
+      "designScreenId": "9312bd36f387481eaa06f54b8866d70f"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-reset-password.html",
+      "designScreenId": "8203199483a44102b3dc72cc94aad458"
     },
     {
       "name": "Boards",
@@ -53,7 +58,8 @@
       "route": "/boards",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-boards.html",
+      "designScreenId": "fc62b3f1b5c34629b45e7f75e4aab763"
     },
     {
       "name": "BoardDetail",
@@ -62,7 +68,8 @@
       "route": "/b/:slug",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-board-detail.html",
+      "designScreenId": "dcc9dcdb0cb64d7c9fad813e0a25a482"
     },
     {
       "name": "PostDetail",
@@ -71,7 +78,8 @@
       "route": "/post/:id",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-post-detail.html",
+      "designScreenId": "5029e475aac346ce80106d0907850cce"
     },
     {
       "name": "Roadmap",
@@ -80,7 +88,8 @@
       "route": "/roadmap",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-roadmap.html",
+      "designScreenId": "e7e861a625af4e9493dcbe3903a4a456"
     },
     {
       "name": "Changelog",
@@ -89,7 +98,8 @@
       "route": "/changelog",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-changelog.html",
+      "designScreenId": "6ecfd5bd4b67423e998acf5b3f0da70b"
     },
     {
       "name": "Search",
@@ -98,7 +108,8 @@
       "route": "/search",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-search.html",
+      "designScreenId": "97ab5acbe97b4edb9d042d1c899b2155"
     },
     {
       "name": "SubmitPost",
@@ -107,7 +118,8 @@
       "route": "/submit",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-submit-post.html",
+      "designScreenId": "11a32b489d1242de967f79fad8b57672"
     },
     {
       "name": "MyActivity",
@@ -116,7 +128,8 @@
       "route": "/my-activity",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-my-activity.html",
+      "designScreenId": "eeafb1e50f0e4afb9dbfa61adf2cc78c"
     },
     {
       "name": "AdminDashboard",
@@ -125,7 +138,8 @@
       "route": "/admin",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-admin-dashboard.html",
+      "designScreenId": "665dd5e7ab4a4e41943d9fb2252d14a8"
     },
     {
       "name": "PostsAdmin",
@@ -134,7 +148,8 @@
       "route": "/admin/posts",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-posts-admin.html",
+      "designScreenId": "b3ad284d166d450cabe937025cb2546a"
     },
     {
       "name": "Settings",
@@ -143,7 +158,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-settings.html",
+      "designScreenId": "cc25b2c1e3314b34870f6a90c3d69129"
     },
     {
       "name": "Pricing",
@@ -152,7 +168,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-pricing.html",
+      "designScreenId": "5474cd906a6543eba3e8356e606c6d40"
     },
     {
       "name": "About",
@@ -161,7 +178,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-about.html",
+      "designScreenId": "9de196bc27ef4911b8cd3557e0d358f4"
     },
     {
       "name": "Terms",
@@ -170,7 +188,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-terms.html",
+      "designScreenId": "14f10380902a4476b33c8dae8feb327d"
     },
     {
       "name": "Privacy",
@@ -179,7 +198,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-privacy.html",
+      "designScreenId": "8f11864756ad45e49bd678f139d50c22"
     },
     {
       "name": "PlanUpdated",
@@ -188,7 +208,8 @@
       "route": "/plan-updated",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-plan-updated.html",
+      "designScreenId": "c47ce7e7bae84a658ac54d9a80e58f0f"
     },
     {
       "name": "NotFound",
@@ -197,7 +218,8 @@
       "route": "/*",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-feedback-roadmap-not-found.html",
+      "designScreenId": "9559fc468e794884b773011710001a5e"
     }
   ]
 }
