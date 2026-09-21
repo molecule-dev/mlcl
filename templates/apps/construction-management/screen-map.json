@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-landing.html",
+      "designScreenId": "1ffc6a13c8f941d19a8b7995d736cc9a"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-login.html",
+      "designScreenId": "821121af4c614a0582630f360950b966"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-signup.html",
+      "designScreenId": "725dea624f88475fa9ec7c979df49179"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-forgot-password.html",
+      "designScreenId": "7e99685855f344ea93ab0ec37379482b"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-reset-password.html",
+      "designScreenId": "b678ecd5e3264660802476ddfa01d026"
     },
     {
       "name": "Pricing",
@@ -53,7 +58,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-pricing.html",
+      "designScreenId": "52c2950c16fc4ac48af543da7281c64f"
     },
     {
       "name": "About",
@@ -62,7 +68,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-about.html",
+      "designScreenId": "64290accbb014c28990e5a2312be1509"
     },
     {
       "name": "Terms",
@@ -71,7 +78,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-terms.html",
+      "designScreenId": "c708772373e34e48a00f601ecb14a8b1"
     },
     {
       "name": "Privacy",
@@ -80,7 +88,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-privacy.html",
+      "designScreenId": "1f703c7b33b84e3698a143f24d0f4ed5"
     },
     {
       "name": "Dashboard",
@@ -89,7 +98,8 @@
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-dashboard.html",
+      "designScreenId": "45b65d1212874562a762951adb5224a2"
     },
     {
       "name": "Projects",
@@ -98,7 +108,8 @@
       "route": "/projects",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-projects.html",
+      "designScreenId": "d7ccce1c940348a2a2b2b314195285f8"
     },
     {
       "name": "ProjectDetail",
@@ -107,7 +118,8 @@
       "route": "/projects/:projectId",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-project-detail.html",
+      "designScreenId": "6a3321663c42409abe7a2d9d4171bfa5"
     },
     {
       "name": "DailyLogs",
@@ -116,7 +128,8 @@
       "route": "/projects/:projectId/logs",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-daily-logs.html",
+      "designScreenId": "6fe92202056a403abd80e2a381d2bb9d"
     },
     {
       "name": "PunchList",
@@ -125,7 +138,8 @@
       "route": "/projects/:projectId/punch",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-punch-list.html",
+      "designScreenId": "3b3ae646fca1453e8ac7d9d321d33325"
     },
     {
       "name": "Rfis",
@@ -134,7 +148,8 @@
       "route": "/projects/:projectId/rfis",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-rfis.html",
+      "designScreenId": "2f4be012d0414778957be02991a33d95"
     },
     {
       "name": "RfiDetail",
@@ -143,7 +158,8 @@
       "route": "/projects/:projectId/rfis/:rfiId",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-rfi-detail.html",
+      "designScreenId": "ae06e92f32854845b68a6eb67064d17b"
     },
     {
       "name": "Subcontractors",
@@ -152,7 +168,8 @@
       "route": "/projects/:projectId/subs",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-subcontractors.html",
+      "designScreenId": "c6f6a47b1d84479e84b9f760ef6aaf5f"
     },
     {
       "name": "Settings",
@@ -161,7 +178,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-settings.html",
+      "designScreenId": "283eaf2010ad48b28d896f96953da614"
     },
     {
       "name": "PlanUpdated",
@@ -170,7 +188,8 @@
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-construction-management-plan-updated.html",
+      "designScreenId": "8380da92a22a41228a5ad0fc9ab16a59"
     }
   ]
 }
