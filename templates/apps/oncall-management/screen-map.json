@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-landing.html",
+      "designScreenId": "e737e39b2cd4426b9d80506e28e36ffb"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-login.html",
+      "designScreenId": "1684a70682e64f27b642489dcf532f3d"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-signup.html",
+      "designScreenId": "0c51daa3d84b4937b5321fb7074fd754"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-forgot-password.html",
+      "designScreenId": "3d306b9d95a64e239335b7c9073acfd2"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-reset-password.html",
+      "designScreenId": "1b864cb7b8764b889bca6b62be76bb2e"
     },
     {
       "name": "Dashboard",
@@ -53,7 +58,8 @@
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-dashboard.html",
+      "designScreenId": "07fcc9db68c742a2affbda3a8aee03c8"
     },
     {
       "name": "Incidents",
@@ -62,7 +68,8 @@
       "route": "/incidents",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-incidents.html",
+      "designScreenId": "11eb25739045488a98b2829130eb77db"
     },
     {
       "name": "IncidentDetail",
@@ -71,7 +78,8 @@
       "route": "/incidents/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-incident-detail.html",
+      "designScreenId": "f25385c5260a43c7b5244c2fce6e54c7"
     },
     {
       "name": "Schedules",
@@ -80,7 +88,8 @@
       "route": "/schedules",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-schedules.html",
+      "designScreenId": "056b88abf6b644b5bc60bfcbca9c2ded"
     },
     {
       "name": "ScheduleDetail",
@@ -89,7 +98,8 @@
       "route": "/schedules/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-schedule-detail.html",
+      "designScreenId": "18646725f44d41d181c7e73442aeec2b"
     },
     {
       "name": "EscalationPolicies",
@@ -98,7 +108,8 @@
       "route": "/escalation-policies",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-escalation-policies.html",
+      "designScreenId": "ad1ca72b3f0f4245bf895b2cbdf60244"
     },
     {
       "name": "Postmortems",
@@ -107,7 +118,8 @@
       "route": "/postmortems",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-postmortems.html",
+      "designScreenId": "caa935a9b4a648ec88477f5492780f1d"
     },
     {
       "name": "PostmortemDetail",
@@ -116,7 +128,8 @@
       "route": "/postmortems/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-postmortem-detail.html",
+      "designScreenId": "e7b0a326d5804c4199365696e3dea118"
     },
     {
       "name": "Team",
@@ -125,7 +138,8 @@
       "route": "/team",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-team.html",
+      "designScreenId": "4771642d74bb4837906a74a97e2c9f73"
     },
     {
       "name": "Notifications",
@@ -134,7 +148,8 @@
       "route": "/notifications",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-notifications.html",
+      "designScreenId": "a37e4d880daa4007b5b5d1ba225a3696"
     },
     {
       "name": "Settings",
@@ -143,7 +158,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-settings.html",
+      "designScreenId": "a85a2ef93fa0456b9c1726d5a760213e"
     },
     {
       "name": "Profile",
@@ -152,7 +168,8 @@
       "route": "/profile",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-profile.html",
+      "designScreenId": "fed44e83271c4591b411b7599361c282"
     },
     {
       "name": "Pricing",
@@ -161,7 +178,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-pricing.html",
+      "designScreenId": "10869d37d9d54bfa8d94e33c0896c37e"
     },
     {
       "name": "PlanUpdated",
@@ -170,7 +188,8 @@
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-plan-updated.html",
+      "designScreenId": "0f7009c134a74ad6b3a163beb8290ebc"
     },
     {
       "name": "About",
@@ -179,7 +198,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-about.html",
+      "designScreenId": "8c35366d825a4ff0b25eaea57823e0d8"
     },
     {
       "name": "Privacy",
@@ -188,7 +208,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-privacy.html",
+      "designScreenId": "cecf3fa77c414f84816c0c6982c0f052"
     },
     {
       "name": "Terms",
@@ -197,7 +218,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-terms.html",
+      "designScreenId": "5cce981578fa4cbdad452203005ed828"
     },
     {
       "name": "NotFound",
@@ -206,7 +228,8 @@
       "route": "/404",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-oncall-management-not-found.html",
+      "designScreenId": "5292a3276b2c426bb746e538ba900325"
     }
   ]
 }
