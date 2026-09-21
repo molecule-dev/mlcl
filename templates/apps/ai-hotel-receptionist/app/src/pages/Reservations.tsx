@@ -148,85 +148,89 @@ export function Reservations() {
             {t('reservations.empty', {}, { defaultValue: 'No reservations match this filter.' })}
           </p>
         ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-on-surface-variant border-b border-outline-variant">
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.guest', {}, { defaultValue: 'Guest' })}
-                </th>
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.dates', {}, { defaultValue: 'Dates' })}
-                </th>
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.guestsCol', {}, { defaultValue: 'Guests' })}
-                </th>
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.total', {}, { defaultValue: 'Total' })}
-                </th>
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.status', {}, { defaultValue: 'Status' })}
-                </th>
-                <th className={cm.sp('p', 4)} scope="col">
-                  {t('reservations.source', {}, { defaultValue: 'Source' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.id} className="border-b border-outline-variant/50 last:border-0">
-                  <td className={cm.sp('p', 4)}>
-                    <Link
-                      to={'/reservations/' + r.id}
-                      data-mol-id={'reservation-row-' + r.confirmation_code}
-                      className="font-semibold text-primary hover:underline"
-                    >
-                      {r.guest_name}
-                    </Link>
-                    <span
-                      className={cm.cn(
-                        cm.sp('ml', 2),
-                        cm.textSize('xs'),
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {r.confirmation_code}
-                    </span>
-                  </td>
-                  <td className={cm.sp('p', 4)}>
-                    {formatDate(r.check_in)} → {formatDate(r.check_out)} ({r.nights}{' '}
-                    {t('common.nights', {}, { defaultValue: 'nights' })})
-                  </td>
-                  <td className={cm.sp('p', 4)}>{r.guests}</td>
-                  <td className={cm.sp('p', 4)}>{formatCents(r.total_cents)}</td>
-                  <td className={cm.sp('p', 4)}>
-                    <span
-                      data-mol-id={'reservation-status-' + r.confirmation_code}
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.sp('py', 1),
-                        cm.textSize('xs'),
-                        cm.fontWeight('bold'),
-                        'rounded-full bg-surface-container-high',
-                      )}
-                    >
-                      {t(
-                        'reservationStatus.' + r.status,
-                        {},
-                        { defaultValue: r.status.replace(/_/g, ' ') },
-                      )}
-                    </span>
-                  </td>
-                  <td className={cm.sp('p', 4)}>
-                    {t(
-                      'reservationSource.' + r.source,
-                      {},
-                      { defaultValue: r.source.replace(/_/g, ' ') },
-                    )}
-                  </td>
+          // Horizontal scroll on narrow screens — the 6-column table stays
+          // legible instead of being crushed into the card.
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="text-left text-on-surface-variant border-b border-outline-variant">
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.guest', {}, { defaultValue: 'Guest' })}
+                  </th>
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.dates', {}, { defaultValue: 'Dates' })}
+                  </th>
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.guestsCol', {}, { defaultValue: 'Guests' })}
+                  </th>
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.total', {}, { defaultValue: 'Total' })}
+                  </th>
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.status', {}, { defaultValue: 'Status' })}
+                  </th>
+                  <th className={cm.sp('p', 4)} scope="col">
+                    {t('reservations.source', {}, { defaultValue: 'Source' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {rows.map((r) => (
+                  <tr key={r.id} className="border-b border-outline-variant/50 last:border-0">
+                    <td className={cm.sp('p', 4)}>
+                      <Link
+                        to={'/reservations/' + r.id}
+                        data-mol-id={'reservation-row-' + r.confirmation_code}
+                        className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
+                      >
+                        {r.guest_name}
+                      </Link>
+                      <span
+                        className={cm.cn(
+                          cm.sp('ml', 2),
+                          cm.textSize('xs'),
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {r.confirmation_code}
+                      </span>
+                    </td>
+                    <td className={cm.sp('p', 4)}>
+                      {formatDate(r.check_in)} → {formatDate(r.check_out)} ({r.nights}{' '}
+                      {t('common.nights', {}, { defaultValue: 'nights' })})
+                    </td>
+                    <td className={cm.sp('p', 4)}>{r.guests}</td>
+                    <td className={cm.sp('p', 4)}>{formatCents(r.total_cents)}</td>
+                    <td className={cm.sp('p', 4)}>
+                      <span
+                        data-mol-id={'reservation-status-' + r.confirmation_code}
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.sp('py', 1),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'rounded-full bg-surface-container-high',
+                        )}
+                      >
+                        {t(
+                          'reservationStatus.' + r.status,
+                          {},
+                          { defaultValue: r.status.replace(/_/g, ' ') },
+                        )}
+                      </span>
+                    </td>
+                    <td className={cm.sp('p', 4)}>
+                      {t(
+                        'reservationSource.' + r.source,
+                        {},
+                        { defaultValue: r.source.replace(/_/g, ' ') },
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

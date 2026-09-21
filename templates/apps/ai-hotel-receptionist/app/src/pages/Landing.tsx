@@ -132,7 +132,7 @@ export function Landing() {
                 cm.sp('px', 6),
                 cm.sp('py', 3),
                 cm.fontWeight('bold'),
-                'rounded-xl bg-accent text-on-tertiary hover:opacity-90 transition-opacity shadow-lg',
+                'rounded-xl bg-accent text-accent-ink hover:opacity-90 transition-opacity shadow-lg',
               )}
             >
               {t('landing.hero.ctaPrimary', {}, { defaultValue: 'Start answering in 6 languages' })}

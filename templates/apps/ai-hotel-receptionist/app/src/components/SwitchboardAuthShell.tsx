@@ -252,7 +252,7 @@ export function SwitchboardAuthShell({
               <button
                 type="button"
                 onClick={openPrivacy}
-                className={'hover:text-primary transition-colors'}
+                className={'-my-2 inline-block py-2 hover:text-primary transition-colors'}
                 data-mol-id="auth-privacy-link"
               >
                 {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
@@ -260,7 +260,7 @@ export function SwitchboardAuthShell({
               <button
                 type="button"
                 onClick={openTerms}
-                className={'hover:text-primary transition-colors'}
+                className={'-my-2 inline-block py-2 hover:text-primary transition-colors'}
                 data-mol-id="auth-terms-link"
               >
                 {t('nav.terms', {}, { defaultValue: 'Terms' })}

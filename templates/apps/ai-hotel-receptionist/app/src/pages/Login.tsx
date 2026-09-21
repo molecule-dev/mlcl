@@ -63,7 +63,7 @@ export function Login() {
           </span>
           <Link
             to="/signup"
-            className={'text-primary font-bold hover:underline'}
+            className={'-my-2 inline-block py-2 text-primary font-bold hover:underline'}
             data-mol-id="login-signup-link"
           >
             {t('login.signupLink', {}, { defaultValue: 'Create an account' })}
@@ -123,7 +123,7 @@ export function Login() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:underline',
+                '-my-2 inline-block py-2 text-primary hover:underline',
               )}
               data-mol-id="login-forgot-link"
             >

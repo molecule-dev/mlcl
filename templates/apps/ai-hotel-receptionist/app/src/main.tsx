@@ -1,5 +1,6 @@
+// theme.css is imported inside index.css (tailwind entry) so its @theme
+// block registers utilities — see the comment there.
 import './index.css'
-import './theme.css'
 
 import { bootstrapApp } from '@molecule/app-bonds-default-react'
 

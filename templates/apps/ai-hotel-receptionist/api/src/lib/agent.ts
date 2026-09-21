@@ -41,6 +41,23 @@ import {
   searchAvailability,
 } from './pms.js'
 
+/**
+ * Postgres DATE columns arrive as JS Date objects (constructed at LOCAL
+ * midnight), and a raw Date interpolates into reply text as
+ * "Fri Sep 25 2026 00:00:00 GMT+0300 (...)". Normalize back to the plain
+ * YYYY-MM-DD calendar day — using LOCAL date parts, since toISOString()
+ * on a local-midnight Date shifts to the PREVIOUS day west of UTC.
+ */
+function toIsoDate(value: unknown): string {
+  if (typeof value === 'string') return value.slice(0, 10)
+  if (value instanceof Date && Number.isFinite(value.getTime())) {
+    const month = String(value.getMonth() + 1).padStart(2, '0')
+    const day = String(value.getDate()).padStart(2, '0')
+    return `${value.getFullYear()}-${month}-${day}`
+  }
+  return String(value ?? '')
+}
+
 export interface CallRow {
   id: string
   voice_agent_id: string
@@ -453,8 +470,8 @@ export async function runScriptedTurn(
       )
       const vars: ScriptedReplyVars = {
         roomTypeName: pick.room_type.name,
-        checkIn: reservation.check_in,
-        checkOut: reservation.check_out,
+        checkIn: toIsoDate(reservation.check_in),
+        checkOut: toIsoDate(reservation.check_out),
         totalCents: reservation.total_cents,
         confirmationCode: reservation.confirmation_code,
       }

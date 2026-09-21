@@ -130,7 +130,7 @@ export function CallDetail() {
         className={cm.cn(
           cm.textSize('sm'),
           cm.fontWeight('semibold'),
-          'text-primary hover:underline',
+          '-my-2 inline-block py-2 text-primary hover:underline',
         )}
       >
         ← {t('calls.heading', {}, { defaultValue: 'Calls' })}

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -39,7 +40,7 @@ const ROOM_STATUSES = ['vacant_clean', 'occupied', 'cleaning', 'out_of_order'] a
 const STATUS_TONES: Record<string, string> = {
   vacant_clean: 'bg-success/10 text-success',
   occupied: 'bg-primary/10 text-primary',
-  cleaning: 'bg-accent/15 text-on-tertiary',
+  cleaning: 'bg-accent/15 text-accent-strong',
   out_of_order: 'bg-error/10 text-error',
 }
 
@@ -75,6 +76,7 @@ export function RoomsRates() {
   const setRoomStatus = async (roomId: string, status: string) => {
     try {
       await http.patch('/api/rooms/' + roomId, { status })
+      void track({ name: 'room.status_updated', properties: { room_id: roomId, status } })
       await load()
     } catch (_e) {
       setError(
@@ -128,54 +130,60 @@ export function RoomsRates() {
         <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), cm.sp('p', 4))}>
           {t('roomsRates.roomTypes', {}, { defaultValue: 'Room types' })}
         </h2>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-on-surface-variant border-b border-outline-variant">
-              <th className={cm.sp('p', 4)} scope="col">
-                {t('roomsRates.type', {}, { defaultValue: 'Type' })}
-              </th>
-              <th className={cm.sp('p', 4)} scope="col">
-                {t('roomsRates.occupancy', {}, { defaultValue: 'Occupancy' })}
-              </th>
-              <th className={cm.sp('p', 4)} scope="col">
-                {t('roomsRates.baseRate', {}, { defaultValue: 'Base rate' })}
-              </th>
-              <th className={cm.sp('p', 4)} scope="col">
-                {t('roomsRates.units', {}, { defaultValue: 'Units' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {roomTypes.map((rt) => (
-              <tr key={rt.id} className="border-b border-outline-variant/50 last:border-0">
-                <td className={cm.sp('p', 4)}>
-                  <span data-mol-id={'room-type-' + rt.id} className="font-semibold">
-                    {rt.name}
-                  </span>
-                  {rt.description ? (
-                    <span className={cm.cn('block', cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {rt.description}
-                    </span>
-                  ) : null}
-                </td>
-                <td className={cm.sp('p', 4)}>
-                  {t(
-                    'roomsRates.sleeps',
-                    { count: rt.occupancy },
-                    { defaultValue: 'sleeps {{count}}' },
-                  )}
-                </td>
-                <td className={cm.sp('p', 4)}>
-                  {formatCents(rt.base_rate_cents)}
-                  {t('common.perNight', {}, { defaultValue: '/night' })}
-                </td>
-                <td className={cm.sp('p', 4)}>
-                  {rooms.filter((r) => r.room_type_id === rt.id).length}
-                </td>
+        {/* Horizontal scroll on narrow screens — keeps the section's rounded
+            clipping from cutting the table off. */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="text-left text-on-surface-variant border-b border-outline-variant">
+                <th className={cm.sp('p', 4)} scope="col">
+                  {t('roomsRates.type', {}, { defaultValue: 'Type' })}
+                </th>
+                <th className={cm.sp('p', 4)} scope="col">
+                  {t('roomsRates.occupancy', {}, { defaultValue: 'Occupancy' })}
+                </th>
+                <th className={cm.sp('p', 4)} scope="col">
+                  {t('roomsRates.baseRate', {}, { defaultValue: 'Base rate' })}
+                </th>
+                <th className={cm.sp('p', 4)} scope="col">
+                  {t('roomsRates.units', {}, { defaultValue: 'Units' })}
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {roomTypes.map((rt) => (
+                <tr key={rt.id} className="border-b border-outline-variant/50 last:border-0">
+                  <td className={cm.sp('p', 4)}>
+                    <span data-mol-id={'room-type-' + rt.id} className="font-semibold">
+                      {rt.name}
+                    </span>
+                    {rt.description ? (
+                      <span
+                        className={cm.cn('block', cm.textSize('xs'), 'text-on-surface-variant')}
+                      >
+                        {rt.description}
+                      </span>
+                    ) : null}
+                  </td>
+                  <td className={cm.sp('p', 4)}>
+                    {t(
+                      'roomsRates.sleeps',
+                      { count: rt.occupancy },
+                      { defaultValue: 'sleeps {{count}}' },
+                    )}
+                  </td>
+                  <td className={cm.sp('p', 4)}>
+                    {formatCents(rt.base_rate_cents)}
+                    {t('common.perNight', {}, { defaultValue: '/night' })}
+                  </td>
+                  <td className={cm.sp('p', 4)}>
+                    {rooms.filter((r) => r.room_type_id === rt.id).length}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {/* Room board with inline status change */}

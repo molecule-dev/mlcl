@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -106,6 +107,10 @@ export function ReservationDetail() {
     setBusy(true)
     try {
       await http.put('/api/reservations/' + reservation.id + '/status', { status: next })
+      void track({
+        name: 'reservation.status_changed',
+        properties: { reservation_id: reservation.id, from: reservation.status, to: next },
+      })
       await load()
     } catch (_e) {
       setError(
@@ -177,7 +182,7 @@ export function ReservationDetail() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'text-primary hover:underline',
+              '-my-2 inline-block py-2 text-primary hover:underline',
             )}
           >
             ← {t('reservations.heading', {}, { defaultValue: 'Reservations' })}

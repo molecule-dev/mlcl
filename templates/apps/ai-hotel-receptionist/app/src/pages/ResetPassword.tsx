@@ -50,7 +50,7 @@ export function ResetPassword() {
       footer={
         <Link
           to="/login"
-          className={'text-primary font-bold hover:underline'}
+          className={'-my-2 inline-block py-2 text-primary font-bold hover:underline'}
           data-mol-id="reset-back-link"
         >
           {t('forgotPassword.backToSignIn', {}, { defaultValue: 'Back to sign in' })}

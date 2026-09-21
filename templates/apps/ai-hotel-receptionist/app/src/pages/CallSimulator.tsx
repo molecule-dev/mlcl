@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -152,6 +153,10 @@ export function CallSimulator() {
       const payload = unwrapSingle<{ id: string; greeting: string }>(res)
       if (!payload) throw new Error('no call')
       setCallId(payload.id)
+      void track({
+        name: 'call.simulated',
+        properties: { call_id: payload.id, agent_id: agentId, language, mode },
+      })
       setOutcome(null)
       setActions([])
       setDetectedLanguage(language)

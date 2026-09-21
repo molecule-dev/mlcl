@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -100,6 +101,12 @@ export function NewReservation() {
         notes: notes || undefined,
       })
       const created = unwrapSingle<ReservationRow>(res)
+      if (created) {
+        void track({
+          name: 'reservation.created',
+          properties: { reservation_id: created.id, room_type_id: selected },
+        })
+      }
       navigate(created ? '/reservations/' + created.id : '/reservations')
     } catch (_e) {
       setError(t('newReservation.bookError', {}, { defaultValue: 'The booking was rejected.' }))
@@ -122,7 +129,7 @@ export function NewReservation() {
         className={cm.cn(
           cm.textSize('sm'),
           cm.fontWeight('semibold'),
-          'text-primary hover:underline',
+          '-my-2 inline-block py-2 text-primary hover:underline',
         )}
       >
         ← {t('reservations.heading', {}, { defaultValue: 'Reservations' })}

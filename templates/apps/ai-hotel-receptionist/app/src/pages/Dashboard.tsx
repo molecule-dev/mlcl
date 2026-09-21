@@ -46,7 +46,7 @@ interface RoomRow {
 const STATUS_TONES: Record<string, string> = {
   vacant_clean: 'bg-success/10 text-success',
   occupied: 'bg-primary/10 text-primary',
-  cleaning: 'bg-accent/15 text-on-tertiary',
+  cleaning: 'bg-accent/15 text-accent-strong',
   out_of_order: 'bg-error/10 text-error',
 }
 
@@ -244,7 +244,7 @@ export function Dashboard() {
                   <Link
                     to={'/reservations/' + r.id}
                     data-mol-id={'dashboard-arrival-' + r.confirmation_code}
-                    className="font-semibold text-primary hover:underline"
+                    className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
                   >
                     {r.guest_name}
                   </Link>
@@ -287,7 +287,7 @@ export function Dashboard() {
                   <Link
                     to={'/reservations/' + r.id}
                     data-mol-id={'dashboard-departure-' + r.confirmation_code}
-                    className="font-semibold text-primary hover:underline"
+                    className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
                   >
                     {r.guest_name}
                   </Link>
@@ -359,7 +359,7 @@ export function Dashboard() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'text-primary hover:underline',
+              '-my-2 inline-block py-2 text-primary hover:underline',
             )}
           >
             {t('dashboard.viewAllCalls', {}, { defaultValue: 'View all calls' })}
@@ -380,7 +380,7 @@ export function Dashboard() {
                 <Link
                   to={'/calls/' + c.id}
                   data-mol-id={'dashboard-call-' + c.id}
-                  className="font-semibold text-primary hover:underline"
+                  className="-my-2 inline-block py-2 font-semibold text-primary hover:underline"
                 >
                   {c.voice_agent_name ??
                     t('common.voiceAgent', {}, { defaultValue: 'Voice agent' })}

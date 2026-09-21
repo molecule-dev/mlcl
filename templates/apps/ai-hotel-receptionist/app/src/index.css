@@ -25,3 +25,29 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* App accent tokens — registered directly in the tailwind entry so the
+ * bg-accent / bg-accent-15 / text-accent-ink / text-accent-strong utilities
+ * actually generate. A plain variable in theme.css only shadows the CSS
+ * variable; Tailwind never saw it, so accent fills silently rendered as
+ * transparent.
+ *
+ * - accent: fills (hero CTA, status-tint chips, decorative glow blobs).
+ *   The dark block in theme.css re-points it at the brighter amber-400.
+ * - accent-ink: TEXT on a SOLID accent fill. Dark ink on light amber keeps
+ *   AA contrast in BOTH modes, so it has no dark override.
+ * - accent-strong: TEXT on a 15 percent accent TINT over the card (the
+ *   cleaning room status). Light needs a darker amber than accent itself
+ *   to pass AA on white; dark needs a lighter one on near-black surfaces.
+ */
+@theme {
+  --color-accent: #f59e0b;
+  --color-accent-ink: #451a03;
+  --color-accent-strong: #92400e;
+}
+
+/* App palette + dark-mode overrides — imported HERE (into the tailwind
+   entry) rather than via main.tsx so the cascade order of this entry is the
+   single ordering story: base.css first, app tokens last (see the
+   theming-model comment at the top of theme.css). */
+@import './theme.css';

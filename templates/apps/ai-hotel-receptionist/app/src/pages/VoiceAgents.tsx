@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -59,6 +60,14 @@ export function VoiceAgents() {
       const next = current.includes(lang) ? current.filter((l) => l !== lang) : [...current, lang]
       if (next.length === 0) return // an agent must speak at least one language
       await http.patch('/api/voice-agents/' + agent.id, { languages: next })
+      void track({
+        name: 'voice-agent.language_toggled',
+        properties: {
+          agent_id: agent.id,
+          language: lang,
+          enabled: next.includes(lang),
+        },
+      })
       await load()
     } catch (_e) {
       setError(t('voiceAgents.updateError', {}, { defaultValue: 'Could not update the agent.' }))

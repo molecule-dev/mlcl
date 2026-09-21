@@ -76,7 +76,7 @@ export function Signup() {
           </span>
           <Link
             to="/login"
-            className={'text-primary font-bold hover:underline'}
+            className={'-my-2 inline-block py-2 text-primary font-bold hover:underline'}
             data-mol-id="signup-login-link"
           >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

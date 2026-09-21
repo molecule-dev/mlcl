@@ -17,7 +17,6 @@
   --color-primary-dark: #004d43;
   --color-secondary: #455a64;
   --color-secondary-light: #78909c;
-  --color-accent: #f59e0b;
   --color-background: #f4f7f6;
   --color-surface: #ffffff;
   --color-surface-hover: #f0f5f4;
@@ -76,6 +75,7 @@
   --color-secondary: #90a4ae;
   --color-secondary-light: #b0bec5;
   --color-accent: #fbbf24;
+  --color-accent-strong: #fcd34d;
   --color-background: #0c1413;
   --color-surface: #12201e;
   --color-surface-hover: #182927;
