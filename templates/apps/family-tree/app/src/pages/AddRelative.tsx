@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,7 +91,7 @@ export function AddRelative() {
     setSaving(true)
     setError(null)
     try {
-      await http.post('/api/people', {
+      const res = await http.post('/api/people', {
         first_name: form.first_name.trim(),
         last_name: form.last_name.trim() || undefined,
         maiden_name: form.maiden_name.trim() || undefined,
@@ -101,6 +102,15 @@ export function AddRelative() {
         death_place: form.death_place.trim() || undefined,
         notes: form.notes.trim() || undefined,
         relative: { personId: anchor.id, relation },
+      })
+      const created = unwrapSingle<Person>(res)
+      track({
+        name: 'person.created',
+        properties: { person_id: created?.id, anchor_id: anchor.id, relation },
+      })
+      track({
+        name: 'relationship.added',
+        properties: { anchor_id: anchor.id, relative_id: created?.id, relation },
       })
       navigate(`/people/${anchor.id}`)
     } catch (err) {

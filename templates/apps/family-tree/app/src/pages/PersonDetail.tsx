@@ -32,6 +32,7 @@ export function PersonDetail() {
   const [data, setData] = useState<PersonDetailPayload | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     if (!id) return
@@ -71,7 +72,7 @@ export function PersonDetail() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [id, reload])
 
   if (loading) {
     return (
@@ -105,6 +106,22 @@ export function PersonDetail() {
           {t('personDetail.back', {}, { defaultValue: 'All people' })}
         </Link>
         <p className={cm.cn(cm.sp('py', 8), 'text-error font-bold')}>{error}</p>
+        <div>
+          <button
+            type="button"
+            data-mol-id="person-detail-retry"
+            onClick={() => setReload((n) => n + 1)}
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       </div>
     )
   }
@@ -172,7 +189,7 @@ export function PersonDetail() {
           cm.sp('mb', 6),
         )}
       >
-        <div>
+        <div className="min-w-0">
           <h1
             className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'tracking-tight')}
             data-mol-id="person-detail-name"
@@ -201,7 +218,9 @@ export function PersonDetail() {
               .join(' – ') || t('personDetail.datesUnknown', {}, { defaultValue: 'Dates unknown' })}
           </p>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        {/* wrap: the actions row must never clip "Add relative" off-screen on
+            narrow phones (same overflow class as the tree toolbar). */}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
           <Link
             to={`/people/${data.id}/edit`}
             data-mol-id="person-detail-edit"

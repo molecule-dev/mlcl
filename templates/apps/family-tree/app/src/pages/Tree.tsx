@@ -27,8 +27,10 @@ export function Tree() {
   const [tree, setTree] = useState<TreePayload | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [reload, setReload] = useState(0)
   const [rootId, setRootId] = useState<string | undefined>(undefined)
   const [zoom, setZoom] = useState(1)
+  const canvasRef = useRef<HTMLDivElement | null>(null)
   const [pan, setPanState] = useState({ x: 0, y: 0 })
   const panRef = useRef({ x: 0, y: 0 })
   const setPan = useCallback((p: { x: number; y: number }) => {
@@ -65,7 +67,7 @@ export function Tree() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rootId])
+  }, [rootId, reload])
 
   const nodes = useMemo(() => tree?.nodes ?? [], [tree])
   const edges = useMemo(() => tree?.edges ?? [], [tree])
@@ -131,6 +133,18 @@ export function Tree() {
     return out
   }, [edges, pos])
 
+  // After each (re)load, bring the root person into view: horizontally
+  // centered, eldest generation at the top. Without this the canvas opens on
+  // the top-left corner of the world — on a phone that is a single card with
+  // no context and no hint that the rest is out there.
+  useEffect(() => {
+    const el = canvasRef.current
+    const p = tree && tree.rootId ? pos.get(tree.rootId) : null
+    if (!el || !p) return
+    setPan({ x: el.clientWidth / 2 - p.centerX * zoom, y: 24 })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tree])
+
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     dragRef.current = {
       startX: e.clientX,
@@ -170,7 +184,28 @@ export function Tree() {
   if (error || !tree) {
     return (
       <div className={cm.cn(cm.sp('p', 8))} data-mol-id="page-tree">
-        <p className={cm.cn(cm.sp('py', 8), 'text-error font-bold')}>{error}</p>
+        <div
+          className={cm.cn(
+            cm.sp('py', 8),
+            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+          )}
+        >
+          <p className="text-error font-bold">{error}</p>
+          <button
+            type="button"
+            data-mol-id="tree-retry"
+            onClick={() => setReload((n) => n + 1)}
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       </div>
     )
   }
@@ -196,7 +231,9 @@ export function Tree() {
             )}
           </p>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        {/* Wrap at every level: on a 390px screen the unwrapped controls row
+            overflowed off-screen (zoom-in/reset/Add person were unreachable). */}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
           <button
             type="button"
             data-mol-id="tree-zoom-out"
@@ -241,7 +278,10 @@ export function Tree() {
             data-mol-id="tree-zoom-reset"
             onClick={() => {
               setZoom(1)
-              setPan({ x: 0, y: 0 })
+              const el = canvasRef.current
+              const p = tree.rootId ? pos.get(tree.rootId) : null
+              if (el && p) setPan({ x: el.clientWidth / 2 - p.centerX, y: 24 })
+              else setPan({ x: 0, y: 0 })
             }}
             className={cm.cn(
               cm.textSize('sm'),
@@ -314,6 +354,7 @@ export function Tree() {
             'touch-none select-none cursor-grab active:cursor-grabbing',
           )}
           style={{ height: '70vh' }}
+          ref={canvasRef}
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
@@ -373,11 +414,16 @@ export function Tree() {
                     onClick={(e) => {
                       e.stopPropagation()
                       setRootId(n.id)
-                      setPan({ x: 0, y: 0 })
                       setZoom(1)
+                      // Panning is handled by the center-on-root effect that
+                      // runs after the refetch lands.
                     }}
                     className={cm.cn(
-                      'absolute -top-2 -right-2 w-6 h-6 rounded-full bg-surface border border-outline-variant/60 shadow-sm flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors',
+                      // 28px visual + a ::before extending the hit area to
+                      // ~44px — the 24px original failed the mobile tap-target
+                      // floor (×14 cards on screen).
+                      'absolute -top-2 -right-2 w-7 h-7 rounded-full bg-surface border border-outline-variant/60 shadow-sm flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors',
+                      "before:content-[''] before:absolute before:-inset-1.5 before:rounded-full",
                     )}
                   >
                     <span className="material-symbols-outlined text-sm" aria-hidden="true">

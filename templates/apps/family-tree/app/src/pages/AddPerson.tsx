@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -36,6 +37,7 @@ export function AddPerson() {
         notes: form.notes.trim() || undefined,
       })
       const created = unwrapSingle<Person>(res)
+      track({ name: 'person.created', properties: { person_id: created?.id } })
       navigate(created?.id ? `/people/${created.id}` : '/people')
     } catch (err) {
       setError(

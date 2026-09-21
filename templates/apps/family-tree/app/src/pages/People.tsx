@@ -16,6 +16,7 @@ export function People() {
   const [people, setPeople] = useState<Person[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [reload, setReload] = useState(0)
   const [query, setQuery] = useState('')
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export function People() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
+  }, [query, reload])
 
   const livingCount = useMemo(() => people.filter((p) => !p.death_date).length, [people])
 
@@ -125,7 +126,28 @@ export function People() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : error ? (
-        <p className={cm.cn(cm.sp('py', 8), 'text-error font-bold')}>{error}</p>
+        <div
+          className={cm.cn(
+            cm.sp('py', 8),
+            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+          )}
+        >
+          <p className="text-error font-bold">{error}</p>
+          <button
+            type="button"
+            data-mol-id="people-retry"
+            onClick={() => setReload((n) => n + 1)}
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : people.length === 0 ? (
         <div
           className={cm.cn(

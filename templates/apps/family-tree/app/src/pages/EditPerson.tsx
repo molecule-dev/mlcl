@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,6 +76,7 @@ export function EditPerson() {
         death_place: form.death_place.trim() || null,
         notes: form.notes.trim() || null,
       })
+      track({ name: 'person.updated', properties: { person_id: id } })
       navigate(`/people/${id}`)
     } catch (err) {
       setError(
