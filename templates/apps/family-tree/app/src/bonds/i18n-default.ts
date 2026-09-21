@@ -37,7 +37,7 @@ import * as versionLocales from '@molecule/app-locales-version'
 
 import { ui as en } from '../locales/en/ui.js'
 
-const lazyLoadUi = (code: string) =>
+const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
   import(`../locales/${code}/ui.ts`).then((m: { ui: Record<string, string> }) => m.ui)
 
 export const i18nProvider = setupI18nProvider({
