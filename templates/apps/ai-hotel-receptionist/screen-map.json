@@ -28,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-signup.html",
+      "designScreenId": "6cb81578e8004cb1aa86c749dbd85f50"
     },
     {
       "name": "ForgotPassword",
@@ -37,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-forgot-password.html",
+      "designScreenId": "5cac9b2eea9940cc948f0f1402b081b5"
     },
     {
       "name": "ResetPassword",
@@ -46,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-reset-password.html",
+      "designScreenId": "b73834b14ae4490bbe9734d1b6f1c28f"
     },
     {
       "name": "Dashboard",
@@ -57,7 +60,8 @@
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-dashboard.html",
+      "designScreenId": "6f41d28646c842eabf9068469ebaca9b"
     },
     {
       "name": "Reservations",
@@ -68,7 +72,8 @@
       "route": "/reservations",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-reservations.html",
+      "designScreenId": "d12c665019104c0a983ae072146b4774"
     },
     {
       "name": "ReservationDetail",
@@ -79,7 +84,8 @@
       "route": "/reservations/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-reservation-detail.html",
+      "designScreenId": "2b67a29e5baa45f7a5ece2e798ca55f2"
     },
     {
       "name": "NewReservation",
@@ -90,7 +96,8 @@
       "route": "/reservations/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-new-reservation.html",
+      "designScreenId": "9b7375cd39a64125b5266706f9f28101"
     },
     {
       "name": "RoomsRates",
@@ -101,7 +108,8 @@
       "route": "/rooms",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-rooms-rates.html",
+      "designScreenId": "733a1682307840cc8c03ba4cbbfdd6e1"
     },
     {
       "name": "Guests",
@@ -112,7 +120,8 @@
       "route": "/guests",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-guests.html",
+      "designScreenId": "c0e51941849f4d22a46bf824e8e2116b"
     },
     {
       "name": "GuestDetail",
@@ -123,7 +132,8 @@
       "route": "/guests/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-guest-detail.html",
+      "designScreenId": "0d048641ed514199bef982251c1b90c8"
     },
     {
       "name": "VoiceAgents",
@@ -134,7 +144,8 @@
       "route": "/voice-agents",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-voice-agents.html",
+      "designScreenId": "dc8232131f3b436b8341bcdd409ed51c"
     },
     {
       "name": "Calls",
@@ -145,7 +156,8 @@
       "route": "/calls",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-calls.html",
+      "designScreenId": "d1b62eed207f4de8bb7f039d9d2e57d9"
     },
     {
       "name": "CallDetail",
@@ -156,7 +168,8 @@
       "route": "/calls/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-call-detail.html",
+      "designScreenId": "dfb95ac01fb748a8a671bb8324609fb4"
     },
     {
       "name": "CallSimulator",
@@ -167,7 +180,8 @@
       "route": "/simulator",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-call-simulator.html",
+      "designScreenId": "c426e46396374e5f8d367325ff13718d"
     },
     {
       "name": "Account",
@@ -178,7 +192,8 @@
       "route": "/account",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-ai-hotel-receptionist-account.html",
+      "designScreenId": "a4f020e7f2034633bdd13d4da783cbe4"
     }
   ]
 }
