@@ -7,7 +7,11 @@ test.describe('/pricing', () => {
     await page.goto(APP_BASE + '/pricing')
     await page.waitForLoadState('networkidle')
     await expect(page.locator('h1').first()).toBeVisible()
-    expect(await page.locator('a[href="/signup"]').count()).toBeGreaterThanOrEqual(3)
+    // Tier CTAs are design-system buttons (pricing-cta-<tier key>) that start
+    // a Stripe checkout — not <a href="/signup"> links.
+    const ctas = page.locator('button[data-mol-id^="pricing-cta-"]')
+    await expect(ctas.first()).toBeVisible()
+    expect(await ctas.count()).toBeGreaterThanOrEqual(3)
   })
 
   test('no console errors on pricing load', async ({ page }) => {

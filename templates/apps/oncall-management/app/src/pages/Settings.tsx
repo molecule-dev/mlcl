@@ -26,16 +26,6 @@ interface OrgSettings {
   integrations: OrgIntegration[]
 }
 
-interface ProjectHealth {
-  id: string
-  name: string
-  slug: string
-  type: string
-  unresolved: number
-  critical: number
-  events_24h: number
-}
-
 const SUGGESTED_INTEGRATIONS = ['Slack', 'PagerDuty', 'GitHub', 'Linear', 'Webhooks']
 
 export function Settings() {
@@ -44,25 +34,18 @@ export function Settings() {
   const http = useHttpClient()
 
   const [settings, setSettings] = useState<OrgSettings | null>(null)
-  const [projects, setProjects] = useState<ProjectHealth[]>([])
   const [error, setError] = useState<string | null>(null)
   const [orgNameDraft, setOrgNameDraft] = useState('')
   const [editingOrgName, setEditingOrgName] = useState(false)
   const [savingSettings, setSavingSettings] = useState(false)
-  const [creatingProject, setCreatingProject] = useState(false)
-  const [newProjectName, setNewProjectName] = useState('')
   const [creatingIntegration, setCreatingIntegration] = useState<string | null>(null)
   const [confirmingDelete, setConfirmingDelete] = useState(false)
   const [deletingWorkspace, setDeletingWorkspace] = useState(false)
 
   const reload = useCallback(async () => {
     try {
-      const [settingsRes, projectsRes] = await Promise.all([
-        http.get<OrgSettings>('/api/settings/me'),
-        http.get<ProjectHealth[]>('/api/projects-health'),
-      ])
+      const settingsRes = await http.get<OrgSettings>('/api/settings/me')
       setSettings(settingsRes.data ?? null)
-      setProjects(Array.isArray(projectsRes.data) ? projectsRes.data : [])
     } catch (error) {
       logError('settings.reload', error)
       setError(t('settings.loadError', {}, { defaultValue: "Couldn't load settings." }))
@@ -86,35 +69,6 @@ export function Settings() {
       setSavingSettings(false)
     }
   }, [http, orgNameDraft, reload, t])
-
-  const createProject = useCallback(async () => {
-    if (!newProjectName.trim()) return
-    try {
-      await http.post('/api/projects', {
-        name: newProjectName.trim(),
-        projectType: 'app',
-      })
-      setNewProjectName('')
-      setCreatingProject(false)
-      await reload()
-    } catch (error) {
-      logError('settings.createProject', error)
-      setError(t('settings.projectCreateError', {}, { defaultValue: "Couldn't create project." }))
-    }
-  }, [http, newProjectName, reload, t])
-
-  const removeProject = useCallback(
-    async (id: string) => {
-      try {
-        await http.delete(`/api/projects/${id}`)
-        await reload()
-      } catch (error) {
-        logError('settings.removeProject', error)
-        setError(t('settings.projectDeleteError', {}, { defaultValue: "Couldn't remove project." }))
-      }
-    },
-    [http, reload, t],
-  )
 
   const addIntegration = useCallback(
     async (name: string) => {
@@ -221,11 +175,7 @@ export function Settings() {
           className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1))}
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          {t(
-            'settings.subheading',
-            {},
-            { defaultValue: 'Projects, integrations, and team-wide defaults.' },
-          )}
+          {t('settings.subheading', {}, { defaultValue: 'Integrations and team-wide defaults.' })}
         </p>
       </header>
 
@@ -242,148 +192,6 @@ export function Settings() {
 
       <section className={cm.cn('grid gap-6 grid-cols-1 lg:grid-cols-12')}>
         <div className={cm.cn('lg:col-span-7 space-y-6')}>
-          <section
-            className={cm.cn('rounded-2xl p-6')}
-            style={{
-              backgroundColor: 'var(--color-surface)',
-              border: '1px solid var(--color-border)',
-            }}
-          >
-            <div className={cm.cn('flex items-center justify-between mb-4')}>
-              <h2
-                className={cm.cn('text-sm font-mono font-black uppercase tracking-widest')}
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {t('settings.projects', {}, { defaultValue: '// projects' })}
-              </h2>
-              <button
-                onClick={() => setCreatingProject(true)}
-                type="button"
-                data-testid="new-project-open"
-                className={cm.cn(
-                  'inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded hover:bg-white/5',
-                )}
-                style={{ color: 'var(--color-text-code)' }}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-                  add
-                </span>
-                {t('status.new', {}, { defaultValue: 'New' })}
-              </button>
-            </div>
-            {creatingProject ? (
-              <div className={cm.cn('mb-3 flex items-center gap-2')}>
-                <input
-                  data-testid="new-project-name"
-                  value={newProjectName}
-                  onChange={(e) => setNewProjectName(e.target.value)}
-                  placeholder={t(
-                    'settings.newProjectPlaceholder',
-                    {},
-                    { defaultValue: 'web · api · mobile' },
-                  )}
-                  className={cm.cn('flex-1 px-2 py-1.5 rounded font-mono text-sm')}
-                  style={{
-                    backgroundColor: 'var(--color-background-secondary)',
-                    color: 'var(--color-text)',
-                    border: '1px solid var(--color-border)',
-                  }}
-                />
-                <button
-                  type="button"
-                  data-testid="new-project-confirm"
-                  onClick={() => void createProject()}
-                  className={cm.cn(
-                    'px-3 py-1.5 rounded font-mono text-[10px] font-bold uppercase tracking-widest',
-                  )}
-                  style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-on-primary)' }}
-                >
-                  {t('common.create', {}, { defaultValue: 'Create' })}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setCreatingProject(false)
-                    setNewProjectName('')
-                  }}
-                  className={cm.cn(
-                    'px-3 py-1.5 rounded font-mono text-[10px] font-bold uppercase tracking-widest hover:bg-white/5',
-                  )}
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                </button>
-              </div>
-            ) : null}
-            {projects.length === 0 ? (
-              <p
-                data-testid="projects-empty"
-                className={cm.cn('font-mono text-xs py-2')}
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {t('settings.noProjects', {}, { defaultValue: 'No projects yet.' })}
-              </p>
-            ) : (
-              <ul
-                data-testid="projects-list"
-                className={cm.cn('divide-y')}
-                style={{ borderColor: 'var(--color-border-subtle)' }}
-              >
-                {projects.map((p) => (
-                  <li
-                    key={p.id}
-                    data-testid="project-row"
-                    data-project-id={p.id}
-                    className={cm.cn('flex items-center gap-3 py-3 first:pt-0 last:pb-0')}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      style={{ color: BRAND_COLOR }}
-                      aria-hidden="true"
-                    >
-                      inventory_2
-                    </span>
-                    <div className={cm.cn('flex-1 min-w-0')}>
-                      <p
-                        className={cm.cn('text-sm font-bold')}
-                        style={{ color: 'var(--color-text)' }}
-                      >
-                        {p.name}
-                      </p>
-                      <p
-                        className={cm.cn('font-mono text-xs truncate')}
-                        style={{ color: 'var(--color-text-code)' }}
-                      >
-                        {p.slug} · {p.type}
-                      </p>
-                    </div>
-                    <span
-                      className={cm.cn('font-mono text-xs')}
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      {t(
-                        'settings.unresolvedCount',
-                        { count: p.unresolved },
-                        { defaultValue: '{{count}} unresolved' },
-                      )}
-                    </span>
-                    <button
-                      type="button"
-                      data-testid="project-remove"
-                      onClick={() => void removeProject(p.id)}
-                      className={cm.cn(
-                        'font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded hover:bg-white/5',
-                      )}
-                      style={{ color: 'var(--color-severity-critical)' }}
-                    >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-
           <section
             className={cm.cn('rounded-2xl p-6')}
             style={{
@@ -653,7 +461,7 @@ export function Settings() {
                 {},
                 {
                   defaultValue:
-                    'Permanently delete all of the issues, alerts, projects, and audit history in this workspace. Your account stays.',
+                    'Permanently delete all of the incidents, schedules, escalation policies, postmortems, and paging history in this workspace. Your account stays.',
                 },
               )}
             </p>

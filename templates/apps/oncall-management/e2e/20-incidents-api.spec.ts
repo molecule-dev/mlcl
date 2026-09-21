@@ -74,14 +74,16 @@ test.describe('incidents API (state machine)', () => {
     expect(res.status(), await safeText(res)).toBe(409)
   })
 
-  test('unauthenticated reads are denied', async ({ page }) => {
+  test('unauthenticated reads are denied', async ({ page, request }) => {
     await signup(page, uniqueEmail('api-anon'))
     const created = await triggerIncident(page, {
       title: `E2E api anon ${Date.now()}`,
       service: 'e2e-canary-service',
       severity: 'info',
     })
-    const anon = await page.request.get(`${API_BASE}/incidents/${created.id}`)
+    // `page.request` shares the browser context's auth cookie, so the probe
+    // must go through the isolated `request` fixture to be truly anonymous.
+    const anon = await request.get(`${API_BASE}/incidents/${created.id}`)
     expect(anon.status()).toBe(401)
     const listed = await listIncidents(page)
     expect(listed.some((i) => i.id === created.id)).toBe(true)

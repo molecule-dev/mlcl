@@ -11,6 +11,8 @@ test.describe('/login', () => {
   })
 
   test('wrong password keeps the user on /login', async ({ page }) => {
+    // A wrong password is an expected 403 from the log-in endpoint.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const { email } = await signup(page, uniqueEmail('badpass'))
     await page.context().clearCookies()
     await page.goto(APP_BASE + '/login')

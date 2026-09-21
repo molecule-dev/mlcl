@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -78,6 +78,7 @@ export function IncidentDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const http = useHttpClient()
   const [incident, setIncident] = useState<IncidentDetailData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -165,6 +166,33 @@ export function IncidentDetail() {
     const ms = new Date(incident.acked_at).getTime() - new Date(incident.triggered_at).getTime()
     return Math.max(0, Math.round(ms / 60_000))
   }, [incident])
+
+  /**
+   * Start (or reopen) the postmortem for this incident and drop the user
+   * straight into the editor — the same outcome as creating one from the
+   * /postmortems list page.
+   */
+  const startPostmortem = useCallback(async () => {
+    if (!id) return
+    setActionPending('postmortem')
+    setActionError(null)
+    try {
+      const res = await http.post('/api/postmortems', { incident_id: id })
+      const created = res.data as { id?: string } | undefined
+      if (created?.id) {
+        navigate(`/postmortems/${created.id}`)
+        return
+      }
+      await reloadIncident()
+    } catch (error) {
+      logError('incidentDetail.startPostmortem', error)
+      setActionError(
+        t('incidentDetail.actionError', {}, { defaultValue: "Couldn't save — please retry." }),
+      )
+    } finally {
+      setActionPending(null)
+    }
+  }, [http, id, navigate, reloadIncident, t])
 
   if (!incident) {
     return (
@@ -463,11 +491,7 @@ export function IncidentDetail() {
                 <button
                   type="button"
                   disabled={actionPending !== null}
-                  onClick={() =>
-                    runAction('postmortem', () =>
-                      http.post('/api/postmortems', { incident_id: id }),
-                    )
-                  }
+                  onClick={() => void startPostmortem()}
                   data-mol-id="incident-start-postmortem"
                   className={cm.cn(
                     'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest border disabled:opacity-50',

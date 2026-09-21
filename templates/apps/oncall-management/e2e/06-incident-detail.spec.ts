@@ -95,6 +95,8 @@ test.describe('/incidents/:id', () => {
   })
 
   test('unknown incident id renders the not-found state', async ({ page }) => {
+    // The unknown id 404s from the incidents API (twice: page + timeline).
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page, uniqueEmail('det-404'))
     await page.goto(APP_BASE + '/incidents/00000000-0000-0000-0000-000000000000')
     await page.waitForLoadState('networkidle')
