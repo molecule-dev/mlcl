@@ -402,7 +402,7 @@ export function Profile() {
       ) : null}
 
       <section className={cm.cn('grid gap-6 grid-cols-1 lg:grid-cols-12')}>
-        <div className={cm.cn('lg:col-span-7 space-y-6')}>
+        <div className={cm.cn('min-w-0 lg:col-span-7 space-y-6')}>
           <Card title={t('settings.account', {}, { defaultValue: 'Account' })}>
             {editingDisplayName ? (
               <div className={cm.cn('flex items-center gap-2 py-2.5')}>
@@ -822,7 +822,7 @@ export function Profile() {
           </Card>
         </div>
 
-        <aside className={cm.cn('lg:col-span-5 space-y-6')}>
+        <aside className={cm.cn('min-w-0 lg:col-span-5 space-y-6')}>
           <Card title={t('profile.connectedAccounts', {}, { defaultValue: 'Connected accounts' })}>
             <ul data-testid="connected-accounts" className={cm.cn('space-y-2.5')}>
               {accounts.map((c) => (

@@ -178,7 +178,9 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
-                  className={cm.cn('text-sm font-medium transition-colors hover:opacity-80')}
+                  className={cm.cn(
+                    'inline-flex items-center px-3 py-2 text-sm font-medium transition-colors hover:opacity-80',
+                  )}
                   style={{
                     color: 'color-mix(in srgb, var(--color-on-background) 75%, transparent)',
                   }}

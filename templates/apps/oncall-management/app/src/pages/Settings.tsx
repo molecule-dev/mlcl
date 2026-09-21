@@ -191,7 +191,7 @@ export function Settings() {
       ) : null}
 
       <section className={cm.cn('grid gap-6 grid-cols-1 lg:grid-cols-12')}>
-        <div className={cm.cn('lg:col-span-7 space-y-6')}>
+        <div className={cm.cn('min-w-0 lg:col-span-7 space-y-6')}>
           <section
             className={cm.cn('rounded-2xl p-6')}
             style={{
@@ -311,7 +311,7 @@ export function Settings() {
           </section>
         </div>
 
-        <aside className={cm.cn('lg:col-span-5 space-y-6')}>
+        <aside className={cm.cn('min-w-0 lg:col-span-5 space-y-6')}>
           <section
             className={cm.cn('rounded-2xl p-6')}
             style={{

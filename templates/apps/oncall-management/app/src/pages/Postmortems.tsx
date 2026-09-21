@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,6 +91,10 @@ export function Postmortems() {
       const created = res.data as { id?: string } | undefined
       setIncidentId('')
       if (created?.id) {
+        void track({
+          name: 'postmortem.created',
+          properties: { postmortem_id: created.id, incident_id: incidentId },
+        })
         navigate(`/postmortems/${created.id}`)
         return
       }

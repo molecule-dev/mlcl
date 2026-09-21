@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,10 @@ export function PostmortemDetail() {
           .map((line) => line.trim())
           .filter(Boolean),
       })
+      void track({
+        name: 'postmortem.updated',
+        properties: { postmortem_id: id },
+      })
       await reload()
     } catch (_error) {
       setError(
@@ -130,9 +135,18 @@ export function PostmortemDetail() {
   const setItemStatus = async (item: ActionItem, status: ActionItem['status']) => {
     if (!id) return
     setSaving(true)
+    setError(null)
     try {
       await http.put(`/api/postmortems/${id}/action-items/${item.id}`, { status })
+      void track({
+        name: 'postmortem.action_item_updated',
+        properties: { postmortem_id: id, item_id: item.id, status },
+      })
       await reload()
+    } catch (_error) {
+      setError(
+        t('postmortemDetail.saveError', {}, { defaultValue: "Couldn't save — please retry." }),
+      )
     } finally {
       setSaving(false)
     }
@@ -141,12 +155,21 @@ export function PostmortemDetail() {
   const addItem = async () => {
     if (!id || !newItem.trim()) return
     setSaving(true)
+    setError(null)
     try {
       await http.post(`/api/postmortems/${id}/action-items`, {
         description: newItem.trim(),
       })
+      void track({
+        name: 'postmortem.action_item_added',
+        properties: { postmortem_id: id },
+      })
       setNewItem('')
       await reload()
+    } catch (_error) {
+      setError(
+        t('postmortemDetail.saveError', {}, { defaultValue: "Couldn't save — please retry." }),
+      )
     } finally {
       setSaving(false)
     }
@@ -155,9 +178,18 @@ export function PostmortemDetail() {
   const publish = async () => {
     if (!id) return
     setSaving(true)
+    setError(null)
     try {
       await http.put(`/api/postmortems/${id}`, { status: 'published' })
+      void track({
+        name: 'postmortem.published',
+        properties: { postmortem_id: id },
+      })
       await reload()
+    } catch (_error) {
+      setError(
+        t('postmortemDetail.saveError', {}, { defaultValue: "Couldn't save — please retry." }),
+      )
     } finally {
       setSaving(false)
     }
@@ -181,7 +213,8 @@ export function PostmortemDetail() {
         <p className={cm.cn('font-mono text-sm')} style={{ color: 'var(--color-text-secondary)' }}>
           {loading
             ? t('postmortemDetail.loading', {}, { defaultValue: 'Loading postmortem…' })
-            : t('postmortemDetail.notFound', {}, { defaultValue: 'Postmortem not found.' })}
+            : (error ??
+              t('postmortemDetail.notFound', {}, { defaultValue: 'Postmortem not found.' }))}
         </p>
       </div>
     )
@@ -272,7 +305,10 @@ export function PostmortemDetail() {
         <div className={cm.cn('mt-4 flex flex-wrap gap-2')}>
           <button
             type="button"
-            disabled={saving || summary === pm.summary}
+            disabled={
+              saving ||
+              (summary === pm.summary && factorsText === pm.contributing_factors.join('\n'))
+            }
             onClick={saveEdits}
             data-mol-id="postmortem-save"
             className={cm.cn(
@@ -307,7 +343,7 @@ export function PostmortemDetail() {
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
         {/* Summary + factors editor */}
-        <section className={cm.cn('lg:col-span-7 space-y-4')}>
+        <section className={cm.cn('min-w-0 lg:col-span-7 space-y-4')}>
           <div
             className={cm.cn('rounded-xl p-5')}
             style={{
@@ -374,7 +410,7 @@ export function PostmortemDetail() {
         </section>
 
         {/* Action items */}
-        <section className={cm.cn('lg:col-span-5')}>
+        <section className={cm.cn('min-w-0 lg:col-span-5')}>
           <div
             className={cm.cn('rounded-xl p-5')}
             style={{

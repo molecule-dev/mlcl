@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -74,6 +75,10 @@ export function Team() {
     setError(null)
     try {
       await http.post('/api/team/invite', { email: inviteEmail.trim(), role: inviteRole })
+      void track({
+        name: 'team.invite_sent',
+        properties: { role: inviteRole },
+      })
       setInviteEmail('')
       setShowInvite(false)
       await reload()
@@ -85,23 +90,36 @@ export function Team() {
     }
   }, [http, inviteEmail, inviteRole, reload, t])
 
+  /** Two-step inline confirm for the destructive member removal. */
+  const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null)
+
   const removeMember = useCallback(
     async (id: string) => {
+      if (confirmRemoveId !== id) {
+        setConfirmRemoveId(id)
+        return
+      }
+      setConfirmRemoveId(null)
       try {
         await http.delete(`/api/team/members/${id}`)
+        void track({ name: 'team.member_removed', properties: { member_id: id } })
         await reload()
       } catch (error) {
         logError('team.removeMember', error)
         setError(t('team.removeError', {}, { defaultValue: "Couldn't remove member." }))
       }
     },
-    [http, reload, t],
+    [confirmRemoveId, http, reload, t],
   )
 
   const toggleOncall = useCallback(
     async (m: Member) => {
       try {
         await http.put(`/api/team/members/${m.id}`, { oncall: !m.oncall })
+        void track({
+          name: 'team.oncall_changed',
+          properties: { member_id: m.id, oncall: !m.oncall },
+        })
         await reload()
       } catch (error) {
         logError('team.toggleOncall', error)
@@ -115,6 +133,7 @@ export function Team() {
     async (id: string) => {
       try {
         await http.delete(`/api/team/invites/${id}`)
+        void track({ name: 'team.invite_cancelled', properties: { invite_id: id } })
         await reload()
       } catch (error) {
         logError('team.cancelInvite', error)
@@ -231,7 +250,7 @@ export function Team() {
               }}
             >
               <option value="admin">admin</option>
-              <option value="dev">dev</option>
+              <option value="responder">responder</option>
               <option value="viewer">viewer</option>
             </select>
             <button
@@ -311,7 +330,7 @@ export function Team() {
                   data-testid="invite-cancel"
                   onClick={() => void cancelInvite(inv.id)}
                   className={cm.cn(
-                    'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                    'font-mono text-[10px] font-bold uppercase tracking-widest px-2 min-h-[36px] rounded hover:opacity-80',
                   )}
                   style={{ color: 'var(--color-severity-critical)' }}
                 >
@@ -333,30 +352,34 @@ export function Team() {
         >
           {t('team.rotation', {}, { defaultValue: '// on-call rotation · this week' })}
         </p>
-        <div className={cm.cn('grid grid-cols-7 gap-2')}>
-          {rotation.map((r) => (
-            <div
-              key={r.day}
-              className={cm.cn('rounded-md p-3 text-center')}
-              style={{
-                backgroundColor: 'var(--color-background-tertiary)',
-                border: '1px solid var(--color-border)',
-              }}
-            >
-              <p
-                className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
-                style={{ color: 'var(--color-severity-muted)' }}
+        {/* Horizontal scroll on phones: 7 day cells stay legible instead of
+            cramming into ~40px columns. */}
+        <div className={cm.cn('overflow-x-auto pb-1')}>
+          <div className={cm.cn('grid grid-cols-7 gap-2 min-w-[560px]')}>
+            {rotation.map((r) => (
+              <div
+                key={r.day}
+                className={cm.cn('rounded-md p-3 text-center')}
+                style={{
+                  backgroundColor: 'var(--color-background-tertiary)',
+                  border: '1px solid var(--color-border)',
+                }}
               >
-                {r.day}
-              </p>
-              <p
-                className={cm.cn('mt-1 font-bold text-sm truncate')}
-                style={{ color: 'var(--color-text)' }}
-              >
-                {r.name}
-              </p>
-            </div>
-          ))}
+                <p
+                  className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
+                  style={{ color: 'var(--color-severity-muted)' }}
+                >
+                  {r.day}
+                </p>
+                <p
+                  className={cm.cn('mt-1 font-bold text-sm truncate')}
+                  style={{ color: 'var(--color-text)' }}
+                >
+                  {r.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -364,142 +387,151 @@ export function Team() {
         className={cm.cn('rounded-2xl overflow-hidden')}
         style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
       >
-        <div
-          className={cm.cn(
-            'grid grid-cols-12 px-5 py-3 border-b font-mono text-[9px] font-black uppercase tracking-widest',
-          )}
-          style={{ borderColor: 'var(--color-border)', color: 'var(--color-severity-muted)' }}
-        >
-          <span className={cm.cn('col-span-4')}>
-            {t('form.name', {}, { defaultValue: 'Name' })}
-          </span>
-          <span className={cm.cn('col-span-3')}>
-            {t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
-          </span>
-          <span className={cm.cn('col-span-1')}>
-            {t('form.role', {}, { defaultValue: 'Role' })}
-          </span>
-          <span className={cm.cn('col-span-2')}>
-            {t('team.col.oncall', {}, { defaultValue: 'On-call' })}
-          </span>
-          <span className={cm.cn('col-span-1 text-right')}>
-            {t('team.col.last', {}, { defaultValue: 'Last' })}
-          </span>
-          <span className={cm.cn('col-span-1 text-right')} aria-hidden="true">
-            ·
-          </span>
-        </div>
-        {members.length === 0 ? (
-          <p
-            data-testid="team-empty"
-            className={cm.cn('px-5 py-6 font-mono text-xs text-center')}
-            style={{ color: 'var(--color-text-secondary)' }}
+        {/* Horizontal scroll on phones: the 6-column roster keeps readable
+            columns instead of crushing email/role cells. */}
+        <div className={cm.cn('overflow-x-auto')}>
+          <div
+            className={cm.cn(
+              'grid grid-cols-12 min-w-[760px] px-5 py-3 border-b font-mono text-[9px] font-black uppercase tracking-widest',
+            )}
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-severity-muted)' }}
           >
-            {t('team.empty', {}, { defaultValue: 'No team yet — invite your first teammate.' })}
-          </p>
-        ) : (
-          <ul
-            data-testid="team-members"
-            className={cm.cn('divide-y')}
-            style={{ borderColor: 'var(--color-border-subtle)' }}
-          >
-            {members.map((m) => (
-              <li
-                key={m.id}
-                data-testid="team-row"
-                data-member-id={m.id}
-                className={cm.cn(
-                  'grid grid-cols-12 px-5 py-3 items-center hover:bg-surface/5 transition-colors',
-                )}
-              >
-                <div className={cm.cn('col-span-4 flex items-center gap-3 min-w-0')}>
-                  <span
-                    className={cm.cn(
-                      'h-8 w-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0',
-                    )}
-                    style={{
-                      backgroundColor: 'var(--color-severity-info-light)',
-                      color: 'var(--color-severity-info)',
-                      border: '2px solid var(--color-border)',
-                    }}
-                    aria-hidden="true"
-                  >
-                    {(m.name?.[0] ?? '?').toUpperCase()}
-                  </span>
-                  <p className={cm.cn('font-bold truncate')} style={{ color: 'var(--color-text)' }}>
-                    {m.name}
-                  </p>
-                </div>
-                <span
-                  className={cm.cn('col-span-3 font-mono text-xs truncate')}
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {m.email}
-                </span>
-                <span className={cm.cn('col-span-1')}>
-                  <span
-                    className={cm.cn(
-                      'inline-flex items-center font-mono text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded',
-                    )}
-                    style={{
-                      backgroundColor: 'var(--color-surface-overlay)',
-                      color: 'var(--color-text-secondary)',
-                    }}
-                  >
-                    {m.role}
-                  </span>
-                </span>
-                <span className={cm.cn('col-span-2 flex items-center gap-2')}>
-                  {m.oncall ? (
-                    <SeverityPill
-                      severity="resolved"
-                      label={t('team.onCallNow', {}, { defaultValue: 'On call' })}
-                    />
-                  ) : (
-                    <span
-                      className={cm.cn('font-mono text-xs')}
-                      style={{ color: 'var(--color-severity-muted)' }}
-                    >
-                      —
-                    </span>
+            <span className={cm.cn('col-span-4')}>
+              {t('form.name', {}, { defaultValue: 'Name' })}
+            </span>
+            <span className={cm.cn('col-span-3')}>
+              {t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
+            </span>
+            <span className={cm.cn('col-span-1')}>
+              {t('form.role', {}, { defaultValue: 'Role' })}
+            </span>
+            <span className={cm.cn('col-span-2')}>
+              {t('team.col.oncall', {}, { defaultValue: 'On-call' })}
+            </span>
+            <span className={cm.cn('col-span-1 text-right')}>
+              {t('team.col.last', {}, { defaultValue: 'Last' })}
+            </span>
+            <span className={cm.cn('col-span-1 text-right')} aria-hidden="true">
+              ·
+            </span>
+          </div>
+          {members.length === 0 ? (
+            <p
+              data-testid="team-empty"
+              className={cm.cn('px-5 py-6 font-mono text-xs text-center')}
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {t('team.empty', {}, { defaultValue: 'No team yet — invite your first teammate.' })}
+            </p>
+          ) : (
+            <ul
+              data-testid="team-members"
+              className={cm.cn('divide-y')}
+              style={{ borderColor: 'var(--color-border-subtle)' }}
+            >
+              {members.map((m) => (
+                <li
+                  key={m.id}
+                  data-testid="team-row"
+                  data-member-id={m.id}
+                  className={cm.cn(
+                    'grid grid-cols-12 min-w-[760px] px-5 py-3 items-center hover:bg-surface/5 transition-colors',
                   )}
-                  <button
-                    type="button"
-                    data-testid="team-toggle-oncall"
-                    onClick={() => void toggleOncall(m)}
-                    className={cm.cn(
-                      'font-mono text-[9px] font-bold uppercase tracking-widest hover:opacity-80',
-                    )}
-                    style={{ color: 'var(--color-text-code)' }}
-                  >
-                    {m.oncall
-                      ? t('team.standDown', {}, { defaultValue: 'Stand down' })
-                      : t('team.takeOncall', {}, { defaultValue: 'Take call' })}
-                  </button>
-                </span>
-                <span
-                  className={cm.cn('col-span-1 text-right font-mono text-xs')}
-                  style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  {m.last_active ?? '—'}
-                </span>
-                <span className={cm.cn('col-span-1 text-right')}>
-                  <button
-                    type="button"
-                    data-testid="team-member-remove"
-                    onClick={() => void removeMember(m.id)}
-                    className={cm.cn(
-                      'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
-                    )}
-                    style={{ color: 'var(--color-severity-critical)' }}
+                  <div className={cm.cn('col-span-4 flex items-center gap-3 min-w-0')}>
+                    <span
+                      className={cm.cn(
+                        'h-8 w-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0',
+                      )}
+                      style={{
+                        backgroundColor: 'var(--color-severity-info-light)',
+                        color: 'var(--color-severity-info)',
+                        border: '2px solid var(--color-border)',
+                      }}
+                      aria-hidden="true"
+                    >
+                      {(m.name?.[0] ?? '?').toUpperCase()}
+                    </span>
+                    <p
+                      className={cm.cn('font-bold truncate')}
+                      style={{ color: 'var(--color-text)' }}
+                    >
+                      {m.name}
+                    </p>
+                  </div>
+                  <span
+                    className={cm.cn('col-span-3 font-mono text-xs truncate')}
+                    style={{ color: 'var(--color-text-secondary)' }}
                   >
-                    {t('common.remove', {}, { defaultValue: 'Remove' })}
-                  </button>
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
+                    {m.email}
+                  </span>
+                  <span className={cm.cn('col-span-1')}>
+                    <span
+                      className={cm.cn(
+                        'inline-flex items-center font-mono text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded',
+                      )}
+                      style={{
+                        backgroundColor: 'var(--color-surface-overlay)',
+                        color: 'var(--color-text-secondary)',
+                      }}
+                    >
+                      {m.role}
+                    </span>
+                  </span>
+                  <span className={cm.cn('col-span-2 flex items-center gap-2')}>
+                    {m.oncall ? (
+                      <SeverityPill
+                        severity="resolved"
+                        label={t('team.onCallNow', {}, { defaultValue: 'On call' })}
+                      />
+                    ) : (
+                      <span
+                        className={cm.cn('font-mono text-xs')}
+                        style={{ color: 'var(--color-severity-muted)' }}
+                      >
+                        —
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      data-testid="team-toggle-oncall"
+                      onClick={() => void toggleOncall(m)}
+                      className={cm.cn(
+                        'font-mono text-[10px] font-bold uppercase tracking-widest px-2 min-h-[36px] rounded hover:opacity-80',
+                      )}
+                      style={{ color: 'var(--color-text-code)' }}
+                    >
+                      {m.oncall
+                        ? t('team.standDown', {}, { defaultValue: 'Stand down' })
+                        : t('team.takeOncall', {}, { defaultValue: 'Take call' })}
+                    </button>
+                  </span>
+                  <span
+                    className={cm.cn('col-span-1 text-right font-mono text-xs')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {m.last_active ?? '—'}
+                  </span>
+                  <span className={cm.cn('col-span-1 text-right')}>
+                    <button
+                      type="button"
+                      data-testid="team-member-remove"
+                      onClick={() => void removeMember(m.id)}
+                      className={cm.cn(
+                        'font-mono text-[10px] font-bold uppercase tracking-widest px-2 min-h-[36px] rounded hover:opacity-80',
+                      )}
+                      style={{ color: 'var(--color-severity-critical)' }}
+                    >
+                      {confirmRemoveId === m.id
+                        ? t('common.confirmRemove', {}, { defaultValue: 'Confirm remove' })
+                        : t('common.remove', {}, { defaultValue: 'Remove' })}
+                    </button>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </section>
     </div>
   )

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -203,6 +204,10 @@ export function ScheduleDetail() {
         end_at: new Date(overrideEnd).toISOString(),
         note: overrideNote.trim() || undefined,
       })
+      void track({
+        name: 'schedule.override_added',
+        properties: { schedule_id: id, member_id: overrideMember },
+      })
       setOverrideMember('')
       setOverrideStart('')
       setOverrideEnd('')
@@ -215,11 +220,26 @@ export function ScheduleDetail() {
     }
   }
 
+  /** Two-step inline confirm for the destructive shift delete. */
+  const [confirmShiftId, setConfirmShiftId] = useState<string | null>(null)
+
   const removeShift = async (shiftId: string) => {
+    if (confirmShiftId !== shiftId) {
+      setConfirmShiftId(shiftId)
+      return
+    }
+    setConfirmShiftId(null)
     setSaving(true)
+    setError(null)
     try {
       await http.delete(`/api/schedules/shifts/${shiftId}`)
+      void track({
+        name: 'schedule.shift_removed',
+        properties: { schedule_id: id ?? null, shift_id: shiftId },
+      })
       await reload()
+    } catch (_error) {
+      setError(t('schedules.removeError', {}, { defaultValue: "Couldn't remove the shift." }))
     } finally {
       setSaving(false)
     }
@@ -233,9 +253,16 @@ export function ScheduleDetail() {
     if (idx < 0 || next < 0 || next >= members.length) return
     ;[members[idx], members[next]] = [members[next]!, members[idx]!]
     setSaving(true)
+    setError(null)
     try {
       await http.put(`/api/schedules/${id}`, { members })
+      void track({
+        name: 'schedule.updated',
+        properties: { schedule_id: id, reason: 'rotation_reorder' },
+      })
       await reload()
+    } catch (_error) {
+      setError(t('schedules.reorderError', {}, { defaultValue: "Couldn't reorder the rotation." }))
     } finally {
       setSaving(false)
     }
@@ -259,7 +286,7 @@ export function ScheduleDetail() {
         <p className={cm.cn('font-mono text-sm')} style={{ color: 'var(--color-text-secondary)' }}>
           {loading
             ? t('scheduleDetail.loading', {}, { defaultValue: 'Loading schedule…' })
-            : t('scheduleDetail.notFound', {}, { defaultValue: 'Schedule not found.' })}
+            : (error ?? t('scheduleDetail.notFound', {}, { defaultValue: 'Schedule not found.' }))}
         </p>
       </div>
     )
@@ -370,7 +397,7 @@ export function ScheduleDetail() {
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
         {/* Coverage calendar */}
-        <section className={cm.cn('lg:col-span-8')}>
+        <section className={cm.cn('min-w-0 lg:col-span-8')}>
           <h2
             className={cm.cn('text-xl font-bold tracking-tight mb-3')}
             style={{ color: 'var(--color-text)' }}
@@ -384,54 +411,58 @@ export function ScheduleDetail() {
               border: '1px solid var(--color-border)',
             }}
           >
-            <div
-              className={cm.cn('grid gap-1.5')}
-              style={{ gridTemplateColumns: 'repeat(7, minmax(0, 1fr))' }}
-              role="grid"
-              aria-label={t(
-                'scheduleDetail.calendarAria',
-                {},
-                { defaultValue: 'Coverage calendar, next four weeks' },
-              )}
-            >
-              {calendar.map((day) => {
-                const color = day.shift
-                  ? (memberColorById.get(day.shift.member_id) ?? 'var(--color-severity-muted)')
-                  : null
-                return (
-                  <div
-                    key={day.key}
-                    data-mol-id={`coverage-day-${day.key}`}
-                    className={cm.cn(
-                      'rounded-md p-1.5 min-h-[3.25rem] flex flex-col justify-between',
-                    )}
-                    style={{
-                      backgroundColor: color
-                        ? `color-mix(in srgb, ${color} 22%, transparent)`
-                        : 'var(--color-background-tertiary)',
-                      border: day.isToday
-                        ? '1px solid var(--color-primary)'
-                        : '1px solid var(--color-border-subtle)',
-                    }}
-                  >
-                    <span
-                      className={cm.cn('font-mono text-[10px] font-bold')}
-                      style={{ color: 'var(--color-text-secondary)' }}
+            {/* Horizontal scroll on phones: 7 columns stay legible instead of
+                cramming into ~44px cells. */}
+            <div className={cm.cn('-mx-1 px-1 overflow-x-auto pb-1')}>
+              <div
+                className={cm.cn('grid gap-1.5 min-w-[560px]')}
+                style={{ gridTemplateColumns: 'repeat(7, minmax(0, 1fr))' }}
+                role="grid"
+                aria-label={t(
+                  'scheduleDetail.calendarAria',
+                  {},
+                  { defaultValue: 'Coverage calendar, next four weeks' },
+                )}
+              >
+                {calendar.map((day) => {
+                  const color = day.shift
+                    ? (memberColorById.get(day.shift.member_id) ?? 'var(--color-severity-muted)')
+                    : null
+                  return (
+                    <div
+                      key={day.key}
+                      data-mol-id={`coverage-day-${day.key}`}
+                      className={cm.cn(
+                        'rounded-md p-1.5 min-h-[3.25rem] flex flex-col justify-between',
+                      )}
+                      style={{
+                        backgroundColor: color
+                          ? `color-mix(in srgb, ${color} 22%, transparent)`
+                          : 'var(--color-background-tertiary)',
+                        border: day.isToday
+                          ? '1px solid var(--color-primary)'
+                          : '1px solid var(--color-border-subtle)',
+                      }}
                     >
-                      {day.date.getUTCDate()}
-                    </span>
-                    <span
-                      className={cm.cn('font-mono text-[10px] truncate')}
-                      style={{ color: 'var(--color-text)' }}
-                      title={day.shift?.member_name ?? ''}
-                    >
-                      {day.isOverride
-                        ? `⟳ ${day.shift?.member_name ?? ''}`
-                        : (day.shift?.member_name?.split(' ')[0] ?? '')}
-                    </span>
-                  </div>
-                )
-              })}
+                      <span
+                        className={cm.cn('font-mono text-[10px] font-bold')}
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
+                        {day.date.getUTCDate()}
+                      </span>
+                      <span
+                        className={cm.cn('font-mono text-[10px] truncate')}
+                        style={{ color: 'var(--color-text)' }}
+                        title={day.shift?.member_name ?? ''}
+                      >
+                        {day.isOverride
+                          ? `⟳ ${day.shift?.member_name ?? ''}`
+                          : (day.shift?.member_name?.split(' ')[0] ?? '')}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
             <div className={cm.cn('mt-4 flex flex-wrap gap-3')}>
               {(schedule.member_details ?? []).map((m) => (
@@ -504,17 +535,19 @@ export function ScheduleDetail() {
                     <button
                       type="button"
                       disabled={saving}
-                      onClick={() => removeShift(s.id)}
+                      onClick={() => void removeShift(s.id)}
                       data-mol-id={`shift-delete-${s.id}`}
                       className={cm.cn(
-                        'ml-auto px-2 py-1 rounded-md font-mono text-[10px] font-bold uppercase tracking-widest border disabled:opacity-50',
+                        'ml-auto px-3 min-h-[36px] rounded-md font-mono text-[10px] font-bold uppercase tracking-widest border disabled:opacity-50',
                       )}
                       style={{
                         borderColor: 'var(--color-severity-critical)',
                         color: 'var(--color-severity-critical)',
                       }}
                     >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
+                      {confirmShiftId === s.id
+                        ? t('common.confirmRemove', {}, { defaultValue: 'Confirm remove' })
+                        : t('common.remove', {}, { defaultValue: 'Remove' })}
                     </button>
                   </>
                 ) : null}
@@ -524,7 +557,7 @@ export function ScheduleDetail() {
         </section>
 
         {/* Rotation editor + override form */}
-        <section className={cm.cn('lg:col-span-4 space-y-4')}>
+        <section className={cm.cn('min-w-0 lg:col-span-4 space-y-4')}>
           <div
             className={cm.cn('rounded-xl p-5')}
             style={{
@@ -568,7 +601,9 @@ export function ScheduleDetail() {
                       { name: m.name },
                       { defaultValue: 'Move {{name}} up' },
                     )}
-                    className={cm.cn('material-symbols-outlined text-base disabled:opacity-30')}
+                    className={cm.cn(
+                      'material-symbols-outlined text-base disabled:opacity-30 h-9 w-9 flex items-center justify-center shrink-0',
+                    )}
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
                     keyboard_arrow_up
@@ -583,7 +618,9 @@ export function ScheduleDetail() {
                       { name: m.name },
                       { defaultValue: 'Move {{name}} down' },
                     )}
-                    className={cm.cn('material-symbols-outlined text-base disabled:opacity-30')}
+                    className={cm.cn(
+                      'material-symbols-outlined text-base disabled:opacity-30 h-9 w-9 flex items-center justify-center shrink-0',
+                    )}
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
                     keyboard_arrow_down

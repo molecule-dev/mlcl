@@ -362,7 +362,7 @@ export function Dashboard() {
 
       {/* Open incidents + activity */}
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
-        <section className={cm.cn('lg:col-span-8')}>
+        <section className={cm.cn('min-w-0 lg:col-span-8')}>
           <div className={cm.cn('flex items-center justify-between mb-3')}>
             <div>
               <p
@@ -426,7 +426,7 @@ export function Dashboard() {
           )}
         </section>
 
-        <section className={cm.cn('lg:col-span-4')}>
+        <section className={cm.cn('min-w-0 lg:col-span-4')}>
           <div className={cm.cn('mb-3')}>
             <p
               className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}

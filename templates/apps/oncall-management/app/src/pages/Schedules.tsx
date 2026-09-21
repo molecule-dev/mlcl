@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,10 @@ export function Schedules() {
         rotation_type: rotationType,
         handoff_time: handoff,
         members,
+      })
+      void track({
+        name: 'schedule.created',
+        properties: { rotation_type: rotationType, member_count: members.length },
       })
       setName('')
       setMembers([])

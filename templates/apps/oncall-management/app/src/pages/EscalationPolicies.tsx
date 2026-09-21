@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,10 @@ export function EscalationPolicies() {
       setName('')
       setRepeatCycles(1)
       setDraftRules([emptyDraftRule()])
+      void track({
+        name: 'escalation_policy.created',
+        properties: { name: name.trim(), rule_count: draftRules.length },
+      })
       await refetch()
     } catch (_error) {
       setError(t('policies.createError', {}, { defaultValue: "Couldn't create the policy." }))
@@ -128,19 +133,41 @@ export function EscalationPolicies() {
   /** Toggle a policy's is_active flag. */
   const toggleActive = async (policy: PolicyRow) => {
     setSaving(true)
+    setError(null)
     try {
       await http.put(`/api/escalation-policies/${policy.id}`, { is_active: !policy.is_active })
+      void track({
+        name: 'escalation_policy.updated',
+        properties: { policy_id: policy.id, is_active: !policy.is_active },
+      })
       await refetch()
+    } catch (_error) {
+      setError(t('policies.updateError', {}, { defaultValue: "Couldn't update the policy." }))
     } finally {
       setSaving(false)
     }
   }
 
+  /** Two-step inline confirm for the destructive delete. */
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
+
   const deletePolicy = async (policy: PolicyRow) => {
+    if (confirmDeleteId !== policy.id) {
+      setConfirmDeleteId(policy.id)
+      return
+    }
+    setConfirmDeleteId(null)
     setSaving(true)
+    setError(null)
     try {
       await http.delete(`/api/escalation-policies/${policy.id}`)
+      void track({
+        name: 'escalation_policy.deleted',
+        properties: { policy_id: policy.id },
+      })
       await refetch()
+    } catch (_error) {
+      setError(t('policies.deleteError', {}, { defaultValue: "Couldn't delete the policy." }))
     } finally {
       setSaving(false)
     }
@@ -203,6 +230,32 @@ export function EscalationPolicies() {
         >
           {t('policies.loading', {}, { defaultValue: 'Loading policies…' })}
         </p>
+      ) : policies.length === 0 ? (
+        <div
+          className={cm.cn(cm.sp('py', 16), 'text-center mb-8 rounded-xl')}
+          style={{
+            color: 'var(--color-text-secondary)',
+            backgroundColor: 'var(--color-surface)',
+            border: '1px dashed var(--color-border)',
+          }}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-5xl opacity-40 mb-3 inline-block')}
+            aria-hidden="true"
+          >
+            moving
+          </span>
+          <p className={cm.cn('text-sm')}>
+            {t(
+              'policies.empty',
+              {},
+              {
+                defaultValue:
+                  'No escalation policies yet — create one below so pages have a ladder to climb.',
+              },
+            )}
+          </p>
+        </div>
       ) : (
         <ul className={cm.cn('space-y-4 mb-8')}>
           {policies.map((policy) => (
@@ -279,7 +332,9 @@ export function EscalationPolicies() {
                       color: 'var(--color-severity-critical)',
                     }}
                   >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
+                    {confirmDeleteId === policy.id
+                      ? t('common.confirmDelete', {}, { defaultValue: 'Confirm delete' })
+                      : t('common.delete', {}, { defaultValue: 'Delete' })}
                   </button>
                 </div>
               </div>

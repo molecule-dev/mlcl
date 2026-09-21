@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -61,6 +62,16 @@ const EVENT_COLOR: Record<TimelineEvent['kind'], string> = {
   note: 'var(--color-text-secondary)',
   escalate: 'var(--color-severity-error)',
   assign: 'var(--color-severity-info)',
+}
+
+/** Domain analytics event fired at the success point of each incident action. */
+const ACTION_EVENT: Record<string, string> = {
+  ack: 'incident.acknowledged',
+  resolve: 'incident.resolved',
+  escalate: 'escalation.triggered',
+  reopen: 'incident.reopened',
+  assign: 'incident.assigned',
+  note: 'incident.note_added',
 }
 
 function fmtAbsolute(iso: string): string {
@@ -148,6 +159,10 @@ export function IncidentDetail() {
       setActionError(null)
       try {
         await fn()
+        void track({
+          name: ACTION_EVENT[action] ?? `incident.${action}`,
+          properties: { incident_id: id ?? null },
+        })
         await reloadIncident()
       } catch (error) {
         logError('incidentDetail.action', error)
@@ -158,7 +173,7 @@ export function IncidentDetail() {
         setActionPending(null)
       }
     },
-    [reloadIncident, t],
+    [reloadIncident, t, id],
   )
 
   const ackMinutes = useMemo(() => {
@@ -180,6 +195,10 @@ export function IncidentDetail() {
       const res = await http.post('/api/postmortems', { incident_id: id })
       const created = res.data as { id?: string } | undefined
       if (created?.id) {
+        void track({
+          name: 'postmortem.created',
+          properties: { postmortem_id: created.id, incident_id: id ?? null },
+        })
         navigate(`/postmortems/${created.id}`)
         return
       }
@@ -566,7 +585,7 @@ export function IncidentDetail() {
 
       <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
         {/* Timeline */}
-        <section className={cm.cn('lg:col-span-7')}>
+        <section className={cm.cn('min-w-0 lg:col-span-7')}>
           <h2
             className={cm.cn('text-xl font-bold tracking-tight mb-4')}
             style={{ color: 'var(--color-text)' }}
@@ -679,7 +698,7 @@ export function IncidentDetail() {
         </section>
 
         {/* Side facts */}
-        <section className={cm.cn('lg:col-span-5 space-y-4')}>
+        <section className={cm.cn('min-w-0 lg:col-span-5 space-y-4')}>
           <div
             className={cm.cn('rounded-xl p-5')}
             style={{
