@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-landing.html",
+      "designScreenId": "d0aad8ae14994ab7a172295794f1d4f5"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-login.html",
+      "designScreenId": "86d729d68dec465fb43a2500adafc672"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-signup.html",
+      "designScreenId": "eec8c7c45df64d8f98443754c7a0338b"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-forgot-password.html",
+      "designScreenId": "a530a1858c4142d4a1980e69db823093"
     },
     {
       "name": "ResetPassword",
@@ -44,16 +48,21 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-reset-password.html",
+      "designScreenId": "d25136de69474d389127b5dd96c77764"
     },
     {
       "name": "Nearby",
       "templateFile": "app/pages/Nearby.tsx",
-      "components": ["app/components/StopSearchCard.tsx", "app/components/StopListItem.tsx"],
+      "components": [
+        "app/components/StopSearchCard.tsx",
+        "app/components/StopListItem.tsx"
+      ],
       "route": "/nearby",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-nearby.html",
+      "designScreenId": "99dae2e2dfed4da9a41ef94c78c35672"
     },
     {
       "name": "StopBoard",
@@ -66,43 +75,58 @@
       "route": "/stops/:code",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-stop-board.html",
+      "designScreenId": "ea7c3059e54d4e478f38e456cd9482fa"
     },
     {
       "name": "RouteDetail",
       "templateFile": "app/pages/RouteDetail.tsx",
-      "components": ["app/components/LineMapSvg.tsx", "app/components/LineBadge.tsx"],
+      "components": [
+        "app/components/LineMapSvg.tsx",
+        "app/components/LineBadge.tsx"
+      ],
       "route": "/lines/:code",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-route-detail.html",
+      "designScreenId": "dc4514d6544549828f20191165e30b95"
     },
     {
       "name": "TripPlanner",
       "templateFile": "app/pages/TripPlanner.tsx",
-      "components": ["app/components/StopPicker.tsx", "app/components/ItineraryCard.tsx"],
+      "components": [
+        "app/components/StopPicker.tsx",
+        "app/components/ItineraryCard.tsx"
+      ],
       "route": "/plan",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-trip-planner.html",
+      "designScreenId": "8bbe993fae8d487882a7bb5c909c11d9"
     },
     {
       "name": "Alerts",
       "templateFile": "app/pages/Alerts.tsx",
-      "components": ["app/components/ServiceAlertCard.tsx"],
+      "components": [
+        "app/components/ServiceAlertCard.tsx"
+      ],
       "route": "/alerts",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-alerts.html",
+      "designScreenId": "4732b9be646e492d95e596e653ed9caf"
     },
     {
       "name": "SavedStops",
       "templateFile": "app/pages/SavedStops.tsx",
-      "components": ["app/components/StopListItem.tsx"],
+      "components": [
+        "app/components/StopListItem.tsx"
+      ],
       "route": "/saved",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-saved-stops.html",
+      "designScreenId": "8be288ea2cef4594b76c696372cb9b45"
     },
     {
       "name": "Settings",
@@ -111,7 +135,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-settings.html",
+      "designScreenId": "e5da750fb6f64c11afa66de20783d60c"
     },
     {
       "name": "PlanUpdated",
@@ -120,7 +145,8 @@
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-plan-updated.html",
+      "designScreenId": "9f2c6873f4cb4cb899af53d65a7967ed"
     },
     {
       "name": "About",
@@ -129,7 +155,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-about.html",
+      "designScreenId": "4b429d065fd1480ebcfd42ceacadd9a3"
     },
     {
       "name": "Privacy",
@@ -138,7 +165,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-privacy.html",
+      "designScreenId": "aa50383b30014eb1a9fa878bd6b405ed"
     },
     {
       "name": "Terms",
@@ -147,7 +175,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-transit-tracker-terms.html",
+      "designScreenId": "c8940f7abe214cfcb51f915eaf9d4f85"
     }
   ]
 }
