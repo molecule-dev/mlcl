@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -17,18 +18,28 @@ interface TasksResponse {
   done: number
 }
 
+/** Formats a date-only `YYYY-MM-DD` calendar date. Rendered with
+ *  `timeZone: 'UTC'` so west-of-UTC browsers don't shift the day back. */
 function formatDate(iso: string | null): string {
   if (!iso) return '—'
   const d = new Date(`${iso}T00:00:00Z`)
   if (Number.isNaN(d.getTime())) return '—'
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  return d.toLocaleDateString('en-US', {
+    timeZone: 'UTC',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
 }
 
+/** A task is overdue once its calendar day has fully passed in the
+ *  VIEWER'S timezone — string-comparing YYYY-MM-DD avoids both the
+ *  due-today-flagged-overdue bug and UTC-parsing shifts. */
 function isOverdue(task: Task): boolean {
   if (task.done || !task.due_date) return false
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  return new Date(`${task.due_date}T00:00:00Z`) < today
+  const now = new Date()
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+  return task.due_date < today
 }
 
 const EMPTY_FORM = {
@@ -76,6 +87,10 @@ export function Tasks() {
         category: form.category.trim() || 'planning',
         due_date: form.due_date || null,
       })
+      void track({
+        name: 'task.created',
+        properties: { category: form.category.trim() || 'planning' },
+      })
       setForm(EMPTY_FORM)
       await load()
     } catch (e) {
@@ -98,6 +113,9 @@ export function Tasks() {
     )
     try {
       await http.put(`/api/tasks/${task.id}/toggle`, {})
+      if (!task.done) {
+        void track({ name: 'task.completed', properties: { task_id: task.id } })
+      }
     } catch (e) {
       setError((e as Error).message ?? 'Could not update the task')
       await load()
@@ -382,7 +400,7 @@ export function Tasks() {
                   )}
                   data-mol-id={`task-remove-${task.id}`}
                   className={cm.cn(
-                    'material-symbols-outlined text-base text-on-surface-variant hover:text-error',
+                    'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                   )}
                 >
                   delete

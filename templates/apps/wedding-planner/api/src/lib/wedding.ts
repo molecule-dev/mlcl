@@ -76,6 +76,27 @@ export function rollupBudget(items: BudgetLine[]): BudgetRollup {
   }
 }
 
+/**
+ * Normalize a driver DATE value to a plain `YYYY-MM-DD` calendar string.
+ *
+ * Postgres parses DATE columns into JS Date objects pinned to LOCAL midnight;
+ * JSON-serializing those yields the previous day in UTC ("2027-01-15" →
+ * "2027-01-14T22:00:00.000Z" under UTC+2). Every DATE read-back that reaches
+ * a JSON response or a date-only comparison must go through this first —
+ * whatever the driver returned (pg Date objects, sqlite strings).
+ */
+export function toDateString(value: unknown): string | null {
+  if (value == null) return null
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    const y = value.getFullYear()
+    const m = String(value.getMonth() + 1).padStart(2, '0')
+    const d = String(value.getDate()).padStart(2, '0')
+    return `${y}-${m}-${d}`
+  }
+  const s = String(value)
+  return /^\d{4}-\d{2}-\d{2}/.test(s) ? s.slice(0, 10) : s
+}
+
 /** Whole days from `now` until `dateIso` (ceiling, never negative). */
 export function daysUntil(
   dateIso: string | null | undefined,
@@ -92,11 +113,18 @@ export interface TaskLike {
   due_date: string | null
 }
 
-/** Incomplete tasks whose due date has passed. */
+/** Incomplete tasks whose due DATE has fully passed (a task due today is
+ *  not yet overdue). Compares normalized YYYY-MM-DD calendar strings —
+ *  parsing `due_date` as UTC midnight against `now` flagged everything due
+ *  today as overdue for every UTC-negative timezone. */
 export function countOverdue(tasks: TaskLike[], now: Date = new Date()): number {
-  return tasks.filter(
-    (task) => !task.done && task.due_date != null && new Date(task.due_date) < now,
-  ).length
+  const today = toDateString(now)
+  if (!today) return 0
+  return tasks.filter((task) => {
+    if (task.done) return false
+    const due = toDateString(task.due_date)
+    return due != null && due < today
+  }).length
 }
 
 export const RSVP_STATUSES = ['pending', 'yes', 'no', 'maybe'] as const

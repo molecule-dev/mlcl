@@ -7,6 +7,7 @@ import {
   normalizeGuestName,
   rollupBudget,
   tallyRsvps,
+  toDateString,
 } from '../lib/wedding.js'
 
 // The RSVP collection flow, budget gauge, and countdown are the product's
@@ -108,6 +109,23 @@ describe('countOverdue', () => {
         now,
       ),
     ).toBe(1)
+  })
+  it('does not flag a task due today — the day is not over yet', () => {
+    expect(countOverdue([{ done: false, due_date: '2026-09-19' }], now)).toBe(0)
+  })
+})
+
+describe('toDateString', () => {
+  it('normalizes a pg local-midnight Date to its calendar day in every timezone', () => {
+    // pg hands DATE columns over as local-midnight Dates; toISOString would
+    // shift this to 2027-01-14 under UTC+2. Local parts are the truth.
+    const localMidnight = new Date(2027, 0, 15, 0, 0, 0, 0)
+    expect(toDateString(localMidnight)).toBe('2027-01-15')
+  })
+  it('passes date-only strings through and truncates timestamps', () => {
+    expect(toDateString('2027-01-15')).toBe('2027-01-15')
+    expect(toDateString('2027-01-15T22:00:00.000Z')).toBe('2027-01-15')
+    expect(toDateString(null)).toBe(null)
   })
 })
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -104,6 +105,7 @@ export function Budget() {
         actual_cents: parseDollars(form.actual),
         vendor: form.vendor.trim() || null,
       })
+      void track({ name: 'budget_line.created', properties: { category: form.category } })
       setForm(EMPTY_FORM)
       setShowForm(false)
       await load()
@@ -122,6 +124,7 @@ export function Budget() {
         estimated_cents: parseDollars(editForm.estimated) ?? 0,
         actual_cents: parseDollars(editForm.actual),
       })
+      void track({ name: 'budget_line.updated', properties: { line_id: id } })
       setEditingId(null)
       await load()
     } catch (e) {
@@ -145,6 +148,7 @@ export function Budget() {
     }
     try {
       await http.delete(`/api/budget/${id}`)
+      void track({ name: 'budget_line.deleted', properties: { line_id: id } })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not remove the line item')
@@ -417,7 +421,11 @@ export function Budget() {
                       {t(`budget.category.${cat.category}`, {}, { defaultValue: cat.category })}
                     </p>
                     <span className={cm.cn('text-xs text-on-surface-variant tabular-nums')}>
-                      {t('budget.lines', { count: cat.count }, { defaultValue: '{{count}} lines' })}
+                      {t(
+                        'budget.lines',
+                        { count: cat.count },
+                        { defaultValue: cat.count === 1 ? '1 line' : '{{count}} lines' },
+                      )}
                     </span>
                   </div>
                   <p className={cm.cn('text-xl font-extrabold tabular-nums mt-2')}>
@@ -495,7 +503,11 @@ export function Budget() {
                 <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                   {t('budget.col.vendor', {}, { defaultValue: 'Vendor' })}
                 </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                {/* `relative` pins the sr-only span's containing block to this
+                    th — an abs-positioned sr-only child of a static ancestor
+                    escapes every overflow clip up to the viewport and widens
+                    the document's horizontal scroll area on mobile. */}
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'relative')}>
                   <span className="sr-only">
                     {t('common.actions', {}, { defaultValue: 'Actions' })}
                   </span>
@@ -638,7 +650,7 @@ export function Budget() {
                               )}
                               data-mol-id={`budget-edit-${item.id}`}
                               className={cm.cn(
-                                'material-symbols-outlined text-base text-on-surface-variant hover:text-on-surface',
+                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-on-surface hover:bg-surface-variant focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary',
                               )}
                             >
                               edit
@@ -653,7 +665,7 @@ export function Budget() {
                               )}
                               data-mol-id={`budget-remove-${item.id}`}
                               className={cm.cn(
-                                'material-symbols-outlined text-base text-on-surface-variant hover:text-error',
+                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                               )}
                             >
                               delete

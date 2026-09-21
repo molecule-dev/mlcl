@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -99,6 +100,10 @@ export function Vendors() {
         contact: form.contact.trim() || null,
         status: form.status,
       })
+      void track({
+        name: 'vendor.created',
+        properties: { category: form.category, status: form.status },
+      })
       setForm(EMPTY_FORM)
       setShowForm(false)
       await load()
@@ -120,6 +125,9 @@ export function Vendors() {
     )
     try {
       await http.put(`/api/vendors/${vendor.id}`, { status })
+      if (status === 'booked' || status === 'paid') {
+        void track({ name: 'vendor.booked', properties: { vendor_id: vendor.id, status } })
+      }
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not update the vendor')
@@ -404,7 +412,7 @@ export function Vendors() {
                         )}
                         data-mol-id={`vendor-remove-${vendor.id}`}
                         className={cm.cn(
-                          'material-symbols-outlined text-base text-on-surface-variant hover:text-error',
+                          'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                         )}
                       >
                         delete

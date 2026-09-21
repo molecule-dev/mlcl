@@ -13,7 +13,7 @@ import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 
-import { countOverdue, daysUntil, rollupBudget, tallyRsvps } from '../lib/wedding.js'
+import { countOverdue, daysUntil, rollupBudget, tallyRsvps, toDateString } from '../lib/wedding.js'
 import { findWeddingForUser, seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -84,10 +84,10 @@ router.get('/summary', async (_req: Request, res: Response) => {
 
     const vendorsBooked = vendors.filter((v) => v.status === 'booked' || v.status === 'paid').length
 
-    const date =
-      wedding.wedding_date instanceof Date
-        ? (wedding.wedding_date as Date).toISOString()
-        : String(wedding.wedding_date ?? '')
+    // DATE columns arrive as local-midnight Date objects — normalize to the
+    // plain YYYY-MM-DD calendar day BEFORE serializing or counting days,
+    // otherwise east-of-UTC machines shift the wedding a day early.
+    const date = toDateString(wedding.wedding_date) ?? ''
 
     res.json({
       wedding: {

@@ -18,6 +18,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams } from '@molecule/api-middleware-validation'
 
+import { toDateString } from '../lib/wedding.js'
 import { findWeddingForUser } from './_seed.js'
 
 const router = Router()
@@ -43,26 +44,8 @@ interface TaskRow {
   done: boolean
 }
 
-/**
- * Postgres parses DATE columns into JS Date objects pinned to LOCAL midnight;
- * JSON-serializing those yields the previous day in UTC ("2027-01-15" →
- * "2027-01-14T22:00:00.000Z" under UTC+2). The client treats due_date as a
- * plain YYYY-MM-DD calendar date (its formatter appends `T00:00:00Z`), so a
- * full ISO timestamp makes dates render as "—" and overdue flags vanish.
- * Normalize every read-back to the date-only string, whatever the driver
- * returned (pg Date objects, sqlite strings).
- */
-function toDateString(value: unknown): string | null {
-  if (value == null) return null
-  if (value instanceof Date && !Number.isNaN(value.getTime())) {
-    const y = value.getFullYear()
-    const m = String(value.getMonth() + 1).padStart(2, '0')
-    const d = String(value.getDate()).padStart(2, '0')
-    return `${y}-${m}-${d}`
-  }
-  const s = String(value)
-  return /^\d{4}-\d{2}-\d{2}/.test(s) ? s.slice(0, 10) : s
-}
+// `toDateString` lives in ../lib/wedding.ts (shared with the dashboard and
+// public-rsvp handlers, which serialize `wedding_date` the same way).
 
 function serializeTask<T extends { due_date?: unknown }>(task: T): T & { due_date: string | null } {
   return { ...task, due_date: toDateString(task.due_date) }

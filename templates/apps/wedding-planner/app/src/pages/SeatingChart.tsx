@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,6 +65,10 @@ export function SeatingChart() {
         name: tableName.trim(),
         capacity: Math.max(1, Math.min(30, Number(tableCapacity) || 8)),
       })
+      void track({
+        name: 'seating.table_created',
+        properties: { capacity: Number(tableCapacity) || 8 },
+      })
       setTableName('')
       setTableCapacity('8')
       await load()
@@ -88,6 +93,7 @@ export function SeatingChart() {
     }
     try {
       await http.delete(`/api/seating/tables/${id}`)
+      void track({ name: 'seating.table_removed', properties: { table_id: id } })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not remove the table')
@@ -99,6 +105,10 @@ export function SeatingChart() {
     setError(null)
     try {
       await http.post('/api/seating/assign', { guest_id: guestId, table_id: tableId })
+      void track({
+        name: 'seating.guest_seated',
+        properties: { guest_id: guestId, table_id: tableId },
+      })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not seat the guest')
@@ -113,6 +123,7 @@ export function SeatingChart() {
     setError(null)
     try {
       await http.delete(`/api/seating/unassign/${guestId}`)
+      void track({ name: 'seating.guest_unseated', properties: { guest_id: guestId } })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not unseat the guest')
@@ -311,7 +322,7 @@ export function SeatingChart() {
                               )}
                               data-mol-id={`seating-unseat-${guest.id}`}
                               className={cm.cn(
-                                'material-symbols-outlined text-sm text-on-surface-variant hover:text-error disabled:opacity-50',
+                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                               )}
                             >
                               close
@@ -359,7 +370,7 @@ export function SeatingChart() {
                         )}
                         data-mol-id={`seating-remove-table-${table.id}`}
                         className={cm.cn(
-                          'material-symbols-outlined text-base text-on-surface-variant hover:text-error',
+                          'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                         )}
                       >
                         delete

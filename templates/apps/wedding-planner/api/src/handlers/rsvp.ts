@@ -23,7 +23,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams } from '@molecule/api-middleware-validation'
 
-import { normalizeGuestName } from '../lib/wedding.js'
+import { normalizeGuestName, toDateString } from '../lib/wedding.js'
 
 const router = Router()
 
@@ -58,10 +58,9 @@ router.get('/:code', validateParams(codeParamSchema), async (req: Request, res: 
       orderBy: [{ field: 'position', direction: 'asc' }],
       limit: 20,
     })
-    const date =
-      wedding.wedding_date instanceof Date
-        ? (wedding.wedding_date as Date).toISOString()
-        : String(wedding.wedding_date ?? '')
+    // Normalize the DATE column to a calendar string (see lib/wedding.ts) —
+    // a raw toISOString shifts the day for east-of-UTC machines.
+    const date = toDateString(wedding.wedding_date) ?? ''
     res.json({
       partner_a_name: wedding.partner_a_name,
       partner_b_name: wedding.partner_b_name,

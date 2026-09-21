@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -32,11 +33,15 @@ const CHOICE_STYLES: Record<RsvpChoice, { bg: string; fg: string; icon: string }
   maybe: { bg: 'var(--color-rsvp-maybe-bg)', fg: 'var(--color-rsvp-maybe)', icon: 'help' },
 }
 
+/** Formats a date-only `YYYY-MM-DD` (the API normalizes the DATE column to
+ *  a calendar string). Rendered with `timeZone: 'UTC'` so every visitor sees
+ *  the same calendar day regardless of their UTC offset. */
 function formatDate(iso: string | null | undefined): string {
   if (!iso) return '—'
-  const d = new Date(iso)
+  const d = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso)
   if (Number.isNaN(d.getTime())) return '—'
   return d.toLocaleDateString('en-US', {
+    timeZone: 'UTC',
     weekday: 'short',
     year: 'numeric',
     month: 'long',
@@ -109,6 +114,11 @@ export function Rsvp() {
         rsvp_status: choice,
         meal_choice: choice === 'no' ? null : meal || null,
         plus_ones: choice === 'yes' ? Number(plusOnes) || 0 : 0,
+      })
+      // The conversion moment of the whole app — the guest's answer lands.
+      void track({
+        name: 'rsvp.received',
+        properties: { code, guest_id: lookup.guest_id, status: choice },
       })
       setConfirmed(choice)
     } catch (e) {

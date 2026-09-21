@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -89,6 +90,7 @@ export function Guests() {
         meal_choice: form.meal_choice.trim() || null,
         plus_ones: Number(form.plus_ones) || 0,
       })
+      void track({ name: 'guest.created', properties: { side: form.side } })
       setForm(EMPTY_FORM)
       setShowForm(false)
       await load()
@@ -104,6 +106,12 @@ export function Guests() {
     setGuests((rows) => rows.map((g) => (g.id === id ? { ...g, ...patch } : g)))
     try {
       await http.put(`/api/guests/${id}`, patch)
+      if (patch.rsvp_status) {
+        void track({
+          name: 'guest.rsvp_updated',
+          properties: { guest_id: id, status: patch.rsvp_status },
+        })
+      }
     } catch (e) {
       setError((e as Error).message ?? 'Could not save the change')
       await load()
@@ -120,6 +128,7 @@ export function Guests() {
     }
     try {
       await http.delete(`/api/guests/${id}`)
+      void track({ name: 'guest.deleted', properties: { guest_id: id } })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not remove the guest')
@@ -377,7 +386,11 @@ export function Guests() {
           className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant ml-auto font-bold')}
           data-mol-id="guests-count"
         >
-          {t('guests.count', { count: guests.length }, { defaultValue: '{{count}} guests' })}
+          {t(
+            'guests.count',
+            { count: guests.length },
+            { defaultValue: guests.length === 1 ? '1 guest' : '{{count}} guests' },
+          )}
         </span>
       </div>
 
@@ -429,7 +442,11 @@ export function Guests() {
                 <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                   {t('guests.col.plusOnes', {}, { defaultValue: '+1s' })}
                 </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                {/* `relative` pins the sr-only span's containing block to this
+                    th — an abs-positioned sr-only child of a static ancestor
+                    escapes every overflow clip up to the viewport and widens
+                    the document's horizontal scroll area on mobile. */}
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'relative')}>
                   <span className="sr-only">
                     {t('common.actions', {}, { defaultValue: 'Actions' })}
                   </span>
@@ -499,7 +516,7 @@ export function Guests() {
                       )}
                       data-mol-id={`guest-remove-${guest.id}`}
                       className={cm.cn(
-                        'material-symbols-outlined text-base text-on-surface-variant hover:text-error',
+                        'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
                       )}
                     >
                       delete

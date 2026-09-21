@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { KpiCard, KpiCardGrid } from '@molecule/app-kpi-card-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -37,11 +38,33 @@ function formatMoney(cents: number): string {
   }).format(cents / 100)
 }
 
+/** KpiCard's `icon` slot is a ReactNode — pass a material-symbols glyph, not
+ *  a bare string (a string renders its literal text, e.g. "event"). */
+function matIcon(name: string) {
+  return (
+    <span
+      className="material-symbols-outlined text-[20px] text-on-surface-variant"
+      aria-hidden="true"
+    >
+      {name}
+    </span>
+  )
+}
+
+/** Formats a date-only `YYYY-MM-DD` (the API normalizes DATE columns to
+ *  calendar strings). Parsed as UTC midnight and rendered with
+ *  `timeZone: 'UTC'` so every visitor sees the same calendar day — without
+ *  the pin, west-of-UTC browsers shift the date one day back. */
 function formatDate(iso: string | null | undefined): string {
   if (!iso) return '—'
-  const d = new Date(iso)
+  const d = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso)
   if (Number.isNaN(d.getTime())) return '—'
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  return d.toLocaleDateString('en-US', {
+    timeZone: 'UTC',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
 }
 
 const RSVP_CHIP_STYLES: Record<string, { bg: string; fg: string }> = {
@@ -81,6 +104,7 @@ export function Dashboard() {
     setRegenerating(true)
     try {
       await http.put('/api/wedding/regenerate-code', {})
+      void track({ name: 'rsvp.code_regenerated' })
       await load()
     } catch (e) {
       setError((e as Error).message ?? 'Could not regenerate the RSVP code')
@@ -174,7 +198,7 @@ export function Dashboard() {
             ? t(
                 'dashboard.countdown',
                 { count: daysUntil },
-                { defaultValue: ' · {{count}} days to go' },
+                { defaultValue: daysUntil === 1 ? ' · 1 day to go' : ' · {{count}} days to go' },
               )
             : ''}
         </p>
@@ -246,7 +270,7 @@ export function Dashboard() {
         <KpiCard
           title={t('dashboard.kpiDays', {}, { defaultValue: 'Days to go' })}
           value={daysUntil != null ? String(daysUntil) : '—'}
-          icon="event"
+          icon={matIcon('event')}
           accentSide="left"
           accentColor="border-primary"
           upperLabel
@@ -256,7 +280,7 @@ export function Dashboard() {
         <KpiCard
           title={t('dashboard.kpiHeadcount', {}, { defaultValue: 'Confirmed headcount' })}
           value={String(summary.headcount_confirmed)}
-          icon="how_to_reg"
+          icon={matIcon('how_to_reg')}
           accentSide="left"
           accentColor="border-primary"
           upperLabel
@@ -266,7 +290,7 @@ export function Dashboard() {
         <KpiCard
           title={t('dashboard.kpiBudget', {}, { defaultValue: 'Spent of estimated' })}
           value={`${formatMoney(budget.actual_total_cents)} / ${formatMoney(budget.estimated_total_cents)}`}
-          icon="savings"
+          icon={matIcon('savings')}
           accentSide="left"
           accentColor={overBudget ? 'border-error' : 'border-success'}
           upperLabel
@@ -276,7 +300,7 @@ export function Dashboard() {
         <KpiCard
           title={t('dashboard.kpiTasks', {}, { defaultValue: 'Tasks done' })}
           value={`${tasks.done} / ${tasks.total}`}
-          icon="checklist"
+          icon={matIcon('checklist')}
           accentSide="left"
           accentColor="border-primary"
           upperLabel
@@ -300,7 +324,10 @@ export function Dashboard() {
             </h2>
             <Link
               to="/guests"
-              className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'inline-flex items-center min-h-[36px] px-1 font-bold text-primary hover:underline',
+              )}
             >
               {t('dashboard.openGuests', {}, { defaultValue: 'Guest list →' })}
             </Link>
@@ -366,7 +393,10 @@ export function Dashboard() {
             </h2>
             <Link
               to="/budget"
-              className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'inline-flex items-center min-h-[36px] px-1 font-bold text-primary hover:underline',
+              )}
             >
               {t('dashboard.openBudget', {}, { defaultValue: 'Budget →' })}
             </Link>
@@ -375,7 +405,9 @@ export function Dashboard() {
             {t(
               'dashboard.budgetLines',
               { count: budget.line_item_count },
-              { defaultValue: '{{count}} line items' },
+              {
+                defaultValue: budget.line_item_count === 1 ? '1 line item' : '{{count}} line items',
+              },
             )}
           </p>
           <div
@@ -432,7 +464,10 @@ export function Dashboard() {
             </h2>
             <Link
               to="/tasks"
-              className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'inline-flex items-center min-h-[36px] px-1 font-bold text-primary hover:underline',
+              )}
             >
               {t('dashboard.openTasks', {}, { defaultValue: 'Tasks →' })}
             </Link>
@@ -496,7 +531,10 @@ export function Dashboard() {
             </h2>
             <Link
               to="/vendors"
-              className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+              className={cm.cn(
+                cm.textSize('sm'),
+                'inline-flex items-center min-h-[36px] px-1 font-bold text-primary hover:underline',
+              )}
             >
               {t('dashboard.openVendors', {}, { defaultValue: 'Vendors →' })}
             </Link>
