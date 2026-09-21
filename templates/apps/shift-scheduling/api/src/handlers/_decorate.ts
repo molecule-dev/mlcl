@@ -71,6 +71,22 @@ export function shiftDate(shift: { starts_at: string | Date }): string {
   return d.toISOString().slice(0, 10)
 }
 
+/**
+ * Normalize a raw `date` column value to `YYYY-MM-DD`.
+ *
+ * The postgres bond parses DATE columns into JS `Date` objects at LOCAL
+ * midnight (e.g. `2026-12-24` → `2026-12-23T17:00:00.000Z` on UTC-7), so
+ * `toISOString().slice(0, 10)` would shift the calendar day and string
+ * methods like `localeCompare` crash outright. Always run raw `date`
+ * values through this before comparing, sorting, or serializing them.
+ */
+export function isoDateOf(value: string | Date): string {
+  if (typeof value === 'string') return value.slice(0, 10)
+  return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}-${String(
+    value.getDate(),
+  ).padStart(2, '0')}`
+}
+
 /** `HH:mm` clock time of a timestamp. */
 export function clockOf(value: string | Date): string {
   const d = new Date(value)
@@ -224,7 +240,7 @@ export function availabilityWarning(
 ): AvailabilityWarning {
   const start = new Date(shift.starts_at)
   const date = start.toISOString().slice(0, 10)
-  if (blackoutDates.some((b) => b.date === date)) return 'blackout_date'
+  if (blackoutDates.some((b) => isoDateOf(b.date) === date)) return 'blackout_date'
   if (windows.length === 0) return null
   const weekday = start.getUTCDay()
   const startClock = clockOf(start)

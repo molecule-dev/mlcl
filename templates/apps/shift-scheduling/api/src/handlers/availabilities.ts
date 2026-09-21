@@ -13,6 +13,7 @@ import {
   buildLookups,
   type DecoratedAvailabilityWindow,
   type DecoratedBlackoutDate,
+  isoDateOf,
   type RawAvailability,
   type RawBlackoutDate,
 } from './_decorate.js'
@@ -185,7 +186,7 @@ router.get('/blackouts', async (req: Request, res: Response) => {
       staff_id: b.staff_id,
       staff_name: staff?.name ?? 'Unknown',
       staff_initial: staff?.avatar_initial ?? '?',
-      date: b.date,
+      date: isoDateOf(b.date),
       reason: b.reason ?? '',
     }
   })

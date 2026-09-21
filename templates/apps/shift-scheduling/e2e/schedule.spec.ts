@@ -12,6 +12,7 @@ import {
   captureNetwork,
   pickStaff,
   seedShift,
+  seedStaff,
   signup,
   weekDate,
 } from './_helpers.js'
@@ -43,7 +44,9 @@ test.describe('schedule page', () => {
 
   test('Add shift composer posts to /api/shifts and the block appears', async ({ page }) => {
     const { accessToken } = await signup(page)
-    const person = await pickStaff(page, accessToken)
+    // A freshly created staff member has no seeded shifts, so the composed
+    // shift can never collide with the demo roster (the API 409s overlaps).
+    const person = await seedStaff(page, accessToken)
     await page.goto(APP_BASE + '/schedule')
     await page.getByRole('button', { name: /^add shift$/i }).click()
     const employeeSelect = page.locator('select').first()

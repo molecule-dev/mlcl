@@ -51,7 +51,10 @@ test.describe('swap requests page', () => {
     await expect(page.getByRole('heading', { name: /^my requests$/i })).toBeVisible({
       timeout: 10_000,
     })
-    await expect(page.getByText(to.name).first()).toBeVisible()
+    // The request targeted `to`, so it lands in the Incoming & team list —
+    // assert on the row, not bare text (the view-as <option> also matches).
+    const row = page.locator('[data-mol-id^="swap-request-"]').filter({ hasText: to.name })
+    await expect(row.first()).toBeVisible({ timeout: 10_000 })
   })
 
   test('deny leaves the shift assigned to the requester', async ({ page }) => {

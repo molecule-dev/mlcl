@@ -10,8 +10,8 @@ test.describe('availability page', () => {
     const { accessToken } = await signup(page)
     await page.goto(APP_BASE + '/availability')
     await expect(page.getByRole('heading', { name: /availability/i })).toBeVisible()
-    await expect(page.getByText(/weekly windows/i)).toBeVisible()
-    await expect(page.getByText(/black-out dates/i)).toBeVisible()
+    await expect(page.getByRole('heading', { name: /weekly windows/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /black-out dates/i })).toBeVisible()
     void accessToken
   })
 
@@ -21,8 +21,10 @@ test.describe('availability page', () => {
     await page.goto(APP_BASE + '/availability')
     const select = page.locator('[data-mol-id="availability-staff-select"]')
     await select.selectOption({ label: person.name })
-    // Add a Wednesday 08:00–12:00 window.
+    // Add a Wednesday 08:00–16:00 window.
     await page.locator('select').nth(1).selectOption({ label: 'Wednesday' })
+    await page.locator('input[type="time"]').nth(0).fill('08:00')
+    await page.locator('input[type="time"]').nth(1).fill('16:00')
     await page.getByRole('button', { name: /^add window$/i }).click()
     const listRes = await page.request.get(`${API_BASE}/availabilities?staff_id=${person.id}`, {
       headers: apiHeaders(accessToken),

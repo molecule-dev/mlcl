@@ -31,6 +31,12 @@ test.describe('reset-password page', () => {
   test('matching passwords POST to /api/users/reset-password (status surfaced regardless of token validity)', async ({
     page,
   }) => {
+    // An invalid token yields a 4xx from the API — surfaced in the browser
+    // console as an expected error.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[13]',
+    })
     await page.goto(APP_BASE + '/reset-password?token=tok-attempt')
     await page.locator('input#password').fill('GoodPass!12345')
     await page.locator('input#confirm').fill('GoodPass!12345')

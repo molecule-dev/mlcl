@@ -87,6 +87,8 @@ test.describe('auth + bootstrap', () => {
       failOnStatusCode: false,
     })
     expect(reg.status()).toBeLessThan(400)
+    // The rejected login surfaces as a browser console error (403) — expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('totally wrong')

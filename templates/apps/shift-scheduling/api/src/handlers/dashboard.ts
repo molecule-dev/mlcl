@@ -80,7 +80,7 @@ export async function dashboardStats(_req: Request, res: Response): Promise<void
   const todayIso = new Date().toISOString().slice(0, 10)
   const todayShifts: DecoratedShift[] = lookups.rawShifts
     .filter((s) => new Date(s.starts_at).toISOString().slice(0, 10) === todayIso)
-    .sort((a, b) => a.starts_at.localeCompare(b.starts_at))
+    .sort((a, b) => new Date(a.starts_at).getTime() - new Date(b.starts_at).getTime())
     .slice(0, 8)
     .map(lookups.decorateShiftWithAvailability)
 

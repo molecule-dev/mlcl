@@ -103,7 +103,7 @@ router.get('/', async (req: Request, res: Response) => {
       return start >= new Date(`${weekStart}T00:00:00Z`) && start < weekEnd
     })
     .filter((s) => new Date(s.ends_at).getTime() <= now)
-    .sort((a, b) => a.starts_at.localeCompare(b.starts_at))
+    .sort((a, b) => new Date(a.starts_at).getTime() - new Date(b.starts_at).getTime())
 
   for (const raw of completed) {
     const staff = lookups.staffById(raw.staff_id)

@@ -10,6 +10,7 @@ import {
   apiHeaders,
   pickStaff,
   seedShift,
+  seedStaff,
   seedSwapRequest,
   signup,
   weekDate,
@@ -56,7 +57,9 @@ test.describe('shift detail page', () => {
   test('request swap → approve → assignment moves to the target atomically', async ({ page }) => {
     const { accessToken } = await signup(page)
     const from = await pickStaff(page, accessToken)
-    const to = await pickStaff(page, accessToken, 1)
+    // A freshly created target has no shifts, so the swap approval can never
+    // hit the no-double-booking rule (which would correctly 409).
+    const to = await seedStaff(page, accessToken)
     const shift = await seedShift(page, accessToken, { staff_id: from.id })
     const request = await seedSwapRequest(page, accessToken, {
       from_shift: shift.id,

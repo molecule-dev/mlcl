@@ -35,9 +35,11 @@ test.describe('staff page', () => {
     const lastName = `Hire${Date.now() % 100000}`
     await page.goto(APP_BASE + '/staff')
     await page.getByRole('button', { name: /^add staff$/i }).click()
-    await page.locator('input[placeholder="First name"]').fill('Newest')
-    await page.locator('input[placeholder="Last name"]').fill(lastName)
-    await page.locator('input[type="email"]').fill(uniqueEmail('staffpage'))
+    // The compose form fields are wrapping-label inputs (no placeholders).
+    const compose = page.locator('[data-mol-id="staff-compose"]')
+    await compose.getByLabel(/first name/i).fill('Newest')
+    await compose.getByLabel(/last name/i).fill(lastName)
+    await compose.getByLabel(/email/i).fill(uniqueEmail('staffpage'))
     await page.getByRole('button', { name: /^add staff member$/i }).click()
     await expect(page.getByText(new RegExp(`newest ${lastName}`, 'i')).first()).toBeVisible({
       timeout: 10_000,
