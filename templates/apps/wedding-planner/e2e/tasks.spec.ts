@@ -29,7 +29,14 @@ test.describe('/tasks page', () => {
     const title = `E2E task ${Date.now()}`
     await page.locator('[data-mol-id="tasks-form-title"]').fill(title)
     await page.locator('[data-mol-id="tasks-form-due"]').fill('2027-01-15')
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/tasks(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="tasks-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/tasks`, { headers: apiHeaders(accessToken) })
@@ -44,18 +51,31 @@ test.describe('/tasks page', () => {
   test('toggling a checkbox PUTs /toggle and updates progress', async ({ page }) => {
     const email = uniqueEmail('tasks-toggle')
     const { accessToken } = await signup(page, email)
-    await page.goto(APP_BASE + '/tasks')
-    await expect(page.locator('[data-mol-id="page-tasks"]')).toBeVisible({ timeout: 15000 })
 
+    // Seed via the API BEFORE the page loads — the list renders from the
+    // page's own initial fetch, so a task added afterwards never shows its
+    // checkbox until a reload. GET /wedding first so the lazily-seeded
+    // starter kit exists for the POST.
+    await page.request.get(`${API_BASE}/wedding`, { headers: apiHeaders(accessToken) })
     const created = await page.request.post(`${API_BASE}/tasks`, {
       headers: apiHeaders(accessToken),
       data: { title: `Toggle me ${Date.now()}` },
     })
     const task = (await created.json()) as { id: string; done: boolean }
 
+    await page.goto(APP_BASE + '/tasks')
+    await expect(page.locator('[data-mol-id="page-tasks"]')).toBeVisible({ timeout: 15000 })
+
     const box = page.locator(`[data-mol-id="task-toggle-${task.id}"]`)
     await expect(box).toBeVisible({ timeout: 10000 })
+    // Arm the PUT waiter BEFORE checking — the API readback below must not
+    // race the optimistic UI's own request.
+    const toggled = page.waitForResponse(
+      (r) => /\/api\/tasks\/[^/]+\/toggle(\?|$)/.test(r.url()) && r.request().method() === 'PUT',
+      { timeout: 15000 },
+    )
     await box.check()
+    expect((await toggled).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/tasks`, { headers: apiHeaders(accessToken) })

@@ -30,7 +30,14 @@ test.describe('/budget page', () => {
     await page.locator('[data-mol-id="budget-form-label"]').fill(label)
     await page.locator('[data-mol-id="budget-form-estimated"]').fill('1234')
     await page.locator('[data-mol-id="budget-form-actual"]').fill('1000')
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/budget(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="budget-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/budget`, { headers: apiHeaders(accessToken) })
@@ -45,14 +52,21 @@ test.describe('/budget page', () => {
   test('inline edit saves new estimated/actual amounts', async ({ page }) => {
     const email = uniqueEmail('budget-edit')
     const { accessToken } = await signup(page, email)
-    await page.goto(APP_BASE + '/budget')
-    await expect(page.locator('[data-mol-id="page-budget"]')).toBeVisible({ timeout: 15000 })
 
+    // Seed via the API BEFORE the page loads — the table renders from the
+    // page's own initial fetch, so a row created afterwards never appears
+    // until a reload. GET /wedding first: it lazily provisions the starter
+    // kit (awaited server-side) so the POST can never 404 on a missing
+    // wedding if the dashboard's own seeding fetch is still in flight.
+    await page.request.get(`${API_BASE}/wedding`, { headers: apiHeaders(accessToken) })
     const created = await page.request.post(`${API_BASE}/budget`, {
       headers: apiHeaders(accessToken),
       data: { label: `Edit me ${Date.now()}`, category: 'decor', estimated_cents: 50000 },
     })
     const item = (await created.json()) as { id: string }
+
+    await page.goto(APP_BASE + '/budget')
+    await expect(page.locator('[data-mol-id="page-budget"]')).toBeVisible({ timeout: 15000 })
 
     await page.locator(`[data-mol-id="budget-edit-${item.id}"]`).click()
     await page.locator(`[data-mol-id="budget-edit-estimated-${item.id}"]`).fill('600')
@@ -70,14 +84,22 @@ test.describe('/budget page', () => {
   test('over-estimate actuals flip the delta chip to over', async ({ page }) => {
     const email = uniqueEmail('budget-over')
     const { accessToken } = await signup(page, email)
-    await page.goto(APP_BASE + '/budget')
-    await expect(page.locator('[data-mol-id="page-budget"]')).toBeVisible({ timeout: 15000 })
 
-    await page.request.post(`${API_BASE}/budget`, {
+    // The starter kit carries ~$29k of estimates, so the actual must dwarf it
+    // for the delta chip to flip to "over" ($10k was not enough — it left
+    // "$6,289 to spend").
+    await page.request.get(`${API_BASE}/wedding`, { headers: apiHeaders(accessToken) })
+    const created = await page.request.post(`${API_BASE}/budget`, {
       headers: apiHeaders(accessToken),
-      data: { label: `Overspend ${Date.now()}`, estimated_cents: 100, actual_cents: 999999 },
+      data: {
+        label: `Overspend ${Date.now()}`,
+        estimated_cents: 100,
+        actual_cents: 999_999_999,
+      },
     })
-    await page.reload()
+    expect(created.status()).toBeLessThan(400)
+
+    await page.goto(APP_BASE + '/budget')
     await expect(page.locator('[data-mol-id="budget-delta-chip"]')).toContainText(/over/i, {
       timeout: 15000,
     })

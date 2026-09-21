@@ -36,7 +36,14 @@ test.describe('/guests page', () => {
     const name = `E2E Guest ${Date.now()}`
     await page.locator('[data-mol-id="guests-form-name"]').fill(name)
     await page.locator('[data-mol-id="guests-form-side"]').selectOption('partner_b')
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/guests(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="guests-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const after = (await (
       await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })
@@ -77,7 +84,14 @@ test.describe('/guests page', () => {
     await page.locator('[data-mol-id="guests-toggle-form"]').click()
     const name = `Rsvp Flip ${Date.now()}`
     await page.locator('[data-mol-id="guests-form-name"]').fill(name)
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/guests(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="guests-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const list = (await (
       await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })
@@ -87,7 +101,14 @@ test.describe('/guests page', () => {
 
     const select = page.locator(`[data-mol-id="guest-status-${target?.id}"]`)
     await expect(select).toBeVisible({ timeout: 10000 })
+    // Arm the PUT waiter BEFORE changing the select — the API readback below
+    // must not race the page's own request.
+    const put = page.waitForResponse(
+      (r) => /\/api\/guests\/[^/]+(\?|$)/.test(r.url()) && r.request().method() === 'PUT',
+      { timeout: 15000 },
+    )
     await select.selectOption('yes')
+    expect((await put).status()).toBeLessThan(400)
 
     const after = (await (
       await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })
@@ -104,7 +125,14 @@ test.describe('/guests page', () => {
     await page.locator('[data-mol-id="guests-toggle-form"]').click()
     const name = `Bye Guest ${Date.now()}`
     await page.locator('[data-mol-id="guests-form-name"]').fill(name)
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/guests(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="guests-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const list = (await (
       await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })
@@ -112,8 +140,15 @@ test.describe('/guests page', () => {
     const target = list.find((g) => g.name === name)
     expect(target).toBeTruthy()
 
+    // Arm the DELETE waiter BEFORE accepting the confirm — the API readback
+    // below must not race the page's own request.
+    const deleted = page.waitForResponse(
+      (r) => /\/api\/guests\/[^/]+(\?|$)/.test(r.url()) && r.request().method() === 'DELETE',
+      { timeout: 15000 },
+    )
     page.once('dialog', (d) => d.accept())
     await page.locator(`[data-mol-id="guest-remove-${target?.id}"]`).click()
+    expect((await deleted).status()).toBeLessThan(400)
 
     const after = (await (
       await page.request.get(`${API_BASE}/guests`, { headers: apiHeaders(accessToken) })

@@ -21,6 +21,12 @@ test.describe('/reset-password page', () => {
   test('submit with bogus token POSTs to /api/users/reset-password and surfaces error', async ({
     page,
   }) => {
+    // A bogus reset token legitimately 401s on POST /api/users/reset-password
+    // (the browser logs the failed fetch before the error alert renders).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=invalid-token')
       const pw = page.locator('input[type="password"]')

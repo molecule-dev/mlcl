@@ -35,6 +35,12 @@ test.describe('/login page', () => {
   })
 
   test('wrong password surfaces alert and does not navigate away', async ({ page }) => {
+    // A wrong password legitimately 403s on POST /api/users/log-in (the
+    // browser logs the failed fetch before the alert renders).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*403',
+    })
     const email = uniqueEmail('login-bad')
     await signup(page, email, 'TestPass!1234')
     await page.evaluate(() => window.localStorage.clear())

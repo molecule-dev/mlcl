@@ -38,7 +38,14 @@ test.describe('/vendors page', () => {
     await page.locator('[data-mol-id="vendors-toggle-form"]').click()
     await page.locator('[data-mol-id="vendors-form-name"]').fill(name)
     await page.locator('[data-mol-id="vendors-form-category"]').selectOption('flowers')
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/vendors(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="vendors-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/vendors`, { headers: apiHeaders(accessToken) })
@@ -53,20 +60,33 @@ test.describe('/vendors page', () => {
   test('moving a vendor through the pipeline PUTs the status', async ({ page }) => {
     const email = uniqueEmail('vendors-status')
     const { accessToken } = await signup(page, email)
-    await page.goto(APP_BASE + '/vendors')
-    await expect(page.locator('[data-mol-id="page-vendors"]')).toBeVisible({
-      timeout: 15000,
-    })
 
+    // Seed via the API BEFORE the page loads — the list renders from the
+    // page's own initial fetch, so a vendor added afterwards never shows its
+    // status select until a reload. GET /wedding first so the lazily-seeded
+    // starter kit exists for the POST.
+    await page.request.get(`${API_BASE}/wedding`, { headers: apiHeaders(accessToken) })
     const created = await page.request.post(`${API_BASE}/vendors`, {
       headers: apiHeaders(accessToken),
       data: { name: `Pipeline ${Date.now()}`, category: 'music', status: 'researching' },
     })
     const vendor = (await created.json()) as { id: string }
 
+    await page.goto(APP_BASE + '/vendors')
+    await expect(page.locator('[data-mol-id="page-vendors"]')).toBeVisible({
+      timeout: 15000,
+    })
+
     const select = page.locator(`[data-mol-id="vendor-status-${vendor.id}"]`)
     await expect(select).toBeVisible({ timeout: 10000 })
+    // Arm the PUT waiter BEFORE changing the select — the API readback below
+    // must not race the page's own request.
+    const put = page.waitForResponse(
+      (r) => /\/api\/vendors\/[^/]+(\?|$)/.test(r.url()) && r.request().method() === 'PUT',
+      { timeout: 15000 },
+    )
     await select.selectOption('booked')
+    expect((await put).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/vendors`, { headers: apiHeaders(accessToken) })

@@ -18,6 +18,13 @@ import {
  */
 test.describe('/rsvp/:code public collection', () => {
   test('unknown code renders the not-found page', async ({ page }) => {
+    // The page probes /api/public/rsvp/:code, which legitimately 404s for an
+    // unknown code (the browser logs the failed fetch — twice under React
+    // StrictMode's double mount).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*404',
+    })
     await page.goto(APP_BASE + '/rsvp/NO-SUCH-WEDDING-000')
     await expect(page.locator('[data-mol-id="page-rsvp-not-found"]')).toBeVisible({
       timeout: 10000,
@@ -25,6 +32,12 @@ test.describe('/rsvp/:code public collection', () => {
   })
 
   test('a wrong name finds nothing and reveals no guest list', async ({ page }) => {
+    // A name that matches no guest legitimately 404s on the /lookup probe
+    // (the browser logs the failed fetch before the lookup error renders).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*404',
+    })
     const email = uniqueEmail('rsvp-wrong')
     const { accessToken } = await signup(page, email)
     const wedding = await getWedding(page, accessToken)

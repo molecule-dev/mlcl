@@ -12,6 +12,13 @@ test.describe('/ landing', () => {
   })
 
   test('RSVP code entrance navigates to /rsvp/:code', async ({ page }) => {
+    // The destination page probes /api/public/rsvp/:code; the fixture code
+    // "rose-garden-417" matches no wedding, so a 404 is expected — and it
+    // races the test end, so allow it rather than flake on it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*404',
+    })
     await page.goto(APP_BASE + '/')
     await page.locator('[data-mol-id="landing-rsvp-code-input"]').fill('rose-garden-417')
     await page.locator('[data-mol-id="landing-rsvp-submit"]').click()
@@ -19,6 +26,12 @@ test.describe('/ landing', () => {
   })
 
   test('unknown RSVP code shows the not-found page, not a crash', async ({ page }) => {
+    // The page probes /api/public/rsvp/:code, which legitimately 404s for an
+    // unknown code (the browser logs the failed fetch).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*404',
+    })
     await page.goto(APP_BASE + '/rsvp/NO-SUCH-CODE-999')
     await expect(page.locator('[data-mol-id="page-rsvp-not-found"]')).toBeVisible({
       timeout: 10000,
@@ -53,7 +66,8 @@ test.describe('/ landing', () => {
       await page.goto(APP_BASE + '/')
       await page.waitForLoadState('networkidle')
     })
-    const bad = reqs.filter((r) => r.status() >= 500)
+    // captureNetwork returns plain { method, url, status } records.
+    const bad = reqs.filter((r) => r.status >= 500)
     expect(bad, JSON.stringify(bad, null, 2)).toHaveLength(0)
   })
 })

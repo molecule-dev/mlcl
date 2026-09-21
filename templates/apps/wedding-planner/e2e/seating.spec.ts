@@ -31,7 +31,14 @@ test.describe('/seating page', () => {
     const name = `E2E Table ${Date.now()}`
     await page.locator('[data-mol-id="seating-form-name"]').fill(name)
     await page.locator('[data-mol-id="seating-form-capacity"]').fill('6')
+    // Arm the POST waiter BEFORE clicking submit — the API readback below must
+    // not race the form's own request.
+    const posted = page.waitForResponse(
+      (r) => /\/api\/seating\/tables(\?|$)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page.locator('[data-mol-id="seating-form-submit"]').click()
+    expect((await posted).status()).toBeLessThan(400)
 
     const data = (await (
       await page.request.get(`${API_BASE}/seating`, { headers: apiHeaders(accessToken) })
@@ -46,15 +53,20 @@ test.describe('/seating page', () => {
   test('seating a guest from the pool assigns them via POST /assign', async ({ page }) => {
     const email = uniqueEmail('seating-assign')
     const { accessToken } = await signup(page, email)
-    await page.goto(APP_BASE + '/seating')
-    await expect(page.locator('[data-mol-id="page-seating"]')).toBeVisible({ timeout: 15000 })
 
-    // A fresh guest is guaranteed to be in the unseated pool.
+    // A fresh guest is guaranteed to be in the unseated pool. Create it
+    // BEFORE the page loads: the pool options render from the page's own
+    // initial fetch, so a guest added afterwards never shows up in the seat
+    // select. GET /wedding first so the lazily-seeded starter kit exists.
+    await page.request.get(`${API_BASE}/wedding`, { headers: apiHeaders(accessToken) })
     const created = await page.request.post(`${API_BASE}/guests`, {
       headers: apiHeaders(accessToken),
       data: { name: `Pool Guest ${Date.now()}` },
     })
     const guest = (await created.json()) as { id: string }
+
+    await page.goto(APP_BASE + '/seating')
+    await expect(page.locator('[data-mol-id="page-seating"]')).toBeVisible({ timeout: 15000 })
 
     const data = (await (
       await page.request.get(`${API_BASE}/seating`, { headers: apiHeaders(accessToken) })
