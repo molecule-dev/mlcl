@@ -62,6 +62,8 @@ test.describe('/play (signature flow)', () => {
   test('submitting a word outside the dictionary shows the toast', async ({ page }) => {
     await page.locator('[data-mol-id="board-active-row"]').waitFor()
     await page.keyboard.type('zzzzz', { delay: 20 })
+    // Expected 4xx: the rejected guess POST logs a browser console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     const guessResp = page.waitForResponse(
       (r) => /\/guess$/.test(r.url()) && r.request().method() === 'POST',
     )

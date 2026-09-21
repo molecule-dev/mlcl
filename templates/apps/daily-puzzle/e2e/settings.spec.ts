@@ -170,6 +170,9 @@ test.describe('/settings', () => {
     const token = await bearerToken(page)
     await page.goto(APP_BASE + '/settings')
     await page.getByTestId('delete-account').click()
+    // Expected 4xx: after the DELETE succeeds, the best-effort logout POST
+    // runs with the now-deleted user's bearer and is rejected (401).
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     const reqs = await captureNetwork(page, async () => {
       await page.getByTestId('confirm-delete').click()
       await page.waitForURL(APP_BASE + '/', { timeout: 15000 })

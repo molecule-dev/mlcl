@@ -102,6 +102,11 @@ test.describe('/pricing', () => {
       .locator('button[data-testid^="checkout-"]:not([data-testid="checkout-free"])')
       .first()
     if ((await button.count()) === 0) test.skip(true, 'no paid tier configured')
+    // Expected 4xx/5xx: without Stripe price IDs configured the checkout
+    // POST is rejected by the server and surfaces an error in the UI.
+    test
+      .info()
+      .annotations.push({ type: 'allow-console-error', description: 'status of (4|5)\\d\\d' })
     const checkoutPromise = page.waitForResponse(
       (r) => r.request().method() === 'POST' && /\/api\/billing\/checkout/.test(r.url()),
       { timeout: 15000 },

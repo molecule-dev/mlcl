@@ -8,7 +8,10 @@ test.describe('/how-to-play', () => {
   })
 
   test('renders the brand link', async ({ page }) => {
-    await expect(page.getByRole('link', { name: /lexlet home/i })).toBeVisible()
+    // This page uses the shared AppHeader, whose brand link is named by its
+    // text content ("Lexlet") — no "Lexlet home" aria-label (that lives on
+    // the hand-rolled headers of the auth screens).
+    await expect(page.getByRole('link', { name: /^lexlet/i }).first()).toBeVisible()
   })
 
   test('explains all four rules in order', async ({ page }) => {
@@ -35,7 +38,9 @@ test.describe('/how-to-play', () => {
   test('legend explains the three tile states', async ({ page }) => {
     await expect(page.getByText(/in the word, in that spot/i)).toBeVisible()
     await expect(page.getByText(/right letter, wrong spot/i)).toBeVisible()
-    await expect(page.getByText(/not in the word/i)).toBeVisible()
+    // Anchor on the legend's own prefix — a bare /not in the word/i also
+    // matches the rules paragraph ("gray means it is not in the word at all").
+    await expect(page.getByText(/^Gray: not in the word/i)).toBeVisible()
   })
 
   test('anonymous CTA routes to /signup', async ({ page }) => {

@@ -39,6 +39,8 @@ test.describe('/reset-password', () => {
       APP_BASE + '/reset-password?token=definitely-not-real-token-xyz&email=nobody%40example.com',
     )
     await page.locator('input[autocomplete="new-password"]').first().fill('NewPass!1234')
+    // Expected 4xx: the rejected reset POST logs a browser console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /reset password/i }).click()
       await page.waitForLoadState('networkidle')

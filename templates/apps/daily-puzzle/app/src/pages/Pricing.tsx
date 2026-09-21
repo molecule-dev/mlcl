@@ -86,6 +86,13 @@ export function Pricing() {
     }
   }, [http, user, t])
 
+  /**
+   * Route a checkout click. Anonymous visitors go to /signup first — no
+   * priceId needed. Signed-in users POST to the server, which is the source
+   * of truth: with Stripe price IDs unconfigured it rejects the request and
+   * the error surfaces here, so the button must NOT be disabled client-side
+   * on a missing `stripePriceId` (that hid the anonymous redirect too).
+   */
   async function handleCheckout(tier: PricingTier, priceId: string) {
     if (!user) {
       navigate('/signup?next=/pricing')
@@ -292,12 +299,8 @@ export function Pricing() {
                     </ul>
                     <button
                       type="button"
-                      disabled={
-                        isCurrent || isFree || !price?.stripePriceId || checkoutLoading === tier.key
-                      }
-                      onClick={() =>
-                        price?.stripePriceId && handleCheckout(tier, price.stripePriceId)
-                      }
+                      disabled={isCurrent || isFree || checkoutLoading === tier.key}
+                      onClick={() => handleCheckout(tier, price?.stripePriceId ?? '')}
                       data-testid={`checkout-${tier.key}`}
                       className={cm.cn(
                         cm.sp('mt', 6),

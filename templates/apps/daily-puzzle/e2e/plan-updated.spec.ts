@@ -62,6 +62,9 @@ test.describe('/plan-updated', () => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // Expected 4xx: the fake session id is rejected by the real Stripe
+    // lookup — the sentinel is that the verification POST fires at all.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
       .catch(() => null)

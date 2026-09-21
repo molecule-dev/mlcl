@@ -20,9 +20,14 @@ test('signup → play → stats → archive → practice → leaderboard → log
   expect(token).toBeTruthy()
 
   // ─── 3. Play: invalid word → toast; valid word → feedback ──────────
+  // Expected 4xx: the rejected guess POST logs a browser console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
   await page.keyboard.type('zzzzz', { delay: 20 })
   await page.keyboard.press('Enter')
   await expect(page.locator('[data-mol-id="game-toast"]')).toHaveText(/not in the word list/i)
+  // Invalid guesses KEEP their letters (Wordle-style shake) — clear the row
+  // before typing the real word.
+  for (let i = 0; i < 5; i++) await page.keyboard.press('Backspace')
   await page.keyboard.type('stone', { delay: 20 })
   const guess = page.waitForResponse((r) => /\/guess$/.test(r.url()))
   await page.keyboard.press('Enter')

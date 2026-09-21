@@ -74,6 +74,8 @@ test.describe('/login', () => {
     await page.goto(APP_BASE + '/login')
     await page.getByRole('textbox', { name: /email/i }).first().fill(uniqueEmail('nope'))
     await page.locator('input[type="password"]').first().fill('WrongPass!9999')
+    // Expected 4xx: the rejected log-in POST logs a browser console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     await page
       .getByRole('button', { name: /play today|log\s*in|sign\s*in/i })
       .first()
@@ -97,7 +99,7 @@ test.describe('/login authenticated flow', () => {
       await login(page, email, password)
     })
     await expect(page).toHaveURL(/\/play/)
-    const sess = reqs.find((r) => r.method === 'POST' && /\/api\/users\/log-in/.test(r.url()))
+    const sess = reqs.find((r) => r.method === 'POST' && /\/api\/users\/log-in/.test(r.url))
     expect(sess, 'POST /api/users/log-in').toBeTruthy()
     expect(sess?.status).toBeLessThan(400)
     const token = await bearerToken(page)
