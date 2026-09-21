@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-landing.html",
+      "designScreenId": "9cdec34d4c16412d9068053d3b835587"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-login.html",
+      "designScreenId": "1d0ee8c249974380bb400f4a8ff05a83"
     },
     {
       "name": "Signup",
@@ -62,7 +64,8 @@
       "route": "/explore",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-explore.html",
+      "designScreenId": "3e7302be0a2f4e369013708a822ae0f5"
     },
     {
       "name": "ReportIssue",
@@ -74,16 +77,20 @@
       "route": "/report",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-report-issue.html",
+      "designScreenId": "8a64a512f8c84cfbbbd251b23dfe7311"
     },
     {
       "name": "MyReports",
       "templateFile": "app/pages/MyReports.tsx",
-      "components": ["app/components/SideNavBar.tsx"],
+      "components": [
+        "app/components/SideNavBar.tsx"
+      ],
       "route": "/my-reports",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-my-reports.html",
+      "designScreenId": "c957e0087522402080b9207fcdf9f43f"
     },
     {
       "name": "ReportDetail",
@@ -95,7 +102,8 @@
       "route": "/reports/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-report-detail.html",
+      "designScreenId": "d0b1b6bcc9974c5c89286e98afd12783"
     },
     {
       "name": "WatchAreas",
@@ -107,16 +115,20 @@
       "route": "/watch-areas",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-watch-areas.html",
+      "designScreenId": "1c159e0fef0741bc9ee509851761a64a"
     },
     {
       "name": "Notifications",
       "templateFile": "app/pages/Notifications.tsx",
-      "components": ["app/components/SideNavBar.tsx"],
+      "components": [
+        "app/components/SideNavBar.tsx"
+      ],
       "route": "/notifications",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-notifications.html",
+      "designScreenId": "9fde4d088a0f4ccbb32a39ff9ecf0124"
     },
     {
       "name": "Settings",
@@ -128,7 +140,8 @@
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-settings.html",
+      "designScreenId": "ce08999ce76847b5a73c17639889df12"
     },
     {
       "name": "Pricing",
@@ -137,7 +150,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-pricing.html",
+      "designScreenId": "11d2cd0038fb4fcb9adb4681805664ac"
     },
     {
       "name": "About",
@@ -146,7 +160,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-about.html",
+      "designScreenId": "7701d0e82ea0425089b4ca3c20aad2f4"
     },
     {
       "name": "Terms",
@@ -155,7 +170,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-terms.html",
+      "designScreenId": "d661510bfe4c44f385122e1f1534c5df"
     },
     {
       "name": "Privacy",
@@ -164,7 +180,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-civic-311-privacy.html",
+      "designScreenId": "24d6b5a482ee4fd2a18a2ef526ee006f"
     }
   ]
 }
