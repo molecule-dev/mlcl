@@ -190,7 +190,9 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'text-primary hover:underline',
+                // inline-block + symmetric padding: ~40px tap target with no
+                // layout shift (the negative margin cancels the padding).
+                'inline-block px-1 py-3 -my-3 text-primary hover:underline',
               )}
             >
               {t('dashboard.active.viewAll', {}, { defaultValue: 'Discover more' })}
@@ -267,7 +269,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'text-primary hover:underline',
+                'inline-block px-1 py-3 -my-3 text-primary hover:underline',
               )}
             >
               {t('dashboard.activity.viewAll', {}, { defaultValue: 'All →' })}

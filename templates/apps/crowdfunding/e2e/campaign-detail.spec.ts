@@ -61,6 +61,12 @@ test('GET /api/campaigns/:id returns the decorated structure (tiers + creator_na
 })
 
 test('an unknown campaign id renders the "not found" error (does not crash)', async ({ page }) => {
+  // The unknown id is EXPECTED to 404 (StrictMode fetches it twice) — the
+  // page must render the not-found state, not crash.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 404',
+  })
   await signup(page)
   await page.goto(APP_BASE + '/campaign/00000000-0000-0000-0000-000000000000')
   // Component renders <div data-mol-id="campaign-error"> on either fetch error or null campaign.

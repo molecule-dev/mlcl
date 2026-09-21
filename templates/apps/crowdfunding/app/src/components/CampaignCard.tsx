@@ -200,7 +200,9 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
                 {t(
                   'campaignCard.backers',
                   { count: campaign.backer_count },
-                  { defaultValue: '{{count}} backers' },
+                  {
+                    defaultValue: campaign.backer_count === 1 ? '1 backer' : '{{count}} backers',
+                  },
                 )}
               </span>
               <span className="text-on-surface-variant tabular-nums">
@@ -208,7 +210,10 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
                   ? t(
                       'campaignCard.daysLeft',
                       { count: campaign.days_left },
-                      { defaultValue: '{{count}} days left' },
+                      {
+                        defaultValue:
+                          campaign.days_left === 1 ? '1 day left' : '{{count}} days left',
+                      },
                     )
                   : t('campaignCard.ended', {}, { defaultValue: 'Ended' })}
               </span>

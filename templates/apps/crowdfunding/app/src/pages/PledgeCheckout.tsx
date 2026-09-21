@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -92,12 +93,32 @@ export function PledgeCheckout() {
         apple: 'pm_card_visa',
         google: 'pm_card_visa',
       }
-      await api.createPledge(http, {
+      const pledge = await api.createPledge(http, {
         campaign_id: campaign.id,
         tier_id: tier.id,
         amount: tier.price_cents / 100,
         payment_method: pmMap[paymentMethod],
       })
+      void track({
+        name: 'pledge.made',
+        properties: {
+          pledge_id: pledge.id,
+          campaign_id: campaign.id,
+          tier_id: tier.id,
+          amount_cents: tier.price_cents,
+        },
+      })
+      // Conversion milestone: this pledge crossed the funding goal.
+      if (
+        pledge.campaign_pledged_cents > 0 &&
+        pledge.campaign_goal_cents > 0 &&
+        pledge.campaign_pledged_cents >= pledge.campaign_goal_cents
+      ) {
+        void track({
+          name: 'campaign.funded',
+          properties: { campaign_id: campaign.id },
+        })
+      }
       navigate(`/campaign/${campaign.id}?pledged=1`)
     } catch (err) {
       const detail =

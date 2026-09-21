@@ -56,7 +56,8 @@ test('Header "$X across N pledges" total updates with each pledge', async ({ pag
   await page.goto(APP_BASE + '/my-pledges')
   // The total is this user's one pledge — the tier price they just paid.
   await expect(page.locator('[data-mol-id="my-pledges-summary"]')).toContainText(
-    new RegExp(`${formatTierTotal(tier).replace('$', '\\$')} across 1 pledges`, 'i'),
+    // "1 pledge" (singular) — the app pluralizes correctly.
+    new RegExp(`${formatTierTotal(tier).replace('$', '\\$')} across 1 pledge(?!s)`, 'i'),
     { timeout: 10_000 },
   )
 })

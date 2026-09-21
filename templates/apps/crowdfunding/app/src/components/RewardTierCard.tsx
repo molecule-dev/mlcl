@@ -83,7 +83,7 @@ export function RewardTierCard({
             {t(
               'rewardTierCard.remaining',
               { count: tier.remaining ?? 0 },
-              { defaultValue: '{{count}} left' },
+              { defaultValue: (tier.remaining ?? 0) === 1 ? '1 left' : '{{count}} left' },
             )}
           </span>
         ) : null}
@@ -109,7 +109,9 @@ export function RewardTierCard({
           {t(
             'rewardTierCard.backerCount',
             { count: tier.backer_count },
-            { defaultValue: '{{count}} backers' },
+            {
+              defaultValue: tier.backer_count === 1 ? '1 backer' : '{{count}} backers',
+            },
           )}
         </span>
         {tier.delivery_estimate && (

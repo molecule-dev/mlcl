@@ -10,7 +10,7 @@ import { type CampaignRow, decorateCampaign, decoratePledge } from './_decorate.
 const router = Router()
 
 function fail(res: Response, error: unknown): void {
-  logger.error(error)
+  logger.error('crowdfunding.profiles', error)
   res.status(500).json({
     error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
   })

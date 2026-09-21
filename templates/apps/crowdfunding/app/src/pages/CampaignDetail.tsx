@@ -179,7 +179,10 @@ export function CampaignDetail() {
                   {t(
                     'campaignDetail.rewards.count',
                     { count: tiers.length },
-                    { defaultValue: '{{count}} tiers available' },
+                    {
+                      defaultValue:
+                        tiers.length === 1 ? '1 tier available' : '{{count}} tiers available',
+                    },
                   )}
                 </span>
               </header>

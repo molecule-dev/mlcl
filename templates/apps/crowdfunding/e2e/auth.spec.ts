@@ -35,6 +35,12 @@ test.describe('/signup', () => {
   })
 
   test('duplicate signup rejects with a real error response', async ({ page }) => {
+    // The duplicate POST intentionally 4xxs, and clearing cookies can race
+    // the dashboard's just-mounted session fetches (401) — both expected.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (401|403)',
+    })
     const { email, password } = await signup(page)
     // Open a fresh context-less page and try to sign up the same email
     await page.context().clearCookies()
@@ -65,6 +71,13 @@ test.describe('/login', () => {
   })
 
   test('rejects bad credentials with a 4xx and stays on /login', async ({ page }) => {
+    // The failed log-in POST intentionally 4xxs (401/403 depending on the
+    // auth bond's rejection path) — the browser logs the failed resource;
+    // the page shows an inline error instead.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (401|403)',
+    })
     await page.goto(APP_BASE + '/login')
     await page
       .locator('input[type="email"]')
@@ -86,6 +99,13 @@ test.describe('/login', () => {
   })
 
   test('valid credentials sign back in after sign-out (round-trip)', async ({ page }) => {
+    // clearCookies simulates sign-out while the dashboard's just-mounted
+    // data fetches may still be in flight — those 401s are the simulated
+    // session loss, not an app bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const { email, password } = await signup(page)
     await page.context().clearCookies()
     await page.goto(APP_BASE + '/login')

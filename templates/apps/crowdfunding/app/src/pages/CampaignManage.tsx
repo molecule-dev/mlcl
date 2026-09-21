@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -97,11 +98,15 @@ export function CampaignManage() {
     setPosting(true)
     setPostError(null)
     try {
-      await api.postUpdate(http, {
+      const posted = await api.postUpdate(http, {
         campaign_id: campaign.id,
         title: updateTitle.trim(),
         body: updateBody.trim(),
         backers_only: backersOnly,
+      })
+      void track({
+        name: 'update.posted',
+        properties: { update_id: posted.id, campaign_id: campaign.id, backers_only: backersOnly },
       })
       setUpdateTitle('')
       setUpdateBody('')

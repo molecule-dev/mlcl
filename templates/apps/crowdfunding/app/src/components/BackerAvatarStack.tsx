@@ -93,7 +93,7 @@ export function BackerAvatarStack({ backers, totalCount, max = 5 }: BackerAvatar
         {t(
           'backerAvatarStack.summary',
           { count: totalCount },
-          { defaultValue: '{{count}} backers' },
+          { defaultValue: totalCount === 1 ? '1 backer' : '{{count}} backers' },
         )}
       </span>
     </div>

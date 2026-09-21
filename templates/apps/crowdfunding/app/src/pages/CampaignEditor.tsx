@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -130,6 +131,15 @@ export function CampaignEditor() {
         })
       }
       await api.publishCampaign(http, created.id)
+      void track({
+        name: 'campaign.created',
+        properties: {
+          campaign_id: created.id,
+          goal_amount: Number(goal),
+          category,
+          tier_count: validTiers.length,
+        },
+      })
       navigate(`/campaign/${created.id}/manage`)
     } catch (err) {
       setError(
@@ -177,7 +187,13 @@ export function CampaignEditor() {
       </header>
 
       <div className={cm.stack(4)}>
-        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'gap-4')}>
+        {/* Scrollable on phones — four pills overflow a 390px viewport. */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between' }),
+            'gap-4 overflow-x-auto pb-1 -mb-1',
+          )}
+        >
           {STEPS.map((s, i) => {
             const reached = i <= stepIndex
             return (
@@ -192,7 +208,7 @@ export function CampaignEditor() {
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 4),
                   cm.sp('py', 2),
-                  'rounded-full transition-all',
+                  'shrink-0 rounded-full transition-all',
                   reached
                     ? 'bg-primary/15 text-primary'
                     : 'bg-surface-container text-on-surface-variant cursor-not-allowed',
@@ -478,7 +494,9 @@ export function CampaignEditor() {
                 value={t(
                   'campaignEditor.review.durationValue',
                   { count: Number(duration) },
-                  { defaultValue: '{{count}} days' },
+                  {
+                    defaultValue: Number(duration) === 1 ? '1 day' : '{{count}} days',
+                  },
                 )}
               />
               <ReviewRow

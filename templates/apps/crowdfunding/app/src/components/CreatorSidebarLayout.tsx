@@ -4,6 +4,7 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { CreatorMobileNav } from './CreatorMobileNav.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -165,7 +166,13 @@ export function CreatorSidebarLayout() {
         </div>
       </aside>
 
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'lg:ml-[260px] min-h-screen')}>
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.flex1,
+          'lg:ml-[260px] min-h-screen min-w-0',
+        )}
+      >
         {/* Top bar (visible on all sizes; replaces sidebar on mobile) */}
         <header
           className={cm.cn(
@@ -211,7 +218,11 @@ export function CreatorSidebarLayout() {
         <main className={cm.flex1}>
           <Outlet />
         </main>
+        {/* Clear the fixed mobile bottom nav (hidden at lg where the
+            sidebar takes over). */}
+        <div className={cm.cn('h-16 lg:hidden')} aria-hidden="true" />
       </div>
+      <CreatorMobileNav />
     </div>
   )
 }

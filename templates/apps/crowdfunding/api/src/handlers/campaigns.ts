@@ -24,7 +24,7 @@ function fail(res: Response, error: unknown, status = 500): void {
   // Log the real error server-side; NEVER return the raw internal error text to the
   // client (CWE-209) — these public browse endpoints would otherwise leak DB/stack
   // details to anonymous callers. [P5TPL-1]
-  logger.error(error)
+  logger.error('crowdfunding.campaigns', error)
   res.status(status).json({
     error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
   })
@@ -133,7 +133,7 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
       results = (await search('campaigns', { text: q, page, perPage: limit })) as typeof results
     } catch (searchError) {
       // Fall back to a database LIKE filter if MeiliSearch isn't reachable.
-      logger.error(searchError)
+      logger.error('crowdfunding.campaigns.searchFallback', searchError)
       const rows = await findMany<CampaignRow>('campaigns', {
         where: [{ field: 'title', operator: 'ilike', value: q }],
         limit,
@@ -265,7 +265,7 @@ router.post(
       try {
         await index('campaigns', String(created.id), created)
       } catch (indexError) {
-        logger.error(indexError)
+        logger.error('crowdfunding.campaigns.searchIndex', indexError)
       }
       const decorated = await decorateCampaign(created as unknown as CampaignRow, {
         backerCount: 0,
@@ -321,7 +321,7 @@ router.put('/:id', validateBody(updateCampaignSchema), async (req: Request, res:
     try {
       await index('campaigns', String(updated.id), updated)
     } catch (indexError) {
-      logger.error(indexError)
+      logger.error('crowdfunding.campaigns.searchIndex', indexError)
     }
     const decorated = await decorateCampaign(updated as unknown as CampaignRow)
     res.json(decorated)
@@ -430,7 +430,7 @@ router.post('/:id/publish', async (req: Request, res: Response) => {
     try {
       await index('campaigns', String(published.id), published)
     } catch (indexError) {
-      logger.error(indexError)
+      logger.error('crowdfunding.campaigns.searchIndex', indexError)
     }
     const decorated = await decorateCampaign(published as unknown as CampaignRow)
     res.json(decorated)

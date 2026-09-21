@@ -14,7 +14,7 @@ import type { CrowdfundingLimits } from '../tiers.js'
 const router = Router()
 
 function fail(res: Response, error: unknown): void {
-  logger.error(error)
+  logger.error('crowdfunding.updates', error)
   res.status(500).json({
     error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
   })
@@ -185,7 +185,7 @@ router.post(
               text: body,
             })
           } catch (mailError) {
-            logger.error(mailError)
+            logger.error('crowdfunding.updates.notifyEmail', mailError)
           }
         }
       }

@@ -17,7 +17,7 @@ const router = Router()
 function fail(res: Response, error: unknown, status = 500): void {
   // Log the real error server-side; NEVER return the raw internal error text to the
   // client (CWE-209). [P5TPL-1]
-  logger.error(error)
+  logger.error('crowdfunding.pledges', error)
   res.status(status).json({
     error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
   })
@@ -332,7 +332,7 @@ router.post(
           },
         })
       } catch (chargeError) {
-        logger.error(chargeError)
+        logger.error('crowdfunding.pledges.charge', chargeError)
         res.status(402).json({
           error: t('pledges.paymentFailed', {}, { defaultValue: 'Payment processing failed' }),
           detail: chargeError instanceof Error ? chargeError.message : String(chargeError),
@@ -389,7 +389,7 @@ router.post(
             ),
           })
         } catch (mailError) {
-          logger.error(mailError)
+          logger.error('crowdfunding.pledges.confirmationEmail', mailError)
         }
       }
 

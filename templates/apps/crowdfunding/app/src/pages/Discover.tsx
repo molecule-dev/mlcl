@@ -102,7 +102,9 @@ export function Discover() {
             className={cm.cn(
               cm.w('full'),
               cm.fontWeight('medium'),
-              'bg-transparent border-none outline-none text-on-surface placeholder:text-on-surface-variant/60',
+              // min-w-0: a width:100% input in a nowrap flex row otherwise
+              // pins the pill's min-content far past a 390px viewport.
+              'min-w-0 flex-1 bg-transparent border-none outline-none text-on-surface placeholder:text-on-surface-variant/60',
             )}
             data-mol-id="discover-search"
           />
@@ -124,7 +126,9 @@ export function Discover() {
               : t(
                   'discover.results',
                   { count: campaigns.length },
-                  { defaultValue: '{{count}} campaigns' },
+                  {
+                    defaultValue: campaigns.length === 1 ? '1 campaign' : '{{count}} campaigns',
+                  },
                 )}
           </p>
         </div>

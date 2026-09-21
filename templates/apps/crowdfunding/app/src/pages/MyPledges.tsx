@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -50,7 +51,11 @@ export function MyPledges() {
 
   const handleCancel = async (pledgeId: string) => {
     try {
-      await api.cancelPledge(http, pledgeId)
+      const cancelled = await api.cancelPledge(http, pledgeId)
+      void track({
+        name: 'pledge.cancelled',
+        properties: { pledge_id: pledgeId, campaign_id: cancelled.campaign_id },
+      })
       setRefreshKey((n) => n + 1)
     } catch (err) {
       setError(
@@ -99,7 +104,10 @@ export function MyPledges() {
             'myPledges.subheading',
             { total: fmt(totalPledged), count: pledges.length },
             {
-              defaultValue: '{{total}} across {{count}} pledges — fulfillment status updated live.',
+              defaultValue:
+                pledges.length === 1
+                  ? '{{total}} across 1 pledge — fulfillment status updated live.'
+                  : '{{total}} across {{count}} pledges — fulfillment status updated live.',
             },
           )}
         </p>

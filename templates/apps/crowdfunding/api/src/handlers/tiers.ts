@@ -14,7 +14,7 @@ import { decorateTier } from './_decorate.js'
 const router = Router()
 
 function fail(res: Response, error: unknown): void {
-  logger.error(error)
+  logger.error('crowdfunding.tiers', error)
   res.status(500).json({
     error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
   })
