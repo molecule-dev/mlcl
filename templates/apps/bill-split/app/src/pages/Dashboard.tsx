@@ -182,11 +182,16 @@ export function Dashboard() {
           )}
         >
           <div className={cm.flex({ align: 'center', gap: 'xs' })}>
+            {/* arrow_outward + rotate: the shipped MaterialSymbolsOutlined
+                subset has no `arrow_inward` ligature (it renders as literal
+                text — caught in mobile QA), so mirror the proven glyph. */}
             <span
-              className={cm.cn('material-symbols-outlined text-lg text-primary')}
+              className={cm.cn(
+                'material-symbols-outlined text-lg text-primary inline-block rotate-180',
+              )}
               aria-hidden="true"
             >
-              arrow_inward
+              arrow_outward
             </span>
             <p
               className={cm.cn(
@@ -272,6 +277,7 @@ export function Dashboard() {
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
               'text-primary-dark hover:underline',
+              'inline-flex items-center px-1.5 py-1.5 -my-1.5 -mx-1.5 rounded-lg',
             )}
           >
             {t('dashboard.groups.viewAll', {}, { defaultValue: 'View all groups' })}
@@ -375,6 +381,7 @@ export function Dashboard() {
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
               'text-primary-dark hover:underline',
+              'inline-flex items-center px-1.5 py-1.5 -my-1.5 -mx-1.5 rounded-lg',
             )}
           >
             {t('dashboard.activity.viewAll', {}, { defaultValue: 'View all activity' })}

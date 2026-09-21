@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,6 +91,9 @@ export function GroupDetail() {
   const [memberName, setMemberName] = useState('')
   const [addingMember, setAddingMember] = useState(false)
   const [recordingId, setRecordingId] = useState<string | null>(null)
+  /** Two-step delete: the row id awaiting its confirm click. */
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -124,6 +128,7 @@ export function GroupDetail() {
     setError(null)
     try {
       await http.post(`/api/groups/${id}/members`, { name: memberName.trim() })
+      track({ name: 'member.added', properties: { group_id: id, name: memberName.trim() } })
       setMemberName('')
       await reload()
     } catch (err) {
@@ -146,6 +151,15 @@ export function GroupDetail() {
         amount_cents: transfer.amount_cents,
         method: 'cash',
       })
+      track({
+        name: 'settlement.recorded',
+        properties: {
+          group_id: id,
+          from_member_id: transfer.from_member_id,
+          to_member_id: transfer.to_member_id,
+          amount_cents: transfer.amount_cents,
+        },
+      })
       await reload()
     } catch (err) {
       console.warn('Settlement record failed', err)
@@ -157,12 +171,17 @@ export function GroupDetail() {
 
   async function handleDeleteExpense(expenseId: string): Promise<void> {
     setError(null)
+    setDeletingId(expenseId)
     try {
       await http.delete(`/api/expenses/${expenseId}`)
+      track({ name: 'expense.deleted', properties: { expense_id: expenseId, group_id: id } })
+      setConfirmDeleteId(null)
       await reload()
     } catch (err) {
       console.warn('Expense delete failed', err)
       setError(t('group.deleteFailed', {}, { defaultValue: 'Could not delete that expense.' }))
+    } finally {
+      setDeletingId(null)
     }
   }
 
@@ -608,25 +627,81 @@ export function GroupDetail() {
                 >
                   {formatCents(expense.amount_cents)}
                 </span>
-                <button
-                  type="button"
-                  data-mol-id={`btn-delete-expense-${expense.id}`}
-                  onClick={() => void handleDeleteExpense(expense.id)}
-                  aria-label={t(
-                    'group.deleteExpense',
-                    { description: expense.description },
-                    { defaultValue: 'Delete expense {{description}}' },
-                  )}
-                  className={cm.cn(
-                    cm.sp('px', 2),
-                    cm.sp('py', 1),
-                    'rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-colors shrink-0',
-                  )}
-                >
-                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                    delete
+                {confirmDeleteId === expense.id ? (
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'text-on-surface-variant whitespace-nowrap',
+                      )}
+                    >
+                      {t('group.deleteConfirmLabel', {}, { defaultValue: 'Delete?' })}
+                    </span>
+                    <button
+                      type="button"
+                      data-mol-id={`btn-confirm-delete-expense-${expense.id}`}
+                      disabled={deletingId === expense.id}
+                      onClick={() => void handleDeleteExpense(expense.id)}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'rounded-lg bg-error text-on-error transition-opacity disabled:opacity-60',
+                      )}
+                    >
+                      {deletingId === expense.id
+                        ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
+                        : t('group.deleteConfirm', {}, { defaultValue: 'Yes, delete' })}
+                    </button>
+                    <button
+                      type="button"
+                      data-mol-id={`btn-cancel-delete-expense-${expense.id}`}
+                      onClick={() => setConfirmDeleteId(null)}
+                      aria-label={t(
+                        'group.deleteCancel',
+                        { description: expense.description },
+                        { defaultValue: 'Keep expense {{description}}' },
+                      )}
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 2),
+                        'rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                      )}
+                    >
+                      <span
+                        className={cm.cn('material-symbols-outlined text-base')}
+                        aria-hidden="true"
+                      >
+                        close
+                      </span>
+                    </button>
                   </span>
-                </button>
+                ) : (
+                  <button
+                    type="button"
+                    data-mol-id={`btn-delete-expense-${expense.id}`}
+                    onClick={() => setConfirmDeleteId(expense.id)}
+                    aria-label={t(
+                      'group.deleteExpense',
+                      { description: expense.description },
+                      { defaultValue: 'Delete expense {{description}}' },
+                    )}
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 2),
+                      'rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-colors shrink-0',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      delete
+                    </span>
+                  </button>
+                )}
               </li>
             ))}
           </ul>

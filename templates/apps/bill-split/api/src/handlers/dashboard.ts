@@ -18,6 +18,7 @@ import { type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { computeGroupBalances } from './_balances.js'
 import { seedDemoForUser } from './_seed.js'
@@ -44,7 +45,7 @@ router.get('/summary', async (_req, res: Response) => {
   try {
     await seedDemoForUser(userId)
   } catch (err) {
-    console.warn('seedDemoForUser failed', err)
+    logger.error('dashboard.seed_failed', err)
   }
 
   const groups = await listGroups(userId)

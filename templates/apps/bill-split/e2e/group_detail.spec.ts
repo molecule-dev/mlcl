@@ -54,10 +54,31 @@ test.describe('/groups/:id detail page', () => {
       description: 'E2E To Delete',
     })
     await page.goto(APP_BASE + `/groups/${group.id}`)
+    // Two-step destructive action: arm the confirm, then confirm.
     await page.locator(`[data-mol-id="btn-delete-expense-${expense.id}"]`).click()
+    const confirm = page.locator(`[data-mol-id="btn-confirm-delete-expense-${expense.id}"]`)
+    await expect(confirm).toBeVisible({ timeout: 5000 })
+    await confirm.click()
     await expect(page.locator(`[data-mol-id="expense-row-${expense.id}"]`)).toBeHidden({
       timeout: 10000,
     })
+  })
+
+  test('delete can be cancelled without removing the expense', async ({ page }) => {
+    const { accessToken } = await signup(page)
+    const group = await createGroupViaApi(page, accessToken)
+    const self = group.members.find((m) => m.is_self)!
+    const expense = await seedExpense(page, accessToken, {
+      group_id: group.id,
+      payer_member_id: self.id,
+      amount_cents: 2500,
+      description: 'E2E Keep Me',
+    })
+    await page.goto(APP_BASE + `/groups/${group.id}`)
+    await page.locator(`[data-mol-id="btn-delete-expense-${expense.id}"]`).click()
+    await page.locator(`[data-mol-id="btn-cancel-delete-expense-${expense.id}"]`).click()
+    await expect(page.locator(`[data-mol-id="btn-delete-expense-${expense.id}"]`)).toBeVisible()
+    await expect(page.locator(`[data-mol-id="expense-row-${expense.id}"]`)).toBeVisible()
   })
 
   test('Add expense CTA preselects this group on /expenses/new', async ({ page }) => {

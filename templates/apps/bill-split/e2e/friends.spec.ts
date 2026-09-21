@@ -62,6 +62,10 @@ test.describe('/friends page', () => {
       timeout: 10000,
     })
     await page.locator(`[data-mol-id="btn-remove-friend-${made?.id}"]`).click()
+    // Two-step destructive action: arm the confirm, then confirm.
+    const confirm = page.locator(`[data-mol-id="btn-confirm-remove-friend-${made?.id}"]`)
+    await expect(confirm).toBeVisible({ timeout: 5000 })
+    await confirm.click()
     await expect(page.locator(`[data-mol-id="friend-row-${made?.id}"]`)).toBeHidden({
       timeout: 10000,
     })

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,6 +65,8 @@ export function NewExpense() {
   const [weights, setWeights] = useState<Record<string, string>>({})
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [groupsLoaded, setGroupsLoaded] = useState(false)
+  const [groupsError, setGroupsError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -73,6 +76,7 @@ export function NewExpense() {
         if (cancelled) return
         const rows = Array.isArray(response?.data) ? (response.data as GroupListRow[]) : []
         setGroups(rows)
+        setGroupsError(false)
         const wanted = searchParams.get('group')
         const initial = rows.find((g) => g.id === wanted) ?? rows[0]
         if (initial) {
@@ -83,6 +87,10 @@ export function NewExpense() {
       })
       .catch(() => {
         if (cancelled) return
+        setGroupsError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setGroupsLoaded(true)
       })
     return () => {
       cancelled = true
@@ -195,6 +203,15 @@ export function NewExpense() {
         )
       }
       await http.post('/api/expenses', body)
+      track({
+        name: 'expense.added',
+        properties: {
+          group_id: groupId,
+          amount_cents: amountCents,
+          split_method: splitMethod,
+          participant_count: activeIds.length,
+        },
+      })
       navigate(`/groups/${groupId}`)
     } catch (err) {
       console.warn('Expense save failed', err)
@@ -252,6 +269,26 @@ export function NewExpense() {
         </p>
       </header>
 
+      {groupsError ? (
+        <div
+          data-mol-id="new-expense-groups-error"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'rounded-xl bg-warning-container/40 text-on-warning-container',
+          )}
+        >
+          {t(
+            'newExpense.groupsLoadFailed',
+            {},
+            {
+              defaultValue: 'Your groups could not be loaded — refresh the page to try again.',
+            },
+          )}
+        </div>
+      ) : null}
+
       {error ? (
         <div
           data-mol-id="new-expense-error"
@@ -290,7 +327,16 @@ export function NewExpense() {
                   required
                   className={inputClass}
                 >
-                  {groups.length === 0 ? <option value="">No groups yet</option> : null}
+                  {!groupsLoaded ? (
+                    <option value="">
+                      {t('newExpense.groupsLoading', {}, { defaultValue: 'Loading groups…' })}
+                    </option>
+                  ) : null}
+                  {groupsLoaded && groups.length === 0 ? (
+                    <option value="">
+                      {t('newExpense.noGroupsOption', {}, { defaultValue: 'No groups yet' })}
+                    </option>
+                  ) : null}
                   {groups.map((g) => (
                     <option key={g.id} value={g.id}>
                       {g.name}

@@ -178,7 +178,8 @@ export function Activity() {
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.sp('mt', 1),
-                  'text-on-surface-variant hover:text-primary-dark inline-block w-fit',
+                  'text-on-surface-variant hover:text-primary-dark hover:bg-surface-container-low',
+                  'inline-flex items-center px-1.5 py-1.5 -ml-1.5 -mt-1 rounded-lg w-fit',
                 )}
               >
                 {row.group_name}

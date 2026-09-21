@@ -10,6 +10,7 @@
  */
 
 import { create } from '@molecule/api-database'
+import { logger } from '@molecule/api-logger'
 
 export interface ActivityPayload {
   actor?: string
@@ -38,6 +39,6 @@ export async function recordActivity(
       created_at: new Date(),
     })
   } catch (err) {
-    console.warn('recordActivity failed', err)
+    logger.error('activity.record_failed', err)
   }
 }

@@ -18,6 +18,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { recordActivity } from './_activity.js'
@@ -127,7 +128,7 @@ router.get('/', async (_req: Request, res: Response) => {
   try {
     await seedDemoForUser(userId)
   } catch (err) {
-    console.warn('seedDemoForUser failed', err)
+    logger.error('groups.seed_failed', err)
   }
 
   const groups = await listGroups(userId)

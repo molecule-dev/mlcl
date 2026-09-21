@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -23,11 +24,20 @@ export function Groups() {
   const http = useHttpClient()
   const [groups, setGroups] = useState<GroupRow[]>([])
   const [loaded, setLoaded] = useState(false)
+  const [loadError, setLoadError] = useState(false)
   const [name, setName] = useState('')
   const [memberNames, setMemberNames] = useState('')
   const [creating, setCreating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [showForm, setShowForm] = useState(false)
+
+  const applyRows = (response: unknown): void => {
+    setGroups(
+      Array.isArray((response as { data?: unknown })?.data)
+        ? (response as { data: GroupRow[] }).data
+        : [],
+    )
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -35,11 +45,13 @@ export function Groups() {
       .get<GroupRow[]>('/api/groups')
       .then((response) => {
         if (cancelled) return
-        setGroups(Array.isArray(response?.data) ? (response.data as GroupRow[]) : [])
+        applyRows(response)
+        setLoadError(false)
         setLoaded(true)
       })
       .catch(() => {
         if (cancelled) return
+        setLoadError(true)
         setLoaded(true)
       })
     return () => {
@@ -56,12 +68,23 @@ export function Groups() {
         .split(',')
         .map((s) => s.trim())
         .filter((s) => s.length > 0)
-      await http.post('/api/groups', { name, member_names: memberList })
+      const created = await http.post<{ id?: string }>('/api/groups', {
+        name,
+        member_names: memberList,
+      })
+      track({
+        name: 'group.created',
+        properties: {
+          group_id: (created?.data as { id?: string })?.id,
+          member_count: 1 + memberList.length,
+        },
+      })
       setName('')
       setMemberNames('')
       setShowForm(false)
       const response = await http.get<GroupRow[]>('/api/groups')
-      setGroups(Array.isArray(response?.data) ? (response.data as GroupRow[]) : [])
+      applyRows(response)
+      setLoadError(false)
     } catch (err) {
       console.warn('Group create failed', err)
       setError(
@@ -113,6 +136,24 @@ export function Groups() {
           {t('groups.new', {}, { defaultValue: 'New group' })}
         </button>
       </header>
+
+      {loadError ? (
+        <div
+          data-mol-id="groups-load-error"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'rounded-xl bg-warning-container/40 text-on-warning-container',
+          )}
+        >
+          {t(
+            'groups.loadFailed',
+            {},
+            { defaultValue: 'Groups could not be loaded — refresh to retry.' },
+          )}
+        </div>
+      ) : null}
 
       {error ? (
         <div

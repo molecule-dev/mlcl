@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -17,9 +18,13 @@ export function Friends() {
   const http = useHttpClient()
   const [friends, setFriends] = useState<FriendRow[]>([])
   const [loaded, setLoaded] = useState(false)
+  const [loadError, setLoadError] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [adding, setAdding] = useState(false)
+  const [removingId, setRemovingId] = useState<string | null>(null)
+  /** Two-step remove: the friend id awaiting its confirm click. */
+  const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
 
@@ -30,10 +35,12 @@ export function Friends() {
       .then((response) => {
         if (cancelled) return
         setFriends(Array.isArray(response?.data) ? (response.data as FriendRow[]) : [])
+        setLoadError(false)
         setLoaded(true)
       })
       .catch(() => {
         if (cancelled) return
+        setLoadError(true)
         setLoaded(true)
       })
     return () => {
@@ -53,6 +60,10 @@ export function Friends() {
     setNotice(null)
     try {
       const response = await http.post<{ reused?: boolean }>('/api/friends', { name, email })
+      track({
+        name: 'friend.added',
+        properties: { name, reused: (response?.data as { reused?: boolean })?.reused === true },
+      })
       setName('')
       setEmail('')
       if ((response?.data as { reused?: boolean })?.reused) {
@@ -78,12 +89,17 @@ export function Friends() {
   async function handleRemove(friendId: string): Promise<void> {
     setError(null)
     setNotice(null)
+    setRemovingId(friendId)
     try {
       await http.delete(`/api/friends/${friendId}`)
+      track({ name: 'friend.removed', properties: { friend_id: friendId } })
+      setConfirmRemoveId(null)
       await reload()
     } catch (err) {
       console.warn('Friend remove failed', err)
       setError(t('friends.removeFailed', {}, { defaultValue: 'Could not remove that friend.' }))
+    } finally {
+      setRemovingId(null)
     }
   }
 
@@ -128,6 +144,24 @@ export function Friends() {
           )}
         </p>
       </header>
+
+      {loadError ? (
+        <div
+          data-mol-id="friends-load-error"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'rounded-xl bg-warning-container/40 text-on-warning-container',
+          )}
+        >
+          {t(
+            'friends.loadFailed',
+            {},
+            { defaultValue: 'Friends could not be loaded — refresh to retry.' },
+          )}
+        </div>
+      ) : null}
 
       {error ? (
         <div
@@ -263,25 +297,81 @@ export function Friends() {
                     {friend.email ?? ''}
                   </span>
                 </div>
-                <button
-                  type="button"
-                  data-mol-id={`btn-remove-friend-${friend.id}`}
-                  onClick={() => void handleRemove(friend.id)}
-                  aria-label={t(
-                    'friends.removeLabel',
-                    { name: friend.name },
-                    { defaultValue: 'Remove {{name}} from friends' },
-                  )}
-                  className={cm.cn(
-                    cm.sp('px', 2),
-                    cm.sp('py', 1),
-                    'rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-colors shrink-0',
-                  )}
-                >
-                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                    person_remove
+                {confirmRemoveId === friend.id ? (
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'text-on-surface-variant whitespace-nowrap',
+                      )}
+                    >
+                      {t('friends.removeConfirmLabel', {}, { defaultValue: 'Remove?' })}
+                    </span>
+                    <button
+                      type="button"
+                      data-mol-id={`btn-confirm-remove-friend-${friend.id}`}
+                      disabled={removingId === friend.id}
+                      onClick={() => void handleRemove(friend.id)}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'rounded-lg bg-error text-on-error transition-opacity disabled:opacity-60',
+                      )}
+                    >
+                      {removingId === friend.id
+                        ? t('common.removingEllipsis', {}, { defaultValue: 'Removing…' })
+                        : t('friends.removeConfirm', {}, { defaultValue: 'Yes, remove' })}
+                    </button>
+                    <button
+                      type="button"
+                      data-mol-id={`btn-cancel-remove-friend-${friend.id}`}
+                      onClick={() => setConfirmRemoveId(null)}
+                      aria-label={t(
+                        'friends.removeCancel',
+                        { name: friend.name },
+                        { defaultValue: 'Keep {{name}} in friends' },
+                      )}
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 2),
+                        'rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                      )}
+                    >
+                      <span
+                        className={cm.cn('material-symbols-outlined text-base')}
+                        aria-hidden="true"
+                      >
+                        close
+                      </span>
+                    </button>
                   </span>
-                </button>
+                ) : (
+                  <button
+                    type="button"
+                    data-mol-id={`btn-remove-friend-${friend.id}`}
+                    onClick={() => setConfirmRemoveId(friend.id)}
+                    aria-label={t(
+                      'friends.removeLabel',
+                      { name: friend.name },
+                      { defaultValue: 'Remove {{name}} from friends' },
+                    )}
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 2),
+                      'rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-colors shrink-0',
+                    )}
+                  >
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      person_remove
+                    </span>
+                  </button>
+                )}
               </li>
             ))}
           </ul>
