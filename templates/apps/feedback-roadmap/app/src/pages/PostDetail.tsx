@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -28,6 +29,7 @@ export function PostDetail() {
   const [voting, setVoting] = useState(false)
   const [commentBody, setCommentBody] = useState('')
   const [posting, setPosting] = useState(false)
+  const [commentError, setCommentError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -61,6 +63,8 @@ export function PostDetail() {
       const res = await http.post<{ voted?: boolean; vote_count?: number }>('/api/votes', {
         post_id: post.id,
       })
+      const voted = res?.data?.voted ?? !post.viewer_voted
+      track({ name: 'post.voted', properties: { post_id: post.id, voted } })
       setPost((prev) =>
         prev
           ? {
@@ -80,22 +84,31 @@ export function PostDetail() {
   const submitComment = useCallback(async () => {
     if (!post || !commentBody.trim() || posting) return
     setPosting(true)
+    setCommentError(null)
     try {
       const http = getHttpClient()
       const res = await http.post<{ id?: string }>(`/api/posts/${post.id}/comments`, {
         body: commentBody.trim(),
       })
       if (res?.data?.id) {
+        track({ name: 'comment.added', properties: { post_id: post.id, comment_id: res.data.id } })
         setCommentBody('')
         const refreshed = await http.get<ApiPost>(`/api/posts/${post.id}`)
         if (refreshed?.data?.id) setPost(refreshed.data)
+      } else {
+        setCommentError(
+          t('postDetail.commentFailed', {}, { defaultValue: 'Could not post your comment.' }),
+        )
       }
     } catch (e) {
       logError('postDetail.comment', e)
+      setCommentError(
+        t('postDetail.commentFailed', {}, { defaultValue: 'Could not post your comment.' }),
+      )
     } finally {
       setPosting(false)
     }
-  }, [post, commentBody, posting])
+  }, [post, commentBody, posting, t])
 
   if (loading) {
     return (
@@ -336,6 +349,19 @@ export function PostDetail() {
                 'w-full min-h-[80px] rounded-lg border border-outline-variant/50 bg-input-background text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary',
               )}
             />
+            {commentError && (
+              <div
+                role="alert"
+                className={cm.cn(
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  cm.sp('p', 3),
+                  'rounded-lg bg-error-container/40 text-on-error-container border border-error/40',
+                )}
+              >
+                {commentError}
+              </div>
+            )}
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
               <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {commentBody.length}/5000

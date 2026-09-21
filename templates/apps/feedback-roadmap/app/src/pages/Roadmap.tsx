@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
@@ -54,7 +55,15 @@ export function Roadmap() {
       .get<{ data?: ApiPost[] }>('/api/posts?sort=top&limit=100')
       .then((res) => {
         if (cancelled) return
-        setPosts(Array.isArray(res?.data?.data) ? res.data.data : [])
+        const rows = Array.isArray(res?.data?.data) ? res.data.data : []
+        setPosts(rows)
+        track({
+          name: 'roadmap.viewed',
+          properties: {
+            planned: rows.filter((p) => p.status === 'planned').length,
+            in_progress: rows.filter((p) => p.status === 'in_progress').length,
+          },
+        })
       })
       .catch((e) => {
         logError('roadmap.load', e)

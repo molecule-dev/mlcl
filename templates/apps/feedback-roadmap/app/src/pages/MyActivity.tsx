@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -25,6 +26,8 @@ export function MyActivity() {
   const [tab, setTab] = useState<Tab>('votes')
   const [posts, setPosts] = useState<ApiPost[] | null>(null)
   const [votingId, setVotingId] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [reloadNonce, setReloadNonce] = useState(0)
 
   const userId = user?.id ?? ''
 
@@ -32,6 +35,7 @@ export function MyActivity() {
     if (!userId) return
     let cancelled = false
     setPosts(null)
+    setError(null)
     const http = getHttpClient()
     // My votes: fetch the voted set by asking the posts endpoint for the
     // user's own vote rows, then hydrate the posts.
@@ -57,13 +61,16 @@ export function MyActivity() {
         }
       } catch (e) {
         logError('myActivity.load', e)
-        if (!cancelled) setPosts([])
+        if (!cancelled) {
+          setError(t('myActivity.loadError', {}, { defaultValue: 'Could not load your activity.' }))
+          setPosts(null)
+        }
       }
     })()
     return () => {
       cancelled = true
     }
-  }, [tab, userId])
+  }, [tab, userId, reloadNonce, t])
 
   const toggleVote = useCallback(
     async (post: ApiPost) => {
@@ -75,6 +82,7 @@ export function MyActivity() {
           post_id: post.id,
         })
         const voted = res?.data?.voted ?? !post.viewer_voted
+        track({ name: 'post.voted', properties: { post_id: post.id, voted } })
         if (!voted && tab === 'votes') {
           // Un-voting removes it from the "My votes" tab.
           setPosts((prev) => (prev ?? []).filter((p) => p.id !== post.id))
@@ -159,7 +167,37 @@ export function MyActivity() {
         </div>
       </header>
 
-      {posts === null ? (
+      {error ? (
+        <div
+          role="alert"
+          className={cm.cn(cm.flex({ direction: 'col', align: 'start', gap: 'sm' }))}
+        >
+          <div
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              cm.sp('p', 3),
+              'rounded-lg bg-error-container/40 text-on-error-container border border-error/40',
+            )}
+          >
+            {error}
+          </div>
+          <button
+            type="button"
+            data-mol-id="my-activity-retry"
+            onClick={() => setReloadNonce((n) => n + 1)}
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              cm.textSize('sm'),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              'rounded-full border border-outline-variant/50 text-on-surface hover:border-primary/50 hover:text-primary transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
+      ) : posts === null ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>

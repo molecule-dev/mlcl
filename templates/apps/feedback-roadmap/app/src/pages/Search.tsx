@@ -21,6 +21,8 @@ export function Search() {
   const [query, setQuery] = useState('')
   const [submitted, setSubmitted] = useState('')
   const [hits, setHits] = useState<ApiPost[] | null>(null)
+  const [searching, setSearching] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [boards, setBoards] = useState<ApiBoardSummary[]>([])
   const [boardFilter, setBoardFilter] = useState('')
 
@@ -38,19 +40,27 @@ export function Search() {
     }
   }, [])
 
-  const runSearch = useCallback(async (q: string) => {
-    if (!q.trim()) return
-    const http = getHttpClient()
-    try {
-      const res = await http.get<{ hits?: ApiPost[] }>(
-        `/api/posts/search?q=${encodeURIComponent(q.trim())}`,
-      )
-      setHits(Array.isArray(res?.data?.hits) ? res.data.hits : [])
-    } catch (e) {
-      logError('search.load', e)
-      setHits([])
-    }
-  }, [])
+  const runSearch = useCallback(
+    async (q: string) => {
+      if (!q.trim()) return
+      const http = getHttpClient()
+      setSearching(true)
+      setError(null)
+      try {
+        const res = await http.get<{ hits?: ApiPost[] }>(
+          `/api/posts/search?q=${encodeURIComponent(q.trim())}`,
+        )
+        setHits(Array.isArray(res?.data?.hits) ? res.data.hits : [])
+      } catch (e) {
+        logError('search.load', e)
+        setHits([])
+        setError(t('search.loadError', {}, { defaultValue: 'Search failed — try again.' }))
+      } finally {
+        setSearching(false)
+      }
+    },
+    [t],
+  )
 
   useEffect(() => {
     if (submitted) void runSearch(submitted)
@@ -95,7 +105,7 @@ export function Search() {
           <button
             type="submit"
             data-mol-id="search-submit"
-            disabled={!query.trim()}
+            disabled={!query.trim() || searching}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
               cm.w(11),
@@ -105,10 +115,23 @@ export function Search() {
             aria-label={t('search.submit', {}, { defaultValue: 'Search' })}
           >
             <span className="material-symbols-outlined" aria-hidden="true">
-              search
+              {searching ? 'progress_activity' : 'search'}
             </span>
           </button>
         </form>
+        {error && (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              cm.sp('p', 3),
+              'rounded-lg bg-error-container/40 text-on-error-container border border-error/40',
+            )}
+          >
+            {error}
+          </div>
+        )}
         {boards.length > 0 && hits !== null && (
           <div
             role="group"
@@ -161,7 +184,7 @@ export function Search() {
         )}
       </header>
 
-      {hits === null ? (
+      {hits === null && !error ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t(
             'search.hint',
@@ -170,6 +193,10 @@ export function Search() {
               defaultValue: 'Type a query to find existing requests before posting a duplicate.',
             },
           )}
+        </p>
+      ) : error ? null : searching ? (
+        <p role="status" className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t('search.searching', {}, { defaultValue: 'Searching…' })}
         </p>
       ) : filtered.length === 0 ? (
         <div

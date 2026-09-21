@@ -7,9 +7,10 @@
  * control (pick a target; votes + comments move; the source gets a moved
  * note).
  */
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -42,6 +43,19 @@ export function PostsAdmin() {
   const [mergeTarget, setMergeTarget] = useState('')
   const [busy, setBusy] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
+  const panelRef = useRef<HTMLElement | null>(null)
+
+  const selectPost = useCallback((id: string) => {
+    setSelectedId(id)
+    // On stacked (mobile/tablet) layouts the workflow panel renders below
+    // the entire post list — without this the tap visibly does nothing
+    // (the panel is a viewport away).
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      requestAnimationFrame(() =>
+        panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+      )
+    }
+  }, [])
 
   const load = useCallback(async () => {
     const http = getHttpClient()
@@ -85,6 +99,10 @@ export function PostsAdmin() {
           roadmap_label: roadmapLabel.trim() ? roadmapLabel.trim() : null,
         })
         if (res?.data?.id) {
+          track({
+            name: 'post.status_changed',
+            properties: { post_id: selected.id, status },
+          })
           setNotice(t('postsAdmin.statusApplied', {}, { defaultValue: 'Status updated.' }))
           await load()
         } else {
@@ -111,6 +129,15 @@ export function PostsAdmin() {
         { target_id: mergeTarget },
       )
       if (res?.data) {
+        track({
+          name: 'post.merged',
+          properties: {
+            post_id: selected.id,
+            target_id: mergeTarget,
+            moved_votes: res.data.moved_votes ?? 0,
+            moved_comments: res.data.moved_comments ?? 0,
+          },
+        })
         setNotice(
           t(
             'postsAdmin.mergeApplied',
@@ -244,7 +271,7 @@ export function PostsAdmin() {
                   type="button"
                   data-mol-id="admin-post-row"
                   aria-pressed={active}
-                  onClick={() => setSelectedId(post.id)}
+                  onClick={() => selectPost(post.id)}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
                     cm.sp('p', 3),
@@ -290,6 +317,7 @@ export function PostsAdmin() {
         </section>
 
         <aside
+          ref={panelRef}
           className={cm.cn(
             cm.flex({ direction: 'col', gap: 'md' }),
             cm.sp('p', 5),

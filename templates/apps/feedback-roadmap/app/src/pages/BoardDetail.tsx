@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -108,6 +109,7 @@ export function BoardDetail() {
           post_id: post.id,
         })
         const voted = res?.data?.voted ?? !post.viewer_voted
+        track({ name: 'post.voted', properties: { post_id: post.id, voted } })
         const count = res?.data?.vote_count ?? (post.vote_count ?? 0) + (voted ? 1 : -1)
         setPosts((prev) =>
           prev.map((p) =>

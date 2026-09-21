@@ -8,6 +8,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
@@ -67,6 +68,7 @@ export function SubmitPost() {
       if (created?.id) {
         // The author's first vote makes the new request count itself.
         void http.post('/api/votes', { post_id: created.id }).catch(() => undefined)
+        track({ name: 'post.submitted', properties: { post_id: created.id, board_id: boardId } })
         navigate(`/post/${created.id}`)
         return
       }

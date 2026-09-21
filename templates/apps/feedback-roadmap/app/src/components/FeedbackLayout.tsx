@@ -69,14 +69,18 @@ export function FeedbackLayout() {
     pathname === item.to ||
     (item.matchPrefix !== undefined && pathname.startsWith(item.matchPrefix))
 
-  const renderNavItem = (item: NavItem) => (
+  const renderNavItem = (item: NavItem, mobile = false) => (
     <Link
       key={item.to}
       to={item.to}
-      data-mol-id={`nav-${item.to.replaceAll('/', '-')}`}
+      data-mol-id={`nav-${item.to.replaceAll('/', '-')}${mobile ? '-mobile' : ''}`}
       className={cm.cn(
         cm.fontWeight('semibold'),
         cm.textSize('sm'),
+        'whitespace-nowrap',
+        // The mobile row is the row's own tap surface — pad it so the
+        // links clear the ~28px minimum target, unlike the desktop labels.
+        mobile ? 'py-1.5' : '',
         isActive(item)
           ? 'text-primary'
           : 'text-on-surface-variant hover:text-primary transition-colors',
@@ -86,66 +90,61 @@ export function FeedbackLayout() {
     </Link>
   )
 
+  // Mobile nav — the desktop links are `hidden md:flex`, so without this row
+  // a phone user has no way at all to reach Boards / Roadmap / Changelog
+  // (or the admin surfaces) from any app page. Scrollable chip row pinned
+  // under the brand row, inside the same sticky header.
+  const renderMobileNav = () => (
+    <nav
+      data-mol-id="nav-mobile"
+      aria-label={t('layout.mobileNav', {}, { defaultValue: 'Primary' })}
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 'md' }),
+        '-mx-6 px-6 overflow-x-auto md:hidden',
+        '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+      )}
+    >
+      {PUBLIC_NAV.map((item) => renderNavItem(item, true))}
+      {isAdmin && ADMIN_NAV.map((item) => renderNavItem(item, true))}
+    </nav>
+  )
+
   return (
     <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'bg-background')}>
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+          cm.flex({ direction: 'col', gap: 'xs' }),
           cm.sp('px', 6),
           cm.sp('py', 3),
           'sticky top-0 z-40 border-b border-outline-variant/30 bg-surface/95 backdrop-blur',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
-          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <img src="/logo.svg" alt="" className={cm.cn(cm.w(8), cm.h(8))} aria-hidden="true" />
-            <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}
-              style={{ color: 'var(--color-primary)' }}
-            >
-              SignalLoop
-            </span>
-          </Link>
-          <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
-            {PUBLIC_NAV.map(renderNavItem)}
-            {isAdmin && ADMIN_NAV.map(renderNavItem)}
-          </nav>
-        </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          {isAuthenticated ? (
-            <Link
-              to="/submit"
-              data-mol-id="nav-submit"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
-              )}
-            >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">
-                add
-              </span>
-              {t('layout.submit', {}, { defaultValue: 'Submit feedback' })}
-            </Link>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className={cm.cn(
-                  cm.fontWeight('semibold'),
-                  cm.textSize('sm'),
-                  'text-on-surface-variant hover:text-primary transition-colors',
-                )}
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}>
+            <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <img src="/logo.svg" alt="" className={cm.cn(cm.w(8), cm.h(8))} aria-hidden="true" />
+              <span
+                className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}
+                style={{ color: 'var(--color-primary)' }}
               >
-                {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
-              </Link>
+                SignalLoop
+              </span>
+            </Link>
+            <nav
+              aria-label={t('layout.primaryNav', {}, { defaultValue: 'Primary' })}
+              className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}
+            >
+              {PUBLIC_NAV.map((item) => renderNavItem(item))}
+              {isAdmin && ADMIN_NAV.map((item) => renderNavItem(item))}
+            </nav>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            {isAuthenticated ? (
               <Link
-                to="/signup"
-                data-mol-id="nav-signup"
+                to="/submit"
+                data-mol-id="nav-submit"
                 className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
                   cm.sp('px', 4),
@@ -153,11 +152,41 @@ export function FeedbackLayout() {
                   'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
                 )}
               >
-                {t('layout.signUp', {}, { defaultValue: 'Sign up' })}
+                <span className="material-symbols-outlined text-base" aria-hidden="true">
+                  add
+                </span>
+                {t('layout.submit', {}, { defaultValue: 'Submit feedback' })}
               </Link>
-            </>
-          )}
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className={cm.cn(
+                    cm.fontWeight('semibold'),
+                    cm.textSize('sm'),
+                    'text-on-surface-variant hover:text-primary transition-colors',
+                  )}
+                >
+                  {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
+                </Link>
+                <Link
+                  to="/signup"
+                  data-mol-id="nav-signup"
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    cm.textSize('sm'),
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    'rounded-full bg-primary text-on-primary hover:bg-primary-active transition-colors',
+                  )}
+                >
+                  {t('layout.signUp', {}, { defaultValue: 'Sign up' })}
+                </Link>
+              </>
+            )}
+          </div>
         </div>
+        {renderMobileNav()}
       </header>
 
       <main className={cm.cn(cm.flex1, cm.sp('px', 6), cm.sp('py', 8))}>

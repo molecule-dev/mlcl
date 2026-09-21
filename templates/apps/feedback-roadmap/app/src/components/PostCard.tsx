@@ -54,9 +54,10 @@ export function PostCard({ post, onVote, votingDisabled, href }: PostCardProps) 
             <Link
               to={boardHref}
               className={cm.cn(
+                cm.flex({ align: 'center' }),
                 cm.fontWeight('semibold'),
                 cm.textSize('xs'),
-                'rounded-full px-2.5 py-0.5 hover:opacity-80 transition-opacity',
+                'rounded-full px-2.5 min-h-[24px] hover:opacity-80 transition-opacity',
               )}
               style={{
                 backgroundColor: post.board.color
