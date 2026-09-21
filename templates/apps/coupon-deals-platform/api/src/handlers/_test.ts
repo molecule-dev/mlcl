@@ -9,18 +9,32 @@
  *
  * Currently exposes:
  *   GET /_test/last-reset-token?email=<email>
- *     → 200 { token: string } if a reset token is currently stored on
- *       the user's `usersSecrets` row, else 404. Tests use this to simulate
- *       the email-delivered token handoff without needing a real inbox.
+ *     → 200 { token: string } — mints a FRESH reset token and returns the
+ *       RAW value once, standing in for the email inbox. Only the sha256
+ *       hash is persisted on the user's `usersSecrets` row (exactly what
+ *       forgotPassword does before emailing), so a DB read still never
+ *       yields a usable token; the raw value lives solely in the test's
+ *       hands, like a delivered email. 404 when the user does not exist.
  *
  * @module
  */
 
+import crypto from 'node:crypto'
+
 import { type Request, type Response, Router } from 'express'
 
-import { findOne } from '@molecule/api-database'
+import { findOne, updateById } from '@molecule/api-database'
 
 const router = Router()
+
+/**
+ * Mirror of the user resource's `hashResetToken` — sha256 hex digest. The
+ * stored value must be the digest of the returned raw token or the reset
+ * endpoint (which hashes the submitted token before lookup) will reject it.
+ */
+function hashResetToken(token: string): string {
+  return crypto.createHash('sha256').update(token).digest('hex')
+}
 
 router.use((_req: Request, res: Response, next) => {
   // Fail CLOSED: disabled unless explicitly opted in. [P5TPL-1]
@@ -44,15 +58,17 @@ router.get('/last-reset-token', async (req: Request, res: Response) => {
     res.status(404).json({ error: 'user not found' })
     return
   }
-  const secret = await findOne<{
-    id: string
-    passwordResetToken?: string | null
-  }>('usersSecrets', [{ field: 'id', operator: '=', value: user.id }])
-  if (!secret || !secret.passwordResetToken) {
-    res.status(404).json({ error: 'no reset token issued' })
-    return
-  }
-  res.json({ token: secret.passwordResetToken })
+  // Mint fresh + store only the digest, so handing the raw token to the test
+  // does not downgrade the storage model: returning the STORED value instead
+  // returned the sha256 hash (the raw token is never persisted), and the
+  // reset endpoint then hashed the hash and 401'd — the round-trip could
+  // never succeed.
+  const rawToken = crypto.randomBytes(32).toString('hex')
+  await updateById('usersSecrets', user.id, {
+    passwordResetToken: hashResetToken(rawToken),
+    passwordResetTokenAt: new Date().toISOString(),
+  })
+  res.json({ token: rawToken })
 })
 
 export default router

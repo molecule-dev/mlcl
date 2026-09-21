@@ -55,7 +55,15 @@ test.describe('Reset-password page (/reset-password)', () => {
     expect(calls.length, 'no reset-password call when passwords mismatch').toBe(0)
   })
 
-  test('Submit with invalid token surfaces a 400 from /api/reset-password', async ({ page }) => {
+  test('Submit with an unknown token surfaces a 4xx rejection from /api/users/reset-password', async ({
+    page,
+  }) => {
+    // The rejection IS the assertion — the 401 also logs a browser console
+    // error, which the console-guard would otherwise fail the test for.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=invalid-token-' + Date.now())
       await page.getByLabel('New password', { exact: true }).fill('NewPass!1234')

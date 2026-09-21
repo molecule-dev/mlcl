@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { useLocation } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -30,6 +31,7 @@ export function Deals() {
   const [deals, setDeals] = useState<DealCardDeal[]>([])
   const location = useLocation()
   const [category, setCategory] = useState<string>(readCategoryFromHash)
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     setCategory(readCategoryFromHash())
@@ -55,7 +57,7 @@ export function Deals() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/deals')
+      .get('/deals')
       .then((res) => {
         if (!cancelled) setDeals(unwrapList<DealCardDeal>(res))
       })
@@ -72,9 +74,21 @@ export function Deals() {
   }, [http, t])
 
   const filtered = useMemo(() => {
-    if (category === 'All') return deals
-    return deals.filter((d) => d.category === category)
-  }, [deals, category])
+    const byCategory = category === 'All' ? deals : deals.filter((d) => d.category === category)
+    const q = query.trim().toLowerCase()
+    if (!q) return byCategory
+    return byCategory.filter(
+      (d) => d.title.toLowerCase().includes(q) || d.merchant.toLowerCase().includes(q),
+    )
+  }, [deals, category, query])
+
+  function handleSearchSubmit(e: FormEvent) {
+    e.preventDefault()
+    const q = query.trim()
+    if (q) {
+      void track({ name: 'search.performed', properties: { query: q, results: filtered.length } })
+    }
+  }
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
@@ -83,6 +97,38 @@ export function Deals() {
           {t('deals.heading', {}, { defaultValue: 'Deals' })}
         </h1>
       </header>
+
+      <form
+        role="search"
+        onSubmit={handleSearchSubmit}
+        className={cm.cn(cm.card(), cm.sp('p', 3), cm.flex({ gap: 'sm' }), 'items-center')}
+      >
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t('deals.searchPlaceholder', {}, { defaultValue: 'Search deals…' })}
+          aria-label={t('deals.searchAria', {}, { defaultValue: 'Search deals' })}
+          className={cm.cn(
+            cm.sp('px', 3),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            'min-w-0 flex-1 border border-outline-variant rounded-md',
+          )}
+        />
+        <button
+          type="submit"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full bg-primary text-on-primary whitespace-nowrap',
+          )}
+        >
+          {t('common.search', {}, { defaultValue: 'Search' })}
+        </button>
+      </form>
 
       <div className={cm.cn(cm.card(), cm.sp('p', 4), cm.flex({ gap: 'sm' }), 'overflow-x-auto')}>
         {CATEGORIES.map((c) => (
@@ -119,7 +165,13 @@ export function Deals() {
         </p>
       ) : filtered.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
-          {t('deals.empty', {}, { defaultValue: 'No deals in this category.' })}
+          {query.trim() || category !== 'All'
+            ? t(
+                'deals.emptyFiltered',
+                {},
+                { defaultValue: 'No deals match — try another search or category.' },
+              )
+            : t('deals.empty', {}, { defaultValue: 'No deals in this category.' })}
         </p>
       ) : (
         <ul

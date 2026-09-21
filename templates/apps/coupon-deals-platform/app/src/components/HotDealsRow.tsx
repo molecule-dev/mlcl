@@ -46,6 +46,7 @@ export function HotDealsRow({ eyebrow, heading, viewAllTo, children }: HotDealsR
             to={viewAllTo}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('bold'),
               'text-primary hover:underline whitespace-nowrap',

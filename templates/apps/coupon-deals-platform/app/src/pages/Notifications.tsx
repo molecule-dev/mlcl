@@ -38,7 +38,7 @@ export function Notifications() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/notifications')
+      .get('/notifications')
       .then((res) => {
         if (!cancelled) setNotifs(unwrapList<Notification>(res))
       })

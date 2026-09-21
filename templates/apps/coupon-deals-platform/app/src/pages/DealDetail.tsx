@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -95,9 +96,21 @@ export function DealDetail() {
     let cancelled = false
     setLoading(true)
     http
-      .get(`/api/deals/${id}`)
+      .get(`/deals/${id}`)
       .then((res) => {
-        if (!cancelled) setDeal(unwrapSingle<DealDetailData>(res))
+        if (cancelled) return
+        const data = unwrapSingle<DealDetailData>(res)
+        setDeal(data)
+        if (data) {
+          void track({
+            name: 'deal.viewed',
+            properties: {
+              deal_id: data.id,
+              merchant_id: data.merchant_id,
+              category: data.category,
+            },
+          })
+        }
       })
       .catch(() => {
         if (!cancelled)
@@ -116,8 +129,21 @@ export function DealDetail() {
     setSavingCoupon(true)
     setSaveMessage(null)
     try {
-      await http.post('/api/redemptions', { deal_id: deal.id, quantity: 1 })
+      const res = await http.post<{ redemptions?: { id?: string }[]; total_amount?: number }>(
+        '/redemptions',
+        { deal_id: deal.id, quantity: 1 },
+      )
+      const body = res?.data ?? res
+      const redemption = Array.isArray(body?.redemptions) ? body.redemptions[0] : undefined
       setDeal((current) => (current ? { ...current, saved: true } : current))
+      void track({
+        name: 'coupon.saved',
+        properties: {
+          deal_id: deal.id,
+          merchant_id: deal.merchant_id,
+          redemption_id: redemption?.id,
+        },
+      })
       setSaveMessage(
         t('dealDetail.saveSuccess', {}, { defaultValue: 'Coupon saved to your account.' }),
       )
@@ -140,9 +166,25 @@ export function DealDetail() {
     )
   if (error || !deal)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ??
-          t('dealDetail.unavailable', {}, { defaultValue: 'This deal is no longer available.' })}
+      <div
+        className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', align: 'center', gap: 'md' }))}
+      >
+        <p role="alert" className={cm.cn('text-error')}>
+          {error ??
+            t('dealDetail.unavailable', {}, { defaultValue: 'This deal is no longer available.' })}
+        </p>
+        <Link
+          to="/deals"
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
+          )}
+        >
+          {t('dealDetail.browseAll', {}, { defaultValue: 'Browse all deals' })}
+        </Link>
       </div>
     )
 
@@ -155,6 +197,7 @@ export function DealDetail() {
         to="/deals"
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'xs' }),
+          cm.sp('py', 1),
           cm.textSize('sm'),
           cm.fontWeight('semibold'),
           'text-on-surface-variant hover:text-primary transition-colors w-fit',
@@ -218,7 +261,10 @@ export function DealDetail() {
                 'text-[10px] font-black uppercase tracking-widest text-primary',
               )}
             >
-              <Link to={`/merchants/${deal.merchant_id}`} className={cm.cn('hover:underline')}>
+              <Link
+                to={`/merchants/${deal.merchant_id}`}
+                className={cm.cn('hover:underline', cm.sp('py', 2))}
+              >
                 {deal.merchant}
               </Link>
               <span aria-hidden="true">·</span>

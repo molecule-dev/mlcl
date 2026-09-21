@@ -54,7 +54,7 @@ export function Landing() {
   useEffect(() => {
     let cancelled = false
     http
-      .get('/api/deals/public?limit=4')
+      .get('/deals/public?limit=4')
       .then((res) => {
         if (cancelled) return
         setTrendingDeals(unwrapList<DealCardDeal>(res).slice(0, 4))
@@ -71,7 +71,10 @@ export function Landing() {
     }
   }, [http, t])
 
-  const footerLinkClass = cm.cn(cm.fontWeight('semibold'), 'hover:text-primary transition-colors')
+  const footerLinkClass = cm.cn(
+    cm.fontWeight('semibold'),
+    'inline-block py-1 hover:text-primary transition-colors',
+  )
 
   return (
     <div
@@ -130,6 +133,7 @@ export function Landing() {
                 <Link
                   to="/login"
                   className={cm.cn(
+                    cm.sp('py', 2),
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
                     'text-on-surface-variant hover:text-primary transition-colors',

@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AuthSection,
@@ -125,7 +126,7 @@ export function Settings() {
     if (!user?.id) return
     let cancelled = false
     http
-      .get<Record<string, unknown>>('/api/user-settings')
+      .get<Record<string, unknown>>('/user-settings')
       .then((res) => {
         if (cancelled) return
         const body = (res?.data ?? res) as Record<string, unknown>
@@ -148,13 +149,14 @@ export function Settings() {
     setMessage(null)
     try {
       // Profile name / email live on the user resource.
-      await http.patch(`/api/users/${user.id}`, { name, email })
+      await http.patch(`/users/${user.id}`, { name, email })
       // City + preferences + notifications are app-specific settings.
-      await http.put('/api/user-settings', {
+      await http.put('/user-settings', {
         city,
         preferences: prefs,
         notification_prefs: notifs,
       })
+      void track({ name: 'settings.updated', properties: { user_id: user.id } })
       setMessage({
         type: 'success',
         text: t('common.settingsSavedPeriod', {}, { defaultValue: 'Settings saved.' }),

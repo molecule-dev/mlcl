@@ -26,7 +26,7 @@ export function ForgotPassword() {
     setLoading(true)
     setError(null)
     try {
-      await http.post('/api/users/forgot-password', { email })
+      await http.post('/users/forgot-password', { email })
       setSent(true)
     } catch (err) {
       setError(

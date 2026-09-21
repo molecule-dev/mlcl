@@ -27,15 +27,46 @@ export function CouponCodeBlock({ code, caption, showQr = false, onCopy }: Coupo
   const cm = getClassMap()
   const { t } = useTranslation()
   const [copied, setCopied] = useState(false)
+  const [copyFailed, setCopyFailed] = useState(false)
 
   async function copy() {
+    setCopyFailed(false)
+    let ok = false
     if (onCopy) {
       await onCopy(code)
+      ok = true
     } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      await navigator.clipboard.writeText(code).catch(() => undefined)
+      ok = await navigator.clipboard.writeText(code).then(
+        () => true,
+        () => false,
+      )
     }
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 1500)
+    if (!ok) {
+      // Clipboard API can be unavailable (insecure context / permissions) —
+      // fall back to the legacy execCommand path before admitting failure,
+      // so "Copy" never silently lies about having copied.
+      try {
+        const scratch = document.createElement('textarea')
+        scratch.value = code
+        scratch.setAttribute('readonly', '')
+        scratch.style.position = 'fixed'
+        scratch.style.opacity = '0'
+        document.body.appendChild(scratch)
+        scratch.select()
+        ok = document.execCommand('copy')
+        document.body.removeChild(scratch)
+      } catch (_error) {
+        // Intentional noop — execCommand unavailability is handled by `ok`.
+        ok = false
+      }
+    }
+    if (ok) {
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1500)
+    } else {
+      setCopyFailed(true)
+      window.setTimeout(() => setCopyFailed(false), 2500)
+    }
   }
 
   return (
@@ -90,6 +121,7 @@ export function CouponCodeBlock({ code, caption, showQr = false, onCopy }: Coupo
           type="button"
           onClick={copy}
           aria-label={t('couponCodeBlock.copyAria', {}, { defaultValue: 'Copy redemption code' })}
+          aria-live="polite"
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
             cm.sp('px', 4),
@@ -98,14 +130,17 @@ export function CouponCodeBlock({ code, caption, showQr = false, onCopy }: Coupo
             cm.fontWeight('bold'),
             'rounded-full bg-primary text-on-primary uppercase tracking-wider transition-all',
             'hover:opacity-90 active:scale-95',
+            copied && 'ring-2 ring-primary/40',
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-            {copied ? 'check' : 'content_copy'}
+            {copied ? 'check' : copyFailed ? 'error' : 'content_copy'}
           </span>
           {copied
             ? t('common.copied', {}, { defaultValue: 'Copied' })
-            : t('common.copy', {}, { defaultValue: 'Copy' })}
+            : copyFailed
+              ? t('couponCodeBlock.copyFailed', {}, { defaultValue: 'Copy failed' })
+              : t('common.copy', {}, { defaultValue: 'Copy' })}
         </button>
       </div>
 

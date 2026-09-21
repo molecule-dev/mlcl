@@ -47,14 +47,13 @@ export function Dashboard() {
   const [trending, setTrending] = useState<DealCardDeal[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [reloadTick, setReloadTick] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    Promise.all([
-      http.get('/api/reports/dashboard_stats').catch(() => null),
-      http.get('/api/deals').catch(() => null),
-    ])
+    setError(null)
+    Promise.all([http.get('/reports/dashboard_stats'), http.get('/deals').catch(() => null)])
       .then(([sRes, dRes]) => {
         if (cancelled) return
         setStats(unwrapSingle<DashboardStats>(sRes))
@@ -72,7 +71,7 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, reloadTick])
 
   if (loading)
     return (
@@ -82,8 +81,27 @@ export function Dashboard() {
     )
   if (error || !stats)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('dashboard.empty', {}, { defaultValue: 'No data.' })}
+      <div
+        className={cm.cn(
+          cm.sp('p', 8),
+          cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+          'text-error',
+        )}
+      >
+        <p role="alert">{error ?? t('dashboard.empty', {}, { defaultValue: 'No data.' })}</p>
+        <button
+          type="button"
+          onClick={() => setReloadTick((n) => n + 1)}
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
+          )}
+        >
+          {t('common.retry', {}, { defaultValue: 'Retry' })}
+        </button>
       </div>
     )
 
@@ -130,53 +148,67 @@ export function Dashboard() {
             </h2>
           </header>
           <ul className={cm.cn('space-y-3')}>
-            {stats.top_merchants.map((m, idx) => {
-              const max = Math.max(...stats.top_merchants.map((x) => x.savings_cents), 1)
-              const pct = Math.round((m.savings_cents / max) * 100)
-              return (
-                <li key={m.name} className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-                  <span
-                    className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'center' }),
-                      'h-8 w-8 rounded-full bg-primary/15 text-primary font-extrabold text-sm tabular-nums',
-                    )}
-                  >
-                    {idx + 1}
-                  </span>
-                  <div className={cm.cn('flex-1 min-w-0')}>
-                    <div className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }))}>
-                      <span
-                        className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}
-                      >
-                        {m.name}
-                      </span>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          cm.fontWeight('extrabold'),
-                          'tabular-nums text-primary',
-                        )}
-                      >
-                        {fmtUsd(m.savings_cents)}
-                      </span>
-                    </div>
-                    <div
+            {stats.top_merchants.length === 0 ? (
+              <li className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'dashboard.noMerchantsYet',
+                  {},
+                  { defaultValue: 'Save your first coupon to start tracking merchants.' },
+                )}
+              </li>
+            ) : (
+              stats.top_merchants.map((m, idx) => {
+                const max = Math.max(...stats.top_merchants.map((x) => x.savings_cents), 1)
+                const pct = Math.round((m.savings_cents / max) * 100)
+                return (
+                  <li key={m.name} className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+                    <span
                       className={cm.cn(
-                        cm.sp('mt', 2),
-                        'h-1.5 w-full rounded-full bg-surface-container overflow-hidden',
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'h-8 w-8 rounded-full bg-primary/15 text-primary font-extrabold text-sm tabular-nums',
                       )}
                     >
+                      {idx + 1}
+                    </span>
+                    <div className={cm.cn('flex-1 min-w-0')}>
+                      <div className={cm.cn(cm.flex({ align: 'baseline', justify: 'between' }))}>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('semibold'),
+                            'truncate',
+                          )}
+                        >
+                          {m.name}
+                        </span>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('extrabold'),
+                            'tabular-nums text-primary',
+                          )}
+                        >
+                          {fmtUsd(m.savings_cents)}
+                        </span>
+                      </div>
                       <div
                         className={cm.cn(
-                          'h-full rounded-full bg-gradient-to-r from-primary to-primary-container',
+                          cm.sp('mt', 2),
+                          'h-1.5 w-full rounded-full bg-surface-container overflow-hidden',
                         )}
-                        style={{ width: `${pct}%` }}
-                      />
+                      >
+                        <div
+                          className={cm.cn(
+                            'h-full rounded-full bg-gradient-to-r from-primary to-primary-container',
+                          )}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                </li>
-              )
-            })}
+                  </li>
+                )
+              })
+            )}
           </ul>
         </section>
 
@@ -209,6 +241,7 @@ export function Dashboard() {
             <Link
               to="/notifications"
               className={cm.cn(
+                cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
                 'text-primary hover:underline',
@@ -218,29 +251,43 @@ export function Dashboard() {
             </Link>
           </header>
           <ol className={cm.cn('space-y-3')}>
-            {stats.recent_activity.map((ev) => (
-              <li key={ev.id} className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
-                <span
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'h-9 w-9 shrink-0 rounded-full bg-secondary/15 text-secondary',
-                  )}
-                  aria-hidden="true"
-                >
-                  <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-lg')}>
-                    {ACTIVITY_GLYPH(ev.text)}
-                  </span>
-                </span>
-                <div className={cm.cn('flex-1 min-w-0')}>
-                  <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{ev.text}</p>
-                  <p
-                    className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}
-                  >
-                    {fmtRelative(ev.ts, t)}
-                  </p>
-                </div>
+            {stats.recent_activity.length === 0 ? (
+              <li className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'dashboard.noActivityYet',
+                  {},
+                  { defaultValue: 'Nothing yet — save a deal and your activity shows up here.' },
+                )}
               </li>
-            ))}
+            ) : (
+              stats.recent_activity.map((ev) => (
+                <li key={ev.id} className={cm.cn(cm.flex({ align: 'start', gap: 'md' }))}>
+                  <span
+                    className={cm.cn(
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'h-9 w-9 shrink-0 rounded-full bg-secondary/15 text-secondary',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-lg')}>
+                      {ACTIVITY_GLYPH(ev.text)}
+                    </span>
+                  </span>
+                  <div className={cm.cn('flex-1 min-w-0')}>
+                    <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{ev.text}</p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.sp('mt', 1),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {fmtRelative(ev.ts, t)}
+                    </p>
+                  </div>
+                </li>
+              ))
+            )}
           </ol>
         </section>
       </div>

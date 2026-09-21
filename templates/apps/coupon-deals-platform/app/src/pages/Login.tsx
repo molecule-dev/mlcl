@@ -120,6 +120,7 @@ export function Login() {
           <Link
             to="/forgot-password"
             className={cm.cn(
+              cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
               'text-primary hover:underline',

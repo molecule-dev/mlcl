@@ -128,7 +128,7 @@ export function AuthPasswordField({
               : t('authForm.showPassword', {}, { defaultValue: 'Show password' })
           }
           className={cm.cn(
-            'inline-flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus:outline-none focus:text-primary',
+            'inline-flex items-center justify-center h-11 w-11 -mr-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus:outline-none focus:text-primary',
           )}
         >
           <span className="material-symbols-outlined" aria-hidden="true">

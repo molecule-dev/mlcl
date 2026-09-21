@@ -29,7 +29,7 @@ export function Merchants() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/merchants')
+      .get('/merchants')
       .then((res) => {
         if (!cancelled) setMerchants(unwrapList<Merchant>(res))
       })
@@ -90,7 +90,7 @@ export function Merchants() {
           {t('merchants.empty', {}, { defaultValue: 'No merchants match.' })}
         </p>
       ) : (
-        <ul className={cm.grid({ cols: 3, gap: 'md' })}>
+        <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}>
           {filtered.map((m) => (
             <li key={m.id}>
               <Link

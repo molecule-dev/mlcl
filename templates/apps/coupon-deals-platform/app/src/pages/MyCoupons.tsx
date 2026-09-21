@@ -74,7 +74,7 @@ export function MyCoupons() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/my_coupons')
+      .get('/my_coupons')
       .then((res) => {
         if (!cancelled) setCoupons(unwrapList<Coupon>(res))
       })
@@ -145,7 +145,7 @@ export function MyCoupons() {
           {t('myCoupons.empty', {}, { defaultValue: 'No coupons in this tab.' })}
         </p>
       ) : (
-        <ul className={cm.grid({ cols: 2, gap: 'md' })}>
+        <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-2')}>
           {filtered.map((c) => (
             <li key={c.id} className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
               <header className={cm.flex({ align: 'center', justify: 'between' })}>
@@ -177,7 +177,7 @@ export function MyCoupons() {
                 className={cm.cn(
                   cm.textSize('base'),
                   cm.fontWeight('semibold'),
-                  'hover:underline block',
+                  'hover:underline block py-1',
                 )}
               >
                 {c.title}

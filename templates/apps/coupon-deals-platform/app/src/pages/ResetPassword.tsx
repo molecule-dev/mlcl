@@ -45,7 +45,7 @@ export function ResetPassword() {
     }
     setLoading(true)
     try {
-      await http.post('/api/users/reset-password', { token, password })
+      await http.post('/users/reset-password', { token, password })
       navigate('/login')
     } catch (err) {
       setError(

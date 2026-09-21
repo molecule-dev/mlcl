@@ -55,8 +55,8 @@ export function MerchantDetail() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get(`/api/merchants/${id}`).catch(() => null),
-      http.get(`/api/deals?merchant_id=${id}`).catch(() => null),
+      http.get(`/merchants/${id}`).catch(() => null),
+      http.get(`/deals?merchant_id=${id}`).catch(() => null),
     ])
       .then(([mRes, dRes]) => {
         if (cancelled) return
@@ -83,28 +83,58 @@ export function MerchantDetail() {
     )
   if (error || !merchant)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ??
-          t(
-            'merchantDetail.unavailable',
-            {},
-            { defaultValue: 'This merchant is no longer available.' },
+      <div
+        className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', align: 'center', gap: 'md' }))}
+      >
+        <p role="alert" className={cm.cn('text-error')}>
+          {error ??
+            t(
+              'merchantDetail.unavailable',
+              {},
+              { defaultValue: 'This merchant is no longer available.' },
+            )}
+        </p>
+        <Link
+          to="/merchants"
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
           )}
+        >
+          {t('merchantDetail.browseAll', {}, { defaultValue: 'Browse all merchants' })}
+        </Link>
       </div>
     )
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <Link to="/merchants" className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}>
+      <Link
+        to="/merchants"
+        className={cm.cn(
+          cm.textSize('sm'),
+          cm.textPrimary,
+          'hover:underline inline-block py-1 w-fit',
+        )}
+      >
         ← {t('merchantDetail.back', {}, { defaultValue: 'All merchants' })}
       </Link>
 
-      <header className={cm.cn(cm.card(), cm.sp('p', 6), cm.flex({ align: 'center', gap: 'lg' }))}>
+      <header
+        className={cm.cn(
+          cm.card(),
+          cm.sp('p', 6),
+          cm.flex({ align: 'center', gap: 'lg' }),
+          'flex-col text-center sm:flex-row sm:text-left',
+        )}
+      >
         <span
           className={cm.cn(
             'h-20 w-20',
             cm.roundedFull,
-            'bg-primary-container grid place-items-center',
+            'bg-primary-container grid place-items-center shrink-0',
             cm.fontWeight('bold'),
             cm.textPrimary,
             cm.textSize('3xl'),
@@ -112,7 +142,7 @@ export function MerchantDetail() {
         >
           {merchant.initial}
         </span>
-        <div>
+        <div className={cm.cn('min-w-0')}>
           <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{merchant.name}</h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
             {merchant.category} · ★ {merchant.rating.toFixed(1)}

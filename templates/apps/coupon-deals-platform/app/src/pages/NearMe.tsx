@@ -49,7 +49,7 @@ export function NearMe() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/nearby_deals')
+      .get('/nearby_deals')
       .then((res) => {
         if (!cancelled) setDeals(unwrapList<NearbyDeal>(res))
       })
@@ -151,7 +151,10 @@ export function NearMe() {
                   <div className={cm.cn('min-w-0 flex-1')}>
                     <Link
                       to={`/deals/${d.id}`}
-                      className={cm.cn(cm.fontWeight('semibold'), 'hover:underline truncate block')}
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        'hover:underline truncate block py-1',
+                      )}
                     >
                       {d.title}
                     </Link>

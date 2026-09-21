@@ -1,12 +1,15 @@
 import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, findMany, type WhereCondition } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 import { seedDemoForUser } from './_seed.js'
+
+const logger = getLogger()
 
 const router = Router()
 
@@ -36,8 +39,11 @@ router.get(
 
     try {
       await seedDemoForUser(userId)
-    } catch (_error) {
-      // Seeding is best-effort; never block dashboard render on it.
+    } catch (error) {
+      // Seeding is best-effort; never block dashboard render on it — but a
+      // recurring seed failure is exactly how "why is this user's dashboard
+      // empty" mysteries are born, so leave a trail.
+      logger.error('reports.dashboard_stats.seedFailed', error)
     }
 
     const redemptionsWhere: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
