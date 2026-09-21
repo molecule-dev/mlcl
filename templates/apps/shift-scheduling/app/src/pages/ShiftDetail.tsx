@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -70,6 +71,7 @@ export function ShiftDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [acting, setActing] = useState<string | null>(null)
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
   const [requesting, setRequesting] = useState(false)
   const [requestError, setRequestError] = useState<string | null>(null)
   const [requestDraft, setRequestDraft] = useState<{
@@ -144,6 +146,10 @@ export function ShiftDetail() {
     setError(null)
     try {
       await http.patch(`/api/swap-requests/${swapId}`, { status })
+      void track({
+        name: status === 'approved' ? 'swap.approved' : 'swap.denied',
+        properties: { request_id: swapId, shift_id: shift?.id },
+      })
       await refresh()
     } catch (_err) {
       setError(t('swaps.actionFailed', {}, { defaultValue: 'Action failed.' }))
@@ -157,6 +163,10 @@ export function ShiftDetail() {
     setError(null)
     try {
       await http.patch(`/api/claims/${claimId}`, { status })
+      void track({
+        name: status === 'approved' ? 'claim.approved' : 'claim.denied',
+        properties: { claim_id: claimId, shift_id: shift?.id },
+      })
       await refresh()
     } catch (_err) {
       setError(t('claims.actionFailed', {}, { defaultValue: 'Action failed.' }))
@@ -181,12 +191,23 @@ export function ShiftDetail() {
     }
     setRequesting(true)
     try {
-      await http.post('/api/swap-requests', {
+      const created = await http.post('/api/swap-requests', {
         kind: requestDraft.kind,
         from_shift: shift.id,
         requester_staff_id: shift.staff_id,
         target_staff_id: requestDraft.kind === 'swap' ? requestDraft.target_staff_id : null,
         note: requestDraft.note || '',
+      })
+      const request = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'swap.requested',
+        properties: {
+          request_id: request?.id,
+          shift_id: shift.id,
+          kind: requestDraft.kind,
+          target_staff_id:
+            requestDraft.kind === 'swap' ? requestDraft.target_staff_id || undefined : undefined,
+        },
       })
       setRequestDraft({ kind: 'drop', target_staff_id: '', note: '' })
       await refresh()
@@ -205,9 +226,11 @@ export function ShiftDetail() {
     setActing('delete')
     try {
       await http.delete(`/api/shifts/${shift.id}`)
+      void track({ name: 'shift.deleted', properties: { shift_id: shift.id, role: shift.role } })
       navigate('/schedule')
     } catch (_err) {
       setError(t('shiftDetail.deleteFailed', {}, { defaultValue: 'Delete failed.' }))
+      setConfirmingDelete(false)
     } finally {
       setActing(null)
     }
@@ -239,7 +262,7 @@ export function ShiftDetail() {
     )
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <Link
         to="/schedule"
         className={cm.cn(
@@ -277,7 +300,7 @@ export function ShiftDetail() {
           <span
             className={cm.cn(
               cm.sp('px', 2),
-              cm.sp('py', 1),
+              cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               'rounded-full uppercase tracking-wider',
@@ -291,21 +314,62 @@ export function ShiftDetail() {
               ? t('schedule.state.published', {}, { defaultValue: 'Published' })
               : t('common.draft', {}, { defaultValue: 'Draft' })}
           </span>
-          <button
-            type="button"
-            data-mol-id="shift-detail-delete"
-            onClick={removeShift}
-            disabled={acting === 'delete'}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors disabled:opacity-50',
-            )}
-          >
-            {t('common.delete', {}, { defaultValue: 'Delete' })}
-          </button>
+          {confirmingDelete ? (
+            <span
+              data-mol-id="shift-detail-delete-confirm"
+              className={cm.flex({ align: 'center', gap: 'sm' })}
+            >
+              <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-error')}>
+                {t('shiftDetail.deletePrompt', {}, { defaultValue: 'Delete this shift?' })}
+              </span>
+              <button
+                type="button"
+                data-mol-id="shift-detail-delete-confirm-yes"
+                onClick={removeShift}
+                disabled={acting === 'delete'}
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'rounded-lg bg-error text-on-error hover:opacity-90 transition-opacity disabled:opacity-50',
+                )}
+              >
+                {acting === 'delete'
+                  ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
+                  : t('shiftDetail.deleteYes', {}, { defaultValue: 'Yes, delete' })}
+              </button>
+              <button
+                type="button"
+                data-mol-id="shift-detail-delete-confirm-no"
+                onClick={() => setConfirmingDelete(false)}
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.textSize('xs'),
+                  cm.fontWeight('semibold'),
+                  'rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                )}
+              >
+                {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+              </button>
+            </span>
+          ) : (
+            <button
+              type="button"
+              data-mol-id="shift-detail-delete"
+              onClick={() => setConfirmingDelete(true)}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors',
+              )}
+            >
+              {t('common.delete', {}, { defaultValue: 'Delete' })}
+            </button>
+          )}
         </div>
       </header>
 
@@ -423,7 +487,7 @@ export function ShiftDetail() {
                     onClick={() => setRequestDraft({ ...requestDraft, kind })}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      cm.sp('py', 2),
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
                       'rounded-full uppercase tracking-widest transition-colors',
@@ -562,7 +626,7 @@ export function ShiftDetail() {
                         disabled={acting === w.id}
                         className={cm.cn(
                           cm.sp('px', 3),
-                          cm.sp('py', 1),
+                          cm.sp('py', 2),
                           cm.textSize('xs'),
                           cm.fontWeight('bold'),
                           'rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
@@ -576,7 +640,7 @@ export function ShiftDetail() {
                         disabled={acting === w.id}
                         className={cm.cn(
                           cm.sp('px', 3),
-                          cm.sp('py', 1),
+                          cm.sp('py', 2),
                           cm.textSize('xs'),
                           cm.fontWeight('bold'),
                           'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors disabled:opacity-50',
@@ -640,7 +704,7 @@ export function ShiftDetail() {
                         disabled={acting === c.id}
                         className={cm.cn(
                           cm.sp('px', 3),
-                          cm.sp('py', 1),
+                          cm.sp('py', 2),
                           cm.textSize('xs'),
                           cm.fontWeight('bold'),
                           'rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
@@ -654,7 +718,7 @@ export function ShiftDetail() {
                         disabled={acting === c.id}
                         className={cm.cn(
                           cm.sp('px', 3),
-                          cm.sp('py', 1),
+                          cm.sp('py', 2),
                           cm.textSize('xs'),
                           cm.fontWeight('bold'),
                           'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors disabled:opacity-50',

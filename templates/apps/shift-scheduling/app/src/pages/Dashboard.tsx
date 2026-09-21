@@ -113,7 +113,7 @@ export function Dashboard() {
     : 0
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(8))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p
@@ -388,9 +388,11 @@ export function Dashboard() {
           <Link
             to="/swap-requests"
             className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'text-primary-dark hover:text-primary-container transition-colors',
+              'inline-flex items-center rounded-lg text-primary-dark hover:text-primary-container hover:bg-surface-container-low transition-colors',
             )}
           >
             {t('dashboard.viewAllRequests', {}, { defaultValue: 'Review all →' })}

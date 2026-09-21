@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -89,6 +90,10 @@ export function SwapRequests() {
     setError(null)
     try {
       await http.patch(`/api/swap-requests/${id}`, { status })
+      void track({
+        name: status === 'approved' ? 'swap.approved' : 'swap.denied',
+        properties: { request_id: id },
+      })
       await refresh()
     } catch (_err) {
       setError(t('swaps.actionFailed', {}, { defaultValue: 'Action failed.' }))
@@ -106,7 +111,7 @@ export function SwapRequests() {
     : filtered
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p
@@ -172,7 +177,7 @@ export function SwapRequests() {
             onClick={() => setFilter(f.key)}
             className={cm.cn(
               cm.sp('px', 3),
-              cm.sp('py', 1),
+              cm.sp('py', 2),
               'rounded-full text-[10px] font-black uppercase tracking-widest transition-colors',
               filter === f.key
                 ? 'bg-primary text-on-primary'
@@ -307,7 +312,11 @@ function RequestRow({
                 : t('dashboard.wantsToSwap', {}, { defaultValue: 'wants to swap' })}{' '}
               <Link
                 to={`/shifts/${r.shift_id}`}
-                className={cm.cn(cm.fontWeight('semibold'), 'text-primary-dark hover:underline')}
+                className={cm.cn(
+                  cm.sp('py', 2),
+                  cm.fontWeight('semibold'),
+                  'inline-flex items-center text-primary-dark hover:underline',
+                )}
               >
                 {r.shift_role} · {r.shift_date} · {r.shift_time_label}
               </Link>
@@ -326,7 +335,7 @@ function RequestRow({
               disabled={actingId === r.id}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
@@ -340,7 +349,7 @@ function RequestRow({
               disabled={actingId === r.id}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors disabled:opacity-50',

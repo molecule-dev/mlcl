@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -118,6 +119,10 @@ function exportCsv(payload: TimesheetPayload): void {
   a.click()
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
+  void track({
+    name: 'timesheet.exported',
+    properties: { week_start: payload.week_start, staff_rows: payload.staff.length },
+  })
 }
 
 export function Timesheets() {
@@ -152,7 +157,7 @@ export function Timesheets() {
   const label = weekLabelParts(weekStart)
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p

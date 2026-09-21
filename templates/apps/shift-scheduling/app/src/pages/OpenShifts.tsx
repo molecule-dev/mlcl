@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface OpenShift {
   id: string
@@ -100,9 +101,14 @@ export function OpenShifts() {
     }
     setActingId(claimFor.id)
     try {
-      await http.post('/api/claims', {
+      const created = await http.post('/api/claims', {
         shift_id: claimFor.id,
         staff_id: claimStaffId,
+      })
+      const claim = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'claim.submitted',
+        properties: { claim_id: claim?.id, shift_id: claimFor.id, staff_id: claimStaffId },
       })
       setClaimFor(null)
       setClaimStaffId('')
@@ -122,7 +128,7 @@ export function OpenShifts() {
   )
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header>
         <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary-dark')}>
           {t('openShifts.eyebrow', {}, { defaultValue: 'Claim board' })}
@@ -352,7 +358,12 @@ export function OpenShifts() {
         )}{' '}
         <Link
           to="/swap-requests"
-          className={cm.cn(cm.fontWeight('semibold'), 'text-primary-dark hover:underline')}
+          className={cm.cn(
+            cm.sp('px', 1),
+            cm.sp('py', 2),
+            cm.fontWeight('semibold'),
+            'inline-flex items-center rounded text-primary-dark hover:underline',
+          )}
         >
           {t('openShifts.reviewLink', {}, { defaultValue: 'review pending approvals →' })}
         </Link>

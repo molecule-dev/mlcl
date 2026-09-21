@@ -134,9 +134,11 @@ export function Landing() {
             <Link
               to="/pricing"
               className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-on-surface transition-colors',
+                'inline-flex items-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -644,18 +646,26 @@ export function Landing() {
           )}
           aria-label={t('landing.footerNavLabel', {}, { defaultValue: 'Footer' })}
         >
-          <Link to="/pricing" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <Link to="/about" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.about', {}, { defaultValue: 'About' })}
-          </Link>
-          <Link to="/terms" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.terms', {}, { defaultValue: 'Terms' })}
-          </Link>
-          <Link to="/privacy" className={cm.cn('hover:text-on-surface transition-colors')}>
-            {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
-          </Link>
+          {(
+            [
+              ['/pricing', 'nav.pricing', 'Pricing'],
+              ['/about', 'nav.about', 'About'],
+              ['/terms', 'nav.terms', 'Terms'],
+              ['/privacy', 'nav.privacy', 'Privacy'],
+            ] as const
+          ).map(([to, key, label]) => (
+            <Link
+              key={to}
+              to={to}
+              className={cm.cn(
+                cm.sp('px', 2),
+                cm.sp('py', 2),
+                'inline-flex items-center rounded-lg hover:text-on-surface transition-colors',
+              )}
+            >
+              {t(key, {}, { defaultValue: label })}
+            </Link>
+          ))}
         </nav>
         <p>
           {t(

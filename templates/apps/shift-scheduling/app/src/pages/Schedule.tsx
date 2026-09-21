@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 export interface ScheduleShift {
   id: string
@@ -180,13 +181,23 @@ export function Schedule() {
     }
     setSubmitting(true)
     try {
-      await http.post('/api/shifts', {
+      const created = await http.post('/api/shifts', {
         staff_id: draft.staff_id || null,
         role: draft.role,
         date: draft.date,
         start_time: draft.start_time,
         end_time: draft.end_time,
         notes: draft.notes || '',
+      })
+      const newShift = unwrapSingle<{ id: string; is_open: boolean }>(created)
+      void track({
+        name: 'shift.created',
+        properties: {
+          shift_id: newShift?.id,
+          role: draft.role,
+          open: !draft.staff_id,
+          week_start: weekStart,
+        },
       })
       setComposing(false)
       setDraft({
@@ -212,7 +223,15 @@ export function Schedule() {
     setPublishing(true)
     setError(null)
     try {
-      await http.post('/api/shifts/publish', { week_start: weekStart, published: publish })
+      const result = await http.post('/api/shifts/publish', {
+        week_start: weekStart,
+        published: publish,
+      })
+      const payload = unwrapSingle<{ count: number }>(result)
+      void track({
+        name: publish ? 'schedule.published' : 'schedule.unpublished',
+        properties: { week_start: weekStart, count: payload?.count },
+      })
       await refresh()
     } catch (_err) {
       setError(t('schedule.publishFailed', {}, { defaultValue: 'Publish failed.' }))
@@ -222,7 +241,7 @@ export function Schedule() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p
@@ -283,8 +302,16 @@ export function Schedule() {
                 : 'bg-[color:var(--color-published)] text-white border-transparent shadow-md hover:opacity-90',
             )}
           >
-            <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-              {allPublished ? 'unpublish' : 'publish'}
+            {/* 'unpublish' is not in the shared icon-font subset (renders as
+                literal text) — reuse the proven 'publish' glyph, flipped. */}
+            <span
+              className={cm.cn(
+                'material-symbols-outlined text-[18px]',
+                allPublished ? 'rotate-180' : '',
+              )}
+              aria-hidden="true"
+            >
+              publish
             </span>
             {allPublished
               ? t('schedule.unpublish', {}, { defaultValue: 'Unpublish week' })
@@ -666,7 +693,7 @@ export function Schedule() {
                                 title={`${s.role} · ${s.time_label}${s.availability_warning ? ' · ⚠' : ''}`}
                                 className={cm.cn(
                                   cm.sp('px', 2),
-                                  cm.sp('py', 1),
+                                  cm.sp('py', 2),
                                   'block rounded-lg text-[11px] font-bold tracking-tight truncate',
                                   s.is_open
                                     ? 'border border-dashed border-outline-variant/60 text-on-surface-variant bg-surface-container-lowest'

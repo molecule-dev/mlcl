@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Window {
   id: string
@@ -112,11 +113,20 @@ export function Availability() {
       return
     }
     try {
-      await http.post('/api/availabilities', {
+      const created = await http.post('/api/availabilities', {
         staff_id: selectedStaff,
         weekday: draft.weekday,
         start_time: draft.start_time,
         end_time: draft.end_time,
+      })
+      const createdWindow = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'availability.window_added',
+        properties: {
+          window_id: createdWindow?.id,
+          staff_id: selectedStaff,
+          weekday: draft.weekday,
+        },
       })
       await refresh()
     } catch (err) {
@@ -128,7 +138,15 @@ export function Availability() {
   }
 
   async function removeWindow(id: string): Promise<void> {
-    await http.delete(`/api/availabilities/${id}`).catch(() => null)
+    try {
+      await http.delete(`/api/availabilities/${id}`)
+      void track({ name: 'availability.window_removed', properties: { window_id: id } })
+    } catch (_err) {
+      // Surface the failure — a silent no-op reads as "the button is broken".
+      setSubmitError(
+        t('availability.removeFailed', {}, { defaultValue: 'Could not remove the window.' }),
+      )
+    }
     await refresh()
   }
 
@@ -141,10 +159,19 @@ export function Availability() {
       return
     }
     try {
-      await http.post('/api/availabilities/blackouts', {
+      const created = await http.post('/api/availabilities/blackouts', {
         staff_id: selectedStaff,
         date: blackoutDraft.date,
         reason: blackoutDraft.reason || '',
+      })
+      const blackout = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'availability.blackout_added',
+        properties: {
+          blackout_id: blackout?.id,
+          staff_id: selectedStaff,
+          date: blackoutDraft.date,
+        },
       })
       setBlackoutDraft({ date: '', reason: '' })
       await refresh()
@@ -157,12 +184,23 @@ export function Availability() {
   }
 
   async function removeBlackout(id: string): Promise<void> {
-    await http.delete(`/api/availabilities/blackouts/${id}`).catch(() => null)
+    try {
+      await http.delete(`/api/availabilities/blackouts/${id}`)
+      void track({ name: 'availability.blackout_removed', properties: { blackout_id: id } })
+    } catch (_err) {
+      setSubmitError(
+        t(
+          'availability.blackoutRemoveFailed',
+          {},
+          { defaultValue: 'Could not remove the black-out.' },
+        ),
+      )
+    }
     await refresh()
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p

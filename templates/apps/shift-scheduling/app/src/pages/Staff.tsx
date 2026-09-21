@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface StaffRow {
   id: string
@@ -45,6 +46,7 @@ export function Staff() {
   const [shifts, setShifts] = useState<ShiftRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
   const [filter, setFilter] = useState<'all' | 'active' | 'inactive'>('all')
   const [search, setSearch] = useState('')
   const [composing, setComposing] = useState(false)
@@ -126,12 +128,17 @@ export function Staff() {
     }
     setSubmitting(true)
     try {
-      await http.post('/api/staff', {
+      const created = await http.post('/api/staff', {
         first_name: draft.first_name,
         last_name: draft.last_name,
         email: draft.email,
         role: draft.role,
         max_weekly_hours: Number(draft.max_weekly_hours) || 40,
+      })
+      const member = unwrapSingle<{ id: string }>(created)
+      void track({
+        name: 'staff.created',
+        properties: { staff_id: member?.id, role: draft.role },
       })
       setComposing(false)
       setDraft({
@@ -153,12 +160,20 @@ export function Staff() {
   }
 
   async function setStatus(row: StaffRow, status: 'active' | 'inactive'): Promise<void> {
-    await http.patch(`/api/staff/${row.id}`, { status }).catch(() => null)
+    setActionError(null)
+    try {
+      await http.patch(`/api/staff/${row.id}`, { status })
+      void track({ name: 'staff.status_changed', properties: { staff_id: row.id, status } })
+    } catch (_err) {
+      // Surface the failure inline — a silent no-op reads as "the button is
+      // broken", and the page-level error branch would blank the roster.
+      setActionError(t('staff.statusFailed', {}, { defaultValue: 'Could not update the status.' }))
+    }
     await refresh()
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.stack(6))}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p
@@ -402,6 +417,15 @@ export function Staff() {
             )}
           />
         </div>
+
+        {actionError ? (
+          <p
+            data-mol-id="staff-action-error"
+            className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-error')}
+          >
+            {actionError}
+          </p>
+        ) : null}
 
         {loading ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
