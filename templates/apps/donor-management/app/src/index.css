@@ -27,6 +27,59 @@
 @import '@molecule/app-ui-tailwind/base.css';
 
 /*
+ * Mobile app shell.
+ *
+ * The shared SidebarLayout bond renders a fixed-width (240px) flex-ROW
+ * sidebar at every viewport — on a 390px phone that leaves ~150px of
+ * content and every page clips. The UIClassMap expresses no breakpoints
+ * for the shell, so — like the print sheet below — this is app CSS: the
+ * sidebar becomes a compact top bar (brand row + horizontally scrollable
+ * nav) below Tailwind's `md` breakpoint. DonorLayout stamps the anchor
+ * `data-mol-id="app-shell"` onto the shell root.
+ */
+@media (max-width: 767px) {
+  [data-mol-id='app-shell'] {
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100dvh;
+  }
+  [data-mol-id='app-shell'] > aside {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--mol-color-border, #d8e8e2);
+    padding: 12px 16px !important;
+    overflow: visible;
+  }
+  [data-mol-id='app-shell'] > aside > a {
+    margin-bottom: 8px !important;
+    font-size: 1.125rem;
+  }
+  [data-mol-id='app-shell'] nav {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 4px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  [data-mol-id='app-shell'] nav::-webkit-scrollbar {
+    display: none;
+  }
+  [data-mol-id='app-shell'] nav a {
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-height: 40px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  [data-mol-id='app-shell'] > main {
+    overflow-y: visible;
+    flex: 1 0 auto;
+  }
+}
+
+/*
  * Print stylesheet for the year-end tax receipt view (ReceiptDetail).
  *
  * The UIClassMap exposes no print utilities, so the receipt document's

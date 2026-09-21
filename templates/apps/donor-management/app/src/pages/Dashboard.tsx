@@ -38,8 +38,10 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
-        <div>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
+      >
+        <div className="min-w-0">
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('dashboard.heading', {}, { defaultValue: 'Dashboard' })}
           </h1>
@@ -51,7 +53,7 @@ export function Dashboard() {
             )}
           </p>
         </div>
-        <div className={cm.flex({ gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap')}>
           <Link
             to="/gifts/new"
             className={cm.cn(
@@ -79,7 +81,40 @@ export function Dashboard() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-lg bg-error-container text-on-error-container flex items-center justify-between gap-3 flex-wrap',
+          )}
+          role="alert"
+        >
+          <p>{error}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setError(null)
+              setLoading(true)
+              http
+                .get('/dashboard/summary')
+                .then((res) => setSummary(unwrapSingle<DashboardSummary>(res)))
+                .catch(() =>
+                  setError(
+                    t('dashboard.loadError', {}, { defaultValue: 'Failed to load the dashboard.' }),
+                  ),
+                )
+                .finally(() => setLoading(false))
+            }}
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-current rounded-md',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loading', {}, { defaultValue: 'Loading…' })}
@@ -131,14 +166,28 @@ export function Dashboard() {
                         : 0
                     return (
                       <li key={c.id}>
-                        <div className={cm.flex({ align: 'center', justify: 'between' })}>
+                        <div
+                          className={cm.cn(
+                            cm.flex({ align: 'center', justify: 'between' }),
+                            'gap-2',
+                          )}
+                        >
                           <Link
                             to="/campaigns"
-                            className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+                            className={cm.cn(
+                              cm.textSize('sm'),
+                              cm.fontWeight('medium'),
+                              'min-w-0 truncate',
+                            )}
                           >
                             {c.name}
                           </Link>
-                          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          <span
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              'text-on-surface-variant whitespace-nowrap',
+                            )}
+                          >
                             {formatMoney(c.raised_cents)} / {formatMoney(c.goal_cents)} · {pct}%
                           </span>
                         </div>
@@ -177,7 +226,11 @@ export function Dashboard() {
                       <div>
                         <Link
                           to={`/donors/${g.donor_id}`}
-                          className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('medium'),
+                            'inline-block py-1',
+                          )}
                         >
                           {g.donor_name}
                         </Link>
@@ -189,7 +242,11 @@ export function Dashboard() {
                       </div>
                       <Link
                         to={`/gifts/${g.id}`}
-                        className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'inline-block py-1',
+                        )}
                       >
                         {formatMoney(g.amount_cents)}
                       </Link>

@@ -140,7 +140,10 @@ export function Campaigns() {
                 </div>
                 <Link
                   to={`/gifts?campaign_id=${c.id}`}
-                  className={cm.cn(cm.textSize('sm'), 'text-primary hover:underline')}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'text-primary hover:underline inline-block py-1',
+                  )}
                 >
                   {t('campaigns.viewGifts', {}, { defaultValue: 'View gifts →' })}
                 </Link>

@@ -44,10 +44,21 @@ const iso = (v: unknown, fallback = ''): string => {
   return fallback
 }
 
-/** Calendar date (YYYY-MM-DD) — no timezone shifting for gift_date etc. */
+/**
+ * Calendar date (YYYY-MM-DD) — no timezone shifting for gift_date etc.
+ *
+ * A Postgres DATE parses to a Date at LOCAL midnight, so `toISOString()`
+ * (UTC) on a UTC-positive host serializes the PREVIOUS day. Read the local
+ * calendar components instead — they are exactly the date that was stored.
+ */
 const day = (v: unknown, fallback = ''): string => {
   if (v == null) return fallback
-  if (v instanceof Date) return v.toISOString().slice(0, 10)
+  if (v instanceof Date) {
+    const y = v.getFullYear()
+    const m = String(v.getMonth() + 1).padStart(2, '0')
+    const d = String(v.getDate()).padStart(2, '0')
+    return `${y}-${m}-${d}`
+  }
   if (typeof v === 'string') return v.slice(0, 10)
   return fallback
 }

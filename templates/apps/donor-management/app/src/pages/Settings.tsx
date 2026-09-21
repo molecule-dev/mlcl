@@ -32,12 +32,6 @@ interface CompanySettings {
   notifyWeekly?: boolean
 }
 
-interface UserMe {
-  id?: string
-  props?: { id?: string; oauthData?: Record<string, unknown> | null }
-  oauthData?: Record<string, unknown> | null
-}
-
 const DEFAULTS: Required<CompanySettings> = {
   organizationName: 'Harbor Community Foundation',
   timezone: 'America/New_York',
@@ -52,24 +46,11 @@ const DEFAULTS: Required<CompanySettings> = {
   notifyWeekly: true,
 }
 
-function readSettings(
-  oauthData: Record<string, unknown> | null | undefined,
-): Required<CompanySettings> {
-  const company =
-    oauthData && typeof oauthData === 'object'
-      ? (oauthData as Record<string, unknown>).companySettings
-      : null
-  if (!company || typeof company !== 'object') return { ...DEFAULTS }
-  return { ...DEFAULTS, ...(company as Partial<CompanySettings>) }
-}
-
 export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('organization')
-  const [userId, setUserId] = useState<string | null>(null)
-  const [oauthData, setOauthData] = useState<Record<string, unknown> | null>(null)
   const [settings, setSettings] = useState<Required<CompanySettings>>(DEFAULTS)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -79,16 +60,16 @@ export function Settings() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    // Server-side settings channel: the platform /users/me read NEVER
+    // returns oauthData, so preferences stored through the user resource
+    // silently reset to defaults on reload. GET/PATCH /api/settings
+    // read/merge the stored slice server-side instead.
     http
-      .get('/users/me')
+      .get('/settings')
       .then((res) => {
         if (cancelled) return
-        const me = unwrapSingle<UserMe>(res)
-        const id = me?.props?.id ?? me?.id ?? null
-        const data = me?.props?.oauthData ?? me?.oauthData ?? null
-        setUserId(id)
-        setOauthData(data ?? null)
-        setSettings(readSettings(data))
+        const data = unwrapSingle<{ settings?: Partial<CompanySettings> }>(res)
+        setSettings({ ...DEFAULTS, ...(data?.settings ?? {}) })
       })
       .catch(() =>
         setError(t('settings.loadError', {}, { defaultValue: 'Failed to load settings.' })),
@@ -102,13 +83,12 @@ export function Settings() {
   }, [http, t])
 
   async function save() {
-    if (!userId) return
     setSaving(true)
     setError(null)
     try {
-      const next = { ...(oauthData ?? {}), companySettings: settings }
-      await http.patch(`/api/users/${userId}`, { oauthData: next })
-      setOauthData(next)
+      const res = await http.patch('/settings', settings)
+      const data = unwrapSingle<{ settings?: Partial<CompanySettings> }>(res)
+      setSettings({ ...DEFAULTS, ...(data?.settings ?? settings) })
       setSavedAt(new Date().toISOString())
     } catch (err) {
       setError(
@@ -340,7 +320,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={save}
-                disabled={saving || loading || !userId}
+                disabled={saving || loading}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

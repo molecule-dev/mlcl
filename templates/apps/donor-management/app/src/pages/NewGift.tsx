@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -10,7 +11,12 @@ import type { Campaign, Donor } from '../types.js'
 const METHODS = ['check', 'card', 'cash', 'ach'] as const
 const FUNDS = ['general', 'programs', 'equipment', 'capital', 'endowment'] as const
 
-const today = (): string => new Date().toISOString().slice(0, 10)
+/** Today in the LOCAL calendar — toISOString() dates from UTC and can
+ *  default the form to tomorrow on UTC-positive hosts. */
+const today = (): string => {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
 
 export function NewGift() {
   const cm = getClassMap()
@@ -78,6 +84,18 @@ export function NewGift() {
         note: form.note.trim(),
       })
       const created = unwrapSingle<{ id?: string }>(res)
+      // Fire-and-forget: analytics must never gate the redirect.
+      track({
+        name: 'gift.recorded',
+        properties: {
+          gift_id: created?.id ?? '',
+          donor_id: form.donor_id,
+          amount_cents: amountCents,
+          method: form.method,
+          fund: form.fund,
+          campaign_id: form.campaign_id || null,
+        },
+      })
       navigate(created?.id ? `/gifts/${created.id}` : '/gifts')
     } catch (err) {
       setError(

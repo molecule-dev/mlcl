@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -42,6 +43,11 @@ export function NewDonor() {
         tags,
       })
       const created = unwrapSingle<{ id?: string }>(res)
+      // Fire-and-forget: analytics must never gate the redirect.
+      track({
+        name: 'donor.created',
+        properties: { donor_id: created?.id ?? '', is_organization: form.is_organization },
+      })
       navigate(created?.id ? `/donors/${created.id}` : '/donors')
     } catch (err) {
       setError(

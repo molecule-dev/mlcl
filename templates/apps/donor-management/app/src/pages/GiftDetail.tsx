@@ -103,7 +103,10 @@ export function GiftDetail() {
 
         <dl className={cm.stack(2)}>
           <Row label={t('gifts.detail.donor', {}, { defaultValue: 'Donor' })}>
-            <Link to={`/donors/${gift.donor_id}`} className={'text-primary hover:underline'}>
+            <Link
+              to={`/donors/${gift.donor_id}`}
+              className={cm.cn('text-primary hover:underline', 'inline-block py-1')}
+            >
               {gift.donor_name}
             </Link>
           </Row>

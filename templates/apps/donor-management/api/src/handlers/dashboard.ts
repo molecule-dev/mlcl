@@ -27,6 +27,20 @@ import { asMap, shapeCampaign, shapeGift } from './_shape.js'
 
 const router = Router()
 
+/**
+ * Calendar year of a gift_date cell, tolerant of the driver's shape.
+ *
+ * Postgres DATE columns arrive here as JS `Date` objects (local midnight),
+ * so `String(v).slice(0, 4)` yields "Tue " — never the year — and every
+ * gift silently failed the YTD bucket (dashboard showed $0 raised with a
+ * fully seeded book). `getFullYear()` reads the LOCAL calendar, which is
+ * the calendar the seed and the gift form write.
+ */
+const giftYear = (v: unknown): string => {
+  const d = v instanceof Date ? v : new Date(String(v ?? ''))
+  return Number.isNaN(d.getTime()) ? String(v ?? '').slice(0, 4) : String(d.getFullYear())
+}
+
 interface GiftRow {
   id?: string
   donor_id?: string
@@ -64,9 +78,7 @@ router.get('/summary', async (_req, res: Response) => {
       }),
     ])
 
-    const yearGifts = gifts.filter(
-      (g) => String(g.gift_date ?? '').slice(0, 4) === String(currentYear),
-    )
+    const yearGifts = gifts.filter((g) => giftYear(g.gift_date) === String(currentYear))
     const raisedYtd = yearGifts.reduce((sum, g) => sum + Number(g.amount_cents ?? 0), 0)
     const avgGift = yearGifts.length > 0 ? Math.round(raisedYtd / yearGifts.length) : 0
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -19,6 +20,7 @@ export function Receipts() {
   const [preview, setPreview] = useState<ReceiptPreview | null>(null)
   const [previewing, setPreviewing] = useState(false)
   const [generating, setGenerating] = useState(false)
+  const [justIssued, setJustIssued] = useState<Receipt | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -55,7 +57,14 @@ export function Receipts() {
     setError(null)
     try {
       const res = await http.get(`/api/receipts/preview?donor_id=${donorId}&year=${year}`)
-      setPreview(unwrapSingle<ReceiptPreview>(res))
+      const shaped = unwrapSingle<ReceiptPreview>(res)
+      setPreview(shaped)
+      if (shaped) {
+        track({
+          name: 'receipt.previewed',
+          properties: { donor_id: donorId, year, gift_count: shaped.gift_count },
+        })
+      }
     } catch (err) {
       setPreview(null)
       setError(
@@ -77,6 +86,17 @@ export function Receipts() {
       const created = unwrapSingle<Receipt>(res)
       setPreview(null)
       if (created) setReceipts((prev) => [created, ...prev])
+      // Conversion-style event: the year-end receipt actually issued.
+      track({
+        name: 'receipt.issued',
+        properties: {
+          receipt_id: created?.id ?? '',
+          donor_id: donorId,
+          year,
+          total_cents: created?.total_cents ?? 0,
+        },
+      })
+      setJustIssued(created ?? null)
     } catch (err) {
       setError(
         err instanceof Error
@@ -246,6 +266,32 @@ export function Receipts() {
             {error}
           </p>
         ) : null}
+
+        {justIssued ? (
+          <p
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              'rounded-md bg-success-container text-on-success-container flex items-center gap-2 flex-wrap',
+            )}
+            role="status"
+          >
+            <span>
+              {t(
+                'receipts.issuedBanner',
+                { number: justIssued.receipt_number },
+                { defaultValue: 'Receipt {{number}} issued.' },
+              )}
+            </span>
+            <Link
+              to={`/receipts/${justIssued.id}`}
+              className={cm.cn(cm.fontWeight('semibold'), 'underline')}
+            >
+              {t('receipts.viewReceipt', {}, { defaultValue: 'View receipt' })}
+            </Link>
+          </p>
+        ) : null}
       </section>
 
       {loading ? (
@@ -279,10 +325,20 @@ export function Receipts() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
-                    <Link to={`/receipts/${r.id}`}>{r.receipt_number}</Link>
+                    <Link
+                      to={`/receipts/${r.id}`}
+                      className={cm.cn('inline-block', cm.sp('py', 1))}
+                    >
+                      {r.receipt_number}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link to={`/donors/${r.donor_id}`}>{r.donor_name}</Link>
+                    <Link
+                      to={`/donors/${r.donor_id}`}
+                      className={cm.cn('inline-block', cm.sp('py', 1))}
+                    >
+                      {r.donor_name}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
                     {r.year}

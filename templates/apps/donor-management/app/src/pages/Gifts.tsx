@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -14,6 +14,9 @@ export function Gifts() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const [searchParams] = useSearchParams()
+  // Campaigns cards deep-link here with ?campaign_id=<id> — honor it.
+  const campaignParam = searchParams.get('campaign_id') ?? ''
   const [list, setList] = useState<Gift[]>([])
   const [methodFilter, setMethodFilter] = useState('')
   const [receiptedFilter, setReceiptedFilter] = useState('')
@@ -43,14 +46,20 @@ export function Gifts() {
   const visible = useMemo(
     () =>
       list.filter((g) => {
+        if (campaignParam && g.campaign_id !== campaignParam) return false
         if (methodFilter && g.method !== methodFilter) return false
         if (receiptedFilter === 'yes' && !g.receipted) return false
         if (receiptedFilter === 'no' && g.receipted) return false
         return true
       }),
-    [list, methodFilter, receiptedFilter],
+    [list, methodFilter, receiptedFilter, campaignParam],
   )
   const totalCents = visible.reduce((sum, g) => sum + g.amount_cents, 0)
+  const campaignName = campaignParam
+    ? (visible[0]?.campaign_name ??
+      list.find((g) => g.campaign_id === campaignParam)?.campaign_name ??
+      campaignParam)
+    : ''
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
@@ -80,6 +89,28 @@ export function Gifts() {
           + {t('gifts.recordLabel', {}, { defaultValue: 'Record gift' })}
         </Link>
       </header>
+
+      {campaignParam ? (
+        <p
+          className={cm.cn(
+            cm.sp('px', 3),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            'rounded-md bg-primary-container text-on-primary-container flex items-center gap-2 flex-wrap',
+          )}
+        >
+          <span>
+            {t(
+              'gifts.filteredByCampaign',
+              { campaign: campaignName },
+              { defaultValue: 'Showing gifts for {{campaign}}' },
+            )}
+          </span>
+          <Link to="/gifts" className={cm.cn(cm.fontWeight('semibold'), 'underline')}>
+            {t('gifts.showAll', {}, { defaultValue: 'Show all' })}
+          </Link>
+        </p>
+      ) : null}
 
       <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
         <select
@@ -126,7 +157,38 @@ export function Gifts() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-lg bg-error-container text-on-error-container flex items-center justify-between gap-3 flex-wrap',
+          )}
+          role="alert"
+        >
+          <p>{error}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setError(null)
+              setLoading(true)
+              http
+                .get('/gifts')
+                .then((res) => setList(unwrapList<Gift>(res)))
+                .catch(() =>
+                  setError(t('gifts.loadError', {}, { defaultValue: 'Failed to load gifts.' })),
+                )
+                .finally(() => setLoading(false))
+            }}
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-current rounded-md',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loading', {}, { defaultValue: 'Loading…' })}
@@ -156,10 +218,17 @@ export function Gifts() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
-                    <Link to={`/gifts/${g.id}`}>{g.gift_date}</Link>
+                    <Link to={`/gifts/${g.id}`} className={cm.cn('inline-block', cm.sp('py', 1))}>
+                      {g.gift_date}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
-                    <Link to={`/donors/${g.donor_id}`}>{g.donor_name}</Link>
+                    <Link
+                      to={`/donors/${g.donor_id}`}
+                      className={cm.cn('inline-block', cm.sp('py', 1))}
+                    >
+                      {g.donor_name}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}>
                     {formatMoney(g.amount_cents)}

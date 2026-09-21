@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -18,6 +19,7 @@ export function DonorDetail() {
   const [notes, setNotes] = useState<DonorNote[]>([])
   const [noteBody, setNoteBody] = useState('')
   const [savingNote, setSavingNote] = useState(false)
+  const [noteError, setNoteError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -49,6 +51,7 @@ export function DonorDetail() {
     e.preventDefault()
     if (!id || !noteBody.trim()) return
     setSavingNote(true)
+    setNoteError(null)
     try {
       const res = await http.post(`/api/donors/${id}/notes`, {
         body: noteBody.trim(),
@@ -56,10 +59,13 @@ export function DonorDetail() {
       })
       const created = unwrapSingle<DonorNote>(res)
       if (created) setNotes((prev) => [created, ...prev])
+      track({ name: 'donor.note_added', properties: { donor_id: id } })
       setNoteBody('')
     } catch (_error) {
-      // Save failures surface inline; nothing here is worth a console log.
-      setError(t('donors.noteError', {}, { defaultValue: 'Failed to save the note.' }))
+      // Save failures surface INLINE by the note form — this must not touch
+      // the page-level `error`, which swaps the whole profile for an
+      // error page.
+      setNoteError(t('donors.noteError', {}, { defaultValue: 'Failed to save the note.' }))
     } finally {
       setSavingNote(false)
     }
@@ -170,7 +176,11 @@ export function DonorDetail() {
                   <div>
                     <Link
                       to={`/gifts/${g.id}`}
-                      className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        'inline-block py-1',
+                      )}
                     >
                       {formatMoney(g.amount_cents)}
                     </Link>
@@ -219,6 +229,11 @@ export function DonorDetail() {
                 'border border-outline-variant rounded-md w-full',
               )}
             />
+            {noteError ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+                {noteError}
+              </p>
+            ) : null}
             <button
               type="submit"
               disabled={savingNote || !noteBody.trim()}

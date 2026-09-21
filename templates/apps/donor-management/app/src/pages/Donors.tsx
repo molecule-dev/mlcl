@@ -87,7 +87,7 @@ export function Donors() {
           className={cm.cn(
             cm.sp('px', 3),
             cm.sp('py', 2),
-            'border border-outline-variant rounded-md min-w-64',
+            'border border-outline-variant rounded-md w-full sm:w-auto sm:min-w-64',
             cm.textSize('sm'),
           )}
         />
@@ -112,11 +112,60 @@ export function Donors() {
       </div>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-lg bg-error-container text-on-error-container flex items-center justify-between gap-3 flex-wrap',
+          )}
+          role="alert"
+        >
+          <p>{error}</p>
+          <button
+            type="button"
+            onClick={() => {
+              setError(null)
+              setLoading(true)
+              http
+                .get('/donors')
+                .then((res) => setList(unwrapList<Donor>(res)))
+                .catch(() =>
+                  setError(t('donors.loadError', {}, { defaultValue: 'Failed to load donors.' })),
+                )
+                .finally(() => setLoading(false))
+            }}
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'border border-current rounded-md',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.loading', {}, { defaultValue: 'Loading…' })}
         </p>
+      ) : list.length === 0 ? (
+        <div className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter, cm.stack(3))}>
+          <p className="text-on-surface-variant">
+            {t('donors.emptyNoDonors', {}, { defaultValue: 'No donors on file yet.' })}
+          </p>
+          <Link
+            to="/donors/new"
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary rounded-md self-center',
+            )}
+          >
+            + {t('donors.addLabel', {}, { defaultValue: 'New donor' })}
+          </Link>
+        </div>
       ) : visible.length === 0 ? (
         <p className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('donors.empty', {}, { defaultValue: 'No donors match.' })}
@@ -140,7 +189,9 @@ export function Donors() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
-                    <Link to={`/donors/${d.id}`}>{d.name}</Link>
+                    <Link to={`/donors/${d.id}`} className={cm.cn('inline-block', cm.sp('py', 1))}>
+                      {d.name}
+                    </Link>
                     {d.is_organization ? (
                       <span
                         className={cm.cn(

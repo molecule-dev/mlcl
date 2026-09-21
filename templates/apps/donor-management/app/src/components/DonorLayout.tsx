@@ -28,6 +28,10 @@ export function DonorLayout() {
       navItems={navItems}
       userMenu={<UserMenu />}
       navAriaLabel={t('layout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
+      /* Anchor for the app-shell CSS in index.css: below md the shared
+         SidebarLayout renders a fixed-width flex-row sidebar that eats
+         ~60% of a 390px screen, so the shell collapses to a top bar there. */
+      dataMolId="app-shell"
     />
   )
 }
