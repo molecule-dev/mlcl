@@ -50,6 +50,14 @@ test.describe('/recipes/:id (RecipeDetail)', () => {
   })
 
   test('Unknown ids render the not-found state, not a crash', async ({ page }) => {
+    // The unknown-id GET legitimately 404s and the browser logs the failed
+    // fetch — allow that console error before the request fires. Match on the
+    // status (the URL lives in msg.location(), which the annotation regex
+    // never sees).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await completeOnboarding(page)
     await page.goto(APP_BASE + '/recipes/00000000-0000-0000-0000-000000000000')

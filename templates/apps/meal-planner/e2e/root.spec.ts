@@ -37,8 +37,14 @@ test.describe('/ (Landing)', () => {
 
   test('Three feature cards render in the features grid', async ({ page }) => {
     await page.goto(APP_BASE + '/')
-    await expect(page.getByText(/Recipe box/i)).toBeVisible()
-    await expect(page.getByText(/Pantry memory/i)).toBeVisible()
-    await expect(page.getByText(/Self-writing grocery list/i)).toBeVisible()
+    // Pin to the h3 card headings: the marketing h2 ("From recipe box to
+    // shopping cart") also matches /Recipe box/i as loose text.
+    await expect(
+      page.getByRole('heading', { level: 3, name: 'Recipe box', exact: true }),
+    ).toBeVisible()
+    await expect(page.getByRole('heading', { level: 3, name: 'Pantry memory' })).toBeVisible()
+    await expect(
+      page.getByRole('heading', { level: 3, name: 'Self-writing grocery list' }),
+    ).toBeVisible()
   })
 })

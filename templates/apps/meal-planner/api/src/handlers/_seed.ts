@@ -334,20 +334,19 @@ export async function seedPantryForUser(userId: string): Promise<{ pantryCreated
   return { pantryCreated }
 }
 
-/** Monday (ISO) of the week containing `today`, as YYYY-MM-DD. */
-function currentWeekStart(): string {
-  const now = new Date()
-  const dow = (now.getUTCDay() + 6) % 7 // 0=Mon..6=Sun
-  now.setUTCDate(now.getUTCDate() - dow)
-  return now.toISOString().slice(0, 10)
-}
-
 /**
- * Seed a partially-filled plan for the current week (Mon–Wed dinners, one
- * breakfast, one lunch) and generate the matching grocery list. Idempotent:
- * skipped once the user has any meal_plan_entries row of their own.
+ * Seed a partially-filled plan for the given week (Mon–Wed dinners, one
+ * breakfast, one lunch) and generate the matching grocery list. The week is
+ * the Monday-ISO the caller is serving — seeding the week being viewed keeps
+ * the demo rows aligned with the client's own week math even when the
+ * server's UTC "today" and the client's local "today" straddle a Monday.
+ * Idempotent: skipped once the user has any meal_plan_entries row of their
+ * own.
  */
-export async function seedDemoForUser(userId: string): Promise<{
+export async function seedDemoForUser(
+  userId: string,
+  week: string,
+): Promise<{
   entriesCreated: number
   groceryCreated: number
 }> {
@@ -357,24 +356,32 @@ export async function seedDemoForUser(userId: string): Promise<{
   ])
   if (existing > 0) return { entriesCreated: 0, groceryCreated: 0 }
 
-  const shared = await findMany<{ id: string; title: string; tags: string }>('recipes', {
+  const shared = await findMany<{ id: string; title: string; tags: unknown }>('recipes', {
     where: [{ field: 'user_id', operator: 'is_null' }],
     orderBy: [{ field: 'title', direction: 'asc' }],
     limit: 100,
   })
-  type SharedRecipeLite = { id: string; title: string; tags: string }
-  const wantsTag = (tag: string): SharedRecipeLite | undefined =>
-    shared.find((r): boolean => {
+  type SharedRecipeLite = { id: string; title: string; tags: unknown }
+  // `tags` is a jsonb column: node-postgres hands back a PARSED array, not a
+  // JSON string. JSON.parse()-ing it throws for every row, which silently
+  // skipped every recipe and seeded an empty demo week (the /plan page then
+  // disables its "Grocery list" button because plannedCount is 0). Tolerate
+  // both shapes — the parsed array and a raw JSON string.
+  const tagsOf = (raw: unknown): string[] => {
+    if (Array.isArray(raw)) return raw.filter((v): v is string => typeof v === 'string')
+    if (typeof raw === 'string') {
       try {
-        const tags: unknown = JSON.parse(r.tags)
-        return Array.isArray(tags) && tags.includes(tag)
+        const parsed: unknown = JSON.parse(raw)
+        return Array.isArray(parsed) ? parsed.filter((v): v is string => typeof v === 'string') : []
       } catch (_error) {
-        // A malformed tags column just means that recipe can't match.
-        return false
+        return []
       }
-    })
+    }
+    return []
+  }
+  const wantsTag = (tag: string): SharedRecipeLite | undefined =>
+    shared.find((r): boolean => tagsOf(r.tags).includes(tag))
 
-  const week = currentWeekStart()
   const starterPlan: ReadonlyArray<{
     day: number
     meal_slot: string

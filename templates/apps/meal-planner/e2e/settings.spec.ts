@@ -42,6 +42,14 @@ test.describe('/settings (Settings)', () => {
   test('Confirm delete with password permanently deletes the account (DELETE /users/:id) and signs out', async ({
     page,
   }) => {
+    // Deleting the account destroys the server session, so the follow-up
+    // logout legitimately 401s and the browser logs the failed fetch — allow
+    // that console error before the request fires. Match on the status (the
+    // URL lives in msg.location(), which the annotation regex never sees).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const { password } = await signup(page)
     await completeOnboarding(page)
     await page.goto(APP_BASE + '/settings')
@@ -57,8 +65,12 @@ test.describe('/settings (Settings)', () => {
         .click()
       await page.waitForTimeout(1500)
     })
-    const del = reqs.find((r) => /\/api\/users\/[^/]+/.test(r.url()) && r.method === 'DELETE')
+    // captureNetwork records expose `url`/`method`/`status` as properties.
+    const del = reqs.find((r) => /\/api\/users\/[^/]+/.test(r.url) && r.method === 'DELETE')
     expect(del, 'DELETE /api/users/:id fired').toBeTruthy()
+    // The allowed 401 above is only the post-delete logout — the DELETE
+    // itself must have succeeded.
+    expect(del!.status, 'DELETE /api/users/:id status').toBeLessThan(400)
     await page.waitForURL(/\/login/, { timeout: 10_000 })
   })
 })

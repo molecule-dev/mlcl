@@ -28,6 +28,14 @@ test.describe('/reset-password (ResetPassword)', () => {
   })
 
   test('Submit with token POSTs /api/users/reset-password', async ({ page }) => {
+    // The unknown-token POST legitimately 401s and the browser logs the
+    // failed fetch — allow that console error before the request fires.
+    // Match on the status: the URL lives in msg.location(), which the
+    // annotation regex never sees.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=does-not-exist-xyz')
     await page.locator('input[name=password]').fill('AnyPa55word!')
     await page.locator('input[name=confirmPassword]').fill('AnyPa55word!')

@@ -122,7 +122,7 @@ router.get(
     // First visit: plant a starter week (entries + grocery list + pantry)
     // so the plan and list pages render real content. Idempotent per user.
     try {
-      await seedDemoForUser(userId)
+      await seedDemoForUser(userId, week)
     } catch (_error) {
       // Demo seeding is best-effort; an empty plan is still valid.
     }
