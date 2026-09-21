@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-landing.html",
+      "designScreenId": "ecbf264772e24bcbab82f262b0f43091"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-login.html",
+      "designScreenId": "a3962da615784cc48f6b71e155277e44"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-signup.html",
+      "designScreenId": "9a530013b151441282d79475e7671db3"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-forgot-password.html",
+      "designScreenId": "6d84986ef2a041fba1a224bf9720bb65"
     },
     {
       "name": "ResetPassword",
@@ -44,7 +48,8 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-reset-password.html",
+      "designScreenId": "a9319272fe5343a0ad213ad7d2b2fa79"
     },
     {
       "name": "Pricing",
@@ -53,7 +58,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-pricing.html",
+      "designScreenId": "40686878500e4383aacd946b2bec7dd7"
     },
     {
       "name": "About",
@@ -62,7 +68,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-about.html",
+      "designScreenId": "b8a58c3a3a0f4a9bacd96de11b0bcc62"
     },
     {
       "name": "Privacy",
@@ -71,7 +78,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-privacy.html",
+      "designScreenId": "4cd71152ae374137be5ab5164797fda1"
     },
     {
       "name": "Terms",
@@ -80,160 +88,212 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-terms.html",
+      "designScreenId": "0f94e98ff1e745299d404c3302bf55a5"
     },
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-dashboard.html",
+      "designScreenId": "55adcd42e2a44e4e94330f461a53a596"
     },
     {
       "name": "Customers",
       "templateFile": "app/pages/Customers.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/customers",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-customers.html",
+      "designScreenId": "588c2556d49b47f78111ddcda91e34be"
     },
     {
       "name": "NewCustomer",
       "templateFile": "app/pages/NewCustomer.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/customers/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-new-customer.html",
+      "designScreenId": "c2d2dcb4168649cfb1e0f23eac7a7100"
     },
     {
       "name": "CustomerDetail",
       "templateFile": "app/pages/CustomerDetail.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/customers/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-customer-detail.html",
+      "designScreenId": "4cfcb686546d4debad449e6c9896edb0"
     },
     {
       "name": "Quotes",
       "templateFile": "app/pages/Quotes.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/quotes",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-quotes.html",
+      "designScreenId": "28a7976b13884d1a977b33dc26cd4c9a"
     },
     {
       "name": "QuoteNew",
       "templateFile": "app/pages/QuoteNew.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/quotes/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-quote-new.html",
+      "designScreenId": "90c898d863a741b0bcf310c5c51c90d4"
     },
     {
       "name": "QuoteDetail",
       "templateFile": "app/pages/QuoteDetail.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/quotes/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-quote-detail.html",
+      "designScreenId": "60e9cf76dadc41bcb28d0dcd55a646e8"
     },
     {
       "name": "QuoteEdit",
       "templateFile": "app/pages/QuoteEdit.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/quotes/:id/edit",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-quote-edit.html",
+      "designScreenId": "69499daf8d954c19a2ec95fd0a80fa81"
     },
     {
       "name": "Jobs",
       "templateFile": "app/pages/Jobs.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/jobs",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-jobs.html",
+      "designScreenId": "32bbcc1e1ff945eb8d395ace7df0d3cc"
     },
     {
       "name": "JobDetail",
       "templateFile": "app/pages/JobDetail.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/jobs/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-job-detail.html",
+      "designScreenId": "c3b9c55bcee947e7a43ecb1b90ea742b"
     },
     {
       "name": "Dispatch",
       "templateFile": "app/pages/Dispatch.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/dispatch",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-dispatch.html",
+      "designScreenId": "58399949fa7548c48818005f9f68bb30"
     },
     {
       "name": "Technicians",
       "templateFile": "app/pages/Technicians.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/technicians",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-technicians.html",
+      "designScreenId": "6dccd540a7b8484cbbeb1305d5989d17"
     },
     {
       "name": "Invoices",
       "templateFile": "app/pages/Invoices.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/invoices",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-invoices.html",
+      "designScreenId": "4050fb42271e48958fffbca8427ca534"
     },
     {
       "name": "InvoiceDetail",
       "templateFile": "app/pages/InvoiceDetail.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/invoices/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-invoice-detail.html",
+      "designScreenId": "4edcd736cce44573806e913b21edc12c"
     },
     {
       "name": "Notifications",
       "templateFile": "app/pages/Notifications.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/notifications",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-notifications.html",
+      "designScreenId": "95735a628b53482588d3161122f3bd22"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-settings.html",
+      "designScreenId": "4953b4e29b40456a90a007f1976680e1"
     },
     {
       "name": "PlanUpdated",
       "templateFile": "app/pages/PlanUpdated.tsx",
-      "components": ["app/components/ToolbeltLayout.tsx"],
+      "components": [
+        "app/components/ToolbeltLayout.tsx"
+      ],
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-field-service-plan-updated.html",
+      "designScreenId": "05a542400811405ab61c7e93ffd6ef81"
     }
   ]
 }
