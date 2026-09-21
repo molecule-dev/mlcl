@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -156,6 +157,10 @@ export function FileDetail() {
       )
       const next = res.data?.is_starred ?? !file.is_starred
       setFile({ ...file, is_starred: next })
+      void track({
+        name: 'file.starred',
+        properties: { file_id: file.id, starred: next },
+      })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -179,6 +184,7 @@ export function FileDetail() {
       const res = await http.patch<FileRecord>(`/api/files/${file.id}`, { name: draftName.trim() })
       if (res.data) setFile(res.data)
       setRenaming(false)
+      void track({ name: 'file.renamed', properties: { file_id: file.id } })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -195,6 +201,7 @@ export function FileDetail() {
     setBusyAction('delete')
     try {
       await http.delete(`/api/files/${file.id}`)
+      void track({ name: 'file.trashed', properties: { file_id: file.id } })
       navigate('/trash')
     } catch (e: unknown) {
       setError(
@@ -210,12 +217,19 @@ export function FileDetail() {
     if (!file) return
     setBusyAction('share')
     try {
-      await http.post<ShareRecord>('/api/shares', { file_id: file.id, permission: 'view' })
+      const created = await http.post<ShareRecord>('/api/shares', {
+        file_id: file.id,
+        permission: 'view',
+      })
       const sharesRes = await http
         .get<ShareRecord[]>(`/api/shares?file_id=${encodeURIComponent(file.id)}`)
         .catch(() => null)
       setShares(Array.isArray(sharesRes?.data) ? sharesRes!.data : [])
       setShareSuccessAt(Date.now())
+      void track({
+        name: 'file.shared',
+        properties: { file_id: file.id, share_id: created.data?.id, permission: 'view' },
+      })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -232,6 +246,10 @@ export function FileDetail() {
     try {
       await http.delete(`/api/shares/${shareId}`)
       setShares(shares.filter((s) => s.id !== shareId))
+      void track({
+        name: 'share.revoked',
+        properties: { file_id: file?.id, share_id: shareId },
+      })
     } catch (e: unknown) {
       setError(
         e instanceof Error
@@ -399,6 +417,9 @@ export function FileDetail() {
               href={file.download_path ?? `/api/files/${file.id}/download`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                void track({ name: 'file.downloaded', properties: { file_id: file.id } })
+              }
               data-mol-id="filedetail-download"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'sm' }),

@@ -69,6 +69,9 @@ test.describe('/login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('[data-mol-id="login-email"]').fill(uniqueEmail('badpw'))
     await page.locator('[data-mol-id="login-password"]').fill('wrongpassword')
+    // The 403 from POST /api/users/log-in is the expected rejection this
+    // test exists to assert on — allow the browser's resource-error log.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.locator('[data-mol-id="login-submit"]').click()
     await expect(page).toHaveURL(/\/login/)
     await expect(page.locator('[data-mol-id="login-error"]')).toBeVisible()

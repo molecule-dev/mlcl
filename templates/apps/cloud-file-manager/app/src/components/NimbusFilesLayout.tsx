@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { NimbusSideNav } from './NimbusSideNav.js'
+import { NimbusMobileNav, NimbusSideNav, useIsDesktop } from './NimbusSideNav.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -13,6 +13,11 @@ import { UserMenu } from './UserMenu.js'
  * Authenticated shell for cloud-file-manager — fixed sidebar (NimbusSideNav)
  * + main content with a sticky topbar exposing breadcrumbs, search, and a
  * view toggle, per DESIGN.md `### App Constraints`.
+ *
+ * Below 768px the sidebar is replaced by a hamburger + overlay drawer
+ * (`NimbusMobileNav`) in the top bar — the fixed 260px rail would crush a
+ * phone's content column. The two chrome modes are conditionally rendered,
+ * never CSS-hidden, so `sidenav-*` locators stay unique.
  *
  * Wrap any auth'd page in `<NimbusFilesLayout breadcrumbs={...}>` to inherit
  * the chrome. Storage figures and the plan label are fetched from
@@ -61,6 +66,7 @@ export function NimbusFilesLayout({
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const isDesktop = useIsDesktop()
 
   const [fetchedUsed, setFetchedUsed] = useState<number | null>(null)
   const [plan, setPlan] = useState<{ name?: string; category?: string } | null>(null)
@@ -108,63 +114,85 @@ export function NimbusFilesLayout({
       <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-[260px]')}>
         <header
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 8),
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            'px-4 md:px-8',
             cm.sp('py', 4),
             'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20',
           )}
         >
-          <nav
-            aria-label={t(
-              'nimbusFilesLayout.breadcrumbsLabel',
-              {},
-              { defaultValue: 'Breadcrumbs' },
-            )}
+          <div
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
-              cm.textSize('sm'),
-              'min-w-0 overflow-x-auto',
+              'min-w-0 flex-1 md:flex-initial',
             )}
           >
-            {breadcrumbs.length === 0 ? (
-              <span className="text-on-surface-variant">
-                {t('nimbusFilesLayout.defaultCrumb', {}, { defaultValue: 'Nimbus' })}
-              </span>
-            ) : (
-              breadcrumbs.map((c, i) => {
-                const last = i === breadcrumbs.length - 1
-                return (
-                  <span
-                    key={`${c.label}-${i}`}
-                    className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}
-                  >
-                    {c.to && !last ? (
-                      <Link
-                        to={c.to}
-                        className={cm.cn(
-                          cm.fontWeight('medium'),
-                          'text-on-surface-variant hover:text-primary transition-colors',
-                        )}
-                      >
-                        {c.label}
-                      </Link>
-                    ) : (
-                      <span
-                        className={cm.cn(
-                          cm.fontWeight(last ? 'bold' : 'medium'),
-                          last ? 'text-on-surface' : 'text-on-surface-variant',
-                        )}
-                      >
-                        {c.label}
-                      </span>
-                    )}
-                    {!last && <span className="text-on-surface-variant">›</span>}
-                  </span>
-                )
-              })
+            {!isDesktop && (
+              <NimbusMobileNav
+                usedBytes={resolvedUsed}
+                totalBytes={resolvedTotal}
+                planLabel={resolvedPlanLabel}
+              />
             )}
-          </nav>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            <nav
+              aria-label={t(
+                'nimbusFilesLayout.breadcrumbsLabel',
+                {},
+                { defaultValue: 'Breadcrumbs' },
+              )}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.textSize('sm'),
+                'min-w-0 overflow-x-auto',
+              )}
+            >
+              {breadcrumbs.length === 0 ? (
+                <span className="text-on-surface-variant">
+                  {t('nimbusFilesLayout.defaultCrumb', {}, { defaultValue: 'Nimbus' })}
+                </span>
+              ) : (
+                breadcrumbs.map((c, i) => {
+                  const last = i === breadcrumbs.length - 1
+                  // The app-name crumb is redundant behind the mobile drawer's
+                  // brand — drop it below `sm` so short top bars (trash, upload)
+                  // keep the meaningful crumb visible instead of truncating it.
+                  const brandCrumb = i === 0 && breadcrumbs.length > 1
+                  return (
+                    <span
+                      key={`${c.label}-${i}`}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'xs' }),
+                        'shrink-0',
+                        brandCrumb && 'hidden sm:flex',
+                      )}
+                    >
+                      {c.to && !last ? (
+                        <Link
+                          to={c.to}
+                          className={cm.cn(
+                            cm.fontWeight('medium'),
+                            'text-on-surface-variant hover:text-primary transition-colors',
+                          )}
+                        >
+                          {c.label}
+                        </Link>
+                      ) : (
+                        <span
+                          className={cm.cn(
+                            cm.fontWeight(last ? 'bold' : 'medium'),
+                            last ? 'text-on-surface' : 'text-on-surface-variant',
+                          )}
+                        >
+                          {c.label}
+                        </span>
+                      )}
+                      {!last && <span className="text-on-surface-variant">›</span>}
+                    </span>
+                  )
+                })
+              )}
+            </nav>
+          </div>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
             {showSearch && (
               <Link
                 to="/search"
@@ -187,7 +215,7 @@ export function NimbusFilesLayout({
             <UserMenu />
           </div>
         </header>
-        <main className={cm.cn(cm.flex1, cm.sp('p', 8), 'min-h-0')}>{children}</main>
+        <main className={cm.cn(cm.flex1, 'p-4 md:p-8', 'min-h-0')}>{children}</main>
       </div>
     </div>
   )

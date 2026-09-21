@@ -6,6 +6,8 @@ test.describe('/s/:token (public share)', () => {
   test('a non-existent token shows the not-found error and exposes no file metadata', async ({
     page,
   }) => {
+    // The 404 from the metadata fetch is exactly what this spec asserts on.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/s/aaaaaaaaaaaaaaaaaaaaaaaaaaaa')
     await expect(page.locator('[data-mol-id="share-public-error"]')).toBeVisible({ timeout: 8000 })
   })
@@ -82,6 +84,9 @@ test.describe('/s/:token (public share)', () => {
   })
 
   test('"Back to Nimbus home" link navigates to /', async ({ page }) => {
+    // /s/x is bogus on purpose — its metadata fetch 404s before the page
+    // renders the link under test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/s/x')
     await page.locator('[data-mol-id="share-public-home-link"]').click()
     await expect(page).toHaveURL(new RegExp(`${APP_BASE.replace(/[/.]/g, '\\$&')}/?$`))

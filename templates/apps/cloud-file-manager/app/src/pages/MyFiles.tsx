@@ -276,8 +276,8 @@ export function MyFiles() {
               data-mol-id="myfiles-view-grid"
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
+                cm.w(10),
+                cm.h(10),
                 'rounded-md transition-colors',
                 view === 'grid'
                   ? 'bg-surface-container-lowest text-primary shadow-sm'
@@ -294,8 +294,8 @@ export function MyFiles() {
               data-mol-id="myfiles-view-list"
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
+                cm.w(10),
+                cm.h(10),
                 'rounded-md transition-colors',
                 view === 'list'
                   ? 'bg-surface-container-lowest text-primary shadow-sm'
@@ -313,8 +313,11 @@ export function MyFiles() {
             data-mol-id="myfiles-refresh"
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
+              cm.w(10),
+              cm.h(10),
+              // Convenience-only on phones — the list refetches on every
+              // navigation, and the top bar needs the width for breadcrumbs.
+              'hidden sm:flex',
               'rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors',
             )}
             aria-label={t('myFiles.refresh', {}, { defaultValue: 'Refresh' })}
@@ -325,15 +328,17 @@ export function MyFiles() {
             to="/upload"
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
+              'min-h-[40px]',
               cm.sp('px', 4),
-              cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('bold'),
               'rounded-lg bg-gradient-to-br from-primary to-tertiary-container text-on-primary hover:opacity-90 transition-opacity shadow-sm shadow-primary/20',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-base')}>upload</span>
-            {t('common.upload', {}, { defaultValue: 'Upload' })}
+            <span className="hidden sm:inline">
+              {t('common.upload', {}, { defaultValue: 'Upload' })}
+            </span>
           </Link>
         </div>
       }
@@ -345,7 +350,7 @@ export function MyFiles() {
         <section
           className={cm.cn(
             cm.flex({ direction: 'col', justify: 'between', gap: 'lg' }),
-            cm.sp('p', 10),
+            'p-6 md:p-10',
             'min-h-[260px] rounded-[2rem] bg-gradient-to-br from-primary to-tertiary-container text-on-primary relative overflow-hidden',
           )}
         >

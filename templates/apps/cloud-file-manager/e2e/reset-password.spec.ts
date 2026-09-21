@@ -22,6 +22,8 @@ test.describe('/reset-password', () => {
     await page.goto(APP_BASE + '/reset-password?token=clearly-bogus-token')
     await page.locator('[data-mol-id="reset-password"]').fill('NewPassword123!')
     await page.locator('[data-mol-id="reset-confirm"]').fill('NewPassword123!')
+    // The 400 rejection IS the assertion target — allow its console noise.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const reqs = await captureNetwork(page, async () => {
       await page.locator('[data-mol-id="reset-submit"]').click()
       await expect(page.locator('[data-mol-id="reset-error"]')).toBeVisible({ timeout: 10000 })
@@ -65,6 +67,8 @@ test.describe('/reset-password', () => {
     await page.goto(APP_BASE + '/reset-password?token=nonexistent-abcdef0123456789')
     await page.locator('[data-mol-id="reset-password"]').fill('NewlyChosenPass2!')
     await page.locator('[data-mol-id="reset-confirm"]').fill('NewlyChosenPass2!')
+    // Synthesized token → the 400 is the expected contract under test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const resetReqs = await captureNetwork(page, async () => {
       await page.locator('[data-mol-id="reset-submit"]').click()
       await page.waitForTimeout(1500)

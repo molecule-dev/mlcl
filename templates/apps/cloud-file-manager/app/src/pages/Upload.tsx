@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -149,6 +150,10 @@ export function Upload() {
         progress: 100,
         detail: t('upload.progress.done', {}, { defaultValue: 'Synced just now' }),
         fileId,
+      })
+      void track({
+        name: 'file.uploaded',
+        properties: { file_id: fileId, size: entry.size, mime: entry.mime },
       })
     } catch (e: unknown) {
       const message =
