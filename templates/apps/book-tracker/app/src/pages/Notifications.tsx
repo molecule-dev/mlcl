@@ -40,7 +40,7 @@ export function Notifications() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/notifications')
+      .get('/notifications')
       .then((res) => {
         if (!cancelled) setNotifs(unwrapList<Notification>(res))
       })
@@ -68,7 +68,7 @@ export function Notifications() {
     if (marking || unreadCount === 0) return
     setMarking(true)
     try {
-      await http.post('/api/notifications/read-all', {})
+      await http.post('/notifications/read-all', {})
       setNotifs((prev) => prev.map((n) => ({ ...n, unread: false })))
       // _error intentionally ignored — user-facing error message is shown via setError below
     } catch (_error) {

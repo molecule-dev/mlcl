@@ -29,12 +29,29 @@ test('return home link routes to /dashboard', async ({ page }) => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // Without real provider keys the verify call cannot confirm the session,
+    // so the API answers 4xx (placeholder key → failed verification → 400) or
+    // 503 (key unset entirely) — the browser logs that status as a console
+    // error, which is the EXPECTED contract here: the page must attempt
+    // server-side confirmation from the app origin; granting needs real keys.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (4[0-9][0-9]|503)',
+    })
     const confirmed = page
-      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
+      .waitForResponse((r) => /\/api\/users\/[^/]+\/verify-payment\//.test(r.url()), {
+        timeout: 20_000,
+      })
       .catch(() => null)
     // The provider's success_url lands on the APP origin, so this page is what
     // finishes the purchase — without the call the paid plan is never granted.
     await page.goto(APP_BASE + '/plan-updated?provider=stripe&sessionId=cs_test_e2e')
-    expect(await confirmed).not.toBeNull()
+    const resp = await confirmed
+    expect(resp, 'the page must POST the checkout return to the API verify route').not.toBeNull()
+    const status = resp!.status()
+    expect(
+      status === 503 || (status >= 400 && status < 500),
+      `verify route must answer from the API with the unconfigured-provider contract (got ${status})`,
+    ).toBeTruthy()
   })
 })

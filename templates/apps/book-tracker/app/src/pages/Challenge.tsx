@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -23,6 +24,7 @@ export function Challenge() {
   const [finished, setFinished] = useState<Book[]>([])
   const [goal, setGoal] = useState('24')
   const [saving, setSaving] = useState(false)
+  const [goalSaved, setGoalSaved] = useState(false)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -31,10 +33,7 @@ export function Challenge() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    Promise.all([
-      http.get(`/api/challenge?year=${year}`),
-      http.get('/api/books?shelf=read&limit=200'),
-    ])
+    Promise.all([http.get(`/challenge?year=${year}`), http.get('/books?shelf=read&limit=200')])
       .then(([challengeRes, booksRes]) => {
         if (cancelled) return
         const snap = unwrapSingle<ChallengeSnapshot>(challengeRes)
@@ -69,9 +68,15 @@ export function Challenge() {
     if (Number.isNaN(n) || n < 1 || saving) return
     setSaving(true)
     setError(null)
+    setGoalSaved(false)
     try {
-      const res = await http.put('/api/challenge', { year, goal_books: n })
+      const res = await http.put('/challenge', { year, goal_books: n })
       setChallenge(unwrapSingle<ChallengeSnapshot>(res))
+      track({
+        name: (challenge?.goal_books ?? 0) > 0 ? 'challenge.goal_updated' : 'challenge.joined',
+        properties: { year, goal_books: n },
+      })
+      setGoalSaved(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -176,6 +181,15 @@ export function Challenge() {
           >
             {t('challenge.saveGoal', {}, { defaultValue: 'Save goal' })}
           </button>
+          {goalSaved ? (
+            <span
+              className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+              data-mol-id="challenge-goal-saved"
+              role="status"
+            >
+              {t('challenge.goalSaved', {}, { defaultValue: 'Goal saved' })}
+            </span>
+          ) : null}
         </form>
 
         {challenge ? (

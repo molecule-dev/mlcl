@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -52,7 +53,7 @@ export function AddBook() {
     setSubmitting(true)
     setError(null)
     try {
-      const resp = await http.post('/api/books', {
+      const resp = await http.post('/books', {
         title: title.trim(),
         author: author.trim(),
         page_count: Math.max(1, Number(pageCount) || 300),
@@ -64,6 +65,7 @@ export function AddBook() {
       const created =
         (resp && (resp as { data?: { id?: string } }).data) ?? (resp as { id?: string })
       const id = (created as { id?: string })?.id
+      track({ name: 'book.created', properties: { book_id: id, shelf } })
       navigate(id ? `/books/${id}` : '/books')
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
@@ -111,27 +113,28 @@ export function AddBook() {
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               'uppercase tracking-widest text-on-surface-variant',
+              'block',
             )}
           >
             {t('books.title', {}, { defaultValue: 'Title' })}
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder={t(
+                'addBook.titlePlaceholder',
+                {},
+                { defaultValue: 'e.g. The Left Hand of Darkness' },
+              )}
+              data-mol-id="add-book-title"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.sp('mt', 2),
+                'w-full text-lg font-semibold text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
+              )}
+            />
           </label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder={t(
-              'addBook.titlePlaceholder',
-              {},
-              { defaultValue: 'e.g. The Left Hand of Darkness' },
-            )}
-            data-mol-id="add-book-title"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 3),
-              cm.sp('mt', 2),
-              'w-full text-lg font-semibold text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
-            )}
-          />
         </div>
 
         <div className={cm.grid({ cols: 2, gap: 'md' })}>
@@ -141,27 +144,28 @@ export function AddBook() {
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'uppercase tracking-widest text-on-surface-variant',
+                'block',
               )}
             >
               {t('books.author', {}, { defaultValue: 'Author' })}
+              <input
+                type="text"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
+                placeholder={t(
+                  'addBook.authorPlaceholder',
+                  {},
+                  { defaultValue: 'e.g. Ursula K. Le Guin' },
+                )}
+                data-mol-id="add-book-author"
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  cm.sp('mt', 2),
+                  'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
+                )}
+              />
             </label>
-            <input
-              type="text"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              placeholder={t(
-                'addBook.authorPlaceholder',
-                {},
-                { defaultValue: 'e.g. Ursula K. Le Guin' },
-              )}
-              data-mol-id="add-book-author"
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                cm.sp('mt', 2),
-                'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
-              )}
-            />
           </div>
           <div>
             <label
@@ -169,29 +173,30 @@ export function AddBook() {
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
                 'uppercase tracking-widest text-on-surface-variant',
+                'block',
               )}
             >
               {t('books.pageCount', {}, { defaultValue: 'Page count' })}
+              <input
+                type="number"
+                min={1}
+                max={20000}
+                value={pageCount}
+                onChange={(e) => setPageCount(e.target.value)}
+                data-mol-id="add-book-pages"
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  cm.sp('mt', 2),
+                  'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
+                )}
+              />
             </label>
-            <input
-              type="number"
-              min={1}
-              max={20000}
-              value={pageCount}
-              onChange={(e) => setPageCount(e.target.value)}
-              data-mol-id="add-book-pages"
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                cm.sp('mt', 2),
-                'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors',
-              )}
-            />
           </div>
         </div>
 
         <div>
-          <label
+          <span
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -199,8 +204,12 @@ export function AddBook() {
             )}
           >
             {t('addBook.coverLabel', {}, { defaultValue: 'Cover' })}
-          </label>
-          <div className={cm.cn(cm.sp('mt', 3), cm.flex({ align: 'start', gap: 'lg' }))}>
+          </span>
+          <div
+            role="group"
+            aria-label={t('addBook.coverLabel', {}, { defaultValue: 'Cover' })}
+            className={cm.cn(cm.sp('mt', 3), cm.flex({ align: 'start', gap: 'lg' }))}
+          >
             <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap flex-1')}>
               {(
                 ['teal', 'amber', 'wine', 'indigo', 'forest', 'slate', 'plum', 'clay'] as const
@@ -240,7 +249,7 @@ export function AddBook() {
         </div>
 
         <div>
-          <label
+          <span
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -248,8 +257,12 @@ export function AddBook() {
             )}
           >
             {t('addBook.genresLabel', {}, { defaultValue: 'Genres' })}
-          </label>
-          <div className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }), 'flex-wrap')}>
+          </span>
+          <div
+            role="group"
+            aria-label={t('addBook.genresLabel', {}, { defaultValue: 'Genres' })}
+            className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }), 'flex-wrap')}
+          >
             {GENRE_OPTIONS.map((g) => {
               const active = genres.includes(g)
               return (
@@ -277,7 +290,7 @@ export function AddBook() {
         </div>
 
         <div>
-          <label
+          <span
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -285,8 +298,12 @@ export function AddBook() {
             )}
           >
             {t('addBook.shelfLabel', {}, { defaultValue: 'Shelve as' })}
-          </label>
-          <div className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }), 'flex-wrap')}>
+          </span>
+          <div
+            role="group"
+            aria-label={t('addBook.shelfLabel', {}, { defaultValue: 'Shelve as' })}
+            className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }), 'flex-wrap')}
+          >
             {SHELF_OPTIONS.map((s) => {
               const active = shelf === s.id
               return (
@@ -324,27 +341,28 @@ export function AddBook() {
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               'uppercase tracking-widest text-on-surface-variant',
+              'block',
             )}
           >
             {t('form.description', {}, { defaultValue: 'Description' })}
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder={t(
+                'addBook.descriptionPlaceholder',
+                {},
+                { defaultValue: 'One line about why it is on your list.' },
+              )}
+              rows={3}
+              data-mol-id="add-book-description"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.sp('mt', 2),
+                'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors resize-none',
+              )}
+            />
           </label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder={t(
-              'addBook.descriptionPlaceholder',
-              {},
-              { defaultValue: 'One line about why it is on your list.' },
-            )}
-            rows={3}
-            data-mol-id="add-book-description"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 3),
-              cm.sp('mt', 2),
-              'w-full text-base text-on-surface bg-surface-container rounded-xl border-2 border-transparent focus:border-primary focus:outline-none transition-colors resize-none',
-            )}
-          />
         </div>
 
         <div

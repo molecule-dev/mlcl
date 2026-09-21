@@ -209,6 +209,9 @@ export function Landing() {
               'bg-surface-container-lowest rounded-2xl shadow-sm border-t-4 border-primary',
               cm.sp('p', 8),
               cm.flex({ align: 'end', justify: 'center', gap: 'lg' }),
+              // Four lg covers overflow a 390px viewport — wrap like a real
+              // shelf instead of widening the page.
+              'flex-wrap',
             )}
           >
             <BookCover

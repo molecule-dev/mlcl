@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,7 +69,7 @@ export function Dashboard() {
   const load = () => {
     let cancelled = false
     setLoading(true)
-    Promise.all([http.get('/api/reports/today'), http.get('/api/reports/overview')])
+    Promise.all([http.get('/reports/today'), http.get('/reports/overview')])
       .then(([todayData, overviewData]) => {
         if (cancelled) return
         setToday(unwrapSingle<Today>(todayData))
@@ -91,10 +92,14 @@ export function Dashboard() {
     if (Number.isNaN(page) || page <= book.current_page) return
     setBusyId(book.book_id)
     try {
-      await http.post(`/api/books/${book.book_id}/progress`, {
+      await http.post(`/books/${book.book_id}/progress`, {
         current_page: page,
       })
-      const todayResp = await http.get('/api/reports/today')
+      track({
+        name: 'reading.progress_logged',
+        properties: { book_id: book.book_id, page },
+      })
+      const todayResp = await http.get('/reports/today')
       setToday(unwrapSingle<Today>(todayResp))
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
@@ -276,13 +281,25 @@ export function Dashboard() {
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
         <Link
           to="/books"
-          className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.textPrimary)}
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.textPrimary,
+            // Inline text links read as ~20px tall to hit-testing — pad to a
+            // 40px tap target without changing how they look in the row.
+            'inline-flex items-center py-2.5',
+          )}
         >
           {t('dashboard.viewAllBooks', {}, { defaultValue: 'Browse shelves →' })}
         </Link>
         <Link
           to="/stats"
-          className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.textPrimary)}
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.textPrimary,
+            'inline-flex items-center py-2.5',
+          )}
         >
           {t('dashboard.viewStats', {}, { defaultValue: 'See stats →' })}
         </Link>

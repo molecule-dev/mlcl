@@ -112,7 +112,7 @@ export function Settings() {
 
   const loadDevices = useCallback(async () => {
     try {
-      const res = await http.get('/api/devices')
+      const res = await http.get('/devices')
       setDevices(unwrapList<DeviceRow>(res))
     } catch (_error) {
       // Devices endpoint is optional — the list simply renders empty when unavailable.
@@ -130,7 +130,7 @@ export function Settings() {
   async function revokeDevice(id: string) {
     setRevokingDeviceId(id)
     try {
-      await http.delete(`/api/devices/${id}`)
+      await http.delete(`/devices/${id}`)
       setConfirmingDeviceId(null)
       await loadDevices()
     } catch (_error) {
@@ -175,7 +175,7 @@ export function Settings() {
     setDeleting(true)
     setDeleteError('')
     try {
-      await http.delete(`/api/users/${auth.user?.id}`, { data: { password: deletePassword } })
+      await http.delete(`/users/${auth.user?.id}`, { data: { password: deletePassword } })
       await auth.logout()
       navigate('/login')
     } catch (err) {
@@ -194,7 +194,7 @@ export function Settings() {
     async function load() {
       try {
         setLoading(true)
-        const res = await http.get('/api/profile/me')
+        const res = await http.get('/profile/me')
         if (cancelled) return
         const data = unwrapSingle<ProfileMe>(res)
         if (!data) throw new Error('Empty profile')
@@ -239,7 +239,7 @@ export function Settings() {
       if (name !== (me.name ?? '')) body.name = name
       if (email !== (me.email ?? '')) body.email = email
       body.preferences = prefs
-      const res = await http.put('/api/profile/me', body)
+      const res = await http.put('/profile/me', body)
       const updated = unwrapSingle<ProfileMe>(res)
       if (updated) {
         setMe(updated)

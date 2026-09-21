@@ -63,10 +63,10 @@ export function Stats() {
     let cancelled = false
     setLoading(true)
     Promise.all([
-      http.get('/api/reports/overview'),
-      http.get(`/api/stats/monthly?year=${year}`),
-      http.get(`/api/stats/genres?year=${year}`),
-      http.get(`/api/stats/ratings?year=${year}`),
+      http.get('/reports/overview'),
+      http.get(`/stats/monthly?year=${year}`),
+      http.get(`/stats/genres?year=${year}`),
+      http.get(`/stats/ratings?year=${year}`),
     ])
       .then(([overviewRes, monthlyRes, genresRes, ratingsRes]) => {
         if (cancelled) return
@@ -168,7 +168,7 @@ export function Stats() {
           {t('stats.monthlyHeading', { year }, { defaultValue: 'Finished in {{year}}' })}
         </p>
         <div className={cm.flex({ align: 'end', gap: 'xs' })} style={{ height: '180px' }}>
-          {(monthly?.months ?? []).map((m) => {
+          {(monthly?.months ?? []).map((m, i) => {
             const pct = m.books / maxBooks
             return (
               <div
@@ -202,6 +202,9 @@ export function Stats() {
                     cm.textSize('xs'),
                     cm.fontWeight('semibold'),
                     'text-on-surface-variant',
+                    // Twelve labels collide under ~640px — stagger to every
+                    // other month on small screens.
+                    i % 2 === 1 && 'hidden sm:inline',
                   )}
                 >
                   {MONTH_LABELS[m.month - 1]}
@@ -212,11 +215,8 @@ export function Stats() {
         </div>
       </section>
 
-      {/* Genres + ratings distribution */}
-      <section
-        className={cm.grid({ gap: 'lg' })}
-        style={{ gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)' }}
-      >
+      {/* Genres + ratings distribution — 2-up on wide screens, stacked on mobile */}
+      <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-[2fr_1fr]')}>
         <div className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm', cm.sp('p', 6))}>
           <h2
             className={cm.cn(

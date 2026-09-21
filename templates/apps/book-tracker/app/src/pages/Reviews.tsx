@@ -30,7 +30,7 @@ export function Reviews() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/reviews')
+      .get('/reviews')
       .then((res) => {
         if (!cancelled) setReviews(unwrapList<ReviewRow>(res))
       })
@@ -85,7 +85,14 @@ export function Reviews() {
             {},
             { defaultValue: 'No reviews yet. Finish a book, rate it, write two lines.' },
           )}{' '}
-          <Link to="/books" className={cm.cn(cm.fontWeight('bold'), cm.textPrimary)}>
+          <Link
+            to="/books"
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textPrimary,
+              'inline-flex items-center py-2.5',
+            )}
+          >
             {t('reviews.browseLink', {}, { defaultValue: 'Browse shelves →' })}
           </Link>
         </p>

@@ -31,7 +31,7 @@ export function PlanUpdated() {
     if (verification.status === 'verifying') return
     let cancelled = false
     void http
-      .get('/api/profile/me')
+      .get('/profile/me')
       .then((res) => {
         if (cancelled) return
         const me = unwrapSingle<ProfileMe>(res)

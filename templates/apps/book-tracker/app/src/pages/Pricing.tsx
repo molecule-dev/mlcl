@@ -45,7 +45,7 @@ export function Pricing() {
   useEffect(() => {
     let cancelled = false
     void http
-      .get('/api/billing/tiers')
+      .get('/billing/tiers')
       .then((res) => {
         if (cancelled) return
         const list = unwrapList<Tier>(res.data)
@@ -65,7 +65,7 @@ export function Pricing() {
     setBusyKey(key)
     setError(null)
     try {
-      const res = await http.post('/api/billing/checkout', { priceId })
+      const res = await http.post('/billing/checkout', { priceId })
       const body = (res.data ?? {}) as { checkoutUrl?: string; updated?: boolean }
       if (body.checkoutUrl) {
         window.location.assign(body.checkoutUrl)

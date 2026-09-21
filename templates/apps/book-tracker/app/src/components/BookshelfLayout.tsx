@@ -38,6 +38,10 @@ export function BookshelfLayout() {
       logoTo="/dashboard"
       navItems={navItems}
       userMenu={<UserMenu />}
+      // Hook for the mobile top-bar restyle in theme.css — the shared
+      // SidebarLayout renders a fixed-width aside in a flex row, which at
+      // phone widths squeezes content into a ~150px column.
+      className="pb-shell"
       navAriaLabel={t(
         'bookshelfLayout.primaryNavLabel',
         {},

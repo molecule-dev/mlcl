@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -60,6 +61,7 @@ export function BookDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const navigate = useNavigate()
   const { id = '' } = useParams<{ id: string }>()
   const [book, setBook] = useState<Book | null>(null)
   const [sessions, setSessions] = useState<Session[]>([])
@@ -83,9 +85,12 @@ export function BookDetail() {
   const [draftPageCount, setDraftPageCount] = useState('')
   const [editError, setEditError] = useState<string | null>(null)
   const [savingEdit, setSavingEdit] = useState(false)
+  // Destructive delete is two-step: first click arms an inline confirm strip
+  // (no modal), second click commits.
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
 
   const loadBook = async (): Promise<void> => {
-    const res = await http.get(`/api/books/${id}`)
+    const res = await http.get(`/books/${id}`)
     const data = unwrapSingle<Book>(res)
     if (!data) return
     setBook(data)
@@ -98,7 +103,7 @@ export function BookDetail() {
     if (!id) return
     let cancelled = false
     setLoading(true)
-    Promise.all([http.get(`/api/books/${id}`)])
+    Promise.all([http.get(`/books/${id}`)])
       .then(async ([bookRes]) => {
         if (cancelled) return
         const data = unwrapSingle<Book>(bookRes)
@@ -108,9 +113,7 @@ export function BookDetail() {
         setReview(data.my?.review ?? '')
         setPage(data.my && data.my.shelf === 'reading' ? String(data.my.current_page) : '')
         if (data.my) {
-          const sessRes = await http
-            .get(`/api/sessions?user_book_id=${data.my.id}`)
-            .catch(() => null)
+          const sessRes = await http.get(`/sessions?user_book_id=${data.my.id}`).catch(() => null)
           if (sessRes && !cancelled) setSessions(unwrapList<Session>(sessRes))
         }
       })
@@ -146,7 +149,7 @@ export function BookDetail() {
     setSavingEdit(true)
     setEditError(null)
     try {
-      const resp = await http.patch(`/api/books/${book.id}`, {
+      const resp = await http.patch(`/books/${book.id}`, {
         title: draftTitle.trim(),
         author: draftAuthor.trim(),
         page_count: Math.max(1, Number(draftPageCount) || book.page_count),
@@ -164,9 +167,17 @@ export function BookDetail() {
     if (!book || busy) return
     setBusy(true)
     try {
-      const resp = await http.post(`/api/books/${book.id}/shelve`, { shelf })
+      const resp = await http.post(`/books/${book.id}/shelve`, { shelf })
       const updated = unwrapSingle<Book>(resp)
       setBook(updated)
+      if (shelf === 'read') {
+        track({
+          name: 'book.finished',
+          properties: { book_id: book.id, title: book.title },
+        })
+      } else {
+        track({ name: 'book.shelved', properties: { book_id: book.id, shelf } })
+      }
       if (shelf === 'reading') setPage(String(updated?.my?.current_page ?? '0'))
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -182,13 +193,13 @@ export function BookDetail() {
     if (Number.isNaN(target) || target < 0) return
     setBusy(true)
     try {
-      await http.post(`/api/books/${book.id}/progress`, {
+      await http.post(`/books/${book.id}/progress`, {
         current_page: target,
         minutes: minutes ? Number(minutes) : undefined,
       })
       await loadBook()
       if (book.my) {
-        const sessRes = await http.get(`/api/sessions?user_book_id=${book.my.id}`).catch(() => null)
+        const sessRes = await http.get(`/sessions?user_book_id=${book.my.id}`).catch(() => null)
         if (sessRes) setSessions(unwrapList<Session>(sessRes))
       }
       setMinutes('')
@@ -205,11 +216,15 @@ export function BookDetail() {
     setBusy(true)
     setReviewSaved(false)
     try {
-      const resp = await http.patch(`/api/books/${book.id}/review`, {
+      const resp = await http.patch(`/books/${book.id}/review`, {
         rating,
         review: review.trim() || null,
       })
       setBook(unwrapSingle<Book>(resp))
+      track({
+        name: 'review.added',
+        properties: { book_id: book.id, rating, has_text: Boolean(review.trim()) },
+      })
       setReviewSaved(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -222,7 +237,9 @@ export function BookDetail() {
     if (!book || busy) return
     setBusy(true)
     try {
-      await http.delete(`/api/books/${book.id}`)
+      await http.delete(`/books/${book.id}`)
+      // The book is gone — leave instead of rendering a deleted detail page.
+      navigate('/books')
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
       setBusy(false)
@@ -255,7 +272,58 @@ export function BookDetail() {
         >
           ← {t('bookDetail.backLink', {}, { defaultValue: 'All books' })}
         </Link>
-        {editing ? null : (
+        {editing ? null : confirmingDelete ? (
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+            data-mol-id="book-delete-confirm"
+            role="group"
+            aria-label={t(
+              'bookDetail.deleteConfirmTitle',
+              {},
+              { defaultValue: 'Delete this book?' },
+            )}
+          >
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'bookDetail.deleteConfirmBody',
+                {},
+                { defaultValue: 'Delete this book and its reading log?' },
+              )}
+            </span>
+            <button
+              type="button"
+              onClick={() => void remove()}
+              disabled={busy}
+              data-mol-id="book-delete-confirm-yes"
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.textSize('xs'),
+                cm.fontWeight('medium'),
+                'border border-error text-error rounded hover:bg-error hover:text-on-error disabled:opacity-50',
+              )}
+            >
+              {busy
+                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
+                : t('common.confirmDelete', {}, { defaultValue: 'Yes, delete' })}
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirmingDelete(false)}
+              disabled={busy}
+              data-mol-id="book-delete-confirm-no"
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.textSize('xs'),
+                cm.fontWeight('medium'),
+                'border border-outline-variant rounded disabled:opacity-50',
+              )}
+            >
+              {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+            </button>
+          </div>
+        ) : (
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <button
               type="button"
@@ -273,9 +341,14 @@ export function BookDetail() {
             </button>
             <button
               type="button"
-              onClick={() => void remove()}
+              onClick={() => setConfirmingDelete(true)}
               disabled={busy}
               data-mol-id="book-delete"
+              aria-label={t(
+                'bookDetail.deleteAria',
+                { title: book.title },
+                { defaultValue: 'Delete {{title}}' },
+              )}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 2),

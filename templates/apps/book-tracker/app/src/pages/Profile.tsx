@@ -70,9 +70,9 @@ export function Profile() {
       try {
         setLoading(true)
         const [meResp, overviewResp, reviewsResp] = await Promise.all([
-          http.get('/api/profile/me'),
-          http.get('/api/reports/overview'),
-          http.get('/api/reviews'),
+          http.get('/profile/me'),
+          http.get('/reports/overview'),
+          http.get('/reviews'),
         ])
         if (cancelled) return
         setMe(unwrapSingle<ProfileMe>(meResp))

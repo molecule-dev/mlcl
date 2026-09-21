@@ -23,9 +23,22 @@ interface ReviewCardProps {
 
 export function Stars({ rating }: { rating: number | null }) {
   const cm = getClassMap()
+  const { t } = useTranslation()
   const rounded = rating ?? 0
   return (
-    <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))} aria-hidden="true">
+    <span
+      className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
+      role="img"
+      aria-label={
+        rating == null
+          ? t('reviewCard.unratedAria', {}, { defaultValue: 'Unrated' })
+          : t(
+              'reviewCard.starsAria',
+              { rating: rating.toFixed(0), of: 5 },
+              { defaultValue: 'Rated {{rating}} out of {{of}} stars' },
+            )
+      }
+    >
       {[1, 2, 3, 4, 5].map((n) => (
         <span
           key={n}

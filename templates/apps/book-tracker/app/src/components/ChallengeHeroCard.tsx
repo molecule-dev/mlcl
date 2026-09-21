@@ -102,7 +102,7 @@ export function ChallengeHeroCard({
             { defaultValue: '{{year}} reading challenge' },
           )}
         </h2>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}>
           <svg width="64" height="64" viewBox="0 0 64 64" className={cm.cn(cm.shrink0)}>
             <circle
               cx="32"

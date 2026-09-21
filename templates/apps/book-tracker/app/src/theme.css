@@ -263,3 +263,49 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
+
+/* ============================================================================
+ * Mobile shell — restyles the shared SidebarLayout under 768px.
+ *
+ * SidebarLayout renders a fixed-width aside (inline width) inside a flex ROW
+ * shell with `overflow-hidden`. At phone widths that leaves ~150px for
+ * content: every page clips mid-word and the hero cards squeeze vertical.
+ * The `.pb-shell` class (passed from BookshelfLayout) scopes this override so
+ * only this app's shell restacks: the aside becomes a compact top bar —
+ * brand + user menu on row one, horizontally scrollable nav on row two —
+ * and content takes the full width below.
+ * ========================================================================== */
+@media (max-width: 767px) {
+  .pb-shell {
+    flex-direction: column;
+  }
+  .pb-shell > aside {
+    width: 100% !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-outline-variant);
+  }
+  .pb-shell > aside > :first-child {
+    flex: 1 1 auto;
+    margin-bottom: 0 !important;
+  }
+  .pb-shell > aside > :last-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .pb-shell > aside > nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pb-shell > aside > nav > a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}

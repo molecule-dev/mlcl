@@ -59,7 +59,7 @@ export function Books() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/api/books')
+      .get('/books')
       .then((res) => {
         if (!cancelled) setBooks(unwrapList<Book>(res))
       })
@@ -157,7 +157,7 @@ export function Books() {
 
       <nav
         aria-label={t('books.filterLabel', {}, { defaultValue: 'Filter books by shelf' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {SHELVES.map((s) => {
           const active = shelf === s
