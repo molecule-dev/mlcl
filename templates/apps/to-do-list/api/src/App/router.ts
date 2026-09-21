@@ -7,6 +7,7 @@ import {
   mountDefaultUserCrudRoutes,
   mountDefaultUserResetPasswordRoute,
   mountDefaultUserSecurityRoutes,
+  mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
 import templateHandlers from '../handlers/index.js'
@@ -27,6 +28,11 @@ mountDefaultUserResetPasswordRoute(router, User)
 mountDefaultUserCrudRoutes(router, User)
 mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
+// POST/GET /users/:id/verify-payment/:provider — what the checkout return
+// page (/plan-updated) calls to actually grant the paid plan. Without this
+// mount the app's own checkout success_url 404s and the purchase is never
+// confirmed.
+mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use(templateHandlers)
 router.use('/billing', billingRoutes)
