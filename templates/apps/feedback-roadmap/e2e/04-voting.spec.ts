@@ -82,10 +82,14 @@ test.describe('voting', () => {
     await expect(card.locator('[data-mol-id="status-badge-open"]')).toBeVisible()
   })
 
-  test('anonymous vote is rejected by the API', async ({ page }) => {
+  test('anonymous vote is rejected by the API', async ({ page, request }) => {
     const { accessToken } = await signup(page)
     const post = await seedPost(page, accessToken)
-    const res = await page.request.post(`${API_BASE}/votes`, {
+    // NOT page.request: it shares the browser context's cookie jar, and
+    // signup leaves the httpOnly `token` session cookie there — the request
+    // would ride that cookie and come back 200-authenticated. The standalone
+    // `request` fixture has its own empty jar, so this is genuinely anonymous.
+    const res = await request.post(`${API_BASE}/votes`, {
       data: { post_id: post.id },
       failOnStatusCode: false,
     })

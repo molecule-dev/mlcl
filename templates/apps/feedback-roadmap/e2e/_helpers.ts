@@ -19,8 +19,12 @@ export function uniqueEmail(prefix = 'feedback') {
  * the JWT bearer access token persisted to localStorage, and the user id.
  *
  * Tests use the access token to make authenticated API requests directly
- * via page.request.* (which has its own cookie jar separate from the
- * live browser session). The app sends users to /boards after signup.
+ * via page.request.*. NOTE: page.request SHARES the browser context's
+ * cookie jar — after signup the httpOnly `token` session cookie rides
+ * along on every page.request call, so one sent WITHOUT an Authorization
+ * header is still cookie-authenticated. For a genuinely anonymous API
+ * probe, use the standalone `request` fixture (own, empty cookie jar).
+ * The app sends users to /boards after signup.
  */
 export async function signup(page: Page, email = uniqueEmail(), password = 'TestPass!1234') {
   await page.goto(APP_BASE + '/signup')

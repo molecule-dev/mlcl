@@ -34,7 +34,11 @@ test.describe('static pages', () => {
 
   test('plan-updated renders outside auth', async ({ page }) => {
     await page.goto(APP_BASE + '/plan-updated')
-    await expect(page.locator('main').or(page.locator('body'))).toContainText(/plan/i, {
+    // The shell renders an <h1> title band while PlanUpdatedPage renders its
+    // own inner <main> with <h2>s — the page carries TWO <main>s plus <body>,
+    // so locator('main').or(locator('body')) strict-violates (3 matches).
+    // Level-pin to the single <h1> ("Your plan has been updated.") instead.
+    await expect(page.getByRole('heading', { level: 1, name: /plan/i })).toBeVisible({
       timeout: 15000,
     })
   })
