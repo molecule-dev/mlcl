@@ -38,13 +38,18 @@ test.describe('login page', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // Expected 4xx: the failed log-in POST surfaces as a browser console
+    // resource error; the inline error banner below is the real assertion.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(uniqueEmail('nope'))
     await page.locator('input#password').fill('definitely-wrong')
     await page.locator('form button[type="submit"]').click()
-    await page.waitForTimeout(2000)
+    // Deterministic: wait for the inline error, not a fixed timeout.
+    await expect(page.locator('[data-mol-id="login-error"], [role="alert"]').first()).toBeVisible({
+      timeout: 15_000,
+    })
     await expect(page).toHaveURL(/\/login/)
-    await expect(page.locator('[data-mol-id="login-error"], [role="alert"]').first()).toBeVisible()
   })
 
   test('"Forgot?" link goes to /forgot-password', async ({ page }) => {

@@ -1,5 +1,6 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { t } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -102,23 +103,29 @@ export function Devices() {
   const http = useHttpClient()
   const adaptCb = useCallback(adapt, [])
   const devices = useFetchList<ApiDeviceRow, DeviceItem>('/api/devices', adaptCb)
+  const [actionError, setActionError] = useState<string | null>(null)
 
   const handleRevoke = useCallback(
     async (id: string) => {
+      setActionError(null)
       try {
         await http.delete(`/api/devices/${id}`)
+        void track({ name: 'device.revoked', properties: { device_id: id } })
         await devices.refetch()
-      } catch (_error) {
-        /* error swallowed - user retried list */
+      } catch (err) {
+        setActionError(
+          (err instanceof Error && err.message) ||
+            t('devices.revokeError', {}, { defaultValue: 'Could not sign out the device.' }),
+        )
       }
     },
-    [http, devices],
+    [http, devices, t],
   )
 
   const total = devices.data.length
 
   return (
-    <div className={cm.cn(cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-8')}>
+    <div className={cm.cn('p-4 md:p-8', cm.maxW('5xl'), cm.mxAuto, 'space-y-8')}>
       <PageHeader
         eyebrow={t('devices.eyebrow', {}, { defaultValue: 'Sync' })}
         heading={t('devices.heading', {}, { defaultValue: 'Connected devices' })}
@@ -171,6 +178,48 @@ export function Devices() {
         </p>
       )}
 
+      {devices.error && devices.data.length === 0 && (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-xl bg-error-container/30 border border-error/30 text-error',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+            {t('devices.loadError', {}, { defaultValue: 'Devices could not be loaded.' })}
+          </p>
+          <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 2), 'opacity-80 break-words')}>
+            {devices.error}
+          </p>
+          <button
+            type="button"
+            data-mol-id="devices-retry"
+            onClick={() => void devices.refetch()}
+            className={cm.cn(
+              cm.sp('px', 3),
+              'min-h-[36px] rounded-md border border-error/40 text-xs font-semibold hover:bg-error-container/40',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
+
+      {actionError && (
+        <p
+          role="alert"
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.sp('px', 3),
+            cm.sp('py', 2),
+            'rounded-md bg-error-container/30 text-error border border-error/30 break-words',
+          )}
+        >
+          {actionError}
+        </p>
+      )}
+
       <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))} data-mol-id="devices-list">
         {devices.data.map((device) => {
           const tint = STATUS_TINT[device.status]
@@ -180,7 +229,7 @@ export function Devices() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'md' }),
                 cm.sp('p', 4),
-                'rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary/40 transition-colors',
+                'rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary/40 transition-colors flex-wrap',
               )}
             >
               <span
@@ -191,13 +240,13 @@ export function Devices() {
               >
                 {device.icon}
               </span>
-              <div className={cm.cn('flex-1 min-w-0')}>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <div className={cm.cn('flex-1 min-w-[160px]')}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
                   <p
                     className={cm.cn(
                       cm.textSize('sm'),
                       cm.fontWeight('semibold'),
-                      'text-on-surface truncate',
+                      'text-on-surface truncate max-w-full',
                     )}
                   >
                     {device.name}
@@ -208,7 +257,7 @@ export function Devices() {
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
                         cm.sp('px', 2),
-                        'rounded-full uppercase tracking-widest font-mono',
+                        'rounded-full uppercase tracking-widest font-mono max-w-full truncate',
                       )}
                       style={{
                         backgroundColor: 'var(--color-primary-fixed)',
@@ -226,7 +275,12 @@ export function Devices() {
                   {device.lastActive}
                 </p>
               </div>
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-shrink-0')}>
+              <div
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  'flex-shrink-0 flex-col items-end sm:flex-row sm:items-center',
+                )}
+              >
                 <span
                   className={cm.cn(
                     cm.textSize('xs'),
@@ -241,13 +295,13 @@ export function Devices() {
                 </span>
                 {!device.current && (
                   <button
-                    onClick={() => handleRevoke(device.id)}
+                    onClick={() => void handleRevoke(device.id)}
                     type="button"
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('semibold'),
                       cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      'min-h-[36px]',
                       'rounded-md text-error hover:bg-error-container/30 transition-colors',
                     )}
                   >

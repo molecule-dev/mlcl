@@ -2,6 +2,8 @@ import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { MobileNavShell } from './MobileNavShell.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -21,16 +23,24 @@ const NAV_KEYS = [
 
 /**
  * Signed-in shell for Yank — periwinkle wordmark up top, vertical nav,
- * UserMenu pinned to the bottom. Wraps `@molecule/app-sidebar-layout-react`.
+ * UserMenu pinned to the bottom. Wraps `@molecule/app-sidebar-layout-react`
+ * on md+ screens; below md (768px) the shared rail would crush a phone's
+ * content column, so a template-local MobileNavShell (sticky top bar +
+ * slide-in drawer) takes over — conditionally rendered, never CSS-hidden,
+ * so nav `data-mol-id`s stay unique in the DOM.
  */
 export function YankShellLayout() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`yankShellLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+  if (isMobile) {
+    return <MobileNavShell logoTo="/clips" navItems={navItems} />
+  }
   return (
     <SidebarLayout
       appName={APP_NAME}

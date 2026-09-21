@@ -1,5 +1,6 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -47,6 +48,10 @@ export function Categories() {
   const [color, setColor] = useState(PRESET_COLORS[0])
   const [busy, setBusy] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
+  const [formError, setFormError] = useState<string | null>(null)
+  const [rowError, setRowError] = useState<string | null>(null)
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null)
+  const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const reset = () => {
     setName('')
@@ -54,26 +59,51 @@ export function Categories() {
     setColor(PRESET_COLORS[0])
     setShowForm(false)
     setEditingId(null)
+    setFormError(null)
   }
+
+  const armDelete = useCallback((id: string) => {
+    setConfirmingDeleteId(id)
+    if (confirmTimer.current) clearTimeout(confirmTimer.current)
+    confirmTimer.current = setTimeout(() => setConfirmingDeleteId(null), 4000)
+  }, [])
 
   const handleSave = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault()
       if (!name.trim() || busy) return
       setBusy(true)
+      setFormError(null)
       try {
         if (editingId) {
           await http.patch(`/api/categories/${editingId}`, { name: name.trim(), icon, color })
+          void track({
+            name: 'category.updated',
+            properties: { category_id: editingId },
+          })
         } else {
-          await http.post('/api/categories', { name: name.trim(), icon, color })
+          const res = await http.post<{ id?: string }>('/api/categories', {
+            name: name.trim(),
+            icon,
+            color,
+          })
+          void track({
+            name: 'category.created',
+            properties: { category_id: res.data?.id ?? null },
+          })
         }
         reset()
         await cats.refetch()
+      } catch (err) {
+        setFormError(
+          (err instanceof Error && err.message) ||
+            t('categories.saveError', {}, { defaultValue: 'Could not save the category.' }),
+        )
       } finally {
         setBusy(false)
       }
     },
-    [name, icon, color, editingId, busy, http, cats],
+    [name, icon, color, editingId, busy, http, cats, t],
   )
 
   const handleEdit = useCallback((row: CategoryItem) => {
@@ -82,25 +112,39 @@ export function Categories() {
     setIcon(row.icon)
     setColor(row.color)
     setShowForm(true)
+    setFormError(null)
   }, [])
 
   const handleDelete = useCallback(
     async (id: string) => {
       if (busy) return
+      // Two-step inline confirm: first tap arms (auto-disarms after 4s).
+      if (confirmingDeleteId !== id) {
+        armDelete(id)
+        return
+      }
       setBusy(true)
+      setConfirmingDeleteId(null)
+      setRowError(null)
       try {
         await http.delete(`/api/categories/${id}`)
+        void track({ name: 'category.deleted', properties: { category_id: id } })
         if (editingId === id) reset()
         await cats.refetch()
+      } catch (err) {
+        setRowError(
+          (err instanceof Error && err.message) ||
+            t('categories.deleteError', {}, { defaultValue: 'Could not delete the category.' }),
+        )
       } finally {
         setBusy(false)
       }
     },
-    [busy, http, cats, editingId],
+    [busy, http, cats, editingId, confirmingDeleteId, armDelete, t],
   )
 
   return (
-    <div className={cm.cn(cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-10')}>
+    <div className={cm.cn('p-4 md:p-8', cm.maxW('5xl'), cm.mxAuto, 'space-y-10')}>
       <PageHeader
         eyebrow={t('nav.library', {}, { defaultValue: 'Library' })}
         heading={t('categories.heading', {}, { defaultValue: 'Categories & tags' })}
@@ -143,6 +187,19 @@ export function Categories() {
             'rounded-xl bg-surface-container-lowest border border-outline-variant/40',
           )}
         >
+          {formError && (
+            <p
+              role="alert"
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                'rounded-md bg-error-container/30 text-error border border-error/30 break-words',
+              )}
+            >
+              {formError}
+            </p>
+          )}
           <div>
             <label
               htmlFor="category-name"
@@ -195,7 +252,11 @@ export function Categories() {
                     type="button"
                     onClick={() => setIcon(i)}
                     aria-pressed={icon === i}
-                    aria-label={`icon-${i}`}
+                    aria-label={t(
+                      'categories.iconChoice',
+                      { icon: i },
+                      { defaultValue: `Icon: ${i}` },
+                    )}
                     className={cm.cn(
                       'w-9 h-9 rounded-md flex items-center justify-center border transition-colors',
                       icon === i
@@ -229,7 +290,11 @@ export function Categories() {
                     type="button"
                     onClick={() => setColor(c)}
                     aria-pressed={color === c}
-                    aria-label={`color-${c}`}
+                    aria-label={t(
+                      'categories.colorChoice',
+                      { color: c },
+                      { defaultValue: `Color: ${c}` },
+                    )}
                     className={cm.cn(
                       'w-9 h-9 rounded-full border-2 transition-all',
                       color === c ? 'ring-2 ring-offset-2 ring-primary' : 'border-transparent',
@@ -287,11 +352,53 @@ export function Categories() {
         >
           {t('categories.yourCategoriesHeading', {}, { defaultValue: 'Your categories' })}
         </h2>
+        {rowError && (
+          <p
+            role="alert"
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.sp('mb', 3),
+              'rounded-md bg-error-container/30 text-error border border-error/30 break-words',
+            )}
+          >
+            {rowError}
+          </p>
+        )}
+        {cats.error && cats.data.length === 0 && (
+          <div
+            role="alert"
+            className={cm.cn(
+              cm.sp('p', 4),
+              cm.sp('mb', 3),
+              'rounded-xl bg-error-container/30 border border-error/30 text-error',
+            )}
+          >
+            <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+              {t('categories.loadError', {}, { defaultValue: 'Categories could not be loaded.' })}
+            </p>
+            <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 2), 'opacity-80 break-words')}>
+              {cats.error}
+            </p>
+            <button
+              type="button"
+              data-mol-id="categories-retry"
+              onClick={() => void cats.refetch()}
+              className={cm.cn(
+                cm.sp('px', 3),
+                'min-h-[36px] rounded-md border border-error/40 text-xs font-semibold hover:bg-error-container/40',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
         {cats.loading && cats.data.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('categories.loading', {}, { defaultValue: 'Loading categories…' })}
           </p>
-        ) : cats.data.length === 0 ? (
+        ) : cats.data.length === 0 && !cats.error ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('py', 4))}>
             {t(
               'categories.empty',
@@ -304,62 +411,82 @@ export function Categories() {
             className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}
             data-mol-id="categories-list"
           >
-            {cats.data.map((row) => (
-              <div
-                key={row.id}
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'md' }),
-                  cm.sp('p', 4),
-                  'rounded-xl bg-surface-container-lowest border border-outline-variant/40',
-                )}
-              >
-                <span
+            {cats.data.map((row) => {
+              const confirming = confirmingDeleteId === row.id
+              return (
+                <div
+                  key={row.id}
                   className={cm.cn(
-                    'w-10 h-10 rounded-lg flex items-center justify-center text-white',
+                    cm.flex({ align: 'center', gap: 'md' }),
+                    cm.sp('p', 4),
+                    'rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex-wrap',
                   )}
-                  style={{ background: row.color }}
                 >
-                  <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
-                    {row.icon}
+                  <span
+                    className={cm.cn(
+                      'w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0',
+                    )}
+                    style={{ background: row.color }}
+                  >
+                    <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+                      {row.icon}
+                    </span>
                   </span>
-                </span>
-                <p
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'flex-1 text-on-surface',
-                  )}
-                >
-                  {row.name}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => handleEdit(row)}
-                  className={cm.cn(
-                    cm.sp('px', 3),
-                    cm.sp('py', 1),
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'rounded-md hover:bg-surface-container text-on-surface',
-                  )}
-                >
-                  {t('common.edit', {}, { defaultValue: 'Edit' })}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDelete(row.id)}
-                  className={cm.cn(
-                    cm.sp('px', 3),
-                    cm.sp('py', 1),
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'rounded-md hover:bg-error-container/30 text-error',
-                  )}
-                >
-                  {t('common.delete', {}, { defaultValue: 'Delete' })}
-                </button>
-              </div>
-            ))}
+                  <p
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'flex-1 min-w-[120px] text-on-surface break-words',
+                    )}
+                  >
+                    {row.name}
+                  </p>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+                    <button
+                      type="button"
+                      onClick={() => handleEdit(row)}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        'min-h-[36px]',
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'rounded-md hover:bg-surface-container text-on-surface',
+                      )}
+                    >
+                      {t('common.edit', {}, { defaultValue: 'Edit' })}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => void handleDelete(row.id)}
+                      aria-label={
+                        confirming
+                          ? t(
+                              'categories.confirmDelete',
+                              {},
+                              { defaultValue: 'Confirm delete category' },
+                            )
+                          : t('common.delete', {}, { defaultValue: 'Delete' })
+                      }
+                      data-mol-id={confirming ? 'category-delete-confirm' : 'category-delete'}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        'min-h-[36px]',
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'rounded-md transition-colors',
+                        confirming
+                          ? 'bg-error-container/50 text-error border border-error/40'
+                          : 'hover:bg-error-container/30 text-error',
+                      )}
+                    >
+                      {confirming
+                        ? t('common.confirmDelete', {}, { defaultValue: 'Confirm?' })
+                        : t('common.delete', {}, { defaultValue: 'Delete' })}
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         )}
       </section>

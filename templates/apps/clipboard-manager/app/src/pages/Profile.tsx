@@ -138,8 +138,13 @@ export function Profile() {
       try {
         await http.delete(`/api/devices/${id}`)
         await devices.refetch()
-      } catch (_error) {
-        /* swallowed — list refetch will reflect outcome */
+      } catch (err) {
+        setFeedback({
+          kind: 'error',
+          text:
+            (err instanceof Error && err.message) ||
+            translate('profile.revokeError', {}, { defaultValue: 'Could not revoke the session.' }),
+        })
       }
     },
     [http, devices],
@@ -147,7 +152,7 @@ export function Profile() {
 
   if (profile.loading && !profile.data) {
     return (
-      <div className={cm.cn(cm.sp('p', 8), cm.maxW('4xl'), cm.mxAuto)}>
+      <div className={cm.cn('p-4 md:p-8', cm.maxW('4xl'), cm.mxAuto)}>
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('nav.loadingProfile', {}, { defaultValue: 'Loading profile…' })}
         </p>
@@ -158,7 +163,7 @@ export function Profile() {
   const me = profile.data
 
   return (
-    <div className={cm.cn(cm.sp('p', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-12')}>
+    <div className={cm.cn('p-4 md:p-8', cm.maxW('4xl'), cm.mxAuto, 'space-y-12')}>
       <PageHeader
         eyebrow={t('settings.account', {}, { defaultValue: 'Account' })}
         heading={t('nav.profile', {}, { defaultValue: 'Profile' })}
@@ -322,84 +327,91 @@ export function Profile() {
               {t('profile.noSessions', {}, { defaultValue: 'No active sessions yet.' })}
             </p>
           ) : (
-            <table className={cm.cn('w-full')}>
-              <tbody className="divide-y divide-outline-variant/40">
-                {sessions.map((s) => (
-                  <tr
-                    key={s.id}
-                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
-                    data-mol-id={`session-${s.id}`}
-                  >
-                    <td className={cm.cn(cm.sp('px', 5), cm.sp('py', 4))}>
-                      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                        <span
-                          className={cm.cn(
-                            cm.textSize('sm'),
-                            cm.fontWeight('semibold'),
-                            'text-on-surface',
-                          )}
+            <div className="overflow-x-auto">
+              <table className={cm.cn('w-full')}>
+                <tbody className="divide-y divide-outline-variant/40">
+                  {sessions.map((s) => (
+                    <tr
+                      key={s.id}
+                      className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                      data-mol-id={`session-${s.id}`}
+                    >
+                      <td className={cm.cn(cm.sp('px', 3), 'md:px-5', cm.sp('py', 4))}>
+                        <div
+                          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}
                         >
-                          {s.name ||
-                            s.pushPlatform ||
-                            t('profile.webSession', {}, { defaultValue: 'Web session' })}
-                        </span>
-                        {s.isCurrent && (
                           <span
                             className={cm.cn(
-                              cm.textSize('xs'),
-                              cm.fontWeight('bold'),
-                              cm.sp('px', 2),
-                              'rounded-full uppercase tracking-widest font-mono',
+                              cm.textSize('sm'),
+                              cm.fontWeight('semibold'),
+                              'text-on-surface',
                             )}
-                            style={{
-                              background: 'var(--color-primary-fixed)',
-                              color: 'var(--color-primary)',
-                            }}
                           >
-                            {t('nav.current', {}, { defaultValue: 'Current' })}
+                            {s.name ||
+                              s.pushPlatform ||
+                              t('profile.webSession', {}, { defaultValue: 'Web session' })}
                           </span>
-                        )}
-                      </div>
-                      <p
-                        className={cm.cn(
-                          cm.textSize('xs'),
-                          'text-on-surface-variant font-mono mt-1',
-                        )}
-                      >
-                        {s.pushPlatform || 'browser'}
-                      </p>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 5),
-                        cm.sp('py', 4),
-                        cm.textSize('xs'),
-                        'text-on-surface-variant text-right',
-                      )}
-                    >
-                      {relativeFromNow(s.updatedAt)}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 5), cm.sp('py', 4), 'text-right')}>
-                      {!s.isCurrent && (
-                        <button
-                          onClick={() => handleRevoke(s.id)}
-                          type="button"
+                          {s.isCurrent && (
+                            <span
+                              className={cm.cn(
+                                cm.textSize('xs'),
+                                cm.fontWeight('bold'),
+                                cm.sp('px', 2),
+                                'rounded-full uppercase tracking-widest font-mono',
+                              )}
+                              style={{
+                                background: 'var(--color-primary-fixed)',
+                                color: 'var(--color-primary)',
+                              }}
+                            >
+                              {t('nav.current', {}, { defaultValue: 'Current' })}
+                            </span>
+                          )}
+                        </div>
+                        <p
                           className={cm.cn(
                             cm.textSize('xs'),
-                            cm.fontWeight('semibold'),
-                            cm.sp('px', 3),
-                            cm.sp('py', 1),
-                            'rounded-md text-error hover:bg-error-container/30 transition-colors',
+                            'text-on-surface-variant font-mono mt-1',
                           )}
                         >
-                          {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                          {s.pushPlatform || 'browser'}
+                        </p>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          'md:px-5',
+                          cm.sp('py', 4),
+                          cm.textSize('xs'),
+                          'text-on-surface-variant text-right whitespace-nowrap',
+                        )}
+                      >
+                        {relativeFromNow(s.updatedAt)}
+                      </td>
+                      <td
+                        className={cm.cn(cm.sp('px', 3), 'md:px-5', cm.sp('py', 4), 'text-right')}
+                      >
+                        {!s.isCurrent && (
+                          <button
+                            onClick={() => void handleRevoke(s.id)}
+                            type="button"
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              cm.fontWeight('semibold'),
+                              cm.sp('px', 3),
+                              'min-h-[36px]',
+                              'rounded-md text-error hover:bg-error-container/30 transition-colors',
+                            )}
+                          >
+                            {t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </section>

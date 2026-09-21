@@ -50,6 +50,9 @@ test.describe('signup page', () => {
   })
 
   test('duplicate email shows inline error and stays on /signup', async ({ page }) => {
+    // Expected 4xx: the duplicate-email POST surfaces as a browser console
+    // resource error; the inline error banner below is the real assertion.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dup')
     await signup(page, email)
     // Sign out so we can hit the form again as anon
@@ -59,7 +62,10 @@ test.describe('signup page', () => {
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('TestPass!1234')
     await page.locator('form button[type="submit"]').click()
-    await page.waitForTimeout(2000)
+    // Deterministic: wait for the inline error, not a fixed timeout.
+    await expect(page.locator('[data-mol-id="signup-error"], [role="alert"]').first()).toBeVisible({
+      timeout: 15_000,
+    })
     await expect(page).toHaveURL(/\/signup/)
   })
 

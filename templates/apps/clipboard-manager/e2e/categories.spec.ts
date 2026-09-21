@@ -23,8 +23,10 @@ test.describe('categories page', () => {
     await page.goto(APP_BASE + '/categories')
     await page.getByRole('button', { name: /new category/i }).click()
     await expect(page.locator('#category-name')).toBeVisible()
-    await expect(page.getByRole('button', { name: /icon-/ }).first()).toBeVisible()
-    await expect(page.getByRole('button', { name: /color-#/ }).first()).toBeVisible()
+    // Icon/color pickers carry humanized accessible names ("Icon: code",
+    // "Color: #2563eb") — not raw `icon-<name>`/`color-<hex>` strings.
+    await expect(page.getByRole('button', { name: /^icon:/i }).first()).toBeVisible()
+    await expect(page.getByRole('button', { name: /^color: #/i }).first()).toBeVisible()
   })
 
   test('creating a category persists it (read-after-write)', async ({ page }) => {
@@ -80,6 +82,10 @@ test.describe('categories page', () => {
       .getByRole('button', { name: /^delete$/i })
       .first()
       .click()
+    // Two-step inline confirm: arm, then confirm.
+    const confirmBtn = page.locator('[data-mol-id="category-delete-confirm"]')
+    await expect(confirmBtn).toBeVisible()
+    await confirmBtn.click()
     await page.waitForLoadState('networkidle')
     const res = await page.request.get(
       APP_BASE.replace(/\/$/, '') + '/api/categories/' + seeded.id,

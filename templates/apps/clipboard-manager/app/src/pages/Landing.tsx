@@ -156,19 +156,25 @@ export function Landing() {
           >
             <a
               href="#features"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn(
+                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+              )}
             >
               {t('nav.features', {}, { defaultValue: 'Features' })}
             </a>
             <a
               href="#workflow"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn(
+                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+              )}
             >
               {t('landing.navWorkflow', {}, { defaultValue: 'Workflow' })}
             </a>
             <Link
               to="/pricing"
-              className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+              className={cm.cn(
+                'inline-flex items-center min-h-[36px] px-1 text-on-surface-variant hover:text-on-surface transition-colors',
+              )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>

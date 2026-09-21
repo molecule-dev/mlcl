@@ -34,8 +34,11 @@ test.describe('plan updated page', () => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // 30s: on a cold dev server (fresh vite transform under load) the page
+    // bundle can take a while before the mount effect fires the call — a
+    // 20s cap flaked once under a loaded machine.
     const confirmed = page
-      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
+      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 30_000 })
       .catch(() => null)
     // The provider's success_url lands on the APP origin, so this page is what
     // finishes the purchase — without the call the paid plan is never granted.

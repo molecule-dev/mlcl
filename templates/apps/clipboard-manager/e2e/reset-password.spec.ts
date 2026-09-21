@@ -49,6 +49,9 @@ test.describe('reset password page', () => {
   })
 
   test('submitting an invalid token surfaces an error and stays on page', async ({ page }) => {
+    // Expected 4xx: the rejected reset POST surfaces as a browser console
+    // resource error; the inline error banner below is the real assertion.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password')
       await page.locator('input#email').fill(uniqueEmail('reset-bad'))
@@ -73,12 +76,23 @@ test.describe('reset password page', () => {
     expect(res.status()).toBeLessThan(500)
   })
 
-  test('end-to-end: signup → forgot → reset → log in with new password (best effort)', async ({
+  test('forgot-password issues a token whose at-rest digest cannot reset (hash-at-rest contract)', async ({
     page,
   }) => {
+    // The platform stores only sha256(token) in usersSecrets (see
+    // hashResetToken in the user resource): the raw token exists solely in
+    // the reset email, so no test without an inbox can complete the final
+    // leg. The old "read token from /api/_debug/last-reset-token → reset →
+    // log in" round-trip has been STALE ever since tokens were hashed at
+    // rest — it submitted the stored digest and got 401.
+    // This test pins the security contract instead:
+    //   1. forgot-password issues a token (debug endpoint returns it),
+    //   2. the value readable from storage is a 64-hex sha256 digest,
+    //   3. submitting that digest is rejected 401 with an inline error —
+    //      a DB reader cannot replay it against the reset endpoint.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const email = uniqueEmail('reset-e2e')
-    const { password: oldPassword } = await signup(page, email)
-    expect(oldPassword).toBe('TestPass!1234')
+    await signup(page, email)
 
     // Sign out and request forgot
     const token = await obtainResetToken(page, email)
@@ -87,11 +101,21 @@ test.describe('reset password page', () => {
       'No debug endpoint exposed; the email-delivered token cannot be read in-process.',
     )
 
-    await page.goto(APP_BASE + '/reset-password')
-    await page.locator('input#email').fill(email)
-    await page.locator('input#token').fill(token!)
-    await page.locator('input#password').fill('FreshPass!9876')
-    await page.locator('form button[type="submit"]').click()
-    await page.waitForURL(/\/clips/, { timeout: 20000 })
+    // The stored value is a hex sha256 digest — NOT a usable credential.
+    expect(token).toMatch(/^[0-9a-f]{64}$/)
+
+    const reqs = await captureNetwork(page, async () => {
+      await page.goto(APP_BASE + '/reset-password')
+      await page.locator('input#email').fill(email)
+      await page.locator('input#token').fill(token!)
+      await page.locator('input#password').fill('FreshPass!9876')
+      await page.locator('form button[type="submit"]').click()
+      await page.waitForTimeout(2500)
+    })
+    await expect(page).toHaveURL(/\/reset-password/)
+    await expect(page.locator('[data-mol-id="reset-error"], [role="alert"]').first()).toBeVisible()
+    const post = reqs.find((r) => r.method === 'POST' && /\/api\/users\/reset-password/.test(r.url))
+    expect(post).toBeTruthy()
+    expect(post!.status).toBe(401)
   })
 })

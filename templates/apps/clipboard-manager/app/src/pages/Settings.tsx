@@ -174,7 +174,7 @@ export function Settings() {
   }, [profile.data?.planKey])
 
   return (
-    <div className={cm.cn(cm.sp('p', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-12')}>
+    <div className={cm.cn('p-4 md:p-8', cm.maxW('5xl'), cm.mxAuto, 'space-y-12')}>
       <PageHeader
         eyebrow={t('nav.preferences', {}, { defaultValue: 'Preferences' })}
         heading={t('nav.settings', {}, { defaultValue: 'Settings' })}
@@ -257,7 +257,7 @@ export function Settings() {
         </h2>
         <div
           className={cm.cn(
-            'rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-hidden',
+            'rounded-xl bg-surface-container-lowest border border-outline-variant/40 overflow-x-auto',
           )}
         >
           <table className={cm.cn('w-full')}>
@@ -269,7 +269,8 @@ export function Settings() {
                 >
                   <td
                     className={cm.cn(
-                      cm.sp('px', 5),
+                      cm.sp('px', 3),
+                      'md:px-5',
                       cm.sp('py', 3),
                       cm.textSize('sm'),
                       'text-on-surface',
@@ -277,7 +278,14 @@ export function Settings() {
                   >
                     {t(`settings.shortcut.${s.key}`, {}, { defaultValue: s.defaultLabel })}
                   </td>
-                  <td className={cm.cn(cm.sp('px', 5), cm.sp('py', 3), 'text-right')}>
+                  <td
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      'md:px-5',
+                      cm.sp('py', 3),
+                      'text-right whitespace-nowrap',
+                    )}
+                  >
                     <KbdBadge>{s.shortcut}</KbdBadge>
                   </td>
                 </tr>
@@ -348,16 +356,22 @@ export function Settings() {
                     { defaultValue: toggle.defaultLabel },
                   )}
                   className={cm.cn(
-                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors flex-shrink-0',
+                    'relative inline-flex items-center justify-center p-2 rounded-full flex-shrink-0 transition-colors hover:bg-surface-container/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
                   )}
-                  style={{ background: enabled ? BRAND_COLOR : 'var(--color-surface-dim)' }}
                 >
                   <span
                     className={cm.cn(
-                      'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
+                      'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
                     )}
-                    style={{ transform: enabled ? 'translateX(24px)' : 'translateX(4px)' }}
-                  />
+                    style={{ background: enabled ? BRAND_COLOR : 'var(--color-surface-dim)' }}
+                  >
+                    <span
+                      className={cm.cn(
+                        'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
+                      )}
+                      style={{ transform: enabled ? 'translateX(24px)' : 'translateX(4px)' }}
+                    />
+                  </span>
                 </button>
               </div>
             )
@@ -394,7 +408,7 @@ export function Settings() {
         </div>
       </section>
 
-      <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
+      <section className={cm.cn('p-4 md:p-8', 'bg-surface-container-low rounded-xl')}>
         <div className={cm.sp('mb', 6)}>
           <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
             {t('nav.appearance', {}, { defaultValue: 'Appearance' })}

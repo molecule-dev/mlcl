@@ -35,6 +35,11 @@ interface SnippetRowProps {
  * spec: 12/16 padding, monospace preview, category pill + relative
  * timestamp on the right, optional pinned/encrypted icon on the left,
  * left-border accent when active.
+ *
+ * Mobile (<md): rows render as tappable CARDS — bordered, 44px min
+ * height (touch target), stacked by the parent's grid — since the
+ * hover-revealed affordances a desktop row relies on don't exist on
+ * touch.
  */
 export function SnippetRow({ snippet, active = false, onSelect }: SnippetRowProps) {
   const cm = getClassMap()
@@ -53,8 +58,7 @@ export function SnippetRow({ snippet, active = false, onSelect }: SnippetRowProp
         cm.flex({ align: 'center' }),
         cm.w('full'),
         cm.sp('px', 3),
-        cm.sp('py', 2),
-        'group relative text-left rounded-md transition-colors hover:bg-surface-container-low',
+        'group relative text-left rounded-md transition-colors hover:bg-surface-container-low min-h-[44px] md:min-h-0 py-3 md:py-2 border md:border-0 border-outline-variant/40',
         active ? 'bg-primary-container/30' : 'bg-surface-container-lowest',
       )}
       style={{

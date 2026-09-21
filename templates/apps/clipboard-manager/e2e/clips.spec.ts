@@ -102,7 +102,11 @@ test.describe('clips page', () => {
     const seeded = await seedClip(page, accessToken, { content: 'delete-me ' + Date.now() })
     await page.goto(APP_BASE + '/clips')
     await page.getByText(seeded.content).first().click()
-    await page.locator('button[aria-label*="Delete"]').first().click()
+    // Two-step inline confirm: arm, then confirm.
+    await page.locator('[data-mol-id="clip-delete"]').click()
+    const confirmBtn = page.locator('[data-mol-id="clip-delete-confirm"]')
+    await expect(confirmBtn).toBeVisible()
+    await confirmBtn.click()
     await page.waitForLoadState('networkidle')
     const res = await page.request.get(APP_BASE.replace(/\/$/, '') + '/api/clips/' + seeded.id, {
       headers: { Authorization: 'Bearer ' + accessToken },
