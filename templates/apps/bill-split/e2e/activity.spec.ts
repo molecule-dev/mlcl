@@ -4,6 +4,7 @@ import {
   APP_BASE,
   createGroupViaApi,
   getActivities,
+  getGroups,
   recordSettlement,
   seedExpense,
   signup,
@@ -31,7 +32,12 @@ test.describe('/activity page', () => {
     })
 
     await page.goto(APP_BASE + '/activity')
-    const row = page.locator('[data-mol-id^="activity-"]').filter({ hasText: 'E2E Feed Event' })
+    // Row locator: scope to the feed's <li> rows — the feed container itself
+    // is data-mol-id="activity-feed", which the "^=activity-" prefix would
+    // also match (strict-mode violation: all links in the feed at once).
+    const row = page
+      .locator('[data-mol-id="activity-feed"] li')
+      .filter({ hasText: 'E2E Feed Event' })
     await expect(row.first()).toBeVisible({ timeout: 10000 })
     await expect(row.first()).toContainText('$12.34')
 
@@ -43,12 +49,18 @@ test.describe('/activity page', () => {
     expect(match, 'expense_added activity recorded').toBeTruthy()
     expect(match?.group_id).toBe(group.id)
     await row.first().getByRole('link').click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 5000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 5000 })
   })
 
   test('settlement events carry both names in the feed', async ({ page }) => {
     const { accessToken } = await signup(page)
     const group = await createGroupViaApi(page, accessToken)
+    // The demo world is seeded lazily by the dashboard's GET /api/groups,
+    // which the browser fired during signup and may still be inserting. A
+    // baseline read now can undercount the seeded settlement events and
+    // then "gain" one late. GET /api/groups awaits the seed (seedInFlight
+    // dedupes), so reading it first pins the baseline after the demo world.
+    await getGroups(page, accessToken)
     const activitiesBefore = await getActivities(page, accessToken)
     const settleEvents = activitiesBefore.filter((a) => a.kind === 'settlement_recorded').length
 
@@ -64,7 +76,7 @@ test.describe('/activity page', () => {
 
     await page.goto(APP_BASE + '/activity')
     await expect(
-      page.locator('[data-mol-id^="activity-"]').filter({ hasText: '$7.77' }).first(),
+      page.locator('[data-mol-id="activity-feed"] li').filter({ hasText: '$7.77' }).first(),
     ).toBeVisible({ timeout: 10000 })
     const activitiesAfter = await getActivities(page, accessToken)
     expect(activitiesAfter.filter((a) => a.kind === 'settlement_recorded').length).toBe(

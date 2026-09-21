@@ -77,6 +77,6 @@ test.describe('/balances page', () => {
     const group = await createGroupViaApi(page, accessToken)
     await page.goto(APP_BASE + '/balances')
     await page.locator(`[data-mol-id="balance-group-${group.id}"]`).click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 5000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 5000 })
   })
 })

@@ -83,6 +83,10 @@ test.describe('/groups/:id detail page', () => {
   })
 
   test('unknown group id shows the not-found panel with a way back', async ({ page }) => {
+    // Expected 4xx: an unknown group id legitimately 404s the group,
+    // expenses, and settlements fetches the detail page fires — Chrome logs
+    // each as a console error before the not-found panel renders.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/groups/00000000-0000-4000-8000-000000000000')
     await expect(page.locator('[data-mol-id="group-not-found"]')).toBeVisible({ timeout: 10000 })

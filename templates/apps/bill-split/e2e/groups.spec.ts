@@ -21,7 +21,7 @@ test.describe('/groups page', () => {
       await expect(page.locator(`[data-mol-id="group-card-${group.id}"]`)).toBeVisible()
     }
     await page.locator(`[data-mol-id="group-card-${created.id}"]`).click()
-    await page.waitForURL(new RegExp(`**/groups/${created.id}`), { timeout: 5000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${created.id}`), { timeout: 5000 })
   })
 
   test('New group button opens the create form', async ({ page }) => {

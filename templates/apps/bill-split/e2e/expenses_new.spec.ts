@@ -55,7 +55,7 @@ test.describe('/expenses/new page', () => {
     await page.locator('#expense-description').fill('E2E Equal Split')
     await page.locator('#expense-amount').fill('60.00')
     await page.locator('[data-mol-id="btn-submit-expense"]').click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 10000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 10000 })
     await expect(
       page.locator('[data-mol-id^="expense-row-"]').filter({ hasText: 'E2E Equal Split' }),
     ).toBeVisible()
@@ -89,10 +89,12 @@ test.describe('/expenses/new page', () => {
     }
     await expect(shareInputs.first()).toBeVisible()
     await page.locator('[data-mol-id="btn-submit-expense"]').click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 10000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 10000 })
     const detail = await getGroupDetail(page, accessToken, group.id)
     const nets = detail.balances.map((b) => b.net_cents).sort((a, b) => a - b)
-    expect(nets).toEqual([-500, -1500, 2000])
+    // Payer (You) nets +2000; the 15.00 and 5.00 shares owe -1500 / -500.
+    // toEqual compares post-sort — the expected array must be ascending too.
+    expect(nets).toEqual([-1500, -500, 2000])
   })
 
   test('shares split weights the apportionment', async ({ page }) => {
@@ -108,7 +110,7 @@ test.describe('/expenses/new page', () => {
       .locator(`[data-mol-id="split-row-${members[0].id}"] input[type="number"][step="1"]`)
       .fill('2')
     await page.locator('[data-mol-id="btn-submit-expense"]').click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 10000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 10000 })
     const detail = await getGroupDetail(page, accessToken, group.id)
     const owedById = new Map(detail.balances.map((b) => [b.member_id, b.owed_cents]))
     expect(owedById.get(members[0].id)).toBe(4500)

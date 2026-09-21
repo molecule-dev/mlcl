@@ -37,7 +37,7 @@ test.describe('/dashboard page', () => {
     const group = await createGroupViaApi(page, accessToken)
     await page.goto(APP_BASE + '/dashboard')
     await page.locator(`[data-mol-id="dashboard-group-${group.id}"]`).click()
-    await page.waitForURL(new RegExp(`**/groups/${group.id}`), { timeout: 5000 })
+    await page.waitForURL(new RegExp(`\\/groups\\/${group.id}`), { timeout: 5000 })
   })
 
   test('Add expense CTA routes to /expenses/new', async ({ page }) => {
@@ -62,6 +62,10 @@ test.describe('/dashboard page', () => {
   })
 
   test('Open user menu opens a menu with sign out', async ({ page }) => {
+    // Expected 4xx: the shared settings panel probes GET /api/billing/status,
+    // and bill-split deliberately ships no billing routes (see api/src/App/
+    // router.ts) — Chrome logs the 404s as console errors.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/dashboard')
     const menu = page.getByRole('button', { name: /open user menu|account|profile/i }).first()

@@ -51,6 +51,9 @@ test.describe('/login page', () => {
   })
 
   test('Wrong password surfaces an alert and stays on /login', async ({ page }) => {
+    // Expected 4xx: the wrong-credential POST /api/users/log-in returns 403,
+    // which Chrome logs as a console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('login-bad')
     await signup(page, email, 'TestPass!1234')
     await page.evaluate(() => window.localStorage.clear())

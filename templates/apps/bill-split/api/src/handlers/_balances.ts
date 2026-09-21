@@ -5,13 +5,13 @@
  *
  *   net = paid (expenses they paid for)
  *       - owed (sum of their expense_shares)
- *       - sent (settlements they paid out)
- *       + received (settlements paid to them)
+ *       + sent (settlements they paid out — paying a debt back REDUCES it)
+ *       - received (settlements paid to them — getting repaid SETTLES credit)
  *
  * net > 0 → the group owes this member money.
  * net < 0 → this member owes the group money.
  * Every group's nets always sum to exactly 0 (each expense's shares sum to
- * its amount and every settlement is a -from/+to pair), which is what makes
+ * its amount and every settlement is a +from/-to pair), which is what makes
  * the greedy min-transfer simplification exact, not approximate.
  *
  * @module
@@ -126,7 +126,12 @@ export async function computeGroupBalances(
   }
 
   for (const b of state.values()) {
-    b.net_cents = b.paid_cents - b.owed_cents - b.sent_cents + b.received_cents
+    // A settlement the member SENT pays down what they owe (+sent toward
+    // zero); a settlement they RECEIVED collects credit owed to them
+    // (-received toward zero). Flipping these signs double-counts settled
+    // debt and makes a fully-repaid group look like it owes more than
+    // before anyone paid (caught by the settle-up e2e flow).
+    b.net_cents = b.paid_cents - b.owed_cents + b.sent_cents - b.received_cents
   }
   return [...state.values()]
 }

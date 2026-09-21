@@ -312,12 +312,11 @@ export function GroupDetail() {
                 </span>
                 <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
                   <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {/* The API names the self member exactly "You" (see
+                        groups.ts POST / and _seed.ts) — never append a
+                        redundant "(you)" suffix to it. */}
                     {balance.is_self
-                      ? t(
-                          'group.youLabel',
-                          { name: balance.name },
-                          { defaultValue: '{{name}} (you)' },
-                        )
+                      ? t('group.youLabel', {}, { defaultValue: 'You' })
                       : balance.name}
                   </span>
                   <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
