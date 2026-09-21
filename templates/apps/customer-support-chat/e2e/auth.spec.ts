@@ -47,6 +47,12 @@ test.describe('auth', () => {
     const email = uniqueEmail('badlogin')
     await signup(page, email, 'TestPass123!')
     await page.evaluate(() => window.localStorage.clear())
+    // A rejected login is the point of this test: the API answers 403 and
+    // Chrome logs the failed request to the console. Allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(email)
     await page.locator('input[type="password"]').first().fill('TotallyWrong!')
@@ -69,6 +75,12 @@ test.describe('auth', () => {
     // cookie) actually failed.
     await page.context().clearCookies()
     await page.evaluate(() => window.localStorage.clear())
+    // The duplicate signup is EXPECTED to fail with 403 (uniqueness
+    // invariant) — the browser logs that rejected request to the console.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/signup')
     // Wait for the form to mount before counting. count() is a one-shot read
     // with no auto-waiting, so it can run against a still-empty React root,

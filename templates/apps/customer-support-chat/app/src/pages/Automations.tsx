@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { del, get, post, put } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -39,6 +40,67 @@ function Toggle({ on }: { on: boolean }) {
     >
       <span className={cm.cn(cm.w(4), cm.h(4), cm.roundedFull, 'bg-surface shadow-sm m-0.5')} />
     </span>
+  )
+}
+
+/**
+ * Two-step destructive button: the first click arms it ("Confirm?"),
+ * the second click fires. Disarms itself after ~3s or when the row
+ * unmounts — deletes are irreversible, so a single mis-tap must not
+ * destroy a rule / canned response.
+ */
+function ConfirmDeleteButton({
+  onConfirm,
+  disabled,
+  label,
+  iconOnly,
+}: {
+  onConfirm: () => void
+  disabled: boolean
+  label: string
+  iconOnly?: boolean
+}) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const [armed, setArmed] = useState(false)
+  useEffect(() => {
+    if (!armed) return
+    const timer = window.setTimeout(() => setArmed(false), 3000)
+    return () => window.clearTimeout(timer)
+  }, [armed])
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        if (armed) {
+          setArmed(false)
+          onConfirm()
+        } else {
+          setArmed(true)
+        }
+      }}
+      disabled={disabled}
+      aria-label={armed ? t('common.confirmDelete', {}, { defaultValue: 'Confirm delete' }) : label}
+      className={cm.cn(
+        iconOnly ? cm.sp('p', 2) : cm.sp('px', 2),
+        'py-2.5',
+        cm.textSize('xs'),
+        armed
+          ? 'font-bold text-[color:var(--color-error)] bg-[color:var(--color-error-container)]'
+          : 'text-on-surface-variant hover:text-[color:var(--color-error)]',
+        'rounded-md transition-colors disabled:opacity-50',
+      )}
+    >
+      {iconOnly ? (
+        <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+          {armed ? 'warning' : 'delete'}
+        </span>
+      ) : armed ? (
+        t('common.confirmDelete', {}, { defaultValue: 'Confirm?' })
+      ) : (
+        label
+      )}
+    </button>
   )
 }
 
@@ -85,6 +147,10 @@ function AutomationsBody() {
     setError(null)
     try {
       await put(`/api/automations/${rule.id}`, { enabled: !rule.enabled })
+      void track({
+        name: 'automation.rule_toggled',
+        properties: { rule_id: rule.id, enabled: !rule.enabled },
+      })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to toggle rule')
@@ -98,6 +164,7 @@ function AutomationsBody() {
     setError(null)
     try {
       await del(`/api/automations/${rule.id}`)
+      void track({ name: 'automation.rule_deleted', properties: { rule_id: rule.id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete rule')
@@ -112,10 +179,14 @@ function AutomationsBody() {
     setBusy(true)
     setError(null)
     try {
-      await post('/api/automations', {
+      const created = await post<{ id: string }>('/api/automations', {
         name: ruleName.trim(),
         trigger: ruleTrigger,
         enabled: true,
+      })
+      void track({
+        name: 'automation.rule_created',
+        properties: { rule_id: (created.data as { id?: string })?.id, trigger: ruleTrigger },
       })
       setRuleName('')
       setRuleTrigger('inbound_message')
@@ -133,6 +204,7 @@ function AutomationsBody() {
     setError(null)
     try {
       await del(`/api/canned-responses/${item.id}`)
+      void track({ name: 'automation.canned_deleted', properties: { canned_id: item.id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete canned response')
@@ -147,10 +219,14 @@ function AutomationsBody() {
     setBusy(true)
     setError(null)
     try {
-      await post('/api/canned-responses', {
+      const created = await post<{ id: string }>('/api/canned-responses', {
         shortcut: cannedShortcut.trim(),
         title: cannedTitle.trim() || cannedShortcut.trim(),
         content: cannedBody.trim(),
+      })
+      void track({
+        name: 'automation.canned_created',
+        properties: { canned_id: (created.data as { id?: string })?.id },
       })
       setCannedShortcut('')
       setCannedTitle('')
@@ -232,9 +308,15 @@ function AutomationsBody() {
               'rounded-xl bg-surface border border-[color:var(--color-border)]',
             )}
           >
-            <div className={cm.cn(cm.flex({ gap: 3 }))}>
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', gap: 3 }),
+                'md:flex-row md:items-center',
+              )}
+            >
               <input
                 type="text"
+                required
                 placeholder={t('automations.ruleName', {}, { defaultValue: 'Rule name' })}
                 value={ruleName}
                 onChange={(e) => setRuleName(e.target.value)}
@@ -242,17 +324,18 @@ function AutomationsBody() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                  'w-full md:flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
                 )}
               />
               <select
                 value={ruleTrigger}
                 onChange={(e) => setRuleTrigger(e.target.value)}
+                aria-label={t('automations.triggerLabel', {}, { defaultValue: 'Trigger' })}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                  'w-full md:w-auto rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
                 )}
               >
                 <option value="inbound_message">
@@ -327,12 +410,16 @@ function AutomationsBody() {
                     · {rule.trigger}
                   </p>
                 </div>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 1 }), 'shrink-0')}>
                   <button
                     type="button"
                     onClick={() => void toggleRule(rule)}
                     disabled={busy}
-                    className="cursor-pointer disabled:opacity-50"
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      'py-2.5 cursor-pointer disabled:opacity-50',
+                      cm.flex({ align: 'center' }),
+                    )}
                     aria-label={
                       rule.enabled
                         ? t('automations.disable', {}, { defaultValue: 'Disable' })
@@ -341,19 +428,11 @@ function AutomationsBody() {
                   >
                     <Toggle on={rule.enabled} />
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => void deleteRule(rule)}
+                  <ConfirmDeleteButton
+                    onConfirm={() => void deleteRule(rule)}
                     disabled={busy}
-                    className={cm.cn(
-                      cm.sp('px', 2),
-                      cm.sp('py', 1),
-                      cm.textSize('xs'),
-                      'text-on-surface-variant hover:text-[color:var(--color-error)] disabled:opacity-50',
-                    )}
-                  >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
+                    label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                  />
                 </div>
               </li>
             ))
@@ -391,17 +470,19 @@ function AutomationsBody() {
               'rounded-xl bg-surface border border-[color:var(--color-border)]',
             )}
           >
-            <div className={cm.cn(cm.flex({ gap: 3 }))}>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 3 }), 'md:flex-row')}>
               <input
                 type="text"
+                required
                 placeholder={t('automations.shortcut', {}, { defaultValue: '/shortcut' })}
                 value={cannedShortcut}
                 onChange={(e) => setCannedShortcut(e.target.value)}
+                aria-label={t('automations.shortcut', {}, { defaultValue: 'Shortcut' })}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface font-mono w-32',
+                  'w-full md:w-32 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface font-mono',
                 )}
               />
               <input
@@ -413,16 +494,23 @@ function AutomationsBody() {
                 )}
                 value={cannedTitle}
                 onChange={(e) => setCannedTitle(e.target.value)}
+                aria-label={t('automations.cannedTitlePlaceholder', {}, { defaultValue: 'Title' })}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                  'w-full md:flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
                 )}
               />
             </div>
             <textarea
               rows={3}
+              required
+              aria-label={t(
+                'automations.cannedBodyPlaceholder',
+                {},
+                { defaultValue: 'Reply body' },
+              )}
               placeholder={t(
                 'automations.cannedBodyPlaceholder',
                 {},
@@ -484,17 +572,12 @@ function AutomationsBody() {
                   >
                     {c.shortcut}
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => void deleteCanned(c)}
+                  <ConfirmDeleteButton
+                    onConfirm={() => void deleteCanned(c)}
                     disabled={busy}
-                    aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-                    className="text-on-surface-variant hover:text-[color:var(--color-error)] disabled:opacity-50"
-                  >
-                    <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
-                      delete
-                    </span>
-                  </button>
+                    label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                    iconOnly
+                  />
                 </div>
                 <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>{c.title}</p>
                 <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-relaxed')}>

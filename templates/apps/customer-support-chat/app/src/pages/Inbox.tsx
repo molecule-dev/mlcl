@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -105,7 +106,7 @@ function ConversationList({
             aria-label={t('inbox.newConversation', {}, { defaultValue: 'New conversation' })}
             className={cm.cn(
               cm.sp('px', 3),
-              cm.sp('py', 1),
+              'py-2 min-h-[36px]',
               cm.fontWeight('bold'),
               'text-[10px] uppercase tracking-widest rounded-full bg-primary text-white hover:opacity-90 transition',
             )}
@@ -123,6 +124,7 @@ function ConversationList({
           <span
             className="material-symbols-outlined text-on-surface-variant"
             style={{ fontSize: 16 }}
+            aria-hidden="true"
           >
             search
           </span>
@@ -257,6 +259,10 @@ function NewConversationModal({
       if (visitorName.trim()) body.visitor_name = visitorName.trim()
       if (visitorEmail.trim()) body.visitor_email = visitorEmail.trim()
       const resp = await post<{ id: string }>('/api/conversations', body)
+      void track({
+        name: 'conversation.created',
+        properties: { conversation_id: resp.data.id, priority },
+      })
       onCreated(resp.data.id)
       setSubject('')
       setVisitorName('')

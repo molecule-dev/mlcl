@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -90,10 +91,14 @@ function ContactsBody() {
     setCreating(true)
     setError(null)
     try {
-      await post('/api/contacts', {
+      const created = await post<{ id: string }>('/api/contacts', {
         name: formName.trim() || undefined,
         email: formEmail.trim() || undefined,
         company: formCompany.trim() || undefined,
+      })
+      void track({
+        name: 'contact.created',
+        properties: { contact_id: (created.data as { id?: string })?.id },
       })
       setFormName('')
       setFormEmail('')
@@ -112,7 +117,10 @@ function ContactsBody() {
   return (
     <div className={cm.cn(cm.stack(6), cm.sp('p', 6))}>
       <header
-        className={cm.cn(cm.flex({ direction: 'row', justify: 'between', align: 'start', gap: 4 }))}
+        className={cm.cn(
+          cm.flex({ direction: 'row', justify: 'between', align: 'start', gap: 4 }),
+          'flex-wrap',
+        )}
       >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
           <span
@@ -164,7 +172,7 @@ function ContactsBody() {
             'rounded-xl border border-[color:var(--color-border)] bg-surface',
           )}
         >
-          <div className={cm.cn(cm.flex({ direction: 'row', gap: 3 }))}>
+          <div className={cm.cn(cm.flex({ direction: 'col', gap: 3 }), 'md:flex-row')}>
             <input
               type="text"
               placeholder={t('form.name', {}, { defaultValue: 'Name' })}
@@ -174,7 +182,7 @@ function ContactsBody() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                'w-full md:flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
               )}
             />
             <input
@@ -186,7 +194,7 @@ function ContactsBody() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                'w-full md:flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
               )}
             />
             <input
@@ -198,7 +206,7 @@ function ContactsBody() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
+                'w-full md:flex-1 rounded-md border border-[color:var(--color-border)] bg-surface text-on-surface',
               )}
             />
           </div>
@@ -234,10 +242,10 @@ function ContactsBody() {
       ) : null}
       <div
         className={cm.cn(
-          'overflow-hidden rounded-xl border border-[color:var(--color-border)] bg-surface',
+          'overflow-x-auto rounded-xl border border-[color:var(--color-border)] bg-surface',
         )}
       >
-        <table className={cm.cn('w-full text-left text-sm')}>
+        <table className={cm.cn('w-full min-w-[640px] text-left text-sm')}>
           <thead className="bg-surface-secondary">
             <tr>
               {[

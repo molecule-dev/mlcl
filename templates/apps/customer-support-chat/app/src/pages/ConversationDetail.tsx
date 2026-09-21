@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post, put as httpPut } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
@@ -115,6 +116,7 @@ function ConversationDetail() {
   const [composeMode, setComposeMode] = useState<ComposeMode>('reply')
   const [sending, setSending] = useState(false)
   const [actioning, setActioning] = useState(false)
+  const threadRef = useRef<HTMLDivElement>(null)
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -139,6 +141,13 @@ function ConversationDetail() {
   useEffect(() => {
     void reload()
   }, [reload])
+
+  // Keep the newest message in view: a chat thread reads bottom-up, so
+  // every load / live append scrolls the feed to its end.
+  useEffect(() => {
+    const el = threadRef.current
+    if (el) el.scrollTop = el.scrollHeight
+  }, [messages, loading])
 
   // Quiet refetch for reconnect recovery: refresh the thread + header without
   // flipping the `loading` flag (no skeleton flash over live content).
@@ -230,12 +239,14 @@ function ConversationDetail() {
         await post<MessageRow>(`/api/messages/${id}/note`, {
           content: draft.trim(),
         })
+        void track({ name: 'message.note_saved', properties: { conversation_id: id } })
       } else {
         await post<MessageRow>(`/api/messages/${id}`, {
           sender_type: 'agent',
           content: draft.trim(),
           type: 'text',
         })
+        void track({ name: 'message.sent', properties: { conversation_id: id } })
       }
       setDraft('')
       await reload()
@@ -253,6 +264,10 @@ function ConversationDetail() {
     try {
       const action = conversation.status === 'closed' ? 'reopen' : 'close'
       await httpPut<ConversationRow>(`/api/conversations/${id}/${action}`, {})
+      void track({
+        name: action === 'close' ? 'conversation.resolved' : 'conversation.reopened',
+        properties: { conversation_id: id },
+      })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -269,6 +284,10 @@ function ConversationDetail() {
       try {
         await httpPut<ConversationRow>(`/api/conversations/${id}/priority`, {
           priority,
+        })
+        void track({
+          name: 'conversation.priority_changed',
+          properties: { conversation_id: id, priority },
         })
         await reload()
       } catch (err) {
@@ -304,25 +323,25 @@ function ConversationDetail() {
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 5),
-              'border-b border-[color:var(--color-border)] bg-surface',
+              'flex-wrap gap-3 border-b border-[color:var(--color-border)] bg-surface',
             )}
           >
-            <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }))}>
+            <div className={cm.cn(cm.flex({ direction: 'col', gap: 1 }), 'min-w-0 flex-1')}>
               <h1
                 className={cm.cn(
                   cm.textSize('lg'),
-                  'font-extrabold tracking-tight text-on-surface',
+                  'font-extrabold tracking-tight text-on-surface truncate',
                 )}
               >
                 {headerSubject}
               </h1>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}>
                 {conversation?.visitor_email || ''}
                 {conversation?.visitor_email && conversation?.priority ? ' · ' : ''}
                 {conversation?.priority ? `priority ${conversation.priority}` : ''}
               </p>
             </div>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'flex-wrap')}>
               <StatusPill
                 variant={
                   conversation?.status === 'closed'
@@ -376,6 +395,7 @@ function ConversationDetail() {
             </div>
           </header>
           <div
+            ref={threadRef}
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 4 }),
               cm.sp('p', 6),
@@ -413,16 +433,28 @@ function ConversationDetail() {
                 )}
               </p>
             ) : (
-              messages.map((entry) => (
-                <ChatBubble
-                  key={entry.id}
-                  speaker={speakerOf(entry)}
-                  name={entry.sender_name ?? undefined}
-                  timestamp={relativeTime(entry.created_at)}
-                >
-                  {entry.content}
-                </ChatBubble>
-              ))
+              messages.map((entry) => {
+                const speaker = speakerOf(entry)
+                // Fall back to a human label when the row carries no
+                // sender_name: the visitor's name for customer bubbles,
+                // "You" for the signed-in agent (bot keeps its AI avatar).
+                const fallbackName =
+                  speaker === 'customer'
+                    ? (conversation?.visitor_name ?? undefined)
+                    : speaker === 'agent'
+                      ? t('conversationDetail.you', {}, { defaultValue: 'You' })
+                      : undefined
+                return (
+                  <ChatBubble
+                    key={entry.id}
+                    speaker={speaker}
+                    name={entry.sender_name ?? fallbackName}
+                    timestamp={relativeTime(entry.created_at)}
+                  >
+                    {entry.content}
+                  </ChatBubble>
+                )
+              })
             )}
           </div>
           <footer
@@ -461,7 +493,11 @@ function ConversationDetail() {
                       : 'bg-surface-secondary text-on-surface-variant hover:text-primary',
                   )}
                 >
-                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontSize: 14 }}
+                    aria-hidden="true"
+                  >
                     {tab.icon}
                   </span>
                   {tab.label}

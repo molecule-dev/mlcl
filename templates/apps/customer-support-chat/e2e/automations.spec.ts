@@ -98,7 +98,10 @@ test.describe('/automations', () => {
         r.status() < 400,
       { timeout: 15_000 },
     )
+    // Deletes are two-step (arm "Delete" → "Confirm?") so a single mis-tap
+    // can't destroy a rule.
     await ruleCard.getByRole('button', { name: /^delete$/i }).click()
+    await ruleCard.getByRole('button', { name: /confirm delete/i }).click()
     await respPromise
     const list = await apiGet<RuleRow[]>(page, '/automations')
     expect(

@@ -265,8 +265,10 @@ function ReportsBody() {
             {t('reports.teamHint', {}, { defaultValue: 'Sorted by resolved conversations' })}
           </span>
         </header>
-        <div className={'overflow-hidden rounded-lg border border-[color:var(--color-border)]'}>
-          <table className={cm.cn('w-full text-left text-sm')}>
+        <div
+          className={cm.cn('overflow-x-auto rounded-lg border border-[color:var(--color-border)]')}
+        >
+          <table className={cm.cn('w-full min-w-[480px] text-left text-sm')}>
             <thead className="bg-surface-secondary">
               <tr>
                 {[
