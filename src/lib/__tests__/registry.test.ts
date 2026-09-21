@@ -290,9 +290,16 @@ describe('registry', () => {
   })
 
   describe('getMoleculeVersion', () => {
-    it('should resolve a real @molecule package to the exact default version', () => {
-      const { default: def } = loadMoleculeVersions()
-      expect(getMoleculeVersion('@molecule/api-database')).toBe(def)
+    it('should resolve a real @molecule package to its exact registry version', () => {
+      // Every registry package carries an override since the fleet-wide pin
+      // bumps, so a real package resolves to its OVERRIDE (the unknown-package
+      // fallback case is covered by the next test). Read the pair from the
+      // registry instead of hardcoding a name+version that release waves drift.
+      const { overrides } = loadMoleculeVersions()
+      const [name, version] = Object.entries(overrides).find(([n]) =>
+        n.startsWith('@molecule/api-'),
+      )!
+      expect(getMoleculeVersion(name)).toBe(version)
     })
 
     it('should fall back to the default for an unknown package', () => {

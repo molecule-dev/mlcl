@@ -1182,15 +1182,16 @@ describe('peerDependency pinning', () => {
 
   it('pins a @molecule peer with no override to the lockstep default', async () => {
     const { default: defaultVersion, overrides } = loadMoleculeVersions()
-    // Pick a package that has no override TODAY rather than naming one. This
-    // test used to hardcode `@molecule/app-theme`, and a release gave that
-    // package an override — so the fixture stopped being an example of the
-    // thing under test and the suite went red over data, not behaviour.
-    const peerName = registryPackages
+    // Prefer a real registry package with no override; since the fleet-wide
+    // pin bumps every registry package carries one, so fall back to a
+    // synthetic @molecule name — getMoleculeVersion takes the same default
+    // fallback path for any name without an override. Earlier incarnations
+    // hardcoded `@molecule/app-theme`, then searched real packages, and both
+    // went red over registry data, not behaviour.
+    const realName = registryPackages
       .map((entry) => entry.name)
-      .find((name) => name.startsWith('@molecule/app-') && overrides[name] === undefined)
-    expect(peerName, 'every @molecule package now carries an override').toBeDefined()
-    if (!peerName) return
+      .find((name) => overrides[name] === undefined)
+    const peerName = realName ?? '@molecule/zz-test-no-override-fixture'
 
     const projectDir = join(tempDir, 'exec-test-peer-pin-default')
     await mkdir(projectDir, { recursive: true })

@@ -229,7 +229,7 @@
     "@molecule/app-utilities": "1.0.2",
     "@molecule/app-version": "1.0.3",
     "@oclif/test": "4.1.21",
-    "@playwright/test": "1.62.0",
+    "@playwright/test": "1.63.0",
     "@types/node": "26.1.2",
     "eslint": "10.8.0",
     "eslint-config-prettier": "10.1.8",

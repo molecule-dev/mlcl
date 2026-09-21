@@ -54088,7 +54088,7 @@
       "vite": "8.1.5",
       "vite-plugin-pwa": "1.3.0",
       "vitest": "4.1.11",
-      "@playwright/test": "1.62.0"
+      "@playwright/test": "1.63.0"
     },
     "moleculePackage": {
       "@types/node": "26.1.2",
