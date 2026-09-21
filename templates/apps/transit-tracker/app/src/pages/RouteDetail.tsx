@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -61,6 +62,7 @@ export function RouteDetail() {
   const [detail, setDetail] = useState<LineDetailResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
+  const [nonce, setNonce] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -69,7 +71,12 @@ export function RouteDetail() {
       .get(`/api/network/lines/${encodeURIComponent(lineCode)}`)
       .then((res) => {
         if (cancelled) return
-        setDetail(((res as { data?: unknown }).data ?? res) as LineDetailResponse)
+        const data = ((res as { data?: unknown }).data ?? res) as LineDetailResponse
+        setDetail(data)
+        void track({
+          name: 'route.viewed',
+          properties: { line_code: lineCode, kind: data?.line?.kind ?? '' },
+        })
       })
       .catch((err: unknown) => {
         if (cancelled) return
@@ -82,7 +89,7 @@ export function RouteDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, lineCode])
+  }, [http, lineCode, nonce])
 
   if (notFound) {
     return (
@@ -271,13 +278,29 @@ export function RouteDetail() {
           </section>
         </>
       ) : (
-        <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-error')}>
-          {t(
-            'routeDetail.error',
-            {},
-            { defaultValue: 'Could not load this line. Please try again.' },
-          )}
-        </p>
+        <div className={cm.cn(cm.sp('py', 12), cm.textCenter)}>
+          <p className={'text-error'}>
+            {t(
+              'routeDetail.error',
+              {},
+              { defaultValue: 'Could not load this line. Please try again.' },
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={() => setNonce((n) => n + 1)}
+            className={cm.cn(
+              cm.sp('mt', 3),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-lg text-primary hover:bg-primary/10 transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       )}
     </div>
   )

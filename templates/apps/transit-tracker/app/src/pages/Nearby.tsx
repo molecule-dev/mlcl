@@ -40,6 +40,7 @@ export function Nearby() {
   const [saved, setSaved] = useState<SavedStopRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [nonce, setNonce] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -71,7 +72,7 @@ export function Nearby() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, nonce])
 
   // Derive stop → serving lines from each line's stop-code list.
   const linesByStopCode = new Map<string, LineRow[]>()
@@ -155,7 +156,23 @@ export function Nearby() {
           {t('nearby.allStopsHeading', {}, { defaultValue: 'All stops' })}
         </h2>
         {error ? (
-          <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{error}</p>
+          <div className={cm.cn(cm.sp('py', 8), cm.textCenter)}>
+            <p className={'text-error'}>{error}</p>
+            <button
+              type="button"
+              onClick={() => setNonce((n) => n + 1)}
+              className={cm.cn(
+                cm.sp('mt', 3),
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'rounded-lg text-primary hover:bg-primary/10 transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
         ) : loading ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('nearby.loading', {}, { defaultValue: 'Loading stops…' })}

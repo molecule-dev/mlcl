@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 import { ensureSeed } from './_seed.js'
@@ -67,7 +68,7 @@ router.get('/', validateQuery(alertsQuerySchema), async (req: Request, res: Resp
       })),
     )
   } catch (err) {
-    console.error('[alerts.list] failed:', err)
+    logger.error('alerts.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

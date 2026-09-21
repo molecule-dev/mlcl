@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -21,6 +23,17 @@ export function ArrivalsBoard({
 }) {
   const cm = getClassMap()
   const { t } = useTranslation()
+
+  // The board is manual-refresh, but a departures board whose countdowns
+  // freeze looks broken between refreshes. One shared clock tick (5s is
+  // plenty for minute-granularity) re-derives each row's remaining time from
+  // its absolute `arrivalEpochMs`, so countdowns count down and flip to
+  // "due" without re-requesting the feed.
+  const [now, setNow] = useState(() => Date.now())
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 5000)
+    return () => clearInterval(id)
+  }, [])
 
   return (
     <section data-mol-id="arrivals-board">
@@ -109,6 +122,7 @@ export function ArrivalsBoard({
             <ArrivalRow
               key={`${arrival.lineCode}-${arrival.direction}-${index}`}
               arrival={arrival}
+              now={now}
             />
           ))}
         </ul>

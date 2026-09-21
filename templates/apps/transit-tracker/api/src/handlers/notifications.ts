@@ -5,6 +5,7 @@ import { getParamId, getUserId, idParamSchema } from '@molecule/api-bonds-defaul
 import type { WhereCondition } from '@molecule/api-database'
 import { deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -33,7 +34,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(items)
   } catch (err) {
-    console.error('[notifications] failed:', err)
+    logger.error('notifications.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -58,7 +59,7 @@ router.put('/:id/read', validateParams(idParamSchema), async (req: Request, res:
     const result = await updateById('notifications', id, { read: true })
     res.json(result.data)
   } catch (err) {
-    console.error('[notifications] failed:', err)
+    logger.error('notifications.read', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -88,7 +89,7 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
     await deleteById('notifications', id)
     res.status(204).end()
   } catch (err) {
-    console.error('[notifications] failed:', err)
+    logger.error('notifications.readAll', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

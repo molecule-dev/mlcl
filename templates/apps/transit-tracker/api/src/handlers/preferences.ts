@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 /**
@@ -55,7 +56,7 @@ router.get('/', async (_req: Request, res: Response) => {
     const user = await findById<UserRow>('users', userId)
     res.json(preferencesOf(user))
   } catch (err) {
-    console.error('[preferences.read] failed:', err)
+    logger.error('preferences.read', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -86,7 +87,7 @@ router.patch('/', validateBody(patchSchema), async (req: Request, res: Response)
     })
     res.json(next)
   } catch (err) {
-    console.error('[preferences.update] failed:', err)
+    logger.error('preferences.update', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

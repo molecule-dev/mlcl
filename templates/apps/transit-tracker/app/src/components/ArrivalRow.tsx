@@ -19,11 +19,29 @@ export interface Arrival {
  * time · a walking placeholder. The walking distance is a PLACEHOLDER by
  * design — the fictional network has no user geolocation; a real deployment
  * would fill it from the device position.
+ *
+ * The countdown is derived from the arrival's absolute `arrivalEpochMs`
+ * against the board's shared `now` tick (not the request-time snapshot
+ * `arrival.secondsUntil`), so it keeps counting between refreshes and flips
+ * to "due" on its own. The snapshot remains the fallback if the epoch is
+ * missing.
  */
-export function ArrivalRow({ arrival }: { arrival: Arrival }) {
+export function ArrivalRow({
+  arrival,
+  now = Date.now(),
+}: {
+  arrival: Arrival
+  /** Shared board clock (ms). Omit for a static snapshot (e.g. the landing
+   * preview) — the countdown then holds its mount-time value. */
+  now?: number
+}) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const isDue = arrival.secondsUntil < 60
+  const secondsUntil =
+    Number.isFinite(arrival.arrivalEpochMs) && arrival.arrivalEpochMs > 0
+      ? Math.max(0, Math.round((arrival.arrivalEpochMs - now) / 1000))
+      : arrival.secondsUntil
+  const isDue = secondsUntil < 60
   return (
     <li
       data-mol-id={`arrival-${arrival.lineCode}-${arrival.direction}`}
@@ -62,7 +80,7 @@ export function ArrivalRow({ arrival }: { arrival: Arrival }) {
           style={isDue ? { color: 'var(--color-due)' } : undefined}
           data-mol-id={`countdown-${arrival.lineCode}-${arrival.direction}`}
         >
-          {formatCountdown(arrival.secondsUntil)}
+          {formatCountdown(secondsUntil)}
         </span>
       </div>
     </li>

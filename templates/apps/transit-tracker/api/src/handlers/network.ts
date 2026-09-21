@@ -4,6 +4,7 @@ import { z } from 'zod'
 import type { WhereCondition } from '@molecule/api-database'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import {
@@ -111,7 +112,7 @@ router.get('/lines', async (_req: Request, res: Response) => {
       })),
     )
   } catch (err) {
-    console.error('[network.lines] failed:', err)
+    logger.error('network.lines', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -158,7 +159,7 @@ router.get('/lines/:code', validateParams(lineParamSchema), async (req: Request,
       }))
     res.json({ line, stops: stopRows, schedules: lineSchedules })
   } catch (err) {
-    console.error('[network.lineDetail] failed:', err)
+    logger.error('network.lineDetail', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -217,7 +218,7 @@ router.get('/stops', validateQuery(stopsQuerySchema), async (req: Request, res: 
     const ordered = [...hubs, ...all.filter((s) => !hubCodes.has(String(s.code)))]
     res.json(ordered.slice(0, cap))
   } catch (err) {
-    console.error('[network.stops] failed:', err)
+    logger.error('network.stops', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -242,7 +243,7 @@ router.get('/stops/:code', validateParams(stopParamSchema), async (req: Request,
     }))
     res.json({ stop, lines: serving })
   } catch (err) {
-    console.error('[network.stopDetail] failed:', err)
+    logger.error('network.stopDetail', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

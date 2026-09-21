@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { LineSchedule, StopPosition } from '../lib/network.js'
@@ -121,7 +122,7 @@ router.post('/plan', validateBody(planSchema), async (req: Request, res: Respons
       })),
     })
   } catch (err) {
-    console.error('[trips.plan] failed:', err)
+    logger.error('trips.plan', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

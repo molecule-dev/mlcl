@@ -6,24 +6,24 @@ import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 const PREFERENCES = [
   {
-    id: 'price_drops',
-    defaultLabel: 'Price drop emails',
-    defaultBody: 'When a tracked route drops below your target price.',
+    id: 'disruption_alerts',
+    defaultLabel: 'Disruption alerts',
+    defaultBody: 'When a line or stop you ride has delays, diversions, or closures.',
   },
   {
-    id: 'fare_alerts',
-    defaultLabel: 'Error fare push',
-    defaultBody: 'Mistake fares from any tracked airline, instantly.',
+    id: 'departure_alerts',
+    defaultLabel: 'Departure reminders',
+    defaultBody: 'A heads-up when the next departure at a saved stop is due soon.',
   },
   {
     id: 'weekly_digest',
     defaultLabel: 'Weekly digest',
-    defaultBody: 'A Sunday recap of fare trends across your watched routes.',
+    defaultBody: 'A Sunday recap of schedule changes across your saved stops.',
   },
   {
-    id: 'expiring_alerts',
-    defaultLabel: 'Expiring searches',
-    defaultBody: 'Heads-up when a saved search nears its departure date.',
+    id: 'schedule_changes',
+    defaultLabel: 'Schedule changes',
+    defaultBody: 'When a timetable you follow changes for an upcoming service day.',
   },
 ] as const
 
@@ -62,10 +62,10 @@ export function Settings() {
   const [home, setHome] = useState('')
   const [currency, setCurrency] = useState('USD')
   const [prefs, setPrefs] = useState<Record<string, boolean>>({
-    price_drops: true,
-    fare_alerts: true,
+    disruption_alerts: true,
+    departure_alerts: true,
     weekly_digest: false,
-    expiring_alerts: true,
+    schedule_changes: true,
   })
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
@@ -230,7 +230,9 @@ export function Settings() {
               cm.textSize('sm'),
               cm.fontWeight('bold'),
               cm.flex({ align: 'center', gap: 'sm' }),
-              'rounded-xl transition-colors',
+              // shrink-0: on narrow screens the strip scrolls (overflow-x-auto
+              // on the nav) instead of squishing the labels into clipped text.
+              'shrink-0 whitespace-nowrap rounded-xl transition-colors',
               activeTab === tab.id
                 ? 'bg-primary text-on-primary shadow-sm'
                 : 'text-on-surface-variant hover:bg-surface-container',

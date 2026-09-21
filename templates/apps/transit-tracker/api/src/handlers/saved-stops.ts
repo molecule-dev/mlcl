@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -59,7 +60,7 @@ router.get('/', async (_req: Request, res: Response) => {
     }
     res.json(rows)
   } catch (err) {
-    console.error('[savedStops.list] failed:', err)
+    logger.error('savedStops.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -100,7 +101,7 @@ router.post('/', validateBody(createSchema), async (req: Request, res: Response)
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('[savedStops.create] failed:', err)
+    logger.error('savedStops.create', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -133,7 +134,7 @@ router.delete('/:code', validateParams(stopParamSchema), async (req: Request, re
     }
     res.status(204).end()
   } catch (err) {
-    console.error('[savedStops.delete] failed:', err)
+    logger.error('savedStops.delete', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

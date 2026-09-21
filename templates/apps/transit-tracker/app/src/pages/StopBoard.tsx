@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,6 +39,7 @@ export function StopBoard() {
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [saveError, setSaveError] = useState(false)
 
   const loadBoard = useCallback(async () => {
     setLoading(true)
@@ -87,16 +89,20 @@ export function StopBoard() {
 
   const toggleSaved = async (): Promise<void> => {
     if (saved === null) return
+    setSaveError(false)
     try {
       if (saved) {
         await http.delete(`/api/saved-stops/${encodeURIComponent(stopCode)}`)
         setSaved(false)
+        void track({ name: 'stop.unsaved', properties: { stop_code: stopCode } })
       } else {
         await http.post('/api/saved-stops', { stop_code: stopCode })
         setSaved(true)
+        void track({ name: 'stop.saved', properties: { stop_code: stopCode } })
       }
     } catch (err) {
       console.error('[StopBoard] toggle save failed:', err)
+      setSaveError(true)
     }
   }
 
@@ -234,6 +240,15 @@ export function StopBoard() {
 
       {error ? (
         <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 4), 'text-error')}>{error}</p>
+      ) : null}
+      {saveError ? (
+        <p role="status" className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-error')}>
+          {t(
+            'stopBoard.saveError',
+            {},
+            { defaultValue: 'Could not update your saved stops. Please try again.' },
+          )}
+        </p>
       ) : null}
     </div>
   )

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -23,8 +25,11 @@ export function TripPlanner() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const navigate = useNavigate()
 
   const [stops, setStops] = useState<StopSummary[]>([])
+  const [stopsError, setStopsError] = useState(false)
+  const [stopsNonce, setStopsNonce] = useState(0)
   const [origin, setOrigin] = useState('')
   const [destination, setDestination] = useState('')
   const [options, setOptions] = useState<ItineraryOption[]>([])
@@ -34,6 +39,7 @@ export function TripPlanner() {
 
   useEffect(() => {
     let cancelled = false
+    setStopsError(false)
     http
       .get('/api/network/stops')
       .then((res) => {
@@ -42,12 +48,14 @@ export function TripPlanner() {
         if (Array.isArray(data)) setStops(data as StopSummary[])
       })
       .catch((err: unknown) => {
-        if (!cancelled) console.error('[TripPlanner] stop list failed:', err)
+        if (cancelled) return
+        console.error('[TripPlanner] stop list failed:', err)
+        setStopsError(true)
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, stopsNonce])
 
   const plan = async (): Promise<void> => {
     if (!origin || !destination || origin === destination) return
@@ -61,6 +69,10 @@ export function TripPlanner() {
       const data = ((res as { data?: unknown }).data ?? res) as PlanResponse
       setOptions(Array.isArray(data.options) ? data.options : [])
       setSearched(true)
+      void track({
+        name: 'trip.planned',
+        properties: { origin, destination, options: data.options?.length ?? 0 },
+      })
     } catch (err) {
       console.error('[TripPlanner] plan failed:', err)
       setOptions([])
@@ -153,6 +165,18 @@ export function TripPlanner() {
             </span>
           </button>
         </div>
+        {stopsError ? (
+          <p className={cm.cn(cm.textSize('sm'), cm.textCenter, 'text-error')}>
+            {t('tripPlanner.stopsError', {}, { defaultValue: 'Could not load the stop list.' })}{' '}
+            <button
+              type="button"
+              onClick={() => setStopsNonce((n) => n + 1)}
+              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </p>
+        ) : null}
         <StopPicker
           label={t('tripPlanner.destinationLabel', {}, { defaultValue: 'To' })}
           value={destination}
@@ -206,7 +230,13 @@ export function TripPlanner() {
             )}
           </p>
         ) : (
-          options.map((option) => <ItineraryCard key={option.strategy} option={option} />)
+          options.map((option) => (
+            <ItineraryCard
+              key={option.strategy}
+              option={option}
+              onLegLineClick={(lineCode) => void navigate(`/lines/${encodeURIComponent(lineCode)}`)}
+            />
+          ))
         )}
       </section>
     </div>

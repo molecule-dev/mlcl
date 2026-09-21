@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import { type SimulatedArrival, simulateNextArrivals } from '../lib/arrivals.js'
@@ -144,7 +145,7 @@ router.get(
         arrivals: rows.slice(0, boardLimit),
       })
     } catch (err) {
-      console.error('[arrivals.board] failed:', err)
+      logger.error('arrivals.board', err)
       res
         .status(500)
         .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

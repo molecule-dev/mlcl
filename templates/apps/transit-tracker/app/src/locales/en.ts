@@ -1,36 +1,35 @@
+/**
+ * English source strings for keys whose UI call sites carry only a
+ * `defaultValue` fallback. The full per-language key sets live in
+ * `locales/<code>/ui.ts` (imported by bonds/i18n-default.ts); this file is
+ * the canonical English reference for the shared `common.*` strings and the
+ * action-site keys added with the QA pass. (The previous content of this
+ * file was dead donor copy — flight-deal strings no page referenced.)
+ */
 export default {
   common: {
     loading: 'Loading...',
     delete: 'Delete',
     back: 'Back',
+    retry: 'Retry',
+    undo: 'Undo',
+    saveChanges: 'Save changes',
+    savingEllipsis: 'Saving…',
+    savedPeriod: 'Saved.',
+    couldNotSaveChanges: 'Could not save changes.',
+    toggleLightDark: 'Toggle between light and dark mode.',
+    copyrightAllRightsReserved: '© {{year}} {{app}}. All rights reserved.',
+    about: 'About',
+    chooseTheLanguage: 'Choose the language used throughout the app.',
   },
-  search: {
-    title: 'Search Flights',
-    from: 'From (city or airport)',
-    to: 'To (city or airport)',
-    passengers: 'passenger(s)',
-    roundtrip: 'Round Trip',
-    oneway: 'One Way',
-    multicity: 'Multi-City',
-    economy: 'Economy',
-    premiumEconomy: 'Premium Economy',
-    business: 'Business',
-    first: 'First',
-    search: 'Search',
-    sortPrice: 'Cheapest',
-    sortDuration: 'Fastest',
-    sortDeparture: 'Departure Time',
-    noFlights: 'No flights found for this route',
+  stopBoard: {
+    saveError: 'Could not update your saved stops. Please try again.',
   },
-  flight: {
-    nonstop: 'Nonstop',
-    stops: 'stop(s)',
-    legsRequired: 'Flight legs are required',
+  savedStops: {
+    actionError: 'Could not update your saved stops. Please try again.',
+    removedToast: 'Removed {{stop}}',
   },
-  alerts: {
-    title: 'Price Alerts',
-    target: 'Target',
-    current: 'Current lowest',
-    none: 'No price alerts set',
+  tripPlanner: {
+    stopsError: 'Could not load the stop list.',
   },
 }

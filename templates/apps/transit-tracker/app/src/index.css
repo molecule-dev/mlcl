@@ -24,4 +24,31 @@
 
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
+/*
+ * Mobile header fit — the shared TopNavLayout chrome (brand + five icon-only
+ * nav items + user menu) cannot fit a 390px viewport at its desktop paddings
+ * (px-6 / gap-6 / nav gap-4): scrollWidth measured 527px and the saved/
+ * settings icons plus the user menu were pushed outside the header bar.
+ * Compress the chrome below 500px. Deliberately CSS-only — the DOM,
+ * data-mol-ids, and keyboard order are untouched, so e2e stays green. The
+ * unlayered rules win over Tailwind's layered utilities by design.
+ */
+@media (max-width: 500px) {
+  header .max-w-7xl {
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  header .max-w-7xl > a {
+    font-size: 1.125rem;
+  }
+  header nav {
+    gap: 0.25rem;
+  }
+  header nav a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
 @import '@molecule/app-ui-tailwind/base.css';

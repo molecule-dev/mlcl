@@ -20,6 +20,7 @@ export function Alerts() {
   const [loading, setLoading] = useState(true)
   const [showAll, setShowAll] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [nonce, setNonce] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -45,7 +46,7 @@ export function Alerts() {
     return () => {
       cancelled = true
     }
-  }, [http, showAll, t])
+  }, [http, showAll, t, nonce])
 
   const severeCount = alerts.filter((a) => a.severity === 'severe').length
 
@@ -109,7 +110,23 @@ export function Alerts() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 8), cm.textCenter)}>
+          <p className={'text-error'}>{error}</p>
+          <button
+            type="button"
+            onClick={() => setNonce((n) => n + 1)}
+            className={cm.cn(
+              cm.sp('mt', 3),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-lg text-primary hover:bg-primary/10 transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('alerts.loading', {}, { defaultValue: 'Loading alerts…' })}

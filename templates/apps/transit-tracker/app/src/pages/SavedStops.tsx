@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -18,6 +19,21 @@ export function SavedStops() {
   >([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [nonce, setNonce] = useState(0)
+  // Inline undo for a removal: the row is gone immediately (e2e-stable), and
+  // a transient toast offers one-tap restore — the light-touch confirm that
+  // suits a low-stakes, reversible delete.
+  const [removed, setRemoved] = useState<{
+    row: { code: string; name: string }
+    undo: boolean
+  } | null>(null)
+  const [actionError, setActionError] = useState(false)
+
+  useEffect(() => {
+    if (!removed || removed.undo) return
+    const id = setTimeout(() => setRemoved(null), 6000)
+    return () => clearTimeout(id)
+  }, [removed])
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -42,14 +58,32 @@ export function SavedStops() {
 
   useEffect(() => {
     void load()
-  }, [load])
+  }, [load, nonce])
 
-  const unsave = async (code: string): Promise<void> => {
+  const undoRemove = async (): Promise<void> => {
+    if (!removed) return
+    const { row } = removed
+    setRemoved(null)
     try {
-      await http.delete(`/api/saved-stops/${encodeURIComponent(code)}`)
-      setSaved((rows) => rows.filter((row) => row.code !== code))
+      await http.post('/api/saved-stops', { stop_code: row.code })
+      void load()
+      void track({ name: 'stop.saved', properties: { stop_code: row.code, restored: true } })
+    } catch (err) {
+      console.error('[SavedStops] undo remove failed:', err)
+      setActionError(true)
+    }
+  }
+
+  const unsave = async (row: { code: string; name: string }): Promise<void> => {
+    setActionError(false)
+    try {
+      await http.delete(`/api/saved-stops/${encodeURIComponent(row.code)}`)
+      setSaved((rows) => rows.filter((r) => r.code !== row.code))
+      setRemoved({ row, undo: false })
+      void track({ name: 'stop.unsaved', properties: { stop_code: row.code } })
     } catch (err) {
       console.error('[SavedStops] unsave failed:', err)
+      setActionError(true)
     }
   }
 
@@ -84,7 +118,23 @@ export function SavedStops() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 8), cm.textCenter)}>
+          <p className={'text-error'}>{error}</p>
+          <button
+            type="button"
+            onClick={() => setNonce((n) => n + 1)}
+            className={cm.cn(
+              cm.sp('mt', 3),
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-lg text-primary hover:bg-primary/10 transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('savedStops.loading', {}, { defaultValue: 'Loading saved stops…' })}
@@ -166,7 +216,7 @@ export function SavedStops() {
               </Link>
               <button
                 type="button"
-                onClick={() => void unsave(row.code)}
+                onClick={() => void unsave(row)}
                 data-mol-id={`saved-unsave-${row.code}`}
                 aria-label={t(
                   'savedStops.unsaveAriaLabel',
@@ -189,6 +239,54 @@ export function SavedStops() {
           ))}
         </ul>
       )}
+
+      {actionError ? (
+        <p role="status" className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-error')}>
+          {t(
+            'savedStops.actionError',
+            {},
+            { defaultValue: 'Could not update your saved stops. Please try again.' },
+          )}
+        </p>
+      ) : null}
+
+      {removed && !removed.undo ? (
+        <div
+          role="status"
+          data-mol-id="saved-undo-toast"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'md' }),
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            'fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md items-center justify-between rounded-xl bg-inverse-surface text-inverse-on-surface shadow-lg',
+          )}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'truncate')}>
+            {t(
+              'savedStops.removedToast',
+              { stop: removed.row.name },
+              { defaultValue: 'Removed {{stop}}' },
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              setRemoved((prev) => (prev ? { ...prev, undo: true } : prev))
+              void undoRemove()
+            }}
+            data-mol-id="saved-undo-button"
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              'shrink-0 rounded-lg text-inverse-primary hover:underline',
+            )}
+          >
+            {t('common.undo', {}, { defaultValue: 'Undo' })}
+          </button>
+        </div>
+      ) : null}
     </div>
   )
 }
