@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,6 +39,7 @@ export function NewCustomer() {
         notes: form.notes.trim(),
       })
       const created = unwrapSingle<{ id?: string }>(res)
+      track({ name: 'customer.created', properties: { customer_id: created?.id ?? null } })
       navigate(created?.id ? `/customers/${created.id}` : '/customers')
     } catch (err) {
       setError(

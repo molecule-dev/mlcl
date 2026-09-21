@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,6 +68,7 @@ export function QuoteNew() {
             try {
               const res = await http.post('/api/quotes', payload)
               const created = unwrapSingle<{ id?: string }>(res)
+              track({ name: 'quote.created', properties: { quote_id: created?.id ?? null } })
               navigate(created?.id ? `/quotes/${created.id}` : '/quotes')
             } catch (err) {
               setError(

@@ -1,6 +1,7 @@
 import { resolveAll } from '@molecule/api-secrets'
 
 import { setupEntitlements } from '../tiers.js'
+import { setupActivityCapture } from './_activity-capture.js'
 import { setupConfigEnv } from './config-env.js'
 import { setupCronNodeCron } from './cron-node-cron.js'
 import { setupDatabasePostgresql } from './database-postgresql.js'
@@ -52,4 +53,13 @@ export async function setupBonds(): Promise<void> {
   setupJwtJsonwebtoken()
   setupPasswordBcrypt()
   setupTwoFactorOtplib()
+
+  // Capture side-effects (email/webhook/push/etc.) to the molecule.dev Activity
+  // panel so read_activity can read them (no-op outside the IDE — see
+  // ./_activity-capture.ts). KEEP THIS CALL LAST: it routes the capturable
+  // providers (email/sms/push/webhook/channel) through capture — replacing
+  // them in intercept mode, wrapping them in tee mode — so any bond added
+  // BELOW re-bonds the real provider AFTER that and is NOT captured — add
+  // new provider bonds ABOVE this line.
+  await setupActivityCapture()
 }

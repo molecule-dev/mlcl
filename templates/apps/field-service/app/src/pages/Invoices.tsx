@@ -200,7 +200,9 @@ export function Invoices() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-mono')}>
-                    <Link to={`/invoices/${i.id}`}>{i.number}</Link>
+                    <Link to={`/invoices/${i.id}`} className={'inline-block py-3 -my-3'}>
+                      {i.number}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
                     {i.customer}

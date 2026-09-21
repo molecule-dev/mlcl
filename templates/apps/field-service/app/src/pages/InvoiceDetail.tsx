@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -57,6 +58,10 @@ export function InvoiceDetail() {
     setError(null)
     try {
       await http.post(`/api/invoices/${id}/${action}`)
+      track({
+        name: action === 'send' ? 'invoice.sent' : 'invoice.paid',
+        properties: { invoice_id: id },
+      })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -92,7 +97,7 @@ export function InvoiceDetail() {
         </Link>
       </nav>
 
-      <header className={cm.flex({ align: 'start', justify: 'between' })}>
+      <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'font-mono')}>
             {invoice.number}
@@ -237,7 +242,7 @@ export function InvoiceDetail() {
         </p>
       ) : null}
 
-      <div className={cm.flex({ gap: 'sm' })}>
+      <div className={cm.flex({ gap: 'sm', wrap: 'wrap' })}>
         {invoice.status === 'draft' ? (
           <button
             type="button"

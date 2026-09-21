@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Technician {
   id: string
@@ -71,7 +72,7 @@ export function Technicians() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/api/technicians', {
+      const res = await http.post('/api/technicians', {
         name: form.name.trim(),
         trade: form.trade,
         phone: form.phone.trim() || null,
@@ -80,6 +81,8 @@ export function Technicians() {
           .map((s) => s.trim())
           .filter(Boolean),
       })
+      const created = unwrapSingle<{ id?: string }>(res)
+      track({ name: 'technician.added', properties: { technician_id: created?.id ?? null } })
       setShowAdd(false)
       setForm({ name: '', trade: 'general', phone: '', skills: '' })
       await load()
@@ -103,7 +106,7 @@ export function Technicians() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('technicians.heading', {}, { defaultValue: 'Technicians' })}
@@ -219,7 +222,11 @@ export function Technicians() {
               />
             </label>
 
-            {submitError ? <p className={'text-error text-sm'}>{submitError}</p> : null}
+            {submitError ? (
+              <p className={'text-error text-sm'} role="alert">
+                {submitError}
+              </p>
+            ) : null}
 
             <div className={cm.flex({ gap: 'sm', justify: 'end' })}>
               <button

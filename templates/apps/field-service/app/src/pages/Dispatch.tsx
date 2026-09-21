@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -146,6 +147,10 @@ export function Dispatch() {
         scheduled_start: start.toISOString(),
         scheduled_end: end.toISOString(),
       })
+      track({
+        name: 'job.scheduled',
+        properties: { job_id: pickedJob.id, technician_id: assignTechId, day: assignDay },
+      })
       setPickedJobId(null)
       setAssignTechId('')
       setAssignDay('')
@@ -160,7 +165,9 @@ export function Dispatch() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }))}
+      >
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('dispatch.heading', {}, { defaultValue: 'Dispatch board' })}

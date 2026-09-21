@@ -109,7 +109,7 @@ export function Dashboard() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('dashboard.heading', {}, { defaultValue: "Today's board" })}
@@ -122,7 +122,7 @@ export function Dashboard() {
             )}
           </p>
         </div>
-        <div className={cm.flex({ gap: 'sm' })}>
+        <div className={cm.flex({ gap: 'sm', wrap: 'wrap' })}>
           <Link
             to="/quotes/new"
             className={cm.cn(
@@ -290,7 +290,10 @@ export function Dashboard() {
               <div className={cm.cn(cm.sp('p', 3))}>
                 <Link
                   to="/quotes"
-                  className={cm.cn(cm.textSize('sm'), 'font-medium text-primary hover:underline')}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    'font-medium text-primary hover:underline inline-block py-2',
+                  )}
                 >
                   {t('dashboard.allQuotes', {}, { defaultValue: 'All quotes →' })}
                 </Link>

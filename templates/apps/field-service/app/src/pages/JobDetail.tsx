@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -110,6 +111,10 @@ export function JobDetail() {
     setError(null)
     try {
       await http.post(`/api/jobs/${id}/status`, { status: next })
+      track({
+        name: next === 'completed' ? 'job.completed' : 'job.status_changed',
+        properties: { job_id: id, status: next },
+      })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -128,6 +133,10 @@ export function JobDetail() {
         scheduled_start: assignStart ? new Date(assignStart).toISOString() : undefined,
         scheduled_end: assignEnd ? new Date(assignEnd).toISOString() : undefined,
       })
+      track({
+        name: 'job.scheduled',
+        properties: { job_id: id, technician_id: assignTech || null },
+      })
       setAssignTech('')
       setAssignStart('')
       setAssignEnd('')
@@ -141,24 +150,36 @@ export function JobDetail() {
 
   async function toggleChecklist(itemId: string) {
     if (!id) return
-    await http.post(`/api/jobs/${id}/checklist/${itemId}/toggle`)
-    await load()
+    try {
+      await http.post(`/api/jobs/${id}/checklist/${itemId}/toggle`)
+      await load()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+    }
   }
 
   async function addChecklistItem(e: React.FormEvent) {
     e.preventDefault()
     if (!id || !newChecklist.trim()) return
-    await http.post(`/api/jobs/${id}/checklist`, { label: newChecklist.trim() })
-    setNewChecklist('')
-    await load()
+    try {
+      await http.post(`/api/jobs/${id}/checklist`, { label: newChecklist.trim() })
+      setNewChecklist('')
+      await load()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+    }
   }
 
   async function addNote(e: React.FormEvent) {
     e.preventDefault()
     if (!id || !newNote.trim()) return
-    await http.post(`/api/jobs/${id}/notes`, { body: newNote.trim() })
-    setNewNote('')
-    await load()
+    try {
+      await http.post(`/api/jobs/${id}/notes`, { body: newNote.trim() })
+      setNewNote('')
+      await load()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+    }
   }
 
   async function generateInvoice() {
@@ -169,6 +190,7 @@ export function JobDetail() {
     try {
       const res = await http.post(`/api/jobs/${id}/invoice`)
       const created = unwrapSingle<{ id?: string; number?: string }>(res)
+      track({ name: 'invoice.created', properties: { job_id: id, invoice_id: created?.id } })
       if (created?.id) {
         navigate(`/invoices/${created.id}`)
         return
@@ -213,7 +235,7 @@ export function JobDetail() {
         </Link>
       </nav>
 
-      <header className={cm.flex({ align: 'start', justify: 'between' })}>
+      <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{job.title}</h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -400,26 +422,30 @@ export function JobDetail() {
             {t('jobs.detail.checklistEmpty', {}, { defaultValue: 'No checklist items yet.' })}
           </p>
         ) : (
-          <ul className={cm.stack(2)}>
+          <ul className={cm.stack(1)}>
             {job.checklist.map((item) => (
-              <li key={item.id} className={cm.flex({ align: 'center', gap: 'sm' })}>
-                <input
-                  type="checkbox"
-                  checked={item.done}
-                  onChange={() => toggleChecklist(item.id)}
-                  aria-label={item.label}
-                  className={cm.cn(cm.h(4), cm.w(4))}
-                />
-                <span
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    item.done ? 'line-through text-on-surface-variant' : '',
-                  )}
-                >
-                  {item.label}
-                </span>
+              <li key={item.id}>
+                <label className={cm.flex({ align: 'center', gap: 'sm' })}>
+                  <input
+                    type="checkbox"
+                    checked={item.done}
+                    onChange={() => toggleChecklist(item.id)}
+                    aria-label={item.label}
+                    className={cm.cn(cm.h(5), cm.w(5))}
+                  />
+                  <span
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      item.done ? 'line-through text-on-surface-variant' : '',
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                </label>
                 {item.done && item.done_at ? (
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  <span
+                    className={cm.cn(cm.textSize('xs'), cm.sp('ml', 6), 'text-on-surface-variant')}
+                  >
                     {formatDateTime(item.done_at)}
                   </span>
                 ) : null}
@@ -441,7 +467,7 @@ export function JobDetail() {
               cm.sp('px', 3),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'border border-outline-variant rounded-md flex-1',
+              'border border-outline-variant rounded-md flex-1 min-w-0',
             )}
           />
           <button
@@ -470,7 +496,7 @@ export function JobDetail() {
         ) : (
           <ul className={cm.stack(3)}>
             {job.notes.map((n) => (
-              <li key={n.id} className={cm.flex({ gap: 'sm' })}>
+              <li key={n.id} className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-col sm:flex-row')}>
                 <span
                   className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'w-32 shrink-0')}
                 >
@@ -500,7 +526,7 @@ export function JobDetail() {
               cm.sp('px', 3),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'border border-outline-variant rounded-md flex-1',
+              'border border-outline-variant rounded-md flex-1 min-w-0',
             )}
           />
           <button

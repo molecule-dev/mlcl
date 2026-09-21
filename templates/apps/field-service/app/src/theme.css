@@ -1,3 +1,24 @@
+/* =============================================================================
+ * APP COLOR PALETTE — this file is the source of truth for this app's colors.
+ *
+ * To RECOLOR the app (e.g. "make it blue"), edit the `--color-*` variables below:
+ *   :root { … }                      → light theme
+ *   [data-mol-mode='dark'] { … }     → dark theme
+ * Change the value in BOTH blocks. These drive the ENTIRE UI — every ClassMap
+ * class (bg-primary, text-primary, cm.surface, …) and Tailwind token resolves to
+ * these variables. Changing a CORE token (e.g. --color-primary) auto-updates all
+ * its derived shades (hover, container, on-primary, …) via color-mix.
+ *
+ * Do NOT edit app/src/bonds/app-theme-css-variables.ts to recolor — its values
+ * are overridden by this file and have NO visible effect; that bond only toggles
+ * light/dark mode.
+ *
+ * Related, for a COMPLETE rebrand (these are separate from the UI palette above):
+ *   • Logo / favicon / PWA manifest color → BRAND_COLOR in app/src/branding.ts
+ *     (drives the generated logo SVG, app icons, and <meta theme-color>).
+ *   • Font → set --font-family below AND load the family in app/index.html's
+ *     Google Fonts <link> (a font not loaded there silently falls back).
+ * ============================================================================= */
 :root {
   --color-primary: #1d4ed8;
   --color-primary-light: #60a5fa;

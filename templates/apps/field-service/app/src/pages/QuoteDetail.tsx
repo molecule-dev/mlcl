@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -57,7 +58,19 @@ export function QuoteDetail() {
     setActing(true)
     setError(null)
     try {
-      await http.post(`/api/quotes/${id}/${action}`)
+      const res = await http.post(`/api/quotes/${id}/${action}`)
+      // send/decline return the shaped quote; accept returns { quote, job }.
+      const data = res as { job?: { id?: string } | null; job_id?: string | null } | null
+      const jobId = data?.job?.id ?? data?.job_id ?? null
+      track({
+        name:
+          action === 'send'
+            ? 'quote.sent'
+            : action === 'accept'
+              ? 'quote.accepted'
+              : 'quote.declined',
+        properties: { quote_id: id, job_id: jobId },
+      })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -93,7 +106,7 @@ export function QuoteDetail() {
         </Link>
       </nav>
 
-      <header className={cm.flex({ align: 'start', justify: 'between' })}>
+      <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{quote.title}</h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>

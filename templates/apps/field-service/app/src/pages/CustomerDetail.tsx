@@ -116,7 +116,7 @@ export function CustomerDetail() {
         </Link>
       </nav>
 
-      <header className={cm.flex({ align: 'start', justify: 'between' })}>
+      <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{customer.name}</h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>

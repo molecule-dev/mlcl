@@ -81,7 +81,7 @@ export function Jobs() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('jobs.heading', {}, { defaultValue: 'Jobs' })}
@@ -116,7 +116,7 @@ export function Jobs() {
           className={cm.cn(
             cm.sp('px', 3),
             cm.sp('py', 2),
-            'border border-outline-variant rounded-md flex-1 max-w-md',
+            'border border-outline-variant rounded-md flex-1 min-w-0 max-w-md',
             cm.textSize('sm'),
           )}
         />
@@ -206,10 +206,14 @@ export function Jobs() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
-                    <Link to={`/jobs/${j.id}`}>{j.customer}</Link>
+                    <Link to={`/jobs/${j.id}`} className={'inline-block py-3 -my-3'}>
+                      {j.customer}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
-                    <Link to={`/jobs/${j.id}`}>{j.title}</Link>
+                    <Link to={`/jobs/${j.id}`} className={'inline-block py-3 -my-3'}>
+                      {j.title}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
                     {formatDateTime(j.scheduled_start) ||

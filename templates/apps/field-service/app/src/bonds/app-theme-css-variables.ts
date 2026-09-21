@@ -1,3 +1,8 @@
+/*
+ * ⚠️ COLORS ARE NOT DEFINED HERE. This app's palette lives in app/src/theme.css
+ * (the --color-* variables), which OVERRIDES anything set here. To recolor the
+ * app, edit theme.css — NOT this file. This bond only wires light/dark mode.
+ */
 /**
  * AppThemeCssVariables bond setup
  *

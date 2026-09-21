@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -85,6 +86,7 @@ export function QuoteEdit() {
             setError(null)
             try {
               await http.put(`/api/quotes/${id}`, payload)
+              track({ name: 'quote.updated', properties: { quote_id: id } })
               navigate(`/quotes/${id}`)
             } catch (err) {
               setError(

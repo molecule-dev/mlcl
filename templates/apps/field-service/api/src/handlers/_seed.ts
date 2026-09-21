@@ -1,3 +1,11 @@
+/* =============================================================================
+ * DEMO SEED DATA — placeholder rows, not anyone's real records.
+ *
+ * This file exists so a fresh install has something to show. When the owner
+ * supplies their own data, it REPLACES these rows: seed from their data
+ * instead, or stop calling this. Never seed both — the owner's records mixed
+ * in with the template's samples is a bug, not a fuller demo.
+ * ============================================================================= */
 /**
  * field-service — per-user demo seeding.
  *

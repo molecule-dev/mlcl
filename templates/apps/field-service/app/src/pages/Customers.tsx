@@ -56,7 +56,7 @@ export function Customers() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('customers.heading', {}, { defaultValue: 'Customers' })}
@@ -127,7 +127,9 @@ export function Customers() {
                   className={'border-b border-outline-variant hover:bg-surface-container'}
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('medium'))}>
-                    <Link to={`/customers/${c.id}`}>{c.name}</Link>
+                    <Link to={`/customers/${c.id}`} className={'inline-block py-3 -my-3'}>
+                      {c.name}
+                    </Link>
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
                     {c.email ?? '—'}
