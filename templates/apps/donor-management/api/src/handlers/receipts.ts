@@ -50,10 +50,22 @@ interface GiftRow {
   receipt_id?: string | null
 }
 
-/** Deterministic per-owner sequence: `YYYY-NNNNN`. */
+/** Deterministic per-owner sequence: `YYYY-NNNNN`.
+ *
+ *  Numbered from the owner's HIGHEST issued NNNNN (not count+1) so a
+ *  deleted middle receipt can't cause a later generate to reuse a number
+ *  that still exists — `owner_id + receipt_number` is unique. */
 async function nextReceiptNumber(userId: string, year: number): Promise<string> {
-  const existing = await count('receipts', [{ field: 'owner_id', operator: '=', value: userId }])
-  return `${year}-${String(existing + 1).padStart(5, '0')}`
+  const rows = await findMany<{ receipt_number?: string }>('receipts', {
+    where: [{ field: 'owner_id', operator: '=', value: userId }],
+    limit: 10000,
+  })
+  let highest = 0
+  for (const r of rows) {
+    const m = /^\d{4}-(\d{5})$/.exec(String(r.receipt_number ?? ''))
+    if (m) highest = Math.max(highest, Number(m[1]))
+  }
+  return `${year}-${String(highest + 1).padStart(5, '0')}`
 }
 
 /** The donor's unreceipted gifts inside a calendar year, oldest first. */
@@ -64,7 +76,9 @@ async function unreceiptedGifts(userId: string, donorId: string, year: number): 
       { field: 'donor_id', operator: '=', value: donorId },
       { field: 'gift_date', operator: '>=', value: `${year}-01-01` },
       { field: 'gift_date', operator: '<=', value: `${year}-12-31` },
-      { field: 'receipt_id', operator: '=', value: null },
+      // `receipt_id` is nullable: `=` with a null VALUE renders `= NULL`,
+      // which is never true — the null-aware operator is required here.
+      { field: 'receipt_id', operator: 'is_null' },
     ],
     orderBy: [{ field: 'gift_date', direction: 'asc' }],
     limit: 2000,

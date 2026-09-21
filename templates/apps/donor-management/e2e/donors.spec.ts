@@ -43,12 +43,13 @@ test.describe('donors', () => {
     const { accessToken } = await signup(page)
     await waitForSeed(page, accessToken)
     await gotoDonors(page)
-    const initial = await page.locator('a[href^="/donors/"]').count()
+    // Row links only — the "+ New donor" CTA (href /donors/new) also matches
+    // a plain a[href^="/donors/"] prefix selector and would never narrow.
+    const rowLinks = page.locator('a[href^="/donors/"]:not([href="/donors/new"])')
+    const initial = await rowLinks.count()
     expect(initial).toBeGreaterThanOrEqual(1)
     await page.getByRole('searchbox').fill('zzzzz-no-match-zzzzz')
-    await expect
-      .poll(async () => page.locator('a[href^="/donors/"]').count(), { timeout: 5000 })
-      .toBe(0)
+    await expect.poll(async () => rowLinks.count(), { timeout: 5000 }).toBe(0)
   })
 
   test('"New donor" page creates a row that survives reload', async ({ page }) => {

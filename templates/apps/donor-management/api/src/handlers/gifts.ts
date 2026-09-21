@@ -73,8 +73,10 @@ router.get('/', async (req: Request, res: Response) => {
         where.push({ field: 'gift_date', operator: '<=', value: `${y}-12-31` })
       }
     }
-    if (receipted === 'true') where.push({ field: 'receipt_id', operator: '!=', value: null })
-    if (receipted === 'false') where.push({ field: 'receipt_id', operator: '=', value: null })
+    // `receipt_id` is nullable: `=`/`!=` with a null VALUE render `= NULL` /
+    // `!= NULL`, which are never true — the null-aware operators are required.
+    if (receipted === 'true') where.push({ field: 'receipt_id', operator: 'is_not_null' })
+    if (receipted === 'false') where.push({ field: 'receipt_id', operator: 'is_null' })
 
     const gifts = await findMany('gifts', {
       where,

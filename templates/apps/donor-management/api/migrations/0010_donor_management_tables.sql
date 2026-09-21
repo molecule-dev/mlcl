@@ -229,11 +229,15 @@ ALTER TABLE ONLY public.receipts
 
 
 --
--- Name: receipts receipts_receipt_number_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: receipts receipts_owner_id_receipt_number_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
+-- Receipt numbers (`YYYY-NNNNN`) are a PER-OWNER sequence — the seed and
+-- the generate handler both number from 1 within each tenant, so the
+-- uniqueness scope must include owner_id. A global UNIQUE (receipt_number)
+-- made every tenant's first receipt collide on "YYYY-00001".
 ALTER TABLE ONLY public.receipts
-    ADD CONSTRAINT receipts_receipt_number_key UNIQUE (receipt_number);
+    ADD CONSTRAINT receipts_owner_id_receipt_number_key UNIQUE (owner_id, receipt_number);
 
 
 --

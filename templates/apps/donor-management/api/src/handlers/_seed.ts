@@ -69,7 +69,13 @@ async function doSeed(userId: string): Promise<void> {
       tags: string[],
     ): Promise<Record<string, unknown>> =>
       unwrap(
-        create('donors', {
+        // `unwrap` reads `result.data` — it needs the SETTLED row, so the
+        // create must be awaited here. Without the await it receives the
+        // Promise itself, every later `String(donorRow.id)` becomes
+        // "undefined", and the first gift insert dies with
+        // `invalid input syntax for type uuid: "undefined"` — silently
+        // seeding zero gifts (caught + logged by doSeed's try/catch).
+        await create('donors', {
           owner_id: userId,
           name,
           email,
@@ -152,7 +158,10 @@ async function doSeed(userId: string): Promise<void> {
       status: string,
     ): Promise<Record<string, unknown>> =>
       unwrap(
-        create('campaigns', {
+        // Awaited for the same reason as the donor helper above — a Promise
+        // passed through `unwrap` makes `String(campaignRow.id)` become
+        // "undefined" in every gift that references this campaign.
+        await create('campaigns', {
           owner_id: userId,
           name,
           description,
@@ -201,7 +210,10 @@ async function doSeed(userId: string): Promise<void> {
       note = '',
     ): Promise<Record<string, unknown>> =>
       unwrap(
-        create('gifts', {
+        // Awaited for the same reason as the donor helper above — `unwrap`
+        // must see the settled row, and `String(donorRow.id)` must read a
+        // real uuid, not `undefined`.
+        await create('gifts', {
           owner_id: userId,
           donor_id: String(donorRow.id),
           amount_cents: amountCents,

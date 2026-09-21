@@ -34,7 +34,10 @@ test.describe('gifts', () => {
     await page.getByRole('link', { name: /\+ record gift/i }).click()
     await expect(page).toHaveURL(/\/gifts\/new/)
 
-    await page.getByLabel(/^donor$/i).selectOption(donor.id)
+    // The Donor select is wrapped in a <label> whose computed text folds in
+    // every <option> — getByLabel(/^donor$/) never matches. The accessible
+    // role/name pair does.
+    await page.getByRole('combobox', { name: /^donor$/i }).selectOption(donor.id)
     await page.getByLabel(/amount/i).fill('77.77')
     await page.getByRole('button', { name: /^record gift$/i }).click()
 

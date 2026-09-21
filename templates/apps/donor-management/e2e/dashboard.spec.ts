@@ -10,7 +10,9 @@ test.describe('dashboard', () => {
       timeout: 15000,
     })
     await expect(page.getByText(/raised this year/i)).toBeVisible()
-    await expect(page.getByText(/^donors$/i)).toBeVisible()
+    // Scoped to main: the sidebar nav link is also named "Donors" — an
+    // unscoped full-text match hits both and fails strict mode.
+    await expect(page.getByRole('main').getByText(/^donors$/i)).toBeVisible()
     await expect(page.getByText(/average gift/i)).toBeVisible()
     await expect(page.getByText(/gifts this year/i)).toBeVisible()
     // Campaign progress bars + recent gifts list render from the same summary.

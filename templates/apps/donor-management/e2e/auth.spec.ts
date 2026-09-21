@@ -47,6 +47,8 @@ test.describe('auth flow', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('wrong-password')
+    // The 403 on the failed login is the expected outcome under test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.getByRole('button', { name: /sign in/i }).click()
     // We should still be on the login page, with an error.
     await expect(page).toHaveURL(/\/login/, { timeout: 5000 })

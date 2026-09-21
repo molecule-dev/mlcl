@@ -26,8 +26,11 @@ test.describe('year-end receipt flow', () => {
     await expect(page.getByRole('heading', { name: /tax receipts/i, level: 1 })).toBeVisible({
       timeout: 15000,
     })
-    await page.getByLabel(/^donor$/i).selectOption(donorId)
-    await page.getByLabel(/^year$/i).selectOption(String(year))
+    // The Donor/Year selects are wrapped in <label>s whose computed text
+    // folds in every <option> — getByLabel never matches them. The
+    // accessible role/name pairs do.
+    await page.getByRole('combobox', { name: /^donor$/i }).selectOption(donorId)
+    await page.getByRole('combobox', { name: /^year$/i }).selectOption(String(year))
     await page.getByRole('button', { name: /^preview$/i }).click()
 
     // Preview lists the unreceipted gift and offers the generate button.
@@ -35,7 +38,9 @@ test.describe('year-end receipt flow', () => {
     await page.getByRole('button', { name: /^generate receipt/i }).click()
 
     // The new receipt appears in the table with a YYYY-NNNNN number.
-    const receiptLink = page.locator('a[href^="/receipts/"][href*="-0"]', {
+    // Receipt rows link to /receipts/<uuid> with the number as the text —
+    // no href substring is stable across uuids, so match on the text alone.
+    const receiptLink = page.locator('a[href^="/receipts/"]', {
       hasText: new RegExp(`^${year}-\\d{5}$`),
     })
     await expect(receiptLink.first()).toBeVisible({ timeout: 10000 })
