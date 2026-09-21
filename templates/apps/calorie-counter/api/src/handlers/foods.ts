@@ -17,6 +17,7 @@ import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { count, create, deleteMany, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { CalorieCounterLimits } from '../tiers.js'
@@ -221,9 +222,11 @@ router.get(
     let food: FoodRow | null = null
     try {
       food = await findById<FoodRow>('foods', idOf(req))
-    } catch (_error) {
+    } catch (error) {
       // Malformed ids (e.g. non-UUID values) should surface as not-found
-      // rather than 5xx so callers can render a friendly empty state.
+      // rather than 5xx so callers can render a friendly empty state — but
+      // genuine datastore failures must still reach the logs.
+      logger.error('food.lookup_failed', error)
     }
     if (!food) {
       res.status(404).json({

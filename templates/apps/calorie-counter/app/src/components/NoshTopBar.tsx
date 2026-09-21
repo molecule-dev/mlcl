@@ -47,7 +47,9 @@ export function NoshTopBar({ title, eyebrow, actions }: NoshTopBarProps) {
           {title}
         </h1>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+      {/* flex-wrap: wide action groups (meal/period pill rows) push the
+          chrome to its own line on phones instead of overflowing off-screen. */}
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap min-w-0')}>
         {actions}
         <ThemeToggle />
         <UserMenu />

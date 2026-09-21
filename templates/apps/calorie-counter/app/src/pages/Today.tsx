@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -82,18 +83,26 @@ const toFoodEntry = (e: DiaryApiEntry): FoodEntry => ({
   calories: Math.round(num(e.calories)),
 })
 
-const todayDate = (): string => {
-  const d = new Date()
-  const y = d.getFullYear()
-  const m = String(d.getMonth() + 1).padStart(2, '0')
-  const day = String(d.getDate()).padStart(2, '0')
-  return `${y}-${m}-${day}`
-}
+const todayDate = (): string => todayDateFrom(new Date())
 
 const greeting = (hours: number): 'morning' | 'afternoon' | 'evening' => {
   if (hours < 12) return 'morning'
   if (hours < 18) return 'afternoon'
   return 'evening'
+}
+
+/** Shift a YYYY-MM-DD string by `days` (local calendar, DST-safe). */
+const shiftDate = (iso: string, days: number): string => {
+  const d = new Date(iso + 'T00:00:00')
+  d.setDate(d.getDate() + days)
+  return todayDateFrom(d)
+}
+
+const todayDateFrom = (d: Date): string => {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
 }
 
 export function Today() {
@@ -103,12 +112,14 @@ export function Today() {
   const navigate = useNavigate()
   const { user } = useAuth<NoshUser>()
 
-  const date = useMemo(() => todayDate(), [])
+  const [date, setDate] = useState<string>(() => todayDate())
   const [diary, setDiary] = useState<DiaryDayResponse | null>(null)
   const [goal, setGoal] = useState<GoalResponse | null>(null)
   const [streak, setStreak] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [refreshTick, setRefreshTick] = useState(0)
+
+  const isToday = date === todayDate()
 
   const name = useMemo(() => {
     const full = (user?.name ?? user?.firstName ?? '') as string
@@ -191,6 +202,10 @@ export function Today() {
         fat: 0,
         food_name: item.key === 'water' ? WATER_LABEL : item.defaultLabel,
       })
+      track({
+        name: 'food.quick_added',
+        properties: { item: item.key, calories: item.calories, date },
+      })
       setRefreshTick((n) => n + 1)
     } catch (e: unknown) {
       setError(
@@ -229,12 +244,19 @@ export function Today() {
       )
 
   const todayStr = useMemo(() => {
-    return new Date().toLocaleDateString(undefined, {
+    if (isToday) {
+      return new Date().toLocaleDateString(undefined, {
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric',
+      })
+    }
+    return new Date(date + 'T00:00:00').toLocaleDateString(undefined, {
       weekday: 'long',
       month: 'short',
       day: 'numeric',
     })
-  }, [])
+  }, [date, isToday])
 
   return (
     <>
@@ -251,7 +273,57 @@ export function Today() {
                 'rounded-full bg-accent-container text-on-accent-container font-semibold uppercase tracking-wider',
               )}
             >
-              {t('nosh.today.todayPill', {}, { defaultValue: 'Today' })}
+              {isToday
+                ? t('nosh.today.todayPill', {}, { defaultValue: 'Today' })
+                : t('nosh.today.pastPill', {}, { defaultValue: 'Past day' })}
+            </span>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'ml-1 inline-flex items-center',
+              )}
+              role="group"
+              aria-label={t('nosh.today.dateNavLabel', {}, { defaultValue: 'Change diary day' })}
+            >
+              <button
+                type="button"
+                onClick={() => setDate((d) => shiftDate(d, -1))}
+                aria-label={t('nosh.today.prevDay', {}, { defaultValue: 'Previous day' })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-9 h-9 rounded-full bg-surface border border-outline/50 hover:bg-surface-variant text-on-surface transition-colors',
+                )}
+              >
+                <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-xl')}>
+                  chevron_left
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setDate((d) => shiftDate(d, 1))}
+                disabled={isToday}
+                aria-label={t('nosh.today.nextDay', {}, { defaultValue: 'Next day' })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-9 h-9 rounded-full bg-surface border border-outline/50 text-on-surface transition-colors enabled:hover:bg-surface-variant disabled:opacity-40 disabled:cursor-not-allowed',
+                )}
+              >
+                <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-xl')}>
+                  chevron_right
+                </span>
+              </button>
+              {!isToday ? (
+                <button
+                  type="button"
+                  onClick={() => setDate(todayDate())}
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    'h-9 rounded-full bg-primary-container text-primary text-xs font-semibold hover:bg-primary-container/70 transition-colors',
+                  )}
+                >
+                  {t('nosh.today.backToToday', {}, { defaultValue: 'Back to today' })}
+                </button>
+              ) : null}
             </span>
           </>
         }
@@ -403,7 +475,7 @@ export function Today() {
             className={cm.cn(
               cm.flex({ justify: 'between', align: 'center' }),
               cm.sp('px', 2),
-              'gap-1.5 w-full hover:opacity-80 transition-opacity',
+              'gap-1.5 w-full min-h-[44px] py-1 hover:opacity-80 transition-opacity',
             )}
             aria-label={t('nosh.today.water.add', {}, { defaultValue: 'Log water' })}
             data-testid="water-add-button"

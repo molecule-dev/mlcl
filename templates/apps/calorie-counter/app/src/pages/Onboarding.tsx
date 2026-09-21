@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,14 @@ export function Onboarding() {
         fiber: 30,
         sodium: 2300,
         sugar: 50,
+      })
+      track({
+        name: 'onboarding.completed',
+        properties: {
+          calories: targets.calories,
+          goal,
+          activity,
+        },
       })
       navigate('/today', { replace: true })
     } catch (err) {

@@ -45,7 +45,8 @@ const toIso = (d: Date): string => {
 }
 
 const dayLabel = (iso: string, period: PeriodKey): string => {
-  const d = new Date(iso + 'T00:00:00')
+  // Year view aggregates to 'YYYY-MM' month keys.
+  const d = new Date(`${iso}${iso.length === 7 ? '-01' : ''}T00:00:00`)
   if (period === 'year') return d.toLocaleDateString(undefined, { month: 'short' })
   if (period === 'month') return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
   return d.toLocaleDateString(undefined, { weekday: 'short' })
@@ -60,6 +61,7 @@ export function Progress() {
   const [streak, setStreak] = useState<number | null>(null)
   const [goal, setGoal] = useState<number>(2000)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
   const [refreshKey, setRefreshKey] = useState(0)
 
   const range = useMemo(() => {
@@ -73,6 +75,7 @@ export function Progress() {
   useEffect(() => {
     let cancelled = false
     setError(null)
+    setLoading(true)
     Promise.all([
       http
         .get<DailyAveragesResponse>(
@@ -89,6 +92,7 @@ export function Progress() {
         setData(d ?? { days: [], averages: { calories: 0, protein: 0, carbs: 0, fat: 0 } })
         setStreak(s?.current_streak ?? 0)
         if (g) setGoal(num(g.calories) || 2000)
+        setLoading(false)
       })
       .catch((e: unknown) => {
         if (cancelled) return
@@ -99,6 +103,7 @@ export function Progress() {
         )
         setData({ days: [], averages: { calories: 0, protein: 0, carbs: 0, fat: 0 } })
         setStreak(0)
+        setLoading(false)
       })
     return () => {
       cancelled = true
@@ -107,9 +112,27 @@ export function Progress() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- avg is a ?? fallback; macroSplit deps intentionally omit the inline object reference
   const avg = data?.averages ?? { calories: 0, protein: 0, carbs: 0, fat: 0 }
-  const days = data?.days ?? []
-  const max = Math.max(goal, ...days.map((d) => num(d.calories))) * 1.1
+  const days = useMemo(() => data?.days ?? [], [data])
+  const max = Math.max(goal || 1, ...days.map((d) => num(d.calories))) * 1.1
   const goalDays = days.filter((d) => Math.abs(num(d.calories) - goal) <= goal * 0.1).length
+
+  // Year view: 365 daily bars cannot render readably in any viewport —
+  // aggregate to monthly averages so the chart stays a 12-bar trend.
+  const chartDays = useMemo(() => {
+    if (period !== 'year') return days
+    const byMonth = new Map<string, { total: number; count: number }>()
+    for (const d of days) {
+      const key = String(d.date).slice(0, 7)
+      const cur = byMonth.get(key) ?? { total: 0, count: 0 }
+      cur.total += num(d.calories)
+      cur.count += 1
+      byMonth.set(key, cur)
+    }
+    return [...byMonth.entries()].map(([month, { total, count }]) => ({
+      date: month,
+      calories: count > 0 ? total / count : 0,
+    }))
+  }, [period, days])
 
   const macroSplit = useMemo(() => {
     const totalP = avg.protein
@@ -236,7 +259,12 @@ export function Progress() {
         <h3 className={cm.cn(cm.fontWeight('semibold'), cm.sp('mb', 4), 'text-on-surface')}>
           {t('nosh.progress.calorieChart.title', {}, { defaultValue: 'Calories by day' })}
         </h3>
-        {days.length === 0 ? (
+        {loading ? (
+          <div
+            className={cm.cn('h-[260px] rounded-xl bg-surface-variant/60 animate-pulse')}
+            aria-hidden="true"
+          />
+        ) : days.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'nosh.progress.empty',
@@ -245,8 +273,16 @@ export function Progress() {
             )}
           </p>
         ) : (
-          <div className={cm.cn('h-[260px] flex items-end gap-3')}>
-            {days.map((d) => {
+          <div
+            className={cm.cn('h-[260px] flex items-end gap-3 overflow-x-auto pb-1')}
+            role="img"
+            aria-label={t(
+              'nosh.progress.calorieChart.label',
+              {},
+              { defaultValue: 'Bar chart of calories per day' },
+            )}
+          >
+            {chartDays.map((d) => {
               const cal = num(d.calories)
               const heightPct = (cal / max) * 100
               const goalPct = (goal / max) * 100
@@ -255,7 +291,7 @@ export function Progress() {
               return (
                 <div
                   key={d.date}
-                  className={cm.cn('flex-1 flex flex-col items-center gap-2 group')}
+                  className={cm.cn('flex-1 min-w-[28px] flex flex-col items-center gap-2 group')}
                 >
                   <div className={cm.cn('relative flex-1 w-full flex items-end')}>
                     <div

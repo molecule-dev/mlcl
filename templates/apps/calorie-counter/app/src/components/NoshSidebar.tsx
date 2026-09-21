@@ -6,7 +6,8 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME } from '../branding.js'
 import { SafeLink } from './SafeLink.js'
 
-interface NavItem {
+/** Shared signed-in nav model — the mobile tab bar (NoshMobileNav) renders the same set. */
+export interface NavItem {
   to: string
   icon: string
   labelKey: string
@@ -14,7 +15,7 @@ interface NavItem {
   filledIcon?: boolean
 }
 
-const PRIMARY_ITEMS: NavItem[] = [
+export const PRIMARY_ITEMS: NavItem[] = [
   { to: '/today', icon: 'calendar_today', labelKey: 'nosh.nav.today', defaultLabel: 'Today' },
   {
     to: '/log',

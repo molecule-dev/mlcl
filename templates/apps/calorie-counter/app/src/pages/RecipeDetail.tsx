@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -97,6 +98,14 @@ export function RecipeDetail() {
         protein: num(meal.total_protein),
         carbs: num(meal.total_carbs),
         fat: num(meal.total_fat),
+      })
+      track({
+        name: 'recipe.logged',
+        properties: {
+          recipe_id: meal.id ?? id,
+          recipe_name: meal.name,
+          calories: num(meal.total_calories),
+        },
       })
       setInfo(t('nosh.recipeDetail.logged', {}, { defaultValue: 'Recipe logged to today.' }))
     } catch (e: unknown) {

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -108,6 +109,7 @@ export function WeightTracking() {
     setSubmitting(true)
     try {
       await http.post('/api/weight', { weight_kg: kg })
+      track({ name: 'weight.recorded', properties: { weight_kg: kg, unit } })
       setNewWeight('')
       setShowLogForm(false)
       setRefreshTick((n) => n + 1)

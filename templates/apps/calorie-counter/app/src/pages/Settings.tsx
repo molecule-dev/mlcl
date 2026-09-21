@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
@@ -224,6 +225,7 @@ export function Settings() {
     setDeleting(true)
     try {
       await http.delete(`/api/users/${user?.id}`, { data: { password: deletePw } })
+      track({ name: 'account.deleted', properties: { user_id: user?.id } })
       await logout()
       navigate('/login', { replace: true })
     } catch (err: unknown) {

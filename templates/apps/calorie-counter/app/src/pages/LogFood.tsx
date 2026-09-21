@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -171,6 +172,15 @@ export function LogFood() {
         carbs: num(f.carbs),
         fat: num(f.fat),
       })
+      track({
+        name: 'food.logged',
+        properties: {
+          food_id: f.id,
+          food_name: f.name,
+          meal_type: apiMealType(meal),
+          calories: num(f.calories),
+        },
+      })
       const mealLabel = t(
         `nosh.log.meal.${meal}`,
         {},
@@ -206,6 +216,7 @@ export function LogFood() {
         // here counts toward Today's water tracker (it matches on food_name).
         food_name: q.key === 'water' ? WATER_LABEL : q.defaultLabel,
       })
+      track({ name: 'food.quick_added', properties: { item: q.key, calories: q.calories } })
       setInfo(
         t(
           'nosh.log.quickAdded',

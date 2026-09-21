@@ -14,8 +14,11 @@ import { Button, usePanelClose, UserMenu as MoleculeUserMenu } from '@molecule/a
  * content dismisses the drawer via `usePanelClose()`.
  */
 export function UserMenu() {
+  // min-h/min-w lift the shared sm ghost trigger to a ~44px tap target —
+  // at its default size the icon button is 26px tall, under any mobile
+  // touch-target minimum.
   return (
-    <MoleculeUserMenu>
+    <MoleculeUserMenu className="min-h-11 min-w-11">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -93,6 +94,15 @@ export function Goals() {
         carbs: next.carbs ?? grams.carbs,
         fat: next.fat ?? grams.fat,
         fiber: next.fiber ?? grams.fiber,
+      })
+      track({
+        name: 'calorie.goal_updated',
+        properties: {
+          calories: next.calories ?? calories,
+          protein: next.protein ?? grams.protein,
+          carbs: next.carbs ?? grams.carbs,
+          fat: next.fat ?? grams.fat,
+        },
       })
       setInfo(t('nosh.goals.saved', {}, { defaultValue: 'Goals saved.' }))
     } catch (e: unknown) {

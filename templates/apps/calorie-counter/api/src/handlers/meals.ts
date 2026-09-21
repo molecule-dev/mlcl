@@ -17,6 +17,7 @@ import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { count, create, deleteMany, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { CalorieCounterLimits } from '../tiers.js'
@@ -109,9 +110,11 @@ router.get(
     let meal: MealRow | null = null
     try {
       meal = await findById<MealRow>('saved_meals', id)
-    } catch (_error) {
+    } catch (error) {
       // Malformed ids (e.g. non-UUID values) should surface as not-found
-      // rather than 5xx so callers can render a friendly empty state.
+      // rather than 5xx so callers can render a friendly empty state — but
+      // genuine datastore failures must still reach the logs.
+      logger.error('meal.lookup_failed', error)
     }
     if (!meal || meal.user_id !== userId) {
       res.status(404).json({
@@ -125,8 +128,10 @@ router.get(
         where: [{ field: 'meal_id', operator: '=', value: id }],
         orderBy: [{ field: 'sort_order', direction: 'asc' }],
       })
-    } catch (_error) {
-      // Items fallback to empty array; meal still returns successfully without items
+    } catch (error) {
+      // Items fallback to empty array; meal still returns successfully without
+      // items — but the lookup failure is logged for observability.
+      logger.error('meal.items_lookup_failed', error)
     }
     res.json({ ...meal, items })
   },

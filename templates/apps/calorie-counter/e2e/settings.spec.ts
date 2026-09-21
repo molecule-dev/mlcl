@@ -81,6 +81,13 @@ test.describe('/settings (Settings)', () => {
   test('Confirm delete with password permanently deletes the account (DELETE /users/:id) and signs out', async ({
     page,
   }) => {
+    // After the account is gone the session is already destroyed server-side,
+    // so the client's best-effort logout POST correctly answers 401 — expected
+    // browser noise, not a page bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const { password } = await signup(page)
     await completeOnboarding(page)
     await page.goto(APP_BASE + '/settings')

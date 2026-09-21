@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -91,6 +92,16 @@ export function FoodDetail() {
         protein: num(food.protein),
         carbs: num(food.carbs),
         fat: num(food.fat),
+      })
+      track({
+        name: 'food.logged',
+        properties: {
+          food_id: food.id,
+          food_name: food.name,
+          meal_type: mealKey === 'snacks' ? 'snack' : mealKey,
+          calories: num(food.calories),
+          servings,
+        },
       })
       const mealLabel = t(
         `nosh.foodDetail.meal.${mealKey}`,

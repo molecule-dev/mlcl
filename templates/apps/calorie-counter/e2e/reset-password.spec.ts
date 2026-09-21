@@ -28,6 +28,12 @@ test.describe('/reset-password (ResetPassword)', () => {
   })
 
   test('Submit with token POSTs /api/users/reset-password', async ({ page }) => {
+    // The token is deliberately bogus, so the API rejects with 401 and the
+    // browser logs the failed resource — expected, not a page bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=does-not-exist-xyz')
     await page.locator('input[name=password]').fill('AnyPa55word!')
     await page.locator('input[name=confirmPassword]').fill('AnyPa55word!')
