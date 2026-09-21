@@ -1,4 +1,5 @@
-import { type Plugin } from 'vite'
+import type { Plugin } from 'vite'
+
 import { molE2EPreviewPlugin } from '@molecule/app-e2e-preview/vite'
 
 /**
@@ -30,28 +31,63 @@ import { molE2EPreviewPlugin } from '@molecule/app-e2e-preview/vite'
  * live preview keeps working. Dependency-free — a pure regex over the HTML
  * string, so it carries no extra build dependency.
  *
- * It also strips the two sibling preview bridges injected at scaffold/boot time
- * (the `mol:nav-bridge` navigation reporter and the `mol:snapshot-bridge`
- * snapshot/liveness sender). Those carry their own sentinel comments rather than
- * the start/end delimiters and also post to `window.parent` with a wildcard
- * origin — `molecule:navigate` leaks the live in-app URL and `molecule:snapshot`
- * a JPEG of the rendered (possibly authenticated) page — so they must not ship in
- * production either. Each is a single inline `<script>` immediately after its
- * sentinel, so we match the sentinel through its first `</script>`.
+ * It also strips every SIBLING preview bridge injected at scaffold/boot time —
+ * the `mol:nav-bridge` navigation reporter, the `mol:snapshot-bridge`
+ * snapshot/liveness sender, the `mol:runtime-bridge` heartbeat/runtime-error
+ * reporter and the `mol:interact-bridge` remote-control receiver. Each posts to
+ * `window.parent` with a wildcard origin: `molecule:navigate` leaks the live
+ * in-app URL, `molecule:snapshot` a JPEG of the rendered (possibly
+ * authenticated) page, `molecule:runtime-error` the app's own stack traces, and
+ * the interact bridge accepts commands that click and fill the page. None of it
+ * may ship in production.
+ *
+ * The strip is written against the NAMING CONVENTION, not a list of names. Every
+ * bridge is `mol:<name>-bridge` (or `mol:<name>-shim`), injected either as a
+ * `:start`/`:end` delimited region or as a sentinel comment immediately followed
+ * by one inline `<script>`. Matching the convention is the point: a literal list
+ * silently falls behind whatever the platform injects next — which is exactly
+ * how `mol:runtime-bridge` (~5 KB) and `mol:interact-bridge` (~28 KB) shipped in
+ * production builds fleet-wide, still posting diagnostics to any page that
+ * framed them. A new bridge is stripped the day it is named, with no edit here.
+ *
+ * The script form requires the `<script>` to FOLLOW the sentinel directly, so
+ * unrelated molecule markers that are not preview plumbing (`mol:fonts`,
+ * `mol:design-resources`) can never be swallowed.
  */
+
+/** A molecule preview-plumbing sentinel name: `mol:<name>-bridge` / `-shim`. */
+const SENTINEL = String.raw`mol:[a-z0-9]+(?:-[a-z0-9]+)*-(?:bridge|shim)`
+
+/** `<!-- mol:x-bridge:start -->` … `<!-- mol:x-bridge:end -->`, inclusive. */
+const DELIMITED_REGION = new RegExp(
+  String.raw`[ \t]*<!--\s*(${SENTINEL}):start\s*-->[\s\S]*?<!--\s*\1:end\s*-->[ \t]*\n?`,
+  'g',
+)
+
+/** `<!-- mol:x-bridge -->` plus the single inline `<script>` that follows it. */
+const SENTINEL_SCRIPT = new RegExp(
+  String.raw`[ \t]*<!--\s*${SENTINEL}\s*-->\s*<script\b[^>]*>[\s\S]*?<\/script>[ \t]*\n?`,
+  'g',
+)
+
+/**
+ * Remove every molecule preview bridge from an HTML document.
+ *
+ * Exported so a build can be asserted on directly (see the test that feeds it a
+ * document carrying every sentinel and requires that none survive).
+ *
+ * @param html - The document to strip.
+ * @returns The document with every bridge region and bridge script removed.
+ */
+export const stripPreviewBridges = (html: string): string =>
+  html.replace(DELIMITED_REGION, '').replace(SENTINEL_SCRIPT, '')
+
 const stripBridgesOnBuild: Plugin = {
   name: 'molecule-strip-preview-bridge',
   apply: 'build',
   transformIndexHtml: {
     order: 'pre',
-    handler: (html: string): string =>
-      html
-        .replace(
-          /[ \t]*<!-- mol:preview-bridge:start -->[\s\S]*?<!-- mol:preview-bridge:end -->\n?/g,
-          '',
-        )
-        .replace(/[ \t]*<!-- mol:nav-bridge -->[\s\S]*?<\/script>\n?/g, '')
-        .replace(/[ \t]*<!-- mol:snapshot-bridge -->[\s\S]*?<\/script>\n?/g, ''),
+    handler: (html: string): string => stripPreviewBridges(html),
   },
 }
 
