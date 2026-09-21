@@ -51,9 +51,9 @@ export function SettingsPage() {
       <SettingsNotificationsSection />
       <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
         <div className={cm.sp('mb', 6)}>
-          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
             {t('footer.language', {}, { defaultValue: 'Language' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {t(
               'common.chooseTheLanguage',
@@ -66,9 +66,9 @@ export function SettingsPage() {
       </section>
       <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
         <div className={cm.sp('mb', 6)}>
-          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+          <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
             {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
-          </h3>
+          </h2>
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {t(
               'common.toggleLightDark',

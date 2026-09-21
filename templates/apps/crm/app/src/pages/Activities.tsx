@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -157,13 +158,17 @@ export function ActivitiesPage() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post<ActivityRecord>('/api/activities', {
+      const created = await http.post<ActivityRecord>('/api/activities', {
         type: draft.type,
         subject: draft.subject.trim(),
         description: draft.description || null,
         contact_id: draft.contact_id || null,
         deal_id: draft.deal_id || null,
         due_date: draft.due_date ? new Date(draft.due_date).toISOString() : null,
+      })
+      track({
+        name: 'activity.created',
+        properties: { activityId: created.data?.id, type: draft.type },
       })
       setDraft({
         type: 'task',
@@ -185,6 +190,8 @@ export function ActivitiesPage() {
   async function handleToggleComplete(a: ActivityRecord) {
     try {
       await http.patch(`/api/activities/${a.id}`, { completed: !a.completed })
+      if (!a.completed)
+        track({ name: 'activity.completed', properties: { activityId: a.id, type: a.type } })
       setActivities((prev) =>
         prev.map((x) => (x.id === a.id ? { ...x, completed: !x.completed } : x)),
       )
@@ -397,7 +404,7 @@ export function ActivitiesPage() {
           onClick={() => setTypeFilter('all')}
           className={cm.cn(
             cm.sp('px', 3),
-            cm.sp('py', 1),
+            cm.sp('py', 2),
             cm.textSize('xs'),
             cm.fontWeight('semibold'),
             'rounded-full',
@@ -417,7 +424,7 @@ export function ActivitiesPage() {
               onClick={() => setTypeFilter(tp)}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
                 'rounded-full',
@@ -434,7 +441,7 @@ export function ActivitiesPage() {
           className={cm.cn(
             cm.flex({ align: 'center' }),
             cm.sp('px', 3),
-            cm.sp('py', 1),
+            cm.sp('py', 2),
             cm.textSize('xs'),
             'gap-2 ml-auto rounded-full bg-surface-container-low text-on-surface-variant cursor-pointer',
           )}
@@ -531,7 +538,7 @@ export function ActivitiesPage() {
                 onClick={() => handleDelete(a.id)}
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
+                  cm.sp('py', 2),
                   cm.textSize('xs'),
                   cm.fontWeight('semibold'),
                   'rounded-lg text-error hover:bg-error-container/30',

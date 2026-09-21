@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -83,7 +84,7 @@ export function CompaniesPage() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post<CompanyRecord>('/api/companies', {
+      const created = await http.post<CompanyRecord>('/api/companies', {
         name: draft.name.trim(),
         domain: draft.domain || null,
         industry: draft.industry || null,
@@ -91,6 +92,7 @@ export function CompaniesPage() {
         phone: draft.phone || null,
         address: draft.address || null,
       })
+      track({ name: 'company.created', properties: { companyId: created.data?.id } })
       setDraft({ name: '', domain: '', industry: '', size: '', phone: '', address: '' })
       setDraftOpen(false)
       await load()
@@ -131,7 +133,7 @@ export function CompaniesPage() {
             {t('companies.totalLabel', {}, { defaultValue: 'companies tracked' })}
           </p>
         </div>
-        <div className={cm.cn(cm.flex(), 'gap-2')}>
+        <div className={cm.cn(cm.flex(), 'gap-2 flex-wrap')}>
           <input
             data-mol-id="companies-search"
             placeholder={t('companies.search', {}, { defaultValue: 'Search…' }) as string}
@@ -141,7 +143,7 @@ export function CompaniesPage() {
               cm.sp('px', 3),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'w-56 rounded-lg border border-outline-variant/30 bg-surface',
+              'w-full sm:w-56 rounded-lg border border-outline-variant/30 bg-surface',
             )}
           />
           <button
@@ -317,7 +319,7 @@ export function CompaniesPage() {
         <div
           data-mol-id="companies-table"
           className={cm.cn(
-            'rounded-xl border border-outline-variant/15 bg-surface-container-lowest overflow-hidden',
+            'rounded-xl border border-outline-variant/15 bg-surface-container-lowest overflow-x-auto',
           )}
         >
           <table className="w-full text-sm">
@@ -369,7 +371,7 @@ export function CompaniesPage() {
                       onClick={() => handleDelete(c.id)}
                       className={cm.cn(
                         cm.sp('px', 3),
-                        cm.sp('py', 1),
+                        cm.sp('py', 2),
                         cm.textSize('xs'),
                         cm.fontWeight('semibold'),
                         'rounded-lg text-error hover:bg-error-container/30',

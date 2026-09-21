@@ -117,9 +117,9 @@ function SettingsProfileForm() {
             />
           </div>
           <div>
-            <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+            <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
               {t('settingsProfileForm.profilePhoto', {}, { defaultValue: 'Profile Photo' })}
-            </h3>
+            </h2>
             <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 3), 'text-on-surface-variant')}>
               {t(
                 'settingsProfileForm.photoHint',

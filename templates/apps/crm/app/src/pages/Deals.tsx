@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -154,12 +156,20 @@ export function DealsPage() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post<DealRecord>('/api/deals', {
+      const created = await http.post<DealRecord>('/api/deals', {
         title: draft.title.trim(),
         value: Number(draft.value) || 0,
         stage: draft.stage,
         probability: Number(draft.probability) || 0,
         company_id: draft.company_id || null,
+      })
+      track({
+        name: 'deal.created',
+        properties: {
+          dealId: created.data?.id,
+          stage: draft.stage,
+          value: Number(draft.value) || 0,
+        },
       })
       setDraft({ title: '', value: '', stage: 'lead', probability: '20', company_id: '' })
       setDraftOpen(false)
@@ -176,6 +186,15 @@ export function DealsPage() {
     if (deal.stage === stage) return
     try {
       await http.patch<DealRecord>(`/api/deals/${deal.id}`, { stage })
+      track({
+        name: 'deal.stage_changed',
+        properties: {
+          dealId: deal.id,
+          fromStage: deal.stage,
+          toStage: stage,
+          value: Number(deal.value || 0),
+        },
+      })
       await load()
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Failed to move deal.'
@@ -187,6 +206,7 @@ export function DealsPage() {
     if (!window.confirm(t('deals.confirmDelete', {}, { defaultValue: 'Delete this deal?' }))) return
     try {
       await http.delete(`/api/deals/${id}`)
+      track({ name: 'deal.deleted', properties: { dealId: id } })
       await load()
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Failed to delete deal.'
@@ -359,7 +379,7 @@ export function DealsPage() {
           onClick={() => setStageFilter('all')}
           className={cm.cn(
             cm.sp('px', 3),
-            cm.sp('py', 1),
+            cm.sp('py', 2),
             cm.textSize('xs'),
             cm.fontWeight('semibold'),
             'rounded-full',
@@ -379,7 +399,7 @@ export function DealsPage() {
               onClick={() => setStageFilter(s)}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
                 'rounded-full',
@@ -444,7 +464,13 @@ export function DealsPage() {
                   className="border-t border-outline-variant/10"
                 >
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}>
-                    {deal.title}
+                    <Link
+                      to={`/deals/${deal.id}`}
+                      className="hover:text-primary hover:underline"
+                      data-mol-id="deals-row-title"
+                    >
+                      {deal.title}
+                    </Link>
                   </td>
                   <td
                     className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}
@@ -459,7 +485,7 @@ export function DealsPage() {
                       onChange={(e) => handleStageChange(deal, e.target.value as Stage)}
                       className={cm.cn(
                         cm.sp('px', 2),
-                        cm.sp('py', 1),
+                        cm.sp('py', 2),
                         cm.textSize('xs'),
                         cm.fontWeight('semibold'),
                         'rounded-full border-0 cursor-pointer',
@@ -483,7 +509,7 @@ export function DealsPage() {
                       onClick={() => handleDelete(deal.id)}
                       className={cm.cn(
                         cm.sp('px', 3),
-                        cm.sp('py', 1),
+                        cm.sp('py', 2),
                         cm.textSize('xs'),
                         cm.fontWeight('semibold'),
                         'rounded-lg text-error hover:bg-error-container/30',

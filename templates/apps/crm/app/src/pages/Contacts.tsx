@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -167,7 +168,11 @@ export function ContactsPage() {
         title: draft.title || null,
         phone: draft.phone || null,
       }
-      await http.post('/api/contacts', payload)
+      const created = await http.post<{ id?: string }>('/api/contacts', payload)
+      track({
+        name: 'contact.created',
+        properties: { contactId: created.data?.id, source: payload.source },
+      })
       setDraft({
         first_name: '',
         last_name: '',
@@ -194,6 +199,7 @@ export function ContactsPage() {
     }
     try {
       await http.delete(`/api/contacts/${id}`)
+      track({ name: 'contact.deleted', properties: { contactId: id } })
       setContacts((prev) => prev.filter((c) => c.id !== id))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete contact')
@@ -219,7 +225,7 @@ export function ContactsPage() {
             )}
           </p>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3')}>
+        <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3 flex-wrap')}>
           <input
             data-mol-id="contacts-search"
             type="search"
@@ -230,7 +236,7 @@ export function ContactsPage() {
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'rounded-xl border border-outline-variant bg-surface-container-low text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary',
+              'w-full sm:w-auto rounded-xl border border-outline-variant bg-surface-container-low text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary',
             )}
           />
           <select
@@ -423,7 +429,10 @@ export function ContactsPage() {
       <div
         data-mol-id="contacts-table-card"
         className={cm.cn(
-          'rounded-2xl bg-surface-container-low ring-1 ring-outline-variant overflow-hidden',
+          // `relative` gives the sr-only header label (position:absolute) this
+          // card as its containing block — uncontained, it escapes the
+          // overflow-x scroll and widens the whole document on mobile.
+          'relative rounded-2xl bg-surface-container-low ring-1 ring-outline-variant overflow-x-auto',
         )}
       >
         <table className={cm.cn(cm.w('full'), 'text-left border-collapse')}>
@@ -659,8 +668,8 @@ export function ContactsPage() {
                         aria-label={t('contacts.delete', {}, { defaultValue: 'Delete contact' })}
                         onClick={() => void handleDelete(c.id)}
                         className={cm.cn(
-                          cm.sp('px', 2),
-                          cm.sp('py', 1),
+                          cm.sp('px', 3),
+                          cm.sp('py', 2),
                           cm.textSize('xs'),
                           'rounded-md text-on-surface-variant hover:bg-error-container hover:text-on-error-container',
                         )}

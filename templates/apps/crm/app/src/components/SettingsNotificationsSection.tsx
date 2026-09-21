@@ -14,13 +14,13 @@ function SettingsNotificationsSection() {
   return (
     <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
       <div className={cm.sp('mb', 6)}>
-        <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+        <h2 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
           {t(
             'settingsNotifications.sectionTitle',
             {},
             { defaultValue: 'Notification Preferences' },
           )}
-        </h3>
+        </h2>
         <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
           {t(
             'settingsNotifications.sectionDescription',

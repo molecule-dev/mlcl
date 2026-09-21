@@ -162,7 +162,10 @@ export function CrmLayout() {
             </span>
           </div>
           <div>
-            <h1
+            {/* Brand name is intentionally NOT a heading — each page owns the
+                single <h1>; a second one here broke heading order on every route. */}
+            <div
+              aria-hidden="false"
               style={{
                 fontSize: '20px',
                 fontWeight: 900,
@@ -173,7 +176,7 @@ export function CrmLayout() {
               }}
             >
               {APP_NAME}
-            </h1>
+            </div>
             <span
               // outline (#94a3b8) was 2.56:1 on white (axe serious) — use the muted-text token
               style={{
@@ -436,19 +439,9 @@ export function CrmLayout() {
               }}
             >
               <span className={cm.fv5b245ffa}>notifications</span>
-              <span
-                style={{
-                  position: 'absolute',
-                  top: '8px',
-                  right: '10px',
-                  width: '8px',
-                  height: '8px',
-                  backgroundColor: 'var(--color-error)',
-                  borderRadius: '50%',
-                  // ring matches the header background so the dot reads as a cutout in both themes
-                  border: '2px solid var(--mol-color-background-secondary)',
-                }}
-              />
+              {/* No unread badge: the notifications feed is a static
+                  "all caught up" page — a hardcoded dot would advertise
+                  unread state that never exists. */}
             </button>
 
             <button

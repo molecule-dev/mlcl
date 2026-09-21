@@ -29,6 +29,12 @@ test.describe('crm: auth', () => {
   })
 
   test('login with bad credentials surfaces an error and stays on /login', async ({ page }) => {
+    // The 403 from /api/users/log-in on bad credentials is the API working
+    // correctly — allow the expected console noise before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email, input[type="email"]').first().fill(uniqueEmail('bad'))
     await page.locator('#password, input[type="password"]').first().fill('wrong-password')
@@ -36,7 +42,7 @@ test.describe('crm: auth', () => {
       .getByRole('button', { name: /sign\s*in|log\s*in/i })
       .first()
       .click()
-    await page.waitForTimeout(750)
+    await expect(page.locator('[data-mol-id="login-error"]')).toBeVisible()
     await expect(page).toHaveURL(/\/login/)
   })
 
