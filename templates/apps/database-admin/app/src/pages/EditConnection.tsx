@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -63,6 +64,7 @@ export function EditConnection() {
       await apiPut(http, `/api/connections/${connectionId}`, payload)
       setSaving(false)
       setSaved(true)
+      track({ name: 'connection.updated', properties: { connection_id: connectionId } })
       // Re-fetch so the panel reflects what's actually stored.
       try {
         const fresh = await apiGet<ConnectionRow>(http, `/api/connections/${connectionId}`)
@@ -87,6 +89,7 @@ export function EditConnection() {
     setDeleting(true)
     try {
       await apiDelete(http, `/api/connections/${connectionId}`)
+      track({ name: 'connection.deleted', properties: { connection_id: connectionId } })
       navigate('/connections')
     } catch (e) {
       setError((e as Error).message ?? 'delete failed')

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -57,6 +58,7 @@ export function SavedQueryDetail() {
     try {
       await apiPut(http, `/api/queries/saved/${queryId}`, { name, sql })
       setSavedOk(true)
+      track({ name: 'saved_query.updated', properties: { saved_query_id: queryId } })
     } catch (e) {
       setError((e as Error).message ?? 'save failed')
     }
@@ -78,13 +80,22 @@ export function SavedQueryDetail() {
         sql,
       })
       setResult(res)
+      track({
+        name: 'query.executed',
+        properties: {
+          connection_id: row.connection_id,
+          saved_query_id: queryId,
+          row_count: res?.row_count ?? 0,
+          duration_ms: res?.duration_ms ?? 0,
+        },
+      })
     } catch (e) {
       const err = e as { response?: { data?: { error?: string } }; message?: string }
       setRunError(err?.response?.data?.error ?? err?.message ?? 'execution failed')
     } finally {
       setRunning(false)
     }
-  }, [http, row, sql, t])
+  }, [http, queryId, row, sql, t])
 
   const onDelete = useCallback(async () => {
     if (!queryId) return
@@ -94,6 +105,7 @@ export function SavedQueryDetail() {
       return
     try {
       await apiDelete(http, `/api/queries/saved/${queryId}`)
+      track({ name: 'saved_query.deleted', properties: { saved_query_id: queryId } })
       navigate('/history')
     } catch (e) {
       setError((e as Error).message ?? 'delete failed')

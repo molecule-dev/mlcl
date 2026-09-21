@@ -114,14 +114,17 @@ export function SchemaExplorer() {
             {t('schemaExplorer.title', {}, { defaultValue: 'Schema explorer' })}
           </h1>
           {connectionId && (
-            <Link to={`/query/${connectionId}`} className={cm.cn('text-xs underline')}>
+            <Link
+              to={`/query/${connectionId}`}
+              className={cm.cn('rounded px-2 py-2 text-xs underline')}
+            >
               {t('queries.editorTitle', {}, { defaultValue: 'Query editor' })}
             </Link>
           )}
         </header>
 
-        <div className={cm.cn('grid grid-cols-12 gap-4')}>
-          <aside className={cm.cn('col-span-3 rounded border border-border bg-surface p-3')}>
+        <div className={cm.cn('grid grid-cols-1 gap-4 md:grid-cols-12')}>
+          <aside className={cm.cn('rounded border border-border bg-surface p-3 md:col-span-3')}>
             <h2 className={cm.cn('text-xs uppercase text-muted mb-2')}>
               {t('schemaExplorer.tables', {}, { defaultValue: 'Tables' })}
             </h2>
@@ -143,7 +146,7 @@ export function SchemaExplorer() {
                         data-table-name={tbl.name}
                         onClick={() => onPick(tbl.name)}
                         className={cm.cn(
-                          'w-full rounded px-2 py-1 text-left',
+                          'w-full rounded px-2 py-2 text-left',
                           isActive ? 'bg-primary/20 text-primary' : 'hover:bg-bg',
                         )}
                       >
@@ -156,7 +159,7 @@ export function SchemaExplorer() {
             )}
           </aside>
 
-          <section className={cm.cn('col-span-9 space-y-3')}>
+          <section className={cm.cn('min-w-0 space-y-3 md:col-span-9')}>
             {!active ? (
               <div
                 className={cm.cn('rounded border border-border bg-surface p-6 text-sm text-muted')}
@@ -169,14 +172,14 @@ export function SchemaExplorer() {
               </div>
             ) : (
               <>
-                <div className={cm.cn('flex items-center justify-between')}>
-                  <div className={cm.cn('flex items-center gap-2')}>
+                <div className={cm.cn('flex flex-wrap items-center justify-between gap-2')}>
+                  <div className={cm.cn('flex flex-wrap items-center gap-2')}>
                     <button
                       type="button"
                       data-mol-id="se-tab-columns"
                       onClick={() => setTab('columns')}
                       className={cm.cn(
-                        'rounded border px-3 py-1 text-xs',
+                        'rounded border px-3 py-1.5 text-xs',
                         tab === 'columns' ? 'border-primary text-primary' : 'border-border',
                       )}
                     >
@@ -187,7 +190,7 @@ export function SchemaExplorer() {
                       data-mol-id="se-tab-indexes"
                       onClick={() => setTab('indexes')}
                       className={cm.cn(
-                        'rounded border px-3 py-1 text-xs',
+                        'rounded border px-3 py-1.5 text-xs',
                         tab === 'indexes' ? 'border-primary text-primary' : 'border-border',
                       )}
                     >
@@ -198,7 +201,7 @@ export function SchemaExplorer() {
                       data-mol-id="se-tab-fkeys"
                       onClick={() => setTab('fkeys')}
                       className={cm.cn(
-                        'rounded border px-3 py-1 text-xs',
+                        'rounded border px-3 py-1.5 text-xs',
                         tab === 'fkeys' ? 'border-primary text-primary' : 'border-border',
                       )}
                     >
@@ -210,7 +213,7 @@ export function SchemaExplorer() {
                     data-mol-id="se-open-table"
                     onClick={onOpenTable}
                     className={cm.cn(
-                      'rounded bg-primary px-3 py-1 text-xs font-bold text-on-primary',
+                      'rounded bg-primary px-3 py-1.5 text-xs font-bold text-on-primary',
                     )}
                   >
                     {t('schemaExplorer.browseRows', {}, { defaultValue: 'Browse rows' })}
@@ -231,59 +234,61 @@ export function SchemaExplorer() {
                         {t('schemaExplorer.noColumns', {}, { defaultValue: 'No columns.' })}
                       </div>
                     ) : (
-                      <table className={cm.cn('w-full text-xs font-mono')}>
-                        <thead>
-                          <tr>
-                            <th
-                              className={cm.cn(
-                                'text-left text-muted px-2 py-1 border-b border-border',
-                              )}
-                            >
-                              {t('schemaExplorer.colName', {}, { defaultValue: 'name' })}
-                            </th>
-                            <th
-                              className={cm.cn(
-                                'text-left text-muted px-2 py-1 border-b border-border',
-                              )}
-                            >
-                              {t('schemaExplorer.colType', {}, { defaultValue: 'type' })}
-                            </th>
-                            <th
-                              className={cm.cn(
-                                'text-left text-muted px-2 py-1 border-b border-border',
-                              )}
-                            >
-                              {t('schemaExplorer.colNullable', {}, { defaultValue: 'nullable' })}
-                            </th>
-                            <th
-                              className={cm.cn(
-                                'text-left text-muted px-2 py-1 border-b border-border',
-                              )}
-                            >
-                              {t('schemaExplorer.colDefault', {}, { defaultValue: 'default' })}
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {columns.map((c) => (
-                            <tr key={c.name} data-mol-id={`se-column-${c.name}`}>
-                              <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
-                                {c.name}
-                                {c.primaryKey ? ' 🔑' : ''}
-                              </td>
-                              <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
-                                {c.dataType}
-                              </td>
-                              <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
-                                {c.nullable ? 'YES' : 'NO'}
-                              </td>
-                              <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
-                                {c.defaultValue ?? ''}
-                              </td>
+                      <div className={cm.cn('overflow-x-auto')}>
+                        <table className={cm.cn('w-full text-xs font-mono')}>
+                          <thead>
+                            <tr>
+                              <th
+                                className={cm.cn(
+                                  'text-left text-muted px-2 py-1 border-b border-border',
+                                )}
+                              >
+                                {t('schemaExplorer.colName', {}, { defaultValue: 'name' })}
+                              </th>
+                              <th
+                                className={cm.cn(
+                                  'text-left text-muted px-2 py-1 border-b border-border',
+                                )}
+                              >
+                                {t('schemaExplorer.colType', {}, { defaultValue: 'type' })}
+                              </th>
+                              <th
+                                className={cm.cn(
+                                  'text-left text-muted px-2 py-1 border-b border-border',
+                                )}
+                              >
+                                {t('schemaExplorer.colNullable', {}, { defaultValue: 'nullable' })}
+                              </th>
+                              <th
+                                className={cm.cn(
+                                  'text-left text-muted px-2 py-1 border-b border-border',
+                                )}
+                              >
+                                {t('schemaExplorer.colDefault', {}, { defaultValue: 'default' })}
+                              </th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {columns.map((c) => (
+                              <tr key={c.name} data-mol-id={`se-column-${c.name}`}>
+                                <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
+                                  {c.name}
+                                  {c.primaryKey ? ' 🔑' : ''}
+                                </td>
+                                <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
+                                  {c.dataType}
+                                </td>
+                                <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
+                                  {c.nullable ? 'YES' : 'NO'}
+                                </td>
+                                <td className={cm.cn('px-2 py-1 border-b border-border/50')}>
+                                  {c.defaultValue ?? ''}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     )}
                   </div>
                 )}

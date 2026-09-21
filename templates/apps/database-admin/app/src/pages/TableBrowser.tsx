@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -30,11 +31,27 @@ export function TableBrowser() {
     if (!connectionId || !table) return
     setError(null)
     setData(null)
+    let viewed = false
     void apiGet<DataResponse>(
       http,
       `/api/schema/tables/${table}/data?connection_id=${connectionId}&limit=${limit}&offset=${offset}`,
     )
-      .then((res) => setData(res))
+      .then((res) => {
+        setData(res)
+        // Fire once per loaded page of rows, never on unmount races.
+        if (!viewed) {
+          viewed = true
+          track({
+            name: 'table.viewed',
+            properties: {
+              connection_id: connectionId,
+              table,
+              row_count: res?.row_count ?? 0,
+              offset,
+            },
+          })
+        }
+      })
       .catch((e: Error) => setError(e.message ?? 'load failed'))
   }, [connectionId, http, limit, offset, table])
 
@@ -64,12 +81,18 @@ export function TableBrowser() {
           </div>
           <div className={cm.cn('flex items-center gap-3')}>
             {connectionId && (
-              <Link to={`/schema/${connectionId}`} className={cm.cn('text-xs underline')}>
+              <Link
+                to={`/schema/${connectionId}`}
+                className={cm.cn('rounded px-2 py-2 text-xs underline')}
+              >
                 {t('nav.schema', {}, { defaultValue: 'Schema' })}
               </Link>
             )}
             {connectionId && (
-              <Link to={`/query/${connectionId}`} className={cm.cn('text-xs underline')}>
+              <Link
+                to={`/query/${connectionId}`}
+                className={cm.cn('rounded px-2 py-2 text-xs underline')}
+              >
                 {t('queries.editorTitle', {}, { defaultValue: 'Query editor' })}
               </Link>
             )}
@@ -88,7 +111,27 @@ export function TableBrowser() {
           </div>
         )}
 
-        {data && (
+        {!error && !data && (
+          <div
+            data-mol-id="tb-loading"
+            className={cm.cn('rounded border border-border bg-surface p-6 text-sm text-muted')}
+          >
+            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+          </div>
+        )}
+
+        {data && data.rows.length === 0 && (
+          <div
+            data-mol-id="tb-empty"
+            className={cm.cn(
+              'rounded border border-border bg-surface p-6 text-center text-sm text-muted',
+            )}
+          >
+            {t('tableBrowser.noRows', {}, { defaultValue: 'This table has no rows yet.' })}
+          </div>
+        )}
+
+        {data && data.rows.length > 0 && (
           <>
             <div className={cm.cn('flex items-center justify-between mb-2')}>
               <div data-mol-id="tb-total" className={cm.cn('text-xs text-muted')}>
@@ -112,7 +155,7 @@ export function TableBrowser() {
                     })
                   }
                   className={cm.cn(
-                    'rounded border border-border px-2 py-1 text-xs disabled:opacity-50',
+                    'rounded border border-border px-3 py-1.5 text-xs disabled:opacity-50',
                   )}
                 >
                   {t('pagination.prev', {}, { defaultValue: 'Prev' })}
@@ -125,7 +168,7 @@ export function TableBrowser() {
                     setSearchParams({ limit: String(limit), offset: String(offset + limit) })
                   }
                   className={cm.cn(
-                    'rounded border border-border px-2 py-1 text-xs disabled:opacity-50',
+                    'rounded border border-border px-3 py-1.5 text-xs disabled:opacity-50',
                   )}
                 >
                   {t('pagination.next', {}, { defaultValue: 'Next' })}

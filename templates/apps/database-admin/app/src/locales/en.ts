@@ -102,6 +102,13 @@ export default {
     title: 'Table browser',
     rowCount: '{{count}} rows',
     page: 'Page {{page}} of {{total}}',
+    noRows: 'This table has no rows yet.',
+  },
+  mobileNav: {
+    openMenu: 'Open navigation menu',
+    closeMenu: 'Close navigation menu',
+    mainNavigation: 'Main navigation',
+    search: 'Search…',
   },
   monitoring: {
     title: 'Monitoring',

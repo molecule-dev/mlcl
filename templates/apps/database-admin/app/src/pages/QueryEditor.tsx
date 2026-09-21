@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -27,6 +28,7 @@ export function QueryEditor() {
   const { connectionId } = useParams<{ connectionId: string }>()
   const [tables, setTables] = useState<TableRow[]>([])
   const [tablesError, setTablesError] = useState<string | null>(null)
+  const [tablesLoading, setTablesLoading] = useState(true)
   const [sql, setSql] = useState('select 1 as ping')
   const [result, setResult] = useState<ExecuteResult | null>(null)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
@@ -38,9 +40,16 @@ export function QueryEditor() {
   useEffect(() => {
     if (!connectionId) return
     setTablesError(null)
+    setTablesLoading(true)
     void apiGet<TableRow[]>(http, `/api/schema/tables?connection_id=${connectionId}`)
-      .then((rows) => setTables(Array.isArray(rows) ? rows : []))
-      .catch((e: Error) => setTablesError(e.message ?? 'load failed'))
+      .then((rows) => {
+        setTables(Array.isArray(rows) ? rows : [])
+        setTablesLoading(false)
+      })
+      .catch((e: Error) => {
+        setTablesError(e.message ?? 'load failed')
+        setTablesLoading(false)
+      })
   }, [connectionId, http])
 
   const runQuery = useCallback(async () => {
@@ -54,6 +63,14 @@ export function QueryEditor() {
         sql,
       })
       setResult(res)
+      track({
+        name: 'query.executed',
+        properties: {
+          connection_id: connectionId,
+          row_count: res?.row_count ?? 0,
+          duration_ms: res?.duration_ms ?? 0,
+        },
+      })
     } catch (e) {
       const err = e as { response?: { data?: { error?: string } }; message?: string }
       setErrorMsg(err?.response?.data?.error ?? err?.message ?? 'execution failed')
@@ -67,12 +84,16 @@ export function QueryEditor() {
     setSaveOk(false)
     setSaving(true)
     try {
-      await apiPost(http, '/api/queries/saved', {
+      const saved = await apiPost<{ id?: string }>(http, '/api/queries/saved', {
         connection_id: connectionId,
         name: saveName.trim(),
         sql,
       })
       setSaveOk(true)
+      track({
+        name: 'query.saved',
+        properties: { connection_id: connectionId, saved_query_id: saved?.id },
+      })
     } catch (e) {
       setErrorMsg((e as Error).message ?? 'save failed')
     } finally {
@@ -92,19 +113,26 @@ export function QueryEditor() {
             {t('queryEditor.title', {}, { defaultValue: 'Query editor' })}
           </h1>
           {connectionId && (
-            <Link to={`/schema/${connectionId}`} className={cm.cn('text-xs underline')}>
+            <Link
+              to={`/schema/${connectionId}`}
+              className={cm.cn('rounded px-2 py-2 text-xs underline')}
+            >
               {t('queryEditor.openSchema', {}, { defaultValue: 'Schema' })}
             </Link>
           )}
         </header>
 
-        <div className={cm.cn('grid grid-cols-12 gap-4')}>
-          <aside className={cm.cn('col-span-3 rounded border border-border bg-surface p-3')}>
+        <div className={cm.cn('grid grid-cols-1 gap-4 md:grid-cols-12')}>
+          <aside className={cm.cn('rounded border border-border bg-surface p-3 md:col-span-3')}>
             <h2 className={cm.cn('text-xs uppercase text-muted mb-2')}>
               {t('queryEditor.tables', {}, { defaultValue: 'Tables' })}
             </h2>
             {tablesError ? (
               <div className={cm.cn('text-xs text-error')}>{tablesError}</div>
+            ) : tablesLoading ? (
+              <div className={cm.cn('text-xs text-muted')}>
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+              </div>
             ) : tables.length === 0 ? (
               <div className={cm.cn('text-xs text-muted')}>
                 {t('queryEditor.noTables', {}, { defaultValue: 'No tables' })}
@@ -121,7 +149,7 @@ export function QueryEditor() {
                           (s) => `${s.trim() ? s + '\n' : ''}select * from ${tbl.name} limit 100`,
                         )
                       }
-                      className={cm.cn('w-full rounded px-2 py-1 text-left hover:bg-bg')}
+                      className={cm.cn('w-full rounded px-2 py-2 text-left hover:bg-bg')}
                     >
                       {tbl.name}
                     </button>
@@ -131,11 +159,12 @@ export function QueryEditor() {
             )}
           </aside>
 
-          <section className={cm.cn('col-span-9 space-y-3')}>
+          <section className={cm.cn('min-w-0 space-y-3 md:col-span-9')}>
             <textarea
               data-mol-id="qe-textarea"
               value={sql}
               onChange={(e) => setSql(e.target.value)}
+              spellCheck={false}
               className={cm.cn(
                 'h-48 w-full rounded border border-border bg-bg p-3 font-mono text-sm text-text focus:border-primary focus:outline-none',
               )}
@@ -148,7 +177,9 @@ export function QueryEditor() {
                 data-mol-id="qe-run"
                 onClick={runQuery}
                 disabled={running}
-                className={cm.cn('rounded bg-primary px-3 py-2 text-sm font-bold text-on-primary')}
+                className={cm.cn(
+                  'rounded bg-primary px-4 py-2.5 text-sm font-bold text-on-primary disabled:opacity-60',
+                )}
               >
                 {running
                   ? t('common.runningEllipsis', {}, { defaultValue: 'Running…' })
@@ -161,7 +192,7 @@ export function QueryEditor() {
                 onChange={(e) => setSaveName(e.target.value)}
                 placeholder={t('queryEditor.savePlaceholder', {}, { defaultValue: 'Snippet name' })}
                 className={cm.cn(
-                  'h-9 w-64 rounded border border-border bg-bg px-3 font-mono text-sm text-text focus:border-primary focus:outline-none',
+                  'h-10 w-full min-w-0 rounded border border-border bg-bg px-3 font-mono text-sm text-text focus:border-primary focus:outline-none sm:w-64',
                 )}
               />
               <button
@@ -169,7 +200,9 @@ export function QueryEditor() {
                 data-mol-id="qe-save-button"
                 onClick={saveSnippet}
                 disabled={saving || !saveName.trim()}
-                className={cm.cn('rounded border border-border px-3 py-2 text-sm')}
+                className={cm.cn(
+                  'rounded border border-border px-4 py-2.5 text-sm disabled:opacity-60',
+                )}
               >
                 {saving
                   ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })

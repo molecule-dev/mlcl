@@ -123,7 +123,7 @@ export function Settings() {
               {t('settings.subtitle', {}, { defaultValue: 'Manage your account and plan.' })}
             </p>
           </div>
-          <Link to="/pricing" className={cm.cn('text-xs underline')}>
+          <Link to="/pricing" className={cm.cn('rounded px-2 py-2 text-xs underline')}>
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
         </header>

@@ -57,13 +57,13 @@ export function QueryHistory() {
           </h1>
         </header>
 
-        <div className={cm.cn('flex items-center gap-2')}>
+        <div className={cm.cn('flex flex-wrap items-center gap-2')}>
           <button
             type="button"
             data-mol-id="qh-tab-recent"
             onClick={() => setTab('recent')}
             className={cm.cn(
-              'rounded border px-3 py-1 text-xs',
+              'rounded border px-3 py-1.5 text-xs',
               tab === 'recent' ? 'border-primary text-primary' : 'border-border',
             )}
           >
@@ -74,7 +74,7 @@ export function QueryHistory() {
             data-mol-id="qh-tab-saved"
             onClick={() => setTab('saved')}
             className={cm.cn(
-              'rounded border px-3 py-1 text-xs',
+              'rounded border px-3 py-1.5 text-xs',
               tab === 'saved' ? 'border-primary text-primary' : 'border-border',
             )}
           >
@@ -104,7 +104,11 @@ export function QueryHistory() {
                   data-mol-id={`qh-recent-${row.id}`}
                   className={cm.cn('rounded border border-border bg-surface p-3 font-mono text-xs')}
                 >
-                  <div className={cm.cn('flex items-center justify-between text-muted')}>
+                  <div
+                    className={cm.cn(
+                      'flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-muted',
+                    )}
+                  >
                     <span>{new Date(row.created_at).toLocaleString()}</span>
                     <span>
                       {row.status} · {row.row_count} rows · {row.duration_ms}ms

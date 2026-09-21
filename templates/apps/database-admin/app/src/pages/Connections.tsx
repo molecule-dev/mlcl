@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -48,10 +49,16 @@ export function Connections() {
       setProbeStatus((s) => ({ ...s, [id]: 'pending' }))
       try {
         const res = await apiPost<{ success: boolean }>(http, `/api/connections/${id}/test`, {})
-        setProbeStatus((s) => ({ ...s, [id]: res?.success ? 'ok' : 'fail' }))
+        const ok = res?.success ?? false
+        setProbeStatus((s) => ({ ...s, [id]: ok ? 'ok' : 'fail' }))
+        track({
+          name: 'connection.tested',
+          properties: { connection_id: id, status: ok ? 'ok' : 'fail' },
+        })
       } catch (_error) {
         // probe failure is already reflected via setProbeStatus('fail') above
         setProbeStatus((s) => ({ ...s, [id]: 'fail' }))
+        track({ name: 'connection.tested', properties: { connection_id: id, status: 'fail' } })
       }
     },
     [http],
@@ -67,6 +74,7 @@ export function Connections() {
         return
       try {
         await apiDelete(http, `/api/connections/${id}`)
+        track({ name: 'connection.deleted', properties: { connection_id: id } })
       } catch (_error) {
         /* ignore — refetch will reflect actual state */
       }
@@ -151,28 +159,28 @@ export function Connections() {
                     type="button"
                     data-mol-id={`connection-test-${c.id}`}
                     onClick={() => onTest(c.id)}
-                    className={cm.cn('rounded border border-border px-2 py-1 text-xs')}
+                    className={cm.cn('rounded border border-border px-3 py-1.5 text-xs')}
                   >
                     {t('connections.test', {}, { defaultValue: 'Test' })}
                   </button>
                   <Link
                     to={`/query/${c.id}`}
                     data-mol-id={`connection-open-${c.id}`}
-                    className={cm.cn('rounded border border-border px-2 py-1 text-xs')}
+                    className={cm.cn('rounded border border-border px-3 py-1.5 text-xs')}
                   >
                     {t('common.open', {}, { defaultValue: 'Open' })}
                   </Link>
                   <Link
                     to={`/schema/${c.id}`}
                     data-mol-id={`connection-schema-${c.id}`}
-                    className={cm.cn('rounded border border-border px-2 py-1 text-xs')}
+                    className={cm.cn('rounded border border-border px-3 py-1.5 text-xs')}
                   >
                     {t('connections.schema', {}, { defaultValue: 'Schema' })}
                   </Link>
                   <Link
                     to={`/connections/${c.id}/edit`}
                     data-mol-id={`connection-edit-${c.id}`}
-                    className={cm.cn('rounded border border-border px-2 py-1 text-xs')}
+                    className={cm.cn('rounded border border-border px-3 py-1.5 text-xs')}
                   >
                     {t('common.edit', {}, { defaultValue: 'Edit' })}
                   </Link>
@@ -180,7 +188,9 @@ export function Connections() {
                     type="button"
                     data-mol-id={`connection-delete-${c.id}`}
                     onClick={() => onDelete(c.id)}
-                    className={cm.cn('rounded border border-error/40 px-2 py-1 text-xs text-error')}
+                    className={cm.cn(
+                      'rounded border border-error/40 px-3 py-1.5 text-xs text-error',
+                    )}
                   >
                     {t('common.delete', {}, { defaultValue: 'Delete' })}
                   </button>

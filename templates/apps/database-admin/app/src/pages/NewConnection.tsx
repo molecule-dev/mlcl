@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,10 @@ export function NewConnection() {
     try {
       const res = await apiPost<{ id: string }>(http, '/api/connections', form)
       if (!res?.id) throw new Error(t('newConnection.noId', {}, { defaultValue: 'No id returned' }))
+      track({
+        name: 'connection.created',
+        properties: { connection_id: res.id, driver: form.driver },
+      })
       navigate(`/query/${res.id}`)
     } catch (e) {
       setSaveError((e as Error).message ?? 'save failed')
@@ -126,7 +131,7 @@ export function NewConnection() {
           <button
             type="button"
             onClick={() => navigate('/connections')}
-            className={cm.cn('rounded border border-border px-3 py-1 text-xs')}
+            className={cm.cn('rounded border border-border px-3 py-1.5 text-xs')}
           >
             {t('common.back', {}, { defaultValue: 'Back' })}
           </button>

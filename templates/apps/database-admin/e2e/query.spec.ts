@@ -29,6 +29,13 @@ test.describe('Query editor', () => {
   })
 
   test('reports the real Postgres error for a bogus query', async ({ page }) => {
+    // The bogus query legitimately 400s from /api/queries/execute — that IS the
+    // behavior under test (the inline qe-error banner). Allow the expected
+    // console resource error before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 400',
+    })
     await signup(page)
     const token = await getAccessToken(page)
     const { id } = await createDemoConnection(token, 'Demo Errors')

@@ -13,6 +13,7 @@ import { findById } from '@molecule/api-database'
 import { connectRemote, type RemoteDb } from '@molecule/api-database-remote'
 import { decrypt } from '@molecule/api-encryption'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -85,6 +86,7 @@ router.get('/tables', validateQuery(connectionQuery), async (req: Request, res: 
       })),
     )
   } catch (error) {
+    logger.error('schema.tables.list', error)
     const message = error instanceof Error ? error.message : t('errors.internalServer')
     res.status(500).json({ error: message })
   } finally {
@@ -107,6 +109,7 @@ router.get(
       const desc = await remote.describeTable(schema, req.params.tableName as string)
       res.json(desc.columns)
     } catch (error) {
+      logger.error('schema.columns.list', error)
       const message = error instanceof Error ? error.message : t('errors.internalServer')
       res.status(500).json({ error: message })
     } finally {
@@ -130,6 +133,7 @@ router.get(
       const desc = await remote.describeTable(schema, req.params.tableName as string)
       res.json(desc.indexes)
     } catch (error) {
+      logger.error('schema.indexes.list', error)
       const message = error instanceof Error ? error.message : t('errors.internalServer')
       res.status(500).json({ error: message })
     } finally {
@@ -153,6 +157,7 @@ router.get(
       const desc = await remote.describeTable(schema, req.params.tableName as string)
       res.json(desc.foreignKeys)
     } catch (error) {
+      logger.error('schema.foreign_keys.list', error)
       const message = error instanceof Error ? error.message : t('errors.internalServer')
       res.status(500).json({ error: message })
     } finally {
@@ -214,6 +219,7 @@ router.get(
         offset: off,
       })
     } catch (error) {
+      logger.error('schema.rows.list', error)
       const message = error instanceof Error ? error.message : t('errors.internalServer')
       res.status(500).json({ error: message })
     } finally {
