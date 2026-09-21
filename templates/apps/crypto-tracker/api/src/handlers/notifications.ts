@@ -26,7 +26,8 @@ router.get(
         limit: limit ?? 100,
       })
       res.json(rows)
-    } catch (_err) {
+    } catch (err) {
+      console.error('[crypto-tracker] notifications.list failed', err)
       res.status(500).json({ error: t('errors.internalServer') })
     }
   },

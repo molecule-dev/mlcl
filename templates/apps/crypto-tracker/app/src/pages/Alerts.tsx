@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -53,6 +54,7 @@ export function Alerts() {
     setAlerts((cur) => cur.filter((a) => a.id !== id))
     try {
       await http.delete(`/api/alerts/${id}`)
+      void track({ name: 'alert.deleted', properties: { alert_id: id } })
     } catch (_error) {
       // optimistic update: restore previous list on failure
       setAlerts(previous)
@@ -65,6 +67,11 @@ export function Alerts() {
     setAlerts((cur) => cur.map((a) => (a.id === id ? { ...a, active: !a.active } : a)))
     try {
       await http.put(`/api/alerts/${id}/toggle`, {})
+      const flipped = previous.find((a) => a.id === id)
+      void track({
+        name: 'alert.toggled',
+        properties: { alert_id: id, active: flipped ? !flipped.active : true },
+      })
     } catch (_error) {
       // optimistic update: restore previous state on failure
       setAlerts(previous)

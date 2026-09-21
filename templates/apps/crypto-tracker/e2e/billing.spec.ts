@@ -83,6 +83,11 @@ test('POST /api/billing/checkout returns a real Stripe Checkout URL for the pro 
 })
 
 test('POST /api/billing/checkout rejects an unknown priceId', async ({ page }) => {
+  // The 400 this test provokes logs a browser console error — expected.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 400',
+  })
   await signup(page)
   const out = await page.evaluate(async () => {
     const r = await fetch('/api/billing/checkout', {

@@ -7,6 +7,8 @@
  * Translated from project-management/StatsRow + helpdesk-ticketing
  * status-badge patterns; the avatar treatment matches CoinSparklineRow.
  */
+import { useState } from 'react'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,6 +66,7 @@ export function AlertConditionCard({
 }) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
   const triggered = !!alert.triggered_at
   const statusBg = triggered
     ? 'bg-error/15 text-error'
@@ -162,9 +165,11 @@ export function AlertConditionCard({
             type="button"
             onClick={() => onToggle(alert.id)}
             className={cm.cn(
+              cm.sp('p', 2),
               cm.textSize('sm'),
               cm.cursorPointer,
-              'text-on-surface-variant hover:text-primary transition-colors',
+              cm.roundedFull,
+              'text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors',
             )}
             data-mol-id="alert-toggle"
             aria-label={
@@ -173,28 +178,69 @@ export function AlertConditionCard({
                 : t('alertConditionCard.resumeAriaLabel', {}, { defaultValue: 'Resume alert' })
             }
           >
-            <span className="material-symbols-outlined">
+            <span className="material-symbols-outlined" aria-hidden="true">
               {alert.active ? 'pause_circle' : 'play_circle'}
             </span>
           </button>
         ) : null}
         {onDelete ? (
-          <button
-            type="button"
-            onClick={() => onDelete(alert.id)}
-            className={cm.cn(
-              cm.textSize('sm'),
-              cm.cursorPointer,
-              'text-on-surface-variant hover:text-error transition-colors',
-            )}
-            aria-label={t(
-              'alertConditionCard.deleteAriaLabel',
-              {},
-              { defaultValue: 'Delete alert' },
-            )}
-          >
-            <span className="material-symbols-outlined">delete_outline</span>
-          </button>
+          confirmingDelete ? (
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+              <button
+                type="button"
+                onClick={() => onDelete(alert.id)}
+                data-mol-id="alert-delete-confirm"
+                className={cm.cn(
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  cm.cursorPointer,
+                  cm.roundedFull,
+                  'bg-error text-on-error uppercase tracking-wide',
+                )}
+              >
+                {t('alertConditionCard.confirmDelete', {}, { defaultValue: 'Confirm delete' })}
+              </button>
+              <button
+                type="button"
+                onClick={() => setConfirmingDelete(false)}
+                aria-label={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                className={cm.cn(
+                  cm.sp('p', 2),
+                  cm.textSize('sm'),
+                  cm.cursorPointer,
+                  cm.roundedFull,
+                  'text-on-surface-variant hover:bg-surface-container transition-colors',
+                )}
+              >
+                <span className="material-symbols-outlined" aria-hidden="true">
+                  close
+                </span>
+              </button>
+            </span>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirmingDelete(true)}
+              className={cm.cn(
+                cm.sp('p', 2),
+                cm.textSize('sm'),
+                cm.cursorPointer,
+                cm.roundedFull,
+                'text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors',
+              )}
+              aria-label={t(
+                'alertConditionCard.deleteAriaLabel',
+                {},
+                { defaultValue: 'Delete alert' },
+              )}
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                delete_outline
+              </span>
+            </button>
+          )
         ) : null}
       </div>
     </article>

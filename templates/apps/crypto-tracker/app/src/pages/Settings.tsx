@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import {
   useAuth,
   useAuthClient,
@@ -39,7 +40,7 @@ interface Preferences {
 const DEFAULT_PREFS: Preferences = {
   display_name: '',
   quote_currency: 'USD',
-  locale: 'en-US',
+  locale: 'en',
   refresh_seconds: 15,
   theme: 'system',
   notify_email: true,
@@ -47,9 +48,27 @@ const DEFAULT_PREFS: Preferences = {
   notify_sms: false,
 }
 
+/** Resolve a saved preference locale to one the i18n bond has registered.
+ *
+ * Older preference rows stored BCP-47 tags like "en-US"; the i18n bond
+ * registers base codes ("en"), and `setLocale` THROWS on an unregistered
+ * code — the `void setLocale(...)` rejection then surfaces as an unhandled
+ * pageerror on every visit to /settings. Exact match wins, else the base
+ * language ("en-US" → "en"), else null (leave the current locale alone). */
+function resolveSavedLocale(
+  saved: string | null | undefined,
+  locales: ReadonlyArray<{ code: string }>,
+): string | null {
+  if (!saved) return null
+  const codes = new Set(locales.map((l) => l.code))
+  if (codes.has(saved)) return saved
+  const base = saved.split('-')[0]
+  return codes.has(base) ? base : null
+}
+
 export function Settings() {
   const cm = getClassMap()
-  const { t, locale, setLocale } = useTranslation()
+  const { t, locale, setLocale, locales } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('profile')
   const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
@@ -67,10 +86,15 @@ export function Settings() {
         if (cancelled) return
         const data = unwrapSingle<Preferences>(res)
         if (data) {
-          setPrefs({ ...DEFAULT_PREFS, ...data })
+          // Normalize the stored locale to a registered one BEFORE touching
+          // either state — an unregistered code would make setLocale throw.
+          const savedLocale = resolveSavedLocale(data.locale, locales)
+          setPrefs({ ...DEFAULT_PREFS, ...data, locale: savedLocale ?? locale })
           // Apply the saved locale to the i18n bond so the UI reflects it.
-          if (data.locale && data.locale !== locale) {
-            void setLocale(data.locale)
+          if (savedLocale && savedLocale !== locale) {
+            void setLocale(savedLocale).catch(() => {
+              // Unregistered locale (pruned / unknown) — keep the default.
+            })
           }
         }
       })
@@ -102,6 +126,10 @@ export function Settings() {
     setSaving(true)
     try {
       await http.put('/api/preferences', prefs)
+      void track({
+        name: 'settings.updated',
+        properties: { quote_currency: prefs.quote_currency, locale: prefs.locale },
+      })
       setSavedAt(Date.now())
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

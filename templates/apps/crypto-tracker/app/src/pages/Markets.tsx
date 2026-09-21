@@ -131,36 +131,39 @@ export function Markets() {
             'rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm overflow-hidden',
           )}
         >
-          <table className={cm.cn('w-full')}>
-            <thead>
-              <tr className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40">
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>#</th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('markets.col.coin', {}, { defaultValue: 'Coin' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.price', {}, { defaultValue: 'Price' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('markets.col.change24h', {}, { defaultValue: '24h' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('markets.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('markets.col.volume24h', {}, { defaultValue: 'Vol 24h' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('markets.col.sparkline', {}, { defaultValue: 'Last 7d' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant/40">
-              {filtered.map((r) => (
-                <CoinSparklineRow key={r.symbol} coin={r} />
-              ))}
-            </tbody>
-          </table>
+          {/* Wide catalog table: scroll horizontally on small screens. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full')}>
+              <thead>
+                <tr className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40">
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>#</th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('markets.col.coin', {}, { defaultValue: 'Coin' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.price', {}, { defaultValue: 'Price' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('markets.col.change24h', {}, { defaultValue: '24h' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('markets.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('markets.col.volume24h', {}, { defaultValue: 'Vol 24h' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('markets.col.sparkline', {}, { defaultValue: 'Last 7d' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant/40">
+                {filtered.map((r) => (
+                  <CoinSparklineRow key={r.symbol} coin={r} />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

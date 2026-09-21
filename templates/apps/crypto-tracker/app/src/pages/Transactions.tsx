@@ -1,14 +1,24 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList } from '../lib/unwrap.js'
 
+/** Kinds the log-transaction form can submit (the API's POST/PUT enum). */
+type TransactionInputKind = 'buy' | 'sell' | 'transfer_in' | 'transfer_out' | 'reward' | 'fee'
+
+/** Kinds that can come BACK from the API: rows are stored in a narrower
+ *  vocabulary (the schema CHECK allows buy|sell|dividend|split), so e.g. a
+ *  seeded `reward` round-trips as `dividend`. Rendering must cover both —
+ *  an unknown kind falls through `t()` to its raw key. */
+type TransactionStoredKind = TransactionInputKind | 'dividend' | 'split'
+
 interface Transaction {
   id: string
   occurred_at: string
-  kind: 'buy' | 'sell' | 'transfer_in' | 'transfer_out' | 'reward' | 'fee'
+  kind: TransactionStoredKind
   symbol: string
   amount: number
   price_usd: number
@@ -18,22 +28,26 @@ interface Transaction {
   notes?: string
 }
 
-const KIND_LABEL: Record<Transaction['kind'], string> = {
+const KIND_LABEL: Record<TransactionStoredKind, string> = {
   buy: 'Buy',
   sell: 'Sell',
   transfer_in: 'Transfer in',
   transfer_out: 'Transfer out',
   reward: 'Reward',
   fee: 'Fee',
+  dividend: 'Dividend',
+  split: 'Split',
 }
 
-const KIND_COLOR: Record<Transaction['kind'], string> = {
+const KIND_COLOR: Record<TransactionStoredKind, string> = {
   buy: 'bg-success/15 text-success',
   sell: 'bg-error/15 text-error',
   transfer_in: 'bg-info/15 text-info',
   transfer_out: 'bg-surface-container',
   reward: 'bg-primary/15 text-primary',
   fee: 'bg-warning/15 text-warning',
+  dividend: 'bg-primary/15 text-primary',
+  split: 'bg-surface-container',
 }
 
 function fmtUsd(n: number): string {
@@ -57,7 +71,7 @@ export function Transactions() {
   const [error, setError] = useState<string | null>(null)
   const [refreshTick, setRefreshTick] = useState(0)
   const [showAdd, setShowAdd] = useState(false)
-  const [formKind, setFormKind] = useState<Transaction['kind']>('buy')
+  const [formKind, setFormKind] = useState<TransactionInputKind>('buy')
   const [formSymbol, setFormSymbol] = useState('')
   const [formAmount, setFormAmount] = useState('')
   const [formPrice, setFormPrice] = useState('')
@@ -127,6 +141,15 @@ export function Transactions() {
         total_usd: amount * price,
         exchange: formExchange.trim() || 'manual',
         occurred_at: new Date().toISOString(),
+      })
+      void track({
+        name: 'transaction.logged',
+        properties: {
+          kind: formKind,
+          symbol: formSymbol.trim().toLowerCase(),
+          amount,
+          total_usd: amount * price,
+        },
       })
       setShowAdd(false)
       setFormSymbol('')
@@ -215,7 +238,7 @@ export function Transactions() {
                 </span>
                 <select
                   value={formKind}
-                  onChange={(e) => setFormKind(e.target.value as Transaction['kind'])}
+                  onChange={(e) => setFormKind(e.target.value as TransactionInputKind)}
                   className={cm.cn(
                     cm.sp('px', 3),
                     cm.sp('py', 2),
@@ -372,113 +395,122 @@ export function Transactions() {
         </p>
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.date', {}, { defaultValue: 'Date' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.kind', {}, { defaultValue: 'Kind' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('transactions.col.coin', {}, { defaultValue: 'Coin' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.amount', {}, { defaultValue: 'Amount' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.price', {}, { defaultValue: 'Price' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('nav.total', {}, { defaultValue: 'Total' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('transactions.col.exchange', {}, { defaultValue: 'Exchange' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {txs.map((tx) => (
-                <tr key={tx.id} className={cm.cn('hover:bg-surface-container')}>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(tx.occurred_at)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <span
+          {/* Wide ledger table: scroll horizontally on small screens. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full')}>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.date', {}, { defaultValue: 'Date' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.kind', {}, { defaultValue: 'Kind' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('transactions.col.coin', {}, { defaultValue: 'Coin' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.amount', {}, { defaultValue: 'Amount' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.price', {}, { defaultValue: 'Price' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('nav.total', {}, { defaultValue: 'Total' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('transactions.col.exchange', {}, { defaultValue: 'Exchange' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {txs.map((tx) => (
+                  <tr key={tx.id} className={cm.cn('hover:bg-surface-container')}>
+                    <td
                       className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        cm.roundedFull,
-                        KIND_COLOR[tx.kind],
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
                       )}
                     >
-                      {t(`transactions.kind.${tx.kind}`, {}, { defaultValue: KIND_LABEL[tx.kind] })}
-                    </span>
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.fontWeight('semibold'),
-                      'uppercase',
-                    )}
-                  >
-                    {tx.symbol}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}>
-                    {tx.amount.toFixed(6)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {fmtUsd(tx.price_usd)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                    )}
-                  >
-                    {fmtUsd(tx.total_usd)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {tx.exchange}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      {fmtDate(tx.occurred_at)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          cm.roundedFull,
+                          KIND_COLOR[tx.kind],
+                        )}
+                      >
+                        {t(
+                          `transactions.kind.${tx.kind}`,
+                          {},
+                          { defaultValue: KIND_LABEL[tx.kind] },
+                        )}
+                      </span>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.fontWeight('semibold'),
+                        'uppercase',
+                      )}
+                    >
+                      {tx.symbol}
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
+                    >
+                      {tx.amount.toFixed(6)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {fmtUsd(tx.price_usd)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                      )}
+                    >
+                      {fmtUsd(tx.total_usd)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {tx.exchange}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

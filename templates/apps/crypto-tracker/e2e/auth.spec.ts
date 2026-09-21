@@ -23,6 +23,12 @@ test.describe('/login', () => {
   test('rejects bad credentials with a real error message and stays on /login', async ({
     page,
   }) => {
+    // The 403 from the deliberate bad login logs a browser console error —
+    // expected for this flow, so tell the console guard before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page
       .locator('input[type="email"]')

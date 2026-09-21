@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -41,6 +42,10 @@ export function AlertNew() {
         target_price: target,
         channels: ['email'],
         repeat: 'one-time',
+      })
+      void track({
+        name: 'alert.created',
+        properties: { symbol: symbol.trim().toLowerCase(), condition, target_price: target },
       })
       navigate('/alerts')
     } catch (err) {

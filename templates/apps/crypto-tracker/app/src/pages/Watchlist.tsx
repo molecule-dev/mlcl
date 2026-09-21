@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -50,6 +51,7 @@ export function Watchlist() {
     setRows((cur) => cur.filter((r) => r.symbol !== row.symbol))
     try {
       await http.delete(`/api/watchlist/by-symbol/${encodeURIComponent(row.symbol.toLowerCase())}`)
+      void track({ name: 'watchlist.removed', properties: { symbol: row.symbol.toLowerCase() } })
     } catch (_error) {
       // optimistic update: restore previous list on failure
       setRows(previous)
@@ -99,89 +101,101 @@ export function Watchlist() {
         </p>
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('watchlist.col.coin', {}, { defaultValue: 'Coin' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.price', {}, { defaultValue: 'Price' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('watchlist.col.change24h', {}, { defaultValue: '24h' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('watchlist.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {rows.map((r) => (
-                <tr key={r.symbol} className={cm.cn('hover:bg-surface-container')}>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link
-                      to={`/coin/${r.symbol}`}
-                      className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
+          {/* Wide row table: scroll horizontally on small screens. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full')}>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('watchlist.col.coin', {}, { defaultValue: 'Coin' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.price', {}, { defaultValue: 'Price' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('watchlist.col.change24h', {}, { defaultValue: '24h' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('watchlist.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}></th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {rows.map((r) => (
+                  <tr key={r.symbol} className={cm.cn('hover:bg-surface-container')}>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <Link
+                        to={`/coin/${r.symbol}`}
+                        className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
+                      >
+                        {r.name}{' '}
+                        <span
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'text-on-surface-variant',
+                            'uppercase ml-1',
+                          )}
+                        >
+                          {r.symbol}
+                        </span>
+                      </Link>
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
                     >
-                      {r.name}{' '}
-                      <span
+                      {fmtUsd(r.price_usd, priceFractionDigits(r.price_usd))}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                        deltaClass(r.change_24h_pct),
+                      )}
+                    >
+                      {fmtPct(r.change_24h_pct)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {fmtUsd(r.market_cap_usd)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      <button
+                        type="button"
+                        data-testid={`watchlist-remove-${r.symbol.toLowerCase()}`}
+                        onClick={() => handleRemove(r)}
+                        aria-label={`${t('common.remove', {}, { defaultValue: 'Remove' })} ${r.name}`}
                         className={cm.cn(
-                          cm.textSize('xs'),
-                          'text-on-surface-variant',
-                          'uppercase ml-1',
+                          cm.sp('px', 3),
+                          cm.sp('py', 2),
+                          cm.textSize('sm'),
+                          cm.fontWeight('medium'),
+                          'text-error hover:underline rounded-md',
                         )}
                       >
-                        {r.symbol}
-                      </span>
-                    </Link>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}>
-                    {fmtUsd(r.price_usd, priceFractionDigits(r.price_usd))}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                      deltaClass(r.change_24h_pct),
-                    )}
-                  >
-                    {fmtPct(r.change_24h_pct)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {fmtUsd(r.market_cap_usd)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    <button
-                      type="button"
-                      data-testid={`watchlist-remove-${r.symbol.toLowerCase()}`}
-                      onClick={() => handleRemove(r)}
-                      className={cm.cn(cm.textSize('sm'), 'text-error hover:underline')}
-                    >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                        {t('common.remove', {}, { defaultValue: 'Remove' })}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

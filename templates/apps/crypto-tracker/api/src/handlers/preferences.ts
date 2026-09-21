@@ -59,7 +59,10 @@ async function loadOrCreatePreferences(userId: string): Promise<PreferencesRow> 
     user_id: userId,
     display_name: null,
     quote_currency: 'USD',
-    locale: 'en-US',
+    // Base code, matching the i18n bond's registered locales — the client
+    // applies this via setLocale, which throws on an unregistered code
+    // ("en-US" is NOT registered; the fleet registers base codes like "en").
+    locale: 'en',
     refresh_seconds: 15,
     theme: 'system',
     notify_email: true,

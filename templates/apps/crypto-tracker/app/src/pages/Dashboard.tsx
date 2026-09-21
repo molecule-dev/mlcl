@@ -184,46 +184,52 @@ export function Dashboard() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-primary-dark hover:underline',
+              cm.sp('px', 2),
+              cm.sp('py', 2),
+              'text-primary-dark hover:underline inline-block',
             )}
           >
             {t('dashboard.allMarketsCta', {}, { defaultValue: 'All markets →' })}
           </Link>
         </header>
-        <table className={cm.cn('w-full')}>
-          <thead>
-            <tr
-              className={cm.cn(
-                'text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40',
-              )}
-            >
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>#</th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                {t('dashboard.col.coin', {}, { defaultValue: 'Coin' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                {t('form.price', {}, { defaultValue: 'Price' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                {t('dashboard.col.change24h', {}, { defaultValue: '24h' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                {t('dashboard.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                {t('dashboard.col.volume', {}, { defaultValue: 'Volume' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                {t('dashboard.col.last7d', {}, { defaultValue: 'Last 7d' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-outline-variant/40">
-            {movers.map((m) => (
-              <CoinSparklineRow key={m.symbol} coin={m} />
-            ))}
-          </tbody>
-        </table>
+        {/* Wide 7-column table: scroll horizontally on small screens instead
+            of being clipped by the section's overflow-hidden. */}
+        <div className="overflow-x-auto">
+          <table className={cm.cn('w-full')}>
+            <thead>
+              <tr
+                className={cm.cn(
+                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40',
+                )}
+              >
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>#</th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                  {t('dashboard.col.coin', {}, { defaultValue: 'Coin' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                  {t('form.price', {}, { defaultValue: 'Price' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                  {t('dashboard.col.change24h', {}, { defaultValue: '24h' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                  {t('dashboard.col.marketCap', {}, { defaultValue: 'Mkt cap' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                  {t('dashboard.col.volume', {}, { defaultValue: 'Volume' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                  {t('dashboard.col.last7d', {}, { defaultValue: 'Last 7d' })}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-outline-variant/40">
+              {movers.map((m) => (
+                <CoinSparklineRow key={m.symbol} coin={m} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {news.length > 0 ? (
@@ -241,7 +247,9 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'text-primary-dark hover:underline',
+                cm.sp('px', 2),
+                cm.sp('py', 2),
+                'text-primary-dark hover:underline inline-block',
               )}
             >
               {t('dashboard.allNewsCta', {}, { defaultValue: 'All news →' })}

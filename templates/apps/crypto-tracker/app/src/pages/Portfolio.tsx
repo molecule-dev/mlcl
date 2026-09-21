@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,6 +103,10 @@ export function Portfolio() {
         symbol: formSymbol.trim().toLowerCase(),
         amount,
         cost_basis_usd: cost,
+      })
+      void track({
+        name: 'holding.added',
+        properties: { symbol: formSymbol.trim().toLowerCase(), amount, cost_basis_usd: cost },
       })
       setShowAdd(false)
       setFormSymbol('')
@@ -334,128 +339,136 @@ export function Portfolio() {
               {t('portfolio.holdingsHeading', {}, { defaultValue: 'Holdings' })}
             </h2>
           </header>
-          <table className={cm.cn('w-full')}>
-            <thead>
-              <tr className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40">
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('portfolio.col.coin', {}, { defaultValue: 'Coin' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('portfolio.col.amount', {}, { defaultValue: 'Holdings' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('portfolio.col.value', {}, { defaultValue: 'Value' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('portfolio.col.cost', {}, { defaultValue: 'Cost basis' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('portfolio.col.pnl', {}, { defaultValue: 'P/L' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('portfolio.col.allocation', {}, { defaultValue: 'Allocation' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant/40">
-              {holdings.map((h) => (
-                <tr
-                  key={h.symbol}
-                  className={cm.cn('hover:bg-surface-container/60 transition-colors duration-150')}
-                >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4))}>
-                    <Link
-                      to={`/coin/${h.symbol}`}
-                      className={cm.cn(
-                        cm.flex({ align: 'center', gap: 'sm' }),
-                        cm.fontWeight('semibold'),
-                        'hover:text-primary transition-colors',
-                      )}
-                    >
-                      <span
+          {/* Wide holdings table: scroll horizontally on small screens
+              instead of overflowing the card. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full')}>
+              <thead>
+                <tr className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container/40">
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('portfolio.col.coin', {}, { defaultValue: 'Coin' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('portfolio.col.amount', {}, { defaultValue: 'Holdings' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('portfolio.col.value', {}, { defaultValue: 'Value' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('portfolio.col.cost', {}, { defaultValue: 'Cost basis' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('portfolio.col.pnl', {}, { defaultValue: 'P/L' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('portfolio.col.allocation', {}, { defaultValue: 'Allocation' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant/40">
+                {holdings.map((h) => (
+                  <tr
+                    key={h.symbol}
+                    className={cm.cn(
+                      'hover:bg-surface-container/60 transition-colors duration-150',
+                    )}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4))}>
+                      <Link
+                        to={`/coin/${h.symbol}`}
                         className={cm.cn(
-                          cm.w(8),
-                          cm.h(8),
-                          cm.roundedFull,
-                          cm.flex({ align: 'center', justify: 'center' }),
-                          cm.textSize('xs'),
-                          'bg-primary-container text-on-primary-container font-extrabold uppercase tabular-nums',
+                          cm.flex({ align: 'center', gap: 'sm' }),
+                          cm.fontWeight('semibold'),
+                          'hover:text-primary transition-colors',
                         )}
-                        aria-hidden="true"
                       >
-                        {h.symbol.slice(0, 2)}
-                      </span>
-                      <span>
-                        {h.name}
                         <span
                           className={cm.cn(
-                            'text-xs ml-2 uppercase font-mono tabular-nums text-on-surface-variant tracking-wider',
+                            cm.w(8),
+                            cm.h(8),
+                            cm.roundedFull,
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            cm.textSize('xs'),
+                            'bg-primary-container text-on-primary-container font-extrabold uppercase tabular-nums',
                           )}
+                          aria-hidden="true"
                         >
-                          {h.symbol}
+                          {h.symbol.slice(0, 2)}
                         </span>
-                      </span>
-                    </Link>
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 4),
-                      'text-right tabular-nums font-mono',
-                    )}
-                  >
-                    {h.amount.toFixed(4)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 4),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                    )}
-                  >
-                    {fmtUsd(h.current_value_usd)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 4),
-                      'text-right tabular-nums text-on-surface-variant',
-                    )}
-                  >
-                    {fmtUsd(h.cost_basis_usd)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4), 'text-right')}>
-                    <div
+                        <span>
+                          {h.name}
+                          <span
+                            className={cm.cn(
+                              'text-xs ml-2 uppercase font-mono tabular-nums text-on-surface-variant tracking-wider',
+                            )}
+                          >
+                            {h.symbol}
+                          </span>
+                        </span>
+                      </Link>
+                    </td>
+                    <td
                       className={cm.cn(
-                        cm.fontWeight('bold'),
-                        'tabular-nums',
-                        deltaClass(h.pnl_usd),
+                        cm.sp('px', 4),
+                        cm.sp('py', 4),
+                        'text-right tabular-nums font-mono',
                       )}
                     >
-                      {fmtUsd(h.pnl_usd)}
-                    </div>
-                    <div className={cm.cn('text-xs tabular-nums', deltaClass(h.pnl_pct))}>
-                      {fmtPct(h.pnl_pct)}
-                    </div>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4), 'text-right')}>
-                    <div className="tabular-nums font-semibold">{h.allocation_pct.toFixed(1)}%</div>
-                    <div
+                      {h.amount.toFixed(4)}
+                    </td>
+                    <td
                       className={cm.cn(
-                        'mt-1 h-1.5 w-24 ml-auto rounded-full bg-surface-container overflow-hidden',
+                        cm.sp('px', 4),
+                        cm.sp('py', 4),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
                       )}
                     >
+                      {fmtUsd(h.current_value_usd)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 4),
+                        'text-right tabular-nums text-on-surface-variant',
+                      )}
+                    >
+                      {fmtUsd(h.cost_basis_usd)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4), 'text-right')}>
                       <div
-                        className={cm.cn('h-full bg-primary')}
-                        style={{ width: `${Math.min(100, h.allocation_pct)}%` }}
-                      />
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                        className={cm.cn(
+                          cm.fontWeight('bold'),
+                          'tabular-nums',
+                          deltaClass(h.pnl_usd),
+                        )}
+                      >
+                        {fmtUsd(h.pnl_usd)}
+                      </div>
+                      <div className={cm.cn('text-xs tabular-nums', deltaClass(h.pnl_pct))}>
+                        {fmtPct(h.pnl_pct)}
+                      </div>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 4), 'text-right')}>
+                      <div className="tabular-nums font-semibold">
+                        {h.allocation_pct.toFixed(1)}%
+                      </div>
+                      <div
+                        className={cm.cn(
+                          'mt-1 h-1.5 w-24 ml-auto rounded-full bg-surface-container overflow-hidden',
+                        )}
+                      >
+                        <div
+                          className={cm.cn('h-full bg-primary')}
+                          style={{ width: `${Math.min(100, h.allocation_pct)}%` }}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

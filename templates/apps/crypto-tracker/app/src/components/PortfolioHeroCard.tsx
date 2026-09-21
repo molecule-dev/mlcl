@@ -42,7 +42,9 @@ export function PortfolioHeroCard({
     <section
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
-        cm.sp('p', 10),
+        // Denser padding + smaller display number below the sm breakpoint —
+        // p-10/text-6xl overflows a 390px viewport with the change pill.
+        'p-5 sm:p-10',
         'min-h-[320px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
       )}
       data-mol-id="portfolio-hero"
@@ -61,7 +63,7 @@ export function PortfolioHeroCard({
         </p>
         <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'md' }), 'flex-wrap')}>
           <span
-            className={cm.cn('text-6xl font-extrabold tracking-tighter tabular-nums')}
+            className={cm.cn('text-4xl sm:text-6xl font-extrabold tracking-tighter tabular-nums')}
             data-mol-id="hero-value"
           >
             {fmtUsd(totalValueUsd)}

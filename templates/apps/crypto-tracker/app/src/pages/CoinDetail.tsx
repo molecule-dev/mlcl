@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -88,10 +89,15 @@ export function CoinDetail() {
     try {
       if (next) {
         await http.post('/api/watchlist', { symbol: coin.symbol.toLowerCase(), name: coin.name })
+        void track({ name: 'watchlist.added', properties: { symbol: coin.symbol.toLowerCase() } })
       } else {
         await http.delete(
           `/api/watchlist/by-symbol/${encodeURIComponent(coin.symbol.toLowerCase())}`,
         )
+        void track({
+          name: 'watchlist.removed',
+          properties: { symbol: coin.symbol.toLowerCase() },
+        })
       }
     } catch (_error) {
       // optimistic update: restore watching state on failure
@@ -253,7 +259,16 @@ export function CoinDetail() {
             {fmtUsd(min, priceFractionDigits(min))} – {fmtUsd(max, priceFractionDigits(max))}
           </p>
         </header>
-        <svg viewBox="0 0 600 220" className={cm.cn('w-full h-56')} role="img">
+        <svg
+          viewBox="0 0 600 220"
+          className={cm.cn('w-full h-56')}
+          role="img"
+          aria-label={t(
+            'coinDetail.chartAriaLabel',
+            { name: coin.name },
+            { defaultValue: '{{name}} price chart, last 30 days' },
+          )}
+        >
           <defs>
             <linearGradient
               id={`coin-detail-area-${coin.symbol}`}
