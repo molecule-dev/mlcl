@@ -33,7 +33,15 @@ test.describe('/plan (MealPlan)', () => {
     // Sunday dinner is never seeded, so its empty-cell button exists
     await page.locator('[data-mol-id="cell-add-dinner-6"]').first().click()
     await page.locator('[data-mol-id="picker-search"]').fill(created.title)
+    // Arm the POST wait BEFORE clicking — reading the plan back immediately
+    // raced the create and flaked on retry.
+    const posted = page.waitForResponse(
+      (r) => r.request().method() === 'POST' && /\/api\/meal-plan/.test(r.url()),
+      { timeout: 10_000 },
+    )
     await page.locator(`[data-mol-id="picker-recipe-${created.id}"]`).click()
+    const post = await posted
+    expect(post.status()).toBeLessThan(300)
     const entries = await api<
       Array<{ id: string; day: number; meal_slot: string; recipe_id: string }>
     >(page, 'GET', `/meal-plan?week_start=${weekStart()}`)

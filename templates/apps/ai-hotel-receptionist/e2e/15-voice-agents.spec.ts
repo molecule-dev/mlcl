@@ -59,5 +59,30 @@ test.describe('/voice-agents', () => {
     const resp = await patch
     expect(resp.status(), 'PATCH /api/voice-agents/:id should be 2xx').toBeLessThan(300)
     await expect(chip).toHaveAttribute('aria-pressed', 'false')
+    // RESTORE the EXACT original array: voice agents are GLOBAL seed rows
+    // shared by every test in the suite. Toggling off langs[0] and clicking
+    // it back would append it last, changing which language is the agent's
+    // FIRST (the scripted fallback when a caller speaks an unspoken
+    // language) — and later specs (the Spanish simulator call) depend on it.
+    // A single API PATCH restores the persisted state byte-for-byte.
+    const restored = await page.evaluate(
+      async ([agentId, original]) => {
+        const resp = await fetch('/api/voice-agents/' + agentId, {
+          method: 'PATCH',
+          headers: { 'content-type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ languages: original }),
+        })
+        return resp.status
+      },
+      [agent.id, langs] as [string, string[]],
+    )
+    expect(restored, 'languages restored to the seeded set').toBeLessThan(300)
+    const after = await page.evaluate(async (agentId: string) => {
+      const resp = await fetch('/api/voice-agents', { credentials: 'include' })
+      const body = (await resp.json()) as { data: Array<{ id: string; languages: string[] }> }
+      return body.data.find((a) => a.id === agentId)!.languages
+    }, agent.id)
+    expect(after).toEqual(langs)
   })
 })

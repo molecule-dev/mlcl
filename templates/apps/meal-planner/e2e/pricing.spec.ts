@@ -22,8 +22,13 @@ test.describe('/pricing (Pricing)', () => {
     await page.goto(APP_BASE + '/pricing')
     await page.waitForLoadState('networkidle', { timeout: 8_000 }).catch(() => {})
     const upgrade = page.getByRole('button', { name: /upgrade to pro/i }).first()
-    if (!(await upgrade.count()))
-      test.skip(true, 'No "Upgrade to Pro" button rendered (price not configured)')
+    if (!(await upgrade.count())) {
+      // Unconfigured env: the paid tier renders its documented fallback state
+      // (the shared PricingPage swaps the CTA for a "Current plan" label when
+      // no stripePriceId is set) — assert that instead of skipping.
+      await expect(page.getByText(/current plan/i).first()).toBeVisible({ timeout: 8_000 })
+      return
+    }
     await expect(upgrade).toBeVisible({ timeout: 8_000 })
     const respPromise = page.waitForResponse((r) => r.url().includes('/api/billing/checkout'), {
       timeout: 12_000,
@@ -53,8 +58,11 @@ test.describe('/pricing (Pricing)', () => {
     await page.goto(APP_BASE + '/pricing')
     await page.waitForLoadState('networkidle', { timeout: 8_000 }).catch(() => {})
     const upgrade = page.getByRole('button', { name: /upgrade to team/i }).first()
-    if (!(await upgrade.count()))
-      test.skip(true, 'No "Upgrade to Team" button rendered (price not configured)')
+    if (!(await upgrade.count())) {
+      // Unconfigured env: documented fallback state (see the Pro test above).
+      await expect(page.getByText(/current plan/i).first()).toBeVisible({ timeout: 8_000 })
+      return
+    }
     const respPromise = page.waitForResponse((r) => r.url().includes('/api/billing/checkout'), {
       timeout: 12_000,
     })
