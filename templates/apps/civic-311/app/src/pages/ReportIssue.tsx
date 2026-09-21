@@ -99,7 +99,10 @@ export function ReportIssuePage() {
       const form = new FormData()
       form.append('photo', file)
       const res = await http.post<{ url?: string }>('/api/issues/photo', form)
-      const url = (res as { url?: string })?.url
+      // useHttpClient resolves an HttpResponse envelope — the JSON body (with
+      // the serve `url`) lives under `data`, not on the response object.
+      const o = ((res as { data?: unknown })?.data ?? res) as { url?: string }
+      const url = o?.url
       if (url) {
         setPhotoUrl(url)
         setPhotoName(file.name)

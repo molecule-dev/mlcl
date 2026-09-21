@@ -51,7 +51,12 @@ export function Notifications() {
     setError(null)
     try {
       const res = await http.get('/api/notifications')
-      const o = res as { items?: NotificationRow[]; unread?: number } | NotificationRow[]
+      // useHttpClient resolves an HttpResponse envelope — the JSON body lives
+      // under `data` (same unwrap every other page here does). Reading
+      // `res.items` directly always saw `undefined` and rendered the empty
+      // state even when the feed held rows.
+      const o = ((res as { data?: unknown })?.data ?? res) as
+        { items?: NotificationRow[]; unread?: number } | NotificationRow[]
       const rows = Array.isArray(o)
         ? o
         : Array.isArray((o as { items?: NotificationRow[] })?.items)

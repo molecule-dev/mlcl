@@ -40,7 +40,10 @@ function Signup() {
     try {
       await register({ email, password })
       clearAuthForm()
-      navigate('/')
+      // Land in the app, not back on the public landing — a resident who
+      // just signed up wants the community map, not the marketing page
+      // (fleet convention: every app's signup routes to its main screen).
+      navigate('/explore')
     } catch (err) {
       setError(
         err instanceof Error

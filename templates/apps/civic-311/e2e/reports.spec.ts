@@ -105,7 +105,6 @@ test.describe('civic-311: /reports/:id (detail)', () => {
     // The owner never sees a confirm button on their own report.
     await page.evaluate(() => window.localStorage.clear())
     await page.context().clearCookies()
-    const ownerToken = owner.accessToken
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill(owner.email)
     await page.locator('#password').fill(owner.password)
@@ -114,13 +113,28 @@ test.describe('civic-311: /reports/:id (detail)', () => {
       .first()
       .click()
     await expect(page).not.toHaveURL(/\/login/, { timeout: 20_000 })
-    expect(await getAccessToken(page)).toBe(ownerToken)
+    // Re-login mints a FRESH session token (new session id + iat), so the raw
+    // string never equals the signup token — assert the session belongs to
+    // the OWNER by decoding the JWT payload and comparing userId.
+    const token = (await getAccessToken(page)) ?? ''
+    expect(token).not.toBe('')
+    const payload = JSON.parse(
+      Buffer.from(token.split('.')[1] ?? '', 'base64').toString('utf8'),
+    ) as { userId?: string }
+    expect(payload.userId).toBe(owner.userId)
     await page.goto(APP_BASE + `/reports/${issue.id}`)
     await expect(page.getByTestId('report-confirm')).toHaveCount(0)
   })
 
   test('nonexistent report id shows the error state', async ({ page }) => {
     await signup(page)
+    // Expected 4xx: the zero-uuid detail GET 404s by design; both the
+    // network layer ("Failed to load resource … 404") and app-http's
+    // HttpError ("Request failed with status 404") log console errors.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404|Request failed with status 404',
+    })
     await page.goto(APP_BASE + '/reports/00000000-0000-0000-0000-000000000000')
     await expect(page.getByRole('heading', { name: /something went wrong/i })).toBeVisible({
       timeout: 15_000,

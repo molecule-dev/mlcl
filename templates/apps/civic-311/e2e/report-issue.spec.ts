@@ -43,21 +43,49 @@ test.describe('civic-311: /report (ReportIssue)', () => {
     await page
       .getByTestId('report-description')
       .fill('E2E pothole near the corner — deep and wide.')
-    await page.getByTestId('report-photo').setInputFiles({
-      name: 'e2e-pothole.png',
-      mimeType: 'image/png',
-      buffer: TINY_PNG,
+    // The upload POST happens at setInputFiles time — capture it in its own
+    // window around the attach, not around the later submit.
+    const uploadReqs = await captureNetwork(page, async () => {
+      await page.getByTestId('report-photo').setInputFiles({
+        name: 'e2e-pothole.png',
+        mimeType: 'image/png',
+        buffer: TINY_PNG,
+      })
+      await expect(page.getByTestId('report-photo-attached')).toBeVisible({ timeout: 15_000 })
     })
-    await expect(page.getByTestId('report-photo-attached')).toBeVisible({ timeout: 15_000 })
+    expect(uploadReqs.some((r) => r.method === 'POST' && r.url.includes('/api/issues/photo'))).toBe(
+      true,
+    )
     const map = page.getByTestId('report-map')
+    // The form is taller than the viewport — scroll the map in before
+    // measuring, or a low click fraction lands below the fold and the pin
+    // never lands (mouse.click does not scroll raw coordinates).
+    await map.scrollIntoViewIfNeeded()
     const box = (await map.boundingBox())!
     await page.mouse.click(box.x + box.width * 0.7, box.y + box.height * 0.6)
+    // This test pins a FIXED spot, so its own prior submissions on the
+    // shared dev DB sit exactly there and surface as duplicates — which
+    // gate submit behind the acknowledge checkbox this test otherwise
+    // doesn't exercise. Wait for the duplicate check to settle, then
+    // acknowledge whatever it found (the duplicate UX has its own test).
+    const submit = page.getByTestId('report-submit')
+    await expect
+      .poll(
+        async () =>
+          (await submit.isEnabled()) || (await page.getByTestId('report-duplicates').count()) > 0,
+        { timeout: 15_000 },
+      )
+      .toBe(true)
+    const ack = page.getByTestId('report-duplicates-acknowledge')
+    if (await ack.count()) {
+      await ack.check()
+    }
+    await expect(submit).toBeEnabled({ timeout: 15_000 })
     const reqs = await captureNetwork(page, async () => {
-      await page.getByTestId('report-submit').click()
+      await submit.click()
       await expect(page).toHaveURL(/\/reports\/[0-9a-f-]{8,}$/i, { timeout: 15_000 })
     })
     expect(reqs.some((r) => r.method === 'POST' && r.url.includes('/api/issues'))).toBe(true)
-    expect(reqs.some((r) => r.method === 'POST' && r.url.includes('/api/issues/photo'))).toBe(true)
     // The created row carries the derived address, not a client-supplied one.
     const detail = await page.request.get(`/api/issues/${page.url().split('/').pop()}`, {
       headers: { Authorization: `Bearer ${session.accessToken}` },
@@ -81,20 +109,23 @@ test.describe('civic-311: /report (ReportIssue)', () => {
     })
     await page.goto(APP_BASE + '/report')
     await page.getByTestId('report-category-pothole').click()
+    await page.getByTestId('report-description').fill('A different pothole, further along.')
     const map = page.getByTestId('report-map')
     const box = (await map.boundingBox())!
-    // Pin close enough (≈2 blocks) to trip the 5-block duplicate radius.
-    await page.mouse.click(box.x + box.width * 0.36, box.y + box.height * 0.29)
-    await expect(page.getByTestId('report-duplicates')).toBeVisible({ timeout: 15_000 })
-    await expect(page.getByTestId('report-duplicate-item').first()).toBeVisible()
-    // Submit stays locked until the reporter acknowledges the notice…
     const submit = page.getByTestId('report-submit')
-    await page.getByTestId('report-description').fill('A different pothole, further along.')
-    await expect(submit).toBeDisabled()
-    // …then goes through ("submit anyway").
-    await page.getByTestId('report-duplicates-acknowledge').check()
-    await expect(submit).toBeEnabled()
+    // Pin close enough (≈2 blocks) to trip the 5-block duplicate radius. The
+    // duplicate check fires the moment the draft completes (category + pin),
+    // so the capture window must open BEFORE the map click — wrapping only
+    // the submit would never see the GET /api/issues/duplicates below.
     const reqs = await captureNetwork(page, async () => {
+      await page.mouse.click(box.x + box.width * 0.36, box.y + box.height * 0.29)
+      await expect(page.getByTestId('report-duplicates')).toBeVisible({ timeout: 15_000 })
+      await expect(page.getByTestId('report-duplicate-item').first()).toBeVisible()
+      // Submit stays locked until the reporter acknowledges the notice…
+      await expect(submit).toBeDisabled()
+      // …then goes through ("submit anyway").
+      await page.getByTestId('report-duplicates-acknowledge').check()
+      await expect(submit).toBeEnabled()
       await submit.click()
       await expect(page).toHaveURL(/\/reports\/[0-9a-f-]{8,}$/i, { timeout: 15_000 })
     })

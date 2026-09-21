@@ -20,14 +20,26 @@ test('signature journey: watch → report w/ photo + duplicate → workflow → 
   page,
 }) => {
   // --- User A: files the original pothole and watches the corner. ---
+  // Jitter the corner per run and make the seed description unique: this dev
+  // DB accumulates every run's reports forever, and the duplicates API
+  // returns only the 5 NEAREST matches — at a fixed corner the pile of old
+  // distance-0 rows eventually pushes this run's seed out of its own top-5.
+  const cornerX = 30 + (Date.now() % 31)
+  const cornerY = 30 + (Date.now() % 31)
+  const seedDesc = `Existing bike-lane pothole ${Date.now() % 100000}`
   const a = await signup(page)
   await seedIssue(page, a.accessToken, {
     category: 'pothole',
-    description: 'Existing bike-lane pothole at the corner.',
-    x: 34,
-    y: 27,
+    description: seedDesc,
+    x: cornerX,
+    y: cornerY,
   })
-  await seedWatchArea(page, a.accessToken, { name: 'The corner', x: 34, y: 27, radius: 8 })
+  await seedWatchArea(page, a.accessToken, {
+    name: 'The corner',
+    x: cornerX,
+    y: cornerY,
+    radius: 8,
+  })
 
   // --- User B: reports a nearby pothole with photo + pin. ---
   await page.evaluate(() => window.localStorage.clear())
@@ -44,14 +56,26 @@ test('signature journey: watch → report w/ photo + duplicate → workflow → 
   })
   await expect(page.getByTestId('report-photo-attached')).toBeVisible({ timeout: 15_000 })
   const map = page.getByTestId('report-map')
+  // The form is taller than the viewport — scroll the map in before
+  // measuring, or a high click fraction can land below the fold
+  // (mouse.click does not scroll raw coordinates).
+  await map.scrollIntoViewIfNeeded()
   const box = (await map.boundingBox())!
-  await page.mouse.click(box.x + box.width * 0.36, box.y + box.height * 0.29)
+  // Pin ~2 blocks from A's corner — inside the 5-block duplicate radius and
+  // the 8-block watch area. SVG fractions map 1:1 to the 100x100 grid.
+  await page.mouse.click(
+    box.x + box.width * (cornerX / 100),
+    box.y + box.height * ((cornerY + 2) / 100),
+  )
 
   // Duplicate suggestion for A's open report appears…
   await expect(page.getByTestId('report-duplicates')).toBeVisible({ timeout: 15_000 })
-  await expect(page.getByTestId('report-duplicate-item').first()).toContainText(
-    'Existing bike-lane pothole',
-  )
+  // Match by description, not positional .first() — older runs' potholes
+  // share this dev DB and can sit nearer the pin, reordering the list.
+  // .first() within the filtered matches keeps it strict-mode safe.
+  await expect(
+    page.getByTestId('report-duplicate-item').filter({ hasText: seedDesc }).first(),
+  ).toBeVisible({ timeout: 15_000 })
   // …submit is gated until acknowledged, then goes through anyway.
   const submit = page.getByTestId('report-submit')
   await expect(submit).toBeDisabled()

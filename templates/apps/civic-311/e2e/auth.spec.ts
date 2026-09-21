@@ -25,6 +25,11 @@ test.describe('civic-311: auth', () => {
   })
 
   test('public landing renders without a session', async ({ page }) => {
+    // Expected 4xx: the landing's best-effort "recently reported" strip
+    // fetches /api/issues?limit=6 anonymously; the API requires a session
+    // (by design — the page degrades to the static hero), so the fetch 401s
+    // and Chrome logs it as a console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.evaluate(() => window.localStorage.clear()).catch(() => {})
     await page.goto(APP_BASE + '/')
     await expect(page.getByTestId('landing-hero-title')).toBeVisible({ timeout: 15_000 })
