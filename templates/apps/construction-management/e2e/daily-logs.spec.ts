@@ -1,6 +1,14 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, apiHeaders, listProjects, signup, todayKey, waitForSeed } from './_helpers.js'
+import {
+  API_BASE,
+  apiHeaders,
+  armCreateWait,
+  listProjects,
+  signup,
+  todayKey,
+  waitForSeed,
+} from './_helpers.js'
 
 test('daily logs page shows the seeded field records', async ({ page }) => {
   const { accessToken } = await signup(page)
@@ -26,7 +34,19 @@ test('filing a daily log with crew and a work entry through the form', async ({ 
   const { accessToken } = await signup(page)
   await waitForSeed(page, accessToken)
   const projects = await listProjects(page, accessToken)
-  const project = projects[0]!
+
+  // One log per project per date is enforced (409), and the demo seed files
+  // today's log for some jobsites — pick a project that doesn't already have
+  // one for today so the form create can succeed.
+  const todays = await page.request.get(`${API_BASE}/daily-logs?date=${todayKey()}`, {
+    headers: apiHeaders(accessToken),
+  })
+  expect(todays.status()).toBe(200)
+  const loggedProjectIds = new Set(
+    ((await todays.json()) as Array<{ project_id: string }>).map((l) => l.project_id),
+  )
+  const project = projects.find((p) => !loggedProjectIds.has(p.id))
+  expect(project, 'at least one seeded project has no log for today').toBeDefined()
 
   await page.goto(`/projects/${project.id}/logs`)
   await page.locator('[data-mol-id="daily-logs-new-button"]').click()
@@ -35,7 +55,12 @@ test('filing a daily log with crew and a work entry through the form', async ({ 
   await page.locator('[data-mol-id="daily-logs-field-crew"]').fill('12')
   await page.locator('[data-mol-id="daily-logs-field-hours"]').fill('96')
   await page.locator('[data-mol-id="daily-logs-field-notes"]').fill('E2E test log entry')
+  // Arm the response listener BEFORE clicking so the immediate API readback
+  // below can't race the create POST still in flight.
+  const logCreated = armCreateWait(page, /\/api\/daily-logs(\?|$)/)
   await page.locator('[data-mol-id="daily-logs-create-submit"]').click()
+  const logResp = await logCreated
+  expect(logResp.status(), `POST /api/daily-logs → ${logResp.status()}`).toBeLessThan(400)
 
   // The new log appears on the page and via the API for today's date.
   const res = await page.request.get(

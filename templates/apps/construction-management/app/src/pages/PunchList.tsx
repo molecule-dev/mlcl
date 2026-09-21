@@ -54,7 +54,7 @@ export function PunchList() {
     if (!projectId) return
     setLoading(true)
     http
-      .get(`/punch-items?project_id=${projectId}`)
+      .get(`/api/punch-items?project_id=${projectId}`)
       .then((res) => {
         if (!cancelled) setItems(unwrapList<PunchItem>(res))
       })

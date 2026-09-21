@@ -1,6 +1,13 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, apiHeaders, listProjects, signup, waitForSeed } from './_helpers.js'
+import {
+  API_BASE,
+  apiHeaders,
+  armCreateWait,
+  listProjects,
+  signup,
+  waitForSeed,
+} from './_helpers.js'
 
 test('RFI list shows seeded items with status filters', async ({ page }) => {
   const { accessToken } = await signup(page)
@@ -46,7 +53,10 @@ test('raising an RFI through the form assigns the next sequential number', async
   await page
     .locator('[data-mol-id="rfis-field-question"]')
     .fill('E2E: confirm the guardrail height detail at the ramp edge.')
+  const rfiCreated = armCreateWait(page, /\/api\/rfis(\?|$)/)
   await page.locator('[data-mol-id="rfis-create-submit"]').click()
+  const rfiResp = await rfiCreated
+  expect(rfiResp.status(), `POST /api/rfis → ${rfiResp.status()}`).toBeLessThan(400)
 
   const after = (await (
     await page.request.get(`${API_BASE}/rfis?project_id=${project.id}`, {

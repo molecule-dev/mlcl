@@ -61,7 +61,7 @@ export function Projects() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/projects')
+      .get('/api/projects')
       .then((res) => {
         if (!cancelled) setList(unwrapList<Project>(res))
       })

@@ -49,7 +49,7 @@ export function RfiDetail() {
     if (!rfiId) return
     setLoading(true)
     http
-      .get(`/rfis/${rfiId}`)
+      .get(`/api/rfis/${rfiId}`)
       .then((res) => {
         if (!cancelled) setRfi(unwrapSingle<Rfi>(res))
       })

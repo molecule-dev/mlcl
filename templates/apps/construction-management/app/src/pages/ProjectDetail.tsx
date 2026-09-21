@@ -46,7 +46,7 @@ export function ProjectDetail() {
     if (!projectId) return
     setLoading(true)
     http
-      .get(`/projects/${projectId}`)
+      .get(`/api/projects/${projectId}`)
       .then((res) => {
         if (!cancelled) setProject(unwrapSingle<Project>(res))
       })

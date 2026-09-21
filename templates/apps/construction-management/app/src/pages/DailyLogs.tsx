@@ -66,7 +66,7 @@ export function DailyLogs() {
     if (!projectId) return
     setLoading(true)
     http
-      .get(`/daily-logs?project_id=${projectId}`)
+      .get(`/api/daily-logs?project_id=${projectId}`)
       .then((res) => {
         if (!cancelled) setLogs(unwrapList<DailyLog>(res))
       })

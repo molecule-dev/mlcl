@@ -20,12 +20,12 @@ test('saving notification preferences round-trips through the profile API', asyn
   ).json()) as { preferences: { punchUpdates?: boolean; rfiUpdates?: boolean } }
   expect(before.preferences.rfiUpdates).toBe(true)
 
-  await page
-    .locator('label:has(input[type="checkbox"])')
-    .filter({ hasText: /RFI updates/i })
-    .locator('input[type="checkbox"]')
-    .first()
-    .uncheck()
+  // The toggle's visible "RFI updates" text is a sibling of the label, and
+  // the checkbox itself is sr-only behind the switch visual (which
+  // intercepts pointer events), so click the wrapping label — the visible
+  // toggle — to flip it, exactly like a user would.
+  await page.locator('label:has(input[aria-label="RFI updates"])').click()
+  await expect(page.getByRole('checkbox', { name: /^RFI updates$/i })).not.toBeChecked()
   await page.getByRole('button', { name: /save preferences/i }).click()
   await expect(page.locator('[data-testid="notifications-saved"]')).toBeVisible()
 

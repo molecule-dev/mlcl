@@ -50,7 +50,7 @@ export function Rfis() {
     if (!projectId) return
     setLoading(true)
     http
-      .get(`/rfis?project_id=${projectId}`)
+      .get(`/api/rfis?project_id=${projectId}`)
       .then((res) => {
         if (!cancelled) setList(unwrapList<Rfi>(res))
       })

@@ -1,6 +1,14 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, apiHeaders, listProjects, signup, todayKey, waitForSeed } from './_helpers.js'
+import {
+  API_BASE,
+  apiHeaders,
+  armCreateWait,
+  listProjects,
+  signup,
+  todayKey,
+  waitForSeed,
+} from './_helpers.js'
 
 /**
  * The signature construction flow: open a project → file today's daily log
@@ -12,7 +20,19 @@ test('daily log → punch item → assignment → closure → RFI thread', async
   const { accessToken } = await signup(page)
   await waitForSeed(page, accessToken)
   const projects = await listProjects(page, accessToken)
-  const project = projects[0]!
+
+  // One log per project per date is enforced (409) and the demo seed files
+  // today's log for some jobsites — run the journey on a project that has no
+  // log for today yet.
+  const todays = await page.request.get(`${API_BASE}/daily-logs?date=${todayKey()}`, {
+    headers: apiHeaders(accessToken),
+  })
+  expect(todays.status()).toBe(200)
+  const loggedProjectIds = new Set(
+    ((await todays.json()) as Array<{ project_id: string }>).map((l) => l.project_id),
+  )
+  const project = projects.find((p) => !loggedProjectIds.has(p.id))
+  expect(project, 'at least one seeded project has no log for today').toBeDefined()
 
   // 1. Open the project and file today's daily log with crew + an entry.
   await page.goto(`/projects/${project.id}/logs`)
@@ -23,7 +43,12 @@ test('daily log → punch item → assignment → closure → RFI thread', async
   await page.locator('[data-mol-id="daily-logs-field-crew"]').fill('18')
   await page.locator('[data-mol-id="daily-logs-field-hours"]').fill('144')
   await page.locator('[data-mol-id="daily-logs-field-notes"]').fill('E2E journey log')
+  // Arm the response listener BEFORE clicking so the immediate API readback
+  // below can't race the create POST still in flight.
+  const logCreated = armCreateWait(page, /\/api\/daily-logs(\?|$)/)
   await page.locator('[data-mol-id="daily-logs-create-submit"]').click()
+  const logResp = await logCreated
+  expect(logResp.status(), `POST /api/daily-logs → ${logResp.status()}`).toBeLessThan(400)
 
   const logList = (await (
     await page.request.get(`${API_BASE}/daily-logs?project_id=${project.id}&date=${todayKey()}`, {
@@ -46,7 +71,10 @@ test('daily log → punch item → assignment → closure → RFI thread', async
   await page
     .locator('[data-mol-id="punch-field-description"]')
     .fill('E2E: deck edge formwork out of plumb at the punch location')
+  const punchCreated = armCreateWait(page, /\/api\/punch-items(\?|$)/)
   await page.locator('[data-mol-id="punch-create-submit"]').click()
+  const punchResp = await punchCreated
+  expect(punchResp.status(), `POST /api/punch-items → ${punchResp.status()}`).toBeLessThan(400)
 
   const punchList = (await (
     await page.request.get(`${API_BASE}/punch-items?project_id=${project.id}`, {
@@ -92,7 +120,10 @@ test('daily log → punch item → assignment → closure → RFI thread', async
     .fill(
       'E2E: referencing the closed punch item at Level 4 Grid B7 — what plumb tolerance applies before re-shoring is released?',
     )
+  const rfiCreated = armCreateWait(page, /\/api\/rfis(\?|$)/)
   await page.locator('[data-mol-id="rfis-create-submit"]').click()
+  const rfiResp = await rfiCreated
+  expect(rfiResp.status(), `POST /api/rfis → ${rfiResp.status()}`).toBeLessThan(400)
 
   const rfiList = (await (
     await page.request.get(`${API_BASE}/rfis?project_id=${project.id}`, {

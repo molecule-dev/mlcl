@@ -87,6 +87,20 @@ export function apiHeaders(accessToken: string): Record<string, string> {
   return { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' }
 }
 
+/** Arm a POST-response wait BEFORE clicking the submit that triggers it.
+ *  Await the returned promise after the click and assert `status() < 400` —
+ *  this stops the immediate API readback in specs from racing the create
+ *  request still in flight. */
+export function armCreateWait(page: Page, urlTest: RegExp): Promise<ResponseLike> {
+  return page.waitForResponse((r) => urlTest.test(r.url()) && r.request().method() === 'POST', {
+    timeout: 15000,
+  }) as unknown as Promise<ResponseLike>
+}
+
+export interface ResponseLike {
+  status(): number
+}
+
 /** Wait until the seeded demo data has been written to the user's tenant.
  *  The first GET /api/projects triggers seedDemoForUser, which inserts the
  *  jobsites, daily logs, punch items, RFIs, and subcontractors. Subsequent

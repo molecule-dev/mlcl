@@ -20,13 +20,10 @@ export function PlanUpdated() {
   }, [heading])
 
   return (
-    <ContentPageShell
-      dataMolId="page-plan-updated"
-      eyebrow={t('settings.billing', {}, { defaultValue: 'Billing' })}
-      title={heading}
-      subtitle={t('planUpdated.subheading', {}, { defaultValue: 'Thank you!' })}
-      bare
-    >
+    // No shell `title`/`subtitle`: PlanUpdatedPage renders its own heading
+    // pair (message + thank-you) — passing them here too put the same
+    // confirmation on screen twice and broke getByText strict mode.
+    <ContentPageShell dataMolId="page-plan-updated" bare>
       <PlanUpdatedPage
         messageKey="planUpdated.heading"
         messageDefault={heading}

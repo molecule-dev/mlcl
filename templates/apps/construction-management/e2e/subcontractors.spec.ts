@@ -1,6 +1,13 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, apiHeaders, listProjects, signup, waitForSeed } from './_helpers.js'
+import {
+  API_BASE,
+  apiHeaders,
+  armCreateWait,
+  listProjects,
+  signup,
+  waitForSeed,
+} from './_helpers.js'
 
 test('subcontractor directory lists seeded trades with committed total', async ({ page }) => {
   const { accessToken } = await signup(page)
@@ -33,7 +40,10 @@ test('adding a subcontractor and activating the invite', async ({ page }) => {
   await page.locator('[data-mol-id="subs-field-company"]').fill('E2E Glass Co')
   await page.locator('[data-mol-id="subs-field-contact"]').fill('(555) 000-0000')
   await page.locator('[data-mol-id="subs-field-value"]').fill('450000')
+  const subCreated = armCreateWait(page, /\/api\/subcontractors(\?|$)/)
   await page.locator('[data-mol-id="subs-create-submit"]').click()
+  const subResp = await subCreated
+  expect(subResp.status(), `POST /api/subcontractors → ${subResp.status()}`).toBeLessThan(400)
 
   const subs = (await (
     await page.request.get(`${API_BASE}/subcontractors?project_id=${project.id}`, {

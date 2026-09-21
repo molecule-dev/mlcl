@@ -1,6 +1,6 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, signup, uniqueEmail } from './_helpers.js'
+import { APP_BASE, login, signup, uniqueEmail } from './_helpers.js'
 
 test('signup creates an account and lands on the dashboard', async ({ page }) => {
   const { accessToken } = await signup(page)
@@ -10,20 +10,22 @@ test('signup creates an account and lands on the dashboard', async ({ page }) =>
   await expect(page.getByRole('navigation').first()).toBeVisible()
 })
 
-test('login page round-trips an existing account', async ({ page }) => {
+test('login page round-trips an existing account', async ({ page, browser }) => {
   const email = uniqueEmail()
   const password = 'TestPass!1234'
   const created = await signup(page, email, password)
   expect(created.accessToken).toBeTruthy()
-  // Log out via the user menu, then sign back in.
+  // The signup session is still authenticated (Login redirects
+  // authenticated users to /dashboard), so exercise the round-trip from a
+  // FRESH context without the auth cookie — that is the session shape the
+  // login form actually renders for.
   await page.goto(APP_BASE + '/settings')
   await expect(page.getByRole('heading', { name: /settings/i })).toBeVisible()
-  const fresh = await page.context().newPage()
-  await fresh.goto(APP_BASE + '/login')
-  await fresh.locator('input#email').fill(email)
-  await fresh.locator('input#password').fill(password)
-  await fresh.getByRole('button', { name: /sign in/i }).click()
-  await expect(fresh).not.toHaveURL(/\/login/)
+  const fresh = await browser.newContext()
+  const freshPage = await fresh.newPage()
+  await login(freshPage, email, password)
+  // UI-anchored: the authenticated app shell loads.
+  await expect(freshPage.getByRole('navigation').first()).toBeVisible()
   await fresh.close()
 })
 

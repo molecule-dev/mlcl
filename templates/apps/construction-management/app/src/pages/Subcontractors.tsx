@@ -42,7 +42,7 @@ export function Subcontractors() {
     if (!projectId) return
     setLoading(true)
     http
-      .get(`/subcontractors?project_id=${projectId}`)
+      .get(`/api/subcontractors?project_id=${projectId}`)
       .then((res) => {
         if (!cancelled) setList(unwrapList<Subcontractor>(res))
       })

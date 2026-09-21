@@ -1,6 +1,13 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, apiHeaders, listProjects, signup, waitForSeed } from './_helpers.js'
+import {
+  API_BASE,
+  apiHeaders,
+  armCreateWait,
+  listProjects,
+  signup,
+  waitForSeed,
+} from './_helpers.js'
 
 test('punch list shows seeded items with severity and status chips', async ({ page }) => {
   const { accessToken } = await signup(page)
@@ -34,7 +41,10 @@ test('file a punch item, assign it, and close it out', async ({ page }) => {
   await page
     .locator('[data-mol-id="punch-field-description"]')
     .fill('E2E: guard rail loose at the slab edge')
+  const punchCreated = armCreateWait(page, /\/api\/punch-items(\?|$)/)
   await page.locator('[data-mol-id="punch-create-submit"]').click()
+  const punchResp = await punchCreated
+  expect(punchResp.status(), `POST /api/punch-items → ${punchResp.status()}`).toBeLessThan(400)
 
   const listRes = await page.request.get(`${API_BASE}/punch-items?project_id=${project.id}`, {
     headers: apiHeaders(accessToken),
