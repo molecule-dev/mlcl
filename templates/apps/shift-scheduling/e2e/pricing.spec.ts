@@ -36,7 +36,17 @@ test.describe('pricing page', () => {
     const proPriceId = pro?.prices.find((p) => p.stripePriceId)?.stripePriceId
     const teamPriceId = team?.prices.find((p) => p.stripePriceId)?.stripePriceId
     if (!proPriceId || !teamPriceId) {
-      test.skip(true, 'no Stripe price ids for paid tiers — env not configured')
+      // Unconfigured env: the tiers contract still holds — both paid tiers
+      // exist with a null price (the documented unconfigured state the UI
+      // renders "Current plan" for). Assert the contract, never skip.
+      expect(pro, 'pro tier present').toBeDefined()
+      expect(team, 'team tier present').toBeDefined()
+      for (const p of [...(pro?.prices ?? []), ...(team?.prices ?? [])]) {
+        expect(p.stripePriceId).toBeNull()
+      }
+      return
     }
+    expect(proPriceId).toMatch(/^price_/)
+    expect(teamPriceId).toMatch(/^price_/)
   })
 })

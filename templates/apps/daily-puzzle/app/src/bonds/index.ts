@@ -1,5 +1,6 @@
 import { setupAllDefaultBonds } from '@molecule/app-bonds-default-react'
 
+import { setupAppAnalytics } from './app-analytics.js'
 import { setupAppThemeCssVariables } from './app-theme-css-variables.js'
 import { authClient, setupAuthDefault } from './auth-default.js'
 import { i18nProvider } from './i18n-default.js'
@@ -18,4 +19,7 @@ export async function setupProviders(): Promise<void> {
   setupAllDefaultBonds()
   setupAppThemeCssVariables()
   setupAuthDefault()
+  // Analytics: env-driven (VITE_POSTHOG_KEY) + auto-tracked auth/route/http
+  // events. Silent no-op when no key is configured — never breaks the app.
+  setupAppAnalytics()
 }

@@ -1,5 +1,6 @@
 import { setupAllDefaultBonds } from '@molecule/app-bonds-default-react'
 
+import { setupAppAnalytics } from './app-analytics.js'
 import { setupAppAudioHowler } from './app-audio-howler.js'
 import { setupAppRealtimeSocketio } from './app-realtime-socketio.js'
 import { setupAppThemeCssVariables } from './app-theme-css-variables.js'
@@ -19,4 +20,7 @@ export async function setupProviders(): Promise<void> {
   setupAppAudioHowler()
   await setupAppRealtimeSocketio()
   setupAuthDefault()
+  // Analytics: env-driven (VITE_POSTHOG_KEY) + auto-tracked auth/route/http
+  // events. Silent no-op when no key is configured — never breaks the app.
+  setupAppAnalytics()
 }

@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 
+import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
@@ -39,6 +40,7 @@ export function App() {
         i18n={i18nProvider}
       >
         <RootErrorBoundary>
+          <AnalyticsRouteListener />
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<Landing />} />

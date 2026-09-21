@@ -18,6 +18,9 @@
     "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@molecule/app-analytics": "1.0.2",
+    "@molecule/app-analytics-posthog": "1.0.2",
+    "@molecule/app-analytics-react": "1.0.2",
     "@molecule/app-auth": "1.1.1",
     "@molecule/app-auth-shell-react": "1.0.2",
     "@molecule/app-auth-ui-react": "1.0.2",
