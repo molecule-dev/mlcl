@@ -12,6 +12,7 @@ import type { FamilyTreeLimits } from '../tiers.js'
 import {
   buildLifeTimeline,
   deriveRelatives,
+  normalizePerson,
   type PersonRecord,
   planRelativeEdges,
   type RelationshipRecord,
@@ -67,7 +68,9 @@ async function loadPeople(userId: string): Promise<PersonRecord[]> {
     where: [{ field: 'user_id', operator: '=', value: userId }],
     orderBy: [{ field: 'created_at', direction: 'asc' }],
   })
-  return people
+  // pg DATE columns arrive as local-midnight Date objects — normalize to
+  // YYYY-MM-DD so the wire shape and every downstream comparison are strings.
+  return people.map(normalizePerson)
 }
 
 async function loadRelationships(userId: string): Promise<RelationshipRecord[]> {
@@ -134,7 +137,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const [people, rels] = await Promise.all([loadPeople(userId), loadRelationships(userId)])
     const relatives = deriveRelatives(id, people, rels)
     const timeline = buildLifeTimeline(person, relatives)
-    res.json({ ...person, relatives, timeline })
+    res.json({ ...normalizePerson(person), relatives, timeline })
   } catch (error) {
     logger.error('people.handler', error)
     res.status(500).json({
@@ -227,7 +230,7 @@ router.post(
       const [people, rels] = await Promise.all([loadPeople(userId), loadRelationships(userId)])
       const relatives = deriveRelatives(personId, people, rels)
       const fresh = await findById<PersonRecord>('people', personId)
-      res.status(201).json({ ...fresh, relatives })
+      res.status(201).json({ ...(fresh ? normalizePerson(fresh) : null), relatives })
     } catch (error) {
       logger.error('people.handler', error)
       res.status(500).json({
@@ -255,7 +258,8 @@ router.put('/:id', validateBody(updateSchema), async (req: Request, res: Respons
     }
     const body = req.body as z.infer<typeof updateSchema>
     const result = await updateById('people', id, { ...body, updatedAt: new Date() })
-    res.json((result as { data?: Record<string, unknown> }).data ?? result)
+    const updated = (result as { data?: Record<string, unknown> }).data ?? result
+    res.json(normalizePerson(updated as unknown as PersonRecord))
   } catch (error) {
     logger.error('people.handler', error)
     res.status(500).json({

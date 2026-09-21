@@ -34,13 +34,37 @@ export interface PersonRecord {
   last_name?: string | null
   maiden_name?: string | null
   gender?: string | null
-  birth_date?: string | null
+  /** pg `date` columns come back as Date objects (local midnight) — normalize with {@link toDateStr}. */
+  birth_date?: string | Date | null
   birth_place?: string | null
-  death_date?: string | null
+  death_date?: string | Date | null
   death_place?: string | null
   notes?: string | null
   photo_url?: string | null
   created_at?: string | Date | null
+}
+
+/**
+ * Normalize a `date` column value to a YYYY-MM-DD string (or null).
+ *
+ * pg parses DATE columns into JS Date objects pinned to LOCAL midnight.
+ * Left raw they (a) crash string APIs (`localeCompare`) and (b) serialize
+ * via JSON to UTC — landing on the PREVIOUS calendar day for any
+ * positive-offset timezone. Local getters return the original calendar
+ * date, so the round-trip is lossless.
+ */
+export function toDateStr(v: string | Date | null | undefined): string | null {
+  if (v == null || v === '') return null
+  if (typeof v === 'string') return v
+  const y = v.getFullYear()
+  const m = `${v.getMonth() + 1}`.padStart(2, '0')
+  const d = `${v.getDate()}`.padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
+/** Copy of a person record with birth/death dates normalized to YYYY-MM-DD strings. */
+export function normalizePerson<T extends PersonRecord>(p: T): T {
+  return { ...p, birth_date: toDateStr(p.birth_date), death_date: toDateStr(p.death_date) }
 }
 
 export interface RelationshipRecord {
@@ -59,8 +83,9 @@ export interface PersonRelatives {
 }
 
 function birthSortKey(p: PersonRecord): number {
-  if (!p.birth_date) return Number.POSITIVE_INFINITY
-  const t = new Date(p.birth_date).getTime()
+  const s = toDateStr(p.birth_date)
+  if (!s) return Number.POSITIVE_INFINITY
+  const t = new Date(s).getTime()
   return Number.isNaN(t) ? Number.POSITIVE_INFINITY : t
 }
 
@@ -455,9 +480,10 @@ export interface LifeEvent {
 export function buildLifeTimeline(person: PersonRecord, relatives: PersonRelatives): LifeEvent[] {
   const events: LifeEvent[] = []
   const nameOf = (p: PersonRecord): string => [p.first_name, p.last_name].filter(Boolean).join(' ')
-  if (person.birth_date) {
+  const birth = toDateStr(person.birth_date)
+  if (birth) {
     events.push({
-      date: person.birth_date,
+      date: birth,
       kind: 'birth',
       detail: person.birth_place ?? '',
     })
@@ -471,14 +497,15 @@ export function buildLifeTimeline(person: PersonRecord, relatives: PersonRelativ
   }
   for (const child of relatives.children) {
     events.push({
-      date: child.birth_date ?? null,
+      date: toDateStr(child.birth_date),
       kind: 'child',
       detail: nameOf(child),
     })
   }
-  if (person.death_date) {
+  const death = toDateStr(person.death_date)
+  if (death) {
     events.push({
-      date: person.death_date,
+      date: death,
       kind: 'death',
       detail: person.death_place ?? '',
     })

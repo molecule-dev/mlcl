@@ -61,6 +61,9 @@ test.describe('person detail', () => {
 
   test('unknown person id shows the not-found error', async ({ page }) => {
     await signup(page, uniqueEmail('person-404'))
+    // The unknown-person GET 404s — expected; silence the resource-load
+    // console error before the navigation fires it.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/people/00000000-0000-4000-8000-000000000000')
     await page.waitForLoadState('networkidle')
     await expect(page.locator('[data-mol-id="page-person-detail"]').first()).toBeVisible()

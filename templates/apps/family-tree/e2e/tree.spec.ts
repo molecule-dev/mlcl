@@ -62,9 +62,22 @@ test.describe('tree', () => {
       reqs.some((r) => r.url.includes('/api/tree') && r.method === 'GET' && r.status < 400),
     ).toBe(true)
 
+    // Arm the ?root= response wait BEFORE clicking: the refetch only starts
+    // after React processes the click, so a plain waitForLoadState
+    // ('networkidle') can observe the pre-click idle page and return before
+    // the request ever exists (the response listener then never fires).
+    const rerootResponse = page.waitForResponse(
+      (r) =>
+        r.url().includes(`/api/tree?root=${encodeURIComponent(nonRoot!.id)}`) &&
+        r.request().method() === 'GET',
+      { timeout: 10_000 },
+    )
     const reqsReroot = await captureNetwork(page, async () => {
-      await page.locator(`[data-mol-id="tree-reroot-${nonRoot!.id}"]`).first().click()
-      await page.waitForLoadState('networkidle')
+      const btn = page.locator(`[data-mol-id="tree-reroot-${nonRoot!.id}"]`).first()
+      await expect(btn).toBeVisible()
+      await btn.click()
+      const resp = await rerootResponse
+      expect(resp.status(), `GET /api/tree?root= → ${resp.status()}`).toBeLessThan(400)
     })
     expect(
       reqsReroot.some(

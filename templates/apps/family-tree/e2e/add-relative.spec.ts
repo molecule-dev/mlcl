@@ -42,8 +42,10 @@ test.describe('add relative', () => {
     const childEntry = parentAfter.relatives?.children.find((c) => c.id === anchor.id)
     expect(childEntry, 'the new parent must list the anchor as their child').toBeDefined()
 
-    // Exactly ONE parent edge was stored (no duplicate inverse edge).
-    const tree = await getTree(page, accessToken)
+    // Exactly ONE parent edge was stored (no duplicate inverse edge). Root
+    // the tree at the anchor: the default root picks the seeded demo family,
+    // a different connected component that legitimately excludes the anchor.
+    const tree = await getTree(page, accessToken, anchor.id)
     const parentEdges = tree.edges.filter(
       (e) => e.kind === 'parent' && e.fromId === anchor.id && e.toId === parentEntry!.id,
     )

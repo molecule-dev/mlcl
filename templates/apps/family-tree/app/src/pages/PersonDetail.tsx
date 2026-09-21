@@ -51,6 +51,13 @@ export function PersonDetail() {
       })
       .catch((err) => {
         if (cancelled) return
+        // A 404 is the expected "unknown person" outcome — surface the
+        // friendly not-found copy, not the raw http error string.
+        const status = (err as { status?: number })?.status
+        if (status === 404) {
+          setError(t('personDetail.notFound', {}, { defaultValue: 'Person not found.' }))
+          return
+        }
         setError(
           err instanceof Error
             ? err.message

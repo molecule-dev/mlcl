@@ -7,6 +7,7 @@ import { logger } from '@molecule/api-logger'
 
 import {
   buildTreeLayout,
+  normalizePerson,
   type PersonRecord,
   type RelationshipRecord,
   suggestRoot,
@@ -30,10 +31,12 @@ router.get('/', async (req: Request, res: Response) => {
       })
     }
     await seedDemoForUser(userId)
-    const people = await findMany<PersonRecord>('people', {
-      where: [{ field: 'user_id', operator: '=', value: userId }],
-      orderBy: [{ field: 'created_at', direction: 'asc' }],
-    })
+    const people = (
+      await findMany<PersonRecord>('people', {
+        where: [{ field: 'user_id', operator: '=', value: userId }],
+        orderBy: [{ field: 'created_at', direction: 'asc' }],
+      })
+    ).map(normalizePerson)
     if (people.length === 0) {
       return res.json({ rootId: null, nodes: [], edges: [], stats: { people: 0, generations: 0 } })
     }
