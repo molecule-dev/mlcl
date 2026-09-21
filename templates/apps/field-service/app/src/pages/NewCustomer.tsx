@@ -108,7 +108,11 @@ export function NewCustomer() {
         </div>
         <label className={cm.stack(1)}>
           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
-            {t('form.address', {}, { defaultValue: 'Service address' })}
+            {/* App-namespaced key: the generic `form.address` is defined by the
+                shared @molecule/app-locales-common bundle ("Address"), which
+                would silently override this label. This field is the service
+                address — the job site — so the specific label wins. */}
+            {t('customers.new.address', {}, { defaultValue: 'Service address' })}
           </span>
           <input
             type="text"

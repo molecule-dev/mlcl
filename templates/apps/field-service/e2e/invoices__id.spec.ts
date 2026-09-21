@@ -18,6 +18,14 @@ async function createDraftInvoice(
   expect(jobRes.status(), await jobRes.text()).toBe(201)
   const job = (await jobRes.json()) as { id: string }
 
+  // Walk the workflow graph the UI enforces — only in_progress jobs can move
+  // to completed (scheduled → completed is a 409 by design).
+  const inProgressRes = await page.request.post(`${API_BASE}/jobs/${job.id}/status`, {
+    headers: apiHeaders(accessToken),
+    data: { status: 'in_progress' },
+  })
+  expect(inProgressRes.status(), await inProgressRes.text()).toBe(200)
+
   const completeRes = await page.request.post(`${API_BASE}/jobs/${job.id}/status`, {
     headers: apiHeaders(accessToken),
     data: { status: 'completed' },

@@ -59,7 +59,9 @@ test.describe('99 — kitchen-sink user journey', () => {
     let jobId: string | null = null
     {
       await page.goto(APP_BASE + '/quotes/new')
-      await page.getByLabel(/^customer$/i).selectOption(customer!.id)
+      // Role locator for the select — a wrapping <label>'s textContent includes
+      // every <option> text, so getByLabel(/^customer$/) can never exact-match.
+      await page.getByRole('combobox', { name: /^customer$/i }).selectOption(customer!.id)
       await page.getByLabel(/^title$/i).fill(`KS Quote ${Date.now() % 100000}`)
       await page
         .getByLabel(/^description$/i)
@@ -79,23 +81,22 @@ test.describe('99 — kitchen-sink user journey', () => {
       await page.getByRole('button', { name: /accept → create job/i }).click()
       await expect(page.getByText(/converted to a job/i)).toBeVisible({ timeout: 10000 })
 
-      const jobsRes = await page.request.get(API_BASE + '/jobs', {
-        headers: apiHeaders(accessToken),
-      })
-      const jobs = (await jobsRes.json()) as Array<{ id: string; quote_id: string | null }>
-      const job = jobs.find((j) => j.quote_id)
-      expect(job, 'accepted quote produced a job').toBeDefined()
-      jobId = job!.id
+      // Follow the job link the page offers — listing /api/jobs and taking the
+      // first row with a quote_id would race the SEEDED demo jobs (they also
+      // carry quote_id) and land this journey on the wrong job.
+      const viewJobLink = page.getByRole('link', { name: /view job/i })
+      await expect(viewJobLink).toBeVisible({ timeout: 10000 })
+      const jobHref = await viewJobLink.getAttribute('href')
+      expect(jobHref, 'quote detail links to the created job').toMatch(/\/jobs\//)
+      jobId = jobHref!.replace(/^.*\/jobs\//, '')
     }
 
     // ───── Job detail: dispatch + checklist + complete ─────
     {
       await page.goto(APP_BASE + `/jobs/${jobId}`)
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 10000 })
-      await page
-        .getByLabel(/^technician$/i)
-        .first()
-        .selectOption({ index: 1 })
+      // Role locator for the assign select (option text breaks getByLabel).
+      await page.getByRole('combobox', { name: /^technician$/i }).selectOption({ index: 1 })
       await page.getByRole('button', { name: /^assign$/i }).click()
       await expect
         .poll(
@@ -131,7 +132,9 @@ test.describe('99 — kitchen-sink user journey', () => {
       await expect(page.getByRole('heading', { name: /dispatch board/i, level: 1 })).toBeVisible({
         timeout: 15000,
       })
-      await expect(page.getByText(/waiting for a technician/i)).toBeVisible()
+      // Heading locator — the subheading ("N jobs waiting for a technician")
+      // matches the same text, so a bare getByText is a strict-mode violation.
+      await expect(page.getByRole('heading', { name: /waiting for a technician/i })).toBeVisible()
     }
 
     // ───── Technicians ─────

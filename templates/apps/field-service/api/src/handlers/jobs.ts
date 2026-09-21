@@ -244,9 +244,20 @@ router.post(
       })
       const jobId = (result.data as { id?: string } | null)?.id ?? ''
       if (jobId && body.checklist?.length) {
-        for (const label of body.checklist) {
-          await create('job_checklist', { job_id: jobId, label, done: false, created_at: now })
-        }
+        // Distinct created_at per item (1ms apart) — the checklist is read
+        // back ordered by created_at, and one shared timestamp makes the
+        // order unstable across reloads.
+        const base = Date.parse(now)
+        await Promise.all(
+          body.checklist.map((label, i) =>
+            create('job_checklist', {
+              job_id: jobId,
+              label,
+              done: false,
+              created_at: new Date(base + i).toISOString(),
+            }),
+          ),
+        )
       }
       const { customerById, technicianById } = await loadLookups(userId)
       const { checklistByJob, notesByJob } = await childrenByJob([jobId])

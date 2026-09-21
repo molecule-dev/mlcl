@@ -63,10 +63,14 @@ test.describe('quote → job → invoice flow', () => {
       const pad = (n: number) => String(n).padStart(2, '0')
       return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`
     }
-    await page
-      .getByLabel(/^technician$/i)
-      .first()
-      .selectOption(technicianId)
+    // datetime-local inputs carry minute granularity — seconds/ms are dropped
+    // on the way through — so the read-back comparison must use the truncated
+    // timestamp, not start.getTime() (which has arbitrary seconds).
+    const expectedStartMs = new Date(toLocalInput(start)).getTime()
+    // Role locator for the select — a wrapping <label>'s textContent includes
+    // every <option> text (technician names), so getByLabel(/^technician$/)
+    // can never exact-match it.
+    await page.getByRole('combobox', { name: /^technician$/i }).selectOption(technicianId)
     await page.getByLabel(/^start$/i).fill(toLocalInput(start))
     await page.getByLabel(/^end$/i).fill(toLocalInput(end))
     await page.getByRole('button', { name: /^assign$/i }).click()
@@ -84,16 +88,19 @@ test.describe('quote → job → invoice flow', () => {
           return (
             j.technician_id === technicianId &&
             j.scheduled_start != null &&
-            Date.parse(j.scheduled_start) === start.getTime()
+            Date.parse(j.scheduled_start) === expectedStartMs
           )
         },
         { timeout: 15000 },
       )
       .toBe(true)
 
-    // 3. Checklist: toggle the first item done.
+    // 3. Checklist: toggle the first item done. click() + toBeChecked — the
+    // checkbox is async-controlled (state returns only after the POST +
+    // reload), so locator.check()'s verify-and-reclick loop would race the
+    // round trip and double-toggle the item.
     const firstCheck = page.locator('input[type="checkbox"]').first()
-    await firstCheck.check()
+    await firstCheck.click()
     await expect(firstCheck).toBeChecked({ timeout: 10000 })
 
     // 4. Notes timeline: post a note.

@@ -31,12 +31,13 @@ test.describe('customers', () => {
     const { accessToken } = await signup(page)
     await waitForSeed(page, accessToken)
     await gotoCustomers(page)
-    const initial = await page.locator('a[href^="/customers/"]').count()
+    // Row links only — the header's "+ New customer" CTA (href="/customers/new")
+    // also matches a[href^="/customers/"] and must not count as a row.
+    const rowLinks = page.locator('a[href^="/customers/"]:not([href="/customers/new"])')
+    const initial = await rowLinks.count()
     expect(initial).toBeGreaterThanOrEqual(1)
     await page.getByRole('searchbox').fill('zzzzz-no-match-zzzzz')
-    await expect
-      .poll(async () => page.locator('a[href^="/customers/"]').count(), { timeout: 5000 })
-      .toBe(0)
+    await expect.poll(async () => rowLinks.count(), { timeout: 5000 }).toBe(0)
   })
 
   test('"New customer" page creates a row that survives reload', async ({ page }) => {

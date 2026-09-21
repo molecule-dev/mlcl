@@ -41,7 +41,9 @@ test.describe('job detail', () => {
     const req = reqs.find((r) => /\/api\/jobs\/[a-f0-9-]{36}/.test(r.url) && r.method === 'GET')
     expect(req?.status, 'GET /api/jobs/:id').toBe(200)
     await expect(page.getByText(/schedule window/i)).toBeVisible()
-    await expect(page.getByText(/^technician$/i)).toBeVisible()
+    // Heading locator — the assign form's "Technician" label matches the same
+    // text, so a bare getByText(/^technician$/) is a strict-mode violation.
+    await expect(page.getByRole('heading', { name: /^technician$/i })).toBeVisible()
     await expect(page.getByText(/service address/i)).toBeVisible()
     await expect(page.getByText(/^checklist$/i)).toBeVisible()
     await expect(page.getByText(/notes timeline/i)).toBeVisible()

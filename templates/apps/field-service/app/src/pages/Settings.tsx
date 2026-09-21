@@ -36,8 +36,7 @@ interface CompanySettings {
 
 interface UserMe {
   id?: string
-  props?: { id?: string; oauthData?: Record<string, unknown> | null }
-  oauthData?: Record<string, unknown> | null
+  props?: { id?: string }
 }
 
 const DEFAULTS: Required<CompanySettings> = {
@@ -57,14 +56,10 @@ const DEFAULTS: Required<CompanySettings> = {
 }
 
 function readSettings(
-  oauthData: Record<string, unknown> | null | undefined,
+  company: Partial<CompanySettings> | null | undefined,
 ): Required<CompanySettings> {
-  const company =
-    oauthData && typeof oauthData === 'object'
-      ? (oauthData as Record<string, unknown>).companySettings
-      : null
   if (!company || typeof company !== 'object') return { ...DEFAULTS }
-  return { ...DEFAULTS, ...(company as Partial<CompanySettings>) }
+  return { ...DEFAULTS, ...company }
 }
 
 export function Settings() {
@@ -73,7 +68,6 @@ export function Settings() {
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('organization')
   const [userId, setUserId] = useState<string | null>(null)
-  const [oauthData, setOauthData] = useState<Record<string, unknown> | null>(null)
   const [settings, setSettings] = useState<Required<CompanySettings>>(DEFAULTS)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -83,16 +77,22 @@ export function Settings() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    http
-      .get('/users/me')
-      .then((res) => {
+    // The user id (for the PATCH target) comes from /users/me; the company
+    // settings come from the app's own /api/settings route — the shared user
+    // resource strips oauthData from every client-facing read, so /users/me
+    // can never return the persisted companySettings back.
+    Promise.all([
+      http.get('/users/me').then((res) => unwrapSingle<UserMe>(res)),
+      http
+        .get('/api/settings')
+        .then((res) => unwrapSingle<Partial<CompanySettings>>(res) ?? {})
+        .catch(() => ({}) as Partial<CompanySettings>),
+    ])
+      .then(([me, company]) => {
         if (cancelled) return
-        const me = unwrapSingle<UserMe>(res)
         const id = me?.props?.id ?? me?.id ?? null
-        const data = me?.props?.oauthData ?? me?.oauthData ?? null
         setUserId(id)
-        setOauthData(data ?? null)
-        setSettings(readSettings(data))
+        setSettings(readSettings(company))
       })
       .catch(() =>
         setError(t('settings.loadError', {}, { defaultValue: 'Failed to load settings.' })),
@@ -110,9 +110,11 @@ export function Settings() {
     setSaving(true)
     setError(null)
     try {
-      const next = { ...(oauthData ?? {}), companySettings: settings }
-      await http.patch(`/api/users/${userId}`, { oauthData: next })
-      setOauthData(next)
+      // PATCH /api/settings merges the companySettings slice into the user's
+      // oauthData server-side — a direct PATCH /api/users/:id would have to
+      // send the whole oauthData bag, which the client can never read back
+      // (the shared resource strips it) and would clobber sibling keys.
+      await http.patch('/api/settings', settings)
       setSavedAt(new Date().toISOString())
     } catch (err) {
       setError(

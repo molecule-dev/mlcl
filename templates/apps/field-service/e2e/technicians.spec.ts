@@ -28,7 +28,10 @@ test.describe('technicians', () => {
     const name = `E2E Tech ${Date.now() % 100000}`
     await page.getByRole('button', { name: /\+ add technician/i }).click()
     await page.getByLabel(/^name$/i).fill(name)
-    await page.getByLabel(/^trade$/i).selectOption('hvac')
+    // Role locator for the select — a wrapping <label>'s textContent includes
+    // every <option> text (Hvac/Plumbing/…), so getByLabel(/^trade$/) can
+    // never exact-match it.
+    await page.getByRole('combobox', { name: /^trade$/i }).selectOption('hvac')
     await page.getByLabel(/^phone$/i).fill('(555) 222-3333')
     await page.getByLabel(/skills \/ certs/i).fill('E2E Cert')
     await page.getByRole('button', { name: /^add technician$/i }).click()

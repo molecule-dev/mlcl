@@ -44,7 +44,9 @@ test.describe('dispatch', () => {
     })
     const techReq = reqs.find((r) => /\/api\/technicians(\?|$)/.test(r.url) && r.method === 'GET')
     expect(techReq?.status, 'GET /api/technicians').toBe(200)
-    await expect(page.getByText(/waiting for a technician/i)).toBeVisible()
+    // Heading locator — the subheading ("N jobs waiting for a technician")
+    // matches the same text, so a bare getByText is a strict-mode violation.
+    await expect(page.getByRole('heading', { name: /waiting for a technician/i })).toBeVisible()
     // Monday..Saturday headers
     for (const day of ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']) {
       await expect(
@@ -73,9 +75,11 @@ test.describe('dispatch', () => {
     await expect(chip).toBeVisible({ timeout: 10000 })
     await chip.click()
 
-    // Pick the first active technician and the first day column.
-    await page.getByLabel(/^technician$/i).selectOption({ index: 1 })
-    await page.getByLabel(/^day$/i).selectOption({ index: 1 })
+    // Pick the first active technician and the first day column. Role-based
+    // locators for selects: a wrapping <label>'s textContent includes every
+    // <option> text, so getByLabel(/^technician$/) can never exact-match.
+    await page.getByRole('combobox', { name: /^technician$/i }).selectOption({ index: 1 })
+    await page.getByRole('combobox', { name: /^day$/i }).selectOption({ index: 1 })
     await page.getByRole('button', { name: /^schedule$/i }).click()
 
     // Read-after-write: the job now carries the technician and a schedule window.

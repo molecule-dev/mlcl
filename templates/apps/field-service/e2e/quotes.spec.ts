@@ -48,7 +48,10 @@ test.describe('quotes', () => {
     await expect(page).toHaveURL(/\/quotes\/new/)
 
     const title = `E2E Quote ${Date.now() % 100000}`
-    await page.getByLabel(/^customer$/i).selectOption({ index: 1 })
+    // Role locator for the select — a wrapping <label>'s textContent includes
+    // every <option> text (customer names), so getByLabel(/^customer$/) can
+    // never exact-match it.
+    await page.getByRole('combobox', { name: /^customer$/i }).selectOption({ index: 1 })
     await page.getByLabel(/^title$/i).fill(title)
     await page
       .getByLabel(/^description$/i)

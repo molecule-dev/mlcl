@@ -369,9 +369,20 @@ router.post('/:id/accept', async (req: Request, res: Response) => {
       ...ACCEPT_JOB_CHECKLIST,
     ]
     if (jobId) {
-      for (const label of checklist) {
-        await create('job_checklist', { job_id: jobId, label, done: false, created_at: now })
-      }
+      // Distinct created_at per item (1ms apart): the checklist is read back
+      // ordered by created_at, and items sharing one timestamp make the
+      // order unstable — the list visibly re-sorts after every reload.
+      const base = Date.parse(now)
+      await Promise.all(
+        checklist.map((label, i) =>
+          create('job_checklist', {
+            job_id: jobId,
+            label,
+            done: false,
+            created_at: new Date(base + i).toISOString(),
+          }),
+        ),
+      )
       await create('job_notes', {
         job_id: jobId,
         author: 'Office',

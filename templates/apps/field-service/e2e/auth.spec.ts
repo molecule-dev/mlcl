@@ -40,6 +40,8 @@ test.describe('auth flow', () => {
   })
 
   test('login with wrong password shows error and does not navigate away', async ({ page }) => {
+    // The rejected POST /api/users/log-in logs a 403 console error — expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('badpw')
     await signup(page, email)
     await page.context().clearCookies()
@@ -56,6 +58,8 @@ test.describe('auth flow', () => {
   test('signup email uniqueness enforced — second signup with same email errors', async ({
     page,
   }) => {
+    // The rejected POST /api/users logs a 403 console error — expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dupe')
     await signup(page, email)
     await page.context().clearCookies()

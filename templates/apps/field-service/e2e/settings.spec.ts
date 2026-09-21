@@ -169,7 +169,7 @@ test.describe('settings', () => {
     await expect(cb).toBeChecked({ checked: !before })
   })
 
-  test('Save changes PATCHes /api/users/:id and persists a setting across reload', async ({
+  test('Save changes PATCHes /api/settings and persists a setting across reload', async ({
     page,
   }) => {
     const { accessToken } = await signup(page)
@@ -179,11 +179,11 @@ test.describe('settings', () => {
     const field = page.getByLabel(/quote validity/i)
     await field.fill('21')
     const saveReqPromise = page.waitForResponse(
-      (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings(\?|$)/.test(r.url()) && r.request().method() === 'PATCH',
     )
     await page.getByRole('button', { name: /save changes/i }).click()
     const saveResp = await saveReqPromise
-    expect(saveResp.status(), 'PATCH /api/users/:id').toBe(200)
+    expect(saveResp.status(), 'PATCH /api/settings').toBe(200)
     await expect(page.getByText(/^saved\.?$/i)).toBeVisible({ timeout: 5000 })
 
     await page.reload()
@@ -202,11 +202,11 @@ test.describe('settings', () => {
     const newName = `Persisted Co ${Date.now() % 100000}`
     await orgField.fill(newName)
     const saveReqPromise = page.waitForResponse(
-      (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings(\?|$)/.test(r.url()) && r.request().method() === 'PATCH',
     )
     await page.getByRole('button', { name: /save changes/i }).click()
     const saveResp = await saveReqPromise
-    expect(saveResp.status(), 'PATCH /api/users/:id').toBe(200)
+    expect(saveResp.status(), 'PATCH /api/settings').toBe(200)
     await page.reload()
     await expect(page.getByRole('heading', { name: /^settings$/i, level: 1 })).toBeVisible({
       timeout: 15000,

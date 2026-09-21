@@ -19,10 +19,10 @@ test.describe('notifications', () => {
     expect(req?.status, 'GET /api/notifications').toBe(200)
   })
 
-  test('eyebrow "Operations feed" renders above the heading', async ({ page }) => {
+  test('eyebrow "Shop feed" renders above the heading', async ({ page }) => {
     await signup(page)
     await gotoNotifications(page)
-    await expect(page.getByText(/^operations feed$/i)).toBeVisible()
+    await expect(page.getByText(/^shop feed$/i)).toBeVisible()
   })
 
   test('page heading "Notifications" renders', async ({ page }) => {

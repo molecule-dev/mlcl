@@ -32,7 +32,10 @@ test.describe('jobs', () => {
   test('day filter select offers today and tomorrow', async ({ page }) => {
     await signup(page)
     await gotoJobs(page)
-    const select = page.getByLabel(/^day$/i)
+    // Role locator for the select: a wrapping <label>'s textContent includes
+    // every <option> text ("Day All days Today…"), so getByLabel(/^day$/)
+    // can never exact-match it.
+    const select = page.getByRole('combobox', { name: /^day$/i })
     await expect(select).toBeVisible()
     await select.selectOption('today')
     await expect(select).toHaveValue('today')

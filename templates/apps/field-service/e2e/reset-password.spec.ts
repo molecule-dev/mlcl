@@ -45,6 +45,9 @@ test.describe('reset-password', () => {
   test('full forgot→reset→login lifecycle (UI form posts /api/users/reset-password)', async ({
     page,
   }) => {
+    // The intentionally-bogus token makes POST /api/users/reset-password fail
+    // (401) — the browser logs it as a console error, which is expected here.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     // Signup so the user exists.
     const email = uniqueEmail('reset-lifecycle')
     const { accessToken } = await signup(page, email)
