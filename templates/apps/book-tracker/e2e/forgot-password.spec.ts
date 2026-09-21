@@ -66,6 +66,8 @@ test('email field rejects empty submission via HTML5 validation', async ({ page 
 
 test('logo link returns to /', async ({ page }) => {
   await page.goto(APP_BASE + '/forgot-password')
-  await page.getByRole('link', { name: /^Streak$/ }).click()
+  // The auth-shell wordmark link is the app name ("Pagebound"), not a
+  // sibling app's brand.
+  await page.getByRole('link', { name: /^Pagebound$/ }).click()
   await page.waitForURL(/\/$/, { timeout: 5_000 })
 })

@@ -33,5 +33,7 @@ test('stats render a finished + rated book', async ({ page }) => {
     timeout: 10_000,
   })
   await expect(page.getByText(/rating distribution/i)).toBeVisible()
-  await expect(page.getByText(/★ 5\.0 average/).first()).toBeVisible({ timeout: 10_000 })
+  // The ratings heading interpolates the API's `average` — a JS number, so a
+  // single 5-star book renders "★ 5 average" (no forced decimal).
+  await expect(page.getByText(/★ 5 average/).first()).toBeVisible({ timeout: 10_000 })
 })

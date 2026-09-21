@@ -23,10 +23,11 @@ test('pricing page renders the heading', async ({ page }) => {
 test('pricing page lists per-tier limits (reviews, books, history)', async ({ page }) => {
   await page.goto(APP_BASE + '/pricing')
   await page.waitForLoadState('networkidle')
-  // The renderLimits ul includes "reviews", "books", "-day history", and the export/advanced rows.
-  await expect(page.getByText(/entries/i).first()).toBeVisible({ timeout: 10_000 })
+  // The tier cards' limits ul renders "N reviews", "N books", "N-day history",
+  // plus the advanced-features and data-export rows.
+  await expect(page.getByText(/reviews/i).first()).toBeVisible({ timeout: 10_000 })
   await expect(page.getByText(/books/i).first()).toBeVisible()
-  await expect(page.getByText(/stats/i).first()).toBeVisible()
+  await expect(page.getByText(/-day history/i).first()).toBeVisible()
 })
 
 test('pricing page is reachable while logged out', async ({ page }) => {

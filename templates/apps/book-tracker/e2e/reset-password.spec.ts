@@ -15,6 +15,9 @@ test('reset-password form renders all fields', async ({ page }) => {
 })
 
 test('reset with invalid token surfaces an error', async ({ page }) => {
+  // Expected 4xx: the bogus-token POST /api/users/reset-password returns 401,
+  // which Chrome logs as a console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(APP_BASE + '/reset-password')
   await page.locator('input[type="email"]').fill('nobody@nowhere.test')
   await page.locator('input[type="text"]').first().fill('not-a-real-token-1234')
@@ -86,6 +89,9 @@ test('back-to-sign-in link returns to /login', async ({ page }) => {
 })
 
 test('reset with invalid token POSTs and returns 4xx (captureNetwork)', async ({ page }) => {
+  // Expected 4xx: the bogus-token POST /api/users/reset-password returns 401,
+  // which Chrome logs as a console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(APP_BASE + '/reset-password')
   await page.locator('input[type="email"]').fill('nobody@nowhere.test')
   const tokenField = page.locator('input[type="text"]').first()
@@ -103,7 +109,9 @@ test('reset with invalid token POSTs and returns 4xx (captureNetwork)', async ({
 
 test('logo link returns to /', async ({ page }) => {
   await page.goto(APP_BASE + '/reset-password')
-  await page.getByRole('link', { name: /^Streak$/ }).click()
+  // The auth-shell wordmark link is the app name ("Pagebound"), not a
+  // sibling app's brand.
+  await page.getByRole('link', { name: /^Pagebound$/ }).click()
   await page.waitForURL(/\/$/, { timeout: 5_000 })
 })
 

@@ -55,6 +55,9 @@ test('signup link from /login goes back to /signup', async ({ page }) => {
 })
 
 test('signup duplicate email returns 4xx and stays on /signup', async ({ page, browser }) => {
+  // Expected 4xx: the duplicate-email POST /api/users returns 403, which
+  // Chrome logs as a console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   const email = uniqueEmail('dup')
   const ctx = await browser.newContext()
   const p = await ctx.newPage()
@@ -96,7 +99,9 @@ test('mismatched passwords disable the submit button so signup cannot proceed', 
 
 test('logo link returns to /', async ({ page }) => {
   await page.goto(APP_BASE + '/signup')
-  await page.getByRole('link', { name: /^Streak$/ }).click()
+  // The auth-shell wordmark link is the app name ("Pagebound"), not a
+  // sibling app's brand.
+  await page.getByRole('link', { name: /^Pagebound$/ }).click()
   await page.waitForURL(/\/$/, { timeout: 5_000 })
 })
 

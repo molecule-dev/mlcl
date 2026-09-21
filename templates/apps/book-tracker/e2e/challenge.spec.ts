@@ -10,7 +10,9 @@ test('challenge page renders with no goal and accepts one', async ({ page }) => 
   const { accessToken } = await signup(page)
   await page.goto(APP_BASE + '/challenge')
 
-  await expect(page.getByRole('heading', { name: /reading challenge/i })).toBeVisible({
+  // Strict-mode: both the page h1 and the ChallengeHeroCard h2 render
+  // "<year> reading challenge" — pin the locator to the page-level h1.
+  await expect(page.getByRole('heading', { level: 1, name: /reading challenge/i })).toBeVisible({
     timeout: 10_000,
   })
 

@@ -53,5 +53,6 @@ test('dashboard reflects a seeded reading book with progress', async ({ page }) 
   // Reload dashboard — the book appears in Currently reading.
   await page.goto(APP_BASE + '/dashboard')
   await expect(page.getByText('Dashboard Book').first()).toBeVisible({ timeout: 10_000 })
-  await expect(page.getByText('50%').first()).toBeVisible({ timeout: 10_000 })
+  // ReadingProgressRow renders page counts as "{{current}}/{{total}} pp".
+  await expect(page.getByText('50/100 pp').first()).toBeVisible({ timeout: 10_000 })
 })

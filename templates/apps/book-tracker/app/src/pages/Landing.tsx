@@ -88,7 +88,14 @@ export function Landing() {
                 cm.fontWeight('bold'),
                 'inline-flex items-center gap-2 rounded-full text-xs uppercase tracking-widest text-on-surface',
               )}
-              style={{ backgroundColor: 'rgba(217, 119, 6, 0.12)', color: 'var(--color-flame)' }}
+              style={{
+                backgroundColor: 'rgba(217, 119, 6, 0.12)',
+                // Flame (#b45309) on the tinted chip is only 4.2:1 — axe flags
+                // it as a serious color-contrast violation. The on-tertiary-
+                // container token (#451a03 light / #fef3c7 dark) keeps the warm
+                // accent while clearing 4.5:1 in both modes.
+                color: 'var(--color-on-tertiary-container)',
+              }}
             >
               <span
                 className={cm.cn('material-symbols-outlined text-base')}
