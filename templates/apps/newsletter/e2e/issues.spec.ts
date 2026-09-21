@@ -43,6 +43,8 @@ test.describe('issues list', () => {
     const { accessToken } = await signup(page, uniqueEmail('issues-delete'))
     const { id } = await seedIssue(page, accessToken, { status: 'draft' })
     await page.goto(APP_BASE + '/issues')
+    // Delete is destructive — the app asks for confirmation first.
+    page.once('dialog', (dialog) => void dialog.accept())
     await page.locator(`[data-mol-id="issue-delete-${id}"]`).click()
     await expect(page.locator(`[data-mol-id="issue-row-${id}"]`)).toHaveCount(0, {
       timeout: 15000,

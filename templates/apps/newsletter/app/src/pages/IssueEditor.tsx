@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,27 +69,28 @@ function IssueEditor() {
     }
   }, [routeId, http, t])
 
-  async function persistAsDraft(): Promise<void> {
+  // Returns the id the issue now has (existing id, or the freshly created
+  // one) so callers can act on it without racing the state update.
+  async function persistAsDraft(): Promise<string | null> {
     if (issueId) {
       await http.put(`/api/issues/${issueId}`, {
         subject,
         preview_text: previewText,
         body_md: bodyMd,
       })
-    } else {
-      const res = await http.post('/api/issues', {
-        subject,
-        preview_text: previewText,
-        body_md: bodyMd,
-        status: 'draft',
-      })
-      const payload =
-        res && typeof res === 'object' ? (res as { data?: { id?: string }; id?: string }) : null
-      const newId = payload?.data?.id ?? payload?.id
-      if (newId) setIssueId(newId)
+      return issueId
     }
-    setStatus('draft')
-    setSavedAt(new Date().toLocaleTimeString())
+    const res = await http.post('/api/issues', {
+      subject,
+      preview_text: previewText,
+      body_md: bodyMd,
+      status: 'draft',
+    })
+    const payload =
+      res && typeof res === 'object' ? (res as { data?: { id?: string }; id?: string }) : null
+    const newId = payload?.data?.id ?? payload?.id
+    if (newId) setIssueId(newId)
+    return newId ?? null
   }
 
   async function handleSaveDraft() {
@@ -99,7 +101,12 @@ function IssueEditor() {
     setLoading(true)
     setError(null)
     try {
-      await persistAsDraft()
+      const savedId = await persistAsDraft()
+      setStatus('draft')
+      setSavedAt(new Date().toLocaleTimeString())
+      if (savedId) {
+        void track({ name: 'issue.draft_saved', properties: { issue_id: savedId } })
+      }
     } catch (err) {
       setError(
         err instanceof Error
@@ -130,6 +137,7 @@ function IssueEditor() {
           body_md: bodyMd,
         })
         await http.post(`/api/issues/${issueId}/publish`)
+        void track({ name: 'issue.published', properties: { issue_id: issueId } })
       } else {
         const res = await http.post('/api/issues', {
           subject,
@@ -141,6 +149,9 @@ function IssueEditor() {
           res && typeof res === 'object' ? (res as { data?: { id?: string }; id?: string }) : null
         const newId = payload?.data?.id ?? payload?.id
         if (newId) setIssueId(newId)
+        if (newId) {
+          void track({ name: 'issue.published', properties: { issue_id: newId } })
+        }
       }
       navigate('/issues')
     } catch (err) {
@@ -180,6 +191,10 @@ function IssueEditor() {
       await http.post(`/api/issues/${issueId}/schedule`, {
         publish_at: new Date(scheduleAt).toISOString(),
       })
+      void track({
+        name: 'issue.scheduled',
+        properties: { issue_id: issueId, publish_at: new Date(scheduleAt).toISOString() },
+      })
       navigate('/issues')
     } catch (err) {
       setError(
@@ -200,12 +215,19 @@ function IssueEditor() {
         className={cm.cn(
           cm.flex({ direction: 'col', align: 'center' }),
           cm.sp('px', 6),
-          'ml-[240px] pt-24 pb-24',
+          // Sidebar is hidden below md; keep clear of the bottom mobile nav.
+          'md:ml-[240px] pt-24 pb-28 md:pb-24',
         )}
       >
         <div className={cm.cn(cm.w('full'), 'max-w-[720px]', cm.stack(8))}>
-          {/* Header + actions */}
-          <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
+          {/* Header + actions — stack on phones so Save/Publish never
+              overlaps the heading. */}
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 'sm' }),
+              'md:flex-row md:items-center md:justify-between',
+            )}
+          >
             <div>
               <h2
                 className={cm.cn(
@@ -355,8 +377,9 @@ function IssueEditor() {
           <div
             data-mol-id="issue-editor-schedule"
             className={cm.cn(
-              cm.flex({ align: 'center', gap: 'md' }),
+              cm.flex({ direction: 'col', align: 'stretch', gap: 'sm' }),
               cm.sp('p', 6),
+              'md:flex-row md:items-center md:gap-4',
               'rounded-xl bg-surface-container-low',
             )}
           >
@@ -386,7 +409,7 @@ function IssueEditor() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'rounded-lg bg-surface-container-lowest border border-outline-variant',
+                'w-full md:w-auto rounded-lg bg-surface-container-lowest border border-outline-variant',
               )}
               value={scheduleAt}
               onChange={(e) => setScheduleAt(e.target.value)}

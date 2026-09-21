@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -46,7 +47,15 @@ function PublicIssue() {
         return r.json() as Promise<Issue>
       })
       .then((body) => {
-        if (active) setIssue(body)
+        if (active) {
+          setIssue(body)
+          // The open itself is the funnel event (the tokened ping above
+          // records the per-subscriber send stamp server-side).
+          void track({
+            name: 'issue.opened',
+            properties: { issue_id: id, via_token: Boolean(token) },
+          })
+        }
       })
       .catch(() => {
         if (active) setNotFound(true)
@@ -57,7 +66,7 @@ function PublicIssue() {
     return () => {
       active = false
     }
-  }, [id])
+  }, [id, token])
 
   // Demo open tracking: one ping per tokened visit. Server-side it stamps
   // sends.opened_at (first time only) and bumps the issue's opened counter.

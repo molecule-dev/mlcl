@@ -88,7 +88,11 @@ function IssueDetail() {
       <TopNavBar />
       <main
         aria-label={issue?.subject ?? t('issueDetail.title', {}, { defaultValue: 'Issue detail' })}
-        className={cm.cn('ml-[240px] pt-24 pb-24 px-12', 'max-w-[1200px]')}
+        className={cm.cn(
+          // Sidebar is hidden below md — content spans full width there.
+          'md:ml-[240px] pt-24 pb-28 md:pb-24 px-4 md:px-12',
+          'max-w-[1200px]',
+        )}
       >
         {loading ? (
           <div

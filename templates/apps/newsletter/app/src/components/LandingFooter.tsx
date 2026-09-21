@@ -63,7 +63,7 @@ function LandingFooter() {
                 <SafeLink
                   className={cm.cn(
                     cm.textSize('sm'),
-                    'font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
+                    'py-1 font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
                   )}
                   to="/about"
                 >
@@ -72,7 +72,7 @@ function LandingFooter() {
                 <SafeLink
                   className={cm.cn(
                     cm.textSize('sm'),
-                    'font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
+                    'py-1 font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
                   )}
                   to="/signup?intent=write"
                 >
@@ -81,7 +81,7 @@ function LandingFooter() {
                 <SafeLink
                   className={cm.cn(
                     cm.textSize('sm'),
-                    'font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
+                    'py-1 font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
                   )}
                   to="/pricing"
                 >
@@ -103,7 +103,7 @@ function LandingFooter() {
                 <LegalModalLinks
                   linkClassName={cm.cn(
                     cm.textSize('sm'),
-                    'font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
+                    'py-1 font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
                   )}
                   appName={APP_NAME}
                   loadContent={loadContent}
@@ -113,7 +113,7 @@ function LandingFooter() {
                 <SafeLink
                   className={cm.cn(
                     cm.textSize('sm'),
-                    'font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
+                    'py-1 font-label text-foreground-secondary hover:underline decoration-[var(--color-status-published)] underline-offset-4 transition-all',
                   )}
                   to="/help"
                 >
@@ -135,7 +135,7 @@ function LandingFooter() {
                 <SafeLink
                   aria-label={t('landingFooter.website', {}, { defaultValue: 'Website' })}
                   className={cm.cn(
-                    'text-foreground-secondary hover:text-primary transition-colors',
+                    'p-2 text-foreground-secondary hover:text-primary transition-colors',
                   )}
                   to="/about"
                 >
@@ -144,7 +144,7 @@ function LandingFooter() {
                 <SafeLink
                   aria-label={t('nav.contact', {}, { defaultValue: 'Contact' })}
                   className={cm.cn(
-                    'text-foreground-secondary hover:text-primary transition-colors',
+                    'p-2 text-foreground-secondary hover:text-primary transition-colors',
                   )}
                   to="/help"
                 >
@@ -153,7 +153,7 @@ function LandingFooter() {
                 <SafeLink
                   aria-label={t('landingFooter.rssFeed', {}, { defaultValue: 'RSS feed' })}
                   className={cm.cn(
-                    'text-foreground-secondary hover:text-primary transition-colors',
+                    'p-2 text-foreground-secondary hover:text-primary transition-colors',
                   )}
                   to="/help#rss"
                 >

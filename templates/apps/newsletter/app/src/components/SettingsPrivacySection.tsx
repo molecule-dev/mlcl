@@ -68,7 +68,7 @@ function SettingsPrivacySection({
           <button
             className={cm.cn(
               cm.w(12),
-              cm.h(6),
+              'h-7',
               cm.roundedFull,
               cm.flex({ align: 'center' }),
               'relative transition-colors',
@@ -77,6 +77,11 @@ function SettingsPrivacySection({
             data-mol-id="toggle-visibility"
             onClick={onToggleVisibility}
             aria-checked={profileVisible}
+            aria-label={t(
+              'settingsPrivacySection.profileVisibilityLabel',
+              {},
+              { defaultValue: 'Public Profile Visibility' },
+            )}
             role="switch"
           >
             <span
@@ -110,7 +115,7 @@ function SettingsPrivacySection({
           <button
             className={cm.cn(
               cm.w(12),
-              cm.h(6),
+              'h-7',
               cm.roundedFull,
               cm.flex({ align: 'center' }),
               'relative transition-colors',
@@ -119,6 +124,11 @@ function SettingsPrivacySection({
             data-mol-id="toggle-show-email"
             onClick={onToggleShowEmail}
             aria-checked={showEmail}
+            aria-label={t(
+              'settingsPrivacySection.showEmailLabel',
+              {},
+              { defaultValue: 'Show Email on Profile' },
+            )}
             role="switch"
           >
             <span

@@ -46,6 +46,7 @@ function LandingTopNavBar() {
             <SafeLink
               className={cm.cn(
                 cm.fontWeight('medium'),
+                'inline-block px-1 py-2',
                 'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
               )}
               to="/#archive"
@@ -55,6 +56,7 @@ function LandingTopNavBar() {
             <SafeLink
               className={cm.cn(
                 cm.fontWeight('medium'),
+                'inline-block px-1 py-2',
                 'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
               )}
               to="/pricing"
@@ -64,6 +66,7 @@ function LandingTopNavBar() {
             <SafeLink
               className={cm.cn(
                 cm.fontWeight('medium'),
+                'inline-block px-1 py-2',
                 'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
               )}
               to="/signup"
@@ -97,6 +100,7 @@ function LandingTopNavBar() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
+                  'inline-block px-1 py-2',
                   'text-foreground-secondary hover:text-[var(--color-status-published)] transition-all',
                 )}
                 to="/login"

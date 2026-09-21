@@ -192,7 +192,14 @@ function Settings() {
     <>
       <SettingsTopNavBar onSave={handleSave} loading={loading} />
       <SettingsSideNavBar />
-      <main className={cm.cn(cm.sp('px', 8), 'max-w-4xl', 'lg:ml-[240px] pt-32 pb-24 md:px-16')}>
+      <main
+        className={cm.cn(
+          'px-4 md:px-16',
+          'max-w-4xl',
+          // Sidebar hidden below md; bottom padding clears the mobile nav bar.
+          'md:ml-[240px] pt-24 md:pt-32 pb-28 md:pb-24',
+        )}
+      >
         <SettingsPageHeader />
         {message && (
           <div

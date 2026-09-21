@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -76,8 +77,13 @@ function Issues() {
   }, [activeFilter, reloadKey, http, t])
 
   async function handleDelete(id: string) {
+    const confirmed = window.confirm(
+      t('issues.deleteConfirm', {}, { defaultValue: 'Delete this issue? This cannot be undone.' }),
+    )
+    if (!confirmed) return
     try {
       await http.delete(`/api/issues/${id}`)
+      void track({ name: 'issue.deleted', properties: { issue_id: id } })
       setIssues((prev) => prev.filter((i) => i.id !== id))
       setReloadKey((k) => k + 1)
     } catch (err) {
@@ -116,7 +122,8 @@ function Issues() {
           cm.flex({ direction: 'col' }),
           cm.stack(8),
           cm.flex1,
-          'ml-[240px] pt-24 pb-16 px-12 max-w-[1100px]',
+          // Sidebar is hidden below md — content spans full width there.
+          'md:ml-[240px] pt-24 pb-24 md:pb-16 px-4 md:px-12 max-w-[1100px]',
         )}
       >
         <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
@@ -143,7 +150,7 @@ function Issues() {
         {/* Filters */}
         <div
           data-mol-id="issues-filters"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}
+          className={cm.cn('flex flex-wrap items-center gap-2 md:gap-3')}
           role="tablist"
         >
           {FILTER_VALUES.map((filter) => (
@@ -223,8 +230,10 @@ function Issues() {
                   key={issue.id}
                   data-mol-id={`issue-row-${issue.id}`}
                   className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                    // Stack title above the actions on phones; row on md+.
+                    cm.flex({ direction: 'col', gap: 'sm' }),
                     cm.sp('p', 6),
+                    'md:flex-row md:items-center md:justify-between md:gap-4',
                     'rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all',
                   )}
                 >
@@ -270,6 +279,7 @@ function Issues() {
                         to={`/issues/${issue.id}/detail`}
                         className={cm.cn(
                           cm.textSize('sm'),
+                          'px-2 py-1.5',
                           cm.fontWeight('medium'),
                           'text-primary hover:underline',
                         )}
@@ -282,6 +292,7 @@ function Issues() {
                       data-mol-id={`issue-edit-${issue.id}`}
                       className={cm.cn(
                         cm.textSize('sm'),
+                        'px-2 py-1.5',
                         cm.fontWeight('medium'),
                         'text-on-surface-variant hover:text-primary',
                       )}
@@ -294,6 +305,7 @@ function Issues() {
                       data-mol-id={`issue-delete-${issue.id}`}
                       className={cm.cn(
                         cm.textSize('sm'),
+                        'px-2 py-1.5',
                         cm.fontWeight('medium'),
                         'text-on-surface-variant hover:text-error',
                       )}

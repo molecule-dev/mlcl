@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -37,6 +38,12 @@ function Unsubscribe() {
       .then((r) => {
         if (!active) return
         setState(r.ok ? 'done' : 'error')
+        if (r.ok) {
+          void track({
+            name: 'subscriber.unsubscribed',
+            properties: { source: 'unsubscribe-page', issue_id: issueId || undefined },
+          })
+        }
       })
       .catch(() => {
         if (active) setState('error')

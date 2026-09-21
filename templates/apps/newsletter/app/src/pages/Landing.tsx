@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -69,6 +70,7 @@ function Landing() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       setSubscribed(true)
       setEmail('')
+      void track({ name: 'subscriber.subscribed', properties: { source: 'landing' } })
     } catch (err) {
       setSubscribeError(
         err instanceof Error

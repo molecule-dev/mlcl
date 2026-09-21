@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,6 +103,10 @@ function Subscribers() {
       }
       setAddEmail('')
       setAddMessage(t('subscribers.added', {}, { defaultValue: 'Subscriber added.' }))
+      void track({
+        name: 'subscriber.added',
+        properties: { subscriber_id: row?.id, tier: addTier, source: 'manual-add' },
+      })
       setReloadKey((k) => k + 1)
     } catch (err) {
       setAddMessage(
@@ -117,6 +122,10 @@ function Subscribers() {
   async function handleStatusChange(subscriber: Subscriber, next: string) {
     try {
       await http.patch(`/api/subscribers/${subscriber.id}`, { status: next })
+      void track({
+        name: next === 'unsubscribed' ? 'subscriber.unsubscribed' : 'subscriber.resubscribed',
+        properties: { subscriber_id: subscriber.id },
+      })
       setSubscribers((prev) =>
         prev.map((s) => (s.id === subscriber.id ? { ...s, status: next } : s)),
       )
@@ -131,8 +140,17 @@ function Subscribers() {
   }
 
   async function handleDelete(id: string) {
+    const confirmed = window.confirm(
+      t(
+        'subscribers.deleteConfirm',
+        {},
+        { defaultValue: 'Remove this subscriber? Their history is deleted too.' },
+      ),
+    )
+    if (!confirmed) return
     try {
       await http.delete(`/api/subscribers/${id}`)
+      void track({ name: 'subscriber.deleted', properties: { subscriber_id: id } })
       setSubscribers((prev) => prev.filter((s) => s.id !== id))
       setTotal((n) => Math.max(0, n - 1))
     } catch (err) {
@@ -150,7 +168,11 @@ function Subscribers() {
       <TopNavBar />
       <main
         aria-label={t('sideNavBar.subscribers', {}, { defaultValue: 'Subscribers' })}
-        className={cm.cn('ml-[240px] pt-24 pb-16 px-12', 'max-w-[1200px]')}
+        className={cm.cn(
+          // Sidebar is hidden below md — content spans full width there.
+          'md:ml-[240px] pt-24 pb-24 md:pb-16 px-4 md:px-12',
+          'max-w-[1200px]',
+        )}
       >
         <div className={cm.stack(8)}>
           <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
@@ -181,9 +203,9 @@ function Subscribers() {
           <form
             data-mol-id="subscribers-add-form"
             className={cm.cn(
-              cm.flex({ align: 'center', gap: 'md' }),
+              'flex flex-col items-stretch gap-2 md:flex-row md:items-center md:gap-4',
               cm.sp('p', 6),
-              'rounded-xl bg-surface-container-lowest flex-wrap',
+              'rounded-xl bg-surface-container-lowest',
             )}
             onSubmit={(e) => void handleAdd(e)}
           >
@@ -257,7 +279,7 @@ function Subscribers() {
           {/* Filters */}
           <div
             data-mol-id="subscribers-filters"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}
+            className={cm.cn('flex flex-wrap items-center gap-2 md:gap-3')}
           >
             {STATUS_FILTERS.map((filter) => (
               <button
@@ -334,7 +356,9 @@ function Subscribers() {
             />
           </div>
 
-          {/* Table */}
+          {/* Table — min-w forces horizontal scroll inside the
+              overflow-x-auto wrapper on phones instead of crushing every
+              cell to one character per line. */}
           <div
             className={cm.cn(
               cm.sp('p', 6),
@@ -376,7 +400,7 @@ function Subscribers() {
                 {t('subscribers.none', {}, { defaultValue: 'No subscribers match this view.' })}
               </p>
             ) : (
-              <table className={cm.cn(cm.w('full'), cm.textSize('sm'))}>
+              <table className={cm.cn(cm.w('full'), cm.textSize('sm'), 'min-w-[640px]')}>
                 <thead>
                   <tr
                     className={cm.cn(
@@ -473,6 +497,7 @@ function Subscribers() {
                               data-mol-id={`subscriber-unsubscribe-${subscriber.id}`}
                               className={cm.cn(
                                 cm.textSize('sm'),
+                                'px-2 py-1.5',
                                 'text-on-surface-variant hover:text-error',
                               )}
                               onClick={() => void handleStatusChange(subscriber, 'unsubscribed')}
@@ -483,7 +508,11 @@ function Subscribers() {
                             <button
                               type="button"
                               data-mol-id={`subscriber-resubscribe-${subscriber.id}`}
-                              className={cm.cn(cm.textSize('sm'), 'text-primary hover:underline')}
+                              className={cm.cn(
+                                cm.textSize('sm'),
+                                'px-2 py-1.5',
+                                'text-primary hover:underline',
+                              )}
                               onClick={() => void handleStatusChange(subscriber, 'subscribed')}
                             >
                               {t('subscribers.resubscribe', {}, { defaultValue: 'Resubscribe' })}
@@ -494,6 +523,7 @@ function Subscribers() {
                             data-mol-id={`subscriber-delete-${subscriber.id}`}
                             className={cm.cn(
                               cm.textSize('sm'),
+                              'px-2 py-1.5',
                               'text-on-surface-variant hover:text-error',
                             )}
                             onClick={() => void handleDelete(subscriber.id)}

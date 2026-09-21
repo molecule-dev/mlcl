@@ -83,9 +83,13 @@ function Dashboard() {
       <TopNavBar />
       <main
         aria-label={pageTitle}
-        className={cm.cn(cm.minH('screen'), 'ml-[240px] pt-24 bg-surface-container-low/30')}
+        className={cm.cn(
+          cm.minH('screen'),
+          // Sidebar is hidden below md — content spans full width there.
+          'md:ml-[240px] pt-24 pb-24 md:pb-0 bg-surface-container-low/30',
+        )}
       >
-        <div className={cm.cn(cm.mxAuto, cm.sp('p', 10), cm.stack(10), 'max-w-[1440px]')}>
+        <div className={cm.cn(cm.mxAuto, 'p-4 md:p-10', cm.stack(10), 'max-w-[1440px]')}>
           <div>
             <h2
               className={cm.cn(
@@ -317,7 +321,12 @@ function Dashboard() {
               </div>
 
               {/* Quick actions */}
-              <section className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap')}>
+              <section
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  'md:flex-row md:items-center md:gap-4',
+                )}
+              >
                 <SafeLink
                   to="/issues/new"
                   className={cm.cn(

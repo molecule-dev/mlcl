@@ -72,7 +72,7 @@ function SettingsNotificationsSection({
           <button
             className={cm.cn(
               cm.w(12),
-              cm.h(6),
+              'h-7',
               cm.roundedFull,
               cm.flex({ align: 'center' }),
               'relative transition-colors',
@@ -81,6 +81,11 @@ function SettingsNotificationsSection({
             data-mol-id="toggle-followers"
             onClick={onToggleNewFollowers}
             aria-checked={newFollowers}
+            aria-label={t(
+              'settingsNotificationsSection.newFollowers',
+              {},
+              { defaultValue: 'New subscribers' },
+            )}
             role="switch"
           >
             <span
@@ -116,7 +121,7 @@ function SettingsNotificationsSection({
           <button
             className={cm.cn(
               cm.w(12),
-              cm.h(6),
+              'h-7',
               cm.roundedFull,
               cm.flex({ align: 'center' }),
               'relative transition-colors',
@@ -125,6 +130,11 @@ function SettingsNotificationsSection({
             data-mol-id="toggle-comments"
             onClick={onToggleComments}
             aria-checked={commentsNotif}
+            aria-label={t(
+              'settingsNotificationsSection.comments',
+              {},
+              { defaultValue: 'Issue delivered' },
+            )}
             role="switch"
           >
             <span
@@ -154,7 +164,7 @@ function SettingsNotificationsSection({
           <button
             className={cm.cn(
               cm.w(12),
-              cm.h(6),
+              'h-7',
               cm.roundedFull,
               cm.flex({ align: 'center' }),
               'relative transition-colors',
@@ -163,6 +173,11 @@ function SettingsNotificationsSection({
             data-mol-id="toggle-mentions"
             onClick={onToggleMentions}
             aria-checked={mentionsNotif}
+            aria-label={t(
+              'settingsNotificationsSection.mentions',
+              {},
+              { defaultValue: 'Unsubscribes' },
+            )}
             role="switch"
           >
             <span

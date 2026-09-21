@@ -33,9 +33,10 @@ function TopNavBar() {
     <header
       className={cm.cn(
         cm.flex({ justify: 'between', align: 'center' }),
-        cm.sp('px', 8),
+        'px-4 md:px-8',
         cm.h(16),
-        'fixed top-0 right-0 w-[calc(100%-240px)] z-50 bg-surface/80 backdrop-blur-md ml-[240px]',
+        // Full-width below md — the 240px sidebar is hidden there (SideNavBar).
+        'fixed top-0 right-0 w-full md:w-[calc(100%-240px)] z-50 bg-surface/80 backdrop-blur-md md:ml-[240px]',
       )}
     >
       {useEditorialHeader ? (
