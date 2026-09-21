@@ -32,6 +32,9 @@ test.describe('/reset-password', () => {
   })
 
   test('invalid token submits but stays on /reset-password (server rejects)', async ({ page }) => {
+    // The server correctly answers 401 for an invalid token; allow the
+    // expected browser console error the console guard would flag.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?email=nobody%40x.com&token=invalid-token')
     await page.getByLabel(/^New password$/i).fill('TestPass123!')
     await page.getByLabel(/Confirm password/i).fill('TestPass123!')

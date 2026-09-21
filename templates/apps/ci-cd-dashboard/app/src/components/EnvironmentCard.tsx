@@ -105,7 +105,12 @@ export function EnvironmentCard({ environment }: EnvironmentCardProps) {
       />
 
       <header className={'relative p-6 pb-5'}>
-        <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+        {/* Wrap allows the traffic pill to drop under the name row on phone
+            widths instead of overflowing the card edge. */}
+        <div
+          className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}
+          style={{ flexWrap: 'wrap', rowGap: '0.5rem' }}
+        >
           <div className={'flex items-center gap-3 min-w-0'}>
             <h3 className={'text-2xl font-extrabold tracking-tight text-on-surface truncate'}>
               {environment.name}
@@ -129,7 +134,7 @@ export function EnvironmentCard({ environment }: EnvironmentCardProps) {
           target="_blank"
           rel="noreferrer"
           className={
-            'mt-1 inline-flex items-center gap-1 font-mono text-xs text-on-surface-variant hover:text-primary transition-colors'
+            'mt-1 inline-flex items-center gap-1 py-1.5 font-mono text-xs text-on-surface-variant hover:text-primary transition-colors'
           }
         >
           <span className="material-symbols-outlined text-[12px]" aria-hidden="true">
@@ -153,7 +158,9 @@ export function EnvironmentCard({ environment }: EnvironmentCardProps) {
           <span className={'mx-1.5 opacity-50'}>·</span>
           <span>{environment.current_deploy.deployed_by}</span>
           <span className={'mx-1.5 opacity-50'}>·</span>
-          <span>{fmtRelative(environment.current_deploy.deployed_at)}</span>
+          <span className="whitespace-nowrap">
+            {fmtRelative(environment.current_deploy.deployed_at)}
+          </span>
         </p>
       </section>
 

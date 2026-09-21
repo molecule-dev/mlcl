@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { type FeedItem, NotificationFeed } from '@molecule/app-notification-feed-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -71,6 +72,9 @@ export function Notifications() {
     try {
       await http.post('/api/notifications/read-all', {})
       setNotifs((prev) => prev.map((n) => ({ ...n, unread: false })))
+      // Domain funnel event — fire-and-forget; a no-op without a bonded
+      // analytics provider.
+      void track({ name: 'notification.read_all', properties: { count: unreadCount } })
     } catch (_error) {
       // mark-all failed — surfaced to the user via setError below; raw error not needed here
       setError(
@@ -100,7 +104,6 @@ export function Notifications() {
         {unreadCount > 0 && (
           <Button
             variant="outline"
-            size="sm"
             onClick={markAllRead}
             loading={marking}
             data-testid="mark-all-read"

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -46,7 +47,12 @@ export function RepositoryDetail() {
     http
       .get(`/api/repositories/${slug}`)
       .then((res) => {
-        if (!cancelled) setRepo(unwrapSingle<Repository>(res))
+        if (!cancelled) {
+          setRepo(unwrapSingle<Repository>(res))
+          // Domain funnel event — fire-and-forget; a no-op without a bonded
+          // analytics provider.
+          void track({ name: 'repository.viewed', properties: { slug } })
+        }
       })
       .catch(() => {
         if (!cancelled)

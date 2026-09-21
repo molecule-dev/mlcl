@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,6 +125,12 @@ export function PipelineDetail() {
         if (!cancelled) {
           setPipeline(p)
           if (p) {
+            // Domain funnel event — fire-and-forget; a no-op without a
+            // bonded analytics provider.
+            void track({
+              name: 'pipeline.viewed',
+              properties: { pipeline_id: p.id, status: p.status, repository: p.repository },
+            })
             const next = new Set<string>()
             for (const s of p.stages) {
               if (s.status === 'failed' || s.status === 'running') next.add(s.name)

@@ -52,6 +52,9 @@ test.describe('/signup', () => {
   })
 
   test('signup with existing email fails (uniqueness invariant)', async ({ page, request }) => {
+    // The uniqueness rejection arrives as a 403, which the browser logs as a
+    // console error — expected here, so allow it for the console guard.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const user = await signup(page)
     await page.context().clearCookies()
     await page.evaluate(() => window.localStorage.clear())

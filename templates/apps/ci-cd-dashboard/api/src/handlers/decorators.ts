@@ -170,10 +170,19 @@ export interface PipelineDetail extends DecoratedPipeline {
   }>
 }
 
+/**
+ * `p.id` is a uuid column — comparing it against a non-UUID string makes
+ * Postgres throw `invalid input syntax for type uuid`, which the handler's
+ * catch-block turns into a 500. A junk id (typo'd URL, `:first` placeholder)
+ * must 404 like any missing row, so gate before the query.
+ */
+const UUID_RX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 export async function readDecoratedPipeline(
   userId: string,
   pipelineId: string,
 ): Promise<PipelineDetail | null> {
+  if (!UUID_RX.test(pipelineId)) return null
   const result = await query<RawPipelineRow>(
     `${SELECT_PIPELINES} WHERE p.user_id = $1 AND p.id = $2 LIMIT 1`,
     [userId, pipelineId],

@@ -59,6 +59,9 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials stay on /login', async ({ page }) => {
+    // The server correctly answers 403 for bad credentials; the console guard
+    // would otherwise fail the test on that expected browser console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/^Email$/i).fill('nobody-' + Date.now() + '@example.com')
     await page.getByLabel(/^Password$/i).fill('WrongPass123!')

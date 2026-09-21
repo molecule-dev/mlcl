@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -183,6 +184,9 @@ function AccountSection() {
       const updated = await http.put('/api/me', payload)
       setProfile(unwrapSingle<Profile>(updated))
       setSavedAt(Date.now())
+      // Domain funnel event — fire-and-forget; a no-op without a bonded
+      // analytics provider.
+      void track({ name: 'profile.updated', properties: { profile_id: profile.id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -416,6 +420,7 @@ function WebhooksSection() {
       await http.post('/api/webhooks', { url, name, events, active: true })
       form.reset()
       await refresh()
+      void track({ name: 'webhook.created', properties: { name } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -431,6 +436,7 @@ function WebhooksSection() {
     try {
       await http.put(`/api/webhooks/${w.id}`, { active: !w.active })
       await refresh()
+      void track({ name: 'webhook.updated', properties: { webhook_id: w.id, active: !w.active } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -444,6 +450,7 @@ function WebhooksSection() {
     try {
       await http.delete(`/api/webhooks/${w.id}`)
       await refresh()
+      void track({ name: 'webhook.deleted', properties: { webhook_id: w.id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -629,6 +636,7 @@ function SecretsSection() {
     try {
       await http.post(`/api/secrets/${s.id}/rotate`, {})
       await refresh()
+      void track({ name: 'secret.rotated', properties: { secret_id: s.id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -642,6 +650,7 @@ function SecretsSection() {
     try {
       await http.delete(`/api/secrets/${s.id}`)
       await refresh()
+      void track({ name: 'secret.deleted', properties: { secret_id: s.id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -664,6 +673,7 @@ function SecretsSection() {
       await http.post('/api/secrets', { name, value, scope })
       form.reset()
       await refresh()
+      void track({ name: 'secret.created', properties: { name, scope } })
     } catch (err) {
       setError(
         err instanceof Error

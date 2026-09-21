@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,9 @@ export function Artifacts() {
               className={cm.cn(
                 cm.sp('p', 4),
                 cm.flex({ align: 'center', gap: 'md' }),
+                // Wrap the size/retention/download cluster to a second row
+                // on phone widths instead of crushing the filename.
+                'flex-wrap gap-y-1',
                 'bg-surface rounded-md border border-outline-variant',
               )}
             >
@@ -132,9 +136,15 @@ export function Artifacts() {
               </span>
               <a
                 href={a.download_url}
+                onClick={() =>
+                  void track({
+                    name: 'artifact.downloaded',
+                    properties: { artifact_id: a.id, name: a.name },
+                  })
+                }
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
+                  cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
                   'border border-outline rounded-md hover:bg-surface-container',
