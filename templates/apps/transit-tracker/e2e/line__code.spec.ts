@@ -35,6 +35,13 @@ test.describe('/lines/:code (RouteDetail) page', () => {
   })
 
   test('unknown line code renders the not-found state', async ({ page }) => {
+    // A nonexistent code legitimately 404s on /api/network/lines/:code —
+    // the browser logs the failed loads and the page's own [RouteDetail]
+    // handler before rendering the not-found state. Expected, so allow
+    // them before they fire.
+    ;['Failed to load resource.*404', '\\[RouteDetail\\]'].forEach((description) => {
+      test.info().annotations.push({ type: 'allow-console-error', description })
+    })
     await signup(page)
     await page.goto(APP_BASE + '/lines/ZZ')
     await page.waitForTimeout(1500)

@@ -84,11 +84,13 @@ export function Settings() {
     }
   }, [sessionUser])
 
-  // Always pull the persisted profile on mount. The cached `useAuth().user`
+  // Always pull the persisted state on mount. The cached `useAuth().user`
   // is hydrated from localStorage at app boot and only refreshed when the
   // refresh token is exercised — so after a Settings save + page reload, the
-  // cached user still reflects pre-save defaults. Re-fetching here makes the
-  // form always reflect the live DB state and survives reload.
+  // cached user still reflects pre-save defaults. The user row itself is
+  // fetched for name/email, but preferences come from GET /api/preferences:
+  // the shared user resource strips "oauthData" from every user READ
+  // (M18 denylist), so preferences would never survive that path.
   useEffect(() => {
     let cancelled = false
     if (!sessionUser?.id) return
@@ -103,15 +105,25 @@ export function Settings() {
         if (!fresh) return
         if (typeof fresh.name === 'string') setName(fresh.name)
         if (typeof fresh.email === 'string') setEmail(fresh.email)
-        const p = fresh.oauthData?.preferences
-        if (p?.home_stop != null) setHome(p.home_stop)
-        if (p?.currency != null) setCurrency(p.currency)
-        if (p?.notifications && typeof p.notifications === 'object') {
+      })
+      .catch(() => {
+        /* fall back to cached sessionUser */
+      })
+    http
+      .get<UserPrefs | { props?: UserPrefs }>('/api/preferences')
+      .then((res) => {
+        if (cancelled) return
+        const wire = res.data as UserPrefs & { props?: UserPrefs }
+        const p = (wire?.props ?? wire) as UserPrefs
+        if (!p) return
+        if (p.home_stop != null) setHome(p.home_stop)
+        if (p.currency != null) setCurrency(p.currency)
+        if (p.notifications && typeof p.notifications === 'object') {
           setPrefs((prev) => ({ ...prev, ...p.notifications }))
         }
       })
       .catch(() => {
-        /* fall back to cached sessionUser */
+        /* fall back to cached sessionUser preferences */
       })
     return () => {
       cancelled = true
@@ -139,11 +151,23 @@ export function Settings() {
           notifications: prefs,
         },
       }
-      await http.patch(`/api/users/${encodeURIComponent(sessionUser.id)}`, {
-        name,
-        email,
-        oauthData: nextOauth,
-      })
+      // Profile fields go through the user resource; preferences go through
+      // the app-owned /api/preferences route (a server-side read-modify-write
+      // of the same "oauthData".preferences bag — the only channel that can
+      // read it back, because the shared user resource strips "oauthData"
+      // from every user READ response).
+      await Promise.all([
+        http.patch(`/api/users/${encodeURIComponent(sessionUser.id)}`, {
+          name,
+          email,
+          oauthData: nextOauth,
+        }),
+        http.patch('/api/preferences', {
+          home_stop: home.toUpperCase(),
+          currency,
+          notifications: prefs,
+        }),
+      ])
       // Sync the auth client's cached user so other parts of the UI (and a
       // page reload that hydrates from localStorage) reflect the new
       // preferences without needing another network roundtrip.

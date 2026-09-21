@@ -34,7 +34,7 @@ test.describe('/saved (SavedStops) page', () => {
       await page.locator(`[data-mol-id="saved-unsave-${stop.code}"]`).click()
       await page.waitForTimeout(1000)
     })
-    const del = reqs.find((r) => r.method() === 'DELETE' && /\/api\/saved-stops\//.test(r.url))
+    const del = reqs.find((r) => r.method === 'DELETE' && /\/api\/saved-stops\//.test(r.url))
     expect(del, 'DELETE /api/saved-stops/:code').toBeTruthy()
     expect(del?.status).toBeLessThan(400)
 

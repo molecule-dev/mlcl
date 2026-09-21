@@ -49,7 +49,7 @@ export function Signup() {
       const fullName = [firstName, lastName].filter(Boolean).join(' ')
       await signup({ email, password, name: fullName || undefined })
       clearAuthForm()
-      navigate('/search', { replace: true })
+      navigate('/nearby', { replace: true })
     } catch (_error) {
       // Error tracked in hook state via signup
     }

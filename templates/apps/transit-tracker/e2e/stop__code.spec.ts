@@ -74,6 +74,13 @@ test.describe('/stops/:code (StopBoard) — the signature screen', () => {
   })
 
   test('unknown stop code renders the not-found state', async ({ page }) => {
+    // A nonexistent code legitimately 404s on /api/arrivals/:code and
+    // /api/network/stops/:code — the browser logs those failed loads and
+    // the page's own [StopBoard] handlers before rendering the not-found
+    // state. Expected here, so allow them before they fire.
+    ;['Failed to load resource.*404', '\\[StopBoard\\]'].forEach((description) => {
+      test.info().annotations.push({ type: 'allow-console-error', description })
+    })
     await signup(page)
     await page.goto(APP_BASE + '/stops/ZZZZ')
     await page.waitForTimeout(1500)

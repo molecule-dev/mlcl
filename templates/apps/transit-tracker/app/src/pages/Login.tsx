@@ -14,7 +14,7 @@ export function Login() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/search'
+  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/nearby'
   const { status, error, login } = useLogin()
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success) via the shared @molecule hook.

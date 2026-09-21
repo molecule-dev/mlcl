@@ -60,7 +60,7 @@ export function ArrivalRow({ arrival }: { arrival: Arrival }) {
         <span
           className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'tabular-nums leading-none')}
           style={isDue ? { color: 'var(--color-due)' } : undefined}
-          data-mol-id={`arrival-countdown-${arrival.lineCode}-${arrival.direction}`}
+          data-mol-id={`countdown-${arrival.lineCode}-${arrival.direction}`}
         >
           {formatCountdown(arrival.secondsUntil)}
         </span>

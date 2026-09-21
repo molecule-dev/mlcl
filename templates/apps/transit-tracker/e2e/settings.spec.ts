@@ -29,22 +29,24 @@ test.describe('/settings page', () => {
 
     await expect(page.getByText(/^Saved\.?$/).first()).toBeVisible()
 
-    // Read-after-write
-    const userRes = await page.request.get(`${API_BASE}/users/${userId}`, {
+    // Read-after-write. Preferences are read back through the app-owned
+    // /api/preferences route: the shared user resource strips "oauthData"
+    // from every user READ (M18 denylist), so GET /api/users/:id can never
+    // return them.
+    const prefsRes = await page.request.get(`${API_BASE}/preferences`, {
       headers: apiHeaders(accessToken),
     })
-    expect(userRes.ok()).toBe(true)
-    const wire = (await userRes.json()) as {
-      props?: { oauthData?: { preferences?: { home_stop?: string; currency?: string } } }
-      oauthData?: { preferences?: { home_stop?: string; currency?: string } }
+    expect(prefsRes.ok()).toBe(true)
+    const prefs = (await prefsRes.json()) as {
+      home_stop?: string
+      currency?: string
     }
-    const prefs = wire.props?.oauthData?.preferences ?? wire.oauthData?.preferences ?? {}
     expect(prefs.home_stop).toBe('CEN')
     expect(prefs.currency).toBe('EUR')
   })
 
   test('preferences tab toggles a notification and persists across reload', async ({ page }) => {
-    const { accessToken, userId } = await signup(page)
+    const { accessToken } = await signup(page)
     await page.goto(APP_BASE + '/settings')
     await page.waitForTimeout(1500)
 
@@ -69,16 +71,14 @@ test.describe('/settings page', () => {
       .click()
     await page.waitForTimeout(2000)
 
-    const userRes = await page.request.get(`${API_BASE}/users/${userId}`, {
+    const prefsRes = await page.request.get(`${API_BASE}/preferences`, {
       headers: apiHeaders(accessToken),
     })
-    const wire = (await userRes.json()) as {
-      props?: { oauthData?: { preferences?: { notifications?: Record<string, boolean> } } }
-      oauthData?: { preferences?: { notifications?: Record<string, boolean> } }
+    expect(prefsRes.ok()).toBe(true)
+    const prefsBody = (await prefsRes.json()) as {
+      notifications?: Record<string, boolean>
     }
-    const notif =
-      wire.props?.oauthData?.preferences?.notifications ??
-      wire.oauthData?.preferences?.notifications
+    const notif = prefsBody.notifications
     expect(notif, 'notifications object persisted').toBeTruthy()
     // Exactly one preference key should match the toggled (post-click) value
     // — a real toggle changes one bit, not zero. (Past bug: PATCH 200d but

@@ -116,7 +116,7 @@ router.delete('/:code', validateParams(stopParamSchema), async (req: Request, re
         .status(401)
         .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     }
-    const stopCode = String(getParamId(req)).toUpperCase()
+    const stopCode = String(getParamId(req, 'code')).toUpperCase()
     const existing = await findMany<Record<string, unknown>>('saved_stops', {
       where: [
         { field: 'user_id', operator: '=', value: userId },

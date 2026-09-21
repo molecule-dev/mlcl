@@ -45,7 +45,7 @@ export function ResetPassword() {
       await confirmReset({ token, password })
       await login({ email, password })
       clearAuthForm()
-      navigate('/search', { replace: true })
+      navigate('/nearby', { replace: true })
     } catch (_error) {
       // Error tracked in hook state via confirmReset/login
     }

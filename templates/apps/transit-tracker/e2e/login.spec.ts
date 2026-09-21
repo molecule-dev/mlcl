@@ -3,7 +3,7 @@ import { test, expect } from '@molecule/app-e2e-fixtures-default'
 import { APP_BASE, captureNetwork, login, signup } from './_helpers.js'
 
 test.describe('/login page', () => {
-  test('successful login lands on /search and POSTs /api/users/log-in', async ({ page }) => {
+  test('successful login lands on /nearby and POSTs /api/users/log-in', async ({ page }) => {
     const { email, password } = await signup(page)
     await page.evaluate(() => {
       window.localStorage.clear()
@@ -24,6 +24,13 @@ test.describe('/login page', () => {
   })
 
   test('bad password shows inline error and stays on /login', async ({ page }) => {
+    // The rejected login surfaces as a browser console error ("Failed to
+    // load resource: … 403" from /api/users/log-in) — expected here, so
+    // allow it before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'Failed to load resource.*403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('nobody@example.com')
     await page.locator('input[type="password"]').first().fill('wrongPwd!1')

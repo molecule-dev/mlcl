@@ -35,7 +35,8 @@ test.describe('/nearby (Nearby) page', () => {
     const stop = await getSampleStop(page)
     await page.goto(APP_BASE + '/nearby')
     await page.waitForTimeout(1500)
-    await page.locator(`[data-mol-id="stop-item-${stop.code}"] a`).first().click()
+    // The stop row's data-mol-id sits ON the <Link> itself (StopListItem).
+    await page.locator(`[data-mol-id="stop-item-${stop.code}"]`).first().click()
     await expect(page).toHaveURL(new RegExp(`/stops/${stop.code}$`))
   })
 })

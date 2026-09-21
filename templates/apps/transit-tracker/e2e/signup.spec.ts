@@ -3,7 +3,7 @@ import { test, expect } from '@molecule/app-e2e-fixtures-default'
 import { APP_BASE, captureNetwork, signup, uniqueEmail } from './_helpers.js'
 
 test.describe('/signup page', () => {
-  test('happy path creates a user and lands on /search', async ({ page }) => {
+  test('happy path creates a user and lands on /nearby', async ({ page }) => {
     const email = uniqueEmail('signup-ok')
     const reqs = await captureNetwork(page, async () => {
       await signup(page, email, 'TestPass!1234')

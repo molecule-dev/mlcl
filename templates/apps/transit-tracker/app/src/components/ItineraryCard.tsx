@@ -116,7 +116,7 @@ export function ItineraryCard({
           >
             <button
               type="button"
-              data-mol-id={`itinerary-leg-line-${leg.line.code}`}
+              data-mol-id={`leg-line-${leg.line.code}`}
               onClick={() => onLegLineClick?.(leg.line.code)}
               className="rounded-full focus:outline-none focus:ring-2 focus:ring-primary/40"
               aria-label={t(
