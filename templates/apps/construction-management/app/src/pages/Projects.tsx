@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -96,6 +97,10 @@ export function Projects() {
       })
       const created = (res as unknown as { data?: Project }).data
       if (created) setList((prev) => [created, ...prev])
+      track({
+        name: 'project.created',
+        properties: { project_id: created?.id ?? null, phase },
+      })
       setShowForm(false)
       setName('')
       setCode('')
@@ -113,10 +118,10 @@ export function Projects() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('projects.heading', {}, { defaultValue: 'Projects' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -166,7 +171,7 @@ export function Projects() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder={t(
                   'projects.field.namePlaceholder',
@@ -188,7 +193,7 @@ export function Projects() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder={t(
                   'projects.field.codePlaceholder',
@@ -210,7 +215,7 @@ export function Projects() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               >
                 {PHASES.map((p) => (
@@ -236,7 +241,7 @@ export function Projects() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="2500000"
               />
@@ -307,7 +312,14 @@ export function Projects() {
                 'block hover:bg-surface-container-low transition-colors',
               )}
             >
-              <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
+              <div
+                className={cm.flex({
+                  align: 'center',
+                  justify: 'between',
+                  gap: 'sm',
+                  wrap: 'wrap',
+                })}
+              >
                 <span
                   className={cm.cn(
                     cm.textSize('xs'),

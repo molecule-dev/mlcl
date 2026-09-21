@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -28,6 +29,9 @@ export function Subcontractors() {
   const [list, setList] = useState<Subcontractor[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Action failures (status changes) render INLINE below the table — feeding
+  // them into `error` would replace the whole list with an error line.
+  const [actionError, setActionError] = useState<string | null>(null)
 
   const [showForm, setShowForm] = useState(false)
   const [trade, setTrade] = useState('')
@@ -83,6 +87,10 @@ export function Subcontractors() {
       setCompany('')
       setContact('')
       setContractValue('')
+      track({
+        name: 'subcontractor.added',
+        properties: { project_id: projectId, trade },
+      })
     } catch (err) {
       setFormError(
         err instanceof Error
@@ -95,11 +103,16 @@ export function Subcontractors() {
   }
 
   async function setStatus(sub: Subcontractor, next: string): Promise<void> {
+    setActionError(null)
     try {
       await http.put(`/api/subcontractors/${sub.id}`, { status: next })
       await refresh()
+      track({
+        name: next === 'terminated' ? 'subcontractor.terminated' : 'subcontractor.activated',
+        properties: { project_id: sub.project_id, subcontractor_id: sub.id, status: next },
+      })
     } catch (err) {
-      setError(
+      setActionError(
         err instanceof Error
           ? err.message
           : t('subs.statusError', {}, { defaultValue: 'Status change rejected.' }),
@@ -110,12 +123,14 @@ export function Subcontractors() {
   const totalCommitted = list
     .filter((s) => s.status !== 'terminated')
     .reduce((sum, s) => sum + s.contract_value_cents, 0)
+  // Terminate is one-way — require a second click on the same row to commit it.
+  const [confirmTerminateId, setConfirmTerminateId] = useState<string | null>(null)
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('subs.heading', {}, { defaultValue: 'Subcontractors' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -167,7 +182,7 @@ export function Subcontractors() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder={t(
                   'subs.field.tradePlaceholder',
@@ -190,7 +205,7 @@ export function Subcontractors() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -207,7 +222,7 @@ export function Subcontractors() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="(555) 210-3344"
               />
@@ -228,7 +243,7 @@ export function Subcontractors() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="1250000"
               />
@@ -325,10 +340,24 @@ export function Subcontractors() {
                         <button
                           type="button"
                           data-mol-id={`sub-terminate-${sub.id}`}
-                          onClick={() => setStatus(sub, 'terminated')}
-                          className={cm.cn(cm.textSize('xs'), 'text-error hover:underline')}
+                          onClick={() => {
+                            if (confirmTerminateId === sub.id) {
+                              setConfirmTerminateId(null)
+                              void setStatus(sub, 'terminated')
+                            } else {
+                              setConfirmTerminateId(sub.id)
+                            }
+                          }}
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            confirmTerminateId === sub.id
+                              ? 'font-semibold text-error underline'
+                              : 'text-error hover:underline',
+                          )}
                         >
-                          {t('subs.terminate', {}, { defaultValue: 'Terminate' })}
+                          {confirmTerminateId === sub.id
+                            ? t('subs.confirmTerminate', {}, { defaultValue: 'Confirm terminate' })
+                            : t('subs.terminate', {}, { defaultValue: 'Terminate' })}
                         </button>
                       )}
                     </div>
@@ -338,6 +367,12 @@ export function Subcontractors() {
             </tbody>
           </table>
         </div>
+      )}
+
+      {actionError && (
+        <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+          {actionError}
+        </p>
       )}
 
       <p>

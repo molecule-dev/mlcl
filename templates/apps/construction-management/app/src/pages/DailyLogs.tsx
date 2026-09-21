@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -60,6 +61,7 @@ export function DailyLogs() {
   const [entryLogId, setEntryLogId] = useState<string | null>(null)
   const [entryArea, setEntryArea] = useState('')
   const [entryWork, setEntryWork] = useState('')
+  const [entryError, setEntryError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -102,6 +104,14 @@ export function DailyLogs() {
       setNotes('')
       setCrewCount('')
       setHours('')
+      track({
+        name: 'dailylog.filed',
+        properties: {
+          project_id: projectId,
+          daily_log_id: created?.id ?? null,
+          crew_count: created?.crew_count ?? null,
+        },
+      })
     } catch (err) {
       setFormError(
         err instanceof Error
@@ -116,6 +126,7 @@ export function DailyLogs() {
   async function handleAddEntry(e: React.FormEvent): Promise<void> {
     e.preventDefault()
     if (!entryLogId) return
+    setEntryError(null)
     try {
       await http.post(`/api/daily-logs/${entryLogId}/entries`, {
         area: entryArea,
@@ -124,11 +135,15 @@ export function DailyLogs() {
       const refreshed = await http.get(`/api/daily-logs/${entryLogId}`)
       const fresh = unwrapSingle<DailyLog>(refreshed)
       if (fresh) setLogs((prev) => prev.map((l) => (l.id === entryLogId ? fresh : l)))
+      track({
+        name: 'dailylog.entry_added',
+        properties: { project_id: projectId, daily_log_id: entryLogId },
+      })
       setEntryLogId(null)
       setEntryArea('')
       setEntryWork('')
     } catch (err) {
-      setFormError(
+      setEntryError(
         err instanceof Error
           ? err.message
           : t('dailyLogs.entryError', {}, { defaultValue: 'Failed to add the entry.' }),
@@ -137,10 +152,10 @@ export function DailyLogs() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('dailyLogs.heading', {}, { defaultValue: 'Daily logs' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -193,7 +208,7 @@ export function DailyLogs() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -210,7 +225,7 @@ export function DailyLogs() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               >
                 {WEATHER.map((w) => (
@@ -235,7 +250,7 @@ export function DailyLogs() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="24"
               />
@@ -255,7 +270,7 @@ export function DailyLogs() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="192"
               />
@@ -275,7 +290,7 @@ export function DailyLogs() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'border border-outline-variant rounded-md bg-surface',
+                'min-w-0 border border-outline-variant rounded-md bg-surface',
               )}
             />
           </label>
@@ -361,7 +376,7 @@ export function DailyLogs() {
                   onClick={() => setEntryLogId(entryLogId === log.id ? null : log.id)}
                   className={cm.cn(
                     cm.sp('px', 3),
-                    cm.sp('py', 1.5),
+                    cm.sp('py', 2),
                     cm.textSize('xs'),
                     cm.fontWeight('medium'),
                     'rounded-md border border-outline-variant hover:bg-surface-container',
@@ -401,7 +416,7 @@ export function DailyLogs() {
                           cm.sp('px', 3),
                           cm.sp('py', 2),
                           cm.textSize('sm'),
-                          'border border-outline-variant rounded-md bg-surface',
+                          'min-w-0 border border-outline-variant rounded-md bg-surface',
                         )}
                         placeholder={t(
                           'dailyLogs.entry.areaPlaceholder',
@@ -424,11 +439,16 @@ export function DailyLogs() {
                           cm.sp('px', 3),
                           cm.sp('py', 2),
                           cm.textSize('sm'),
-                          'border border-outline-variant rounded-md bg-surface',
+                          'min-w-0 border border-outline-variant rounded-md bg-surface',
                         )}
                       />
                     </label>
                   </div>
+                  {entryError && (
+                    <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+                      {entryError}
+                    </p>
+                  )}
                   <button
                     type="submit"
                     data-mol-id="daily-logs-entry-submit"
@@ -448,7 +468,10 @@ export function DailyLogs() {
               {log.entries.length > 0 && (
                 <ul className={cm.cn(cm.sp('mt', 4), 'divide-y divide-outline-variant')}>
                   {log.entries.map((entry) => (
-                    <li key={entry.id} className={cm.cn(cm.flex({ gap: 'md' }), 'py-3')}>
+                    <li
+                      key={entry.id}
+                      className={cm.cn(cm.flex({ gap: 'md', wrap: 'wrap' }), 'py-3')}
+                    >
                       <span
                         className={cm.cn(
                           cm.textSize('xs'),
@@ -458,7 +481,9 @@ export function DailyLogs() {
                       >
                         {entry.area}
                       </span>
-                      <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                      <span
+                        className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', 'min-w-0')}
+                      >
                         {entry.work_performed}
                       </span>
                     </li>

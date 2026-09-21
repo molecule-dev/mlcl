@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -73,13 +74,18 @@ export function Rfis() {
     setSaving(true)
     setFormError(null)
     try {
-      await http.post('/api/rfis', {
+      const res = await http.post('/api/rfis', {
         project_id: projectId,
         title,
         question,
         originator,
         drawings_ref: drawingsRef || undefined,
         due_date: dueDate || null,
+      })
+      const created = (res as unknown as { data?: Rfi }).data
+      track({
+        name: 'rfi.raised',
+        properties: { project_id: projectId, rfi_id: created?.id ?? null },
       })
       const refreshed = await http.get(`/api/rfis?project_id=${projectId}`)
       setList(unwrapList<Rfi>(refreshed))
@@ -101,10 +107,10 @@ export function Rfis() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('rfis.heading', {}, { defaultValue: 'RFIs' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -156,7 +162,7 @@ export function Rfis() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -174,7 +180,7 @@ export function Rfis() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -191,7 +197,7 @@ export function Rfis() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="A-402 / S-101"
               />
@@ -210,7 +216,7 @@ export function Rfis() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -230,7 +236,7 @@ export function Rfis() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'border border-outline-variant rounded-md bg-surface',
+                'min-w-0 border border-outline-variant rounded-md bg-surface',
               )}
             />
           </label>

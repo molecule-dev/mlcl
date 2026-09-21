@@ -119,10 +119,10 @@ export function Dashboard() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-8')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-8')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('dashboard.heading', {}, { defaultValue: 'Dashboard' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>

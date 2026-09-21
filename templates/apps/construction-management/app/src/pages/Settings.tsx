@@ -21,7 +21,7 @@ function Settings() {
   return (
     <div
       aria-label={pageTitle}
-      className={cm.cn(cm.maxW('4xl'), cm.sp('px', 8), cm.sp('py', 8), 'space-y-10')}
+      className={cm.cn(cm.maxW('4xl'), 'px-4 md:px-8', cm.sp('py', 8), 'space-y-10')}
     >
       <header>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{pageTitle}</h1>

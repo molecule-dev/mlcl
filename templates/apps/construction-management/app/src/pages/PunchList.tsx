@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -93,6 +94,10 @@ export function PunchList() {
         photo_url: photoUrl || null,
       })
       await refresh()
+      track({
+        name: 'punchlist.item_filed',
+        properties: { project_id: projectId, severity },
+      })
       setShowForm(false)
       setLocation('')
       setDescription('')
@@ -113,6 +118,10 @@ export function PunchList() {
     try {
       await http.post(`/api/punch-items/${item.id}/status`, { status: next })
       await refresh()
+      track({
+        name: next === 'closed' ? 'punchlist.item_closed' : 'punchlist.item_started',
+        properties: { project_id: item.project_id, punch_item_id: item.id, status: next },
+      })
     } catch (err) {
       setError(
         err instanceof Error
@@ -140,10 +149,10 @@ export function PunchList() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+      <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
             {t('punch.heading', {}, { defaultValue: 'Punch list' })}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
@@ -195,7 +204,7 @@ export function PunchList() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder={t(
                   'punch.field.locationPlaceholder',
@@ -217,7 +226,7 @@ export function PunchList() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               >
                 {SEVERITIES.map((s) => (
@@ -243,7 +252,7 @@ export function PunchList() {
                 cm.sp('px', 3),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                'border border-outline-variant rounded-md bg-surface',
+                'min-w-0 border border-outline-variant rounded-md bg-surface',
               )}
             />
           </label>
@@ -261,7 +270,7 @@ export function PunchList() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
               />
             </label>
@@ -279,7 +288,7 @@ export function PunchList() {
                   cm.sp('px', 3),
                   cm.sp('py', 2),
                   cm.textSize('sm'),
-                  'border border-outline-variant rounded-md bg-surface',
+                  'min-w-0 border border-outline-variant rounded-md bg-surface',
                 )}
                 placeholder="https://…"
               />
@@ -357,7 +366,14 @@ export function PunchList() {
               data-mol-id={`punch-item-${item.id}`}
               className={cm.cn(cm.card(), cm.sp('p', 5))}
             >
-              <div className={cm.flex({ align: 'start', justify: 'between', gap: 'md' })}>
+              <div
+                className={cm.flex({
+                  align: 'start',
+                  justify: 'between',
+                  gap: 'md',
+                  wrap: 'wrap',
+                })}
+              >
                 <div>
                   <p
                     className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-primary')}
@@ -415,7 +431,7 @@ export function PunchList() {
                       onClick={() => transition(item, 'in_progress')}
                       className={cm.cn(
                         cm.sp('px', 3),
-                        cm.sp('py', 1.5),
+                        cm.sp('py', 2),
                         cm.textSize('xs'),
                         cm.fontWeight('medium'),
                         'rounded-md border border-outline-variant hover:bg-surface-container',
@@ -430,7 +446,7 @@ export function PunchList() {
                     onClick={() => setAssignId(assignId === item.id ? null : item.id)}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1.5),
+                      cm.sp('py', 2),
                       cm.textSize('xs'),
                       cm.fontWeight('medium'),
                       'rounded-md border border-outline-variant hover:bg-surface-container',
@@ -446,7 +462,7 @@ export function PunchList() {
                     onClick={() => transition(item, 'closed')}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1.5),
+                      cm.sp('py', 2),
                       cm.textSize('xs'),
                       cm.fontWeight('semibold'),
                       'rounded-md bg-primary text-on-primary hover:opacity-90',
@@ -478,7 +494,7 @@ export function PunchList() {
                         cm.sp('px', 3),
                         cm.sp('py', 2),
                         cm.textSize('sm'),
-                        'border border-outline-variant rounded-md bg-surface',
+                        'min-w-0 border border-outline-variant rounded-md bg-surface',
                       )}
                     />
                   </label>

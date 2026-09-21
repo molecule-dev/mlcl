@@ -45,8 +45,8 @@ export function Landing() {
     <div className={cm.cn('min-h-screen bg-background text-on-background')}>
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 8),
+          cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
+          'px-4 md:px-8',
           cm.sp('py', 5),
           'max-w-6xl mx-auto',
         )}
@@ -98,7 +98,7 @@ export function Landing() {
         </nav>
       </header>
 
-      <main className={cm.cn('max-w-6xl mx-auto', cm.sp('px', 8))}>
+      <main className={cm.cn('max-w-6xl mx-auto', 'px-4 md:px-8')}>
         <section className={cm.cn(cm.sp('py', 20), cm.textCenter, 'max-w-3xl mx-auto')}>
           <p
             className={cm.cn(

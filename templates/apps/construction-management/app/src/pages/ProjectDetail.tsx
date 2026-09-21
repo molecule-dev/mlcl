@@ -87,7 +87,7 @@ export function ProjectDetail() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-6')}>
       <header className={cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <p
@@ -99,7 +99,9 @@ export function ProjectDetail() {
           >
             {project.code || '—'}
           </p>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{project.name}</h1>
+          <h1 className={cm.cn('text-2xl md:text-3xl', cm.fontWeight('bold'), 'wrap-anywhere')}>
+            {project.name}
+          </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
             {formatDateLong(project.start_date)} → {formatDateLong(project.end_date) || '—'}
           </p>

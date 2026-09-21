@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -39,6 +40,9 @@ export function RfiDetail() {
   const [rfi, setRfi] = useState<Rfi | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Action failures (respond/close) render INLINE below the form — feeding them
+  // into `error` would flip the whole loaded thread into the "RFI not found" branch.
+  const [actionError, setActionError] = useState<string | null>(null)
 
   const [body, setBody] = useState('')
   const [isFinal, setIsFinal] = useState(false)
@@ -74,13 +78,18 @@ export function RfiDetail() {
     e.preventDefault()
     if (!rfiId) return
     setSaving(true)
+    setActionError(null)
     try {
       await http.post(`/api/rfis/${rfiId}/responses`, { body, is_final: isFinal })
       setBody('')
       setIsFinal(false)
       await refresh()
+      track({
+        name: 'rfi.responded',
+        properties: { project_id: rfi?.project_id ?? null, rfi_id: rfiId, is_final: isFinal },
+      })
     } catch (err) {
-      setError(
+      setActionError(
         err instanceof Error
           ? err.message
           : t('rfis.respondError', {}, { defaultValue: 'Failed to respond.' }),
@@ -92,11 +101,16 @@ export function RfiDetail() {
 
   async function handleClose(): Promise<void> {
     if (!rfiId) return
+    setActionError(null)
     try {
       await http.post(`/api/rfis/${rfiId}/status`, { status: 'closed' })
       await refresh()
+      track({
+        name: 'rfi.closed',
+        properties: { project_id: rfi?.project_id ?? null, rfi_id: rfiId },
+      })
     } catch (err) {
-      setError(
+      setActionError(
         err instanceof Error
           ? err.message
           : t('rfis.closeError', {}, { defaultValue: 'Failed to close.' }),
@@ -130,7 +144,7 @@ export function RfiDetail() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn('px-4 md:px-8', cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
       <header>
         <Link
           to={`/projects/${rfi.project_id}/rfis`}
@@ -290,7 +304,7 @@ export function RfiDetail() {
               )}
             </span>
           </label>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
             <button
               type="submit"
               disabled={saving}
@@ -324,6 +338,11 @@ export function RfiDetail() {
               </button>
             )}
           </div>
+          {actionError && (
+            <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+              {actionError}
+            </p>
+          )}
         </form>
       )}
 
