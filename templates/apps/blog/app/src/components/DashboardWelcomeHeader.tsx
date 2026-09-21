@@ -69,10 +69,10 @@ function DashboardWelcomeHeader() {
         'asymmetric-layout md:flex-row',
       )}
     >
-      <div className={cm.maxW('2xl')}>
+      <div className={cm.cn(cm.maxW('2xl'), 'min-w-0')}>
         <h1
           className={cm.cn(
-            'text-5xl',
+            'text-3xl md:text-5xl [overflow-wrap:anywhere]',
             cm.fontWeight('bold'),
             cm.sp('mb', 2),
             'font-headline tracking-tight text-on-background',

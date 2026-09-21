@@ -19,11 +19,14 @@ function PostListFilterBar({
   return (
     <div
       className={cm.cn(
-        cm.flex({ align: 'center', justify: 'between' }),
-        'border-b border-outline-variant/10 pb-0.5',
+        cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' }),
+        'gap-y-2 border-b border-outline-variant/10 pb-0.5',
       )}
     >
-      <div role="tablist" className={cm.cn(cm.flex({ gap: 'xl' }))}>
+      <div
+        role="tablist"
+        className={cm.cn(cm.flex({ wrap: 'wrap' }), 'gap-x-4 md:gap-x-8 gap-y-1')}
+      >
         <button
           role="tab"
           aria-selected={activeFilter === 'all'}
@@ -46,7 +49,7 @@ function PostListFilterBar({
         >
           {totalCount > 0
             ? t('status.all', { count: totalCount }, { defaultValue: 'All' })
-            : t('postListFilterBar.tabAll')}
+            : t('postListFilterBar.tabAll', {}, { defaultValue: 'All' })}
           {activeFilter === 'all' && (
             <div
               className={cm.cn(
@@ -151,7 +154,7 @@ function PostListFilterBar({
           )}
         </button>
       </div>
-      <div className={cm.fvd683bc2b}>
+      <div className={cm.cn(cm.fvd683bc2b, 'w-full sm:w-auto')}>
         <span className={cm.fv634ea742}>search</span>
         <input
           className={cm.cn(
@@ -159,8 +162,7 @@ function PostListFilterBar({
             cm.sp('pr', 4),
             cm.sp('py', 2),
             cm.textSize('sm'),
-            cm.w(64),
-            'bg-surface-container-low border-none rounded-xl focus:ring-1 focus:ring-primary/20 placeholder:text-on-surface-variant/40',
+            'w-full sm:w-64 bg-surface-container-low border-none rounded-xl focus:ring-1 focus:ring-primary/20 placeholder:text-on-surface-variant/40',
           )}
           aria-label={t('postListFilterBar.searchLabel', {}, { defaultValue: 'Search posts' })}
           placeholder={t(

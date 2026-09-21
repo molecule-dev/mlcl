@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import CommentsEmptyState from '../components/CommentsEmptyState.js'
 import CommentsTopNavBar from '../components/CommentsTopNavBar.js'
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 
 interface Comment {
@@ -101,6 +103,10 @@ function Comments() {
     setActioning(id)
     try {
       await http.patch(`/api/comments/${id}`, { status })
+      void track({
+        name: status === 'approved' ? 'comment.approved' : 'comment.marked_spam',
+        properties: { commentId: id },
+      })
       await reload(filter, postFilter)
     } catch (e) {
       setError(
@@ -117,6 +123,7 @@ function Comments() {
     setActioning(id)
     try {
       await http.delete(`/api/comments/${id}`)
+      void track({ name: 'comment.deleted', properties: { commentId: id } })
       setComments((prev) => prev.filter((c) => c.id !== id))
     } catch (e) {
       setError(
@@ -145,10 +152,19 @@ function Comments() {
     setCreating(true)
     setCreateError(null)
     try {
-      await http.post('/api/comments', {
+      const res = await http.post('/api/comments', {
         body: newCommentBody.trim(),
         resourceType: 'post',
         resourceId: postFilter,
+      })
+      const created =
+        res && typeof res === 'object'
+          ? ((res as { data?: { id?: string }; id?: string }).data?.id ??
+            (res as { id?: string }).id)
+          : undefined
+      void track({
+        name: 'comment.created',
+        properties: { ...(created ? { commentId: created } : {}), postId: postFilter },
       })
       setNewCommentBody('')
       await reload(filter, postFilter)
@@ -184,9 +200,11 @@ function Comments() {
     <>
       <SideNavBar />
       <CommentsTopNavBar />
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
       <main
         aria-label={pageTitle}
-        className={cm.cn(cm.sp('px', 8), cm.sp('pb', 16), 'ml-[240px] pt-24')}
+        className={cm.cn(cm.sp('px', 4), 'md:px-8 md:ml-[240px] pt-24 pb-16')}
       >
         {postFilter ? (
           <div
@@ -213,10 +231,10 @@ function Comments() {
         >
           <div
             className={cm.cn(
-              cm.flex({ align: 'center' }),
+              cm.flex({ align: 'center', wrap: 'wrap', gap: 'xs' }),
               cm.sp('p', 1),
               cm.roundedFull,
-              'bg-surface-container-low w-fit',
+              'bg-surface-container-low w-fit max-w-full',
             )}
           >
             {(['all', 'pending', 'approved', 'spam'] as Filter[]).map((f) => (

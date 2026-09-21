@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
 
@@ -80,9 +81,11 @@ export function Notifications() {
     <>
       <SideNavBar />
       <TopNavBar />
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
       <main
         data-mol-id="page-notifications"
-        className={cm.cn('max-w-3xl', cm.sp('px', 6), cm.sp('py', 8), 'ml-[240px] pt-24')}
+        className={cm.cn('max-w-3xl', cm.sp('px', 6), cm.sp('py', 8), 'md:ml-[240px] pt-24')}
       >
         <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
           {t('settings.notifications', {}, { defaultValue: 'Notifications' })}

@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import PostListFilterBar from '../components/PostListFilterBar.js'
 import PostListHeader from '../components/PostListHeader.js'
 import PostListItem from '../components/PostListItem.js'
@@ -96,23 +97,20 @@ function PostList() {
       active = false
     }
   }, [activeFilter, searchQuery, page, reloadKey, http, t])
-  const handleDelete = async (id: string) => {
-    try {
-      await http.delete(`/api/posts/${id}`)
-      setPosts((prev) => prev.filter((p) => p.id !== id))
-      setTotal((prev) => prev - 1)
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : t('postList.deleteError', {}, { defaultValue: 'Failed to delete post' }),
-      )
-    }
+  // PostListItem performs the DELETE request itself (and reports its own
+  // failures); this callback only reconciles the list state. It used to
+  // issue a SECOND delete — which 404'd and surfaced a bogus error banner
+  // after every successful row delete.
+  const handleDelete = (id: string) => {
+    setPosts((prev) => prev.filter((p) => p.id !== id))
+    setTotal((prev) => Math.max(0, prev - 1))
   }
   return (
     <>
       {/* SideNavBar Anchor */}
       <PostListSideNavBar />
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
       {/* Main Content Canvas */}
       <main
         className={cm.cn(
@@ -120,10 +118,9 @@ function PostList() {
           cm.stack(10),
           cm.flex1,
           cm.surface,
-          cm.sp('px', 12),
-          cm.sp('py', 8),
+          cm.sp('px', 4),
+          'md:px-12 pt-6 md:pt-8 pb-8 md:ml-[240px]',
           cm.minH('screen'),
-          'ml-[240px]',
         )}
       >
         {/* Header Section */}

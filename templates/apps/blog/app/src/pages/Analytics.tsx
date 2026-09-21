@@ -4,6 +4,7 @@ import { KpiCard } from '@molecule/app-kpi-card-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
 import TopPostsTable from '../components/TopPostsTable.js'
@@ -67,7 +68,9 @@ function Analytics() {
     <>
       <SideNavBar />
       <TopNavBar />
-      <main className={cm.cn(cm.stack(10), cm.sp('px', 10), 'ml-[240px] pt-24 pb-20')}>
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
+      <main className={cm.cn(cm.stack(10), cm.sp('px', 4), 'md:px-10 md:ml-[240px] pt-24 pb-20')}>
         <section
           className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2 lg:grid-cols-4')}
           data-mol-id="analytics-kpis"
@@ -117,7 +120,9 @@ function Analytics() {
             {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}
           </p>
         ) : null}
-        <div className={cm.cn(cm.grid({ cols: 12, gap: 10 }), 'items-start')}>
+        {/* 12 tracks x 40px gaps alone exceed a phone's width — tighten the
+            gutter on small screens. */}
+        <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10 items-start')}>
           <ViewsOverTimeChart points={views?.points ?? []} totalViews={totalViews} />
           <TrafficSourcesSidebar />
           <TopPostsTable posts={topPosts} loading={loading} />

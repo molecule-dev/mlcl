@@ -113,11 +113,13 @@ export function PostProvider({ postId, children }: PostProviderProps) {
     }
   }, [refresh])
 
-  // Track view exactly once per post id per mount.
+  // Track the view only once the post is known to exist — a missing/invalid
+  // id must not fire view counters at a 404 route (each one lands in the
+  // browser console as an error). Re-runs when the loaded post changes.
   useEffect(() => {
-    if (!id) return
-    void http.post(`/api/posts/${id}/view`, {}).catch(() => {})
-  }, [http, id])
+    if (!post?.id) return
+    void http.post(`/api/posts/${post.id}/view`, {}).catch(() => {})
+  }, [http, post?.id])
 
   const value = useMemo(
     () => ({

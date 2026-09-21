@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 interface PostListItemProps {
@@ -29,18 +30,27 @@ export default function PostListItem({
   const http = useHttpClient()
   const [isDeleting, setIsDeleting] = useState(false)
   const [isDeleted, setIsDeleted] = useState(false)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
 
   const handleDelete = async () => {
     if (!id || isDeleting) return
     setIsDeleting(true)
+    setDeleteError(null)
     try {
       await http.delete(`/api/posts/${id}`)
       setIsDeleted(true)
+      void track({ name: 'post.deleted', properties: { postId: id, status } })
       onDelete?.(id)
     } catch (error) {
+      // Surface the failure inline instead of silently keeping the row.
+      setDeleteError(
+        t('postListItem.deleteFailed', {}, { defaultValue: 'Delete failed — try again.' }),
+      )
       console.error('Failed to delete post:', error)
     } finally {
       setIsDeleting(false)
+      setConfirmingDelete(false)
     }
   }
 
@@ -142,6 +152,11 @@ export default function PostListItem({
               : date}
           </span>
         </div>
+        {deleteError ? (
+          <p role="alert" className={cm.cn(cm.sp('mt', 2), cm.textSize('xs'), 'text-error')}>
+            {deleteError}
+          </p>
+        ) : null}
       </div>
       <div
         data-post-actions
@@ -162,18 +177,54 @@ export default function PostListItem({
         >
           <span className={cm.fv5b245ffa}>edit</span>
         </Link>
-        <button
-          onClick={handleDelete}
-          disabled={isDeleting}
-          aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-          className={cm.cn(
-            cm.sp('p', 2),
-            cm.roundedFull,
-            'text-on-surface-variant/40 hover:text-error hover:bg-error/10 transition-colors disabled:opacity-50',
-          )}
-        >
-          <span className={cm.fv5b245ffa}>{isDeleting ? 'hourglass_empty' : 'delete'}</span>
-        </button>
+        {confirmingDelete ? (
+          <span
+            data-mol-id="post-delete-confirm"
+            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
+          >
+            <button
+              type="button"
+              data-mol-id="post-delete-confirm-yes"
+              onClick={handleDelete}
+              disabled={isDeleting}
+              aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              className={cm.cn(
+                cm.sp('px', 3),
+                'py-1.5 text-xs font-bold rounded-lg bg-error text-on-error hover:opacity-90 transition-opacity disabled:opacity-50',
+              )}
+            >
+              {isDeleting ? (
+                <span className={cm.fv5b245ffa}>hourglass_empty</span>
+              ) : (
+                t('postListItem.deleteYes', {}, { defaultValue: 'Yes, delete' })
+              )}
+            </button>
+            <button
+              type="button"
+              data-mol-id="post-delete-confirm-no"
+              onClick={() => setConfirmingDelete(false)}
+              className={cm.cn(
+                cm.sp('p', 2),
+                cm.roundedFull,
+                'text-on-surface-variant hover:bg-surface-container transition-colors',
+              )}
+            >
+              <span className={cm.fv5b245ffa}>close</span>
+            </button>
+          </span>
+        ) : (
+          <button
+            onClick={() => setConfirmingDelete(true)}
+            aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+            className={cm.cn(
+              cm.sp('p', 2),
+              cm.roundedFull,
+              'text-on-surface-variant/40 hover:text-error hover:bg-error/10 transition-colors',
+            )}
+          >
+            <span className={cm.fv5b245ffa}>delete</span>
+          </button>
+        )}
       </div>
     </div>
   )

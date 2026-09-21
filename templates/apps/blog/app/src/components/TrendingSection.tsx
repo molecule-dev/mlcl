@@ -96,11 +96,17 @@ function TrendingSection() {
               key={post.id}
               className={cm.cn(cm.flex({ gap: 'md' }), 'group')}
             >
+              {/* Decorative ranking numeral — hidden from the a11y tree (it
+                  duplicates the row's order). Rendered in `text-outline`
+                  (≈4.4:1 on the page surface) so it still clears the 3:1
+                  large-text floor; the surface-on-surface watermark tint
+                  shipped at 1.23:1 and failed axe color-contrast. */}
               <span
+                aria-hidden="true"
                 className={cm.cn(
                   cm.textSize('3xl'),
                   cm.fontWeight('bold'),
-                  'font-headline text-surface-container-highest group-hover:text-outline-variant transition-colors',
+                  'font-headline text-outline group-hover:text-on-surface-variant transition-colors',
                 )}
               >
                 {String(i + 1).padStart(2, '0')}

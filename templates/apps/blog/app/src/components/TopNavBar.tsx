@@ -62,7 +62,8 @@ function TopNavBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.h(16),
-        'fixed top-0 right-0 w-[calc(100%-240px)] z-50 bg-surface/80 backdrop-blur-md ml-[240px]',
+        // Mobile renders MobileTopBar instead; full-width below md.
+        'fixed top-0 right-0 w-full md:w-[calc(100%-240px)] z-50 bg-surface/80 backdrop-blur-md md:ml-[240px] hidden md:flex',
       )}
     >
       {useEditorialHeader ? (

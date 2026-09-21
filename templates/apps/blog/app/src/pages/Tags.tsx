@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import TagsSideNavBar from '../components/TagsSideNavBar.js'
 import TagsTopNavBar from '../components/TagsTopNavBar.js'
 
@@ -92,6 +94,13 @@ export function Tags() {
   const [tagName, setTagName] = useState('')
   const [selectedColor, setSelectedColor] = useState(TAG_COLORS[0])
   const [saving, setSaving] = useState(false)
+  // The handlers used to swallow failures silently — the modal just closed
+  // (or appeared to do nothing) with no feedback. Surface them inline.
+  const [modalError, setModalError] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
+  // Two-step delete: the first click arms the row's delete button, the
+  // second performs it.
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null)
 
   // Close the create/edit modal on browser navigation (popstate / back-forward
   // / programmatic SPA pushes). Without this the modal becomes a sticky
@@ -167,6 +176,7 @@ export function Tags() {
   const handleCreate = async () => {
     if (!tagName.trim() || saving) return
     setSaving(true)
+    setModalError(null)
     try {
       const res = await http.post<Tag>('/api/tags', { name: tagName.trim(), color: selectedColor })
       // The mlcl-scaffolded HttpClient returns `HttpResponse<T>`. Some bonds
@@ -175,10 +185,19 @@ export function Tags() {
         ? (res as unknown as Tag)
         : (res?.data as Tag | undefined)
       if (created) setTags((prev) => [...prev, created])
+      void track({
+        name: 'tag.created',
+        properties: { ...(created?.id ? { tagId: created.id } : {}), name: tagName.trim() },
+      })
       closeModal()
-    } catch (_error) {
-      // Tag creation failed (e.g. duplicate name) — silently dismiss so the
-      // modal stays open and the user can try a different name
+    } catch (error) {
+      // Keep the modal open so the user can retry (e.g. duplicate name) and
+      // show WHY nothing happened.
+      setModalError(
+        error instanceof Error
+          ? error.message
+          : t('tags.createError', {}, { defaultValue: 'Could not create tag.' }),
+      )
     } finally {
       setSaving(false)
     }
@@ -187,6 +206,7 @@ export function Tags() {
   const handleEdit = async (id: string) => {
     if (!tagName.trim() || saving) return
     setSaving(true)
+    setModalError(null)
     try {
       await http.patch(`/api/tags/${id}`, { name: tagName.trim(), color: selectedColor })
       setTags((prev) =>
@@ -194,20 +214,30 @@ export function Tags() {
           tag.id === id ? { ...tag, name: tagName.trim(), color: selectedColor } : tag,
         ),
       )
+      void track({ name: 'tag.updated', properties: { tagId: id, name: tagName.trim() } })
       closeModal()
-    } catch (_error) {
-      // Tag update failed — silently dismiss so the user can retry
+    } catch (error) {
+      setModalError(
+        error instanceof Error
+          ? error.message
+          : t('tags.updateError', {}, { defaultValue: 'Could not update tag.' }),
+      )
     } finally {
       setSaving(false)
     }
   }
 
   const handleDelete = async (id: string) => {
+    setActionError(null)
     try {
       await http.delete(`/api/tags/${id}`)
+      void track({ name: 'tag.deleted', properties: { tagId: id } })
       setTags((prev) => prev.filter((tag) => tag.id !== id))
     } catch (_error) {
-      // Tag deletion failed — silently dismiss; the tag stays in the list
+      // The tag stays in the list; say so instead of failing silently.
+      setActionError(t('tags.deleteError', {}, { defaultValue: 'Could not delete tag.' }))
+    } finally {
+      setConfirmingDeleteId(null)
     }
   }
 
@@ -216,6 +246,7 @@ export function Tags() {
     setEditingTag(null)
     setTagName('')
     setSelectedColor(TAG_COLORS[0])
+    setModalError(null)
     setShowModal(true)
   }
 
@@ -224,6 +255,7 @@ export function Tags() {
     setEditingTag(tag)
     setTagName(tag.name)
     setSelectedColor(tag.color || TAG_COLORS[index % TAG_COLORS.length])
+    setModalError(null)
     setShowModal(true)
   }
 
@@ -231,22 +263,23 @@ export function Tags() {
     setShowModal(false)
     setTagName('')
     setEditingTag(null)
+    setModalError(null)
   }
 
   return (
     <div data-mol-id="page-tags">
       <TagsSideNavBar />
       <TagsTopNavBar onNewTag={openCreateModal} />
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
       {/* Content */}
       <div
         style={{
-          padding: '2rem',
+          padding: '2rem 1rem',
           maxWidth: '960px',
-          width: '100%',
-          margin: '0 auto',
-          marginLeft: '240px',
           paddingTop: '6rem',
         }}
+        className="mx-auto md:mx-0 md:ml-[240px] md:px-8"
       >
         {loading ? (
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.sp('p', 16))}>
@@ -255,7 +288,7 @@ export function Tags() {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             {/* Stats Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gap: '1.5rem' }} className="grid-cols-1 md:grid-cols-3">
               {/* Total Tags */}
               <div
                 style={{
@@ -476,12 +509,13 @@ export function Tags() {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
+                flexWrap: 'wrap',
                 gap: '1rem',
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}
             >
-              <div style={{ position: 'relative', width: '24rem' }}>
+              <div style={{ position: 'relative', width: '100%', maxWidth: '24rem' }}>
                 <span
                   className="material-symbols-outlined"
                   style={{
@@ -624,6 +658,22 @@ export function Tags() {
               </div>
             </div>
 
+            {actionError ? (
+              <div
+                role="alert"
+                data-mol-id="tags-action-error"
+                style={{
+                  padding: '0.75rem 1.25rem',
+                  borderRadius: '12px',
+                  fontSize: '13px',
+                  backgroundColor: 'var(--color-error-container, #f9dedc)',
+                  color: 'var(--color-on-error-container, #410e0b)',
+                }}
+              >
+                {actionError}
+              </div>
+            ) : null}
+
             {/* Tags Table */}
             <div
               data-mol-id="tags-table"
@@ -698,261 +748,280 @@ export function Tags() {
                   )}
                 </div>
               ) : (
-                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-                  <thead>
-                    <tr
-                      style={{
-                        backgroundColor: 'var(--color-surface-container-low)',
-                        borderBottom: '1px solid var(--mol-color-surface-secondary)',
-                      }}
-                    >
-                      <th
+                <div style={{ overflowX: 'auto' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                    <thead>
+                      <tr
                         style={{
-                          padding: '1rem 1.5rem',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.05em',
-                          color: 'var(--mol-color-text-secondary)',
+                          backgroundColor: 'var(--color-surface-container-low)',
+                          borderBottom: '1px solid var(--mol-color-surface-secondary)',
                         }}
                       >
-                        {t('tags.table.tag', {}, { defaultValue: 'Tag' })}
-                      </th>
-                      <th
-                        style={{
-                          padding: '1rem 1.5rem',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.05em',
-                          color: 'var(--mol-color-text-secondary)',
-                        }}
-                      >
-                        {t('tags.table.slug', {}, { defaultValue: 'Slug' })}
-                      </th>
-                      <th
-                        style={{
-                          padding: '1rem 1.5rem',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.05em',
-                          color: 'var(--mol-color-text-secondary)',
-                        }}
-                      >
-                        {t('tags.table.posts', {}, { defaultValue: 'Posts' })}
-                      </th>
-                      <th
-                        style={{
-                          padding: '1rem 1.5rem',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.05em',
-                          color: 'var(--mol-color-text-secondary)',
-                        }}
-                      >
-                        {t('tags.table.created', {}, { defaultValue: 'Created' })}
-                      </th>
-                      <th
-                        style={{
-                          padding: '1rem 1.5rem',
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.05em',
-                          color: 'var(--mol-color-text-secondary)',
-                          textAlign: 'right',
-                        }}
-                      >
-                        {t('nav.actions', {}, { defaultValue: 'Actions' })}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {paginated.map((tag, idx) => {
-                      const globalIdx = (currentPage - 1) * PAGE_SIZE + idx
-                      const color = getTagColor(tag, globalIdx)
-                      const isHovered = hoveredRowId === tag.id
-                      return (
-                        <tr
-                          key={tag.id}
-                          data-mol-id={`tag-row-${tag.id}`}
-                          onMouseEnter={() => setHoveredRowId(tag.id)}
-                          onMouseLeave={() => setHoveredRowId(null)}
+                        <th
                           style={{
-                            borderTop:
-                              idx > 0 ? '1px solid var(--mol-color-surface-secondary)' : undefined,
-                            backgroundColor: isHovered
-                              ? 'var(--color-surface-container-low)'
-                              : 'transparent',
-                            transition: 'background-color 0.15s ease',
+                            padding: '1rem 1.5rem',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            color: 'var(--mol-color-text-secondary)',
                           }}
                         >
-                          {/* Tag name + color dot */}
-                          <td style={{ padding: '1rem 1.5rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                          {t('tags.table.tag', {}, { defaultValue: 'Tag' })}
+                        </th>
+                        <th
+                          style={{
+                            padding: '1rem 1.5rem',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            color: 'var(--mol-color-text-secondary)',
+                          }}
+                        >
+                          {t('tags.table.slug', {}, { defaultValue: 'Slug' })}
+                        </th>
+                        <th
+                          style={{
+                            padding: '1rem 1.5rem',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            color: 'var(--mol-color-text-secondary)',
+                          }}
+                        >
+                          {t('tags.table.posts', {}, { defaultValue: 'Posts' })}
+                        </th>
+                        <th
+                          style={{
+                            padding: '1rem 1.5rem',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            color: 'var(--mol-color-text-secondary)',
+                          }}
+                        >
+                          {t('tags.table.created', {}, { defaultValue: 'Created' })}
+                        </th>
+                        <th
+                          style={{
+                            padding: '1rem 1.5rem',
+                            fontSize: '0.75rem',
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.05em',
+                            color: 'var(--mol-color-text-secondary)',
+                            textAlign: 'right',
+                          }}
+                        >
+                          {t('nav.actions', {}, { defaultValue: 'Actions' })}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {paginated.map((tag, idx) => {
+                        const globalIdx = (currentPage - 1) * PAGE_SIZE + idx
+                        const color = getTagColor(tag, globalIdx)
+                        const isHovered = hoveredRowId === tag.id
+                        return (
+                          <tr
+                            key={tag.id}
+                            data-mol-id={`tag-row-${tag.id}`}
+                            onMouseEnter={() => setHoveredRowId(tag.id)}
+                            onMouseLeave={() => setHoveredRowId(null)}
+                            style={{
+                              borderTop:
+                                idx > 0
+                                  ? '1px solid var(--mol-color-surface-secondary)'
+                                  : undefined,
+                              backgroundColor: isHovered
+                                ? 'var(--color-surface-container-low)'
+                                : 'transparent',
+                              transition: 'background-color 0.15s ease',
+                            }}
+                          >
+                            {/* Tag name + color dot */}
+                            <td style={{ padding: '1rem 1.5rem' }}>
                               <div
-                                style={{
-                                  width: '0.75rem',
-                                  height: '0.75rem',
-                                  borderRadius: '9999px',
-                                  backgroundColor: color,
-                                  flexShrink: 0,
-                                }}
-                              />
-                              <span
-                                style={{ fontWeight: 600, color: 'var(--mol-color-secondary)' }}
-                              >
-                                {tag.name}
-                              </span>
-                            </div>
-                          </td>
-                          {/* Slug */}
-                          <td style={{ padding: '1rem 1.5rem' }}>
-                            <code
-                              style={{
-                                fontSize: '0.75rem',
-                                fontFamily:
-                                  'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace',
-                                color: 'var(--mol-color-text-secondary)',
-                              }}
-                            >
-                              /tag/{nameToSlug(tag.name)}
-                            </code>
-                          </td>
-                          {/* Post count + bar */}
-                          <td style={{ padding: '1rem 1.5rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                              <span
-                                style={{
-                                  fontSize: '14px',
-                                  fontWeight: 500,
-                                  color: 'var(--mol-color-secondary)',
-                                  width: '1.5rem',
-                                }}
-                              >
-                                {tagPostCount(tag)}
-                              </span>
-                              <div
-                                style={{
-                                  width: '6rem',
-                                  height: '0.375rem',
-                                  borderRadius: '9999px',
-                                  overflow: 'hidden',
-                                  backgroundColor: 'var(--mol-color-surface-secondary)',
-                                }}
+                                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
                               >
                                 <div
                                   style={{
-                                    height: '100%',
+                                    width: '0.75rem',
+                                    height: '0.75rem',
                                     borderRadius: '9999px',
                                     backgroundColor: color,
-                                    width: `${Math.round((tagPostCount(tag) / maxPostCount) * 100)}%`,
+                                    flexShrink: 0,
                                   }}
                                 />
+                                <span
+                                  style={{ fontWeight: 600, color: 'var(--mol-color-secondary)' }}
+                                >
+                                  {tag.name}
+                                </span>
                               </div>
-                            </div>
-                          </td>
-                          {/* Created date */}
-                          <td style={{ padding: '1rem 1.5rem' }}>
-                            <span
-                              style={{ fontSize: '14px', color: 'var(--mol-color-text-secondary)' }}
-                            >
-                              {formatRelativeDate(tag.created_at ?? tag.createdAt, t)}
-                            </span>
-                          </td>
-                          {/* Actions */}
-                          <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-end',
-                                gap: '0.5rem',
-                                opacity: isHovered ? 1 : 0,
-                                transition: 'opacity 0.15s ease',
-                              }}
-                            >
-                              <button
-                                data-mol-id={`button-edit-${tag.id}`}
-                                onClick={() => openEditModal(tag, globalIdx)}
-                                aria-label={t('common.edit', {}, { defaultValue: 'Edit' })}
+                            </td>
+                            {/* Slug */}
+                            <td style={{ padding: '1rem 1.5rem' }}>
+                              <code
                                 style={{
-                                  padding: '0.5rem',
-                                  color: 'var(--mol-color-text-tertiary)',
-                                  backgroundColor: 'transparent',
-                                  border: 'none',
-                                  borderRadius: '0.5rem',
-                                  cursor: 'pointer',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  transition: 'color 0.15s, background-color 0.15s',
-                                }}
-                                onMouseEnter={(e) => {
-                                  ;(e.currentTarget as HTMLButtonElement).style.color =
-                                    'var(--mol-color-primary)'
-                                  ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                                    'var(--mol-color-primary-light)'
-                                }}
-                                onMouseLeave={(e) => {
-                                  ;(e.currentTarget as HTMLButtonElement).style.color =
-                                    'var(--mol-color-text-tertiary)'
-                                  ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                                    'transparent'
+                                  fontSize: '0.75rem',
+                                  fontFamily:
+                                    'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace',
+                                  color: 'var(--mol-color-text-secondary)',
                                 }}
                               >
-                                <span
-                                  className="material-symbols-outlined"
-                                  style={{ fontSize: '18px' }}
-                                >
-                                  edit
-                                </span>
-                              </button>
-                              <button
-                                data-mol-id={`button-delete-${tag.id}`}
-                                onClick={() => handleDelete(tag.id)}
-                                aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-                                style={{
-                                  padding: '0.5rem',
-                                  color: 'var(--mol-color-text-tertiary)',
-                                  backgroundColor: 'transparent',
-                                  border: 'none',
-                                  borderRadius: '0.5rem',
-                                  cursor: 'pointer',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  transition: 'color 0.15s, background-color 0.15s',
-                                }}
-                                onMouseEnter={(e) => {
-                                  ;(e.currentTarget as HTMLButtonElement).style.color =
-                                    'var(--mol-color-error)'
-                                  ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                                    'color-mix(in srgb, var(--mol-color-error) 10%, transparent)'
-                                }}
-                                onMouseLeave={(e) => {
-                                  ;(e.currentTarget as HTMLButtonElement).style.color =
-                                    'var(--mol-color-text-tertiary)'
-                                  ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                                    'transparent'
-                                }}
+                                /tag/{nameToSlug(tag.name)}
+                              </code>
+                            </td>
+                            {/* Post count + bar */}
+                            <td style={{ padding: '1rem 1.5rem' }}>
+                              <div
+                                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
                               >
                                 <span
-                                  className="material-symbols-outlined"
-                                  style={{ fontSize: '18px' }}
+                                  style={{
+                                    fontSize: '14px',
+                                    fontWeight: 500,
+                                    color: 'var(--mol-color-secondary)',
+                                    width: '1.5rem',
+                                  }}
                                 >
-                                  delete
+                                  {tagPostCount(tag)}
                                 </span>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </table>
+                                <div
+                                  style={{
+                                    width: '6rem',
+                                    height: '0.375rem',
+                                    borderRadius: '9999px',
+                                    overflow: 'hidden',
+                                    backgroundColor: 'var(--mol-color-surface-secondary)',
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: '100%',
+                                      borderRadius: '9999px',
+                                      backgroundColor: color,
+                                      width: `${Math.round((tagPostCount(tag) / maxPostCount) * 100)}%`,
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                            </td>
+                            {/* Created date */}
+                            <td style={{ padding: '1rem 1.5rem' }}>
+                              <span
+                                style={{
+                                  fontSize: '14px',
+                                  color: 'var(--mol-color-text-secondary)',
+                                }}
+                              >
+                                {formatRelativeDate(tag.created_at ?? tag.createdAt, t)}
+                              </span>
+                            </td>
+                            {/* Actions */}
+                            <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'flex-end',
+                                  gap: '0.5rem',
+                                  opacity: isHovered ? 1 : 0,
+                                  transition: 'opacity 0.15s ease',
+                                }}
+                              >
+                                <button
+                                  data-mol-id={`button-edit-${tag.id}`}
+                                  onClick={() => openEditModal(tag, globalIdx)}
+                                  aria-label={t('common.edit', {}, { defaultValue: 'Edit' })}
+                                  style={{
+                                    padding: '0.5rem',
+                                    color: 'var(--mol-color-text-tertiary)',
+                                    backgroundColor: 'transparent',
+                                    border: 'none',
+                                    borderRadius: '0.5rem',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'color 0.15s, background-color 0.15s',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    ;(e.currentTarget as HTMLButtonElement).style.color =
+                                      'var(--mol-color-primary)'
+                                    ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                                      'var(--mol-color-primary-light)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    ;(e.currentTarget as HTMLButtonElement).style.color =
+                                      'var(--mol-color-text-tertiary)'
+                                    ;(e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                                      'transparent'
+                                  }}
+                                >
+                                  <span
+                                    className="material-symbols-outlined"
+                                    style={{ fontSize: '18px' }}
+                                  >
+                                    edit
+                                  </span>
+                                </button>
+                                <button
+                                  data-mol-id={`button-delete-${tag.id}`}
+                                  onClick={() =>
+                                    confirmingDeleteId === tag.id
+                                      ? void handleDelete(tag.id)
+                                      : setConfirmingDeleteId(tag.id)
+                                  }
+                                  aria-label={
+                                    confirmingDeleteId === tag.id
+                                      ? t('tags.confirmDelete', {}, { defaultValue: 'Yes, delete' })
+                                      : t('common.delete', {}, { defaultValue: 'Delete' })
+                                  }
+                                  style={{
+                                    padding: '0.5rem 0.75rem',
+                                    fontSize: '12px',
+                                    fontWeight: 700,
+                                    color:
+                                      confirmingDeleteId === tag.id
+                                        ? 'var(--color-on-error, #fff)'
+                                        : 'var(--mol-color-text-tertiary)',
+                                    backgroundColor:
+                                      confirmingDeleteId === tag.id
+                                        ? 'var(--color-error, #b3261e)'
+                                        : 'transparent',
+                                    border: 'none',
+                                    borderRadius: '0.5rem',
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'color 0.15s, background-color 0.15s',
+                                  }}
+                                >
+                                  {confirmingDeleteId === tag.id ? (
+                                    t('tags.confirmDelete', {}, { defaultValue: 'Yes, delete' })
+                                  ) : (
+                                    <span
+                                      className="material-symbols-outlined"
+                                      style={{ fontSize: '18px' }}
+                                    >
+                                      delete
+                                    </span>
+                                  )}
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               )}
 
               {/* Pagination */}
@@ -1141,6 +1210,7 @@ export function Tags() {
                     'linear-gradient(135deg, var(--color-status-published) 0%, var(--color-primary) 50%, var(--mol-color-success) 100%)',
                 }}
                 aria-hidden="true"
+                className="hidden md:block"
               />
             </div>
           </div>
@@ -1237,6 +1307,22 @@ export function Tags() {
             <div
               style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
             >
+              {modalError ? (
+                <p
+                  role="alert"
+                  data-mol-id="tags-modal-error"
+                  style={{
+                    margin: 0,
+                    padding: '0.625rem 1rem',
+                    borderRadius: '0.5rem',
+                    fontSize: '13px',
+                    backgroundColor: 'var(--color-error-container, #f9dedc)',
+                    color: 'var(--color-on-error-container, #410e0b)',
+                  }}
+                >
+                  {modalError}
+                </p>
+              ) : null}
               {/* Name */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
                 <label

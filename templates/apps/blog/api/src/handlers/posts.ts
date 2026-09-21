@@ -544,7 +544,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('posts', getParamId(req))
     res.status(204).end()
   } catch (err) {
-    console.error('[posts.delete]', err)
+    logger.error('posts.delete failed', { error: err })
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

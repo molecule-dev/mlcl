@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -98,6 +99,7 @@ function PostEditor() {
           coverImage,
           status: 'published',
         })
+        void track({ name: 'post.published', properties: { postId, status: 'published' } })
       } else {
         await http.post('/api/posts', {
           title,
@@ -107,6 +109,8 @@ function PostEditor() {
           coverImage,
           status: 'published',
         })
+        void track({ name: 'post.created', properties: { status: 'published' } })
+        void track({ name: 'post.published', properties: { status: 'published' } })
       }
       navigate('/posts')
     } catch (err) {
@@ -125,6 +129,7 @@ function PostEditor() {
     try {
       if (postId) {
         await http.put(`/api/posts/${postId}`, { title, excerpt, body, tags, status: 'draft' })
+        void track({ name: 'post.updated', properties: { postId, status: 'draft' } })
       } else {
         const res = await http.post('/api/posts', {
           title,
@@ -138,6 +143,10 @@ function PostEditor() {
           res && typeof res === 'object' ? (res as { data?: { id?: string }; id?: string }) : null
         const newId = payload?.data?.id ?? payload?.id
         if (newId) setPostId(newId)
+        void track({
+          name: 'post.created',
+          properties: { ...(newId ? { postId: newId } : {}), status: 'draft' },
+        })
       }
     } catch (err) {
       setError(

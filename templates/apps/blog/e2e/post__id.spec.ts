@@ -194,6 +194,9 @@ test.describe('post detail page (/post/:id)', () => {
   })
 
   test('error state renders when post id is invalid', async ({ page }) => {
+    // The 404s ARE the state under test — the browser logs them and the
+    // console guard would fail the run without this exemption.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + `/post/00000000-0000-0000-0000-000000000000`)
     await page.waitForLoadState('networkidle')
     const text = await page.locator('main').innerText()

@@ -17,7 +17,9 @@ export default function TagsSideNavBar() {
         cm.sp('p', 6),
         cm.h('screen'),
         'w-[240px]',
-        'fixed left-0 top-0 bg-surface-container-low overflow-y-auto z-50',
+        // Mobile renders MobileTopBar instead — the fixed 240px rail would
+        // crush a phone's content column.
+        'fixed left-0 top-0 bg-surface-container-low overflow-y-auto z-50 hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('mb', 10), cm.flex({ align: 'center', gap: 'sm' }))}>

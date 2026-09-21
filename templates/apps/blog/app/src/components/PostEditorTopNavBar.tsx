@@ -71,7 +71,9 @@ function PostEditorTopNavBar({ onPublish, onSaveDraft, loading }: PostEditorTopN
             'font-label uppercase tracking-widest',
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          {/* Decorative status icons — dropped on phones to keep the
+              publish/draft actions reachable without overflowing. */}
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'hidden md:inline-flex')}>
             <button
               className={cm.cn(
                 'text-on-surface-variant hover:opacity-80 transition-opacity duration-200 scale-95 active:duration-100',
@@ -118,7 +120,7 @@ function PostEditorTopNavBar({ onPublish, onSaveDraft, loading }: PostEditorTopN
               cm.sp('py', 2),
               cm.roundedFull,
               cm.fontWeight('semibold'),
-              'text-on-surface hover:opacity-80 transition-opacity duration-200 scale-95 active:duration-100',
+              'whitespace-nowrap text-on-surface hover:opacity-80 transition-opacity duration-200 scale-95 active:duration-100',
             )}
             id="button-save-draft"
             onClick={onSaveDraft}

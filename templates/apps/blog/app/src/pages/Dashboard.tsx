@@ -9,6 +9,7 @@ import DashboardRightSidebar from '../components/DashboardRightSidebar.js'
 import DashboardWelcomeHeader from '../components/DashboardWelcomeHeader.js'
 import EngagementTrendsSection from '../components/EngagementTrendsSection.js'
 import KpiCardsSection from '../components/KpiCardsSection.js'
+import MobileTopBar from '../components/MobileTopBar.js'
 import RecentPostsSection from '../components/RecentPostsSection.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
@@ -24,10 +25,12 @@ function Dashboard() {
       {/* SideNavBar Component */}
       <SideNavBar />
       <TopNavBar />
+      {/* Mobile chrome (renders nothing on desktop) */}
+      <MobileTopBar />
       {/* Main Content Area */}
       <main
         aria-label={pageTitle}
-        className={cm.cn(cm.minH('screen'), 'ml-[240px] pt-24 bg-surface-container-low/30')}
+        className={cm.cn(cm.minH('screen'), 'md:ml-[240px] pt-24 bg-surface-container-low/30')}
       >
         <div className={cm.cn(cm.mxAuto, cm.sp('p', 10), cm.stack(10), 'max-w-[1440px]')}>
           {/* Welcome Header */}

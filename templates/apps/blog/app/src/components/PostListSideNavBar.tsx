@@ -47,7 +47,9 @@ function PostListSideNavBar() {
         cm.flex({ direction: 'col' }),
         cm.h('screen'),
         cm.sp('p', 6),
-        'fixed left-0 top-0 w-[240px] bg-surface-container-low z-50',
+        // Mobile renders MobileTopBar instead — the fixed 240px rail would
+        // crush a phone's content column.
+        'fixed left-0 top-0 w-[240px] bg-surface-container-low z-50 hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('mb', 10), cm.flex({ align: 'center', gap: 'sm' }))}>

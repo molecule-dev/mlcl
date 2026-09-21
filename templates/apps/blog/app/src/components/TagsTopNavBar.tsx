@@ -13,10 +13,11 @@ function TagsTopNavBar({ onNewTag }: TagsTopNavBarProps) {
     <header
       className={cm.cn(
         cm.h(16),
-        'w-[calc(100%-240px)]',
+        // Mobile renders MobileTopBar instead; full-width below md.
+        'w-full md:w-[calc(100%-240px)]',
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
-        'fixed top-0 ml-[240px] z-50 bg-background/80 backdrop-blur-md border-b border-border',
+        'fixed top-0 md:ml-[240px] z-50 bg-background/80 backdrop-blur-md border-b border-border hidden md:flex',
       )}
     >
       <h2 className={cm.cn(cm.textSize('2xl'), 'font-serif italic tracking-tight text-foreground')}>

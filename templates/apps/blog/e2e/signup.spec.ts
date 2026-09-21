@@ -24,6 +24,9 @@ test.describe('signup page', () => {
   })
 
   test('signing up with an already-registered email fails', async ({ page }) => {
+    // The duplicate-email rejection (403) is the subject here — the browser
+    // logs it and the console guard would fail the run without this.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('signup-dup')
     const password = 'TestPass123!'
     await page.request.post(`${API_BASE}/users`, {

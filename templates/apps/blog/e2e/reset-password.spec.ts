@@ -27,6 +27,9 @@ test.describe('/reset-password', () => {
   })
 
   test('submit button POSTs to /api/users/reset-password', async ({ page }) => {
+    // The bogus `?token=demo` makes the API answer 401 — that rejected call
+    // IS the request under test, but its console noise trips the guard.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=demo')
     const pw = page.locator('input[type="password"]').first()
     await pw.fill('Newpassword123!')

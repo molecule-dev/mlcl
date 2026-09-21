@@ -38,7 +38,7 @@ function PostEditorFooter({ body }: PostEditorFooterProps) {
       <nav
         className={cm.cn(
           cm.flex({ gap: 'xl' }),
-          'pointer-events-auto font-sans text-[10px] text-foreground-secondary uppercase tracking-widest',
+          'hidden md:flex pointer-events-auto font-sans text-[10px] text-foreground-secondary uppercase tracking-widest',
         )}
       >
         <a

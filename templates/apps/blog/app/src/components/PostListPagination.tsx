@@ -23,14 +23,10 @@ function PostListPagination({ total = 0, page = 1, onPageChange }: PostListPagin
       <span
         className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-on-surface-variant')}
       >
-        {t('postListPagination.showing', {}, { defaultValue: 'Showing' })}
-        <span className={cm.cn('text-on-surface')}>
-          {t('postListPagination.range', { start, end }, { defaultValue: '{{start}}-{{end}}' })}
-        </span>
         {t(
-          'postListPagination.ofTotalStories',
-          { count: total },
-          { defaultValue: 'of {{count}} stories' },
+          'postListPagination.showing',
+          { start, end, count: total },
+          { defaultValue: 'Showing {{start}}-{{end}} of {{count}} stories' },
         )}
       </span>
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>

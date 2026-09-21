@@ -54,7 +54,9 @@ export default function SideNavBar() {
         cm.flex({ direction: 'col' }),
         cm.h('full'),
         cm.sp('p', 6),
-        'fixed left-0 top-0 w-[240px] z-50 bg-surface-container-low border-r border-transparent',
+        // Mobile renders MobileTopBar instead — the fixed 240px rail would
+        // crush a phone's content column.
+        'fixed left-0 top-0 w-[240px] z-50 bg-surface-container-low border-r border-transparent hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('mb', 10))}>

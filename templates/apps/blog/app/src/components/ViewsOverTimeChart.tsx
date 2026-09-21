@@ -72,10 +72,15 @@ function ViewsOverTimeChart({ points = [], totalViews }: ViewsOverTimeChartProps
       data-mol-id="analytics-views-chart"
       className={cm.cn(
         cm.sp('p', 8),
-        'col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm',
+        'col-span-12 lg:col-span-8 min-w-0 bg-surface-container-lowest rounded-xl shadow-sm',
       )}
     >
-      <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }), cm.sp('mb', 8))}>
+      <div
+        className={cm.cn(
+          cm.flex({ justify: 'between', align: 'center', wrap: 'wrap', gap: 'sm' }),
+          cm.sp('mb', 8),
+        )}
+      >
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
           <h4 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), "font-['Newsreader']")}>
             {t('viewsOverTimeChart.title', {}, { defaultValue: 'Views Over Time' })}

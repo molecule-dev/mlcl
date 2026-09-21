@@ -159,141 +159,143 @@ function RecentPostsSection() {
       <div
         className={cm.cn('bg-surface-container-lowest rounded-xl editorial-shadow overflow-hidden')}
       >
-        <table className={cm.cn(cm.w('full'), 'text-left border-collapse')}>
-          <thead>
-            <tr className={cm.cn('bg-surface-container-low/50')}>
-              <th className={headerTh}>{t('form.title', {}, { defaultValue: 'Title' })}</th>
-              <th className={headerTh}>{t('nav.status', {}, { defaultValue: 'Status' })}</th>
-              <th className={cm.cn(headerTh, cm.textCenter)}>
-                {t('recentPostsSection.views', {}, { defaultValue: 'Views' })}
-              </th>
-              <th className={cm.cn(headerTh, cm.textRight)}>
-                {t('form.date', {}, { defaultValue: 'Date' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-surface-container-low')}>
-            {posts === null ? (
-              <tr>
-                <td
-                  colSpan={4}
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 8),
-                    cm.textCenter,
-                    cm.textSize('sm'),
-                    'text-on-surface-variant',
-                  )}
-                >
-                  {t('recentPostsSection.loading', {}, { defaultValue: 'Loading recent posts…' })}
-                </td>
+        <div className={cm.cn('w-full overflow-x-auto')}>
+          <table className={cm.cn(cm.w('full'), 'text-left border-collapse min-w-[540px]')}>
+            <thead>
+              <tr className={cm.cn('bg-surface-container-low/50')}>
+                <th className={headerTh}>{t('form.title', {}, { defaultValue: 'Title' })}</th>
+                <th className={headerTh}>{t('nav.status', {}, { defaultValue: 'Status' })}</th>
+                <th className={cm.cn(headerTh, cm.textCenter)}>
+                  {t('recentPostsSection.views', {}, { defaultValue: 'Views' })}
+                </th>
+                <th className={cm.cn(headerTh, cm.textRight)}>
+                  {t('form.date', {}, { defaultValue: 'Date' })}
+                </th>
               </tr>
-            ) : error ? (
-              <tr>
-                <td
-                  colSpan={4}
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 8),
-                    cm.textCenter,
-                    cm.textSize('sm'),
-                    'text-error',
-                  )}
-                >
-                  {error}
-                </td>
-              </tr>
-            ) : posts.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={4}
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 8),
-                    cm.textCenter,
-                    cm.textSize('sm'),
-                    'text-on-surface-variant',
-                  )}
-                >
-                  {t(
-                    'recentPostsSection.empty',
-                    {},
-                    {
-                      defaultValue: 'No posts yet — create your first post to see it here.',
-                    },
-                  )}
-                </td>
-              </tr>
-            ) : (
-              posts.map((post, index) => {
-                const dateLabel = formatShortDate(pickDateForRow(post))
-                const viewsLabel = formatViews(post.views)
-                const status = post.status ?? 'draft'
-                const isDraft = status.toLowerCase() === 'draft'
-                const isScheduled = status.toLowerCase() === 'scheduled'
-                return (
-                  <tr
-                    key={post.id}
+            </thead>
+            <tbody className={cm.cn('divide-y divide-surface-container-low')}>
+              {posts === null ? (
+                <tr>
+                  <td
+                    colSpan={4}
                     className={cm.cn(
-                      cm.cursorPointer,
-                      'hover:bg-surface-container-low/20 transition-colors group',
+                      cm.sp('px', 6),
+                      cm.sp('py', 8),
+                      cm.textCenter,
+                      cm.textSize('sm'),
+                      'text-on-surface-variant',
                     )}
-                    data-mol-id={`post-row-${index + 1}`}
-                    onClick={() => navigate(`/post/${post.id}`)}
                   >
-                    <td
+                    {t('recentPostsSection.loading', {}, { defaultValue: 'Loading recent posts…' })}
+                  </td>
+                </tr>
+              ) : error ? (
+                <tr>
+                  <td
+                    colSpan={4}
+                    className={cm.cn(
+                      cm.sp('px', 6),
+                      cm.sp('py', 8),
+                      cm.textCenter,
+                      cm.textSize('sm'),
+                      'text-error',
+                    )}
+                  >
+                    {error}
+                  </td>
+                </tr>
+              ) : posts.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={4}
+                    className={cm.cn(
+                      cm.sp('px', 6),
+                      cm.sp('py', 8),
+                      cm.textCenter,
+                      cm.textSize('sm'),
+                      'text-on-surface-variant',
+                    )}
+                  >
+                    {t(
+                      'recentPostsSection.empty',
+                      {},
+                      {
+                        defaultValue: 'No posts yet — create your first post to see it here.',
+                      },
+                    )}
+                  </td>
+                </tr>
+              ) : (
+                posts.map((post, index) => {
+                  const dateLabel = formatShortDate(pickDateForRow(post))
+                  const viewsLabel = formatViews(post.views)
+                  const status = post.status ?? 'draft'
+                  const isDraft = status.toLowerCase() === 'draft'
+                  const isScheduled = status.toLowerCase() === 'scheduled'
+                  return (
+                    <tr
+                      key={post.id}
                       className={cm.cn(
-                        cm.sp('px', 6),
-                        cm.sp('py', 5),
-                        cm.fontWeight('semibold'),
-                        'text-on-background group-hover:text-primary transition-colors',
+                        cm.cursorPointer,
+                        'hover:bg-surface-container-low/20 transition-colors group',
                       )}
+                      data-mol-id={`post-row-${index + 1}`}
+                      onClick={() => navigate(`/post/${post.id}`)}
                     >
-                      {post.title}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 5))}>
-                      <span
+                      <td
                         className={cm.cn(
-                          cm.roundedFull,
-                          cm.textSize('xs'),
-                          cm.fontWeight('medium'),
-                          'inline-flex items-center px-2.5 py-0.5',
-                          statusBadgeClasses(status),
+                          cm.sp('px', 6),
+                          cm.sp('py', 5),
+                          cm.fontWeight('semibold'),
+                          'text-on-background group-hover:text-primary transition-colors',
                         )}
                       >
-                        {statusLabel(status, t)}
-                      </span>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 6),
-                        cm.sp('py', 5),
-                        cm.textCenter,
-                        cm.fontWeight('medium'),
-                        'text-secondary',
-                      )}
-                    >
-                      {isDraft || isScheduled || !viewsLabel
-                        ? t('recentPostsSection.noViews', {}, { defaultValue: '—' })
-                        : viewsLabel}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 6),
-                        cm.sp('py', 5),
-                        cm.textRight,
-                        cm.textSize('sm'),
-                        'text-secondary',
-                      )}
-                    >
-                      {dateLabel ?? t('recentPostsSection.noDate', {}, { defaultValue: '—' })}
-                    </td>
-                  </tr>
-                )
-              })
-            )}
-          </tbody>
-        </table>
+                        {post.title}
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 5))}>
+                        <span
+                          className={cm.cn(
+                            cm.roundedFull,
+                            cm.textSize('xs'),
+                            cm.fontWeight('medium'),
+                            'inline-flex items-center px-2.5 py-0.5',
+                            statusBadgeClasses(status),
+                          )}
+                        >
+                          {statusLabel(status, t)}
+                        </span>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 6),
+                          cm.sp('py', 5),
+                          cm.textCenter,
+                          cm.fontWeight('medium'),
+                          'text-secondary',
+                        )}
+                      >
+                        {isDraft || isScheduled || !viewsLabel
+                          ? t('recentPostsSection.noViews', {}, { defaultValue: '—' })
+                          : viewsLabel}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 6),
+                          cm.sp('py', 5),
+                          cm.textRight,
+                          cm.textSize('sm'),
+                          'text-secondary',
+                        )}
+                      >
+                        {dateLabel ?? t('recentPostsSection.noDate', {}, { defaultValue: '—' })}
+                      </td>
+                    </tr>
+                  )
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )
