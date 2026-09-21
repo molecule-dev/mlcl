@@ -8,7 +8,8 @@
       "route": "/",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-landing.html",
+      "designScreenId": "8b00d973d0c64915b7ee88a5da442feb"
     },
     {
       "name": "Login",
@@ -17,7 +18,8 @@
       "route": "/login",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-login.html",
+      "designScreenId": "26542adbf4224fb4a2be29c2980f9f83"
     },
     {
       "name": "Signup",
@@ -26,7 +28,8 @@
       "route": "/signup",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-signup.html",
+      "designScreenId": "c23ae86c471246c8a1eb28eca8503b90"
     },
     {
       "name": "ForgotPassword",
@@ -35,7 +38,8 @@
       "route": "/forgot-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-forgot-password.html",
+      "designScreenId": "17ac6cdb2f6a4f689ec777a65e20c686"
     },
     {
       "name": "ResetPassword",
@@ -44,115 +48,152 @@
       "route": "/reset-password",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-reset-password.html",
+      "designScreenId": "2a198e4fc75d458a8a3e273a690778b1"
     },
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/dashboard",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-dashboard.html",
+      "designScreenId": "a6c6ef136f1248d4bf91832a65c9384a"
     },
     {
       "name": "Donors",
       "templateFile": "app/pages/Donors.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/donors",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-donors.html",
+      "designScreenId": "56146df8d2ec4d2aa78bde0e146179b0"
     },
     {
       "name": "NewDonor",
       "templateFile": "app/pages/NewDonor.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/donors/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-new-donor.html",
+      "designScreenId": "dc1a1ae97cf24e77b635695803749871"
     },
     {
       "name": "DonorDetail",
       "templateFile": "app/pages/DonorDetail.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/donors/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-donor-detail.html",
+      "designScreenId": "6919139e17cc4f72aab6593f8f1be8c3"
     },
     {
       "name": "Gifts",
       "templateFile": "app/pages/Gifts.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/gifts",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-gifts.html",
+      "designScreenId": "69393cb0fc2c4e2eaf908343fb20c3f2"
     },
     {
       "name": "NewGift",
       "templateFile": "app/pages/NewGift.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/gifts/new",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-new-gift.html",
+      "designScreenId": "d529050488c8441a80c56c587af456e9"
     },
     {
       "name": "GiftDetail",
       "templateFile": "app/pages/GiftDetail.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/gifts/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-gift-detail.html",
+      "designScreenId": "a788b5ea0e244e3abe3c793b6c5cd5ff"
     },
     {
       "name": "Campaigns",
       "templateFile": "app/pages/Campaigns.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/campaigns",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-campaigns.html",
+      "designScreenId": "8f96a4b994a54f9ba5c26a7f58288911"
     },
     {
       "name": "Receipts",
       "templateFile": "app/pages/Receipts.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/receipts",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-receipts.html",
+      "designScreenId": "34b24792fa32424b88673671a7d364ca"
     },
     {
       "name": "ReceiptDetail",
       "templateFile": "app/pages/ReceiptDetail.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/receipts/:id",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-receipt-detail.html",
+      "designScreenId": "39556977732f4cc28233ab823c0e1d60"
     },
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-settings.html",
+      "designScreenId": "95e450450706483da6e8115f40dfeaaf"
     },
     {
       "name": "PlanUpdated",
       "templateFile": "app/pages/PlanUpdated.tsx",
-      "components": ["app/components/DonorLayout.tsx"],
+      "components": [
+        "app/components/DonorLayout.tsx"
+      ],
       "route": "/plan-updated",
       "auth": true,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-plan-updated.html",
+      "designScreenId": "5ebf9d2518c8486b8516d376fb15b6a1"
     },
     {
       "name": "Pricing",
@@ -161,7 +202,8 @@
       "route": "/pricing",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-pricing.html",
+      "designScreenId": "e0c3bc96115c499d9cea4d3c22d2e857"
     },
     {
       "name": "About",
@@ -170,7 +212,8 @@
       "route": "/about",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-about.html",
+      "designScreenId": "fc2b23a1ee594d718a6c6a6c579ea2f4"
     },
     {
       "name": "Terms",
@@ -179,7 +222,8 @@
       "route": "/terms",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-terms.html",
+      "designScreenId": "a647cc9a3ddd4beeac82b0412992371f"
     },
     {
       "name": "Privacy",
@@ -188,7 +232,8 @@
       "route": "/privacy",
       "auth": false,
       "type": "generate_new",
-      "designFile": null
+      "designFile": "design-donor-management-privacy.html",
+      "designScreenId": "a9d64761adbf4569b8ed23a470a7e184"
     }
   ]
 }
