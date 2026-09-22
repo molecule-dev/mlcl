@@ -3,6 +3,7 @@ import {
   addFirstProductToCart,
   APP_BASE,
   captureNetwork,
+  gotoAndWait,
   signup,
   signupAndAddToCart,
 } from './_helpers'
@@ -18,8 +19,7 @@ test.describe('/cart', () => {
 
   test('empty cart shows empty-state CTA to /shop', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/cart')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/cart', (r) => /\/api\/cart/.test(r.url()))
     // Both Cart's main empty-state and OrderSummaryCard's empty-state render
     // "Your cart is empty." — assert at least one is visible via .first().
     await expect(page.getByText(/cart is empty/i).first()).toBeVisible({ timeout: 10_000 })
@@ -31,8 +31,7 @@ test.describe('/cart', () => {
 
   test('after adding a product, cart shows item, slots and checkout CTA', async ({ page }) => {
     await signupAndAddToCart(page)
-    await page.goto(APP_BASE + '/cart')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/cart', (r) => /\/api\/cart/.test(r.url()))
     await expect(page.locator('[data-test="cart-item"]').first()).toBeVisible({ timeout: 10_000 })
     await expect(page.getByRole('button', { name: /increment/i }).first()).toBeVisible()
     await expect(page.getByRole('button', { name: /decrement/i }).first()).toBeVisible()

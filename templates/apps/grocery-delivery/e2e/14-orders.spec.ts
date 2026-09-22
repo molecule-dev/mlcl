@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup, signupAndPlaceOrder } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup, signupAndPlaceOrder } from './_helpers'
 
 test.describe('/orders', () => {
   test('redirects to /login when unauthenticated', async ({ page }) => {
@@ -9,8 +9,7 @@ test.describe('/orders', () => {
 
   test('empty state offers Start shopping link', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/orders')
-    await page.waitForResponse((r) => /\/api\/orders/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/orders', (r) => /\/api\/orders/.test(r.url()))
     await expect(page.getByText(/no orders yet/i)).toBeVisible({ timeout: 10_000 })
     await page.getByRole('link', { name: /start shopping/i }).click()
     await expect(page).toHaveURL(/\/shop/)
@@ -33,10 +32,10 @@ test.describe('/orders', () => {
 
   test('Track CTA on an active order navigates to /order/:id', async ({ page }) => {
     await signupAndPlaceOrder(page)
-    await page.goto(APP_BASE + '/orders')
-    await page.waitForResponse(
+    await gotoAndWait(
+      page,
+      APP_BASE + '/orders',
       (r) => /\/api\/orders/.test(r.url()) && r.request().method() === 'GET',
-      { timeout: 15_000 },
     )
     const trackLink = page.getByRole('link', { name: /track/i }).first()
     await expect(trackLink).toBeVisible({ timeout: 10_000 })

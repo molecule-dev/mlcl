@@ -187,7 +187,11 @@ export function Search() {
               >
                 <div className={cm.cn('bg-surface-variant aspect-square')}>
                   {p.thumbnail_url ? (
-                    <img src={p.thumbnail_url} alt="" className={'h-full w-full object-cover'} />
+                    <img
+                      src={p.thumbnail_url}
+                      alt={p.name}
+                      className={'h-full w-full object-cover'}
+                    />
                   ) : null}
                 </div>
                 <div className={cm.cn(cm.sp('p', 3))}>

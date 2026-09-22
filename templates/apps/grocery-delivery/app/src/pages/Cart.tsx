@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -120,6 +121,7 @@ export function Cart() {
     if (nextQty <= 0) {
       try {
         await http.delete(`/api/cart/items/${itemId}`)
+        void track({ name: 'cart.item_removed', properties: { cart_item_id: itemId } })
         setItems((prev) => prev.filter((i) => i.id !== itemId))
       } catch (_error) {
         setError(t('cart.removeError', {}, { defaultValue: 'Could not remove item.' }))
@@ -232,7 +234,7 @@ export function Cart() {
                     {item.thumbnail_url ? (
                       <img
                         src={item.thumbnail_url}
-                        alt=""
+                        alt={item.name}
                         className={'h-full w-full object-cover'}
                       />
                     ) : (
@@ -279,7 +281,7 @@ export function Cart() {
                           type="button"
                           onClick={() => setItemQty(item.id, item.qty - 1)}
                           className={cm.cn(
-                            cm.sp('px', 2),
+                            'inline-flex h-9 w-9 items-center justify-center',
                             cm.fontWeight('bold'),
                             'text-on-surface hover:text-primary',
                           )}
@@ -297,7 +299,7 @@ export function Cart() {
                           type="button"
                           onClick={() => setItemQty(item.id, item.qty + 1)}
                           className={cm.cn(
-                            cm.sp('px', 2),
+                            'inline-flex h-9 w-9 items-center justify-center',
                             cm.fontWeight('bold'),
                             'text-on-surface hover:text-primary',
                           )}
@@ -423,7 +425,13 @@ export function Cart() {
                             name="slot"
                             value={s.id}
                             checked={isActive}
-                            onChange={() => setSlotId(s.id)}
+                            onChange={() => {
+                              setSlotId(s.id)
+                              void track({
+                                name: 'delivery.scheduled',
+                                properties: { slot_id: s.id, slot_label: s.label },
+                              })
+                            }}
                             className="accent-primary"
                           />
                           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>

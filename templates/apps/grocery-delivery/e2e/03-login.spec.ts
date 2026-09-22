@@ -31,6 +31,12 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials show an error and stay on /login', async ({ page }) => {
+    // The API correctly answers 403 for bad credentials; the browser logs
+    // the failed fetch as a console error. Expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByRole('textbox', { name: /email/i }).fill('nobody@example.com')
     await page.getByRole('textbox', { name: /^password$/i }).fill('WrongPass123!')

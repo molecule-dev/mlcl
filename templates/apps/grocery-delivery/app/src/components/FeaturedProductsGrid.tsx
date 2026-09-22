@@ -97,7 +97,7 @@ export function FeaturedProductsGrid({
                 {p.thumbnail_url ? (
                   <img
                     src={p.thumbnail_url}
-                    alt=""
+                    alt={p.name}
                     loading="lazy"
                     className={
                       'w-full h-full object-cover group-hover:scale-105 transition-transform'

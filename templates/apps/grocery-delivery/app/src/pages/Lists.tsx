@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -73,6 +74,7 @@ export function Lists() {
     setCreateError(null)
     try {
       await http.post('/api/lists', { name })
+      void track({ name: 'list.created', properties: { name } })
       setNewListName('')
       setShowCreate(false)
       await reload()
@@ -99,6 +101,10 @@ export function Lists() {
           })
           .catch(() => null)
       }
+      void track({
+        name: 'list.added_to_cart',
+        properties: { list_id: list.id, item_count: list.items.length },
+      })
       navigate('/cart')
     } finally {
       setBusyListId(null)

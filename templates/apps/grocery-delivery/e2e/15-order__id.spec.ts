@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup, signupAndPlaceOrder } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup, signupAndPlaceOrder } from './_helpers'
 
 // /order/:id — OrderTracking. Loads /api/orders/:id. Shows ETA,
 // status timeline, shopper/driver info, delivery address, link back.
@@ -8,10 +8,9 @@ test.describe('/order/:id (tracking)', () => {
   test('loads order detail and renders ETA + status timeline', async ({ page }) => {
     const orderId = await signupAndPlaceOrder(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + `/order/${orderId}`)
-      await page.waitForResponse((r) => r.url().includes(`/api/orders/${orderId}`), {
-        timeout: 15_000,
-      })
+      await gotoAndWait(page, APP_BASE + `/order/${orderId}`, (r) =>
+        r.url().includes(`/api/orders/${orderId}`),
+      )
     })
     const get = reqs.find((r) => r.method === 'GET' && r.url.includes(`/api/orders/${orderId}`))
     expect(get).toBeDefined()
@@ -24,10 +23,9 @@ test.describe('/order/:id (tracking)', () => {
 
   test('"View all orders" link returns to /orders', async ({ page }) => {
     const orderId = await signupAndPlaceOrder(page)
-    await page.goto(APP_BASE + `/order/${orderId}`)
-    await page.waitForResponse((r) => r.url().includes(`/api/orders/${orderId}`), {
-      timeout: 15_000,
-    })
+    await gotoAndWait(page, APP_BASE + `/order/${orderId}`, (r) =>
+      r.url().includes(`/api/orders/${orderId}`),
+    )
     await page
       .getByRole('link', { name: /view all orders|orders/i })
       .first()
@@ -36,6 +34,12 @@ test.describe('/order/:id (tracking)', () => {
   })
 
   test('unknown order id shows not-found state', async ({ page }) => {
+    // The API correctly answers 404 for an unknown order id; the browser
+    // logs the failed fetch as a console error. Expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/order/does-not-exist')
     await page.waitForTimeout(2000)

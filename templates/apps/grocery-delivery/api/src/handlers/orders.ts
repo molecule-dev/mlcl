@@ -23,6 +23,20 @@ import {
   type OrderStatus,
 } from '@molecule/api-resource-order'
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
+/**
+ * The `:id` URL param, or null when it is not a well-formed UUID.
+ *
+ * A malformed id (anything can be typed into /order/:id) must 404 — passing
+ * it to Postgres as a uuid literal makes the query throw and the handler
+ * answer 500 instead of "order not found".
+ */
+function orderParamId(req: Request): string | null {
+  const id = getParamId(req)
+  return UUID_RE.test(id) ? id : null
+}
+
 const router = Router()
 
 const VALID_STATUSES = [
@@ -334,7 +348,14 @@ router.get('/:id', async (req: Request, res: Response) => {
       })
       return
     }
-    const order = await findById<OrderRow>('orders', getParamId(req))
+    const id = orderParamId(req)
+    if (!id) {
+      res
+        .status(404)
+        .json({ error: t('order.notFound', undefined, { defaultValue: 'Order not found' }) })
+      return
+    }
+    const order = await findById<OrderRow>('orders', id)
     if (!order || order.user_id !== userId) {
       res
         .status(404)
@@ -549,7 +570,14 @@ export async function updateStatusHandler(req: Request, res: Response): Promise<
       })
       return
     }
-    const order = await findById<OrderRow>('orders', getParamId(req))
+    const statusId = orderParamId(req)
+    if (!statusId) {
+      res
+        .status(404)
+        .json({ error: t('order.notFound', undefined, { defaultValue: 'Order not found' }) })
+      return
+    }
+    const order = await findById<OrderRow>('orders', statusId)
     if (!order) {
       res
         .status(404)
@@ -585,8 +613,8 @@ export async function updateStatusHandler(req: Request, res: Response): Promise<
     if (backendStatus === 'delivered') updates.delivered_at = new Date()
     if (body.driverLocation) updates.driver_location = JSON.stringify(body.driverLocation)
 
-    const result = await updateById<OrderRow>('orders', getParamId(req), updates)
-    await create('order_events', { order_id: getParamId(req), status: backendStatus })
+    const result = await updateById<OrderRow>('orders', statusId, updates)
+    await create('order_events', { order_id: statusId, status: backendStatus })
     // Cancelling frees the delivery slot the order reserved at checkout. Guard on the PRIOR
     // status so re-cancelling (or cancelling an already-refunded order) can't double-free.
     if (
@@ -603,7 +631,7 @@ export async function updateStatusHandler(req: Request, res: Response): Promise<
       return
     }
     const items = await findMany<OrderItemRow>('order_items', {
-      where: [{ field: 'order_id', operator: '=', value: getParamId(req) }],
+      where: [{ field: 'order_id', operator: '=', value: statusId }],
     })
     const slot = result.data.delivery_slot_id
       ? await findById<DeliverySlotRow>('delivery_slots', result.data.delivery_slot_id)
@@ -634,7 +662,14 @@ export async function refundHandler(req: Request, res: Response): Promise<void> 
       })
       return
     }
-    const order = await findById<OrderRow>('orders', getParamId(req))
+    const refundId = orderParamId(req)
+    if (!refundId) {
+      res
+        .status(404)
+        .json({ error: t('order.notFound', undefined, { defaultValue: 'Order not found' }) })
+      return
+    }
+    const order = await findById<OrderRow>('orders', refundId)
     if (!order) {
       res
         .status(404)
@@ -655,13 +690,13 @@ export async function refundHandler(req: Request, res: Response): Promise<void> 
       })
       return
     }
-    await updateById('orders', getParamId(req), {
+    await updateById('orders', refundId, {
       status: 'refunded',
       refund_amount: req.body.amount ?? order.total,
       refund_reason: req.body.reason ?? null,
       refunded_at: new Date(),
     })
-    await create('order_events', { order_id: getParamId(req), status: 'refunded' })
+    await create('order_events', { order_id: refundId, status: 'refunded' })
     // A refund frees the reserved slot too — unless the order was already cancelled (which
     // already returned the capacity). The status==='refunded' early-return above covers re-refund.
     if (order.status !== 'cancelled') {

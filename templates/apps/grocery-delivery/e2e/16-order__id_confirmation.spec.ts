@@ -2,7 +2,7 @@ import { test, expect } from '@molecule/app-e2e-fixtures-default'
 import {
   APP_BASE,
   captureNetwork,
-  signup,
+  gotoAndWait,
   signupAndAddToCart,
   signupAndPlaceOrder,
 } from './_helpers'
@@ -31,9 +31,10 @@ test.describe('/order/:id/confirmation', () => {
     // GET /api/orders/:id that OrderConfirmation fires on mount.
     await signupAndAddToCart(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/checkout')
-      await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
-      await page.waitForResponse((r) => /\/api\/delivery-slots/.test(r.url()), { timeout: 15_000 })
+      await gotoAndWait(page, APP_BASE + '/checkout', [
+        (r) => /\/api\/cart/.test(r.url()),
+        (r) => /\/api\/delivery-slots/.test(r.url()),
+      ])
       const postP = page.waitForResponse(
         (r) => /\/api\/orders/.test(r.url()) && r.request().method() === 'POST',
         { timeout: 15_000 },
@@ -68,5 +69,3 @@ test.describe('/order/:id/confirmation', () => {
     await expect(page).toHaveURL(/\/shop/)
   })
 })
-
-void signup

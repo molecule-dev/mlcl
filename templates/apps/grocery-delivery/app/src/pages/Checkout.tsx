@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,6 +68,10 @@ export function Checkout() {
     let cancelled = false
     setLoading(true)
     setError(null)
+    // Read the deep-linked slot ONCE here — putting slotId in the deps would
+    // refetch cart + slots every time the user picks a slot (the effect also
+    // SETS slotId, so it re-ran itself right after the initial load too).
+    const initialSlot = searchParams.get('slot') ?? ''
     Promise.all([
       http
         .get('/api/cart')
@@ -96,9 +101,8 @@ export function Checkout() {
         )
         setDeliveryFeeCents(cart.body.delivery_fee_cents ?? 0)
         setSlots(slotList)
-        if (slotList.length > 0 && !slotId) {
-          const initial = searchParams.get('slot')
-          const found = initial ? slotList.find((s) => s.id === initial) : null
+        if (slotList.length > 0) {
+          const found = initialSlot ? slotList.find((s) => s.id === initialSlot) : null
           setSlotId(found?.id ?? slotList[0].id)
         }
       })
@@ -112,7 +116,7 @@ export function Checkout() {
     return () => {
       cancelled = true
     }
-  }, [http, t, searchParams, slotId])
+  }, [http, t, searchParams])
 
   const itemCount = items.reduce((s, i) => s + i.qty, 0)
   const total = subtotalCents + deliveryFeeCents + tip
@@ -139,6 +143,16 @@ export function Checkout() {
         setError(t('checkout.placeOrderError', {}, { defaultValue: 'Could not place order.' }))
         return
       }
+      void track({
+        name: 'order.placed',
+        properties: {
+          order_id: id,
+          slot_id: slotId,
+          item_count: itemCount,
+          total_cents: total,
+          tip_cents: tip,
+        },
+      })
       navigate(`/order/${id}/confirmation`)
     } catch (err) {
       const msg = err instanceof Error ? err.message : ''
@@ -268,7 +282,13 @@ export function Checkout() {
                             name="slot"
                             value={s.id}
                             checked={isActive}
-                            onChange={() => setSlotId(s.id)}
+                            onChange={() => {
+                              setSlotId(s.id)
+                              void track({
+                                name: 'delivery.scheduled',
+                                properties: { slot_id: s.id, slot_label: s.label },
+                              })
+                            }}
                             className="accent-primary"
                           />
                           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useLocation, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -116,6 +117,7 @@ export function Shop() {
     setAdding(productId)
     try {
       await http.post('/api/cart/items', { productId, quantity: 1 })
+      void track({ name: 'item.added', properties: { product_id: productId, source: 'shop' } })
       const next = await refreshCart(http)
       setCart(next)
     } catch (err) {

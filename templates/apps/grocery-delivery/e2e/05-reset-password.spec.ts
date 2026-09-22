@@ -25,6 +25,12 @@ test.describe('/reset-password', () => {
   })
 
   test('invalid token: POST hits /api/users/reset-password and returns 4xx', async ({ page }) => {
+    // The API correctly answers 401 for an invalid reset token; the browser
+    // logs the failed fetch as a console error. Expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?email=test@example.com')
     await page.getByRole('textbox', { name: /reset code/i }).fill('not-a-real-token')
     await page.getByRole('textbox', { name: /new password/i }).fill('NewPass1!')

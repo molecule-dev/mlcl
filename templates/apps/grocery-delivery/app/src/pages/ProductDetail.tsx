@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,6 +85,10 @@ export function ProductDetail() {
     setAddError(null)
     try {
       await http.post('/api/cart/items', { productId: id, quantity: qty })
+      void track({
+        name: 'item.added',
+        properties: { product_id: id, quantity: qty, source: 'product_detail' },
+      })
       setAdded(true)
       setTimeout(() => setAdded(false), 1500)
     } catch (err) {
@@ -126,7 +131,7 @@ export function ProductDetail() {
               {product.thumbnail_url ? (
                 <img
                   src={product.thumbnail_url}
-                  alt=""
+                  alt={product.name}
                   className={'h-full w-full object-cover rounded-xl'}
                 />
               ) : null}

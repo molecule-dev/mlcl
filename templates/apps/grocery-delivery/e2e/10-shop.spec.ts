@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup } from './_helpers'
 
 // /shop — authenticated. Loads /api/products + /api/cart. Rendered by
 // Shop.tsx → BushelHero, CategoryStrip, FeaturedProductsGrid,
@@ -14,10 +14,11 @@ test.describe('/shop', () => {
   test('after signup, /shop loads products from /api/products with 200', async ({ page }) => {
     const reqs = await captureNetwork(page, async () => {
       await signup(page)
-      await page.goto(APP_BASE + '/shop')
-      await page.waitForResponse((r) => r.url().includes('/api/products') && r.status() === 200, {
-        timeout: 15_000,
-      })
+      await gotoAndWait(
+        page,
+        APP_BASE + '/shop',
+        (r) => r.url().includes('/api/products') && r.status() === 200,
+      )
     })
     const list = reqs.find(
       (r) => r.method === 'GET' && /\/api\/products(\?|$|\/$)/.test(r.url) && r.status === 200,
@@ -27,8 +28,7 @@ test.describe('/shop', () => {
 
   test('clicking a featured product navigates to /product/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const link = page.locator('a[href^="/product/"]').first()
     await expect(link).toBeVisible({ timeout: 10_000 })
     await link.click()
@@ -39,8 +39,7 @@ test.describe('/shop', () => {
     page,
   }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const addBtn = page.getByRole('button', { name: /add.*to cart/i }).first()
     await expect(addBtn).toBeVisible({ timeout: 10_000 })
     const reqs = await captureNetwork(page, async () => {
@@ -60,8 +59,7 @@ test.describe('/shop', () => {
 
   test('selecting a category filters the visible product grid', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     // CategoryStrip renders category buttons. Click the produce filter.
     const produce = page.getByRole('button', { name: /produce/i }).first()
     if (await produce.count()) {

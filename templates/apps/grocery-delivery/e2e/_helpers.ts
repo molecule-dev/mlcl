@@ -2,10 +2,32 @@
 // these. Every spec file should import from this module rather than
 // rewriting auth/network plumbing per-test.
 
-import { Page, expect } from '@molecule/app-e2e-fixtures-default'
+import { Page, type Response, expect } from '@molecule/app-e2e-fixtures-default'
 
 export const APP_BASE =
   process.env.APP_BASE || 'http://localhost:' + (process.env.VITE_PORT || '3220')
+
+/**
+ * Navigate to `url` and wait for the page's initial data fetch(es) in one
+ * step.
+ *
+ * The naive `goto(url)` → `waitForResponse(pred)` order races: with a warm
+ * vite dev server the SPA mounts and its first GET can complete BEFORE
+ * `waitForResponse` arms, so the wait times out against an already-rendered
+ * page. Arming the listener(s) BEFORE the goto closes the race. Pass an
+ * array of predicates when the page fires several initial fetches.
+ */
+export async function gotoAndWait(
+  page: Page,
+  url: string,
+  match: ((r: Response) => boolean) | Array<(r: Response) => boolean>,
+  timeout = 15_000,
+): Promise<Response[]> {
+  const matches = Array.isArray(match) ? match : [match]
+  const waits = matches.map((m) => page.waitForResponse(m, { timeout }))
+  await page.goto(url)
+  return Promise.all(waits)
+}
 export const API_BASE =
   process.env.API_BASE || 'http://localhost:' + (process.env.API_PORT || '4220') + '/api'
 
@@ -128,8 +150,7 @@ export async function firstInStockProductHref(page: Page): Promise<string> {
  */
 export async function signupAndAddToCart(page: Page): Promise<{ email: string; password: string }> {
   const creds = await signup(page)
-  await page.goto(APP_BASE + '/shop')
-  await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+  await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
   await addFirstProductToCart(page)
   return creds
 }
@@ -141,9 +162,10 @@ export async function signupAndAddToCart(page: Page): Promise<{ email: string; p
  */
 export async function signupAndPlaceOrder(page: Page): Promise<string> {
   await signupAndAddToCart(page)
-  await page.goto(APP_BASE + '/checkout')
-  await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
-  await page.waitForResponse((r) => /\/api\/delivery-slots/.test(r.url()), { timeout: 15_000 })
+  await gotoAndWait(page, APP_BASE + '/checkout', [
+    (r) => /\/api\/cart/.test(r.url()),
+    (r) => /\/api\/delivery-slots/.test(r.url()),
+  ])
   const placeBtn = page.getByRole('button', { name: /place order/i })
   await expect(placeBtn).toBeVisible({ timeout: 10_000 })
   const postP = page.waitForResponse(

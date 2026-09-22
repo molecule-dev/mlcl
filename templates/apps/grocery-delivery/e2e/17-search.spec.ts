@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup } from './_helpers'
 
 // /search — authenticated. Loads /api/products on mount, filters
 // client-side by category + query string. Each result links to
@@ -14,10 +14,11 @@ test.describe('/search', () => {
   test('loads products from /api/products with 200', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/search')
-      await page.waitForResponse((r) => r.url().includes('/api/products') && r.status() === 200, {
-        timeout: 15_000,
-      })
+      await gotoAndWait(
+        page,
+        APP_BASE + '/search',
+        (r) => r.url().includes('/api/products') && r.status() === 200,
+      )
     })
     const get = reqs.find((r) => r.method === 'GET' && /\/api\/products/.test(r.url))
     expect(get).toBeDefined()
@@ -26,8 +27,7 @@ test.describe('/search', () => {
 
   test('typing a query filters the result grid', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/search', (r) => r.url().includes('/api/products'))
     const input = page.getByRole('searchbox', { name: /search/i })
     await input.fill('milk')
     await page.waitForTimeout(400)
@@ -42,8 +42,7 @@ test.describe('/search', () => {
 
   test('selecting a category filter narrows results', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/search', (r) => r.url().includes('/api/products'))
     await page
       .getByRole('button', { name: /produce/i })
       .first()
@@ -57,8 +56,7 @@ test.describe('/search', () => {
 
   test('clicking a result navigates to /product/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/search', (r) => r.url().includes('/api/products'))
     const link = page.locator('a[href^="/product/"]').first()
     if (await link.count()) {
       await link.click()
@@ -68,8 +66,7 @@ test.describe('/search', () => {
 
   test('no results state shows a friendly message', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/search', (r) => r.url().includes('/api/products'))
     await page.getByRole('searchbox', { name: /search/i }).fill('zzzzz-no-such-product')
     await page.waitForTimeout(300)
     await expect(page.getByText(/no results/i)).toBeVisible({ timeout: 5_000 })

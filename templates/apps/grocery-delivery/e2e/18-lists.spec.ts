@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup } from './_helpers'
 
 // /lists — authenticated. Loads /api/lists which returns
 // { lists, staples, smart_reorder_due }. Create-list form, add-all CTA,
@@ -14,10 +14,11 @@ test.describe('/lists', () => {
   test('loads lists data from /api/lists', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/lists')
-      await page.waitForResponse((r) => r.url().includes('/api/lists') && r.status() === 200, {
-        timeout: 15_000,
-      })
+      await gotoAndWait(
+        page,
+        APP_BASE + '/lists',
+        (r) => r.url().includes('/api/lists') && r.status() === 200,
+      )
     })
     const get = reqs.find((r) => r.method === 'GET' && /\/api\/lists(\?|$|\/$)/.test(r.url))
     expect(get).toBeDefined()
@@ -26,8 +27,7 @@ test.describe('/lists', () => {
 
   test('"New list" toggles a creation form', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/lists')
-    await page.waitForResponse((r) => /\/api\/lists/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/lists', (r) => /\/api\/lists/.test(r.url()))
     await page.locator('[data-test="lists-new-cta"]').click()
     await expect(page.locator('[data-test="lists-name-input"]')).toBeVisible()
   })
@@ -36,8 +36,7 @@ test.describe('/lists', () => {
     page,
   }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/lists')
-    await page.waitForResponse((r) => /\/api\/lists/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/lists', (r) => /\/api\/lists/.test(r.url()))
     await page.locator('[data-test="lists-new-cta"]').click()
     await expect(page.locator('[data-test="lists-name-input"]')).toBeVisible()
     await page.locator('[data-test="lists-name-input"]').fill('Weekly staples')
@@ -66,8 +65,7 @@ test.describe('/lists', () => {
 
   test('list creation persists across reload', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/lists')
-    await page.waitForResponse((r) => /\/api\/lists/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/lists', (r) => /\/api\/lists/.test(r.url()))
     await page.locator('[data-test="lists-new-cta"]').click()
     await expect(page.locator('[data-test="lists-name-input"]')).toBeVisible()
     await page.locator('[data-test="lists-name-input"]').fill('Persistent list')
@@ -88,11 +86,14 @@ test.describe('/lists', () => {
       page.locator('[data-test="list-card"]', { hasText: 'Persistent list' }),
     ).toBeVisible({ timeout: 15_000 })
 
-    await page.reload()
-    await page.waitForResponse(
+    // Arm the listener BEFORE the reload — the reload's data fetch can
+    // complete before a post-reload waitForResponse arms.
+    const reloadP = page.waitForResponse(
       (r) => /\/api\/lists/.test(r.url()) && r.request().method() === 'GET',
       { timeout: 15_000 },
     )
+    await page.reload()
+    await reloadP
     await expect(
       page.locator('[data-test="list-card"]', { hasText: 'Persistent list' }),
     ).toBeVisible({ timeout: 15_000 })
@@ -102,8 +103,7 @@ test.describe('/lists', () => {
     page,
   }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/lists')
-    await page.waitForResponse((r) => /\/api\/lists/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/lists', (r) => /\/api\/lists/.test(r.url()))
     // Fresh user has no lists yet → empty state visible. (After we create
     // one in earlier tests it disappears, but each test gets a fresh
     // signup.)

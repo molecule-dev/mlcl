@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup, signupAndAddToCart } from './_helpers'
+import { APP_BASE, captureNetwork, gotoAndWait, signup, signupAndAddToCart } from './_helpers'
 
 // /checkout — authenticated. Loads /api/cart + /api/delivery-slots.
 // Form: address (line1, city, ZIP), delivery slot radio, tip,
@@ -14,8 +14,7 @@ test.describe('/checkout', () => {
 
   test('empty cart shows browse-the-aisles CTA back to /shop', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/checkout')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/checkout', (r) => /\/api\/cart/.test(r.url()))
     await expect(page.getByText(/cart is empty/i)).toBeVisible({ timeout: 10_000 })
     await page
       .getByRole('button', { name: /browse the aisles|browse|shop/i })
@@ -28,9 +27,10 @@ test.describe('/checkout', () => {
     page,
   }) => {
     await signupAndAddToCart(page)
-    await page.goto(APP_BASE + '/checkout')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
-    await page.waitForResponse((r) => /\/api\/delivery-slots/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/checkout', [
+      (r) => /\/api\/cart/.test(r.url()),
+      (r) => /\/api\/delivery-slots/.test(r.url()),
+    ])
     const reqs = await captureNetwork(page, async () => {
       const postP = page.waitForResponse(
         (r) => /\/api\/orders/.test(r.url()) && r.request().method() === 'POST',
@@ -68,8 +68,7 @@ test.describe('/checkout', () => {
 
   test('selecting a different tip updates the displayed total', async ({ page }) => {
     await signupAndAddToCart(page)
-    await page.goto(APP_BASE + '/checkout')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/checkout', (r) => /\/api\/cart/.test(r.url()))
     const totalBefore = await page.locator('[data-test="checkout-total"]').textContent()
     await page
       .getByRole('button', { name: /^\$5$|^5$/ })
@@ -82,8 +81,7 @@ test.describe('/checkout', () => {
 
   test('payment method radio toggles between card / apple_pay / google_pay', async ({ page }) => {
     await signupAndAddToCart(page)
-    await page.goto(APP_BASE + '/checkout')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/checkout', (r) => /\/api\/cart/.test(r.url()))
     const apple = page.locator('input[type="radio"][name="paymentMethod"][value="apple_pay"]')
     await apple.check({ force: true })
     await expect(apple).toBeChecked()
@@ -91,8 +89,7 @@ test.describe('/checkout', () => {
 
   test('editing the address line persists into the order body', async ({ page }) => {
     await signupAndAddToCart(page)
-    await page.goto(APP_BASE + '/checkout')
-    await page.waitForResponse((r) => /\/api\/cart/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/checkout', (r) => /\/api\/cart/.test(r.url()))
     const street = page.getByRole('textbox', { name: /street address/i })
     await street.fill('900 Custom Lane')
     let captured: Record<string, unknown> | null = null

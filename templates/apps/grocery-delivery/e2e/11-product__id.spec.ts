@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, firstInStockProductHref, signup } from './_helpers'
+import { APP_BASE, captureNetwork, firstInStockProductHref, gotoAndWait, signup } from './_helpers'
 
 // /product/:id — authenticated. Loads /api/products/:id.
 // Shows brand, name, price, qty stepper, Add to cart, optional nutrition.
@@ -7,22 +7,18 @@ import { APP_BASE, captureNetwork, firstInStockProductHref, signup } from './_he
 test.describe('/product/:id', () => {
   test('renders product detail with brand, name and price', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const productHref = await firstInStockProductHref(page)
-    await page.goto(APP_BASE + productHref)
-    await page.waitForResponse((r) => /\/api\/products\/[^/]+/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + productHref, (r) => /\/api\/products\/[^/]+/.test(r.url()))
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.getByText(/\$\d+\.\d{2}/).first()).toBeVisible()
   })
 
   test('quantity stepper increments and decrements', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const productHref = await firstInStockProductHref(page)
-    await page.goto(APP_BASE + productHref)
-    await page.waitForResponse((r) => /\/api\/products\/[^/]+/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + productHref, (r) => /\/api\/products\/[^/]+/.test(r.url()))
     const inc = page.getByRole('button', { name: /increment/i })
     const dec = page.getByRole('button', { name: /decrement/i })
     await inc.click()
@@ -35,11 +31,9 @@ test.describe('/product/:id', () => {
 
   test('Add to cart calls POST /api/cart/items with chosen quantity', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const productHref = await firstInStockProductHref(page)
-    await page.goto(APP_BASE + productHref)
-    await page.waitForResponse((r) => /\/api\/products\/[^/]+/.test(r.url()), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + productHref, (r) => /\/api\/products\/[^/]+/.test(r.url()))
     const addBtn = page.getByRole('button', { name: /add.*to cart/i }).first()
     await expect(addBtn).toBeVisible({ timeout: 10_000 })
     const reqs = await captureNetwork(page, async () => {
@@ -57,10 +51,9 @@ test.describe('/product/:id', () => {
 
   test('"Back to shop" link returns to /shop', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/shop')
-    await page.waitForResponse((r) => r.url().includes('/api/products'), { timeout: 15_000 })
+    await gotoAndWait(page, APP_BASE + '/shop', (r) => r.url().includes('/api/products'))
     const productHref = await firstInStockProductHref(page)
-    await page.goto(APP_BASE + productHref)
+    await gotoAndWait(page, APP_BASE + productHref, (r) => /\/api\/products\/[^/]+/.test(r.url()))
     await page
       .getByRole('link', { name: /back to shop|shop/i })
       .first()
