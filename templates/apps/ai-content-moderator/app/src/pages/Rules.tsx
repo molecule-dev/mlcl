@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -45,6 +46,8 @@ export function Rules() {
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
+  /** Rule id awaiting a second click on delete (inline destructive confirm). */
+  const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
   const [name, setName] = useState('High-quality contributor fast-pass')
   const [verdict, setVerdict] = useState<ApiRule['action']>('auto_approve')
   const [conditions, setConditions] = useState<Condition[]>([
@@ -129,6 +132,7 @@ export function Rules() {
       })
       setFeedback(t('rules.publishOk', {}, { defaultValue: 'Rule published.' }))
       loadRules()
+      track({ name: 'rule.created', properties: { name, action: verdict } })
     } catch (error) {
       logError('rules.publishRule', error)
       setError(t('rules.publishError', {}, { defaultValue: 'Could not publish rule.' }))
@@ -165,6 +169,10 @@ export function Rules() {
     try {
       await http.put(`/api/rules/${rule.id}`, { enabled: !rule.enabled })
       loadRules()
+      track({
+        name: 'rule.updated',
+        properties: { id: rule.id, enabled: !rule.enabled },
+      })
     } catch (error) {
       logError('rules.toggleRuleEnabled', error)
       setError(t('rules.updateError', {}, { defaultValue: 'Could not update rule.' }))
@@ -179,6 +187,7 @@ export function Rules() {
     try {
       await http.delete(`/api/rules/${rule.id}`)
       loadRules()
+      track({ name: 'rule.deleted', properties: { id: rule.id, name: rule.name } })
     } catch (error) {
       logError('rules.deleteRule', error)
       setError(t('rules.deleteError', {}, { defaultValue: 'Could not delete rule.' }))
@@ -556,19 +565,46 @@ export function Rules() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => deleteRule(rule)}
+                      onClick={() => {
+                        if (pendingDeleteId === rule.id) {
+                          setPendingDeleteId(null)
+                          void deleteRule(rule)
+                        } else {
+                          setPendingDeleteId(rule.id)
+                        }
+                      }}
                       disabled={busy}
                       data-mol-id="delete-rule"
                       className={cm.cn(
-                        'text-on-surface-variant hover:text-error p-2 transition-colors disabled:opacity-50',
+                        'p-2 transition-colors disabled:opacity-50',
+                        pendingDeleteId === rule.id
+                          ? 'bg-error-light text-error rounded-full'
+                          : 'text-on-surface-variant hover:text-error',
                       )}
-                      aria-label={t('rules.list.delete', {}, { defaultValue: 'Delete rule' })}
+                      aria-label={
+                        pendingDeleteId === rule.id
+                          ? t(
+                              'rules.list.confirmDelete',
+                              {},
+                              { defaultValue: 'Click again to delete this rule' },
+                            )
+                          : t('rules.list.delete', {}, { defaultValue: 'Delete rule' })
+                      }
+                      title={
+                        pendingDeleteId === rule.id
+                          ? t(
+                              'rules.list.confirmDelete',
+                              {},
+                              { defaultValue: 'Click again to delete this rule' },
+                            )
+                          : t('rules.list.delete', {}, { defaultValue: 'Delete rule' })
+                      }
                     >
                       <span
                         aria-hidden="true"
                         className={cm.cn('material-symbols-outlined text-[20px]')}
                       >
-                        delete
+                        {pendingDeleteId === rule.id ? 'delete_forever' : 'delete'}
                       </span>
                     </button>
                   </div>

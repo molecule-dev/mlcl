@@ -145,4 +145,30 @@ test.describe('review detail page', () => {
     expect(body.decision).toBe('reject')
     expect(body.status).toBe('decided')
   })
+
+  test('reopen (appeal) returns a decided item to the queue with the reversal audited', async ({
+    page,
+  }) => {
+    const { accessToken } = await signup(page)
+    const item = await seedQueueItem(page, accessToken, `Reopen detail ${Date.now()}`)
+    await page.goto(`${APP_BASE}/queue/${item.id}`)
+    await expect(page.locator(`text=${item.preview}`).first()).toBeVisible({ timeout: 10000 })
+
+    // Decide first — the resolved panel only shows the re-open control then.
+    await page.getByRole('button', { name: /approve content/i }).click()
+    await expect(page.locator('[data-mol-id="reopen-review"]')).toBeVisible({ timeout: 10000 })
+    await page.locator('[data-mol-id="reopen-review"]').click()
+    // The decision panel disappears once the item is pending again.
+    await expect(page.locator('[data-mol-id="reopen-review"]')).toBeHidden({ timeout: 10000 })
+
+    const r = await page.request.get(`${APP_BASE.replace(/\/$/, '')}/api/moderation/${item.id}`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    })
+    const body = await r.json()
+    expect(body.status).toBe('queued')
+    expect(body.decision === null || body.decision === undefined).toBe(true)
+    // Audit trail records the reversal.
+    const actions: string[] = (body.audit_log ?? []).map((e: { action: string }) => e.action)
+    expect(actions.some((a) => a === 'decision:reopened')).toBe(true)
+  })
 })

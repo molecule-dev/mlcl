@@ -79,6 +79,10 @@ test.describe('rules page', () => {
     await expect(page.locator(`text=${rule.name}`).first()).toBeVisible({ timeout: 10000 })
 
     const row = page.locator(`[data-mol-id="rule-card-${rule.id}"]`)
+    // Destructive confirm: the first click arms the button (aria-label
+    // flips to "Click again…"), the second click deletes.
+    await row.locator('[data-mol-id="delete-rule"]').click()
+    await expect(row.getByRole('button', { name: /click again/i })).toBeVisible()
     await row.locator('[data-mol-id="delete-rule"]').click()
     await page.waitForTimeout(600)
 

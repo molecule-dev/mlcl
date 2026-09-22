@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -161,6 +162,10 @@ export function ReviewDetail() {
             }
           : prev,
       )
+      track({
+        name: 'content.ai_reviewed',
+        properties: { id: itemId, decision: review.decision, confidence: review.confidence },
+      })
     } catch (error) {
       logError('review.requestAiReview', error)
       setError(t('review.aiError', {}, { defaultValue: 'AI review failed. Please try again.' }))
@@ -187,6 +192,7 @@ export function ReviewDetail() {
       await http.post(`/api/moderation/${itemId}/approve`, { notes: notes || undefined })
       await refreshItem()
       setNotes('')
+      track({ name: 'content.approved', properties: { id: itemId, status: 'decided' } })
     } catch (error) {
       logError('review.approve', error)
       setError(t('review.approveError', {}, { defaultValue: 'Failed to approve content.' }))
@@ -206,6 +212,7 @@ export function ReviewDetail() {
       })
       await refreshItem()
       setNotes('')
+      track({ name: 'content.escalated', properties: { id: itemId, status: 'escalated' } })
     } catch (error) {
       logError('review.escalate', error)
       setError(t('review.escalateError', {}, { defaultValue: 'Failed to escalate content.' }))
@@ -239,9 +246,29 @@ export function ReviewDetail() {
       setRejectReason('')
       setNotes('')
       setShowRejectForm(false)
+      track({
+        name: 'content.rejected',
+        properties: { id: itemId, status: 'decided', reason: rejectReason },
+      })
     } catch (error) {
       logError('review.reject', error)
       setError(t('review.rejectError', {}, { defaultValue: 'Failed to reject content.' }))
+    } finally {
+      setActionLoading(false)
+    }
+  }
+
+  async function reopen() {
+    if (!itemId) return
+    setActionLoading(true)
+    setError(null)
+    try {
+      await http.post(`/api/moderation/${itemId}/reopen`, {})
+      await refreshItem()
+      track({ name: 'content.reopened', properties: { id: itemId, status: 'queued' } })
+    } catch (error) {
+      logError('review.reopen', error)
+      setError(t('review.reopenError', {}, { defaultValue: 'Failed to re-open the review.' }))
     } finally {
       setActionLoading(false)
     }
@@ -672,6 +699,22 @@ export function ReviewDetail() {
               {item.review_notes && (
                 <p className={cm.cn('text-sm text-on-surface-variant mt-2')}>{item.review_notes}</p>
               )}
+              {/* Appeal path: a decided item is not a dead end — a moderator
+                  (or a senior reviewer acting on an appeal) can re-open it
+                  back into the queue; the reversal lands in the audit log. */}
+              <button
+                type="button"
+                onClick={reopen}
+                disabled={actionLoading}
+                data-mol-id="reopen-review"
+                className={cm.cn(
+                  'mt-4 w-full border border-outline-variant text-on-surface-variant font-bold text-xs uppercase tracking-wider px-3 py-2.5 rounded-lg hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50',
+                )}
+              >
+                {actionLoading
+                  ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                  : t('review.reopen', {}, { defaultValue: 'Re-open review' })}
+              </button>
             </article>
           )}
         </aside>

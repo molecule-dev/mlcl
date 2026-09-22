@@ -8,6 +8,7 @@
  *   POST   /moderation/:id/approve           record approve decision
  *   POST   /moderation/:id/reject            record reject decision (with reason)
  *   POST   /moderation/:id/decide            record human decision (approve/reject/escalate)
+ *   POST   /moderation/:id/reopen            re-open a decided item back into the queue
  *   POST   /moderation/:id/ai-review         run an AI pre-classification review
  *   POST   /moderation/:id/assign            assign to a moderator
  *   GET    /moderation/:id/reviews           list ai_reviews + audit_log entries
@@ -524,6 +525,50 @@ router.post('/:id/reject', validateBody(rejectSchema), async (req: Request, res:
   }
 })
 
+// Re-open a decided/escalated item back into the queue — the moderation
+// equivalent of an appeal. A wrong approve/reject must be reversible, with
+// the reversal recorded in the audit log.
+router.post('/:id/reopen', async (req: Request, res: Response) => {
+  try {
+    const userId = res.locals.session.userId as string
+    const check = await requireOwnership('flagged_content', req.params.id as string, userId)
+    if (!check.ok) {
+      res.status(check.status).json({
+        error: t('moderation.notFound', {}, { defaultValue: 'Content item not found' }),
+      })
+      return
+    }
+    const updated = await updateById('flagged_content', req.params.id as string, {
+      status: 'queued',
+      decision: null,
+      decided_by: null,
+      decided_at: null,
+    })
+
+    await create('audit_log', {
+      id: randomUUID(),
+      owner_id: userId,
+      user_id: userId,
+      actor_user_id: userId,
+      action: 'decision:reopened',
+      target_type: 'flagged_content',
+      target_id: req.params.id as string,
+      before_json: jsonb({
+        status: check.row.status ?? null,
+        decision: check.row.decision ?? null,
+      }),
+      after_json: jsonb({ status: 'queued' }),
+    })
+
+    res.json(updated.data)
+  } catch (error) {
+    logger.error('moderation.reopen', error)
+    res
+      .status(500)
+      .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
+  }
+})
+
 // AI moderation: ask the bonded provider for a JSON verdict on the flagged
 // content_preview. Persist the real verdict + classifier + token usage on the
 // `ai_reviews` row so subsequent reads (and the GET /:id projection) reflect
@@ -626,7 +671,10 @@ router.post('/:id/ai-review', async (req: Request, res: Response) => {
         },
       ],
       maxTokens: 400,
-      temperature: 0.0,
+      // NOTE: no explicit `temperature` — several current Anthropic models
+      // reject it with a 400 ("temperature is deprecated for this model"),
+      // which surfaced as a 502 on every AI review. The classification
+      // prompt + JSON schema keep outputs deterministic enough without it.
     }) as AsyncIterable<ChatEvent>) {
       if (event.type === 'text') raw += event.content
       else if (event.type === 'done') {

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -242,8 +243,13 @@ export function Queue() {
     try {
       if (action === 'approve') {
         await http.post(`/api/moderation/${item.id}/approve`, {})
+        track({ name: 'content.approved', properties: { id: item.id, status: 'decided' } })
       } else {
         await http.post(`/api/moderation/${item.id}/reject`, { reason: 'other' })
+        track({
+          name: 'content.rejected',
+          properties: { id: item.id, status: 'decided', reason: 'other' },
+        })
       }
       loadAll()
     } catch (error) {
@@ -271,6 +277,10 @@ export function Queue() {
       )
       setSelected(new Set())
       loadAll()
+      track({
+        name: action === 'approve' ? 'content.bulk_approved' : 'content.bulk_rejected',
+        properties: { count: ids.length },
+      })
     } catch (error) {
       logError('queue.bulkAction', error)
       setError(t('queue.bulkError', {}, { defaultValue: 'Bulk action failed. Please try again.' }))

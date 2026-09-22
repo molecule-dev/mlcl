@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { SafeLink } from './SafeLink.js'
+import { useSiftNavBadges } from './useSiftNavBadges.js'
 
 interface SiftSidebarLink {
   to: string
@@ -43,43 +43,11 @@ const PRIMARY_LINKS: SiftSidebarLink[] = [
   { to: '/settings', icon: 'settings', labelKey: 'sidebar.settings', defaultLabel: 'Settings' },
 ]
 
-interface QueueSummary {
-  queued?: number
-}
-
-interface ApiNotification {
-  id: string
-  read_at: string | null
-}
-
 export function SiftSidebar() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const http = useHttpClient()
   const { pathname } = useLocation()
-  const [queuedCount, setQueuedCount] = useState<number | null>(null)
-  const [unreadCount, setUnreadCount] = useState<number | null>(null)
-
-  useEffect(() => {
-    let cancelled = false
-    Promise.all([
-      http.get<QueueSummary>('/api/moderation/stats/summary').catch(() => null),
-      http.get<ApiNotification[]>('/api/notifications').catch(() => null),
-    ])
-      .then(([summary, notifs]) => {
-        if (cancelled) return
-        const queued = summary?.data?.queued
-        if (typeof queued === 'number') setQueuedCount(queued)
-        const list = notifs?.data
-        if (Array.isArray(list)) {
-          setUnreadCount(list.filter((n) => !n.read_at).length)
-        }
-      })
-      .catch(() => {})
-    return () => {
-      cancelled = true
-    }
-  }, [http, pathname])
+  const { queued: queuedCount, unread: unreadCount } = useSiftNavBadges(pathname)
 
   const badgeFor = (key: SiftSidebarLink['badgeKey']): string | null => {
     if (key === 'queue' && queuedCount && queuedCount > 0) return String(queuedCount)

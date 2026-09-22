@@ -20,6 +20,12 @@ test.describe('login page', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#login-email').fill('nobody-' + Date.now() + '@flagship.test')
     await page.locator('input#login-password').fill('WrongPass!9999')
+    // The 403 from a rejected login is the EXPECTED outcome here — the
+    // browser logs it as a console error, so allow it explicitly.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.locator('form[data-mol-id="login-form"] button[type="submit"]').click()
       await expect(page.locator('[role="alert"]')).toBeVisible({ timeout: 5000 })
