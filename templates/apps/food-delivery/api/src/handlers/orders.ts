@@ -171,6 +171,7 @@ router.get('/', async (req: Request, res: Response) => {
     const data = await Promise.all(orders.map((o) => decorateOrder(o)))
     res.json({ data })
   } catch (_err) {
+    logger.error(`orders.list failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -197,6 +198,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const decorated = await decorateOrder(order)
     res.json({ data: decorated })
   } catch (_err) {
+    logger.error(`orders.read failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -367,6 +369,7 @@ router.post('/', validateBody(placeOrderSchema), async (req: Request, res: Respo
       .status(201)
       .json({ data: { ...(order ?? {}), items: orderItems, estimatedDelivery, estimatedMinutes } })
   } catch (_err) {
+    logger.error(`orders.place failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -430,6 +433,7 @@ export async function updateOrderStatus(req: Request, res: Response): Promise<vo
     const updated = await updateById('orders', id, { status, updated_at: new Date() })
     res.json(updated.data)
   } catch (_err) {
+    logger.error(`orders.status_update failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -506,6 +510,7 @@ export async function cancelOrder(req: Request, res: Response): Promise<void> {
       message: t('order.cancelled', undefined, { defaultValue: 'Order cancelled and refunded' }),
     })
   } catch (_err) {
+    logger.error(`orders.cancel failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -567,6 +572,7 @@ router.post('/:id/rate', validateBody(rateSchema), async (req: Request, res: Res
     }
     res.status(201).json(review.data)
   } catch (_err) {
+    logger.error(`orders.rate failed: ${(_err as Error)?.stack ?? _err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

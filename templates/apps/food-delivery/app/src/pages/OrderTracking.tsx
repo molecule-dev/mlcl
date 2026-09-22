@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -46,28 +46,40 @@ export function OrderTracking() {
   const { id } = useParams<{ id: string }>()
   const http = useHttpClient()
   const [order, setOrder] = useState<Order | null>(null)
+  const orderRef = useRef<Order | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
-    setLoading(true)
-    setError(null)
-    http
-      .get(`/api/orders/${id}`)
-      .then((res) => {
-        if (!cancelled) setOrder(unwrapSingle<Order>(res))
-      })
-      .catch(() => {
-        if (!cancelled)
-          setError(t('orderTracking.loadError', {}, { defaultValue: 'Failed to load order.' }))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
+    const load = (): void => {
+      http
+        .get(`/api/orders/${id}`)
+        .then((res) => {
+          if (!cancelled) {
+            const next = unwrapSingle<Order>(res)
+            orderRef.current = next
+            setOrder(next)
+            setError(null)
+          }
+        })
+        .catch(() => {
+          // Only surface the error when we have nothing to show; a failed
+          // poll keeps the last known state (tracking must not blank out).
+          if (!cancelled && !orderRef.current)
+            setError(t('orderTracking.loadError', {}, { defaultValue: 'Failed to load order.' }))
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false)
+        })
+    }
+    load()
+    // Light polling keeps the ETA + status timeline live while the tab is open.
+    const handle = setInterval(load, 15_000)
     return () => {
       cancelled = true
+      clearInterval(handle)
     }
   }, [id, http, t])
 

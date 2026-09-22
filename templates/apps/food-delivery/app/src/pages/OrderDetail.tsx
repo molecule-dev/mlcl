@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -74,6 +75,7 @@ export function OrderDetail() {
     setCancelError(null)
     try {
       await http.post(`/api/orders/${id}/cancel`, {})
+      track({ name: 'order.cancelled', properties: { order_id: id } })
       reload()
     } catch (err) {
       setCancelError(
@@ -94,6 +96,10 @@ export function OrderDetail() {
       await http.post(`/api/orders/${id}/rate`, {
         food_rating: rating,
         comment: comment || undefined,
+      })
+      track({
+        name: 'order.rated',
+        properties: { order_id: id, food_rating: rating },
       })
       setRatedAt(Date.now())
       setComment('')

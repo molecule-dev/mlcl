@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -45,6 +46,13 @@ export function Checkout() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [deliveryFeeCents, setDeliveryFeeCents] = useState<number>(299)
+  // The chosen restaurant's coordinates. When the address cannot be geocoded
+  // (no geocoding key configured), delivery defaults to the restaurant's own
+  // position — mirroring the API's `?? 0` convention — instead of a hardcoded
+  // city that may sit outside every restaurant's delivery radius.
+  const [restaurantCoords, setRestaurantCoords] = useState<{ lat: number; lng: number } | null>(
+    null,
+  )
 
   // Inline new-address form (used when the user has no saved addresses).
   const [newAddress, setNewAddress] = useState({ street: '', city: '', postal_code: '' })
@@ -69,8 +77,15 @@ export function Checkout() {
         setPaymentMethods(pmList)
         const defPm = pmList.find((p) => p.is_default) ?? pmList[0] ?? null
         if (defPm) setSelectedPmId(defPm.id)
-        const rest = unwrapSingle<{ delivery_fee_cents?: number }>(restRes)
+        const rest = unwrapSingle<{
+          delivery_fee_cents?: number
+          latitude?: number | string | null
+          longitude?: number | string | null
+        }>(restRes)
         if (rest?.delivery_fee_cents != null) setDeliveryFeeCents(Number(rest.delivery_fee_cents))
+        const lat = Number(rest?.latitude ?? 0)
+        const lng = Number(rest?.longitude ?? 0)
+        if (lat !== 0 || lng !== 0) setRestaurantCoords({ lat, lng })
       })
       .catch(() => {
         /* leave defaults */
@@ -123,8 +138,11 @@ export function Checkout() {
         return
       }
 
-      const lat = address.lat ?? 37.7749
-      const lng = address.lng ?? -122.4194
+      // Without a geocode for the address, deliver from the restaurant's own
+      // coordinates (distance 0 → always inside the delivery radius) rather
+      // than an arbitrary fixed point that may be out of range.
+      const lat = address.lat ?? restaurantCoords?.lat ?? 0
+      const lng = address.lng ?? restaurantCoords?.lng ?? 0
       const items = cart.lines.map((l) => ({
         menu_item_id: l.itemId,
         quantity: l.qty,
@@ -147,6 +165,17 @@ export function Checkout() {
         return
       }
       cart.clear()
+      track({
+        name: 'order.placed',
+        properties: {
+          order_id: placed.id,
+          restaurant_id: cart.restaurantId,
+          item_count: items.reduce((n, i) => n + i.quantity, 0),
+          subtotal_cents: subtotal,
+          total_cents: total,
+          payment_method: selectedPmId === 'card_at_checkout' ? 'card_on_delivery' : 'saved_card',
+        },
+      })
       navigate(`/checkout/confirmation/${placed.id}`)
     } catch (err) {
       setError(

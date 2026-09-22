@@ -130,7 +130,7 @@ export function Search() {
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('mb', 4),
-          'bg-surface rounded-full shadow-sm',
+          'bg-surface rounded-full shadow-sm ring-outline focus-within:ring-2 transition-shadow',
           cm.sp('px', 4),
           cm.sp('py', 3),
         )}

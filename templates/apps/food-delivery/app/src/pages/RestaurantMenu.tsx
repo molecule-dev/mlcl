@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -87,6 +88,14 @@ export function RestaurantMenu() {
         if (payload) {
           setRestaurant(payload.restaurant)
           setItems(payload.items)
+          track({
+            name: 'restaurant.viewed',
+            properties: {
+              restaurant_id: payload.restaurant?.id,
+              cuisine: payload.restaurant?.cuisine,
+              item_count: payload.items?.length ?? 0,
+            },
+          })
         }
       })
       .catch(() => {
@@ -129,11 +138,19 @@ export function RestaurantMenu() {
       if (favoriteId) {
         await http.delete(`/api/favorites/${favoriteId}`)
         setFavoriteId(null)
+        track({
+          name: 'favorite.removed',
+          properties: { restaurant_id: id },
+        })
       } else {
         const res = await http.post('/api/favorites', { restaurant_id: id })
         const created = unwrapSingle<{ id: string }>(res)
         if (created?.id) setFavoriteId(created.id)
         else refreshFavoriteId()
+        track({
+          name: 'favorite.added',
+          properties: { restaurant_id: id },
+        })
       }
     } catch (_error) {
       // best-effort; reload to recover accurate favorite state
@@ -150,6 +167,10 @@ export function RestaurantMenu() {
       { id: item.id, name: item.name, price_cents: item.price_cents },
       1,
     )
+    track({
+      name: 'item.added_to_cart',
+      properties: { item_id: item.id, restaurant_id: restaurant.id, price_cents: item.price_cents },
+    })
   }
 
   // Cart filtered to lines that belong to this restaurant (clearing happens

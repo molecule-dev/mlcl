@@ -329,10 +329,11 @@ export function Landing() {
           </h2>
           <div className={'grid grid-cols-4 md:grid-cols-8 gap-3'}>
             {CATEGORIES.map((c) => (
-              <div
+              <Link
                 key={c.key}
+                to={`/restaurants?cuisine=${encodeURIComponent(c.key)}`}
                 className={
-                  'bg-surface-container-lowest rounded-2xl p-4 text-center hover:shadow-lg hover:bg-surface-container transition-all group cursor-pointer'
+                  'bg-surface-container-lowest rounded-2xl p-4 text-center hover:shadow-lg hover:bg-surface-container transition-all group'
                 }
               >
                 <div
@@ -347,7 +348,7 @@ export function Landing() {
                 <p className={'text-xs font-bold mt-2 truncate'}>
                   {t(`landing.category.${c.key}`, {}, { defaultValue: c.label })}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

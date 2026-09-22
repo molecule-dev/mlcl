@@ -8,6 +8,7 @@ import notifications from './notifications.js'
 import orders from './orders.js'
 import payment_methods from './payment-methods.js'
 import restaurants from './restaurants.js'
+import settings from './settings.js'
 
 const router = Router()
 
@@ -19,5 +20,6 @@ router.use('/favorites', favorites)
 router.use('/notifications', notifications)
 router.use('/addresses', addresses)
 router.use('/payment-methods', payment_methods)
+router.use('/settings', settings)
 
 export default router

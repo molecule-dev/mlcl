@@ -6,7 +6,10 @@ import { API_BASE, APP_BASE, signup, uniqueEmail } from './_helpers.js'
  * Settings page: profile, addresses, payments, preferences.
  *
  * Invariants verified:
- * - Profile save → PATCH /api/users/:id; reload shows persisted name+phone.
+ * - Profile save → PATCH /api/settings/me; reload shows persisted name+phone.
+ *   (Phone/preferences must go through the app's server-side settings
+ *   channel — the platform user resource never returns oauthData on reads,
+ *   so anything saved via PATCH /api/users/:id inside oauthData evaporates.)
  * - Address add → POST /api/addresses; row appears; default badge applied
  *   when first address.
  * - Make-default → POST /default; both rows reflect new default flags
@@ -29,7 +32,7 @@ test.describe('settings → profile', () => {
     await phoneInput.fill('+1 555 0100')
 
     const savePromise = page.waitForResponse(
-      (r) => /\/api\/users\/[\w-]+/.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings\/me/.test(r.url()) && r.request().method() === 'PATCH',
       { timeout: 10_000 },
     )
     await page.getByTestId('profile-save').click()
@@ -154,7 +157,7 @@ test.describe('settings → preferences', () => {
     const sms = page.getByTestId('toggle-sms')
     const before = await sms.getAttribute('aria-checked')
     const patchPromise = page.waitForResponse(
-      (r) => /\/api\/users\/[\w-]+/.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings\/me/.test(r.url()) && r.request().method() === 'PATCH',
       { timeout: 10_000 },
     )
     await sms.click()

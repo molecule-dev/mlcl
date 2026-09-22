@@ -28,7 +28,14 @@ interface UserProfile {
   username: string | null
   name: string | null
   email: string | null
-  oauthData?: { phone?: string; preferences?: NotificationPreferences } | null
+}
+
+interface SettingsMe {
+  id: string
+  name: string | null
+  email: string | null
+  phone?: string
+  preferences?: NotificationPreferences
 }
 
 interface NotificationPreferences {
@@ -143,7 +150,6 @@ function ProfileSection() {
   const http = useHttpClient()
   const { user: authUser } = useAuth<UserProfile>()
   const userId = authUser?.id
-  const [user, setUser] = useState<UserProfile | null>(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -154,17 +160,18 @@ function ProfileSection() {
   useEffect(() => {
     if (!userId) return
     let cancelled = false
+    // Read through the app's server-side settings channel: the platform
+    // user resource never returns oauthData (phone/preferences), so a
+    // direct GET /api/users/:id would render empty defaults.
     http
-      .get(`/api/users/${userId}`)
+      .get('/api/settings/me')
       .then((res) => {
         if (cancelled) return
-        const wrapper = unwrapSingle<{ props?: UserProfile } & UserProfile>(res)
-        const u: UserProfile | null = wrapper?.props ?? (wrapper as UserProfile | null)
-        if (u && typeof u === 'object' && 'id' in u) {
-          setUser(u)
-          setName(String(u.name ?? u.username ?? ''))
-          setEmail(String(u.email ?? ''))
-          setPhone(String(u.oauthData?.phone ?? ''))
+        const me = unwrapSingle<SettingsMe>(res)
+        if (me && typeof me === 'object' && 'id' in me) {
+          setName(String(me.name ?? ''))
+          setEmail(String(me.email ?? ''))
+          setPhone(String(me.phone ?? ''))
         }
       })
       .catch(() => {
@@ -181,11 +188,7 @@ function ProfileSection() {
     setSaving(true)
     setError(null)
     try {
-      await http.patch(`/api/users/${userId}`, {
-        name,
-        email,
-        oauthData: { ...(user?.oauthData ?? {}), phone },
-      })
+      await http.patch('/api/settings/me', { name, email, phone })
       setSavedAt(Date.now())
     } catch (err) {
       setError(
@@ -672,22 +675,19 @@ function PreferencesSection() {
   const userId = authUser?.id
   const [prefs, setPrefs] = useState<NotificationPreferences>(DEFAULT_PREFS)
   const [savedAt, setSavedAt] = useState<number | null>(null)
-  const [user, setUser] = useState<UserProfile | null>(null)
 
   useEffect(() => {
     if (!userId) return
     let cancelled = false
+    // Server-side settings channel — see ProfileSection. oauthData is not
+    // readable through the platform user resource.
     http
-      .get(`/api/users/${userId}`)
+      .get('/api/settings/me')
       .then((res) => {
         if (cancelled) return
-        const wrapper = unwrapSingle<{ props?: UserProfile } & UserProfile>(res)
-        const u: UserProfile | null = wrapper?.props ?? (wrapper as UserProfile | null)
-        if (u && typeof u === 'object' && 'id' in u) {
-          setUser(u)
-          const p = u.oauthData?.preferences
-          if (p) setPrefs({ push: !!p.push, email: !!p.email, sms: !!p.sms })
-        }
+        const me = unwrapSingle<SettingsMe>(res)
+        const p = me?.preferences
+        if (p) setPrefs({ push: !!p.push, email: !!p.email, sms: !!p.sms })
       })
       .catch(() => {
         /* ignore */
@@ -701,9 +701,7 @@ function PreferencesSection() {
     if (!userId) return
     setPrefs(next)
     try {
-      await http.patch(`/api/users/${userId}`, {
-        oauthData: { ...(user?.oauthData ?? {}), preferences: next },
-      })
+      await http.patch('/api/settings/me', { preferences: next })
       setSavedAt(Date.now())
     } catch (_error) {
       // best-effort — preference toggles are non-critical; local state already updated
