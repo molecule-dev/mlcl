@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -94,6 +95,8 @@ export function ExplorePage() {
     setConfirmingId(id)
     try {
       await http.post(`/api/issues/${id}/confirmations`, {})
+      // Domain event: a resident corroborated a neighbor's report.
+      void track({ name: 'issue.confirmed', properties: { issue_id: id } })
       await fetchIssues()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -112,7 +115,7 @@ export function ExplorePage() {
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-6xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="explore-title"
@@ -210,11 +213,17 @@ export function ExplorePage() {
             </p>
           )}
 
-          <div className={cm.flex({ align: 'start', gap: 6 })}>
-            {/* Map */}
+          {/* Map + list stack below lg so a phone gets the full width for each. */}
+          <div className={cm.cn(cm.flex({ align: 'start', gap: 6 }), 'flex-col lg:flex-row')}>
+            {/* Map — w-full keeps the stacked (mobile) child stretched to the
+                column; align-start would otherwise hug it to content width. */}
             <div
               data-mol-id="explore-map-wrap"
-              className={cm.cn(cm.flex1, 'min-w-[300px] max-w-[520px]', cm.stack(2))}
+              className={cm.cn(
+                cm.flex1,
+                'w-full lg:w-auto min-w-[300px] max-w-[520px]',
+                cm.stack(2),
+              )}
             >
               <MiniMap
                 data-mol-id="explore-map"
@@ -262,7 +271,10 @@ export function ExplorePage() {
             </div>
 
             {/* List */}
-            <section data-mol-id="explore-list" className={cm.cn(cm.flex1, 'min-w-0', cm.stack(3))}>
+            <section
+              data-mol-id="explore-list"
+              className={cm.cn(cm.flex1, 'w-full lg:w-auto min-w-0', cm.stack(3))}
+            >
               {loading ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
@@ -363,7 +375,7 @@ export function ExplorePage() {
                               disabled={confirmingId === issue.id}
                               className={cm.cn(
                                 cm.sp('px', 3),
-                                'rounded-full border border-primary text-primary text-xs font-semibold py-1 hover:bg-primary-container/30 disabled:opacity-50',
+                                'rounded-full border border-primary text-primary text-xs font-semibold py-1 whitespace-nowrap hover:bg-primary-container/30 disabled:opacity-50',
                               )}
                             >
                               {confirmingId === issue.id

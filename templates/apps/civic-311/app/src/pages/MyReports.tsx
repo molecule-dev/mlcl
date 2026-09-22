@@ -81,7 +81,7 @@ export function MyReportsPage() {
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-4xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="my-reports-title"

@@ -186,7 +186,7 @@ async function notify(
     } catch (err) {
       // Forensic only — a failed fan-out must never fail the write that
       // triggered it.
-      console.error('[civic-311 notify] failed', err)
+      console.error('issue.notify_fanout', err)
     }
   }
 }
@@ -246,7 +246,7 @@ router.get('/', validateQuery(listIssuesQuery), async (req: Request, res: Respon
       })),
     )
   } catch (err) {
-    console.error('Failed to list issues', err)
+    console.error('issue.list', err)
     res
       .status(500)
       .json({ error: t('issues.listFailed', {}, { defaultValue: 'Failed to list issues' }) })
@@ -291,7 +291,7 @@ router.get('/duplicates', validateQuery(duplicatesQuery), async (req: Request, r
       })),
     )
   } catch (err) {
-    console.error('Failed to find duplicates', err)
+    console.error('issue.duplicates', err)
     res
       .status(500)
       .json({ error: t('issues.duplicatesFailed', {}, { defaultValue: 'Duplicate check failed' }) })
@@ -340,7 +340,7 @@ router.get('/:id', async (req: Request, res: Response) => {
       events: events.map((e) => ({ ...e, actor_name: names.get(e.actor_id) ?? '' })),
     })
   } catch (err) {
-    console.error('Failed to get issue', err)
+    console.error('issue.get', err)
     res
       .status(500)
       .json({ error: t('issues.getFailed', {}, { defaultValue: 'Failed to get issue' }) })
@@ -420,7 +420,7 @@ router.post(
 
       res.status(201).json(issue)
     } catch (err) {
-      console.error('Failed to create issue', err)
+      console.error('issue.create', err)
       res.status(500).json({
         error: t('issues.createFailed', {}, { defaultValue: 'Failed to report issue' }),
       })
@@ -480,7 +480,7 @@ router.post('/:id/confirmations', async (req: Request, res: Response) => {
     const total = await count('confirmations', [{ field: 'issue_id', operator: '=', value: id }])
     res.status(201).json({ ok: true, confirmation_count: total })
   } catch (err) {
-    console.error('Failed to confirm issue', err)
+    console.error('issue.confirm', err)
     res.status(500).json({
       error: t('issues.confirmFailed', {}, { defaultValue: 'Failed to confirm issue' }),
     })
@@ -521,7 +521,7 @@ router.post('/:id/comments', validateBody(commentSchema), async (req: Request, r
 
     res.status(201).json((result.data ?? result) as unknown)
   } catch (err) {
-    console.error('Failed to comment on issue', err)
+    console.error('issue.comment', err)
     res.status(500).json({
       error: t('issues.commentFailed', {}, { defaultValue: 'Failed to post comment' }),
     })
@@ -564,7 +564,7 @@ router.post('/:id/notes', validateBody(noteSchema), async (req: Request, res: Re
 
     res.status(201).json((result.data ?? result) as unknown)
   } catch (err) {
-    console.error('Failed to add official note', err)
+    console.error('issue.official_note', err)
     res
       .status(500)
       .json({ error: t('issues.noteFailed', {}, { defaultValue: 'Failed to add note' }) })
@@ -654,7 +654,7 @@ router.patch('/:id', validateBody(updateIssueSchema), async (req: Request, res: 
     const result = await updateById('issues', id, patch)
     res.json((result.data ?? result) as unknown)
   } catch (err) {
-    console.error('Failed to update issue', err)
+    console.error('issue.update', err)
     res
       .status(500)
       .json({ error: t('issues.updateFailed', {}, { defaultValue: 'Failed to update issue' }) })
@@ -682,7 +682,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('issues', id)
     res.status(204).send()
   } catch (err) {
-    console.error('Failed to delete issue', err)
+    console.error('issue.delete', err)
     res
       .status(500)
       .json({ error: t('issues.deleteFailed', {}, { defaultValue: 'Failed to delete issue' }) })

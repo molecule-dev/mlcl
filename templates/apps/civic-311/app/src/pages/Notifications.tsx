@@ -107,7 +107,7 @@ export function Notifications() {
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main data-mol-id="page-notifications" className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main data-mol-id="page-notifications" className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="notifications-title"

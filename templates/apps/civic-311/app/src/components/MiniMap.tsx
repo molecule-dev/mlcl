@@ -217,6 +217,9 @@ export function MiniMap({
           className={onPinClick ? 'cursor-pointer' : undefined}
           style={{ color: p.color ?? 'var(--color-cat-other)' }}
         >
+          {/* Invisible enlarged hit target — the drawn pin is only a few
+              pixels, far under a touch-sized tap target on a phone. */}
+          {onPinClick && <circle r={4} cy={-2.5} fill="transparent" stroke="none" />}
           <Pin pin={p} selected={p.id === selectedPinId} />
         </g>
       ))}

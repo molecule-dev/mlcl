@@ -47,7 +47,7 @@ router.post('/', busboyMiddleware, (req: Request, res: Response) => {
   try {
     provider = getUploadProvider()
   } catch (err) {
-    console.error('[issues-photo.upload] provider lookup failed', err)
+    console.error('photo.upload_provider_lookup', err)
     res.status(500).json({
       error: t('uploads.error.noProvider', {}, { defaultValue: 'Upload provider not configured.' }),
     })
@@ -92,7 +92,7 @@ router.post('/', busboyMiddleware, (req: Request, res: Response) => {
       // filename, so two reporters' "pothole.jpg" can't collide.
       const file = provider.upload('photo', stream, info, (err) => {
         if (limitHit) return
-        console.error('[issues-photo.upload] provider error', err)
+        console.error('photo.upload', err)
         sendError(500, err.message || 'Upload failed.')
       })
 

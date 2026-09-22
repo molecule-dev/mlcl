@@ -49,7 +49,7 @@ router.get('/', async (_req: Request, res: Response) => {
 
     res.json({ items, unread })
   } catch (err) {
-    console.error('Failed to list notifications', err)
+    console.error('notification.list', err)
     res.status(500).json({
       error: t('notifications.listFailed', {}, { defaultValue: 'Failed to load notifications' }),
     })
@@ -80,7 +80,7 @@ router.post('/read-all', async (_req: Request, res: Response) => {
 
     res.json({ ok: true, marked: unread.length })
   } catch (err) {
-    console.error('Failed to mark notifications read', err)
+    console.error('notification.read_all', err)
     res.status(500).json({
       error: t(
         'notifications.markFailed',
@@ -120,7 +120,7 @@ router.post('/:id/read', async (req: Request, res: Response) => {
     }
     res.json({ ok: true })
   } catch (err) {
-    console.error('Failed to mark notification read', err)
+    console.error('notification.read', err)
     res.status(500).json({
       error: t(
         'notifications.markFailed',

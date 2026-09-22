@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -119,6 +120,8 @@ export function ReportDetailPage() {
     setCommentError(null)
     try {
       await http.post(`/api/issues/${id}/confirmations`, {})
+      // Domain event: a resident corroborated a neighbor's report.
+      void track({ name: 'issue.confirmed', properties: { issue_id: id } })
       await fetchIssue()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -143,6 +146,13 @@ export function ReportDetailPage() {
       await http.patch(`/api/issues/${id}`, patch)
       setStaffStatus('')
       setStaffNote('')
+      // Domain event: city staff moved the workflow forward.
+      if (patch.status) {
+        void track({
+          name: 'issue.status_changed',
+          properties: { issue_id: id, status: patch.status },
+        })
+      }
       await fetchIssue()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -164,6 +174,8 @@ export function ReportDetailPage() {
     try {
       await http.post(`/api/issues/${id}/comments`, { body: comment.trim() })
       setComment('')
+      // Domain event: a neighbor joined the conversation.
+      void track({ name: 'issue.commented', properties: { issue_id: id } })
       await fetchIssue()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -240,7 +252,7 @@ export function ReportDetailPage() {
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-5xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(8))}>
           <PageHeader
             molId="report-detail-title"

@@ -234,11 +234,12 @@ function Settings() {
 
   return (
     <div className={cm.cn(cm.surface, 'selection:bg-primary-fixed')}>
-      {/* Shell Layout */}
-      <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
+      {/* Shell Layout — column on mobile (top bar stacks above content),
+          sidebar row from md up. */}
+      <div className={cm.cn(cm.flex({ direction: 'col' }), 'md:flex-row', cm.minH('screen'))}>
         <SideNavBar />
         {/* Main Content Area */}
-        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'ml-[240px] bg-surface')}>
+        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'md:ml-[240px] bg-surface')}>
           {/* TopAppBar */}
           <SettingsTopBar />
           <div

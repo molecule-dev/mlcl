@@ -52,6 +52,8 @@ test.describe('civic-311: /watch-areas', () => {
     await page.goto(APP_BASE + '/watch-areas')
     await expect(page.getByTestId('watch-area-item').first()).toBeVisible({ timeout: 15_000 })
     await page.getByTestId('watch-area-delete').first().click()
+    // Delete is destructive — the UI asks for an inline confirmation first.
+    await page.getByTestId('watch-area-delete-confirm').first().click()
     await expect(page.getByTestId('watch-areas-empty')).toBeVisible({ timeout: 15_000 })
   })
 })

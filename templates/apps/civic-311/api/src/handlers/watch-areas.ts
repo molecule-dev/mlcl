@@ -64,7 +64,7 @@ router.get('/', async (_req: Request, res: Response) => {
 
     res.json(areas.map((a) => ({ ...a, derived_address: deriveAddress(a.x, a.y) })))
   } catch (err) {
-    console.error('Failed to list watch areas', err)
+    console.error('watch_area.list', err)
     res.status(500).json({
       error: t('watchAreas.listFailed', {}, { defaultValue: 'Failed to list watch areas' }),
     })
@@ -100,7 +100,7 @@ router.post(
       const area = (result.data ?? result) as unknown as AreaRow
       res.status(201).json({ ...area, derived_address: deriveAddress(area.x, area.y) })
     } catch (err) {
-      console.error('Failed to create watch area', err)
+      console.error('watch_area.create', err)
       res.status(500).json({
         error: t('watchAreas.createFailed', {}, { defaultValue: 'Failed to save watch area' }),
       })
@@ -123,7 +123,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('watch_areas', id)
     res.status(204).send()
   } catch (err) {
-    console.error('Failed to delete watch area', err)
+    console.error('watch_area.delete', err)
     res.status(500).json({
       error: t('watchAreas.deleteFailed', {}, { defaultValue: 'Failed to delete watch area' }),
     })

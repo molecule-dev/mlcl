@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -42,6 +43,10 @@ export function WatchAreasPage() {
   const [radius, setRadius] = useState<number>(10)
   const [saving, setSaving] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
+  // Destructive deletes get an inline two-step confirm plus a busy state —
+  // a single-tap Delete once silently destroyed an area on a stray tap.
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   useEffect(() => {
     document.title = t(
@@ -82,11 +87,18 @@ export function WatchAreasPage() {
     setSaving(true)
     setFormError(null)
     try {
-      await http.post('/api/watch-areas', {
+      const res = await http.post('/api/watch-areas', {
         name: name.trim(),
         x: center.x,
         y: center.y,
         radius,
+      })
+      const o = res as { id?: string; data?: { id?: string } }
+      const createdId = o?.id ?? o?.data?.id
+      // Domain event: a resident opted into proximity notifications.
+      void track({
+        name: 'watch_area.added',
+        properties: { watch_area_id: createdId ?? null, radius },
       })
       setName('')
       setCenter(null)
@@ -109,21 +121,28 @@ export function WatchAreasPage() {
   }
 
   async function handleDelete(id: string) {
+    if (deletingId) return
+    setDeletingId(id)
     try {
       await http.delete(`/api/watch-areas/${id}`)
+      setConfirmDeleteId(null)
+      // Domain event: the watch area was removed.
+      void track({ name: 'watch_area.removed', properties: { watch_area_id: id } })
       await fetchAreas()
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
       setLoadError(
         t('watchAreas.deleteError', {}, { defaultValue: 'Could not delete watch area.' }),
       )
+    } finally {
+      setDeletingId(null)
     }
   }
 
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
       <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'ml-[240px]')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-5xl', cm.sp('px', 6), cm.sp('py', 8), cm.stack(6))}>
           <PageHeader
             molId="watch-areas-title"
@@ -151,14 +170,15 @@ export function WatchAreasPage() {
             }
           />
 
-          <div className={cm.flex({ align: 'start', gap: 6 })}>
+          {/* Form + list stack below lg so a phone gets the full width for each. */}
+          <div className={cm.cn(cm.flex({ align: 'start', gap: 6 }), 'flex-col lg:flex-row')}>
             {/* Create form */}
             <form
               data-mol-id="watch-area-form"
               className={cm.cn(
                 cm.stack(4),
                 cm.sp('p', 5),
-                'rounded-xl bg-surface-container-lowest border border-outline-variant/40 w-[340px] max-w-full shrink-0',
+                'rounded-xl bg-surface-container-lowest border border-outline-variant/40 w-full lg:w-[340px] shrink-0',
               )}
               onSubmit={handleSave}
             >
@@ -269,10 +289,11 @@ export function WatchAreasPage() {
               </button>
             </form>
 
-            {/* Saved areas */}
+            {/* Saved areas — w-full keeps the stacked (mobile) child stretched
+                to the column; align-start would hug it to content width. */}
             <section
               data-mol-id="watch-area-list"
-              className={cm.cn(cm.flex1, 'min-w-0', cm.stack(3))}
+              className={cm.cn(cm.flex1, 'w-full lg:w-auto min-w-0', cm.stack(3))}
             >
               {loading ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -314,17 +335,52 @@ export function WatchAreasPage() {
                       <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
                         {area.name}
                       </span>
-                      <button
-                        type="button"
-                        data-mol-id="watch-area-delete"
-                        onClick={() => void handleDelete(area.id)}
-                        className={cm.cn(
-                          cm.sp('px', 3),
-                          'rounded-lg border border-outline-variant text-xs font-medium py-1 text-on-surface-variant hover:bg-error-container/20 hover:text-error',
-                        )}
-                      >
-                        {t('common.delete', {}, { defaultValue: 'Delete' })}
-                      </button>
+                      {confirmDeleteId === area.id ? (
+                        <span className={cm.flex({ align: 'center', gap: 2 })}>
+                          <button
+                            type="button"
+                            data-mol-id="watch-area-delete-confirm"
+                            onClick={() => void handleDelete(area.id)}
+                            disabled={deletingId === area.id}
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              'rounded-lg border border-error text-xs font-semibold py-1 text-error bg-error-container/30 disabled:opacity-50',
+                            )}
+                          >
+                            {deletingId === area.id
+                              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                              : t(
+                                  'watchAreas.confirmDelete',
+                                  {},
+                                  { defaultValue: 'Confirm delete' },
+                                )}
+                          </button>
+                          <button
+                            type="button"
+                            data-mol-id="watch-area-delete-cancel"
+                            onClick={() => setConfirmDeleteId(null)}
+                            disabled={deletingId === area.id}
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              'rounded-lg border border-outline-variant text-xs font-medium py-1 text-on-surface-variant disabled:opacity-50',
+                            )}
+                          >
+                            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                          </button>
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          data-mol-id="watch-area-delete"
+                          onClick={() => setConfirmDeleteId(area.id)}
+                          className={cm.cn(
+                            cm.sp('px', 3),
+                            'rounded-lg border border-outline-variant text-xs font-medium py-1 text-on-surface-variant hover:bg-error-container/20 hover:text-error',
+                          )}
+                        >
+                          {t('common.delete', {}, { defaultValue: 'Delete' })}
+                        </button>
+                      )}
                     </div>
                     <div className={cm.cn(cm.w('[160px]'))}>
                       <MiniMap

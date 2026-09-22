@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -106,6 +107,11 @@ export function ReportIssuePage() {
       if (url) {
         setPhotoUrl(url)
         setPhotoName(file.name)
+        // Domain event: a report draft gained a photo.
+        void track({
+          name: 'photo.uploaded',
+          properties: { category: category || null },
+        })
       }
     } catch (err) {
       logError(err instanceof Error ? err : new Error(String(err)))
@@ -136,6 +142,8 @@ export function ReportIssuePage() {
       const res = await http.post<unknown>('/api/issues', payload)
       const o = res as { id?: string; data?: { id?: string } }
       const id = o?.id ?? o?.data?.id
+      // Domain event: the signature funnel committed.
+      void track({ name: 'issue.reported', properties: { issue_id: id ?? null, category } })
       if (id) {
         navigate(`/reports/${id}`)
         return
@@ -158,9 +166,9 @@ export function ReportIssuePage() {
 
   return (
     <div className={cm.cn(cm.surface, 'text-on-surface')}>
-      <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
+      <div className={cm.cn(cm.flex({ direction: 'col' }), 'md:flex-row', cm.minH('screen'))}>
         <SideNavBar />
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 ml-[240px]')}>
+        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 md:ml-[240px]')}>
           <div
             className={cm.cn(cm.sp('p', 8), cm.maxW('3xl'), cm.mxAuto, cm.w('full'), cm.stack(6))}
           >
