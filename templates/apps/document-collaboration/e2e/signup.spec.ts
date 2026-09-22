@@ -38,6 +38,11 @@ test.describe('signup page', () => {
   })
 
   test('signup rejects an already-registered email with a 4xx', async ({ page }) => {
+    // The duplicate-email POST is EXPECTED to 4xx (403) — allow that noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const { email } = await signup(page, uniqueEmail('signup-dup'))
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/signup')

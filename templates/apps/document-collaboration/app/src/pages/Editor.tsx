@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
@@ -118,6 +119,10 @@ export function Editor() {
           created = unwrapSingle<DocumentRow>(res)
         }
         if (created?.id) {
+          void track({
+            name: templateId ? 'doc.created_from_template' : 'doc.created',
+            properties: { document_id: created.id, template_id: templateId ?? null },
+          })
           navigate(`/doc/${created.id}`, { replace: true })
         } else {
           setStatus('error')
@@ -283,6 +288,10 @@ export function Editor() {
       dirtyRef.current = false
       setStatus('saved')
       setStatusMessage(t('common.saved', {}, { defaultValue: 'Saved' }))
+      void track({
+        name: 'doc.saved',
+        properties: { document_id: doc.id, version: updated?.version ?? null },
+      })
       setTimeout(() => setStatus('idle'), 1500)
     } catch (error) {
       logError('editor.save', error)
@@ -321,6 +330,10 @@ export function Editor() {
       const res = await http.put(`/api/documents/${doc.id}`, { status: next })
       const updated = unwrapSingle<DocumentRow>(res)
       if (updated) setDoc(updated)
+      void track({
+        name: next === 'published' ? 'doc.published' : 'doc.unpublished',
+        properties: { document_id: doc.id, status: next },
+      })
     } catch (error) {
       logError('editor.publishToggle', error)
       setStatusMessage(
@@ -333,6 +346,7 @@ export function Editor() {
     if (!doc?.id) return
     try {
       await http.post(`/api/documents/${doc.id}/trash`, {})
+      void track({ name: 'doc.trashed', properties: { document_id: doc.id } })
       navigate('/dashboard')
     } catch (error) {
       logError('editor.trash', error)
@@ -350,6 +364,10 @@ export function Editor() {
       })
       const created = unwrapSingle<ShareRow>(res)
       if (created) setShares((prev) => [created, ...prev])
+      void track({
+        name: 'doc.shared',
+        properties: { document_id: doc.id, share_id: created?.id ?? null, role: shareRole },
+      })
       setShareEmail('')
     } catch (error) {
       logError('editor.addShare', error)
@@ -362,6 +380,10 @@ export function Editor() {
     try {
       await http.delete(`/api/sharing/${doc.id}/${id}`)
       setShares((prev) => prev.filter((s) => s.id !== id))
+      void track({
+        name: 'doc.share_removed',
+        properties: { document_id: doc.id, share_id: id },
+      })
     } catch (error) {
       logError('editor.removeShare', error)
       setStatusMessage(
@@ -395,13 +417,15 @@ export function Editor() {
     >
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          cm.sp('px', 6),
+          cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
+          cm.sp('px', 4),
           cm.sp('py', 4),
-          'sticky top-0 z-30 border-b border-outline-variant bg-surface/95 backdrop-blur',
+          // On mobile the app's own top bar (h-14) is sticky above this one, so
+          // this header pins beneath it; at md+ the top bar is gone (sidebar).
+          'sticky top-14 z-30 flex-wrap border-b border-outline-variant bg-surface/95 backdrop-blur md:top-0',
         )}
       >
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 flex-1')}>
           <Link
             to="/dashboard"
             className={cm.cn(
@@ -441,7 +465,7 @@ export function Editor() {
                     : ''}
           </span>
         </div>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
           <Link
             to={`/doc/${docId}/comments`}
             className={cm.cn(
@@ -613,11 +637,13 @@ export function Editor() {
         </div>
       ) : null}
 
-      <main className={cm.cn(cm.sp('px', 6), cm.sp('py', 12), 'flex justify-center')}>
+      <main
+        className={cm.cn(cm.sp('px', 3), cm.sp('py', 6), 'flex justify-center md:px-6 md:py-12')}
+      >
         <article
           className={cm.cn(
-            cm.sp('p', 12),
-            'w-full max-w-[820px] rounded-2xl bg-surface ring-1 ring-outline-variant/60 shadow-sm',
+            cm.sp('p', 4),
+            'w-full max-w-[820px] rounded-2xl bg-surface ring-1 ring-outline-variant/60 shadow-sm md:p-12',
           )}
         >
           <textarea

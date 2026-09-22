@@ -35,6 +35,11 @@ test.describe('reset password page', () => {
 
 test.describe('reset-password — network', () => {
   test('bad token submit triggers POST /api/users/reset-password', async ({ page }) => {
+    // The bad-token POST is EXPECTED to 401 — allow that console noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=abc')
     const reqs = await captureNetwork(page, async () => {
       const status = await page.evaluate(async (apiBase) => {

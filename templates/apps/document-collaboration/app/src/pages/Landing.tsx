@@ -97,7 +97,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    'inline-flex min-h-[36px] items-center text-on-surface-variant hover:text-on-surface',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

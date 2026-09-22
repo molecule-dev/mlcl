@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -32,6 +33,16 @@ export function Trash() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
+  // Destructive actions arm on the first click and commit on the second —
+  // the armed state auto-resets after 4s so a stray click can't linger.
+  const [armedDeleteId, setArmedDeleteId] = useState<string | null>(null)
+  const [armedEmpty, setArmedEmpty] = useState(false)
+  const disarmTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const scheduleDisarm = (disarm: () => void): void => {
+    if (disarmTimerRef.current) clearTimeout(disarmTimerRef.current)
+    disarmTimerRef.current = setTimeout(disarm, 4000)
+  }
 
   useEffect(() => {
     let cancelled = false
@@ -59,6 +70,7 @@ export function Trash() {
     try {
       await http.post(`/api/documents/${id}/restore`, {})
       setDocs((prev) => prev.filter((d) => d.id !== id))
+      void track({ name: 'doc.restored', properties: { document_id: id } })
     } catch (error) {
       logError('trash.restore', error)
       setError(t('trash.restoreFailed', {}, { defaultValue: 'Could not restore.' }))
@@ -72,6 +84,7 @@ export function Trash() {
     try {
       await http.delete(`/api/documents/${id}`)
       setDocs((prev) => prev.filter((d) => d.id !== id))
+      void track({ name: 'doc.deleted', properties: { document_id: id } })
     } catch (error) {
       logError('trash.deleteForever', error)
       setError(t('trash.deleteFailed', {}, { defaultValue: 'Could not delete.' }))
@@ -81,6 +94,7 @@ export function Trash() {
   }
 
   const emptyTrash = async (): Promise<void> => {
+    const count = docs.length
     for (const doc of docs) {
       try {
         await http.delete(`/api/documents/${doc.id}`)
@@ -89,6 +103,29 @@ export function Trash() {
       }
     }
     setDocs([])
+    void track({ name: 'trash.emptied', properties: { count } })
+  }
+
+  const onDeleteForeverClick = (id: string): void => {
+    if (armedDeleteId !== id) {
+      setArmedDeleteId(id)
+      setArmedEmpty(false)
+      scheduleDisarm(() => setArmedDeleteId(null))
+      return
+    }
+    setArmedDeleteId(null)
+    void deleteForever(id)
+  }
+
+  const onEmptyTrashClick = (): void => {
+    if (!armedEmpty) {
+      setArmedEmpty(true)
+      setArmedDeleteId(null)
+      scheduleDisarm(() => setArmedEmpty(false))
+      return
+    }
+    setArmedEmpty(false)
+    void emptyTrash()
   }
 
   return (
@@ -124,18 +161,21 @@ export function Trash() {
         </div>
         <button
           type="button"
-          onClick={emptyTrash}
+          onClick={onEmptyTrashClick}
           disabled={docs.length === 0}
           className={cm.cn(
             cm.sp('px', 4),
             cm.sp('py', 2),
             cm.fontWeight('extrabold'),
             cm.textSize('sm'),
-            'rounded-full bg-error text-white shadow-sm transition-transform hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0',
+            'rounded-full shadow-sm transition-transform hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0',
+            armedEmpty ? 'bg-error text-white ring-2 ring-error/40' : 'bg-error text-white',
           )}
           data-testid="trash-empty-all"
         >
-          {t('trash.emptyAll', {}, { defaultValue: 'Empty trash' })}
+          {armedEmpty
+            ? t('trash.confirmEmpty', {}, { defaultValue: 'Confirm — delete everything' })
+            : t('trash.emptyAll', {}, { defaultValue: 'Empty trash' })}
         </button>
       </header>
 
@@ -194,17 +234,22 @@ export function Trash() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => deleteForever(d.id)}
+                    onClick={() => onDeleteForeverClick(d.id)}
                     disabled={busyId === d.id}
                     className={cm.cn(
                       cm.sp('px', 3),
                       cm.sp('py', 1),
                       cm.fontWeight('extrabold'),
-                      'rounded-full text-[10px] uppercase tracking-widest text-error hover:bg-error/10 disabled:opacity-50',
+                      'rounded-full text-[10px] uppercase tracking-widest hover:bg-error/10 disabled:opacity-50',
+                      armedDeleteId === d.id
+                        ? 'bg-error/10 text-error ring-1 ring-error'
+                        : 'text-error',
                     )}
                     data-testid={`trash-delete-${d.id}`}
                   >
-                    {t('trash.deleteForever', {}, { defaultValue: 'Delete forever' })}
+                    {armedDeleteId === d.id
+                      ? t('trash.confirmDelete', {}, { defaultValue: 'Confirm delete' })
+                      : t('trash.deleteForever', {}, { defaultValue: 'Delete forever' })}
                   </button>
                 </div>
               }

@@ -113,7 +113,7 @@ export function QuillonDocumentCard({
             className={cm.cn(
               cm.fontWeight('extrabold'),
               cm.textSize('base'),
-              'block truncate text-on-surface group-hover:text-primary',
+              'block min-h-[36px] truncate text-on-surface group-hover:text-primary',
             )}
           >
             {title}
@@ -148,7 +148,7 @@ export function QuillonDocumentCard({
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'text-primary hover:underline',
+              'inline-flex min-h-[36px] items-center text-primary hover:underline',
             )}
           >
             {t('quillonDocumentCard.open', {}, { defaultValue: 'Open →' })}

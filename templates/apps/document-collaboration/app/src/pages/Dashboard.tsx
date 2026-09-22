@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -149,7 +150,10 @@ export function Dashboard() {
                 const res = (await http.post('/api/documents', { title: 'Untitled' })) as
                   { id?: string } | { data?: { id?: string } }
                 const created = (res as { data?: { id?: string } }).data ?? (res as { id?: string })
-                if (created?.id) navigate(`/doc/${created.id}`)
+                if (created?.id) {
+                  void track({ name: 'doc.created', properties: { document_id: created.id } })
+                  navigate(`/doc/${created.id}`)
+                }
               } catch (error) {
                 logError('dashboard.createDoc', error)
                 setError(
@@ -292,7 +296,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:underline',
+                'inline-flex min-h-[36px] items-center text-primary hover:underline',
               )}
             >
               {t('dashboard.viewFeed', {}, { defaultValue: 'Feed →' })}

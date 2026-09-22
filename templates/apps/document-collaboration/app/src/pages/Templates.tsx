@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -75,7 +76,13 @@ export function Templates() {
     try {
       const res = await http.post(`/api/templates/${tpl.id}/instantiate`, {})
       const created = unwrapSingle<{ id: string }>(res)
-      if (created?.id) navigate(`/doc/${created.id}`)
+      if (created?.id) {
+        void track({
+          name: 'doc.created_from_template',
+          properties: { document_id: created.id, template_id: tpl.id },
+        })
+        navigate(`/doc/${created.id}`)
+      }
     } catch (error) {
       logError('templates.useTemplate', error)
       setError(

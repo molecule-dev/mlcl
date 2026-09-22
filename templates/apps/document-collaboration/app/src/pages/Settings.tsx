@@ -373,11 +373,10 @@ export function Settings() {
                             onClick={() => upgrade(p.stripePriceId!)}
                             disabled={billingBusy}
                             className={cm.cn(
-                              cm.sp('px', 2),
-                              cm.sp('py', 1),
+                              cm.sp('px', 3),
                               cm.textSize('xs'),
                               cm.fontWeight('extrabold'),
-                              'rounded-full bg-primary text-white hover:-translate-y-0.5 disabled:opacity-50',
+                              'inline-flex min-h-[28px] items-center rounded-full bg-primary text-white hover:-translate-y-0.5 disabled:opacity-50',
                             )}
                             data-testid={`settings-upgrade-${tier.key}-${p.period}`}
                           >
@@ -566,6 +565,8 @@ function ToggleRow({
           {description}
         </p>
       </div>
+      {/* The button pads the 24px track out to a >=40px tap target without
+          visually enlarging the switch itself. */}
       <button
         type="button"
         role="switch"
@@ -574,18 +575,22 @@ function ToggleRow({
         onClick={() => onChange(!value)}
         disabled={disabled}
         data-testid={testId}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50',
-          value ? 'bg-primary' : 'bg-surface-container-high',
-        )}
+        className={cm.cn('inline-flex h-10 shrink-0 items-center px-1 disabled:opacity-50')}
       >
         <span
           className={cm.cn(
-            'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
-            value ? 'translate-x-5' : 'translate-x-1',
+            'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
+            value ? 'bg-primary' : 'bg-surface-container-high',
           )}
-          aria-hidden="true"
-        />
+        >
+          <span
+            className={cm.cn(
+              'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
+              value ? 'translate-x-5' : 'translate-x-1',
+            )}
+            aria-hidden="true"
+          />
+        </span>
       </button>
     </div>
   )

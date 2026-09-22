@@ -55,6 +55,8 @@ test.describe('trash', () => {
 
     await page.goto(APP_BASE + '/trash')
     await page.waitForSelector(`[data-testid="trash-delete-${doc.id}"]`)
+    // Destructive actions arm on the first click and commit on the second.
+    await page.getByTestId(`trash-delete-${doc.id}`).click()
     await page.getByTestId(`trash-delete-${doc.id}`).click()
     await page.waitForTimeout(700)
 
@@ -73,6 +75,8 @@ test.describe('trash', () => {
 
     await page.goto(APP_BASE + '/trash')
     await page.waitForSelector('[data-testid="trash-empty-all"]')
+    // Destructive actions arm on the first click and commit on the second.
+    await page.getByTestId('trash-empty-all').click()
     await page.getByTestId('trash-empty-all').click()
     await page.waitForTimeout(1500)
 

@@ -130,8 +130,10 @@ router.post('/:documentId', async (req: Request, res: Response) => {
             { defaultValue: 'You have been invited to collaborate on {{title}}' },
           ),
         })
-      } catch (_error) {
-        // swallow — invite email is best-effort; share row already created.
+      } catch (inviteError) {
+        // Best-effort: the share row is already created, so a failed invite
+        // email must not fail the request — but it is never silently lost.
+        logger.debug('sharing.invite_email_failed', inviteError)
       }
     }
     res.status(201).json(result.data)

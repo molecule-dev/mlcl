@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -36,6 +37,17 @@ function colorFor(id: string): string {
 function initialsOf(id: string | null): string {
   if (!id) return '·'
   return id.slice(0, 2).toUpperCase()
+}
+
+/**
+ * Append a comment only when its id is not already present. The realtime room
+ * echoes `comment:created` for our OWN posts, and that echo can land before the
+ * POST response resolves — appending both copies duplicated the list row (and
+ * tripped React's duplicate-key warning). Both paths converge here so either
+ * arrival order yields exactly one row.
+ */
+function appendUnique(list: CommentRow[], comment: CommentRow): CommentRow[] {
+  return list.some((c) => c.id === comment.id) ? list : [...list, comment]
 }
 
 function fmtRelative(iso: string, t: TranslateFunction): string {
@@ -102,7 +114,7 @@ export function Comments() {
     const onCreated = (data: unknown) => {
       const comment = toComment(data)
       if (!comment) return
-      setComments((prev) => (prev.some((c) => c.id === comment.id) ? prev : [...prev, comment]))
+      setComments((prev) => appendUnique(prev, comment))
     }
     const onUpserted = (data: unknown) => {
       const comment = toComment(data)
@@ -174,7 +186,11 @@ export function Comments() {
     try {
       const res = await http.post(`/api/comments/${docId}`, { body: draftBody })
       const created = unwrapSingle<CommentRow>(res)
-      if (created) setComments((prev) => [...prev, created])
+      if (created) setComments((prev) => appendUnique(prev, created))
+      void track({
+        name: 'comment.added',
+        properties: { document_id: docId, comment_id: created?.id ?? null, is_reply: false },
+      })
       setDraftBody('')
     } catch (error) {
       logError('comments.addRoot', error)
@@ -188,7 +204,11 @@ export function Comments() {
     try {
       const res = await http.post(`/api/comments/${docId}`, { body: text, parent_id: parentId })
       const created = unwrapSingle<CommentRow>(res)
-      if (created) setComments((prev) => [...prev, created])
+      if (created) setComments((prev) => appendUnique(prev, created))
+      void track({
+        name: 'comment.added',
+        properties: { document_id: docId, comment_id: created?.id ?? null, is_reply: true },
+      })
       setReplyDrafts((prev) => ({ ...prev, [parentId]: '' }))
     } catch (error) {
       logError('comments.reply', error)
@@ -201,6 +221,10 @@ export function Comments() {
     try {
       await http.put(`/api/comments/${docId}/${commentId}/resolve`, {})
       setComments((prev) => prev.map((c) => (c.id === commentId ? { ...c, is_resolved: true } : c)))
+      void track({
+        name: 'comment.resolved',
+        properties: { document_id: docId, comment_id: commentId },
+      })
     } catch (error) {
       logError('comments.resolve', error)
       setError(t('comments.resolveFailed', {}, { defaultValue: 'Could not resolve.' }))
@@ -214,6 +238,10 @@ export function Comments() {
       setComments((prev) =>
         prev.map((c) => (c.id === commentId ? { ...c, is_resolved: false } : c)),
       )
+      void track({
+        name: 'comment.reopened',
+        properties: { document_id: docId, comment_id: commentId },
+      })
     } catch (error) {
       logError('comments.reopen', error)
       setError(t('comments.reopenFailed', {}, { defaultValue: 'Could not reopen.' }))
@@ -225,6 +253,10 @@ export function Comments() {
     try {
       await http.delete(`/api/comments/${docId}/${commentId}`)
       setComments((prev) => prev.filter((c) => c.id !== commentId && c.parent_id !== commentId))
+      void track({
+        name: 'comment.deleted',
+        properties: { document_id: docId, comment_id: commentId },
+      })
     } catch (error) {
       logError('comments.delete', error)
       setError(t('comments.deleteFailed', {}, { defaultValue: 'Could not delete.' }))

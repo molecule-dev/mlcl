@@ -24,6 +24,11 @@ test.describe('login page', () => {
   })
 
   test('wrong password keeps the user on /login', async ({ page }) => {
+    // The wrong-password POST is EXPECTED to 403 — allow that console noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('login-bad')
     await signup(page, email, 'TestPass123!')
     await page.evaluate(() => window.localStorage.clear())

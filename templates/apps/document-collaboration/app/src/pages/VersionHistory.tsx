@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -105,6 +106,10 @@ export function VersionHistory() {
     setError(null)
     try {
       await http.post(`/api/versions/${docId}/restore/${active.id}`, {})
+      void track({
+        name: 'version.restored',
+        properties: { document_id: docId, version_id: active.id, version: active.version },
+      })
       const refreshed = await http.get(`/api/versions/${docId}`)
       setVersions(unwrapList<VersionRow>(refreshed))
     } catch (error) {
