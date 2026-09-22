@@ -130,6 +130,12 @@ test.describe('Sample detail page (/samples/:id)', () => {
   })
 
   test('not-found alert shown for an invalid sample id', async ({ page, request }) => {
+    // The invalid sample id 404s are the EXPECTED result under test — silence
+    // the console-guard so the not-found-alert assertion decides pass/fail.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     const u = await apiSignup(request)
     await login(page, u)
     await page.goto(APP_BASE + '/samples/00000000-0000-0000-0000-000000000000')

@@ -45,6 +45,12 @@ test.describe('Reset password page (/reset-password)', () => {
   })
 
   test('invalid token surfaces an error alert from the backend', async ({ page }) => {
+    // The backend's 4xx on an invalid token is the EXPECTED result under test
+    // — silence the console-guard so the POST/no-redirect assertions decide.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(
         APP_BASE + '/reset-password?email=ghost%40example.com&token=invalid-token-xyz',
