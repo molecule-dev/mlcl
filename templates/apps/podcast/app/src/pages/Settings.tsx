@@ -93,7 +93,7 @@ export function Settings() {
   }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8))}>
+    <div className={cm.cn(cm.sp('py', 8), 'px-4 sm:px-8')}>
       <header className={cm.sp('mb', 6)}>
         <p
           className={cm.cn(

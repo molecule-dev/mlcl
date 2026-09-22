@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -78,12 +79,20 @@ export function ShowDetail() {
     if (!show || subscribing) return
     setSubscribing(true)
     try {
-      if (subscribed) {
-        await fetch(`/api/subscriptions/${show.id}`, { method: 'DELETE', credentials: 'include' })
-        setSubscribed(false)
-      } else {
-        await fetch(`/api/subscriptions/${show.id}`, { method: 'POST', credentials: 'include' })
-        setSubscribed(true)
+      const res =
+        subscribed === true
+          ? await fetch(`/api/subscriptions/${show.id}`, {
+              method: 'DELETE',
+              credentials: 'include',
+            })
+          : await fetch(`/api/subscriptions/${show.id}`, { method: 'POST', credentials: 'include' })
+      if (res.ok) {
+        const next = !subscribed
+        setSubscribed(next)
+        void track({
+          name: 'subscribe.toggled',
+          properties: { show_id: show.id, subscribed: next },
+        })
       }
     } finally {
       setSubscribing(false)
@@ -94,6 +103,10 @@ export function ShowDetail() {
     if (!show || episodes.length === 0) return
     const latest = episodes[0]
     if (!latest) return
+    void track({
+      name: 'episode.played',
+      properties: { episode_id: latest.id, show_id: show.id },
+    })
     void play({
       episode_id: latest.id,
       show_id: show.id,
@@ -121,9 +134,12 @@ export function ShowDetail() {
     )
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6 px-4 sm:px-8')}>
       <header
-        className={cm.cn(cm.flex({ align: 'end', gap: 'md' }), cm.sp('p', 6), 'rounded-lg')}
+        className={cm.cn(
+          cm.sp('p', 6),
+          'rounded-lg flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6',
+        )}
         style={{
           background: `var(--color-cover-${show.cover_index})`,
           color: 'white',
@@ -131,17 +147,23 @@ export function ShowDetail() {
         }}
       >
         <div
-          className={cm.cn(cm.h(40), cm.w(40), 'rounded shadow-2xl shrink-0')}
+          className={cm.cn('h-28 w-28 rounded shadow-2xl shrink-0 sm:h-40 sm:w-40')}
           style={{ background: `var(--color-cover-${show.cover_index})` }}
           aria-hidden="true"
         />
-        <div className={cm.flex1}>
+        <div className={cm.flex1 + ' min-w-0'}>
           <p
             className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), 'uppercase tracking-wider')}
           >
             {t('showDetail.label', {}, { defaultValue: APP_NAME })}
           </p>
-          <h1 className={cm.cn(cm.textSize('5xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+          <h1
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.sp('mt', 1),
+              'text-3xl sm:text-5xl tracking-tight break-words',
+            )}
+          >
             {show.title}
           </h1>
           <p
@@ -196,87 +218,98 @@ export function ShowDetail() {
         </button>
       </div>
 
-      <ul className={'space-y-2'}>
-        {episodes.map((e) => {
-          const progressPct =
-            e.duration_seconds > 0 ? Math.round((e.played_position / e.duration_seconds) * 100) : 0
-          return (
-            <li key={e.id}>
-              <Link
-                to={`/episodes/${e.id}`}
-                className={cm.cn(
-                  cm.card(),
-                  cm.sp('p', 4),
-                  cm.flex({ align: 'start', gap: 'md' }),
-                  'hover:bg-surface-container',
-                )}
-              >
-                <div
-                  className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
-                  style={{ background: `var(--color-cover-${e.cover_index})` }}
-                  aria-hidden="true"
-                />
-                <div className={cm.cn(cm.flex1, 'min-w-0')}>
-                  <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}>
-                    {e.title}
-                  </p>
-                  <p
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'text-on-surface-variant',
-                      'line-clamp-2',
-                      cm.sp('mt', 1),
-                    )}
-                  >
-                    {e.description}
-                  </p>
+      {episodes.length === 0 ? (
+        <p
+          className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}
+          data-testid="show-episodes-empty"
+        >
+          {t('showDetail.noEpisodes', {}, { defaultValue: 'No episodes published yet.' })}
+        </p>
+      ) : (
+        <ul className={'space-y-2'}>
+          {episodes.map((e) => {
+            const progressPct =
+              e.duration_seconds > 0
+                ? Math.round((e.played_position / e.duration_seconds) * 100)
+                : 0
+            return (
+              <li key={e.id}>
+                <Link
+                  to={`/episodes/${e.id}`}
+                  className={cm.cn(
+                    cm.card(),
+                    cm.sp('p', 4),
+                    cm.flex({ align: 'start', gap: 'md' }),
+                    'hover:bg-surface-container',
+                  )}
+                >
                   <div
-                    className={cm.flex({ align: 'center', gap: 'sm' })}
-                    style={{ marginTop: '8px' }}
-                  >
-                    <span
-                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'font-mono')}
+                    className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
+                    style={{ background: `var(--color-cover-${e.cover_index})` }}
+                    aria-hidden="true"
+                  />
+                  <div className={cm.cn(cm.flex1, 'min-w-0')}>
+                    <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}>
+                      {e.title}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        'line-clamp-2',
+                        cm.sp('mt', 1),
+                      )}
                     >
-                      {Math.floor(e.duration_seconds / 60)}:
-                      {(e.duration_seconds % 60).toString().padStart(2, '0')}
-                    </span>
-                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>·</span>
-                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {new Date(e.published_at).toLocaleDateString()}
-                    </span>
-                    {e.played_position > 0 && !e.played && (
-                      <>
-                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          ·
-                        </span>
-                        <span
-                          className={cm.cn(
-                            cm.textSize('xs'),
-                            cm.textPrimary,
-                            cm.fontWeight('medium'),
-                          )}
-                        >
-                          {progressPct}% {t('showDetail.played', {}, { defaultValue: 'played' })}
-                        </span>
-                      </>
-                    )}
-                    {e.played && (
-                      <>
-                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          ·
-                        </span>
-                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          ✓ {t('showDetail.completed', {}, { defaultValue: 'Played' })}
-                        </span>
-                      </>
-                    )}
+                      {e.description}
+                    </p>
+                    <div
+                      className={cm.flex({ align: 'center', gap: 'sm' })}
+                      style={{ marginTop: '8px' }}
+                    >
+                      <span
+                        className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'font-mono')}
+                      >
+                        {Math.floor(e.duration_seconds / 60)}:
+                        {(e.duration_seconds % 60).toString().padStart(2, '0')}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>·</span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {new Date(e.published_at).toLocaleDateString()}
+                      </span>
+                      {e.played_position > 0 && !e.played && (
+                        <>
+                          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            ·
+                          </span>
+                          <span
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              cm.textPrimary,
+                              cm.fontWeight('medium'),
+                            )}
+                          >
+                            {progressPct}% {t('showDetail.played', {}, { defaultValue: 'played' })}
+                          </span>
+                        </>
+                      )}
+                      {e.played && (
+                        <>
+                          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            ·
+                          </span>
+                          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            ✓ {t('showDetail.completed', {}, { defaultValue: 'Played' })}
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      )}
     </div>
   )
 }

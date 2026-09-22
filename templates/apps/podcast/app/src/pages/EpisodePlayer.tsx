@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -41,6 +42,7 @@ export function EpisodePlayer() {
   const [tab, setTab] = useState<Tab>('chapters')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [queueState, setQueueState] = useState<'idle' | 'pending' | 'added'>('idle')
 
   useEffect(() => {
     if (!id) return
@@ -78,10 +80,54 @@ export function EpisodePlayer() {
       </p>
     )
 
-  const fmt = (s: number) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`
+  const fmt = (s: number) =>
+    `${Math.floor(s / 60)}:${(Math.floor(s) % 60).toString().padStart(2, '0')}`
+
+  const handlePlay = () => {
+    if (!episode) return
+    void track({
+      name: 'episode.played',
+      properties: { episode_id: episode.id, show_id: episode.show_id },
+    })
+    void play({
+      episode_id: episode.id,
+      show_id: episode.show_id,
+      episode_title: episode.title,
+      show_title: episode.show_title,
+      audio_url: episode.audio_url,
+      duration_seconds: episode.duration_seconds,
+      cover_index: episode.cover_index,
+      start_at: episode.played_position ?? 0,
+    })
+  }
+
+  const handleAddToQueue = async () => {
+    if (!episode || queueState === 'pending') return
+    setQueueState('pending')
+    try {
+      const res = await fetch('/api/queue', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ episode_id: episode.id }),
+      })
+      if (res.ok) {
+        setQueueState('added')
+        void track({
+          name: 'episode.queued',
+          properties: { episode_id: episode.id, show_id: episode.show_id },
+        })
+      } else {
+        setQueueState('idle')
+      }
+    } catch (_error) {
+      // Network failure enqueueing — reset the button so the user can retry.
+      setQueueState('idle')
+    }
+  }
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6 px-4 sm:px-8')}>
       <Link
         to={`/shows/${episode.show_id}`}
         className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', 'hover:text-on-surface')}
@@ -89,13 +135,13 @@ export function EpisodePlayer() {
         ← {t('episodePlayer.backLink', { show: episode.show_title }, { defaultValue: '{{show}}' })}
       </Link>
 
-      <header className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+      <header className={cm.cn('flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6')}>
         <div
-          className={cm.cn(cm.h(40), cm.w(40), 'rounded shadow-xl shrink-0')}
+          className={cm.cn('h-28 w-28 rounded shadow-xl shrink-0 sm:h-40 sm:w-40')}
           style={{ background: `var(--color-cover-${episode.cover_index})` }}
           aria-hidden="true"
         />
-        <div className={cm.flex1}>
+        <div className={cm.flex1 + ' min-w-0'}>
           <p
             className={cm.cn(
               cm.textSize('xs'),
@@ -106,28 +152,25 @@ export function EpisodePlayer() {
           >
             {episode.show_title}
           </p>
-          <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+          <h1
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.sp('mt', 1),
+              'text-2xl sm:text-3xl tracking-tight',
+            )}
+          >
             {episode.title}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mt', 2))}>
             {fmt(episode.duration_seconds)} · {new Date(episode.published_at).toLocaleDateString()}
           </p>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 4))}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 4), 'flex-wrap')}
+          >
             <button
               type="button"
               data-testid="episode-play"
-              onClick={() =>
-                void play({
-                  episode_id: episode.id,
-                  show_id: episode.show_id,
-                  episode_title: episode.title,
-                  show_title: episode.show_title,
-                  audio_url: episode.audio_url,
-                  duration_seconds: episode.duration_seconds,
-                  cover_index: episode.cover_index,
-                  start_at: episode.played_position ?? 0,
-                })
-              }
+              onClick={handlePlay}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2),
@@ -139,21 +182,20 @@ export function EpisodePlayer() {
             <button
               type="button"
               data-testid="episode-add-queue"
-              onClick={() => {
-                void fetch('/api/queue', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  credentials: 'include',
-                  body: JSON.stringify({ episode_id: episode.id }),
-                })
-              }}
+              onClick={() => void handleAddToQueue()}
+              disabled={queueState === 'pending'}
+              aria-live="polite"
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                'rounded-full border border-outline text-sm font-medium',
+                'rounded-full border border-outline text-sm font-medium disabled:opacity-60',
               )}
             >
-              {t('episodePlayer.addToQueue', {}, { defaultValue: 'Add to queue' })}
+              {queueState === 'pending'
+                ? t('episodePlayer.adding', {}, { defaultValue: 'Adding…' })
+                : queueState === 'added'
+                  ? t('episodePlayer.added', {}, { defaultValue: '✓ In queue' })
+                  : t('episodePlayer.addToQueue', {}, { defaultValue: 'Add to queue' })}
             </button>
           </div>
         </div>
@@ -209,6 +251,14 @@ export function EpisodePlayer() {
                   <button
                     type="button"
                     onClick={() => {
+                      void track({
+                        name: 'episode.played',
+                        properties: {
+                          episode_id: episode.id,
+                          show_id: episode.show_id,
+                          chapter: c.title,
+                        },
+                      })
                       void play({
                         episode_id: episode.id,
                         show_id: episode.show_id,
@@ -226,7 +276,7 @@ export function EpisodePlayer() {
                       cm.flex({ align: 'center', gap: 'md' }),
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      'block w-full rounded text-left hover:bg-surface-container',
+                      'w-full rounded text-left hover:bg-surface-container',
                     )}
                   >
                     <span

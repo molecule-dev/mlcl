@@ -58,6 +58,14 @@ test.describe('login page', () => {
   })
 
   test('invalid credentials surface an error message and stay on /login', async ({ page }) => {
+    // The rejected log-in (expected 401) is the scenario's whole point,
+    // but the browser logs every failed HTTP response to the console and
+    // the shared console-guard fails the test on it. Expected-4xx noise
+    // is silenced with the annotation below.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[13]',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/email/i).fill(`nobody-${Date.now()}@example.com`)
     await page.getByLabel(/^password$/i).fill('WrongPassword!1')

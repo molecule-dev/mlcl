@@ -49,7 +49,10 @@ export function FeaturedShowsRow({ shows, title, seeAllHref, limit = 4 }: Featur
       <div className={cm.flex({ align: 'baseline', justify: 'between' })}>
         <h2 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>{title}</h2>
         {seeAllHref && (
-          <Link to={seeAllHref} className={'text-sm font-bold text-primary hover:underline'}>
+          <Link
+            to={seeAllHref}
+            className={'text-sm font-bold text-primary hover:underline inline-block py-1.5'}
+          >
             {t('featuredShowsRow.seeAll', {}, { defaultValue: 'See all →' })}
           </Link>
         )}

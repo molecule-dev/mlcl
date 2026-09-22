@@ -62,7 +62,7 @@ export function Library() {
   }, [http, t])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6 px-4 sm:px-8')}>
       <header>
         <p
           className={cm.cn(
@@ -177,118 +177,162 @@ export function Library() {
         </p>
       ) : (
         <div>
-          {tab === 'shows' && (
-            <ul className={cm.grid({ cols: 4, gap: 'md' })}>
-              {shows.map((s) => (
-                <li key={s.id}>
-                  <Link
-                    to={`/shows/${s.id}`}
-                    className={cm.cn(
-                      cm.card(),
-                      cm.sp('p', 4),
-                      'block hover:bg-surface-container space-y-2',
-                    )}
-                  >
-                    <div
-                      className={'aspect-square rounded relative'}
-                      style={{ background: `var(--color-cover-${s.cover_index})` }}
-                      aria-hidden="true"
-                    >
-                      {(s.unplayed_count ?? 0) > 0 && (
-                        <span
-                          className={cm.cn(
-                            cm.flex({ align: 'center', justify: 'center' }),
-                            cm.sp('px', 2),
-                            'absolute top-2 right-2 rounded-full',
-                            cm.textSize('xs'),
-                            cm.fontWeight('bold'),
-                          )}
-                          style={{
-                            backgroundColor: 'var(--mol-color-primary)',
-                            color: 'var(--color-on-primary)',
-                            minWidth: '24px',
-                            height: '24px',
-                          }}
-                        >
-                          {s.unplayed_count}
-                        </span>
-                      )}
-                    </div>
-                    <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}>
-                      {s.title}
-                    </p>
-                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'truncate')}>
-                      {s.publisher ?? s.category ?? ''}
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-          {tab === 'saved' && (
-            <ul className={'space-y-2'}>
-              {saved.map((e) => {
-                const progressPct =
-                  e.duration_seconds > 0
-                    ? Math.round((e.played_position / e.duration_seconds) * 100)
-                    : 0
-                return (
-                  <li key={e.id}>
+          {tab === 'shows' &&
+            (shows.length === 0 ? (
+              <div
+                className={cm.cn(cm.sp('py', 12), cm.textCenter, 'space-y-3')}
+                data-testid="library-shows-empty"
+              >
+                <p className={cm.cn('text-on-surface-variant')}>
+                  {t(
+                    'library.noShows',
+                    {},
+                    { defaultValue: 'You are not subscribed to any shows yet.' },
+                  )}
+                </p>
+                <Link
+                  to="/discover"
+                  className={cm.cn(
+                    cm.sp('px', 5),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('semibold'),
+                    'inline-block rounded-full bg-primary text-on-primary',
+                  )}
+                >
+                  {t('library.browseShows', {}, { defaultValue: 'Browse shows' })}
+                </Link>
+              </div>
+            ) : (
+              <ul className={cm.grid({ gap: 'lg' }) + ' grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'}>
+                {shows.map((s) => (
+                  <li key={s.id}>
                     <Link
-                      to={`/episodes/${e.id}`}
+                      to={`/shows/${s.id}`}
                       className={cm.cn(
                         cm.card(),
                         cm.sp('p', 4),
-                        cm.flex({ align: 'center', gap: 'md' }),
-                        'hover:bg-surface-container',
+                        'block hover:bg-surface-container space-y-2',
                       )}
                     >
                       <div
-                        className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
-                        style={{ background: `var(--color-cover-${e.cover_index})` }}
+                        className={'aspect-square rounded relative'}
+                        style={{ background: `var(--color-cover-${s.cover_index})` }}
                         aria-hidden="true"
-                      />
-                      <div className={cm.cn(cm.flex1, 'min-w-0')}>
-                        <p
-                          className={cm.cn(
-                            cm.textSize('sm'),
-                            cm.fontWeight('semibold'),
-                            'truncate',
-                          )}
-                        >
-                          {e.title}
-                        </p>
-                        <p
-                          className={cm.cn(
-                            cm.textSize('xs'),
-                            'text-on-surface-variant',
-                            'truncate',
-                          )}
-                        >
-                          {e.show_title}
-                        </p>
-                      </div>
-                      <div className={cm.cn(cm.shrink0, cm.textCenter)}>
-                        <p
-                          className={cm.cn(
-                            cm.textSize('xs'),
-                            'text-on-surface-variant',
-                            'font-mono',
-                          )}
-                        >
-                          {Math.floor(e.duration_seconds / 60)}:
-                          {(e.duration_seconds % 60).toString().padStart(2, '0')}
-                        </p>
-                        {progressPct > 0 && (
-                          <p className={cm.cn(cm.textSize('xs'), cm.textPrimary)}>{progressPct}%</p>
+                      >
+                        {(s.unplayed_count ?? 0) > 0 && (
+                          <span
+                            className={cm.cn(
+                              cm.flex({ align: 'center', justify: 'center' }),
+                              cm.sp('px', 2),
+                              'absolute top-2 right-2 rounded-full',
+                              cm.textSize('xs'),
+                              cm.fontWeight('bold'),
+                            )}
+                            style={{
+                              backgroundColor: 'var(--mol-color-primary)',
+                              color: 'var(--color-on-primary)',
+                              minWidth: '24px',
+                              height: '24px',
+                            }}
+                          >
+                            {s.unplayed_count}
+                          </span>
                         )}
                       </div>
+                      <p
+                        className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}
+                      >
+                        {s.title}
+                      </p>
+                      <p
+                        className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'truncate')}
+                      >
+                        {s.publisher ?? s.category ?? ''}
+                      </p>
                     </Link>
                   </li>
-                )
-              })}
-            </ul>
-          )}
+                ))}
+              </ul>
+            ))}
+          {tab === 'saved' &&
+            (saved.length === 0 ? (
+              <p
+                className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}
+                data-testid="library-saved-empty"
+              >
+                {t(
+                  'library.noSaved',
+                  {},
+                  { defaultValue: 'No saved episodes yet — save one from any show page.' },
+                )}
+              </p>
+            ) : (
+              <ul className={'space-y-2'}>
+                {saved.map((e) => {
+                  const progressPct =
+                    e.duration_seconds > 0
+                      ? Math.round((e.played_position / e.duration_seconds) * 100)
+                      : 0
+                  return (
+                    <li key={e.id}>
+                      <Link
+                        to={`/episodes/${e.id}`}
+                        className={cm.cn(
+                          cm.card(),
+                          cm.sp('p', 4),
+                          cm.flex({ align: 'center', gap: 'md' }),
+                          'hover:bg-surface-container',
+                        )}
+                      >
+                        <div
+                          className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
+                          style={{ background: `var(--color-cover-${e.cover_index})` }}
+                          aria-hidden="true"
+                        />
+                        <div className={cm.cn(cm.flex1, 'min-w-0')}>
+                          <p
+                            className={cm.cn(
+                              cm.textSize('sm'),
+                              cm.fontWeight('semibold'),
+                              'truncate',
+                            )}
+                          >
+                            {e.title}
+                          </p>
+                          <p
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              'text-on-surface-variant',
+                              'truncate',
+                            )}
+                          >
+                            {e.show_title}
+                          </p>
+                        </div>
+                        <div className={cm.cn(cm.shrink0, cm.textCenter)}>
+                          <p
+                            className={cm.cn(
+                              cm.textSize('xs'),
+                              'text-on-surface-variant',
+                              'font-mono',
+                            )}
+                          >
+                            {Math.floor(e.duration_seconds / 60)}:
+                            {(e.duration_seconds % 60).toString().padStart(2, '0')}
+                          </p>
+                          {progressPct > 0 && (
+                            <p className={cm.cn(cm.textSize('xs'), cm.textPrimary)}>
+                              {progressPct}%
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            ))}
         </div>
       )}
     </div>

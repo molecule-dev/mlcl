@@ -106,7 +106,7 @@ export function Discover() {
     )
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(10))}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(10), 'px-4 sm:px-8')}>
       <header>
         <h1 className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tight')}>
           {t('nav.discover', {}, { defaultValue: 'Discover' })}

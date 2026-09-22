@@ -22,7 +22,12 @@ export function Pricing() {
     document.title = pageTitle
   }, [pageTitle])
   return (
-    <ContentPageShell bare containerSize="xl" header={<AuthBrandHeader />} footer={<Footer />}>
+    <ContentPageShell
+      bare
+      containerSize="xl"
+      header={<AuthBrandHeader wordmarkAsHeading={false} />}
+      footer={<Footer />}
+    >
       <PricingPage
         period="month"
         headlineFontFamily="var(--font-headline)"

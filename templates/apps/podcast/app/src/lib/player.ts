@@ -14,6 +14,8 @@
  * podcast apps.
  */
 
+import { track } from '@molecule/app-analytics'
+
 export interface PlayerTrack {
   episode_id: string
   show_id?: string | null
@@ -82,6 +84,17 @@ function ensureAudio(): HTMLAudioElement {
   audio.addEventListener('ended', () => {
     setState({ isPlaying: false })
     flushProgress(true)
+    if (state.track) {
+      // Fire-and-forget: a completed listen is the top-of-funnel retention
+      // event; analytics must never block or break playback.
+      void track({
+        name: 'episode.completed',
+        properties: {
+          episode_id: state.track.episode_id,
+          show_id: state.track.show_id ?? null,
+        },
+      }).catch(() => {})
+    }
     void advanceToNext()
   })
   return audio

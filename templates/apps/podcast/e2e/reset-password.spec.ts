@@ -52,6 +52,14 @@ test.describe('reset-password page', () => {
   test('submitting with an invalid token leaves the user on /reset-password (no leak)', async ({
     page,
   }) => {
+    // The 401 from the deliberately-invalid token is the assertion's
+    // whole point, but the browser logs every failed HTTP response to
+    // the console and the shared console-guard fails the test on it.
+    // Expected-4xx noise is silenced with the annotation below.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const requests = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password')
       await page.getByLabel(/email/i).fill(`reset-${Date.now()}@example.com`)

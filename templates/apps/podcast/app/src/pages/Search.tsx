@@ -35,6 +35,7 @@ export function Search() {
   const [shows, setShows] = useState<Show[]>([])
   const [episodes, setEpisodes] = useState<Episode[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -45,13 +46,17 @@ export function Search() {
         setShows(unwrapList<Show>(s))
         setEpisodes(unwrapList<Episode>(e))
       })
+      .catch(() => {
+        if (!cancelled)
+          setError(t('search.loadError', {}, { defaultValue: 'Failed to load the catalog.' }))
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -68,7 +73,7 @@ export function Search() {
   }, [query, shows, episodes])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6 px-4 sm:px-8')}>
       <header className={'space-y-3'}>
         <div>
           <p
@@ -140,7 +145,11 @@ export function Search() {
         </nav>
       </header>
 
-      {loading ? (
+      {error ? (
+        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')} role="alert">
+          {error}
+        </p>
+      ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('search.loading', {}, { defaultValue: 'Loading…' })}
         </p>
@@ -164,7 +173,7 @@ export function Search() {
                   { defaultValue: 'Shows ({{count}})' },
                 )}
               </h2>
-              <ul className={cm.grid({ cols: 4, gap: 'md' })}>
+              <ul className={cm.grid({ gap: 'md' }) + ' grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'}>
                 {filtered.shows.slice(0, 8).map((s) => (
                   <li key={s.id}>
                     <Link

@@ -19,6 +19,12 @@ import {
  * loop) — that's what makes audio survive route changes. The bar
  * subscribes once on mount and renders whatever the player module
  * publishes.
+ *
+ * Responsive: at <640px the desktop three-section layout (320px title
+ * block + centered transport + 220px right block) cannot fit a 390px
+ * screen, so a condensed single row renders instead — cover, truncating
+ * title, transport cluster, rate pill — with the progress bar as a thin
+ * strip across the top of the bar, the way mobile podcast apps do it.
  */
 export function NowPlayingBar() {
   const cm = getClassMap()
@@ -58,6 +64,10 @@ export function NowPlayingBar() {
   const positionPct = dur > 0 ? Math.min(100, (state.position / dur) * 100) : 0
   const fmt = (s: number) =>
     `${Math.floor(s / 60)}:${(Math.floor(s) % 60).toString().padStart(2, '0')}`
+  const playing = state.isPlaying
+  const playPauseAria = playing
+    ? t('common.pause', {}, { defaultValue: 'Pause' })
+    : t('common.play', {}, { defaultValue: 'Play' })
 
   return (
     <div
@@ -73,9 +83,88 @@ export function NowPlayingBar() {
       }}
       data-testid="now-playing-bar"
     >
+      {/* ── Mobile (<640px): condensed row; progress as a top strip ── */}
       <div
-        className={cm.flex({ align: 'center', gap: 'sm' })}
-        style={{ width: '320px', flexShrink: 0 }}
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          'relative w-full min-w-0 sm:hidden',
+        )}
+        style={{ height: '100%' }}
+      >
+        <div
+          className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
+          style={{ background: `var(--color-cover-${state.track.cover_index ?? 0})` }}
+          aria-hidden="true"
+        />
+        <div className={cm.cn(cm.flex1, 'min-w-0')}>
+          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}>
+            {state.track.episode_title}
+          </p>
+          <p className={cm.cn(cm.textSize('xs'), 'truncate')} style={{ opacity: 0.7 }}>
+            {state.track.show_title}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => seekBy(-30)}
+          aria-label={t('nowPlaying.skipBack', {}, { defaultValue: 'Skip back 30s' })}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'h-10 w-10 shrink-0 rounded-full',
+          )}
+          style={{ color: 'inherit', opacity: 0.85 }}
+        >
+          <span className="material-symbols-outlined" aria-hidden="true">
+            replay_30
+          </span>
+        </button>
+        <button
+          type="button"
+          onClick={togglePlay}
+          aria-label={playPauseAria}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'h-11 w-11 shrink-0 rounded-full',
+          )}
+          style={{ backgroundColor: 'white', color: 'var(--color-now-playing-bg)' }}
+        >
+          <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
+            {playing ? 'pause' : 'play_arrow'}
+          </span>
+        </button>
+        <button
+          type="button"
+          onClick={() => seekBy(30)}
+          aria-label={t('nowPlaying.skipForward', {}, { defaultValue: 'Skip forward 30s' })}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'h-10 w-10 shrink-0 rounded-full',
+          )}
+          style={{ color: 'inherit', opacity: 0.85 }}
+        >
+          <span className="material-symbols-outlined" aria-hidden="true">
+            forward_30
+          </span>
+        </button>
+        {/* Thin progress strip across the very top of the bar. */}
+        <div
+          className={'absolute inset-x-0 top-0 h-[3px]'}
+          style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}
+          aria-hidden="true"
+        >
+          <div
+            style={{
+              width: `${positionPct}%`,
+              height: '100%',
+              backgroundColor: 'white',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* ── Desktop (≥640px): three-section layout ── */}
+      <div
+        className={cm.flex({ align: 'center', gap: 'sm' }) + ' hidden w-[320px] shrink-0 sm:flex'}
       >
         <div
           className={cm.cn(cm.h(14), cm.w(14), 'rounded shrink-0')}
@@ -95,7 +184,13 @@ export function NowPlayingBar() {
         </div>
       </div>
 
-      <div className={cm.cn(cm.flex({ direction: 'col', align: 'center', gap: 'xs' }), cm.flex1)}>
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col', align: 'center', gap: 'xs' }),
+          cm.flex1,
+          'hidden sm:flex',
+        )}
+      >
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <TransportButton
             label={t('nowPlaying.skipBack', {}, { defaultValue: 'Skip back 30s' })}
@@ -105,11 +200,7 @@ export function NowPlayingBar() {
           <button
             type="button"
             onClick={togglePlay}
-            aria-label={
-              state.isPlaying
-                ? t('common.pause', {}, { defaultValue: 'Pause' })
-                : t('common.play', {}, { defaultValue: 'Play' })
-            }
+            aria-label={playPauseAria}
             className={cm.cn(
               cm.h(11),
               cm.w(11),
@@ -120,7 +211,7 @@ export function NowPlayingBar() {
             data-testid="now-playing-toggle"
           >
             <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
-              {state.isPlaying ? 'pause' : 'play_arrow'}
+              {playing ? 'pause' : 'play_arrow'}
             </span>
           </button>
           <TransportButton
@@ -166,8 +257,8 @@ export function NowPlayingBar() {
       </div>
 
       <div
-        className={cm.flex({ align: 'center', gap: 'sm' })}
-        style={{ width: '220px', justifyContent: 'flex-end', flexShrink: 0 }}
+        className={cm.flex({ align: 'center', gap: 'sm' }) + ' w-[220px] shrink-0 hidden sm:flex'}
+        style={{ justifyContent: 'flex-end' }}
       >
         <button
           type="button"

@@ -4,12 +4,31 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, SidebarUserCard, usePanelClose } from '@molecule/app-ui-react'
 
-export function UserMenu() {
-  return (
-    <SidebarUserCard ariaLabelKey="userMenu.open">
+/**
+ * The account card + panel. `dataMolId` lets the mobile top bar render a
+ * second instance without colliding with the sidebar's
+ * `sidebar-user-card` selector (locators double-match otherwise).
+ * `compact` drops the email line and caps the width for the mobile top
+ * bar, where the full sidebar card (name + email, `w-full`) would wrap.
+ */
+export function UserMenu({
+  dataMolId,
+  compact = false,
+}: {
+  dataMolId?: string
+  compact?: boolean
+}) {
+  const card = (
+    <SidebarUserCard
+      ariaLabelKey="userMenu.open"
+      dataMolId={dataMolId}
+      secondaryLine={compact ? '' : undefined}
+    >
       <UserMenuPanel />
     </SidebarUserCard>
   )
+  if (!compact) return card
+  return <div className="max-w-[150px]">{card}</div>
 }
 
 interface AccountUser {

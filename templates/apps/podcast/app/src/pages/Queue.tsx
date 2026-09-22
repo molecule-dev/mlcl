@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -47,14 +48,27 @@ export function Queue() {
   }, [http, t])
 
   const handleClear = async () => {
-    await fetch('/api/queue', { method: 'DELETE', credentials: 'include' })
-    setItems([])
+    const count = items.length
+    const res = await fetch('/api/queue', { method: 'DELETE', credentials: 'include' })
+    if (res.ok) {
+      setItems([])
+      if (count > 0) {
+        void track({ name: 'queue.cleared', properties: { count } })
+      }
+    }
   }
-  const handleRemove = async (id: string) => {
-    await fetch(`/api/queue/${id}`, { method: 'DELETE', credentials: 'include' })
-    setItems((cur) => cur.filter((i) => i.id !== id))
+  const handleRemove = async (id: string, episodeId: string) => {
+    const res = await fetch(`/api/queue/${id}`, { method: 'DELETE', credentials: 'include' })
+    if (res.ok) {
+      setItems((cur) => cur.filter((i) => i.id !== id))
+      void track({ name: 'queue.removed', properties: { episode_id: episodeId } })
+    }
   }
   const handlePlay = (it: QueueItem) => {
+    void track({
+      name: 'episode.played',
+      properties: { episode_id: it.episode_id, show_id: it.show_id ?? null },
+    })
     void play({
       episode_id: it.episode_id,
       show_id: it.show_id ?? null,
@@ -75,8 +89,10 @@ export function Queue() {
     )
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+    <div className={cm.cn(cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6 px-4 sm:px-8')}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-3')}
+      >
         <div>
           <p
             className={cm.cn(
@@ -139,7 +155,7 @@ export function Queue() {
               <QueueRow
                 item={it}
                 onPlay={() => handlePlay(it)}
-                onRemove={() => void handleRemove(it.id)}
+                onRemove={() => void handleRemove(it.id, it.episode_id)}
               />
             </li>
           ))}
@@ -191,11 +207,8 @@ function QueueRow({
         data-testid="queue-row-play"
         onClick={onPlay}
         className={cm.cn(
-          cm.sp('px', 2),
-          cm.sp('py', 1),
-          cm.textSize('xs'),
-          cm.fontWeight('medium'),
-          'rounded border border-outline-variant',
+          cm.sp('px', 3),
+          'py-2 text-xs font-medium rounded border border-outline-variant min-h-[36px]',
         )}
       >
         {t('common.play', {}, { defaultValue: 'Play' })}
@@ -206,10 +219,8 @@ function QueueRow({
         onClick={onRemove}
         aria-label={t('queue.removeAria', {}, { defaultValue: 'Remove from queue' })}
         className={cm.cn(
-          cm.sp('px', 2),
-          cm.sp('py', 1),
-          cm.textSize('xs'),
-          'rounded text-on-surface-variant hover:text-error',
+          cm.flex({ align: 'center', justify: 'center' }),
+          'h-9 w-9 shrink-0 rounded text-on-surface-variant hover:text-error',
         )}
       >
         ×

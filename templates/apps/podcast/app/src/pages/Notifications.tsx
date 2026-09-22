@@ -149,7 +149,7 @@ export function Notifications() {
                 onClick={() => void handleMarkAllRead()}
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
+                  cm.sp('py', 2),
                   cm.textSize('xs'),
                   cm.fontWeight('medium'),
                   'rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container hover:text-on-surface',

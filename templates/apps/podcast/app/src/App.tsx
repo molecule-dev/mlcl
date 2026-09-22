@@ -16,6 +16,7 @@ import { ForgotPassword } from './pages/ForgotPassword.js'
 import { Landing } from './pages/Landing.js'
 import { Library } from './pages/Library.js'
 import { Login } from './pages/Login.js'
+import { NotFound } from './pages/NotFound.js'
 import { Notifications } from './pages/Notifications.js'
 import { PlanUpdated } from './pages/PlanUpdated.js'
 import { Pricing } from './pages/Pricing.js'
@@ -62,6 +63,7 @@ export function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/plan-updated" element={<PlanUpdated />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
             </Route>
           </Routes>
