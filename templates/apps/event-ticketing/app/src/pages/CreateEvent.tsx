@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -85,6 +86,16 @@ export function CreateEvent({
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
   const [loadingExisting, setLoadingExisting] = useState(mode === 'edit')
+  // Destructive actions arm first, fire on the second click (fleet rule:
+  // destructive actions are confirmed inline — never on a single tap).
+  const [armedAction, setArmedAction] = useState<'none' | 'cancel' | 'delete'>('none')
+
+  // A pending armed state disarms itself so a stray first tap can't lurk.
+  useEffect(() => {
+    if (armedAction === 'none') return
+    const timer = window.setTimeout(() => setArmedAction('none'), 5000)
+    return () => window.clearTimeout(timer)
+  }, [armedAction])
 
   useEffect(() => {
     if (mode !== 'edit' || !routeId) return
@@ -216,11 +227,19 @@ export function CreateEvent({
     if (eventId) {
       const res = await http.put(`/api/events/${eventId}`, body)
       const updated = res.data as { id: string }
+      void track({
+        name: 'event.updated',
+        properties: { event_id: updated.id, status: targetStatus },
+      })
       return updated.id
     }
     const res = await http.post('/api/events', body)
     const created = res.data as { id: string }
     setEventId(created.id)
+    void track({
+      name: 'event.created',
+      properties: { event_id: created.id, status: targetStatus },
+    })
     return created.id
   }
 
@@ -260,6 +279,7 @@ export function CreateEvent({
       await persistTiers(targetId)
       if (targetStatus === 'published') {
         await http.put(`/api/events/${targetId}/publish`, {})
+        void track({ name: 'event.published', properties: { event_id: targetId } })
       }
       setStatus(targetStatus)
       setSuccess(
@@ -275,12 +295,31 @@ export function CreateEvent({
     }
   }
 
+  function handleCancelClick(): void {
+    if (armedAction !== 'cancel') {
+      setArmedAction('cancel')
+      return
+    }
+    setArmedAction('none')
+    void cancelEvent()
+  }
+
+  function handleDeleteClick(): void {
+    if (armedAction !== 'delete') {
+      setArmedAction('delete')
+      return
+    }
+    setArmedAction('none')
+    void deleteEvent()
+  }
+
   async function cancelEvent() {
     if (!eventId) return
     setBusy(true)
     setError(null)
     try {
       await http.put(`/api/events/${eventId}/cancel`, {})
+      void track({ name: 'event.cancelled', properties: { event_id: eventId } })
       setStatus('draft')
       setSuccess(t('createEvent.successCancelled', {}, { defaultValue: 'Event cancelled.' }))
       navigate('/dashboard')
@@ -297,6 +336,7 @@ export function CreateEvent({
     setError(null)
     try {
       await http.delete(`/api/events/${eventId}`)
+      void track({ name: 'event.deleted', properties: { event_id: eventId } })
       navigate('/dashboard')
     } catch (err) {
       setError((err as Error).message ?? 'Could not delete event')
@@ -1051,30 +1091,64 @@ export function CreateEvent({
                 <button
                   type="button"
                   disabled={busy}
-                  onClick={cancelEvent}
+                  onClick={handleCancelClick}
                   data-mol-id="event-cancel"
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),
-                    'rounded-full text-sm font-bold border border-error text-error hover:bg-error/10 disabled:opacity-50',
+                    'rounded-full text-sm font-bold border disabled:opacity-50',
+                    armedAction === 'cancel'
+                      ? 'border-error bg-error text-white'
+                      : 'border-error text-error hover:bg-error/10',
                   )}
                 >
-                  {t('createEvent.danger.cancel', {}, { defaultValue: 'Cancel event' })}
+                  {armedAction === 'cancel'
+                    ? t(
+                        'createEvent.danger.confirmCancel',
+                        {},
+                        { defaultValue: 'Tap again to cancel' },
+                      )
+                    : t('createEvent.danger.cancel', {}, { defaultValue: 'Cancel event' })}
                 </button>
                 <button
                   type="button"
                   disabled={busy}
-                  onClick={deleteEvent}
+                  onClick={handleDeleteClick}
                   data-mol-id="event-delete"
+                  aria-label={
+                    armedAction === 'delete'
+                      ? t(
+                          'createEvent.danger.confirmDeleteLabel',
+                          {},
+                          { defaultValue: 'Tap again to permanently delete this event' },
+                        )
+                      : undefined
+                  }
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),
                     'rounded-full text-sm font-bold bg-error text-white disabled:opacity-50',
+                    armedAction === 'delete' ? 'ring-2 ring-error ring-offset-2' : '',
                   )}
                 >
-                  {t('createEvent.danger.delete', {}, { defaultValue: 'Delete event' })}
+                  {armedAction === 'delete'
+                    ? t(
+                        'createEvent.danger.confirmDelete',
+                        {},
+                        { defaultValue: 'Tap again to delete' },
+                      )
+                    : t('createEvent.danger.delete', {}, { defaultValue: 'Delete event' })}
                 </button>
               </div>
+              <p aria-live="polite" className={cm.cn(cm.textSize('xs'), 'text-error font-bold')}>
+                {armedAction !== 'none'
+                  ? t(
+                      'createEvent.danger.armedHint',
+                      {},
+                      { defaultValue: 'Tap again to confirm — this cannot be undone.' },
+                    )
+                  : null}
+              </p>
             </article>
           ) : null}
         </aside>

@@ -214,7 +214,10 @@ router.post('/read-all', async (_req: Request, res: Response) => {
     const callerUser = await findById<{ oauthData?: UserOAuthData | null }>('users', userId)
     const oauthData: UserOAuthData = { ...(callerUser?.oauthData ?? {}) }
     oauthData.notificationsLastReadAt = new Date().toISOString()
-    await updateById('users', userId, { oauthData, updated_at: new Date() })
+    // No timestamp write: the users table has no `updated_at`/`updatedAt`
+    // writable column contract here (the DB default owns `"updatedAt"`), and
+    // passing one made every "mark all read" click 500 (42703).
+    await updateById('users', userId, { oauthData })
     res.json({ success: true, notificationsLastReadAt: oauthData.notificationsLastReadAt })
   } catch (err) {
     logger.error('notifications POST read-all failed', err)

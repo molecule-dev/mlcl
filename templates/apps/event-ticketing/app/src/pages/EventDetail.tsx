@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -131,6 +132,10 @@ export function EventDetail() {
         quantity,
       })
       const order = res.data as { id: string; checkoutUrl?: string }
+      void track({
+        name: 'order.created',
+        properties: { order_id: order.id, event_id: evt.id, tier_id: selectedTierId, quantity },
+      })
       // Paid orders return a Stripe Checkout URL; the success_url
       // redirects the buyer back to /orders/:id/confirmation, which
       // finalizes (or simulates) fulfillment.

@@ -38,6 +38,9 @@ test.describe('/login page', () => {
   })
 
   test('wrong password surfaces alert and does not navigate away', async ({ page }) => {
+    // The API 403s a wrong password — that browser console resource error is
+    // the EXPECTED failure signal this test asserts the UI surfaces.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('login-bad')
     await signup(page, email, 'TestPass!1234')
     await page.evaluate(() => window.localStorage.clear())

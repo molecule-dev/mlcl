@@ -24,6 +24,9 @@ test.describe('/reset-password page', () => {
   test('submit with bogus token POSTs to /api/users/reset-password and surfaces error', async ({
     page,
   }) => {
+    // A bogus token is rejected with 401 — the console resource error is the
+    // expected server response this test exists to exercise.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=invalid-token')
       const pw = page.locator('input[type="password"]')

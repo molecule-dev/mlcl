@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -71,6 +72,9 @@ export function OrderConfirmation() {
   const [profileName, setProfileName] = useState<string>('')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Conversion tracking fires exactly once per order, even if the effect
+  // re-runs (session_id landing, StrictMode double-invoke, back-navigation).
+  const trackedPurchaseRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (!id) return
@@ -94,6 +98,19 @@ export function OrderConfirmation() {
           } catch (_error) {
             /* fall through — UI will display pending state */
           }
+        }
+        if (ord.status === 'paid' && trackedPurchaseRef.current !== ord.id) {
+          trackedPurchaseRef.current = ord.id
+          void track({
+            name: 'ticket.purchased',
+            properties: {
+              order_id: ord.id,
+              event_id: ord.event_id,
+              tier_id: ord.tier_id ?? undefined,
+              quantity: ord.quantity,
+              total_cents: ord.total_cents,
+            },
+          })
         }
         setOrder(ord)
         const [evtRes, profileRes, tierRes, ticketsRes] = await Promise.all([

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,6 +120,10 @@ export function TicketDetail() {
     setTransferSuccess(null)
     try {
       await http.post(`/api/transfers/${ticket.id}`, { to_email: transferEmail.trim() })
+      void track({
+        name: 'ticket.transferred',
+        properties: { ticket_id: ticket.id, order_id: ticket.order_id },
+      })
       setTransferSuccess(
         t(
           'ticketDetail.transferSuccess',
@@ -144,6 +149,10 @@ export function TicketDetail() {
     setRefundSuccess(null)
     try {
       await http.post('/api/refunds', { order_id: ticket.order_id, reason: refundReason.trim() })
+      void track({
+        name: 'ticket.refund_requested',
+        properties: { ticket_id: ticket.id, order_id: ticket.order_id },
+      })
       setRefundSuccess(t('ticketDetail.refundSuccess', {}, { defaultValue: 'Refund requested.' }))
       setRefundReason('')
     } catch (err) {
