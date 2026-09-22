@@ -4,6 +4,7 @@ import { Outlet } from 'react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { useSecurityFindings, useVaultItems } from '../lib/api.js'
+import { MobileVaultShell, useIsMobile } from './MobileVaultShell.js'
 import { type VaultCategory, type VaultFolder, VaultSidebar } from './VaultSidebar.js'
 
 const CATEGORY_DEFS: {
@@ -67,12 +68,18 @@ const DEFAULT_FOLDERS: VaultFolder[] = [
  * Authenticated shell — left vault sidebar + main outlet on a soft
  * indigo wash background. Used by every signed-in route.
  *
+ * Below the `md` breakpoint the fixed 260px rail would crush a phone's
+ * content column, so the shell swaps (conditionally RENDERED via
+ * matchMedia — never CSS-hidden) to `MobileVaultShell`: a sticky top
+ * bar + slide-in drawer carrying the same nav inventory.
+ *
  * Sidebar category counts and the "Vault secured" ring read from the
  * live items + findings APIs so they stay in sync with the user's
  * actual vault content.
  */
 export function PasswordManagerLayout() {
   const cm = getClassMap()
+  const isMobile = useIsMobile()
   const items = useVaultItems({ is_trashed: false })
   const findings = useSecurityFindings()
 
@@ -98,6 +105,20 @@ export function PasswordManagerLayout() {
     ).size
     return Math.max(0, Math.min(100, Math.round(100 - (flagged / total) * 100)))
   }, [items.data, findings.data])
+
+  if (isMobile) {
+    return (
+      <MobileVaultShell
+        categories={categories}
+        folders={DEFAULT_FOLDERS}
+        vaultStrength={vaultStrength}
+      >
+        <main className={cm.cn(cm.flex1, 'min-w-0')}>
+          <Outlet />
+        </main>
+      </MobileVaultShell>
+    )
+  }
 
   return (
     <div

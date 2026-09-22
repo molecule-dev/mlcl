@@ -181,7 +181,7 @@ export function Settings() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',

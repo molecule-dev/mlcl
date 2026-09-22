@@ -66,6 +66,9 @@ test.describe('/vault/:id', () => {
   test('Back to vault link works from a not-found id', async ({ page }) => {
     const { itemId } = await signupAndAddItem(page)
     void itemId
+    // The not-found id legitimately 404s — the console-guard would otherwise
+    // fail the test on the expected "status of 404" resource error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/vault/00000000-0000-0000-0000-000000000000')
     await expect(page.getByTestId('item-detail-error')).toBeVisible({ timeout: 10_000 })
     await page.getByRole('link', { name: /back to vault/i }).click()

@@ -141,7 +141,7 @@ export function VaultItemRow({ item }: VaultItemRowProps) {
           cm.sp('px', 2),
           cm.fontWeight('medium'),
           cm.textSize('xs'),
-          'rounded-md py-0.5',
+          'hidden md:inline-flex rounded-md py-0.5',
           badge.bg,
           badge.text,
         )}
@@ -150,7 +150,7 @@ export function VaultItemRow({ item }: VaultItemRowProps) {
         {t(`vaultItemRow.category.${item.category}`, {}, { defaultValue: badge.label })}
       </span>
 
-      <div className={cm.cn('w-[100px] flex justify-start')}>
+      <div className={cm.cn('w-[100px] hidden md:flex justify-start')}>
         {item.strength !== null ? (
           <PasswordStrengthMeter segments={item.strength} width="sm" label="" />
         ) : (
@@ -160,7 +160,7 @@ export function VaultItemRow({ item }: VaultItemRowProps) {
         )}
       </div>
 
-      <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), 'w-6')}>
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), 'w-6 hidden md:flex')}>
         {item.shared && (
           <span
             className="material-symbols-outlined text-[16px] text-on-surface-variant/60"
@@ -171,7 +171,12 @@ export function VaultItemRow({ item }: VaultItemRowProps) {
         )}
       </div>
 
-      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant text-right w-20')}>
+      <span
+        className={cm.cn(
+          cm.textSize('xs'),
+          'hidden md:inline-block text-on-surface-variant text-right w-20',
+        )}
+      >
         {item.lastUsed}
       </span>
 

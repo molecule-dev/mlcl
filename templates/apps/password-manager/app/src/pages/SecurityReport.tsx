@@ -86,7 +86,7 @@ export function SecurityReport() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',
@@ -146,7 +146,7 @@ export function SecurityReport() {
       <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-12')}>
         <article
           className={cm.cn(
-            cm.sp('p', 8),
+            'p-4 md:p-8',
             cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
             'lg:col-span-4 bg-gradient-to-br from-primary to-indigo-900 text-white rounded-2xl relative overflow-hidden',
           )}

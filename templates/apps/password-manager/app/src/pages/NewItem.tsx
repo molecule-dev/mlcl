@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -114,6 +115,8 @@ export function NewItem() {
           : res
       ) as { id?: string }
       if (data?.id) {
+        // Domain analytics — ids/metadata only, never the secret itself.
+        void track({ name: 'credential.added', properties: { item_id: data.id, type: apiType } })
         navigate(`/vault/${data.id}`, { replace: true })
       } else {
         navigate('/vault', { replace: true })
@@ -137,7 +140,7 @@ export function NewItem() {
     <form
       onSubmit={handleSubmit}
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('4xl'),
         'mx-auto',

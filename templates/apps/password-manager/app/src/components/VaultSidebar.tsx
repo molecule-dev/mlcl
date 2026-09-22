@@ -29,17 +29,27 @@ interface VaultSidebarProps {
   vaultStrength: number
 }
 
+interface VaultSidebarContentProps {
+  categories: VaultCategory[]
+  folders: VaultFolder[]
+  /** Called after an in-content navigation — the mobile drawer closes on it. */
+  onNavigate?: () => void
+  /** The brand mark doubles as a /vault link; the drawer renders its own header. */
+  showBrand?: boolean
+}
+
 /**
- * Sigil's signature left-rail navigation — diamond brand mark, vault
- * search, primary nav (All Items / Favorites / Recently Used / Trash),
- * categories with colored dots and counts, folders, and an emerald
- * "Vault secured" status footer with circular ring.
- *
- * Translated from personal-finance's SideNavBar (catalog §1.3) +
- * email-client's MeridianMailSidebar three-pane shell, recoloured for
- * Sigil's indigo/emerald crystalline brand.
+ * The sidebar's scrollable body — vault search, primary nav, categories
+ * with colored dots + counts, folders. Rendered inside the desktop
+ * `<aside>` AND inside the mobile drawer's panel so the two shells can
+ * never drift (fleet mobile-shell pattern: one inventory, two chrome).
  */
-export function VaultSidebar({ categories, folders, vaultStrength }: VaultSidebarProps) {
+export function VaultSidebarContent({
+  categories,
+  folders,
+  onNavigate,
+  showBrand = true,
+}: VaultSidebarContentProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
@@ -74,6 +84,7 @@ export function VaultSidebar({ categories, folders, vaultStrength }: VaultSideba
   const submitSearch = (e: React.FormEvent) => {
     e.preventDefault()
     const next = query.trim()
+    onNavigate?.()
     navigate(next ? `/vault?search=${encodeURIComponent(next)}` : '/vault')
   }
 
@@ -83,6 +94,7 @@ export function VaultSidebar({ categories, folders, vaultStrength }: VaultSideba
       <Link
         key={to}
         to={to}
+        onClick={onNavigate}
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('px', 3),
@@ -102,28 +114,18 @@ export function VaultSidebar({ categories, folders, vaultStrength }: VaultSideba
     )
   }
 
-  const ringPct = Math.max(0, Math.min(100, vaultStrength))
-  const ringDash = `${ringPct}, 100`
-
   return (
-    <aside
+    <div
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.h('screen'),
-        'w-[260px] flex-shrink-0 bg-surface border-r border-primary-light/40 sticky top-0 z-20',
+        cm.sp('p', 6),
+        cm.flex({ direction: 'col', gap: 'lg' }),
+        'flex-1 min-h-0 overflow-y-auto',
       )}
-      aria-label={t('vaultSidebar.aria', {}, { defaultValue: 'Vault navigation' })}
     >
-      <div
-        className={cm.cn(
-          cm.sp('p', 6),
-          cm.flex({ direction: 'col', gap: 'lg' }),
-          cm.flex1,
-          'min-h-0 overflow-y-auto',
-        )}
-      >
+      {showBrand && (
         <Link
           to="/vault"
+          onClick={onNavigate}
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'sm' }),
             cm.fontWeight('bold'),
@@ -139,137 +141,159 @@ export function VaultSidebar({ categories, folders, vaultStrength }: VaultSideba
           </span>
           <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
         </Link>
+      )}
 
-        <form
-          onSubmit={submitSearch}
-          className={cm.cn('relative')}
-          role="search"
-          data-testid="vault-search-form"
-        >
-          <span
-            className={cm.cn(
-              cm.textSize('lg'),
-              'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant',
-            )}
-            aria-hidden="true"
-          >
-            search
-          </span>
-          <input
-            ref={searchInputRef}
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t(
-              'vaultSidebar.searchPlaceholder',
-              {},
-              { defaultValue: 'Search vault...' },
-            )}
-            aria-label={t('vaultSidebar.searchAria', {}, { defaultValue: 'Search vault' })}
-            data-testid="vault-search-input"
-            className={cm.cn(
-              cm.w('full'),
-              cm.sp('py', 2),
-              cm.sp('pl', 10),
-              cm.sp('pr', 12),
-              cm.textSize('sm'),
-              'bg-surface-container-low border border-primary-light/40 rounded-lg text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all',
-            )}
-          />
-          <span
-            className={cm.cn(
-              'absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-on-surface-variant bg-surface px-1.5 py-0.5 rounded border border-primary-light/40',
-            )}
-            aria-hidden="true"
-          >
-            ⌘K
-          </span>
-        </form>
-
-        <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-          {navLink('/vault', 'inventory_2', 'vaultSidebar.allItems', 'All Items')}
-          {navLink('/security', 'health_and_safety', 'vaultSidebar.security', 'Security Report')}
-          {navLink('/shared', 'group', 'vaultSidebar.shared', 'Shared Vaults')}
-          {navLink('/generator', 'vpn_key', 'vaultSidebar.generator', 'Generator')}
-          {navLink(
-            '/notifications',
-            'notifications',
-            'vaultSidebar.notifications',
-            'Notifications',
+      <form
+        onSubmit={submitSearch}
+        className={cm.cn('relative')}
+        role="search"
+        data-testid="vault-search-form"
+      >
+        <span
+          className={cm.cn(
+            cm.textSize('lg'),
+            'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant',
           )}
-          {navLink('/trash', 'delete', 'vaultSidebar.trash', 'Trash')}
-        </nav>
+          aria-hidden="true"
+        >
+          search
+        </span>
+        <input
+          ref={searchInputRef}
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t('vaultSidebar.searchPlaceholder', {}, { defaultValue: 'Search vault...' })}
+          aria-label={t('vaultSidebar.searchAria', {}, { defaultValue: 'Search vault' })}
+          data-testid="vault-search-input"
+          className={cm.cn(
+            cm.w('full'),
+            cm.sp('py', 2),
+            cm.sp('pl', 10),
+            cm.sp('pr', 12),
+            cm.textSize('sm'),
+            'bg-surface-container-low border border-primary-light/40 rounded-lg text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all',
+          )}
+        />
+        <span
+          className={cm.cn(
+            'absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-on-surface-variant bg-surface px-1.5 py-0.5 rounded border border-primary-light/40',
+          )}
+          aria-hidden="true"
+        >
+          ⌘K
+        </span>
+      </form>
 
-        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-          <div
+      <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+        {navLink('/vault', 'inventory_2', 'vaultSidebar.allItems', 'All Items')}
+        {navLink('/security', 'health_and_safety', 'vaultSidebar.security', 'Security Report')}
+        {navLink('/shared', 'group', 'vaultSidebar.shared', 'Shared Vaults')}
+        {navLink('/generator', 'vpn_key', 'vaultSidebar.generator', 'Generator')}
+        {navLink('/notifications', 'notifications', 'vaultSidebar.notifications', 'Notifications')}
+        {navLink('/trash', 'delete', 'vaultSidebar.trash', 'Trash')}
+      </nav>
+
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+        <div
+          className={cm.cn(
+            cm.sp('px', 3),
+            cm.sp('mb', 1),
+            cm.fontWeight('bold'),
+            'text-[11px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('vaultSidebar.categoriesHeading', {}, { defaultValue: 'Categories' })}
+        </div>
+        {categories.map((cat) => (
+          <Link
+            key={cat.id}
+            to={`/vault?category=${cat.id}`}
+            onClick={onNavigate}
             className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('px', 3),
-              cm.sp('mb', 1),
-              cm.fontWeight('bold'),
-              'text-[11px] uppercase tracking-widest text-on-surface-variant',
+              cm.sp('py', 1),
+              cm.textSize('sm'),
+              'text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors group',
             )}
           >
-            {t('vaultSidebar.categoriesHeading', {}, { defaultValue: 'Categories' })}
-          </div>
-          {categories.map((cat) => (
-            <Link
-              key={cat.id}
-              to={`/vault?category=${cat.id}`}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'between' }),
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                cm.textSize('sm'),
-                'text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors group',
-              )}
-            >
-              <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-                <span className={cm.cn('w-2 h-2 rounded-full', cat.dotClass)} aria-hidden="true" />
-                {t(cat.labelKey, {}, { defaultValue: cat.defaultLabel })}
-              </span>
-              <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant/70')}>
-                {cat.count}
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-          <div
-            className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('mb', 1),
-              cm.fontWeight('bold'),
-              'text-[11px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {t('vaultSidebar.foldersHeading', {}, { defaultValue: 'Folders' })}
-          </div>
-          {folders.map((f) => (
-            <Link
-              key={f.id}
-              to={`/vault?folder=${f.id}`}
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                cm.textSize('sm'),
-                'text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors',
-              )}
-            >
-              <span
-                className={cm.cn(
-                  'material-symbols-outlined text-[16px] text-on-surface-variant/70',
-                )}
-                aria-hidden="true"
-              >
-                folder
-              </span>
-              {t(f.labelKey, {}, { defaultValue: f.defaultLabel })}
-            </Link>
-          ))}
-        </div>
+            <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+              <span className={cm.cn('w-2 h-2 rounded-full', cat.dotClass)} aria-hidden="true" />
+              {t(cat.labelKey, {}, { defaultValue: cat.defaultLabel })}
+            </span>
+            <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant/70')}>
+              {cat.count}
+            </span>
+          </Link>
+        ))}
       </div>
+
+      <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+        <div
+          className={cm.cn(
+            cm.sp('px', 3),
+            cm.sp('mb', 1),
+            cm.fontWeight('bold'),
+            'text-[11px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('vaultSidebar.foldersHeading', {}, { defaultValue: 'Folders' })}
+        </div>
+        {folders.map((f) => (
+          <Link
+            key={f.id}
+            to={`/vault?folder=${f.id}`}
+            onClick={onNavigate}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('px', 3),
+              cm.sp('py', 1),
+              cm.textSize('sm'),
+              'text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-[16px] text-on-surface-variant/70')}
+              aria-hidden="true"
+            >
+              folder
+            </span>
+            {t(f.labelKey, {}, { defaultValue: f.defaultLabel })}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Sigil's signature left-rail navigation — diamond brand mark, vault
+ * search, primary nav (All Items / Security / Shared / Generator /
+ * Notifications / Trash), categories with colored dots and counts,
+ * folders, and an emerald "Vault secured" status footer with ring.
+ *
+ * Desktop only (≥768px): below the `md` breakpoint the layout swaps to
+ * `MobileVaultShell`, which renders the SAME inventory via
+ * `VaultSidebarContent` inside a slide-in drawer.
+ */
+export function VaultSidebar({ categories, folders, vaultStrength }: VaultSidebarProps) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+
+  const ringPct = Math.max(0, Math.min(100, vaultStrength))
+  const ringDash = `${ringPct}, 100`
+
+  return (
+    <aside
+      className={cm.cn(
+        cm.flex({ direction: 'col' }),
+        cm.h('screen'),
+        'w-[260px] flex-shrink-0 bg-surface border-r border-primary-light/40 sticky top-0 z-20',
+      )}
+      aria-label={t('vaultSidebar.aria', {}, { defaultValue: 'Vault navigation' })}
+    >
+      <VaultSidebarContent categories={categories} folders={folders} />
 
       <div className={cm.cn(cm.sp('p', 4), 'border-t border-primary-light/40')}>
         <div

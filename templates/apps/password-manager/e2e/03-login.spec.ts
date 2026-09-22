@@ -26,6 +26,9 @@ test.describe('/login', () => {
   })
 
   test('login with bogus password shows error and stays on /login', async ({ page }) => {
+    // The rejected login legitimately comes back 401/403 — allow the
+    // expected console resource error before submitting bogus credentials.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 40[13]' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('does-not-exist@example.com')
     await page.locator('input[type="password"]').first().fill('totally-wrong')

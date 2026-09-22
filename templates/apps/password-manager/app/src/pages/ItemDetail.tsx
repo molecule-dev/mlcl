@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -47,6 +48,8 @@ export function ItemDetail() {
   const copy = async (key: string, text: string) => {
     try {
       await navigator.clipboard.writeText(text)
+      // Domain analytics — which field was copied, never its value.
+      void track({ name: 'credential.copied', properties: { item_id: id, field: key } })
       setCopiedKey(key)
       setTimeout(() => setCopiedKey(null), 1500)
     } catch (_error) {
@@ -62,6 +65,7 @@ export function ItemDetail() {
     setError(null)
     try {
       await http.post(`/api/items/${id}/trash`)
+      void track({ name: 'credential.trashed', properties: { item_id: id } })
       navigate('/vault', { replace: true })
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to trash item'
@@ -74,6 +78,10 @@ export function ItemDetail() {
     if (!item) return
     try {
       await http.post(`/api/items/${item.id}/favorite`)
+      void track({
+        name: 'credential.favorite_toggled',
+        properties: { item_id: item.id, favorite: !item.favorite },
+      })
       setRefreshKey((k) => k + 1)
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to update item'
@@ -83,7 +91,7 @@ export function ItemDetail() {
 
   if (loading) {
     return (
-      <div className={cm.cn(cm.sp('p', 8), cm.maxW('4xl'), 'mx-auto')}>
+      <div className={cm.cn('p-4 md:p-8', cm.maxW('4xl'), 'mx-auto')}>
         <p
           className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
           data-testid="item-detail-loading"
@@ -98,7 +106,7 @@ export function ItemDetail() {
     return (
       <div
         className={cm.cn(
-          cm.sp('p', 8),
+          'p-4 md:p-8',
           cm.maxW('4xl'),
           'mx-auto',
           cm.flex({ direction: 'col', gap: 'sm' }),
@@ -175,7 +183,7 @@ export function ItemDetail() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'lg' }),
         cm.maxW('4xl'),
         'mx-auto',
@@ -350,7 +358,13 @@ export function ItemDetail() {
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
               <button
                 type="button"
-                onClick={() => setRevealed((v) => !v)}
+                onClick={() => {
+                  setRevealed((v) => !v)
+                  if (!revealed) {
+                    // Reveal is a sensitive action worth a funnel step — id only.
+                    void track({ name: 'credential.revealed', properties: { item_id: id } })
+                  }
+                }}
                 data-testid="item-detail-password-toggle"
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),

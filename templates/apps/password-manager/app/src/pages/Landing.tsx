@@ -83,7 +83,14 @@ export function Landing() {
           </span>
           <span className="font-extrabold">{APP_NAME}</span>
         </Link>
-        <div className={cm.cn('hidden md:flex', cm.flex({ align: 'center', gap: 'lg' }))}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'lg' }),
+            // AFTER cm.flex: twMerge keeps the last display class, so this
+            // must come second or `flex` overrides `hidden` at every width.
+            'hidden md:flex',
+          )}
+        >
           <a
             className={cm.cn(
               cm.textSize('sm'),

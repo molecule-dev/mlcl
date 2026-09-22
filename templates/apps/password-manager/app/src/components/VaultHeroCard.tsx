@@ -26,8 +26,8 @@ export function VaultHeroCard({ itemCount, strengthScore, syncedLabel }: VaultHe
     <div
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
-        cm.sp('p', 10),
-        'min-h-[320px] bg-gradient-to-br from-primary to-indigo-900 rounded-[2rem] text-white relative overflow-hidden',
+        'p-6 md:p-10',
+        'min-h-[240px] md:min-h-[320px] bg-gradient-to-br from-primary to-indigo-900 rounded-[2rem] text-white relative overflow-hidden',
       )}
     >
       <div className={cm.cn('relative z-10', cm.flex({ direction: 'col', gap: 'md' }))}>
@@ -51,7 +51,7 @@ export function VaultHeroCard({ itemCount, strengthScore, syncedLabel }: VaultHe
         </div>
 
         <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'md' }), 'flex-wrap')}>
-          <span className={cm.cn('text-6xl font-extrabold tracking-tighter')}>
+          <span className={cm.cn('text-5xl md:text-6xl font-extrabold tracking-tighter')}>
             {t('vaultHeroCard.count', { count: itemCount }, { defaultValue: '{{count}}' })}
           </span>
           <span

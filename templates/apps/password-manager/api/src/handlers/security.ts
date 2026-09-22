@@ -55,8 +55,10 @@ router.post('/refresh', async (_req: Request, res: Response) => {
       let plain: string
       try {
         plain = await decrypt(enc)
-      } catch (_error) {
-        // decryption failed for this item (corrupt/missing key) — skip it
+      } catch (error) {
+        // decryption failed for this item (corrupt/missing key) — skip it,
+        // but leave an observable trace so silent vault rot is visible
+        logger.warn('security.findings.decrypt_skip', error)
         continue
       }
       if (isWeak(plain)) {

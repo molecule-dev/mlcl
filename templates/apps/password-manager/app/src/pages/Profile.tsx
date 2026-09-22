@@ -171,7 +171,7 @@ export function Profile() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',
@@ -180,7 +180,7 @@ export function Profile() {
       <header
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'lg' }),
-          cm.sp('p', 8),
+          'p-4 md:p-8',
           'bg-gradient-to-br from-primary to-indigo-900 text-white rounded-3xl relative overflow-hidden',
         )}
       >

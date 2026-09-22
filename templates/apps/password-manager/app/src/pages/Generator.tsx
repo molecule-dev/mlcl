@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -197,6 +198,14 @@ export function Generator() {
     else next = generatePin(pinLength)
     if (next) {
       setGenerated({ value: next, bits: entropyBitsFor(mode, next, opts) })
+      // Domain analytics — shape metadata only, NEVER the generated value.
+      void track({
+        name: 'password.generated',
+        properties: {
+          mode,
+          length: mode === 'passphrase' ? words : mode === 'pin' ? pinLength : length,
+        },
+      })
       setHistory((prev) =>
         [{ value: next, strength: strengthFor(next), generatedAt: Date.now() }, ...prev].slice(
           0,
@@ -324,7 +333,7 @@ export function Generator() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',

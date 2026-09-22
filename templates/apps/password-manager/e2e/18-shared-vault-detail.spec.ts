@@ -24,6 +24,9 @@ test.describe('/shared/:id', () => {
 
   test('non-existent vault shows error and back link works', async ({ page }) => {
     await signup(page)
+    // The bogus id legitimately 404s — allow the expected console resource
+    // error before the navigation that triggers it.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + '/shared/00000000-0000-0000-0000-000000000000')
     await expect(page.getByTestId('shared-detail-error')).toBeVisible({ timeout: 10_000 })
     await page.getByRole('link', { name: /back to shared/i }).click()

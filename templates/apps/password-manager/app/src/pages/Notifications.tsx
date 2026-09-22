@@ -110,7 +110,7 @@ export function Notifications() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('4xl'),
         'mx-auto',
@@ -160,7 +160,7 @@ export function Notifications() {
         <div
           data-testid="notif-empty"
           className={cm.cn(
-            cm.sp('p', 8),
+            'p-4 md:p-8',
             'text-center bg-surface rounded-2xl border border-dashed border-primary-light/40',
           )}
         >

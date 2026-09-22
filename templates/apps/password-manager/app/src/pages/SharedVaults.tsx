@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -34,7 +35,18 @@ export function SharedVaults() {
     setCreating(true)
     setError(null)
     try {
-      await http.post('/api/vaults', { name: name.trim(), description: description.trim() })
+      const res = await http.post<unknown>('/api/vaults', {
+        name: name.trim(),
+        description: description.trim(),
+      })
+      const created =
+        res && typeof res === 'object' && 'data' in res
+          ? (res as { data: { id?: string } }).data
+          : (res as { id?: string } | undefined)
+      void track({
+        name: 'vault.created',
+        properties: { vault_id: created?.id, has_description: Boolean(description.trim()) },
+      })
       setName('')
       setDescription('')
       setShowForm(false)
@@ -57,7 +69,7 @@ export function SharedVaults() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',

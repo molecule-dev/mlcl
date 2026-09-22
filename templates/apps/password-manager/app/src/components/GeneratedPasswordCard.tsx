@@ -77,7 +77,7 @@ export function GeneratedPasswordCard({
           <span
             className={cm.cn(
               cm.fontWeight('bold'),
-              'font-mono text-3xl md:text-[32px] tracking-[0.08em] text-primary break-all',
+              'font-mono text-lg sm:text-2xl md:text-[32px] tracking-[0.08em] text-primary break-all',
             )}
           >
             {password}

@@ -154,7 +154,7 @@ export function Vault() {
   }, [counts])
 
   return (
-    <div className={cm.cn(cm.sp('p', 8), cm.flex({ direction: 'col', gap: 'xl' }))}>
+    <div className={cm.cn('p-4 md:p-8', cm.flex({ direction: 'col', gap: 'xl' }))}>
       <header
         className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
       >
@@ -235,7 +235,7 @@ export function Vault() {
                   cm.sp('px', 3),
                   cm.fontWeight('medium'),
                   cm.textSize('xs'),
-                  'rounded-full py-1.5 transition-colors',
+                  'rounded-full py-2 min-h-[40px] transition-colors',
                   active
                     ? 'bg-primary text-white'
                     : 'bg-surface border border-primary-light/40 text-on-surface-variant hover:border-primary',
@@ -274,9 +274,11 @@ export function Vault() {
         className={cm.cn(
           cm.sp('p', 4),
           cm.flex({ direction: 'col', gap: 'xs' }),
-          'bg-surface rounded-2xl border border-primary-light/30 shadow-sm',
+          'bg-surface rounded-2xl border border-primary-light/30 shadow-sm overflow-x-hidden',
         )}
       >
+        {/* Desktop column captions — hidden on mobile where rows collapse
+            to a compact two-line layout. */}
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'lg' }),
@@ -284,7 +286,7 @@ export function Vault() {
             cm.sp('py', 2),
             cm.fontWeight('semibold'),
             cm.textSize('xs'),
-            'uppercase tracking-widest text-on-surface-variant border-b border-surface-container',
+            'hidden md:flex uppercase tracking-widest text-on-surface-variant border-b border-surface-container',
           )}
         >
           <span className={cm.cn('w-9')} aria-hidden="true" />
@@ -342,7 +344,7 @@ export function Vault() {
                     cm.sp('px', 4),
                     cm.fontWeight('semibold'),
                     cm.textSize('sm'),
-                    'rounded-lg py-2 bg-primary text-white hover:bg-primary-hover transition-colors',
+                    'rounded-lg py-2 min-h-[40px] bg-primary text-white hover:bg-primary-hover transition-colors',
                   )}
                 >
                   {t('vault.empty.add', {}, { defaultValue: 'Add an item' })}

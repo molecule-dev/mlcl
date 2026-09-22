@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -28,6 +29,7 @@ export function Trash() {
     setError(null)
     try {
       await http.post(`/api/items/${id}/restore`)
+      void track({ name: 'credential.restored', properties: { item_id: id } })
       setRefreshKey((k) => k + 1)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to restore item')
@@ -51,6 +53,7 @@ export function Trash() {
     setError(null)
     try {
       await http.delete(`/api/items/${id}`)
+      void track({ name: 'credential.deleted', properties: { item_id: id } })
       setRefreshKey((k) => k + 1)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to purge item')
@@ -62,7 +65,7 @@ export function Trash() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('4xl'),
         'mx-auto',
@@ -149,7 +152,7 @@ export function Trash() {
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'between' }),
                     cm.sp('p', 4),
-                    'rounded-xl border border-primary-light/20 bg-surface-container-low/40 hover:bg-surface-container-low transition-colors',
+                    'flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-3 rounded-xl border border-primary-light/20 bg-surface-container-low/40 hover:bg-surface-container-low transition-colors',
                   )}
                 >
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
@@ -177,7 +180,7 @@ export function Trash() {
                       </span>
                     </div>
                   </div>
-                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
                     <span
                       className={cm.cn(
                         cm.sp('px', 2),

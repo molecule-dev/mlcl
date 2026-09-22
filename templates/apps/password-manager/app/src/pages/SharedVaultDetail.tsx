@@ -57,7 +57,7 @@ export function SharedVaultDetail() {
 
   if (loading) {
     return (
-      <div className={cm.cn(cm.sp('p', 8), cm.maxW('5xl'), 'mx-auto')}>
+      <div className={cm.cn('p-4 md:p-8', cm.maxW('5xl'), 'mx-auto')}>
         <p
           className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
           data-testid="shared-detail-loading"
@@ -72,7 +72,7 @@ export function SharedVaultDetail() {
     return (
       <div
         className={cm.cn(
-          cm.sp('p', 8),
+          'p-4 md:p-8',
           cm.maxW('5xl'),
           'mx-auto',
           cm.flex({ direction: 'col', gap: 'sm' }),
@@ -91,7 +91,7 @@ export function SharedVaultDetail() {
   return (
     <div
       className={cm.cn(
-        cm.sp('p', 8),
+        'p-4 md:p-8',
         cm.flex({ direction: 'col', gap: 'xl' }),
         cm.maxW('5xl'),
         'mx-auto',
