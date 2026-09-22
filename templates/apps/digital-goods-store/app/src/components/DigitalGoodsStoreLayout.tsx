@@ -1,18 +1,27 @@
+import { Link, NavLink, Outlet } from 'react-router'
+
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
+import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ThemeToggle } from './ThemeToggle.js'
+import { TroveMobileNav } from './TroveMobileNav.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Authenticated creator dashboard shell — sidebar nav with creator-side
- * destinations (Dashboard, Products, Sales, Library, Orders, Settings)
- * plus user menu in the footer slot.
+ * Authenticated creator dashboard shell.
  *
- * Translated from personal-finance/AppLayout + the SidebarLayout chrome
- * package.
+ * Desktop (lg+): 260px sidebar with creator destinations (Dashboard,
+ * Products, Sales, Library, Orders, Settings) and the user menu in the
+ * footer slot. Below lg the rail collapses into a top bar (brand +
+ * theme toggle + user menu) and a fixed bottom tab bar
+ * (`TroveMobileNav`) — the shared `@molecule/app-sidebar-layout-react`
+ * `SidebarLayout` keeps its 260px rail at phone widths and squeezes the
+ * content off-screen, so this shell is rendered inline per the fleet
+ * mobile-shell pattern (crowdfunding/CreatorSidebarLayout).
  */
 export function DigitalGoodsStoreLayout() {
+  const cm = getClassMap()
   const { t } = useTranslation()
   const navItems = [
     {
@@ -53,14 +62,144 @@ export function DigitalGoodsStoreLayout() {
     },
   ]
   return (
-    <SidebarLayout
-      appName={APP_NAME}
-      logoTo="/dashboard"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={t('nav.creatorAria', {}, { defaultValue: 'Creator dashboard' })}
-      dataMolId="dgs-layout"
-    />
+    <div
+      className={cm.cn('min-h-screen flex flex-col lg:flex-row bg-bg text-on-surface')}
+      data-mol-id="dgs-layout"
+    >
+      {/* Desktop sidebar — replaces the shared SidebarLayout rail. */}
+      <aside
+        className={cm.cn(
+          'hidden lg:flex flex-col w-[260px] fixed inset-y-0 left-0 z-40 border-r border-border bg-surface',
+        )}
+        aria-label={t('nav.creatorAria', {}, { defaultValue: 'Creator dashboard' })}
+      >
+        <Link
+          to="/dashboard"
+          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 6))}
+          aria-label={APP_NAME}
+        >
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.roundedFull,
+              'bg-gradient-to-br from-primary to-accent shadow-md shadow-primary/30',
+            )}
+            style={{ width: 36, height: 36 }}
+          >
+            <span className="material-symbols-outlined text-white" style={{ fontSize: 22 }}>
+              inventory_2
+            </span>
+          </span>
+          <span
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('bold'),
+              'tracking-tight text-on-surface',
+            )}
+          >
+            {APP_NAME}
+          </span>
+        </Link>
+
+        <nav className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(1), 'overflow-y-auto')}>
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === '/dashboard'}
+              className={({ isActive }) =>
+                cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  cm.textSize('sm'),
+                  cm.fontWeight('medium'),
+                  cm.roundedFull,
+                  'transition-colors',
+                  isActive
+                    ? 'bg-primary-light text-primary-dark font-semibold'
+                    : 'text-on-surface-variant hover:bg-bg-secondary hover:text-on-surface',
+                )
+              }
+              data-mol-id={`dgs-nav-${item.key}`}
+            >
+              <span
+                className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
+                aria-hidden="true"
+              >
+                {item.icon}
+              </span>
+              <span>{item.label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className={cm.cn(cm.sp('p', 4), 'border-t border-border')}>
+          <UserMenu />
+        </div>
+      </aside>
+
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.flex1,
+          'min-w-0 min-h-screen lg:ml-[260px]',
+        )}
+      >
+        {/* Top bar — the only chrome on phones. */}
+        <header
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between' }),
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            'sticky top-0 z-30 bg-surface/90 backdrop-blur border-b border-border',
+          )}
+        >
+          <Link
+            to="/dashboard"
+            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'lg:hidden')}
+            aria-label={APP_NAME}
+          >
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.roundedFull,
+                'bg-gradient-to-br from-primary to-accent shadow-md shadow-primary/30',
+              )}
+              style={{ width: 30, height: 30 }}
+            >
+              <span className="material-symbols-outlined text-white" style={{ fontSize: 18 }}>
+                inventory_2
+              </span>
+            </span>
+            <span
+              className={cm.cn(
+                cm.textSize('base'),
+                cm.fontWeight('bold'),
+                'tracking-tight text-on-surface',
+              )}
+            >
+              {APP_NAME}
+            </span>
+          </Link>
+          <div className={cm.cn(cm.flex1, 'hidden lg:block')} aria-hidden="true" />
+          <div className={cm.flex({ align: 'center', gap: 'xs' })}>
+            <ThemeToggle />
+            <span className="lg:hidden">
+              <UserMenu />
+            </span>
+          </div>
+        </header>
+
+        <main className={cm.flex1}>
+          <Outlet />
+        </main>
+        {/* Clear the fixed mobile bottom nav (hidden at lg where the
+            sidebar takes over). */}
+        <div className={cm.cn('h-16 lg:hidden')} aria-hidden="true" />
+      </div>
+      <TroveMobileNav />
+    </div>
   )
 }
 

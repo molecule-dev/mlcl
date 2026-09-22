@@ -402,7 +402,7 @@ router.get('/session/:sessionId', async (req: Request, res: Response) => {
       productId: session.metadata?.productId ?? null,
     })
   } catch (err) {
-    logger.error(err)
+    logger.error('checkout.getSession', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

@@ -230,7 +230,7 @@ router.get('/:productId/file', async (req: Request, res: Response) => {
     res.setHeader('Content-Length', String(Buffer.byteLength(body, 'utf8')))
     res.send(body)
   } catch (err) {
-    logger.error(err)
+    logger.error('downloads.serve', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

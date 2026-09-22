@@ -128,7 +128,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json({ data: products.map(toApiProduct), page, limit })
   } catch (err) {
-    logger.error(err)
+    logger.error('products.list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -156,7 +156,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(toApiProduct(product))
   } catch (err) {
-    logger.error(err)
+    logger.error('products.get', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -227,7 +227,7 @@ router.post(
       })
       res.status(201).json(toApiProduct(result.data as Record<string, unknown>))
     } catch (err) {
-      logger.error(err)
+      logger.error('products.create', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -279,7 +279,7 @@ router.put('/:id', validateBody(updateProductSchema), async (req: Request, res: 
     const result = await updateById('products', getParamId(req), updates)
     res.json(toApiProduct(result.data as Record<string, unknown>))
   } catch (err) {
-    logger.error(err)
+    logger.error('products.update', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

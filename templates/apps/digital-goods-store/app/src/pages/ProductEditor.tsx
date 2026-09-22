@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -89,6 +90,7 @@ export function ProductEditor() {
     setError(null)
     try {
       await http.delete(`/api/products/${encodeURIComponent(id)}`)
+      void track({ name: 'product.deleted', properties: { product_id: id } })
       navigate('/products')
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -117,8 +119,16 @@ export function ProductEditor() {
         const p = unwrap<ApiProduct>(res)
         if (!p) throw new Error('Could not create product')
         savedId = p.id
+        void track({
+          name: 'product.created',
+          properties: { product_id: p.id, status: finalStatus, pricing_model: pricing },
+        })
       } else if (id) {
         await http.put(`/api/products/${encodeURIComponent(id)}`, body)
+        void track({
+          name: 'product.updated',
+          properties: { product_id: id, status: finalStatus, pricing_model: pricing },
+        })
       }
       setStatus(finalStatus)
       setStatusMsg(

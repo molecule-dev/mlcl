@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,6 +65,10 @@ export function CustomerLibrary() {
         (res as { data?: { url?: string } })?.data?.url ??
         null
       if (url) {
+        void track({
+          name: 'download.started',
+          properties: { product_id: item.product_id, license_id: item.id },
+        })
         window.location.assign(url)
       } else {
         setError(t('library.downloadError', {}, { defaultValue: 'Could not prepare download.' }))

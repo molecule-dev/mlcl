@@ -181,7 +181,8 @@ router.post('/', validateBody(createPurchaseSchema), async (req: Request, res: R
         total_revenue: toNum(product.total_revenue) + toNum(product.price),
       })
     } catch (_err) {
-      // ignore stats failure — best-effort; the purchase already succeeded
+      // Stats failure must not undo the sale, but never swallow silently.
+      logger.error('purchases.updateProductStats', _err)
     }
 
     res.status(201).json({
@@ -190,7 +191,7 @@ router.post('/', validateBody(createPurchaseSchema), async (req: Request, res: R
       licenseKey,
     })
   } catch (err) {
-    logger.error(err)
+    logger.error('purchases.create', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

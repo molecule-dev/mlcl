@@ -124,7 +124,7 @@ router.get('/', async (_req: Request, res: Response) => {
       topProducts,
     })
   } catch (err) {
-    logger.error(err)
+    logger.error('analytics.summary', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

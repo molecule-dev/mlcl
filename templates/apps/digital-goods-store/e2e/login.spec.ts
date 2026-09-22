@@ -26,6 +26,13 @@ test.describe('Login page (/login)', () => {
   })
 
   test('invalid credentials keep user on /login', async ({ page }) => {
+    // The whole point is a rejected login: the API answers 403 and the
+    // browser logs it as a console error. Tell the console guard this
+    // one is expected (regex matches the console text).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill('does-not-exist-' + Date.now() + '@example.com')
     await page.locator('#password').fill('WrongPass123!')

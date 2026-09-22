@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -78,6 +79,19 @@ export function OrderConfirm() {
           setError(t('orderConfirm.notFound', {}, { defaultValue: 'Order not found.' }))
           return
         }
+        // Conversion milestone: the Stripe redirect landed back in the app
+        // and the fulfilled order is confirmed. Fire once per order load —
+        // `track` is a silent no-op without a bonded provider.
+        if (ord.status === 'completed') {
+          void track({
+            name: 'purchase.completed',
+            properties: {
+              order_id: ord.id,
+              product_ids: ord.items.map((i) => i.product_id),
+              amount_cents: ord.total_cents,
+            },
+          })
+        }
         setOrder(ord)
       } catch (e) {
         setError(e instanceof Error ? e.message : String(e))
@@ -94,6 +108,10 @@ export function OrderConfirm() {
       const res = await http.get(`/api/downloads/${encodeURIComponent(item.product_id)}`)
       const inner = unwrap<{ url?: string }>(res)
       if (inner?.url) {
+        void track({
+          name: 'download.started',
+          properties: { product_id: item.product_id, order_id: order?.id },
+        })
         window.location.assign(inner.url)
       } else {
         setError(

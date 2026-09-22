@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -53,11 +54,21 @@ export function Checkout() {
       })
       const data = unwrap(res)
       if (data.freeOrder && data.orderId) {
+        void track({
+          name: 'purchase.completed',
+          properties: { product_id: item.productId, order_id: data.orderId, amount_cents: 0 },
+        })
         removeFromCart(item.productId)
         navigate(`/order/${data.orderId}/confirm`)
         return
       }
       if (data.url) {
+        // Conversion funnel: the Stripe-hosted session opened. The purchase
+        // itself is confirmed on /order/:id/confirm (purchase.completed).
+        void track({
+          name: 'checkout.started',
+          properties: { product_id: item.productId, session_id: data.sessionId },
+        })
         removeFromCart(item.productId)
         window.location.assign(data.url)
         return

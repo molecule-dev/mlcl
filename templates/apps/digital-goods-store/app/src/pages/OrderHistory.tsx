@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -96,6 +97,13 @@ export function OrderHistory() {
         )
         return
       }
+      void track({
+        name: 'download.started',
+        properties: {
+          order_id: order.id,
+          product_ids: order.items.map((i) => i.product_id),
+        },
+      })
       const [first, ...rest] = urls
       for (const u of rest) window.open(u, '_blank', 'noopener')
       window.location.assign(first)

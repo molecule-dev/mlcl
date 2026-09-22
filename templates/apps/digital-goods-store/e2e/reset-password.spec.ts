@@ -12,6 +12,13 @@ test.describe('Reset password page (/reset-password)', () => {
   })
 
   test('submitting calls /api/users/reset-password', async ({ page }) => {
+    // The spec submits with a bogus token, so the API rejects with 401 and
+    // the browser logs it as a console error — expected here (the page must
+    // surface the failure inline, not 5xx).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=demo-token')
     const reqs = await captureNetwork(page, async () => {
       const newPw = page

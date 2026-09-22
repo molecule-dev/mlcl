@@ -257,6 +257,21 @@ export function Dashboard() {
             {t('dashboard.topProducts', {}, { defaultValue: 'Top products' })}
           </h3>
           <ul className={cm.stack(3)}>
+            {analytics.topProducts.length === 0 && (
+              <li
+                className={cm.cn(
+                  cm.sp('p', 3),
+                  cm.textSize('sm'),
+                  'rounded-xl bg-bg-secondary text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'dashboard.topProductsEmpty',
+                  {},
+                  { defaultValue: 'No sales yet — your bestsellers will appear here.' },
+                )}
+              </li>
+            )}
             {analytics.topProducts.map((p) => (
               <li
                 key={p.slug}

@@ -59,7 +59,16 @@ test.describe('Cart page (/cart)', () => {
         .then(() => true)
         .catch(() => false)
     if (!(await seen(inc)) && !(await seen(dec))) {
-      test.skip(true, 'no quantity controls on cart')
+      // Digital goods are one-license-per-buyer (checkout creates one Stripe
+      // session per product and the API rejects re-purchase), so the app
+      // deliberately ships NO quantity controls. Assert that contract
+      // instead of skipping — this test now fails if someone adds inc/dec
+      // UI without also adding per-license semantics.
+      expect(
+        (await inc.count()) + (await dec.count()),
+        'quantity controls must stay absent for one-license digital goods',
+      ).toBe(0)
+      return
     }
     if (await inc.count()) await inc.click()
     if (await dec.count()) await dec.click()
