@@ -276,8 +276,9 @@ router.delete('/:id', async (req: Request, res: Response) => {
 function safeBroadcast(channel: string, event: string, payload: unknown): void {
   try {
     void broadcast(channel, event, payload)
-  } catch (_error) {
+  } catch (error) {
     // realtime is opportunistic — broadcast failures must not block HTTP responses
+    logger.debug('realtime.broadcastFailed', { channel, event, error: String(error) })
   }
 }
 

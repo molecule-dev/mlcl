@@ -27,11 +27,10 @@ test.describe('Maps list', () => {
     const beforeBody = (await before.json()) as Array<{ id: string }>
     const beforeCount = beforeBody.length
 
-    // click the in-page "New map" button (sidebar version is hidden when topbar action is enabled)
-    await page
-      .getByRole('main')
-      .getByRole('button', { name: /New map/i })
-      .click()
+    // click the in-page "New map" button by its id — with zero maps the page
+    // legitimately shows TWO "New map" buttons (header CTA + empty-state CTA),
+    // so a role/name locator strict-modes.
+    await page.locator('[data-mol-id="maps-new-button"]').click()
     await page.waitForURL(/\/maps\/[0-9a-f-]{36}$/, { timeout: 10000 })
     const after = await page.request.get(`${API_BASE}/maps`, { headers: apiHeaders(accessToken) })
     const afterBody = (await after.json()) as Array<{ id: string }>

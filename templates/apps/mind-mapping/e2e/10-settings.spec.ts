@@ -44,6 +44,11 @@ test.describe('Settings', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#login-email').fill(email)
     await page.locator('input#login-password').fill(password)
+    // The rejected old-credential POST 403s by design; the page surfaces it inline.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.locator('form button[type="submit"]').click()
     await page.waitForTimeout(800)
     await expect(page).toHaveURL(/\/login/)

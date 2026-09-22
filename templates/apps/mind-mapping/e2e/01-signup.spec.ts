@@ -28,7 +28,13 @@ test.describe('Signup', () => {
     await page.locator('input#signup-name').fill('Test User')
     await page.locator('input#signup-email').fill(email)
     await page.locator('input#signup-password').fill('TestPass!1234')
+    // The duplicate POST 403s by design; the page surfaces it inline (role=alert).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.locator('form button[type="submit"]').click()
+    await expect(page.getByRole('alert')).toBeVisible()
     await page.waitForTimeout(800)
     await expect(page).toHaveURL(/\/signup/)
   })

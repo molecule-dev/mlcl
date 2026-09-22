@@ -1,11 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
+import {
+  buildMarkdown,
+  downloadBlob,
+  type ExportFormat,
+  serializeSvg,
+  slugifyFilename,
+  svgToPngBlob,
+} from '../lib/export.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
 interface MindMapNode {
@@ -60,6 +69,14 @@ type Tool = 'select' | 'add' | 'connect'
 const NODE_W = 140
 const NODE_H = 56
 
+// Canvas zoom bounds — mirrors family-tree's proven canvas controls.
+const MIN_ZOOM = 0.4
+const MAX_ZOOM = 2.4
+
+// The SVG viewBox the world lives in; pan positions the world inside it.
+const VIEW_W = 720
+const VIEW_H = 480
+
 const toNumber = (v: unknown, fallback: number): number => {
   const n = typeof v === 'number' ? v : parseFloat(String(v ?? ''))
   return Number.isFinite(n) ? n : fallback
@@ -84,8 +101,31 @@ export function MapEditor() {
   const [savingTemplate, setSavingTemplate] = useState(false)
   const [titleDraft, setTitleDraft] = useState('')
   const [editingText, setEditingText] = useState<string>('')
+  // Export menu state: `canExport` is fetched lazily on first open
+  // (GET /billing/status → limits.canExport; free=false, pro/team=true).
+  const [exportOpen, setExportOpen] = useState(false)
+  const [exportBusy, setExportBusy] = useState<ExportFormat | null>(null)
+  const [canExport, setCanExport] = useState<boolean | null>(null)
   const dragRef = useRef<{ nodeId: string; offsetX: number; offsetY: number } | null>(null)
   const svgRef = useRef<SVGSVGElement | null>(null)
+  // Canvas pan + zoom (family-tree's proven canvas approach): the world lives
+  // inside a translated/scaled <g>, so a 720x480 world stays explorable on a
+  // 390px phone instead of shrinking to fit. Background drags pan; the toolbar
+  // zooms; the root node is centered once after load so the canvas never opens
+  // on an empty corner.
+  const [zoom, setZoom] = useState(1)
+  const [pan, setPan] = useState({ x: 0, y: 0 })
+  const panDragRef = useRef<{
+    startX: number
+    startY: number
+    baseX: number
+    baseY: number
+    moved: boolean
+  } | null>(null)
+  const suppressClickRef = useRef(false)
+  const didCenterRef = useRef(false)
+  // Mirror into a ref for the center-on-load effect's dependencies.
+  const centeredForMapRef = useRef<string | null>(null)
   // Mirror the selected node id into a ref so the realtime merge (below) can read
   // the current selection WITHOUT re-subscribing to the room on every selection.
   const selectedNodeIdRef = useRef<string | null>(null)
@@ -237,6 +277,33 @@ export function MapEditor() {
 
   const selected = nodes.find((n) => n.id === selectedNodeId) || null
 
+  // New map → fresh viewport.
+  useEffect(() => {
+    didCenterRef.current = false
+    centeredForMapRef.current = null
+    setZoom(1)
+    setPan({ x: 0, y: 0 })
+  }, [id])
+
+  // Center the ROOT node once the first load lands: without this the canvas
+  // opens on the world's top-left corner — on a phone that can be a single
+  // node pinned at the edge with no hint the rest is out there.
+  useEffect(() => {
+    if (loading || nodes.length === 0) return
+    if (didCenterRef.current && centeredForMapRef.current === id) return
+    const root = nodes.find((n) => !n.parent_id) ?? nodes[0]
+    setPan({
+      x: VIEW_W / 2 - (root.x + NODE_W / 2),
+      y: VIEW_H / 2 - (root.y + NODE_H / 2),
+    })
+    didCenterRef.current = true
+    centeredForMapRef.current = id ?? null
+  }, [loading, nodes, id])
+
+  const zoomBy = (delta: number) => {
+    setZoom((z) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.round((z + delta) * 10) / 10)))
+  }
+
   useEffect(() => {
     setEditingText(selected?.text ?? '')
   }, [selectedNodeId, selected?.text])
@@ -268,11 +335,31 @@ export function MapEditor() {
         position: nodes.length,
       })
       if (res?.data) {
-        setNodes((prev) => [
-          ...prev,
-          { ...res.data!, x: toNumber(res.data!.x, atX), y: toNumber(res.data!.y, atY) },
-        ])
-        setSelectedNodeId(res.data.id)
+        // Merge BY ID: the server broadcasts `node:created` to the whole room
+        // INCLUDING this client, and the socket echo can beat the HTTP response
+        // back — onNodeCreated may have appended the node already. Appending
+        // unconditionally duplicated it (duplicate React keys, node rendered
+        // twice), so replace-or-append exactly like the realtime merge does.
+        const node: MindMapNode = {
+          ...res.data,
+          x: toNumber(res.data.x, atX),
+          y: toNumber(res.data.y, atY),
+        }
+        setNodes((prev) =>
+          prev.some((n) => n.id === node.id)
+            ? prev.map((n) => (n.id === node.id ? node : n))
+            : [...prev, node],
+        )
+        setSelectedNodeId(node.id)
+        void track({
+          name: 'node.added',
+          properties: {
+            map_id: id,
+            node_id: node.id,
+            parent_id: parentId,
+            method: parentId ? 'add_child' : 'canvas_click',
+          },
+        })
       }
     } catch (error) {
       logError('mapEditor.addNode', error)
@@ -283,6 +370,7 @@ export function MapEditor() {
   const handleDeleteNode = async (nodeId: string) => {
     try {
       await http.delete(`/nodes/${nodeId}`)
+      void track({ name: 'node.deleted', properties: { map_id: id, node_id: nodeId } })
       setNodes((prev) => prev.filter((n) => n.id !== nodeId && n.parent_id !== nodeId))
       setConnections((prev) =>
         prev.filter((c) => c.source_node_id !== nodeId && c.target_node_id !== nodeId),
@@ -330,7 +418,24 @@ export function MapEditor() {
         source_node_id: sourceId,
         target_node_id: targetId,
       })
-      if (res?.data) setConnections((prev) => [...prev, res.data!])
+      if (res?.data) {
+        // Same by-id merge as handleAddNode — the creator's own
+        // `connection:created` room echo can arrive before this HTTP response.
+        setConnections((prev) =>
+          prev.some((c) => c.id === res.data!.id)
+            ? prev.map((c) => (c.id === res.data!.id ? res.data! : c))
+            : [...prev, res.data!],
+        )
+        void track({
+          name: 'node.connected',
+          properties: {
+            map_id: id,
+            connection_id: res.data.id,
+            source_node_id: sourceId,
+            target_node_id: targetId,
+          },
+        })
+      }
     } catch (error) {
       logError('mapEditor.connect', error)
       setError(
@@ -352,7 +457,13 @@ export function MapEditor() {
         snapshot: { nodes, connections },
       })
       const newId = res?.data?.id
-      if (newId) navigate(`/templates/${newId}`)
+      if (newId) {
+        void track({
+          name: 'template.created',
+          properties: { template_id: newId, map_id: map.id },
+        })
+        navigate(`/templates/${newId}`)
+      }
     } catch (error) {
       logError('mapEditor.saveTemplate', error)
       setError(
@@ -360,6 +471,69 @@ export function MapEditor() {
       )
     } finally {
       setSavingTemplate(false)
+    }
+  }
+
+  // Export the canvas — tier-gated client-side via /billing/status
+  // (limits.canExport). Markdown = indented outline; SVG/PNG = the current
+  // canvas view, theme vars baked in (lib/export.ts).
+  const ensureExportEntitlement = useCallback(async (): Promise<boolean | null> => {
+    if (canExport !== null) return canExport
+    try {
+      const res = await http.get<{ limits?: { canExport?: boolean } }>('/billing/status')
+      const allowed = res?.data?.limits?.canExport === true
+      setCanExport(allowed)
+      return allowed
+    } catch (error) {
+      // Status endpoint unavailable (e.g. billing not wired) — don't block the
+      // menu, the individual exports fail with inline errors if they fail.
+      logError('mapEditor.exportStatus', error)
+      return null
+    }
+  }, [canExport, http])
+
+  const handleExport = async (format: ExportFormat) => {
+    if (!map || exportBusy) return
+    setExportBusy(format)
+    try {
+      const filename = slugifyFilename(map.title)
+      if (format === 'markdown') {
+        downloadBlob(
+          new Blob([buildMarkdown(map.title, nodes)], { type: 'text/markdown;charset=utf-8' }),
+          `${filename}.md`,
+        )
+      } else {
+        const svg = svgRef.current
+        const svgString = svg ? serializeSvg(svg) : null
+        if (!svgString) {
+          setError(t('mapEditor.exportError', {}, { defaultValue: 'Could not export the map.' }))
+          return
+        }
+        if (format === 'svg') {
+          downloadBlob(
+            new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' }),
+            `${filename}.svg`,
+          )
+        } else {
+          const viewBox = (svg?.getAttribute('viewBox') ?? '0 0 720 480')
+            .split(/[\s,]+/)
+            .map(Number)
+          const w = Number.isFinite(viewBox[2]) ? viewBox[2] : 720
+          const h = Number.isFinite(viewBox[3]) ? viewBox[3] : 480
+          const blob = await svgToPngBlob(svgString, w, h)
+          downloadBlob(blob, `${filename}.png`)
+        }
+      }
+      track({
+        name: 'map.exported',
+        properties: { map_id: map.id, format, node_count: nodes.length },
+      })
+      setExportOpen(false)
+    } catch (error) {
+      logError('mapEditor.export', error)
+      setError(t('mapEditor.exportError', {}, { defaultValue: 'Could not export the map.' }))
+    } finally {
+      setExportBusy(null)
     }
   }
 
@@ -375,8 +549,15 @@ export function MapEditor() {
     return { x: transformed.x, y: transformed.y }
   }
 
+  // viewBox coords → world coords (the pan/zoom <g> transform inverted).
+  const svgToWorld = (pt: { x: number; y: number }) => ({
+    x: (pt.x - pan.x) / zoom,
+    y: (pt.y - pan.y) / zoom,
+  })
+
   const handleNodePointerDown = (e: React.PointerEvent<SVGGElement>, node: MindMapNode) => {
     if (tool === 'add') return
+    suppressClickRef.current = true
     if (tool === 'connect') {
       if (!connectFrom) {
         setConnectFrom(node.id)
@@ -392,7 +573,10 @@ export function MapEditor() {
     setSelectedNodeId(node.id)
     const pt = screenToSvg(e.clientX, e.clientY)
     if (!pt) return
-    dragRef.current = { nodeId: node.id, offsetX: pt.x - node.x, offsetY: pt.y - node.y }
+    // Capture the grab offset in WORLD coords — pt is viewBox coords and the
+    // pan/zoom transform sits between the two.
+    const world = svgToWorld(pt)
+    dragRef.current = { nodeId: node.id, offsetX: world.x - node.x, offsetY: world.y - node.y }
     ;(e.target as Element).setPointerCapture?.(e.pointerId)
   }
 
@@ -401,9 +585,10 @@ export function MapEditor() {
     if (!drag) return
     const pt = screenToSvg(e.clientX, e.clientY)
     if (!pt) return
+    const world = svgToWorld(pt)
     setNodes((prev) =>
       prev.map((n) =>
-        n.id === drag.nodeId ? { ...n, x: pt.x - drag.offsetX, y: pt.y - drag.offsetY } : n,
+        n.id === drag.nodeId ? { ...n, x: world.x - drag.offsetX, y: world.y - drag.offsetY } : n,
       ),
     )
   }
@@ -425,11 +610,47 @@ export function MapEditor() {
     }
   }
 
-  const handleCanvasClick = (e: React.MouseEvent<SVGSVGElement>) => {
-    if (tool !== 'add') return
+  // Background pan: dragging the canvas (select tool, not on a node) moves the
+  // world. Mirrors family-tree's pointer-drag pan, expressed in viewBox coords
+  // so the viewBox↔screen scaling cancels out.
+  const handleCanvasPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (tool !== 'select') return
+    if ((e.target as Element).closest?.('[data-mol-id="map-editor-node"]')) return
     const pt = screenToSvg(e.clientX, e.clientY)
     if (!pt) return
-    void handleAddNode(Math.round(pt.x - NODE_W / 2), Math.round(pt.y - NODE_H / 2))
+    panDragRef.current = { startX: pt.x, startY: pt.y, baseX: pan.x, baseY: pan.y, moved: false }
+  }
+
+  const handleCanvasPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    const d = panDragRef.current
+    if (!d) return
+    const pt = screenToSvg(e.clientX, e.clientY)
+    if (!pt) return
+    const dx = pt.x - d.startX
+    const dy = pt.y - d.startY
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) d.moved = true
+    setPan({ x: d.baseX + dx, y: d.baseY + dy })
+  }
+
+  const handleCanvasPointerUp = () => {
+    if (panDragRef.current) suppressClickRef.current = panDragRef.current.moved
+    panDragRef.current = null
+  }
+
+  const handleCanvasClick = (e: React.MouseEvent<SVGSVGElement>) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false
+      return
+    }
+    const pt = screenToSvg(e.clientX, e.clientY)
+    if (!pt) return
+    if (tool === 'add') {
+      const world = svgToWorld(pt)
+      void handleAddNode(Math.round(world.x - NODE_W / 2), Math.round(world.y - NODE_H / 2))
+      return
+    }
+    // Select tool: clicking empty canvas clears the selection.
+    if (tool === 'select') setSelectedNodeId(null)
   }
 
   const tools: Array<{ key: Tool; icon: string; label: string }> = [
@@ -447,6 +668,21 @@ export function MapEditor() {
       key: 'connect',
       icon: 'timeline',
       label: t('mapEditor.tool.connect', {}, { defaultValue: 'Connect nodes' }),
+    },
+  ]
+
+  const zoomControls = [
+    {
+      key: 'zoom-out',
+      icon: 'zoom_out',
+      label: t('mapEditor.zoomOut', {}, { defaultValue: 'Zoom out' }),
+      onClick: () => zoomBy(-0.2),
+    },
+    {
+      key: 'zoom-in',
+      icon: 'zoom_in',
+      label: t('mapEditor.zoomIn', {}, { defaultValue: 'Zoom in' }),
+      onClick: () => zoomBy(0.2),
     },
   ]
 
@@ -486,13 +722,14 @@ export function MapEditor() {
             disabled={savingTitle || loading}
           />
         </div>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           <button
             type="button"
             onClick={async () => {
               if (!id) return
               try {
                 await http.post(`/maps/${id}/trash`, {})
+                void track({ name: 'map.trashed', properties: { map_id: id } })
                 navigate('/maps')
               } catch (error) {
                 logError('mapEditor.trash', error)
@@ -526,13 +763,133 @@ export function MapEditor() {
               'rounded-xl text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-60',
             )}
           >
-            <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
+            <span
+              className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
+              aria-hidden="true"
+            >
               collections_bookmark
             </span>
             {savingTemplate
               ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
               : t('mapEditor.saveTemplate', {}, { defaultValue: 'Save as template' })}
           </button>
+          <div className="relative">
+            <button
+              type="button"
+              disabled={loading || !map}
+              aria-expanded={exportOpen}
+              aria-haspopup="menu"
+              onClick={() => {
+                setExportOpen((open) => {
+                  if (!open) void ensureExportEntitlement()
+                  return !open
+                })
+              }}
+              data-mol-id="map-editor-export-button"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('semibold'),
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'rounded-xl text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-60',
+              )}
+            >
+              <span
+                className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
+                aria-hidden="true"
+              >
+                download
+              </span>
+              {t('mapEditor.export', {}, { defaultValue: 'Export' })}
+            </button>
+            {exportOpen && (
+              <>
+                {/* Backdrop closes the menu on outside click */}
+                <button
+                  type="button"
+                  aria-label={t('mapEditor.closeExport', {}, { defaultValue: 'Close export menu' })}
+                  onClick={() => setExportOpen(false)}
+                  className="fixed inset-0 z-30 cursor-default"
+                />
+                <div
+                  role="menu"
+                  aria-label={t('mapEditor.export', {}, { defaultValue: 'Export' })}
+                  data-mol-id="map-editor-export-menu"
+                  className={cm.cn(
+                    'absolute right-0 top-full mt-1 z-40 w-56 rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-lg p-1',
+                  )}
+                >
+                  {canExport === false ? (
+                    <div className={cm.stack(2)}>
+                      <p
+                        className={cm.cn(
+                          cm.sp('p', 2),
+                          cm.textSize('xs'),
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {t(
+                          'mapEditor.exportLocked',
+                          {},
+                          { defaultValue: 'Exporting is a Pro feature.' },
+                        )}
+                      </p>
+                      <Link
+                        to="/billing"
+                        onClick={() => setExportOpen(false)}
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.sp('py', 2),
+                          cm.textSize('sm'),
+                          cm.fontWeight('bold'),
+                          'block rounded-lg text-primary hover:bg-surface-container-low',
+                        )}
+                      >
+                        {t('mapEditor.exportUpgrade', {}, { defaultValue: 'Upgrade to export →' })}
+                      </Link>
+                    </div>
+                  ) : (
+                    (['markdown', 'png', 'svg'] as const).map((format) => (
+                      <button
+                        key={format}
+                        role="menuitem"
+                        type="button"
+                        disabled={exportBusy !== null}
+                        onClick={() => void handleExport(format)}
+                        data-mol-id={`map-editor-export-${format}`}
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 2),
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                          'w-full rounded-lg text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-60',
+                        )}
+                      >
+                        <span>
+                          {format === 'markdown'
+                            ? t('mapEditor.exportMarkdown', {}, { defaultValue: 'Markdown (.md)' })
+                            : format === 'png'
+                              ? t('mapEditor.exportPng', {}, { defaultValue: 'Image (.png)' })
+                              : t('mapEditor.exportSvg', {}, { defaultValue: 'Vector (.svg)' })}
+                        </span>
+                        {exportBusy === format && (
+                          <span
+                            className={cm.cn(
+                              cm.w(4),
+                              cm.h(4),
+                              'rounded-full border-2 border-primary border-t-transparent animate-spin',
+                            )}
+                            aria-hidden="true"
+                          />
+                        )}
+                      </button>
+                    ))
+                  )}
+                </div>
+              </>
+            )}
+          </div>
           <Link
             to={id ? `/maps/${id}/history` : '/maps'}
             data-mol-id="map-editor-history-link"
@@ -600,7 +957,7 @@ export function MapEditor() {
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('p', 1),
-              'absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-surface-container-lowest rounded-xl shadow-md border border-outline-variant/30',
+              'absolute top-4 left-1/2 -translate-x-1/2 z-20 bg-surface-container-lowest rounded-xl shadow-md border border-outline-variant/30 flex-wrap max-w-[calc(100%-2rem)] justify-center',
             )}
           >
             {tools.map((toolDef) => (
@@ -625,16 +982,44 @@ export function MapEditor() {
                     : 'text-on-surface-variant hover:bg-surface-container-low',
                 )}
               >
-                <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>
+                <span
+                  className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
+                  aria-hidden="true"
+                >
                   {toolDef.icon}
                 </span>
               </button>
             ))}
+            <span className={cm.cn(cm.sp('px', 1), 'border-l border-outline-variant/40 flex')}>
+              {zoomControls.map((ctl) => (
+                <button
+                  key={ctl.key}
+                  type="button"
+                  onClick={ctl.onClick}
+                  title={ctl.label}
+                  aria-label={ctl.label}
+                  data-mol-id={`map-editor-${ctl.key}`}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(9),
+                    cm.h(9),
+                    'rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                  )}
+                >
+                  <span
+                    className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
+                    aria-hidden="true"
+                  >
+                    {ctl.icon}
+                  </span>
+                </button>
+              ))}
+            </span>
             <span
               className={cm.cn(
                 cm.sp('px', 2),
                 cm.textSize('xs'),
-                'text-on-surface-variant border-l border-outline-variant/40',
+                'text-on-surface-variant border-l border-outline-variant/40 hidden lg:inline',
               )}
             >
               {tool === 'add'
@@ -654,99 +1039,105 @@ export function MapEditor() {
           <svg
             ref={svgRef}
             viewBox="0 0 720 480"
-            className={cm.cn(cm.w('full'), 'block h-[520px]')}
+            className={cm.cn(cm.w('full'), 'block h-[520px] touch-none select-none')}
             onClick={handleCanvasClick}
+            onPointerDown={handleCanvasPointerDown}
+            onPointerMove={handleCanvasPointerMove}
+            onPointerUp={handleCanvasPointerUp}
+            onPointerLeave={handleCanvasPointerUp}
             data-mol-id="map-editor-canvas"
           >
-            <g
-              style={{ stroke: 'color-mix(in srgb, var(--color-primary) 55%, transparent)' }}
-              strokeWidth="2"
-              fill="none"
-            >
-              {connections.map((c) => {
-                const a = nodes.find((n) => n.id === c.source_node_id)
-                const b = nodes.find((n) => n.id === c.target_node_id)
-                if (!a || !b) return null
-                const ax = a.x + NODE_W / 2
-                const ay = a.y + NODE_H / 2
-                const bx = b.x + NODE_W / 2
-                const by = b.y + NODE_H / 2
-                const cx = (ax + bx) / 2
-                return (
-                  <path key={c.id} d={`M ${ax} ${ay} C ${cx} ${ay}, ${cx} ${by}, ${bx} ${by}`} />
-                )
-              })}
+            <g transform={`translate(${pan.x} ${pan.y}) scale(${zoom})`}>
+              <g
+                style={{ stroke: 'color-mix(in srgb, var(--color-primary) 55%, transparent)' }}
+                strokeWidth="2"
+                fill="none"
+              >
+                {connections.map((c) => {
+                  const a = nodes.find((n) => n.id === c.source_node_id)
+                  const b = nodes.find((n) => n.id === c.target_node_id)
+                  if (!a || !b) return null
+                  const ax = a.x + NODE_W / 2
+                  const ay = a.y + NODE_H / 2
+                  const bx = b.x + NODE_W / 2
+                  const by = b.y + NODE_H / 2
+                  const cx = (ax + bx) / 2
+                  return (
+                    <path key={c.id} d={`M ${ax} ${ay} C ${cx} ${ay}, ${cx} ${by}, ${bx} ${by}`} />
+                  )
+                })}
+                {nodes.map((node) => {
+                  if (!node.parent_id) return null
+                  const p = nodes.find((pn) => pn.id === node.parent_id)
+                  if (!p) return null
+                  const ax = p.x + NODE_W / 2
+                  const ay = p.y + NODE_H / 2
+                  const bx = node.x + NODE_W / 2
+                  const by = node.y + NODE_H / 2
+                  const cx = (ax + bx) / 2
+                  return (
+                    <path
+                      key={`tree-${node.id}`}
+                      d={`M ${ax} ${ay} C ${cx} ${ay}, ${cx} ${by}, ${bx} ${by}`}
+                      strokeOpacity={0.35}
+                      strokeDasharray="4 4"
+                    />
+                  )
+                })}
+              </g>
               {nodes.map((node) => {
-                if (!node.parent_id) return null
-                const p = nodes.find((pn) => pn.id === node.parent_id)
-                if (!p) return null
-                const ax = p.x + NODE_W / 2
-                const ay = p.y + NODE_H / 2
-                const bx = node.x + NODE_W / 2
-                const by = node.y + NODE_H / 2
-                const cx = (ax + bx) / 2
+                const isSelected = node.id === selectedNodeId
+                const isConnectSource = node.id === connectFrom
                 return (
-                  <path
-                    key={`tree-${node.id}`}
-                    d={`M ${ax} ${ay} C ${cx} ${ay}, ${cx} ${by}, ${bx} ${by}`}
-                    strokeOpacity={0.35}
-                    strokeDasharray="4 4"
-                  />
+                  <g
+                    key={node.id}
+                    transform={`translate(${node.x}, ${node.y})`}
+                    onPointerDown={(e) => handleNodePointerDown(e, node)}
+                    onPointerMove={handleNodePointerMove}
+                    onPointerUp={handleNodePointerUp}
+                    data-mol-id="map-editor-node"
+                    data-node-id={node.id}
+                    style={{ cursor: tool === 'add' ? 'crosshair' : 'pointer' }}
+                  >
+                    <rect
+                      x={0}
+                      y={0}
+                      width={NODE_W}
+                      height={NODE_H}
+                      rx={12}
+                      ry={12}
+                      style={{ fill: 'var(--color-surface)' }}
+                      stroke={
+                        isConnectSource
+                          ? 'var(--color-success)'
+                          : isSelected
+                            ? node.color
+                            : 'var(--color-border-light)'
+                      }
+                      strokeWidth={isConnectSource ? 4 : isSelected ? 3 : 2}
+                    />
+                    <rect x={0} y={0} width={4} height={NODE_H} rx={2} ry={2} fill={node.color} />
+                    <foreignObject x={10} y={6} width={NODE_W - 14} height={NODE_H - 12}>
+                      <div
+                        style={{
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontWeight: 600,
+                          fontSize: 13,
+                          color: 'var(--color-node-text)',
+                          lineHeight: '1.25',
+                          overflow: 'hidden',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                        }}
+                      >
+                        {node.text || t('status.untitled', {}, { defaultValue: 'Untitled' })}
+                      </div>
+                    </foreignObject>
+                  </g>
                 )
               })}
             </g>
-            {nodes.map((node) => {
-              const isSelected = node.id === selectedNodeId
-              const isConnectSource = node.id === connectFrom
-              return (
-                <g
-                  key={node.id}
-                  transform={`translate(${node.x}, ${node.y})`}
-                  onPointerDown={(e) => handleNodePointerDown(e, node)}
-                  onPointerMove={handleNodePointerMove}
-                  onPointerUp={handleNodePointerUp}
-                  data-mol-id="map-editor-node"
-                  data-node-id={node.id}
-                  style={{ cursor: tool === 'add' ? 'crosshair' : 'pointer' }}
-                >
-                  <rect
-                    x={0}
-                    y={0}
-                    width={NODE_W}
-                    height={NODE_H}
-                    rx={12}
-                    ry={12}
-                    style={{ fill: 'var(--color-surface)' }}
-                    stroke={
-                      isConnectSource
-                        ? 'var(--color-success)'
-                        : isSelected
-                          ? node.color
-                          : 'var(--color-border-light)'
-                    }
-                    strokeWidth={isConnectSource ? 4 : isSelected ? 3 : 2}
-                  />
-                  <rect x={0} y={0} width={4} height={NODE_H} rx={2} ry={2} fill={node.color} />
-                  <foreignObject x={10} y={6} width={NODE_W - 14} height={NODE_H - 12}>
-                    <div
-                      style={{
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        fontWeight: 600,
-                        fontSize: 13,
-                        color: 'var(--color-node-text)',
-                        lineHeight: '1.25',
-                        overflow: 'hidden',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                      }}
-                    >
-                      {node.text || t('status.untitled', {}, { defaultValue: 'Untitled' })}
-                    </div>
-                  </foreignObject>
-                </g>
-              )
-            })}
             {nodes.length === 0 && !loading && (
               <text
                 x={360}

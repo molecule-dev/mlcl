@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -33,6 +34,7 @@ export function Maps() {
       const res = await http.post<{ id: string }>('/maps', {})
       const id = res?.data?.id
       if (id) {
+        void track({ name: 'map.created', properties: { map_id: id, source: 'maps_page' } })
         navigate(`/maps/${id}`)
       }
     } catch (error) {

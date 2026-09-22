@@ -22,7 +22,13 @@ test.describe('Login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#login-email').fill(email)
     await page.locator('input#login-password').fill('NotTheRealPassword!1234')
+    // The rejected POST 403s by design; the page surfaces it inline (role=alert).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.locator('form button[type="submit"]').click()
+    await expect(page.getByRole('alert')).toBeVisible()
     await page.waitForTimeout(800)
     await expect(page).toHaveURL(/\/login/)
   })
