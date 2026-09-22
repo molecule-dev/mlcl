@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -81,6 +82,9 @@ export function SubDetail() {
         `/api/subs/${sub.slug}/${wasJoined ? 'leave' : 'join'}`,
       )
       const data = (res as { data?: { joined?: boolean; member_count?: number } })?.data
+      if (!wasJoined) {
+        track({ name: 'sub.joined', properties: { sub_slug: sub.slug } })
+      }
       if (data) {
         setSub((s) =>
           s

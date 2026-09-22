@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -120,6 +121,9 @@ export function Feed() {
           : p,
       ),
     )
+    if (next) {
+      track({ name: 'link.voted', properties: { link_id: id, direction: next } })
+    }
     try {
       if (next) {
         await http.post(`/api/votes/link/${id}/${next}`)
@@ -143,6 +147,9 @@ export function Feed() {
       const data = (res as { data?: { saved?: boolean } })?.data
       const saved = typeof data?.saved === 'boolean' ? data.saved : !previous
       setPosts((prev) => prev.map((p) => (p.id === id ? { ...p, saved } : p)))
+      if (saved) {
+        track({ name: 'link.saved', properties: { link_id: id } })
+      }
     } catch (_error) {
       // Optimistic revert — server disagreed; restore previous saved state.
       setPosts((prev) => prev.map((p) => (p.id === id ? { ...p, saved: previous } : p)))

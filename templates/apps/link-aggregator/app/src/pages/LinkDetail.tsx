@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -20,6 +21,7 @@ export function LinkDetail() {
   const [error, setError] = useState<string | null>(null)
   const [body, setBody] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [commentError, setCommentError] = useState<string | null>(null)
 
   useEffect(() => {
     let active = true
@@ -58,14 +60,19 @@ export function LinkDetail() {
           }
         : p,
     )
-    try {
-      if (next) {
+    if (next) {
+      track({ name: 'link.voted', properties: { link_id: post.id, direction: next } })
+      try {
         await http.post(`/api/votes/link/${post.id}/${next}`)
-      } else {
-        await http.delete(`/api/votes/link/${post.id}`)
+      } catch (_error) {
+        // Optimistic; next data load will reconcile.
       }
-    } catch (_error) {
-      // Optimistic; next data load will reconcile.
+    } else {
+      try {
+        await http.delete(`/api/votes/link/${post.id}`)
+      } catch (_error) {
+        // Optimistic; next data load will reconcile.
+      }
     }
   }
 
@@ -86,6 +93,7 @@ export function LinkDetail() {
     e.preventDefault()
     if (!body.trim()) return
     setSubmitting(true)
+    setCommentError(null)
     try {
       const res = await http.post('/api/comments', {
         resourceType: 'link',
@@ -95,8 +103,14 @@ export function LinkDetail() {
       const created = toComment((res as { data?: unknown }).data ?? res)
       setComments((prev) => [...prev, created])
       setBody('')
+      track({
+        name: 'comment.created',
+        properties: { comment_id: created.id, link_id: id },
+      })
     } catch (_error) {
-      // Future: surface inline error for the user.
+      setCommentError(
+        t('linkDetail.commentError', {}, { defaultValue: 'Comment failed to post — try again.' }),
+      )
     } finally {
       setSubmitting(false)
     }
@@ -271,10 +285,11 @@ export function LinkDetail() {
             rows={3}
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            aria-label={t('linkDetail.commentAria', {}, { defaultValue: 'Write a comment' })}
             placeholder={t(
               'linkDetail.commentPlaceholder',
               {},
-              { defaultValue: 'Add a thoughtful reply\u2026' },
+              { defaultValue: 'Add a thoughtful reply…' },
             )}
             className={cm.cn(
               cm.sp('p', 3),
@@ -282,6 +297,18 @@ export function LinkDetail() {
               'w-full rounded-lg border border-outline-variant/40 bg-surface focus:border-primary focus:outline-none resize-y text-on-surface',
             )}
           />
+          {commentError && (
+            <p
+              role="alert"
+              className={cm.cn(
+                cm.sp('p', 3),
+                cm.textSize('sm'),
+                'rounded-lg bg-error/10 text-error',
+              )}
+            >
+              {commentError}
+            </p>
+          )}
           <div className={cm.cn(cm.flex({ justify: 'end', align: 'center', gap: 'sm' }))}>
             <button
               type="submit"

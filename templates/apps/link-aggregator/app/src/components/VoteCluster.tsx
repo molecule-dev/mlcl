@@ -24,7 +24,9 @@ export function VoteCluster({ score, direction = null, size = 'md', onVote }: Vo
   const cm = getClassMap()
   const { t } = useTranslation()
 
-  const btnSize = size === 'sm' ? 'w-7 h-7 text-base' : 'w-9 h-9 text-xl'
+  // 40px on the feed (md), 36px in dense comment threads (sm) — the mobile
+  // floor for a comfortable thumb target.
+  const btnSize = size === 'sm' ? 'w-9 h-9 text-lg' : 'w-10 h-10 text-xl'
   const scoreSize = size === 'sm' ? cm.textSize('xs') : cm.textSize('sm')
 
   const upActive = direction === 'up'

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -66,13 +67,17 @@ export function Subs() {
         `/api/subs/${slug}/${wasJoined ? 'leave' : 'join'}`,
       )
       const data = (res as { data?: { joined?: boolean; member_count?: number } })?.data
+      const joined = typeof data?.joined === 'boolean' ? data.joined : !wasJoined
+      if (!wasJoined) {
+        track({ name: 'sub.joined', properties: { sub_slug: slug } })
+      }
       if (data) {
         setSubs((prev) =>
           prev.map((s) =>
             s.slug === slug
               ? {
                   ...s,
-                  joined: typeof data.joined === 'boolean' ? data.joined : !wasJoined,
+                  joined,
                   member_count:
                     typeof data.member_count === 'number' ? data.member_count : s.member_count,
                 }

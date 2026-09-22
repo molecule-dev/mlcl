@@ -3,6 +3,12 @@
  * and primary nav links; right column hosts the page Outlet inside a
  * width-constrained editorial canvas.
  *
+ * MOBILE (below md): the rail is hidden and a template-local chip nav takes
+ * over — a second row inside the sticky header with the same destinations,
+ * horizontally scrollable so 390px never overflows. The desktop search field
+ * collapses to an icon link on small screens and the Submit CTA drops its
+ * label, keeping the top bar to one non-overflowing row.
+ *
  * Translated from blog/BlogLayout.tsx — rewritten in ClassMap with the
  * Digest purple palette and a navigation set tuned to link-aggregation
  * (Feed / Subs / Submit / Saved / Notifications / Profile / Settings).
@@ -32,6 +38,15 @@ const NAV: NavItem[] = [
   { to: '/notifications', icon: 'notifications', labelKey: 'notifications', defaultLabel: 'Inbox' },
 ]
 
+// Appended to the chip nav (not the desktop rail, which renders Settings
+// separately below the primary links).
+const SETTINGS_NAV_ITEM: NavItem = {
+  to: '/settings',
+  icon: 'settings',
+  labelKey: 'settings',
+  defaultLabel: 'Settings',
+}
+
 export function LinkAggregatorLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -54,108 +69,168 @@ export function LinkAggregatorLayout() {
     <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'bg-background')}>
       <header
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          cm.sp('px', 6),
-          cm.sp('py', 3),
-          'sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30',
+          cm.flex({ direction: 'col' }),
+          cm.sp('px', 3),
+          'sm:px-6 sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-          <Link
-            to="/feed"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
-            aria-label={APP_NAME}
-          >
-            <span
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.roundedFull,
-                'bg-gradient-to-br from-primary to-[var(--color-primary-deep)] text-white',
-              )}
-              aria-hidden="true"
-            >
-              <span className={'material-symbols-outlined text-lg'}>terrain</span>
-            </span>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.textSize('xl'),
-                'tracking-tight text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </span>
-          </Link>
-        </div>
-        <form
-          onSubmit={handleSearch}
+        <div
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs' }),
-            cm.sp('px', 4),
-            cm.roundedFull,
-            'flex-1 max-w-xl bg-surface-container-low border border-transparent focus-within:border-primary focus-within:bg-surface-container-lowest transition-colors',
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('py', 3),
+            'w-full',
           )}
         >
-          <span className={'material-symbols-outlined text-base text-on-surface-variant'}>
-            search
-          </span>
-          <input
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder={t(
-              'linkAggregatorLayout.searchPlaceholder',
-              {},
-              { defaultValue: 'Search links, tags, users…' },
-            )}
-            className={cm.cn(
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              'flex-1 bg-transparent outline-none text-on-surface placeholder:text-on-surface-variant',
-            )}
-            aria-label={t(
-              'linkAggregatorLayout.searchAria',
-              { appName: APP_NAME },
-              { defaultValue: 'Search {{appName}}' },
-            )}
-          />
-        </form>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-          <Link
-            to="/submit"
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
+            <Link
+              to="/feed"
+              className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}
+              aria-label={APP_NAME}
+            >
+              <span
+                className={cm.cn(
+                  cm.w(8),
+                  cm.h(8),
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.roundedFull,
+                  'bg-gradient-to-br from-primary to-[var(--color-primary-deep)] text-white',
+                )}
+                aria-hidden="true"
+              >
+                <span className={'material-symbols-outlined text-lg'}>terrain</span>
+              </span>
+              <span
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.textSize('xl'),
+                  'tracking-tight text-on-surface',
+                )}
+              >
+                {APP_NAME}
+              </span>
+            </Link>
+          </div>
+          <form
+            onSubmit={handleSearch}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 4),
-              cm.sp('py', 2),
               cm.roundedFull,
-              cm.textSize('sm'),
-              cm.fontWeight('bold'),
-              'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
+              'hidden md:flex flex-1 max-w-xl min-w-0 bg-surface-container-low border border-transparent focus-within:border-primary focus-within:bg-surface-container-lowest transition-colors',
             )}
           >
-            <span className={'material-symbols-outlined text-base'}>add_link</span>
-            {t('common.submit', {}, { defaultValue: 'Submit' })}
-          </Link>
-          <Link
-            to={`/users/${userId}`}
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              cm.roundedFull,
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'bg-secondary/15 text-secondary hover:bg-secondary/25 transition-colors',
-            )}
-            aria-label={t('nav.profile', {}, { defaultValue: 'Profile' })}
-          >
-            {(userName || 'A').slice(0, 1).toUpperCase()}
-          </Link>
-          <ThemeToggle />
-          <UserMenu />
+            <span className={'material-symbols-outlined text-base text-on-surface-variant'}>
+              search
+            </span>
+            <input
+              type="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder={t(
+                'linkAggregatorLayout.searchPlaceholder',
+                {},
+                { defaultValue: 'Search links, tags, users…' },
+              )}
+              className={cm.cn(
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'flex-1 min-w-0 bg-transparent outline-none text-on-surface placeholder:text-on-surface-variant',
+              )}
+              aria-label={t(
+                'linkAggregatorLayout.searchAria',
+                { appName: APP_NAME },
+                { defaultValue: 'Search {{appName}}' },
+              )}
+            />
+          </form>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+            {/* Mobile search — the desktop inline field collapses below md. */}
+            <Link
+              to="/search"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.w(10),
+                cm.h(10),
+                cm.roundedFull,
+                'md:hidden text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-colors',
+              )}
+              aria-label={t(
+                'linkAggregatorLayout.searchAria',
+                { appName: APP_NAME },
+                { defaultValue: 'Search {{appName}}' },
+              )}
+            >
+              <span className={'material-symbols-outlined text-xl'}>search</span>
+            </Link>
+            <Link
+              to="/submit"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('px', 3),
+                'sm:px-4',
+                cm.sp('py', 2),
+                cm.roundedFull,
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                'bg-primary text-on-primary hover:bg-primary-hover transition-colors',
+              )}
+            >
+              <span className={'material-symbols-outlined text-base'}>add_link</span>
+              <span className={'hidden sm:inline'}>
+                {t('common.submit', {}, { defaultValue: 'Submit' })}
+              </span>
+            </Link>
+            <Link
+              to={`/users/${userId}`}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.w(10),
+                cm.h(10),
+                cm.roundedFull,
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'bg-secondary/15 text-secondary hover:bg-secondary/25 transition-colors',
+              )}
+              aria-label={t('nav.profile', {}, { defaultValue: 'Profile' })}
+            >
+              {(userName || 'A').slice(0, 1).toUpperCase()}
+            </Link>
+            <ThemeToggle />
+            <UserMenu />
+          </div>
         </div>
+        {/* Mobile chip nav — the rail is hidden below md, so the primary
+            destinations live here instead (fleet mobile-shell pattern). */}
+        <nav
+          aria-label={t('linkAggregatorLayout.mobileNav', {}, { defaultValue: 'Primary' })}
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'md:hidden w-full overflow-x-auto pb-2 -mb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+          )}
+        >
+          {[...NAV, SETTINGS_NAV_ITEM].map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.textSize('xs'),
+                  cm.fontWeight('bold'),
+                  'uppercase tracking-widest rounded-full whitespace-nowrap shrink-0 transition-colors',
+                  isActive
+                    ? 'bg-primary text-on-primary'
+                    : 'bg-surface-container-low text-on-surface-variant hover:text-primary',
+                )
+              }
+            >
+              <span className={'material-symbols-outlined text-base'}>{item.icon}</span>
+              {t(`linkAggregatorLayout.${item.labelKey}`, {}, { defaultValue: item.defaultLabel })}
+            </NavLink>
+          ))}
+        </nav>
       </header>
       <div className={cm.cn(cm.flex({ gap: 'lg' }), 'flex-1 max-w-7xl w-full mx-auto')}>
         <aside

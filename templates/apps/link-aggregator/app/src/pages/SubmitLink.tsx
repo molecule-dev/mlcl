@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -100,6 +101,10 @@ export function SubmitLink() {
       })
       const inner = ((res as { data?: unknown }).data ?? res) as { id?: string }
       if (inner?.id) {
+        track({
+          name: 'link.created',
+          properties: { link_id: inner.id, sub_slug: sub, kind },
+        })
         navigate(`/links/${inner.id}`)
       } else {
         navigate('/feed')
