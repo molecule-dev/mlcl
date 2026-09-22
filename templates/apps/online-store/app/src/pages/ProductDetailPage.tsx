@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -104,6 +105,7 @@ function ProductDetailPage() {
         const newId =
           (created as { data?: { id?: string } })?.data?.id ?? (created as { id?: string })?.id
         setWishlistEntryId(typeof newId === 'string' ? newId : 'pending')
+        void track({ name: 'wishlist.item_added', properties: { product_id: id } })
       }
     } finally {
       setWishlistBusy(false)

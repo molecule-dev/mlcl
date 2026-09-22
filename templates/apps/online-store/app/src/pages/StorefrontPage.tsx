@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 
 import { Footer } from '../components/Footer.js'
@@ -100,6 +101,7 @@ export function StorefrontPage() {
     setAddedId(null)
     try {
       await http.post('/api/cart/items', { productId: product.id, quantity: 1 })
+      void track({ name: 'cart.item_added', properties: { product_id: product.id } })
       setAddedId(product.id)
       setTimeout(() => setAddedId(null), 2500)
     } catch (err) {

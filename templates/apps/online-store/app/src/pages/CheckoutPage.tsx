@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -270,6 +271,8 @@ export function CheckoutPage() {
       const orderId =
         (res as { data?: { id?: string }; id?: string })?.data?.id ?? (res as { id?: string })?.id
       if (orderId) {
+        // Domain conversion event — the storefront's primary funnel end.
+        void track({ name: 'order.placed', properties: { order_id: orderId } })
         navigate(`/orders/${orderId}`)
       } else {
         navigate('/orders')

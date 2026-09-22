@@ -5,7 +5,7 @@
  * actions + profile dropdown rendering.
  */
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { StorefrontTopNav } from '@molecule/app-storefront-chrome-react'
@@ -42,7 +42,7 @@ function StorefrontTopNavBar() {
       .finally(() => navigate('/'))
   }
 
-  return (
+  const nav = (
     <StorefrontTopNav
       brand={t('nav.brand', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
       brandTo="/"
@@ -130,6 +130,70 @@ function StorefrontTopNavBar() {
       onSignOut={handleSignOut}
       signOutLabel={t('common.signOut', {}, { defaultValue: 'Sign Out' })}
     />
+  )
+
+  return (
+    <>
+      {nav}
+      {/* Template-local mobile chip nav: the shared StorefrontTopNav hides
+          its links below md with no hamburger, which would leave mobile
+          shoppers no way to reach Categories / Deals / New Arrivals. A
+          horizontally scrollable chip row below the sticky bar keeps those
+          destinations one tap away without a drawer. Hidden ≥ md where the
+          shared links render. */}
+      <nav
+        data-mol-id="mobile-chip-nav"
+        aria-label={t('nav.browseCategories', {}, { defaultValue: 'Browse' })}
+        className="storefront-chip-nav"
+        style={{
+          display: 'none',
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          gap: '8px',
+          padding: '10px 16px',
+          borderBottom: '1px solid var(--color-border-light, #f1f5f9)',
+          backgroundColor: 'var(--color-surface, #ffffff)',
+          scrollbarWidth: 'none',
+          position: 'sticky',
+          top: '64px',
+          zIndex: 30,
+        }}
+      >
+        {[
+          { to: '/', label: t('nav.shop', {}, { defaultValue: 'Shop' }) },
+          { to: '/search?q=all', label: t('nav.categories', {}, { defaultValue: 'Categories' }) },
+          { to: '/search?q=sale', label: t('nav.deals', {}, { defaultValue: 'Deals' }) },
+          { to: '/search?q=new', label: t('nav.newArrivals', {}, { defaultValue: 'New' }) },
+        ].map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            style={{
+              flexShrink: 0,
+              padding: '8px 16px',
+              borderRadius: '9999px',
+              backgroundColor: 'var(--color-surface-secondary, #f8fafc)',
+              color: 'var(--color-text, #0f172a)',
+              fontSize: '13px',
+              fontWeight: 600,
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              minHeight: '36px',
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+      <style>{`
+        .storefront-chip-nav::-webkit-scrollbar { display: none; }
+        @media (max-width: 767px) {
+          .storefront-chip-nav { display: flex !important; }
+        }
+      `}</style>
+    </>
   )
 }
 

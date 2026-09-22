@@ -11,6 +11,14 @@ test.describe('/reset-password', () => {
   test('full forgot→reset→login lifecycle (read-after-write through DB token)', async ({
     page,
   }) => {
+    // The lifecycle deliberately invalidates the cookie mid-flow
+    // (clearCookies + password reset), while the client-side auth state
+    // still says signed-in — the storefront nav's cart probe 401s until
+    // the fresh login lands. Expected console noise for this spec.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const { email, password } = await signup(page)
     await page.context().clearCookies()
 

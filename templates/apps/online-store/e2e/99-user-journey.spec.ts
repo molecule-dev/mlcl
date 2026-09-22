@@ -1,6 +1,6 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, API_BASE, signup } from './_helpers.js'
+import { APP_BASE, API_BASE, promoteToAdmin, signup } from './_helpers.js'
 
 // Cross-page kitchen-sink — drives one signed-in user through every
 // primary flow back-to-back. If anything breaks in real product code
@@ -23,6 +23,13 @@ test.describe('online-store user journey', () => {
     expect(cardsAnon).toBeGreaterThan(0)
 
     // 2. Anonymous /cart shows the sign-in CTA, not a load-error page.
+    // The page's cart probe 401s by design for anonymous visitors (that's
+    // how it decides to render the sign-in CTA) — the browser logs that
+    // as a console error, which is expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/cart')
     await expect(page.locator('[data-mol-id="cart-anon-state"]')).toBeVisible({ timeout: 10_000 })
     await expect(page.getByRole('link', { name: /sign in/i }).first()).toBeVisible()
@@ -118,19 +125,23 @@ test.describe('online-store user journey', () => {
     const emptyItems = emptyCart?.items ?? emptyCart?.data?.items ?? []
     expect(emptyItems.length).toBe(0)
 
-    // 9. Settings PATCH persists across reload via API and UI.
+    // 9. Settings PATCH persists across reload via API and UI. The phone
+    // slice rides the server-side /api/settings channel (GET /api/users/me
+    // never returns oauthData); the name rides the platform user resource.
     await page.request.patch(API_BASE + '/users/me', {
-      data: {
-        name: 'Journey Tester Updated',
-        oauthData: { phone: '+1-555-0100', location: 'NYC' },
-      },
+      data: { name: 'Journey Tester Updated' },
     })
+    const patchSettings = await page.request.patch(API_BASE + '/settings', {
+      data: { phone: '+1-555-0100', location: 'NYC' },
+    })
+    expect(patchSettings.ok(), `PATCH /api/settings → ${patchSettings.status()}`).toBeTruthy()
     await page.goto(APP_BASE + '/settings')
     await page.reload()
     const me = await page.request.get(API_BASE + '/users/me').then((r) => r.json())
     const meBody = me?.props || me?.user || me?.data || me
     expect(meBody?.name).toBe('Journey Tester Updated')
-    expect((meBody?.oauthData ?? meBody?.oauth_data)?.phone).toBe('+1-555-0100')
+    const settingsAfter = await page.request.get(API_BASE + '/settings').then((r) => r.json())
+    expect(settingsAfter?.phone).toBe('+1-555-0100')
 
     // 10. Notifications page renders empty-state for a new account.
     await page.goto(APP_BASE + '/notifications')
@@ -166,7 +177,11 @@ test.describe('online-store user journey', () => {
       expect(url).toMatch(/checkout\.stripe\.com|cs_test_/)
     }
 
-    // 13. /admin pages render for a signed-in user.
+    // 13. /admin pages render for a signed-in OPERATOR. The /api/admin/*
+    // data fetches are gated behind requireAdmin, so the journey elevates
+    // the fresh account first — a plain customer would 403 every admin
+    // fetch while the shells still render.
+    await promoteToAdmin(page)
     await page.goto(APP_BASE + '/admin')
     await expect(page.getByText(/Good morning|Good afternoon|Good evening/i).first()).toBeVisible({
       timeout: 10_000,

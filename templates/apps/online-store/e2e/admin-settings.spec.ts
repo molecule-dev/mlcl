@@ -1,10 +1,13 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, captureNetwork, signup } from './_helpers.js'
+import { APP_BASE, captureNetwork, promoteToAdmin, signup } from './_helpers.js'
 
 test.describe('/admin/settings', () => {
   test('renders the store-settings shell for an authed admin', async ({ page }) => {
     await signup(page)
+    // /api/admin/* is gated behind requireAdmin — the store-settings shell
+    // only loads real values for an operator account.
+    await promoteToAdmin(page)
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/admin/settings')
       await page.waitForLoadState('networkidle', { timeout: 8_000 }).catch(() => {})
@@ -21,6 +24,7 @@ test.describe('/admin/settings', () => {
 
   test('admin sidebar navigation is consistent across admin sub-pages', async ({ page }) => {
     await signup(page)
+    await promoteToAdmin(page)
     await page.goto(APP_BASE + '/admin/settings')
     // Sidebar links point at the four admin routes that actually exist.
     for (const href of ['/admin', '/admin/products', '/admin/orders', '/admin/settings']) {

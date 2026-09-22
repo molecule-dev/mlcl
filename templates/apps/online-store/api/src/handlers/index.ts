@@ -8,6 +8,7 @@ import newsletter from './newsletter.js'
 import orders from './orders.js'
 import products from './products.js'
 import reviews from './reviews.js'
+import settings from './settings.js'
 import storefront from './storefront.js'
 import wishlist from './wishlist.js'
 
@@ -21,6 +22,7 @@ router.use('/reviews', reviews)
 router.use('/storefront', storefront)
 router.use('/wishlist', wishlist)
 router.use('/newsletter', newsletter)
+router.use('/settings', settings)
 // Dev-only test setup router (POST /api/_test/promote-admin); 404 in production
 // unless ENABLE_E2E_TEST_ENDPOINTS=true. See handlers/_test.ts. Mounted last,
 // after the upstream verifyMiddleware (App/router.ts mounts these handlers after

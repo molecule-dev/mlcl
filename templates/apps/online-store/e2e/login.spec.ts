@@ -10,6 +10,13 @@ test.describe('/login', () => {
   })
 
   test('login round-trip: signup then re-login lands on home', async ({ page }) => {
+    // clearCookies invalidates the session while the client-side auth
+    // state still says signed-in — the storefront nav's cart probe 401s
+    // until the fresh login lands. Expected console noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const creds = await signup(page)
     await page.context().clearCookies()
     await login(page, creds.email, creds.password)
@@ -17,6 +24,12 @@ test.describe('/login', () => {
   })
 
   test('bad credentials surface an error and stay on /login', async ({ page }) => {
+    // A rejected login is the subject of this spec: the browser logs the
+    // 403 as a console error, which is expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403|status of 401',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[name="email"]').fill('definitely-not-a-user@example.com')
     await page.locator('input[name="password"]').fill('wrong-password')

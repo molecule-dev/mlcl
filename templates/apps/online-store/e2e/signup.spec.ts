@@ -19,6 +19,13 @@ test.describe('/signup', () => {
   })
 
   test('duplicate email shows error', async ({ page }) => {
+    // The duplicate-signup 403 is the subject of this spec, and the
+    // cleared cookies make the nav's authed cart fetch 401 — both are
+    // expected console noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403|status of 401',
+    })
     const { email, password } = await signup(page)
     await page.context().clearCookies()
     await page.goto(APP_BASE + '/signup')

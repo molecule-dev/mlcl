@@ -72,6 +72,41 @@ function Settings() {
       if (typeof n.newsletter === 'boolean') setNotifyNewsletter(n.newsletter)
     }
   }, [user])
+  // Server-truth hydration: the platform user resource never returns the
+  // oauthData slice on reads, so the auth-client mirror above starts from
+  // defaults on a fresh session. /api/settings is the read/merge channel
+  // for that slice — overlay it once it arrives (mirrors what the user
+  // actually persisted, on this device or any other).
+  useEffect(() => {
+    let cancelled = false
+    http
+      .get('/api/settings')
+      .then((res: unknown) => {
+        if (cancelled) return
+        // Bonded http-client responses can arrive envelope-wrapped
+        // ({ data: {...} }) — unwrap before reading the slice.
+        const body = (res as { data?: unknown })?.data ?? res
+        const s = (body ?? {}) as {
+          phone?: string
+          location?: string
+          notifications?: Record<string, boolean>
+        }
+        if (typeof s.phone === 'string' && s.phone) setPhone(s.phone)
+        if (typeof s.location === 'string' && s.location) setLocation(s.location)
+        const n = s.notifications ?? {}
+        if (typeof n.orderUpdates === 'boolean') setNotifyOrderUpdates(n.orderUpdates)
+        if (typeof n.promotions === 'boolean') setNotifyPromotions(n.promotions)
+        if (typeof n.priceDrops === 'boolean') setNotifyPriceDrops(n.priceDrops)
+        if (typeof n.newsletter === 'boolean') setNotifyNewsletter(n.newsletter)
+      })
+      .catch(() => {
+        // Mirrored values (if any) stay on screen; Save still works.
+      })
+    return () => {
+      cancelled = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // fetch once on mount — http client is stable
   useEffect(() => {
     if (savedAt === null) return
     const timer = setTimeout(() => setSavedAt(null), 2500)
@@ -81,7 +116,7 @@ function Settings() {
     setProfileSaving(true)
     setSaveError(null)
     try {
-      const oauthData = {
+      const settingsSlice = {
         phone,
         location,
         notifications: {
@@ -91,10 +126,14 @@ function Settings() {
           newsletter: notifyNewsletter,
         },
       }
-      await http.patch('/api/users/me', { name, email, oauthData })
+      // Profile fields ride the platform user resource; the personal
+      // slice rides the server-side /api/settings channel (GET /api/users/me
+      // strips oauthData, so that column is write-only from the client).
+      await http.patch('/api/users/me', { name, email })
+      await http.patch('/api/settings', settingsSlice)
       // Mirror the saved values into the auth client so a reload (which
       // reads user from storage) shows the values the user just saved.
-      auth.setUser({ ...(user ?? {}), name, email, oauthData })
+      auth.setUser({ ...(user ?? {}), name, email, oauthData: settingsSlice })
       setSavedAt(Date.now())
     } catch (err) {
       setSaveError(

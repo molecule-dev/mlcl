@@ -226,7 +226,10 @@ export function OrdersPage() {
                 )}
               </p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div
+              className="orders-filter-row"
+              style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
+            >
               <div style={{ position: 'relative' }}>
                 <span
                   className="material-symbols-outlined"
@@ -1084,6 +1087,22 @@ export function OrdersPage() {
           )}
         </div>
       </main>
+      <style>{`
+        /* Mobile: stack the search + status filter so the fixed-width
+           search input cannot push the row past a 390px viewport. */
+        @media (max-width: 639px) {
+          .orders-filter-row {
+            flex-wrap: wrap;
+          }
+          .orders-filter-row > div:first-child {
+            flex: 1 1 100%;
+            min-width: 0;
+          }
+          .orders-filter-row input {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </OrdersChrome>
   )
 }

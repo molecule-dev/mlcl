@@ -4,6 +4,7 @@ import { Router } from 'express'
 import type { WhereCondition } from '@molecule/api-database'
 import { count, create, findById, findMany, findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -56,7 +57,8 @@ router.get('/stats', async (_req, res) => {
       pending,
       completed,
     })
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -116,7 +118,8 @@ router.get('/orders', async (req, res) => {
     }))
 
     res.json({ data, total, page, limit })
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -147,7 +150,8 @@ router.get('/orders/:id', async (req, res) => {
       ? String((userObj as { name?: unknown }).name ?? '') || String(userObj.email ?? '')
       : ''
     res.json({ ...order, items, customer_name: customerName })
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -178,7 +182,8 @@ router.put('/orders/:id/status', async (req, res) => {
         .json({ error: t('order.notFound', {}, { defaultValue: 'Order not found' }) })
     }
     res.json(result.data)
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -210,7 +215,8 @@ router.get('/customers', async (req, res) => {
     const newCustomerIds = new Set(recent.map((o) => o.user_id))
 
     res.json({ data: customers, total: customers.length, newCustomers: newCustomerIds.size })
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -243,7 +249,8 @@ router.get('/low-stock', async (req, res) => {
     }
     out.sort((a, b) => Number(a.stock) - Number(b.stock))
     res.json({ data: out, total: out.length, threshold })
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -285,7 +292,8 @@ router.post('/products/:id/restock', async (req, res) => {
       updated_at: new Date().toISOString(),
     })
     res.json(result.data)
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -361,7 +369,8 @@ router.get('/', async (_req, res) => {
     const oauthData = readOauthData(user)
     const settings = { ...DEFAULT_ADMIN_SETTINGS, ...(oauthData.adminSettings ?? {}) }
     res.json(settings)
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -384,7 +393,8 @@ router.put('/', async (req, res) => {
     const nextOauthData = { ...oauthData, adminSettings: merged }
     await updateById('users', userId, { oauthData: JSON.stringify(nextOauthData) })
     res.json(merged)
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -420,7 +430,8 @@ router.get('/reports/orders.csv', async (_req, res) => {
     res.setHeader('Content-Type', 'text/csv; charset=utf-8')
     res.setHeader('Content-Disposition', 'attachment; filename="orders.csv"')
     res.send([header.join(','), ...rows].join('\n'))
-  } catch (_error) {
+  } catch (error) {
+    logger.error('admin.handler', error)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

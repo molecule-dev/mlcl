@@ -8,7 +8,7 @@ test.describe('/settings persistence', () => {
     const cookies = await page.context().cookies()
     const cookieHeader = cookies.map((c) => `${c.name}=${c.value}`).join('; ')
 
-    const oauthData = {
+    const settings = {
       phone: '+15551234567',
       location: 'Brooklyn, NY',
       notifications: {
@@ -18,17 +18,21 @@ test.describe('/settings persistence', () => {
         newsletter: false,
       },
     }
-    const r = await request.patch(API_BASE + '/users/me', {
+    // The platform user resource never returns oauthData on reads, so the
+    // personal slice must round-trip through the server-side /api/settings
+    // channel (the same one the Settings page uses).
+    const r = await request.patch(API_BASE + '/settings', {
       headers: { Cookie: cookieHeader, 'Content-Type': 'application/json' },
-      data: { name: 'Test Shopper', oauthData },
+      data: settings,
     })
     expect(r.ok()).toBeTruthy()
 
-    const me = await request.get(API_BASE + '/users/me', { headers: { Cookie: cookieHeader } })
-    const body = (await me.json()) as { props?: Record<string, unknown> }
-    const stored = (body.props?.oauthData ?? {}) as typeof oauthData
-    expect(stored.phone).toBe(oauthData.phone)
-    expect(stored.location).toBe(oauthData.location)
+    const me = await request.get(API_BASE + '/settings', { headers: { Cookie: cookieHeader } })
+    const stored = (await me.json()) as typeof settings & {
+      notifications: Record<string, boolean>
+    }
+    expect(stored.phone).toBe(settings.phone)
+    expect(stored.location).toBe(settings.location)
     expect(stored.notifications.orderUpdates).toBe(false)
     expect(stored.notifications.promotions).toBe(true)
     expect(stored.notifications.priceDrops).toBe(true)
@@ -51,9 +55,12 @@ test.describe('/settings persistence', () => {
     await phoneInput.fill(phone)
     await locationInput.fill(location)
 
+    // Save PATCHes the profile (/api/users/me) and then the personal
+    // slice (/api/settings) — wait for the FINAL write so the reload
+    // below can only observe post-save state.
     await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\/me/.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => /\/api\/settings$/.test(r.url()) && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       page.locator('[data-mol-id="save-settings"]').click(),
