@@ -39,6 +39,9 @@ test.describe('album detail', () => {
   })
 
   test('non-existent album shows the not-found state, not a crash', async ({ page }) => {
+    // The missing-album 404 IS the subject of this test (clean not-found
+    // state), so its expected browser-console entry must not fail the run.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/album/00000000-0000-0000-0000-000000000000')
     await expect(page.locator('[data-mol-id="album-missing"]')).toBeVisible({ timeout: 10_000 })

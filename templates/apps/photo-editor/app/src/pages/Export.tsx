@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -121,6 +122,16 @@ export function Export() {
       const row = res.data
       setLastExport(row)
       setRecentExports((prev) => [row, ...prev])
+      track({
+        name: 'export.saved',
+        properties: {
+          export_id: row.id,
+          image_id: row.image_id,
+          format: row.format,
+          quality: row.quality,
+          status: row.status,
+        },
+      })
       if (row.output_url) {
         const a = document.createElement('a')
         a.href = row.output_url

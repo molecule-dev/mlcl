@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -144,6 +145,7 @@ export function Settings() {
         { priceId },
       )
       if (res.data.checkoutUrl) {
+        track({ name: 'billing.checkout_started', properties: { price_id: priceId } })
         globalThis.location.href = res.data.checkoutUrl
         return
       }
@@ -163,6 +165,7 @@ export function Settings() {
     try {
       await http.post('/billing/cancel', {})
       setCancelStatus('cancelled')
+      track({ name: 'billing.subscription_cancelled' })
       const status = await http.get<BillingStatus>('/billing/status')
       setBilling(status.data)
     } catch (_error) {
@@ -212,7 +215,13 @@ export function Settings() {
                   <li key={p.id}>
                     <button
                       type="button"
-                      onClick={() => setProfile(p.id)}
+                      onClick={() => {
+                        setProfile(p.id)
+                        track({
+                          name: 'settings.updated',
+                          properties: { setting: 'colorProfile', value: p.id },
+                        })
+                      }}
                       data-mol-id={`settings-profile-${p.id}`}
                       data-active={active ? 'true' : 'false'}
                       className={cm.cn(
@@ -275,20 +284,32 @@ export function Settings() {
             <ul className={cm.cn('divide-y divide-[var(--photo-border)] mt-3')}>
               {TOGGLES.map((tog) => {
                 const on = toggles[tog.id]
+                const toggleLabel = t(
+                  `settings.toggle.${tog.id}`,
+                  {},
+                  { defaultValue: tog.defaultLabel },
+                )
                 return (
                   <li key={tog.id} className={cm.cn('flex items-center justify-between py-3')}>
                     <span className={cm.cn('text-sm text-[var(--photo-text)] font-medium')}>
-                      {t(`settings.toggle.${tog.id}`, {}, { defaultValue: tog.defaultLabel })}
+                      {toggleLabel}
                     </span>
                     <button
                       type="button"
                       role="switch"
                       aria-checked={on}
-                      onClick={() => setToggles((prev) => ({ ...prev, [tog.id]: !prev[tog.id] }))}
+                      aria-label={toggleLabel}
+                      onClick={() => {
+                        setToggles((prev) => ({ ...prev, [tog.id]: !prev[tog.id] }))
+                        track({
+                          name: 'settings.updated',
+                          properties: { setting: tog.id, value: !on },
+                        })
+                      }}
                       data-mol-id={`settings-toggle-${tog.id}`}
                       data-checked={on ? 'true' : 'false'}
                       className={cm.cn(
-                        'inline-flex h-6 w-11 shrink-0 rounded-full transition-colors',
+                        'inline-flex h-8 w-14 shrink-0 items-center rounded-full transition-colors',
                         on
                           ? 'bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)]'
                           : 'bg-[var(--photo-border)]',
@@ -296,8 +317,8 @@ export function Settings() {
                     >
                       <span
                         className={cm.cn(
-                          'inline-block w-5 h-5 mt-0.5 rounded-full bg-white shadow transform transition-transform',
-                          on ? 'translate-x-[22px]' : 'translate-x-0.5',
+                          'inline-block w-6 h-6 mx-1 rounded-full bg-white shadow transform transition-transform',
+                          on ? 'translate-x-6' : 'translate-x-0',
                         )}
                       />
                     </button>

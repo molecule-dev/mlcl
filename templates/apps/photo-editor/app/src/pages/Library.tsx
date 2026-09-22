@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,6 +125,7 @@ export function Library() {
       setShowNewImage(false)
       setNewName('')
       setNewUrl('')
+      track({ name: 'photo.uploaded', properties: { image_id: created.id } })
       navigate(`/editor?photo=${created.id}`)
     } catch (err) {
       setNewError(err instanceof Error ? err.message : 'Could not create image.')

@@ -46,14 +46,15 @@ export function LustraWordmark({ size = 'md', to, showMark = true }: LustraWordm
           className={cm.cn(
             MARK_SIZE[size],
             cm.flex({ align: 'center', justify: 'center' }),
-            'rounded-full bg-gradient-to-br from-[var(--photo-accent)] via-[var(--photo-panel-text-highlight)] to-[var(--photo-danger)] text-white shadow-md',
+            'rounded-full bg-gradient-to-br from-[var(--photo-accent)] via-[var(--photo-panel-text-highlight)] to-[var(--photo-danger)] text-white shadow-md overflow-hidden',
           )}
         >
           <span
             className={cm.cn('material-symbols-outlined')}
+            aria-hidden="true"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
-            aperture
+            image
           </span>
         </span>
       )}

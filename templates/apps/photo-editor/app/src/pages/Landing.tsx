@@ -228,7 +228,7 @@ export function Landing() {
                     style={{ fontVariationSettings: "'FILL' 1" }}
                     aria-hidden="true"
                   >
-                    aperture
+                    image
                   </span>
                   {t('landing.sample.eyebrow', {}, { defaultValue: 'Inside the editor' })}
                 </span>

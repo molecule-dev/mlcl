@@ -85,12 +85,15 @@ export function PhotoTile({ photo, activeId, href, onSelect }: PhotoTileProps) {
       </div>
       <div
         className={cm.cn(
-          'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+          'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent',
+          // Touch has no hover — keep the metadata visible below md.
+          'opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300',
         )}
       />
       <div
         className={cm.cn(
-          'absolute inset-x-0 bottom-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+          'absolute inset-x-0 bottom-0 p-3',
+          'opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300',
         )}
       >
         <p className={cm.cn('text-sm font-bold text-white line-clamp-1 tracking-tight')}>

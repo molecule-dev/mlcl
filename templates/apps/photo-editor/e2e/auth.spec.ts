@@ -79,6 +79,10 @@ test.describe('auth', () => {
   })
 
   test('login with wrong password fails and stays on /login', async ({ page }) => {
+    // Bad credentials 403 by design — the inline error (and staying on
+    // /login) is the expectation, so the browser's console entry for the
+    // failed POST must not fail the run.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const { email } = await signup(page)
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/login')

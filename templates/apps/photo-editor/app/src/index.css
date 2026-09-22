@@ -25,3 +25,37 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Lustra range sliders (AdjustmentSlider, Export quality) — `appearance-none`
+ * removes the native thumb, so without these rules the handle is INVISIBLE
+ * (the input still drags, but the user sees only the 4px gradient track).
+ * The 20px thumb + 24px hit area keep the control usable on touch.
+ */
+.lustra-slider {
+  height: 24px;
+}
+.lustra-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 2px solid var(--photo-accent, #7c3aed);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  cursor: pointer;
+}
+.lustra-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 2px solid var(--photo-accent, #7c3aed);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  cursor: pointer;
+}
+.lustra-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--photo-panel-text-highlight, #c4b5fd);
+  outline-offset: 2px;
+}

@@ -33,47 +33,53 @@ export function PublicFooter() {
       <div
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          'max-w-[1100px] mx-auto',
+          // Stack on mobile — the 3-cluster row overflows a 390px viewport.
+          'max-w-[1100px] mx-auto flex-col md:flex-row gap-6 md:gap-4 text-center md:text-left',
         )}
       >
         <LustraWordmark size="sm" />
         <div
           className={cm.cn(
-            cm.flex({ gap: 'lg' }),
-            'font-mono text-[10px] uppercase tracking-widest text-[var(--photo-text-muted)]',
+            cm.flex({ gap: 'md' }),
+            'flex-wrap justify-center font-mono text-[10px] uppercase tracking-widest text-[var(--photo-text-muted)]',
           )}
         >
           <Link
             to="/about"
             data-mol-id="footer-about"
-            className={cm.cn('hover:text-[var(--photo-danger)] transition-colors')}
+            className={cm.cn('px-1 py-2 hover:text-[var(--photo-danger)] transition-colors')}
           >
             {t('landing.footer.about', {}, { defaultValue: 'About' })}
           </Link>
-          <Link to="/login" className={cm.cn('hover:text-[var(--photo-danger)] transition-colors')}>
+          <Link
+            to="/login"
+            className={cm.cn('px-1 py-2 hover:text-[var(--photo-danger)] transition-colors')}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
           <Link
             to="/signup"
-            className={cm.cn('hover:text-[var(--photo-danger)] transition-colors')}
+            className={cm.cn('px-1 py-2 hover:text-[var(--photo-danger)] transition-colors')}
           >
             {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
           </Link>
           <Link
             to="/presets"
-            className={cm.cn('hover:text-[var(--photo-danger)] transition-colors')}
+            className={cm.cn('px-1 py-2 hover:text-[var(--photo-danger)] transition-colors')}
           >
             {t('landing.footer.presets', {}, { defaultValue: 'Presets' })}
           </Link>
           <LegalModalLinks
-            linkClassName={cm.cn('hover:text-[var(--photo-danger)] transition-colors')}
+            linkClassName={cm.cn(
+              'inline-block px-1 py-2 hover:text-[var(--photo-danger)] transition-colors',
+            )}
             appName={APP_NAME}
             loadContent={loadContent}
             privacyLabel={t('footer.privacy', {}, { defaultValue: 'Privacy' })}
             termsLabel={t('footer.terms', {}, { defaultValue: 'Terms' })}
           />
         </div>
-        <p className={cm.cn('font-mono text-[10px] text-[var(--photo-text-muted)]')}>
+        <p className={cm.cn('font-mono text-[10px] text-[var(--photo-text-muted)] px-1 py-2')}>
           {t(
             'landing.footer.copyright',
             { appName: APP_NAME },

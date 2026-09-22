@@ -108,7 +108,7 @@ export function AuthShell({
                 style={{ fontVariationSettings: "'FILL' 1" }}
                 aria-hidden="true"
               >
-                aperture
+                image
               </span>
               {t('authShell.tagline', {}, { defaultValue: 'Light bends to your will' })}
             </span>

@@ -235,7 +235,7 @@ export function Profile() {
           <Link
             to="/library"
             className={cm.cn(
-              'font-mono text-[11px] uppercase tracking-widest text-[var(--photo-panel-text-accent)] hover:text-[var(--photo-danger)] transition-colors',
+              'inline-block px-1 py-2 font-mono text-[11px] uppercase tracking-widest text-[var(--photo-panel-text-accent)] hover:text-[var(--photo-danger)] transition-colors',
             )}
           >
             {t('profile.gallery.viewAll', {}, { defaultValue: 'See library →' })}
@@ -332,6 +332,7 @@ export function Profile() {
                     className={cm.cn(
                       'material-symbols-outlined text-[56px] text-white/85 group-hover:scale-105 transition-transform',
                     )}
+                    aria-hidden="true"
                   >
                     photo_album
                   </span>

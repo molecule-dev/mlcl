@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AdjustmentSlider } from '../components/AdjustmentSlider.js'
 import { PhotoEditorLayout } from '../components/PhotoEditorLayout.js'
 import { PresetTile } from '../components/PresetTile.js'
+import { useMediaQuery } from '../components/useMediaQuery.js'
 import { type ApiImage, imageToSamplePhoto } from '../lib/image-adapter.js'
 import { SAMPLE_PRESETS } from '../lib/sample-photos.js'
 
@@ -115,6 +117,10 @@ export function Editor() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const photoId = searchParams.get('photo')
+  // Below 768px the 3-pane workspace (52px rail + canvas + 300px panel)
+  // stacks: tools become a horizontal strip above the canvas, the panel
+  // goes full-width below it.
+  const belowMobile = useMediaQuery('(max-width: 767px)')
 
   const [image, setImage] = useState<ApiImage | null>(null)
   const [loading, setLoading] = useState(true)
@@ -180,6 +186,10 @@ export function Editor() {
         .then((res) => {
           setImage(res.data)
           setSaveStatus('saved')
+          track({
+            name: 'edit.applied',
+            properties: { image_id: image.id, label, preset_id: presetId },
+          })
           if (saveTimer.current) clearTimeout(saveTimer.current)
           saveTimer.current = setTimeout(() => setSaveStatus('idle'), 1500)
         })
@@ -224,6 +234,7 @@ export function Editor() {
         .then((res) => {
           setImage(res.data)
           setSaveStatus('saved')
+          track({ name: 'edit.undone', properties: { image_id: image.id } })
         })
         .catch(() => setSaveStatus('error'))
     }
@@ -398,11 +409,22 @@ export function Editor() {
         </div>
       }
     >
-      <div className={cm.cn(cm.flex({ direction: 'row' }), 'h-full')}>
-        {/* Left tool rail */}
+      <div
+        className={cm.cn(
+          cm.flex({ direction: belowMobile ? 'col' : 'row' }),
+          belowMobile ? '' : 'h-full',
+        )}
+      >
+        {/* Tool rail — vertical on desktop, horizontal strip on mobile */}
         <aside
           className={cm.cn(
-            'w-[52px] shrink-0 border-r border-[var(--photo-border)] bg-[var(--photo-surface)] flex flex-col items-center py-3 gap-1',
+            belowMobile
+              ? cm.cn(
+                  'w-full shrink-0 border-b border-[var(--photo-border)] bg-[var(--photo-surface)] flex flex-row items-center justify-center py-1.5 px-2 gap-1 overflow-x-auto',
+                )
+              : cm.cn(
+                  'w-[52px] shrink-0 border-r border-[var(--photo-border)] bg-[var(--photo-surface)] flex flex-col items-center py-3 gap-1',
+                ),
           )}
         >
           {TOOLS.map((toolItem) => {
@@ -413,9 +435,10 @@ export function Editor() {
                 type="button"
                 onClick={() => setTool(toolItem.id)}
                 aria-label={t(toolItem.labelKey, {}, { defaultValue: toolItem.defaultLabel })}
+                aria-pressed={active}
                 data-mol-id={`editor-tool-${toolItem.id}`}
                 className={cm.cn(
-                  'w-10 h-10 rounded-md flex items-center justify-center transition-colors',
+                  'w-10 h-10 shrink-0 rounded-md flex items-center justify-center transition-colors',
                   active
                     ? 'bg-[var(--photo-accent)]/25 text-[var(--photo-panel-text-highlight)] border-l-2 border-[var(--photo-accent)]'
                     : 'text-[var(--photo-text-muted)] hover:text-[var(--photo-text)] hover:bg-[var(--photo-accent)]/15',
@@ -432,7 +455,8 @@ export function Editor() {
         {/* Canvas */}
         <main
           className={cm.cn(
-            'flex-1 min-w-0 relative bg-[var(--photo-canvas-bg)] flex items-center justify-center overflow-hidden',
+            'relative bg-[var(--photo-canvas-bg)] flex items-center justify-center overflow-hidden',
+            belowMobile ? 'h-[44vh] shrink-0' : 'flex-1 min-w-0',
           )}
         >
           <div
@@ -543,10 +567,13 @@ export function Editor() {
           </div>
         </main>
 
-        {/* Right side panel */}
+        {/* Right side panel — docked on desktop, full-width below the canvas on mobile */}
         <aside
           className={cm.cn(
-            'w-[300px] shrink-0 border-l border-[var(--photo-border)] bg-[var(--photo-surface-elevated)] flex flex-col',
+            'shrink-0 bg-[var(--photo-surface-elevated)] flex flex-col',
+            belowMobile
+              ? 'w-full border-t border-[var(--photo-border)]'
+              : 'w-[300px] border-l border-[var(--photo-border)]',
           )}
         >
           <div

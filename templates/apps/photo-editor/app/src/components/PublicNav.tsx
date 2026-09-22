@@ -49,7 +49,7 @@ export function PublicNav() {
               to="/login"
               data-mol-id="public-nav-login"
               className={cm.cn(
-                'font-mono text-[11px] uppercase tracking-widest text-[var(--photo-text-muted)] hover:text-[var(--photo-panel-text-highlight)] transition-colors',
+                'inline-block px-1 py-2 font-mono text-[11px] uppercase tracking-widest text-[var(--photo-text-muted)] hover:text-[var(--photo-panel-text-highlight)] transition-colors',
               )}
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

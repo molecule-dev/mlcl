@@ -136,6 +136,9 @@ test.describe('editor', () => {
   test('opening an editor for a non-existent image shows an error / loading state, not a crash', async ({
     page,
   }) => {
+    // The missing-image 404 IS the subject of this test (graceful error
+    // state), so its expected browser-console entry must not fail the run.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/editor?photo=00000000-0000-0000-0000-000000000000')
     // Either the loading text resolves to error, or we never reach the canvas — both are acceptable as long as the page does not crash.

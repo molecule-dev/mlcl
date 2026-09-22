@@ -15,6 +15,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { LustraWordmark } from './LustraWordmark.js'
+import { useMediaQuery } from './useMediaQuery.js'
 
 interface AccountUser {
   email?: string | null
@@ -26,6 +27,9 @@ interface BillingStatus {
   planKey: string
   isFree: boolean
 }
+
+/** Below this the 260px sidebar would swallow a 390px viewport. */
+const MOBILE_QUERY = '(max-width: 767px)'
 
 interface PhotoEditorLayoutProps {
   title?: string
@@ -91,6 +95,7 @@ export function PhotoEditorLayout({
   const http = useHttpClient()
   const navigate = useNavigate()
   const location = useLocation()
+  const belowMobile = useMediaQuery(MOBILE_QUERY)
   const [billing, setBilling] = useState<BillingStatus | null>(null)
 
   useEffect(() => {
@@ -121,6 +126,157 @@ export function PhotoEditorLayout({
   const planLabel = billing
     ? t('photoEditorLayout.planLabel', { name: billing.name }, { defaultValue: '{{name}} Plan' })
     : t('photoEditorLayout.planLoading', {}, { defaultValue: 'Loading…' })
+
+  // Mobile shell (<768px): sticky top bar + horizontally scrollable chip nav.
+  // The 260px sidebar would swallow a 390px viewport, so below the breakpoint
+  // a different shell mounts entirely (fleet pattern — only one shell in the
+  // DOM at a time, so page content never double-mounts).
+  if (belowMobile) {
+    const navLabel = t(
+      'photoEditorLayout.primaryNavLabel',
+      {},
+      { defaultValue: 'Primary navigation' },
+    )
+    return (
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.minH('screen'),
+          'bg-[var(--photo-background)] text-[var(--photo-text)] font-body',
+        )}
+        data-mol-id="lustra-mobile-shell"
+      >
+        <header className="sticky top-0 z-40 border-b border-[var(--photo-border)] bg-[var(--photo-surface)]/90 backdrop-blur-md">
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('px', 4),
+              'h-14',
+            )}
+          >
+            <LustraWordmark size="sm" to="/library" />
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+              <span
+                data-mol-id="lustra-account-plan"
+                data-plan-key={billing?.planKey ?? 'unknown'}
+                className={cm.cn(
+                  'px-2 py-1 rounded-full text-[9px] font-mono font-bold uppercase tracking-widest text-[var(--photo-panel-text-highlight)] bg-[var(--photo-accent)]/15 border border-[var(--photo-accent)]/30',
+                )}
+              >
+                {planLabel}
+              </span>
+              <button
+                type="button"
+                onClick={handleLogout}
+                data-mol-id="lustra-logout"
+                aria-label={t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'w-10 h-10 rounded-md text-[var(--photo-text-muted)] hover:text-[var(--photo-text)] hover:bg-[var(--photo-surface-elevated)] transition-colors',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[20px]')} aria-hidden="true">
+                  logout
+                </span>
+              </button>
+            </div>
+          </div>
+          <nav
+            aria-label={navLabel}
+            data-mol-id="lustra-mobile-nav"
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('px', 3),
+              'pb-2 overflow-x-auto',
+            )}
+          >
+            <NavLink
+              to="/editor"
+              data-mol-id="lustra-mobile-new-edit"
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.textSize('xs'),
+                cm.fontWeight('semibold'),
+                cm.roundedFull,
+                'whitespace-nowrap text-white bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)]',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
+                add_a_photo
+              </span>
+              {t('photoEditorLayout.newEdit', {}, { defaultValue: 'New edit' })}
+            </NavLink>
+            {NAV.map((item) => {
+              const active =
+                location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
+              return (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  data-mol-id={`lustra-mobile-nav-${item.icon}`}
+                  aria-current={active ? 'page' : undefined}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('medium'),
+                    cm.roundedFull,
+                    'whitespace-nowrap border transition-colors',
+                    active
+                      ? 'bg-[var(--photo-accent)]/20 text-[var(--photo-panel-text-highlight)] border-[var(--photo-accent)]/60'
+                      : 'bg-transparent text-[var(--photo-text-muted)] border-[var(--photo-border)]',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[14px]')}
+                    aria-hidden="true"
+                  >
+                    {item.icon}
+                  </span>
+                  {t(item.labelKey, {}, { defaultValue: item.defaultLabel })}
+                </NavLink>
+              )
+            })}
+          </nav>
+          {(title || toolbar) && (
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                'border-t border-[var(--photo-border)]',
+              )}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
+                {title && (
+                  <h1
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('sm'),
+                      'tracking-tight text-[var(--photo-text)] truncate',
+                    )}
+                  >
+                    {title}
+                  </h1>
+                )}
+              </div>
+              {toolbar && (
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
+                  {toolbar}
+                </div>
+              )}
+            </div>
+          )}
+        </header>
+        <main className={cm.cn(cm.flex1, 'min-w-0', fullBleed ? '' : cm.sp('p', 4))}>
+          {children}
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div
