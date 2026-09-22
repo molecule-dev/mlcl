@@ -13,6 +13,12 @@ test.describe('Reset password /reset-password', () => {
 
   test('submitting bad token surfaces an error or stays on /reset-password', async ({ page }) => {
     await page.goto(APP_BASE + '/reset-password')
+    // A rejected token comes back 401 — the EXPECTED rejection here; the
+    // only disallowed outcome would be a misrouted 404 (asserted below).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input[type="email"]').first().fill(uniqueEmail('reset'))
       await page.locator('input[placeholder*="token"]').first().fill('not-a-real-token')

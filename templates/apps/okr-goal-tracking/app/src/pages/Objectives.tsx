@@ -139,7 +139,7 @@ export function Objectives() {
             cm.sp('py', 3),
             cm.fontWeight('bold'),
             cm.textSize('sm'),
-            'rounded-xl text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
+            'rounded-xl whitespace-nowrap shrink-0 text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
           )}
         >
           <span className="material-symbols-outlined text-[18px]">add</span>
@@ -154,7 +154,7 @@ export function Objectives() {
           'bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 flex-wrap',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
           {FILTERS.map((f) => {
             const active = filter === f.key
             return (
@@ -167,7 +167,7 @@ export function Objectives() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'rounded-full transition-colors',
+                  'rounded-full whitespace-nowrap transition-colors',
                   active
                     ? 'text-white shadow-sm'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',

@@ -13,7 +13,7 @@ Expensify-like expense management with receipts, approval workflow, policies, an
 
 `auth`, `file-upload`, `workflow`, `reports`, `import-export`
 
-## Data model (6 domain tables)
+## Data model (7 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -23,6 +23,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **expenses** — id, user_id, report_id, amount, currency, category, date, description, merchant, receipt_url, status, policy_violation, …
 - **notifications** — id, user_id, type, title, message, report_id, actor, read, created_at
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
+- **user_preferences** — user_id, payout_method, notify_submitted, notify_reviewed, notify_reimbursed, notify_policy, created_at, updated_at
 
 ## API surface (handlers)
 
@@ -35,6 +36,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **expenses** — `api/src/handlers/expenses.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **policies** — `api/src/handlers/policies.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **receipts** — `api/src/handlers/receipts.ts`
 - **reports** — `api/src/handlers/reports.ts`
 

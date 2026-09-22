@@ -1,24 +1,26 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import {
-  signup,
-  APP_BASE,
-  apiHeaders,
-  API_BASE,
-  captureNetwork,
-  seedObjective,
-} from './_helpers.js'
+import { signup, APP_BASE, apiHeaders, API_BASE, seedObjective } from './_helpers.js'
 
 test.describe('Profile page', () => {
   test('renders empty state for fresh user with email + zero stats', async ({ page }) => {
     const { email } = await signup(page)
-    const reqs = await captureNetwork(page, async () => {
+    // Capture REQUESTS (not responses) — the assertion is that MOUNT fires
+    // the dual fetches, which is true regardless of how the responses land.
+    const fired: string[] = []
+    const onRequest = (r: { method(): string; url(): string }) => {
+      if (r.method() === 'GET') fired.push(r.url())
+    }
+    page.on('request', onRequest)
+    try {
       await page.goto(APP_BASE + '/profile')
       await expect(page.getByTestId('profile-page')).toBeVisible()
-    })
-    // Mount fires the dual fetches the page depends on.
-    expect(reqs.find((r) => r.method === 'GET' && /\/api\/objectives/.test(r.url))).toBeTruthy()
-    expect(reqs.find((r) => r.method === 'GET' && /\/api\/check-ins/.test(r.url))).toBeTruthy()
+      // Poll — under load the fetches can start after the page is visible.
+      await expect.poll(() => fired.find((u) => /\/api\/objectives/.test(u))).toBeTruthy()
+      await expect.poll(() => fired.find((u) => /\/api\/check-ins/.test(u))).toBeTruthy()
+    } finally {
+      page.off('request', onRequest)
+    }
 
     await expect(page.getByTestId('profile-email')).toHaveText(email)
     await expect(page.getByTestId('stat-objectives')).toHaveText('0')

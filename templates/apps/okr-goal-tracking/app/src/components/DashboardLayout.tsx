@@ -4,27 +4,51 @@ import { Outlet, useNavigate } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { useIsMobile } from '../lib/useIsMobile.js'
 import { AscentSideNav } from './AscentSideNav.js'
+import { MobileNav } from './MobileNav.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Dashboard shell — sidebar (260px) + sticky topbar (search + actions) +
- * scrollable content. Used for all auth-gated routes via App.tsx.
- * Translated from project-management/AppLayout.tsx + crm/CrmLayout.tsx;
- * the AscentSideNav handles the persistent left rail. Submitting the
- * topbar search routes to /objectives?q=… (the Objectives page reads ?q).
+ * Dashboard shell. Desktop (≥768px): sidebar (260px) + sticky topbar
+ * (search + actions) + scrollable content. Mobile (<768px): the MobileNav
+ * sticky top bar + drawer replaces the rail (fleet mobile-shell pattern),
+ * the desktop search form is dropped — /objectives carries the filter box
+ * — and the content padding tightens. Used for all auth-gated routes via
+ * App.tsx. Submitting the topbar search routes to /objectives?q=… (the
+ * Objectives page reads ?q).
  */
 export function DashboardLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [search, setSearch] = useState('')
+  const isMobile = useIsMobile()
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent): void => {
     e.preventDefault()
     const q = search.trim()
     navigate(q ? `/objectives?q=${encodeURIComponent(q)}` : '/objectives')
+  }
+
+  if (isMobile) {
+    return (
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.minH('screen'),
+          'bg-bg-secondary text-on-surface',
+        )}
+      >
+        <MobileNav />
+        <main className={cm.cn(cm.flex1, 'p-4 overflow-x-hidden')}>
+          <div className="max-w-[1360px] mx-auto">
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    )
   }
 
   return (

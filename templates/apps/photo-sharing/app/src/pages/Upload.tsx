@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,6 +127,14 @@ export function Upload() {
             progress: 100,
             photo,
             message: t('upload.done', {}, { defaultValue: 'Uploaded' }),
+          })
+          void track({
+            name: 'photo.uploaded',
+            properties: {
+              photo_id: photo.id,
+              album_id: photo.album_id,
+              visibility: photo.visibility,
+            },
           })
         } catch (err) {
           const detail =

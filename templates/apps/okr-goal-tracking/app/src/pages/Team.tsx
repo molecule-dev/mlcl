@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -66,7 +67,9 @@ export function Team() {
     setCreating(true)
     setError(null)
     try {
-      await client.post<TeamRow>('/api/teams', { name: newName.trim() })
+      const created = await client.post<TeamRow>('/api/teams', { name: newName.trim() })
+      // Domain event (fire-and-forget; no-ops without an analytics provider).
+      track({ name: 'team.created', properties: { team_id: created.data?.id } })
       setNewName('')
       void refetchTeams()
       void refetchObjectives()

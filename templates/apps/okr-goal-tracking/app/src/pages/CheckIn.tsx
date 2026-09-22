@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -129,6 +130,11 @@ export function CheckIn() {
         }
       }
       setSubmitted(true)
+      // Domain event (fire-and-forget; no-ops without an analytics provider).
+      track({
+        name: 'checkin.recorded',
+        properties: { recorded, key_result_count: krs.length },
+      })
       // Refresh KR snapshot so the page reflects new current_value/status.
       const fresh = await http
         .get<KrRow[]>('/api/key-results')

@@ -95,7 +95,9 @@ export function MyPhotos() {
         </Link>
       </header>
 
-      <section className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-3')}>
+      {/* Stacks below sm: the 10px tracking-widest stat labels clip inside
+          3-across cards at 390px. */}
+      <section className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 sm:grid-cols-3')}>
         <Stat
           label={t('myPhotos.statPhotos', {}, { defaultValue: 'Photographs' })}
           value={totals.photos.toString()}

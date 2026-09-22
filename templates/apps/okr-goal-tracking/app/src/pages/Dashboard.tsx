@@ -147,7 +147,7 @@ export function Dashboard() {
         <div
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center', gap: 'lg' }),
-            'relative flex-col md:flex-row',
+            'relative flex-col lg:flex-row',
           )}
         >
           <div className={cm.cn(cm.stack(3), 'max-w-2xl')}>

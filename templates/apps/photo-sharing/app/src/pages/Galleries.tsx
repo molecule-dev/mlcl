@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { requireProvider } from '@molecule/app-gallery'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -74,6 +75,37 @@ export function Galleries() {
       uploaded_at: featured.updated_at,
     }))
     const otherGalleries = galleries.filter((g) => g.id !== featured.id)
+    // "Selected frames" tiles open the bonded PhotoSwipe lightbox (full-screen,
+    // swipeable, zoomable) instead of navigating away — the editorial viewing
+    // surface this page exists for. The masonry's onSelect contract turns each
+    // tile into a button carrying an accessible label.
+    const openLightbox = (photoId: string): void => {
+      const index = featuredPhotos.findIndex((p) => p.id === photoId)
+      if (index < 0) return
+      const p = featuredPhotos[index]
+      try {
+        requireProvider()
+          .createGallery({
+            items: featuredPhotos.map((ph) => ({
+              src: ph.large_url || ph.original_url,
+              thumbnail: ph.thumbnail_url,
+              width: ph.width ?? 1600,
+              height: ph.height ?? 1000,
+              alt:
+                ph.title ??
+                t('galleries.lightboxAlt', {}, { defaultValue: 'Photograph from the gallery' }),
+              caption: ph.title ?? undefined,
+            })),
+            startIndex: index,
+            zoomable: true,
+          })
+          .open(index)
+      } catch (_error) {
+        // No gallery provider bonded (should not happen — the bond is wired in
+        // bonds/index.ts) — fall back to the photo detail page.
+        window.location.href = `/photos/${p.id}`
+      }
+    }
     return (
       <div
         className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, 'space-y-12')}
@@ -209,7 +241,7 @@ export function Galleries() {
               )}
             </h2>
           </header>
-          <PhotoMasonry photos={featuredPhotos} />
+          <PhotoMasonry photos={featuredPhotos} onSelect={openLightbox} />
         </section>
 
         {otherGalleries.length > 0 && (

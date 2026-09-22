@@ -2,7 +2,9 @@ import { test, expect } from '@molecule/app-e2e-fixtures-default'
 import { APP_BASE, API_BASE, captureNetwork, signup } from './_helpers.js'
 
 test.describe('settings', () => {
-  test('PATCH /users/:id round-trips name + photoPrefs through GET /users/me', async ({ page }) => {
+  test('PATCH /preferences round-trips photoPrefs; PATCH /users/:id round-trips name', async ({
+    page,
+  }) => {
     await signup(page)
     // Poll GET /users/me until it returns 200 — under parallel audit load,
     // the first raw page.request.get() fired right after signup can hit a
@@ -27,26 +29,37 @@ test.describe('settings', () => {
       )
       .toBe(200)
     const userId = meBefore!.props.id
-    const upd = await page.request.patch(`${API_BASE}/users/${userId}`, {
-      data: {
-        name: 'New Display Name',
-        oauthData: {
-          photoPrefs: { showExif: true, publicProfile: false, notifyFeatured: true },
-        },
-      },
+    // The platform user resource NEVER returns oauthData on reads (GET
+    // /users/me strips it), so prefs ride the server-side /preferences
+    // channel — the same channel the Settings page uses. A PATCH with a
+    // PARTIAL slice must not clear the keys it omits.
+    const upd = await page.request.patch(`${API_BASE}/preferences`, {
+      data: { showExif: true, publicProfile: false },
       headers: { 'content-type': 'application/json' },
     })
     expect(upd.status()).toBeLessThan(300)
-    let meAfter:
-      | {
-          props: {
-            name: string
-            oauthData: {
-              photoPrefs: { showExif: boolean; publicProfile: boolean; notifyFeatured: boolean }
-            }
-          }
-        }
-      | undefined
+    const prefsAfter = await (await page.request.get(`${API_BASE}/preferences`)).json()
+    expect(prefsAfter.photoPrefs.showExif).toBe(true)
+    expect(prefsAfter.photoPrefs.publicProfile).toBe(false)
+    // Untouched keys survive the partial patch (merged, not replaced).
+    expect(prefsAfter.photoPrefs.notifyFeatured).toBe(true)
+    // Partial-slice survival: write a second key, first two stay.
+    const upd2 = await page.request.patch(`${API_BASE}/preferences`, {
+      data: { weeklyDigest: false },
+      headers: { 'content-type': 'application/json' },
+    })
+    expect(upd2.status()).toBeLessThan(300)
+    const prefsAfter2 = await (await page.request.get(`${API_BASE}/preferences`)).json()
+    expect(prefsAfter2.photoPrefs.showExif).toBe(true)
+    expect(prefsAfter2.photoPrefs.publicProfile).toBe(false)
+    expect(prefsAfter2.photoPrefs.weeklyDigest).toBe(false)
+    // Name still round-trips through the platform user resource.
+    const nameUpd = await page.request.patch(`${API_BASE}/users/${userId}`, {
+      data: { name: 'New Display Name' },
+      headers: { 'content-type': 'application/json' },
+    })
+    expect(nameUpd.status()).toBeLessThan(300)
+    let meAfter: { props: { name: string } } | undefined
     await expect
       .poll(
         async () => {
@@ -65,9 +78,6 @@ test.describe('settings', () => {
       )
       .toBe(200)
     expect(meAfter!.props.name).toBe('New Display Name')
-    expect(meAfter!.props.oauthData.photoPrefs.showExif).toBe(true)
-    expect(meAfter!.props.oauthData.photoPrefs.publicProfile).toBe(false)
-    expect(meAfter!.props.oauthData.photoPrefs.notifyFeatured).toBe(true)
   })
 
   test('Settings page round-trips a name change through reload', async ({ page }) => {

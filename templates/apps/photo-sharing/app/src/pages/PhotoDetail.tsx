@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,6 +85,10 @@ export function PhotoDetail() {
     try {
       const result = await favoritePhoto(id)
       setPhoto({ ...photo, favorited: result.favorited, favorite_count: result.favorite_count })
+      void track({
+        name: 'photo.liked',
+        properties: { photo_id: id, favorited: result.favorited },
+      })
     } catch (err) {
       const detail =
         err instanceof ApiError
@@ -112,6 +117,7 @@ export function PhotoDetail() {
     setDeleting(true)
     try {
       await deletePhoto(id)
+      void track({ name: 'photo.deleted', properties: { photo_id: id } })
       navigate('/my-photos')
     } catch (err) {
       const detail =

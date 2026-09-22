@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -14,7 +15,6 @@ interface UserProps {
   name?: string | null
   username?: string | null
   email?: string | null
-  oauthData?: Record<string, unknown> | null
 }
 
 interface CurrentUser {
@@ -53,12 +53,6 @@ const DEFAULT_PREFS: PhotoPrefs = {
   weeklyDigest: true,
 }
 
-function readPrefs(user: UserProps | null): PhotoPrefs {
-  const raw = user?.oauthData?.['photoPrefs']
-  if (!raw || typeof raw !== 'object') return { ...DEFAULT_PREFS }
-  return { ...DEFAULT_PREFS, ...(raw as PhotoPrefs) }
-}
-
 export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -74,15 +68,20 @@ export function Settings() {
 
   const refresh = async () => {
     try {
-      // /api/users/me returns `{ props: {...userProps}, plan, ... }`. The
-      // settings UI only cares about `props`.
+      // Name/handle/email come from /users/me. The photoPrefs slice CANNOT —
+      // the platform user resource never returns oauthData on reads — so the
+      // prefs come from the server-side /preferences channel, which merges
+      // the stored slice over defaults. Reading prefs through /users/me used
+      // to render defaults after every reload and a later save clobbered the
+      // stored values with those defaults.
       const me = await apiGet<CurrentUser>('/users/me')
       const props = me.props
       setUser(props)
       setName(props.name ?? '')
       setUsername(props.username ?? '')
       setEmail(props.email ?? '')
-      setPrefs(readPrefs(props))
+      const prefsRes = await apiGet<{ photoPrefs: PhotoPrefs }>('/preferences')
+      setPrefs({ ...prefsRes.photoPrefs })
       setError(null)
     } catch (err) {
       const detail =
@@ -104,12 +103,11 @@ export function Settings() {
     setSaving(true)
     setError(null)
     try {
-      const oauthData = { ...(user.oauthData ?? {}), photoPrefs: prefs }
-      // Backend rejects empty-string username with a 400 because the
-      // `users.username` column is unique and NULLable, but `""` is the
-      // unique-collision value. Send `null` to clear, or omit when the
-      // user hasn't picked one. Same for `name`.
-      const payload: Record<string, unknown> = { oauthData }
+      // Profile fields PATCH the platform user resource. The prefs slice
+      // goes through the server-side /preferences channel — the client
+      // never assembles oauthData itself (GET /users/me never returns it,
+      // so a client-side merge would clobber stored prefs with defaults).
+      const payload: Record<string, unknown> = {}
       const trimmedName = name.trim()
       if (trimmedName) payload.name = trimmedName
       else if (user.name) payload.name = null
@@ -118,9 +116,14 @@ export function Settings() {
       else if (user.username) payload.username = null
       const trimmedEmail = email.trim()
       if (trimmedEmail && trimmedEmail !== (user.email ?? '')) payload.email = trimmedEmail
-      await apiPatch<UserProps>(`/users/${user.id}`, payload)
+      if (Object.keys(payload).length > 0) {
+        await apiPatch<UserProps>(`/users/${user.id}`, payload)
+      }
+      const prefsRes = await apiPatch<{ photoPrefs: PhotoPrefs }>('/preferences', prefs)
+      setPrefs({ ...prefsRes.photoPrefs })
       await refresh()
       setSavedAt(Date.now())
+      void track({ name: 'settings.updated', properties: { user_id: user.id } })
     } catch (err) {
       const detail =
         err instanceof ApiError

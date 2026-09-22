@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -116,10 +117,13 @@ export function EditObjective() {
       })
       // 2. Track which existing KR ids are still present; delete the rest.
       const presentIds = new Set(krs.filter((k) => !k.isNew).map((k) => k.id))
-      for (const original of objective.key_results ?? []) {
-        if (!presentIds.has(original.id)) {
-          await http.delete(`/api/key-results/${original.id}`)
-        }
+      const removed = (objective.key_results ?? []).filter((o) => !presentIds.has(o.id))
+      for (const original of removed) {
+        await http.delete(`/api/key-results/${original.id}`)
+        track({
+          name: 'key_result.deleted',
+          properties: { key_result_id: original.id, objective_id: objective.id },
+        })
       }
       // 3. Update existing KRs and create new ones.
       let position = 0
@@ -145,6 +149,10 @@ export function EditObjective() {
             position,
             status: 'on_track',
           })
+          track({
+            name: 'key_result.created',
+            properties: { objective_id: objective.id, metric_type: metric },
+          })
         } else {
           await http.patch(`/api/key-results/${kr.id}`, {
             title: kr.title.trim(),
@@ -154,8 +162,16 @@ export function EditObjective() {
             current_value: current,
             position,
           })
+          track({
+            name: 'key_result.updated',
+            properties: { key_result_id: kr.id, objective_id: objective.id },
+          })
         }
       }
+      track({
+        name: 'objective.updated',
+        properties: { objective_id: objective.id, key_result_count: krs.length },
+      })
       navigate(`/objectives/${objective.id}`)
     } catch (err: unknown) {
       const msg =
@@ -183,6 +199,10 @@ export function EditObjective() {
     }
     try {
       await http.post(`/api/objectives/${objective.id}/archive`, {})
+      track({
+        name: 'objective.archived',
+        properties: { objective_id: objective.id },
+      })
       navigate('/objectives')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Could not archive objective.')

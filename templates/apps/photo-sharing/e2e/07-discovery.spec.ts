@@ -64,6 +64,9 @@ test.describe('discovery: profiles + galleries + visibility', () => {
     page,
     request,
   }) => {
+    // The 404 fetch below is the SUBJECT of the test (clean not-found state),
+    // so its expected browser-console entry must not fail the run.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     const profile = await request.get(`${API_BASE}/profiles/definitely-not-a-real-handle-xyz`)
     expect(profile.status()).toBe(404)

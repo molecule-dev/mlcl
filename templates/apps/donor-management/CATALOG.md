@@ -37,6 +37,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **donors** — `api/src/handlers/donors.ts`
 - **gifts** — `api/src/handlers/gifts.ts`
 - **receipts** — `api/src/handlers/receipts.ts`
+- **settings** — `api/src/handlers/settings.ts`
 
 ## Screens (21)
 

@@ -7,6 +7,12 @@ test.describe('Forgot password /forgot-password', () => {
     page,
   }) => {
     const { email } = await signup(page)
+    // Clearing the session while the dashboard is still mounting its
+    // fetches can 401 them — expected noise of this flow, not an app bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.evaluate(() => window.localStorage.clear())
     await page.context().clearCookies()
 

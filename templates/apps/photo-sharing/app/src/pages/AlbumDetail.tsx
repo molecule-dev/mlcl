@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -86,6 +87,7 @@ export function AlbumDetail() {
     setDeleting(true)
     try {
       await deleteAlbum(id)
+      void track({ name: 'album.deleted', properties: { album_id: id } })
       navigate('/albums')
     } catch (err) {
       const detail =
@@ -218,7 +220,7 @@ export function AlbumDetail() {
             </div>
           </div>
           <div className={'lg:col-span-4 flex justify-end'}>
-            <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
+            <div className={cm.cn(cm.flex({ gap: 'sm', wrap: 'wrap' }))}>
               {isOwner && (
                 <Link
                   to={`/upload?album_id=${encodeURIComponent(album.id)}`}

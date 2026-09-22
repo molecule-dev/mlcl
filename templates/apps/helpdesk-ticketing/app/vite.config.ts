@@ -26,8 +26,10 @@ const findMoleculeDir = (): string | null => {
   for (let i = 0; i < 8; i++) {
     try {
       const candidate = resolve(dir, 'node_modules/@molecule')
-      readdirSync(candidate)
-      return candidate
+      // An EMPTY @molecule dir (npm-workspaces hoisting) must NOT stop the walk —
+      // optimizing against it yields a second module identity for every
+      // @molecule/app-react-dependent package (duplicate React contexts, crash).
+      if (readdirSync(candidate).length > 0) return candidate
     } catch (_error) {
       /* keep walking — readdirSync throws until node_modules/@molecule is found */
     }

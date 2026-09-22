@@ -151,6 +151,11 @@ test.describe('/reviews/:id', () => {
 
   test('not-found id renders error fallback (no crash)', async ({ page }) => {
     await signup(page)
+    // The unknown id's GET 404s — that IS the scenario under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await page.goto(APP_BASE + '/reviews/00000000-0000-0000-0000-000000000000')
     await expect(page.getByTestId('review-error')).toBeVisible({ timeout: 10000 })
   })

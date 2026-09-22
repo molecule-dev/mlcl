@@ -4,59 +4,15 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
-
-interface NavItem {
-  to: string
-  icon: string
-  labelKey: string
-  defaultLabel: string
-}
-
-const NAV_SECTIONS: Array<{ key: string; defaultLabel: string; items: NavItem[] }> = [
-  {
-    key: 'overview',
-    defaultLabel: 'Overview',
-    items: [
-      { to: '/dashboard', icon: 'dashboard', labelKey: 'dashboard', defaultLabel: 'Dashboard' },
-      { to: '/objectives', icon: 'flag', labelKey: 'objectives', defaultLabel: 'Objectives' },
-      { to: '/check-in', icon: 'fact_check', labelKey: 'checkIn', defaultLabel: 'Weekly check-in' },
-    ],
-  },
-  {
-    key: 'team',
-    defaultLabel: 'Team',
-    items: [
-      { to: '/team', icon: 'groups', labelKey: 'team', defaultLabel: 'Team' },
-      { to: '/reviews', icon: 'rate_review', labelKey: 'reviews', defaultLabel: 'Reviews' },
-      {
-        to: '/notifications',
-        icon: 'notifications',
-        labelKey: 'notifications',
-        defaultLabel: 'Notifications',
-      },
-    ],
-  },
-  {
-    key: 'account',
-    defaultLabel: 'Account',
-    items: [
-      { to: '/profile', icon: 'person', labelKey: 'profile', defaultLabel: 'Profile' },
-      { to: '/settings', icon: 'settings', labelKey: 'settings', defaultLabel: 'Settings' },
-      {
-        to: '/settings/billing',
-        icon: 'credit_card',
-        labelKey: 'billing',
-        defaultLabel: 'Billing',
-      },
-    ],
-  },
-]
+import { NAV_SECTIONS } from './navSections.js'
 
 /**
  * Dark indigo sidebar — section headers in widget caps, active item gets
  * an indigo background pill + sky text, inactive items hover at 8% white.
- * Translated from crm/SideNavBar.tsx + project-management/SideNavBar.tsx,
- * recolored to the Ascent palette (#1e1b4b sidebar, #818cf8 section heads).
+ * Desktop only (≥768px): DashboardLayout swaps in the MobileNav drawer
+ * chrome below that breakpoint. Translated from crm/SideNavBar.tsx +
+ * project-management/SideNavBar.tsx, recolored to the Ascent palette
+ * (#1e1b4b sidebar, #818cf8 section heads).
  */
 export function AscentSideNav() {
   const cm = getClassMap()

@@ -25,9 +25,9 @@ test('Gallery tab swap reveals gallery toggles', async ({ page }) => {
   await expect(page.getByTestId('settings-show-exif')).toBeVisible()
 })
 
-test('Allow-download toggle persists round-trip in /api/users/me', async ({ page }) => {
+test('Allow-download toggle persists round-trip in /api/preferences', async ({ page }) => {
   await signup(page)
-  const meBefore = await (await page.request.get(`${API_BASE}/users/me`)).json()
+  const prefsBefore = await (await page.request.get(`${API_BASE}/preferences`)).json()
   await page.goto(APP_BASE + '/settings')
   await page.getByTestId('settings-tab-gallery').click()
   const dl = page.getByTestId('settings-allow-download')
@@ -35,14 +35,14 @@ test('Allow-download toggle persists round-trip in /api/users/me', async ({ page
   await dl.click()
   await page.getByTestId('settings-save').click()
   await expect(page.getByTestId('settings-saved-banner')).toBeVisible({ timeout: 10_000 })
-  const meAfter = await (await page.request.get(`${API_BASE}/users/me`)).json()
-  const beforeFlag = !!meBefore.props.oauthData?.photoPrefs?.allowDownload
-  const afterFlag = !!meAfter.props.oauthData?.photoPrefs?.allowDownload
+  const prefsAfter = await (await page.request.get(`${API_BASE}/preferences`)).json()
+  const beforeFlag = !!prefsBefore.photoPrefs?.allowDownload
+  const afterFlag = !!prefsAfter.photoPrefs?.allowDownload
   expect(afterFlag).toBe(!wasChecked)
   expect(afterFlag).not.toBe(beforeFlag)
 })
 
-test('Show-EXIF toggle persists round-trip in /api/users/me', async ({ page }) => {
+test('Show-EXIF toggle persists round-trip in /api/preferences', async ({ page }) => {
   await signup(page)
   await page.goto(APP_BASE + '/settings')
   await page.getByTestId('settings-tab-gallery').click()
@@ -51,8 +51,8 @@ test('Show-EXIF toggle persists round-trip in /api/users/me', async ({ page }) =
   await exif.click()
   await page.getByTestId('settings-save').click()
   await expect(page.getByTestId('settings-saved-banner')).toBeVisible({ timeout: 10_000 })
-  const meAfter = await (await page.request.get(`${API_BASE}/users/me`)).json()
-  const afterFlag = !!meAfter.props.oauthData?.photoPrefs?.showExif
+  const prefsAfter = await (await page.request.get(`${API_BASE}/preferences`)).json()
+  const afterFlag = !!prefsAfter.photoPrefs?.showExif
   expect(afterFlag).toBe(!before)
 })
 

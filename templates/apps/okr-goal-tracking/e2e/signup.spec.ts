@@ -42,6 +42,13 @@ test.describe('Signup /signup', () => {
     await page.waitForURL('**/dashboard', { timeout: 15000 })
 
     // Now try to sign up with the same email from a fresh context.
+    // Clearing cookies while the dashboard is still mounting its fetches
+    // can 401 them, and the duplicate POST /api/users itself 403s — both
+    // are the EXPECTED noise of this flow, so allow them up front.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (401|403)',
+    })
     await page.context().clearCookies()
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/signup')

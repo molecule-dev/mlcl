@@ -38,6 +38,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **bookings** — `api/src/handlers/bookings.ts`
 - **flights** — `api/src/handlers/flights.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **trips** — `api/src/handlers/trips.ts`
 
 ## Screens (12)

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import {
   type PricingTierEntry,
   useBillingStatus,
@@ -92,6 +93,11 @@ export function Billing() {
     }
     const response = await start(priceId)
     if (response?.checkoutUrl) {
+      // Conversion-flow event (fire-and-forget; no-ops without a provider).
+      track({
+        name: 'billing.checkout_started',
+        properties: { price_id: priceId, period: billingPeriod },
+      })
       window.location.assign(response.checkoutUrl)
     } else if (response?.updated) {
       setActionMessage(t('nav.subscriptionUpdated', {}, { defaultValue: 'Subscription updated.' }))

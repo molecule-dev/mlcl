@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,15 @@ export function NewObjective() {
           status: 'on_track',
         })
       }
+      // Domain event (fire-and-forget; no-ops without an analytics provider).
+      track({
+        name: 'objective.created',
+        properties: {
+          objective_id: created.id,
+          scope,
+          key_result_count: filledKrs.length,
+        },
+      })
       navigate(`/objectives/${created.id}`)
     } catch (err: unknown) {
       const msg =

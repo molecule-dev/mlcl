@@ -13,7 +13,7 @@ Samsara-like fleet management with vehicles, routes, maintenance scheduling, and
 
 `auth`, `search`, `realtime`, `map`, `calendar`, `reporting`, `alerts`
 
-## Data model (14 domain tables)
+## Data model (15 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -31,6 +31,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **trips** — id, owner_id, vehicle_id, driver_id, route_id, started_at, ended_at, distance_km, duration_seconds, idle_seconds, fuel_used_liters, start_latitude, …
 - **vehicle_locations** — id, vehicle_id, latitude, longitude, speed, heading, timestamp, created_at, updatedAt
 - **vehicles** — id, owner_id, name, vin, license_plate, make, model, year, type, fuel_type, status, mileage, …
+- **fleet_settings** — id, owner_id, settings, created_at, updated_at
 
 ## API surface (handlers)
 
@@ -45,6 +46,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **notifications** — `api/src/handlers/notifications.ts`
 - **reports** — `api/src/handlers/reports.ts`
 - **routes** — `api/src/handlers/routes.ts`
+- **settings** — `api/src/handlers/settings.ts`
 - **trips** — `api/src/handlers/trips.ts`
 - **vehicles** — `api/src/handlers/vehicles.ts`
 

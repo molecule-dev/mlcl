@@ -78,7 +78,9 @@ export function ProgressRing({
           style={{ transition: 'stroke-dashoffset 600ms ease' }}
         />
       </svg>
-      <div className={cm.cn(cm.flex({ direction: 'col', align: 'center' }), 'relative')}>
+      <div
+        className={cm.cn(cm.flex({ direction: 'col', align: 'center' }), 'relative max-w-[78%]')}
+      >
         <span
           className={cm.cn(cm.fontWeight('bold'), 'tabular-nums tracking-tight text-on-surface')}
           style={{ fontSize: size * 0.28 }}
@@ -90,7 +92,7 @@ export function ProgressRing({
           <span
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant mt-1',
+              'text-[10px] uppercase tracking-widest text-on-surface-variant mt-1 text-center leading-tight',
             )}
           >
             {label}

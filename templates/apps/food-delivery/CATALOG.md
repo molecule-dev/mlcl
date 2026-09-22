@@ -48,6 +48,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **orders** — `api/src/handlers/orders.ts`
 - **payment-methods** — `api/src/handlers/payment-methods.ts`
 - **restaurants** — `api/src/handlers/restaurants.ts`
+- **settings** — `api/src/handlers/settings.ts`
 
 ## Screens (16)
 

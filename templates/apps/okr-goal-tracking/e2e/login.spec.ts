@@ -26,6 +26,13 @@ test.describe('Login /login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail('nope'))
     await page.locator('input[type="password"]').first().fill('wrong-password')
+    // The 403 from POST /api/users/log-in is the EXPECTED invalid-credentials
+    // rejection (user resource returns 403 by design) — allow it through the
+    // console guard before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.locator('form button[type="submit"]').first().click()
     await page.waitForTimeout(2000)
     expect(page.url()).toContain('/login')
