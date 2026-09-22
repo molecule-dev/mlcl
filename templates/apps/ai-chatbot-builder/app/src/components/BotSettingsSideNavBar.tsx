@@ -14,6 +14,7 @@ export default function BotSettingsSideNavBar() {
         cm.flex({ direction: 'col' }),
         cm.sp('py', 8),
         'h-screen w-64 fixed left-0 top-0 bg-surface-container-low z-20',
+        'hidden md:flex', // mobile: drawer in top bar instead
       )}
     >
       <div className={cm.cn(cm.sp('px', 8), cm.sp('mb', 10))}>

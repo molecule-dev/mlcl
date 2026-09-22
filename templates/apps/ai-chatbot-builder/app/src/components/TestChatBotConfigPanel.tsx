@@ -21,7 +21,7 @@ function TestChatBotConfigPanel() {
           cm.flex({ direction: 'col' }),
           cm.sp('p', 6),
           cm.stack(8),
-          'w-[340px] border-l border-outline-variant/20 bg-surface-container-low',
+          'hidden xl:flex w-[340px] border-l border-outline-variant/20 bg-surface-container-low', // mobile: full-width chat, panel is desktop-only
         )}
       >
         <div>

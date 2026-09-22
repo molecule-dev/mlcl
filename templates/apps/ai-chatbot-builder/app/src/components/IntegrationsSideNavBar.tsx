@@ -16,6 +16,7 @@ function IntegrationsSideNavBar() {
         cm.h('screen'),
         cm.fontWeight('medium'),
         "fixed left-0 top-0 h-full z-40 font-['Plus_Jakarta_Sans'] tracking-wide",
+        'hidden md:flex', // mobile: drawer in top bar instead
       )}
       style={{ backgroundColor: 'var(--color-editor-integrations-sidebar)' }}
       data-mol-id="nav-sidebar"

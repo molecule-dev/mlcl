@@ -7,8 +7,9 @@
  * /api/conversations/:id/messages to send.
  */
 import { useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'react-router'
+import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { ChatbotTester, type TesterMessage } from '@molecule/app-chatbot-tester-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -113,6 +114,10 @@ function TestChat() {
         const conv = asObject<ConversationWithMessages>(res)
         if (!active || !conv?.id) return
         setConversationId(conv.id)
+        void track({
+          name: 'testchat.conversation_started',
+          properties: { conversation_id: conv.id, bot_id: botId },
+        })
         // Re-hydrate (so welcome message shows).
         const fullRes = await http.get(`/api/conversations/${conv.id}`)
         if (!active) return
@@ -191,22 +196,82 @@ function TestChat() {
       <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
         <TestChatTopBar botName={botName} botId={botId} />
         <section className={cm.cn(cm.flex(), cm.flex1, 'overflow-hidden')}>
-          <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'bg-surface relative')}>
-            <ChatbotTester
-              messages={messages}
-              loading={loading}
-              onSend={handleSend}
-              bots={bots}
-              botId={botId}
-              onBotChange={(id) => {
-                startedFor.current = null
-                setConversationId(undefined)
-                setBotId(id)
-              }}
-              error={error}
-              botPickerLabel={t('testChat.botPickerLabel', {}, { defaultValue: 'Test bot' })}
-            />
-          </div>
+          {/*
+            No-bots empty state: a bare chat box with nothing in it reads as
+            broken — point the builder at creating their first bot instead.
+          */}
+          {!loading && bots.length === 0 && !error ? (
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
+                cm.flex1,
+                cm.stack(4),
+                cm.sp('p', 8),
+                'text-center',
+              )}
+            >
+              <div
+                className={cm.cn(
+                  cm.w(16),
+                  cm.h(16),
+                  cm.roundedFull,
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'bg-primary/10',
+                )}
+                aria-hidden="true"
+              >
+                <span
+                  className={cm.cn(cm.textSize('3xl'), 'material-symbols-outlined text-primary')}
+                  data-icon="smart_toy"
+                >
+                  smart_toy
+                </span>
+              </div>
+              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-on-surface')}>
+                {t('testChat.emptyTitle', {}, { defaultValue: 'No bots to test yet' })}
+              </h2>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant max-w-sm')}>
+                {t(
+                  'testChat.emptyBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Create your first bot, then come back here to try it out in a sandboxed chat.',
+                  },
+                )}
+              </p>
+              <Link
+                to="/bots/new"
+                className={cm.cn(
+                  cm.sp('px', 5),
+                  cm.sp('py', 3),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  cm.roundedFull,
+                  'bg-primary text-on-primary shadow-md hover:opacity-90 transition-opacity',
+                )}
+              >
+                {t('botsList.createBot', {}, { defaultValue: 'Create Bot' })}
+              </Link>
+            </div>
+          ) : (
+            <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'bg-surface relative')}>
+              <ChatbotTester
+                messages={messages}
+                loading={loading}
+                onSend={handleSend}
+                bots={bots}
+                botId={botId}
+                onBotChange={(id) => {
+                  startedFor.current = null
+                  setConversationId(undefined)
+                  setBotId(id)
+                }}
+                error={error}
+                botPickerLabel={t('testChat.botPickerLabel', {}, { defaultValue: 'Test bot' })}
+              />
+            </div>
+          )}
           <TestChatBotConfigPanel />
         </section>
       </main>

@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -47,6 +48,8 @@ function CreateBotForm() {
           t('botCreate.missingId', {}, { defaultValue: 'Server did not return a bot id.' }),
         )
       }
+      // Domain analytics: the funnel's entry point (fire-and-forget).
+      void track({ name: 'bot.created', properties: { bot_id: id } })
       navigate(`/bots/${id}/settings`)
     } catch (err) {
       const status = (err as { status?: number; response?: { status?: number } })?.status
@@ -283,7 +286,7 @@ function BotEditor() {
         {/* SideNavBar Component */}
         <BotEditorSideNavBar />
         {/* Main Content Area */}
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'ml-60 relative')}>
+        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'ml-0 md:ml-60 relative')}>
           {/* TopAppBar Component */}
           <BotEditorTopBar botName={botName} />
           {/* Workspace Content: Canvas + Right Panel */}

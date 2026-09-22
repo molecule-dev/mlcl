@@ -92,7 +92,14 @@ function BotDeploy() {
       <BotDeploySideNavBar />
       <BotDeployTopBar />
       {/* Main Content Area */}
-      <main className={cm.cn(cm.sp('mt', 16), cm.sp('p', 10), cm.flex1, 'ml-64 overflow-x-hidden')}>
+      <main
+        className={cm.cn(
+          cm.sp('mt', 16),
+          cm.sp('p', 4),
+          cm.flex1,
+          'ml-0 md:ml-64 md:p-10 overflow-x-hidden',
+        )}
+      >
         <div className={cm.cn('max-w-6xl', cm.mxAuto)}>
           <BotDeployPageHeader />
           <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-2')}>

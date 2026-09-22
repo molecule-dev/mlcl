@@ -127,7 +127,7 @@ function Settings() {
       {/* SideNavBar Shell */}
       <SettingsSideNavBar />
       {/* Main Content Wrapper */}
-      <div className={cm.cn(cm.minH('screen'), 'ml-64')}>
+      <div className={cm.cn(cm.minH('screen'), 'ml-0 md:ml-64')}>
         {/* TopNavBar Shell */}
         <SettingsTopBar />
         {/* Main Content Canvas */}

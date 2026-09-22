@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -136,9 +137,17 @@ function BotSettings() {
       const currentlyActive = (bot.status ?? 'draft') !== 'paused'
       if (desiredActive !== currentlyActive) {
         await http.post(`/api/bots/${bot.id}/${desiredActive ? 'deploy' : 'pause'}`, {})
+        void track({
+          name: desiredActive ? 'bot.deployed' : 'bot.paused',
+          properties: { bot_id: bot.id },
+        })
       }
 
       if (updated) applyBot({ ...updated, status: desiredActive ? 'deployed' : 'paused' })
+      void track({
+        name: 'bot.updated',
+        properties: { bot_id: bot.id, status: desiredActive ? 'deployed' : 'paused' },
+      })
       setSavedAt(Date.now())
     } catch (err) {
       setError(
@@ -170,7 +179,7 @@ function BotSettings() {
             cm.flex({ align: 'center', justify: 'center' }),
             cm.sp('pt', 16),
             cm.h('screen'),
-            'ml-64 bg-background',
+            'ml-0 md:ml-64 bg-background',
           )}
         >
           <div className={cm.cn(cm.stack(4), cm.w('full'), 'max-w-5xl', cm.sp('px', 12))}>
@@ -194,7 +203,7 @@ function BotSettings() {
         className={cm.cn(
           cm.sp('pt', 16),
           cm.h('screen'),
-          'ml-64 overflow-y-auto no-scrollbar bg-background',
+          'ml-0 md:ml-64 overflow-y-auto no-scrollbar bg-background',
         )}
       >
         <div

@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -135,7 +136,13 @@ function KnowledgeBase() {
         source_url: sourceUrl.trim() || null,
       })
       const created = asObject<KnowledgeDocument>(res)
-      if (created) setDocs((xs) => [created, ...xs])
+      if (created) {
+        setDocs((xs) => [created, ...xs])
+        void track({
+          name: 'knowledge.document_added',
+          properties: { document_id: created.id, bot_id: selectedBotId },
+        })
+      }
       setTitle('')
       setContent('')
       setSourceUrl('')

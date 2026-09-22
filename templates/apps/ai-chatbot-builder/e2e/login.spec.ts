@@ -18,6 +18,12 @@ test.describe('login page', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#login-email').fill('nobody-' + Date.now() + '@flagship.test')
     await page.locator('input#login-password').fill('WrongPass!9999')
+    // The expected 401/403 log-in rejection is browser-logged as a failed
+    // resource load; the page renders the error inline (role="alert").
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page
         .getByRole('button', { name: /sign\s*in|log\s*in/i })

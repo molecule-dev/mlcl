@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 
 interface BotEditorTopBarProps {
@@ -10,6 +11,7 @@ interface BotEditorTopBarProps {
 }
 export default function BotEditorTopBar({ botName }: BotEditorTopBarProps) {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
@@ -19,11 +21,13 @@ export default function BotEditorTopBar({ botName }: BotEditorTopBarProps) {
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
         cm.textSize('sm'),
-        "fixed top-0 right-0 left-60 h-16 backdrop-blur-xl border-b border-surface/5 z-40 font-['Inter'] tracking-wide",
+        "fixed top-0 right-0 left-0 md:left-60 h-16 backdrop-blur-xl border-b border-surface/5 z-40 font-['Inter'] tracking-wide",
       )}
       style={{ backgroundColor: 'color-mix(in srgb, var(--color-editor-shell) 70%, transparent)' }}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
+        {/* Mobile hamburger + drawer (fleet pattern) */}
+        <MobileNavMenu items={navItems} />
         <h1 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
           {botName ?? t('botEditorTopBar.untitledBot', {}, { defaultValue: 'Untitled bot' })}
         </h1>

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -177,6 +178,10 @@ function KnowledgeSourceCard({
                 setMenuOpen(false)
                 if (doc?.id) {
                   await http.delete(`/api/training/documents/${doc.id}`)
+                  void track({
+                    name: 'knowledge.document_removed',
+                    properties: { document_id: doc.id },
+                  })
                   onDelete?.(doc.id)
                 }
               }}

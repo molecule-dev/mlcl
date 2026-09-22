@@ -56,7 +56,13 @@ test.describe('signup page', () => {
 
     await page.evaluate(() => window.localStorage.clear())
 
-    // Second signup with the same email must fail.
+    // Second signup with the same email must fail. The expected 4xx is
+    // browser-logged as a failed resource load; the page renders the
+    // duplicate-email error inline (role="alert").
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/signup')
       await page.locator('#signup-email').fill(email)

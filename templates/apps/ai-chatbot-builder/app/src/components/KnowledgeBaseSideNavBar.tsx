@@ -16,6 +16,7 @@ function KnowledgeBaseSideNavBar() {
         cm.textSize('sm'),
         cm.fontWeight('medium'),
         'h-screen sticky left-0 top-0 h-full border-r border-border/20 bg-surface-secondary font-inter antialiased',
+        'hidden md:flex', // mobile: drawer in top bar instead
       )}
     >
       <div className={cm.sp('p', 6)}>

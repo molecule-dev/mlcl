@@ -3,22 +3,25 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 function IntegrationsTopBar() {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
   return (
     <header
       className={cm.cn(
         cm.flex({ justify: 'between', align: 'center' }),
-        cm.w('full'),
-        cm.sp('px', 8),
+        cm.sp('px', 4),
         cm.h(16),
-        'sticky top-0 z-30 ml-64 bg-surface/70 dark:bg-on-background/70 backdrop-blur-xl border-b border-border/20 dark:border-surface/5 shadow-sm shadow-on-background/5',
+        'sticky top-0 z-30 ml-0 md:ml-64 md:px-8 bg-surface/70 dark:bg-on-background/70 backdrop-blur-xl border-b border-border/20 dark:border-surface/5 shadow-sm shadow-on-background/5',
       )}
       data-mol-id="top-nav"
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
+        {/* Mobile hamburger + drawer (fleet pattern) */}
+        <MobileNavMenu items={navItems} />
         <h1
           className={cm.cn(
             cm.textSize('lg'),
@@ -29,12 +32,12 @@ function IntegrationsTopBar() {
           {t('nav.integrations', {}, { defaultValue: 'Integrations' })}
         </h1>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-6')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 md:gap-6')}>
         <div
           className={cm.cn(
             cm.textSize('sm'),
             cm.fontWeight('medium'),
-            'hidden md:flex items-center gap-6',
+            'hidden lg:flex items-center gap-6',
           )}
         >
           <Link

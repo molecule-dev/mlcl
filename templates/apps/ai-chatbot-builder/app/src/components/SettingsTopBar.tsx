@@ -4,10 +4,12 @@ import { Link, useNavigate } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 
 function SettingsTopBar() {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
   const { user } = useAuth<{ name?: string; email?: string; role?: string; avatarUrl?: string }>()
   const [q, setQ] = useState('')
@@ -18,9 +20,11 @@ function SettingsTopBar() {
       className={cm.cn(
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
-        'fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-50 bg-surface/70 backdrop-blur-md no-border shadow-[0_40px_60px_-5px_rgba(24,20,69,0.04)]',
+        'fixed top-0 right-0 left-0 md:left-64 w-full md:w-[calc(100%-16rem)] h-16 z-50 bg-surface/70 backdrop-blur-md no-border shadow-[0_40px_60px_-5px_rgba(24,20,69,0.04)]',
       )}
     >
+      {/* Mobile hamburger + drawer (fleet pattern) */}
+      <MobileNavMenu items={navItems} />
       <div className={cm.cn(cm.flex1, 'max-w-xl pr-8')}>
         <div className={cm.cn(cm.w('full'), 'relative')}>
           <span

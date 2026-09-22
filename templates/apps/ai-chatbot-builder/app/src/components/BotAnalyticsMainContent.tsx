@@ -8,7 +8,7 @@ import BotAnalyticsTopIntentsPanel from './BotAnalyticsTopIntentsPanel.js'
 function BotAnalyticsMainContent() {
   const cm = getClassMap()
   return (
-    <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'pl-64')}>
+    <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'pl-0 md:pl-64')}>
       <div className={cm.cn(cm.sp('p', 8), 'max-w-[1600px]', cm.mxAuto, cm.stack(8))}>
         <BotAnalyticsKpiRow />
         <BotAnalyticsChartsRow />

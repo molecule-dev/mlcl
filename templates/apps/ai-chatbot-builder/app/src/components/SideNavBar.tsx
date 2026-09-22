@@ -27,6 +27,9 @@ function SideNavBar() {
         cm.textSize('sm'),
         cm.fontWeight('medium'),
         'w-[240px] h-screen sticky left-0 top-0 h-full border-r border-border/20 bg-surface-secondary font-inter antialiased',
+        // Mobile: the sidebar cannot fit next to content below md — the
+        // hamburger drawer in TopNavBar carries the same links instead.
+        'hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), cm.sp('p', 6), 'gap-3')}>

@@ -3,10 +3,12 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import MobileNavMenu, { useMainNavItems } from '../components/MobileNavMenu.js'
 import UserMenu from '../components/UserMenu.js'
 
 interface Bot {
@@ -29,6 +31,7 @@ const iconContainerStyles = [
 
 function BotsList() {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
   const http = useHttpClient()
   const navigate = useNavigate()
@@ -92,6 +95,7 @@ function BotsList() {
           cm.flex({ direction: 'col' }),
           cm.sp('p', 4),
           'fixed left-0 top-0 h-full w-[240px] z-40 bg-[var(--mol-color-background)] border-none',
+          'hidden md:flex', // mobile: drawer in the header instead
         )}
       >
         <div
@@ -257,27 +261,35 @@ function BotsList() {
         </div>
       </aside>
       {/* Main Canvas */}
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'ml-[240px] min-h-screen')}>
+      <main
+        className={cm.cn(
+          cm.flex1,
+          cm.flex({ direction: 'col' }),
+          'ml-0 md:ml-[240px] min-h-screen',
+        )}
+      >
         {/* TopNavBar (Authority: JSON) */}
         <header
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
-            cm.sp('px', 8),
+            cm.sp('px', 4),
             cm.h(16),
-            'sticky top-0 z-30 bg-background',
+            'sticky top-0 z-30 bg-background md:px-8',
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-8')}>
+          <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, 'gap-4 min-w-0')}>
+            {/* Mobile hamburger + drawer (fleet pattern) */}
+            <MobileNavMenu items={navItems} />
             <h1
               className={cm.cn(
                 cm.textSize('2xl'),
                 cm.fontWeight('bold'),
-                'tracking-tight text-on-surface',
+                'tracking-tight text-on-surface hidden sm:block',
               )}
             >
               {t('nav.myBots', {}, { defaultValue: 'My Bots' })}
             </h1>
-            <div className={cm.cn(cm.maxW('md'), 'relative w-full')}>
+            <div className={cm.cn(cm.maxW('md'), 'relative w-full hidden md:block')}>
               <span
                 className={cm.cn(
                   cm.textSize('xl'),
@@ -325,7 +337,41 @@ function BotsList() {
           </div>
         </header>
         {/* Content Area */}
-        <div className={cm.cn(cm.sp('p', 8), cm.stack(8))}>
+        <div className={cm.cn(cm.sp('p', 4), cm.stack(8), 'md:p-8')}>
+          {/* Mobile-only search (hidden in the header below md) */}
+          <div className={cm.cn('relative md:hidden')}>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant',
+              )}
+              aria-hidden="true"
+            >
+              search
+            </span>
+            <input
+              aria-label={t(
+                'botsList.searchPlaceholder',
+                {},
+                { defaultValue: 'Search your bots...' },
+              )}
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.sp('py', 2),
+                cm.sp('pr', 4),
+                cm.sp('pl', 10),
+                'w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all',
+              )}
+              placeholder={t(
+                'botsList.searchPlaceholder',
+                {},
+                { defaultValue: 'Search your bots...' },
+              )}
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
           {loadError && (
             <div
               className={cm.cn(
@@ -548,6 +594,10 @@ function BotsList() {
                                     setActionError(null)
                                     setBots((xs) => xs.filter((x) => x.id !== bot.id))
                                     setOpenMenuId(null)
+                                    void track({
+                                      name: 'bot.deleted',
+                                      properties: { bot_id: bot.id },
+                                    })
                                   })
                                   .catch(() => {
                                     setActionError(

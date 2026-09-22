@@ -20,6 +20,7 @@ function BotEditorSideNavBar() {
         cm.sp('px', 4),
         cm.textSize('sm'),
         "h-screen w-60 fixed left-0 top-0 bg-foreground h-full z-50 font-['Inter'] antialiased tracking-tight",
+        'hidden md:flex', // mobile: drawer in top bar instead
       )}
       style={{ backgroundColor: 'var(--color-editor-sidebar)' }}
     >

@@ -30,7 +30,7 @@ function Integrations() {
       <IntegrationsSideNavBar />
       <IntegrationsTopBar />
       {/* Main Content Canvas */}
-      <main className={cm.cn(cm.sp('p', 8), cm.minH('screen'), 'ml-64')}>
+      <main className={cm.cn(cm.sp('p', 4), cm.minH('screen'), 'ml-0 md:ml-64 md:p-8')}>
         <div className={cm.stack(8)}>
           {/* Header & Search Section */}
           <IntegrationsPageHeader search={search} onSearchChange={setSearch} />

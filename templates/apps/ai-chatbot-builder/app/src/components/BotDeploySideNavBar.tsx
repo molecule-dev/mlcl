@@ -18,6 +18,7 @@ function BotDeploySideNavBar() {
           cm.w(64),
           cm.h('screen'),
           'fixed left-0 top-0 bg-surface-container-low z-50 overflow-y-auto',
+          'hidden md:flex', // mobile: drawer in top bar instead
         )}
       >
         <div className={cm.cn(cm.sp('mb', 10), cm.flex({ align: 'center' }), 'gap-3')}>

@@ -65,6 +65,12 @@ test.describe('reset-password page', () => {
 
   test('bogus token → 400 from API and the error is rendered', async ({ page }) => {
     await page.goto(APP_BASE + '/reset-password?token=definitelynotvalid')
+    // The expected 400 rejection is browser-logged as a failed resource
+    // load; the page renders the error inline (role="alert").
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.locator('#new-password').fill('NewPassword123!')
       await page.locator('#confirm-password').fill('NewPassword123!')
@@ -97,6 +103,12 @@ test.describe('reset-password page', () => {
     // when an admin/test endpoint to fetch the latest token is added,
     // wire it in here and assert redirect-to-/login on success.
     await page.goto(APP_BASE + '/reset-password?token=knownbogus1234567')
+    // This fallback walk exercises the bad-token path, whose expected 400
+    // is browser-logged as a failed resource load.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     await page.locator('#new-password').fill('NewPassword123!')
     await page.locator('#confirm-password').fill('NewPassword123!')
     await page

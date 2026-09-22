@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 
 interface BotSettingsTopBarProps {
@@ -10,6 +11,7 @@ interface BotSettingsTopBarProps {
 }
 function BotSettingsTopBar({ botName }: BotSettingsTopBarProps) {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
 
   return (
@@ -17,9 +19,11 @@ function BotSettingsTopBar({ botName }: BotSettingsTopBarProps) {
       className={cm.cn(
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
-        'fixed top-0 right-0 left-64 h-16 bg-background z-10',
+        'fixed top-0 right-0 left-0 md:left-64 h-16 bg-background z-10',
       )}
     >
+      {/* Mobile hamburger + drawer (fleet pattern) */}
+      <MobileNavMenu items={navItems} />
       <div className={cm.flex({ align: 'center' })}>
         <h2
           className={cm.cn(

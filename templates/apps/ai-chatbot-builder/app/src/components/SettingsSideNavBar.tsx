@@ -14,6 +14,7 @@ function SettingsSideNavBar() {
         cm.sp('py', 8),
         cm.sp('px', 6),
         'h-screen w-64 fixed left-0 top-0 bg-surface-container-low gap-y-4',
+        'hidden md:flex', // mobile: drawer in top bar instead
       )}
     >
       <div

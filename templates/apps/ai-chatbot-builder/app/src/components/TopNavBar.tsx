@@ -4,10 +4,12 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 function TopNavBar() {
   const { t } = useTranslation()
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { pathname } = useLocation()
   // Label for the section the visitor is currently on — TopNavBar is
   // shared by the dashboard and the public/content pages.
@@ -34,27 +36,32 @@ function TopNavBar() {
         'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
-        <Link to="/" className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-foreground')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4 min-w-0')}>
+        {/* Mobile hamburger + drawer (fleet pattern) */}
+        <MobileNavMenu items={navItems} />
+        <Link
+          to="/"
+          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-foreground truncate')}
+        >
           {t('topNavBar.brand', { appName: APP_NAME }, { defaultValue: '{{appName}} AI' })}
         </Link>
-        <span className={cm.cn(cm.h(4), 'w-px', 'bg-outline-variant/30')}></span>
+        <span className={cm.cn(cm.h(4), 'w-px', 'bg-outline-variant/30 hidden sm:block')}></span>
         <span
           aria-current="page"
           className={cm.cn(
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
             cm.sp('py', 1),
-            'tracking-wide text-indigo-600 border-b-2 border-indigo-600',
+            'tracking-wide text-indigo-600 border-b-2 border-indigo-600 truncate hidden sm:block',
           )}
         >
           {currentLabel}
         </span>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-6')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-6 shrink-0')}>
         <Link
           className={cm.cn(
-            'px-4 py-1.5 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all',
+            'px-4 py-1.5 text-sm font-semibold text-primary hover:bg-primary/5 rounded-lg transition-all hidden sm:block',
           )}
           to="/test-chat"
         >

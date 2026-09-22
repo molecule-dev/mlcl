@@ -16,6 +16,8 @@ function BotAnalyticsSideNavBar() {
         cm.sp('py', 8),
         cm.sp('px', 4),
         "h-screen w-64 fixed left-0 top-0 bg-surface-container-low font-['Plus_Jakarta_Sans'] antialiased tracking-wide",
+        /* Mobile: hidden below md — the top bar hamburger drawer carries these links. */
+        'hidden md:flex',
       )}
       data-mol-id="sidebar-01"
     >

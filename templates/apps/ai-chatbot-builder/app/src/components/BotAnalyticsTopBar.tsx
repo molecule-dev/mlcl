@@ -4,11 +4,13 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 
 function BotAnalyticsTopBar() {
   const { t } = useTranslation()
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const [search, setSearch] = useState('')
   const [dateOpen, setDateOpen] = useState(false)
   const dateRef = useRef<HTMLButtonElement>(null)
@@ -29,11 +31,13 @@ function BotAnalyticsTopBar() {
         cm.sp('px', 8),
         cm.h(16),
         cm.w('full'),
-        'fixed top-0 right-0 left-64 z-40 bg-surface/70 backdrop-blur-xl shadow-[0_40px_60px_-5px_rgba(24,20,69,0.04)]',
+        'fixed top-0 right-0 left-0 md:left-64 z-40 bg-surface/70 backdrop-blur-xl shadow-[0_40px_60px_-5px_rgba(24,20,69,0.04)]',
       )}
       data-mol-id="topbar-01"
     >
       <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        {/* Mobile hamburger + drawer (fleet pattern) */}
+        <MobileNavMenu items={navItems} />
         <h1
           className={cm.cn(
             cm.textSize('lg'),

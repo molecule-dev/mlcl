@@ -4,9 +4,11 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import MobileNavMenu, { useMainNavItems } from './MobileNavMenu.js'
 import UserMenu from './UserMenu.js'
 function TestChatTopBar({ botName, botId }: { botName?: string; botId?: string | number }) {
   const cm = getClassMap()
+  const navItems = useMainNavItems()
   const { t } = useTranslation()
 
   return (
@@ -22,6 +24,8 @@ function TestChatTopBar({ botName, botId }: { botName?: string; botId?: string |
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
+        {/* Mobile hamburger + drawer (fleet pattern) */}
+        <MobileNavMenu items={navItems} />
         <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-foreground')}>
           {t('testChatTopBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
         </span>
@@ -48,14 +52,14 @@ function TestChatTopBar({ botName, botId }: { botName?: string; botId?: string |
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3')}>
         <span
           className={cm.cn(
-            'px-4 py-1.5 rounded text-indigo-600 dark:text-indigo-400 font-semibold',
+            'px-4 py-1.5 rounded text-indigo-600 dark:text-indigo-400 font-semibold hidden sm:block',
           )}
         >
           {t('common.test', {}, { defaultValue: 'Test' })}
         </span>
         <Link
           className={cm.cn(
-            'px-4 py-1.5 rounded-lg bg-primary text-on-primary shadow-sm hover:opacity-90 transition-all',
+            'px-4 py-1.5 rounded-lg bg-primary text-on-primary shadow-sm hover:opacity-90 transition-all hidden sm:block',
           )}
           to={botId ? `/bots/${botId}/deploy` : '/bots'}
         >
