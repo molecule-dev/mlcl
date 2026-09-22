@@ -21,6 +21,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findById, findMany } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import { requireMeterToken } from '../middleware/meter-token-auth.js'
@@ -111,7 +112,8 @@ router.post(
         created_at: new Date(),
       })
       res.status(201).json(result.data)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('readings.ingest', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -150,7 +152,8 @@ router.post(
         results.push((r as { data: unknown }).data)
       }
       res.status(201).json(results)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('readings.bulk_ingest', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -203,7 +206,8 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
       return true
     })
     res.json(filtered)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -255,7 +259,8 @@ router.get('/circuits', async (_req: Request, res: Response) => {
       })
     }
     res.json(out)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.circuits', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -286,7 +291,8 @@ router.get('/latest', async (_req: Request, res: Response) => {
       out.push({ meter, reading: rows[0] ?? null })
     }
     res.json(out)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.latest', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -331,7 +337,8 @@ router.get('/summary', async (_req: Request, res: Response) => {
       net_usage: grid - solar,
       date: startOfDay.toISOString(),
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.summary', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -464,7 +471,8 @@ router.get('/daily', validateQuery(aggregateQuerySchema), async (req: Request, r
         reading_count: agg.count,
       }))
     res.json(daily)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.daily', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -506,7 +514,8 @@ router.get('/monthly', validateQuery(meterIdQuerySchema), async (req: Request, r
       reading_count: agg.count,
     }))
     res.json(monthly)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('readings.monthly', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

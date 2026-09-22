@@ -172,7 +172,7 @@ export function AlertCard({ alert, onAcknowledge, onDismiss }: AlertCardProps) {
               onClick={() => onAcknowledge(alert.id)}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.roundedFull,
                 cm.fontWeight('bold'),
                 'text-[10px] uppercase tracking-widest bg-primary text-on-primary hover:bg-primary/90 transition-colors',
@@ -188,7 +188,7 @@ export function AlertCard({ alert, onAcknowledge, onDismiss }: AlertCardProps) {
               onClick={() => onDismiss(alert.id)}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.roundedFull,
                 cm.fontWeight('bold'),
                 'text-[10px] uppercase tracking-widest bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors',

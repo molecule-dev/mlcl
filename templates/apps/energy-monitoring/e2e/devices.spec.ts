@@ -46,6 +46,10 @@ test.describe('Devices /devices', () => {
   })
 
   test('add-meter form creates a new meter that appears in the list', async ({ page }) => {
+    // Free tier + 3 seeded meters means the UI add 403s on the meter limit;
+    // the spec accepts either outcome (created OR visible error box), and
+    // the browser logs the 4xx fetch as a console error either way.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const { accessToken } = await signup(page)
 
     // Free-tier seed already provisions 3 meters and the limit is 3, so a

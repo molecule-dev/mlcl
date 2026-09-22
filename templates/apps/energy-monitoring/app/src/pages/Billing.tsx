@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -123,6 +124,9 @@ export function Billing() {
       const resp = await http.post<CheckoutResponse>('/api/billing/checkout', { priceId })
       const data = unwrapSingle<CheckoutResponse>(resp?.data) ?? {}
       if (data.checkoutUrl) {
+        // Conversion funnel: the Stripe-hosted session opened. The
+        // subscription itself is confirmed by the webhook → /billing.
+        void track({ name: 'billing.checkout_started', properties: { price_id: priceId } })
         if (typeof window !== 'undefined') window.location.href = data.checkoutUrl
         setActionMessage(
           t('billing.redirecting', {}, { defaultValue: 'Redirecting to Stripe checkout\u2026' }),

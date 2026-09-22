@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 const ALERT_TYPES = [
   { key: 'high_usage', defaultLabel: 'High whole-home draw', icon: 'electric_bolt' },
@@ -56,12 +59,21 @@ export function AlertRule() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post('/api/alerts/rules', {
+      const created = await http.post<{ id?: string }>('/api/alerts/rules', {
         name: name || undefined,
         type,
         threshold: Number(threshold),
         comparison,
         notify_email: channels.has('email') ? email || undefined : undefined,
+      })
+      void track({
+        name: 'alert.threshold_set',
+        properties: {
+          rule_id: unwrapSingle<{ id?: string }>(created)?.id ?? null,
+          type,
+          threshold: Number(threshold),
+          comparison,
+        },
       })
       navigate('/alerts')
     } catch (err) {

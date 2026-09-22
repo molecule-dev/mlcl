@@ -305,7 +305,7 @@ export function Dashboard() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-primary hover:underline',
+              'text-primary hover:underline inline-flex items-center min-h-[32px] py-1',
             )}
           >
             {t('dashboard.viewAllDevices', {}, { defaultValue: 'Every device →' })}
@@ -359,7 +359,7 @@ export function Dashboard() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('bold'),
-              'text-primary hover:underline',
+              'text-primary hover:underline inline-flex items-center min-h-[32px] py-1',
             )}
           >
             {t('dashboard.viewAllAlerts', {}, { defaultValue: 'Manage alerts →' })}

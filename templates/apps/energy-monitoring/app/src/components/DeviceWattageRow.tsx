@@ -79,12 +79,12 @@ export function DeviceWattageRow({ device }: DeviceWattageRowProps) {
     <Link
       to={`/devices/${device.id}`}
       className={cm.cn(
-        cm.flex({ align: 'center', justify: 'between' }),
+        cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
         cm.sp('p', 4),
         'bg-surface-container-lowest hover:bg-surface-container-low rounded-2xl transition-all group',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-1')}>
         <div
           className={cm.cn(
             cm.w(12),
@@ -96,21 +96,25 @@ export function DeviceWattageRow({ device }: DeviceWattageRowProps) {
               : device.status === 'online'
                 ? 'bg-primary/10 text-primary'
                 : 'bg-surface-container text-on-surface-variant',
-            'transition-colors',
+            'transition-colors shrink-0',
           )}
           aria-hidden="true"
         >
           <span className="material-symbols-outlined">{icon}</span>
         </div>
-        <div>
-          <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'))}>{device.name}</p>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'mt-0.5')}>
+        <div className={cm.cn('min-w-0')}>
+          <p className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'truncate')}>
+            {device.name}
+          </p>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'mt-0.5 min-w-0 flex-wrap')}
+          >
             <span
               className={cm.cn(
                 cm.sp('px', 2),
                 cm.roundedFull,
                 cm.fontWeight('bold'),
-                'text-[10px] py-0.5 uppercase tracking-widest',
+                'text-[10px] py-0.5 uppercase tracking-widest shrink-0',
                 tone,
               )}
             >
@@ -120,7 +124,12 @@ export function DeviceWattageRow({ device }: DeviceWattageRowProps) {
                 { defaultValue: isProducing ? 'producing' : device.status },
               )}
             </span>
-            <span className={cm.cn(cm.fontWeight('medium'), 'text-[10px] text-on-surface-variant')}>
+            <span
+              className={cm.cn(
+                cm.fontWeight('medium'),
+                'text-[10px] text-on-surface-variant truncate',
+              )}
+            >
               {t(
                 'deviceWattageRow.locationTime',
                 {
@@ -134,7 +143,7 @@ export function DeviceWattageRow({ device }: DeviceWattageRowProps) {
           </div>
         </div>
       </div>
-      <div className={cm.cn(cm.flex({ direction: 'col', align: 'end' }))}>
+      <div className={cm.cn(cm.flex({ direction: 'col', align: 'end' }), 'shrink-0 text-right')}>
         <span
           className={cm.cn(cm.fontWeight('bold'), 'font-mono tabular-nums text-base', valueClass)}
         >

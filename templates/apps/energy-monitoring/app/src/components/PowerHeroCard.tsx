@@ -86,7 +86,9 @@ export function PowerHeroCard({
         </h2>
         <div className={cm.flex({ align: 'baseline', gap: 'md' })}>
           <span
-            className={cm.cn('font-mono text-6xl font-extrabold tracking-tighter tabular-nums')}
+            className={cm.cn(
+              'font-mono text-5xl sm:text-6xl font-extrabold tracking-tighter tabular-nums',
+            )}
           >
             {t(
               'powerHeroCard.watts',

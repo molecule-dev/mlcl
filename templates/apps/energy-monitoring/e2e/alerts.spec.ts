@@ -72,7 +72,12 @@ test.describe('Alerts /alerts', () => {
     await page.goto(APP_BASE + '/alerts')
     await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {})
     page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="alerts-rule-delete-${target.id}"]`).first().click()
+    // Destructive delete is two-click: first click arms ("Confirm delete"),
+    // second click commits. A stray first click must NOT delete.
+    const deleteBtn = page.locator(`[data-mol-id="alerts-rule-delete-${target.id}"]`).first()
+    await deleteBtn.click()
+    await expect(deleteBtn).toContainText(/confirm/i)
+    await deleteBtn.click()
     await page.waitForTimeout(1500)
 
     const rulesAfter = await listAlertRules(page, accessToken)

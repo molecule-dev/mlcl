@@ -13,6 +13,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { EnergyMonitoringLimits } from '../tiers.js'
@@ -68,7 +69,8 @@ router.get('/rates', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'effective_date', direction: 'desc' }],
     })
     res.json(rates)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('costs.rates_list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -90,7 +92,8 @@ router.get('/rates/:id', async (req: Request, res: Response) => {
       })
     }
     res.json(rate)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('costs.rates_get', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -138,7 +141,8 @@ router.post(
         updated_at: new Date(),
       })
       res.status(201).json(result.data)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('costs.rate_create', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -165,7 +169,8 @@ router.put('/rates/:id', validateBody(updateRateSchema), async (req: Request, re
       updated_at: new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('costs.rate_update', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -188,7 +193,8 @@ router.delete('/rates/:id', async (req: Request, res: Response) => {
     }
     await deleteById('rate_plans', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error('costs.rate_delete', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -319,7 +325,8 @@ router.get(
         start_date,
         end_date,
       })
-    } catch (_err) {
+    } catch (err) {
+      logger.error('costs.calculate', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -398,7 +405,8 @@ router.get('/monthly', validateQuery(monthlyQuerySchema), async (req: Request, r
       currency: ratePlan.currency ?? 'USD',
     }))
     res.json({ year: targetYear, months: monthly, rate_plan: ratePlan.name })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('costs.monthly', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

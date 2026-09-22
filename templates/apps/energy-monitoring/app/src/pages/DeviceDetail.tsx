@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,6 +65,9 @@ export function DeviceDetail() {
   const [loading, setLoading] = useState(true)
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  // Destructive delete arms on the first click and commits on the second
+  // (auto-disarm after 4s) — no modal, no lost taps on mobile.
+  const [deleteArmed, setDeleteArmed] = useState(false)
 
   async function load(): Promise<void> {
     if (!id) return
@@ -173,6 +177,7 @@ export function DeviceDetail() {
     setBusy('deactivate')
     try {
       await http.post(`/api/meters/${meter.id}/deactivate`, {})
+      void track({ name: 'meter.deactivated', properties: { meter_id: meter.id } })
       await load()
     } catch (err) {
       setError(
@@ -191,9 +196,16 @@ export function DeviceDetail() {
 
   async function deleteMeter(): Promise<void> {
     if (!meter) return
+    if (!deleteArmed) {
+      setDeleteArmed(true)
+      window.setTimeout(() => setDeleteArmed(false), 4000)
+      return
+    }
+    setDeleteArmed(false)
     setBusy('delete')
     try {
       await http.delete(`/api/meters/${meter.id}`)
+      void track({ name: 'meter.deleted', properties: { meter_id: meter.id } })
       navigate('/devices')
     } catch (err) {
       setError(
@@ -216,6 +228,7 @@ export function DeviceDetail() {
       })
       const data = unwrapSingle<MeterToken>(resp)
       if (data?.token) setNewTokenSecret(data.token)
+      void track({ name: 'meter.token_issued', properties: { meter_id: meter.id } })
       await load()
     } catch (err) {
       setError(
@@ -460,7 +473,9 @@ export function DeviceDetail() {
                 <span className={'material-symbols-outlined text-base'} aria-hidden="true">
                   delete
                 </span>
-                {t('deviceDetail.delete', {}, { defaultValue: 'Delete meter' })}
+                {deleteArmed
+                  ? t('deviceDetail.confirmDelete', {}, { defaultValue: 'Confirm delete' })
+                  : t('deviceDetail.delete', {}, { defaultValue: 'Delete meter' })}
               </button>
             </div>
             {newTokenSecret ? (

@@ -243,7 +243,7 @@ export function Reports() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
-                'bg-surface rounded-full border border-outline-variant focus:border-primary outline-none text-xs uppercase tracking-widest font-bold',
+                'bg-surface rounded-full border border-outline-variant focus:border-primary outline-none text-xs uppercase tracking-widest font-bold max-w-full min-w-0',
               )}
             >
               <option value="all">

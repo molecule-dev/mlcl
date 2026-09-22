@@ -15,6 +15,7 @@ import { count, create, deleteById, findById, findMany, updateById } from '@mole
 import { sendMail } from '@molecule/api-emails'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { EnergyMonitoringLimits } from '../tiers.js'
@@ -90,7 +91,8 @@ router.get('/', async (req: Request, res: Response) => {
       offset: (Number(page) - 1) * Number(limit),
     })
     res.json(alerts)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -113,7 +115,8 @@ router.get('/:id', async (req: Request, res: Response) => {
         .json({ error: t('alerts.notFound', undefined, { defaultValue: 'Alert not found.' }) })
     }
     res.json(alert)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.get', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -142,7 +145,8 @@ router.post('/:id/acknowledge', async (req: Request, res: Response) => {
       updated_at: new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.acknowledge', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -169,7 +173,8 @@ router.post('/:id/dismiss', async (req: Request, res: Response) => {
       updated_at: new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.dismiss', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -192,7 +197,8 @@ router.get('/rules/list', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(rules)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.rules_list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -239,7 +245,8 @@ router.post(
         updated_at: new Date(),
       })
       res.status(201).json(result.data)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('alerts.rule_create', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -277,7 +284,8 @@ router.put('/rules/:id', validateBody(updateRuleSchema), async (req: Request, re
       updated_at: new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.rule_update', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -304,7 +312,8 @@ router.post('/rules/:id/toggle', async (req: Request, res: Response) => {
       updated_at: new Date(),
     })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.rule_toggle', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -328,7 +337,8 @@ router.delete('/rules/:id', async (req: Request, res: Response) => {
     }
     await deleteById('alert_rules', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.rule_delete', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -445,15 +455,17 @@ router.post('/check', async (_req: Request, res: Response) => {
             ),
             text: message,
           })
-        } catch (_error) {
+        } catch (notifyErr) {
           // email failure must not break alert creation
+          logger.error('alerts.notify', notifyErr)
         }
       }
 
       created.push((result as { data: unknown }).data)
     }
     res.json({ alerts_created: created.length, alerts: created })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('alerts.check', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

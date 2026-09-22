@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import { type DeviceWattageItem, DeviceWattageRow } from '../components/DeviceWattageRow.js'
 import { type EnergyKpi, EnergyKpiTriad } from '../components/EnergyKpiTriad.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface CircuitRow {
   id: string
@@ -144,11 +145,18 @@ export function Devices() {
     setAddBusy(true)
     setAddError(null)
     try {
-      await http.post('/api/meters', {
+      const resp = await http.post<{ id?: string }>('/api/meters', {
         name: addName.trim(),
         type: addType,
         location: addLocation.trim() || undefined,
         unit: 'kWh',
+      })
+      void track({
+        name: 'meter.added',
+        properties: {
+          meter_id: unwrapSingle<{ id?: string }>(resp)?.id ?? null,
+          type: addType,
+        },
       })
       setAddName('')
       setAddLocation('')
@@ -170,6 +178,7 @@ export function Devices() {
     setBusyId(id)
     try {
       await http.post(`/api/meters/${id}/deactivate`, {})
+      void track({ name: 'meter.deactivated', properties: { meter_id: id } })
       await load()
     } catch (_error) {
       // swallow — status pill will reflect server state on next load
@@ -452,7 +461,7 @@ export function Devices() {
         <div data-mol-id="devices-list" className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
           {filtered.map((d) => (
             <div key={d.id} className={cm.cn(cm.flex({ align: 'stretch', gap: 'sm' }), 'group')}>
-              <div className={cm.cn('flex-1')}>
+              <div className={cm.cn('flex-1 min-w-0')}>
                 <DeviceWattageRow device={d} />
               </div>
               <button
@@ -462,6 +471,7 @@ export function Devices() {
                 disabled={busyId === d.id || d.status === 'offline'}
                 className={cm.cn(
                   cm.sp('px', 3),
+                  cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   'text-[10px] uppercase tracking-widest rounded-2xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors disabled:opacity-50',
                 )}

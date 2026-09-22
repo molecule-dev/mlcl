@@ -24,6 +24,10 @@ test.describe('Signup /signup', () => {
   })
 
   test('duplicate email fails the second time and stays on /signup', async ({ page }) => {
+    // The API's non-enumerable duplicate-email response is a 403; the
+    // browser logs every 4xx fetch as a console error, which is expected
+    // here — the test asserts the failure UI, not console silence.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dup')
     await page.goto(APP_BASE + '/signup')
     await page.locator('input[type="email"]').first().fill(email)

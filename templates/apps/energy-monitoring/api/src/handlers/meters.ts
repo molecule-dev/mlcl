@@ -14,6 +14,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { generateMeterToken, hashMeterToken } from '../middleware/meter-token-auth.js'
@@ -59,7 +60,8 @@ router.get('/', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'name', direction: 'asc' }],
     })
     res.json(meters)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -87,7 +89,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       limit: 1,
     })
     res.json({ ...meter, latest_reading: latest[0] ?? null })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.get', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -124,7 +127,8 @@ router.post(
         updated_at: new Date(),
       })
       res.status(201).json(result.data)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('meters.create', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -151,7 +155,8 @@ router.put('/:id', validateBody(updateMeterSchema), async (req: Request, res: Re
     const updates: Record<string, unknown> = { ...req.body, updated_at: new Date() }
     const result = await updateById('meters', id, updates)
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.update', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -175,7 +180,8 @@ router.post('/:id/deactivate', async (req: Request, res: Response) => {
     }
     const result = await updateById('meters', id, { status: 'inactive', updated_at: new Date() })
     res.json(result.data)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.deactivate', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -207,7 +213,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     }
     await deleteById('meters', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.delete', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -247,7 +254,8 @@ router.get('/:id/tokens', async (req: Request, res: Response) => {
         return safe
       }),
     )
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.tokens_list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -284,7 +292,8 @@ router.post('/:id/tokens', validateBody(createTokenSchema), async (req: Request,
     const data = { ...(result as { data: Record<string, unknown> }).data }
     delete data['token_hash']
     res.status(201).json({ ...data, token })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.token_create', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -316,7 +325,8 @@ router.delete('/:id/tokens/:tokenId', async (req: Request, res: Response) => {
     }
     await updateById('meter_tokens', tokenId, { enabled: false, revoked_at: new Date() })
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error('meters.token_revoke', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

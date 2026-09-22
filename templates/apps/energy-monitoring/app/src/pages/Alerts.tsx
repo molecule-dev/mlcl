@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -45,6 +46,9 @@ export function Alerts() {
   const [error, setError] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [evalBusy, setEvalBusy] = useState(false)
+  // Destructive delete arms on the first click and commits on the second
+  // (auto-disarm after 4s) — no modal, no lost taps on mobile.
+  const [armedDeleteId, setArmedDeleteId] = useState<string | null>(null)
 
   async function load(): Promise<void> {
     setLoading(true)
@@ -116,6 +120,7 @@ export function Alerts() {
     setBusyId(id)
     try {
       await http.post(`/api/alerts/${id}/acknowledge`, {})
+      void track({ name: 'alert.acknowledged', properties: { alert_id: id } })
       await load()
     } catch (err) {
       setError(
@@ -132,6 +137,7 @@ export function Alerts() {
     setBusyId(id)
     try {
       await http.post(`/api/alerts/${id}/dismiss`, {})
+      void track({ name: 'alert.dismissed', properties: { alert_id: id } })
       await load()
     } catch (err) {
       setError(
@@ -148,6 +154,10 @@ export function Alerts() {
     setBusyId(rule.id)
     try {
       await http.post(`/api/alerts/rules/${rule.id}/toggle`, {})
+      void track({
+        name: 'alert.rule_toggled',
+        properties: { rule_id: rule.id, enabled: !rule.enabled },
+      })
       await load()
     } catch (err) {
       setError(
@@ -161,9 +171,16 @@ export function Alerts() {
   }
 
   async function deleteRule(rule: RuleSummary): Promise<void> {
+    if (armedDeleteId !== rule.id) {
+      setArmedDeleteId(rule.id)
+      window.setTimeout(() => setArmedDeleteId((cur) => (cur === rule.id ? null : cur)), 4000)
+      return
+    }
+    setArmedDeleteId(null)
     setBusyId(rule.id)
     try {
       await http.delete(`/api/alerts/rules/${rule.id}`)
+      void track({ name: 'alert.rule_deleted', properties: { rule_id: rule.id } })
       await load()
     } catch (err) {
       setError(
@@ -180,6 +197,7 @@ export function Alerts() {
     setEvalBusy(true)
     try {
       await http.post('/api/alerts/check', {})
+      void track({ name: 'alert.check_run' })
       await load()
     } catch (err) {
       setError(
@@ -427,7 +445,7 @@ export function Alerts() {
                 key={r.id}
                 data-mol-id={`alerts-rule-${r.id}`}
                 className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                  cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
                   cm.sp('p', 5),
                   'bg-surface-container-lowest rounded-2xl border-l-4',
                   r.enabled ? 'border-l-primary' : 'border-l-outline-variant',
@@ -457,7 +475,7 @@ export function Alerts() {
                     aria-pressed={r.enabled}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      cm.sp('py', 2),
                       cm.roundedFull,
                       cm.fontWeight('bold'),
                       'text-[10px] uppercase tracking-widest disabled:opacity-60',
@@ -477,13 +495,15 @@ export function Alerts() {
                     disabled={busyId === r.id}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      cm.sp('py', 2),
                       cm.roundedFull,
                       cm.fontWeight('bold'),
                       'text-[10px] uppercase tracking-widest bg-surface-container text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors disabled:opacity-60',
                     )}
                   >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
+                    {armedDeleteId === r.id
+                      ? t('alerts.confirmDelete', {}, { defaultValue: 'Confirm delete' })
+                      : t('common.delete', {}, { defaultValue: 'Delete' })}
                   </button>
                 </div>
               </div>

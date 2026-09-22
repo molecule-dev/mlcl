@@ -24,6 +24,9 @@ test.describe('Login /login', () => {
   })
 
   test('invalid credentials show an error and do not redirect', async ({ page }) => {
+    // The API answers bad credentials with a 403; the browser logs every
+    // 4xx fetch as a console error, which is expected in this test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail('nope'))
     await page.locator('input[type="password"]').first().fill('definitely-wrong')

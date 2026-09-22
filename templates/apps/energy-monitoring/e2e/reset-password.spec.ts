@@ -4,6 +4,9 @@ import { APP_BASE, captureNetwork } from './_helpers.js'
 
 test.describe('Reset password /reset-password', () => {
   test('invalid token is rejected (no silent 404)', async ({ page }) => {
+    // The asserted contract IS the 401; the browser logs every 4xx fetch
+    // as a console error, which is expected in this negative-path test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=not-a-real-token')
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input[type="email"]').first().fill('user@flagship.test')
