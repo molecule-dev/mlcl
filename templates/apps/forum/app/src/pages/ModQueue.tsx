@@ -13,6 +13,7 @@
  */
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
@@ -139,6 +140,14 @@ export function ModQueue() {
       try {
         const http = getHttpClient()
         await http.post(`/api/moderation/reports/${reportId}/resolve`, { action })
+        void track({
+          name: 'moderation.resolved',
+          properties: {
+            report_id: reportId,
+            action,
+            status: action === 'dismiss' ? 'dismissed' : 'resolved',
+          },
+        })
         setReports((prev) => prev.filter((r) => r.id !== reportId))
         if (action === 'dismiss') {
           setSessionDismissed((n) => n + 1)

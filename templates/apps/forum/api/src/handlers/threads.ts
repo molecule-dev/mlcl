@@ -231,7 +231,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     const decorated = await decorateThreads(threads)
     res.json({ data: decorated, total, page, limit })
   } catch (err) {
-    console.error('[threads:list] failed', err)
+    logger.error('threads.list', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
@@ -291,7 +291,7 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
       res.json({ hits: decorated, total: decorated.length, page, limit })
     }
   } catch (err) {
-    console.error('[threads:search] failed', err)
+    logger.error('threads.searchError', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
@@ -354,7 +354,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const [decorated] = await decorateThreads([thread])
     res.json({ ...decorated, replies: decoratedReplies })
   } catch (err) {
-    console.error('[threads:get] failed', err)
+    logger.error('threads.get', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
@@ -410,7 +410,7 @@ router.post(
       }
       res.status(201).json(thread)
     } catch (err) {
-      console.error('[threads:create] failed', err)
+      logger.error('threads.create', err)
       res.status(500).json({
         error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
       })
@@ -468,7 +468,7 @@ router.post(
 
       res.status(201).json(result.data)
     } catch (err) {
-      console.error('[threads:reply] failed', err)
+      logger.error('threads.reply', err)
       res.status(500).json({
         error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
       })
@@ -505,7 +505,7 @@ router.put('/:id', validateBody(updateThreadSchema), async (req: Request, res: R
     }
     res.json(updated)
   } catch (err) {
-    console.error('[threads:update] failed', err)
+    logger.error('threads.update', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
@@ -528,7 +528,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('threads', id)
     res.status(204).end()
   } catch (err) {
-    console.error('[threads:delete] failed', err)
+    logger.error('threads.delete', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })

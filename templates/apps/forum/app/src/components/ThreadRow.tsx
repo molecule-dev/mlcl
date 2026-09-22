@@ -175,7 +175,7 @@ export function ThreadRow({ thread, onVote, href }: ThreadRowProps) {
           <Link
             to={categoryHref}
             className={cm.cn(
-              'rounded-full px-2.5 py-0.5 hover:opacity-80 transition-opacity relative',
+              'rounded-full px-2.5 py-1.5 hover:opacity-80 transition-opacity relative',
             )}
             style={{
               backgroundColor: thread.categoryColor
@@ -201,7 +201,10 @@ export function ThreadRow({ thread, onVote, href }: ThreadRowProps) {
           )}
           <Link
             to={authorHref}
-            className={cm.cn(cm.fontWeight('semibold'), 'hover:underline relative')}
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              'relative inline-block py-1.5 -my-1.5 hover:underline',
+            )}
             style={{ color: 'var(--color-primary, var(--color-pinned))' }}
           >
             {t('threadRow.authorPrefix', {}, { defaultValue: 'u/' })}

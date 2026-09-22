@@ -19,6 +19,7 @@ import { Router } from 'express'
 
 import { findMany, query } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -136,7 +137,7 @@ router.get('/', async (_req: Request, res: Response) => {
     const unreadCount = items.filter((i) => i.unread).length
     res.json({ items, unreadCount, lastSeenAt })
   } catch (err) {
-    console.error('notifications list failed', err)
+    logger.error('notifications.list', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
@@ -162,7 +163,7 @@ router.post('/mark-all-read', async (_req: Request, res: Response) => {
     )
     res.json({ lastSeenAt: now })
   } catch (err) {
-    console.error('notifications mark-all-read failed', err)
+    logger.error('notifications.markAllRead', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })

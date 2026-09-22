@@ -7,6 +7,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -186,6 +187,10 @@ export function Compose() {
       })
       const created = resp?.data
       if (created?.id) {
+        void track({
+          name: 'topic.created',
+          properties: { topic_id: created.id, category_id: categoryId, flair: flair || null },
+        })
         navigate(`/thread/${created.id}`)
         return
       }

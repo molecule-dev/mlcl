@@ -369,11 +369,15 @@ export function Settings() {
             })}
           </nav>
 
+          {/* min-w-0 — the 1fr grid track's `min-width:auto` otherwise
+              grows to the widest child's min-content (the AuthSection
+              password/2FA rows), pushing the whole grid past the viewport
+              at md widths (794px scrollWidth at 768px viewport). */}
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', gap: 'md' }),
               cm.sp('p', 6),
-              'rounded-xl border border-outline-variant/40 bg-surface',
+              'min-w-0 rounded-xl border border-outline-variant/40 bg-surface',
             )}
           >
             {section === 'account' && (
@@ -425,7 +429,7 @@ export function Settings() {
                         cm.sp('px', 4),
                         cm.sp('py', 2),
                         cm.textSize('sm'),
-                        'rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
+                        'w-full rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
                       )}
                     />
                   </div>
@@ -450,7 +454,7 @@ export function Settings() {
                         cm.sp('px', 4),
                         cm.sp('py', 2),
                         cm.textSize('sm'),
-                        'rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
+                        'w-full rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
                       )}
                     />
                   </div>
@@ -475,7 +479,7 @@ export function Settings() {
                         cm.sp('px', 4),
                         cm.sp('py', 2),
                         cm.textSize('sm'),
-                        'rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
+                        'w-full rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
                       )}
                     />
                   </div>
@@ -735,7 +739,10 @@ export function Settings() {
             )}
           </div>
           <section
-            className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl md:col-span-2')}
+            className={cm.cn(
+              cm.sp('p', 8),
+              'min-w-0 bg-surface-container-low rounded-xl md:col-span-2',
+            )}
           >
             <div className={cm.sp('mb', 6)}>
               <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>

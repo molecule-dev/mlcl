@@ -13,8 +13,9 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
-import { useTranslation } from '@molecule/app-react'
+import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CommunitySidebar } from '../components/CommunitySidebar.js'
@@ -146,8 +147,8 @@ function ReplyItem({
           onClick={() => setCollapsed(false)}
           aria-label={t('threadView.expand', {}, { defaultValue: 'Expand thread' })}
           className={cm.cn(
-            cm.fontWeight('bold'),
-            'rounded-full px-2 py-0 border border-outline-variant/40 text-[10px]',
+            cm.flex({ align: 'center', justify: 'center' }),
+            'min-w-[28px] min-h-[28px] rounded-full border border-outline-variant/40 font-bold text-[10px] text-on-surface-variant',
           )}
         >
           {t('threadView.expandToggle', {}, { defaultValue: '+' })}
@@ -198,13 +199,17 @@ function ReplyItem({
           type="button"
           onClick={() => setCollapsed(true)}
           aria-label={t('threadView.collapse', {}, { defaultValue: 'Collapse' })}
-          className={cm.cn(cm.fontWeight('bold'), 'text-[10px] text-on-surface-variant')}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.fontWeight('bold'),
+            'min-w-[28px] min-h-[28px] rounded text-[10px] text-on-surface-variant hover:bg-surface-container-low/60',
+          )}
         >
           {t('threadView.collapseToggle', {}, { defaultValue: '[–]' })}
         </button>
         <Link
           to={`/u/${reply.author?.username ?? reply.author_id}`}
-          className={cm.cn(cm.fontWeight('semibold'), 'text-primary')}
+          className={cm.cn(cm.fontWeight('semibold'), 'inline-block py-1.5 -my-1.5 text-primary')}
         >
           {t('threadView.userPrefix', {}, { defaultValue: 'u/' })}
           {reply.author?.username ?? reply.author?.name ?? reply.author_id.slice(0, 8)}
@@ -236,7 +241,12 @@ function ReplyItem({
       >
         <button
           type="button"
-          className={cm.cn('hover:text-primary transition-colors flex items-center gap-1')}
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 2),
+            cm.sp('py', 1),
+            'rounded transition-colors hover:text-primary items-center gap-1',
+          )}
           onClick={() => setShowReplyForm((s) => !s)}
           aria-expanded={showReplyForm}
         >
@@ -319,6 +329,8 @@ export function ThreadView() {
   const { t } = useTranslation()
   const params = useParams<{ id: string }>()
   const threadId = params.id ?? ''
+  const { user: authUser } = useAuth<{ id?: string; role?: string }>()
+  const isMod = authUser?.role === 'moderator' || authUser?.role === 'admin'
 
   const [thread, setThread] = useState<ApiThread | null>(null)
   const [category, setCategory] = useState<ApiCategory | null>(null)
@@ -327,6 +339,18 @@ export function ThreadView() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+
+  // Moderation actions (pin/lock) — moderator/admin only.
+  const [modBusy, setModBusy] = useState<'pin' | 'lock' | null>(null)
+  const [modError, setModError] = useState<string | null>(null)
+
+  // Member report flow — inline panel on the thread card.
+  const REPORT_REASONS = ['spam', 'harassment', 'off-topic', 'misinformation', 'other'] as const
+  const [reportOpen, setReportOpen] = useState(false)
+  const [reportReason, setReportReason] = useState<string>('spam')
+  const [reportDetails, setReportDetails] = useState('')
+  const [reportState, setReportState] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle')
+  const [reportError, setReportError] = useState<string | null>(null)
 
   const fetchThread = useCallback(async () => {
     if (!threadId) return
@@ -397,6 +421,10 @@ export function ThreadView() {
         body: replyBody.trim(),
         parent_reply_id: null,
       })
+      void track({
+        name: 'post.reply',
+        properties: { thread_id: thread.id, parent_reply_id: null },
+      })
       setReplyBody('')
       await fetchThread()
     } catch (e) {
@@ -417,7 +445,84 @@ export function ThreadView() {
       body,
       parent_reply_id: parentReplyId,
     })
+    void track({
+      name: 'post.reply',
+      properties: { thread_id: thread.id, parent_reply_id: parentReplyId },
+    })
     await fetchThread()
+  }
+
+  /** Moderator toggle for is_pinned / is_locked. */
+  const handleModAction = async (action: 'pin' | 'lock') => {
+    if (!thread || modBusy) return
+    setModBusy(action)
+    setModError(null)
+    try {
+      const http = getHttpClient()
+      const res = await http.post<ApiThread>(`/api/moderation/threads/${thread.id}/${action}`, {})
+      if (res?.data?.id) {
+        setThread((prev) =>
+          prev
+            ? {
+                ...prev,
+                is_pinned: res.data.is_pinned ?? prev.is_pinned,
+                is_locked: res.data.is_locked ?? prev.is_locked,
+              }
+            : prev,
+        )
+        void track({
+          name: action === 'pin' ? 'topic.pinned' : 'topic.locked',
+          properties: {
+            thread_id: thread.id,
+            status: (action === 'pin' ? res.data.is_pinned : res.data.is_locked) ?? false,
+          },
+        })
+      } else {
+        setModError(
+          t('threadView.modActionFailed', {}, { defaultValue: 'Moderator action failed.' }),
+        )
+      }
+    } catch (_error) {
+      // 403 for non-mods or network failure — same user-facing message.
+      setModError(t('threadView.modActionFailed', {}, { defaultValue: 'Moderator action failed.' }))
+    } finally {
+      setModBusy(null)
+    }
+  }
+
+  /** Member-facing report submission against this thread. */
+  const handleReport = async () => {
+    if (!thread || reportState === 'submitting') return
+    setReportState('submitting')
+    setReportError(null)
+    try {
+      const http = getHttpClient()
+      const res = await http.post<{ id?: string; error?: string }>('/api/moderation/reports', {
+        target_type: 'thread',
+        target_id: thread.id,
+        reason: reportReason,
+        description: reportDetails.trim(),
+      })
+      if (res?.data?.error) {
+        setReportError(res.data.error)
+        setReportState('error')
+        return
+      }
+      void track({
+        name: 'report.created',
+        properties: { thread_id: thread.id, reason: reportReason },
+      })
+      setReportState('sent')
+      setReportOpen(false)
+      setReportDetails('')
+    } catch (e) {
+      setReportError(
+        e instanceof Error
+          ? e.message
+          : t('threadView.reportFailed', {}, { defaultValue: 'Could not send the report.' }),
+      )
+      setReportState('error')
+    }
   }
 
   if (loading) {
@@ -436,7 +541,12 @@ export function ThreadView() {
         <p className={cm.cn('text-on-surface-variant')}>
           {error || t('threadView.notFound', {}, { defaultValue: 'Thread not found.' })}
         </p>
-        <Link to="/feed" className={cm.cn('text-primary')}>
+        <Link
+          to="/feed"
+          className={cm.cn(
+            'inline-block px-3 py-2 rounded-lg bg-primary-container/20 text-primary font-semibold',
+          )}
+        >
           {t('threadView.backToFeed', {}, { defaultValue: 'Back to feed' })}
         </Link>
       </div>
@@ -493,7 +603,7 @@ export function ThreadView() {
               >
                 <Link
                   to={`/c/${categorySlug}`}
-                  className={cm.cn(cm.fontWeight('bold'), 'rounded-full px-2.5 py-0.5')}
+                  className={cm.cn(cm.fontWeight('bold'), 'rounded-full px-2.5 py-1.5')}
                   style={{
                     backgroundColor: category?.color
                       ? `${category.color}1f`
@@ -506,7 +616,10 @@ export function ThreadView() {
                 </Link>
                 <Link
                   to={`/u/${thread.author?.username ?? thread.author_id}`}
-                  className={cm.cn(cm.fontWeight('semibold'), 'text-primary')}
+                  className={cm.cn(
+                    cm.fontWeight('semibold'),
+                    'inline-block py-1.5 -my-1.5 text-primary',
+                  )}
                 >
                   {t('threadView.userPrefix', {}, { defaultValue: 'u/' })}
                   {thread.author?.username ?? thread.author?.name ?? thread.author_id.slice(0, 8)}
@@ -577,7 +690,223 @@ export function ThreadView() {
                     { defaultValue: '{{count}} views' },
                   )}
                 </span>
+                <button
+                  type="button"
+                  data-mol-id="report-thread-toggle"
+                  onClick={() => {
+                    setReportOpen((s) => !s)
+                    setReportState('idle')
+                    setReportError(null)
+                  }}
+                  aria-expanded={reportOpen}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 2),
+                    cm.sp('py', 1),
+                    'ml-auto rounded transition-colors hover:text-error',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                    flag
+                  </span>
+                  {t('threadView.report', {}, { defaultValue: 'Report' })}
+                </button>
               </footer>
+
+              {/* Moderator quick actions — pin/lock via the moderation bond. */}
+              {isMod && (
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'sm' }),
+                    cm.sp('p', 3),
+                    'flex-wrap rounded-lg border border-outline-variant/40 bg-surface-container-low/40',
+                  )}
+                  data-mol-id="mod-actions"
+                >
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.textSize('xs'),
+                      'uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('threadView.modTools', {}, { defaultValue: 'Mod tools' })}
+                  </span>
+                  <button
+                    type="button"
+                    data-mol-id="mod-toggle-pin"
+                    disabled={modBusy !== null}
+                    onClick={() => void handleModAction('pin')}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.fontWeight('semibold'),
+                      cm.textSize('xs'),
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      'rounded-full border border-outline-variant/40 transition-colors hover:bg-surface-container-low/60 disabled:opacity-50',
+                      thread.is_pinned
+                        ? 'text-primary border-primary/40'
+                        : 'text-on-surface-variant',
+                    )}
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      push_pin
+                    </span>
+                    {thread.is_pinned
+                      ? t('threadView.unpin', {}, { defaultValue: 'Unpin' })
+                      : t('threadView.pin', {}, { defaultValue: 'Pin' })}
+                  </button>
+                  <button
+                    type="button"
+                    data-mol-id="mod-toggle-lock"
+                    disabled={modBusy !== null}
+                    onClick={() => void handleModAction('lock')}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.fontWeight('semibold'),
+                      cm.textSize('xs'),
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      'rounded-full border border-outline-variant/40 transition-colors hover:bg-surface-container-low/60 disabled:opacity-50',
+                      thread.is_locked ? 'text-error border-error/40' : 'text-on-surface-variant',
+                    )}
+                  >
+                    <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
+                      lock
+                    </span>
+                    {thread.is_locked
+                      ? t('threadView.unlock', {}, { defaultValue: 'Unlock' })
+                      : t('threadView.lock', {}, { defaultValue: 'Lock' })}
+                  </button>
+                  {modError && (
+                    <span role="alert" className={cm.cn(cm.textSize('xs'), 'text-error')}>
+                      {modError}
+                    </span>
+                  )}
+                </div>
+              )}
+
+              {/* Member report panel. */}
+              {reportState === 'sent' && (
+                <p
+                  role="status"
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.sp('p', 3),
+                    'rounded-lg bg-primary-container/20 text-primary',
+                  )}
+                >
+                  {t(
+                    'threadView.reportSent',
+                    {},
+                    { defaultValue: 'Thanks — this has been sent to the moderators.' },
+                  )}
+                </p>
+              )}
+              {reportOpen && reportState !== 'sent' && (
+                <div
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', gap: 'sm' }),
+                    cm.sp('p', 4),
+                    'rounded-lg border border-outline-variant/40 bg-surface-container-low/30',
+                  )}
+                  data-mol-id="report-panel"
+                >
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('semibold'),
+                      cm.textSize('sm'),
+                      'text-on-surface',
+                    )}
+                  >
+                    {t(
+                      'threadView.reportTitle',
+                      {},
+                      { defaultValue: 'Why are you reporting this thread?' },
+                    )}
+                  </span>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
+                    {REPORT_REASONS.map((reason) => {
+                      const selected = reportReason === reason
+                      return (
+                        <button
+                          key={reason}
+                          type="button"
+                          aria-pressed={selected}
+                          onClick={() => setReportReason(reason)}
+                          className={cm.cn(
+                            cm.fontWeight('medium'),
+                            cm.textSize('xs'),
+                            cm.sp('px', 3),
+                            cm.sp('py', 2),
+                            'rounded-full border transition-colors',
+                            selected
+                              ? 'border-error bg-error-container/30 text-error'
+                              : 'border-outline-variant/40 text-on-surface-variant hover:bg-surface-container-low/60',
+                          )}
+                        >
+                          {reason}
+                        </button>
+                      )
+                    })}
+                  </div>
+                  <textarea
+                    value={reportDetails}
+                    onChange={(e) => setReportDetails(e.target.value)}
+                    placeholder={t(
+                      'threadView.reportDetailsPlaceholder',
+                      {},
+                      { defaultValue: 'Anything the moderators should know? (optional)' },
+                    )}
+                    className={cm.cn(
+                      cm.sp('px', 3),
+                      cm.sp('py', 2),
+                      cm.textSize('sm'),
+                      'w-full min-h-[64px] rounded-lg border border-outline-variant/60 bg-surface text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30',
+                    )}
+                  />
+                  {reportError && (
+                    <span role="alert" className={cm.cn(cm.textSize('xs'), 'text-error')}>
+                      {reportError}
+                    </span>
+                  )}
+                  <div className={cm.cn(cm.flex({ align: 'center', justify: 'end', gap: 'sm' }))}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setReportOpen(false)
+                        setReportError(null)
+                      }}
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        cm.textSize('xs'),
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                    </button>
+                    <button
+                      type="button"
+                      data-mol-id="report-thread-submit"
+                      disabled={reportState === 'submitting'}
+                      onClick={() => void handleReport()}
+                      className={cm.cn(
+                        cm.fontWeight('semibold'),
+                        cm.textSize('xs'),
+                        cm.sp('px', 4),
+                        cm.sp('py', 2),
+                        'rounded-full bg-error text-on-error disabled:opacity-50',
+                      )}
+                    >
+                      {reportState === 'submitting'
+                        ? t('threadView.reportSending', {}, { defaultValue: 'Sending…' })
+                        : t('threadView.reportSubmit', {}, { defaultValue: 'Send report' })}
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

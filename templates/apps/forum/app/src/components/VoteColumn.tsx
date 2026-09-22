@@ -55,7 +55,10 @@ export function VoteColumn({ score, state = null, onVote, compact = false }: Vot
           aria-label={t('voteColumn.upvote', {}, { defaultValue: 'Upvote' })}
           aria-pressed={active === 'up'}
           onClick={() => handle('up')}
-          className={cm.cn(cm.flex({ align: 'center' }), 'transition-colors')}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'min-w-[32px] min-h-[32px] rounded-md transition-colors hover:bg-primary-container/30',
+          )}
           style={{
             color:
               active === 'up' ? 'var(--color-upvote-active)' : 'var(--mol-color-text-tertiary)',
@@ -76,7 +79,10 @@ export function VoteColumn({ score, state = null, onVote, compact = false }: Vot
           aria-label={t('voteColumn.downvote', {}, { defaultValue: 'Downvote' })}
           aria-pressed={active === 'down'}
           onClick={() => handle('down')}
-          className={cm.cn(cm.flex({ align: 'center' }), 'transition-colors')}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'min-w-[32px] min-h-[32px] rounded-md transition-colors hover:bg-secondary-container/30',
+          )}
           style={{
             color:
               active === 'down' ? 'var(--color-downvote-active)' : 'var(--mol-color-text-tertiary)',
@@ -109,9 +115,9 @@ export function VoteColumn({ score, state = null, onVote, compact = false }: Vot
         onClick={() => handle('up')}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(7),
-          cm.h(6),
-          'rounded-sm transition-colors hover:bg-primary-container/30',
+          cm.w(9),
+          cm.h(8),
+          'rounded-md transition-colors hover:bg-primary-container/30',
         )}
         style={{
           color: active === 'up' ? 'var(--color-upvote-active)' : 'var(--mol-color-text-tertiary)',
@@ -137,9 +143,9 @@ export function VoteColumn({ score, state = null, onVote, compact = false }: Vot
         onClick={() => handle('down')}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
-          cm.w(7),
-          cm.h(6),
-          'rounded-sm transition-colors hover:bg-secondary-container/30',
+          cm.w(9),
+          cm.h(8),
+          'rounded-md transition-colors hover:bg-secondary-container/30',
         )}
         style={{
           color:

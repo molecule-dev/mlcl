@@ -14,6 +14,7 @@ import { Router } from 'express'
 
 import { count, findById, findMany, query, type WhereCondition } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -207,7 +208,7 @@ router.get('/:identifier', async (req: Request, res: Response) => {
       savedThreads: decoratedSavedThreads,
     })
   } catch (err) {
-    console.error('[profiles:get] failed', err)
+    logger.error('profiles.get', err)
     res.status(500).json({
       error: t('common.serverError', {}, { defaultValue: 'Internal server error' }),
     })
