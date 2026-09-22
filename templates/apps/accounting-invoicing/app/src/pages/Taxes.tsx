@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -70,7 +71,9 @@ export function Taxes() {
     http
       .get('/api/reports/taxes')
       .then((res) => {
-        if (!cancelled) setData(unwrapSingle<TaxesResponse>(res))
+        if (cancelled) return
+        setData(unwrapSingle<TaxesResponse>(res))
+        track({ name: 'report.generated', properties: { report: 'taxes' } })
       })
       .catch(() => {
         if (!cancelled)

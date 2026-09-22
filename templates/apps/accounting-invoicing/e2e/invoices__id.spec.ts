@@ -75,6 +75,11 @@ test.describe('invoice detail page', () => {
   })
 
   test('non-existent id renders the missing-invoice placeholder', async ({ page }) => {
+    // The 404 from GET /api/invoices/:id IS the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 404/,
+    })
     await signup(page)
     await page.goto(APP_BASE + '/invoices/00000000-0000-0000-0000-000000000000')
     await expect(page.getByRole('heading', { name: /Invoice record unavailable/i })).toBeVisible({

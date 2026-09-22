@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 interface LineItem {
   id: string
@@ -102,7 +105,12 @@ export function NewInvoice() {
         currency: 'USD',
         notes,
       }
-      await http.post('/api/invoices', payload)
+      const res = await http.post('/api/invoices', payload)
+      const createdId = unwrapSingle<{ id?: string }>(res)?.id
+      track({
+        name: 'invoice.created',
+        properties: { id: createdId, status, total_cents: total },
+      })
       navigate('/invoices')
     } catch (error) {
       setSubmitError(

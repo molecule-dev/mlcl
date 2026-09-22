@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,6 +127,7 @@ export function InvoiceDetail() {
         setInvoice((prev) =>
           prev ? { ...prev, status: 'paid', paid_at: new Date().toISOString() } : prev,
         )
+      track({ name: 'invoice.paid', properties: { id: invoice.id, status: 'paid' } })
     } catch (_error) {
       // mark-paid is best-effort; UI already reflects optimistic state
     } finally {

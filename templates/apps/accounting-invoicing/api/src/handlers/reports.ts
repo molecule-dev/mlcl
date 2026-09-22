@@ -4,6 +4,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { findMany, findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { fiscalYearStart } from '../lib/fiscal-year.js'
 import { isInvoiceOverdue } from '../lib/serialize.js'
@@ -150,7 +151,8 @@ router.get('/dashboard_stats', async (_req: Request, res: Response) => {
       ytd_profit_cents: ytd_revenue - ytd_expenses,
       revenue_history,
     })
-  } catch (_err) {
+  } catch (error) {
+    logger.error('reports.dashboardStats', error)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -248,7 +250,8 @@ router.get('/full', async (_req: Request, res: Response) => {
     }
 
     res.json({ pnl_history, expense_breakdown, cash_flow_history, balance_sheet })
-  } catch (_err) {
+  } catch (error) {
+    logger.error('reports.full', error)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -360,7 +363,8 @@ router.get('/taxes', async (_req: Request, res: Response) => {
       quarterly_estimates,
       filing_checklist,
     })
-  } catch (_err) {
+  } catch (error) {
+    logger.error('reports.taxes', error)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

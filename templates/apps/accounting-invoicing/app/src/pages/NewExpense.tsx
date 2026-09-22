@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 const CATEGORIES = [
   'Office supplies',
@@ -44,7 +47,7 @@ export function NewExpense() {
       const occurredAt = date ? new Date(date) : new Date()
       const amountCents = Math.round((Number(amount) || 0) * 100)
       const taxCents = Math.round((Number(tax) || 0) * 100)
-      await http.post('/api/expenses', {
+      const res = await http.post('/api/expenses', {
         merchant,
         category,
         occurred_at: occurredAt.toISOString(),
@@ -53,6 +56,11 @@ export function NewExpense() {
         is_deductible: deductible,
         notes,
         has_receipt: !!receipt,
+      })
+      const createdId = unwrapSingle<{ id?: string }>(res)?.id
+      track({
+        name: 'expense.created',
+        properties: { id: createdId, category, amount_cents: amountCents },
       })
       navigate('/expenses')
     } catch (error) {

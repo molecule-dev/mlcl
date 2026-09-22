@@ -10,6 +10,7 @@ import { AuthGuard } from './components/AuthGuard.js'
 import { LedgerLayout } from './components/LedgerLayout.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 import { About } from './pages/About.js'
+import { Accounts } from './pages/Accounts.js'
 import { CustomerDetail } from './pages/CustomerDetail.js'
 import { Customers } from './pages/Customers.js'
 import { Dashboard } from './pages/Dashboard.js'
@@ -66,6 +67,7 @@ export function App() {
                 <Route path="/expenses/:id" element={<ExpenseDetail />} />
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/customers/:id" element={<CustomerDetail />} />
+                <Route path="/accounts" element={<Accounts />} />
                 <Route path="/payments" element={<Payments />} />
                 <Route path="/taxes" element={<Taxes />} />
                 <Route path="/reports" element={<Reports />} />

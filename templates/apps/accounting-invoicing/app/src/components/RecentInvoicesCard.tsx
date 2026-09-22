@@ -64,7 +64,13 @@ export function RecentInvoicesCard({ invoices }: RecentInvoicesCardProps) {
 
   return (
     <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-lowest rounded-[2rem]')}>
-      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+          'flex-wrap',
+          cm.sp('mb', 6),
+        )}
+      >
         <div>
           <p
             className={cm.cn(
@@ -86,7 +92,9 @@ export function RecentInvoicesCard({ invoices }: RecentInvoicesCardProps) {
             {t('recentInvoicesCard.title', {}, { defaultValue: 'Recent invoices' })}
           </h3>
         </div>
-        <div className="relative">
+        {/* Max-w keeps the desktop 16rem footprint; w-full stops the fixed
+            width clipping past the viewport at 390px. */}
+        <div className={cm.cn('relative w-full max-w-64')}>
           <span
             className={cm.cn(
               cm.textSize('sm'),
@@ -116,7 +124,7 @@ export function RecentInvoicesCard({ invoices }: RecentInvoicesCardProps) {
               cm.sp('py', 2),
               cm.textSize('sm'),
               cm.roundedFull,
-              cm.w(64),
+              cm.w('full'),
               'bg-surface-container border-none focus:ring-2 focus:ring-primary/30 placeholder:text-on-surface-variant',
             )}
           />

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -84,6 +85,10 @@ export function Customers() {
       const res = await http.post('/api/customers', form)
       const body = (res as { data?: unknown })?.data ?? res
       const created = ((body as { data?: unknown })?.data ?? body) as Customer
+      track({
+        name: 'customer.created',
+        properties: { id: created?.id, company: created?.company },
+      })
       setCustomers((prev) => [created, ...prev])
       setForm({ company: '', contact_name: '', contact_email: '' })
       setShowNew(false)

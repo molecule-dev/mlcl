@@ -123,10 +123,10 @@ test.describe('settings page', () => {
     await page.getByRole('button', { name: /send invite/i }).click()
     await expect(page.getByText('ToRemove')).toBeVisible({ timeout: 10000 })
     const reqs = await captureNetwork(page, async () => {
-      await page
-        .locator('li', { hasText: 'ToRemove' })
-        .getByRole('button', { name: /remove/i })
-        .click()
+      const row = page.locator('li', { hasText: 'ToRemove' })
+      // Two-step inline confirm: arm, then commit.
+      await row.getByRole('button', { name: /remove/i }).click()
+      await row.getByRole('button', { name: /confirm/i }).click()
       await expect(page.getByText('ToRemove')).not.toBeVisible({ timeout: 5000 })
     })
     expect(

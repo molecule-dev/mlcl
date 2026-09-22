@@ -61,6 +61,13 @@ test.describe('customer detail page', () => {
   test('non-existent id renders the missing-customer placeholder, not a crash', async ({
     page,
   }) => {
+    // The 404 from GET /api/customers/:id IS the case under test — the page
+    // must render the placeholder, and the browser logs the 404 as a console
+    // error, which the console guard would otherwise fail the test for.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 404/,
+    })
     await signup(page)
     await page.goto(APP_BASE + '/customers/00000000-0000-0000-0000-000000000000')
     await expect(page.getByRole('heading', { name: /Customer record unavailable/i })).toBeVisible({

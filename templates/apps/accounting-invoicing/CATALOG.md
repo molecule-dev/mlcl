@@ -44,7 +44,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **reports** — `api/src/handlers/reports.ts`
 - **settings** — `api/src/handlers/settings.ts`
 
-## Screens (18)
+## Screens (19)
 
 _These pages already exist — edit the named file in place, never create a parallel one._
 
@@ -60,6 +60,7 @@ _These pages already exist — edit the named file in place, never create a para
 - **Expenses** `/expenses` (auth) → `app/src/pages/Expenses.tsx`
 - **Reports** `/reports` (auth) → `app/src/pages/Reports.tsx`
 - **Customers** `/customers` (auth) → `app/src/pages/Customers.tsx`
+- **Accounts** `/accounts` (auth) → `app/src/pages/Accounts.tsx`
 - **Settings** `/settings` (auth) → `app/src/pages/Settings.tsx`
 - **CustomerDetail** `/customers/:id` (auth) → `app/src/pages/CustomerDetail.tsx`
 - **ExpenseDetail** `/expenses/:id` (auth) → `app/src/pages/ExpenseDetail.tsx`

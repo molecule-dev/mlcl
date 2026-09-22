@@ -43,6 +43,11 @@ test.describe('expense detail page', () => {
   })
 
   test('non-existent id renders the missing-expense placeholder', async ({ page }) => {
+    // The 404 from GET /api/expenses/:id IS the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 404/,
+    })
     await signup(page)
     await page.goto(APP_BASE + '/expenses/00000000-0000-0000-0000-000000000000')
     await expect(page.getByRole('heading', { name: /Expense record unavailable/i })).toBeVisible({

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -69,7 +70,9 @@ export function Reports() {
     http
       .get('/api/reports/full')
       .then((res) => {
-        if (!cancelled) setData(unwrapSingle<ReportsResponse>(res))
+        if (cancelled) return
+        setData(unwrapSingle<ReportsResponse>(res))
+        track({ name: 'report.generated', properties: { report: 'full' } })
       })
       .catch(() => {
         if (!cancelled)
@@ -88,6 +91,7 @@ export function Reports() {
   function exportReport(): void {
     if (!data) return
     setExported(true)
+    track({ name: 'report.exported', properties: { report: 'full', format: 'csv' } })
     try {
       const blob = new Blob([buildCsv(data)], { type: 'text/csv;charset=utf-8' })
       const url = URL.createObjectURL(blob)

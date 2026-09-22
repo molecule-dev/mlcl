@@ -67,6 +67,7 @@ export function Settings() {
   const [team, setTeam] = useState<TeamMember[]>([])
   const [teamLoading, setTeamLoading] = useState<boolean>(true)
   const [showInvite, setShowInvite] = useState<boolean>(false)
+  const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null)
   const [inviteForm, setInviteForm] = useState<{ name: string; email: string; role: string }>({
     name: '',
     email: '',
@@ -461,13 +462,46 @@ export function Settings() {
                     {m.email} · {m.role}
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => removeMember(m.id)}
-                  className={cm.cn(cm.textSize('sm'), 'text-error hover:underline')}
-                >
-                  {t('common.remove', {}, { defaultValue: 'Remove' })}
-                </button>
+                {/* Destructive: two-step inline confirm — first click arms,
+                    second click (or blur) commits. No accidental removals. */}
+                {confirmRemoveId === m.id ? (
+                  <span className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setConfirmRemoveId(null)
+                        removeMember(m.id)
+                      }}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        'min-h-[36px] rounded-md bg-error text-on-error',
+                      )}
+                    >
+                      {t('settings.team.confirmRemove', {}, { defaultValue: 'Confirm' })}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setConfirmRemoveId(null)}
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-on-surface-variant hover:underline',
+                      )}
+                    >
+                      {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                    </button>
+                  </span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setConfirmRemoveId(m.id)}
+                    className={cm.cn(cm.textSize('sm'), 'text-error hover:underline')}
+                  >
+                    {t('common.remove', {}, { defaultValue: 'Remove' })}
+                  </button>
+                )}
               </li>
             ))}
           </ul>
