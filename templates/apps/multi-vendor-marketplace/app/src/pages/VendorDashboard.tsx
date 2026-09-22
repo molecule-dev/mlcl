@@ -86,76 +86,16 @@ interface VendorDashboardKpis {
   conversion_rate_pct: number
 }
 
-const FALLBACK_KPIS: VendorDashboardKpis = {
-  gross_sales_cents: 1842500,
-  gross_sales_change_pct: 12.4,
-  net_payout_cents: 1695100,
-  net_payout_change_pct: 11.8,
-  orders_count: 184,
-  orders_change_pct: 8.2,
-  pending_payout_cents: 142400,
-  conversion_rate_pct: 4.1,
+const ZERO_KPIS: VendorDashboardKpis = {
+  gross_sales_cents: 0,
+  gross_sales_change_pct: 0,
+  net_payout_cents: 0,
+  net_payout_change_pct: 0,
+  orders_count: 0,
+  orders_change_pct: 0,
+  pending_payout_cents: 0,
+  conversion_rate_pct: 0,
 }
-
-const FALLBACK_ORDERS: VendryOrder[] = [
-  {
-    id: 'ord-3401',
-    display_id: 'VND-3401',
-    placed_at: '2026-04-28T09:14:00Z',
-    status: 'paid',
-    total_cents: 14400,
-    vendor_groups: [
-      {
-        vendor_id: 'self',
-        vendor_name: 'Mira & Co. Ceramics',
-        status: 'paid',
-        subtotal_cents: 14400,
-        items: [
-          {
-            id: 'i-1',
-            name: 'Sienna Stoneware Mug — set of 2',
-            vendor_name: 'Mira & Co. Ceramics',
-            quantity: 3,
-            price_cents: 4800,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'ord-3402',
-    display_id: 'VND-3402',
-    placed_at: '2026-04-27T16:42:00Z',
-    status: 'shipped',
-    total_cents: 9200,
-    vendor_groups: [
-      {
-        vendor_id: 'self',
-        vendor_name: 'Mira & Co. Ceramics',
-        status: 'shipped',
-        subtotal_cents: 9200,
-        tracking_number: '1Z 9871 4422 0019',
-        carrier: 'UPS',
-        items: [
-          {
-            id: 'i-2',
-            name: 'Amber Glass Pendant Light',
-            vendor_name: 'Mira & Co. Ceramics',
-            quantity: 1,
-            price_cents: 7800,
-          },
-          {
-            id: 'i-3',
-            name: 'Indigo-Dyed Tea Towel',
-            vendor_name: 'Mira & Co. Ceramics',
-            quantity: 1,
-            price_cents: 1400,
-          },
-        ],
-      },
-    ],
-  },
-]
 
 function formatCurrency(cents: number): string {
   return new Intl.NumberFormat('en-US', {
@@ -179,7 +119,6 @@ export function VendorDashboard() {
   const [kpis, setKpis] = useState<VendorDashboardKpis | null>(null)
   const [recentOrders, setRecentOrders] = useState<VendryOrder[] | null>(null)
   const [vendorName, setVendorName] = useState<string | null>(null)
-
   useEffect(() => {
     let cancelled = false
     Promise.all([
@@ -204,6 +143,8 @@ export function VendorDashboard() {
           ? (raw as ApiOrder[])
           : ((raw as { data?: ApiOrder[] }).data ?? [])
         setRecentOrders(list.slice(0, 5).map(coerceOrder))
+      } else {
+        setRecentOrders([])
       }
       if (meRes) {
         const raw = (meRes as { data?: unknown }).data ?? meRes
@@ -219,10 +160,12 @@ export function VendorDashboard() {
     }
   }, [http])
 
-  const effectiveKpis = kpis ?? FALLBACK_KPIS
-  const effectiveOrders = recentOrders ?? FALLBACK_ORDERS
+  const effectiveKpis = kpis ?? ZERO_KPIS
+  const effectiveOrders = recentOrders ?? []
   const displayName =
-    vendorName ?? (auth.user as { name?: string } | null)?.name ?? 'Mira & Co. Ceramics'
+    (auth.user as { name?: string } | null)?.name ??
+    vendorName ??
+    t('vendorDashboard.defaultShop', {}, { defaultValue: 'your shop' })
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1400px] space-y-10')}>
@@ -454,9 +397,69 @@ export function VendorDashboard() {
           </Link>
         </header>
         <div className={cm.cn(cm.stack(4))}>
-          {effectiveOrders.map((order) => (
-            <VendryOrderCard key={order.id} order={order} />
-          ))}
+          {recentOrders === null ? (
+            [0, 1].map((i) => (
+              <div
+                key={i}
+                className={cm.cn(
+                  cm.sp('p', 6),
+                  'animate-pulse rounded-2xl border border-outline-variant bg-surface-container-low',
+                )}
+                aria-hidden
+              >
+                <div className="h-4 w-40 rounded bg-outline-variant" />
+                <div className="mt-3 h-3 w-64 rounded bg-outline-variant" />
+              </div>
+            ))
+          ) : effectiveOrders.length === 0 ? (
+            <div
+              className={cm.cn(
+                cm.sp('p', 8),
+                cm.stack(3),
+                'items-center text-center rounded-2xl border border-dashed border-outline-variant bg-surface-container-low',
+              )}
+            >
+              <span className="material-symbols-outlined text-on-surface-variant" aria-hidden>
+                receipt_long
+              </span>
+              <p className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+                {t(
+                  'vendorDashboard.recentOrders.emptyTitle',
+                  {},
+                  { defaultValue: 'No orders yet' },
+                )}
+              </p>
+              <p className={'text-on-surface-variant text-sm'}>
+                {t(
+                  'vendorDashboard.recentOrders.emptyBody',
+                  {},
+                  {
+                    defaultValue:
+                      'Orders for your shop will appear here as soon as customers check out.',
+                  },
+                )}
+              </p>
+              <Link
+                to="/vendor/products/new"
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  cm.sp('px', 5),
+                  cm.sp('py', 2),
+                  cm.roundedFull,
+                  cm.textSize('sm'),
+                  'bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+                )}
+              >
+                {t(
+                  'vendorDashboard.recentOrders.emptyCta',
+                  {},
+                  { defaultValue: 'Add your first product' },
+                )}
+              </Link>
+            </div>
+          ) : (
+            effectiveOrders.map((order) => <VendryOrderCard key={order.id} order={order} />)
+          )}
         </div>
       </section>
     </div>

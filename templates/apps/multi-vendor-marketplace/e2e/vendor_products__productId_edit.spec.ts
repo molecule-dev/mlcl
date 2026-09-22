@@ -5,7 +5,6 @@ import { APP_BASE, captureNetwork, signup } from './_helpers.js'
 test.describe('/vendor/products/:productId/edit', () => {
   test('edit page loads form fields', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/vendor/products/:productId/edit')
     await page.request.post(APP_BASE + '/api/vendors/apply', {
       data: { storeName: 'Edit Vendor ' + Date.now(), storeDescription: 'd' },
     })
@@ -14,13 +13,14 @@ test.describe('/vendor/products/:productId/edit', () => {
     })
     const body = await created.json()
     test.skip(!body.id, 'product create failed')
+    // Create the product BEFORE visiting so the page never loads a junk
+    // placeholder URL (a literal ":productId" would fire a doomed fetch).
     await page.goto(APP_BASE + '/vendor/products/' + body.id + '/edit')
     await expect(page.getByTestId('vendor-product-name')).toBeVisible()
   })
 
   test('price field renders', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/vendor/products/:productId/edit')
     await page.request.post(APP_BASE + '/api/vendors/apply', {
       data: { storeName: 'Edit Vendor ' + Date.now(), storeDescription: 'd' },
     })
@@ -35,7 +35,6 @@ test.describe('/vendor/products/:productId/edit', () => {
 
   test('publish button issues request', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/vendor/products/:productId/edit')
     await page.request.post(APP_BASE + '/api/vendors/apply', {
       data: { storeName: 'Edit Vendor ' + Date.now(), storeDescription: 'd' },
     })

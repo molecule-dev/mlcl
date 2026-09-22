@@ -61,6 +61,11 @@ function toImageBuffer(image: string | Buffer): Buffer {
 
 const router = Router()
 
+// Product ids are UUIDs; a non-UUID id (URL-encoded placeholder, junk path)
+// would otherwise hit Postgres' uuid cast and surface as a 500. 404 instead —
+// the client's "product not found" path is the correct UX for it.
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 router.get('/', validateQuery(listQuery), async (req, res) => {
   try {
     const { page, limit, category, vendor, sort } = req.query as unknown as z.infer<
@@ -98,6 +103,11 @@ router.get('/', validateQuery(listQuery), async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const productId = String(req.params.id)
+    if (!UUID_RE.test(productId)) {
+      return res
+        .status(404)
+        .json({ error: t('product.notFound', {}, { defaultValue: 'Product not found' }) })
+    }
     const product = await findById<Record<string, unknown>>('products', productId)
     if (!product) {
       return res

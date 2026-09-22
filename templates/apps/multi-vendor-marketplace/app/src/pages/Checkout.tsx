@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -169,6 +170,14 @@ export function Checkout() {
           : (raw as { orders?: Array<{ id: string }> })
       ) as { orders?: Array<{ id: string }> } | undefined
       const firstOrderId = body?.orders?.[0]?.id
+      // Conversion point: fire-and-forget; a no-op unless a provider is bonded.
+      track({
+        name: 'order.placed',
+        properties: {
+          order_id: firstOrderId ?? null,
+          order_count: body?.orders?.length ?? 0,
+        },
+      })
       navigate(firstOrderId ? `/orders/${firstOrderId}` : '/orders')
     } catch (e) {
       const message =

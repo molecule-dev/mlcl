@@ -332,7 +332,7 @@ export function Catalog() {
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.roundedFull,
-              'whitespace-nowrap',
+              'min-h-[40px] whitespace-nowrap',
               activeCategory === cat.slug
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',

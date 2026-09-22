@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -105,6 +106,7 @@ export function Cart() {
     setError(null)
     try {
       await http.delete(`/api/cart/${encodeURIComponent(itemId)}`)
+      track({ name: 'cart.item_removed', properties: { cart_item_id: itemId } })
       await refresh()
     } catch (error) {
       logError('cart.removeItem', error)

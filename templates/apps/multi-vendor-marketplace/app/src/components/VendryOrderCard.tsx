@@ -154,9 +154,17 @@ export function VendryOrderCard({ order, hideDetailLink = false }: VendryOrderCa
               )}
             >
               <div
-                className={cm.cn(cm.flex({ justify: 'between', align: 'center' }), cm.sp('mb', 3))}
+                className={cm.cn(
+                  cm.flex({ justify: 'between', align: 'center', wrap: 'wrap', gap: 'sm' }),
+                  cm.sp('mb', 3),
+                )}
               >
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+                    'min-w-0',
+                  )}
+                >
                   <span
                     className="material-symbols-outlined text-info"
                     style={{ fontSize: '18px', fontVariationSettings: "'FILL' 1" }}
@@ -220,8 +228,10 @@ export function VendryOrderCard({ order, hideDetailLink = false }: VendryOrderCa
                       src={
                         item.image_url ?? `https://picsum.photos/seed/vendry-order-${item.id}/72/72`
                       }
-                      alt=""
-                      className={'h-12 w-12 rounded-xl object-cover bg-surface-container-low'}
+                      alt={item.name}
+                      className={
+                        'h-12 w-12 shrink-0 rounded-xl object-cover bg-surface-container-low'
+                      }
                       loading="lazy"
                     />
                     <div className={'min-w-0 flex-1'}>

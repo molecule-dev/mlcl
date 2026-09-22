@@ -50,9 +50,11 @@ export function UserMenu() {
           to="/login"
           data-mol-id="nav-sign-in"
           className={cm.cn(
+            cm.flex({ align: 'center' }),
+            cm.sp('px', 2),
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
-            'text-on-surface-variant hover:text-primary transition-colors',
+            'min-h-[40px] text-on-surface-variant hover:text-primary transition-colors',
           )}
         >
           {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -61,12 +63,13 @@ export function UserMenu() {
           to="/signup"
           data-mol-id="nav-create-account"
           className={cm.cn(
+            cm.flex({ align: 'center' }),
             cm.sp('px', 4),
             cm.sp('py', 2),
             cm.fontWeight('semibold'),
             cm.textSize('sm'),
             cm.roundedFull,
-            'bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+            'min-h-[40px] bg-primary text-on-primary hover:bg-primary-dark transition-colors',
           )}
         >
           {t('landing.nav.signUp', {}, { defaultValue: 'Join' })}

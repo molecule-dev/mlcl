@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -184,6 +185,10 @@ export function ProductDetail() {
         product_id: product.id,
         quantity,
         variant_id: activeColor.toLowerCase(),
+      })
+      track({
+        name: 'cart.item_added',
+        properties: { product_id: product.id, quantity },
       })
       setFeedback({
         kind: 'success',

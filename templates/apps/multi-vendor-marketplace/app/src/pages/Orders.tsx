@@ -80,112 +80,6 @@ function coerceOrder(api: ApiOrder): VendryOrder {
   }
 }
 
-const FALLBACK_ORDERS: VendryOrder[] = [
-  {
-    id: 'ord-1',
-    display_id: 'VND-3401',
-    placed_at: '2026-04-25T12:14:00Z',
-    status: 'shipped',
-    total_cents: 24000,
-    vendor_groups: [
-      {
-        vendor_id: 'mira',
-        vendor_name: 'Mira & Co. Ceramics',
-        vendor_slug: 'mira-co-ceramics',
-        vendor_verified: true,
-        status: 'shipped',
-        subtotal_cents: 14400,
-        tracking_number: '1Z 9871 4422 0019',
-        carrier: 'UPS',
-        items: [
-          {
-            id: 'ord-1-i-1',
-            name: 'Sienna Stoneware Mug',
-            vendor_name: 'Mira & Co.',
-            quantity: 1,
-            price_cents: 4800,
-          },
-          {
-            id: 'ord-1-i-2',
-            name: 'Speckled Espresso Cup',
-            vendor_name: 'Mira & Co.',
-            quantity: 2,
-            price_cents: 2200,
-          },
-        ],
-      },
-      {
-        vendor_id: 'oak',
-        vendor_name: 'Oak & Saint',
-        vendor_slug: 'oak-and-saint',
-        vendor_verified: true,
-        status: 'paid',
-        subtotal_cents: 9600,
-        items: [
-          {
-            id: 'ord-1-i-3',
-            name: 'Walnut Cutting Board',
-            vendor_name: 'Oak & Saint',
-            quantity: 1,
-            price_cents: 9200,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'ord-2',
-    display_id: 'VND-3370',
-    placed_at: '2026-04-12T08:42:00Z',
-    status: 'delivered',
-    total_cents: 14000,
-    vendor_groups: [
-      {
-        vendor_id: 'noor',
-        vendor_name: 'Noor Textiles',
-        vendor_slug: 'noor-textiles',
-        vendor_verified: true,
-        status: 'delivered',
-        subtotal_cents: 14000,
-        items: [
-          {
-            id: 'ord-2-i-1',
-            name: 'Block-Print Cotton Throw',
-            vendor_name: 'Noor Textiles',
-            quantity: 1,
-            price_cents: 14000,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'ord-3',
-    display_id: 'VND-3296',
-    placed_at: '2026-03-30T16:00:00Z',
-    status: 'cancelled',
-    total_cents: 4800,
-    vendor_groups: [
-      {
-        vendor_id: 'foundry',
-        vendor_name: 'Foundry & Fern',
-        vendor_slug: 'foundry-and-fern',
-        status: 'cancelled',
-        subtotal_cents: 4800,
-        items: [
-          {
-            id: 'ord-3-i-1',
-            name: 'Brass Stem Vase Trio',
-            vendor_name: 'Foundry & Fern',
-            quantity: 1,
-            price_cents: 4800,
-          },
-        ],
-      },
-    ],
-  },
-]
-
 const FILTERS = [
   { value: 'all', label: 'All' },
   { value: 'shipped', label: 'Shipped' },
@@ -197,7 +91,7 @@ export function Orders() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [orders, setOrders] = useState<VendryOrder[]>(FALLBACK_ORDERS)
+  const [orders, setOrders] = useState<VendryOrder[] | null>(null)
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['value']>('all')
 
   useEffect(() => {
@@ -207,17 +101,20 @@ export function Orders() {
       .then((res) => {
         const data = (res as { data?: { data?: ApiOrder[] } | ApiOrder[] }).data
         const list = Array.isArray(data) ? data : data?.data
-        if (!cancelled && list?.length) setOrders(list.map(coerceOrder))
+        if (!cancelled) setOrders((list ?? []).map(coerceOrder))
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled) setOrders([])
+      })
     return () => {
       cancelled = true
     }
   }, [http])
 
+  const loaded = useMemo(() => orders ?? [], [orders])
   const visible = useMemo(
-    () => (filter === 'all' ? orders : orders.filter((o) => o.status === filter)),
-    [orders, filter],
+    () => (filter === 'all' ? loaded : loaded.filter((o) => o.status === filter)),
+    [loaded, filter],
   )
 
   return (
@@ -252,7 +149,14 @@ export function Orders() {
         </p>
       </header>
 
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      {/* Filter chips scroll horizontally on narrow screens instead of
+          overflowing the page (the only overflow-x>viewport offender). */}
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          '-mx-2 overflow-x-auto px-2 py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+        )}
+      >
         {FILTERS.map(({ value, label }) => (
           <button
             key={value}
@@ -264,7 +168,7 @@ export function Orders() {
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.roundedFull,
-              'transition-colors',
+              'shrink-0 whitespace-nowrap transition-colors',
               filter === value
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -276,10 +180,44 @@ export function Orders() {
       </div>
 
       <div className={cm.cn(cm.stack(4))}>
-        {visible.length === 0 ? (
-          <p className="text-on-surface-variant">
-            {t('orders.empty', {}, { defaultValue: 'No orders match this filter yet.' })}
-          </p>
+        {orders === null ? (
+          [0, 1].map((i) => (
+            <div
+              key={i}
+              className={cm.cn(
+                cm.sp('p', 6),
+                'animate-pulse rounded-2xl border border-outline-variant bg-surface-container-low',
+              )}
+              aria-hidden
+            >
+              <div className="h-4 w-40 rounded bg-outline-variant" />
+              <div className="mt-3 h-3 w-64 rounded bg-outline-variant" />
+            </div>
+          ))
+        ) : visible.length === 0 ? (
+          <div
+            className={cm.cn(
+              cm.sp('p', 8),
+              cm.stack(2),
+              'items-center text-center rounded-2xl border border-dashed border-outline-variant bg-surface-container-low',
+            )}
+          >
+            <p className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+              {t('orders.emptyTitle', {}, { defaultValue: 'No orders here yet' })}
+            </p>
+            <p className={'text-on-surface-variant text-sm'}>
+              {t(
+                'orders.emptyBody',
+                {},
+                {
+                  defaultValue:
+                    filter === 'all'
+                      ? 'Your purchases will appear here after your first checkout.'
+                      : 'No orders match this filter yet.',
+                },
+              )}
+            </p>
+          </div>
         ) : (
           visible.map((order) => <VendryOrderCard key={order.id} order={order} />)
         )}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,8 +103,24 @@ export function VendorProductForm() {
       }
       if (isEdit && productId) {
         await http.put(`/api/products/${encodeURIComponent(productId)}`, payload)
+        track({
+          name: 'product.updated',
+          properties: { product_id: productId, name: payload.name, price: payload.price },
+        })
       } else {
-        await http.post('/api/products', payload)
+        const created = await http.post<{ id?: string; data?: { id?: string } }>(
+          '/api/products',
+          payload,
+        )
+        const createdBody = created as { id?: string; data?: { id?: string } }
+        track({
+          name: 'product.created',
+          properties: {
+            product_id: createdBody?.id ?? createdBody?.data?.id ?? null,
+            name: payload.name,
+            price: payload.price,
+          },
+        })
       }
       navigate('/vendor/products')
     } catch (err) {

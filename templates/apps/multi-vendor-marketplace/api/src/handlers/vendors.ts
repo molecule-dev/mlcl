@@ -58,6 +58,11 @@ async function findMyVendor(userId: string): Promise<Record<string, unknown> | n
   ])
 }
 
+// The /vendors/me* surfaces are linked in the primary nav for EVERY signed-in
+// user ("Sell"), so a shopper who has not applied yet must get a graceful
+// zero state (200) rather than a 404 — a 404 here used to fire three doomed
+// fetches on every vendor-page visit (console noise + fabricated fallback
+// data on the client). Post-apply responses are unchanged.
 router.get('/me', async (_req, res, next) => {
   try {
     const userId = res.locals.session?.userId as string
@@ -66,10 +71,7 @@ router.get('/me', async (_req, res, next) => {
         .status(401)
         .json({ error: t('vendor.unauthorized', {}, { defaultValue: 'Not authorized' }) })
     const vendor = await findMyVendor(userId)
-    if (!vendor)
-      return res
-        .status(404)
-        .json({ error: t('vendor.notFound', {}, { defaultValue: 'Vendor not found' }) })
+    if (!vendor) return res.json({ vendor: null })
     res.json(vendor)
   } catch (error) {
     return next(error)
@@ -85,9 +87,16 @@ router.get('/me/dashboard', async (_req, res, next) => {
         .json({ error: t('vendor.unauthorized', {}, { defaultValue: 'Not authorized' }) })
     const vendor = await findMyVendor(userId)
     if (!vendor)
-      return res
-        .status(404)
-        .json({ error: t('vendor.notFound', {}, { defaultValue: 'Vendor not found' }) })
+      return res.json({
+        gross_sales_cents: 0,
+        gross_sales_change_pct: 0,
+        net_payout_cents: 0,
+        net_payout_change_pct: 0,
+        orders_count: 0,
+        orders_change_pct: 0,
+        pending_payout_cents: 0,
+        conversion_rate_pct: 0,
+      })
     const orders = await findMany<Record<string, unknown>>('orders', {
       where: [{ field: 'vendor_id', operator: '=', value: vendor.id as string }],
     })
@@ -119,10 +128,7 @@ router.get('/me/orders', async (_req, res, next) => {
         .status(401)
         .json({ error: t('vendor.unauthorized', {}, { defaultValue: 'Not authorized' }) })
     const vendor = await findMyVendor(userId)
-    if (!vendor)
-      return res
-        .status(404)
-        .json({ error: t('vendor.notFound', {}, { defaultValue: 'Vendor not found' }) })
+    if (!vendor) return res.json({ data: [], total: 0 })
     const rows = await findMany<Record<string, unknown>>('orders', {
       where: [{ field: 'vendor_id', operator: '=', value: vendor.id as string }],
       orderBy: [{ field: 'created_at', direction: 'desc' }],
@@ -177,10 +183,7 @@ router.get('/me/products', async (_req, res, next) => {
         .status(401)
         .json({ error: t('vendor.unauthorized', {}, { defaultValue: 'Not authorized' }) })
     const vendor = await findMyVendor(userId)
-    if (!vendor)
-      return res
-        .status(404)
-        .json({ error: t('vendor.notFound', {}, { defaultValue: 'Vendor not found' }) })
+    if (!vendor) return res.json({ data: [], total: 0 })
     const data = await findMany<Record<string, unknown>>('products', {
       where: [{ field: 'vendor_id', operator: '=', value: vendor.id as string }],
       orderBy: [{ field: 'created_at', direction: 'desc' }],
@@ -199,10 +202,7 @@ router.get('/me/payouts', async (_req, res, next) => {
         .status(401)
         .json({ error: t('vendor.unauthorized', {}, { defaultValue: 'Not authorized' }) })
     const vendor = await findMyVendor(userId)
-    if (!vendor)
-      return res
-        .status(404)
-        .json({ error: t('vendor.notFound', {}, { defaultValue: 'Vendor not found' }) })
+    if (!vendor) return res.json({ data: [], total: 0 })
     const commissions = await findMany<Record<string, unknown>>('commissions', {
       where: [{ field: 'vendor_id', operator: '=', value: vendor.id as string }],
       orderBy: [{ field: 'created_at', direction: 'desc' }],

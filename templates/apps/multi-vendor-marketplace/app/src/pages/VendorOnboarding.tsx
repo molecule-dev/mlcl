@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -105,6 +106,10 @@ export function VendorOnboarding() {
         bankAccount: form.bankAccount
           ? { account: form.bankAccount, taxId: form.taxId, currency: form.currency }
           : null,
+      })
+      track({
+        name: 'shop.created',
+        properties: { shop_name: form.shopName },
       })
       setSubmitted(true)
       setForm(EMPTY_FORM)

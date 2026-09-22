@@ -77,54 +77,6 @@ function downloadTaxInvoice(rows: PayoutRow[]): void {
   downloadFile(lines.join('\n'), `vendry-tax-invoice-${yr}.txt`, 'text/plain')
 }
 
-const FALLBACK_PAYOUTS: PayoutRow[] = [
-  {
-    id: 'po-1',
-    paid_on: '2026-04-25',
-    period: 'Apr 18 — Apr 24',
-    gross_cents: 412500,
-    commission_cents: 33000,
-    net_cents: 379500,
-    status: 'paid',
-  },
-  {
-    id: 'po-2',
-    paid_on: '2026-04-18',
-    period: 'Apr 11 — Apr 17',
-    gross_cents: 388200,
-    commission_cents: 31100,
-    net_cents: 357100,
-    status: 'paid',
-  },
-  {
-    id: 'po-3',
-    paid_on: '2026-04-11',
-    period: 'Apr 4 — Apr 10',
-    gross_cents: 296800,
-    commission_cents: 23700,
-    net_cents: 273100,
-    status: 'paid',
-  },
-  {
-    id: 'po-4',
-    paid_on: '2026-04-04',
-    period: 'Mar 28 — Apr 3',
-    gross_cents: 318500,
-    commission_cents: 25500,
-    net_cents: 293000,
-    status: 'paid',
-  },
-  {
-    id: 'po-5',
-    paid_on: 'Pending',
-    period: 'Apr 25 — May 1',
-    gross_cents: 184500,
-    commission_cents: 14760,
-    net_cents: 169740,
-    status: 'pending',
-  },
-]
-
 const STATUS_TONES = {
   paid: 'bg-success/15 text-success',
   pending: 'bg-warning/15 text-warning',
@@ -143,7 +95,8 @@ export function VendorPayouts() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [payouts, setPayouts] = useState<PayoutRow[]>(FALLBACK_PAYOUTS)
+  // null = still loading; [] = loaded with no payouts yet.
+  const [payouts, setPayouts] = useState<PayoutRow[] | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -155,7 +108,6 @@ export function VendorPayouts() {
           ? (raw as ApiPayout[])
           : ((raw as { data?: ApiPayout[] }).data ?? [])
         if (cancelled) return
-        if (list.length === 0) return
         setPayouts(
           list.map((p) => ({
             id: String(p.id),
@@ -174,17 +126,21 @@ export function VendorPayouts() {
           })),
         )
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled) setPayouts([])
+      })
     return () => {
       cancelled = true
     }
   }, [http, t])
 
-  const ytdGross = useMemo(() => payouts.reduce((s, p) => s + p.gross_cents, 0), [payouts])
-  const ytdNet = useMemo(() => payouts.reduce((s, p) => s + p.net_cents, 0), [payouts])
+  const loaded = useMemo(() => payouts ?? [], [payouts])
+
+  const ytdGross = useMemo(() => loaded.reduce((s, p) => s + p.gross_cents, 0), [loaded])
+  const ytdNet = useMemo(() => loaded.reduce((s, p) => s + p.net_cents, 0), [loaded])
   const pending = useMemo(
-    () => payouts.filter((p) => p.status === 'pending').reduce((s, p) => s + p.net_cents, 0),
-    [payouts],
+    () => loaded.filter((p) => p.status === 'pending').reduce((s, p) => s + p.net_cents, 0),
+    [loaded],
   )
 
   return (
@@ -255,7 +211,7 @@ export function VendorPayouts() {
         <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
           <button
             type="button"
-            onClick={() => exportPayoutsCsv(payouts)}
+            onClick={() => exportPayoutsCsv(loaded)}
             data-testid="vendor-payouts-export"
             className={cm.cn(
               cm.fontWeight('bold'),
@@ -269,7 +225,7 @@ export function VendorPayouts() {
           </button>
           <button
             type="button"
-            onClick={() => downloadTaxInvoice(payouts)}
+            onClick={() => downloadTaxInvoice(loaded)}
             data-testid="vendor-payouts-invoice"
             className={cm.cn(
               cm.fontWeight('bold'),
@@ -331,80 +287,120 @@ export function VendorPayouts() {
             {t('vendorPayouts.history', {}, { defaultValue: 'Payout history' })}
           </h2>
         </header>
-        <table className={cm.cn(cm.w('full'), cm.textSize('sm'))}>
-          <thead className="bg-surface-container-low">
-            <tr>
-              {[
-                { key: 'period', label: 'Period' },
-                { key: 'paidOn', label: 'Paid on' },
-                { key: 'gross', label: 'Gross' },
-                { key: 'commission', label: 'Commission' },
-                { key: 'net', label: 'Net' },
-                { key: 'status', label: 'Status' },
-              ].map((col) => (
-                <th
-                  key={col.key}
-                  className={cm.cn(
-                    cm.fontWeight('bold'),
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-left uppercase tracking-widest text-on-surface-variant text-[10px]',
-                  )}
-                >
-                  {t(`vendorPayouts.col.${col.key}`, {}, { defaultValue: col.label })}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-outline-variant">
-            {payouts.map((row) => (
-              <tr key={row.id} className={'hover:bg-surface-container-low transition-colors'}>
-                <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}>
-                  {row.period}
-                </td>
-                <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
-                  {row.paid_on}
-                </td>
-                <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'tabular-nums font-semibold')}>
-                  {formatCents(row.gross_cents)}
-                </td>
-                <td
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'tabular-nums text-sky-700 dark:text-info',
-                  )}
-                >
-                  −{formatCents(row.commission_cents)}
-                </td>
-                <td
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'tabular-nums font-bold text-success',
-                  )}
-                >
-                  {formatCents(row.net_cents)}
-                </td>
-                <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                  <span
+        <div className="overflow-x-auto">
+          <table className={cm.cn(cm.w('full'), cm.textSize('sm'))}>
+            <thead className="bg-surface-container-low">
+              <tr>
+                {[
+                  { key: 'period', label: 'Period' },
+                  { key: 'paidOn', label: 'Paid on' },
+                  { key: 'gross', label: 'Gross' },
+                  { key: 'commission', label: 'Commission' },
+                  { key: 'net', label: 'Net' },
+                  { key: 'status', label: 'Status' },
+                ].map((col) => (
+                  <th
+                    key={col.key}
                     className={cm.cn(
                       cm.fontWeight('bold'),
-                      cm.textSize('xs'),
-                      cm.sp('px', 2),
-                      cm.sp('py', 1),
-                      cm.roundedFull,
-                      'uppercase tracking-widest',
-                      STATUS_TONES[row.status],
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-left uppercase tracking-widest text-on-surface-variant text-[10px] whitespace-nowrap',
                     )}
                   >
-                    {t(`status.${row.status}`, {}, { defaultValue: row.status })}
-                  </span>
-                </td>
+                    {t(`vendorPayouts.col.${col.key}`, {}, { defaultValue: col.label })}
+                  </th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-outline-variant">
+              {payouts === null ? (
+                [0, 1, 2].map((i) => (
+                  <tr key={i} aria-hidden>
+                    <td colSpan={6} className={cm.cn(cm.sp('px', 4), cm.sp('py', 4))}>
+                      <div className="h-3 w-full animate-pulse rounded bg-outline-variant" />
+                    </td>
+                  </tr>
+                ))
+              ) : loaded.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className={cm.cn(cm.sp('p', 8), 'text-center')}>
+                    <p className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+                      {t('vendorPayouts.emptyTitle', {}, { defaultValue: 'No payouts yet' })}
+                    </p>
+                    <p className={'text-on-surface-variant text-sm mt-1'}>
+                      {t(
+                        'vendorPayouts.emptyBody',
+                        {},
+                        {
+                          defaultValue:
+                            'Payouts are released every Friday once your sales clear the 8% commission.',
+                        },
+                      )}
+                    </p>
+                  </td>
+                </tr>
+              ) : (
+                loaded.map((row) => (
+                  <tr key={row.id} className={'hover:bg-surface-container-low transition-colors'}>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}
+                    >
+                      {row.period}
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}
+                    >
+                      {row.paid_on}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'tabular-nums font-semibold',
+                      )}
+                    >
+                      {formatCents(row.gross_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'tabular-nums text-sky-700 dark:text-info',
+                      )}
+                    >
+                      −{formatCents(row.commission_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'tabular-nums font-bold text-success',
+                      )}
+                    >
+                      {formatCents(row.net_cents)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <span
+                        className={cm.cn(
+                          cm.fontWeight('bold'),
+                          cm.textSize('xs'),
+                          cm.sp('px', 2),
+                          cm.sp('py', 1),
+                          cm.roundedFull,
+                          'uppercase tracking-widest',
+                          STATUS_TONES[row.status],
+                        )}
+                      >
+                        {t(`status.${row.status}`, {}, { defaultValue: row.status })}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   )

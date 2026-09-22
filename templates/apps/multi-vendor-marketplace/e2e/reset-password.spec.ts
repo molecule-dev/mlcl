@@ -22,6 +22,13 @@ test.describe('/reset-password?token=stub', () => {
   })
 
   test('submit issues request', async ({ page }) => {
+    // A stub token is expected to be rejected (401) by the API — the spec
+    // asserts the REQUEST is issued, not that it succeeds. The browser logs
+    // any non-2xx fetch as a console error, so allow that expected 401.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=stub&email=test%40example.com')
     await page
       .getByLabel(/account email|^email/i)

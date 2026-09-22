@@ -73,95 +73,12 @@ function coerceOrder(api: ApiOrder): VendryOrder {
   }
 }
 
-const FALLBACK_ORDERS: VendryOrder[] = [
-  {
-    id: 'vo-1',
-    display_id: 'VND-3401',
-    placed_at: '2026-04-28T09:14:00Z',
-    status: 'paid',
-    total_cents: 14400,
-    vendor_groups: [
-      {
-        vendor_id: 'self',
-        vendor_name: 'Mira & Co. Ceramics',
-        status: 'paid',
-        subtotal_cents: 14400,
-        items: [
-          {
-            id: 'a',
-            name: 'Sienna Stoneware Mug',
-            vendor_name: 'Mira & Co.',
-            quantity: 3,
-            price_cents: 4800,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'vo-2',
-    display_id: 'VND-3402',
-    placed_at: '2026-04-27T16:42:00Z',
-    status: 'shipped',
-    total_cents: 9200,
-    vendor_groups: [
-      {
-        vendor_id: 'self',
-        vendor_name: 'Mira & Co. Ceramics',
-        status: 'shipped',
-        subtotal_cents: 9200,
-        tracking_number: '1Z 9871 4422 0019',
-        carrier: 'UPS',
-        items: [
-          {
-            id: 'a',
-            name: 'Amber Glass Pendant',
-            vendor_name: 'Mira & Co.',
-            quantity: 1,
-            price_cents: 7800,
-          },
-          {
-            id: 'b',
-            name: 'Indigo Tea Towel',
-            vendor_name: 'Mira & Co.',
-            quantity: 1,
-            price_cents: 1400,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 'vo-3',
-    display_id: 'VND-3399',
-    placed_at: '2026-04-26T07:08:00Z',
-    status: 'pending',
-    total_cents: 8400,
-    vendor_groups: [
-      {
-        vendor_id: 'self',
-        vendor_name: 'Mira & Co. Ceramics',
-        status: 'pending',
-        subtotal_cents: 8400,
-        items: [
-          {
-            id: 'a',
-            name: 'Olive Pour-Over Set',
-            vendor_name: 'Mira & Co.',
-            quantity: 1,
-            price_cents: 8400,
-          },
-        ],
-      },
-    ],
-  },
-]
-
 export function VendorOrders() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [orders, setOrders] = useState<VendryOrder[]>(FALLBACK_ORDERS)
+  // null = still loading; [] = loaded with no orders yet.
+  const [orders, setOrders] = useState<VendryOrder[] | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -173,26 +90,29 @@ export function VendorOrders() {
           ? (raw as ApiOrder[])
           : ((raw as { data?: ApiOrder[] }).data ?? [])
         if (cancelled) return
-        if (list.length === 0) return
         setOrders(list.map(coerceOrder))
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled) setOrders([])
+      })
     return () => {
       cancelled = true
     }
   }, [http])
 
+  const loaded = useMemo(() => orders ?? [], [orders])
+
   const kpis = useMemo(() => {
-    const awaiting = orders.filter((o) =>
+    const awaiting = loaded.filter((o) =>
       ['pending', 'paid', 'processing', 'confirmed'].includes(o.status as string),
     ).length
-    const inTransit = orders.filter((o) => o.status === 'shipped').length
-    const delivered = orders.filter((o) => o.status === 'delivered').length
-    const refunded = orders.filter(
+    const inTransit = loaded.filter((o) => o.status === 'shipped').length
+    const delivered = loaded.filter((o) => o.status === 'delivered').length
+    const refunded = loaded.filter(
       (o) => o.status === 'refunded' || o.status === 'cancelled',
     ).length
     return { awaiting, inTransit, delivered, refunded }
-  }, [orders])
+  }, [loaded])
 
   return (
     <div className={cm.cn(cm.maxW('full'), cm.mxAuto, cm.sp('p', 8), 'max-w-[1280px] space-y-8')}>
@@ -284,9 +204,47 @@ export function VendorOrders() {
       </div>
 
       <section className={cm.cn(cm.stack(4))}>
-        {orders.map((order) => (
-          <VendryOrderCard key={order.id} order={order} />
-        ))}
+        {orders === null ? (
+          [0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className={cm.cn(
+                cm.sp('p', 6),
+                'animate-pulse rounded-2xl border border-outline-variant bg-surface-container-low',
+              )}
+              aria-hidden
+            >
+              <div className="h-4 w-40 rounded bg-outline-variant" />
+              <div className="mt-3 h-3 w-64 rounded bg-outline-variant" />
+            </div>
+          ))
+        ) : loaded.length === 0 ? (
+          <div
+            className={cm.cn(
+              cm.sp('p', 8),
+              cm.stack(2),
+              'items-center text-center rounded-2xl border border-dashed border-outline-variant bg-surface-container-low',
+            )}
+          >
+            <span className="material-symbols-outlined text-on-surface-variant" aria-hidden>
+              inbox
+            </span>
+            <p className={cm.cn(cm.fontWeight('semibold'), 'text-on-surface')}>
+              {t('vendorOrders.emptyTitle', {}, { defaultValue: 'No orders to fulfill yet' })}
+            </p>
+            <p className={'text-on-surface-variant text-sm'}>
+              {t(
+                'vendorOrders.emptyBody',
+                {},
+                {
+                  defaultValue: 'When customers buy your products, their orders will show up here.',
+                },
+              )}
+            </p>
+          </div>
+        ) : (
+          loaded.map((order) => <VendryOrderCard key={order.id} order={order} />)
+        )}
       </section>
     </div>
   )

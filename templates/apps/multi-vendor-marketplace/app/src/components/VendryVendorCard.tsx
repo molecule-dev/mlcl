@@ -76,7 +76,7 @@ export function VendryVendorCard({ vendor, onFollow, compact = false }: VendryVe
           <div className="relative shrink-0">
             <img
               src={avatar}
-              alt=""
+              alt={vendor.name}
               className={cm.cn('h-14 w-14 rounded-2xl object-cover ring-4 ring-surface bg-surface')}
               loading="lazy"
             />

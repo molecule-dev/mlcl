@@ -96,7 +96,9 @@ export function VendryProductCard({ product }: VendryProductCardProps) {
         aria-pressed={favorited}
         aria-label={t('vendryProductCard.favoriteAria', {}, { defaultValue: 'Save to favorites' })}
         className={cm.cn(
+          cm.flex({ align: 'center', justify: 'center' }),
           cm.sp('p', 2),
+          'min-h-[40px] min-w-[40px]',
           cm.roundedFull,
           'absolute right-3 top-3 bg-surface/90 backdrop-blur-md shadow-sm hover:bg-surface transition-colors',
         )}

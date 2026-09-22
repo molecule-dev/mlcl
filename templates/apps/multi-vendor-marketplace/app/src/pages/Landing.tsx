@@ -194,11 +194,12 @@ export function Landing() {
             <Link
               to="/catalog"
               className={cm.cn(
+                cm.flex({ align: 'center' }),
                 cm.fontWeight('semibold'),
                 cm.sp('px', 4),
                 cm.sp('py', 2),
                 cm.roundedFull,
-                'bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+                'min-h-[40px] bg-primary text-on-primary hover:bg-primary-dark transition-colors',
               )}
             >
               {t('landing.nav.keepShopping', {}, { defaultValue: 'Keep shopping' })}
@@ -208,8 +209,10 @@ export function Landing() {
               <Link
                 to="/login"
                 className={cm.cn(
+                  cm.flex({ align: 'center' }),
+                  cm.sp('px', 2),
                   cm.textSize('sm'),
-                  'text-on-surface-variant hover:text-primary transition-colors',
+                  'min-h-[40px] text-on-surface-variant hover:text-primary transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -217,11 +220,12 @@ export function Landing() {
               <Link
                 to="/signup"
                 className={cm.cn(
+                  cm.flex({ align: 'center' }),
                   cm.fontWeight('semibold'),
                   cm.sp('px', 4),
                   cm.sp('py', 2),
                   cm.roundedFull,
-                  'bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+                  'min-h-[40px] bg-primary text-on-primary hover:bg-primary-dark transition-colors',
                 )}
               >
                 {t('landing.nav.signUp', {}, { defaultValue: 'Join' })}

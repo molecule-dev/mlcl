@@ -4,6 +4,13 @@ import { APP_BASE, captureNetwork, signup } from './_helpers.js'
 
 test.describe('/products', () => {
   test('product detail renders heading', async ({ page }) => {
+    // Product images load from the external picsum.photos CDN; a flaky
+    // network swap mid-test surfaces as net::ERR_NETWORK_CHANGED console
+    // noise from that fetch — environmental, not an app regression.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'net::ERR_\\w+.*picsum\\.photos',
+    })
     const { email } = await signup(page)
     await page.goto(APP_BASE + '/products')
     const productsRes = await page.request.get(APP_BASE + '/api/products')
