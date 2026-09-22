@@ -5,7 +5,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 
-interface NavItem {
+export interface NavItem {
   to: string
   icon: string
   labelKey: string
@@ -13,7 +13,7 @@ interface NavItem {
   filledIcon?: boolean
 }
 
-const PRIMARY_ITEMS: NavItem[] = [
+export const PRIMARY_ITEMS: NavItem[] = [
   {
     to: '/home',
     icon: 'self_improvement',
@@ -33,7 +33,7 @@ const PRIMARY_ITEMS: NavItem[] = [
   { to: '/search', icon: 'search', labelKey: 'stillpoint.nav.search', defaultLabel: 'Search' },
 ]
 
-const SECONDARY_ITEMS: NavItem[] = [
+export const SECONDARY_ITEMS: NavItem[] = [
   {
     to: '/notifications',
     icon: 'notifications',

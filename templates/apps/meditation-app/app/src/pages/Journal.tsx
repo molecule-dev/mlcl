@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import type { I18nProvider } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -104,6 +105,7 @@ export function Journal() {
         mood: draftMood,
         written_at: new Date().toISOString(),
       })
+      void track({ name: 'journal.created', properties: { mood: draftMood, length: body.length } })
       setDraft('')
       setDraftMood(4)
       await loadEntries()

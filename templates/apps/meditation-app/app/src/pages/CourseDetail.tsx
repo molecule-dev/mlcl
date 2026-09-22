@@ -248,7 +248,7 @@ export function CourseDetail() {
                         cm.sp('py', 2),
                         cm.textSize('sm'),
                         cm.fontWeight('semibold'),
-                        'rounded-full bg-primary text-white hover:bg-primary/90 transition-colors',
+                        'min-h-[40px] rounded-full bg-primary text-white hover:bg-primary/90 transition-colors',
                       )}
                     >
                       <span

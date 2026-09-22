@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -62,6 +63,7 @@ export function SessionPlayer() {
   const [completed, setCompleted] = useState(false)
   const [historyPosted, setHistoryPosted] = useState(false)
   const startedAtRef = useRef<Date | null>(null)
+  const startedTrackedRef = useRef(false)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
@@ -134,11 +136,21 @@ export function SessionPlayer() {
         started_at: startedAt.toISOString(),
         completed_at: new Date().toISOString(),
       })
+      .then(() => {
+        void track({
+          name: 'session.completed',
+          properties: {
+            session_id: session.id,
+            slug: session.slug ?? null,
+            duration_seconds: elapsed,
+          },
+        })
+      })
       .catch(() => {
         // best-effort; the player UI still works without history
       })
       .finally(() => setHistoryPosted(true))
-  }, [completed, historyPosted, session?.id, elapsed, http])
+  }, [completed, historyPosted, session?.id, session?.slug, elapsed, http])
 
   if (loading) {
     return (
@@ -369,6 +381,17 @@ export function SessionPlayer() {
               }
               onClick={() => {
                 setCompleted(false)
+                if (!playing && !startedTrackedRef.current && session) {
+                  startedTrackedRef.current = true
+                  void track({
+                    name: 'session.started',
+                    properties: {
+                      session_id: session.id,
+                      slug: session.slug ?? null,
+                      duration_seconds: durationSeconds,
+                    },
+                  })
+                }
                 setPlaying((p) => !p)
               }}
               className={cm.cn(

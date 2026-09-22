@@ -30,6 +30,11 @@ test.describe('login', () => {
   })
 
   test('rejects bad credentials and stays on /login', async ({ page }) => {
+    // The 403 from the failed log-in is the expected rejection the test asserts.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/login')
       await page.locator('input[type="email"]').fill('nobody@meditation.test')

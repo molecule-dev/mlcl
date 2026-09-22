@@ -128,12 +128,12 @@ export function getPricingTiers(): Array<{
       prices: [
         {
           period: 'month',
-          price: '$15/mo',
+          price: '$15',
           stripePriceId: process.env.STRIPE_MEDITATION_APP_PRO_MONTHLY ?? null,
         },
         {
           period: 'year',
-          price: '$150/yr',
+          price: '$150',
           stripePriceId: process.env.STRIPE_MEDITATION_APP_PRO_YEARLY ?? null,
         },
       ],
@@ -145,12 +145,12 @@ export function getPricingTiers(): Array<{
       prices: [
         {
           period: 'month',
-          price: '$49/mo',
+          price: '$49',
           stripePriceId: process.env.STRIPE_MEDITATION_APP_TEAM_MONTHLY ?? null,
         },
         {
           period: 'year',
-          price: '$490/yr',
+          price: '$490',
           stripePriceId: process.env.STRIPE_MEDITATION_APP_TEAM_YEARLY ?? null,
         },
       ],

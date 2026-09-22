@@ -61,10 +61,12 @@ export function Home() {
   const [daily, setDaily] = useState<ApiStatsDailyServer[]>([])
   const [preferences, setPreferences] = useState<ApiUserPreferences | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(null)
     Promise.all([
       http.get<ApiSession[]>('/sessions?limit=4'),
       http.get<CategoryWithCount[]>('/categories'),
@@ -82,8 +84,9 @@ export function Home() {
         setDaily(Array.isArray(d.data) ? d.data : [])
         setPreferences(pr.data ?? null)
       })
-      .catch(() => {
-        // leave state empty — UI will render the empty placeholders
+      .catch((err) => {
+        if (cancelled) return
+        setLoadError(err instanceof Error ? err.message : String(err))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -135,6 +138,37 @@ export function Home() {
           </>
         }
       />
+
+      {loadError ? (
+        <div
+          data-testid="home-load-error"
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-2xl border border-error text-error bg-error-container/30',
+          )}
+        >
+          {t(
+            'stillpoint.home.loadError',
+            { error: loadError },
+            { defaultValue: "Couldn't load your practice: {{error}}" },
+          )}
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className={cm.cn(
+              cm.sp('ml', 3),
+              cm.sp('px', 3),
+              cm.sp('py', 1),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-full border border-error hover:bg-error/10 transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch')}>
         {todayCard ? (

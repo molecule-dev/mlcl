@@ -19,6 +19,11 @@ test.describe('reset password (/reset-password)', () => {
   test('submitting calls POST /api/users/reset-password (rejected without a real token)', async ({
     page,
   }) => {
+    // The 401 for the bogus token is the expected rejection the test asserts.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(
         APP_BASE + '/reset-password?token=spec-only-not-valid&email=who@meditation.test',

@@ -48,9 +48,12 @@ export function StillpointTopBar({ title, eyebrow, actions }: StillpointTopBarPr
           {title}
         </h1>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+      {/* self-end right-aligns the action cluster on phones, where the bar
+          stacks vertically; md:self-auto restores full-width distribution.
+          min-h/w-[40px] pads the shared ThemeToggle to a 40px tap target. */}
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'self-end md:self-auto')}>
         {actions}
-        <ThemeToggle />
+        <ThemeToggle className="min-h-[40px] min-w-[40px]" />
         <UserMenu />
       </div>
     </div>

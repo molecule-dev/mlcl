@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,13 +85,20 @@ export function Search() {
         const cList = Array.isArray(c.data) ? c.data : []
         setSessions(sList)
         const lower = debounced.toLowerCase()
-        setCourses(
-          cList.filter(
-            (course) =>
-              course.title.toLowerCase().includes(lower) ||
-              (course.description ?? '').toLowerCase().includes(lower),
-          ),
+        const matchedCourses = cList.filter(
+          (course) =>
+            course.title.toLowerCase().includes(lower) ||
+            (course.description ?? '').toLowerCase().includes(lower),
         )
+        setCourses(matchedCourses)
+        void track({
+          name: 'search.performed',
+          properties: {
+            query: debounced,
+            session_results: sList.length,
+            course_results: matchedCourses.length,
+          },
+        })
         setError(null)
       })
       .catch((err) => {

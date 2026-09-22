@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -72,6 +73,7 @@ export function Billing() {
     if (busyPriceId) return
     setBusyPriceId(priceId)
     setActionError(null)
+    void track({ name: 'checkout.started', properties: { price_id: priceId } })
     try {
       const res = await http.post<CheckoutResponse>('/billing/checkout', { priceId })
       const body = res.data as CheckoutResponse
@@ -246,8 +248,8 @@ export function Billing() {
                       )}
                     >
                       {period === 'month'
-                        ? t('stillpoint.billing.perMonthShort', {}, { defaultValue: '/ mo' })
-                        : t('stillpoint.billing.perYearShort', {}, { defaultValue: '/ yr' })}
+                        ? t('stillpoint.billing.perMonthShort', {}, { defaultValue: '/mo' })
+                        : t('stillpoint.billing.perYearShort', {}, { defaultValue: '/yr' })}
                     </span>
                   </p>
                 </div>

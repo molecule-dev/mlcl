@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -67,6 +68,10 @@ export function Settings() {
     try {
       const res = await http.put<ApiUserPreferences>('/preferences', patch)
       if (res.data) setPrefs({ ...DEFAULT_PREFERENCES, ...res.data })
+      void track({
+        name: 'preferences.updated',
+        properties: { fields: Object.keys(patch).sort().join(',') },
+      })
       setSaved(Date.now())
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
