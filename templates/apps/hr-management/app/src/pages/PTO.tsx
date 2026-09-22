@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -129,6 +130,10 @@ export function PTO() {
     try {
       const res = await http.patch(`/api/pto/${id}`, { status: 'approved' })
       const updated = unwrapSingle<PtoRequest>(res)
+      track({
+        name: 'leave.approved',
+        properties: { pto_id: id, employee_id: updated?.employee_id, days: updated?.days },
+      })
       setRequests((prev) => prev.map((r) => (r.id === id ? { ...r, ...updated } : r)))
     } catch (_error) {
       // Error surfaced to the user via setError below; no additional logging needed.
@@ -144,6 +149,10 @@ export function PTO() {
     try {
       const res = await http.patch(`/api/pto/${id}`, { status: 'denied' })
       const updated = unwrapSingle<PtoRequest>(res)
+      track({
+        name: 'leave.denied',
+        properties: { pto_id: id, employee_id: updated?.employee_id, days: updated?.days },
+      })
       setRequests((prev) => prev.map((r) => (r.id === id ? { ...r, ...updated } : r)))
     } catch (_error) {
       // Error surfaced to the user via setError below; no additional logging needed.
@@ -163,13 +172,23 @@ export function PTO() {
     }
     setSubmitting(true)
     try {
-      await http.post('/api/pto', {
+      const res = await http.post('/api/pto', {
         employee_id: draft.employee_id || undefined,
         type: draft.type,
         start_date: draft.start_date,
         end_date: draft.end_date,
         reason: draft.reason || '',
         status: 'pending',
+      })
+      const created = unwrapSingle<PtoRequest>(res)
+      track({
+        name: 'leave.requested',
+        properties: {
+          pto_id: created?.id,
+          employee_id: draft.employee_id || undefined,
+          type: draft.type,
+          status: 'pending',
+        },
       })
       setComposing(false)
       setDraft({ employee_id: '', type: 'vacation', start_date: '', end_date: '', reason: '' })
@@ -267,7 +286,9 @@ export function PTO() {
           <h2 className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}>
             {t('pto.compose.heading', {}, { defaultValue: 'New time-off request' })}
           </h2>
-          <div className={cm.cn(cm.sp('mt', 4), cm.grid({ cols: 2, gap: 'md' }))}>
+          {/* Single column on phones, two from sm — a fixed 2-col grid
+              crushes date inputs at 390px. */}
+          <div className={cm.cn(cm.sp('mt', 4), 'grid gap-4 sm:grid-cols-2')}>
             <label className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
               <span
                 className={cm.cn(
@@ -357,7 +378,7 @@ export function PTO() {
                 )}
               />
             </label>
-            <label className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'col-span-2')}>
+            <label className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }), 'sm:col-span-2')}>
               <span
                 className={cm.cn(
                   'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
@@ -407,7 +428,9 @@ export function PTO() {
         <section
           className={cm.cn(
             cm.sp('p', 6),
-            'lg:col-span-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
+            // min-w-0: without it this grid item's min-content width is the
+            // 640px scrolling calendar, stretching the whole page at 390px.
+            'min-w-0 lg:col-span-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/20 shadow-sm',
           )}
         >
           <header
@@ -437,78 +460,82 @@ export function PTO() {
               ))}
             </div>
           </header>
-          <div
-            className={cm.cn(
-              'grid grid-cols-7 gap-px rounded-xl bg-outline-variant/20 overflow-hidden border border-outline-variant/20',
-            )}
-          >
-            {WEEKDAYS.map((d) => (
-              <div
-                key={d.key}
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  'bg-surface-container-low text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t(`pto.weekday.${d.key}`, {}, { defaultValue: d.defaultLabel })}
-              </div>
-            ))}
-            {calendarRange.map((cell, i) => {
-              const isWeekend = i % 7 === 0 || i % 7 === 6
-              const blocks = cell.iso ? dayBlocks(cell.iso) : []
-              return (
+          {/* The 7-col month grid cannot compress to a 390px column —
+              scroll it instead of crushing the day chips. */}
+          <div className="overflow-x-auto">
+            <div
+              className={cm.cn(
+                'grid min-w-[640px] grid-cols-7 gap-px rounded-xl bg-outline-variant/20 overflow-hidden border border-outline-variant/20',
+              )}
+            >
+              {WEEKDAYS.map((d) => (
                 <div
-                  key={i}
+                  key={d.key}
                   className={cm.cn(
-                    cm.sp('px', 2),
+                    cm.sp('px', 3),
                     cm.sp('py', 2),
-                    'min-h-[7.5rem] flex flex-col gap-1',
-                    isWeekend ? 'bg-surface-container-low' : 'bg-surface-container-lowest',
+                    'bg-surface-container-low text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                   )}
                 >
-                  {cell.date ? (
-                    <span
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'text-on-surface-variant tabular-nums',
-                      )}
-                    >
-                      {cell.date}
-                    </span>
-                  ) : null}
-                  <div className={cm.cn(cm.stack(1), 'flex-1')}>
-                    {blocks.slice(0, 3).map((b) => (
-                      <span
-                        key={`${cell.iso}-${b.id}`}
-                        className={cm.cn(
-                          cm.sp('px', 2),
-                          'h-6 rounded-md text-[10px] font-bold tracking-tight text-on-primary truncate flex items-center',
-                        )}
-                        style={{ backgroundColor: TYPE_COLOR[b.type] }}
-                        title={`${b.employee_name} · ${b.type_label}`}
-                      >
-                        {b.employee_initial} {b.type_label.toLowerCase()}
-                      </span>
-                    ))}
-                    {blocks.length > 3 ? (
+                  {t(`pto.weekday.${d.key}`, {}, { defaultValue: d.defaultLabel })}
+                </div>
+              ))}
+              {calendarRange.map((cell, i) => {
+                const isWeekend = i % 7 === 0 || i % 7 === 6
+                const blocks = cell.iso ? dayBlocks(cell.iso) : []
+                return (
+                  <div
+                    key={i}
+                    className={cm.cn(
+                      cm.sp('px', 2),
+                      cm.sp('py', 2),
+                      'min-h-[7.5rem] flex flex-col gap-1',
+                      isWeekend ? 'bg-surface-container-low' : 'bg-surface-container-lowest',
+                    )}
+                  >
+                    {cell.date ? (
                       <span
                         className={cm.cn(
-                          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'text-on-surface-variant tabular-nums',
                         )}
                       >
-                        {t(
-                          'pto.moreCount',
-                          { count: blocks.length - 3 },
-                          { defaultValue: '+{{count}} more' },
-                        )}
+                        {cell.date}
                       </span>
                     ) : null}
+                    <div className={cm.cn(cm.stack(1), 'flex-1')}>
+                      {blocks.slice(0, 3).map((b) => (
+                        <span
+                          key={`${cell.iso}-${b.id}`}
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            'h-6 rounded-md text-[10px] font-bold tracking-tight text-on-primary truncate flex items-center',
+                          )}
+                          style={{ backgroundColor: TYPE_COLOR[b.type] }}
+                          title={`${b.employee_name} · ${b.type_label}`}
+                        >
+                          {b.employee_initial} {b.type_label.toLowerCase()}
+                        </span>
+                      ))}
+                      {blocks.length > 3 ? (
+                        <span
+                          className={cm.cn(
+                            'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                          )}
+                        >
+                          {t(
+                            'pto.moreCount',
+                            { count: blocks.length - 3 },
+                            { defaultValue: '+{{count}} more' },
+                          )}
+                        </span>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </section>
 
@@ -535,8 +562,7 @@ export function PTO() {
                 onClick={() => setFilter(f.key)}
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  'rounded-full text-[10px] font-black uppercase tracking-widest transition-colors',
+                  'inline-flex min-h-[36px] items-center rounded-full py-2 text-[10px] font-black uppercase tracking-widest transition-colors',
                   filter === f.key
                     ? 'bg-primary text-on-primary'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -634,10 +660,7 @@ export function PTO() {
                             disabled={actingId === r.id}
                             className={cm.cn(
                               cm.sp('px', 3),
-                              cm.sp('py', 1),
-                              cm.textSize('xs'),
-                              cm.fontWeight('bold'),
-                              'rounded-lg bg-primary text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
+                              'min-h-[36px] rounded-lg bg-primary px-4 py-2 text-xs font-bold text-on-primary hover:opacity-90 transition-opacity disabled:opacity-50',
                             )}
                           >
                             {t('pto.approve', {}, { defaultValue: 'Approve' })}
@@ -647,11 +670,7 @@ export function PTO() {
                             onClick={() => deny(r.id)}
                             disabled={actingId === r.id}
                             className={cm.cn(
-                              cm.sp('px', 3),
-                              cm.sp('py', 1),
-                              cm.textSize('xs'),
-                              cm.fontWeight('bold'),
-                              'rounded-lg bg-error/10 text-error hover:bg-error/15 transition-colors disabled:opacity-50',
+                              'min-h-[36px] rounded-lg bg-error/10 px-4 py-2 text-xs font-bold text-error hover:bg-error/15 transition-colors disabled:opacity-50',
                             )}
                           >
                             {t('pto.deny', {}, { defaultValue: 'Deny' })}

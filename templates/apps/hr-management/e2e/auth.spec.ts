@@ -82,6 +82,8 @@ test.describe('auth + bootstrap', () => {
   })
 
   test('login form rejects bad credentials and accepts good ones', async ({ page }) => {
+    // The rejected log-in intentionally 403s; the console error is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('login')
     const password = 'TestPass!1234'
     const reg = await page.request.post(`${API_BASE}/users`, {

@@ -105,7 +105,8 @@ export function Performance() {
         </p>
       </header>
 
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      {/* 2-up on phones, 4-up from md — see Dashboard for the rationale. */}
+      <div className={cm.cn('grid grid-cols-2 gap-4 md:grid-cols-4')}>
         <KpiCard
           icon="group"
           label={t('performance.kpi.cycle', {}, { defaultValue: 'In cycle' })}
@@ -175,7 +176,12 @@ export function Performance() {
             {reviews.map((r) => (
               <li
                 key={r.id}
-                className={cm.cn(cm.sp('p', 5), cm.flex({ align: 'center', gap: 'md' }))}
+                className={cm.cn(
+                  cm.sp('p', 5),
+                  // wrap: on a 390px phone the status/rating/goals cluster
+                  // drops below the name instead of squeezing it out.
+                  cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                )}
               >
                 <span
                   className={cm.cn(

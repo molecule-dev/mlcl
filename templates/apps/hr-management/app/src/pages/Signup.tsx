@@ -136,7 +136,7 @@ export function Signup() {
           ) : null}
 
           <form onSubmit={handleSubmit} className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
-            <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+            <div className={cm.cn('grid gap-4 sm:grid-cols-2')}>
               <FieldGroup
                 id="firstName"
                 type="text"

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -56,6 +57,10 @@ export function AddEmployee() {
         status: 'active',
       })
       const created = unwrapSingle<{ id: string }>(res)
+      track({
+        name: 'employee.added',
+        properties: { employee_id: created?.id, department, employment_type: employmentType },
+      })
       if (created?.id) {
         navigate(`/employees/${created.id}`)
       } else {
@@ -231,7 +236,9 @@ export function AddEmployee() {
             {t('addEmployee.headingPersonal', {}, { defaultValue: 'Who they are' })}
           </h2>
         </header>
-        <div className={cm.cn(cm.sp('mt', 6), cm.grid({ cols: 2, gap: 'md' }))}>
+        {/* Single column on phones, two from sm — a fixed 2-col grid leaves
+            ~150px per field at 390px. */}
+        <div className={cm.cn(cm.sp('mt', 6), 'grid gap-4 sm:grid-cols-2')}>
           <Field
             id="title"
             type="text"

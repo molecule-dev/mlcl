@@ -132,7 +132,7 @@ export function Settings() {
         </p>
       </header>
 
-      <div className={cm.grid({ cols: 2, gap: 'md' })}>
+      <div className={cm.cn('grid gap-4 md:grid-cols-2')}>
         {SECTIONS.map((s) => {
           const open = openSection === s.key
           return (

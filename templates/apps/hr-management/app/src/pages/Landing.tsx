@@ -468,7 +468,7 @@ export function Landing() {
               )}
             </p>
           </div>
-          <div className={cm.grid({ cols: 4, gap: 'md' })}>
+          <div className={cm.cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-4')}>
             {FEATURES.map((f) => (
               <div
                 key={f.key}
@@ -528,7 +528,7 @@ export function Landing() {
               {t('landing.pricingHeading', {}, { defaultValue: 'Plans for every team size.' })}
             </h2>
           </div>
-          <div className={cm.grid({ cols: 3, gap: 'md' })}>
+          <div className={cm.cn('grid gap-4 md:grid-cols-3')}>
             {PRICING.map((p) => {
               const featured = 'featured' in p && p.featured
               return (

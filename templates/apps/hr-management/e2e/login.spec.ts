@@ -27,6 +27,8 @@ test.describe('login page', () => {
   })
 
   test('rejects bad credentials and stays on /login', async ({ page }) => {
+    // The rejected log-in intentionally 403s; the console error is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('badcred')
     const password = 'TestPass!1234'
     await registerUser(page, email, password)

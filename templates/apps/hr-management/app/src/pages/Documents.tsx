@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -98,6 +99,10 @@ export function Documents() {
         shared_with: draft.shared_with,
       })
       const created = unwrapSingle<Document>(res)
+      track({
+        name: 'document.uploaded',
+        properties: { document_id: created?.id, type: draft.type, category: draft.category },
+      })
       if (created) setDocs((prev) => [created, ...prev])
       setComposing(false)
       setDraft({
@@ -193,7 +198,7 @@ export function Documents() {
               },
             )}
           </p>
-          <div className={cm.cn(cm.sp('mt', 4), cm.grid({ cols: 2, gap: 'md' }))}>
+          <div className={cm.cn(cm.sp('mt', 4), 'grid gap-4 sm:grid-cols-2')}>
             <DocField
               label={t('form.name', {}, { defaultValue: 'Name' })}
               value={draft.name}

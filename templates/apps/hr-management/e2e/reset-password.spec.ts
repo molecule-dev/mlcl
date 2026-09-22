@@ -31,6 +31,8 @@ test.describe('reset-password page', () => {
   test('matching passwords POST to /api/users/reset-password (status surfaced regardless of token validity)', async ({
     page,
   }) => {
+    // An invalid token intentionally 401s; the console error is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=tok-attempt')
     await page.locator('input#password').fill('GoodPass!12345')
     await page.locator('input#confirm').fill('GoodPass!12345')

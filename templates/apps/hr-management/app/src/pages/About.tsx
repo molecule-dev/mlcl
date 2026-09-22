@@ -108,7 +108,7 @@ export function About() {
           <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-display')}>
             {t('common.whatYouGet', {}, { defaultValue: 'What you get' })}
           </h2>
-          <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <div className={cm.cn('grid gap-4 sm:grid-cols-2')}>
             {FEATURES.map((f) => (
               <div
                 key={f.id}

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -200,6 +201,10 @@ export function EmployeeProfile() {
       const res = await http.patch(`/api/employees/${employee.id}`, payload)
       const updated = unwrapSingle<Employee>(res)
       if (updated) setEmployee(updated)
+      track({
+        name: 'employee.updated',
+        properties: { employee_id: employee.id, status: payload.status ?? employee.status },
+      })
       setEditing(false)
     } catch (err) {
       const msg =
@@ -413,7 +418,7 @@ export function EmployeeProfile() {
         editing ? (
           <EditFields draft={draft} setDraft={setDraft} />
         ) : (
-          <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+          <div className={cm.cn('grid gap-4 md:grid-cols-2')}>
             <DetailCard
               title={t('employeeProfile.section.contact', {}, { defaultValue: 'Contact' })}
               rows={[
@@ -763,7 +768,7 @@ function EditFields({ draft, setDraft }: EditFieldsProps) {
       <h2 className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-on-surface')}>
         {t('employeeProfile.editHeading', {}, { defaultValue: 'Edit profile' })}
       </h2>
-      <div className={cm.cn(cm.sp('mt', 6), cm.grid({ cols: 2, gap: 'md' }))}>
+      <div className={cm.cn(cm.sp('mt', 6), 'grid gap-4 sm:grid-cols-2')}>
         {field(t('form.title', {}, { defaultValue: 'Title' }), 'title')}
         {field(t('auth.workEmail', {}, { defaultValue: 'Work email' }), 'email', 'email')}
         {field(

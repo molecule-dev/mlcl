@@ -157,7 +157,9 @@ export function Dashboard() {
         </Link>
       </header>
 
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      {/* 2-up on phones, 4-up from md — the ClassMap grid emits a fixed
+          grid-cols-4 that would crush four KPI cards into a 390px column. */}
+      <div className={cm.cn('grid grid-cols-2 gap-4 md:grid-cols-4')}>
         <KpiCard
           icon="group"
           label={t('dashboard.kpi.headcount', {}, { defaultValue: 'Total headcount' })}

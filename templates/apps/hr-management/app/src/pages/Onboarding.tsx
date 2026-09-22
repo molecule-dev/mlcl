@@ -106,87 +106,104 @@ export function Onboarding() {
       ) : (
         <div className={cm.cn('grid gap-6 lg:grid-cols-12')}>
           <ul className={cm.cn('lg:col-span-5 stack gap-3 flex flex-col')}>
-            {journeys.map((j) => {
-              const active = j.id === activeId
-              return (
-                <li key={j.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(j.id)}
-                    className={cm.cn(
-                      cm.sp('p', 5),
-                      'w-full text-left rounded-2xl border transition-all',
-                      active
-                        ? 'bg-primary/5 border-primary shadow-sm'
-                        : 'bg-surface-container-lowest border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md',
-                    )}
-                  >
-                    <div className={cm.flex({ align: 'center', gap: 'md' })}>
-                      <span
-                        className={cm.cn(
-                          'grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary-dark text-lg font-extrabold tracking-tight',
-                        )}
-                      >
-                        {j.employee_initial}
-                      </span>
-                      <div className={cm.cn('min-w-0 flex-1')}>
-                        <p
-                          className={cm.cn(
-                            cm.textSize('sm'),
-                            cm.fontWeight('bold'),
-                            'text-on-surface',
-                          )}
-                        >
-                          {j.employee_name}
-                        </p>
-                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          {j.role} · {j.department}
-                        </p>
-                      </div>
-                      <span
-                        className={cm.cn(
-                          cm.textSize('lg'),
-                          'font-extrabold tabular-nums tracking-tight',
-                          j.progress_pct === 100 ? 'text-success' : 'text-primary-dark',
-                        )}
-                      >
-                        {j.progress_pct}%
-                      </span>
-                    </div>
-                    <div className={cm.cn(cm.sp('mt', 4))}>
-                      <div
-                        className={cm.cn(
-                          'h-2 overflow-hidden rounded-full bg-surface-container-low',
-                        )}
-                      >
-                        <div
-                          className={cm.cn('h-full rounded-full bg-primary transition-all')}
-                          style={{ width: `${j.progress_pct}%` }}
-                        />
-                      </div>
-                    </div>
-                    <p
+            {journeys.length === 0 ? (
+              <li
+                className={cm.cn(
+                  cm.sp('p', 8),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'rounded-2xl bg-surface-container-lowest border border-outline-variant/20 text-on-surface-variant',
+                )}
+              >
+                {t(
+                  'onboarding.empty',
+                  {},
+                  { defaultValue: 'No onboarding journeys yet — add an employee to start one.' },
+                )}
+              </li>
+            ) : (
+              journeys.map((j) => {
+                const active = j.id === activeId
+                return (
+                  <li key={j.id}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveId(j.id)}
                       className={cm.cn(
-                        cm.sp('mt', 3),
-                        'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                        cm.sp('p', 5),
+                        'w-full text-left rounded-2xl border transition-all',
+                        active
+                          ? 'bg-primary/5 border-primary shadow-sm'
+                          : 'bg-surface-container-lowest border-outline-variant/20 hover:-translate-y-0.5 hover:shadow-md',
                       )}
                     >
-                      {t(
-                        'onboarding.startsLabel',
-                        { date: j.start_date },
-                        { defaultValue: 'Starts {{date}}' },
-                      )}{' '}
-                      ·{' '}
-                      {t(
-                        'onboarding.buddyLabel',
-                        { name: j.buddy_name },
-                        { defaultValue: 'Buddy {{name}}' },
-                      )}
-                    </p>
-                  </button>
-                </li>
-              )
-            })}
+                      <div className={cm.flex({ align: 'center', gap: 'md' })}>
+                        <span
+                          className={cm.cn(
+                            'grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary-dark text-lg font-extrabold tracking-tight',
+                          )}
+                        >
+                          {j.employee_initial}
+                        </span>
+                        <div className={cm.cn('min-w-0 flex-1')}>
+                          <p
+                            className={cm.cn(
+                              cm.textSize('sm'),
+                              cm.fontWeight('bold'),
+                              'text-on-surface',
+                            )}
+                          >
+                            {j.employee_name}
+                          </p>
+                          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            {j.role} · {j.department}
+                          </p>
+                        </div>
+                        <span
+                          className={cm.cn(
+                            cm.textSize('lg'),
+                            'font-extrabold tabular-nums tracking-tight',
+                            j.progress_pct === 100 ? 'text-success' : 'text-primary-dark',
+                          )}
+                        >
+                          {j.progress_pct}%
+                        </span>
+                      </div>
+                      <div className={cm.cn(cm.sp('mt', 4))}>
+                        <div
+                          className={cm.cn(
+                            'h-2 overflow-hidden rounded-full bg-surface-container-low',
+                          )}
+                        >
+                          <div
+                            className={cm.cn('h-full rounded-full bg-primary transition-all')}
+                            style={{ width: `${j.progress_pct}%` }}
+                          />
+                        </div>
+                      </div>
+                      <p
+                        className={cm.cn(
+                          cm.sp('mt', 3),
+                          'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                        )}
+                      >
+                        {t(
+                          'onboarding.startsLabel',
+                          { date: j.start_date },
+                          { defaultValue: 'Starts {{date}}' },
+                        )}{' '}
+                        ·{' '}
+                        {t(
+                          'onboarding.buddyLabel',
+                          { name: j.buddy_name },
+                          { defaultValue: 'Buddy {{name}}' },
+                        )}
+                      </p>
+                    </button>
+                  </li>
+                )
+              })
+            )}
           </ul>
 
           <section

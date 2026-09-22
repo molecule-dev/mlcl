@@ -92,7 +92,7 @@ export function Reports() {
         </p>
       </header>
 
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      <div className={cm.cn('grid grid-cols-2 gap-4 md:grid-cols-4')}>
         <KpiCard
           icon="trending_up"
           label={t('reports.kpi.headcount', {}, { defaultValue: 'Headcount' })}

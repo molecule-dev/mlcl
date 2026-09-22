@@ -164,8 +164,7 @@ export function Employees() {
                 onClick={() => setFilter(f.key)}
                 className={cm.cn(
                   cm.sp('px', 3),
-                  cm.sp('py', 1),
-                  'rounded-full text-[10px] font-black uppercase tracking-widest transition-colors',
+                  'inline-flex min-h-[36px] items-center rounded-full py-2 text-[10px] font-black uppercase tracking-widest transition-colors',
                   active
                     ? 'bg-primary text-on-primary'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -194,134 +193,138 @@ export function Employees() {
             {t('employees.empty', {}, { defaultValue: 'No matches.' })}
           </p>
         ) : (
-          <table className={cm.cn('w-full text-left text-sm')}>
-            <thead className={cm.cn('bg-surface-container-low')}>
-              <tr>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('form.name', {}, { defaultValue: 'Name' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('form.title', {}, { defaultValue: 'Title' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('employees.col.department', {}, { defaultValue: 'Department' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('employees.col.manager', {}, { defaultValue: 'Manager' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('employees.col.id', {}, { defaultValue: 'ID' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('nav.status', {}, { defaultValue: 'Status' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-outline-variant/20')}>
-              {filtered.map((emp) => (
-                <tr
-                  key={emp.id}
-                  className={cm.cn('hover:bg-surface-container-low transition-colors')}
-                >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link
-                      to={`/employees/${emp.id}`}
-                      className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
-                    >
-                      <span
-                        className={cm.cn(
-                          'grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary-dark',
-                          cm.fontWeight('bold'),
-                          cm.shrink0,
-                        )}
-                      >
-                        {emp.avatar_initial}
-                      </span>
-                      <span>
-                        <span
-                          className={cm.cn(
-                            cm.fontWeight('semibold'),
-                            'block text-on-surface hover:text-primary transition-colors',
-                          )}
-                        >
-                          {emp.name}
-                        </span>
-                        <span className={cm.cn('block text-xs text-on-surface-variant')}>
-                          {emp.email}
-                        </span>
-                      </span>
-                    </Link>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface')}>
-                    {emp.title}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <span
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.sp('py', 1),
-                        'rounded-full bg-primary/10 text-primary-dark text-xs font-semibold',
-                      )}
-                    >
-                      {emp.department}
-                    </span>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}>
-                    {emp.manager_name}
-                  </td>
-                  <td
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full min-w-[720px] text-left text-sm')}>
+              <thead className={cm.cn('bg-surface-container-low')}>
+                <tr>
+                  <th
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      'text-on-surface-variant',
-                      'font-mono tabular-nums',
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                     )}
                   >
-                    {emp.employee_id}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <EmployeeStatusPill status={emp.status} />
-                  </td>
+                    {t('form.name', {}, { defaultValue: 'Name' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('form.title', {}, { defaultValue: 'Title' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('employees.col.department', {}, { defaultValue: 'Department' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('employees.col.manager', {}, { defaultValue: 'Manager' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('employees.col.id', {}, { defaultValue: 'ID' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('nav.status', {}, { defaultValue: 'Status' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-outline-variant/20')}>
+                {filtered.map((emp) => (
+                  <tr
+                    key={emp.id}
+                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <Link
+                        to={`/employees/${emp.id}`}
+                        className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+                      >
+                        <span
+                          className={cm.cn(
+                            'grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary-dark',
+                            cm.fontWeight('bold'),
+                            cm.shrink0,
+                          )}
+                        >
+                          {emp.avatar_initial}
+                        </span>
+                        <span>
+                          <span
+                            className={cm.cn(
+                              cm.fontWeight('semibold'),
+                              'block text-on-surface hover:text-primary transition-colors',
+                            )}
+                          >
+                            {emp.name}
+                          </span>
+                          <span className={cm.cn('block text-xs text-on-surface-variant')}>
+                            {emp.email}
+                          </span>
+                        </span>
+                      </Link>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface')}>
+                      {emp.title}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.sp('py', 1),
+                          'rounded-full bg-primary/10 text-primary-dark text-xs font-semibold',
+                        )}
+                      >
+                        {emp.department}
+                      </span>
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface-variant')}
+                    >
+                      {emp.manager_name}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-on-surface-variant',
+                        'font-mono tabular-nums',
+                      )}
+                    >
+                      {emp.employee_id}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <EmployeeStatusPill status={emp.status} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
     </div>
