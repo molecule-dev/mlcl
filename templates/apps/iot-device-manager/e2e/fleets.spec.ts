@@ -115,6 +115,11 @@ test.describe('Fleets — grouping devices for bulk operations', () => {
     const dialog = page.getByRole('dialog')
     await expect(dialog).toBeVisible()
     await dialog.locator(`[data-mol-id="fleets-delete-${fleet.id}"]`).click()
+    // Two-step inline confirm: the first click only arms "Confirm delete?".
+    await expect(dialog.locator(`[data-mol-id="fleets-delete-${fleet.id}"]`)).toContainText(
+      /confirm/i,
+    )
+    await dialog.locator(`[data-mol-id="fleets-delete-${fleet.id}"]`).click()
     await page.waitForTimeout(800)
 
     const list = await listFleets(page, accessToken)

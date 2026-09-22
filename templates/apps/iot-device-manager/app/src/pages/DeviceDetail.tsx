@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -246,6 +247,10 @@ export function DeviceDetail() {
             { defaultValue: 'Command "{{type}}" queued for delivery.' },
           ),
         })
+        void track({
+          name: 'command.sent',
+          properties: { device_id: id, command_type: type, source: 'device-detail' },
+        })
         await refresh()
       } catch (err) {
         const msg =
@@ -290,6 +295,18 @@ export function DeviceDetail() {
 
   const series = useMemo(() => telemetry.slice(-24).map((p) => p.value), [telemetry])
   const latest = telemetry[telemetry.length - 1]
+
+  // Fire-once per mount, after the initial fetch lands: the telemetry
+  // funnel's "viewed" step (fire-and-forget; a no-op without a provider).
+  const viewedTracked = useRef(false)
+  useEffect(() => {
+    if (loading || viewedTracked.current) return
+    viewedTracked.current = true
+    void track({
+      name: 'telemetry.viewed',
+      properties: { device_id: id, count: telemetry.length },
+    })
+  }, [loading, telemetry.length, id])
 
   if (loading) {
     return (
@@ -592,6 +609,7 @@ export function DeviceDetail() {
           )}
           role="dialog"
           aria-modal="true"
+          aria-labelledby="command-modal-heading"
         >
           <form
             onSubmit={handleCommandSubmit}
@@ -601,7 +619,7 @@ export function DeviceDetail() {
               cm.stack(4),
             )}
           >
-            <h2 className={cm.cn('text-xl font-bold')}>
+            <h2 id="command-modal-heading" className={cm.cn('text-xl font-bold')}>
               {t('deviceDetail.command.title', {}, { defaultValue: 'Send custom command' })}
             </h2>
             <label className={cm.stack(2)}>

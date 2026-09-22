@@ -17,6 +17,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -79,6 +80,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(alerts)
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -102,6 +104,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(alert)
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -141,6 +144,7 @@ router.post('/', validateBody(createAlertSchema), async (req: Request, res: Resp
     })
     res.status(201).json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -175,6 +179,7 @@ router.put('/:id', validateBody(updateAlertSchema), async (req: Request, res: Re
     const result = await updateById('device_alerts', id, updates)
     res.json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -199,6 +204,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('device_alerts', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -271,6 +277,7 @@ router.post('/check', validateBody(checkSchema), async (req: Request, res: Respo
     }
     res.json({ created: created.length, alerts: created })
   } catch (_err) {
+    logger.error('iot.alerts.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

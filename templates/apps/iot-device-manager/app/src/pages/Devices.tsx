@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -125,6 +126,10 @@ export function Devices() {
         setCreateName('')
         setCreateSerial('')
         setCreateType('sensor')
+        void track({
+          name: 'device.registered',
+          properties: { device_id: String(created.id), device_type: createType },
+        })
         await fetchDevices()
       } catch (err) {
         setCreateError(
@@ -296,7 +301,7 @@ export function Devices() {
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      'font-mono text-xs text-primary',
+                      'whitespace-nowrap font-mono text-xs text-primary',
                     )}
                   >
                     {d.serial_number ?? d.id.slice(0, 8)}
@@ -305,7 +310,7 @@ export function Devices() {
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      'font-mono text-xs text-on-surface-variant',
+                      'whitespace-nowrap font-mono text-xs text-on-surface-variant',
                     )}
                   >
                     v{d.firmware_version ?? '—'}
@@ -314,7 +319,7 @@ export function Devices() {
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      'font-mono text-xs tabular-nums',
+                      'whitespace-nowrap font-mono text-xs tabular-nums',
                     )}
                   >
                     {typeof d.metric_value === 'number'
@@ -324,7 +329,7 @@ export function Devices() {
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                     <SignalStrength bars={d.signal ?? 0} color="#0891b2" dim="#cbd5e1" />
                   </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'whitespace-nowrap')}>
                     <span
                       className={cm.cn(
                         'px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-widest',
@@ -487,7 +492,7 @@ function Th({ children }: { children: React.ReactNode }) {
       className={cm.cn(
         cm.sp('px', 4),
         cm.sp('py', 3),
-        'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+        'whitespace-nowrap text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
       )}
     >
       {children}

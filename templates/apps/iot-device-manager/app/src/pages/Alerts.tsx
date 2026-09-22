@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -97,6 +98,7 @@ export function Alerts() {
       setFeedback(null)
       try {
         await http.put(`/api/alerts/${id}`, { status })
+        void track({ name: `alert.${status}`, properties: { alert_id: id } })
         await refresh()
         setFeedback({
           kind: 'success',
@@ -126,6 +128,7 @@ export function Alerts() {
       const res = await http.post('/api/alerts/check', { offline_threshold_minutes: 10 })
       const data = (res as { data?: { created?: number } })?.data ?? (res as { created?: number })
       const created = Number(data?.created ?? 0)
+      void track({ name: 'alert.check_run', properties: { alerts_created: created } })
       await refresh()
       setFeedback({
         kind: 'success',

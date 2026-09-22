@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -49,6 +50,9 @@ export function Fleets() {
 
   const [manageFleetId, setManageFleetId] = useState<string | null>(null)
   const [manageBusy, setManageBusy] = useState(false)
+  // Inline two-step delete confirmation — the button reads "Confirm delete?"
+  // after the first click, so a stray click cannot destroy a fleet.
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
 
   // Escape closes the create/manage modals (keyboard equivalent of the
   // pointer-only backdrop click).
@@ -57,7 +61,10 @@ export function Fleets() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return
       if (showCreate && !createBusy) setShowCreate(false)
-      if (manageFleetId && !manageBusy) setManageFleetId(null)
+      if (manageFleetId && !manageBusy) {
+        setManageFleetId(null)
+        setConfirmDeleteId(null)
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -163,8 +170,10 @@ export function Fleets() {
       if (manageBusy) return
       setManageBusy(true)
       setFeedback(null)
+      setConfirmDeleteId(null)
       try {
         await http.delete(`/api/fleets/${id}`)
+        void track({ name: 'fleet.deleted', properties: { fleet_id: id } })
         setManageFleetId(null)
         await loadFleets()
         setFeedback({
@@ -204,6 +213,10 @@ export function Fleets() {
         setShowCreate(false)
         setCreateName('')
         setCreateDescription('')
+        void track({
+          name: 'fleet.created',
+          properties: { fleet_id: String(created.id) },
+        })
         await loadFleets()
       } catch (err) {
         setCreateError(
@@ -530,7 +543,12 @@ export function Fleets() {
             >
               <div
                 aria-hidden="true"
-                onClick={() => !manageBusy && setManageFleetId(null)}
+                onClick={() => {
+                  if (!manageBusy) {
+                    setManageFleetId(null)
+                    setConfirmDeleteId(null)
+                  }
+                }}
                 className={cm.cn('absolute inset-0 bg-on-surface/40 backdrop-blur-sm')}
               />
               <div
@@ -616,20 +634,32 @@ export function Fleets() {
                   <button
                     type="button"
                     disabled={manageBusy}
-                    onClick={() => deleteFleet(fleet.id)}
+                    onClick={() => {
+                      if (confirmDeleteId === fleet.id) {
+                        deleteFleet(fleet.id)
+                      } else {
+                        setConfirmDeleteId(fleet.id)
+                      }
+                    }}
                     className={cm.cn(
                       cm.sp('px', 3),
                       cm.sp('py', 2),
                       cm.textSize('xs'),
-                      'font-bold uppercase tracking-widest text-error hover:underline disabled:opacity-50',
+                      'font-bold uppercase tracking-widest hover:underline disabled:opacity-50',
+                      confirmDeleteId === fleet.id ? 'text-error underline' : 'text-error',
                     )}
                     data-mol-id={`fleets-delete-${fleet.id}`}
                   >
-                    {t('fleets.delete', {}, { defaultValue: 'Delete fleet' })}
+                    {confirmDeleteId === fleet.id
+                      ? t('fleets.deleteConfirm', {}, { defaultValue: 'Confirm delete?' })
+                      : t('fleets.delete', {}, { defaultValue: 'Delete fleet' })}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setManageFleetId(null)}
+                    onClick={() => {
+                      setManageFleetId(null)
+                      setConfirmDeleteId(null)
+                    }}
                     disabled={manageBusy}
                     className={cm.cn(
                       cm.sp('px', 4),

@@ -138,7 +138,11 @@ export function FleetTelemetryHero({
             {t(
               'fleetTelemetryHero.headline',
               { count: online },
-              { defaultValue: '{{count}} devices online' },
+              // No plural forms in the i18n default — pick the English shape
+              // so "1 devices online" never renders.
+              {
+                defaultValue: online === 1 ? '1 device online' : '{{count}} devices online',
+              },
             )}
           </h2>
         </div>

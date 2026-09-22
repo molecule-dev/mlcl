@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -125,6 +126,14 @@ export function Firmware() {
         setUploadVersion('')
         setUploadType('sensor')
         setUploadNotes('')
+        void track({
+          name: 'firmware.uploaded',
+          properties: {
+            firmware_id: String(fw.id),
+            version: uploadVersion.trim(),
+            device_type: uploadType,
+          },
+        })
         await loadEverything()
       } catch (err) {
         setUploadError(
@@ -178,6 +187,15 @@ export function Firmware() {
             t('firmware.rollout.error', {}, { defaultValue: 'Rollout could not be created.' }),
           )
         }
+        void track({
+          name: 'firmware.rollout_started',
+          properties: {
+            rollout_id: String(created.id),
+            firmware_id: rolloutFirmwareId,
+            fleet_id: rolloutFleetId || undefined,
+            device_count: rolloutDeviceIds.length,
+          },
+        })
         setShowRollout(false)
         setFeedback({
           kind: 'success',

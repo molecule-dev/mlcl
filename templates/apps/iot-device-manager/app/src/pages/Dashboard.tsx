@@ -197,7 +197,10 @@ export function Dashboard() {
                 { defaultValue: 'Active + flagged devices' },
               )}
             </h2>
-            <Link to="/devices" className={cm.cn('text-sm font-bold text-primary hover:underline')}>
+            <Link
+              to="/devices"
+              className={cm.cn('inline-block py-2 text-sm font-bold text-primary hover:underline')}
+            >
               {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
             </Link>
           </div>
@@ -232,7 +235,7 @@ export function Dashboard() {
               <Link
                 to="/devices"
                 className={cm.cn(
-                  'inline-block mt-4 text-sm font-bold text-primary hover:underline',
+                  'inline-block mt-2 py-2 text-sm font-bold text-primary hover:underline',
                 )}
               >
                 {t('dashboard.registerCta', {}, { defaultValue: 'Register a device →' })}

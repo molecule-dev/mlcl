@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
@@ -233,6 +234,15 @@ export function Console() {
         const created = unwrapSingle<Record<string, unknown>>(res)
         const id = created?.id ? String(created.id).slice(0, 8) : '?'
         append({ ts: ts(), kind: 'success', text: `✓ command queued · ${id}` })
+        void track({
+          name: 'command.sent',
+          properties: {
+            device_id: target,
+            command_type: commandType,
+            command_id: created?.id ? String(created.id) : undefined,
+            source: 'console',
+          },
+        })
       } catch (err) {
         const msg = err instanceof Error ? err.message : 'send failed'
         append({ ts: ts(), kind: 'error', text: `✗ ${msg}` })
@@ -394,7 +404,9 @@ export function Console() {
                 </>
               )}
               {l.kind === 'output' && (
-                <span className={cm.cn('text-slate-300 whitespace-pre')}>{l.text}</span>
+                <span className={cm.cn('text-slate-300 whitespace-pre-wrap break-words min-w-0')}>
+                  {l.text}
+                </span>
               )}
               {l.kind === 'success' && <span className={cm.cn('text-emerald-400')}>{l.text}</span>}
               {l.kind === 'warning' && <span className={cm.cn('text-amber-400')}>{l.text}</span>}

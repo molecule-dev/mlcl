@@ -21,6 +21,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 import { broadcast } from '@molecule/api-realtime'
 
@@ -141,6 +142,7 @@ router.post(
       }
       res.status(201).json(point)
     } catch (_err) {
+      logger.error('iot.telemetry.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -207,6 +209,7 @@ router.post(
       }
       res.status(201).json(results)
     } catch (_err) {
+      logger.error('iot.telemetry.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -253,6 +256,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(filtered)
   } catch (_err) {
+    logger.error('iot.telemetry.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -300,6 +304,7 @@ router.get('/aggregations', validateQuery(aggQuerySchema), async (req: Request, 
       sum,
     })
   } catch (_err) {
+    logger.error('iot.telemetry.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -335,6 +340,7 @@ router.get('/latest/:deviceId', async (req: Request, res: Response) => {
     }
     res.json(Array.from(latest.values()))
   } catch (_err) {
+    logger.error('iot.telemetry.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

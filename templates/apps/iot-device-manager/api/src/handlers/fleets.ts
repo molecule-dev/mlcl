@@ -14,6 +14,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -48,6 +49,7 @@ router.get('/', async (_req: Request, res: Response) => {
     })
     res.json(fleets)
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -75,6 +77,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     })
     res.json({ ...fleet, member_device_ids: memberships.map((m) => m.device_id) })
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -100,6 +103,7 @@ router.post('/', validateBody(createFleetSchema), async (req: Request, res: Resp
     })
     res.status(201).json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -126,6 +130,7 @@ router.put('/:id', validateBody(updateFleetSchema), async (req: Request, res: Re
     const result = await updateById('fleets', id, updates)
     res.json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -162,6 +167,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('fleets', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -197,6 +203,7 @@ router.get('/:id/devices', async (req: Request, res: Response) => {
     })
     res.json(devices)
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -243,6 +250,7 @@ router.post('/:id/devices', validateBody(addMemberSchema), async (req: Request, 
     })
     res.status(201).json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -280,6 +288,7 @@ router.delete('/:id/devices/:deviceId', async (req: Request, res: Response) => {
     await deleteById('fleet_memberships', memberships[0].id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('iot.fleets.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

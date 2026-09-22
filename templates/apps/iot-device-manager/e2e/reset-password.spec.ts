@@ -24,6 +24,9 @@ test.describe('/reset-password page', () => {
   })
 
   test('Reset Password button submits the form (network attempt fires)', async ({ page }) => {
+    // The bogus demo token 401s by design — the guard would otherwise fail
+    // the test on the browser's "Failed to load resource" console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password')
     await page.locator('input[type="email"]').first().fill('reset@example.com')
     await page

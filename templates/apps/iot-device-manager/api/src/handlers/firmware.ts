@@ -25,6 +25,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 import { broadcast } from '@molecule/api-realtime'
 
@@ -124,6 +125,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(versions)
   } catch (_err) {
+    logger.error('iot.firmware.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -255,6 +257,7 @@ router.get(
       })
       res.json(rollouts)
     } catch (_err) {
+      logger.error('iot.firmware.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -279,6 +282,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(firmware)
   } catch (_err) {
+    logger.error('iot.firmware.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -318,6 +322,7 @@ router.post(
       })
       res.status(201).json((result as { data: unknown }).data)
     } catch (_err) {
+      logger.error('iot.firmware.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -346,6 +351,7 @@ router.put('/:id', validateBody(updateFirmwareSchema), async (req: Request, res:
     })
     res.json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.firmware.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -374,6 +380,7 @@ router.post('/:id/publish', async (req: Request, res: Response) => {
     })
     res.json((result as { data: unknown }).data)
   } catch (_err) {
+    logger.error('iot.firmware.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -490,6 +497,7 @@ router.post('/rollouts', validateBody(createRolloutSchema), async (req: Request,
     }
     res.status(201).json(rolloutRow)
   } catch (_err) {
+    logger.error('iot.firmware.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -602,6 +610,7 @@ router.post(
       }
       res.json({ ok: true })
     } catch (_err) {
+      logger.error('iot.firmware.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })

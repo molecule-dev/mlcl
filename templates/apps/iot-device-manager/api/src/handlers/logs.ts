@@ -16,6 +16,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 import { broadcast } from '@molecule/api-realtime'
 
@@ -82,6 +83,7 @@ router.post(
       }
       res.status(201).json(log)
     } catch (_err) {
+      logger.error('iot.logs.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -120,6 +122,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(logs)
   } catch (_err) {
+    logger.error('iot.logs.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -147,6 +150,7 @@ router.get('/tail/:deviceId', async (req: Request, res: Response) => {
     })
     res.json(logs)
   } catch (_err) {
+    logger.error('iot.logs.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })

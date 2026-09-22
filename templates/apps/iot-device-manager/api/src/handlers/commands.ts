@@ -22,6 +22,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 import { broadcast } from '@molecule/api-realtime'
 
@@ -97,6 +98,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(commands)
   } catch (_err) {
+    logger.error('iot.commands.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -125,6 +127,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(command)
   } catch (_err) {
+    logger.error('iot.commands.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -178,6 +181,7 @@ router.post(
       }
       res.status(201).json(command)
     } catch (_err) {
+      logger.error('iot.commands.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -223,6 +227,7 @@ router.post('/:id/cancel', async (req: Request, res: Response) => {
     }
     res.json(updated)
   } catch (_err) {
+    logger.error('iot.commands.request_failed', _err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
     })
@@ -263,6 +268,7 @@ router.post(
       }
       res.json(updated)
     } catch (_err) {
+      logger.error('iot.commands.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
@@ -337,6 +343,7 @@ router.post(
       }
       res.json(updated)
     } catch (_err) {
+      logger.error('iot.commands.request_failed', _err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error.' }),
       })
