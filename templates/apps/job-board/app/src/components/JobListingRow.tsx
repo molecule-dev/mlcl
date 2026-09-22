@@ -14,6 +14,7 @@ import type { TranslateFunction } from '@molecule/app-i18n'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { formatSalary, type NumericLike } from '../lib/format.js'
 import type { ApplicationStatus } from './ApplicationStatusPill.js'
 import { ApplicationStatusPill } from './ApplicationStatusPill.js'
 
@@ -24,8 +25,9 @@ export interface JobListing {
   company_name?: string
   location?: string | null
   type?: string
-  salary_min?: number | null
-  salary_max?: number | null
+  /** Postgres NUMERIC serializes as a string ("120000.0000") — coerce before formatting. */
+  salary_min?: NumericLike
+  salary_max?: NumericLike
   status?: string
   tags?: string[]
   created_at?: string
@@ -38,13 +40,6 @@ interface JobListingRowProps {
   badges?: ApplicationStatus[]
   /** Hide the "Apply" CTA when used in employer / dashboard contexts. */
   hideApplyCta?: boolean
-}
-
-function formatSalary(min: number | null | undefined, max: number | null | undefined): string {
-  if (!min && !max) return ''
-  if (min && max) return `$${min.toLocaleString()} – $${max.toLocaleString()}`
-  if (min) return `From $${min.toLocaleString()}`
-  return `Up to $${max!.toLocaleString()}`
 }
 
 function formatRelative(t: TranslateFunction, iso?: string): string {

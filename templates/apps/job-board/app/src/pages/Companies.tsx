@@ -14,11 +14,14 @@ export function Companies() {
   const http = useHttpClient()
   const [companies, setCompanies] = useState<CompanyProfile[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [query, setQuery] = useState('')
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     http
       .get('/api/companies?limit=50')
       .then((res) => {
@@ -26,7 +29,10 @@ export function Companies() {
         setCompanies(unwrapList<CompanyProfile>(res))
       })
       .catch(() => {
-        if (!cancelled) setCompanies([])
+        if (!cancelled) {
+          setCompanies([])
+          setLoadError(true)
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -34,7 +40,7 @@ export function Companies() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const filtered = companies.filter((c) => {
     if (!query.trim()) return true
@@ -88,7 +94,7 @@ export function Companies() {
             cm.flex({ align: 'center', gap: 'sm' }),
             cm.sp('px', 4),
             cm.sp('py', 2),
-            'rounded-full border border-outline-variant/30 bg-surface-container-lowest',
+            'w-full min-w-0 rounded-full border border-outline-variant/30 bg-surface-container-lowest md:w-auto',
           )}
         >
           <span
@@ -107,7 +113,12 @@ export function Companies() {
               { defaultValue: 'Search by name, industry, location' },
             )}
             className={cm.cn(
-              'bg-transparent outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant w-72',
+              'w-full min-w-0 bg-transparent outline-none text-sm font-medium text-on-surface placeholder:text-on-surface-variant md:w-72',
+            )}
+            aria-label={t(
+              'companies.searchPlaceholder',
+              {},
+              { defaultValue: 'Search by name, industry, location' },
             )}
           />
         </div>
@@ -124,6 +135,36 @@ export function Companies() {
         >
           {t('companies.loading', {}, { defaultValue: 'Loading\u2026' })}
         </p>
+      ) : loadError ? (
+        <div
+          className={cm.cn(
+            cm.sp('py', 12),
+            cm.textCenter,
+            cm.stack(3),
+            'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/30 text-on-surface-variant',
+          )}
+        >
+          <p>
+            {t(
+              'companies.loadError',
+              {},
+              { defaultValue: 'Companies could not be loaded \u2014 check your connection.' },
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'min-h-[40px] rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : filtered.length === 0 ? (
         <p
           className={cm.cn(

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -8,6 +9,7 @@ import { getClassMap } from '@molecule/app-ui'
 import type { ApplicationStatus } from '../components/ApplicationStatusPill.js'
 import { ApplicationStatusPill } from '../components/ApplicationStatusPill.js'
 import type { CompanyProfile } from '../components/CompanyProfileCard.js'
+import { formatSalary, type NumericLike } from '../lib/format.js'
 
 interface JobWithCompany {
   id: string
@@ -15,21 +17,15 @@ interface JobWithCompany {
   description?: string
   location?: string | null
   type?: string
-  salary_min?: number | null
-  salary_max?: number | null
+  /** Postgres NUMERIC serializes as a string ("120000.0000") — coerce before formatting. */
+  salary_min?: NumericLike
+  salary_max?: NumericLike
   status?: string
   tags?: string[]
   created_at?: string
   application_count?: number
   company?: CompanyProfile
   company_id?: string
-}
-
-function formatSalary(min: number | null | undefined, max: number | null | undefined): string {
-  if (!min && !max) return ''
-  if (min && max) return `$${min.toLocaleString()} – $${max.toLocaleString()}`
-  if (min) return `From $${min.toLocaleString()}`
-  return `Up to $${max!.toLocaleString()}`
 }
 
 interface SavedJobRow {
@@ -85,10 +81,12 @@ export function JobDetail() {
       if (savedRowId) {
         await http.delete(`/api/saved-jobs/${savedRowId}`)
         setSavedRowId(null)
+        track({ name: 'job.unsaved', properties: { job_id: job.id } })
       } else {
         const res = await http.post('/api/saved-jobs', { job_id: job.id })
         const row = unwrapSingle<SavedJobRow>(res.data)
         if (row && row.id) setSavedRowId(row.id)
+        track({ name: 'job.saved', properties: { job_id: job.id } })
       }
     } catch (_error) {
       setError(t('jobDetail.saveError', {}, { defaultValue: 'Could not update saved jobs.' }))
@@ -104,6 +102,7 @@ export function JobDetail() {
     try {
       await http.post('/api/applications', { job_id: job.id })
       setApplied(true)
+      track({ name: 'application.submitted', properties: { job_id: job.id } })
     } catch (_error) {
       setError(t('jobDetail.applyError', {}, { defaultValue: 'Could not submit application.' }))
     } finally {

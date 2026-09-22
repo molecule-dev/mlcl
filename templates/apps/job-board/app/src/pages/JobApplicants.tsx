@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -51,6 +52,7 @@ export function JobApplicants() {
   const [applicants, setApplicants] = useState<ApplicantRow[]>([])
   const [loading, setLoading] = useState(true)
   const [updating, setUpdating] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!id) return
@@ -75,14 +77,25 @@ export function JobApplicants() {
 
   async function moveTo(applicationId: string, status: ApplicationStatus) {
     setUpdating(applicationId)
+    setActionError(null)
     const wireStatus = status === 'reviewing' ? 'reviewed' : status
     try {
       await http.put(`/api/applications/${applicationId}/status`, { status: wireStatus })
       setApplicants((rows) =>
         rows.map((r) => (r.id === applicationId ? { ...r, status: wireStatus } : r)),
       )
+      track({
+        name: 'application.status_updated',
+        properties: { application_id: applicationId, job_id: id, status: wireStatus },
+      })
     } catch (_error) {
-      // surface in row UI via stale data; non-blocking
+      setActionError(
+        t(
+          'jobApplicants.statusUpdateFailed',
+          {},
+          { defaultValue: 'Could not update that stage — try again.' },
+        ),
+      )
     } finally {
       setUpdating(null)
     }
@@ -167,6 +180,19 @@ export function JobApplicants() {
           </p>
         </div>
       </header>
+
+      {actionError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            'rounded-xl border border-error/30 bg-error/10 text-sm font-semibold text-error',
+          )}
+        >
+          {actionError}
+        </div>
+      ) : null}
 
       <section className={cm.grid({ cols: 5, gap: 'sm' })}>
         {STAGES.map((stage) => (

@@ -60,11 +60,14 @@ export function Applications() {
   const http = useHttpClient()
   const [apps, setApps] = useState<ApplicationRow[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [filter, setFilter] = useState<'' | ApplicationStatus>('')
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     const params = new URLSearchParams({ limit: '50' })
     if (filter) params.set('status', filter === 'reviewing' ? 'reviewed' : filter)
     http
@@ -74,7 +77,10 @@ export function Applications() {
         setApps(unwrapList<ApplicationRow>(res))
       })
       .catch(() => {
-        if (!cancelled) setApps([])
+        if (!cancelled) {
+          setApps([])
+          setLoadError(true)
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -82,7 +88,7 @@ export function Applications() {
     return () => {
       cancelled = true
     }
-  }, [http, filter])
+  }, [http, filter, reloadKey])
 
   const counts: Record<ApplicationStatus, number> = {
     submitted: 0,
@@ -200,10 +206,9 @@ export function Applications() {
             type="button"
             onClick={() => setFilter(o.value)}
             className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 1),
+              cm.sp('px', 4),
               cm.textSize('xs'),
-              'rounded-full font-bold transition-all',
+              'min-h-[40px] rounded-full font-bold transition-all',
               filter === o.value
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -230,6 +235,29 @@ export function Applications() {
           >
             {t('applications.loading', {}, { defaultValue: 'Loading\u2026' })}
           </p>
+        ) : loadError ? (
+          <div className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'), cm.stack(3))}>
+            <p className={cm.cn('text-on-surface-variant')}>
+              {t(
+                'applications.loadError',
+                {},
+                { defaultValue: 'Applications could not be loaded \u2014 check your connection.' },
+              )}
+            </p>
+            <button
+              type="button"
+              onClick={() => setReloadKey((k) => k + 1)}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'min-h-[40px] rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
         ) : apps.length === 0 ? (
           <div className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'), cm.stack(3))}>
             <p className={cm.cn('text-on-surface-variant')}>
@@ -241,7 +269,12 @@ export function Applications() {
                 },
               )}
             </p>
-            <Link to="/jobs" className={cm.cn('text-primary font-bold hover:underline')}>
+            <Link
+              to="/jobs"
+              className={cm.cn(
+                'inline-flex min-h-[32px] items-center text-primary font-bold hover:underline',
+              )}
+            >
               {t('applications.emptyCta', {}, { defaultValue: 'Browse roles \u2192' })}
             </Link>
           </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,7 @@ export function PostJob() {
         setCompanies((cs) => [...cs, newCompany])
         setCompanyId(newCompany.id)
         setNewCompanyName('')
+        track({ name: 'company.created', properties: { company_id: newCompany.id } })
       }
       const created = await http.post('/api/jobs', {
         title: form.title.trim(),
@@ -139,6 +141,10 @@ export function PostJob() {
       const createdJob = unwrapSingle<{ id?: string }>(created.data)
       if (createdJob?.id) {
         await http.post(`/api/jobs/${createdJob.id}/publish`, {})
+        track({
+          name: 'job.posted',
+          properties: { job_id: createdJob.id, company_id: resolvedCompanyId, type: form.type },
+        })
       }
       navigate('/dashboard')
     } catch (_error) {

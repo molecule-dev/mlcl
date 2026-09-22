@@ -116,7 +116,10 @@ export function Landing() {
         >
           <Link
             to="/"
-            className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tighter text-primary')}
+            className={cm.cn(
+              cm.textSize('xl'),
+              'shrink-0 whitespace-nowrap font-extrabold tracking-tighter text-primary',
+            )}
           >
             {APP_NAME}
           </Link>
@@ -126,7 +129,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-on-surface transition-colors',
+                'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
               )}
             >
               {t('landing.browseJobs', {}, { defaultValue: 'Browse jobs' })}
@@ -136,7 +139,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-on-surface transition-colors',
+                'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
               )}
             >
               {t('landing.pricingEyebrow', {}, { defaultValue: 'Pricing' })}
@@ -150,7 +153,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                  'shrink-0 whitespace-nowrap rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 transition-opacity hover:opacity-90',
                 )}
               >
                 {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -162,7 +165,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface transition-colors',
+                    'hidden min-h-[32px] items-center text-on-surface-variant transition-colors hover:text-on-surface md:inline-flex',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -174,7 +177,7 @@ export function Landing() {
                     cm.sp('py', 2),
                     cm.fontWeight('bold'),
                     cm.textSize('sm'),
-                    'rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 hover:opacity-90 transition-opacity',
+                    'shrink-0 whitespace-nowrap rounded-lg bg-primary text-on-primary shadow-md shadow-primary/20 transition-opacity hover:opacity-90',
                   )}
                 >
                   {t('common.getStarted', {}, { defaultValue: 'Get started' })}

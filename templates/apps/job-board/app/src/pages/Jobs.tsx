@@ -21,6 +21,8 @@ export function Jobs() {
   const http = useHttpClient()
   const [jobs, setJobs] = useState<JobListing[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState('')
   const [locationFilter, setLocationFilter] = useState('')
@@ -29,6 +31,7 @@ export function Jobs() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     const params = new URLSearchParams({ limit: '50' })
     if (typeFilter) params.set('type', typeFilter)
     if (locationFilter) params.set('location', locationFilter)
@@ -46,7 +49,10 @@ export function Jobs() {
         if (!cancelled) setJobs(unwrapList<JobListing>(res))
       })
       .catch(() => {
-        if (!cancelled) setJobs([])
+        if (!cancelled) {
+          setJobs([])
+          setLoadError(true)
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -54,7 +60,7 @@ export function Jobs() {
     return () => {
       cancelled = true
     }
-  }, [http, searchQuery, typeFilter, locationFilter, salaryMin])
+  }, [http, searchQuery, typeFilter, locationFilter, salaryMin, reloadKey])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -193,9 +199,8 @@ export function Jobs() {
               type="button"
               onClick={() => setTypeFilter(jt.value)}
               className={cm.cn(
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                'rounded-full font-bold transition-all',
+                cm.sp('px', 4),
+                'min-h-[40px] rounded-full font-bold transition-all',
                 typeFilter === jt.value
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -223,9 +228,8 @@ export function Jobs() {
             placeholder={t('jobs.minSalaryPlaceholder', {}, { defaultValue: 'Min salary' })}
             className={cm.cn(
               cm.sp('px', 3),
-              cm.sp('py', 1),
               cm.textSize('sm'),
-              'w-32 rounded-full border border-outline-variant/30 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant outline-none focus:border-primary',
+              'min-h-[40px] w-32 rounded-full border border-outline-variant/30 bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant outline-none focus:border-primary',
             )}
           />
         </div>
@@ -252,6 +256,36 @@ export function Jobs() {
           >
             {t('jobs.loading', {}, { defaultValue: 'Loading\u2026' })}
           </p>
+        ) : loadError ? (
+          <div
+            className={cm.cn(
+              cm.sp('py', 12),
+              cm.textCenter,
+              cm.stack(3),
+              'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/30 text-on-surface-variant',
+            )}
+          >
+            <p>
+              {t(
+                'jobs.loadError',
+                {},
+                { defaultValue: 'Roles could not be loaded \u2014 check your connection.' },
+              )}
+            </p>
+            <button
+              type="button"
+              onClick={() => setReloadKey((k) => k + 1)}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'min-h-[40px] rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
         ) : jobs.length === 0 ? (
           <p
             className={cm.cn(

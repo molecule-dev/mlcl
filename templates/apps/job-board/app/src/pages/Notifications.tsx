@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -107,6 +108,7 @@ export function Notifications() {
       setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)))
       try {
         await http.put(`/api/notifications/${id}/read`, {})
+        track({ name: 'notification.read', properties: { notification_id: id } })
       } catch (err) {
         setItems(previous)
         const message =
@@ -133,6 +135,7 @@ export function Notifications() {
     setItems((prev) => prev.map((n) => ({ ...n, read: true })))
     try {
       await http.put('/api/notifications/read-all', {})
+      track({ name: 'notification.all_read', properties: { count: unreadCount } })
     } catch (err) {
       setItems(previous)
       const message =

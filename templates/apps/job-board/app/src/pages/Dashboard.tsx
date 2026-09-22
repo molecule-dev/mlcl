@@ -217,7 +217,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:text-primary-container transition-colors',
+                'inline-flex min-h-[32px] items-center text-primary hover:text-primary-container transition-colors',
               )}
             >
               {t('dashboard.viewAllJobs', {}, { defaultValue: 'All jobs \u2192' })}
@@ -268,7 +268,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:text-primary-container transition-colors',
+                'inline-flex min-h-[32px] items-center text-primary hover:text-primary-container transition-colors',
               )}
             >
               {t('dashboard.viewAllCompanies', {}, { defaultValue: 'All \u2192' })}

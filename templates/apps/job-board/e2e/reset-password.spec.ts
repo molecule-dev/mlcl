@@ -12,6 +12,12 @@ test.describe('reset-password page', () => {
   })
 
   test('submitting a new password POSTs /api/users/reset-password', async ({ page }) => {
+    // Expected 401: the fake token cannot verify, and the browser logs the
+    // failed resource — this spec only asserts the POST went out.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     // Prefill token + email via URL so required fields are populated.
     await page.goto(
       APP_BASE + '/reset-password?token=fake-token-for-network-only&email=resettest@example.com',
