@@ -42,6 +42,10 @@ test('/signup persists access token after success', async ({ page }) => {
 
 test('/signup duplicate-email submission stays on the form with an error', async ({ page }) => {
   const email = uniqueEmail('dupe')
+  // The duplicate POST /api/users legitimately 403s; Chrome logs every
+  // failed response to the console, so arm the console-guard exemption
+  // BEFORE the submit (regex matches the console text, not the status).
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   // Seed one
   const seed = await page.request.post(`${API_BASE}/users`, {
     data: { email, password: 'DupePass123!', name: 'Dupe' },

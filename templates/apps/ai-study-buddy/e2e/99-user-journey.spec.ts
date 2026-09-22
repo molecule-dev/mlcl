@@ -120,13 +120,18 @@ test('end-to-end journey: signup → topic → tutor → quiz → results → se
   await expect(page.locator('[data-mol-id="page-profile"]')).toBeVisible()
 
   // === 11. Password reset round-trip ===
+  // The platform stores only sha256(token) at rest (hash-at-rest contract):
+  // the DB-read value can NEVER complete a reset, so seed a known raw token
+  // the way forgot-password persists its digest, then reset with the raw
+  // token (see 09-auth-recovery.spec.ts for the full rationale).
+  const { createHash, randomBytes } = await import('node:crypto')
   await page.request.post(`${API_BASE}/users/forgot-password`, {
     data: { email },
     failOnStatusCode: false,
   })
   const client = new Client({ connectionString: DATABASE_URL })
   await client.connect()
-  let token = ''
+  let rawToken = ''
   try {
     const rows = await client.query<{ token: string | null }>(
       `SELECT s."passwordResetToken" AS token
@@ -134,14 +139,22 @@ test('end-to-end journey: signup → topic → tutor → quiz → results → se
         WHERE u.email = $1`,
       [email],
     )
-    token = rows.rows[0]?.token ?? ''
+    const digest = rows.rows[0]?.token ?? ''
+    expect(digest, 'forgot-password must persist a reset-token digest').toMatch(/^[0-9a-f]{64}$/)
+    rawToken = randomBytes(32).toString('hex')
+    const seededDigest = createHash('sha256').update(rawToken).digest('hex')
+    await client.query(
+      `UPDATE "usersSecrets"
+          SET "passwordResetToken" = $1, "passwordResetTokenAt" = now()
+        WHERE id = (SELECT id FROM users WHERE email = $2)`,
+      [seededDigest, email],
+    )
   } finally {
     await client.end()
   }
-  expect(token).toBeTruthy()
   const newPassword = 'JourneyNewPass456!'
   const reset = await page.request.post(`${API_BASE}/users/reset-password`, {
-    data: { token, password: newPassword },
+    data: { token: rawToken, password: newPassword },
     failOnStatusCode: false,
   })
   expect(reset.status()).toBe(200)

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -101,9 +102,14 @@ export function Courses() {
     setCreating(true)
     setCreateError(null)
     try {
-      await http.post('/api/topics', {
+      const res = await http.post<{ id?: string }>('/api/topics', {
         title: draftTitle.trim(),
         description: draftDescription.trim() || undefined,
+      })
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({
+        name: 'course.created',
+        properties: { topicId: res.data?.id, title: draftTitle.trim() },
       })
       setDraftTitle('')
       setDraftDescription('')

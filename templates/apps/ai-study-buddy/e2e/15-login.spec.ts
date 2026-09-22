@@ -37,6 +37,9 @@ test('/login successful submission goes to /dashboard with /api/users/log-in 200
 
 test('/login with wrong password shows the inline error and stays put', async ({ page }) => {
   const email = uniqueEmail('badpass')
+  // The failed log-in legitimately 403s; Chrome logs every failed response
+  // to the console, so arm the console-guard exemption BEFORE the submit.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.request.post(`${API_BASE}/users`, {
     data: { email, password: 'GoodPass123!', name: 'Bad Pass Test' },
     failOnStatusCode: false,

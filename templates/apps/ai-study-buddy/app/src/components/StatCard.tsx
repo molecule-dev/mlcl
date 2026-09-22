@@ -96,7 +96,9 @@ export function StatCard({ label, value, icon, tone = 'primary', suffix, trend }
           cm.textSize('xs'),
           cm.fontWeight('medium'),
           cm.sp('mb', 1),
-          'relative z-10 uppercase tracking-widest text-on-surface-variant',
+          // tracking-wider, NOT widest: a 9-char label ("INCORRECT") in the
+          // 3-up mobile KPI grid clips past overflow-hidden at widest.
+          'relative z-10 uppercase tracking-wider text-on-surface-variant',
         )}
       >
         {label}

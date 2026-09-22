@@ -374,6 +374,7 @@ router.post(
         if (e.type === 'done') break
       }
     } catch (err) {
+      console.error('topics.ask_failed', err)
       const message = err instanceof Error ? err.message : 'AI tutor failed.'
       res.status(502).json({ error: message })
       return

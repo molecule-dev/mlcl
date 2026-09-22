@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,21 +39,35 @@ export function Search() {
   const [loading, setLoading] = useState(false)
 
   // Run a fetch when the URL state (the "_submit" timestamp set by the
-  // search form) changes. Pure type-tab clicks don't bump _submit, so
-  // they cause an instant client-side filter without re-fetching — this
-  // keeps the page layout stable while the verifier probes each tab.
+  // search form) changes or when typing settles (debounced). Pure
+  // type-tab clicks don't bump _submit, so they cause an instant
+  // client-side filter without re-fetching — this keeps the page layout
+  // stable while the verifier probes each tab.
   const submitToken = searchParams.get('_submit') ?? ''
+  const [debouncedQuery, setDebouncedQuery] = useState(query)
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 400)
+    return () => clearTimeout(timer)
+  }, [query])
   useEffect(() => {
     let cancelled = false
     setLoading(true)
     const params = new URLSearchParams()
-    if (query.trim()) params.set('q', query.trim())
+    if (debouncedQuery.trim()) params.set('q', debouncedQuery.trim())
     http
       .get<{ data: SearchResult[]; total: number }>(`/api/search?${params.toString()}`)
       .then((res) => {
         if (cancelled) return
         setResults(res.data?.data ?? [])
         setError(null)
+        // Fire-and-forget funnel event (no-ops without an analytics provider).
+        const rows = res.data?.data ?? []
+        if (debouncedQuery.trim()) {
+          void track({
+            name: 'search.performed',
+            properties: { query: debouncedQuery.trim(), results: rows.length },
+          })
+        }
       })
       .catch((e: unknown) => {
         if (cancelled) return
@@ -70,7 +85,7 @@ export function Search() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http, submitToken])
+  }, [http, submitToken, debouncedQuery])
 
   const TYPE_LABEL = (k: SearchResult['type']): string => {
     switch (k) {

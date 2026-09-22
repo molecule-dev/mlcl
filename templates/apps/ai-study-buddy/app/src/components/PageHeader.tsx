@@ -25,7 +25,7 @@ export function PageHeader({ eyebrow, title, subtitle, actions, dense = false }:
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
         cm.sp('px', 8),
         cm.sp('py', 6),
-        'sticky top-0 z-30 border-b border-outline-variant/10 bg-background/85 backdrop-blur-md',
+        'sticky top-14 z-30 border-b border-outline-variant/10 bg-background/85 backdrop-blur-md lg:top-0',
       )}
     >
       <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>

@@ -32,6 +32,14 @@ test('signup persists access token and the new user can call protected endpoints
 
 test('login round-trips to /dashboard with the same credentials', async ({ page }) => {
   const { email, password } = await signup(page)
+  // Leave /dashboard BEFORE clearing the session cookie: with the dashboard
+  // still mounted, clearing cookies makes its own /api/dashboard +
+  // /api/profile refetches 401 (a race — they only fire under load) and the
+  // console-guard fails the test on genuinely-expected 401s. Navigating to
+  // the public /login first unmounts the authed page; the annotation is
+  // belt-and-suspenders for any stray request.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
+  await page.goto(APP_BASE + '/login')
   await page.context().clearCookies()
   await login(page, email, password)
   await expect(page).toHaveURL(/\/dashboard/)

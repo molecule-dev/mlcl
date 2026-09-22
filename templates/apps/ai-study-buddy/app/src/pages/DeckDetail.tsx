@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,8 @@ export function DeckDetail() {
         front_md: draftFront.trim(),
         back_md: draftBack.trim(),
       })
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({ name: 'deck.card_added', properties: { deckId: id } })
       setDraftFront('')
       setDraftBack('')
       setShowAdd(false)
@@ -99,11 +102,15 @@ export function DeckDetail() {
     setReviewing(true)
     try {
       await http.post(`/api/decks/${id}/cards/${card.id}/review`, { rating })
-      next()
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({
+        name: 'deck.card_reviewed',
+        properties: { deckId: id, cardId: card.id, rating },
+      })
     } catch (_error) {
       // review POST failed — card still advances so the study flow is uninterrupted
-      next()
     } finally {
+      next()
       setReviewing(false)
     }
   }

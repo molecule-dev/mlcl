@@ -20,10 +20,12 @@ export function Footer() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [year] = useState(() => new Date().getFullYear())
+  // min-h-[40px] inline-flex: footer links are the page's smallest tap
+  // targets — keep them reachable at 390px.
   const legalLinkClass = cm.cn(
     cm.textSize('sm'),
     cm.fontWeight('semibold'),
-    'hover:text-primary transition-colors',
+    'inline-flex min-h-[40px] items-center hover:text-primary transition-colors',
   )
   return (
     <footer
@@ -47,7 +49,7 @@ export function Footer() {
           className={cm.cn(
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
-            'hover:text-primary transition-colors',
+            'inline-flex min-h-[40px] items-center hover:text-primary transition-colors',
           )}
         >
           {t('nav.about', {}, { defaultValue: 'About' })}
@@ -57,7 +59,7 @@ export function Footer() {
           className={cm.cn(
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
-            'hover:text-primary transition-colors',
+            'inline-flex min-h-[40px] items-center hover:text-primary transition-colors',
           )}
         >
           {t('nav.pricing', {}, { defaultValue: 'Pricing' })}

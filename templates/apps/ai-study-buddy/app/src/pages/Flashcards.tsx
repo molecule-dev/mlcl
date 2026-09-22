@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -56,7 +57,12 @@ export function Flashcards() {
     setCreating(true)
     setCreateError(null)
     try {
-      await http.post('/api/decks', { name: draftName.trim() })
+      const res = await http.post<{ id?: string }>('/api/decks', { name: draftName.trim() })
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({
+        name: 'set.created',
+        properties: { deckId: res.data?.id, name: draftName.trim() },
+      })
       setDraftName('')
       setShowCreate(false)
       refresh()

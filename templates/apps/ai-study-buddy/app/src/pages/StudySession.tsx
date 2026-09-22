@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,6 +125,8 @@ export function StudySession() {
       const res = await http.post<AskResponse>(`/api/topics/${id}/ask`, { question })
       const answer = res.data?.answer ?? ''
       setChat((c) => [...c, { id: `a-${Date.now()}`, role: 'ai', text: answer }])
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({ name: 'study.question_asked', properties: { topicId: id } })
     } catch (err) {
       setChat((c) => [
         ...c,
@@ -151,6 +154,11 @@ export function StudySession() {
     try {
       await http.patch(`/api/topics/${id}`, {})
       setMarked(true)
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({
+        name: 'study.session_completed',
+        properties: { topicId: id, aiMessagesCount: chat.filter((m) => m.role === 'user').length },
+      })
     } catch (err) {
       setError(
         err instanceof Error
@@ -180,7 +188,7 @@ export function StudySession() {
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 8),
           cm.sp('py', 5),
-          'sticky top-0 z-30 bg-background/85 backdrop-blur-md border-b border-outline-variant/10',
+          'sticky top-14 z-30 bg-background/85 backdrop-blur-md border-b border-outline-variant/10 lg:top-0',
         )}
       >
         <div>

@@ -171,7 +171,7 @@ export function Dashboard() {
           cm.flex({ align: 'center', justify: 'between' }),
           cm.sp('px', 8),
           cm.sp('py', 6),
-          'sticky top-0 z-30 bg-background/85 backdrop-blur-md border-b border-outline-variant/10',
+          'sticky top-14 z-30 bg-background/85 backdrop-blur-md border-b border-outline-variant/10 lg:top-0',
         )}
       >
         <div>

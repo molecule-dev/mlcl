@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,6 +85,11 @@ export function Quiz() {
     try {
       const answers = Array.from({ length: total }, (_, i) => selectedByQuestion[i] ?? -1)
       await http.post(`/api/quizzes/${quiz.id}/submit`, { answers })
+      // Fire-and-forget funnel event (no-ops without an analytics provider).
+      void track({
+        name: 'quiz.completed',
+        properties: { quizId: quiz.id, total, answered: answers.filter((a) => a !== -1).length },
+      })
       navigate(`/quiz/${quiz.id}/results`)
     } catch (err) {
       setError(
@@ -211,7 +217,19 @@ export function Quiz() {
                         type="button"
                         data-mol-id={`quiz-option-${i}`}
                         disabled={submitted}
-                        onClick={() => setSelectedByQuestion((s) => ({ ...s, [questionIndex]: i }))}
+                        onClick={() => {
+                          setSelectedByQuestion((s) => ({ ...s, [questionIndex]: i }))
+                          if (quiz) {
+                            void track({
+                              name: 'quiz.answered',
+                              properties: {
+                                quizId: quiz.id,
+                                questionIndex,
+                                optionIndex: i,
+                              },
+                            })
+                          }
+                        }}
                         className={cm.cn(
                           cm.sp('p', 4),
                           cm.flex({ align: 'center', gap: 'sm' }),

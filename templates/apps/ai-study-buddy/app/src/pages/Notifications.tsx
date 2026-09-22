@@ -258,8 +258,9 @@ export function Notifications() {
                       disabled={busy}
                       aria-label={t('common.markAsRead', {}, { defaultValue: 'Mark as read' })}
                       className={cm.cn(
-                        cm.w(8),
-                        cm.h(8),
+                        // 40px — icon-only controls need a reachable tap target.
+                        cm.w(10),
+                        cm.h(10),
                         cm.flex({ align: 'center', justify: 'center' }),
                         'rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors disabled:opacity-50',
                       )}

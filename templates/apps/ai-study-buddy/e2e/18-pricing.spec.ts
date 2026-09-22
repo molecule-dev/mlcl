@@ -62,6 +62,10 @@ test('/pricing team CTA is wired to a real stripePriceId (not disabled)', async 
 })
 
 test('/pricing anonymous Pro CTA click routes to /login (auth gate)', async ({ page }) => {
+  // The checkout call the CTA fires for an anonymous user legitimately
+  // 401s (the auth gate IS the behavior under test); exempt the expected
+  // console noise BEFORE the click.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(`${APP_BASE}/pricing`)
   await page.locator('[data-mol-id="pricing-cta-pro"]').first().click()
   await page.waitForURL(/\/login/, { timeout: 10_000 })

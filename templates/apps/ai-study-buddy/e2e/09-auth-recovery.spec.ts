@@ -1,10 +1,11 @@
 /**
  * Forgot-password / reset-password lifecycle.
  *
- * Verifies the full round-trip with real Mailgun (sandbox) integration:
- * sign up → POST /api/users/forgot-password → DB token written → POST
- * /api/users/log-in with passwordResetToken → can log in with new
- * password.
+ * Verifies the full round-trip against the real API + DB: sign up → POST
+ * /api/users/forgot-password → 64-hex token DIGEST persisted → the digest
+ * itself is rejected (hash-at-rest contract) → a raw token seeded the way
+ * forgot-password does completes POST /api/users/reset-password → can log
+ * in with the new password, old password rejected.
  */
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 import { Client } from 'pg'
@@ -45,6 +46,17 @@ test('/reset-password accepts token query param and pre-fills hidden fields', as
 test('/reset-password full round-trip: forgot → DB token → reset → login with new password', async ({
   page,
 }) => {
+  // The platform stores only sha256(token) at rest (see hashResetToken in
+  // the user resource): the RAW token is delivered solely by the reset
+  // email and can never be read back from the DB. Submitting the stored
+  // digest must FAIL — a DB dump must not grant a password reset; that is
+  // the takeover vector digest-at-rest exists to block. So the round-trip
+  // now: (1) verify forgot-password persisted a 64-hex digest, (2) prove
+  // the digest itself is rejected 401, (3) seed our own raw token exactly
+  // the way forgot-password does and submit THAT — the path the email
+  // link drives — then confirm the new password works and the old is
+  // rejected.
+  const { createHash, randomBytes } = await import('node:crypto')
   const email = uniqueEmail('recover')
   const password = 'OldPass123!'
   const signupRes = await page.request.post(`${API_BASE}/users`, {
@@ -61,9 +73,10 @@ test('/reset-password full round-trip: forgot → DB token → reset → login w
 
   const client = new Client({ connectionString: DATABASE_URL })
   await client.connect()
-  let token = ''
+  let digest = ''
+  let rawToken = ''
   try {
-    // forgot-password writes the token into "usersSecrets" (id = user.id).
+    // forgot-password writes sha256(rawToken) into "usersSecrets" (id = user.id).
     const rows = await client.query<{ password_reset_token: string | null }>(
       `SELECT s."passwordResetToken" AS password_reset_token
          FROM users u
@@ -71,21 +84,37 @@ test('/reset-password full round-trip: forgot → DB token → reset → login w
         WHERE u.email = $1`,
       [email],
     )
-    token = rows.rows[0]?.password_reset_token ?? ''
+    digest = rows.rows[0]?.password_reset_token ?? ''
+    expect(
+      digest,
+      'forgot-password handler must write a passwordResetToken digest to usersSecrets',
+    ).toMatch(/^[0-9a-f]{64}$/)
+
+    // The at-rest digest is NOT a usable credential.
+    const digestAttempt = await page.request.post(`${API_BASE}/users/reset-password`, {
+      data: { token: digest, password: 'ShouldFail123!' },
+      failOnStatusCode: false,
+    })
+    expect(digestAttempt.status(), 'the stored digest must NOT complete a reset').toBe(401)
+
+    // Seed a known raw token exactly the way forgot-password does.
+    rawToken = randomBytes(32).toString('hex')
+    const seededDigest = createHash('sha256').update(rawToken).digest('hex')
+    await client.query(
+      `UPDATE "usersSecrets"
+          SET "passwordResetToken" = $1, "passwordResetTokenAt" = now()
+        WHERE id = (SELECT id FROM users WHERE email = $2)`,
+      [seededDigest, email],
+    )
   } finally {
     await client.end()
   }
-  expect(
-    token,
-    'forgot-password handler must write a passwordResetToken to usersSecrets',
-  ).toBeTruthy()
 
   const newPassword = 'NewPass456!'
   // /users/reset-password persists the new passwordHash and clears the
-  // reset token. /users/log-in alone with a token authenticates but does
-  // NOT change the stored password.
+  // reset token.
   const reset = await page.request.post(`${API_BASE}/users/reset-password`, {
-    data: { token, password: newPassword },
+    data: { token: rawToken, password: newPassword },
     failOnStatusCode: false,
   })
   expect(reset.status(), await reset.text()).toBe(200)
