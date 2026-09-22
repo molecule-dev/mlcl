@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -20,8 +21,9 @@ export function Home() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { user } = useAuth<UserProfile>()
-  const { workspace, loading: wsLoading } = useDefaultWorkspace()
-  const { pages, loading, createPage } = useWorkspacePages(workspace?.id)
+  const { workspace, loading: wsLoading, error: wsError } = useDefaultWorkspace()
+  const { pages, loading, error: pagesError, createPage } = useWorkspacePages(workspace?.id)
+  const fetchError = wsError ?? pagesError
 
   const greetingName =
     user?.name?.split(' ')[0] ||
@@ -73,6 +75,7 @@ export function Home() {
     const created = await createPage({
       title: t('status.untitled', {}, { defaultValue: 'Untitled' }),
     })
+    void track({ name: 'note.created', properties: { id: created.id } })
     navigate(`/notes/${created.id}`)
   }
 
@@ -152,6 +155,21 @@ export function Home() {
       </header>
 
       {/* Stats row — real counts */}
+      {fetchError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'mb-6 rounded-2xl border border-error/40 bg-error/5 text-on-surface',
+          )}
+        >
+          {t(
+            'home.loadError',
+            { message: fetchError.message },
+            { defaultValue: 'Could not load your notes: {{message}}' },
+          )}
+        </div>
+      ) : null}
       <section className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4 mb-10')}>
         <Stat
           icon="description"
@@ -193,7 +211,7 @@ export function Home() {
             <Link
               to="/notes"
               className={cm.cn(
-                'text-sm font-semibold text-primary hover:opacity-80 transition-opacity',
+                'inline-flex min-h-[40px] items-center text-sm font-semibold text-primary hover:opacity-80 transition-opacity',
               )}
             >
               {t('home.viewAll', {}, { defaultValue: 'View all notes' })}
@@ -223,7 +241,7 @@ export function Home() {
                   type="button"
                   onClick={handleNewNote}
                   className={cm.cn(
-                    'mt-3 text-sm font-bold text-primary hover:opacity-80 transition-opacity',
+                    'mt-3 inline-flex min-h-[40px] items-center text-sm font-bold text-primary hover:opacity-80 transition-opacity',
                   )}
                 >
                   {t('home.startFirst', {}, { defaultValue: 'Start your first note →' })}

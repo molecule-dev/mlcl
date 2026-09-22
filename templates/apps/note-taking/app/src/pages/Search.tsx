@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -91,6 +92,10 @@ export function Search() {
           all.push(...res.data)
         }
         setHits(all)
+        void track({
+          name: 'search.performed',
+          properties: { query: query.trim(), results: all.length },
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Search failed')
       } finally {

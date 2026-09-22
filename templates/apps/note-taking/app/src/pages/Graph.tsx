@@ -16,8 +16,9 @@ import { useDefaultWorkspace, useWorkspacePages } from '../lib/api.js'
 export function Graph() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { workspace } = useDefaultWorkspace()
-  const { pages, loading } = useWorkspacePages(workspace?.id)
+  const { workspace, error: wsError } = useDefaultWorkspace()
+  const { pages, loading, error: pagesError } = useWorkspacePages(workspace?.id)
+  const fetchError = wsError ?? pagesError
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 10), 'mx-auto w-full max-w-4xl')}>
@@ -41,16 +42,22 @@ export function Graph() {
           className={cm.cn(cm.sp('mt', 3), 'text-on-surface-variant text-base')}
           data-testid="graph-summary"
         >
-          {loading
-            ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
-            : t(
-                'graph.subtitle',
-                { count: pages.length },
-                {
-                  defaultValue:
-                    '{{count}} notes in this workspace. Backlink graph rendering will appear here once notes link to each other.',
-                },
-              )}
+          {fetchError
+            ? t(
+                'graph.loadError',
+                { message: fetchError.message },
+                { defaultValue: 'Could not load the graph: {{message}}' },
+              )
+            : loading
+              ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+              : t(
+                  'graph.subtitle',
+                  { count: pages.length },
+                  {
+                    defaultValue:
+                      '{{count}} notes in this workspace. Backlink graph rendering will appear here once notes link to each other.',
+                  },
+                )}
         </p>
       </header>
 
@@ -82,7 +89,9 @@ export function Graph() {
         </p>
         <Link
           to="/notes"
-          className={cm.cn('mt-4 inline-block text-sm font-bold text-primary hover:opacity-80')}
+          className={cm.cn(
+            'mt-4 inline-flex min-h-[40px] items-center text-sm font-bold text-primary hover:opacity-80',
+          )}
         >
           {t('graph.goToNotes', {}, { defaultValue: 'Browse notes →' })}
         </Link>

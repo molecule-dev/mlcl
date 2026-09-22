@@ -19,6 +19,13 @@ test('signup page renders all required fields', async ({ page }) => {
 })
 
 test('signup redirects to /home and the API rejects duplicate emails', async ({ page }) => {
+  // The duplicate-email 4xx is the test's premise; the browser logs it as a
+  // console error, which the auto-attached console guard would otherwise
+  // fail the test for.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 4[0-9][0-9]',
+  })
   const email = uniqueEmail('signup-dup')
   const password = 'TestPass123!'
   await page.goto(APP_BASE + '/signup')

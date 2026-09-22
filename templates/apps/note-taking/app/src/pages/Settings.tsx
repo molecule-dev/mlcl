@@ -691,7 +691,7 @@ function ThemeRow({
             onClick={() => onChange(opt.key)}
             aria-pressed={value === opt.key}
             className={cm.cn(
-              'px-3 py-1.5 rounded-lg text-sm font-bold border transition-colors',
+              'min-h-[40px] px-3.5 py-1.5 rounded-lg text-sm font-bold border transition-colors',
               value === opt.key
                 ? 'bg-primary text-on-primary border-primary'
                 : 'border-outline-variant text-on-surface hover:bg-surface-container',

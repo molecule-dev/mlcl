@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -135,6 +136,7 @@ export function Notes() {
         .data
       setWorkspaces((prev) => [created, ...prev])
       setActiveWorkspaceId(created.id)
+      void track({ name: 'notebook.created', properties: { id: created.id } })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create notebook')
     }
@@ -149,6 +151,7 @@ export function Notes() {
           title: t('status.untitled', {}, { defaultValue: 'Untitled' }),
         })
       ).data
+      void track({ name: 'note.created', properties: { id: created.id } })
       navigate(`/notes/${created.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create note')
@@ -176,10 +179,13 @@ export function Notes() {
             aria-label={t('notes.newNotebook', {}, { defaultValue: 'New notebook' })}
             onClick={handleCreateWorkspace}
             className={cm.cn(
-              'material-symbols-outlined text-[18px] text-on-surface-variant hover:text-primary transition-colors',
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-9 w-9 shrink-0 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors',
             )}
           >
-            add
+            <span className={cm.cn('material-symbols-outlined text-[20px]')} aria-hidden="true">
+              add
+            </span>
           </button>
         </div>
 
@@ -270,6 +276,51 @@ export function Notes() {
           </p>
         </header>
 
+        {/* Mobile notebook picker — the sidebar aside is desktop-only, so
+            below md the notebooks render as a horizontal chip scroller. */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'mb-4 max-w-[820px] -mx-1 px-1 overflow-x-auto pb-1 md:hidden',
+          )}
+          data-testid="mobile-notebooks"
+        >
+          {workspaces.map((ws) => (
+            <button
+              key={ws.id}
+              type="button"
+              onClick={() => setActiveWorkspaceId(ws.id)}
+              aria-pressed={activeWorkspaceId === ws.id}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'shrink-0 min-h-[36px] px-3 py-1.5 rounded-full border text-[13px] font-semibold transition-colors',
+                activeWorkspaceId === ws.id
+                  ? 'border-primary/40 bg-primary/10 text-primary'
+                  : 'border-outline-variant/50 text-on-surface-variant hover:bg-surface-container',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[15px]')} aria-hidden="true">
+                {ws.icon ?? 'auto_stories'}
+              </span>
+              <span className="max-w-[160px] truncate">{ws.name}</span>
+            </button>
+          ))}
+          <button
+            type="button"
+            data-testid="new-notebook-mobile"
+            aria-label={t('notes.newNotebook', {}, { defaultValue: 'New notebook' })}
+            onClick={handleCreateWorkspace}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'shrink-0 min-h-[36px] w-9 rounded-full border border-dashed border-outline-variant/60 text-on-surface-variant hover:bg-surface-container transition-colors',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
+              add
+            </span>
+          </button>
+        </div>
+
         <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between', wrap: 'wrap' }),
@@ -280,9 +331,10 @@ export function Notes() {
             <button
               type="button"
               onClick={() => setFilter('all')}
+              aria-pressed={filter === 'all'}
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
-                'px-3 py-1.5 rounded-full text-[12px] font-bold transition-colors',
+                'min-h-[36px] px-3.5 rounded-full text-[12px] font-bold transition-colors',
                 filter === 'all'
                   ? 'bg-primary/10 text-primary'
                   : 'text-on-surface-variant hover:bg-surface-container',
@@ -294,8 +346,9 @@ export function Notes() {
             <button
               type="button"
               onClick={() => setFilter('pinned')}
+              aria-pressed={filter === 'pinned'}
               className={cm.cn(
-                'px-3 py-1.5 rounded-full text-[12px] font-semibold transition-colors',
+                'min-h-[36px] px-3.5 rounded-full text-[12px] font-semibold transition-colors',
                 filter === 'pinned'
                   ? 'bg-primary/10 text-primary'
                   : 'text-on-surface-variant hover:bg-surface-container',

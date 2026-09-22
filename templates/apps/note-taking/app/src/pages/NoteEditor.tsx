@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -89,6 +90,7 @@ export function NoteEditor() {
         await http.patch<PageRow>(`/pages/${page.id}`, { title: next })
         setSavedAt(new Date())
         isDirtyRef.current = false
+        void track({ name: 'note.updated', properties: { id: page.id, field: 'title' } })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to save title')
       } finally {
@@ -119,6 +121,7 @@ export function NoteEditor() {
         }
         setSavedAt(new Date())
         isDirtyRef.current = false
+        void track({ name: 'note.updated', properties: { id: page.id, field: 'body' } })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to save body')
       } finally {
@@ -148,6 +151,7 @@ export function NoteEditor() {
       const next = !page.is_favorited
       await http.patch<PageRow>(`/pages/${page.id}`, { is_favorited: next })
       setPage({ ...page, is_favorited: next })
+      void track({ name: 'note.pinned', properties: { id: page.id, pinned: next } })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to update pin')
     }
@@ -163,6 +167,7 @@ export function NoteEditor() {
       return
     try {
       await http.post(`/pages/${page.id}/trash`)
+      void track({ name: 'note.deleted', properties: { id: page.id, trashed: true } })
       navigate('/notes')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to trash note')
@@ -269,12 +274,20 @@ export function NoteEditor() {
                 aria-label={t('noteEditor.pinToggle', {}, { defaultValue: 'Toggle favorite' })}
                 data-testid="pin-toggle"
                 className={cm.cn(
-                  'material-symbols-outlined text-[20px] transition-colors',
-                  page.is_favorited ? 'text-warning' : 'text-on-surface-variant hover:text-warning',
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-11 w-11 rounded-full transition-colors',
+                  page.is_favorited
+                    ? 'text-warning hover:bg-warning/10'
+                    : 'text-on-surface-variant hover:text-warning hover:bg-surface-container',
                 )}
-                style={{ fontVariationSettings: page.is_favorited ? "'FILL' 1" : "'FILL' 0" }}
               >
-                star
+                <span
+                  className="material-symbols-outlined text-[22px]"
+                  style={{ fontVariationSettings: page.is_favorited ? "'FILL' 1" : "'FILL' 0" }}
+                  aria-hidden="true"
+                >
+                  star
+                </span>
               </button>
               <button
                 type="button"
@@ -282,10 +295,13 @@ export function NoteEditor() {
                 aria-label={t('noteEditor.trash', {}, { defaultValue: 'Move to trash' })}
                 data-testid="trash-page"
                 className={cm.cn(
-                  'material-symbols-outlined text-[20px] text-on-surface-variant hover:text-error transition-colors',
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-11 w-11 rounded-full text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
                 )}
               >
-                delete
+                <span className="material-symbols-outlined text-[22px]" aria-hidden="true">
+                  delete
+                </span>
               </button>
             </div>
           </div>
@@ -298,7 +314,8 @@ export function NoteEditor() {
             aria-label={t('noteEditor.titleLabel', {}, { defaultValue: 'Note title' })}
             data-testid="note-title"
             className={cm.cn(
-              'mt-4 w-full bg-transparent border-0 outline-none text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] text-on-surface placeholder:text-on-surface-variant/40',
+              'mt-4 w-full bg-transparent border-0 rounded text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] text-on-surface placeholder:text-on-surface-variant/40',
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
             )}
             style={{ fontFamily: TITLE_FONT }}
           />
@@ -331,7 +348,8 @@ export function NoteEditor() {
             data-testid="note-body"
             rows={18}
             className={cm.cn(
-              'mt-10 w-full bg-transparent border-0 outline-none resize-y text-[17px] leading-[1.7] text-on-surface placeholder:text-on-surface-variant/50',
+              'mt-10 w-full bg-transparent border-0 rounded resize-y text-[17px] leading-[1.7] text-on-surface placeholder:text-on-surface-variant/50',
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
             )}
             style={{ fontFamily: TITLE_FONT }}
           />

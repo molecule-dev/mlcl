@@ -21,6 +21,12 @@ test('reset-password page renders password + submit + back link', async ({ page 
 })
 
 test('invalid reset token returns 4xx and stays on the page', async ({ page }) => {
+  // The 4xx is the test's premise; the browser logs it as a console error,
+  // which the auto-attached console guard would otherwise fail the test for.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 4[0-9][0-9]',
+  })
   await page.goto(
     APP_BASE + '/reset-password?token=this-token-was-never-issued&email=nobody@example.com',
   )

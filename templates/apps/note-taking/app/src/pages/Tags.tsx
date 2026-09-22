@@ -21,8 +21,9 @@ interface TagSummary {
 export function Tags() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { workspace } = useDefaultWorkspace()
-  const { pages, loading } = useWorkspacePages(workspace?.id)
+  const { workspace, error: wsError } = useDefaultWorkspace()
+  const { pages, loading, error: pagesError } = useWorkspacePages(workspace?.id)
+  const fetchError = wsError ?? pagesError
 
   const tags: TagSummary[] = useMemo(() => {
     const counts = new Map<string, number>()
@@ -74,6 +75,21 @@ export function Tags() {
         </p>
       </header>
 
+      {fetchError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'mb-6 rounded-2xl border border-error/40 bg-error/5 text-on-surface max-w-2xl',
+          )}
+        >
+          {t(
+            'tags.loadError',
+            { message: fetchError.message },
+            { defaultValue: 'Could not load tags: {{message}}' },
+          )}
+        </div>
+      ) : null}
       {loading ? (
         <p className={cm.cn('text-sm text-on-surface-variant')}>
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
@@ -107,7 +123,9 @@ export function Tags() {
           </p>
           <Link
             to="/notes"
-            className={cm.cn('mt-4 inline-block text-sm font-bold text-primary hover:opacity-80')}
+            className={cm.cn(
+              'mt-4 inline-flex min-h-[40px] items-center text-sm font-bold text-primary hover:opacity-80',
+            )}
           >
             {t('tags.goToNotes', {}, { defaultValue: 'Go to notes →' })}
           </Link>

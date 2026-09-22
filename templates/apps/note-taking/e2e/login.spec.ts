@@ -18,6 +18,12 @@ test('login page renders email + password + submit + forgot link', async ({ page
 })
 
 test('invalid login surfaces error and stays on /login', async ({ page }) => {
+  // The 401 is the test's premise; the browser logs it as a console error,
+  // which the auto-attached console guard would otherwise fail the test for.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 4[0-9][0-9]',
+  })
   await page.goto(APP_BASE + '/login')
   await page.getByRole('textbox', { name: /email/i }).first().fill('nobody@example.com')
   await page.locator('input[type="password"]').first().fill('wrong-password!')
