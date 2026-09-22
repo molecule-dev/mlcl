@@ -19,6 +19,7 @@ import {
   API_BASE,
   authHeaders,
   listMedications,
+  logout,
   signup,
   uniqueEmail,
 } from './_helpers.js'
@@ -165,7 +166,9 @@ test.describe('user-journey', () => {
       data: { currentPassword: password, newPassword },
     })
     expect(pwOk.status(), await pwOk.text().catch(() => '')).toBeLessThan(400)
-    await page.evaluate(() => window.localStorage.clear())
+    // The password change revoked the old JWT — clear the httpOnly cookie via
+    // logout() so the /login boot doesn't probe /users/me with it (401 noise).
+    await logout(page)
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(email)
     await page.locator('input[type="password"]').first().fill(newPassword)
@@ -199,7 +202,7 @@ test.describe('user-journey', () => {
     }
 
     // 10. Public pricing page renders all tiers without auth.
-    await page.evaluate(() => window.localStorage.clear())
+    await logout(page)
     await page.goto(APP_BASE + '/pricing')
     await page.waitForLoadState('networkidle')
     const pricingText = await page.locator('body').innerText()

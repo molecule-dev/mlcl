@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { t as tGlobal } from '@molecule/app-i18n'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -129,6 +130,7 @@ export function Notifications() {
     )
     try {
       await http.post(`/api/notifications/${id}/read`, {})
+      track({ name: 'notification.read', properties: { notification_id: id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -147,6 +149,7 @@ export function Notifications() {
     )
     try {
       await Promise.all(unreadIds.map((id) => http.post(`/api/notifications/${id}/read`, {})))
+      track({ name: 'notification.read_all', properties: { count: unreadIds.length } })
     } catch (error) {
       logError('notifications.markAllRead', error)
       await fetchItems()

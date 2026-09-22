@@ -16,7 +16,7 @@
  */
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, API_BASE, authHeaders, login, signup, uniqueEmail } from './_helpers.js'
+import { APP_BASE, API_BASE, authHeaders, login, logout, signup, uniqueEmail } from './_helpers.js'
 
 interface ProfileBundle {
   security: {
@@ -30,6 +30,14 @@ test.describe('settings', () => {
   test('change-password rejects the wrong old password and accepts the right one', async ({
     page,
   }) => {
+    // Same post-signup auth-settling race as auth.spec (see the long comment
+    // there): the dashboard fan-out mounted by signup() can 401 once in console
+    // when it beats the Set-Cookie commit. Coarse description is forced — the
+    // guard matches msg.text(), which omits the URL.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const email = uniqueEmail('pw-change')
     const oldPassword = 'OldPass123!'
     const newPassword = 'NewPass456!'
@@ -52,8 +60,11 @@ test.describe('settings', () => {
     })
     expect(ok.status(), await ok.text().catch(() => '')).toBeLessThan(400)
 
-    // Verify by logging in with the new password from a fresh page state.
-    await page.evaluate(() => window.localStorage.clear())
+    // Verify by logging in with the new password from a logged-out browser.
+    // logout() (not a bare localStorage.clear) — the credential is the
+    // httpOnly token cookie; leaving it set made the login page's session
+    // restore probe hit /api/users/me with the now-revoked token → 401.
+    await logout(page)
     await login(page, email, newPassword)
     await expect(page).not.toHaveURL(/\/login/)
   })

@@ -12,6 +12,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { seedDemoForUser } from './_seed.js'
 
@@ -142,7 +143,7 @@ router.get('/', async (_req: Request, res: Response) => {
     entries.sort((a, b) => b.date.localeCompare(a.date))
     res.json(entries)
   } catch (err) {
-    console.error('health-records 500:', err)
+    logger.error('records.list', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, {
         defaultValue: 'Something went wrong. Please try again.',

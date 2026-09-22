@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -164,6 +165,14 @@ export function Documents() {
       const created = unwrapSingle<MedicalDocument>(res)
       if (created) {
         setDocs((prev) => [created, ...prev])
+        track({
+          name: 'document.added',
+          properties: {
+            document_id: created.id,
+            category: created.category ?? null,
+            file_size: created.file_size ?? null,
+          },
+        })
         setUploadStatus({
           kind: 'ok',
           text: t(

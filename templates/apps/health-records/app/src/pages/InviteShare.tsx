@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 const SCOPES = [
   { id: 'all', label: 'Full record', desc: 'Everything in your timeline.' },
@@ -57,12 +60,22 @@ export function InviteShare() {
         expires === 'never'
           ? undefined
           : new Date(Date.now() + Number(expires) * 86_400_000).toISOString()
-      await http.post('/api/sharing', {
+      const res = await http.post('/api/sharing', {
         recipient_email: email,
         recipient_name: name || undefined,
         role: ROLE_TO_API[role] ?? 'viewer',
         scope: SCOPE_TO_ARRAY[scope] ?? ['records'],
         expires_at: expiresAt,
+      })
+      const grant = unwrapSingle<{ id: string }>(res)
+      track({
+        name: 'record.shared',
+        properties: {
+          grant_id: grant?.id,
+          role: ROLE_TO_API[role] ?? 'viewer',
+          scope: SCOPE_TO_ARRAY[scope] ?? ['records'],
+          expires_in_days: expires === 'never' ? null : Number(expires),
+        },
       })
       navigate('/sharing')
     } catch (err) {
@@ -345,7 +358,7 @@ export function InviteShare() {
         {/* Privacy note + actions */}
         <section
           className={cm.cn(cm.sp('p', 5), 'bg-surface-container-lowest rounded-xl')}
-          style={{ borderLeft: '4px solid var(--color-clinical-info)' }}
+          style={{ borderLeft: '4px solid var(--mol-color-info)' }}
         >
           <div className={cm.cn(cm.flex({ align: 'start', gap: 'sm' }))}>
             <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">

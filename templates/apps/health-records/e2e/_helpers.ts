@@ -126,6 +126,11 @@ export async function login(page: Page, email: string, password: string): Promis
 }
 
 export async function logout(page: Page): Promise<void> {
+  // The session credential is the httpOnly `token` cookie (M1-1), NOT
+  // localStorage — clearing storage alone left the cookie live, so the next
+  // page load booted a still-authenticated session (and after a password
+  // change, a STALE one whose restore probe 401'd in console). Clear both.
+  await page.context().clearCookies()
   await page.evaluate(() => window.localStorage.clear())
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -99,6 +100,7 @@ export function MedicationDetail() {
     setRefillMessage(null)
     try {
       await http.post(`/api/medications/${id}/refill`, {})
+      track({ name: 'medication.refilled', properties: { medication_id: id, name: med.name } })
       setRefillMessage({
         kind: 'ok',
         text: t('medicationDetail.refillOk', {}, { defaultValue: 'Refill submitted to pharmacy.' }),

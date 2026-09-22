@@ -11,6 +11,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { seedDemoForUser } from './_seed.js'
 
@@ -71,7 +72,7 @@ router.get('/overview', async (_req: Request, res: Response) => {
       upcoming_immunizations: upcomingImmunizations,
     })
   } catch (err) {
-    console.error('health-records 500:', err)
+    logger.error('stats.overview', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, {
         defaultValue: 'Something went wrong. Please try again.',

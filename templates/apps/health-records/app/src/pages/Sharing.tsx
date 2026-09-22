@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -85,6 +86,10 @@ export function Sharing() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [revokingId, setRevokingId] = useState<string | null>(null)
+  // Two-step inline confirm for the destructive revoke: the first click arms
+  // the button, the second commits; navigating away or re-clicking elsewhere
+  // disarms. Auto-disarms after 5s so a stray tap never leaves a live fuse.
+  const [confirmingId, setConfirmingId] = useState<string | null>(null)
 
   const fetchShares = async () => {
     setLoading(true)
@@ -126,10 +131,17 @@ export function Sharing() {
 
   const handleRevoke = async (id: string) => {
     if (revokingId) return
+    // First click: arm. Second click (same grant, armed): commit.
+    if (confirmingId !== id) {
+      setConfirmingId(id)
+      return
+    }
     setRevokingId(id)
+    setConfirmingId(null)
     setError(null)
     try {
       await http.post(`/api/sharing/${id}/revoke`, {})
+      track({ name: 'sharing.revoked', properties: { grant_id: id } })
       await fetchShares()
     } catch (err) {
       setError(
@@ -141,6 +153,12 @@ export function Sharing() {
       setRevokingId(null)
     }
   }
+
+  useEffect(() => {
+    if (!confirmingId) return
+    const timer = window.setTimeout(() => setConfirmingId(null), 5000)
+    return () => window.clearTimeout(timer)
+  }, [confirmingId])
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('p', 8))} data-mol-id="page-sharing">
@@ -359,15 +377,31 @@ export function Sharing() {
                   onClick={() => handleRevoke(s.id)}
                   disabled={revokingId === s.id}
                   data-mol-id={`revoke-${s.id}`}
+                  aria-label={
+                    confirmingId === s.id
+                      ? t(
+                          'sharing.confirmRevokeAria',
+                          { name: s.recipient_name },
+                          {
+                            defaultValue: 'Confirm revoking access for {{name}}',
+                          },
+                        )
+                      : undefined
+                  }
                   className={cm.cn(
                     cm.textSize('xs'),
                     cm.fontWeight('bold'),
-                    'uppercase tracking-widest text-error hover:underline disabled:opacity-50',
+                    'uppercase tracking-widest hover:underline disabled:opacity-50',
+                    confirmingId === s.id
+                      ? 'text-on-error bg-error-container rounded-full px-4 py-2'
+                      : 'text-error',
                   )}
                 >
                   {revokingId === s.id
                     ? t('sharing.revoking', {}, { defaultValue: 'Revoking…' })
-                    : t('sharing.revoke', {}, { defaultValue: 'Revoke access' })}
+                    : confirmingId === s.id
+                      ? t('sharing.confirmRevoke', {}, { defaultValue: 'Tap again to revoke' })
+                      : t('sharing.revoke', {}, { defaultValue: 'Revoke access' })}
                 </button>
               </div>
             </article>

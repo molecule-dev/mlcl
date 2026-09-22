@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { t as tGlobal } from '@molecule/app-i18n'
 import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -249,6 +250,10 @@ export function Settings() {
       const res = await http.post('/api/profile/me/rotate-key', {})
       const b = unwrapSingle<ProfileBundle>(res)
       if (b) setBundle(b)
+      track({
+        name: 'settings.key_rotated',
+        properties: { key_version: b?.security?.encryptionKeyVersion ?? null },
+      })
       flashSaved('rotate')
       setShowRotateModal(false)
     } catch (err) {
@@ -266,6 +271,7 @@ export function Settings() {
     e.preventDefault()
     try {
       await changePassword(pwCurrent, pwNew)
+      track({ name: 'settings.password_changed', properties: {} })
       setShowPasswordModal(false)
       setPwCurrent('')
       setPwNew('')
