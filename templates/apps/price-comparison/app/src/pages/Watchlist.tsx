@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ConfirmButton } from '../components/ConfirmButton.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -57,9 +60,13 @@ export function Watchlist() {
   const [tab, setTab] = useState<(typeof TABS)[number]['key']>('all')
   const [loading, setLoading] = useState(true)
   const [removingId, setRemovingId] = useState<string | null>(null)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get('/api/watchlist')
@@ -68,6 +75,11 @@ export function Watchlist() {
           .filter((x) => x.product)
           .map((x) => ({ watchId: x.id, product: toCard(x.product!) }))
         setItems(list)
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(
+            t('watchlist.loadFailed', {}, { defaultValue: 'Could not load your watchlist.' }),
+          )
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -75,12 +87,13 @@ export function Watchlist() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, retryKey, t])
 
-  const handleRemove = async (watchId: string) => {
+  const handleRemove = async (watchId: string, productId: string) => {
     setRemovingId(watchId)
     try {
       await http.delete(`/api/watchlist/${watchId}`)
+      void track({ name: 'product.untracked', properties: { product_id: productId } })
       setItems((prev) => prev.filter((x) => x.watchId !== watchId))
     } finally {
       setRemovingId(null)
@@ -174,7 +187,9 @@ export function Watchlist() {
         ))}
       </div>
 
-      {filtered.length === 0 ? (
+      {errorMsg ? (
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+      ) : filtered.length === 0 ? (
         <div
           data-test="watchlist-empty"
           className={cm.cn(
@@ -214,21 +229,24 @@ export function Watchlist() {
               data-test={`watchlist-item-${product.id}`}
             >
               <ProductPriceCard product={product} />
-              <button
-                type="button"
-                onClick={() => handleRemove(watchId)}
+              <ConfirmButton
+                testId={`watchlist-remove-${watchId}`}
+                label={t('watchlist.remove', {}, { defaultValue: 'Remove from watchlist' })}
+                confirmLabel={t('watchlist.confirmRemove', {}, { defaultValue: 'Confirm remove?' })}
+                onConfirm={() => handleRemove(watchId, product.id)}
                 disabled={removingId === watchId}
-                data-test={`watchlist-remove-${watchId}`}
-                aria-label={t('watchlist.remove', {}, { defaultValue: 'Remove from watchlist' })}
                 className={cm.cn(
-                  'absolute top-3 right-3 h-9 w-9 rounded-full bg-surface-container/80 backdrop-blur-md text-on-surface hover:bg-error/20 hover:text-error transition-colors disabled:opacity-50',
+                  'absolute top-3 right-3 rounded-full bg-surface-container/80 backdrop-blur-md text-on-surface hover:bg-error/20 hover:text-error transition-colors disabled:opacity-50',
                   cm.flex({ align: 'center', justify: 'center' }),
+                  cm.sp('px', 3),
+                  'h-9 text-xs font-bold uppercase tracking-wider',
                 )}
+                armedClassName="bg-error text-on-primary w-max px-3"
               >
                 <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-xl')}>
                   close
                 </span>
-              </button>
+              </ConfirmButton>
             </li>
           ))}
         </ul>

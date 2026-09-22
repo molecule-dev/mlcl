@@ -82,6 +82,8 @@ test.describe('/alerts/:id', () => {
     await page.goto(APP_BASE + `/alerts/${alerts[0].id}`)
     const del = page.locator('[data-test=alert-detail-delete]').first()
     if (await del.count()) {
+      // Two-step inline confirm: first click arms, second click deletes.
+      await del.click()
       await del.click()
       await page.waitForTimeout(1500)
       const after = await listAlerts(page, accessToken)

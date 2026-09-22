@@ -92,6 +92,8 @@ test.describe('/alerts', () => {
     await page.goto(APP_BASE + '/alerts')
     const removeBtn = page.locator(`[data-test=alert-remove-${target.id}]`)
     if (await removeBtn.count()) {
+      // Two-step inline confirm: first click arms, second click deletes.
+      await removeBtn.click()
       await removeBtn.click()
       await page.waitForTimeout(800)
       const after = await listAlerts(page, accessToken)

@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ConfirmButton } from '../components/ConfirmButton.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { fmtUsd, unwrapList } from '../lib/unwrap.js'
 
 interface ApiAlert {
@@ -42,14 +45,21 @@ export function Alerts() {
   const [alerts, setAlerts] = useState<ApiAlert[]>([])
   const [loading, setLoading] = useState(true)
   const [busyId, setBusyId] = useState<string | null>(null)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get('/api/alerts')
         if (cancelled) return
         setAlerts(unwrapList<ApiAlert>(res))
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(t('alerts.loadFailed', {}, { defaultValue: 'Could not load your alerts.' }))
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -57,13 +67,17 @@ export function Alerts() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, retryKey, t])
 
   const togglePause = async (alert: ApiAlert) => {
     setBusyId(alert.id)
     try {
       const next = alert.status === 'paused' ? 'active' : 'paused'
       await http.put(`/api/alerts/${alert.id}`, { status: next })
+      void track({
+        name: 'alert.updated',
+        properties: { alert_id: alert.id, status: next },
+      })
       setAlerts((prev) => prev.map((a) => (a.id === alert.id ? { ...a, status: next } : a)))
     } finally {
       setBusyId(null)
@@ -74,6 +88,7 @@ export function Alerts() {
     setBusyId(alertId)
     try {
       await http.delete(`/api/alerts/${alertId}`)
+      void track({ name: 'alert.deleted', properties: { alert_id: alertId } })
       setAlerts((prev) => prev.filter((a) => a.id !== alertId))
     } finally {
       setBusyId(null)
@@ -133,7 +148,9 @@ export function Alerts() {
         </Link>
       </header>
 
-      {alerts.length === 0 ? (
+      {errorMsg ? (
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+      ) : alerts.length === 0 ? (
         <div
           data-test="alerts-empty"
           className={cm.cn(
@@ -293,11 +310,16 @@ export function Alerts() {
                         ? t('common.resume', {}, { defaultValue: 'Resume' })
                         : t('common.pause', {}, { defaultValue: 'Pause' })}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => remove(a.id)}
+                    <ConfirmButton
+                      testId={`alert-remove-${a.id}`}
+                      label={t('common.remove', {}, { defaultValue: 'Remove' })}
+                      confirmLabel={t(
+                        'alerts.confirmRemove',
+                        {},
+                        { defaultValue: 'Confirm remove?' },
+                      )}
+                      onConfirm={() => remove(a.id)}
                       disabled={busyId === a.id}
-                      data-test={`alert-remove-${a.id}`}
                       className={cm.cn(
                         cm.sp('px', 4),
                         cm.sp('py', 2),
@@ -305,9 +327,7 @@ export function Alerts() {
                         cm.fontWeight('bold'),
                         'rounded-full uppercase tracking-wider bg-error/10 hover:bg-error/20 text-error transition-colors disabled:opacity-50',
                       )}
-                    >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
-                    </button>
+                    />
                   </footer>
                 </div>
               </li>

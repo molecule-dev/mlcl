@@ -1,9 +1,11 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { PriceHistoryChart, type PriceHistoryPoint } from '../components/PriceHistoryChart.js'
 import { type RetailerPriceRow, RetailerPriceTable } from '../components/RetailerPriceTable.js'
 import { fmtUsd, unwrapSingle } from '../lib/unwrap.js'
@@ -94,11 +96,14 @@ export function ProductDetail() {
     'idle' | 'pending' | 'added' | 'duplicate' | 'error'
   >('idle')
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
     setLoading(true)
+    setErrorMsg(null)
     http
       .get(`/api/products/${id}`)
       .then((res) => {
@@ -124,7 +129,12 @@ export function ProductDetail() {
         setRetailers(rows)
         if (!alertTarget) setAlertTarget(((p.best_price ?? 0) / 100).toFixed(2))
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled)
+          setErrorMsg(
+            t('productDetail.loadFailed', {}, { defaultValue: 'Could not load this product.' }),
+          )
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
@@ -132,7 +142,7 @@ export function ProductDetail() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http, id])
+  }, [http, id, retryKey])
 
   useEffect(() => {
     if (!id) return
@@ -183,6 +193,10 @@ export function ProductDetail() {
         channel: alertChannel,
       })
       if ((resp as { status?: number }).status && (resp as { status?: number }).status! < 300) {
+        void track({
+          name: 'price.alert_created',
+          properties: { product_id: id, target: tp, channel: alertChannel },
+        })
         setAlertStatus('created')
         setAlertMessage(
           t(
@@ -225,6 +239,7 @@ export function ProductDetail() {
     setWatchStatus('pending')
     try {
       await http.post('/api/watchlist', { productId: id })
+      void track({ name: 'product.tracked', properties: { product_id: id } })
       setWatchStatus('added')
     } catch (err) {
       const status = (err as { response?: { status?: number } })?.response?.status
@@ -242,6 +257,13 @@ export function ProductDetail() {
     return (
       <div className={cm.cn(cm.sp('p', 8), cm.textCenter)} data-test="product-loading">
         {t('productDetail.loading', {}, { defaultValue: 'Loading product…' })}
+      </div>
+    )
+  }
+  if (errorMsg && !product) {
+    return (
+      <div className={cm.cn(cm.sp('p', 8))} data-test="product-error">
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
       </div>
     )
   }

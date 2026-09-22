@@ -24,6 +24,13 @@ test.describe('/reset-password', () => {
   })
 
   test('valid submit POSTs /api/users/reset-password', async ({ page }) => {
+    // The demo token is unsigned — the API answers 401 by design; the page
+    // surfaces the failure inline. Allow the browser's automatic 401 console
+    // line (regex matches console text, not the network record).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=demo-token&email=demo@example.com')
     // Fill email if not pre-populated.
     const emailInput = page.locator('#email')

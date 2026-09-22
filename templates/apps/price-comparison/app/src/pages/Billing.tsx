@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -103,6 +104,7 @@ export function Billing() {
       const res = await http.post('/api/billing/checkout', { priceId })
       const body = (res as { data?: { checkoutUrl?: string; updated?: boolean } }).data ?? {}
       if (body.checkoutUrl) {
+        void track({ name: 'billing.checkout_started', properties: { plan: planKey } })
         window.location.href = body.checkoutUrl
         return
       }

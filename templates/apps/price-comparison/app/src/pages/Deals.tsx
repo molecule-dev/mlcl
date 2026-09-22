@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -44,15 +45,22 @@ export function Deals() {
   const http = useHttpClient()
   const [deals, setDeals] = useState<ProductPriceCardProduct[]>([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get('/api/prices/trends/drops?limit=20&days=60')
         if (cancelled) return
         const drops = unwrapList<ApiTrendingDrop>(res)
         setDeals(drops.map(dropToCard).filter((x): x is ProductPriceCardProduct => x !== null))
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(t('deals.loadFailed', {}, { defaultValue: 'Could not load live drops.' }))
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -60,7 +68,7 @@ export function Deals() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, retryKey, t])
 
   const sorted = [...deals].sort((a, b) => (b.drop_pct ?? 0) - (a.drop_pct ?? 0))
   const hottest = sorted[0]
@@ -127,7 +135,9 @@ export function Deals() {
         </div>
       </header>
 
-      {sorted.length === 0 ? (
+      {errorMsg ? (
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+      ) : sorted.length === 0 ? (
         <div
           data-test="deals-empty"
           className={cm.cn(

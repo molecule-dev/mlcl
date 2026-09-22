@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ConfirmButton } from '../components/ConfirmButton.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { PriceHistoryChart, type PriceHistoryPoint } from '../components/PriceHistoryChart.js'
 import { fmtUsd, unwrapSingle } from '../lib/unwrap.js'
 
@@ -62,10 +65,14 @@ export function AlertDetail() {
   const [history, setHistory] = useState<PriceHistoryPoint[]>([])
   const [loading, setLoading] = useState(true)
   const [busy, setBusy] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get(`/api/alerts/${id}`)
@@ -96,6 +103,11 @@ export function AlertDetail() {
           setProductBrand(wrapped.product.brand ?? '')
           setBestPrice(Number(wrapped.product.best_price ?? 0))
         }
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(
+            t('alertDetail.loadFailed', {}, { defaultValue: 'Could not load this alert.' }),
+          )
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -103,7 +115,8 @@ export function AlertDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [http, id, retryKey])
 
   const togglePause = async () => {
     if (!alert) return
@@ -111,6 +124,10 @@ export function AlertDetail() {
     try {
       const next = alert.status === 'paused' ? 'active' : 'paused'
       await http.put(`/api/alerts/${alert.id}`, { status: next })
+      void track({
+        name: 'alert.updated',
+        properties: { alert_id: alert.id, status: next },
+      })
       setAlert({ ...alert, status: next })
     } finally {
       setBusy(false)
@@ -122,6 +139,7 @@ export function AlertDetail() {
     setBusy(true)
     try {
       await http.delete(`/api/alerts/${alert.id}`)
+      void track({ name: 'alert.deleted', properties: { alert_id: alert.id } })
       navigate('/alerts', { replace: true })
     } finally {
       setBusy(false)
@@ -132,6 +150,13 @@ export function AlertDetail() {
     return (
       <div className={cm.cn(cm.sp('p', 8), cm.textCenter)} data-test="alert-loading">
         {t('alertDetail.loading', {}, { defaultValue: 'Loading alert…' })}
+      </div>
+    )
+  }
+  if (errorMsg && !alert) {
+    return (
+      <div className={cm.cn(cm.sp('p', 8))} data-test="alert-error">
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
       </div>
     )
   }
@@ -260,11 +285,12 @@ export function AlertDetail() {
                 ? t('alertDetail.resume', {}, { defaultValue: 'Resume alert' })
                 : t('alertDetail.pause', {}, { defaultValue: 'Pause alert' })}
             </button>
-            <button
-              type="button"
-              onClick={remove}
+            <ConfirmButton
+              testId="alert-detail-delete"
+              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t('alertDetail.confirmDelete', {}, { defaultValue: 'Confirm delete?' })}
+              onConfirm={remove}
               disabled={busy}
-              data-test="alert-detail-delete"
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
@@ -272,9 +298,7 @@ export function AlertDetail() {
                 cm.fontWeight('bold'),
                 'rounded-full bg-error/30 backdrop-blur-md uppercase tracking-wider hover:bg-error/40 transition-colors disabled:opacity-60',
               )}
-            >
-              {t('common.delete', {}, { defaultValue: 'Delete' })}
-            </button>
+            />
           </div>
         </div>
       </header>

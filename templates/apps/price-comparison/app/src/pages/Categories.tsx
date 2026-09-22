@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiCategory {
@@ -59,14 +60,23 @@ export function Categories() {
   const http = useHttpClient()
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get('/api/products/meta/categories')
         if (cancelled) return
         setCategories(unwrapList<ApiCategory>(res))
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(
+            t('categories.loadFailed', {}, { defaultValue: 'Could not load categories.' }),
+          )
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -74,7 +84,8 @@ export function Categories() {
     return () => {
       cancelled = true
     }
-  }, [http])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [http, retryKey])
 
   return (
     <div
@@ -173,7 +184,9 @@ export function Categories() {
         <h2 className={cm.cn('mt-1 mb-5 text-2xl font-extrabold tracking-tight text-on-surface')}>
           {t('categories.allHeading', {}, { defaultValue: 'Every aisle, indexed' })}
         </h2>
-        {categories.length === 0 ? (
+        {errorMsg ? (
+          <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        ) : categories.length === 0 ? (
           <div
             data-test="categories-empty"
             className={cm.cn(

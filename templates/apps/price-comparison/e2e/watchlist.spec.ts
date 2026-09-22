@@ -48,6 +48,8 @@ test.describe('/watchlist', () => {
     await page.goto(APP_BASE + '/watchlist')
     const remove = page.locator(`[data-test=watchlist-remove-${target.id}]`).first()
     await expect(remove).toBeVisible({ timeout: 15_000 })
+    // Two-step inline confirm: first click arms, second click deletes.
+    await remove.click()
     await remove.click()
     await page.waitForTimeout(800)
     const after = await listWatchlist(page, accessToken)

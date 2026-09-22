@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { type PriceDropEvent, PriceDropFeed } from '../components/PriceDropFeed.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -50,15 +52,24 @@ export function Notifications() {
   const [events, setEvents] = useState<PriceDropEvent[]>([])
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['key']>('all')
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const res = await http.get('/api/notifications?limit=50')
         if (cancelled) return
         const list = unwrapList<ApiNotification>(res)
         setEvents(list.map(toEvent))
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(
+            t('notifications.loadFailed', {}, { defaultValue: 'Could not load your activity.' }),
+          )
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -66,11 +77,15 @@ export function Notifications() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, retryKey, t])
 
   const markAllRead = async () => {
     try {
       await http.post('/api/notifications/mark-all-read', {})
+      void track({
+        name: 'notification.read_all',
+        properties: { count: events.length },
+      })
     } catch (_error) {
       // non-fatal: mark-all-read is a best-effort UI action; feed remains readable
     }
@@ -160,7 +175,9 @@ export function Notifications() {
         ))}
       </div>
 
-      {loading ? (
+      {errorMsg ? (
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+      ) : loading ? (
         <div
           data-test="notifications-loading"
           className={cm.cn(cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}

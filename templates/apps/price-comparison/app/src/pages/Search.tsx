@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -60,12 +61,14 @@ export function Search() {
   const [maxPrice, setMaxPrice] = useState('')
   const [results, setResults] = useState<ProductPriceCardProduct[]>([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [seedAttempted, setSeedAttempted] = useState(false)
   const [bumpKey, setBumpKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setErrorMsg(null)
     http
       .get('/api/products?limit=200')
       .then((res) => {
@@ -82,13 +85,17 @@ export function Search() {
             .catch(() => {})
         }
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled)
+          setErrorMsg(t('search.loadFailed', {}, { defaultValue: 'Could not load the catalog.' }))
+      })
       .finally(() => {
         if (!cancelled) setLoading(false)
       })
     return () => {
       cancelled = true
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [http, seedAttempted, bumpKey])
 
   const filtered = useMemo(() => {
@@ -235,7 +242,9 @@ export function Search() {
         </p>
       </div>
 
-      {filtered.length === 0 ? (
+      {errorMsg ? (
+        <ErrorBanner message={errorMsg} onRetry={() => setBumpKey((k) => k + 1)} />
+      ) : filtered.length === 0 ? (
         <div
           data-test="search-empty"
           className={cm.cn(

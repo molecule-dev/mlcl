@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ErrorBanner } from '../components/ErrorBanner.js'
 import { PriceHistoryChart, type PriceHistoryPoint } from '../components/PriceHistoryChart.js'
 import { fmtUsd } from '../lib/unwrap.js'
 
@@ -67,10 +68,14 @@ export function PriceHistory() {
     Array<{ source: ApiSource; series: PriceHistoryPoint[]; dropPct: number }>
   >([])
   const [loading, setLoading] = useState(true)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [retryKey, setRetryKey] = useState(0)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
+    setLoading(true)
+    setErrorMsg(null)
     void (async () => {
       try {
         const [hRes, sRes] = await Promise.all([
@@ -113,6 +118,11 @@ export function PriceHistory() {
           out.push({ source: src, series, dropPct })
         }
         setPerRetailer(out)
+      } catch (_error) {
+        if (!cancelled)
+          setErrorMsg(
+            t('priceHistory.loadFailed', {}, { defaultValue: 'Could not load price history.' }),
+          )
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -120,12 +130,20 @@ export function PriceHistory() {
     return () => {
       cancelled = true
     }
-  }, [http, id])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [http, id, retryKey])
 
   if (loading && !data) {
     return (
       <div className={cm.cn(cm.sp('p', 8), cm.textCenter)} data-test="history-loading">
         {t('priceHistory.loading', {}, { defaultValue: 'Loading price history…' })}
+      </div>
+    )
+  }
+  if (errorMsg && !data?.product) {
+    return (
+      <div className={cm.cn(cm.sp('p', 8))} data-test="history-error">
+        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
       </div>
     )
   }

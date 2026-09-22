@@ -263,7 +263,7 @@ router.post('/:id/fetch', requireAdmin, async (req: Request, res: Response) => {
       last_fetch_error: (err as Error).message,
     })
 
-    logger.error(err)
+    logger.error('sources.fetch', err)
     res.status(500).json({
       error: t('source.fetchFailed', {}, { defaultValue: 'Failed to fetch from source' }),
     })

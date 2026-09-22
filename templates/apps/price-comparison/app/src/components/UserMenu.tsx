@@ -4,9 +4,12 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, SidebarUserCard, usePanelClose } from '@molecule/app-ui-react'
 
-export function UserMenu() {
+export function UserMenu({ compact = false }: { compact?: boolean }) {
   return (
-    <SidebarUserCard ariaLabelKey="userMenu.open">
+    // compact: hide the secondary (email) line for narrow chrome — the
+    // mobile top bar — so the wordmark keeps its room; `''` is falsy, so
+    // SidebarUserCard renders no secondary line at all.
+    <SidebarUserCard ariaLabelKey="userMenu.open" secondaryLine={compact ? '' : undefined}>
       <UserMenuPanel />
     </SidebarUserCard>
   )
