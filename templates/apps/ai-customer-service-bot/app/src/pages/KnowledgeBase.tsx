@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -114,13 +115,17 @@ function KnowledgeBase() {
     e.preventDefault()
     setCreating(true)
     try {
-      await post('/api/knowledge', {
+      const response = await post<{ id?: string }>('/api/knowledge', {
         title: newTitle,
         content: newContent,
         body_md: newContent,
         category: newCategory,
         tags: [],
         status: 'published',
+      })
+      track({
+        name: 'knowledge.article_created',
+        properties: { article_id: response.data?.id, category: newCategory },
       })
       setShowNew(false)
       setNewTitle('')
@@ -173,6 +178,7 @@ function KnowledgeBase() {
               cm.flex({ align: 'center', gap: 1 }),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
+              cm.touchTargetCompact,
               'rounded-full bg-primary text-on-primary px-4 py-2 hover:scale-[1.02] transition-transform',
             )}
           >
@@ -327,6 +333,7 @@ function KnowledgeBase() {
                 className={cm.cn(
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full px-4 py-1.5 transition-colors',
                   active
                     ? 'bg-primary text-on-primary'

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -120,6 +121,7 @@ function ConversationDetail() {
     setError(null)
     try {
       await post(`/api/conversations/${id}/messages`, { content })
+      track({ name: 'message.sent', properties: { conversation_id: id, sender: 'agent' } })
       setComposer('')
       await loadConversation()
     } catch (err) {
@@ -139,6 +141,7 @@ function ConversationDetail() {
     setError(null)
     try {
       await post(`/api/conversations/${id}/escalate`, {})
+      track({ name: 'escalation.triggered', properties: { conversation_id: id } })
       setActionMessage(
         t(
           'conversationDetail.escalatedConfirm',
@@ -164,6 +167,7 @@ function ConversationDetail() {
     setError(null)
     try {
       await post(`/api/conversations/${id}/close`, { satisfactionScore: 5 })
+      track({ name: 'conversation.resolved', properties: { conversation_id: id } })
       setActionMessage(
         t(
           'conversationDetail.resolvedConfirm',
@@ -195,6 +199,7 @@ function ConversationDetail() {
     setError(null)
     try {
       await post(`/api/conversations/${id}/messages`, { content, sender: 'customer' })
+      track({ name: 'message.sent', properties: { conversation_id: id, sender: 'customer' } })
       setCustomerMessage('')
       setCustomerComposerOpen(false)
       setActionMessage(
@@ -238,6 +243,10 @@ function ConversationDetail() {
               {},
               { defaultValue: 'fallback (no AI key)' },
             )
+      track({
+        name: 'bot.reply',
+        properties: { conversation_id: id, source: data.source ?? 'fallback' },
+      })
       setActionMessage(
         t(
           'conversationDetail.aiReplyAdded',
@@ -265,6 +274,7 @@ function ConversationDetail() {
     if (!id) return
     try {
       await post('/api/feedback', { conversation_id: id, rating, comment: '' })
+      track({ name: 'feedback.submitted', properties: { conversation_id: id, rating } })
       setActionMessage(
         t('conversationDetail.feedbackThanks', {}, { defaultValue: 'Thanks for the feedback!' }),
       )
@@ -312,10 +322,10 @@ function ConversationDetail() {
               cm.flex({ justify: 'between', align: 'center' }),
               cm.sp('px', 6),
               cm.sp('py', 4),
-              'bg-surface-container-lowest border-b border-outline-variant/30',
+              'flex-wrap gap-y-2 bg-surface-container-lowest border-b border-outline-variant/30',
             )}
           >
-            <div className={cm.flex({ align: 'center', gap: 4 })}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'min-w-0')}>
               <Link
                 to="/conversations"
                 data-mol-id="conversation-back"
@@ -333,6 +343,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', justify: 'center' }),
                   cm.w(10),
                   cm.h(10),
+                  cm.shrink0,
                   cm.roundedFull,
                   cm.fontWeight('bold'),
                   'bg-primary-container text-on-primary-container',
@@ -340,27 +351,27 @@ function ConversationDetail() {
               >
                 {initials}
               </div>
-              <div className={cm.flex({ direction: 'col' })}>
+              <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0')}>
                 <span
                   data-mol-id="conversation-customer-name"
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('base'),
-                    'text-on-background tracking-tight',
+                    'truncate text-on-background tracking-tight',
                   )}
                 >
                   {customerName}
                 </span>
-                <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                <span className={cm.cn(cm.textSize('xs'), 'truncate text-on-surface-variant')}>
                   {t(
                     'conversationDetail.subhead',
-                    { id: id ?? '' },
+                    { id: (id ?? '').slice(0, 8) },
                     { defaultValue: 'Thread {{id}}' },
                   )}
                 </span>
               </div>
             </div>
-            <div className={cm.flex({ align: 'center', gap: 3 })}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.shrink0, 'ml-auto')}>
               {conversation && (
                 <span data-mol-id="conversation-status">
                   <StatusBadge
@@ -382,6 +393,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-surface-container-low text-on-surface px-3 py-1.5 hover:bg-surface-container transition-colors disabled:opacity-50',
                 )}
               >
@@ -397,6 +409,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-[var(--color-status-resolved-accent)] text-white px-3 py-1.5 hover:scale-[1.02] transition-transform disabled:opacity-50',
                 )}
               >
@@ -541,6 +554,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-primary text-on-primary px-3 py-1.5 hover:scale-[1.02] transition-transform disabled:opacity-50',
                 )}
               >
@@ -558,6 +572,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-surface-container-low text-on-surface px-3 py-1.5 hover:bg-surface-container transition-colors disabled:opacity-50',
                 )}
               >
@@ -603,6 +618,7 @@ function ConversationDetail() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'rounded-full bg-on-surface text-surface px-4 py-2 disabled:opacity-50',
                   )}
                 >
@@ -622,6 +638,7 @@ function ConversationDetail() {
                     cm.fontWeight('medium'),
                     cm.textSize('sm'),
                     cm.flex({ align: 'center', gap: 1 }),
+                    cm.touchTargetCompact,
                     'rounded-full border border-primary text-primary px-4 py-1.5 hover:bg-primary/10 transition-colors',
                   )}
                   onClick={() => {
@@ -773,6 +790,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-surface-container-low hover:bg-primary/10 px-3 py-1.5',
                 )}
               >
@@ -789,6 +807,7 @@ function ConversationDetail() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-surface-container-low hover:bg-error/10 px-3 py-1.5',
                 )}
               >

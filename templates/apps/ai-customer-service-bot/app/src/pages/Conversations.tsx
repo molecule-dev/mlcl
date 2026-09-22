@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -135,6 +136,10 @@ function Conversations() {
         channel: 'web',
       })
       const newId = response.data?.id
+      track({
+        name: 'conversation.started',
+        properties: { conversation_id: newId, channel: 'web' },
+      })
       setShowNew(false)
       setNewName('')
       setNewMessage('')
@@ -160,7 +165,8 @@ function Conversations() {
         <aside
           className={cm.cn(
             cm.flex({ direction: 'col' }),
-            cm.w('[360px]'),
+            cm.w('full'),
+            'xl:w-[360px]',
             cm.h('full'),
             'border-r border-outline-variant/30 bg-surface-container-lowest',
           )}
@@ -189,6 +195,7 @@ function Conversations() {
                   cm.flex({ align: 'center', gap: 1 }),
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),
+                  cm.touchTargetCompact,
                   'rounded-full bg-primary text-on-primary px-3 py-1.5 hover:scale-[1.02] transition-transform',
                 )}
                 onClick={() => setShowNew((s) => !s)}
@@ -236,6 +243,7 @@ function Conversations() {
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('xs'),
+                      cm.touchTargetCompact,
                       'rounded-full px-3 py-1 transition-colors',
                       active
                         ? 'bg-primary text-on-primary'
@@ -301,6 +309,7 @@ function Conversations() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'rounded-full bg-primary text-on-primary px-4 py-2',
                   )}
                 >
@@ -315,6 +324,7 @@ function Conversations() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'rounded-full bg-surface-container-low text-on-surface px-4 py-2',
                   )}
                 >
@@ -383,6 +393,7 @@ function Conversations() {
             cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
             cm.flex1,
             cm.sp('p', 12),
+            'hidden xl:flex',
             'bg-[var(--color-bg-sidebar)] text-center',
           )}
         >

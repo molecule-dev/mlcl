@@ -381,6 +381,7 @@ function AccountPanel() {
             className={cm.cn(
               cm.fontWeight('semibold'),
               cm.textSize('xs'),
+              cm.touchTargetCompact,
               'rounded-full bg-surface-container text-on-surface border border-outline-variant px-3 py-1.5 disabled:opacity-50',
             )}
           >
@@ -394,6 +395,7 @@ function AccountPanel() {
             className={cm.cn(
               cm.fontWeight('semibold'),
               cm.textSize('xs'),
+              cm.touchTargetCompact,
               'rounded-full bg-error text-on-error px-3 py-1.5 disabled:opacity-50',
             )}
           >
@@ -412,6 +414,7 @@ function AccountPanel() {
         className={cm.cn(
           cm.fontWeight('semibold'),
           cm.textSize('xs'),
+          cm.touchTargetCompact,
           'rounded-full bg-error/10 text-error px-3 py-1.5',
         )}
       >
@@ -604,6 +607,7 @@ function AccountPanel() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'shrink-0 rounded-full bg-surface-container text-on-surface border border-outline-variant px-4 py-1.5 hover:bg-surface-container-high',
                   )}
                 >
@@ -617,6 +621,7 @@ function AccountPanel() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'shrink-0 rounded-full bg-primary text-on-primary px-4 py-1.5',
                   )}
                 >

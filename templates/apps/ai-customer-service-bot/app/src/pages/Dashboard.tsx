@@ -176,8 +176,15 @@ function Dashboard() {
   }, [])
 
   const hour = new Date().getHours()
-  const greetingName =
-    user?.name ?? user?.email ?? t('dashboard.defaultGreetingName', {}, { defaultValue: 'there' })
+  // A bare email reads terribly in the hero at display sizes — and long
+  // local-parts blow out the 390px line. Prefer the name, else the email's
+  // local part (minus any plus-address suffix).
+  const rawName = user?.name ?? user?.email
+  const greetingName = rawName
+    ? rawName.includes('@')
+      ? (rawName.split('@')[0]?.split('+')[0] ?? 'there')
+      : rawName
+    : t('dashboard.defaultGreetingName', {}, { defaultValue: 'there' })
   const greeting =
     hour < 12
       ? t(
@@ -234,7 +241,7 @@ function Dashboard() {
               <h1
                 className={cm.cn(
                   cm.fontWeight('bold'),
-                  'text-[2.75rem] text-on-background leading-tight tracking-tight',
+                  'text-[2.75rem] text-on-background leading-tight tracking-tight break-words',
                 )}
               >
                 {greeting}

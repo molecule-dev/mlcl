@@ -247,6 +247,7 @@ function Notifications() {
                 cm.flex({ align: 'center', gap: 1.5 }),
                 cm.fontWeight('semibold'),
                 cm.textSize('xs'),
+                cm.touchTargetCompact,
                 'rounded-full px-3 py-1.5 transition-colors',
                 active
                   ? 'bg-primary text-on-primary'

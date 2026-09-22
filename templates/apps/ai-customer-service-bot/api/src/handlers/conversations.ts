@@ -156,14 +156,14 @@ router.post(
               ownerId: userId,
             })
           } catch (replyErr) {
-            console.error('[conversations] ai auto-reply failed:', replyErr)
+            logger.error('conversations.autoReply', replyErr)
           }
         }
       }
 
       res.status(201).json(conversation)
     } catch (err) {
-      console.error('[conversations] create failed:', err)
+      logger.error('conversations.create', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -227,7 +227,7 @@ router.post(
           })
           aiReply = result.message
         } catch (err) {
-          console.error('[conversations] ai auto-reply failed:', err)
+          logger.error('conversations.autoReply', err)
         }
       }
 
@@ -265,7 +265,7 @@ router.post('/:id/ai-reply', async (req: Request, res: Response) => {
     })
     res.status(201).json(result)
   } catch (err) {
-    console.error('[conversations] ai-reply failed:', err)
+    logger.error('conversations.aiReply', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

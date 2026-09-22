@@ -5,6 +5,7 @@ import { z } from 'zod'
 
 import { findOne, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { hash } from '@molecule/api-password'
 
 const router = Router()
@@ -82,7 +83,7 @@ router.post('/', async (req: Request, res: Response) => {
 
     res.json({ success: true })
   } catch (err) {
-    console.error('[reset-password] failed:', err)
+    logger.error('resetPassword.complete', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

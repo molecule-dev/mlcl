@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { del, get, put } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -92,6 +93,10 @@ function KnowledgeArticleDetail() {
         body_md: editContent,
         status: editStatus,
       })
+      track({
+        name: 'knowledge.article_updated',
+        properties: { article_id: id, status: editStatus },
+      })
       setActionMessage(
         t('knowledgeArticleDetail.savedConfirm', {}, { defaultValue: 'Article saved' }),
       )
@@ -114,6 +119,7 @@ function KnowledgeArticleDetail() {
     setError(null)
     try {
       await del(`/api/knowledge/${id}`)
+      track({ name: 'knowledge.article_deleted', properties: { article_id: id } })
       navigate('/knowledge')
     } catch (err) {
       setError(
@@ -205,6 +211,7 @@ function KnowledgeArticleDetail() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'rounded-full bg-surface-container-low text-on-surface px-3 py-1.5',
                   )}
                 >
@@ -219,6 +226,7 @@ function KnowledgeArticleDetail() {
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
+                    cm.touchTargetCompact,
                     'rounded-full bg-error/10 text-error px-3 py-1.5',
                   )}
                 >
@@ -300,6 +308,7 @@ function KnowledgeArticleDetail() {
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),
+                      cm.touchTargetCompact,
                       'rounded-full bg-primary text-on-primary px-5 py-2 disabled:opacity-50',
                     )}
                   >
@@ -368,6 +377,7 @@ function KnowledgeArticleDetail() {
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),
+                      cm.touchTargetCompact,
                       'rounded-full bg-error text-on-error px-4 py-2',
                     )}
                   >
@@ -380,6 +390,7 @@ function KnowledgeArticleDetail() {
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),
+                      cm.touchTargetCompact,
                       'rounded-full bg-surface-container-low text-on-surface px-4 py-2',
                     )}
                   >

@@ -2,6 +2,7 @@ import { type Request, type Response, Router } from 'express'
 
 import { count, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { authorizers } from '@molecule/api-resource-user'
 
 const router = Router()
@@ -103,7 +104,7 @@ router.get('/', async (_req: Request, res: Response) => {
       timeseries: days,
     })
   } catch (err) {
-    console.error('[analytics] aggregation failed:', err)
+    logger.error('analytics.summary', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

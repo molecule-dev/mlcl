@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { get, post, put } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -164,6 +165,10 @@ function Settings() {
         notify_digest: settings.notify_digest,
         quiet_hours: settings.quiet_hours,
       })
+      track({
+        name: 'settings.updated',
+        properties: { bot_tone: settings.bot_tone, auto_escalate: settings.auto_escalate },
+      })
       setSavedMessage(t('settings.savedConfirm', {}, { defaultValue: 'Settings saved' }))
     } catch (err) {
       setError(
@@ -188,6 +193,7 @@ function Settings() {
       })
       const created = response.data
       if (created?.plaintext) setNewToken(created.plaintext)
+      track({ name: 'api_token.created', properties: { token_id: created?.id } })
       setTokenLabel('')
       await loadTokens()
     } catch (err) {
@@ -205,6 +211,7 @@ function Settings() {
     setError(null)
     try {
       await post(`/api/api-tokens/${id}/revoke`, {})
+      track({ name: 'api_token.revoked', properties: { token_id: id } })
       await loadTokens()
     } catch (err) {
       setError(
@@ -459,6 +466,7 @@ function Settings() {
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),
+                      cm.touchTargetCompact,
                       'rounded-full bg-primary text-on-primary px-5 py-2 disabled:opacity-50',
                     )}
                   >
@@ -528,6 +536,7 @@ function Settings() {
                       className={cm.cn(
                         cm.fontWeight('semibold'),
                         cm.textSize('xs'),
+                        cm.touchTargetCompact,
                         'self-start rounded-full px-4 py-1.5 hover:scale-[1.02] transition-transform',
                         connectedIntegrations[i.id]
                           ? 'bg-surface-container-low text-on-surface border border-outline-variant'
@@ -692,6 +701,7 @@ function Settings() {
                           className={cm.cn(
                             cm.fontWeight('semibold'),
                             cm.textSize('xs'),
+                            cm.touchTargetCompact,
                             'rounded-full bg-error/10 text-error px-3 py-1.5',
                           )}
                         >

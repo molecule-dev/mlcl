@@ -16,6 +16,13 @@ test.describe('/reset-password', () => {
   })
 
   test('submitting an invalid token shows the error path', async ({ page }) => {
+    // The invalid token deliberately 401s — the error path IS the subject.
+    // The console guard would otherwise fail the test on the expected
+    // "status of 401" resource error.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 401/,
+    })
     await page.goto(APP_BASE + '/reset-password?token=this-is-not-a-real-token')
     await page.locator('[data-mol-id="reset-password"]').fill('NewPass123!')
     const confirm = page.locator('[data-mol-id="reset-confirm"]')
