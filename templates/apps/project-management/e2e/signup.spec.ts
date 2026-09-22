@@ -47,11 +47,18 @@ test.describe('signup page', () => {
     await page.locator('input#password').fill('TestPass!1234')
     await page.locator('form button[type="submit"]').first().click()
     await page.waitForURL('**/dashboard', { timeout: 15000 })
+    // Land on a PUBLIC route BEFORE wiping credentials: the signed-in dashboard
+    // fires authed fetches, and clearing cookies underneath it leaves 401 console
+    // noise that the console-guard (correctly) counts as unexpected.
+    await page.goto(APP_BASE + '/signup')
     await signOut(page)
     await page.goto(APP_BASE + '/signup')
     await page.locator('input#name').fill('Dup2')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('TestPass!1234')
+    // A duplicate registration is SUPPOSED to be rejected (403) — allow the
+    // expected console error before arming the submit.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.locator('form button[type="submit"]').first().click()
     await expect(page.getByRole('alert')).toBeVisible({ timeout: 8000 })
     await expect(page).toHaveURL(/\/signup/)

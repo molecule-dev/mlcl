@@ -1,17 +1,20 @@
 import { type ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileNav from '../components/MobileNav.js'
 import TimelineSideNav from '../components/TimelineSideNav.js'
 import { UserMenu } from '../components/UserMenu.js'
 
 function TimelineChrome({ children }: { children: ReactNode }) {
   return (
     <div style={{ minHeight: '100%' }}>
+      <MobileNav />
       <TimelineSideNav />
-      <div style={{ marginLeft: '18rem' }}>{children}</div>
+      <div className="md:ml-[18rem]">{children}</div>
     </div>
   )
 }
@@ -199,6 +202,10 @@ export function TimelinePage({ projectId }: { projectId: string }) {
       })
       const created = (res?.data ?? res) as unknown as Milestone | undefined
       if (created?.id) {
+        track({
+          name: 'milestone.created',
+          properties: { milestoneId: created.id, projectId: effectiveProjectId },
+        })
         setMilestones((prev) => [...prev, created])
       } else {
         await loadData()
@@ -220,6 +227,7 @@ export function TimelinePage({ projectId }: { projectId: string }) {
     try {
       if (eventType === 'milestone') {
         await http.delete(`/api/milestones/${eventId}`)
+        track({ name: 'milestone.deleted', properties: { milestoneId: eventId } })
         setMilestones((prev) => prev.filter((m) => m.id !== eventId))
       } else {
         await http.delete(`/api/tasks/${eventId}`)
@@ -310,13 +318,15 @@ export function TimelinePage({ projectId }: { projectId: string }) {
         {/* Header Controls */}
         <header
           data-mol-id="header"
-          className={cm.flex({ align: 'center', justify: 'between' })}
+          className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-y-2')}
           style={{
             position: 'sticky',
             top: 0,
-            height: 64,
-            paddingLeft: 32,
-            paddingRight: 32,
+            minHeight: 64,
+            paddingLeft: 16,
+            paddingRight: 16,
+            paddingTop: 8,
+            paddingBottom: 8,
             background: 'rgba(255, 255, 255, 0.8)',
             backdropFilter: 'blur(12px)',
             zIndex: 40,
@@ -369,7 +379,7 @@ export function TimelinePage({ projectId }: { projectId: string }) {
                   onClick={goToPrevMonth}
                   className={cm.flex({ align: 'center', justify: 'center' })}
                   style={{
-                    padding: 6,
+                    padding: 10,
                     borderRadius: '6px 0 0 6px',
                     border: 'none',
                     backgroundColor: 'transparent',
@@ -385,7 +395,7 @@ export function TimelinePage({ projectId }: { projectId: string }) {
                   onClick={goToNextMonth}
                   className={cm.flex({ align: 'center', justify: 'center' })}
                   style={{
-                    padding: 6,
+                    padding: 10,
                     borderRadius: '0 6px 6px 0',
                     border: 'none',
                     borderLeft: '1px solid rgba(148, 163, 184, 0.2)',
@@ -470,17 +480,12 @@ export function TimelinePage({ projectId }: { projectId: string }) {
           className={cm.flex()}
           style={{ flex: 1, overflow: 'hidden' }}
         >
-          {/* Left Tool Panel */}
+          {/* Left Tool Panel — lg+ only; a 288px rail would consume most of
+              a phone's viewport (the calendar grid is the primary content on
+              mobile). */}
           <aside
-            style={{
-              width: 288,
-              padding: 32,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 40,
-              overflowY: 'auto',
-              backgroundColor: 'rgba(234, 237, 255, 0.3)',
-            }}
+            className="hidden lg:flex flex-col w-72 shrink-0 overflow-y-auto p-8 gap-10"
+            style={{ backgroundColor: 'rgba(234, 237, 255, 0.3)' }}
           >
             {/* Mini Calendar */}
             <section
@@ -724,253 +729,269 @@ export function TimelinePage({ projectId }: { projectId: string }) {
               position: 'relative',
             }}
           >
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(7, 1fr)',
-                gridAutoRows: 'minmax(120px, auto)',
-                backgroundColor: 'var(--color-surface-container)',
-                borderRadius: 16,
-                overflow: 'hidden',
-                gap: '1px',
-                border: '1px solid rgba(199, 196, 215, 0.2)',
-              }}
-            >
-              {/* Day Headers */}
-              {DAY_HEADERS.map((day) => (
-                <div
-                  key={day}
-                  style={{
-                    backgroundColor: 'var(--color-surface-container-low)',
-                    padding: 16,
-                    textAlign: 'center',
-                    fontSize: 12,
-                    fontWeight: 700,
-                    color: 'var(--color-outline)',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {t(`timeline.day.${day}`, {}, { defaultValue: day })}
-                </div>
-              ))}
-
-              {/* Calendar Days */}
-              {calendarDays.map((d, i) => {
-                return (
+            {/* A 7-column calendar cannot stay legible at phone width — keep
+                the grid at a readable minimum and let it scroll horizontally
+                (fleet-accepted pattern for calendar/board surfaces). */}
+            <div className="overflow-x-auto">
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(7, 1fr)',
+                  gridAutoRows: 'minmax(120px, auto)',
+                  backgroundColor: 'var(--color-surface-container)',
+                  borderRadius: 16,
+                  overflow: 'hidden',
+                  gap: '1px',
+                  border: '1px solid rgba(199, 196, 215, 0.2)',
+                  minWidth: 640,
+                }}
+              >
+                {/* Day Headers */}
+                {DAY_HEADERS.map((day) => (
                   <div
-                    key={i}
+                    key={day}
                     style={{
-                      backgroundColor: d.isCurrentMonth
-                        ? 'var(--color-on-error)'
-                        : 'rgba(242, 243, 255, 0.5)',
-                      padding: 8,
-                      position: 'relative',
+                      backgroundColor: 'var(--color-surface-container-low)',
+                      padding: 16,
+                      textAlign: 'center',
+                      fontSize: 12,
+                      fontWeight: 700,
+                      color: 'var(--color-outline)',
+                      textTransform: 'uppercase',
                     }}
                   >
-                    <span
+                    {t(`timeline.day.${day}`, {}, { defaultValue: day })}
+                  </div>
+                ))}
+
+                {/* Calendar Days */}
+                {calendarDays.map((d, i) => {
+                  return (
+                    <div
+                      key={i}
                       style={{
-                        fontSize: 14,
-                        fontWeight: 500,
-                        color: 'var(--color-on-background)',
-                        lineHeight: '20px',
-                        opacity: d.isCurrentMonth ? 1 : 0.3,
+                        backgroundColor: d.isCurrentMonth
+                          ? 'var(--color-on-error)'
+                          : 'rgba(242, 243, 255, 0.5)',
+                        padding: 8,
+                        position: 'relative',
                       }}
                     >
-                      {d.day}
-                    </span>
-                    {d.events.map((event) => {
-                      const colors = EVENT_COLORS[event.color]
-                      const isSelected = selectedEventId === event.id
-                      return (
-                        <div key={event.id} style={{ position: 'relative' }}>
-                          <div
-                            data-mol-id={`event-${event.id}`}
-                            role="button"
-                            tabIndex={0}
-                            aria-expanded={isSelected}
-                            onClick={() => setSelectedEventId(isSelected ? null : event.id)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter' || e.key === ' ') {
-                                e.preventDefault()
-                                setSelectedEventId(isSelected ? null : event.id)
-                              }
-                            }}
-                            style={{
-                              marginTop: 8,
-                              backgroundColor: isSelected ? 'var(--color-primary)' : colors.bg,
-                              color: isSelected ? 'var(--color-on-error)' : colors.text,
-                              fontSize: 10,
-                              fontWeight: 700,
-                              padding: '4px 8px',
-                              borderRadius: 6,
-                              borderLeft: isSelected ? 'none' : `2px solid ${colors.border}`,
-                              cursor: 'pointer',
-                              boxShadow: isSelected ? '0 4px 6px rgba(70, 72, 212, 0.3)' : 'none',
-                              lineHeight: '14px',
-                            }}
-                          >
-                            {event.title}
-                          </div>
-
-                          {/* Event Detail Popover */}
-                          {isSelected && (
+                      <span
+                        style={{
+                          fontSize: 14,
+                          fontWeight: 500,
+                          color: 'var(--color-on-background)',
+                          lineHeight: '20px',
+                          opacity: d.isCurrentMonth ? 1 : 0.3,
+                        }}
+                      >
+                        {d.day}
+                      </span>
+                      {d.events.map((event) => {
+                        const colors = EVENT_COLORS[event.color]
+                        const isSelected = selectedEventId === event.id
+                        return (
+                          <div key={event.id} style={{ position: 'relative' }}>
                             <div
-                              data-mol-id="event-popover"
-                              role="dialog"
+                              data-mol-id={`event-${event.id}`}
+                              role="button"
+                              tabIndex={0}
+                              aria-expanded={isSelected}
+                              onClick={() => setSelectedEventId(isSelected ? null : event.id)}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault()
+                                  setSelectedEventId(isSelected ? null : event.id)
+                                }
+                              }}
                               style={{
-                                position: 'absolute',
-                                top: 48,
-                                left: 0,
-                                width: 256,
-                                backgroundColor: 'var(--color-on-error)',
-                                borderRadius: 16,
-                                boxShadow:
-                                  '0 25px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)',
-                                padding: 16,
-                                zIndex: 50,
-                                border: '1px solid rgba(199, 196, 215, 0.1)',
+                                marginTop: 8,
+                                backgroundColor: isSelected ? 'var(--color-primary)' : colors.bg,
+                                color: isSelected ? 'var(--color-on-error)' : colors.text,
+                                fontSize: 10,
+                                fontWeight: 700,
+                                padding: '4px 8px',
+                                borderRadius: 6,
+                                borderLeft: isSelected ? 'none' : `2px solid ${colors.border}`,
+                                cursor: 'pointer',
+                                boxShadow: isSelected ? '0 4px 6px rgba(70, 72, 212, 0.3)' : 'none',
+                                lineHeight: '14px',
                               }}
                             >
+                              {event.title}
+                            </div>
+
+                            {/* Event Detail Popover */}
+                            {isSelected && (
                               <div
-                                className={cm.flex({ justify: 'between', align: 'start' })}
-                                style={{ marginBottom: 12 }}
-                              >
-                                <h3
-                                  style={{
-                                    fontSize: 14,
-                                    fontWeight: 700,
-                                    lineHeight: '20px',
-                                    color: 'var(--color-on-background)',
-                                    margin: 0,
-                                  }}
-                                >
-                                  {event.title}
-                                </h3>
-                                <button
-                                  data-mol-id={`event-close-${event.id}`}
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    setSelectedEventId(null)
-                                  }}
-                                  style={{
-                                    border: 'none',
-                                    background: 'none',
-                                    cursor: 'pointer',
-                                    color: 'var(--color-outline)',
-                                    padding: 0,
-                                  }}
-                                >
-                                  <span
-                                    className="material-symbols-outlined"
-                                    style={{ fontSize: 14 }}
-                                  >
-                                    close
-                                  </span>
-                                </button>
-                              </div>
-                              <div
-                                className={cm.flex({ direction: 'col', gap: 'sm' })}
-                                style={{ marginBottom: 16 }}
+                                data-mol-id="event-popover"
+                                role="dialog"
+                                style={{
+                                  position: 'absolute',
+                                  top: 48,
+                                  left: 0,
+                                  width: 256,
+                                  backgroundColor: 'var(--color-on-error)',
+                                  borderRadius: 16,
+                                  boxShadow:
+                                    '0 25px 50px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)',
+                                  padding: 16,
+                                  zIndex: 50,
+                                  border: '1px solid rgba(199, 196, 215, 0.1)',
+                                }}
                               >
                                 <div
-                                  className={cm.flex({ align: 'center', gap: 'sm' })}
-                                  style={{ fontSize: 11, color: 'var(--color-on-surface-variant)' }}
+                                  className={cm.flex({ justify: 'between', align: 'start' })}
+                                  style={{ marginBottom: 12 }}
                                 >
-                                  <span
-                                    className="material-symbols-outlined"
-                                    style={{ fontSize: 14 }}
-                                  >
-                                    schedule
-                                  </span>
-                                  <span>
-                                    {event.date.toLocaleDateString(undefined, {
-                                      month: 'long',
-                                      day: 'numeric',
-                                      year: 'numeric',
-                                    })}
-                                  </span>
-                                </div>
-                                <div
-                                  className={cm.flex({ align: 'center', gap: 'sm' })}
-                                  style={{ fontSize: 11, color: 'var(--color-on-surface-variant)' }}
-                                >
-                                  <span
-                                    className="material-symbols-outlined"
-                                    style={{ fontSize: 14 }}
-                                  >
-                                    assignment
-                                  </span>
-                                  <span>
-                                    {event.type === 'milestone'
-                                      ? t(
-                                          'timeline.typeMilestone',
-                                          {},
-                                          { defaultValue: 'Milestone' },
-                                        )
-                                      : t('timeline.typeTask', {}, { defaultValue: 'Task' })}
-                                  </span>
-                                </div>
-                              </div>
-                              {event.type === 'task' && projectId && (
-                                <div
-                                  style={{
-                                    paddingTop: 12,
-                                    borderTop: '1px solid rgba(199, 196, 215, 0.1)',
-                                    marginBottom: 12,
-                                  }}
-                                >
-                                  <Link
-                                    data-mol-id={`event-open-${event.id}`}
-                                    data-testid={`timeline-event-open-${event.id}`}
-                                    to={`/projects/${projectId}/board`}
+                                  <h3
                                     style={{
-                                      display: 'inline-block',
+                                      fontSize: 14,
+                                      fontWeight: 700,
+                                      lineHeight: '20px',
+                                      color: 'var(--color-on-background)',
+                                      margin: 0,
+                                    }}
+                                  >
+                                    {event.title}
+                                  </h3>
+                                  <button
+                                    data-mol-id={`event-close-${event.id}`}
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      setSelectedEventId(null)
+                                    }}
+                                    style={{
+                                      border: 'none',
+                                      background: 'none',
+                                      cursor: 'pointer',
+                                      color: 'var(--color-outline)',
+                                      padding: 0,
+                                    }}
+                                  >
+                                    <span
+                                      className="material-symbols-outlined"
+                                      style={{ fontSize: 14 }}
+                                    >
+                                      close
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  className={cm.flex({ direction: 'col', gap: 'sm' })}
+                                  style={{ marginBottom: 16 }}
+                                >
+                                  <div
+                                    className={cm.flex({ align: 'center', gap: 'sm' })}
+                                    style={{
+                                      fontSize: 11,
+                                      color: 'var(--color-on-surface-variant)',
+                                    }}
+                                  >
+                                    <span
+                                      className="material-symbols-outlined"
+                                      style={{ fontSize: 14 }}
+                                    >
+                                      schedule
+                                    </span>
+                                    <span>
+                                      {event.date.toLocaleDateString(undefined, {
+                                        month: 'long',
+                                        day: 'numeric',
+                                        year: 'numeric',
+                                      })}
+                                    </span>
+                                  </div>
+                                  <div
+                                    className={cm.flex({ align: 'center', gap: 'sm' })}
+                                    style={{
+                                      fontSize: 11,
+                                      color: 'var(--color-on-surface-variant)',
+                                    }}
+                                  >
+                                    <span
+                                      className="material-symbols-outlined"
+                                      style={{ fontSize: 14 }}
+                                    >
+                                      assignment
+                                    </span>
+                                    <span>
+                                      {event.type === 'milestone'
+                                        ? t(
+                                            'timeline.typeMilestone',
+                                            {},
+                                            { defaultValue: 'Milestone' },
+                                          )
+                                        : t('timeline.typeTask', {}, { defaultValue: 'Task' })}
+                                    </span>
+                                  </div>
+                                </div>
+                                {event.type === 'task' && projectId && (
+                                  <div
+                                    style={{
+                                      paddingTop: 12,
+                                      borderTop: '1px solid rgba(199, 196, 215, 0.1)',
+                                      marginBottom: 12,
+                                    }}
+                                  >
+                                    <Link
+                                      data-mol-id={`event-open-${event.id}`}
+                                      data-testid={`timeline-event-open-${event.id}`}
+                                      to={`/projects/${projectId}/board`}
+                                      style={{
+                                        display: 'inline-block',
+                                        fontSize: 11,
+                                        fontWeight: 700,
+                                        color: 'var(--color-primary)',
+                                        textDecoration: 'none',
+                                      }}
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      {t(
+                                        'timeline.viewOnBoard',
+                                        {},
+                                        { defaultValue: 'View on board →' },
+                                      )}
+                                    </Link>
+                                  </div>
+                                )}
+                                <div className={cm.flex({ gap: 'sm' })} style={{ marginTop: 8 }}>
+                                  <button
+                                    data-mol-id={`event-delete-${event.id}`}
+                                    data-testid={`timeline-event-delete-${event.id}`}
+                                    style={{
+                                      flex: 1,
+                                      backgroundColor: 'var(--mol-color-background-secondary)',
+                                      color: 'var(--color-error)',
                                       fontSize: 11,
                                       fontWeight: 700,
-                                      color: 'var(--color-primary)',
-                                      textDecoration: 'none',
+                                      padding: '8px 0',
+                                      borderRadius: 8,
+                                      border: 'none',
+                                      cursor: 'pointer',
                                     }}
-                                    onClick={(e) => e.stopPropagation()}
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      void handleDeleteEvent(event.id, event.type)
+                                    }}
                                   >
                                     {t(
-                                      'timeline.viewOnBoard',
+                                      'timeline.deleteEvent',
                                       {},
-                                      { defaultValue: 'View on board →' },
+                                      { defaultValue: 'Delete event' },
                                     )}
-                                  </Link>
+                                  </button>
                                 </div>
-                              )}
-                              <div className={cm.flex({ gap: 'sm' })} style={{ marginTop: 8 }}>
-                                <button
-                                  data-mol-id={`event-delete-${event.id}`}
-                                  data-testid={`timeline-event-delete-${event.id}`}
-                                  style={{
-                                    flex: 1,
-                                    backgroundColor: 'var(--mol-color-background-secondary)',
-                                    color: 'var(--color-error)',
-                                    fontSize: 11,
-                                    fontWeight: 700,
-                                    padding: '8px 0',
-                                    borderRadius: 8,
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                  }}
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    void handleDeleteEvent(event.id, event.type)
-                                  }}
-                                >
-                                  {t('timeline.deleteEvent', {}, { defaultValue: 'Delete event' })}
-                                </button>
                               </div>
-                            </div>
-                          )}
-                        </div>
-                      )
-                    })}
-                  </div>
-                )
-              })}
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </section>
         </main>

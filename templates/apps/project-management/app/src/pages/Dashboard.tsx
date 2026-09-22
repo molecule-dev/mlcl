@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { MobileNav } from '../components/MobileNav.js'
 import { UserMenu } from '../components/UserMenu.js'
 
 interface Project {
@@ -154,6 +156,10 @@ export function Dashboard() {
       })
       const created = (res as unknown as { data?: Project }).data ?? (res as unknown as Project)
       if (created?.id) {
+        track({
+          name: 'project.created',
+          properties: { projectId: created.id, name: created.name },
+        })
         setProjects((prev) => [created, ...prev])
         setNewProjectName('')
         setNewProjectDescription('')
@@ -177,6 +183,10 @@ export function Dashboard() {
       setTasks((prev) => prev.map((row) => (row.id === task.id ? { ...row, status: next } : row)))
       try {
         await http.patch(`/api/tasks/${task.id}`, { status: next })
+        track({
+          name: 'task.status_changed',
+          properties: { taskId: task.id, to: next, surface: 'dashboard' },
+        })
       } catch (_error) {
         // Reload to recover from failure.
         loadAll()
@@ -195,6 +205,7 @@ export function Dashboard() {
       setTasks((prev) => prev.filter((row) => row.id !== taskId))
       try {
         await http.delete(`/api/tasks/${taskId}`)
+        track({ name: 'task.deleted', properties: { taskId } })
       } catch (_error) {
         // Optimistic delete failed — reload to recover dashboard state.
         loadAll()
@@ -236,8 +247,13 @@ export function Dashboard() {
 
   return (
     <div
-      className={cm.cn(cm.flex({}), cm.minH('screen'), 'bg-surface text-on-surface antialiased')}
+      className={cm.cn(
+        cm.flex({}),
+        cm.minH('screen'),
+        'flex-col md:flex-row bg-surface text-on-surface antialiased',
+      )}
     >
+      <MobileNav />
       <aside
         aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
         className={cm.cn(
@@ -245,7 +261,8 @@ export function Dashboard() {
           cm.textSize('sm'),
           cm.fontWeight('medium'),
           cm.h('screen'),
-          "w-[240px] sticky top-0 left-0 bg-surface-secondary border-r-0 font-['Inter'] antialiased",
+          // Desktop rail only — MobileNav takes over below md.
+          "hidden md:flex w-[240px] sticky top-0 left-0 bg-surface-secondary border-r-0 font-['Inter'] antialiased",
         )}
       >
         <div
@@ -438,7 +455,7 @@ export function Dashboard() {
           )}
 
           <section
-            className={cm.grid({ cols: 4, gap: 'xl' })}
+            className={cm.cn(cm.grid({ cols: 2, gap: 'xl' }), 'md:grid-cols-4')}
             aria-label={t('dashboard.kpis', {}, { defaultValue: 'Key metrics' })}
           >
             <KpiTile
@@ -477,7 +494,7 @@ export function Dashboard() {
           </section>
 
           <div className={cm.cn(cm.grid({ cols: 12, gap: 'xl' }), 'items-start')}>
-            <div className={cm.cn(cm.stack(8), 'col-span-8')}>
+            <div className={cm.cn(cm.stack(8), 'col-span-12 md:col-span-8')}>
               <div className={cm.cn('bg-surface-container-lowest rounded-xl p-8 shadow-sm')}>
                 <div className={cm.cn('flex justify-between items-center mb-6')}>
                   <h2 className={cm.cn('text-2xl font-bold tracking-tight')}>
@@ -755,7 +772,7 @@ export function Dashboard() {
               </div>
             </div>
 
-            <div className={cm.cn('col-span-4')}>
+            <div className={cm.cn('col-span-12 md:col-span-4')}>
               <div className={cm.cn('bg-surface-container-lowest rounded-xl p-8 shadow-sm')}>
                 <h2 className={cm.cn('text-2xl font-bold tracking-tight mb-6')}>
                   {t('dashboard.upcomingTitle', {}, { defaultValue: 'Upcoming Deadlines' })}

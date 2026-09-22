@@ -146,6 +146,9 @@ test.describe('settings page', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill(oldPw)
+    // The rejected old-password login is SUPPOSED to 403 — allow the expected
+    // console error before arming the submit.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.locator('form button[type="submit"]').first().click()
     await expect(page.getByRole('alert')).toBeVisible({ timeout: 8000 })
     await expect(page).toHaveURL(/\/login/)
@@ -167,6 +170,10 @@ test.describe('settings page', () => {
     await page.goto(APP_BASE + '/settings')
     await page.getByTestId('account-delete-toggle').click()
     await page.getByTestId('account-delete-confirm').fill('DELETE')
+    // The delete flow calls logout() AFTER the user row is gone, so the
+    // logout endpoint 401s — the app deliberately ignores it. Allow that
+    // expected console error before arming the delete click.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.getByTestId('account-delete-confirm-button').click()
     await page.waitForURL(/\/signup/, { timeout: 10000 })
 
@@ -176,6 +183,9 @@ test.describe('settings page', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill(password)
+    // A deleted user's login is SUPPOSED to 403 — allow the expected
+    // console error before arming the submit.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.locator('form button[type="submit"]').first().click()
     await expect(page.getByRole('alert')).toBeVisible({ timeout: 8000 })
     await expect(page).toHaveURL(/\/login/)

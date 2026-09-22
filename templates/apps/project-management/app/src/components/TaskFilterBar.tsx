@@ -43,13 +43,18 @@ export default function TaskFilterBar({
   return (
     <header
       className={cm.cn(
-        cm.sp('px', 8),
         cm.sp('py', 6),
+        cm.sp('px', 5),
+        'md:px-8',
         cm.flex({ justify: 'between', gap: 'lg' }),
-        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl flex-col md:flex-row md:items-center border-b border-transparent',
+        // Row from md up, but allow wrapping so the search + filter cluster
+        // never forces a horizontal overflow inside the md:ml-72 content area.
+        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl flex-col md:flex-row md:items-center md:flex-wrap gap-y-3 border-b border-transparent',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.flex1, 'max-w-4xl')}>
+      <div
+        className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.flex1, 'min-w-0 max-w-4xl')}
+      >
         <div className={cm.cn(cm.flex1, 'relative')}>
           <span
             className={cm.cn(

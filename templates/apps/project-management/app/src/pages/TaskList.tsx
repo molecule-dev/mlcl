@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AddTaskFab from '../components/AddTaskFab.js'
+import MobileNav from '../components/MobileNav.js'
 import TaskFilterBar from '../components/TaskFilterBar.js'
 import TaskInProgressSection from '../components/TaskInProgressSection.js'
 import TaskListHeader from '../components/TaskListHeader.js'
@@ -130,6 +132,7 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
         return
       try {
         await http.delete(`/api/tasks/${taskId}`)
+        track({ name: 'task.deleted', properties: { taskId } })
         setTasks((prev) => prev.filter((t) => t.id !== taskId))
       } catch (err) {
         setError(
@@ -145,8 +148,9 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
   if (loading) {
     return (
       <div className={cm.cn(cm.surface, 'antialiased')}>
+        <MobileNav />
         <TaskListSideNavBar />
-        <main className={cm.cn(cm.surface, cm.minH('screen'), 'lg:ml-72')}>
+        <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
@@ -163,8 +167,9 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
   if (error) {
     return (
       <div className={cm.cn(cm.surface, 'antialiased')}>
+        <MobileNav />
         <TaskListSideNavBar />
-        <main className={cm.cn(cm.surface, cm.minH('screen'), 'lg:ml-72')}>
+        <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'md' }),
@@ -183,8 +188,9 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
 
   return (
     <div className={cm.cn(cm.surface, 'antialiased')}>
+      <MobileNav />
       <TaskListSideNavBar />
-      <main className={cm.cn(cm.surface, cm.minH('screen'), 'lg:ml-72')}>
+      <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
         <TaskFilterBar
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}

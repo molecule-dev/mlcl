@@ -30,7 +30,8 @@ function SettingsTopAppBar() {
           cm.flex({ justify: 'between', align: 'center' }),
           cm.sp('px', 16),
           cm.h(16),
-          'fixed top-0 right-0 left-[280px] bg-background/80 backdrop-blur-md z-40',
+          // Anchored to the desktop rail — hidden below md where MobileNav renders.
+          'hidden md:flex fixed top-0 right-0 left-[280px] bg-background/80 backdrop-blur-md z-40',
         )}
       >
         <h2

@@ -25,7 +25,8 @@ export function SideNavBar() {
         cm.sp('py', 8),
         cm.sp('px', 4),
         cm.h('screen'),
-        "w-[280px] fixed left-0 top-0 bg-surface-container-low font-['Inter'] antialiased tracking-tight z-50",
+        // Desktop rail only — MobileNav takes over below md.
+        "hidden md:flex w-[280px] fixed left-0 top-0 bg-surface-container-low font-['Inter'] antialiased tracking-tight z-50",
       )}
     >
       <div className={cm.cn(cm.sp('mb', 10), cm.sp('px', 4))}>

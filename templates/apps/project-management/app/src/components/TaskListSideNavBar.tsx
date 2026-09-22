@@ -30,7 +30,7 @@ export default function TaskListSideNavBar() {
         cm.h('full'),
         cm.h('screen'),
         cm.w(72),
-        "fixed left-0 top-0 bg-surface-container-low hidden lg:flex font-['Inter'] z-50",
+        "fixed left-0 top-0 bg-surface-container-low hidden md:flex font-['Inter'] z-50",
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'px-4.5')}>

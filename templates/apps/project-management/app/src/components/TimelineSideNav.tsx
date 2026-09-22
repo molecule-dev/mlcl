@@ -17,7 +17,7 @@ export default function TimelineSideNav() {
         cm.sp('p', 6),
         cm.h('screen'),
         cm.w(72),
-        'fixed left-0 top-0 bg-indigo-50 z-50 transition-all duration-300 ease-out',
+        'hidden md:flex fixed left-0 top-0 bg-indigo-50 z-50 transition-all duration-300 ease-out',
       )}
     >
       <div className={cm.flex({ direction: 'col', gap: 'xs' })}>

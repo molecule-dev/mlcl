@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { MobileNav } from '../components/MobileNav.js'
 import { UserMenu } from '../components/UserMenu.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
@@ -236,6 +238,10 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
     setDragging(null)
     try {
       await http.patch(`/api/tasks/${task.id}`, { status: toStatus })
+      track({
+        name: 'task.status_changed',
+        properties: { taskId: task.id, from: task.status, to: toStatus, surface: 'board' },
+      })
     } catch (_error) {
       // Optimistic update failed — reload to recover board state.
       loadAll()
@@ -248,6 +254,10 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
       setTasks((prev) => prev.map((row) => (row.id === task.id ? { ...row, status: next } : row)))
       try {
         await http.patch(`/api/tasks/${task.id}`, { status: next })
+        track({
+          name: 'task.status_changed',
+          properties: { taskId: task.id, to: next, surface: 'board' },
+        })
       } catch (_error) {
         // Optimistic update failed — reload to recover board state.
         loadAll()
@@ -266,6 +276,7 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
       setTasks((prev) => prev.filter((row) => row.id !== taskId))
       try {
         await http.delete(`/api/tasks/${taskId}`)
+        track({ name: 'task.deleted', properties: { taskId } })
       } catch (_error) {
         // Optimistic delete failed — reload to recover board state.
         loadAll()
@@ -296,6 +307,15 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
       })
       const created = (res as unknown as { data?: Task }).data ?? (res as unknown as Task)
       if (created?.id) {
+        track({
+          name: 'task.created',
+          properties: {
+            taskId: created.id,
+            projectId,
+            status: addTaskColumn,
+            priority: newTaskPriority,
+          },
+        })
         setTasks((prev) => [...prev, created])
         setShowAddTaskModal(false)
       }
@@ -327,15 +347,21 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
 
   return (
     <div
-      className={cm.cn(cm.flex({}), cm.minH('screen'), 'bg-surface text-on-surface antialiased')}
+      className={cm.cn(
+        cm.flex({}),
+        cm.minH('screen'),
+        'flex-col md:flex-row bg-surface text-on-surface antialiased',
+      )}
       data-testid="board-page"
     >
+      <MobileNav />
       <aside
         aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.h('screen'),
-          'w-[260px] sticky top-0 left-0 bg-surface-container-low/60',
+          // Desktop rail only — MobileNav takes over below md.
+          'hidden md:flex w-[260px] sticky top-0 left-0 bg-surface-container-low/60',
         )}
       >
         <div
@@ -400,7 +426,7 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
         </div>
       </aside>
 
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }))}>
+      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
         <header
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center' }),
@@ -468,7 +494,10 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
           </div>
         )}
 
-        <div className={cm.cn(cm.flex1, cm.sp('p', 8), 'overflow-x-auto')}>
+        {/* min-w-0 lets the kanban rail scroll INSIDE this wrapper instead of
+            stretching the page: flex items default to min-width:auto, which
+            would otherwise push the board columns out past the viewport. */}
+        <div className={cm.cn(cm.flex1, cm.sp('p', 8), 'min-w-0 overflow-x-auto')}>
           {loading ? (
             <p className="text-sm text-on-surface-variant" data-testid="board-loading">
               {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
