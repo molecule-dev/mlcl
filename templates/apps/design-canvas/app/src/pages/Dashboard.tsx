@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -143,6 +144,7 @@ export function Dashboard() {
       })
       const created = (res as { data?: { id?: string } }).data ?? null
       if (created?.id) {
+        void track({ name: 'canvas.created', properties: { projectId: created.id } })
         navigate(`/editor/${created.id}`)
       }
     } finally {

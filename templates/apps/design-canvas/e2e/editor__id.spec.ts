@@ -136,7 +136,13 @@ test.describe('editor page', () => {
 
   test('Share button POSTs /api/projects/:id/collaborators and shows status banner', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // Free tier refuses the invite with 402 — the paywall message IS the
+    // expected status banner; allow its console noise.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 402',
+    })
     const { accessToken } = await signup(page)
     const project = await openEditor(page, accessToken)
     const reqs = await captureNetwork(page, async () => {
@@ -203,7 +209,12 @@ test.describe('editor page', () => {
 
   test('navigating to /editor/<unknown-id> shows the "Project unavailable" error block', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // The unknown-id GET 404s by design — the error block is the expectation.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(`${APP_BASE}/editor/00000000-0000-0000-0000-000000000000`)
     await expect(page.locator('text=/Project unavailable/i')).toBeVisible({ timeout: 10000 })

@@ -65,8 +65,11 @@ test.describe('library page', () => {
     await page.goto(APP_BASE + '/library')
     await page.waitForSelector('[data-mol-id="library-section-content"]', { timeout: 10000 })
     await page.locator('[data-mol-id="library-section-colors"]').click()
-    await page.waitForTimeout(300)
-    expect(await page.locator('[data-mol-id^="library-token-"]').count()).toBeGreaterThanOrEqual(1)
+    // Poll instead of a fixed wait — under fleet-suite load the token fetch
+    // can take longer than 300ms to resolve.
+    await expect(page.locator('[data-mol-id^="library-token-"]').first()).toBeVisible({
+      timeout: 15000,
+    })
   })
 
   test('switching to typography renders the typography token cards', async ({ page }) => {

@@ -36,7 +36,12 @@ test.describe('login page', () => {
 
   test('submitting login with bad creds shows an alert (POST /api/users/log-in fails)', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // Bad credentials 403 by design — the inline alert is the expectation.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/login')
       await page.locator('input#login-email').fill('definitely-not-a-user@flagship.test')

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -96,6 +97,8 @@ export function Editor() {
   const [shareStatus, setShareStatus] = useState<string | null>(null)
   const [exportStatus, setExportStatus] = useState<string | null>(null)
   const [loadError, setLoadError] = useState<string | null>(null)
+  /** Which side panel is slid over the canvas on <lg screens (asides are fixed there). */
+  const [mobilePanel, setMobilePanel] = useState<'layers' | 'properties' | null>(null)
 
   const loadProject = useCallback(async () => {
     if (!id) return
@@ -132,6 +135,7 @@ export function Editor() {
       const updated = (resp as { data?: Project }).data ?? project
       setProject({ ...project, name: updated.name })
       setEditingName(false)
+      void track({ name: 'canvas.renamed', properties: { projectId: project.id } })
     } finally {
       setSavingName(false)
     }
@@ -154,7 +158,13 @@ export function Editor() {
     try {
       const resp = await http.post('/api/shapes', { projectId: project.id, ...payload })
       const created = (resp as { data?: Record<string, unknown> }).data ?? null
-      if (created) setShapes((prev) => [...prev, shapeFromRecord(created)])
+      if (created) {
+        setShapes((prev) => [...prev, shapeFromRecord(created)])
+        void track({
+          name: 'shape.added',
+          properties: { projectId: project.id, shapeId: String(created.id), type: payload.type },
+        })
+      }
     } catch (_error) {
       // leave UI unchanged on failure; toast surfaced via feedback
     }
@@ -165,6 +175,10 @@ export function Editor() {
       await http.delete(`/api/shapes/${shapeId}`)
       setShapes((prev) => prev.filter((s) => s.id !== shapeId))
       if (selectedShapeId === shapeId) setSelectedShapeId(null)
+      void track({
+        name: 'shape.deleted',
+        properties: { projectId: project?.id, shapeId },
+      })
     } catch (_error) {
       // optimistic delete already applied; server error is best-effort
     }
@@ -183,8 +197,16 @@ export function Editor() {
       const data = (resp as { data?: { id?: string; status?: string } }).data ?? null
       if (data?.status === 'ready') {
         setExportStatus(t('editor.exportReady', {}, { defaultValue: 'Export ready' })!)
+        void track({
+          name: 'design.exported',
+          properties: { projectId: project.id, exportId: data.id, format: 'png', status: 'ready' },
+        })
       } else if (data) {
         setExportStatus(t('editor.exportQueued', {}, { defaultValue: 'Export queued' })!)
+        void track({
+          name: 'design.exported',
+          properties: { projectId: project.id, exportId: data.id, format: 'png', status: 'queued' },
+        })
       }
     } catch (err) {
       setExportStatus(((err as { message?: string }).message ?? 'Export failed').slice(0, 80))
@@ -204,6 +226,10 @@ export function Editor() {
       const data = (resp as { data?: { id?: string } }).data ?? null
       if (data?.id) {
         setShareStatus(t('editor.shareInvited', {}, { defaultValue: 'Collaborator invite sent' })!)
+        void track({
+          name: 'design.shared',
+          properties: { projectId: project.id, collaboratorId: data.id },
+        })
       }
     } catch (err) {
       const msg =
@@ -276,12 +302,24 @@ export function Editor() {
   return (
     <DesignCanvasLayout variant="canvas">
       <div className={cm.cn(cm.flex({}), cm.h('screen'), 'bg-surface text-on-surface')}>
+        {/* Mobile drawer backdrop (<lg) */}
+        {mobilePanel && (
+          <div
+            aria-hidden="true"
+            data-mol-id="editor-panel-backdrop"
+            onClick={() => setMobilePanel(null)}
+            className="lg:hidden fixed inset-0 z-30 bg-black/40"
+          />
+        )}
         {/* LEFT — Layers */}
         <aside
           data-mol-id="editor-layers"
           className={cm.cn(
             cm.flex({ direction: 'col' }),
             'w-[260px] border-r border-outline-variant/30 bg-surface-container-low',
+            // <lg: off-canvas drawer toggled from the toolbar
+            'max-lg:fixed max-lg:inset-y-0 max-lg:left-0 max-lg:z-40 max-lg:shadow-2xl max-lg:transition-transform',
+            mobilePanel === 'layers' ? 'max-lg:translate-x-0' : 'max-lg:-translate-x-full',
           )}
         >
           <header
@@ -320,6 +358,20 @@ export function Editor() {
             >
               {t('editor.layersLabel', {}, { defaultValue: 'Layers' })}
             </span>
+            <button
+              type="button"
+              onClick={() => setMobilePanel(null)}
+              aria-label={t('common.close', {}, { defaultValue: 'Close' })!}
+              data-mol-id="editor-layers-close"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.w(8),
+                cm.h(8),
+                'lg:hidden rounded-md text-on-surface-variant hover:bg-surface-container',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[18px]')}>close</span>
+            </button>
           </header>
           <div className={cm.cn(cm.flex1, 'overflow-y-auto')} data-mol-id="editor-layer-list">
             {layerEntries.length === 0 ? (
@@ -344,7 +396,11 @@ export function Editor() {
                   <button
                     key={shape.id}
                     type="button"
-                    onClick={() => setSelectedShapeId(shape.id)}
+                    onClick={() => {
+                      setSelectedShapeId(shape.id)
+                      // On mobile, inspecting a layer → open its properties drawer
+                      setMobilePanel((p) => (p === 'layers' ? 'properties' : p))
+                    }}
                     className={cm.cn(
                       cm.flex({ align: 'center', justify: 'between' }),
                       cm.sp('px', 4),
@@ -383,10 +439,17 @@ export function Editor() {
               cm.sp('px', 4),
               cm.h(12),
               'border-b border-outline-variant/30 bg-surface-container-lowest',
+              // <lg: let the bar wrap so tools get their own scrollable row
+              'max-lg:h-auto max-lg:flex-wrap max-lg:py-2 max-lg:gap-y-2',
             )}
             data-mol-id="editor-toolbar"
           >
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'min-w-0 flex-1 max-lg:basis-auto',
+              )}
+            >
               <span
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
@@ -433,7 +496,7 @@ export function Editor() {
                   className={cm.cn(
                     cm.fontWeight('bold'),
                     cm.textSize('sm'),
-                    'tracking-tight text-on-surface hover:underline',
+                    'tracking-tight text-on-surface hover:underline truncate',
                   )}
                 >
                   {project.name}
@@ -445,6 +508,7 @@ export function Editor() {
                   cm.sp('py', 0),
                   cm.fontWeight('bold'),
                   'rounded-full text-[10px] uppercase tracking-widest bg-tertiary/15 text-tertiary',
+                  'max-md:hidden whitespace-nowrap',
                 )}
               >
                 {savingName
@@ -454,7 +518,10 @@ export function Editor() {
             </div>
 
             <div
-              className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'max-lg:order-last max-lg:basis-full max-lg:overflow-x-auto max-lg:py-1',
+              )}
               data-mol-id="editor-tools"
             >
               {TOOLS.map((tool) => {
@@ -489,12 +556,55 @@ export function Editor() {
               })}
             </div>
 
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-              <CollaboratorStack
-                collaborators={[{ id: 'self', name: 'You', avatarColor: '#7c3aed', online: true }]}
-                max={3}
-                size="sm"
-              />
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+              {/* <lg: side panels become drawers — toggle buttons live here */}
+              <button
+                type="button"
+                onClick={() => setMobilePanel((p) => (p === 'layers' ? null : 'layers'))}
+                data-mol-id="editor-layers-toggle"
+                aria-label={t('editor.layersLabel', {}, { defaultValue: 'Layers' })!}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                  cm.sp('px', 2),
+                  cm.sp('py', 2),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('xs'),
+                  'lg:hidden rounded-lg bg-surface-container text-on-surface-variant',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')}>layers</span>
+                <span className="max-[420px]:hidden">
+                  {t('editor.layersLabel', {}, { defaultValue: 'Layers' })}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobilePanel((p) => (p === 'properties' ? null : 'properties'))}
+                data-mol-id="editor-properties-toggle"
+                aria-label={t('editor.propertiesLabel', {}, { defaultValue: 'Properties' })!}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                  cm.sp('px', 2),
+                  cm.sp('py', 2),
+                  cm.fontWeight('semibold'),
+                  cm.textSize('xs'),
+                  'lg:hidden rounded-lg bg-surface-container text-on-surface-variant',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')}>tune</span>
+                <span className="max-[420px]:hidden">
+                  {t('editor.propertiesLabel', {}, { defaultValue: 'Properties' })}
+                </span>
+              </button>
+              <div className={cm.cn('max-md:hidden')}>
+                <CollaboratorStack
+                  collaborators={[
+                    { id: 'self', name: 'You', avatarColor: '#7c3aed', online: true },
+                  ]}
+                  max={3}
+                  size="sm"
+                />
+              </div>
               <button
                 type="button"
                 onClick={() => void startShare()}
@@ -607,8 +717,8 @@ export function Editor() {
                   onClick={() => setZoom((z) => Math.max(25, z - 25))}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    cm.w(7),
-                    cm.h(7),
+                    cm.w(9),
+                    cm.h(9),
                     'rounded-md text-on-surface-variant hover:bg-surface-container',
                   )}
                   aria-label={t('editor.zoomOut', {}, { defaultValue: 'Zoom out' })!}
@@ -631,8 +741,8 @@ export function Editor() {
                   onClick={() => setZoom((z) => Math.min(400, z + 25))}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
-                    cm.w(7),
-                    cm.h(7),
+                    cm.w(9),
+                    cm.h(9),
                     'rounded-md text-on-surface-variant hover:bg-surface-container',
                   )}
                   aria-label={t('editor.zoomIn', {}, { defaultValue: 'Zoom in' })!}
@@ -650,6 +760,9 @@ export function Editor() {
           className={cm.cn(
             cm.flex({ direction: 'col' }),
             'w-[300px] border-l border-outline-variant/30 bg-surface-container-low overflow-y-auto',
+            // <lg: off-canvas drawer toggled from the toolbar
+            'max-lg:fixed max-lg:inset-y-0 max-lg:right-0 max-lg:z-40 max-lg:shadow-2xl max-lg:transition-transform',
+            mobilePanel === 'properties' ? 'max-lg:translate-x-0' : 'max-lg:translate-x-full',
           )}
         >
           <header
@@ -668,6 +781,20 @@ export function Editor() {
             >
               {t('editor.propertiesLabel', {}, { defaultValue: 'Properties' })}
             </span>
+            <button
+              type="button"
+              onClick={() => setMobilePanel(null)}
+              aria-label={t('common.close', {}, { defaultValue: 'Close' })!}
+              data-mol-id="editor-properties-close"
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.w(8),
+                cm.h(8),
+                'lg:hidden rounded-md text-on-surface-variant hover:bg-surface-container',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[18px]')}>close</span>
+            </button>
           </header>
           <div className={cm.cn(cm.flex1, cm.sp('p', 4), cm.stack(3))}>
             {selectedShapeId ? (

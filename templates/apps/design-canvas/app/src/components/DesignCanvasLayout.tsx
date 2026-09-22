@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
@@ -33,8 +34,13 @@ const NAV_ITEMS: Array<{ to: string; icon: string; key: string; defaultLabel: st
   { to: '/settings', icon: 'tune', key: 'settings', defaultLabel: 'Settings' },
 ]
 
+const MOBILE_QUERY = '(max-width: 767px)'
+
 /**
- * Authenticated app shell — sidebar nav + sticky top bar.
+ * Authenticated app shell — sidebar nav + sticky top bar on desktop, and below
+ * the md breakpoint (768px) a sticky top bar + horizontally scrollable chip
+ * nav (the 260px sidebar would swallow a 390px viewport). Only one shell is
+ * mounted at a time so the page content never mounts twice.
  *
  * Translated from whiteboard's WhiteboardLayout.tsx — same 260px sidebar
  * + sticky-blur header pattern, retuned to the Atelier wordmark + Material
@@ -52,6 +58,16 @@ export function DesignCanvasLayout({
   const { logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
+  const [belowMobile, setBelowMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches,
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY)
+    const onChange = (e: MediaQueryListEvent) => setBelowMobile(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   const handleLogout = async () => {
     try {
@@ -66,6 +82,198 @@ export function DesignCanvasLayout({
   }
 
   const isCanvas = variant === 'canvas'
+
+  if (belowMobile) {
+    const navLabel = t(
+      'designCanvasLayout.primaryNavLabel',
+      {},
+      { defaultValue: 'Primary navigation' },
+    )!
+    return (
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.minH('screen'),
+          'bg-surface text-on-surface antialiased',
+        )}
+        data-mol-id="design-canvas-mobile-shell"
+      >
+        <header
+          className={cm.cn(
+            'sticky top-0 z-40 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30',
+          )}
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              cm.sp('px', 4),
+              'h-14',
+            )}
+          >
+            <Link
+              to="/dashboard"
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}
+            >
+              <span
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(8),
+                  cm.h(8),
+                  'shrink-0 bg-gradient-to-br from-primary to-secondary rounded-lg text-white shadow-sm',
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-[18px]')}
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  brush
+                </span>
+              </span>
+              <span
+                className={cm.cn(
+                  cm.textSize('lg'),
+                  cm.fontWeight('bold'),
+                  'tracking-tight text-on-surface truncate',
+                )}
+              >
+                {APP_NAME}
+              </span>
+            </Link>
+            <UserMenu />
+          </div>
+        </header>
+        <main className={cm.cn(cm.flex1, 'min-w-0')}>
+          {!isCanvas && (
+            <>
+              <nav
+                aria-label={navLabel}
+                data-mol-id="design-canvas-mobile-nav"
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  'pb-2 overflow-x-auto',
+                )}
+              >
+                <Link
+                  to="/dashboard?new=1"
+                  data-mol-id="mobile-nav-new-project"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    cm.roundedFull,
+                    'whitespace-nowrap bg-gradient-to-br from-primary to-secondary text-white shadow-sm',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[16px]')}
+                    aria-hidden="true"
+                  >
+                    add
+                  </span>
+                  {t('designCanvasLayout.newProject', {}, { defaultValue: 'New project' })}
+                </Link>
+                {NAV_ITEMS.map((item) => {
+                  const active =
+                    location.pathname === item.to ||
+                    (item.to !== '/' && location.pathname.startsWith(item.to))
+                  return (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      data-mol-id={`mobile-nav-${item.key}`}
+                      aria-current={active ? 'page' : undefined}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'xs' }),
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                        cm.roundedFull,
+                        'whitespace-nowrap',
+                        active
+                          ? 'bg-primary-fixed/40 text-on-primary-container'
+                          : 'text-on-surface-variant hover:bg-surface-container/60',
+                      )}
+                    >
+                      <span
+                        className={cm.cn('material-symbols-outlined text-[16px]')}
+                        aria-hidden="true"
+                      >
+                        {item.icon}
+                      </span>
+                      {t(
+                        `designCanvasLayout.nav.${item.key}`,
+                        {},
+                        { defaultValue: item.defaultLabel },
+                      )}
+                    </Link>
+                  )
+                })}
+                <button
+                  type="button"
+                  onClick={() => void handleLogout()}
+                  data-mol-id="mobile-nav-signout"
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    cm.roundedFull,
+                    'whitespace-nowrap text-on-surface-variant hover:bg-surface-container/60',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[16px]')}
+                    aria-hidden="true"
+                  >
+                    logout
+                  </span>
+                  {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+                </button>
+              </nav>
+              <div
+                className={cm.cn(
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  cm.sp('px', 4),
+                  cm.sp('py', 4),
+                )}
+              >
+                {eyebrow && (
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {eyebrow}
+                  </span>
+                )}
+                <h1
+                  className={cm.cn(
+                    cm.textSize('xl'),
+                    cm.fontWeight('bold'),
+                    'tracking-tight text-on-surface',
+                  )}
+                >
+                  {title ?? APP_NAME}
+                </h1>
+                {actions && (
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+                    {actions}
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+          <div className={cm.cn(cm.flex1, isCanvas ? '' : cm.sp('px', 4))}>{children}</div>
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div
@@ -177,7 +385,7 @@ export function DesignCanvasLayout({
         </div>
       </aside>
 
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }))}>
+      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
         {!isCanvas && (
           <header
             className={cm.cn(

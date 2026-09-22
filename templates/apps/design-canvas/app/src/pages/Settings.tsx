@@ -44,18 +44,19 @@ interface ProfileResponse {
   prefs: ProfilePrefs
 }
 
+/**
+ * Shape returned by GET /api/billing/tiers (createBillingRouter →
+ * `{ data: getPricingTiers() }`): each tier carries a `key` (NOT `planKey`)
+ * and display-string prices (`price: '$15/mo'`), with `stripePriceId` null on
+ * unconfigured tiers.
+ */
 interface PriceTier {
-  planKey: string
+  key: string
   name: string
-  description?: string
   prices: Array<{
-    label?: string
-    interval?: string
-    amount?: number
-    currency?: string
-    stripePriceId?: string
-    googleProductId?: string
-    appleProductId?: string
+    period?: string
+    price?: string
+    stripePriceId?: string | null
   }>
 }
 
@@ -614,8 +615,8 @@ export function Settings() {
               <div className={cm.cn(cm.grid({ cols: 3, gap: 'md' }))}>
                 {tiers.map((tier) => (
                   <article
-                    key={tier.planKey}
-                    data-mol-id={`settings-billing-tier-${tier.planKey}`}
+                    key={tier.key}
+                    data-mol-id={`settings-billing-tier-${tier.key}`}
                     className={cm.cn(
                       cm.sp('p', 5),
                       cm.stack(3),
@@ -623,27 +624,17 @@ export function Settings() {
                     )}
                   >
                     <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{tier.name}</h3>
-                    {tier.description && (
-                      <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                        {tier.description}
-                      </p>
-                    )}
                     {tier.prices.map((price, idx) => (
-                      <div key={`${tier.planKey}-${idx}`} className={cm.cn(cm.stack(2))}>
+                      <div key={`${tier.key}-${idx}`} className={cm.cn(cm.stack(2))}>
                         <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                          {price.label ?? price.interval ?? '—'}
-                          {typeof price.amount === 'number'
-                            ? ` · ${(price.amount / 100).toFixed(2)} ${(
-                                price.currency ?? 'usd'
-                              ).toUpperCase()}`
-                            : ''}
+                          {price.price ?? '—'}
                         </span>
                         {price.stripePriceId && (
                           <button
                             type="button"
                             onClick={() => void startCheckout(price.stripePriceId!)}
                             disabled={checkoutLoading === price.stripePriceId}
-                            data-mol-id={`settings-billing-checkout-${tier.planKey}-${idx}`}
+                            data-mol-id={`settings-billing-checkout-${tier.key}-${idx}`}
                             className={cm.cn(
                               cm.sp('px', 3),
                               cm.sp('py', 2),
@@ -654,7 +645,7 @@ export function Settings() {
                           >
                             {checkoutLoading === price.stripePriceId
                               ? t('common.startingEllipsis', {}, { defaultValue: 'Starting…' })
-                              : billingStatus?.planKey === tier.planKey
+                              : billingStatus?.planKey === tier.key
                                 ? t('nav.currentPlan', {}, { defaultValue: 'Current plan' })
                                 : t(
                                     'settings.billing.upgradeCta',

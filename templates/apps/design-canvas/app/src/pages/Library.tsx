@@ -30,10 +30,12 @@ export function Library() {
   const [active, setActive] = useState<SectionId>('colors')
   const [tokens, setTokens] = useState<DesignToken[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
 
-  useEffect(() => {
+  const load = () => {
     let cancelled = false
     setLoading(true)
+    setLoadError(null)
     http
       .get('/api/design_tokens')
       .then((resp) => {
@@ -42,7 +44,10 @@ export function Library() {
         setTokens(data)
       })
       .catch(() => {
-        if (!cancelled) setTokens([])
+        if (!cancelled)
+          setLoadError(
+            t('library.loadFailed', {}, { defaultValue: 'Could not load design tokens.' })!,
+          )
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -50,6 +55,12 @@ export function Library() {
     return () => {
       cancelled = true
     }
+  }
+
+  useEffect(() => {
+    const cleanup = load()
+    return cleanup
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [http])
 
   const filtered = useMemo(() => tokens.filter((tok) => tok.section === active), [tokens, active])
@@ -146,6 +157,31 @@ export function Library() {
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('library.loading', {}, { defaultValue: 'Loading design tokens…' })}
             </p>
+          ) : loadError ? (
+            <div
+              data-mol-id="library-error"
+              className={cm.cn(
+                cm.sp('p', 5),
+                cm.stack(3),
+                'bg-surface-container-lowest rounded-2xl border border-error/40 text-on-surface',
+              )}
+            >
+              <p className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>{loadError}</p>
+              <button
+                type="button"
+                onClick={load}
+                data-mol-id="library-retry"
+                className={cm.cn(
+                  cm.sp('px', 4),
+                  cm.sp('py', 2),
+                  cm.fontWeight('bold'),
+                  cm.textSize('sm'),
+                  'w-fit rounded-xl bg-primary text-white',
+                )}
+              >
+                {t('common.retry', {}, { defaultValue: 'Retry' })}
+              </button>
+            </div>
           ) : filtered.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('library.empty', {}, { defaultValue: 'No tokens in this section yet.' })}

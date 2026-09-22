@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -135,6 +136,10 @@ export function Team() {
       await http.post('/api/team/invite', { email: inviteEmail.trim(), role: inviteRole })
       setInviteStatus(t('team.inviteSent', {}, { defaultValue: 'Invite sent' })!)
       setInviteEmail('')
+      void track({
+        name: 'team.invited',
+        properties: { role: inviteRole },
+      })
       load()
     } catch (err) {
       setInviteStatus(

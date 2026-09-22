@@ -36,7 +36,12 @@ test.describe('reset-password page', () => {
 
   test('submitting invalid token surfaces an error — POST /api/users/reset-password hit', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // A bogus token 401s by design — the inline error is the expectation.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password')
       await page.locator('input#reset-email').fill('nobody@flagship.test')
