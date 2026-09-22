@@ -34,10 +34,12 @@ export function Drafts() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [filter, setFilter] = useState<'all' | 'recent' | 'bookmarked'>('all')
-  const [drafts, setDrafts] = useState<DraftRow[]>([])
+  const [drafts, setDrafts] = useState<DraftRow[] | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
+    setLoadError(null)
     Promise.all([
       http.get('/articles'),
       // The bookmark resource drives the "Bookmarked" filter chip.
@@ -66,14 +68,16 @@ export function Drafts() {
         )
       })
       .catch(() => {
-        if (!cancelled) setDrafts([])
+        if (cancelled) return
+        setDrafts([])
+        setLoadError(t('drafts.loadFailed', {}, { defaultValue: 'Could not load your drafts.' }))
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
-  const filtered = drafts.filter((d) => {
+  const filtered = (drafts ?? []).filter((d) => {
     if (filter === 'bookmarked') return d.bookmarked
     if (filter === 'recent') {
       return Date.now() - new Date(d.updated_at).getTime() < 1000 * 60 * 60 * 24
@@ -153,7 +157,37 @@ export function Drafts() {
         })}
       </nav>
 
-      {filtered.length === 0 ? (
+      {loadError ? (
+        <p
+          role="alert"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'rounded-lg bg-error/10 text-error',
+          )}
+        >
+          {loadError}
+        </p>
+      ) : drafts === null ? (
+        <div className={cm.cn('space-y-3')} aria-busy="true" aria-live="polite">
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className={cm.cn(
+                cm.sp('p', 4),
+                'animate-pulse rounded-xl bg-surface-container ring-1 ring-outline-variant',
+              )}
+            >
+              <div className="h-4 w-1/3 rounded bg-surface-container-high" />
+              <div
+                className={cm.cn(cm.sp('mt', 2), 'h-3 w-2/3 rounded bg-surface-container-high')}
+              />
+            </div>
+          ))}
+        </div>
+      ) : filtered.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), 'text-center text-on-surface-variant')}>
           {t(
             'drafts.empty',

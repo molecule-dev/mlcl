@@ -2,6 +2,7 @@ import type { FormEvent } from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -80,6 +81,10 @@ export function NewSpace() {
       })
       const space = unwrapSingle<CreatedSpace>(res)
       const target = space?.key ?? key
+      void track({
+        name: 'space.created',
+        properties: { space_id: space?.id, space_key: target },
+      })
       navigate(`/spaces/${target}`)
     } catch (err) {
       setError(

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -52,6 +53,7 @@ export function SearchResults() {
   const [hits, setHits] = useState<SearchHit[]>([])
   const [loading, setLoading] = useState(false)
   const [hasFetched, setHasFetched] = useState(false)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -74,6 +76,7 @@ export function SearchResults() {
     }
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     // Backend search across every article the user can read (own spaces +
     // member spaces). Server filters by title + body_md substring match.
     Promise.all([
@@ -102,11 +105,16 @@ export function SearchResults() {
         })
         setHits(matched)
         setHasFetched(true)
+        void track({
+          name: 'search.performed',
+          properties: { query: queryParam, result_count: matched.length },
+        })
       })
       .catch(() => {
         if (!cancelled) {
           setHits([])
           setHasFetched(true)
+          setLoadError(true)
         }
       })
       .finally(() => {
@@ -185,7 +193,7 @@ export function SearchResults() {
             cm.sp('py', 1),
             cm.textSize('xs'),
             cm.fontWeight('extrabold'),
-            'rounded-md bg-surface-container text-on-surface-variant',
+            'hidden md:block rounded-md bg-surface-container text-on-surface-variant',
           )}
         >
           {'\u2318K'}
@@ -222,21 +230,42 @@ export function SearchResults() {
       </nav>
 
       <div>
-        <p
-          className={cm.cn(
-            cm.textSize('xs'),
-            cm.fontWeight('extrabold'),
-            'uppercase tracking-widest text-on-surface-variant',
-          )}
-        >
-          {t(
-            'searchResults.summary',
-            { count: filtered.length, query },
-            { defaultValue: '{{count}} results for \u201c{{query}}\u201d' },
-          )}
-        </p>
+        {/* The count is meaningless before a query exists — show it only for
+            real searches so the idle state isn't "0 results for ''". */}
+        {queryParam.trim() ? (
+          <p
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('extrabold'),
+              'uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t(
+              'searchResults.summary',
+              { count: filtered.length, query },
+              { defaultValue: '{{count}} results for \u201c{{query}}\u201d' },
+            )}
+          </p>
+        ) : null}
         <div className={cm.cn(cm.sp('mt', 4), 'space-y-3')}>
-          {loading ? (
+          {loadError ? (
+            <div
+              role="alert"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'rounded-lg bg-error/10 text-error',
+              )}
+            >
+              {t(
+                'searchResults.error',
+                {},
+                { defaultValue: 'Search failed. Check your connection and try again.' },
+              )}
+            </div>
+          ) : loading ? (
             <p className={cm.cn(cm.sp('py', 16), 'text-center text-on-surface-variant')}>
               {t('searchResults.loading', {}, { defaultValue: 'Searching\u2026' })}
             </p>

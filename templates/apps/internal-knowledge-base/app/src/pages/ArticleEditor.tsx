@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -234,6 +235,16 @@ export function ArticleEditor() {
         const a = (res as { data?: ArticleResponse }).data ?? (res as unknown as ArticleResponse)
         setStatus(a?.status ?? targetStatus)
         setSavedAt(a?.last_edited_at ?? new Date().toISOString())
+        void track({
+          name: 'article.updated',
+          properties: { article_id: articleId, status: a?.status ?? targetStatus },
+        })
+        if (isPublish && targetStatus === 'published') {
+          void track({
+            name: 'article.published',
+            properties: { article_id: articleId, space_id: spaceId },
+          })
+        }
       } else {
         const res = await http.post<ArticleResponse>('/articles', {
           space_id: spaceId,
@@ -247,6 +258,16 @@ export function ArticleEditor() {
           setArticleId(a.id)
           setStatus(a.status)
           setSavedAt(a.last_edited_at ?? new Date().toISOString())
+          void track({
+            name: 'article.created',
+            properties: { article_id: a.id, space_id: spaceId, status: a.status },
+          })
+          if (a.status === 'published') {
+            void track({
+              name: 'article.published',
+              properties: { article_id: a.id, space_id: spaceId },
+            })
+          }
           // Replace history so we move from /article/new/edit to /article/:id/edit
           navigate(`/article/${a.id}/edit`, { replace: true })
         }

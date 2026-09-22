@@ -24,6 +24,8 @@ test('login → home', async ({ page, browser }) => {
 })
 
 test('login with bad credentials surfaces an error', async ({ page }) => {
+  // The failed log-in intentionally 403s — an expected rejection, not a bug.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').first().fill('nobody@example.com')
   await page.locator('input[type="password"]').first().fill('wrongPass!')

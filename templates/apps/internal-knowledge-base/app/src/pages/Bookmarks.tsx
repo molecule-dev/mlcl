@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { t as translate } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -119,6 +120,7 @@ export function Bookmarks() {
     try {
       await http.delete(`/bookmarks/article/${articleId}`)
       setRows((prev) => prev.filter((r) => r.id !== articleId))
+      void track({ name: 'bookmark.removed', properties: { article_id: articleId } })
     } catch (_error) {
       // Best-effort UI; reload to recover from error states
     }

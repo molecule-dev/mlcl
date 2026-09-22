@@ -2,17 +2,27 @@ import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 import { APP_BASE, apiGet, captureNetwork, signup, uniqueEmail } from './_helpers.js'
 
-test('Settings shows real email from /users/me; persists email change', async ({ page }) => {
-  const { email } = await signup(page)
+test('Settings shows real email from /users/me; persists email change (re-auth gate)', async ({
+  page,
+}) => {
+  const { email, password } = await signup(page)
   await page.goto(APP_BASE + '/settings')
   const emailInput = page.locator('#settings-email')
   await expect(emailInput).toBeVisible({ timeout: 10_000 })
   await expect(emailInput).toHaveValue(email)
 
+  // The backend refuses an email change without the current password (the
+  // email is the account-recovery anchor), so blur opens the confirm modal
+  // and the PATCH only fires once the password is supplied there.
   const newEmail = uniqueEmail('updated')
   await emailInput.fill(newEmail)
   const reqs = await captureNetwork(page, async () => {
     await emailInput.blur()
+    await expect(page.getByRole('dialog', { name: /confirm email change/i })).toBeVisible({
+      timeout: 10_000,
+    })
+    await page.locator('#settings-email-password').fill(password)
+    await page.getByRole('button', { name: /update email/i }).click()
     await page.waitForTimeout(1500)
   })
   const patch = reqs.find((r) => /\/api\/users\/[0-9a-f-]+/.test(r.url) && r.method === 'PATCH')
@@ -27,9 +37,7 @@ test('Settings shows real email from /users/me; persists email change', async ({
   await expect(page.locator('#settings-email')).toHaveValue(newEmail, { timeout: 10_000 })
 })
 
-test('Notification preferences toggle persists via PATCH /users/:id (oauthData.preferences)', async ({
-  page,
-}) => {
+test('Notification preferences toggle persists via the /api/settings slice', async ({ page }) => {
   await signup(page)
   await page.goto(APP_BASE + '/settings')
   // Wait for me to load — input filled
@@ -45,14 +53,16 @@ test('Notification preferences toggle persists via PATCH /users/:id (oauthData.p
     await mentions.click()
     await page.waitForTimeout(800)
   })
-  const patch = reqs.find((r) => /\/api\/users\/[0-9a-f-]+$/.test(r.url) && r.method === 'PATCH')
+  // The platform user resource never returns `oauthData`, so preferences
+  // persist through the app-owned server-side slice instead.
+  const patch = reqs.find((r) => /\/api\/settings$/.test(r.url) && r.method === 'PATCH')
   expect(patch?.status).toBe(200)
 
-  // Verify via /users/me that oauthData.preferences.notifications.mentions is now false
-  const me = await apiGet<{
-    props: { oauthData?: { preferences?: { notifications?: Record<string, boolean> } } }
-  }>(page, '/users/me')
-  expect(me.body?.props.oauthData?.preferences?.notifications?.mentions).toBe(false)
+  // Verify server-side truth on a fresh request
+  const settings = await apiGet<{
+    preferences?: { notifications?: Record<string, boolean> }
+  }>(page, '/settings')
+  expect(settings.body?.preferences?.notifications?.mentions).toBe(false)
 
   // Persists across reload
   await page.reload()
@@ -71,10 +81,10 @@ test('Reading preferences toggle persists', async ({ page }) => {
   await tocAuto.click()
   await page.waitForTimeout(800)
 
-  const me = await apiGet<{
-    props: { oauthData?: { preferences?: { reading?: Record<string, boolean> } } }
-  }>(page, '/users/me')
-  expect(me.body?.props.oauthData?.preferences?.reading?.tocAuto).toBe(false)
+  const settings = await apiGet<{
+    preferences?: { reading?: Record<string, boolean> }
+  }>(page, '/settings')
+  expect(settings.body?.preferences?.reading?.tocAuto).toBe(false)
 })
 
 test('Two-factor Enable opens the TOTP modal; setup provisions a QR; invalid code is rejected', async ({
@@ -103,6 +113,8 @@ test('Two-factor Enable opens the TOTP modal; setup provisions a QR; invalid cod
   expect(setup!.status).toBeLessThan(400)
 
   // A bogus code must NOT enable 2FA.
+  // The rejected verify (403) is the expected behavior under test.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.locator('#settings-2fa-token').fill('000000')
   await page.getByRole('button', { name: /verify & enable/i }).click()
   await page.waitForTimeout(800)

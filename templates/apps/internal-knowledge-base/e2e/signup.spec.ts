@@ -21,6 +21,8 @@ test('signup → home, profile API returns the new user, persists across reload'
 })
 
 test('signup with duplicate email surfaces an error', async ({ page, browser }) => {
+  // The duplicate-POST rejection (403) is the expected behavior under test.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   const email = uniqueEmail('dup')
   const password = 'TestPass123!'
 

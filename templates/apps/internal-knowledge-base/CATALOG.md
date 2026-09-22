@@ -13,7 +13,7 @@ Confluence-like knowledge base with articles, spaces, search, and permissions
 
 `auth`, `search`, `articles`, `spaces`, `permissions`, `bookmarks`, `comments`
 
-## Data model (14 domain tables)
+## Data model (15 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -31,6 +31,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **spaces** — id, created_by_user_id, key, name, description, icon, color, archived_at, created_at, updated_at
 - **tags** — id, name, slug, color, description, createdAt, updatedAt
 - **payments** — id, createdAt, updatedAt, userId, transactionId, productId, platformKey, data, receipt
+- **user_settings** — id, user_id, preferences, created_at, updated_at
 
 ## API surface (handlers)
 
@@ -44,6 +45,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **notifications** — `api/src/handlers/notifications.ts`
 - **space-members** — `api/src/handlers/space-members.ts`
 - **spaces** — `api/src/handlers/spaces.ts`
+- **user-settings** — `api/src/handlers/user-settings.ts`
 - **users-2fa** — `api/src/handlers/users-2fa.ts`
 
 ## Screens (16)

@@ -61,7 +61,7 @@ export function Landing() {
             cm.maxW('7xl'),
             cm.sp('px', 6),
             cm.sp('py', 4),
-            cm.flex({ align: 'center', justify: 'between' }),
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
             'mx-auto',
           )}
         >
@@ -69,7 +69,7 @@ export function Landing() {
             to="/"
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
-              cm.textSize('2xl'),
+              'text-xl md:text-2xl',
               cm.fontWeight('extrabold'),
               'tracking-tight text-on-surface',
             )}
@@ -84,12 +84,14 @@ export function Landing() {
             {APP_NAME}
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
+            {/* Compact screens reach Pricing via the page footer — the inline
+                link only fits from `sm` up. */}
             <Link
               to="/pricing"
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-on-surface',
+                'hidden text-on-surface-variant hover:text-on-surface sm:block',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}

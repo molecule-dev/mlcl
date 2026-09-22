@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { t as translate } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -169,9 +170,11 @@ export function ArticleView() {
       if (bookmarked) {
         await http.delete(`/bookmarks/article/${id}`)
         setBookmarked(false)
+        void track({ name: 'bookmark.removed', properties: { article_id: id } })
       } else {
         await http.post('/bookmarks', { resourceType: 'article', resourceId: id })
         setBookmarked(true)
+        void track({ name: 'bookmark.added', properties: { article_id: id } })
       }
     } catch (_error) {
       // Best-effort UI; user can retry by tapping the bookmark button again

@@ -58,9 +58,11 @@ test('POST /api/billing/checkout returns a real Stripe Checkout URL (cs_test_*)'
 })
 
 test('GET /api/billing/tiers returns paid tier metadata', async ({ page }) => {
-  await page.goto(APP_BASE + '/pricing')
+  // Arm the listener BEFORE the goto: the tiers GET fires on page mount, so
+  // capturing after the navigation races the request and flakes.
   const reqs = await captureNetwork(page, async () => {
-    await page.waitForTimeout(2500)
+    await page.goto(APP_BASE + '/pricing')
+    await page.waitForTimeout(1500)
   })
   const tiers = reqs.find((r) => /\/api\/billing\/tiers/.test(r.url))
   expect(tiers, 'GET /api/billing/tiers should be called').toBeDefined()

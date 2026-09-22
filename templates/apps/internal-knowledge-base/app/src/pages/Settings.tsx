@@ -79,7 +79,6 @@ interface MeProps {
   name: string | null
   email: string
   twoFactorEnabled?: boolean
-  oauthData?: Record<string, unknown> | null
 }
 
 interface MeResponse {
@@ -98,14 +97,10 @@ function defaultPreferences(): Preferences {
   }
 }
 
-function readPreferences(oauthData: Record<string, unknown> | null | undefined): Preferences {
+function readPreferences(raw: unknown): Preferences {
   const defaults = defaultPreferences()
-  const prefs =
-    oauthData && typeof oauthData === 'object'
-      ? (oauthData as { preferences?: unknown }).preferences
-      : undefined
-  if (!prefs || typeof prefs !== 'object') return defaults
-  const p = prefs as { notifications?: Record<string, boolean>; reading?: Record<string, boolean> }
+  if (!raw || typeof raw !== 'object') return defaults
+  const p = raw as { notifications?: Record<string, boolean>; reading?: Record<string, boolean> }
   return {
     notifications: { ...defaults.notifications, ...(p.notifications ?? {}) },
     reading: { ...defaults.reading, ...(p.reading ?? {}) },
@@ -120,11 +115,11 @@ export function Settings() {
   const { logout, user, setUser } = useAuth<MeProps>()
   // Seed from the already-restored auth user (populated during session
   // restore before this page mounts) so the switches render their persisted
-  // state on first paint — the freshly-mounted `/users/me` fetch below would
-  // otherwise leave them at defaults for a beat after a reload.
+  // state on first paint — the freshly-mounted fetches below would otherwise
+  // leave them at defaults for a beat after a reload.
   const initialMe = user ?? null
   const [me, setMe] = useState<MeProps | null>(initialMe)
-  const [prefs, setPrefs] = useState<Preferences>(() => readPreferences(initialMe?.oauthData))
+  const [prefs, setPrefs] = useState<Preferences>(defaultPreferences)
   const [nameDraft, setNameDraft] = useState(initialMe?.name ?? '')
   const [nameSaving, setNameSaving] = useState(false)
   const [nameError, setNameError] = useState<string | null>(null)
@@ -133,6 +128,10 @@ export function Settings() {
   const [emailSaving, setEmailSaving] = useState(false)
   const [emailError, setEmailError] = useState<string | null>(null)
   const [emailSuccess, setEmailSuccess] = useState(false)
+  // Email is the account-recovery anchor, so the backend refuses to change it
+  // without re-authentication: the PATCH must carry `currentPassword`. Blur
+  // opens the confirm modal instead of firing the request directly.
+  const [pendingEmail, setPendingEmail] = useState<string | null>(null)
   const [showPasswordModal, setShowPasswordModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [twoFactorModal, setTwoFactorModal] = useState<null | 'enable' | 'disable'>(null)
@@ -148,7 +147,18 @@ export function Settings() {
         setMe(u.props)
         setNameDraft(u.props.name ?? '')
         setEmailDraft(u.props.email ?? '')
-        setPrefs(readPreferences(u.props.oauthData))
+      })
+      .catch(() => {})
+    // Preferences live in an app-owned server-side slice — the platform
+    // user resource never returns `oauthData`, so PATCH /users/:id cannot
+    // persist them. GET /settings returns the stored slice ({} when the
+    // user has never saved); the client merges over its defaults.
+    http
+      .get('/settings')
+      .then((res) => {
+        if (cancelled) return
+        const slice = (res as { data?: { preferences?: unknown } }).data ?? {}
+        setPrefs(readPreferences(slice.preferences))
       })
       .catch(() => {})
     return () => {
@@ -157,19 +167,19 @@ export function Settings() {
   }, [http])
 
   const persistPreferences = async (next: Preferences) => {
-    if (!me) return
+    const previous = prefs
     setPrefs(next)
     try {
-      const oauthData = { ...(me.oauthData ?? {}), preferences: next }
-      await http.patch(`/users/${me.id}`, { oauthData })
-      const updated = { ...me, oauthData }
-      setMe(updated)
-      // Keep the auth store in sync so a remount (or seed-from-user) reflects
-      // the new value without waiting on a fresh /users/me round-trip.
-      setUser(updated)
+      // Server-side merge: PATCH the changed slice, adopt the merged result.
+      const res = await http.patch<{ preferences?: unknown }>('/settings', {
+        notifications: next.notifications,
+        reading: next.reading,
+      })
+      const merged = (res as { data?: { preferences?: unknown } }).data?.preferences
+      if (merged) setPrefs(readPreferences(merged))
     } catch (_error) {
       // Revert on failure
-      setPrefs(readPreferences(me.oauthData))
+      setPrefs(previous)
     }
   }
 
@@ -197,23 +207,35 @@ export function Settings() {
     }
   }
 
-  const persistEmail = async () => {
+  const persistEmail = () => {
     if (!me || emailSaving) return
-    if (emailDraft === me.email) return
+    const next = emailDraft.trim()
+    if (!next || next === me.email) return
     setEmailError(null)
     setEmailSuccess(false)
+    // The backend's re-auth gate (email is the recovery anchor) requires
+    // `currentPassword` on the PATCH, so collect it in a modal first.
+    setPendingEmail(next)
+  }
+
+  const commitEmail = async (currentPassword: string): Promise<boolean> => {
+    if (!me || !pendingEmail) return false
     setEmailSaving(true)
+    setEmailError(null)
     try {
-      await http.patch(`/users/${me.id}`, { email: emailDraft })
-      setMe({ ...me, email: emailDraft })
+      await http.patch(`/users/${me.id}`, { email: pendingEmail, currentPassword })
+      setMe({ ...me, email: pendingEmail })
+      setEmailDraft(pendingEmail)
+      setPendingEmail(null)
       setEmailSuccess(true)
+      return true
     } catch (err) {
       setEmailError(
         err instanceof Error
           ? err.message
           : t('settings.email.updateFailed', {}, { defaultValue: 'Could not update email' }),
       )
-      setEmailDraft(me.email)
+      return false
     } finally {
       setEmailSaving(false)
     }
@@ -549,6 +571,19 @@ export function Settings() {
         <PasswordModal userId={me.id} onClose={() => setShowPasswordModal(false)} />
       ) : null}
 
+      {pendingEmail && me ? (
+        <EmailConfirmModal
+          pendingEmail={pendingEmail}
+          saving={emailSaving}
+          error={emailError}
+          onClose={() => {
+            setPendingEmail(null)
+            setEmailDraft(me.email)
+          }}
+          onConfirm={commitEmail}
+        />
+      ) : null}
+
       {twoFactorModal && me ? (
         <TwoFactorModal
           userId={me.id}
@@ -658,6 +693,10 @@ function Switch({
       onClick={() => onChange(!value)}
       className={cm.cn(
         'relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50',
+        // The visual switch is 24px tall — under the ~40px tap-target floor.
+        // An invisible ::after extends the hit area to the row's padding
+        // without changing how the control draws.
+        "after:absolute after:-inset-2 after:rounded-full after:content-['']",
         value ? 'bg-primary' : 'bg-surface-container-high',
       )}
     >
@@ -816,6 +855,133 @@ function PasswordModal({ userId, onClose }: { userId: string; onClose: () => voi
             </div>
           </form>
         )}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Re-auth gate for the email change: the backend refuses PATCH /users/:id
+ * with an `email` unless the request also carries the account's current
+ * password (the email is the account-recovery anchor). Collect it here,
+ * then commit.
+ */
+function EmailConfirmModal({
+  pendingEmail,
+  saving,
+  error,
+  onClose,
+  onConfirm,
+}: {
+  pendingEmail: string
+  saving: boolean
+  error: string | null
+  onClose: () => void
+  onConfirm: (currentPassword: string) => Promise<boolean>
+}) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const [password, setPassword] = useState('')
+  const [localError, setLocalError] = useState<string | null>(null)
+
+  async function submit(e: FormEvent) {
+    e.preventDefault()
+    setLocalError(null)
+    if (!password) {
+      setLocalError(
+        t(
+          'user.error.currentPasswordRequired',
+          {},
+          { defaultValue: 'Enter your current password to continue.' },
+        ),
+      )
+      return
+    }
+    await onConfirm(password)
+  }
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [onClose])
+
+  return (
+    <div
+      role="presentation"
+      className={cm.cn('fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4')}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose()
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('settings.email.confirmTitle', {}, { defaultValue: 'Confirm email change' })}
+        className={cm.cn(
+          cm.sp('p', 6),
+          'w-full max-w-md space-y-4 rounded-2xl bg-surface ring-1 ring-outline-variant',
+        )}
+      >
+        <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'))}>
+          {t('settings.email.confirmTitle', {}, { defaultValue: 'Confirm email change' })}
+        </h2>
+        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+          {t(
+            'settings.email.confirmBody',
+            { email: pendingEmail },
+            {
+              defaultValue:
+                'Change your sign-in email to {{email}}? Enter your current password to confirm.',
+            },
+          )}
+        </p>
+        <form onSubmit={submit} className={cm.cn('space-y-3')}>
+          <Field
+            id="settings-email-password"
+            label={t('settings.password.current', {}, { defaultValue: 'Current password' })}
+            type="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={setPassword}
+          />
+          {error || localError ? (
+            <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+              {error || localError}
+            </p>
+          ) : null}
+          <div className={cm.flex({ align: 'center', justify: 'end', gap: 'sm' })}>
+            <button
+              type="button"
+              onClick={onClose}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'rounded-full text-on-surface-variant hover:bg-surface-container',
+              )}
+            >
+              {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+            </button>
+            <button
+              type="submit"
+              disabled={saving}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('extrabold'),
+                'rounded-full bg-primary text-white shadow-sm disabled:opacity-50',
+              )}
+            >
+              {saving
+                ? t('articleEditor.saving', {}, { defaultValue: 'Saving\u2026' })
+                : t('settings.email.confirm', {}, { defaultValue: 'Update email' })}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   )

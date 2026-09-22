@@ -37,6 +37,9 @@ test('Forgot password for unknown email still returns 200 (anti-enumeration)', a
 test('Reset password page posts to /api/users/reset-password (not /api/users/password)', async ({
   page,
 }) => {
+  // The bogus token intentionally 401s — the console guard must not treat
+  // that expected rejection as a failure.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(APP_BASE + '/reset-password?token=invalid-test-token')
   await page.locator('input#password').first().fill('NewPassword123!')
   await page.locator('input#confirm').first().fill('NewPassword123!')

@@ -8,6 +8,7 @@ import bookmarks from './bookmarks.js'
 import notifications from './notifications.js'
 import spaceMembers from './space-members.js'
 import spaces from './spaces.js'
+import userSettings from './user-settings.js'
 
 const router = Router()
 
@@ -19,5 +20,6 @@ router.use('/ai-summaries', aiSummaries)
 router.use('/attachments', attachments)
 router.use('/bookmarks', bookmarks)
 router.use('/notifications', notifications)
+router.use('/settings', userSettings)
 
 export default router
