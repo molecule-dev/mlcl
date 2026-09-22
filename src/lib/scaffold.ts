@@ -935,8 +935,9 @@ export async function injectPreviewRuntimeBridge(htmlPath: string): Promise<bool
  * (`molecule-dev/api/src/sandbox/preview-proxy-asset.ts`) — the live-preview control
  * bridge that lets Synthase (the IDE's AI executor) READ the on-screen UI (interactive
  * elements by `data-mol-id`) and click/fill/select in the running preview to verify a
- * feature end-to-end, with NO headless browser (the sandbox can't spare the memory and
- * the user must see what it's doing). molecule-dev injects this into IMPORTED-app
+ * feature end-to-end in the tab the user is watching (the e2e specs have their own
+ * browser — the sandbox ships Chromium — this bridge is for the user's live view and
+ * for the executor's preview tools). molecule-dev injects this into IMPORTED-app
  * previews via its runtime proxy bundle; baking the SAME script into SCAFFOLDED apps
  * here is what lets Synthase drive THEIR previews too. The two copies are kept
  * byte-identical by a drift-guard test (`preview-proxy-asset.test.ts`) that reads both

@@ -2,19 +2,24 @@ import { existsSync } from 'node:fs'
 
 import { defineConfig, devices } from '@playwright/test'
 
+import { resolveE2EProviderName } from '@molecule/app-e2e'
+
 const VITE_PORT = process.env.VITE_PORT || '3000'
 
 /**
  * `npm run test:e2e` runs the specs in `e2e/`.
  *
- * Inside a molecule sandbox they drive the live preview the IDE is showing
- * (`@molecule/app-e2e-preview` — no browser install, `baseURL` is ignored
- * because the preview page's own origin is used). On your machine and in CI
- * they run on real browsers (`npx playwright install chromium` once). See
- * `e2e/bonds.ts`.
+ * They run on a real browser through `@molecule/app-e2e-playwright` — inside a
+ * molecule sandbox on the Chromium the sandbox ships, against this app's own
+ * dev server on `localhost`, with no IDE tab involved; on your machine and in
+ * CI after `npx playwright install chromium` once. `MOL_E2E_PROVIDER=preview`
+ * drives the live preview the IDE is showing instead (`@molecule/app-e2e-preview`
+ * — `baseURL` is ignored there because the preview page's own origin is used,
+ * and it fails fast when no tab is attached). See `e2e/bonds.ts`.
  *
- * Against the preview a failed test is a failed test: the page is real, a
- * retry only replays the same result and multiplies the run time.
+ * Inside a sandbox a failed test is a failed test — the run is the executor's
+ * feedback loop, and a retry only replays the same result and multiplies the
+ * run time — so retries are off there.
  *
  * Run the WHOLE suite — `npm run test:e2e`. `workers: 1` runs every spec file
  * in ONE worker process, so the suite costs one runner startup no matter how
@@ -26,18 +31,17 @@ const VITE_PORT = process.env.VITE_PORT || '3000'
  * prints `Total: 0 tests in 0 files` when nothing matched — read that line,
  * because a run that selects nothing still exits 0.
  */
-// The live preview drives the specs inside a molecule sandbox (the marker the scaffold
-// writes); MOL_E2E_PROVIDER overrides. Same rule as @molecule/app-e2e's resolveE2EProviderName().
-const preview =
-  process.env.MOL_E2E_PROVIDER === 'preview' ||
-  (!process.env.MOL_E2E_PROVIDER && existsSync('/etc/mol/app-root'))
+// Which bond runs the specs is @molecule/app-e2e's one rule (MOL_E2E_PROVIDER, else the
+// environment). Inside a sandbox (the marker the platform writes): no retries.
+const preview = resolveE2EProviderName() === 'preview'
+const sandbox = existsSync('/etc/mol/app-root')
 
 export default defineConfig({
   testDir: './e2e',
   testMatch: /.*\.spec\.ts$/,
   fullyParallel: false,
   workers: 1,
-  retries: preview ? 0 : 1,
+  retries: sandbox ? 0 : 1,
   reporter: [['list']],
   timeout: 60_000,
   expect: { timeout: 10_000 },
