@@ -5,6 +5,7 @@ import { getParamId, getUserId, idParamSchema } from '@molecule/api-bonds-defaul
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -46,7 +47,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(trips)
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -70,7 +71,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     }
     res.json(trip)
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.get', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -99,7 +100,7 @@ router.post('/', validateBody(createTripSchema), async (req: Request, res: Respo
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.create', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -131,7 +132,7 @@ router.put(
       })
       res.json(result.data)
     } catch (err) {
-      console.error('[trips] failed:', err)
+      logger.error('trips.update', err)
       res
         .status(500)
         .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -160,7 +161,7 @@ router.put('/:id/cancel', validateParams(idParamSchema), async (req: Request, re
     })
     res.json(result.data)
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.cancel', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -198,7 +199,7 @@ router.post('/:id/check-in', validateParams(idParamSchema), async (req: Request,
     })
     res.json(result.data)
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.checkIn', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -226,7 +227,7 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
     await deleteById('trips', id)
     res.status(204).end()
   } catch (err) {
-    console.error('[trips] failed:', err)
+    logger.error('trips.delete', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

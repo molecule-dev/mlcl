@@ -25,7 +25,7 @@ test('user journey: signup → search → book → check-in → alert → settin
   test.setTimeout(120_000)
 
   // 1) Signup, lands on /search
-  const { accessToken, userId } = await signup(page)
+  const { accessToken } = await signup(page)
   await expect(page).toHaveURL(/\/search/)
 
   // 2) Search produces results, click first one to /flight/:id
@@ -83,12 +83,12 @@ test('user journey: signup → search → book → check-in → alert → settin
   })
   expect(notifs.ok()).toBe(true)
 
-  // 9) Profile read-after-write
-  const userRes = await page.request.get(`${API_BASE}/users/${userId}`, {
+  // 9) Preferences read-after-write via the server-side channel (the user
+  // resource never returns oauthData, so /api/preferences is the read-back).
+  const prefsRes = await page.request.get(`${API_BASE}/preferences`, {
     headers: apiHeaders(accessToken),
   })
-  const wire = (await userRes.json()) as {
-    props?: { oauthData?: { preferences?: { home_airport?: string } } }
-  }
-  expect(wire.props?.oauthData?.preferences?.home_airport).toBe('SFO')
+  expect(prefsRes.ok()).toBe(true)
+  const prefs = (await prefsRes.json()) as { home_airport?: string }
+  expect(prefs.home_airport).toBe('SFO')
 })

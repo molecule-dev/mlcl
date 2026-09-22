@@ -233,7 +233,7 @@ export function Signup() {
             cm.sp('py', 3),
             cm.fontWeight('bold'),
             cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-            'w-full rounded-xl bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
+            'w-full rounded-xl bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
           )}
         >
           {isSigningUp

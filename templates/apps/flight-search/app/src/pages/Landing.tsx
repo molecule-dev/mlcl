@@ -169,7 +169,7 @@ export function Landing() {
                     cm.textSize('xs'),
                     cm.fontWeight('bold'),
                     cm.sp('mt', 4),
-                    'uppercase tracking-[0.25em] text-accent',
+                    'uppercase tracking-[0.25em] text-accent-dark',
                   )}
                 >
                   {t(
@@ -346,7 +346,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'uppercase tracking-[0.25em] text-accent',
+                'uppercase tracking-[0.25em] text-accent-light',
               )}
             >
               {t('landing.cta.eyebrow', { app: APP_NAME }, { defaultValue: '{{app}} Pro' })}
@@ -395,7 +395,7 @@ export function Landing() {
                   cm.sp('px', 8),
                   cm.sp('py', 3),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg',
+                  'rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-lg',
                 )}
               >
                 {t('landing.cta.signup', {}, { defaultValue: 'Start tracking fares' })}

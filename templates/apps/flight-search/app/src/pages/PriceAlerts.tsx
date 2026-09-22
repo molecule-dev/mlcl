@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -104,6 +106,7 @@ export function PriceAlerts() {
     setAlerts((prev) => prev.filter((alert) => alert.id !== id))
     try {
       await http.delete(`/api/alerts/${encodeURIComponent(id)}`)
+      void track({ name: 'alert.deleted', properties: { alert_id: id } })
     } catch (err: unknown) {
       console.error('[PriceAlerts] delete failed:', err)
       setAlerts(before)
@@ -134,11 +137,20 @@ export function PriceAlerts() {
     }
     setCreating(true)
     try {
-      await http.post('/api/alerts', {
+      const created = (await http.post('/api/alerts', {
         origin_iata: origin,
         destination_iata: destination,
         target_price_cents: Math.round(target * 100),
         departure_date: formState.departure || undefined,
+      })) as { data?: { id?: string } }
+      void track({
+        name: 'alert.created',
+        properties: {
+          alert_id: created?.data?.id ?? null,
+          origin,
+          destination,
+          target_price: target,
+        },
       })
       setShowForm(false)
       setFormState({ origin: '', destination: '', target: '', departure: '' })
@@ -362,7 +374,7 @@ export function PriceAlerts() {
                 cm.sp('py', 3),
                 cm.fontWeight('bold'),
                 cm.flex({ align: 'center', gap: 'sm' }),
-                'rounded-xl bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
+                'rounded-xl bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
               )}
             >
               {creating
@@ -465,9 +477,23 @@ export function PriceAlerts() {
             {t('priceAlerts.loading', {}, { defaultValue: 'Loading alerts…' })}
           </p>
         ) : alerts.length === 0 ? (
-          <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
-            {t('priceAlerts.empty', {}, { defaultValue: 'No tracked routes yet.' })}
-          </p>
+          <div className={cm.cn(cm.sp('py', 16), cm.textCenter)}>
+            <p className={cm.cn(cm.textSize('lg'), cm.sp('mb', 4), 'text-on-surface-variant')}>
+              {t('priceAlerts.empty', {}, { defaultValue: 'No tracked routes yet.' })}
+            </p>
+            <Link
+              to="/search"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 3),
+                cm.textSize('sm'),
+                cm.fontWeight('bold'),
+                'inline-block rounded-full bg-primary text-on-primary hover:bg-primary-dark transition-colors shadow-sm',
+              )}
+            >
+              {t('priceAlerts.emptyCta', {}, { defaultValue: 'Search a route to track' })}
+            </Link>
+          </div>
         ) : (
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
             {alerts.map((alert) => (

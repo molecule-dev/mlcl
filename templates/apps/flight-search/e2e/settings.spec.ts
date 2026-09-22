@@ -6,8 +6,8 @@ test.describe('/settings page', () => {
   test('saving the profile tab PATCHes /api/users/:id and persists (read-after-write)', async ({
     page,
   }) => {
-    const { accessToken, userId } = await signup(page)
-    expect(userId).toBeTruthy()
+    const { accessToken } = await signup(page)
+    expect(accessToken).toBeTruthy()
     await page.goto(APP_BASE + '/settings')
     await page.waitForTimeout(1500)
 
@@ -26,25 +26,28 @@ test.describe('/settings page', () => {
     const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/users\//.test(r.url))
     expect(patch, 'PATCH /api/users/:id').toBeTruthy()
     expect(patch?.status, 'profile patch status').toBeLessThan(400)
+    // The preference slice must go through the server-side channel —
+    // `oauthData` is stripped from every user read, so writing it via
+    // PATCH /api/users/:id can never round-trip.
+    const prefsPatch = reqs.find((r) => r.method === 'PATCH' && /\/api\/preferences/.test(r.url))
+    expect(prefsPatch, 'PATCH /api/preferences').toBeTruthy()
+    expect(prefsPatch?.status, 'preferences patch status').toBeLessThan(400)
 
     await expect(page.getByText(/^Saved\.?$/).first()).toBeVisible()
 
-    // Read-after-write
-    const userRes = await page.request.get(`${API_BASE}/users/${userId}`, {
+    // Read-after-write: the server-side preferences channel is the only
+    // honest read-back (the user resource never returns oauthData).
+    const prefsRes = await page.request.get(`${API_BASE}/preferences`, {
       headers: apiHeaders(accessToken),
     })
-    expect(userRes.ok()).toBe(true)
-    const wire = (await userRes.json()) as {
-      props?: { oauthData?: { preferences?: { home_airport?: string; currency?: string } } }
-      oauthData?: { preferences?: { home_airport?: string; currency?: string } }
-    }
-    const prefs = wire.props?.oauthData?.preferences ?? wire.oauthData?.preferences ?? {}
+    expect(prefsRes.ok()).toBe(true)
+    const prefs = (await prefsRes.json()) as { home_airport?: string; currency?: string }
     expect(prefs.home_airport).toBe('LHR')
     expect(prefs.currency).toBe('GBP')
   })
 
   test('preferences tab toggles a notification and persists across reload', async ({ page }) => {
-    const { accessToken, userId } = await signup(page)
+    const { accessToken } = await signup(page)
     await page.goto(APP_BASE + '/settings')
     await page.waitForTimeout(1500)
 
@@ -69,16 +72,14 @@ test.describe('/settings page', () => {
       .click()
     await page.waitForTimeout(2000)
 
-    const userRes = await page.request.get(`${API_BASE}/users/${userId}`, {
+    const prefsRes = await page.request.get(`${API_BASE}/preferences`, {
       headers: apiHeaders(accessToken),
     })
-    const wire = (await userRes.json()) as {
-      props?: { oauthData?: { preferences?: { notifications?: Record<string, boolean> } } }
-      oauthData?: { preferences?: { notifications?: Record<string, boolean> } }
-    }
-    const notif =
-      wire.props?.oauthData?.preferences?.notifications ??
-      wire.oauthData?.preferences?.notifications
+    const notif = (
+      (await prefsRes.json()) as {
+        notifications?: Record<string, boolean>
+      }
+    ).notifications
     expect(notif, 'notifications object persisted').toBeTruthy()
     // Exactly one preference key should match the toggled (post-click) value
     // — a real toggle changes one bit, not zero. (Past bug: PATCH 200d but

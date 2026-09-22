@@ -24,6 +24,12 @@ test.describe('/login page', () => {
   })
 
   test('bad password shows inline error and stays on /login', async ({ page }) => {
+    // The browser logs the expected 403 from POST /api/users/log-in to the
+    // console; the inline error banner is the UX contract under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('nobody@example.com')
     await page.locator('input[type="password"]').first().fill('wrongPwd!1')
@@ -31,6 +37,8 @@ test.describe('/login page', () => {
     // Expect either inline error or staying on /login (no redirect).
     await page.waitForTimeout(2000)
     await expect(page).toHaveURL(/\/login/)
+    // The inline error banner must actually render (not a silent failure).
+    await expect(page.locator('p.text-error').first()).toBeVisible()
   })
 
   test('"Forgot?" link routes to /forgot-password', async ({ page }) => {

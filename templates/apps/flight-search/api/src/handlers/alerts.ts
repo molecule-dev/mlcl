@@ -5,6 +5,7 @@ import { getParamId, getUserId, idParamSchema } from '@molecule/api-bonds-defaul
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -48,7 +49,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(alerts)
   } catch (err) {
-    console.error('[alerts.list] failed:', err)
+    logger.error('alerts.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -72,7 +73,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     }
     res.json(alert)
   } catch (err) {
-    console.error('[alerts.get] failed:', err)
+    logger.error('alerts.get', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -97,7 +98,7 @@ router.post('/', validateBody(createAlertSchema), async (req: Request, res: Resp
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('[alerts.create] failed:', err)
+    logger.error('alerts.create', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -129,7 +130,7 @@ router.put(
       })
       res.json(result.data)
     } catch (err) {
-      console.error('[alerts.update] failed:', err)
+      logger.error('alerts.update', err)
       res
         .status(500)
         .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -160,7 +161,7 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
     await deleteById('price_alerts', id)
     res.status(204).end()
   } catch (err) {
-    console.error('[alerts.delete] failed:', err)
+    logger.error('alerts.delete', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

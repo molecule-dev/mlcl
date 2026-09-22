@@ -7,6 +7,7 @@ import { getParamId, getUserId, idParamSchema } from '@molecule/api-bonds-defaul
 import type { WhereCondition } from '@molecule/api-database'
 import { create, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -66,7 +67,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     })
     res.json(bookings)
   } catch (err) {
-    console.error('[bookings.list] failed:', err)
+    logger.error('bookings.list', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -90,7 +91,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     }
     res.json(booking)
   } catch (err) {
-    console.error('[bookings.get] failed:', err)
+    logger.error('bookings.get', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -143,12 +144,12 @@ router.post('/', validateBody(createBookingSchema), async (req: Request, res: Re
           })
         }
       } catch (err) {
-        console.warn('[bookings.create] trip linkage failed:', err)
+        logger.warn('bookings.create.tripLinkage', err)
       }
     }
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('[bookings.create] failed:', err)
+    logger.error('bookings.create', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -182,12 +183,12 @@ router.put('/:id/cancel', validateParams(idParamSchema), async (req: Request, re
           updated_at: new Date(),
         })
       } catch (err) {
-        console.warn('[bookings.cancel] trip cascade failed:', err)
+        logger.warn('bookings.cancel.tripCascade', err)
       }
     }
     res.json(result.data)
   } catch (err) {
-    console.error('[bookings.cancel] failed:', err)
+    logger.error('bookings.cancel', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

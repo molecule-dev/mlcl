@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -181,6 +182,7 @@ export function TripDetail() {
     setCancelling(true)
     try {
       await http.put(`/api/trips/${encodeURIComponent(trip.id)}/cancel`, {})
+      void track({ name: 'trip.cancelled', properties: { trip_id: trip.id } })
       navigate('/trips', { replace: true })
     } catch (err: unknown) {
       console.error('[TripDetail] cancel failed:', err)
@@ -200,6 +202,7 @@ export function TripDetail() {
       const updated = (res?.data ?? res) as ApiTrip
       if (updated && updated.id) {
         setTrip(toTripModel(updated))
+        void track({ name: 'trip.checked_in', properties: { trip_id: updated.id } })
       }
     } catch (err: unknown) {
       console.error('[TripDetail] check-in failed:', err)

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -188,6 +189,18 @@ export function Booking() {
         total_cents: flight.price_cents * passengers,
         currency: flight.currency ?? 'USD',
         card_last4: card.number.replace(/\s+/g, '').slice(-4),
+      })
+      void track({
+        name: 'trip.booked',
+        properties: {
+          trip_id: tripId ?? null,
+          flight_id: flight.id,
+          airline: flight.airline,
+          origin: flight.origin_code,
+          destination: flight.destination_code,
+          passengers,
+          total_cents: flight.price_cents * passengers,
+        },
       })
       navigate('/trips', { replace: true })
     } catch (err: unknown) {
@@ -525,7 +538,7 @@ export function Booking() {
                     cm.sp('py', 3),
                     cm.fontWeight('bold'),
                     cm.flex({ align: 'center', gap: 'sm' }),
-                    'rounded-xl bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
+                    'rounded-xl bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-lg disabled:opacity-60',
                   )}
                 >
                   {submitting

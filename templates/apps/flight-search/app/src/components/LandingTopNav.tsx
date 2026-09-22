@@ -90,7 +90,7 @@ export function LandingTopNav() {
                 cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-sm',
+                'rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-sm',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -114,7 +114,7 @@ export function LandingTopNav() {
                   cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-sm',
+                  'rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-sm',
                 )}
               >
                 {t('landing.nav.join', { app: APP_NAME }, { defaultValue: 'Join {{app}}' })}

@@ -20,6 +20,7 @@
 
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -334,13 +335,25 @@ export function FlightResultCard({
           </p>
           <Link
             to={`/flight/${flight.id}?passengers=${passengers}`}
+            onClick={() => {
+              void track({
+                name: 'flight.selected',
+                properties: {
+                  flight_id: flight.id,
+                  airline: flight.airline,
+                  origin: flight.origin_code,
+                  destination: flight.destination_code,
+                  price: flight.price,
+                },
+              })
+            }}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('bold'),
               cm.flex({ align: 'center', gap: 'xs' }),
-              'rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-sm',
+              'rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-sm',
             )}
           >
             {t('flightResultCard.select', {}, { defaultValue: 'Select' })}

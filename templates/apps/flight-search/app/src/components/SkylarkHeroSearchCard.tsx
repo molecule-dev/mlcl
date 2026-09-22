@@ -416,7 +416,7 @@ export function SkylarkHeroSearchCard() {
                   cm.sp('py', 3),
                   cm.fontWeight('bold'),
                   cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-                  'bg-accent text-white rounded-xl hover:bg-accent/90 transition-colors shadow-lg',
+                  'bg-accent text-on-accent rounded-xl hover:bg-accent/90 transition-colors shadow-lg',
                 )}
               >
                 <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
@@ -626,7 +626,7 @@ export function SkylarkHeroSearchCard() {
                 cm.sp('py', 3),
                 cm.fontWeight('bold'),
                 cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-                'bg-accent text-white rounded-xl hover:bg-accent/90 transition-colors shadow-lg',
+                'bg-accent text-on-accent rounded-xl hover:bg-accent/90 transition-colors shadow-lg',
               )}
             >
               <span className={'material-symbols-outlined text-xl'} aria-hidden="true">

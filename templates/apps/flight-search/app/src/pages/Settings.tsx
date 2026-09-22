@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -39,13 +40,10 @@ interface UserPrefs {
   notifications?: Record<string, boolean>
 }
 
-interface UserProfile {
+interface SessionUser {
   id?: string
   name?: string
   email?: string
-  oauthData?: {
-    preferences?: UserPrefs
-  } & Record<string, unknown>
 }
 
 export function Settings() {
@@ -53,8 +51,8 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const auth = useAuth()
-  const sessionUser = (auth as { user?: UserProfile | null } | undefined)?.user ?? null
-  const setAuthUser = (auth as { setUser?: (u: UserProfile | null) => void } | undefined)?.setUser
+  const sessionUser = (auth as { user?: SessionUser | null } | undefined)?.user ?? null
+  const setAuthUser = (auth as { setUser?: (u: SessionUser | null) => void } | undefined)?.setUser
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['id']>('profile')
   const [name, setName] = useState('')
@@ -74,49 +72,36 @@ export function Settings() {
     if (sessionUser) {
       setName(sessionUser.name ?? '')
       setEmail(sessionUser.email ?? '')
-      const userPrefs = sessionUser.oauthData?.preferences
-      setHome(userPrefs?.home_airport ?? '')
-      setCurrency(userPrefs?.currency ?? 'USD')
-      const notif = userPrefs?.notifications
-      if (notif && typeof notif === 'object') {
-        setPrefs((prev) => ({ ...prev, ...notif }))
-      }
     }
   }, [sessionUser])
 
-  // Always pull the persisted profile on mount. The cached `useAuth().user`
-  // is hydrated from localStorage at app boot and only refreshed when the
-  // refresh token is exercised — so after a Settings save + page reload, the
-  // cached user still reflects pre-save defaults. Re-fetching here makes the
-  // form always reflect the live DB state and survives reload.
+  // Always pull the persisted preferences on mount. The platform user
+  // resource NEVER returns `oauthData` on reads (sensitive-column denylist),
+  // so home airport / currency / notification toggles must come through the
+  // server-side `/api/preferences` channel — reading them off the cached auth
+  // user would show defaults forever. Re-fetching here makes the form always
+  // reflect the live DB state and survives reload.
   useEffect(() => {
     let cancelled = false
-    if (!sessionUser?.id) return
     http
-      .get<UserProfile | { props?: UserProfile }>(
-        `/api/users/${encodeURIComponent(sessionUser.id)}`,
-      )
+      .get<UserPrefs>('/api/preferences')
       .then((res) => {
         if (cancelled) return
-        const wire = res.data as UserProfile & { props?: UserProfile }
-        const fresh = (wire?.props ?? wire) as UserProfile
-        if (!fresh) return
-        if (typeof fresh.name === 'string') setName(fresh.name)
-        if (typeof fresh.email === 'string') setEmail(fresh.email)
-        const p = fresh.oauthData?.preferences
-        if (p?.home_airport != null) setHome(p.home_airport)
-        if (p?.currency != null) setCurrency(p.currency)
-        if (p?.notifications && typeof p.notifications === 'object') {
+        const p = res.data
+        if (!p || typeof p !== 'object') return
+        if (typeof p.home_airport === 'string') setHome(p.home_airport)
+        if (typeof p.currency === 'string') setCurrency(p.currency)
+        if (p.notifications && typeof p.notifications === 'object') {
           setPrefs((prev) => ({ ...prev, ...p.notifications }))
         }
       })
       .catch(() => {
-        /* fall back to cached sessionUser */
+        /* keep defaults; the next Save re-syncs the server */
       })
     return () => {
       cancelled = true
     }
-  }, [http, sessionUser?.id])
+  }, [http])
 
   function togglePref(id: string) {
     setPrefs((prev) => ({ ...prev, [id]: !prev[id] }))
@@ -131,29 +116,28 @@ export function Settings() {
     setSaving(true)
     setSaveStatus('idle')
     try {
-      const nextOauth = {
-        ...(sessionUser.oauthData ?? {}),
-        preferences: {
-          home_airport: home.toUpperCase(),
-          currency,
-          notifications: prefs,
-        },
-      }
+      // Identity fields go through the standard user resource; the
+      // preferences slice goes through the server-side `/api/preferences`
+      // channel — `oauthData` is a sensitive column that the platform user
+      // resource never returns on reads, so it must not be written there.
       await http.patch(`/api/users/${encodeURIComponent(sessionUser.id)}`, {
         name,
         email,
-        oauthData: nextOauth,
       })
-      // Sync the auth client's cached user so other parts of the UI (and a
-      // page reload that hydrates from localStorage) reflect the new
-      // preferences without needing another network roundtrip.
+      await http.patch('/api/preferences', {
+        home_airport: home.toUpperCase(),
+        currency,
+        notifications: prefs,
+      })
+      void track({
+        name: 'preferences.updated',
+        properties: { user_id: sessionUser.id, home_airport: home.toUpperCase(), currency },
+      })
+      // Sync the auth client's cached user so the header reflects a renamed
+      // profile without another network roundtrip. Preferences deliberately
+      // stay out of the cached user — they are read from /api/preferences.
       if (typeof setAuthUser === 'function') {
-        setAuthUser({
-          ...sessionUser,
-          name,
-          email,
-          oauthData: nextOauth,
-        })
+        setAuthUser({ ...sessionUser, name, email })
       }
       setSaveStatus('saved')
     } catch (err: unknown) {

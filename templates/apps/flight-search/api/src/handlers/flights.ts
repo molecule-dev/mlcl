@@ -5,6 +5,7 @@ import { getUserId, idParamSchema } from '@molecule/api-bonds-default-express'
 import type { OrderBy, WhereCondition } from '@molecule/api-database'
 import { create, findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -154,12 +155,12 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
       } catch (err) {
         // Analytics-only — never block the search response, but log so
         // we can spot persistent failures in dev.log.
-        console.warn('[flights.search] log insert failed:', err)
+        logger.warn('flights.search.logInsert', err)
       }
     }
     res.json(flights.map(shapeFlight))
   } catch (err) {
-    console.error('[flights.search] failed:', err)
+    logger.error('flights.search', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -186,7 +187,7 @@ router.post('/multi-city', validateBody(multiCitySchema), async (req: Request, r
     )
     res.json(results)
   } catch (err) {
-    console.error('[flights.multi-city] failed:', err)
+    logger.error('flights.multiCity', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -219,7 +220,7 @@ router.get('/calendar', validateQuery(calendarQuerySchema), async (req: Request,
     })
     res.json(prices.map(shapeFlight))
   } catch (err) {
-    console.error('[flights.calendar] failed:', err)
+    logger.error('flights.calendar', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -239,7 +240,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     }
     res.json(shapeFlight(flight))
   } catch (err) {
-    console.error('[flights.byId] failed:', err)
+    logger.error('flights.byId', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

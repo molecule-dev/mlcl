@@ -163,7 +163,7 @@ export function Trips() {
               cm.sp('py', 3),
               cm.sp('mt', 4),
               cm.fontWeight('bold'),
-              'inline-block rounded-full bg-accent text-white hover:bg-accent/90 transition-colors shadow-sm',
+              'inline-block rounded-full bg-accent text-on-accent hover:bg-accent/90 transition-colors shadow-sm',
             )}
           >
             {t('trips.searchCta', {}, { defaultValue: 'Search flights' })}

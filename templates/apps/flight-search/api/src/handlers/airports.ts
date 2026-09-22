@@ -3,6 +3,7 @@ import { z } from 'zod'
 
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -58,7 +59,7 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
     }
     res.json(airports)
   } catch (err) {
-    console.error('[airports.search] failed:', err)
+    logger.error('airports.search', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -76,7 +77,7 @@ router.get('/popular', validateQuery(popularQuerySchema), async (req: Request, r
     })
     res.json(popular)
   } catch (err) {
-    console.error('[airports.popular] failed:', err)
+    logger.error('airports.popular', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

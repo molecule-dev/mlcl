@@ -25,3 +25,32 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Fare/accent theme tokens — Tailwind registration.
+ *
+ * theme.css defines these `--color-*` variables on plain `:root`, which
+ * Tailwind does NOT treat as a theme source: without this block the utility
+ * classes (bg-accent, text-cheapest, ring-deal, …) are never generated and
+ * silently render nothing — white-on-white empty-state CTAs, invisible fare
+ * badges. Values here mirror theme.css light defaults; theme.css keeps
+ * OVERRIDING them at runtime (its :root loads later, and its
+ * `[data-mol-mode='dark']` block covers dark mode), so the cascade is
+ * unchanged — this only makes the utilities exist.
+ */
+@theme {
+  --color-accent: #e86a2e;
+  --color-on-accent: #3d1000; /* dark on brand orange — 5.1:1 light / 7.1:1 dark (white only 3.2:1) */
+  --color-accent-light: #ffa570;
+  --color-accent-dark: #a34a15;
+  --color-cheapest: #15803d;
+  --color-cheapest-light: #dcfce7;
+  --color-deal: #c2410c;
+  --color-deal-light: #fff1e6;
+  --color-expensive: #b91c1c;
+  --color-expensive-light: #fee2e2;
+  --color-nonstop: #0f766e;
+  --color-layover: #6b7280;
+  --color-tracked: #7c3aed;
+  --color-tracked-light: #ede9fe;
+}

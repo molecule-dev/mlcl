@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,15 @@ export function Results() {
             data as Array<{ leg: MultiCityLegInput; flights: RawFlight[] }>
           ).map((r) => ({ leg: r.leg, flights: decorateFlights(r.flights ?? []) }))
           setMultiResults(shaped)
+          void track({
+            name: 'search.performed',
+            properties: {
+              trip_type: 'multicity',
+              legs: multiLegs.length,
+              passengers,
+              results: shaped.reduce((n, r) => n + r.flights.length, 0),
+            },
+          })
         })
         .catch((err: unknown) => {
           if (cancelled) return
@@ -150,6 +160,17 @@ export function Results() {
             ? (res as unknown as RawFlight[])
             : []
         setFlights(decorateFlights(list))
+        void track({
+          name: 'search.performed',
+          properties: {
+            trip_type: searchParams.get('trip_type') ?? 'roundtrip',
+            origin,
+            destination,
+            departure_date: departureDate || null,
+            passengers,
+            results: list.length,
+          },
+        })
       })
       .catch((err: unknown) => {
         if (cancelled) return
@@ -169,7 +190,7 @@ export function Results() {
     return () => {
       cancelled = true
     }
-  }, [http, isMulti, multiLegs, origin, destination, departureDate, passengers, t])
+  }, [http, isMulti, multiLegs, origin, destination, departureDate, passengers, searchParams, t])
 
   const filtered = useMemo(() => {
     const filteredByStops = flights.filter((flight) => {
