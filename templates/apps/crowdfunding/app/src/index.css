@@ -104,3 +104,10 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 /* polish-v2:stitch-styles:end */
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-accent: #10b981;
+}

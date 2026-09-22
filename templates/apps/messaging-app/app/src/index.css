@@ -25,3 +25,11 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-accent: #4f52d3;
+  --color-accent-light: #6163d0;
+}

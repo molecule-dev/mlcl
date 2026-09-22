@@ -218,3 +218,10 @@
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
 }
 /* polish-v2:stitch-styles:end */
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-accent: #f59e0b;
+}

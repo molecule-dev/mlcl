@@ -281,3 +281,11 @@ input[type='range']:focus {
   box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
 }
 /* polish-v2:stitch-styles:end */
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+}

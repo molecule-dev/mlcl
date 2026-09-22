@@ -112,3 +112,14 @@
     'opsz' 24;
 }
 /* polish-v2:stitch-styles:end */
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-700: #1d4ed8;
+  --color-thread-active: #eff6ff;
+  --color-unread-light: #dbeafe;
+}

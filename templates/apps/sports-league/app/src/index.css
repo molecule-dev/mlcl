@@ -25,3 +25,22 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-accent: #10b981;
+  --color-draw: #6b7280;
+  --color-draw-light: #f3f4f6;
+  --color-final: #64748b;
+  --color-live: #f59e0b;
+  --color-live-light: #fef3c7;
+  --color-loss: #ef4444;
+  --color-navy: #0f172a;
+  --color-scoreboard: #0f172a;
+  --color-upcoming: #0e7490;
+  --color-upcoming-light: #cffafe;
+  --color-win: #10b981;
+  --color-win-light: #d1fae5;
+}

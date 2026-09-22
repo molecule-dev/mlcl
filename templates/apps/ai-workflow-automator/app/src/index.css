@@ -182,3 +182,10 @@
   border-radius: 20px;
 }
 /* polish-v2:stitch-styles:end */
+
+/* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
+   in :root — register them in @theme so the utilities compile (the :root/.dark
+   definitions keep overriding at runtime for theming). */
+@theme {
+  --color-accent-violet: #7c3aed;
+}
