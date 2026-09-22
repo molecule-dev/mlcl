@@ -277,7 +277,11 @@ export function Dashboard() {
           </h2>
           <Link
             to="/projects"
-            className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              'text-primary hover:underline inline-flex items-center min-h-[32px]',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>

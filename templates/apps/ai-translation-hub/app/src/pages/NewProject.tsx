@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -172,6 +173,15 @@ export function NewProject() {
         }
       }
       if (id) {
+        // Domain event: a translation project was committed (conversion point).
+        void track({
+          name: 'project.created',
+          properties: {
+            project_id: id,
+            target_langs: targets.map((l) => l.toUpperCase()),
+            segment_count: uploadedSegments.length,
+          },
+        })
         navigate(`/projects/${id}`)
       } else {
         navigate('/projects')

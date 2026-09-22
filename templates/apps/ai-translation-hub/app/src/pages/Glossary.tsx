@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -105,6 +106,15 @@ export function Glossary() {
       const body = res as unknown as { data?: ApiTermRow } & ApiTermRow
       const row = (body.data ?? body) as ApiTermRow
       setTerms((prev) => [adapt(row, prev.length), ...prev])
+      // Domain event: a glossary term was committed (success point).
+      void track({
+        name: 'glossary.added',
+        properties: {
+          term_id: row.id != null ? String(row.id) : null,
+          source_lang: draftSourceLang.toUpperCase(),
+          target_lang: draftTargetLang.toUpperCase(),
+        },
+      })
       setDraftSourceTerm('')
       setDraftTargetTerm('')
       setDraftNotes('')
@@ -391,7 +401,7 @@ export function Glossary() {
               cm.sp('py', 1),
               cm.fontWeight('medium'),
               cm.textSize('xs'),
-              'rounded-full ',
+              'rounded-full inline-flex items-center min-h-[32px]',
               domain === ALL_DOMAIN
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -409,7 +419,7 @@ export function Glossary() {
                 cm.sp('py', 1),
                 cm.fontWeight('medium'),
                 cm.textSize('xs'),
-                'rounded-full ',
+                'rounded-full inline-flex items-center min-h-[32px]',
                 domain === d
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',
@@ -421,135 +431,149 @@ export function Glossary() {
         </div>
       </div>
 
-      <div
-        className={cm.cn(
-          'bg-surface-container-lowest rounded-xl border border-surface-container/50 overflow-hidden shadow-sm',
-        )}
-      >
-        <table className={cm.cn('w-full text-sm')}>
-          <thead>
-            <tr className={cm.cn('bg-surface-container-low text-on-surface-variant')}>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('glossary.col.source', {}, { defaultValue: 'Source term' })}
-              </th>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('glossary.col.target', {}, { defaultValue: 'Target term' })}
-              </th>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('glossary.col.pair', {}, { defaultValue: 'Locale' })}
-              </th>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('glossary.col.domain', {}, { defaultValue: 'Domain' })}
-              </th>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('nav.status', {}, { defaultValue: 'Status' })}
-              </th>
-              <th
-                className={cm.cn(
-                  'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                )}
-              >
-                {t('form.notes', {}, { defaultValue: 'Notes' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-surface-container')}>
-            {filtered.map((g) => (
-              <tr key={g.id} className={cm.cn('hover:bg-surface-container-low ')}>
-                <td className={cm.cn('px-5 py-4 font-mono text-primary font-bold')}>
-                  {g.source_term}
-                </td>
-                <td className={cm.cn('px-5 py-4 font-serif-content')}>{g.target_term}</td>
-                <td className={cm.cn('px-5 py-4')}>
-                  <LanguagePairBadge source={g.source_lang} target={g.target_lang} size="sm" />
-                </td>
-                <td
-                  className={cm.cn(
-                    'px-5 py-4 text-on-surface-variant text-xs uppercase tracking-widest font-bold',
-                  )}
-                >
-                  {g.domain}
-                </td>
-                <td className={cm.cn('px-5 py-4')}>
-                  {g.approved ? (
-                    <span
+      {terms.length === 0 && !loading ? (
+        <div
+          className={cm.cn(
+            cm.sp('p', 8),
+            cm.textCenter,
+            'bg-surface-container-lowest rounded-xl border border-surface-container/50 text-on-surface-variant text-sm',
+          )}
+        >
+          {t(
+            'glossary.empty',
+            {},
+            {
+              defaultValue:
+                'No glossary terms yet — capture terminology while translating to start building consistency.',
+            },
+          )}
+        </div>
+      ) : (
+        <div
+          className={cm.cn(
+            'bg-surface-container-lowest rounded-xl border border-surface-container/50 overflow-hidden shadow-sm',
+          )}
+        >
+          {/* 6 columns won't fit a 390px phone — scroll horizontally instead of
+              clipping cells. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full text-sm min-w-[640px]')}>
+              <thead>
+                <tr className={cm.cn('bg-surface-container-low text-on-surface-variant')}>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('glossary.col.source', {}, { defaultValue: 'Source term' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('glossary.col.target', {}, { defaultValue: 'Target term' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('glossary.col.pair', {}, { defaultValue: 'Locale' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('glossary.col.domain', {}, { defaultValue: 'Domain' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('nav.status', {}, { defaultValue: 'Status' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('form.notes', {}, { defaultValue: 'Notes' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-surface-container')}>
+                {filtered.map((g) => (
+                  <tr key={g.id} className={cm.cn('hover:bg-surface-container-low ')}>
+                    <td className={cm.cn('px-5 py-4 font-mono text-primary font-bold')}>
+                      {g.source_term}
+                    </td>
+                    <td className={cm.cn('px-5 py-4 font-serif-content')}>{g.target_term}</td>
+                    <td className={cm.cn('px-5 py-4')}>
+                      <LanguagePairBadge source={g.source_lang} target={g.target_lang} size="sm" />
+                    </td>
+                    <td
                       className={cm.cn(
-                        'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-light text-success text-[10px] font-bold uppercase tracking-widest',
+                        'px-5 py-4 text-on-surface-variant text-xs uppercase tracking-widest font-bold',
                       )}
                     >
-                      <span
-                        className={cm.cn('material-symbols-outlined text-base')}
-                        aria-hidden="true"
-                      >
-                        check_circle
-                      </span>
-                      {t('glossary.approved', {}, { defaultValue: 'Approved' })}
-                    </span>
-                  ) : (
-                    <span
+                      {g.domain}
+                    </td>
+                    <td className={cm.cn('px-5 py-4')}>
+                      {g.approved ? (
+                        <span
+                          className={cm.cn(
+                            'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success-light text-success text-[10px] font-bold uppercase tracking-widest',
+                          )}
+                        >
+                          <span
+                            className={cm.cn('material-symbols-outlined text-base')}
+                            aria-hidden="true"
+                          >
+                            check_circle
+                          </span>
+                          {t('glossary.approved', {}, { defaultValue: 'Approved' })}
+                        </span>
+                      ) : (
+                        <span
+                          className={cm.cn(
+                            'inline-flex items-center px-2 py-0.5 rounded-full bg-warning-light text-warning text-[10px] font-bold uppercase tracking-widest',
+                          )}
+                        >
+                          {t('status.pending', {}, { defaultValue: 'Pending' })}
+                        </span>
+                      )}
+                    </td>
+                    <td
                       className={cm.cn(
-                        'inline-flex items-center px-2 py-0.5 rounded-full bg-warning-light text-warning text-[10px] font-bold uppercase tracking-widest',
+                        'px-5 py-4 text-on-surface-variant text-xs leading-relaxed max-w-xs',
                       )}
                     >
-                      {t('status.pending', {}, { defaultValue: 'Pending' })}
-                    </span>
-                  )}
-                </td>
-                <td
-                  className={cm.cn(
-                    'px-5 py-4 text-on-surface-variant text-xs leading-relaxed max-w-xs',
-                  )}
-                >
-                  {g.notes ?? '—'}
-                </td>
-              </tr>
-            ))}
-            {filtered.length === 0 && !loading && (
-              <tr>
-                <td
-                  colSpan={6}
-                  className={cm.cn('px-5 py-12 text-center text-on-surface-variant text-sm')}
-                >
-                  {terms.length === 0
-                    ? t(
-                        'glossary.empty',
-                        {},
-                        {
-                          defaultValue:
-                            'No glossary terms yet — capture terminology while translating to start building consistency.',
-                        },
-                      )
-                    : t(
+                      {g.notes ?? '—'}
+                    </td>
+                  </tr>
+                ))}
+                {filtered.length === 0 && !loading && (
+                  <tr>
+                    <td
+                      colSpan={6}
+                      className={cm.cn('px-5 py-12 text-center text-on-surface-variant text-sm')}
+                    >
+                      {t(
                         'glossary.emptyFiltered',
                         {},
                         { defaultValue: 'No terms match your filter.' },
                       )}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -7,10 +7,15 @@ test.describe('/projects: list + create', () => {
     const { accessToken } = await signup(page)
     const project = await seedProject(page, accessToken, { name: `Visible Project ${Date.now()}` })
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/projects')
-      await page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
-        timeout: 15_000,
-      })
+      // Arm the response wait BEFORE navigation: /projects mounts fast enough
+      // that the GET often completes between page.goto()'s load event and a
+      // post-goto waitForResponse — missing it and hanging to timeout.
+      await Promise.all([
+        page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
+          timeout: 15_000,
+        }),
+        page.goto(APP_BASE + '/projects'),
+      ])
     })
     expect(reqs.find((r) => r.method === 'GET' && /\/api\/projects/.test(r.url))).toBeDefined()
     await expect(page.getByText(project.name).first()).toBeVisible({ timeout: 10_000 })
@@ -35,10 +40,13 @@ test.describe('/projects: list + create', () => {
 
   test('Empty state copy renders when the user has no projects yet', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/projects')
-    await page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    // Arm BEFORE navigation — same mount-vs-listener race as the list test above.
+    await Promise.all([
+      page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
+        timeout: 15_000,
+      }),
+      page.goto(APP_BASE + '/projects'),
+    ])
     // Heading must render even if the list is empty.
     await expect(page.getByRole('heading', { name: /projects/i }).first()).toBeVisible()
   })
@@ -47,10 +55,12 @@ test.describe('/projects: list + create', () => {
     const { accessToken } = await signup(page)
     const a = await seedProject(page, accessToken, { name: `Alpha ${Date.now()}` })
     const b = await seedProject(page, accessToken, { name: `Bravo ${Date.now()}` })
-    await page.goto(APP_BASE + '/projects')
-    await page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    await Promise.all([
+      page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
+        timeout: 15_000,
+      }),
+      page.goto(APP_BASE + '/projects'),
+    ])
     await expect(page.getByText(a.name).first()).toBeVisible({ timeout: 10_000 })
     await expect(page.getByText(b.name).first()).toBeVisible({ timeout: 10_000 })
   })

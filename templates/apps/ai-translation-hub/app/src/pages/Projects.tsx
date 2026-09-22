@@ -158,7 +158,8 @@ export function Projects() {
       <nav
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'lg' }),
-          'border-b border-surface-container-high pb-[1px]',
+          '-mx-2 overflow-x-auto px-2 pb-[1px]',
+          'border-b border-surface-container-high',
         )}
         aria-label={t('projects.filterAria', {}, { defaultValue: 'Filter projects by status' })}
       >
@@ -173,6 +174,7 @@ export function Projects() {
                 cm.sp('pb', 3),
                 cm.textSize('sm'),
                 cm.fontWeight('medium'),
+                'shrink-0 whitespace-nowrap min-w-[32px] text-center',
                 isActive
                   ? 'text-primary border-b-2 border-primary'
                   : 'text-on-surface-variant hover:text-on-background border-b-2 border-transparent',

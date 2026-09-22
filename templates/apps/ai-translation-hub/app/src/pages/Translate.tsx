@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -192,6 +193,15 @@ export function Translate() {
         target_text: newTarget,
         status: STATUS_TO_DB[nextStatus],
       })
+      // Domain event: a segment translation was persisted (success point).
+      void track({
+        name: 'translation.saved',
+        properties: {
+          segment_id: segId,
+          project_id: project?.id ?? null,
+          status: nextStatus,
+        },
+      })
       setActionStatus(t('common.savedPeriod', {}, { defaultValue: 'Saved.' }))
     } catch (_error) {
       // Segment save failed — revert optimistic update and surface the error.
@@ -208,6 +218,20 @@ export function Translate() {
     setSegments((curr) => curr.map((s) => (s.id === prev.id ? { ...s, status: newStatus } : s)))
     try {
       await http.put(`/segments/${encodeURIComponent(prev.id)}`, { status: dbStatus })
+      // Domain event: workflow transitions (approved / review requested / flagged).
+      void track({
+        name:
+          newStatus === 'approved'
+            ? 'translation.approved'
+            : newStatus === 'needs_review' || newStatus === 'in_review'
+              ? 'review.requested'
+              : 'translation.flagged',
+        properties: {
+          segment_id: prev.id,
+          project_id: project?.id ?? null,
+          status: newStatus,
+        },
+      })
       setActionStatus(
         t(
           'translate.statusUpdated',
@@ -263,6 +287,16 @@ export function Translate() {
         return
       }
       await handleCommitTarget(active.id, proposed)
+      // Domain event: a machine translation was produced + inserted.
+      void track({
+        name: 'translation.created',
+        properties: {
+          segment_id: active.id,
+          project_id: project?.id ?? null,
+          source_lang: projectSourceLang,
+          target_lang: projectTargetLang.toUpperCase(),
+        },
+      })
       setActionStatus(
         t('translate.mtInserted', {}, { defaultValue: 'Machine translation inserted.' }),
       )

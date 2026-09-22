@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -185,6 +186,8 @@ export function Memory() {
       const res = await http.get('/memory')
       const list = unwrapList<ApiMemoryRow>(res)
       setEntries(list.map((m, i) => adapt(m, i)))
+      // Domain event: a TMX/TSV import committed N memory entries.
+      void track({ name: 'memory.imported', properties: { count: imported } })
       setImportStatus(
         t(
           'memory.importDone',
@@ -217,6 +220,15 @@ export function Memory() {
       const body = res as unknown as { data?: ApiMemoryRow } & ApiMemoryRow
       const row = (body.data ?? body) as ApiMemoryRow
       setEntries((prev) => [adapt(row, prev.length), ...prev])
+      // Domain event: a translation-memory entry was committed (success point).
+      void track({
+        name: 'memory.added',
+        properties: {
+          entry_id: row?.id != null ? String(row.id) : null,
+          source_lang: draftSrcLang.toUpperCase(),
+          target_lang: draftTgtLang.toUpperCase(),
+        },
+      })
       setDraftSrc('')
       setDraftTgt('')
       setShowAdd(false)

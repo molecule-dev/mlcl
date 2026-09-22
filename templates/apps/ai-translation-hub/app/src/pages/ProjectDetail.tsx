@@ -420,90 +420,92 @@ export function ProjectDetail() {
             {t('projectDetail.filesEmpty', {}, { defaultValue: 'No files uploaded yet.' })}
           </p>
         ) : (
-          <table className={cm.cn('w-full text-sm')}>
-            <thead>
-              <tr className={cm.cn('text-on-surface-variant')}>
-                <th
-                  className={cm.cn(
-                    'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('projectDetail.col.name', {}, { defaultValue: 'File' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('form.format', {}, { defaultValue: 'Format' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-right py-2 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('projectDetail.col.segments', {}, { defaultValue: 'Segments' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('nav.progress', {}, { defaultValue: 'Progress' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-surface-container')}>
-              {files.map((f) => (
-                <tr
-                  key={f.id}
-                  className={cm.cn('hover:bg-surface-container-low transition-colors')}
-                >
-                  <td className={cm.cn('py-3 font-mono')}>{f.name}</td>
-                  <td className={cm.cn('py-3')}>
-                    <span
-                      className={cm.cn(
-                        'inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-secondary-fixed/50 text-on-secondary-fixed font-mono',
-                      )}
-                    >
-                      {f.format}
-                    </span>
-                  </td>
-                  <td
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full text-sm min-w-[520px]')}>
+              <thead>
+                <tr className={cm.cn('text-on-surface-variant')}>
+                  <th
                     className={cm.cn(
-                      'py-3 text-right tabular-nums font-mono text-on-surface-variant',
+                      'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
                     )}
                   >
-                    {f.segments}
-                  </td>
-                  <td className={cm.cn('py-3 w-72')}>
-                    <div className={cm.cn('flex items-center gap-3')}>
-                      <div
-                        className={cm.cn(
-                          'flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden',
-                        )}
-                      >
-                        <div
-                          className={cm.cn(
-                            'h-full rounded-full',
-                            f.progress === 100 ? 'bg-success' : 'bg-primary',
-                          )}
-                          style={{ width: `${f.progress}%` }}
-                        />
-                      </div>
+                    {t('projectDetail.col.name', {}, { defaultValue: 'File' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('form.format', {}, { defaultValue: 'Format' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-right py-2 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('projectDetail.col.segments', {}, { defaultValue: 'Segments' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left py-2 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('nav.progress', {}, { defaultValue: 'Progress' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-surface-container')}>
+                {files.map((f) => (
+                  <tr
+                    key={f.id}
+                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                  >
+                    <td className={cm.cn('py-3 font-mono')}>{f.name}</td>
+                    <td className={cm.cn('py-3')}>
                       <span
                         className={cm.cn(
-                          'font-mono text-xs font-bold text-primary tabular-nums w-10 text-right',
+                          'inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-secondary-fixed/50 text-on-secondary-fixed font-mono',
                         )}
                       >
-                        {f.progress}%
+                        {f.format}
                       </span>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        'py-3 text-right tabular-nums font-mono text-on-surface-variant',
+                      )}
+                    >
+                      {f.segments}
+                    </td>
+                    <td className={cm.cn('py-3 w-72')}>
+                      <div className={cm.cn('flex items-center gap-3')}>
+                        <div
+                          className={cm.cn(
+                            'flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden',
+                          )}
+                        >
+                          <div
+                            className={cm.cn(
+                              'h-full rounded-full',
+                              f.progress === 100 ? 'bg-success' : 'bg-primary',
+                            )}
+                            style={{ width: `${f.progress}%` }}
+                          />
+                        </div>
+                        <span
+                          className={cm.cn(
+                            'font-mono text-xs font-bold text-primary tabular-nums w-10 text-right',
+                          )}
+                        >
+                          {f.progress}%
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
 

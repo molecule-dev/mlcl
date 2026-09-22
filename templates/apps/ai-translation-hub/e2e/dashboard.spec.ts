@@ -46,10 +46,14 @@ test.describe('dashboard: authenticated overview', () => {
       name: 'Dashboard Project',
       status: 'in_progress',
     })
-    await page.goto(APP_BASE + '/dashboard')
-    await page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    // Arm BEFORE navigation — the dashboard mounts + fetches fast enough to
+    // finish between goto's load event and a post-goto listener attach.
+    await Promise.all([
+      page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
+        timeout: 15_000,
+      }),
+      page.goto(APP_BASE + '/dashboard'),
+    ])
     await expect(page.getByText(project.name).first()).toBeVisible({ timeout: 10_000 })
   })
 

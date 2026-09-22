@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -114,6 +115,11 @@ export function Review() {
     const dbStatus = kind === 'approved' ? 'approved' : 'draft'
     try {
       await http.put(`/segments/${encodeURIComponent(id)}`, { status: dbStatus })
+      // Domain event: a reviewer decision was committed (success point).
+      void track({
+        name: kind === 'approved' ? 'review.approved' : 'review.rejected',
+        properties: { segment_id: id },
+      })
       setDecision({ id, kind })
       setQueue((prev) => prev.filter((r) => r.id !== id))
       const next = queue.find((r) => r.id !== id)

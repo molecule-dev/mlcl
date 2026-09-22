@@ -32,7 +32,7 @@ test.describe('billing', () => {
   }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/billing')
+      // Arm BEFORE navigation — same mount-vs-listener race as projects.spec.ts.
       await Promise.all([
         page.waitForResponse((r) => /\/api\/billing\/tiers/.test(r.url()) && r.status() === 200, {
           timeout: 15_000,
@@ -44,6 +44,7 @@ test.describe('billing', () => {
           (r) => /\/api\/reports\/billing_usage/.test(r.url()) && r.status() === 200,
           { timeout: 15_000 },
         ),
+        page.goto(APP_BASE + '/billing'),
       ])
     })
     expect(

@@ -376,171 +376,188 @@ export function Team() {
             'bg-surface-container-lowest rounded-2xl border border-surface-container/50 shadow-sm overflow-hidden',
           )}
         >
-          <table className={cm.cn('w-full text-sm')}>
-            <thead>
-              <tr className={cm.cn('text-on-surface-variant bg-surface-container-low')}>
-                <th
-                  className={cm.cn(
-                    'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('status.member', {}, { defaultValue: 'Member' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('form.role', {}, { defaultValue: 'Role' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('team.col.pairs', {}, { defaultValue: 'Locale pairs' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    'text-right px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
-                  )}
-                >
-                  {t('nav.actions', {}, { defaultValue: 'Actions' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-surface-container')}>
-              {active.map((m) => (
-                <tr key={m.id} className={cm.cn('hover:bg-surface-container-low ')}>
-                  <td className={cm.cn('px-5 py-4')}>
-                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                      <span
-                        className={cm.cn(
-                          cm.flex({ align: 'center', justify: 'center' }),
-                          cm.w(8),
-                          cm.h(8),
-                          cm.fontWeight('bold'),
-                          cm.textSize('xs'),
-                          'rounded-full bg-primary text-on-primary',
-                        )}
-                      >
-                        {m.initials}
-                      </span>
-                      <div>
-                        <p className={cm.cn(cm.fontWeight('semibold'))}>{m.name}</p>
-                        <p
-                          className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant font-mono')}
-                        >
-                          {m.email}
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className={cm.cn('px-5 py-4')}>
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('bold'),
-                        'inline-flex items-center px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest',
-                        ROLE_TONE[m.role],
-                      )}
-                    >
-                      {t(`team.role.${m.role}`, {}, { defaultValue: ROLE_LABEL[m.role] })}
-                    </span>
-                  </td>
-                  <td className={cm.cn('px-5 py-4')}>
-                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
-                      {m.pairs.map((p, i) => (
-                        <LanguagePairBadge key={i} source={p.source} target={p.target} size="sm" />
-                      ))}
-                      {m.pairs.length === 0 && (
-                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          —
-                        </span>
-                      )}
-                    </div>
-                  </td>
-                  <td className={cm.cn('px-5 py-4 text-right')}>
-                    <button
-                      data-mol-id={`team-edit-${m.id}`}
-                      onClick={() => startEdit(m)}
-                      type="button"
-                      aria-expanded={editId === m.id}
-                      className={cm.cn(cm.textSize('xs'), 'font-bold text-primary hover:underline')}
-                    >
-                      {editId === m.id
-                        ? t('team.editClose', {}, { defaultValue: 'Close' })
-                        : t('common.edit', {}, { defaultValue: 'Edit' })}
-                    </button>
-                    {editId === m.id && (
-                      <div
-                        className={cm.cn(
-                          cm.flex({ direction: 'col', gap: 'sm' }),
-                          cm.sp('mt', 2),
-                          'items-stretch text-left',
-                        )}
-                      >
-                        <select
-                          data-mol-id={`team-edit-role-${m.id}`}
-                          value={editRoleDraft}
-                          onChange={(e) =>
-                            setEditRoleDraft(e.target.value as 'admin' | 'reviewer' | 'translator')
-                          }
+          {/* 4 columns + inline edit forms won't fit a 390px phone — scroll
+              horizontally instead of clipping the action buttons. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full text-sm min-w-[560px]')}>
+              <thead>
+                <tr className={cm.cn('text-on-surface-variant bg-surface-container-low')}>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('status.member', {}, { defaultValue: 'Member' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('form.role', {}, { defaultValue: 'Role' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-left px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('team.col.pairs', {}, { defaultValue: 'Locale pairs' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      'text-right px-5 py-3 font-bold text-[10px] uppercase tracking-widest',
+                    )}
+                  >
+                    {t('nav.actions', {}, { defaultValue: 'Actions' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-surface-container')}>
+                {active.map((m) => (
+                  <tr key={m.id} className={cm.cn('hover:bg-surface-container-low ')}>
+                    <td className={cm.cn('px-5 py-4')}>
+                      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                        <span
                           className={cm.cn(
-                            cm.sp('px', 3),
-                            cm.sp('py', 2),
-                            'rounded-lg border-0 bg-surface-container-low text-sm focus:ring-2 focus:ring-primary/30 focus:outline-none',
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            cm.w(8),
+                            cm.h(8),
+                            cm.fontWeight('bold'),
+                            cm.textSize('xs'),
+                            'rounded-full bg-primary text-on-primary',
                           )}
                         >
-                          <option value="translator">
-                            {t('team.role.linguist', {}, { defaultValue: 'Linguist' })}
-                          </option>
-                          <option value="reviewer">
-                            {t('team.role.reviewer', {}, { defaultValue: 'Reviewer' })}
-                          </option>
-                          <option value="admin">
-                            {t('team.role.admin', {}, { defaultValue: 'Admin' })}
-                          </option>
-                        </select>
-                        <div className={cm.flex({ align: 'center', gap: 'sm', justify: 'end' })}>
-                          <button
-                            data-mol-id={`team-edit-save-${m.id}`}
-                            type="button"
-                            onClick={() => {
-                              void saveEditedRole(m.id)
-                            }}
+                          {m.initials}
+                        </span>
+                        <div>
+                          <p className={cm.cn(cm.fontWeight('semibold'))}>{m.name}</p>
+                          <p
                             className={cm.cn(
-                              cm.sp('px', 3),
-                              cm.sp('py', 1),
-                              cm.fontWeight('semibold'),
                               cm.textSize('xs'),
-                              'rounded-full bg-primary text-on-primary',
+                              'text-on-surface-variant font-mono',
                             )}
                           >
-                            {t('common.save', {}, { defaultValue: 'Save' })}
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              void removeMember(m.id)
-                            }}
-                            className={cm.cn(
-                              cm.sp('px', 3),
-                              cm.sp('py', 1),
-                              cm.fontWeight('semibold'),
-                              cm.textSize('xs'),
-                              'rounded-full text-error hover:bg-error-container/30',
-                            )}
-                          >
-                            {t('common.remove', {}, { defaultValue: 'Remove' })}
-                          </button>
+                            {m.email}
+                          </p>
                         </div>
                       </div>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </td>
+                    <td className={cm.cn('px-5 py-4')}>
+                      <span
+                        className={cm.cn(
+                          cm.fontWeight('bold'),
+                          'inline-flex items-center px-2.5 py-1 rounded-full text-[10px] uppercase tracking-widest',
+                          ROLE_TONE[m.role],
+                        )}
+                      >
+                        {t(`team.role.${m.role}`, {}, { defaultValue: ROLE_LABEL[m.role] })}
+                      </span>
+                    </td>
+                    <td className={cm.cn('px-5 py-4')}>
+                      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}>
+                        {m.pairs.map((p, i) => (
+                          <LanguagePairBadge
+                            key={i}
+                            source={p.source}
+                            target={p.target}
+                            size="sm"
+                          />
+                        ))}
+                        {m.pairs.length === 0 && (
+                          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            —
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    <td className={cm.cn('px-5 py-4 text-right')}>
+                      <button
+                        data-mol-id={`team-edit-${m.id}`}
+                        onClick={() => startEdit(m)}
+                        type="button"
+                        aria-expanded={editId === m.id}
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'font-bold text-primary hover:underline',
+                        )}
+                      >
+                        {editId === m.id
+                          ? t('team.editClose', {}, { defaultValue: 'Close' })
+                          : t('common.edit', {}, { defaultValue: 'Edit' })}
+                      </button>
+                      {editId === m.id && (
+                        <div
+                          className={cm.cn(
+                            cm.flex({ direction: 'col', gap: 'sm' }),
+                            cm.sp('mt', 2),
+                            'items-stretch text-left',
+                          )}
+                        >
+                          <select
+                            data-mol-id={`team-edit-role-${m.id}`}
+                            value={editRoleDraft}
+                            onChange={(e) =>
+                              setEditRoleDraft(
+                                e.target.value as 'admin' | 'reviewer' | 'translator',
+                              )
+                            }
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              cm.sp('py', 2),
+                              'rounded-lg border-0 bg-surface-container-low text-sm focus:ring-2 focus:ring-primary/30 focus:outline-none',
+                            )}
+                          >
+                            <option value="translator">
+                              {t('team.role.linguist', {}, { defaultValue: 'Linguist' })}
+                            </option>
+                            <option value="reviewer">
+                              {t('team.role.reviewer', {}, { defaultValue: 'Reviewer' })}
+                            </option>
+                            <option value="admin">
+                              {t('team.role.admin', {}, { defaultValue: 'Admin' })}
+                            </option>
+                          </select>
+                          <div className={cm.flex({ align: 'center', gap: 'sm', justify: 'end' })}>
+                            <button
+                              data-mol-id={`team-edit-save-${m.id}`}
+                              type="button"
+                              onClick={() => {
+                                void saveEditedRole(m.id)
+                              }}
+                              className={cm.cn(
+                                cm.sp('px', 3),
+                                cm.sp('py', 1),
+                                cm.fontWeight('semibold'),
+                                cm.textSize('xs'),
+                                'rounded-full bg-primary text-on-primary',
+                              )}
+                            >
+                              {t('common.save', {}, { defaultValue: 'Save' })}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                void removeMember(m.id)
+                              }}
+                              className={cm.cn(
+                                cm.sp('px', 3),
+                                cm.sp('py', 1),
+                                cm.fontWeight('semibold'),
+                                cm.textSize('xs'),
+                                'rounded-full text-error hover:bg-error-container/30',
+                              )}
+                            >
+                              {t('common.remove', {}, { defaultValue: 'Remove' })}
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 

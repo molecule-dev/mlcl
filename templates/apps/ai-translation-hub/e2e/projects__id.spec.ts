@@ -34,10 +34,13 @@ test.describe('/projects/:id: project detail', () => {
   test('clicking a project from the list navigates to its detail route', async ({ page }) => {
     const { accessToken } = await signup(page)
     const project = await seedProject(page, accessToken, { name: 'Navigable Project' })
-    await page.goto(APP_BASE + '/projects')
-    await page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    // Arm BEFORE navigation — same mount-vs-listener race as projects.spec.ts.
+    await Promise.all([
+      page.waitForResponse((r) => /\/api\/projects/.test(r.url()) && r.status() === 200, {
+        timeout: 15_000,
+      }),
+      page.goto(APP_BASE + '/projects'),
+    ])
     const link = page
       .locator(`a[href="/projects/${project.id}"], a[href="/translate/${project.id}"]`)
       .first()
