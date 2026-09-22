@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,6 +69,7 @@ export function DeckDetail() {
     setDeleting(true)
     try {
       await http.delete(`/api/decks/${deckId}`)
+      void track({ name: 'deck.deleted', properties: { deck_id: deckId } })
       navigate('/decks')
     } catch (_error) {
       setError(t('deckDetail.deleteError', {}, { defaultValue: 'Failed to delete deck.' }))
@@ -118,14 +120,14 @@ export function DeckDetail() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
-      <div className={cm.flex({ align: 'center', justify: 'between' })}>
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-2')}>
         <Link
           to="/decks"
           className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', 'hover:text-on-surface')}
         >
           ← {t('deckDetail.backLink', {}, { defaultValue: 'All decks' })}
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap gap-2')}>
           <button
             type="button"
             onClick={onDeleteDeck}
@@ -159,10 +161,24 @@ export function DeckDetail() {
       </div>
 
       <header className={cm.cn(cm.card(), cm.sp('p', 6))}>
-        <div className={cm.flex({ align: 'start', justify: 'between' })}>
-          <div>
-            <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{deck.name}</h1>
-            <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+        <div className={cm.cn(cm.flex({ align: 'start', justify: 'between' }), 'flex-wrap gap-3')}>
+          <div className="min-w-0">
+            <h1
+              className={cm.cn(
+                cm.textSize('2xl'),
+                cm.fontWeight('bold'),
+                'break-words [overflow-wrap:anywhere]',
+              )}
+            >
+              {deck.name}
+            </h1>
+            <p
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.sp('mt', 1),
+                'text-on-surface-variant break-words',
+              )}
+            >
               {deck.description}
             </p>
           </div>
@@ -174,7 +190,7 @@ export function DeckDetail() {
                 cm.sp('py', 3),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'bg-primary text-on-primary rounded-md',
+                'bg-primary text-on-primary rounded-md whitespace-nowrap',
               )}
             >
               {t(
@@ -185,7 +201,7 @@ export function DeckDetail() {
             </Link>
           )}
         </div>
-        <div className={cm.cn(cm.grid({ cols: 4, gap: 'md' }), cm.sp('mt', 4))}>
+        <div className={cm.cn('grid grid-cols-2 gap-4 md:grid-cols-4', cm.sp('mt', 4))}>
           <Stat
             label={t('deckDetail.stat.total', {}, { defaultValue: 'Cards' })}
             value={`${deck.card_count}`}
@@ -236,55 +252,106 @@ export function DeckDetail() {
         })}
       </nav>
 
-      <ul className={cm.cn('space-y-2')}>
-        {visible.map((c) => (
-          <li key={c.id}>
-            <Link
-              to={`/decks/${deck.id}/cards/${c.id}/edit`}
-              className={cm.cn(cm.card(), cm.sp('p', 4), 'block hover:bg-surface-container')}
-            >
-              <div className={cm.flex({ align: 'start', justify: 'between', gap: 'md' })}>
-                <div className={cm.cn(cm.flex1, 'min-w-0 space-y-1')}>
-                  <p
-                    className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}
-                    style={{ fontFamily: 'var(--mol-font-serif)' }}
-                  >
-                    {c.front}
-                  </p>
-                  <p
-                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', 'line-clamp-1')}
-                    style={{ fontFamily: 'var(--mol-font-serif)' }}
-                  >
-                    {c.back}
-                  </p>
+      {cards.length === 0 ? (
+        <div
+          data-mol-id="deck-cards-empty"
+          className={cm.cn(
+            cm.sp('p', 10),
+            cm.textCenter,
+            'rounded-2xl border border-dashed border-outline-variant/40 bg-surface-container-lowest',
+          )}
+        >
+          <span className="material-symbols-outlined text-3xl text-primary" aria-hidden="true">
+            style
+          </span>
+          <p className={cm.cn(cm.sp('mt', 2), cm.fontWeight('semibold'))}>
+            {t('deckDetail.empty.heading', {}, { defaultValue: 'No cards in this deck yet' })}
+          </p>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-on-surface-variant')}>
+            {t(
+              'deckDetail.empty.body',
+              {},
+              { defaultValue: 'Add your first card to start building memory.' },
+            )}
+          </p>
+          <Link
+            to={`/decks/${deck.id}/cards/new`}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.fontWeight('bold'),
+              cm.sp('mt', 6),
+              'inline-block text-sm rounded-xl bg-primary text-on-primary',
+            )}
+          >
+            {/* Distinct copy from the header's "+ New card" — two links whose
+                accessible names share a /New card/i prefix break strict-mode
+                locators (and double-target real users scanning the page). */}
+            {t('deckDetail.empty.cta', {}, { defaultValue: 'Add your first card' })}
+          </Link>
+        </div>
+      ) : visible.length === 0 ? (
+        <p
+          data-mol-id="deck-cards-filter-empty"
+          className={cm.cn(cm.card(), cm.sp('p', 8), cm.textCenter, 'text-on-surface-variant')}
+        >
+          {t('deckDetail.filterEmpty', {}, { defaultValue: 'No cards match this state filter.' })}
+        </p>
+      ) : (
+        <ul className={cm.cn('space-y-2')}>
+          {visible.map((c) => (
+            <li key={c.id}>
+              <Link
+                to={`/decks/${deck.id}/cards/${c.id}/edit`}
+                className={cm.cn(cm.card(), cm.sp('p', 4), 'block hover:bg-surface-container')}
+              >
+                <div className={cm.flex({ align: 'start', justify: 'between', gap: 'md' })}>
+                  <div className={cm.cn(cm.flex1, 'min-w-0 space-y-1')}>
+                    <p
+                      className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}
+                      style={{ fontFamily: 'var(--mol-font-serif)' }}
+                    >
+                      {c.front}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'line-clamp-1',
+                      )}
+                      style={{ fontFamily: 'var(--mol-font-serif)' }}
+                    >
+                      {c.back}
+                    </p>
+                  </div>
+                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.shrink0)}>
+                    <span
+                      className={cm.cn(
+                        cm.sp('px', 2),
+                        cm.sp('py', 1),
+                        cm.textSize('xs'),
+                        'rounded',
+                        STATE_COLOR[c.state],
+                      )}
+                    >
+                      {t(`deckDetail.cardState.${c.state}`, {}, { defaultValue: c.state })}
+                    </span>
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {c.interval_days > 0
+                        ? t(
+                            'deckDetail.intervalDays',
+                            { days: c.interval_days },
+                            { defaultValue: '{{days}}d' },
+                          )
+                        : ''}
+                    </span>
+                  </div>
                 </div>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.shrink0)}>
-                  <span
-                    className={cm.cn(
-                      cm.sp('px', 2),
-                      cm.sp('py', 1),
-                      cm.textSize('xs'),
-                      'rounded',
-                      STATE_COLOR[c.state],
-                    )}
-                  >
-                    {t(`deckDetail.cardState.${c.state}`, {}, { defaultValue: c.state })}
-                  </span>
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {c.interval_days > 0
-                      ? t(
-                          'deckDetail.intervalDays',
-                          { days: c.interval_days },
-                          { defaultValue: '{{days}}d' },
-                        )
-                      : ''}
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

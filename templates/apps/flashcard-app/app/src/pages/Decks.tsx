@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -87,6 +88,10 @@ export function Decks() {
       })
       const created = unwrapSingle<Deck>(res)
       if (created) {
+        void track({
+          name: 'deck.created',
+          properties: { deck_id: created.id, category },
+        })
         setDecks((prev) => [created, ...prev])
         setCreateOpen(false)
         navigate(`/decks/${created.id}`)
@@ -131,7 +136,7 @@ export function Decks() {
 
       <nav
         aria-label={t('decks.filterLabel', {}, { defaultValue: 'Filter decks by category' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {CATEGORIES.map((c) => {
           const active = filter === c

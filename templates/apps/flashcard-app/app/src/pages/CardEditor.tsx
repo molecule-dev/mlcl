@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -69,8 +70,20 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
         .filter(Boolean),
     }
     try {
-      if (mode === 'new') await http.post('/api/cards', payload)
-      else await http.put(`/api/cards/${cardId}`, payload)
+      if (mode === 'new') {
+        const created = await http.post('/api/cards', payload)
+        const card = unwrapSingle<{ id?: string }>(created)
+        void track({
+          name: 'card.created',
+          properties: { deck_id: deckId, card_id: card?.id, tags: payload.tags.length },
+        })
+      } else {
+        await http.put(`/api/cards/${cardId}`, payload)
+        void track({
+          name: 'card.updated',
+          properties: { deck_id: deckId, card_id: cardId },
+        })
+      }
       navigate(`/decks/${deckId}`)
     } catch (_error) {
       setError(t('cardEditor.saveError', {}, { defaultValue: 'Failed to save.' }))
@@ -91,6 +104,7 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
     setError(null)
     try {
       await http.delete(`/api/cards/${cardId}`)
+      void track({ name: 'card.deleted', properties: { deck_id: deckId, card_id: cardId } })
       navigate(`/decks/${deckId}`)
     } catch (_error) {
       setError(t('cardEditor.deleteError', {}, { defaultValue: 'Failed to delete card.' }))

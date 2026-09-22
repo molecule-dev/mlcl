@@ -78,7 +78,8 @@ export function Stats() {
         </p>
       </header>
 
-      <section className={cm.grid({ cols: 4, gap: 'md' })}>
+      {/* 2×2 on phones — four 1-col KPI cards push the charts below the fold. */}
+      <section className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <Kpi
           label={t('stats.kpi.reviews', {}, { defaultValue: 'Reviews (30d)' })}
           value={`${stats.total_reviews}`}

@@ -19,6 +19,14 @@ test.describe('/study/:deckId/summary', () => {
   })
 
   test('Back to deck link navigates to /decks/:deckId', async ({ page }) => {
+    // The summary page is static and does NOT validate the deck, so this test
+    // deliberately uses a nonexistent deck id. Following the link mounts
+    // DeckDetail, whose fetch of that id correctly 404s — that console noise
+    // is the expected contract here, not a regression.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     const deckId = '00000000-0000-0000-0000-000000000000'
     await page.goto(APP_BASE + `/study/${deckId}/summary`)
     await page.getByRole('link', { name: /Back to deck/i }).click()

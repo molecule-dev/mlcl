@@ -52,13 +52,16 @@ export function LandingTopNavBar() {
           </span>
           <span className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight')}>{APP_NAME}</span>
         </Link>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0')}>
+          {/* Pricing + Sign in collapse away on phones — the wordmark plus the
+              primary CTA already fill a 390px bar; both links stay reachable
+              from the landing hero/footer. */}
           <Link
             to="/pricing"
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'text-on-surface-variant hover:text-on-surface',
+              'hidden sm:inline text-on-surface-variant hover:text-on-surface',
             )}
             data-mol-id="nav-pricing"
           >
@@ -84,7 +87,7 @@ export function LandingTopNavBar() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'text-on-surface-variant hover:text-on-surface',
+                  'hidden sm:inline text-on-surface-variant hover:text-on-surface',
                 )}
                 data-mol-id="nav-signin"
               >
@@ -93,10 +96,11 @@ export function LandingTopNavBar() {
               <Link
                 to="/signup"
                 className={cm.cn(
-                  cm.sp('px', 5),
+                  cm.sp('px', 4),
+                  'sm:px-5',
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
-                  'rounded-xl bg-primary text-on-primary text-sm shadow-sm hover:scale-[1.02] transition-transform',
+                  'rounded-xl bg-primary text-on-primary text-sm shadow-sm hover:scale-[1.02] transition-transform whitespace-nowrap',
                 )}
                 data-mol-id="nav-signup"
               >

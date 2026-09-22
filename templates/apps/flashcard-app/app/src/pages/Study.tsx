@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -129,6 +130,12 @@ export function Study() {
           const allRes = await http.get(`/api/cards?deck_id=${deckId}`)
           if (!cancelled) setQueue(unwrapList<Card>(allRes).slice(0, 20))
         }
+        if (!cancelled && unwrapList<Card>(dueRes).length > 0) {
+          void track({
+            name: 'session.started',
+            properties: { deck_id: deckId, cards: Math.min(due.length, 20) },
+          })
+        }
       })
       .catch(() => {
         if (!cancelled)
@@ -153,9 +160,20 @@ export function Study() {
     try {
       // The actual SR work — without this the grade is pure local state.
       await http.post('/api/study/review', { card_id: card.id, quality: button.quality })
+      void track({
+        name: 'review.answered',
+        properties: { card_id: card.id, deck_id: deckId, grade: g, quality: button.quality },
+      })
       setSession((s) => ({ ...s, reviewed: s.reviewed + 1, [g]: s[g] + 1 }))
       setFlipped(false)
+      const wasLast = index + 1 >= queue.length
       setIndex((i) => i + 1)
+      if (wasLast) {
+        void track({
+          name: 'session.completed',
+          properties: { deck_id: deckId, cards: queue.length },
+        })
+      }
     } catch (_error) {
       setError(
         t('study.gradeError', {}, { defaultValue: 'Could not save your review. Try again.' }),
@@ -279,7 +297,9 @@ export function Study() {
           />
 
           {flipped && (
-            <div className={cm.grid({ cols: 4, gap: 'sm' })}>
+            // 2 columns on phones (44px+ tap targets stay thumb-sized), 4 on
+            // md+ — a 1-col responsive collapse would push Easy below the fold.
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
               {ANSWER_BUTTONS.map((b, i) => (
                 <button
                   key={b.grade}
@@ -290,7 +310,7 @@ export function Study() {
                     cm.sp('px', 4),
                     cm.sp('py', 4),
                     cm.fontWeight('bold'),
-                    'rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all disabled:opacity-50',
+                    'min-h-[64px] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all disabled:opacity-50',
                     b.toneClasses,
                   )}
                   data-mol-id={`answer-${b.grade}`}
@@ -304,7 +324,7 @@ export function Study() {
                     </span>
                     <kbd
                       className={cm.cn(
-                        'rounded border border-surface/30 bg-surface/15 px-1 text-[9px] font-mono font-bold',
+                        'hidden md:inline-block rounded border border-surface/30 bg-surface/15 px-1 text-[9px] font-mono font-bold',
                       )}
                     >
                       {i + 1}
@@ -319,7 +339,7 @@ export function Study() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'md' }),
-                'text-xs text-on-surface-variant',
+                'hidden md:flex text-xs text-on-surface-variant',
               )}
             >
               <span className={cm.cn('inline-flex items-center gap-1')}>
