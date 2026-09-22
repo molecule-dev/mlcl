@@ -170,7 +170,7 @@ export function Achievements() {
                           className={cm.cn('w-full')}
                           style={{
                             height: '4px',
-                            backgroundColor: 'var(--color-heatmap-0)',
+                            backgroundColor: 'var(--color-heatmap-empty)',
                             borderRadius: '2px',
                           }}
                         >

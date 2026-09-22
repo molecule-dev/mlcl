@@ -55,6 +55,11 @@ test('signup link from /login goes back to /signup', async ({ page }) => {
 })
 
 test('signup duplicate email returns 4xx and stays on /signup', async ({ page, browser }) => {
+  // Expected 4xx: a duplicate email makes POST /api/users answer 403.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   const email = uniqueEmail('dup')
   const ctx = await browser.newContext()
   const p = await ctx.newPage()

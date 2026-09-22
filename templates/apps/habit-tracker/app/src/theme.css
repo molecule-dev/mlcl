@@ -99,6 +99,13 @@
   --color-error: #e17055;
   --color-info: #74b9ff;
 
+  /* Streak flame — the accent for streak counts and fire icons.
+     #ea580c keeps ≥3:1 (large text / icons) on white. Small TEXT on a flame
+     tint uses --color-flame-deep (4.5:1) instead — see the landing eyebrow. */
+  --color-flame: #ea580c;
+  --color-flame-deep: #9a3412;
+  --color-achievement-locked: #e8e8e8;
+
   /* Heatmap */
   --color-heatmap-empty: #ebedf0;
   --color-heatmap-level1: #c6e48b;
@@ -248,6 +255,10 @@
   --color-heatmap-level2: #3d7a1e;
   --color-heatmap-level3: #4da528;
   --color-heatmap-level4: #5ece32;
+
+  --color-flame: #fb923c;
+  --color-flame-deep: #fdba74;
+  --color-achievement-locked: #3a3a5c;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);

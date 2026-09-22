@@ -24,6 +24,11 @@ test('existing user can log in and session persists across reload', async ({ pag
 })
 
 test('wrong password keeps user on /login', async ({ page, browser }) => {
+  // Expected 4xx: wrong credentials make POST /api/users/log-in answer 403.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   const email = uniqueEmail('login')
   const ctx = await browser.newContext()
   const p = await ctx.newPage()

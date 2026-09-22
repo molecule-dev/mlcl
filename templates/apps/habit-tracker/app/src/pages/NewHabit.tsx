@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -80,6 +81,10 @@ export function NewHabit() {
       const created =
         (resp && (resp as { data?: { id?: string } }).data) ?? (resp as { id?: string })
       const id = (created as { id?: string })?.id
+      void track({
+        name: 'habit.created',
+        properties: { habit_id: id, cadence: frequency, category },
+      })
       navigate(id ? `/habits/${id}` : '/habits')
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
@@ -123,6 +128,7 @@ export function NewHabit() {
       >
         <div>
           <label
+            htmlFor="habit-name"
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -133,6 +139,7 @@ export function NewHabit() {
           </label>
           <input
             type="text"
+            id="habit-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder={t(
@@ -255,6 +262,7 @@ export function NewHabit() {
         <div className={cm.flex({ align: 'center', justify: 'between' })}>
           <div>
             <label
+              htmlFor="habit-time"
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
@@ -265,6 +273,7 @@ export function NewHabit() {
             </label>
             <input
               type="time"
+              id="habit-time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
               className={cm.cn(
@@ -283,9 +292,10 @@ export function NewHabit() {
               type="button"
               role="switch"
               aria-checked={reminders}
+              aria-label={t('newHabit.remindersLabel', {}, { defaultValue: 'Remind me' })}
               onClick={() => setReminders((r) => !r)}
               className={cm.cn(
-                'relative w-12 h-6 rounded-full transition-colors',
+                'relative w-14 h-8 rounded-full transition-colors',
                 reminders ? '' : 'bg-surface-container border border-outline-variant',
               )}
               style={
@@ -299,9 +309,9 @@ export function NewHabit() {
             >
               <span
                 className={cm.cn(
-                  'absolute top-0.5 w-5 h-5 rounded-full bg-surface shadow-sm transition-all',
+                  'absolute top-1 w-6 h-6 rounded-full bg-surface shadow-sm transition-all',
                 )}
-                style={{ left: reminders ? '1.5rem' : '0.125rem' }}
+                style={{ left: reminders ? '1.75rem' : '0.25rem' }}
               />
             </button>
           </label>
@@ -317,7 +327,7 @@ export function NewHabit() {
           >
             {t('newHabit.accentLabel', {}, { defaultValue: 'Accent color' })}
           </label>
-          <div className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }))}>
+          <div className={cm.cn(cm.sp('mt', 3), cm.flex({ gap: 'sm' }), 'flex-wrap')}>
             {ACCENT_SWATCHES.map((c) => (
               <button
                 key={c}
@@ -328,7 +338,7 @@ export function NewHabit() {
                   { color: c },
                   { defaultValue: 'Use color {{color}}' },
                 )}
-                className={cm.cn('w-9 h-9 rounded-full transition-transform hover:scale-110')}
+                className={cm.cn('w-10 h-10 rounded-full transition-transform hover:scale-110')}
                 style={{
                   backgroundColor: c,
                   boxShadow:
@@ -341,6 +351,7 @@ export function NewHabit() {
 
         <div>
           <label
+            htmlFor="habit-notes"
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
@@ -350,6 +361,7 @@ export function NewHabit() {
             {t('form.notes', {}, { defaultValue: 'Notes' })}
           </label>
           <textarea
+            id="habit-notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder={t(

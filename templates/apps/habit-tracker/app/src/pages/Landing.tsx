@@ -88,7 +88,10 @@ export function Landing() {
                 cm.fontWeight('bold'),
                 'inline-flex items-center gap-2 rounded-full text-xs uppercase tracking-widest text-on-surface',
               )}
-              style={{ backgroundColor: 'rgba(249, 115, 22, 0.12)', color: 'var(--color-flame)' }}
+              style={{
+                backgroundColor: 'rgba(249, 115, 22, 0.12)',
+                color: 'var(--color-flame-deep)',
+              }}
             >
               <span
                 className={cm.cn('material-symbols-outlined text-base')}

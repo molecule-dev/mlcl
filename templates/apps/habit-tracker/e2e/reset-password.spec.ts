@@ -15,6 +15,11 @@ test('reset-password form renders all fields', async ({ page }) => {
 })
 
 test('reset with invalid token surfaces an error', async ({ page }) => {
+  // Expected 4xx: a bogus token must be rejected by POST /api/users/reset-password.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 40[13]',
+  })
   await page.goto(APP_BASE + '/reset-password')
   await page.locator('input[type="email"]').fill('nobody@nowhere.test')
   await page.locator('input[type="text"]').first().fill('not-a-real-token-1234')
@@ -86,6 +91,11 @@ test('back-to-sign-in link returns to /login', async ({ page }) => {
 })
 
 test('reset with invalid token POSTs and returns 4xx (captureNetwork)', async ({ page }) => {
+  // Expected 4xx: the bogus-token POST is the subject under test.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 40[13]',
+  })
   await page.goto(APP_BASE + '/reset-password')
   await page.locator('input[type="email"]').fill('nobody@nowhere.test')
   const tokenField = page.locator('input[type="text"]').first()

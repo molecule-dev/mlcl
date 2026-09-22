@@ -289,7 +289,7 @@ export function Calendar() {
                               style={{
                                 background: done
                                   ? `linear-gradient(135deg, ${palette}, ${palette}aa)`
-                                  : 'var(--color-heatmap-0)',
+                                  : 'var(--color-heatmap-empty)',
                                 boxShadow: done ? `0 0 0 2px ${palette}33` : 'none',
                               }}
                             />

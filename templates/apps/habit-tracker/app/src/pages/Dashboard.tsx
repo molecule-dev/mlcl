@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -8,6 +9,9 @@ import { type HabitCategory, HabitChecklistRow } from '../components/HabitCheckl
 import { HabitStatsTriad } from '../components/HabitStatsTriad.js'
 import { StreakHeroCard } from '../components/StreakHeroCard.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
+
+/** Streak lengths worth a one-time celebration event. */
+const STREAK_MILESTONES = [3, 7, 14, 30, 60, 100, 180, 365]
 
 interface Habit {
   id: string
@@ -92,6 +96,22 @@ export function Dashboard() {
         : await http.delete(`/api/habits/${habit.id}/check-in`)
       const refreshed =
         (resp as { habit?: Habit })?.habit ?? (resp as { data?: { habit?: Habit } })?.data?.habit
+      const streak =
+        refreshed?.current_streak ?? (next ? habit.current_streak + 1 : habit.current_streak - 1)
+      if (next) {
+        void track({
+          name: 'habit.checked_in',
+          properties: { habit_id: habit.id, streak },
+        })
+        if (STREAK_MILESTONES.includes(streak)) {
+          void track({
+            name: 'streak.milestone',
+            properties: { habit_id: habit.id, streak },
+          })
+        }
+      } else {
+        void track({ name: 'habit.unchecked', properties: { habit_id: habit.id } })
+      }
       if (refreshed && refreshed.id) {
         setHabits((curr) => curr.map((h) => (h.id === refreshed.id ? { ...h, ...refreshed } : h)))
       }
@@ -238,13 +258,23 @@ export function Dashboard() {
       <div className={cm.flex({ align: 'center', justify: 'between' })}>
         <Link
           to="/habits"
-          className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.textPrimary)}
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.textPrimary,
+            'inline-flex min-h-10 items-center',
+          )}
         >
           {t('dashboard.viewAllHabits', {}, { defaultValue: 'Manage habits →' })}
         </Link>
         <Link
           to="/stats"
-          className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.textPrimary)}
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('bold'),
+            cm.textPrimary,
+            'inline-flex min-h-10 items-center',
+          )}
         >
           {t('dashboard.viewStats', {}, { defaultValue: 'See stats →' })}
         </Link>

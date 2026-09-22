@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -62,6 +63,7 @@ export function Pricing() {
 
   const onUpgrade = async (priceId: string | null, key: string): Promise<void> => {
     if (!priceId) return
+    void track({ name: 'checkout.started', properties: { price_id: priceId, tier: key } })
     setBusyKey(key)
     setError(null)
     try {

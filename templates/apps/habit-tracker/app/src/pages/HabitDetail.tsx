@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,11 +39,11 @@ interface Reminder {
 }
 
 const HEATMAP_LEVELS = [
-  'var(--color-heatmap-0)',
-  'var(--color-heatmap-1)',
-  'var(--color-heatmap-2)',
-  'var(--color-heatmap-3)',
-  'var(--color-heatmap-4)',
+  'var(--color-heatmap-empty)',
+  'var(--color-heatmap-level1)',
+  'var(--color-heatmap-level2)',
+  'var(--color-heatmap-level3)',
+  'var(--color-heatmap-level4)',
 ]
 
 export function HabitDetail() {
@@ -87,6 +88,7 @@ export function HabitDetail() {
         description: draftDescription.trim() || null,
       })
       setHabit(unwrapSingle<Habit>(resp))
+      void track({ name: 'habit.updated', properties: { habit_id: habit.id } })
       setEditing(false)
     } catch (err) {
       setEditError(err instanceof Error ? err.message : String(err))
@@ -143,6 +145,10 @@ export function HabitDetail() {
         setReminders((prev) =>
           [...prev, created].sort((a, b) => a.time_of_day.localeCompare(b.time_of_day)),
         )
+      void track({
+        name: 'reminder.created',
+        properties: { habit_id: habit.id, channel: reminderChannel },
+      })
       setReminderTime('')
     } catch (err) {
       setReminderError(err instanceof Error ? err.message : String(err))
@@ -152,11 +158,16 @@ export function HabitDetail() {
   }
 
   const removeReminder = async (reminderId: string) => {
+    if (!habit) return
     setReminderError(null)
     setReminderBusy(true)
     try {
       await http.delete(`/api/reminders/${reminderId}`)
       setReminders((prev) => prev.filter((r) => r.id !== reminderId))
+      void track({
+        name: 'reminder.removed',
+        properties: { habit_id: habit.id, reminder_id: reminderId },
+      })
     } catch (err) {
       setReminderError(err instanceof Error ? err.message : String(err))
     } finally {

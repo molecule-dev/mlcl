@@ -97,7 +97,7 @@ export function Habits() {
 
       <nav
         aria-label={t('habits.filterLabel', {}, { defaultValue: 'Filter habits by category' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {CATEGORIES.map((c) => {
           const active = filter === c
