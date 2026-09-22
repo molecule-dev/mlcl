@@ -12,6 +12,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, findMany, type OrderBy, type WhereCondition } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 
+import { isUuid, route } from './_http.js'
 import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -62,62 +63,72 @@ function decorate(row: TraceRow): Record<string, unknown> {
   }
 }
 
-router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
-  const orderBy: OrderBy[] = [{ field: 'started_at', direction: 'desc' }]
-  const rows = (await findMany<TraceRow>('traces', { where, orderBy })) as TraceRow[]
-  res.json(rows.map(decorate))
-})
+router.get(
+  '/',
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  // Look up by the public fixture id first (e.g. trc_b8d4f1a3c1) since
-  // the UI references traces by that opaque token, not the underlying
-  // UUID. Fall back to a UUID lookup if the URL-id parses as a UUID.
-  const matches = (await findMany<TraceRow>('traces', {
-    where: [{ field: 'user_id', operator: '=', value: userId }],
-    orderBy: [{ field: 'started_at', direction: 'desc' }],
-    limit: 200,
-  })) as TraceRow[]
-  let found = matches.find((row) => {
-    const a = row.attributes
-    let parsed: Record<string, unknown> = {}
-    if (a && typeof a === 'object' && !Array.isArray(a)) parsed = a as Record<string, unknown>
-    else if (typeof a === 'string') {
-      try {
-        parsed = JSON.parse(a) as Record<string, unknown>
-      } catch (_error) {
-        // Non-JSON attributes string; treat as no match.
-        parsed = {}
-      }
+  route('traces.list', async (_req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
     }
-    return parsed.fixture_id === id
-  })
-  if (!found) {
-    const direct = await findById<TraceRow>('traces', id)
-    if (direct && direct.user_id === userId) found = direct
-  }
-  if (!found) {
-    res.status(404).json({ error: t('traces.notFound', {}, { defaultValue: 'Trace not found' }) })
-    return
-  }
-  res.json(decorate(found))
-})
+    await seedDemoForUser(userId)
+    const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
+    const orderBy: OrderBy[] = [{ field: 'started_at', direction: 'desc' }]
+    const rows = (await findMany<TraceRow>('traces', { where, orderBy })) as TraceRow[]
+    res.json(rows.map(decorate))
+  }),
+)
+
+router.get(
+  '/:id',
+
+  route('traces.get', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // Look up by the public fixture id first (e.g. trc_b8d4f1a3c1) since
+    // the UI references traces by that opaque token, not the underlying
+    // UUID. Fall back to a UUID lookup if the URL-id parses as a UUID.
+    const matches = (await findMany<TraceRow>('traces', {
+      where: [{ field: 'user_id', operator: '=', value: userId }],
+      orderBy: [{ field: 'started_at', direction: 'desc' }],
+      limit: 200,
+    })) as TraceRow[]
+    let found = matches.find((row) => {
+      const a = row.attributes
+      let parsed: Record<string, unknown> = {}
+      if (a && typeof a === 'object' && !Array.isArray(a)) parsed = a as Record<string, unknown>
+      else if (typeof a === 'string') {
+        try {
+          parsed = JSON.parse(a) as Record<string, unknown>
+        } catch (_error) {
+          // Non-JSON attributes string; treat as no match.
+          parsed = {}
+        }
+      }
+      return parsed.fixture_id === id
+    })
+    if (!found && isUuid(id)) {
+      // The id column is uuid — a non-uuid id must fall through to 404,
+      // never reach Postgres (which would 500 on invalid uuid input).
+      const direct = await findById<TraceRow>('traces', id)
+      if (direct && direct.user_id === userId) found = direct
+    }
+    if (!found) {
+      res.status(404).json({ error: t('traces.notFound', {}, { defaultValue: 'Trace not found' }) })
+      return
+    }
+    res.json(decorate(found))
+  }),
+)
 
 export default router

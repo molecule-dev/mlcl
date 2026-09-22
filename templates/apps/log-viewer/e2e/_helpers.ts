@@ -76,6 +76,31 @@ export async function signup(page: Page, opts: Partial<Credentials> = {}): Promi
 }
 
 /**
+ * Navigate to `url` and wait for the page's own data request matching
+ * `urlPattern`. The response wait is ARMED BEFORE the goto.
+ *
+ * Arming after `page.goto` races the SPA's first fetch: a warm vite
+ * server can deliver + execute the bundle before the load event that
+ * resolves `goto`, so the XHR fires (and completes) before the listener
+ * exists — the wait then times out even though the app is healthy. That
+ * race failed whole specs intermittently-to-deterministically across
+ * this suite.
+ */
+export async function gotoAndWait(
+  page: Page,
+  url: string,
+  match: RegExp | ((r: { url(): string }) => boolean),
+  timeout = 15_000,
+): Promise<void> {
+  const loaded = page.waitForResponse(
+    (r) => (typeof match === 'function' ? match(r) : match.test(r.url())),
+    { timeout },
+  )
+  await page.goto(url)
+  await loaded
+}
+
+/**
  * Login an existing user via the UI.
  */
 export async function login(page: Page, email: string, password: string): Promise<void> {

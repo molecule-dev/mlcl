@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork } from './_helpers'
+import { gotoAndWait, APP_BASE, captureNetwork } from './_helpers'
 
 // /pricing — public PricingPage from @molecule/app-billing-react.
 // Fetches GET /api/billing/tiers to render plan cards + limits.
@@ -7,8 +7,7 @@ import { APP_BASE, captureNetwork } from './_helpers'
 test.describe('/pricing', () => {
   test('renders without auth and pulls /api/billing/tiers', async ({ page }) => {
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/pricing')
-      await page.waitForResponse((r) => /\/api\/billing\/tiers/.test(r.url()), { timeout: 8_000 })
+      await gotoAndWait(page, APP_BASE + '/pricing', (r) => /\/api\/billing\/tiers/.test(r.url()))
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/billing\/tiers/.test(r.url))
     expect(req, 'GET /api/billing/tiers should fire on /pricing').toBeDefined()

@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, captureNetwork, signup } from './_helpers'
 
 // /search — query bar + severity filters + log line stream from /api/logs.
 
@@ -12,8 +12,7 @@ test.describe('/search', () => {
   test('after signup, /search fires GET /api/logs', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/search')
-      await page.waitForResponse((r) => /\/api\/logs(\b|\?|$)/.test(r.url()), { timeout: 10_000 })
+      await gotoAndWait(page, APP_BASE + '/search', (r) => /\/api\/logs(\b|\?|$)/.test(r.url()))
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/logs(\b|\?|$)/.test(r.url))
     expect(req).toBeDefined()
@@ -30,8 +29,7 @@ test.describe('/search', () => {
 
   test('severity filter pills change the active filter', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => /\/api\/logs/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/search', (r) => /\/api\/logs/.test(r.url()))
     await page.locator('[data-mol-id="search-filter-error"]').click()
     // Status bar reflects the filter.
     const status = page.locator('[data-mol-id="search-status-bar"]')
@@ -40,8 +38,7 @@ test.describe('/search', () => {
 
   test('clicking a log line populates the right-hand detail panel', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => /\/api\/logs/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/search', (r) => /\/api\/logs/.test(r.url()))
     const rows = page.locator('[data-mol-id^="log-line-"]')
     await expect(rows.first()).toBeVisible({ timeout: 10_000 })
     await rows.first().click()
@@ -50,8 +47,7 @@ test.describe('/search', () => {
 
   test('renders the timeline volume sparkline', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => /\/api\/logs/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/search', (r) => /\/api\/logs/.test(r.url()))
     await expect(page.locator('svg').first()).toBeVisible({ timeout: 5_000 })
   })
 })

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -94,10 +95,18 @@ export function Streams() {
     setSubmitting(true)
     setCreateError(null)
     try {
-      await http.post('/api/streams', {
+      const created = (await http.post('/api/streams', {
         name: newName.trim(),
         source: newSource.trim() || undefined,
         format: newFormat,
+      })) as { id?: string; data?: { id?: string } }
+      track({
+        name: 'source.added',
+        properties: {
+          source_id: created?.id ?? created?.data?.id ?? null,
+          name: newName.trim(),
+          format: newFormat,
+        },
       })
       setShowCreate(false)
       const items = await loadStreams(http)

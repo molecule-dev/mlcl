@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /streams/:id — stream detail with hero + ingestion stats + parsing rules + recent events.
 
@@ -22,10 +22,9 @@ test.describe('/streams/:id', () => {
     test.skip(items.length === 0, 'no streams seeded')
     const id = items[0].id
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + `/streams/${id}`)
-      await page.waitForResponse((r) => new RegExp(`/api/streams/${id}`).test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + `/streams/${id}`, (r) =>
+        new RegExp(`/api/streams/${id}`).test(r.url()),
+      )
     })
     const req = reqs.find((r) => r.method === 'GET' && new RegExp(`/api/streams/${id}`).test(r.url))
     expect(req).toBeDefined()
@@ -65,13 +64,20 @@ test.describe('/streams/:id', () => {
       ? body
       : body.data || body.results || []
     test.skip(items.length === 0, 'no streams seeded')
-    await page.goto(APP_BASE + `/streams/${items[0].id}`)
-    await page.waitForResponse((r) => /\/api\/streams\//.test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/streams/${items[0].id}`, (r) =>
+      /\/api\/streams\//.test(r.url()),
+    )
     const rules = page.locator('aside ul li')
     await expect(rules.nth(2)).toBeVisible({ timeout: 5_000 })
   })
 
   test('shows "not found" for an unknown stream id', async ({ page }) => {
+    // The API correctly answers 404 for a malformed/unknown id; the browser
+    // logs the failed resource load — expected here, not a page bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/streams/no-such-stream-id')
     await expect(page.getByText(/not found|loading|failed/i).first()).toBeVisible({

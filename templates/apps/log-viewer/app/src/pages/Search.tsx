@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,6 +76,25 @@ export function Search() {
     () => visible.find((l) => l.id === selectedId) ?? null,
     [visible, selectedId],
   )
+
+  // Domain analytics: a "search" is a settled query (800ms debounce), with
+  // the active severity filter attached. Fire-and-forget — never blocks UI.
+  useEffect(() => {
+    const q = query.trim()
+    if (!q) return
+    const timer = setTimeout(() => {
+      track({
+        name: 'log.searched',
+        properties: {
+          query: q,
+          severity: filter === 'all' ? 'any' : filter,
+          results: visible.length,
+        },
+      })
+    }, 800)
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fire per settled query/filter change; `visible` is read at fire time
+  }, [query, filter])
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 6))}>

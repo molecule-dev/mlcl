@@ -12,6 +12,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, findMany, type OrderBy, type WhereCondition } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 
+import { isUuid, route } from './_http.js'
 import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -59,39 +60,52 @@ function decorateService(row: ServiceRow): Record<string, unknown> {
   }
 }
 
-router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
-  const orderBy: OrderBy[] = [{ field: 'name', direction: 'asc' }]
-  const rows = (await findMany<ServiceRow>('services', { where, orderBy })) as ServiceRow[]
-  res.json(rows.map(decorateService))
-})
+router.get(
+  '/',
+  route('services.list', async (_req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
+    const orderBy: OrderBy[] = [{ field: 'name', direction: 'asc' }]
+    const rows = (await findMany<ServiceRow>('services', { where, orderBy })) as ServiceRow[]
+    res.json(rows.map(decorateService))
+  }),
+)
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<ServiceRow>('services', id)
-  if (!row || row.user_id !== userId) {
-    res
-      .status(404)
-      .json({ error: t('services.notFound', {}, { defaultValue: 'Service not found' }) })
-    return
-  }
-  res.json(decorateService(row))
-})
+router.get(
+  '/:id',
+  route('services.get', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('services.notFound', {}, { defaultValue: 'Service not found' }) })
+      return
+    }
+    const row = await findById<ServiceRow>('services', id)
+    if (!row || row.user_id !== userId) {
+      res
+        .status(404)
+        .json({ error: t('services.notFound', {}, { defaultValue: 'Service not found' }) })
+      return
+    }
+    res.json(decorateService(row))
+  }),
+)
 
 export default router

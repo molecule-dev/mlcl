@@ -73,7 +73,7 @@ export function LogLineRow({ line, selected = false, onClick }: LogLineRowProps)
       data-severity={line.severity}
     >
       <span
-        className={cm.cn('shrink-0 text-[12px]')}
+        className={cm.cn('hidden shrink-0 text-[12px] md:inline')}
         style={{
           color: 'var(--color-severity-debug)',
           width: 180,
@@ -86,13 +86,20 @@ export function LogLineRow({ line, selected = false, onClick }: LogLineRowProps)
         <SeverityPill severity={line.severity} />
       </span>
       <span
-        className={cm.cn('shrink-0 truncate text-[12px] font-medium')}
+        className={cm.cn('hidden shrink-0 truncate text-[12px] font-medium sm:inline')}
         style={{ color: 'var(--color-accent)', width: 140 }}
         title={line.service}
       >
         {line.service}
       </span>
-      <span className={cm.cn('flex-1 truncate text-on-surface')} title={line.message}>
+      {/* Mobile: fixed columns collapse away, so let the message wrap to two
+          lines instead of truncating to a sliver. Desktop keeps one line. */}
+      <span
+        className={cm.cn(
+          'min-w-0 flex-1 text-on-surface line-clamp-2 break-words md:line-clamp-1 md:truncate',
+        )}
+        title={line.message}
+      >
         {line.message}
       </span>
       {line.trace_id ? (

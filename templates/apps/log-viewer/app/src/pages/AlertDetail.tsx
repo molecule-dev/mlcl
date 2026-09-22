@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -106,6 +107,7 @@ export function AlertDetail() {
     setSilenceErr(null)
     try {
       await http.post(`/api/alerts/${id}/silence`, { duration_minutes: 60 })
+      track({ name: 'alert.silenced', properties: { alert_id: id, duration_minutes: 60 } })
       setSilenceMsg(t('alertDetail.silenced', {}, { defaultValue: 'Silenced for 1 hour.' }))
       // Refresh the alert to reflect any server-side state change.
       const res = await http.get(`/api/alerts/${id}`)

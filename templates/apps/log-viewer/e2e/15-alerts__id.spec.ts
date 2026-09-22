@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /alerts/:id — alert detail with condition, fire history, runbook, channels.
 
@@ -24,10 +24,9 @@ test.describe('/alerts/:id', () => {
     const id = await firstAlertId(page)
     test.skip(!id, 'no alerts seeded')
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + `/alerts/${id}`)
-      await page.waitForResponse((r) => new RegExp(`/api/alerts/${id}`).test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + `/alerts/${id}`, (r) =>
+        new RegExp(`/api/alerts/${id}`).test(r.url()),
+      )
     })
     const req = reqs.find((r) => r.method === 'GET' && new RegExp(`/api/alerts/${id}`).test(r.url))
     expect(req).toBeDefined()
@@ -51,8 +50,9 @@ test.describe('/alerts/:id', () => {
     await signup(page)
     const id = await firstAlertId(page)
     test.skip(!id, 'no alerts seeded')
-    await page.goto(APP_BASE + `/alerts/${id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/alerts/${id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/alerts/${id}`, (r) =>
+      new RegExp(`/api/alerts/${id}`).test(r.url()),
+    )
     const silencePromise = page.waitForResponse(
       (r) => r.request().method() === 'POST' && /\/silence$/.test(r.url()),
       { timeout: 10_000 },
@@ -81,8 +81,9 @@ test.describe('/alerts/:id', () => {
     await signup(page)
     const id = await firstAlertId(page)
     test.skip(!id, 'no alerts seeded')
-    await page.goto(APP_BASE + `/alerts/${id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/alerts/${id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/alerts/${id}`, (r) =>
+      new RegExp(`/api/alerts/${id}`).test(r.url()),
+    )
     await expect(page.locator('pre').first()).toBeVisible({ timeout: 5_000 })
   })
 })

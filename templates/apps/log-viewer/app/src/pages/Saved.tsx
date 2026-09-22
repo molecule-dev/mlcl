@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -50,6 +51,10 @@ export function Saved() {
   const [createError, setCreateError] = useState<string | null>(null)
 
   const [deletingId, setDeletingId] = useState<string | null>(null)
+  // Two-step inline confirm for the destructive delete: the first click arms
+  // the row (Confirm/Cancel), the second fires. Auto-disarms so a stale
+  // armed row can never delete on an accidental later click.
+  const [confirmingId, setConfirmingId] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -85,10 +90,18 @@ export function Saved() {
     setSubmitting(true)
     setCreateError(null)
     try {
-      await http.post('/api/saved-searches', {
+      const created = (await http.post('/api/saved-searches', {
         name: newName.trim(),
         query_string: newQuery.trim(),
         shared: newShared,
+      })) as { id?: string; data?: { id?: string } }
+      track({
+        name: 'saved.created',
+        properties: {
+          saved_search_id: created?.id ?? created?.data?.id ?? null,
+          name: newName.trim(),
+          shared: newShared,
+        },
       })
       setShowCreate(false)
       setItems(await loadSaved(http))
@@ -116,6 +129,7 @@ export function Saved() {
     setDeletingId(id)
     try {
       await http.delete(`/api/saved-searches/${id}`)
+      track({ name: 'saved.deleted', properties: { saved_search_id: id } })
       setItems(await loadSaved(http))
     } catch (err) {
       setError(
@@ -240,7 +254,7 @@ export function Saved() {
                     )}
                     <button
                       type="button"
-                      onClick={() => deleteSaved(s.id)}
+                      onClick={() => setConfirmingId(confirmingId === s.id ? null : s.id)}
                       disabled={deletingId === s.id}
                       data-mol-id={`saved-delete-${s.id}`}
                       aria-label={t(
@@ -249,7 +263,7 @@ export function Saved() {
                         { defaultValue: 'Delete {{name}}' },
                       )}
                       className={cm.cn(
-                        'text-on-surface-variant hover:text-error transition-colors disabled:opacity-50',
+                        'p-1.5 rounded text-on-surface-variant hover:text-error transition-colors disabled:opacity-50',
                       )}
                     >
                       <span
@@ -261,6 +275,56 @@ export function Saved() {
                     </button>
                   </div>
                 </div>
+                {confirmingId === s.id ? (
+                  <div
+                    className={cm.cn(
+                      'mt-3 flex items-center justify-between gap-3 rounded-md px-3 py-2',
+                    )}
+                    style={{
+                      backgroundColor:
+                        'color-mix(in srgb, var(--color-severity-error) 12%, transparent)',
+                      border:
+                        '1px solid color-mix(in srgb, var(--color-severity-error) 40%, transparent)',
+                    }}
+                    data-mol-id={`saved-confirm-${s.id}`}
+                  >
+                    <p className={cm.cn('font-mono text-xs text-on-surface')}>
+                      {t('saved.deleteConfirm', {}, { defaultValue: 'Delete this saved search?' })}
+                    </p>
+                    <div className={cm.cn('flex items-center gap-2')}>
+                      <button
+                        type="button"
+                        onClick={() => setConfirmingId(null)}
+                        data-mol-id={`saved-cancel-${s.id}`}
+                        className={cm.cn(
+                          'px-2.5 py-1 rounded font-mono text-[11px] font-bold uppercase tracking-widest border border-outline-variant',
+                        )}
+                      >
+                        {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setConfirmingId(null)
+                          void deleteSaved(s.id)
+                        }}
+                        disabled={deletingId === s.id}
+                        data-mol-id={`saved-confirm-delete-${s.id}`}
+                        className={cm.cn(
+                          'px-2.5 py-1 rounded font-mono text-[11px] font-bold uppercase tracking-widest text-error disabled:opacity-50',
+                        )}
+                        style={{
+                          backgroundColor:
+                            'color-mix(in srgb, var(--color-severity-error) 20%, transparent)',
+                        }}
+                      >
+                        {deletingId === s.id
+                          ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                          : t('saved.deleteConfirmYes', {}, { defaultValue: 'Delete' })}
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
                 <p
                   className={cm.cn(
                     'mt-3 font-mono text-xs px-3 py-2 rounded-md whitespace-pre-wrap break-words',

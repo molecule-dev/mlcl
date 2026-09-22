@@ -13,7 +13,7 @@ Datadog-like log viewer with search, filtering, live tail, and structured log pa
 
 `auth`, `search`, `realtime`
 
-## Data model (12 domain tables)
+## Data model (13 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -29,15 +29,18 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **services** — id, user_id, name, description, owner_team, health, error_rate_pct, log_rate_per_min, recent_volume, created_at, updated_at
 - **spans** — id, user_id, trace_id, parent_span_id, service, operation, started_at, duration_ms, status, attributes, created_at
 - **traces** — id, user_id, root_service, operation, started_at, duration_ms, span_count, error_count, status, attributes, created_at
+- **user_preferences** — user_id, hot_retention_days, cold_retention_days, created_at, updated_at
 
 ## API surface (handlers)
 
 _These endpoints already exist — open and extend the named file, never recreate it._
 
+- **\_http** — `api/src/handlers/_http.ts`
 - **\_seed** — `api/src/handlers/_seed.ts`
 - **alerts** — `api/src/handlers/alerts.ts`
 - **incidents** — `api/src/handlers/incidents.ts`
 - **logs** — `api/src/handlers/logs.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **saved-searches** — `api/src/handlers/saved-searches.ts`
 - **services** — `api/src/handlers/services.ts`
 - **sources** — `api/src/handlers/sources.ts`

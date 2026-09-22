@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, captureNetwork, signup } from './_helpers'
 
 // /services — service catalog list rendering ServiceCard rows from /api/services.
 
@@ -12,10 +12,9 @@ test.describe('/services', () => {
   test('after signup, /services loads via GET /api/services', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/services')
-      await page.waitForResponse((r) => /\/api\/services(\b|\?|$)/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/services', (r) =>
+        /\/api\/services(\b|\?|$)/.test(r.url()),
+      )
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/services(\b|\?|$)/.test(r.url))
     expect(req).toBeDefined()
@@ -30,8 +29,7 @@ test.describe('/services', () => {
 
   test('renders ≥ 1 service card after seed', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/services')
-    await page.waitForResponse((r) => /\/api\/services/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/services', (r) => /\/api\/services/.test(r.url()))
     // Wait for React to render the list after the response. count() is racy
     // against the post-response render — use toHaveCount with a timeout so we
     // poll until items appear (or fail with a useful diagnostic).
@@ -40,8 +38,7 @@ test.describe('/services', () => {
 
   test('each service card renders its name + ingest rate + error %', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/services')
-    await page.waitForResponse((r) => /\/api\/services/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/services', (r) => /\/api\/services/.test(r.url()))
     const cards = page.locator('main ul li button[data-mol-id^="service-card-"]')
     // Wait for at least one card to render (post-response React tick).
     await expect(cards.first()).toBeVisible({ timeout: 5_000 })

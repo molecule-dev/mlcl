@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -50,21 +51,6 @@ function fmtLimit(n: number | undefined): string {
   return n.toLocaleString()
 }
 
-function readPrefs(user: UserProfile | null | undefined): AppPrefs {
-  const oauthData = (user as unknown as { oauthData?: Record<string, unknown> } | null)?.oauthData
-  const lvPrefs = (oauthData?.logViewer as Partial<AppPrefs> | undefined) ?? {}
-  return {
-    hotRetentionDays:
-      typeof lvPrefs.hotRetentionDays === 'number'
-        ? lvPrefs.hotRetentionDays
-        : DEFAULT_PREFS.hotRetentionDays,
-    coldRetentionDays:
-      typeof lvPrefs.coldRetentionDays === 'number'
-        ? lvPrefs.coldRetentionDays
-        : DEFAULT_PREFS.coldRetentionDays,
-  }
-}
-
 export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -79,6 +65,11 @@ export function Settings() {
   const [accountSaving, setAccountSaving] = useState(false)
   const [accountError, setAccountError] = useState<string | null>(null)
   const [accountSaved, setAccountSaved] = useState(false)
+  // The platform user resource requires the CURRENT PASSWORD to change the
+  // email address (account-takeover defense). Collect it only when the
+  // email actually differs from the signed-in one.
+  const [currentPassword, setCurrentPassword] = useState('')
+  const emailChanged = !!user?.email && email !== user.email
 
   useEffect(() => {
     setName(user?.name ?? '')
@@ -88,6 +79,16 @@ export function Settings() {
   async function saveAccount(e: React.FormEvent) {
     e.preventDefault()
     if (!user?.id) return
+    if (emailChanged && !currentPassword) {
+      setAccountError(
+        t(
+          'settings.account.currentPasswordRequired',
+          {},
+          { defaultValue: 'Enter your current password to change your email.' },
+        ),
+      )
+      return
+    }
     setAccountSaving(true)
     setAccountError(null)
     setAccountSaved(false)
@@ -95,6 +96,7 @@ export function Settings() {
       const res = await http.patch<{ data?: UserProfile } | UserProfile>(`/api/users/${user.id}`, {
         name,
         email,
+        ...(emailChanged ? { currentPassword } : {}),
       })
       const body = (res as { data?: { data?: UserProfile } | UserProfile }).data
       const updated =
@@ -106,6 +108,7 @@ export function Settings() {
       } else {
         setUser({ ...(user as UserProfile), name, email })
       }
+      setCurrentPassword('')
       setAccountSaved(true)
       setTimeout(() => setAccountSaved(false), 2500)
     } catch (err) {
@@ -120,31 +123,58 @@ export function Settings() {
   }
 
   // ----- retention prefs -----
-  const [prefs, setPrefs] = useState<AppPrefs>(() => readPrefs(user))
+  // Persisted via the app's own server-side channel (GET/PATCH
+  // /api/preferences). The platform user resource never returns
+  // `oauthData` on reads, so prefs kept there silently reset on reload.
+  const [prefs, setPrefs] = useState<AppPrefs>(DEFAULT_PREFS)
+  const [prefsLoading, setPrefsLoading] = useState(true)
   const [prefsSaving, setPrefsSaving] = useState(false)
   const [prefsError, setPrefsError] = useState<string | null>(null)
   const [prefsSaved, setPrefsSaved] = useState(false)
 
   useEffect(() => {
-    setPrefs(readPrefs(user))
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- sync prefs when user identity changes, not on every user object reference
-  }, [user?.id])
+    let cancelled = false
+    setPrefsLoading(true)
+    http
+      .get<{ hot_retention_days?: number; cold_retention_days?: number }>('/api/preferences')
+      .then((res) => {
+        if (cancelled) return
+        const body = (res as { data?: Record<string, unknown> }).data ?? res
+        const row = (body as { data?: Record<string, unknown> }).data ?? body
+        setPrefs({
+          hotRetentionDays:
+            typeof (row as { hot_retention_days?: number }).hot_retention_days === 'number'
+              ? (row as { hot_retention_days: number }).hot_retention_days
+              : DEFAULT_PREFS.hotRetentionDays,
+          coldRetentionDays:
+            typeof (row as { cold_retention_days?: number }).cold_retention_days === 'number'
+              ? (row as { cold_retention_days: number }).cold_retention_days
+              : DEFAULT_PREFS.coldRetentionDays,
+        })
+      })
+      .catch(() => {
+        // Defaults are fine when the channel is unavailable — never block
+        // the form, but keep the load state honest.
+        if (!cancelled) setPrefs(DEFAULT_PREFS)
+      })
+      .finally(() => {
+        if (!cancelled) setPrefsLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   async function savePrefs(e: React.FormEvent) {
     e.preventDefault()
-    if (!user?.id) return
     setPrefsSaving(true)
     setPrefsError(null)
     setPrefsSaved(false)
     try {
-      const oauthData =
-        (user as unknown as { oauthData?: Record<string, unknown> } | null)?.oauthData ?? {}
-      const merged = { ...oauthData, logViewer: { ...prefs } }
-      await http.patch(`/api/users/${user.id}`, { oauthData: merged })
-      setUser({
-        ...(user as UserProfile & { oauthData?: Record<string, unknown> }),
-        oauthData: merged,
-      } as UserProfile)
+      await http.patch('/api/preferences', {
+        hot_retention_days: prefs.hotRetentionDays,
+        cold_retention_days: prefs.coldRetentionDays,
+      })
       setPrefsSaved(true)
       setTimeout(() => setPrefsSaved(false), 2500)
     } catch (err) {
@@ -203,6 +233,7 @@ export function Settings() {
   async function checkoutWith(priceId: string) {
     setCheckoutPending(priceId)
     setBillingError(null)
+    track({ name: 'checkout.started', properties: { price_id: priceId } })
     try {
       const res = await http.post<{ checkoutUrl?: string }>(`/api/billing/checkout`, { priceId })
       const body =
@@ -339,6 +370,37 @@ export function Settings() {
                   }}
                 />
               </div>
+              {emailChanged ? (
+                <div>
+                  <label
+                    htmlFor="settings-current-password"
+                    className={cm.cn(
+                      'block text-[10px] font-black uppercase tracking-widest mb-2 font-mono text-on-surface-variant',
+                    )}
+                  >
+                    {t(
+                      'settings.account.currentPassword',
+                      {},
+                      { defaultValue: 'Current password (required to change email)' },
+                    )}
+                  </label>
+                  <input
+                    id="settings-current-password"
+                    type="password"
+                    autoComplete="current-password"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    required={emailChanged}
+                    data-mol-id="settings-account-current-password"
+                    className={cm.cn('w-full py-2.5 px-3 rounded-md font-mono text-sm')}
+                    style={{
+                      backgroundColor: 'var(--color-input-background)',
+                      border: '1px solid var(--color-border)',
+                      color: 'var(--color-severity-debug-light)',
+                    }}
+                  />
+                </div>
+              ) : null}
               {accountError ? <p className={cm.cn('text-sm text-error')}>{accountError}</p> : null}
               {accountSaved ? (
                 <p className={cm.cn('text-sm')} style={{ color: BRAND_COLOR }}>
@@ -398,6 +460,7 @@ export function Settings() {
                     type="number"
                     min={1}
                     max={3650}
+                    disabled={prefsLoading}
                     value={prefs.hotRetentionDays}
                     onChange={(e) =>
                       setPrefs({ ...prefs, hotRetentionDays: Number(e.target.value) })
@@ -424,6 +487,7 @@ export function Settings() {
                     type="number"
                     min={1}
                     max={3650}
+                    disabled={prefsLoading}
                     value={prefs.coldRetentionDays}
                     onChange={(e) =>
                       setPrefs({ ...prefs, coldRetentionDays: Number(e.target.value) })

@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /alerts — list seeded alert rules + create new rule (POST /api/alerts).
 
@@ -12,10 +12,7 @@ test.describe('/alerts', () => {
   test('after signup, /alerts loads via GET /api/alerts', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/alerts')
-      await page.waitForResponse((r) => /\/api\/alerts(\b|\?|$)/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts(\b|\?|$)/.test(r.url()))
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/alerts(\b|\?|$)/.test(r.url))
     expect(req).toBeDefined()
@@ -24,16 +21,14 @@ test.describe('/alerts', () => {
 
   test('"+ New rule" opens the create dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     await page.locator('[data-mol-id="alerts-new"]').click()
     await expect(page.getByRole('dialog')).toBeVisible()
   })
 
   test('creating a rule POSTs /api/alerts and the row appears + persists', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     const name = `walker-rule-${Date.now()}`
     await page.locator('[data-mol-id="alerts-new"]').click()
     await page.locator('#alerts-new-name').fill(name)
@@ -60,8 +55,7 @@ test.describe('/alerts', () => {
 
   test('clicking an alert row navigates to /alerts/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     const card = page.locator('a[href^="/alerts/"]').first()
     if ((await card.count()) === 0) test.skip(true, 'no alerts seeded')
     await card.click()
@@ -70,16 +64,14 @@ test.describe('/alerts', () => {
 
   test('renders 4 KPI cards (firing, monitoring, ok, fired24h)', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     const cards = page.locator('section').first().locator('div').filter({ hasText: /\d+/ })
     await expect(cards.first()).toBeVisible({ timeout: 5_000 })
   })
 
   test('cancel closes the create dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     await page.locator('[data-mol-id="alerts-new"]').click()
     await page.getByRole('button', { name: /cancel/i }).click()
     await expect(page.getByRole('dialog')).not.toBeVisible()

@@ -26,6 +26,7 @@ import {
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid, route } from './_http.js'
 import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -122,91 +123,115 @@ function derivService(condition: string): string {
               : ''
 }
 
-router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
-  const orderBy: OrderBy[] = [{ field: 'created_at', direction: 'asc' }]
-  const rows = (await findMany<AlertRow>('alert_rules', { where, orderBy })) as AlertRow[]
-  res.json(rows.map(decorate))
-})
+router.get(
+  '/',
+  route('alerts.list', async (_req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
+    const orderBy: OrderBy[] = [{ field: 'created_at', direction: 'asc' }]
+    const rows = (await findMany<AlertRow>('alert_rules', { where, orderBy })) as AlertRow[]
+    res.json(rows.map(decorate))
+  }),
+)
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<AlertRow>('alert_rules', id)
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
-    return
-  }
-  res.json(decorate(row))
-})
+router.get(
+  '/:id',
+  route('alerts.get', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    const row = await findById<AlertRow>('alert_rules', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    res.json(decorate(row))
+  }),
+)
 
-router.post('/', validateBody(createAlertSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const body = req.body as z.infer<typeof createAlertSchema>
-  const result = await create<AlertRow>('alert_rules', {
-    user_id: userId,
-    name: body.name,
-    condition: body.condition ?? '',
-    severity: body.severity ?? 'warning',
-    channels: JSON.stringify(body.channels ?? []),
-    status: 'monitoring',
-    threshold: body.threshold ?? 1,
-    window_seconds: body.window_seconds ?? 60,
-    fire_count_24h: 0,
-    last_fired_at: null,
-    created_at: new Date(),
-    updated_at: new Date(),
-  })
-  res.status(201).json(result.data ? decorate(result.data as AlertRow) : null)
-})
+router.post(
+  '/',
+  validateBody(createAlertSchema),
+  route('alerts.create', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const body = req.body as z.infer<typeof createAlertSchema>
+    const result = await create<AlertRow>('alert_rules', {
+      user_id: userId,
+      name: body.name,
+      condition: body.condition ?? '',
+      severity: body.severity ?? 'warning',
+      channels: JSON.stringify(body.channels ?? []),
+      status: 'monitoring',
+      threshold: body.threshold ?? 1,
+      window_seconds: body.window_seconds ?? 60,
+      fire_count_24h: 0,
+      last_fired_at: null,
+      created_at: new Date(),
+      updated_at: new Date(),
+    })
+    res.status(201).json(result.data ? decorate(result.data as AlertRow) : null)
+  }),
+)
 
-router.patch('/:id', validateBody(updateAlertSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<AlertRow>('alert_rules', id)
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
-    return
-  }
-  const body = req.body as z.infer<typeof updateAlertSchema>
-  const update: Record<string, unknown> = { updated_at: new Date() }
-  if (body.name !== undefined) update.name = body.name
-  if (body.condition !== undefined) update.condition = body.condition
-  if (body.severity !== undefined) update.severity = body.severity
-  if (body.channels !== undefined) update.channels = JSON.stringify(body.channels)
-  if (body.status !== undefined) update.status = body.status
-  const updated = await updateById<AlertRow>('alert_rules', id, update)
-  res.json(updated.data ? decorate(updated.data as AlertRow) : null)
-})
+router.patch(
+  '/:id',
+  validateBody(updateAlertSchema),
+  route('alerts.update', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    const row = await findById<AlertRow>('alert_rules', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    const body = req.body as z.infer<typeof updateAlertSchema>
+    const update: Record<string, unknown> = { updated_at: new Date() }
+    if (body.name !== undefined) update.name = body.name
+    if (body.condition !== undefined) update.condition = body.condition
+    if (body.severity !== undefined) update.severity = body.severity
+    if (body.channels !== undefined) update.channels = JSON.stringify(body.channels)
+    if (body.status !== undefined) update.status = body.status
+    const updated = await updateById<AlertRow>('alert_rules', id, update)
+    res.json(updated.data ? decorate(updated.data as AlertRow) : null)
+  }),
+)
 
 const silenceSchema = z.object({
   minutes: z
@@ -217,26 +242,35 @@ const silenceSchema = z.object({
     .optional(),
 })
 
-router.post('/:id/silence', validateBody(silenceSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<AlertRow>('alert_rules', id)
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
-    return
-  }
-  const updated = await updateById<AlertRow>('alert_rules', id, {
-    status: 'ok',
-    updated_at: new Date(),
-  })
-  res.json(updated.data ? decorate(updated.data as AlertRow) : null)
-})
+router.post(
+  '/:id/silence',
+  validateBody(silenceSchema),
+  route('alerts.silence', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    const row = await findById<AlertRow>('alert_rules', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({ error: t('alerts.notFound', {}, { defaultValue: 'Alert not found' }) })
+      return
+    }
+    const updated = await updateById<AlertRow>('alert_rules', id, {
+      status: 'ok',
+      updated_at: new Date(),
+    })
+    res.json(updated.data ? decorate(updated.data as AlertRow) : null)
+  }),
+)
 
 export default router

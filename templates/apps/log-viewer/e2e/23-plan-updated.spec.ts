@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, captureNetwork, signup } from './_helpers'
 
 // /plan-updated — billing webhook return page; calls /api/billing/status.
 
@@ -12,10 +12,9 @@ test.describe('/plan-updated', () => {
   test('after signup, /plan-updated fires GET /api/billing/status', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/plan-updated')
-      await page.waitForResponse((r) => /\/api\/billing\/status/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/plan-updated', (r) =>
+        /\/api\/billing\/status/.test(r.url()),
+      )
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/billing\/status/.test(r.url))
     expect(req).toBeDefined()
@@ -45,6 +44,12 @@ test.describe('/plan-updated', () => {
 
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+    // The fake session id makes verify-payment answer 404 — the call itself
+    // is what this test asserts, and the browser logs the failed resource.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })

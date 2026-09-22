@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -63,10 +64,18 @@ export function Incidents() {
     setSubmitting(true)
     setCreateError(null)
     try {
-      await http.post('/api/incidents', {
+      const created = (await http.post('/api/incidents', {
         title: newTitle.trim(),
         severity: newSeverity,
         service: newService.trim(),
+      })) as { id?: string; data?: { id?: string } }
+      track({
+        name: 'incident.declared',
+        properties: {
+          incident_id: created?.id ?? created?.data?.id ?? null,
+          title: newTitle.trim(),
+          severity: newSeverity,
+        },
       })
       setShowCreate(false)
       const items = await loadIncidents(http)

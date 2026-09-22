@@ -24,6 +24,7 @@ import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { LogViewerLimits } from '../tiers.js'
+import { isUuid, route } from './_http.js'
 import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -87,130 +88,169 @@ function safeParseObject(s: string): Record<string, unknown> {
   }
 }
 
-router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
-  const orderBy: OrderBy[] = [{ field: 'updated_at', direction: 'desc' }]
-  const rows = (await findMany<SavedRow>('saved_searches', { where, orderBy })) as SavedRow[]
-  res.json(rows.map(decorate))
-})
+router.get(
+  '/',
+  route('savedSearches.list', async (_req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
+    const orderBy: OrderBy[] = [{ field: 'updated_at', direction: 'desc' }]
+    const rows = (await findMany<SavedRow>('saved_searches', { where, orderBy })) as SavedRow[]
+    res.json(rows.map(decorate))
+  }),
+)
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const id = getParamId(req)
-  const row = await findById<SavedRow>('saved_searches', id)
-  if (!row || row.user_id !== userId) {
-    res
-      .status(404)
-      .json({ error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }) })
-    return
-  }
-  res.json(decorate(row))
-})
+router.get(
+  '/:id',
+  route('savedSearches.get', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const id = getParamId(req)
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    const row = await findById<SavedRow>('saved_searches', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    res.json(decorate(row))
+  }),
+)
 
-router.post('/', validateBody(createSavedSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const body = req.body as z.infer<typeof createSavedSchema>
-  const existing = await count('saved_searches', [
-    { field: 'user_id', operator: '=', value: userId },
-  ])
-  const tier = await getEffectiveTier<LogViewerLimits>(res)
-  if (existing >= tier.limits.maxSavedSearches) {
-    res.status(403).json({
-      error: t(
-        'savedSearches.limitReached',
-        {},
-        {
-          defaultValue: 'You have reached your saved-search limit. Upgrade your plan to save more.',
-        },
-      ),
-      limitType: 'maxSavedSearches',
-      currentLimit: tier.limits.maxSavedSearches,
-      category: tier.category,
+router.post(
+  '/',
+  validateBody(createSavedSchema),
+  route('savedSearches.create', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const body = req.body as z.infer<typeof createSavedSchema>
+    const existing = await count('saved_searches', [
+      { field: 'user_id', operator: '=', value: userId },
+    ])
+    const tier = await getEffectiveTier<LogViewerLimits>(res)
+    if (existing >= tier.limits.maxSavedSearches) {
+      res.status(403).json({
+        error: t(
+          'savedSearches.limitReached',
+          {},
+          {
+            defaultValue:
+              'You have reached your saved-search limit. Upgrade your plan to save more.',
+          },
+        ),
+        limitType: 'maxSavedSearches',
+        currentLimit: tier.limits.maxSavedSearches,
+        category: tier.category,
+      })
+      return
+    }
+    const result = await create<SavedRow>('saved_searches', {
+      user_id: userId,
+      name: body.name,
+      query_string: body.query_string ?? body.query ?? '',
+      filters: JSON.stringify(body.filters ?? {}),
+      shared: body.shared ?? false,
+      owner: body.owner ?? null,
+      result_count: 0,
+      last_run_at: null,
+      created_at: new Date(),
+      updated_at: new Date(),
     })
-    return
-  }
-  const result = await create<SavedRow>('saved_searches', {
-    user_id: userId,
-    name: body.name,
-    query_string: body.query_string ?? body.query ?? '',
-    filters: JSON.stringify(body.filters ?? {}),
-    shared: body.shared ?? false,
-    owner: body.owner ?? null,
-    result_count: 0,
-    last_run_at: null,
-    created_at: new Date(),
-    updated_at: new Date(),
-  })
-  res.status(201).json(result.data ? decorate(result.data as SavedRow) : null)
-})
+    res.status(201).json(result.data ? decorate(result.data as SavedRow) : null)
+  }),
+)
 
-router.put('/:id', validateBody(updateSavedSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const id = getParamId(req)
-  const row = await findById<SavedRow>('saved_searches', id)
-  if (!row || row.user_id !== userId) {
-    res
-      .status(404)
-      .json({ error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }) })
-    return
-  }
-  const body = req.body as z.infer<typeof updateSavedSchema>
-  const update: Record<string, unknown> = { updated_at: new Date() }
-  if (body.name !== undefined) update.name = body.name
-  if (body.query_string !== undefined) update.query_string = body.query_string
-  if (body.query !== undefined) update.query_string = body.query
-  if (body.filters !== undefined) update.filters = JSON.stringify(body.filters)
-  if (body.shared !== undefined) update.shared = body.shared
-  if (body.owner !== undefined) update.owner = body.owner
-  const updated = await updateById<SavedRow>('saved_searches', id, update)
-  res.json(updated.data ? decorate(updated.data as SavedRow) : null)
-})
+router.put(
+  '/:id',
+  validateBody(updateSavedSchema),
+  route('savedSearches.update', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const id = getParamId(req)
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    const row = await findById<SavedRow>('saved_searches', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    const body = req.body as z.infer<typeof updateSavedSchema>
+    const update: Record<string, unknown> = { updated_at: new Date() }
+    if (body.name !== undefined) update.name = body.name
+    if (body.query_string !== undefined) update.query_string = body.query_string
+    if (body.query !== undefined) update.query_string = body.query
+    if (body.filters !== undefined) update.filters = JSON.stringify(body.filters)
+    if (body.shared !== undefined) update.shared = body.shared
+    if (body.owner !== undefined) update.owner = body.owner
+    const updated = await updateById<SavedRow>('saved_searches', id, update)
+    res.json(updated.data ? decorate(updated.data as SavedRow) : null)
+  }),
+)
 
-router.delete('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const id = getParamId(req)
-  const row = await findById<SavedRow>('saved_searches', id)
-  if (!row || row.user_id !== userId) {
-    res
-      .status(404)
-      .json({ error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }) })
-    return
-  }
-  await deleteById('saved_searches', id)
-  res.status(204).end()
-})
+router.delete(
+  '/:id',
+  route('savedSearches.delete', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const id = getParamId(req)
+    // Malformed id must 404 — the column is uuid and Postgres would 500.
+    if (!isUuid(id)) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    const row = await findById<SavedRow>('saved_searches', id)
+    if (!row || row.user_id !== userId) {
+      res.status(404).json({
+        error: t('savedSearches.notFound', {}, { defaultValue: 'Saved search not found' }),
+      })
+      return
+    }
+    await deleteById('saved_searches', id)
+    res.status(204).end()
+  }),
+)
 
 export default router

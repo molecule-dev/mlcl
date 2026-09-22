@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -159,6 +160,7 @@ export function IncidentDetail() {
         status: 'resolved',
         resolved_at: new Date().toISOString(),
       })
+      track({ name: 'incident.resolved', properties: { incident_id: id } })
       setIncident(unwrapSingle<IncidentRowData>(res))
       setActionMsg(t('incidentDetail.resolved', {}, { defaultValue: 'Incident marked resolved.' }))
     } catch (err: unknown) {

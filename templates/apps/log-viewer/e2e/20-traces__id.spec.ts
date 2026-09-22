@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /traces/:id — trace waterfall + linked logs.
 
@@ -24,10 +24,9 @@ test.describe('/traces/:id', () => {
     const id = await firstTraceId(page)
     test.skip(!id, 'no traces seeded')
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + `/traces/${id}`)
-      await page.waitForResponse((r) => new RegExp(`/api/traces/${id}`).test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + `/traces/${id}`, (r) =>
+        new RegExp(`/api/traces/${id}`).test(r.url()),
+      )
     })
     expect(
       reqs.find((r) => r.method === 'GET' && new RegExp(`/api/traces/${id}`).test(r.url)),
@@ -51,8 +50,9 @@ test.describe('/traces/:id', () => {
     await signup(page)
     const id = await firstTraceId(page)
     test.skip(!id, 'no traces seeded')
-    await page.goto(APP_BASE + `/traces/${id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/traces/${id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/traces/${id}`, (r) =>
+      new RegExp(`/api/traces/${id}`).test(r.url()),
+    )
     const spans = page.locator('main ol li, main ul li')
     await expect(spans.first()).toBeVisible({ timeout: 5_000 })
   })

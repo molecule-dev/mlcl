@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /incidents/:id — incident detail with hero, timeline, evidence, actions.
 
@@ -24,10 +24,9 @@ test.describe('/incidents/:id', () => {
     const id = await firstIncidentId(page)
     test.skip(!id, 'no incidents seeded')
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + `/incidents/${id}`)
-      await page.waitForResponse((r) => new RegExp(`/api/incidents/${id}`).test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + `/incidents/${id}`, (r) =>
+        new RegExp(`/api/incidents/${id}`).test(r.url()),
+      )
     })
     expect(
       reqs.find((r) => r.method === 'GET' && new RegExp(`/api/incidents/${id}`).test(r.url)),
@@ -51,8 +50,9 @@ test.describe('/incidents/:id', () => {
     await signup(page)
     const id = await firstIncidentId(page)
     test.skip(!id, 'no incidents seeded')
-    await page.goto(APP_BASE + `/incidents/${id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/incidents/${id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/incidents/${id}`, (r) =>
+      new RegExp(`/api/incidents/${id}`).test(r.url()),
+    )
     const btn = page.locator('[data-mol-id="incident-resolve"]')
     if (await btn.isDisabled()) test.skip(true, 'incident already resolved')
     const respPromise = page.waitForResponse(
@@ -90,8 +90,9 @@ test.describe('/incidents/:id', () => {
     await signup(page)
     const id = await firstIncidentId(page)
     test.skip(!id, 'no incidents seeded')
-    await page.goto(APP_BASE + `/incidents/${id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/incidents/${id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/incidents/${id}`, (r) =>
+      new RegExp(`/api/incidents/${id}`).test(r.url()),
+    )
     await expect(page.locator('ol li').first()).toBeVisible({ timeout: 5_000 })
   })
 })

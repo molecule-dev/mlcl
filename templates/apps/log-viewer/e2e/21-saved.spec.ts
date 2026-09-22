@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /saved — saved-searches list + create + delete.
 
@@ -12,10 +12,7 @@ test.describe('/saved', () => {
   test('after signup, /saved loads via GET /api/saved', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/saved')
-      await page.waitForResponse((r) => /\/api\/saved(\b|\?|$)/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved(\b|\?|$)/.test(r.url()))
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/saved(\b|\?|$)/.test(r.url))
     expect(req).toBeDefined()
@@ -24,16 +21,14 @@ test.describe('/saved', () => {
 
   test('"+ New saved search" opens the dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/saved/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved/.test(r.url()))
     await page.locator('[data-mol-id="saved-new"]').click()
     await expect(page.getByRole('dialog')).toBeVisible()
   })
 
   test('creating a saved search POSTs /api/saved-searches and persists', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/saved/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved/.test(r.url()))
     const name = `walker-saved-${Date.now()}`
     await page.locator('[data-mol-id="saved-new"]').click()
     await page.locator('#saved-new-name').fill(name)
@@ -63,8 +58,7 @@ test.describe('/saved', () => {
 
   test('delete removes the saved search', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/saved/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved/.test(r.url()))
     const name = `walker-del-${Date.now()}`
     // create one we know we can delete
     await page.locator('[data-mol-id="saved-new"]').click()
@@ -84,7 +78,10 @@ test.describe('/saved', () => {
       (r) => r.request().method() === 'DELETE' && /\/api\/saved-searches/.test(r.url()),
       { timeout: 10_000 },
     )
+    // Destructive deletes confirm inline: first click arms the row, the
+    // confirm button fires the DELETE.
     await delBtn.click()
+    await article.locator('button[data-mol-id^="saved-confirm-delete-"]').click()
     const delResp = await delPromise
     expect(delResp.status()).toBeLessThan(300)
     await expect(page.getByText(name)).not.toBeVisible({ timeout: 5_000 })
@@ -92,8 +89,7 @@ test.describe('/saved', () => {
 
   test('cancel closes the create dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/saved/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved/.test(r.url()))
     await page.locator('[data-mol-id="saved-new"]').click()
     await page.getByRole('button', { name: /cancel/i }).click()
     await expect(page.getByRole('dialog')).not.toBeVisible()

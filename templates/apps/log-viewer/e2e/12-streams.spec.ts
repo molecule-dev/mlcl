@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /streams — list seeded streams + create new stream (POST /api/streams).
 
@@ -12,10 +12,7 @@ test.describe('/streams', () => {
   test('after signup, /streams loads via GET /api/streams and shows ≥1 row', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/streams')
-      await page.waitForResponse((r) => /\/api\/streams(\b|\?|$)/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams(\b|\?|$)/.test(r.url()))
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/streams(\b|\?|$)/.test(r.url))
     expect(req, 'GET /api/streams should fire').toBeDefined()
@@ -27,8 +24,7 @@ test.describe('/streams', () => {
 
   test('"+ New stream" opens the create dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/streams')
-    await page.waitForResponse((r) => /\/api\/streams/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams/.test(r.url()))
     await page.locator('[data-mol-id="streams-new"]').click()
     await expect(page.getByRole('dialog')).toBeVisible()
   })
@@ -37,8 +33,7 @@ test.describe('/streams', () => {
     page,
   }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/streams')
-    await page.waitForResponse((r) => /\/api\/streams/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams/.test(r.url()))
     const name = `walker-stream-${Date.now()}`
     await page.locator('[data-mol-id="streams-new"]').click()
     await page.locator('#streams-new-name').fill(name)
@@ -75,8 +70,7 @@ test.describe('/streams', () => {
 
   test('clicking a stream card navigates to /streams/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/streams')
-    await page.waitForResponse((r) => /\/api\/streams/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams/.test(r.url()))
     const card = page.locator('a[href^="/streams/"]').first()
     if ((await card.count()) === 0) test.skip(true, 'no streams seeded')
     await card.click()
@@ -85,8 +79,7 @@ test.describe('/streams', () => {
 
   test('cancel button closes the create dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/streams')
-    await page.waitForResponse((r) => /\/api\/streams/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams/.test(r.url()))
     await page.locator('[data-mol-id="streams-new"]').click()
     await expect(page.getByRole('dialog')).toBeVisible()
     await page.getByRole('button', { name: /cancel/i }).click()

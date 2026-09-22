@@ -1,6 +1,14 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup, uniqueEmail } from './_helpers'
+import {
+  gotoAndWait,
+  APP_BASE,
+  API_BASE,
+  captureNetwork,
+  getAccessToken,
+  signup,
+  uniqueEmail,
+} from './_helpers'
 
 /**
  * Cross-page kitchen-sink user journey for log-viewer (Signalink).
@@ -19,18 +27,22 @@ test.describe('Kitchen-sink user journey', () => {
 
     // Dashboard fires the seed-triggering calls.
     const dashReqs = await captureNetwork(page, async () => {
+      // Arm BEFORE the goto — a warm vite server fires the SPA's fetches
+      // before the load event resolves page.goto.
+      const logsHit = page.waitForResponse((r) => /\/api\/logs(\b|\?|$)/.test(r.url()), {
+        timeout: 15_000,
+      })
+      const incidentsHit = page.waitForResponse((r) => /\/api\/incidents(\b|\?|$)/.test(r.url()), {
+        timeout: 15_000,
+      })
       await page.goto(APP_BASE + '/dashboard')
-      await Promise.all([
-        page.waitForResponse((r) => /\/api\/logs(\b|\?|$)/.test(r.url()), { timeout: 15_000 }),
-        page.waitForResponse((r) => /\/api\/incidents(\b|\?|$)/.test(r.url()), { timeout: 15_000 }),
-      ])
+      await Promise.all([logsHit, incidentsHit])
     })
     expect(dashReqs.find((r) => /\/api\/logs(\b|\?|$)/.test(r.url))).toBeDefined()
     expect(dashReqs.find((r) => /\/api\/incidents(\b|\?|$)/.test(r.url))).toBeDefined()
 
     // 2. Streams list — at least 1 seeded card.
-    await page.goto(APP_BASE + '/streams')
-    await page.waitForResponse((r) => /\/api\/streams/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/streams', (r) => /\/api\/streams/.test(r.url()))
     await expect(page.locator('main ul li, a[href^="/streams/"]').first()).toBeVisible({
       timeout: 5_000,
     })
@@ -56,13 +68,11 @@ test.describe('Kitchen-sink user journey', () => {
     expect(sitems.find((s) => s.name === streamName)).toBeDefined()
 
     // 4. Search — query the live tail.
-    await page.goto(APP_BASE + '/search')
-    await page.waitForResponse((r) => /\/api\/logs/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/search', (r) => /\/api\/logs/.test(r.url()))
     await page.locator('[data-mol-id="search-query"]').fill('checkout')
 
     // 5. Saved searches — create one and confirm in DB.
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/saved/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/saved', (r) => /\/api\/saved/.test(r.url()))
     const savedName = `journey-saved-${Date.now()}`
     await page.locator('[data-mol-id="saved-new"]').click()
     await page.locator('#saved-new-name').fill(savedName)
@@ -83,14 +93,12 @@ test.describe('Kitchen-sink user journey', () => {
     expect(savedItems.find((s) => s.name === savedName)).toBeDefined()
 
     // 6. Alerts list — at least 1 seeded.
-    await page.goto(APP_BASE + '/alerts')
-    await page.waitForResponse((r) => /\/api\/alerts/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/alerts', (r) => /\/api\/alerts/.test(r.url()))
     const alertCount = await page.locator('a[href^="/alerts/"]').count()
     expect(alertCount).toBeGreaterThanOrEqual(0)
 
     // 7. Incidents — declare a new one + mark resolved.
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     const incTitle = `journey-inc-${Date.now()}`
     await page.locator('[data-mol-id="incidents-declare"]').click()
     await page.locator('#incidents-new-title').fill(incTitle)
@@ -110,8 +118,9 @@ test.describe('Kitchen-sink user journey', () => {
       : incBody.data || incBody.results || []
     const mine = incItems.find((i) => i.title === incTitle)
     expect(mine).toBeDefined()
-    await page.goto(APP_BASE + `/incidents/${mine!.id}`)
-    await page.waitForResponse((r) => new RegExp(`/api/incidents/${mine!.id}`).test(r.url()))
+    await gotoAndWait(page, APP_BASE + `/incidents/${mine!.id}`, (r) =>
+      new RegExp(`/api/incidents/${mine!.id}`).test(r.url()),
+    )
     const resolvePromise = page.waitForResponse(
       (r) =>
         r.request().method() === 'PATCH' && new RegExp(`/api/incidents/${mine!.id}`).test(r.url()),
@@ -142,8 +151,7 @@ test.describe('Kitchen-sink user journey', () => {
     await expect(page.locator('#settings-name')).toHaveValue(newName, { timeout: 5_000 })
 
     // 9. Pricing — public page (still authed, but renders fine).
-    await page.goto(APP_BASE + '/pricing')
-    await page.waitForResponse((r) => /\/api\/billing\/tiers/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/pricing', (r) => /\/api\/billing\/tiers/.test(r.url()))
 
     // 10. Logout + login round-trip.
     await page.evaluate(() => window.localStorage.clear())

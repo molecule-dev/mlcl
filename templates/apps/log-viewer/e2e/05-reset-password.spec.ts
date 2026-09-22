@@ -15,6 +15,13 @@ test.describe('/reset-password', () => {
   })
 
   test('submitting fires POST /api/users/reset-password', async ({ page }) => {
+    // The fake token makes the API answer 401 by design ("the request still
+    // goes out — this asserts the wiring"); the browser logs the failed
+    // resource, which the console guard would otherwise fail the test for.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const email = uniqueEmail('reset')
     await page.goto(
       APP_BASE + `/reset-password?token=fake-token&email=${encodeURIComponent(email)}`,

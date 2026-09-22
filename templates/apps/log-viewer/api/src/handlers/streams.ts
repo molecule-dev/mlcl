@@ -25,6 +25,7 @@ import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { LogViewerLimits } from '../tiers.js'
+import { isUuid, route } from './_http.js'
 import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
@@ -77,112 +78,146 @@ function decorate(row: StreamRow): Record<string, unknown> {
   }
 }
 
-router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
-  const orderBy: OrderBy[] = [{ field: 'name', direction: 'asc' }]
-  const rows = (await findMany<StreamRow>('log_sources', { where, orderBy })) as StreamRow[]
-  res.json(rows.map(decorate))
-})
+router.get(
+  '/',
+  route('streams.list', async (_req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
+    const orderBy: OrderBy[] = [{ field: 'name', direction: 'asc' }]
+    const rows = (await findMany<StreamRow>('log_sources', { where, orderBy })) as StreamRow[]
+    res.json(rows.map(decorate))
+  }),
+)
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<StreamRow>('log_sources', id)
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
-    return
-  }
-  res.json(decorate(row))
-})
+router.get(
+  '/:id',
+  route('streams.get', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    // The id column is uuid — a malformed id must 404, not blow up the
+    // query with a Postgres syntax error (naked 500 + console noise).
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
+      return
+    }
+    const row = await findById<StreamRow>('log_sources', id)
+    if (!row || row.user_id !== userId) {
+      res
+        .status(404)
+        .json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
+      return
+    }
+    res.json(decorate(row))
+  }),
+)
 
-router.post('/', validateBody(createStreamSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  await seedDemoForUser(userId)
-  const body = req.body as z.infer<typeof createStreamSchema>
-  const existing = await count('log_sources', [{ field: 'user_id', operator: '=', value: userId }])
-  const tier = await getEffectiveTier<LogViewerLimits>(res)
-  if (existing >= tier.limits.maxSources) {
-    res.status(403).json({
-      error: t(
-        'streams.limitReached',
-        {},
-        {
-          defaultValue: 'You have reached your stream limit. Upgrade your plan to add more.',
-        },
-      ),
-      limitType: 'maxSources',
-      currentLimit: tier.limits.maxSources,
-      category: tier.category,
+router.post(
+  '/',
+  validateBody(createStreamSchema),
+  route('streams.create', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    await seedDemoForUser(userId)
+    const body = req.body as z.infer<typeof createStreamSchema>
+    const existing = await count('log_sources', [
+      { field: 'user_id', operator: '=', value: userId },
+    ])
+    const tier = await getEffectiveTier<LogViewerLimits>(res)
+    if (existing >= tier.limits.maxSources) {
+      res.status(403).json({
+        error: t(
+          'streams.limitReached',
+          {},
+          {
+            defaultValue: 'You have reached your stream limit. Upgrade your plan to add more.',
+          },
+        ),
+        limitType: 'maxSources',
+        currentLimit: tier.limits.maxSources,
+        category: tier.category,
+      })
+      return
+    }
+    const result = await create<StreamRow>('log_sources', {
+      user_id: userId,
+      name: body.name,
+      format: body.format ?? 'json',
+      source: body.source ?? '',
+      type: 'generic',
+      environment: 'production',
+      rate_per_sec: 0,
+      retention_days: body.retention_days ?? 30,
+      status: 'active',
+      is_active: true,
+      ingest_token: null,
+      last_event_at: null,
+      created_at: new Date(),
+      updated_at: new Date(),
     })
-    return
-  }
-  const result = await create<StreamRow>('log_sources', {
-    user_id: userId,
-    name: body.name,
-    format: body.format ?? 'json',
-    source: body.source ?? '',
-    type: 'generic',
-    environment: 'production',
-    rate_per_sec: 0,
-    retention_days: body.retention_days ?? 30,
-    status: 'active',
-    is_active: true,
-    ingest_token: null,
-    last_event_at: null,
-    created_at: new Date(),
-    updated_at: new Date(),
-  })
-  res.status(201).json(result.data ? decorate(result.data as StreamRow) : null)
-})
+    res.status(201).json(result.data ? decorate(result.data as StreamRow) : null)
+  }),
+)
 
-router.patch('/:id', validateBody(updateStreamSchema), async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const idParam = req.params.id
-  const id = Array.isArray(idParam) ? idParam[0] : idParam
-  const row = await findById<StreamRow>('log_sources', id)
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
-    return
-  }
-  const body = req.body as z.infer<typeof updateStreamSchema>
-  const update: Record<string, unknown> = { updated_at: new Date() }
-  if (body.name !== undefined) update.name = body.name
-  if (body.source !== undefined) update.source = body.source
-  if (body.format !== undefined) update.format = body.format
-  if (body.retention_days !== undefined) update.retention_days = body.retention_days
-  if (body.status !== undefined) {
-    update.status = body.status
-    update.is_active = body.status === 'active'
-  }
-  const updated = await updateById<StreamRow>('log_sources', id, update)
-  res.json(updated.data ? decorate(updated.data as StreamRow) : null)
-})
+router.patch(
+  '/:id',
+  validateBody(updateStreamSchema),
+  route('streams.update', async (req: Request, res: Response) => {
+    const userId = getUserId(res)
+    if (!userId) {
+      res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Authentication required' }) })
+      return
+    }
+    const idParam = req.params.id
+    const id = Array.isArray(idParam) ? idParam[0] : idParam
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
+      return
+    }
+    const row = await findById<StreamRow>('log_sources', id)
+    if (!row || row.user_id !== userId) {
+      res
+        .status(404)
+        .json({ error: t('streams.notFound', {}, { defaultValue: 'Stream not found' }) })
+      return
+    }
+    const body = req.body as z.infer<typeof updateStreamSchema>
+    const update: Record<string, unknown> = { updated_at: new Date() }
+    if (body.name !== undefined) update.name = body.name
+    if (body.source !== undefined) update.source = body.source
+    if (body.format !== undefined) update.format = body.format
+    if (body.retention_days !== undefined) update.retention_days = body.retention_days
+    if (body.status !== undefined) {
+      update.status = body.status
+      update.is_active = body.status === 'active'
+    }
+    const updated = await updateById<StreamRow>('log_sources', id, update)
+    res.json(updated.data ? decorate(updated.data as StreamRow) : null)
+  }),
+)
 
 export default router

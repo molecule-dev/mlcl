@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -111,12 +112,20 @@ export function Alerts() {
     setSubmitting(true)
     setCreateError(null)
     try {
-      await http.post('/api/alerts', {
+      const created = (await http.post('/api/alerts', {
         name: newName.trim(),
         service: newService.trim(),
         severity: newSeverity,
         condition: newCondition.trim(),
         channels: ['email'],
+      })) as { id?: string; data?: { id?: string } }
+      track({
+        name: 'alert.created',
+        properties: {
+          alert_id: created?.id ?? created?.data?.id ?? null,
+          name: newName.trim(),
+          severity: newSeverity,
+        },
       })
       setShowCreate(false)
       const items = await loadAlerts(http)
@@ -215,6 +224,38 @@ export function Alerts() {
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('alerts.loading', {}, { defaultValue: 'Loading alerts…' })}
         </p>
+      ) : alerts.length === 0 ? (
+        <div
+          className={cm.cn(cm.sp('py', 12), cm.textCenter, 'rounded-xl')}
+          data-mol-id="alerts-empty"
+          style={{
+            backgroundColor: 'var(--color-surface-container)',
+            border: '1px dashed var(--color-border)',
+          }}
+        >
+          <p className={cm.cn('font-mono text-sm font-bold text-on-surface')}>
+            {t('alerts.empty', {}, { defaultValue: 'No alert rules yet.' })}
+          </p>
+          <p className={cm.cn(cm.sp('mt', 1), 'font-mono text-xs text-on-surface-variant')}>
+            {t(
+              'alerts.emptyBody',
+              {},
+              { defaultValue: 'Create a rule to page yourself when a service misbehaves.' },
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={openCreate}
+            data-mol-id="alerts-empty-create"
+            className={cm.cn(
+              cm.sp('mt', 4),
+              'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90',
+            )}
+            style={{ backgroundColor: BRAND_COLOR, color: 'var(--color-background)' }}
+          >
+            {t('alerts.newCta', {}, { defaultValue: '+ New rule' })}
+          </button>
+        </div>
       ) : (
         <ul className={cm.cn('space-y-3')}>
           {alerts.map((a) => {

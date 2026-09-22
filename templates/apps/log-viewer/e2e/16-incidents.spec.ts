@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
+import { gotoAndWait, APP_BASE, API_BASE, captureNetwork, getAccessToken, signup } from './_helpers'
 
 // /incidents — list seeded incidents + declare new (POST /api/incidents).
 
@@ -12,10 +12,9 @@ test.describe('/incidents', () => {
   test('after signup, /incidents loads via GET /api/incidents', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/incidents')
-      await page.waitForResponse((r) => /\/api\/incidents(\b|\?|$)/.test(r.url()), {
-        timeout: 10_000,
-      })
+      await gotoAndWait(page, APP_BASE + '/incidents', (r) =>
+        /\/api\/incidents(\b|\?|$)/.test(r.url()),
+      )
     })
     const req = reqs.find((r) => r.method === 'GET' && /\/api\/incidents(\b|\?|$)/.test(r.url))
     expect(req).toBeDefined()
@@ -24,16 +23,14 @@ test.describe('/incidents', () => {
 
   test('"+ Declare incident" opens the dialog', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     await page.locator('[data-mol-id="incidents-declare"]').click()
     await expect(page.getByRole('dialog')).toBeVisible()
   })
 
   test('declaring an incident POSTs /api/incidents and persists it', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     const title = `walker-incident-${Date.now()}`
     await page.locator('[data-mol-id="incidents-declare"]').click()
     await page.locator('#incidents-new-title').fill(title)
@@ -58,8 +55,7 @@ test.describe('/incidents', () => {
 
   test('clicking an incident row navigates to /incidents/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     const link = page.locator('a[href^="/incidents/"]').first()
     if ((await link.count()) === 0) test.skip(true, 'no incidents seeded')
     await link.click()
@@ -68,8 +64,7 @@ test.describe('/incidents', () => {
 
   test('scope filter buttons (Open / All / Resolved) toggle', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     await page.getByRole('button', { name: /^all/i }).first().click()
     await page
       .getByRole('button', { name: /resolved/i })
@@ -80,8 +75,7 @@ test.describe('/incidents', () => {
 
   test('renders 4 KPI cards', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/incidents')
-    await page.waitForResponse((r) => /\/api\/incidents/.test(r.url()))
+    await gotoAndWait(page, APP_BASE + '/incidents', (r) => /\/api\/incidents/.test(r.url()))
     const cards = page.locator('section').first().locator('div').filter({ hasText: /\d+/ })
     await expect(cards.first()).toBeVisible({ timeout: 5_000 })
   })
