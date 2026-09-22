@@ -129,7 +129,7 @@ export function TrackTable({
             {t('trackTable.colAdded', {}, { defaultValue: 'Date added' })}
           </span>
         )}
-        {showLiked && <span className={cm.cn('w-8 shrink-0')} aria-hidden="true" />}
+        {showLiked && <span className={cm.cn('w-10 shrink-0')} aria-hidden="true" />}
         <span className={cm.cn('w-14 shrink-0 text-right')}>
           <span
             className={cm.cn('material-symbols-outlined text-base align-middle')}
@@ -177,10 +177,12 @@ export function TrackTable({
                   </span>
                 ) : (
                   <>
-                    <span className={cm.cn('group-hover:hidden')}>{i + 1}</span>
+                    {/* Touch has no hover: below md the play affordance is
+                        always visible; md+ swaps number → play on hover. */}
+                    <span className={cm.cn('md:group-hover:hidden')}>{i + 1}</span>
                     <span
                       className={cm.cn(
-                        'hidden group-hover:inline material-symbols-outlined text-base text-on-surface',
+                        'md:hidden md:group-hover:inline material-symbols-outlined text-base text-on-surface',
                       )}
                     >
                       play_arrow
@@ -255,10 +257,10 @@ export function TrackTable({
                     void handleLike(trk)
                   }}
                   className={cm.cn(
-                    'w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors',
+                    'h-10 w-10 rounded-full flex items-center justify-center shrink-0 transition-colors',
                     liked
                       ? 'text-error'
-                      : 'text-on-surface-variant opacity-0 group-hover:opacity-100 hover:text-on-surface',
+                      : 'text-on-surface-variant opacity-60 md:opacity-0 md:group-hover:opacity-100 hover:text-on-surface hover:opacity-100',
                   )}
                   data-testid={`track-like-${trk.id}`}
                   aria-label={

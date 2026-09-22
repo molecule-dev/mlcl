@@ -92,7 +92,7 @@ router.get('/', validateQuery(querySchema), async (req: Request, res: Response) 
     }
     res.json(view)
   } catch (error) {
-    console.error(error)
+    console.error('music.search GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

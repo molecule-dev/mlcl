@@ -83,7 +83,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     const playlists = await findMany<DBPlaylist>('playlists', { where, orderBy, limit: 100 })
     res.json(await decoratePlaylists(playlists, { userId }))
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -112,7 +112,7 @@ router.get('/saved', async (_req: Request, res: Response) => {
     })
     res.json(await decoratePlaylists(playlists, { userId }))
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists GET /saved', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -167,7 +167,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     const decorated = await decoratePlaylist(playlist, { savedSet })
     res.json({ ...decorated, tracks: trackList })
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists GET /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -215,7 +215,7 @@ router.post('/:id/save', validateParams(idParamSchema), async (req: Request, res
     ])
     res.status(201).json({ saved: true, total })
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists POST /:id/save', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -240,7 +240,7 @@ router.delete('/:id/save', validateParams(idParamSchema), async (req: Request, r
     ])
     res.json({ saved: false, total })
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists DELETE /:id/save', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -285,7 +285,7 @@ router.post(
       })
       res.status(201).json(result.data ?? result)
     } catch (error) {
-      console.error(error)
+      console.error('music.playlists POST /', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -346,7 +346,7 @@ router.post(
 
       res.status(201).json({ added: true })
     } catch (error) {
-      console.error(error)
+      console.error('music.playlists POST /:id/tracks', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -398,7 +398,7 @@ router.delete(
 
       res.json({ removed: true })
     } catch (error) {
-      console.error(error)
+      console.error('music.playlists DELETE /:id/tracks/:trackId', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -432,7 +432,7 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
     await deleteById('playlists', idOf(req))
     res.status(204).end()
   } catch (error) {
-    console.error(error)
+    console.error('music.playlists DELETE /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

@@ -42,7 +42,7 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
     const results = await search('artists', { text: String(q), perPage: Number(limit) })
     res.json(results)
   } catch (error) {
-    console.error(error)
+    console.error('music.artists GET /search', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -59,7 +59,7 @@ router.get('/', async (_req: Request, res: Response) => {
     const followedSet = userId ? await loadFollowedArtistIds(userId) : new Set<string>()
     res.json(await Promise.all(artists.map((a) => decorateArtist(a, { followedSet }))))
   } catch (error) {
-    console.error(error)
+    console.error('music.artists GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -79,7 +79,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     const followedSet = userId ? await loadFollowedArtistIds(userId) : new Set<string>()
     res.json(await decorateArtist(artist, { followedSet }))
   } catch (error) {
-    console.error(error)
+    console.error('music.artists GET /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -96,7 +96,7 @@ router.get(
       const tracks = await findMany<DBTrack>('tracks', { where, orderBy, limit: 10 })
       res.json(await decorateTracks(tracks, { userId: getUserId(res) }))
     } catch (error) {
-      console.error(error)
+      console.error('music.artists GET /:id/top-tracks', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -111,7 +111,7 @@ router.get('/:id/albums', validateParams(idParamSchema), async (req: Request, re
     const albums = await findMany<DBAlbum>('albums', { where, orderBy })
     res.json(await decorateAlbums(albums))
   } catch (error) {
-    console.error(error)
+    console.error('music.artists GET /:id/albums', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

@@ -56,7 +56,7 @@ router.post('/:id/like', validateParams(idParamSchema), async (req: Request, res
     const total = await count('liked_tracks', [{ field: 'user_id', operator: '=', value: userId }])
     res.status(201).json({ liked: true, total })
   } catch (error) {
-    console.error(error)
+    console.error('music.liked POST /:id/like', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -80,7 +80,7 @@ router.delete('/:id/like', validateParams(idParamSchema), async (req: Request, r
     const total = await count('liked_tracks', [{ field: 'user_id', operator: '=', value: userId }])
     res.json({ liked: false, total })
   } catch (error) {
-    console.error(error)
+    console.error('music.liked DELETE /:id/like', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

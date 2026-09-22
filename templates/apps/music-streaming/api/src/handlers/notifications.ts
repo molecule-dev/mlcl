@@ -54,7 +54,7 @@ router.get('/', async (_req: Request, res: Response) => {
     })
     res.json(await decorateNotifications(rows))
   } catch (error) {
-    console.error(error)
+    console.error('music.notifications GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -80,7 +80,7 @@ router.post('/read-all', async (_req: Request, res: Response) => {
     )
     res.json({ updated: true })
   } catch (error) {
-    console.error(error)
+    console.error('music.notifications POST /read-all', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -109,7 +109,7 @@ router.post('/:id/read', validateParams(idParamSchema), async (req: Request, res
     await updateById('notifications', row.id, { read_at: new Date() })
     res.json({ updated: true })
   } catch (error) {
-    console.error(error)
+    console.error('music.notifications POST /:id/read', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

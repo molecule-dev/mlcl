@@ -74,7 +74,7 @@ router.post(
       ])
       res.status(201).json({ followed: true, follower_count: followerCount })
     } catch (error) {
-      console.error(error)
+      console.error('music.follow POST /artists/:id/follow', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -118,7 +118,7 @@ router.delete(
       ])
       res.json({ followed: false, follower_count: followerCount })
     } catch (error) {
-      console.error(error)
+      console.error('music.follow DELETE /artists/:id/follow', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -152,7 +152,7 @@ router.get('/follows', async (_req: Request, res: Response) => {
     )
     res.json(items)
   } catch (error) {
-    console.error(error)
+    console.error('music.follow GET /follows', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

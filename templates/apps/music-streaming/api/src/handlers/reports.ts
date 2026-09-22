@@ -90,7 +90,7 @@ router.get('/now-playing', async (_req: Request, res: Response) => {
       liked: false,
     })
   } catch (error) {
-    console.error(error)
+    console.error('music.reports GET /now-playing', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

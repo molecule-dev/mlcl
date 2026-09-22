@@ -64,7 +64,7 @@ router.get('/search', validateQuery(searchQuerySchema), async (req: Request, res
     })
     res.json(results)
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks GET /search', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -87,7 +87,7 @@ router.get('/:id/stream', async (_req: Request, res: Response) => {
     res.setHeader('Content-Length', String(buf.length))
     res.status(200).end(buf)
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks GET /:id/stream', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -113,7 +113,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const [decorated] = await decorateTracks([track], { userId })
     res.json({ ...decorated, liked })
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks GET /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -159,7 +159,7 @@ router.post(
       })
       res.status(201).json(result.data ?? result)
     } catch (error) {
-      console.error(error)
+      console.error('music.tracks POST /', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -197,7 +197,7 @@ router.post('/:id/audio', validateBody(audioUploadSchema), async (req: Request, 
     })
     res.json(result.data ?? result)
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks POST /:id/audio', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -261,7 +261,7 @@ router.post('/:id/play', async (req: Request, res: Response) => {
 
     res.json({ played: true, track_id: idOf(req) })
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks POST /:id/play', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -309,7 +309,7 @@ router.patch('/transport', validateBody(transportSchema), async (req: Request, r
     }
     res.json({ updated: true })
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks PATCH /transport', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -341,7 +341,7 @@ router.get('/', async (req: Request, res: Response) => {
     const tracks = await findMany<DBTrack>('tracks', { where, limit: 50 })
     res.json(await decorateTracks(tracks, { userId }))
   } catch (error) {
-    console.error(error)
+    console.error('music.tracks GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

@@ -95,7 +95,7 @@ router.get('/', async (_req: Request, res: Response) => {
     ])
     res.json(row ?? { ...DEFAULT_PREFERENCES, user_id: userId })
   } catch (error) {
-    console.error(error)
+    console.error('music.preferences GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -133,7 +133,7 @@ router.patch('/', validateBody(patchSchema), async (req: Request, res: Response)
     ])
     res.json(updated ?? { ...DEFAULT_PREFERENCES, ...patch, user_id: userId })
   } catch (error) {
-    console.error(error)
+    console.error('music.preferences PATCH /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

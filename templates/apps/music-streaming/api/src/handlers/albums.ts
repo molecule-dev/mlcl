@@ -49,7 +49,7 @@ router.get(
       const albums = await findMany<DBAlbum>('albums', { orderBy, limit })
       res.json(await decorateAlbums(albums))
     } catch (error) {
-      console.error(error)
+      console.error('music.albums GET /new-releases', error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -63,7 +63,7 @@ router.get('/', async (_req: Request, res: Response) => {
     const albums = await findMany<DBAlbum>('albums', { orderBy, limit: 50 })
     res.json(await decorateAlbums(albums))
   } catch (error) {
-    console.error(error)
+    console.error('music.albums GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -89,7 +89,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     const decoratedTracks = await decorateTracks(tracks, { userId })
     res.json({ ...decorated, tracks: decoratedTracks })
   } catch (error) {
-    console.error(error)
+    console.error('music.albums GET /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

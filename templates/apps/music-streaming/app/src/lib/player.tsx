@@ -28,7 +28,8 @@ import {
   useState,
 } from 'react'
 
-import { useHttpClient } from '@molecule/app-react'
+import { track as trackEvent } from '@molecule/app-analytics'
+import { useAuth, useHttpClient } from '@molecule/app-react'
 
 import { takeNext } from './queue.js'
 import { unwrapSingle } from './unwrap.js'
@@ -173,7 +174,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   }, [repeatMode, queue, current, isShuffled])
 
   // Hydrate from the backend on mount so the player survives reload.
+  // Gated on auth: this provider wraps the PUBLIC routes too (landing,
+  // login, pricing), and an unauthenticated GET would 401 — the browser
+  // logs the failed request to the console even when the promise is
+  // caught. Wait until the auth client has settled on a signed-in user.
+  const { isAuthenticated, isLoading: isAuthLoading } = useAuth()
   useEffect(() => {
+    if (!isAuthenticated || isAuthLoading) return
     let cancelled = false
     http
       .get('/api/reports/now-playing')
@@ -214,7 +221,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, isAuthenticated, isAuthLoading])
 
   const persistTransport = useCallback(
     (patch: Record<string, unknown>) => {
@@ -249,6 +256,14 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         // a try/catch so silent backend failures show up.
         await http.post(`/api/tracks/${track.id}/play`).catch(() => {
           /* not signed in */
+        })
+        // Domain analytics: every committed play, from any surface
+        // (search row, album, playlist, queue, now-playing). Fire-and-forget.
+        void trackEvent({
+          name: 'track.played',
+          properties: { track_id: track.id, ...(track.artist_id ? { artist_id: track.artist_id } : {}) },
+        }).catch(() => {
+          /* analytics is best-effort */
         })
       }
     },

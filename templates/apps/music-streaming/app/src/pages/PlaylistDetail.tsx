@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track as trackEvent } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -94,10 +95,26 @@ export function PlaylistDetail() {
     if (!playlist) return
     if (saved) {
       const res = await http.delete(`/api/playlists/${playlist.id}/save`).catch(() => null)
-      if (res) setSaved(false)
+      if (res) {
+        setSaved(false)
+        void trackEvent({
+          name: 'playlist.unsaved',
+          properties: { playlist_id: playlist.id },
+        }).catch(() => {
+          /* analytics is best-effort */
+        })
+      }
     } else {
       const res = await http.post(`/api/playlists/${playlist.id}/save`).catch(() => null)
-      if (res) setSaved(true)
+      if (res) {
+        setSaved(true)
+        void trackEvent({
+          name: 'playlist.saved',
+          properties: { playlist_id: playlist.id, track_count: playlist.track_count },
+        }).catch(() => {
+          /* analytics is best-effort */
+        })
+      }
     }
   }
 
@@ -118,7 +135,11 @@ export function PlaylistDetail() {
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('6xl'), cm.mxAuto, 'space-y-6')}>
       <header
-        className={cm.cn(cm.flex({ align: 'end', gap: 'md' }), cm.sp('p', 6), 'rounded-lg')}
+        className={cm.cn(
+          cm.flex({ align: 'end', gap: 'md' }),
+          cm.sp('p', 6),
+          'rounded-lg flex-col items-start gap-4 md:flex-row md:items-end md:gap-6',
+        )}
         style={{
           background: `var(--color-cover-${playlist.cover_index})`,
           color: 'white',
@@ -126,7 +147,7 @@ export function PlaylistDetail() {
         }}
       >
         <div
-          className={cm.cn(cm.h(40), cm.w(40), 'rounded shadow-2xl shrink-0')}
+          className={cm.cn('rounded shadow-2xl shrink-0 h-28 w-28 md:h-40 md:w-40')}
           style={{
             background: `var(--color-cover-${playlist.cover_index})`,
             backgroundSize: 'cover',
@@ -139,7 +160,14 @@ export function PlaylistDetail() {
           >
             {t('playlistDetail.label', {}, { defaultValue: 'Playlist' })}
           </p>
-          <h1 className={cm.cn(cm.textSize('5xl'), cm.fontWeight('bold'), cm.sp('mt', 1))}>
+          <h1
+            className={cm.cn(
+              cm.textSize('3xl'),
+              cm.fontWeight('bold'),
+              cm.sp('mt', 1),
+              'md:text-5xl break-words',
+            )}
+          >
             {playlist.title}
           </h1>
           <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2))} style={{ opacity: 0.9 }}>

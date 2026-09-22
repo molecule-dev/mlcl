@@ -93,7 +93,7 @@ router.get('/', async (_req: Request, res: Response) => {
     )
     res.json(decorated)
   } catch (error) {
-    console.error(error)
+    console.error('music.queue GET /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -133,7 +133,7 @@ router.post('/', validateBody(addBodySchema), async (req: Request, res: Response
       item: (created as { data?: unknown }).data ?? created,
     })
   } catch (error) {
-    console.error(error)
+    console.error('music.queue POST /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -152,7 +152,7 @@ router.delete('/', async (_req: Request, res: Response) => {
     await deleteMany('queue_items', [{ field: 'user_id', operator: '=', value: userId }])
     res.json({ cleared: true, queue_size: 0 })
   } catch (error) {
-    console.error(error)
+    console.error('music.queue DELETE /', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -178,7 +178,7 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
     await deleteById('queue_items', row.id)
     res.json({ removed: true })
   } catch (error) {
-    console.error(error)
+    console.error('music.queue DELETE /:id', error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

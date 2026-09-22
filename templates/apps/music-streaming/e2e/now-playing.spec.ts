@@ -11,7 +11,7 @@
 
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { apiSignup } from './_shared/auth.js'
+import { apiSignup, signupAndLogin } from './_shared/auth.js'
 import { resetDb, dbNameForSlug } from './_shared/db.js'
 
 import { seedArtistTree } from './fixtures/seed.js'
@@ -26,14 +26,16 @@ test.beforeEach(async () => {
 
 test('happy path: signed-in user can navigate to /now-playing without redirect', async ({
   page,
-  request,
 }) => {
-  await apiSignup(request, {
+  // Fleet auth convention (signupAndLogin): seed the auth-bond localStorage
+  // keys BEFORE navigating. A bare cookie + async session check raced the
+  // guard on a slow API and bounced /now-playing to /login.
+  await signupAndLogin(page, {
     email: `e2e-${Date.now()}-np@flagship.test`,
     password: 'TestPass!1',
     apiUrl: API_URL,
+    baseUrl: BASE_URL,
   })
-  await page.goto(BASE_URL)
   await page.goto(`${BASE_URL}/now-playing`)
   expect(page.url()).not.toContain('/login')
 })

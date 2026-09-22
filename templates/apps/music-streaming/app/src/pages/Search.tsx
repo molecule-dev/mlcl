@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { type PlayerTrack, usePlayer } from '../lib/player.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface Track {
@@ -47,10 +48,19 @@ interface Playlist {
 const CATEGORIES = ['all', 'tracks', 'artists', 'albums', 'playlists'] as const
 type Category = (typeof CATEGORIES)[number]
 
+/** Compact listener counts: 940 → "940", 41_200 → "41.2K", 2_300_000 → "2.3M". */
+function formatListenerCount(n: number): string {
+  if (!Number.isFinite(n) || n < 0) return '0'
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1).replace(/\.0$/, '')}K`
+  return String(Math.round(n))
+}
+
 export function Search() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const player = usePlayer()
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState<Category>('all')
   const [tracks, setTracks] = useState<Track[]>([])
@@ -101,6 +111,23 @@ export function Search() {
   const showArtists = category === 'all' || category === 'artists'
   const showAlbums = category === 'all' || category === 'albums'
   const showPlaylists = category === 'all' || category === 'playlists'
+
+  const toPlayerTrack = (t: Track): PlayerTrack => ({
+    id: t.id,
+    title: t.title,
+    artist: t.artist,
+    artist_id: t.artist_id,
+    album: t.album,
+    album_id: t.album_id,
+    duration_seconds: t.duration_seconds,
+    cover_index: t.cover_index,
+    liked: t.liked,
+  })
+
+  // Playing from search queues the rest of the matching tracks after it.
+  const playFromSearch = (track: Track): void => {
+    void player.play(track, filtered.tracks.filter((x) => x.id !== track.id).map(toPlayerTrack))
+  }
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('6xl'), cm.mxAuto, 'space-y-6')}>
@@ -181,9 +208,9 @@ export function Search() {
               )}
             >
               <ul className={cm.cn('space-y-1')}>
-                {filtered.tracks.slice(0, 8).map((t) => (
+                {filtered.tracks.slice(0, 8).map((tr) => (
                   <li
-                    key={t.id}
+                    key={tr.id}
                     className={cm.cn(
                       cm.sp('px', 3),
                       cm.sp('py', 2),
@@ -193,19 +220,39 @@ export function Search() {
                   >
                     <div
                       className={cm.cn(cm.h(10), cm.w(10), 'rounded shrink-0')}
-                      style={{ background: `var(--color-cover-${t.cover_index})` }}
+                      style={{ background: `var(--color-cover-${tr.cover_index})` }}
                       aria-hidden="true"
                     />
                     <div className={cm.cn(cm.flex1, 'min-w-0')}>
                       <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'truncate')}>
-                        {t.title}
+                        {tr.title}
                       </p>
                       <p
                         className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', 'truncate')}
                       >
-                        {t.artist}
+                        {tr.artist}
                       </p>
                     </div>
+                    <button
+                      type="button"
+                      data-mol-id="search-play-track"
+                      onClick={() => playFromSearch(tr)}
+                      aria-label={t(
+                        'search.playAria',
+                        { title: tr.title },
+                        { defaultValue: 'Play {{title}}' },
+                      )}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        cm.roundedFull,
+                        cm.shrink0,
+                        'h-10 w-10 text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors',
+                      )}
+                    >
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        play_arrow
+                      </span>
+                    </button>
                     <span
                       className={cm.cn(
                         cm.textSize('xs'),
@@ -214,8 +261,8 @@ export function Search() {
                         'font-mono',
                       )}
                     >
-                      {Math.floor(t.duration_seconds / 60)}:
-                      {(t.duration_seconds % 60).toString().padStart(2, '0')}
+                      {Math.floor(tr.duration_seconds / 60)}:
+                      {(tr.duration_seconds % 60).toString().padStart(2, '0')}
                     </span>
                   </li>
                 ))}
@@ -264,8 +311,8 @@ export function Search() {
                       <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                         {t(
                           'search.monthlyListeners',
-                          { count: (a.monthly_listeners / 1_000_000).toFixed(1) },
-                          { defaultValue: '{{count}}M monthly listeners' },
+                          { count: formatListenerCount(a.monthly_listeners) },
+                          { defaultValue: '{{count}} monthly listeners' },
                         )}
                       </p>
                     </Link>
