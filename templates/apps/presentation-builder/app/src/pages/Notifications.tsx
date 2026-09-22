@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -58,6 +58,7 @@ export function Notifications() {
   const http = useHttpClient()
   const [decks, setDecks] = useState<Presentation[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<FilterKey>('all')
   const [readIds, setReadIds] = useState<Set<string>>(() => {
     if (typeof window === 'undefined') return new Set()
@@ -76,18 +77,20 @@ export function Notifications() {
     window.localStorage.setItem('overture:notif:read', JSON.stringify(Array.from(readIds)))
   }, [readIds])
 
-  useEffect(() => {
+  const reload = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     http
       .get<Presentation[]>('/presentations')
       .then((res) => {
         if (cancelled) return
         setDecks(res.data)
       })
-      .catch(() => {
+      .catch((err: unknown) => {
         if (cancelled) return
         setDecks([])
+        setError(err instanceof Error ? err.message : 'Failed to load notifications')
       })
       .finally(() => {
         if (cancelled) return
@@ -97,6 +100,8 @@ export function Notifications() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(reload, [reload])
 
   const activity: ActivityRow[] = useMemo(() => {
     const meName = t('nav.you', {}, { defaultValue: 'You' })!
@@ -181,6 +186,32 @@ export function Notifications() {
       }
     >
       <div className={cm.cn(cm.stack(6))}>
+        {error && (
+          <div
+            role="alert"
+            data-testid="notif-error"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+              cm.sp('p', 4),
+              'rounded-xl bg-error/10 text-error',
+            )}
+          >
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={() => void reload()}
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('xs'),
+                'rounded-lg bg-error/15 hover:bg-error/25 uppercase tracking-widest shrink-0',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           {FILTERS.map((f) => (
             <button

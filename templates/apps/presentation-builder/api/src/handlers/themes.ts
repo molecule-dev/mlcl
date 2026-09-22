@@ -36,7 +36,7 @@ router.get('/themes', async (_req: Request, res: Response) => {
     )
     res.json(visible)
   } catch (err) {
-    logger.error(err)
+    logger.error('theme.list_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -60,7 +60,7 @@ router.get('/themes/:id', async (req: Request, res: Response) => {
     }
     res.json(theme)
   } catch (err) {
-    logger.error(err)
+    logger.error('theme.read_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -101,7 +101,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (err) {
-      logger.error(err)
+      logger.error('theme.create_failed', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -127,7 +127,7 @@ router.delete('/themes/:id', async (req: Request, res: Response) => {
     await deleteById('presentation_themes', id)
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error('theme.delete_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

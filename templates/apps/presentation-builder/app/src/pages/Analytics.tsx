@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -21,19 +21,22 @@ export function Analytics() {
   const http = useHttpClient()
   const [decks, setDecks] = useState<Presentation[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  const reload = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     http
       .get<Presentation[]>('/presentations')
       .then((res) => {
         if (cancelled) return
         setDecks(res.data)
       })
-      .catch(() => {
+      .catch((err: unknown) => {
         if (cancelled) return
         setDecks([])
+        setError(err instanceof Error ? err.message : 'Failed to load analytics')
       })
       .finally(() => {
         if (cancelled) return
@@ -43,6 +46,8 @@ export function Analytics() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(reload, [reload])
 
   const stats = useMemo<Array<Parameters<typeof AnalyticsStatTile>[0]>>(() => {
     const totalSlides = decks.reduce((s, d) => s + (d.slide_count ?? 0), 0)
@@ -108,6 +113,32 @@ export function Analytics() {
       title={t('analytics.title', {}, { defaultValue: 'Stage performance' })!}
     >
       <div className={cm.cn(cm.stack(8))}>
+        {error && (
+          <div
+            role="alert"
+            data-testid="analytics-error"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+              cm.sp('p', 4),
+              'rounded-xl bg-error/10 text-error',
+            )}
+          >
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={() => void reload()}
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('xs'),
+                'rounded-lg bg-error/15 hover:bg-error/25 uppercase tracking-widest shrink-0',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
         <div data-testid="analytics-stats" className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
           {stats.map((s) => (
             <div key={s.label} className={cm.cn('col-span-12 sm:col-span-6 lg:col-span-3')}>

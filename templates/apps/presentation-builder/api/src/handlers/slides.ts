@@ -72,7 +72,7 @@ router.get('/slides', validateQuery(listSlidesQuerySchema), async (req: Request,
     })
     res.json(slides)
   } catch (err) {
-    logger.error(err)
+    logger.error('slide.list_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -96,7 +96,7 @@ router.get('/slides/:id', async (req: Request, res: Response) => {
     }
     res.json(slide)
   } catch (err) {
-    logger.error(err)
+    logger.error('slide.read_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -140,7 +140,7 @@ router.post('/slides', validateBody(createSlideSchema), async (req: Request, res
     })
     res.status(201).json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('slide.create_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -174,7 +174,7 @@ router.put('/slides/:id', validateBody(updateSlideSchema), async (req: Request, 
     const result = await updateById('slides', id, updates)
     res.json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('slide.update_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -199,7 +199,7 @@ router.delete('/slides/:id', async (req: Request, res: Response) => {
     await deleteById('slides', id)
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error('slide.delete_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

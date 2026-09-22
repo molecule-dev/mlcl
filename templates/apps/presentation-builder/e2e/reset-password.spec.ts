@@ -33,6 +33,14 @@ test('reset-password: a back-to-login control is reachable', async ({ page }) =>
 test('reset-password: submitting attempts POST /api/users/password (or rejects without token)', async ({
   page,
 }) => {
+  // The form deliberately submits a fake token, so the API answering 4xx is
+  // the expected path — and Chromium logs every failed resource load as a
+  // console error. Allow exactly that class of console noise (the assertion
+  // below still requires the request itself to have fired).
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'Failed to load resource.*status of 4\\d\\d',
+  })
   // Provide email + token in the URL so the form passes its required fields
   // and only the password input needs typing.
   await page.goto(APP_BASE + '/reset-password?token=fake-token&email=test%40example.com')

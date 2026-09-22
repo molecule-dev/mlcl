@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -371,10 +372,20 @@ export function Editor() {
     }
   }, [http, id])
 
+  const [exportQueued, setExportQueued] = useState(false)
+  const exportTimer = useRef<number | null>(null)
+
   const exportPdf = useCallback(async () => {
     if (!deck) return
     try {
       await http.post('/exports', { presentationId: deck.id, format: 'pdf' })
+      setExportQueued(true)
+      if (exportTimer.current) window.clearTimeout(exportTimer.current)
+      exportTimer.current = window.setTimeout(() => setExportQueued(false), 3000)
+      track({
+        name: 'presentation.exported',
+        properties: { deckId: deck.id, format: 'pdf' },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to start export')
     }
@@ -404,6 +415,10 @@ export function Editor() {
         if (patch.background !== undefined) body.background = patch.background
         const res = await http.put<Slide>(`/slides/${active.id}`, body)
         setSlides((prev) => prev.map((s) => (s.id === active.id ? res.data : s)))
+        track({
+          name: 'slide.updated',
+          properties: { deckId: active.presentation_id, slideId: active.id },
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to save slide')
       }
@@ -421,6 +436,7 @@ export function Editor() {
           description: newDesc,
         })
         setDeck(res.data)
+        track({ name: 'deck.theme_changed', properties: { deckId: deck.id } })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to update theme')
       }
@@ -441,6 +457,10 @@ export function Editor() {
       })
       setSlides((prev) => [...prev, res.data])
       setActiveId(res.data.id)
+      track({
+        name: 'slide.added',
+        properties: { deckId: id, slideId: res.data.id },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add slide')
     }
@@ -452,11 +472,12 @@ export function Editor() {
         await http.delete(`/slides/${slideId}`)
         setSlides((prev) => prev.filter((s) => s.id !== slideId))
         setActiveId((curr) => (curr === slideId ? (slides[0]?.id ?? null) : curr))
+        track({ name: 'slide.deleted', properties: { deckId: id, slideId } })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to delete slide')
       }
     },
-    [http, slides],
+    [http, id, slides],
   )
 
   const saveTitle = useCallback(
@@ -468,6 +489,7 @@ export function Editor() {
         try {
           const res = await http.put<Presentation>(`/presentations/${deck.id}`, { title: newTitle })
           setDeck(res.data)
+          track({ name: 'deck.renamed', properties: { deckId: deck.id } })
         } catch (err) {
           setError(err instanceof Error ? err.message : 'Failed to save title')
         }
@@ -487,6 +509,136 @@ export function Editor() {
     }
     return accentForId(deck?.id ?? 'fallback')
   }, [deck])
+
+  // Properties drawer (mobile / tablet): the 300px right panel only fits at
+  // lg+; below that the same tools open in a slide-in sheet.
+  const [showProperties, setShowProperties] = useState(false)
+  useEffect(() => {
+    if (!showProperties) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowProperties(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [showProperties])
+
+  const propertiesBody = (
+    <>
+      <div className={cm.stack(2)}>
+        <span
+          className={cm.cn(
+            cm.fontWeight('bold'),
+            'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('editor.properties.layout', {}, { defaultValue: 'Layout' })}
+        </span>
+        <div className={cm.cn(cm.grid({ cols: 2, gap: 'xs' }))}>
+          {LAYOUTS.map((l) => {
+            const isActive = active?.layout === l.value
+            return (
+              <button
+                key={l.value}
+                type="button"
+                disabled={!active}
+                data-testid={`layout-${l.value}`}
+                onClick={() => void updateActiveSlide({ layout: l.value as LayoutValue })}
+                className={cm.cn(
+                  cm.flex({ direction: 'col', align: 'center', gap: 'xs' }),
+                  cm.sp('p', 3),
+                  cm.fontWeight('bold'),
+                  cm.textSize('xs'),
+                  'rounded-lg transition-colors text-center',
+                  isActive
+                    ? 'bg-primary/15 text-primary ring-2 ring-primary/40'
+                    : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container disabled:opacity-50',
+                )}
+                aria-pressed={isActive}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[20px]')}>{l.icon}</span>
+                {t(`editor.layouts.${l.value}`, {}, { defaultValue: l.label })}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      <div className={cm.stack(2)}>
+        <span
+          className={cm.cn(
+            cm.fontWeight('bold'),
+            'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('editor.properties.transition', {}, { defaultValue: 'Transition' })}
+        </span>
+        <div className={cm.cn(cm.grid({ cols: 2, gap: 'xs' }))}>
+          {TRANSITIONS.map((tr) => {
+            const isActive = active?.transition === tr.value
+            return (
+              <button
+                key={tr.value}
+                type="button"
+                disabled={!active}
+                data-testid={`transition-${tr.value}`}
+                onClick={() => void updateActiveSlide({ transition: tr.value as TransitionValue })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  cm.fontWeight('bold'),
+                  cm.textSize('xs'),
+                  'rounded-lg transition-colors',
+                  isActive
+                    ? 'bg-primary/15 text-primary ring-2 ring-primary/40'
+                    : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container disabled:opacity-50',
+                )}
+                aria-pressed={isActive}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')}>{tr.icon}</span>
+                {t(`editor.transitions.${tr.value}`, {}, { defaultValue: tr.label })}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      <div className={cm.stack(2)}>
+        <span
+          className={cm.cn(
+            cm.fontWeight('bold'),
+            'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('editor.properties.theme', {}, { defaultValue: 'Theme' })}
+        </span>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
+          {PALETTE.map((c) => (
+            <button
+              key={c}
+              type="button"
+              data-testid={`theme-${c.replace('#', '')}`}
+              onClick={() => void updateActiveTheme(c)}
+              className={cm.cn(
+                cm.w(7),
+                cm.h(7),
+                cm.roundedFull,
+                'cursor-pointer ring-2 hover:ring-primary',
+                themeAccent === c ? 'ring-primary' : 'ring-transparent',
+              )}
+              style={{ backgroundColor: c }}
+              aria-label={t(
+                'editor.themeSwatchAria',
+                { color: c },
+                { defaultValue: 'Theme {{color}}' },
+              )!}
+              aria-pressed={themeAccent === c}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  )
 
   if (loading) {
     return (
@@ -535,27 +687,26 @@ export function Editor() {
       <div className={cm.cn(cm.flex({ direction: 'col' }), cm.h('screen'), 'bg-surface')}>
         <div
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 6),
-            cm.sp('py', 3),
-            'border-b border-outline-variant/30 bg-surface-container-low',
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('px', 4),
+            'md:px-6 md:py-3 py-2 flex-wrap border-b border-outline-variant/30 bg-surface-container-low',
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-1')}>
             <Link
               to="/decks"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.fontWeight('bold'),
                 cm.textSize('xs'),
-                'text-on-surface-variant hover:text-on-surface uppercase tracking-widest',
+                'text-on-surface-variant hover:text-on-surface uppercase tracking-widest shrink-0',
               )}
             >
               <span className={cm.cn('material-symbols-outlined text-[16px]')}>arrow_back</span>
               {t('editor.backToDecks', {}, { defaultValue: 'Decks' })}
             </Link>
-            <span className={cm.cn('h-5 w-px bg-outline-variant/40')}></span>
-            <div className={cm.cn(cm.flex({ direction: 'col' }))}>
+            <span className={cm.cn('h-5 w-px bg-outline-variant/40 hidden sm:block')}></span>
+            <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
               <span
                 className={cm.cn(
                   cm.fontWeight('bold'),
@@ -572,12 +723,29 @@ export function Editor() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('bold'),
-                  'text-on-surface bg-transparent border-b border-transparent focus:border-primary outline-none w-[260px]',
+                  'text-on-surface bg-transparent border-b border-transparent focus:border-primary outline-none w-full max-w-[260px] min-w-0',
                 )}
               />
             </div>
           </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }), 'min-w-0')}>
+            <button
+              type="button"
+              data-testid="toggle-properties"
+              onClick={() => setShowProperties(true)}
+              aria-expanded={showProperties}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('xs'),
+                'lg:hidden text-on-surface hover:bg-surface-container/50 rounded-lg uppercase tracking-widest',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[16px]')}>tune</span>
+              {t('editor.properties.toggle', {}, { defaultValue: 'Properties' })}
+            </button>
             <button
               type="button"
               data-testid="toggle-notes"
@@ -608,8 +776,12 @@ export function Editor() {
                 'text-on-surface hover:bg-surface-container/50 rounded-lg uppercase tracking-widest',
               )}
             >
-              <span className={cm.cn('material-symbols-outlined text-[16px]')}>picture_as_pdf</span>
-              {t('editor.exportPdf', {}, { defaultValue: 'Export PDF' })}
+              <span className={cm.cn('material-symbols-outlined text-[16px]')}>
+                {exportQueued ? 'check_circle' : 'picture_as_pdf'}
+              </span>
+              {exportQueued
+                ? t('editor.exportQueued', {}, { defaultValue: 'Export queued' })
+                : t('editor.exportPdf', {}, { defaultValue: 'Export PDF' })}
             </button>
             <Link
               to={`/decks/${deck.id}/present`}
@@ -640,13 +812,94 @@ export function Editor() {
           </div>
         )}
 
+        {/* Mobile slide-thumbnails drawer: horizontal chip strip replacing
+              the desktop left rail below md. */}
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 3),
+            cm.sp('py', 2),
+            'md:hidden overflow-x-auto border-b border-outline-variant/30 bg-surface-container-low shrink-0',
+          )}
+          data-testid="slides-drawer"
+        >
+          {slides.map((s, idx) => {
+            const isActive = s.id === active?.id
+            return (
+              <div key={s.id} className={cm.cn('relative shrink-0')}>
+                <button
+                  type="button"
+                  data-testid={`slide-chip-${idx}`}
+                  onClick={() => setActiveId(s.id)}
+                  className={cm.cn(
+                    cm.flex({ direction: 'col', align: 'start', gap: 'xs' }),
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    'rounded-lg min-w-[96px] max-w-[140px] text-left transition-colors',
+                    isActive
+                      ? 'bg-primary/15 ring-2 ring-primary/40'
+                      : 'bg-surface-container-lowest hover:bg-surface-container',
+                  )}
+                >
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      'text-[10px] uppercase tracking-widest',
+                      isActive ? 'text-primary' : 'text-on-surface-variant',
+                    )}
+                  >
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className={cm.cn(cm.textSize('xs'), 'truncate w-[80px] text-on-surface')}>
+                    {parseContent(s.content).title ??
+                      t(`editor.layouts.${s.layout}`, {}, { defaultValue: s.layout })}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  aria-label={t('editor.deleteSlide', {}, { defaultValue: 'Delete slide' })!}
+                  data-testid={`delete-slide-mobile-${idx}`}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    void deleteSlide(s.id)
+                  }}
+                  className="absolute -top-1 -right-1 bg-error/80 text-white rounded-full w-6 h-6 flex items-center justify-center"
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[14px]')}
+                    aria-hidden="true"
+                  >
+                    close
+                  </span>
+                </button>
+              </div>
+            )
+          })}
+          <button
+            type="button"
+            data-testid="add-slide-mobile"
+            onClick={() => void addSlide()}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('xs'),
+              'shrink-0 rounded-lg border border-dashed border-outline-variant/60 text-on-surface-variant hover:bg-surface-container/40 uppercase tracking-widest min-h-[40px]',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-[16px]')}>add</span>
+            {t('editor.addSlide', {}, { defaultValue: 'Add slide' })}
+          </button>
+        </div>
+
         <div className={cm.cn(cm.flex({}), cm.flex1, 'overflow-hidden')}>
           <aside
             className={cm.cn(
               cm.flex({ direction: 'col' }),
               cm.sp('p', 4),
               cm.stack(2),
-              'w-[220px] border-r border-outline-variant/30 bg-surface-container-low overflow-y-auto',
+              'hidden md:flex w-[220px] shrink-0 border-r border-outline-variant/30 bg-surface-container-low overflow-y-auto',
             )}
           >
             <span
@@ -756,10 +1009,17 @@ export function Editor() {
                       void deleteSlide(s.id)
                     }}
                     className={cm.cn(
-                      'absolute top-1 right-1 opacity-0 group-hover:opacity-100 bg-error/80 text-white rounded p-1 text-xs',
+                      // Hover-reveal on desktop; always visible on touch
+                      // (no hover) and when keyboard-focused.
+                      'absolute top-1 right-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 focus-visible:opacity-100 bg-error/80 text-white rounded-full w-7 h-7 flex items-center justify-center text-xs',
                     )}
                   >
-                    <span className={cm.cn('material-symbols-outlined text-[12px]')}>close</span>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-[16px]')}
+                      aria-hidden="true"
+                    >
+                      close
+                    </span>
                   </button>
                 </div>
               )
@@ -875,130 +1135,69 @@ export function Editor() {
               cm.flex({ direction: 'col' }),
               cm.sp('p', 5),
               cm.stack(5),
-              'w-[300px] border-l border-outline-variant/30 bg-surface-container-low overflow-y-auto',
+              'hidden lg:flex w-[300px] shrink-0 border-l border-outline-variant/30 bg-surface-container-low overflow-y-auto',
             )}
           >
-            <div className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('editor.properties.layout', {}, { defaultValue: 'Layout' })}
-              </span>
-              <div className={cm.cn(cm.grid({ cols: 2, gap: 'xs' }))}>
-                {LAYOUTS.map((l) => {
-                  const isActive = active?.layout === l.value
-                  return (
-                    <button
-                      key={l.value}
-                      type="button"
-                      disabled={!active}
-                      data-testid={`layout-${l.value}`}
-                      onClick={() => void updateActiveSlide({ layout: l.value as LayoutValue })}
-                      className={cm.cn(
-                        cm.flex({ direction: 'col', align: 'center', gap: 'xs' }),
-                        cm.sp('p', 3),
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'rounded-lg transition-colors text-center',
-                        isActive
-                          ? 'bg-primary/15 text-primary ring-2 ring-primary/40'
-                          : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container disabled:opacity-50',
-                      )}
-                      aria-pressed={isActive}
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-[20px]')}>
-                        {l.icon}
-                      </span>
-                      {t(`editor.layouts.${l.value}`, {}, { defaultValue: l.label })}
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            <div className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('editor.properties.transition', {}, { defaultValue: 'Transition' })}
-              </span>
-              <div className={cm.cn(cm.grid({ cols: 2, gap: 'xs' }))}>
-                {TRANSITIONS.map((tr) => {
-                  const isActive = active?.transition === tr.value
-                  return (
-                    <button
-                      key={tr.value}
-                      type="button"
-                      disabled={!active}
-                      data-testid={`transition-${tr.value}`}
-                      onClick={() =>
-                        void updateActiveSlide({ transition: tr.value as TransitionValue })
-                      }
-                      className={cm.cn(
-                        cm.flex({ align: 'center', gap: 'xs' }),
-                        cm.sp('px', 3),
-                        cm.sp('py', 2),
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'rounded-lg transition-colors',
-                        isActive
-                          ? 'bg-primary/15 text-primary ring-2 ring-primary/40'
-                          : 'bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container disabled:opacity-50',
-                      )}
-                      aria-pressed={isActive}
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-[16px]')}>
-                        {tr.icon}
-                      </span>
-                      {t(`editor.transitions.${tr.value}`, {}, { defaultValue: tr.label })}
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-
-            <div className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  cm.fontWeight('bold'),
-                  'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('editor.properties.theme', {}, { defaultValue: 'Theme' })}
-              </span>
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
-                {PALETTE.map((c) => (
-                  <button
-                    key={c}
-                    type="button"
-                    data-testid={`theme-${c.replace('#', '')}`}
-                    onClick={() => void updateActiveTheme(c)}
-                    className={cm.cn(
-                      cm.w(7),
-                      cm.h(7),
-                      cm.roundedFull,
-                      'cursor-pointer ring-2 hover:ring-primary',
-                      themeAccent === c ? 'ring-primary' : 'ring-transparent',
-                    )}
-                    style={{ backgroundColor: c }}
-                    aria-label={t(
-                      'editor.themeSwatchAria',
-                      { color: c },
-                      { defaultValue: 'Theme {{color}}' },
-                    )!}
-                    aria-pressed={themeAccent === c}
-                  />
-                ))}
-              </div>
-            </div>
+            {propertiesBody}
           </aside>
         </div>
+
+        {/* Properties drawer (below lg): same tools as the desktop right
+            panel, opened from the toolbar Properties button. */}
+        {showProperties && (
+          <div className="lg:hidden">
+            <button
+              type="button"
+              aria-label={t(
+                'editor.properties.close',
+                {},
+                { defaultValue: 'Close properties panel' },
+              )!}
+              onClick={() => setShowProperties(false)}
+              className="fixed inset-0 z-40 bg-black/40"
+            />
+            <div
+              className={cm.cn(
+                cm.flex({ direction: 'col' }),
+                cm.stack(5),
+                cm.sp('p', 5),
+                'fixed bottom-0 left-0 right-0 z-50 max-h-[75vh] overflow-y-auto rounded-t-2xl border-t border-outline-variant/30 bg-surface-container-low shadow-2xl',
+              )}
+              role="dialog"
+              aria-label={t('editor.properties.toggle', {}, { defaultValue: 'Properties' })!}
+            >
+              <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
+                <span
+                  className={cm.cn(
+                    cm.fontWeight('bold'),
+                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('editor.properties.toggle', {}, { defaultValue: 'Properties' })}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowProperties(false)}
+                  aria-label={t(
+                    'editor.properties.close',
+                    {},
+                    { defaultValue: 'Close properties panel' },
+                  )!}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'center' }),
+                    cm.w(9),
+                    cm.h(9),
+                    cm.roundedFull,
+                    'text-on-surface-variant hover:bg-surface-container',
+                  )}
+                >
+                  <span className={cm.cn('material-symbols-outlined text-[20px]')}>close</span>
+                </button>
+              </div>
+              {propertiesBody}
+            </div>
+          </div>
+        )}
       </div>
     </PresentationBuilderLayout>
   )

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,6 +85,12 @@ export function Present() {
       setDeck(pRes.data)
       setSlides(sRes.data)
       setActiveIndex(0)
+      if (sRes.data.length > 0) {
+        track({
+          name: 'presentation.presented',
+          properties: { deckId: id, slideCount: sRes.data.length },
+        })
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load deck')
     } finally {
@@ -192,10 +199,9 @@ export function Present() {
       >
         <header
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 8),
-            cm.sp('py', 5),
-            'border-b border-surface/10',
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('px', 4),
+            'md:px-8 md:py-5 py-3 flex-wrap border-b border-surface/10',
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
@@ -233,7 +239,7 @@ export function Present() {
                 cm.sp('py', 2),
                 cm.roundedFull,
                 cm.fontWeight('bold'),
-                'text-2xl tabular-nums tracking-tighter text-white',
+                'text-lg md:text-2xl tabular-nums tracking-tighter text-white shrink-0',
               )}
               style={{ backgroundColor: 'var(--mol-color-success)' }}
             >
@@ -446,10 +452,9 @@ export function Present() {
 
             <footer
               className={cm.cn(
-                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-                cm.sp('px', 8),
-                cm.sp('py', 5),
-                'border-t border-surface/10',
+                cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                cm.sp('px', 4),
+                'md:px-8 md:py-5 py-3 flex-wrap border-t border-surface/10',
               )}
             >
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'overflow-x-auto')}>
@@ -498,7 +503,7 @@ export function Present() {
                   )
                 })}
               </div>
-              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
                 <button
                   type="button"
                   data-testid="prev-slide"

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -66,20 +66,23 @@ export function Shared() {
   const http = useHttpClient()
   const [decks, setDecks] = useState<Presentation[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [tab, setTab] = useState<Tab>('shared-by-me')
 
-  useEffect(() => {
+  const reload = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     http
       .get<Presentation[]>('/presentations')
       .then((res) => {
         if (cancelled) return
         setDecks(res.data)
       })
-      .catch(() => {
+      .catch((err: unknown) => {
         if (cancelled) return
         setDecks([])
+        setError(err instanceof Error ? err.message : 'Failed to load shared decks')
       })
       .finally(() => {
         if (cancelled) return
@@ -89,6 +92,8 @@ export function Shared() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(reload, [reload])
 
   const deckLabels: DeckLabels = {
     untitled: t('decks.untitled', {}, { defaultValue: 'Untitled deck' })!,
@@ -110,6 +115,32 @@ export function Shared() {
       title={t('shared.title', {}, { defaultValue: 'Shared decks' })!}
     >
       <div className={cm.cn(cm.stack(6))}>
+        {error && (
+          <div
+            role="alert"
+            data-testid="shared-error"
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+              cm.sp('p', 4),
+              'rounded-xl bg-error/10 text-error',
+            )}
+          >
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={() => void reload()}
+              className={cm.cn(
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('xs'),
+                'rounded-lg bg-error/15 hover:bg-error/25 uppercase tracking-widest shrink-0',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           {TABS.map((tk) => (
             <button

@@ -84,7 +84,7 @@ router.get('/presentations', async (_req: Request, res: Response) => {
     })
     res.json(await Promise.all((presentations as Record<string, unknown>[]).map(withSlideCount)))
   } catch (err) {
-    logger.error(err)
+    logger.error('presentation.list_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -108,7 +108,7 @@ router.get('/presentations/:id', async (req: Request, res: Response) => {
     }
     res.json(await withSlideCount(presentation))
   } catch (err) {
-    logger.error(err)
+    logger.error('presentation.read_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -151,7 +151,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (err) {
-      logger.error(err)
+      logger.error('presentation.create_failed', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -193,7 +193,7 @@ router.put(
       const result = await updateById('presentations', id, updates)
       res.json(result.data)
     } catch (err) {
-      logger.error(err)
+      logger.error('presentation.update_failed', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -219,7 +219,7 @@ router.delete('/presentations/:id', async (req: Request, res: Response) => {
     await deleteById('presentations', id)
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error('presentation.delete_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -252,7 +252,7 @@ router.post('/presentations/:id/duplicate', async (req: Request, res: Response) 
     })
     res.status(201).json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error('presentation.duplicate_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

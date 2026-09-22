@@ -66,7 +66,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (err) {
-      logger.error(err)
+      logger.error('presentation.export_failed', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -99,7 +99,7 @@ router.get(
       })
       res.json(exports)
     } catch (err) {
-      logger.error(err)
+      logger.error('presentation.export_read_failed', err)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })

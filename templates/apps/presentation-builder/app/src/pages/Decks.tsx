@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,11 +91,15 @@ export function Decks() {
   }, [http])
 
   const createDeck = useCallback(
-    async (titleInput?: string) => {
+    async (titleInput?: string, templateId?: string) => {
       setCreating(true)
       try {
         const title = titleInput ?? t('decks.untitled', {}, { defaultValue: 'Untitled Deck' })!
         const res = await http.post<Presentation>('/presentations', { title })
+        track({
+          name: 'deck.created',
+          properties: { deckId: res.data.id, ...(templateId ? { templateId } : {}) },
+        })
         navigate(`/decks/${res.data.id}/edit`)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to create deck')
@@ -130,7 +135,7 @@ export function Decks() {
       ? (titleByTemplate[tplId] ?? tplId)
       : t('decks.untitled', {}, { defaultValue: 'Untitled Deck' })!
     setParams({}, { replace: true })
-    void createDeck(title)
+    void createDeck(title, tplId ?? undefined)
   }, [params, setParams, createDeck, t])
 
   const deckLabels: DeckLabels = {
