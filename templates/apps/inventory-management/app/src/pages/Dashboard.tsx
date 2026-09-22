@@ -307,7 +307,9 @@ export function Dashboard() {
           className={cm.cn(
             cm.stack(4),
             cm.sp('p', 6),
-            'lg:col-span-2 rounded-2xl border border-outline-variant/60 bg-surface-container-lowest',
+            // min-w-0: without it the grid item's automatic minimum propagates
+            // the truncated rows' min-content and blows the track past 390px.
+            'min-w-0 lg:col-span-2 rounded-2xl border border-outline-variant/60 bg-surface-container-lowest',
           )}
         >
           <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
@@ -370,7 +372,7 @@ export function Dashboard() {
         <article
           className={cm.cn(
             cm.stack(4),
-            'lg:col-span-3 rounded-2xl border border-outline-variant/60 bg-surface-container-lowest overflow-hidden',
+            'min-w-0 lg:col-span-3 rounded-2xl border border-outline-variant/60 bg-surface-container-lowest overflow-hidden',
           )}
         >
           <header

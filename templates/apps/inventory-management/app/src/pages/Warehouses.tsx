@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -132,7 +133,11 @@ export function Warehouses() {
         const cap = Number.parseInt(form.capacity, 10)
         if (Number.isFinite(cap) && cap > 0) payload.capacity = cap
       }
-      await http.post('/warehouses', payload)
+      const created = await http.post<{ id?: string }>('/warehouses', payload)
+      track({
+        name: 'warehouse.created',
+        properties: { id: created.data?.id, code: form.code.trim() },
+      })
       setAddOpen(false)
       setForm(EMPTY)
       await load()

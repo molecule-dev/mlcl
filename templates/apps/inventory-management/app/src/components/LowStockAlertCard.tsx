@@ -83,11 +83,13 @@ export function LowStockAlertCard({ alert, onAction, actionLabel, busy }: LowSto
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'sm' }),
               cm.sp('mt', 1),
-              'text-[11px] text-on-surface-variant',
+              // min-w-0 + overflow-hidden: the nowrap meta must clip instead of
+              // sliding under the quantity cluster on narrow screens.
+              'min-w-0 overflow-hidden text-[11px] text-on-surface-variant',
             )}
           >
             <span
-              className={cm.cn('font-mono tracking-wide')}
+              className={cm.cn('shrink-0 font-mono tracking-wide')}
               style={{ color: 'var(--color-sku)' }}
             >
               {alert.sku}
@@ -95,21 +97,21 @@ export function LowStockAlertCard({ alert, onAction, actionLabel, busy }: LowSto
             {alert.warehouse && (
               <>
                 <span aria-hidden="true">·</span>
-                <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'min-w-0')}>
                   <span
-                    className={cm.cn('material-symbols-outlined text-[12px]')}
+                    className={cm.cn('material-symbols-outlined shrink-0 text-[12px]')}
                     data-icon="location_on"
                   >
                     location_on
                   </span>
-                  {alert.warehouse}
+                  <span className={cm.cn('truncate')}>{alert.warehouse}</span>
                 </span>
               </>
             )}
           </div>
         </div>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0')}>
         <span
           className={cm.cn('font-mono text-[12px] font-bold tabular-nums')}
           style={{ color: accent }}

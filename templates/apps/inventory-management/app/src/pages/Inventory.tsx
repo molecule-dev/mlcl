@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -159,13 +160,17 @@ export function Inventory() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/products', {
+      const created = await http.post<{ id?: string }>('/products', {
         name: form.name.trim(),
         sku: form.sku.trim(),
         category: form.category.trim() || undefined,
         cost_price: Number(form.cost_price) || 0,
         sell_price: Number(form.sell_price) || 0,
         low_stock_threshold: Number.parseInt(form.low_stock_threshold, 10) || 10,
+      })
+      track({
+        name: 'item.created',
+        properties: { id: created.data?.id, sku: form.sku.trim() },
       })
       setAddOpen(false)
       setForm(EMPTY_FORM)

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -112,6 +113,9 @@ export function OrderDetail() {
     setActionPending('receive')
     try {
       await http.post(`/orders/${order.id}/receive`)
+      // Receiving posts inbound stock movements — the conversion point of the
+      // purchasing funnel.
+      track({ name: 'order.received', properties: { id: order.id, status: 'received' } })
       await load()
     } catch (err) {
       const apiError = (err as { response?: { data?: { error?: string } } })?.response?.data?.error
@@ -128,6 +132,7 @@ export function OrderDetail() {
     setActionPending('cancel')
     try {
       await http.post(`/orders/${order.id}/cancel`)
+      track({ name: 'order.cancelled', properties: { id: order.id, status: 'cancelled' } })
       await load()
     } catch (err) {
       const apiError = (err as { response?: { data?: { error?: string } } })?.response?.data?.error
@@ -321,111 +326,116 @@ export function OrderDetail() {
                   {t('orderDetail.lines.title', {}, { defaultValue: 'What is on this order' })}
                 </h2>
               </header>
-              <table className={cm.cn(cm.w('full'), 'text-left')}>
-                <thead>
-                  <tr
-                    className={cm.cn(
-                      'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
-                    )}
-                  >
-                    <th className={cm.cn('py-2')}>
-                      {t('orderDetail.col.sku', {}, { defaultValue: 'SKU' })}
-                    </th>
-                    <th className={cm.cn('py-2')}>
-                      {t('nav.product', {}, { defaultValue: 'Product' })}
-                    </th>
-                    <th className={cm.cn('py-2 text-right')}>
-                      {t('orderDetail.col.expected', {}, { defaultValue: 'Expected' })}
-                    </th>
-                    <th className={cm.cn('py-2 text-right')}>
-                      {t('orderDetail.col.received', {}, { defaultValue: 'Received' })}
-                    </th>
-                    <th className={cm.cn('py-2 text-right')}>
-                      {t('orderDetail.col.cost', {}, { defaultValue: 'Unit cost' })}
-                    </th>
-                    <th className={cm.cn('py-2 text-right')}>
-                      {t('orderDetail.col.line', {}, { defaultValue: 'Line total' })}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-                  {(order.items ?? []).map((line) => {
-                    const variance = Number(line.received_quantity) - Number(line.expected_quantity)
-                    return (
-                      <tr key={line.id}>
-                        <td
-                          className={cm.cn('py-3 font-mono text-sm')}
-                          style={{ color: 'var(--color-sku)' }}
-                        >
-                          {line.sku}
-                        </td>
-                        <td className={cm.cn('py-3 text-sm text-on-surface')}>{line.name}</td>
-                        <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                          {line.expected_quantity}
-                        </td>
-                        <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                          <span
-                            style={{
-                              color:
-                                variance < 0
-                                  ? 'var(--color-stock-low)'
-                                  : variance > 0
-                                    ? 'var(--color-stock-overstock)'
-                                    : 'var(--color-stock-in)',
-                            }}
-                          >
-                            {line.received_quantity}
-                          </span>
-                        </td>
-                        <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                          ${(Number(line.unit_cost_cents) / 100).toFixed(2)}
-                        </td>
-                        <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                          $
-                          {(
-                            (Number(line.expected_quantity) * Number(line.unit_cost_cents)) /
-                            100
-                          ).toFixed(2)}
-                        </td>
-                      </tr>
-                    )
-                  })}
-                  {(order.items ?? []).length === 0 && (
-                    <tr>
-                      <td
-                        colSpan={6}
-                        className={cm.cn('py-4 text-center text-sm text-on-surface-variant')}
-                      >
-                        {t(
-                          'orderDetail.lines.empty',
-                          {},
-                          { defaultValue: 'No line items recorded.' },
-                        )}
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-                <tfoot>
-                  <tr
-                    className={cm.cn('border-t border-outline-variant/40 text-sm font-extrabold')}
-                  >
-                    <td
-                      colSpan={5}
+              <div className={cm.cn('overflow-x-auto')}>
+                <table className={cm.cn(cm.w('full'), 'text-left')}>
+                  <thead>
+                    <tr
                       className={cm.cn(
-                        'py-3 text-right uppercase tracking-wider text-on-surface-variant',
+                        'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
                       )}
                     >
-                      {t('nav.subtotal', {}, { defaultValue: 'Subtotal' })}
-                    </td>
-                    <td className={cm.cn('py-3 text-right font-mono tabular-nums text-on-surface')}>
-                      $
-                      {(subtotalCents / 100).toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                      })}
-                    </td>
-                  </tr>
-                </tfoot>
-              </table>
+                      <th className={cm.cn('py-2')}>
+                        {t('orderDetail.col.sku', {}, { defaultValue: 'SKU' })}
+                      </th>
+                      <th className={cm.cn('py-2')}>
+                        {t('nav.product', {}, { defaultValue: 'Product' })}
+                      </th>
+                      <th className={cm.cn('py-2 text-right')}>
+                        {t('orderDetail.col.expected', {}, { defaultValue: 'Expected' })}
+                      </th>
+                      <th className={cm.cn('py-2 text-right')}>
+                        {t('orderDetail.col.received', {}, { defaultValue: 'Received' })}
+                      </th>
+                      <th className={cm.cn('py-2 text-right')}>
+                        {t('orderDetail.col.cost', {}, { defaultValue: 'Unit cost' })}
+                      </th>
+                      <th className={cm.cn('py-2 text-right')}>
+                        {t('orderDetail.col.line', {}, { defaultValue: 'Line total' })}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+                    {(order.items ?? []).map((line) => {
+                      const variance =
+                        Number(line.received_quantity) - Number(line.expected_quantity)
+                      return (
+                        <tr key={line.id}>
+                          <td
+                            className={cm.cn('py-3 font-mono text-sm')}
+                            style={{ color: 'var(--color-sku)' }}
+                          >
+                            {line.sku}
+                          </td>
+                          <td className={cm.cn('py-3 text-sm text-on-surface')}>{line.name}</td>
+                          <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                            {line.expected_quantity}
+                          </td>
+                          <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                            <span
+                              style={{
+                                color:
+                                  variance < 0
+                                    ? 'var(--color-stock-low)'
+                                    : variance > 0
+                                      ? 'var(--color-stock-overstock)'
+                                      : 'var(--color-stock-in)',
+                              }}
+                            >
+                              {line.received_quantity}
+                            </span>
+                          </td>
+                          <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                            ${(Number(line.unit_cost_cents) / 100).toFixed(2)}
+                          </td>
+                          <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                            $
+                            {(
+                              (Number(line.expected_quantity) * Number(line.unit_cost_cents)) /
+                              100
+                            ).toFixed(2)}
+                          </td>
+                        </tr>
+                      )
+                    })}
+                    {(order.items ?? []).length === 0 && (
+                      <tr>
+                        <td
+                          colSpan={6}
+                          className={cm.cn('py-4 text-center text-sm text-on-surface-variant')}
+                        >
+                          {t(
+                            'orderDetail.lines.empty',
+                            {},
+                            { defaultValue: 'No line items recorded.' },
+                          )}
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                  <tfoot>
+                    <tr
+                      className={cm.cn('border-t border-outline-variant/40 text-sm font-extrabold')}
+                    >
+                      <td
+                        colSpan={5}
+                        className={cm.cn(
+                          'py-3 text-right uppercase tracking-wider text-on-surface-variant',
+                        )}
+                      >
+                        {t('nav.subtotal', {}, { defaultValue: 'Subtotal' })}
+                      </td>
+                      <td
+                        className={cm.cn('py-3 text-right font-mono tabular-nums text-on-surface')}
+                      >
+                        $
+                        {(subtotalCents / 100).toLocaleString(undefined, {
+                          minimumFractionDigits: 2,
+                        })}
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
             </article>
 
             <article

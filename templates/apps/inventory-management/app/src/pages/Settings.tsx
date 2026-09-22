@@ -113,9 +113,6 @@ interface AuthUser {
   name?: string
   email?: string
   role?: string
-  oauthData?: {
-    integrations?: Record<string, { status?: string }>
-  } | null
 }
 
 interface IntegrationDef {
@@ -162,14 +159,10 @@ export function Settings() {
   const [rules, setRules] = useState<ApiAlertRule[]>([])
   const [savingRule, setSavingRule] = useState<string>('')
 
-  const integrationStatus = user?.oauthData?.integrations ?? {}
-  const [integrations, setIntegrations] = useState<Record<string, string>>(() => {
-    const initial: Record<string, string> = {}
-    for (const it of INTEGRATIONS) {
-      initial[it.id] = integrationStatus[it.id]?.status ?? 'available'
-    }
-    return initial
-  })
+  // Integration link states live in the server-side /preferences channel (the
+  // platform user resource never returns app-specific oauthData on reads), so
+  // the toggles seed from there and persist via PATCH /preferences.
+  const [integrations, setIntegrations] = useState<Record<string, string>>({})
   const [savingIntegration, setSavingIntegration] = useState<string>('')
 
   useEffect(() => {
@@ -187,6 +180,18 @@ export function Settings() {
       .get<ApiAlertRule[]>('/alerts/rules')
       .then((res) => {
         if (!cancelled) setRules(Array.isArray(res.data) ? res.data : [])
+      })
+      .catch(() => undefined)
+    http
+      .get<{ integrations?: Record<string, { status?: string }> }>('/preferences')
+      .then((res) => {
+        if (cancelled) return
+        const stored = res.data?.integrations ?? {}
+        const next: Record<string, string> = {}
+        for (const it of INTEGRATIONS) {
+          next[it.id] = stored[it.id]?.status ?? 'available'
+        }
+        setIntegrations(next)
       })
       .catch(() => undefined)
     return () => {
@@ -228,22 +233,21 @@ export function Settings() {
   }
 
   const updateIntegration = async (id: string, nextStatus: string) => {
-    if (!user?.id) return
     setSavingIntegration(id)
     const prev = integrations[id] ?? 'available'
+    const currentStatuses = integrations
     setIntegrations((current) => ({ ...current, [id]: nextStatus }))
     try {
-      const merged = {
-        ...(user.oauthData ?? {}),
-        integrations: {
-          ...(user.oauthData?.integrations ?? {}),
-          [id]: { status: nextStatus, updated_at: new Date().toISOString() },
-        },
+      // Merge against the current client state and send the WHOLE
+      // integrations slice — the server stores top-level keys verbatim.
+      const mergedMap: Record<string, { status: string; updated_at: string }> = {}
+      for (const it of INTEGRATIONS) {
+        const status = it.id === id ? nextStatus : (currentStatuses[it.id] ?? 'available')
+        if (status !== 'available') {
+          mergedMap[it.id] = { status, updated_at: new Date().toISOString() }
+        }
       }
-      await http.patch(`/users/${user.id}`, { oauthData: merged })
-      if (typeof auth.setUser === 'function') {
-        auth.setUser({ ...user, oauthData: merged })
-      }
+      await http.patch('/preferences', { integrations: mergedMap })
     } catch (_error) {
       // optimistic update failed; revert integration state to previous value
       setIntegrations((current) => ({ ...current, [id]: prev }))
@@ -273,7 +277,7 @@ export function Settings() {
         </p>
       </header>
 
-      <div className={cm.cn('grid lg:grid-cols-[240px_1fr] gap-6 items-start')}>
+      <div className={cm.cn('grid lg:grid-cols-[240px_1fr] gap-6 items-start [&>*]:min-w-0')}>
         <aside
           className={cm.cn(
             cm.stack(1),
@@ -322,57 +326,59 @@ export function Settings() {
                 },
               )}
             >
-              <table
-                className={cm.cn(cm.w('full'), 'text-left')}
-                aria-label={t('settings.team.title', {}, { defaultValue: 'Team & roles' })}
-              >
-                <thead>
-                  <tr
-                    className={cm.cn(
-                      'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
-                    )}
-                  >
-                    <th className={cm.cn('py-2')}>
-                      {t('status.member', {}, { defaultValue: 'Member' })}
-                    </th>
-                    <th className={cm.cn('py-2')}>
-                      {t('form.role', {}, { defaultValue: 'Role' })}
-                    </th>
-                    <th className={cm.cn('py-2 text-right')}>
-                      {t('settings.team.col.action', {}, { defaultValue: 'Action' })}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-                  <tr
-                    data-testid="settings-team-row-self"
-                    className={cm.cn('hover:bg-background-secondary transition-colors')}
-                  >
-                    <td className={cm.cn('py-3')}>
-                      <p className={cm.cn('text-sm font-semibold text-on-surface')}>
-                        {user?.name ?? user?.email ?? t('nav.you', {}, { defaultValue: 'You' })}
-                      </p>
-                      <p className={cm.cn('text-[11px] text-on-surface-variant')}>
-                        {user?.email ?? '—'}
-                      </p>
-                    </td>
-                    <td className={cm.cn('py-3 text-sm text-on-surface')}>
-                      {t('settings.team.role.owner', {}, { defaultValue: 'Owner' })}
-                    </td>
-                    <td className={cm.cn('py-3 text-right')}>
-                      <Link
-                        to="/profile"
-                        data-testid="settings-team-edit-self"
-                        className={cm.cn(
-                          'text-[10px] font-black uppercase tracking-wider text-primary hover:underline',
-                        )}
-                      >
-                        {t('nav.editProfile', {}, { defaultValue: 'Edit profile' })}
-                      </Link>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className={cm.cn('overflow-x-auto')}>
+                <table
+                  className={cm.cn(cm.w('full'), 'text-left')}
+                  aria-label={t('settings.team.title', {}, { defaultValue: 'Team & roles' })}
+                >
+                  <thead>
+                    <tr
+                      className={cm.cn(
+                        'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
+                      )}
+                    >
+                      <th className={cm.cn('py-2')}>
+                        {t('status.member', {}, { defaultValue: 'Member' })}
+                      </th>
+                      <th className={cm.cn('py-2')}>
+                        {t('form.role', {}, { defaultValue: 'Role' })}
+                      </th>
+                      <th className={cm.cn('py-2 text-right')}>
+                        {t('settings.team.col.action', {}, { defaultValue: 'Action' })}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+                    <tr
+                      data-testid="settings-team-row-self"
+                      className={cm.cn('hover:bg-background-secondary transition-colors')}
+                    >
+                      <td className={cm.cn('py-3')}>
+                        <p className={cm.cn('text-sm font-semibold text-on-surface')}>
+                          {user?.name ?? user?.email ?? t('nav.you', {}, { defaultValue: 'You' })}
+                        </p>
+                        <p className={cm.cn('text-[11px] text-on-surface-variant')}>
+                          {user?.email ?? '—'}
+                        </p>
+                      </td>
+                      <td className={cm.cn('py-3 text-sm text-on-surface')}>
+                        {t('settings.team.role.owner', {}, { defaultValue: 'Owner' })}
+                      </td>
+                      <td className={cm.cn('py-3 text-right')}>
+                        <Link
+                          to="/profile"
+                          data-testid="settings-team-edit-self"
+                          className={cm.cn(
+                            'text-[10px] font-black uppercase tracking-wider text-primary hover:underline',
+                          )}
+                        >
+                          {t('nav.editProfile', {}, { defaultValue: 'Edit profile' })}
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </Card>
           )}
           {active === 'locations' && (

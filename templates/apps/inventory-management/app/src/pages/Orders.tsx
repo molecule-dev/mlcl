@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -205,7 +206,7 @@ export function Orders() {
       const product = products.find((p) => String(p.id) === form.productId)
       const qty = Number.parseInt(form.quantity, 10) || 1
       const unitCostCents = Math.round((Number(form.unitCost) || 0) * 100)
-      await http.post('/orders', {
+      const created = await http.post<{ id?: string }>('/orders', {
         reference: form.reference.trim(),
         type: form.type,
         partner: form.partner.trim() || 'Partner TBD',
@@ -221,6 +222,10 @@ export function Orders() {
             unit_cost_cents: unitCostCents,
           },
         ],
+      })
+      track({
+        name: 'order.created',
+        properties: { id: created.data?.id, reference: form.reference.trim(), type: form.type },
       })
       setCreateOpen(false)
       setForm(EMPTY_FORM)
@@ -349,104 +354,106 @@ export function Orders() {
           'rounded-2xl border border-outline-variant/60 bg-surface-container-lowest overflow-hidden',
         )}
       >
-        <table className={cm.cn(cm.w('full'), 'text-left')}>
-          <thead>
-            <tr style={{ backgroundColor: 'var(--color-background-secondary)' }}>
-              <Th label={t('orders.col.reference', {}, { defaultValue: 'Reference' })} />
-              <Th label={t('orders.col.partner', {}, { defaultValue: 'Partner' })} />
-              <Th label={t('orders.col.warehouse', {}, { defaultValue: 'Warehouse' })} />
-              <Th label={t('orders.col.eta', {}, { defaultValue: 'ETA' })} />
-              <Th label={t('orders.col.units', {}, { defaultValue: 'Units' })} align="right" />
-              <Th label={t('orders.col.value', {}, { defaultValue: 'Value' })} align="right" />
-              <Th label={t('nav.status', {}, { defaultValue: 'Status' })} />
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-            {loading && (
-              <tr>
-                <td
-                  colSpan={7}
-                  className={cm.cn('px-4 py-6 text-center text-sm text-on-surface-variant')}
-                >
-                  {t('orders.loading', {}, { defaultValue: 'Loading orders…' })}
-                </td>
+        <div className={cm.cn('overflow-x-auto')}>
+          <table className={cm.cn(cm.w('full'), 'text-left')}>
+            <thead>
+              <tr style={{ backgroundColor: 'var(--color-background-secondary)' }}>
+                <Th label={t('orders.col.reference', {}, { defaultValue: 'Reference' })} />
+                <Th label={t('orders.col.partner', {}, { defaultValue: 'Partner' })} />
+                <Th label={t('orders.col.warehouse', {}, { defaultValue: 'Warehouse' })} />
+                <Th label={t('orders.col.eta', {}, { defaultValue: 'ETA' })} />
+                <Th label={t('orders.col.units', {}, { defaultValue: 'Units' })} align="right" />
+                <Th label={t('orders.col.value', {}, { defaultValue: 'Value' })} align="right" />
+                <Th label={t('nav.status', {}, { defaultValue: 'Status' })} />
               </tr>
-            )}
-            {!loading && filtered.length === 0 && (
-              <tr>
-                <td
-                  colSpan={7}
-                  className={cm.cn('px-4 py-6 text-center text-sm text-on-surface-variant')}
-                >
-                  {t(
-                    'orders.empty',
-                    {},
-                    { defaultValue: 'No orders yet — click Create order to add one.' },
-                  )}
-                </td>
-              </tr>
-            )}
-            {filtered.map((row) => {
-              const status = STATUS_META[row.status]
-              return (
-                <tr
-                  key={row.id}
-                  className={cm.cn('hover:bg-background-secondary transition-colors')}
-                >
-                  <td className={cm.cn('px-4 py-3')}>
-                    <Link
-                      to={`/orders/${row.id}`}
-                      className={cm.cn(
-                        'font-mono text-sm font-semibold text-primary hover:underline',
-                      )}
-                    >
-                      {row.reference}
-                    </Link>
-                    <p
-                      className={cm.cn(
-                        'text-[11px] text-on-surface-variant uppercase tracking-wider',
-                      )}
-                    >
-                      {row.type === 'inbound'
-                        ? t('orders.row.po', {}, { defaultValue: 'Purchase order' })
-                        : t('orders.row.so', {}, { defaultValue: 'Sales order' })}
-                    </p>
-                  </td>
-                  <td className={cm.cn('px-4 py-3 text-sm text-on-surface')}>{row.partner}</td>
-                  <td className={cm.cn('px-4 py-3 text-sm text-on-surface-variant')}>
-                    {row.warehouse}
-                  </td>
-                  <td className={cm.cn('px-4 py-3 text-sm text-on-surface tabular-nums')}>
-                    {row.expectedAt}
-                  </td>
-                  <td className={cm.cn('px-4 py-3 text-right font-mono text-sm tabular-nums')}>
-                    {row.totalUnits}
-                  </td>
-                  <td className={cm.cn('px-4 py-3 text-right font-mono text-sm tabular-nums')}>
-                    $
-                    {(row.totalValueCents / 100).toLocaleString(undefined, {
-                      minimumFractionDigits: 2,
-                    })}
-                  </td>
-                  <td className={cm.cn('px-4 py-3')}>
-                    <span
-                      className={cm.cn(
-                        'inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
-                      )}
-                      style={{ backgroundColor: status?.tone.bg, color: status?.tone.text }}
-                    >
-                      {t(
-                        status?.labelKey ?? 'orders.status.unknown',
-                        {},
-                        { defaultValue: status?.labelDefault ?? row.status },
-                      )}
-                    </span>
+            </thead>
+            <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+              {loading && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className={cm.cn('px-4 py-6 text-center text-sm text-on-surface-variant')}
+                  >
+                    {t('orders.loading', {}, { defaultValue: 'Loading orders…' })}
                   </td>
                 </tr>
-              )
-            })}
-          </tbody>
-        </table>
+              )}
+              {!loading && filtered.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={7}
+                    className={cm.cn('px-4 py-6 text-center text-sm text-on-surface-variant')}
+                  >
+                    {t(
+                      'orders.empty',
+                      {},
+                      { defaultValue: 'No orders yet — click Create order to add one.' },
+                    )}
+                  </td>
+                </tr>
+              )}
+              {filtered.map((row) => {
+                const status = STATUS_META[row.status]
+                return (
+                  <tr
+                    key={row.id}
+                    className={cm.cn('hover:bg-background-secondary transition-colors')}
+                  >
+                    <td className={cm.cn('px-4 py-3')}>
+                      <Link
+                        to={`/orders/${row.id}`}
+                        className={cm.cn(
+                          'font-mono text-sm font-semibold text-primary hover:underline',
+                        )}
+                      >
+                        {row.reference}
+                      </Link>
+                      <p
+                        className={cm.cn(
+                          'text-[11px] text-on-surface-variant uppercase tracking-wider',
+                        )}
+                      >
+                        {row.type === 'inbound'
+                          ? t('orders.row.po', {}, { defaultValue: 'Purchase order' })
+                          : t('orders.row.so', {}, { defaultValue: 'Sales order' })}
+                      </p>
+                    </td>
+                    <td className={cm.cn('px-4 py-3 text-sm text-on-surface')}>{row.partner}</td>
+                    <td className={cm.cn('px-4 py-3 text-sm text-on-surface-variant')}>
+                      {row.warehouse}
+                    </td>
+                    <td className={cm.cn('px-4 py-3 text-sm text-on-surface tabular-nums')}>
+                      {row.expectedAt}
+                    </td>
+                    <td className={cm.cn('px-4 py-3 text-right font-mono text-sm tabular-nums')}>
+                      {row.totalUnits}
+                    </td>
+                    <td className={cm.cn('px-4 py-3 text-right font-mono text-sm tabular-nums')}>
+                      $
+                      {(row.totalValueCents / 100).toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                      })}
+                    </td>
+                    <td className={cm.cn('px-4 py-3')}>
+                      <span
+                        className={cm.cn(
+                          'inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
+                        )}
+                        style={{ backgroundColor: status?.tone.bg, color: status?.tone.text }}
+                      >
+                        {t(
+                          status?.labelKey ?? 'orders.status.unknown',
+                          {},
+                          { defaultValue: status?.labelDefault ?? row.status },
+                        )}
+                      </span>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <Modal

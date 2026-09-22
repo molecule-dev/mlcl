@@ -137,6 +137,9 @@ test.describe('warehouse detail page', () => {
   })
 
   test('non-existent warehouse renders the error state with a back link', async ({ page }) => {
+    // The missing warehouse 404s from the API — the rejected fetch IS the
+    // error-state contract under test, so allow its expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page, uniqueEmail('wh-404'))
     await page.goto(APP_BASE + `/warehouses/00000000-0000-0000-0000-000000000000`)
     await expect(page.getByTestId('warehouse-detail-error')).toBeVisible({ timeout: 10_000 })

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -199,6 +200,7 @@ export function Notifications() {
     // Acknowledging the alert as a quick "I see this, will reorder" action.
     try {
       await http.post(`/alerts/${alert.id}/acknowledge`)
+      track({ name: 'alert.acknowledged', properties: { id: alert.id, sku: alert.sku } })
       await load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to acknowledge alert')
@@ -302,7 +304,9 @@ export function Notifications() {
         ))}
       </nav>
 
-      <div className={cm.cn('grid lg:grid-cols-2 gap-6')}>
+      {/* [&>*]:min-w-0 — grid items otherwise propagate truncated min-content
+          past the 390px viewport. */}
+      <div className={cm.cn('grid lg:grid-cols-2 gap-6 [&>*]:min-w-0')}>
         {showAlerts && (
           <section
             className={cm.cn(

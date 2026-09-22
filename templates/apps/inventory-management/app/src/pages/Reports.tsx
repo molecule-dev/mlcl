@@ -181,7 +181,8 @@ export function Reports() {
                 cm.sp('px', 3),
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
-                'rounded-md text-xs uppercase tracking-wider transition-colors',
+                // 44px-wide / 36px-tall tap target on touch screens.
+                'inline-flex min-h-[36px] min-w-[44px] items-center justify-center rounded-md text-xs uppercase tracking-wider transition-colors',
                 range === option
                   ? 'bg-primary text-white shadow'
                   : 'text-on-surface-variant hover:bg-background-secondary',
@@ -221,7 +222,7 @@ export function Reports() {
         />
       </section>
 
-      <div className={cm.cn('grid lg:grid-cols-3 gap-6')}>
+      <div className={cm.cn('grid lg:grid-cols-3 gap-6 [&>*]:min-w-0')}>
         <article
           data-testid="reports-turnover-chart"
           className={cm.cn(
@@ -350,63 +351,65 @@ export function Reports() {
                 )}
           </p>
         ) : (
-          <table className={cm.cn(cm.w('full'), 'text-left')}>
-            <thead>
-              <tr
-                className={cm.cn(
-                  'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
-                )}
-              >
-                <th className={cm.cn('py-2')}>SKU</th>
-                <th className={cm.cn('py-2')}>
-                  {t('nav.product', {}, { defaultValue: 'Product' })}
-                </th>
-                <th className={cm.cn('py-2 text-right')}>
-                  {t('reports.topValue.col.value', {}, { defaultValue: 'Value' })}
-                </th>
-                <th className={cm.cn('py-2 text-right')}>
-                  {t('reports.topValue.col.share', {}, { defaultValue: '% of total' })}
-                </th>
-                <th className={cm.cn('py-2 w-32')}>
-                  {t('reports.topValue.col.distribution', {}, { defaultValue: 'Distribution' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-              {summary.topValue.map((row) => (
-                <tr key={row.sku}>
-                  <td
-                    className={cm.cn('py-3 font-mono text-sm')}
-                    style={{ color: 'var(--color-sku)' }}
-                  >
-                    {row.sku}
-                  </td>
-                  <td className={cm.cn('py-3 text-sm text-on-surface')}>{row.name}</td>
-                  <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                    ${row.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                  </td>
-                  <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
-                    {row.share}%
-                  </td>
-                  <td className={cm.cn('py-3')}>
-                    <div
-                      className={cm.cn(
-                        'h-1.5 rounded-full bg-background-secondary overflow-hidden',
-                      )}
-                    >
-                      <div
-                        className={cm.cn('h-full rounded-full')}
-                        style={{
-                          width: `${(row.share / maxShare) * 100}%`,
-                          backgroundColor: 'var(--color-primary)',
-                        }}
-                      />
-                    </div>
-                  </td>
+          <div className={cm.cn('overflow-x-auto')}>
+            <table className={cm.cn(cm.w('full'), 'text-left')}>
+              <thead>
+                <tr
+                  className={cm.cn(
+                    'border-b border-outline-variant/40 text-[10px] font-black uppercase tracking-[0.16em] text-on-surface-variant',
+                  )}
+                >
+                  <th className={cm.cn('py-2')}>SKU</th>
+                  <th className={cm.cn('py-2')}>
+                    {t('nav.product', {}, { defaultValue: 'Product' })}
+                  </th>
+                  <th className={cm.cn('py-2 text-right')}>
+                    {t('reports.topValue.col.value', {}, { defaultValue: 'Value' })}
+                  </th>
+                  <th className={cm.cn('py-2 text-right')}>
+                    {t('reports.topValue.col.share', {}, { defaultValue: '% of total' })}
+                  </th>
+                  <th className={cm.cn('py-2 w-32')}>
+                    {t('reports.topValue.col.distribution', {}, { defaultValue: 'Distribution' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+                {summary.topValue.map((row) => (
+                  <tr key={row.sku}>
+                    <td
+                      className={cm.cn('py-3 font-mono text-sm')}
+                      style={{ color: 'var(--color-sku)' }}
+                    >
+                      {row.sku}
+                    </td>
+                    <td className={cm.cn('py-3 text-sm text-on-surface')}>{row.name}</td>
+                    <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                      ${row.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                    </td>
+                    <td className={cm.cn('py-3 text-right font-mono text-sm tabular-nums')}>
+                      {row.share}%
+                    </td>
+                    <td className={cm.cn('py-3')}>
+                      <div
+                        className={cm.cn(
+                          'h-1.5 rounded-full bg-background-secondary overflow-hidden',
+                        )}
+                      >
+                        <div
+                          className={cm.cn('h-full rounded-full')}
+                          style={{
+                            width: `${(row.share / maxShare) * 100}%`,
+                            backgroundColor: 'var(--color-primary)',
+                          }}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </section>
     </div>

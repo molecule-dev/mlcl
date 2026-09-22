@@ -48,12 +48,12 @@ test.describe('settings', () => {
     await expect(page).toHaveURL(/\/warehouses$/)
   })
 
-  test('Integrations tab toggles persist across reload via PATCH /users/:id (oauthData.integrations)', async ({
+  test('Integrations tab toggles persist across reload via PATCH /preferences', async ({
     page,
     request,
   }) => {
     const email = uniqueEmail('settings-integrations')
-    const { accessToken, userId } = await signup(page, email)
+    const { accessToken } = await signup(page, email)
     await page.goto(APP_BASE + '/settings')
     await page.getByRole('button', { name: /integrations/i }).click()
     const toggle = page.getByTestId('settings-integration-toggle-shopify')
@@ -66,16 +66,19 @@ test.describe('settings', () => {
         { timeout: 8000 },
       )
     })
-    const patch = reqs.find((r) => /\/users\/[^/]+/.test(r.url) && r.method === 'PATCH')
-    expect(patch?.status, 'integration toggle did not PATCH /users/:id').toBe(200)
+    // Integration link states persist through the server-side /preferences
+    // channel — the platform user resource never returns oauthData on reads.
+    const patch = reqs.find((r) => /\/preferences$/.test(r.url) && r.method === 'PATCH')
+    expect(patch?.status, 'integration toggle did not PATCH /preferences').toBe(200)
 
-    const userResp = await request.get(`${API_BASE}/users/${userId}`, {
+    const prefResp = await request.get(`${API_BASE}/preferences`, {
       headers: authHeaders(accessToken),
     })
-    const userJson = (await userResp.json()) as {
-      props?: { oauthData?: { integrations?: Record<string, { status?: string }> } }
+    expect(prefResp.status()).toBe(200)
+    const prefs = (await prefResp.json()) as {
+      integrations?: Record<string, { status?: string }>
     }
-    expect(userJson.props?.oauthData?.integrations?.shopify?.status).toBe('connected')
+    expect(prefs.integrations?.shopify?.status).toBe('connected')
 
     await page.reload()
     await page.getByRole('button', { name: /integrations/i }).click()

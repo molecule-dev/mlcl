@@ -31,8 +31,7 @@ test.describe('profile', () => {
     request,
   }) => {
     const email = uniqueEmail('profile-pref')
-    const { accessToken, userId } = await signup(page, email)
-    expect(userId).toBeTruthy()
+    const { accessToken } = await signup(page, email)
 
     // Prime dashboard so the seed warehouses exist.
     const dashboardResp = await request.get(`${API_BASE}/dashboard/snapshot`, {
@@ -56,19 +55,18 @@ test.describe('profile', () => {
         timeout: 8000,
       })
     })
-    const patch = reqs.find((r) => /\/users\/[^/]+/.test(r.url) && r.method === 'PATCH')
-    expect(patch?.status, 'PATCH /users/:id did not happen on selection').toBe(200)
+    // The preference persists through the server-side /preferences channel —
+    // the platform user resource never returns app-specific oauthData.
+    const patch = reqs.find((r) => /\/preferences$/.test(r.url) && r.method === 'PATCH')
+    expect(patch?.status, 'PATCH /preferences did not happen on selection').toBe(200)
 
-    // Read-after-write: the user record now carries the preference.
-    // GET /users/:id wraps the row in `{ props: { … } }`.
-    const userResp = await request.get(`${API_BASE}/users/${userId}`, {
+    // Read-after-write: the preference channel now carries the choice.
+    const prefResp = await request.get(`${API_BASE}/preferences`, {
       headers: authHeaders(accessToken),
     })
-    expect(userResp.status()).toBe(200)
-    const userJson = (await userResp.json()) as {
-      props?: { oauthData?: { preferences?: { defaultWarehouseId?: string } } }
-    }
-    expect(userJson.props?.oauthData?.preferences?.defaultWarehouseId).toBe(target)
+    expect(prefResp.status()).toBe(200)
+    const prefs = (await prefResp.json()) as { defaultWarehouseId?: string | null }
+    expect(prefs.defaultWarehouseId).toBe(target)
 
     // Reload and confirm the selection survives.
     await page.reload()

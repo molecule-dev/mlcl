@@ -12,12 +12,6 @@ interface WarehouseOption {
   code: string
 }
 
-interface OauthData {
-  preferences?: {
-    defaultWarehouseId?: string | null
-  }
-}
-
 export function Profile() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -29,9 +23,7 @@ export function Profile() {
       email?: string
       avatar?: string
       role?: string
-      oauthData?: OauthData
     }
-    setUser?: (next: unknown) => void
   }
   const user = auth.user
   const name = user?.name ?? user?.email?.split('@')[0] ?? 'Operator'
@@ -39,20 +31,30 @@ export function Profile() {
   const role =
     user?.role ?? t('profile.contact.defaultRole', {}, { defaultValue: 'Operations Lead' })
 
-  const persistedWarehouseId = user?.oauthData?.preferences?.defaultWarehouseId ?? ''
   const [warehouses, setWarehouses] = useState<WarehouseOption[]>([])
   const [warehousesLoaded, setWarehousesLoaded] = useState(false)
-  const [defaultWarehouseId, setDefaultWarehouseId] = useState<string>(persistedWarehouseId)
+  const [defaultWarehouseId, setDefaultWarehouseId] = useState<string>('')
   const [savingPref, setSavingPref] = useState(false)
   const [savedAt, setSavedAt] = useState<number>(0)
 
-  // The auth user often resolves AFTER first render (AuthGuard refreshes it on
-  // load/reload), so the useState initializer above runs before the persisted
-  // preference is known. Re-seed the selection from auth whenever the persisted
-  // value arrives/changes — this is what makes the choice survive a reload.
+  // The default warehouse lives in the server-side /preferences channel (the
+  // platform user resource never returns app-specific oauthData on reads), so
+  // seed the selection from there once it resolves — this is what makes the
+  // choice survive a reload.
   useEffect(() => {
-    setDefaultWarehouseId(persistedWarehouseId)
-  }, [persistedWarehouseId])
+    let cancelled = false
+    http
+      .get<{ defaultWarehouseId?: string | null }>('/preferences')
+      .then((res) => {
+        if (cancelled) return
+        const persisted = res.data?.defaultWarehouseId ?? ''
+        setDefaultWarehouseId(String(persisted))
+      })
+      .catch(() => undefined)
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   useEffect(() => {
     let cancelled = false
@@ -73,25 +75,15 @@ export function Profile() {
   }, [http])
 
   const handleDefaultWarehouseChange = async (next: string) => {
+    const previous = defaultWarehouseId
     setDefaultWarehouseId(next)
-    if (!user?.id) return
     setSavingPref(true)
     try {
-      const merged: OauthData = {
-        ...(user.oauthData ?? {}),
-        preferences: {
-          ...(user.oauthData?.preferences ?? {}),
-          defaultWarehouseId: next || null,
-        },
-      }
-      await http.patch(`/users/${user.id}`, { oauthData: merged })
-      if (typeof auth.setUser === 'function') {
-        auth.setUser({ ...user, oauthData: merged })
-      }
+      await http.patch('/preferences', { defaultWarehouseId: next || null })
       setSavedAt(Date.now())
     } catch (_error) {
-      // Reverting silently is acceptable — the next render still reflects auth.user
-      setDefaultWarehouseId(user?.oauthData?.preferences?.defaultWarehouseId ?? '')
+      // Revert on failure — the select reflects the server's last known value.
+      setDefaultWarehouseId(previous)
     } finally {
       setSavingPref(false)
     }
@@ -146,7 +138,7 @@ export function Profile() {
         />
       </section>
 
-      <div className={cm.cn('grid lg:grid-cols-2 gap-6')}>
+      <div className={cm.cn('grid lg:grid-cols-2 gap-6 [&>*]:min-w-0')}>
         <section
           className={cm.cn(
             cm.stack(4),

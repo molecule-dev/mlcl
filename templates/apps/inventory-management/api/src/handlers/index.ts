@@ -4,6 +4,7 @@ import alerts from './alerts.js'
 import dashboard from './dashboard.js'
 import notifications from './notifications.js'
 import orders from './orders.js'
+import preferences from './preferences.js'
 import products from './products.js'
 import reports from './reports.js'
 import stock from './stock.js'
@@ -20,6 +21,7 @@ router.use('/alerts', alerts)
 router.use('/reports', reports)
 router.use('/orders', orders)
 router.use('/notifications', notifications)
+router.use('/preferences', preferences)
 router.use('/dashboard', dashboard)
 
 export default router

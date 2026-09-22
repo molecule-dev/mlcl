@@ -66,6 +66,9 @@ test.describe('reset-password', () => {
   })
 
   test('submitting with a token issues POST /users/reset-password', async ({ page }) => {
+    // The bogus token is correctly rejected (401) by the real endpoint; the
+    // browser logs the failed fetch, so allow that expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=does-not-exist-token-for-test')
     await page
       .getByLabel(/new password/i)

@@ -70,7 +70,10 @@ export function InventoryHeroCard({
       />
 
       <div
-        className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md' }), 'relative')}
+        className={cm.cn(
+          cm.flex({ align: 'start', justify: 'between', gap: 'md' }),
+          'relative flex-wrap',
+        )}
       >
         <div className={cm.stack(2)}>
           <p className={cm.cn('text-[11px] font-bold uppercase tracking-[0.22em] text-white/70')}>

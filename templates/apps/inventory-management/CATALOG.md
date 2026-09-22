@@ -13,7 +13,7 @@ Cin7-like inventory management with stock levels, SKUs, warehouses, and low-stoc
 
 `auth`, `search`, `import-export`, `reporting`, `alerts`, `multi-warehouse`
 
-## Data model (12 domain tables)
+## Data model (13 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -29,6 +29,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **orders** — id, user_id, reference, type, status, partner, warehouse_id, expected_at, received_at, total_units, total_value_cents, notes, …
 - **order_items** — id, order_id, product_id, sku, name, expected_quantity, received_quantity, unit_cost_cents, created_at, updatedAt
 - **notifications** — id, user_id, kind, icon, title, body, href, read, created_at, updatedAt
+- **user_preferences** — id, user_id, data, created_at, updated_at
 
 ## API surface (handlers)
 
@@ -39,6 +40,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **dashboard** — `api/src/handlers/dashboard.ts`
 - **notifications** — `api/src/handlers/notifications.ts`
 - **orders** — `api/src/handlers/orders.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **products** — `api/src/handlers/products.ts`
 - **reports** — `api/src/handlers/reports.ts`
 - **stock** — `api/src/handlers/stock.ts`

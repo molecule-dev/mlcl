@@ -64,6 +64,9 @@ test.describe('product detail page', () => {
   })
 
   test('non-existent product surfaces a "not found" alert', async ({ page }) => {
+    // The missing product 404s from the API — that rejected fetch is the
+    // contract under test, so allow its expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page, uniqueEmail('product-404'))
     await page.goto(APP_BASE + `/products/00000000-0000-0000-0000-000000000000`)
     await expect(page.getByRole('alert')).toBeVisible({ timeout: 10_000 })

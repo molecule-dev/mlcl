@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -54,6 +55,7 @@ export function StockTransfer() {
   const [commitError, setCommitError] = useState<string | null>(null)
   const [feedback, setFeedback] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [actingId, setActingId] = useState<string | null>(null)
 
   const productMap = useMemo(() => {
@@ -67,6 +69,7 @@ export function StockTransfer() {
 
   const load = useCallback(async () => {
     setLoading(true)
+    setLoadError(null)
     try {
       const [wh, ps, tr] = await Promise.all([
         http.get<ApiWarehouse[]>('/warehouses'),
@@ -81,6 +84,8 @@ export function StockTransfer() {
         setSource((prev) => prev || String(whList[0].id))
         setDestination((prev) => prev || String(whList[1]?.id ?? whList[0].id))
       }
+    } catch (err) {
+      setLoadError(err instanceof Error ? err.message : 'Failed to load transfers')
     } finally {
       setLoading(false)
     }
@@ -128,7 +133,13 @@ export function StockTransfer() {
   }
 
   function updateQty(uid: string, qty: number) {
-    setLines((prev) => prev.map((l) => (l.uid === uid ? { ...l, quantity: Math.max(1, qty) } : l)))
+    // parseInt('') is NaN and Math.max(1, NaN) stays NaN — fall back to 1 so a
+    // cleared input never renders "NaN" in the manifest.
+    setLines((prev) =>
+      prev.map((l) =>
+        l.uid === uid ? { ...l, quantity: Number.isFinite(qty) ? Math.max(1, qty) : 1 } : l,
+      ),
+    )
   }
 
   function removeLine(uid: string) {
@@ -156,11 +167,20 @@ export function StockTransfer() {
     }
     setCommitting(true)
     try {
-      await http.post('/transfers', {
+      const created = await http.post<{ id?: string }>('/transfers', {
         from_warehouse_id: source,
         to_warehouse_id: destination,
         notes: notes.trim() || undefined,
         items: lines.map((l) => ({ product_id: l.productId, quantity: l.quantity })),
+      })
+      track({
+        name: 'transfer.created',
+        properties: {
+          id: created.data?.id,
+          from_warehouse_id: source,
+          to_warehouse_id: destination,
+          line_count: lines.length,
+        },
       })
       setLines([])
       setNotes('')
@@ -182,9 +202,20 @@ export function StockTransfer() {
 
   async function actOnTransfer(id: string, action: 'complete' | 'cancel') {
     setActingId(id)
+    setCommitError(null)
     try {
       await http.post(`/transfers/${id}/${action}`, {})
+      // Completing posts the stock movements to both warehouses atomically —
+      // the stock.adjusted funnel for rebalancing.
+      if (action === 'complete') {
+        track({ name: 'stock.adjusted', properties: { id, reason: 'transfer' } })
+      }
       await load()
+    } catch (err) {
+      const apiError = (err as { response?: { data?: { error?: string } } })?.response?.data?.error
+      setCommitError(
+        apiError ?? (err instanceof Error ? err.message : `Failed to ${action} the transfer`),
+      )
     } finally {
       setActingId(null)
     }
@@ -224,7 +255,32 @@ export function StockTransfer() {
         </p>
       )}
 
-      {!loading && warehouses.length < 2 && (
+      {!loading && loadError && (
+        <div
+          role="alert"
+          data-testid="transfers-load-error"
+          className={cm.cn(
+            cm.stack(2),
+            cm.sp('p', 4),
+            'rounded-lg border border-error/40 bg-error/10 text-sm text-error',
+          )}
+        >
+          <p>{loadError}</p>
+          <button
+            type="button"
+            onClick={() => void load()}
+            className={cm.cn(
+              cm.sp('px', 3),
+              cm.sp('py', 1),
+              'self-start rounded-md border border-error/40 text-xs font-bold uppercase tracking-wider hover:bg-error/10',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
+
+      {!loading && !loadError && warehouses.length < 2 && (
         <div
           data-testid="transfers-needs-warehouses"
           className={cm.cn(
@@ -263,7 +319,7 @@ export function StockTransfer() {
         </div>
       )}
 
-      {!loading && warehouses.length >= 2 && (
+      {!loading && !loadError && warehouses.length >= 2 && (
         <>
           <section className={cm.cn('grid lg:grid-cols-3 gap-4')}>
             <InventoryKpiCard
@@ -330,7 +386,9 @@ export function StockTransfer() {
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'sm' }),
                 cm.sp('p', 4),
-                'rounded-xl border border-dashed border-primary/40 bg-primary/5',
+                // Wrap on narrow screens so the commit button never gets
+                // pushed past the viewport edge (flex-nowrap overflowed 390px).
+                'flex-wrap rounded-xl border border-dashed border-primary/40 bg-primary/5',
               )}
             >
               <span
@@ -350,7 +408,7 @@ export function StockTransfer() {
                   { defaultValue: 'Scan an SKU or barcode and press Enter' },
                 )}
                 className={cm.cn(
-                  'flex-1 bg-transparent border-none outline-none text-base font-mono text-on-surface placeholder:text-on-surface-variant',
+                  'min-w-0 flex-1 bg-transparent border-none outline-none text-base font-mono text-on-surface placeholder:text-on-surface-variant',
                 )}
               />
               <button
@@ -378,7 +436,7 @@ export function StockTransfer() {
               </p>
             )}
 
-            <div>
+            <div className={cm.cn('overflow-x-auto')}>
               <table className={cm.cn(cm.w('full'), 'text-left')}>
                 <thead>
                   <tr
@@ -653,7 +711,7 @@ export function StockTransfer() {
                             className={cm.cn(
                               cm.sp('px', 3),
                               cm.sp('py', 1),
-                              'rounded-md text-[10px] font-black uppercase tracking-wider text-primary border border-primary/40 hover:bg-primary/10 disabled:opacity-40',
+                              'min-h-[36px] rounded-md text-[10px] font-black uppercase tracking-wider text-primary border border-primary/40 hover:bg-primary/10 disabled:opacity-40',
                             )}
                           >
                             {t('stockTransfer.complete', {}, { defaultValue: 'Complete' })}
@@ -666,7 +724,7 @@ export function StockTransfer() {
                             className={cm.cn(
                               cm.sp('px', 3),
                               cm.sp('py', 1),
-                              'rounded-md text-[10px] font-black uppercase tracking-wider text-on-surface-variant border border-outline-variant hover:text-error hover:border-error/40 disabled:opacity-40',
+                              'min-h-[36px] rounded-md text-[10px] font-black uppercase tracking-wider text-on-surface-variant border border-outline-variant hover:text-error hover:border-error/40 disabled:opacity-40',
                             )}
                           >
                             {t('common.cancel', {}, { defaultValue: 'Cancel' })}

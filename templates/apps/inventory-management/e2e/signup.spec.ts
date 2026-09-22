@@ -38,6 +38,7 @@ test.describe('signup', () => {
   test('rejects duplicate emails (rerunning signup with same email returns an error)', async ({
     page,
   }) => {
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dup')
     await signup(page, email)
     // Sign out by clearing storage and try to sign up with the same email

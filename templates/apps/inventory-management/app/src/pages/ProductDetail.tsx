@@ -311,7 +311,7 @@ export function ProductDetail() {
         />
       </section>
 
-      <div className={cm.cn('grid lg:grid-cols-2 gap-6')}>
+      <div className={cm.cn('grid lg:grid-cols-2 gap-6 [&>*]:min-w-0')}>
         <section
           className={cm.cn(
             cm.stack(4),

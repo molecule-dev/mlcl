@@ -13,6 +13,9 @@ test.describe('login', () => {
   })
 
   test('rejects an unknown email with an inline error', async ({ page }) => {
+    // The API correctly 403s the bad credential; the browser logs the failed
+    // fetch, so pre-arm the console guard before the request fires.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#fld-work-email').fill('nonexistent+' + Date.now() + '@example.com')
     await page.locator('#fld-password').fill('SomePass123!')
@@ -25,6 +28,8 @@ test.describe('login', () => {
   })
 
   test('rejects a wrong password with an inline error', async ({ page }) => {
+    // Expected 403 from the API (bad credential) — see the unknown-email test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const { email } = await signup(page, uniqueEmail('wrongpw'))
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/login')

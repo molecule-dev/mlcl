@@ -144,6 +144,9 @@ test.describe('order detail page', () => {
   })
 
   test('non-existent order shows the not-found alert + back-to-orders link', async ({ page }) => {
+    // The missing order 404s from the API — the rejected fetch IS the
+    // not-found contract under test, so allow its expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page, uniqueEmail('order-404'))
     await page.goto(APP_BASE + `/orders/00000000-0000-0000-0000-000000000000`)
     await expect(page.getByRole('alert')).toBeVisible({ timeout: 10_000 })
