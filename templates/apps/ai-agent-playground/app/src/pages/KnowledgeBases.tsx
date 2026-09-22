@@ -2,6 +2,7 @@
 // Authed knowledge base management — vector index cards with chunk counts.
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -60,10 +61,11 @@ export function KnowledgeBases() {
     if (!name) return
     setError(null)
     try {
-      await http.post('/knowledge-bases', {
+      const res = await http.post<KnowledgeBaseRow>('/knowledge-bases', {
         name,
         description: t('knowledgeBases.defaultDescription', {}, { defaultValue: 'Vector index' }),
       })
+      track({ name: 'knowledge_base.created', properties: { kbId: res.data?.id, name } })
       await refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

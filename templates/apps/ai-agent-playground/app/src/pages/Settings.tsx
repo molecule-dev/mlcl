@@ -2,6 +2,7 @@
 // SettingsAccessSection.tsx — workspace-wide preferences, API keys, defaults.
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -53,6 +54,11 @@ export function Settings() {
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
   const [confirmingPurge, setConfirmingPurge] = useState(false)
+  // Inline rotate-key editor (provider currently being edited + its input).
+  // Replaces the old window.prompt flow — native prompt() is silent-nullptr
+  // under headless browsers and offers no inline validation or cancel.
+  const [rotatingProvider, setRotatingProvider] = useState<string | null>(null)
+  const [rotateValue, setRotateValue] = useState('')
 
   const loadPrefs = useCallback(async () => {
     try {
@@ -98,24 +104,30 @@ export function Settings() {
       const next = { ...prefs, ...data }
       await http.patch('/user-preferences', { data: next })
       setPrefs(next)
+      track({ name: 'preferences.updated', properties: { userId, keys: Object.keys(data) } })
       setInfo(t('settings.savedToast', {}, { defaultValue: 'Preferences saved.' }))
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
   }
 
-  async function rotateKey(provider: string): Promise<void> {
-    const next = window.prompt(
-      t(
-        'settings.rotateKeyPrompt',
-        { provider },
-        { defaultValue: `Paste a new API key for ${provider}` },
-      ),
-      '',
-    )
+  function startRotate(provider: string): void {
+    setRotatingProvider(provider)
+    setRotateValue('')
+  }
+
+  function cancelRotate(): void {
+    setRotatingProvider(null)
+    setRotateValue('')
+  }
+
+  async function confirmRotate(provider: string): Promise<void> {
+    const next = rotateValue.trim()
     if (!next) return
     try {
       await http.put('/api-credentials', { provider, key: next })
+      setRotatingProvider(null)
+      setRotateValue('')
       await loadCredentials()
       setInfo(t('settings.keySavedToast', { provider }, { defaultValue: `${provider} key saved.` }))
     } catch (err) {
@@ -137,6 +149,10 @@ export function Settings() {
       for (const agent of agents) {
         await http.delete(`/agents/${agent.id}`)
       }
+      track({
+        name: 'workspace.purged',
+        properties: { userId, agents: agents.length, datasets: datasets.length },
+      })
       for (const dataset of datasets) {
         await http.delete(`/datasets/${dataset.id}`)
       }
@@ -251,21 +267,77 @@ export function Settings() {
                           ? t('settings.keyStatus.active', {}, { defaultValue: 'active' })
                           : t('settings.keyStatus.missing', {}, { defaultValue: 'missing' })}
                       </span>
-                      <button
-                        className={cm.cn(
-                          cm.sp('px', 3),
-                          cm.sp('py', 1),
-                          cm.textSize('xs'),
-                          'font-mono uppercase tracking-wider text-on-surface bg-surface-container-high rounded hover:bg-surface-container-highest transition-colors',
-                        )}
-                        data-mol-id={`settings-credential-${provider}-rotate`}
-                        onClick={() => rotateKey(provider)}
-                        type="button"
-                      >
-                        {present
-                          ? t('settings.rotateKey', {}, { defaultValue: 'Rotate' })
-                          : t('common.add', {}, { defaultValue: 'Add' })}
-                      </button>
+                      {rotatingProvider === provider ? (
+                        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+                          <input
+                            aria-label={t(
+                              'settings.rotateKeyPrompt',
+                              { provider },
+                              { defaultValue: `Paste a new API key for ${provider}` },
+                            )}
+                            autoComplete="off"
+                            className={cm.cn(
+                              cm.sp('px', 2),
+                              cm.sp('py', 1),
+                              cm.textSize('xs'),
+                              'w-[180px] bg-surface-container-lowest text-on-surface font-mono rounded border border-outline-variant/30 focus:border-secondary focus:outline-none',
+                            )}
+                            data-mol-id={`settings-credential-${provider}-key-input`}
+                            onChange={(e) => setRotateValue(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') void confirmRotate(provider)
+                              if (e.key === 'Escape') cancelRotate()
+                            }}
+                            placeholder={t('settings.keyPlaceholder', {}, { defaultValue: 'sk-…' })}
+                            type="password"
+                            value={rotateValue}
+                          />
+                          <button
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              cm.sp('py', 1),
+                              cm.textSize('xs'),
+                              cm.fontWeight('semibold'),
+                              'btn-primary-gradient rounded text-on-primary-fixed font-mono uppercase tracking-wider disabled:opacity-40',
+                            )}
+                            data-mol-id={`settings-credential-${provider}-key-save`}
+                            disabled={!rotateValue.trim()}
+                            onClick={() => void confirmRotate(provider)}
+                            type="button"
+                          >
+                            {t('common.save', {}, { defaultValue: 'Save' })}
+                          </button>
+                          <button
+                            className={cm.cn(
+                              cm.sp('px', 2),
+                              cm.sp('py', 1),
+                              cm.textSize('xs'),
+                              'font-mono uppercase tracking-wider text-tertiary hover:text-on-surface rounded transition-colors',
+                            )}
+                            data-mol-id={`settings-credential-${provider}-key-cancel`}
+                            onClick={cancelRotate}
+                            type="button"
+                          >
+                            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          className={cm.cn(
+                            cm.sp('px', 3),
+                            cm.sp('py', 1),
+                            cm.textSize('xs'),
+                            'font-mono uppercase tracking-wider text-on-surface bg-surface-container-high rounded hover:bg-surface-container-highest transition-colors',
+                          )}
+                          data-mol-id={`settings-credential-${provider}-rotate`}
+                          onClick={() => startRotate(provider)}
+                          type="button"
+                        >
+                          {present
+                            ? t('settings.rotateKey', {}, { defaultValue: 'Rotate' })
+                            : t('common.add', {}, { defaultValue: 'Add' })}
+                        </button>
+                      )}
                     </div>
                   </div>
                 )

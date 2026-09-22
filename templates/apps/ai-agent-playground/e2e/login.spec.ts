@@ -30,6 +30,12 @@ test.describe('Login page', () => {
   })
 
   test('shows error message on bad credentials, stays on /login', async ({ page }) => {
+    // The backend correctly answers 403 for bad credentials; the browser
+    // always logs failed fetches to the console, so allow that exact noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('[data-mol-id="login-email"]').fill('nobody@example.com')
     await page.locator('[data-mol-id="login-password"]').fill('not-the-password')

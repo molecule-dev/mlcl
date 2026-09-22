@@ -228,6 +228,12 @@ test.describe('AgentBuilder page (/agents/:id)', () => {
   })
 
   test('a known agent id outside the user surface returns 404 from the page', async ({ page }) => {
+    // The 404 answer is the expected contract (ownership hidden, not leaked);
+    // the browser always logs failed fetches to the console, so allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/agents/00000000-0000-0000-0000-000000000000')
     // The page renders the shell + an error banner; it must not blank-screen.

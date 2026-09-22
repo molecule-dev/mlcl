@@ -108,7 +108,10 @@ export function AgentCard({
         </span>
         <Link
           className={cm.cn(
-            'font-mono text-[10px] uppercase hover:brightness-125',
+            cm.sp('px', 2),
+            cm.sp('py', 2),
+            '-mr-2',
+            'inline-flex items-center font-mono text-[10px] uppercase hover:brightness-125',
             status === 'failed' ? 'text-error' : 'text-secondary',
           )}
           to={`/agents/${id}`}

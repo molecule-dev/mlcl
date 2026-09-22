@@ -48,8 +48,12 @@ test.describe('Settings page', () => {
   }) => {
     const session = await signup(page)
     await page.goto(APP_BASE + '/settings')
-    page.once('dialog', (dialog) => void dialog.accept('sk-test-key-AAAAA'))
+    // Inline key editor (replaced the old window.prompt flow): Add → type → Save.
     await page.locator('[data-mol-id="settings-credential-openai-rotate"]').click()
+    await page
+      .locator('[data-mol-id="settings-credential-openai-key-input"]')
+      .fill('sk-test-key-AAAAA')
+    await page.locator('[data-mol-id="settings-credential-openai-key-save"]').click()
     await expect(page.locator('[data-mol-id="settings-info"]')).toBeVisible({ timeout: 5000 })
 
     const list = await authedApi(request, session.accessToken!).get('/api-credentials')

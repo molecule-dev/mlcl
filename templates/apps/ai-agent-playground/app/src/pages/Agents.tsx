@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -101,7 +102,10 @@ export function Agents() {
     try {
       const res = await http.post<AgentRow>('/agents', { name: '' })
       const row = res.data as AgentRow
-      if (row?.id) navigate(`/agents/${row.id}`)
+      if (row?.id) {
+        track({ name: 'agent.created', properties: { agentId: row.id } })
+        navigate(`/agents/${row.id}`)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -152,7 +156,7 @@ export function Agents() {
             key={f.key}
             className={cm.cn(
               cm.sp('px', 3),
-              cm.sp('py', 1),
+              cm.sp('py', 2),
               cm.textSize('xs'),
               'font-mono uppercase tracking-wider rounded border transition-colors',
               filter === f.key

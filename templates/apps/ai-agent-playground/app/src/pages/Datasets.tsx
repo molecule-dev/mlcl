@@ -1,6 +1,7 @@
 // Pattern source: bespoke — Neuron evaluation dataset library, bound to the datasets resource.
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -57,7 +58,7 @@ export function Datasets() {
     setError(null)
     try {
       const text = await file.text()
-      await http.post('/datasets', {
+      const res = await http.post<DatasetRow>('/datasets', {
         name: file.name.replace(/\.[^.]+$/, '') || `dataset-${Date.now().toString(36)}`,
         description: t(
           'datasets.uploadedDescription',
@@ -66,6 +67,13 @@ export function Datasets() {
         ),
         format: file.name.endsWith('.csv') ? 'csv' : 'jsonl',
         row_count: countLinesInJsonl(text),
+      })
+      track({
+        name: 'dataset.uploaded',
+        properties: {
+          datasetId: res.data?.id,
+          format: file.name.endsWith('.csv') ? 'csv' : 'jsonl',
+        },
       })
       await refresh()
     } catch (err) {

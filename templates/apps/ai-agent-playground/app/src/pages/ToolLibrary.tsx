@@ -2,6 +2,7 @@
 // Authed tool library — register new tools, list installed ones, uninstall via DELETE /tools/:id.
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,13 +56,14 @@ export function ToolLibrary() {
     if (!name) return
     setError(null)
     try {
-      await http.post('/tools', {
+      const res = await http.post<ToolRow>('/tools', {
         name,
         description: t('toolLibrary.defaultDescription', {}, { defaultValue: 'Custom tool' }),
         type: 'http',
         schema_json: {},
         handler_config_json: {},
       })
+      track({ name: 'tool.registered', properties: { toolId: res.data?.id, name } })
       await refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -72,6 +74,7 @@ export function ToolLibrary() {
     setError(null)
     try {
       await http.delete(`/tools/${id}`)
+      track({ name: 'tool.uninstalled', properties: { toolId: id } })
       await refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

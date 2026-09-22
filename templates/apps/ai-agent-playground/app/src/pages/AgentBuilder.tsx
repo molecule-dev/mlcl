@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -164,6 +165,7 @@ export function AgentBuilder() {
         tools_config: tools.map((tool) => ({ name: tool.name, enabled: tool.enabled })),
       })
       applyAgent(res.data as AgentRow)
+      track({ name: 'agent.updated', properties: { agentId: agent.id, provider, model } })
       setInfo(t('agentBuilder.savedToast', {}, { defaultValue: 'Draft saved.' }))
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -189,6 +191,14 @@ export function AgentBuilder() {
       const execution = (res.data?.execution ?? null) as ExecutionRow | null
       if (execution) {
         setLog((prev) => [...buildLogFromExecution(execution), ...prev])
+        track({
+          name: 'run.dispatched',
+          properties: {
+            agentId: agent.id,
+            runId: execution.id,
+            status: execution.status,
+          },
+        })
       }
       setInfo(t('agentBuilder.ranToast', {}, { defaultValue: 'Run dispatched.' }))
     } catch (err) {

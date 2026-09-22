@@ -1,73 +1,20 @@
 // Pattern source: ai-chatbot-builder/components/SideNavBar.tsx
 // Adapted for Neuron — dark contrast aside with mono labels and brand violet accent.
+// Desktop chrome only (≥768px); below md the MobileNavShell takes over.
 import { Link, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-
-interface NavItem {
-  path: string
-  label: string
-  icon: string
-  matcher?: (pathname: string) => boolean
-}
+import { buildNavItems, type NavItem } from './nav-items.js'
 
 export function SideNavBar() {
   const cm = getClassMap()
   const location = useLocation()
   const { t } = useTranslation()
 
-  const items: NavItem[] = [
-    {
-      path: '/dashboard',
-      label: t('nav.dashboard', {}, { defaultValue: 'Dashboard' }),
-      icon: 'dashboard',
-    },
-    {
-      path: '/agents',
-      label: t('sideNav.agents', {}, { defaultValue: 'Agents' }),
-      icon: 'smart_toy',
-      matcher: (p) => p.startsWith('/agents'),
-    },
-    {
-      path: '/tools',
-      label: t('sideNav.tools', {}, { defaultValue: 'Tools' }),
-      icon: 'build',
-    },
-    {
-      path: '/runs',
-      label: t('sideNav.runs', {}, { defaultValue: 'Runs' }),
-      icon: 'memory',
-      matcher: (p) => p.startsWith('/runs'),
-    },
-    {
-      path: '/datasets',
-      label: t('sideNav.datasets', {}, { defaultValue: 'Datasets' }),
-      icon: 'dataset',
-    },
-    {
-      path: '/knowledge-bases',
-      label: t('sideNav.knowledgeBases', {}, { defaultValue: 'Knowledge' }),
-      icon: 'storage',
-    },
-    {
-      path: '/models',
-      label: t('nav.models', {}, { defaultValue: 'Models' }),
-      icon: 'hub',
-    },
-    {
-      path: '/notifications',
-      label: t('settings.notifications', {}, { defaultValue: 'Notifications' }),
-      icon: 'notifications',
-    },
-    {
-      path: '/settings',
-      label: t('nav.settings', {}, { defaultValue: 'Settings' }),
-      icon: 'settings',
-    },
-  ]
+  const items: NavItem[] = buildNavItems(t)
 
   function isActive(item: NavItem): boolean {
     if (item.matcher) return item.matcher(location.pathname)

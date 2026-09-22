@@ -51,6 +51,12 @@ test.describe('Execution trace page (/runs/:id)', () => {
   })
 
   test('non-existent execution id surfaces an error to the user', async ({ page }) => {
+    // The 404 answer is the expected contract (ownership hidden, not leaked);
+    // the browser always logs failed fetches to the console, so allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/runs/00000000-0000-0000-0000-000000000000')
     await expect(page.locator('[data-mol-id="page-execution-trace"]')).toBeVisible()

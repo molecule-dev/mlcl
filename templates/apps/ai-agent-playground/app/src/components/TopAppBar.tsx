@@ -72,12 +72,19 @@ export function TopAppBar({ title, ctaLabel, ctaTo, onCta }: TopAppBarProps) {
           <button
             aria-expanded={searchOpen}
             aria-label={t('common.search', {}, { defaultValue: 'Search' })}
-            className={'text-foreground-tertiary hover:bg-surface/10 transition-all p-1.5 rounded'}
+            className={
+              'text-foreground-tertiary hover:bg-surface/10 transition-all h-9 w-9 inline-flex items-center justify-center rounded'
+            }
             data-mol-id="top-app-bar-search-toggle"
             onClick={() => setSearchOpen((open) => !open)}
             type="button"
           >
-            <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>search</span>
+            <span
+              className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
+              aria-hidden="true"
+            >
+              search
+            </span>
           </button>
           {searchOpen && (
             <ul
@@ -109,11 +116,16 @@ export function TopAppBar({ title, ctaLabel, ctaTo, onCta }: TopAppBarProps) {
         <ThemeToggle />
         <button
           aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-          className={'text-foreground-tertiary hover:bg-surface/10 transition-all p-1.5 rounded'}
+          className={
+            'text-foreground-tertiary hover:bg-surface/10 transition-all h-9 w-9 inline-flex items-center justify-center rounded'
+          }
           onClick={() => navigate('/notifications')}
           type="button"
         >
-          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>
+          <span
+            className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}
+            aria-hidden="true"
+          >
             notifications
           </span>
         </button>

@@ -6,6 +6,7 @@
 // handler — see api/src/handlers/user-preferences.ts.
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -37,6 +38,7 @@ export function Profile() {
   const [userData, setUserData] = useState<UserData>({})
   const [name, setName] = useState(user?.name ?? '')
   const [email, setEmail] = useState(user?.email ?? '')
+  const [currentPassword, setCurrentPassword] = useState('')
   const [bio, setBio] = useState('')
   const [defaultProvider, setDefaultProvider] = useState('anthropic')
   const [timezone, setTimezone] = useState('UTC')
@@ -87,6 +89,24 @@ export function Profile() {
     if (!userId) return
     setError(null)
     setInfo(null)
+    // Re-authentication gate: the platform user resource requires the
+    // account's current password whenever the email (the account-recovery
+    // anchor) actually changes — a hijacked session must not be able to
+    // silently repoint password resets. Enforce it inline so the user sees
+    // WHY the save cannot proceed before anything is sent.
+    const emailChanged = email.trim().toLowerCase() !== (user?.email ?? '').trim().toLowerCase()
+    if (emailChanged && !currentPassword) {
+      setError(
+        t(
+          'profile.currentPasswordRequired',
+          {},
+          {
+            defaultValue: 'Enter your current password to change your email.',
+          },
+        ),
+      )
+      return
+    }
     try {
       // PATCH only the fields that actually have a value. Signup collects just
       // an email and a password, so a fresh account has no name — sending
@@ -96,7 +116,9 @@ export function Profile() {
       const changes: Record<string, string> = {}
       if (name.trim()) changes.name = name.trim()
       if (email.trim()) changes.email = email.trim()
+      if (emailChanged) changes.currentPassword = currentPassword
       await http.patch(`/users/${userId}`, changes)
+      setCurrentPassword('')
       const nextPrefs = {
         ...userData,
         bio,
@@ -106,6 +128,10 @@ export function Profile() {
       }
       await http.patch('/user-preferences', { data: nextPrefs })
       setUserData(nextPrefs)
+      track({
+        name: 'profile.updated',
+        properties: { userId, emailChanged },
+      })
       setInfo(t('common.profileSavedPeriod', {}, { defaultValue: 'Profile saved.' }))
       // Best-effort refresh of in-memory auth state. If the auth client
       // is not wired to issue refresh tokens (the default for this
@@ -168,6 +194,7 @@ export function Profile() {
   function cancelEdits(): void {
     setName(user?.name ?? '')
     setEmail(user?.email ?? '')
+    setCurrentPassword('')
     setBio(userData.bio ?? '')
     setDefaultProvider(userData.defaultProvider ?? 'anthropic')
     setTimezone(userData.timezone ?? 'UTC')
@@ -294,6 +321,37 @@ export function Profile() {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               value={email}
+            />
+          </label>
+          <label className="block">
+            <span
+              className={cm.cn(
+                cm.textSize('xs'),
+                'font-label text-on-surface-variant block mb-1.5',
+              )}
+            >
+              {t('profile.currentPassword', {}, { defaultValue: 'Current Password' })}
+              <span className="text-tertiary font-mono normal-case tracking-normal">
+                {' '}
+                {t(
+                  'profile.currentPasswordHint',
+                  {},
+                  { defaultValue: '— required only when changing your email' },
+                )}
+              </span>
+            </span>
+            <input
+              autoComplete="current-password"
+              className={cm.cn(
+                cm.w('full'),
+                cm.sp('p', 3),
+                cm.textSize('sm'),
+                'bg-surface-container text-on-surface font-mono rounded border border-outline-variant/15 focus:border-secondary focus:outline-none',
+              )}
+              data-mol-id="profile-current-password"
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              type="password"
+              value={currentPassword}
             />
           </label>
           <label className="block">

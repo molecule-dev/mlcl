@@ -85,6 +85,9 @@ test.describe('Profile page', () => {
     await page.goto(APP_BASE + '/profile')
     const newEmail = `renamed-${Date.now()}@example.com`
     await page.locator('[data-mol-id="profile-email-input"]').fill(newEmail)
+    // The platform user resource re-authenticates email changes (the email is
+    // the account-recovery anchor), so the save needs the current password.
+    await page.locator('[data-mol-id="profile-current-password"]').fill(session.password)
     await page.locator('[data-mol-id="profile-save"]').click()
     await expect(page.locator('[data-mol-id="profile-info"]')).toBeVisible({ timeout: 8000 })
     const me = await authedApi(request, session.accessToken!).get(`/users/${session.userId}`)
