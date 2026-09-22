@@ -2324,6 +2324,9 @@ export async function ensureE2EFiles(appPath: string): Promise<void> {
   await mkdir(e2eDir, { recursive: true })
   const bonds = join(e2eDir, 'bonds.ts')
   if (!existsSync(bonds)) await writeFile(bonds, await loadTemplate('app/shared/e2e/bonds.ts.tpl'))
+  const setup = join(e2eDir, 'global-setup.ts')
+  if (!existsSync(setup))
+    await writeFile(setup, await loadTemplate('app/shared/e2e/global-setup.ts.tpl'))
   if (fresh) {
     await writeFile(
       join(e2eDir, 'smoke.spec.ts'),

@@ -9,7 +9,11 @@ import { resolveE2EProviderName } from '@molecule/app-e2e'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const VITE_PORT = process.env.VITE_PORT || '3000'
+// Inside a molecule sandbox (the marker the platform writes) the app is served on
+// 5173; elsewhere this app's own dev port. Set on process.env so the spec workers
+// and the e2e helpers, which read VITE_PORT themselves, see the same port.
+process.env.VITE_PORT ||= existsSync('/etc/mol/app-root') ? '5173' : '3000'
+const VITE_PORT = process.env.VITE_PORT
 
 // Mirror the api server's .env into the Playwright process so specs that
 // need direct DB access (e.g. reading the password-reset token straight
@@ -63,6 +67,8 @@ const sandbox = existsSync('/etc/mol/app-root')
 
 export default defineConfig({
   testDir: './e2e',
+  // Fails in seconds when nothing answers at the target (see e2e/global-setup.ts).
+  globalSetup: './e2e/global-setup.ts',
   testMatch: /.*\.spec\.ts$/,
   timeout: 120_000,
   expect: { timeout: 15_000 },
