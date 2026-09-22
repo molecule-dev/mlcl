@@ -83,6 +83,17 @@ export function DesignCanvasLayout({
 
   const isCanvas = variant === 'canvas'
 
+  // Mobile + canvas: the editor carries its own complete chrome (back,
+  // toolbar, drawers, user menu) — render it bare so the canvas gets the
+  // full viewport.
+  if (belowMobile && isCanvas) {
+    return (
+      <div className={cm.cn(cm.minH('screen'), 'bg-surface text-on-surface antialiased')}>
+        {children}
+      </div>
+    )
+  }
+
   if (belowMobile) {
     const navLabel = t(
       'designCanvasLayout.primaryNavLabel',
@@ -415,7 +426,12 @@ export function DesignCanvasLayout({
                 {title ?? APP_NAME}
               </h1>
             </div>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'flex-wrap justify-end min-w-0',
+              )}
+            >
               {actions}
               <UserMenu />
             </div>

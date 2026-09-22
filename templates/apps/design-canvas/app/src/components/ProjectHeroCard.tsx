@@ -39,7 +39,7 @@ export function ProjectHeroCard({ project }: ProjectHeroCardProps) {
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 10),
-        'min-h-[320px] lg:col-span-8 bg-gradient-to-br from-primary via-primary-hover to-secondary rounded-[2rem] text-white relative overflow-hidden hover:scale-[1.005] transition-transform',
+        'col-span-12 min-h-[320px] lg:col-span-8 bg-gradient-to-br from-primary via-primary-hover to-secondary rounded-[2rem] text-white relative overflow-hidden hover:scale-[1.005] transition-transform',
       )}
     >
       <div className={cm.cn('relative z-10', cm.stack(3))}>

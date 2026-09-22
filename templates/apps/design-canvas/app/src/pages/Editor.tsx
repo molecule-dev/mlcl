@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { DesignCanvasLayout } from '../components/DesignCanvasLayout.js'
+import { useMediaQuery } from '../components/useMediaQuery.js'
 import { UserMenu } from '../components/UserMenu.js'
 
 interface Project {
@@ -99,6 +100,10 @@ export function Editor() {
   const [loadError, setLoadError] = useState<string | null>(null)
   /** Which side panel is slid over the canvas on <lg screens (asides are fixed there). */
   const [mobilePanel, setMobilePanel] = useState<'layers' | 'properties' | null>(null)
+  // JS-driven breakpoints — `max-*:` variants compile unreliably in this app,
+  // so <lg layout switches are driven from here instead of CSS classes.
+  const belowLg = useMediaQuery('(max-width: 1023px)')
+  const belowMd = useMediaQuery('(max-width: 767px)')
 
   const loadProject = useCallback(async () => {
     if (!id) return
@@ -303,12 +308,12 @@ export function Editor() {
     <DesignCanvasLayout variant="canvas">
       <div className={cm.cn(cm.flex({}), cm.h('screen'), 'bg-surface text-on-surface')}>
         {/* Mobile drawer backdrop (<lg) */}
-        {mobilePanel && (
+        {belowLg && mobilePanel && (
           <div
             aria-hidden="true"
             data-mol-id="editor-panel-backdrop"
             onClick={() => setMobilePanel(null)}
-            className="lg:hidden fixed inset-0 z-30 bg-black/40"
+            className="fixed inset-0 z-30 bg-black/40"
           />
         )}
         {/* LEFT — Layers */}
@@ -318,8 +323,11 @@ export function Editor() {
             cm.flex({ direction: 'col' }),
             'w-[260px] border-r border-outline-variant/30 bg-surface-container-low',
             // <lg: off-canvas drawer toggled from the toolbar
-            'max-lg:fixed max-lg:inset-y-0 max-lg:left-0 max-lg:z-40 max-lg:shadow-2xl max-lg:transition-transform',
-            mobilePanel === 'layers' ? 'max-lg:translate-x-0' : 'max-lg:-translate-x-full',
+            belowLg &&
+              cm.cn(
+                'fixed inset-y-0 left-0 z-40 shadow-2xl transition-transform',
+                mobilePanel === 'layers' ? 'translate-x-0' : '-translate-x-full',
+              ),
           )}
         >
           <header
@@ -439,15 +447,20 @@ export function Editor() {
               cm.sp('px', 4),
               cm.h(12),
               'border-b border-outline-variant/30 bg-surface-container-lowest',
-              // <lg: let the bar wrap so tools get their own scrollable row
-              'max-lg:h-auto max-lg:flex-wrap max-lg:py-2 max-lg:gap-y-2',
+              // Tools always get their own scrollable row (Figma-style): the
+              // center column is too narrow at every viewport for a single
+              // packed row, and packing lets content spill under the fixed
+              // properties panel where clicks get intercepted
+              'h-auto flex-wrap py-2 gap-y-2',
             )}
             data-mol-id="editor-toolbar"
           >
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
-                'min-w-0 flex-1 max-lg:basis-auto',
+                // <lg only: let the name group shrink + truncate instead of
+                // overflowing the toolbar row (desktop keeps natural widths)
+                ...(belowLg ? ['min-w-0 flex-1'] : []),
               )}
             >
               <span
@@ -496,7 +509,12 @@ export function Editor() {
                   className={cm.cn(
                     cm.fontWeight('bold'),
                     cm.textSize('sm'),
-                    'tracking-tight text-on-surface hover:underline truncate',
+                    // truncate is <lg-only: at desktop the toolbar's center
+                    // column is narrow enough that a shrink-to-zero (truncate
+                    // ⇒ min-size 0) name button becomes unclickable
+                    ...(belowLg
+                      ? ['tracking-tight text-on-surface hover:underline truncate']
+                      : ['tracking-tight text-on-surface hover:underline']),
                   )}
                 >
                   {project.name}
@@ -508,7 +526,7 @@ export function Editor() {
                   cm.sp('py', 0),
                   cm.fontWeight('bold'),
                   'rounded-full text-[10px] uppercase tracking-widest bg-tertiary/15 text-tertiary',
-                  'max-md:hidden whitespace-nowrap',
+                  ...(belowMd ? ['hidden'] : ['whitespace-nowrap']),
                 )}
               >
                 {savingName
@@ -520,7 +538,7 @@ export function Editor() {
             <div
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
-                'max-lg:order-last max-lg:basis-full max-lg:overflow-x-auto max-lg:py-1',
+                'order-last basis-full overflow-x-auto py-1',
               )}
               data-mol-id="editor-tools"
             >
@@ -573,7 +591,7 @@ export function Editor() {
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-[16px]')}>layers</span>
-                <span className="max-[420px]:hidden">
+                <span className={cm.cn(belowMd && 'hidden')}>
                   {t('editor.layersLabel', {}, { defaultValue: 'Layers' })}
                 </span>
               </button>
@@ -592,11 +610,11 @@ export function Editor() {
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-[16px]')}>tune</span>
-                <span className="max-[420px]:hidden">
+                <span className={cm.cn(belowMd && 'hidden')}>
                   {t('editor.propertiesLabel', {}, { defaultValue: 'Properties' })}
                 </span>
               </button>
-              <div className={cm.cn('max-md:hidden')}>
+              <div className={cm.cn(belowMd && 'hidden')}>
                 <CollaboratorStack
                   collaborators={[
                     { id: 'self', name: 'You', avatarColor: '#7c3aed', online: true },
@@ -696,7 +714,11 @@ export function Editor() {
                   {t(
                     'editor.shapeCount',
                     { count: shapes.length },
-                    { defaultValue: '{{count}} shapes' },
+                    {
+                      defaultValue: '{{count}} shapes',
+                      // pluralization reads count from OPTIONS, not values
+                      count: shapes.length,
+                    },
                   )}
                 </span>
                 <span className="opacity-50">·</span>
@@ -761,8 +783,11 @@ export function Editor() {
             cm.flex({ direction: 'col' }),
             'w-[300px] border-l border-outline-variant/30 bg-surface-container-low overflow-y-auto',
             // <lg: off-canvas drawer toggled from the toolbar
-            'max-lg:fixed max-lg:inset-y-0 max-lg:right-0 max-lg:z-40 max-lg:shadow-2xl max-lg:transition-transform',
-            mobilePanel === 'properties' ? 'max-lg:translate-x-0' : 'max-lg:translate-x-full',
+            belowLg &&
+              cm.cn(
+                'fixed inset-y-0 right-0 z-40 shadow-2xl transition-transform',
+                mobilePanel === 'properties' ? 'translate-x-0' : 'translate-x-full',
+              ),
           )}
         >
           <header

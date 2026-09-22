@@ -219,7 +219,7 @@ export function Dashboard() {
       title={t('dashboard.title', {}, { defaultValue: 'Your projects' })}
       actions={
         <>
-          <div className={cm.cn(cm.flex({ align: 'center' }), 'relative')}>
+          <div className={cm.cn(cm.flex({ align: 'center' }), 'relative hidden lg:flex')}>
             <span
               className={cm.cn(
                 'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]',
@@ -255,7 +255,7 @@ export function Dashboard() {
               cm.sp('py', 2),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
-              'bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 hover:bg-surface-container-high transition-colors',
+              'whitespace-nowrap bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 hover:bg-surface-container-high transition-colors',
             )}
           >
             {t('dashboard.startFromTemplate', {}, { defaultValue: 'Start from template' })}
@@ -271,7 +271,7 @@ export function Dashboard() {
               cm.fontWeight('bold'),
               cm.textSize('sm'),
               cm.flex({ align: 'center', gap: 'xs' }),
-              'bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-md shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-60',
+              'whitespace-nowrap bg-gradient-to-br from-primary to-secondary text-white rounded-xl shadow-md shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-transform disabled:opacity-60',
             )}
           >
             <span className={cm.cn('material-symbols-outlined text-[18px]')}>add</span>
@@ -364,8 +364,8 @@ export function Dashboard() {
                     { defaultValue: 'Pick cursor color {{color}}' },
                   )!}
                   className={cm.cn(
-                    cm.w(8),
-                    cm.h(8),
+                    cm.w(10),
+                    cm.h(10),
                     cm.roundedFull,
                     'border-2 transition-transform hover:scale-110 disabled:opacity-60',
                   )}
@@ -404,7 +404,7 @@ export function Dashboard() {
                   cm.flex({ direction: 'col', justify: 'between' }),
                   cm.sp('p', 6),
                   cm.stack(4),
-                  'lg:col-span-4 bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
+                  'col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
                 )}
                 data-mol-id="dashboard-activity-card"
               >
@@ -487,7 +487,11 @@ export function Dashboard() {
                 : t(
                     'dashboard.gridTitle',
                     { count: filtered.length },
-                    { defaultValue: '{{count}} projects' },
+                    {
+                      defaultValue: '{{count}} projects',
+                      // pluralization reads count from OPTIONS, not values
+                      count: filtered.length,
+                    },
                   )}
             </h2>
             <span

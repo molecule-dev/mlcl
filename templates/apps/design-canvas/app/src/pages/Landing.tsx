@@ -95,19 +95,28 @@ export function Landing() {
         >
           <Link
             to="/templates"
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              'text-on-surface-variant hover:text-on-surface transition-colors',
+              'hidden sm:inline',
+            )}
           >
             {t('nav.templates', {}, { defaultValue: 'Templates' })}
           </Link>
           <Link
             to="/library"
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              'text-on-surface-variant hover:text-on-surface transition-colors',
+              'hidden sm:inline',
+            )}
           >
             {t('nav.library', {}, { defaultValue: 'Library' })}
           </Link>
           <Link
             to="/pricing"
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              'text-on-surface-variant hover:text-on-surface transition-colors',
+              'hidden sm:inline',
+            )}
           >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
@@ -309,7 +318,7 @@ export function Landing() {
                 cm.flex({ direction: 'col', justify: 'between' }),
                 cm.sp('p', 8),
                 cm.stack(6),
-                'lg:col-span-4 bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
+                'col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-[2rem] shadow-sm border border-outline-variant/30',
               )}
             >
               <div className={cm.stack(2)}>
@@ -473,7 +482,7 @@ export function Landing() {
           cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
           cm.sp('px', 8),
           cm.sp('py', 8),
-          'border-t border-outline-variant/30 text-on-surface-variant',
+          'flex-wrap border-t border-outline-variant/30 text-on-surface-variant',
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
@@ -501,6 +510,7 @@ export function Landing() {
             cm.flex({ align: 'center', gap: 'lg' }),
             cm.textSize('xs'),
             cm.fontWeight('semibold'),
+            'flex-wrap gap-x-4 gap-y-2',
           )}
         >
           <Link to="/templates" className={cm.cn('hover:text-on-surface transition-colors')}>
