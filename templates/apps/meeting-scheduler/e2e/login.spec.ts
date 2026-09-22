@@ -25,6 +25,9 @@ test.describe('Login', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // Bad credentials 403 by design (auth bond Forbidden); allow the
+    // expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill('nobody-' + Date.now() + '@example.com')
     await page.locator('#password').fill('WrongPassword1!')

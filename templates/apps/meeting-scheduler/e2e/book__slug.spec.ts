@@ -11,6 +11,9 @@ import {
 
 test.describe('Public booking flow', () => {
   test('unknown slug shows clear not-found state', async ({ page }) => {
+    // The API 404s the unknown slug by design; allow that expected console
+    // error so the console guard doesn't fail an intentional not-found flow.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await page.goto(APP_BASE + `/book/${uniqueSlug('missing')}`)
     await expect(page.getByTestId('booking-page-error')).toBeVisible({ timeout: 10000 })
   })

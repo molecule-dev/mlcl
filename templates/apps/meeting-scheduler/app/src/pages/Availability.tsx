@@ -9,6 +9,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -155,6 +156,11 @@ export function Availability() {
       setState(rulesToState(next))
       setSavedAt(new Date())
       setDirty(false)
+      // Host committed their weekly availability windows.
+      void track({
+        name: 'availability.updated',
+        properties: { rule_count: next.length, timezone: tz },
+      })
     } catch (err) {
       const status = (err as { response?: { data?: { error?: string } } })?.response
       setSaveError(
@@ -222,7 +228,7 @@ export function Availability() {
             onClick={handleSave}
             className={cm.cn(
               cm.sp('px', 5),
-              cm.sp('py', 2),
+              cm.sp('py', 3),
               cm.fontWeight('bold'),
               cm.textSize('sm'),
               'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full disabled:opacity-50 disabled:cursor-not-allowed',
@@ -285,9 +291,20 @@ export function Availability() {
                   data-testid={`availability-toggle-${day.key}`}
                   onClick={() => updateDay(day.key, { enabled: !dayState.enabled })}
                   aria-pressed={dayState.enabled}
+                  aria-label={t(
+                    'availability.toggleDay',
+                    {
+                      day: t(
+                        `availability.day.${day.key.toLowerCase()}`,
+                        {},
+                        { defaultValue: day.defaultLabel },
+                      ),
+                    },
+                    { defaultValue: 'Toggle {{day}} availability' },
+                  )}
                   className={cm.cn(
-                    cm.w(10),
-                    'h-6 rounded-full relative transition-colors',
+                    cm.w(12),
+                    'h-10 rounded-full relative transition-colors shrink-0',
                     dayState.enabled ? 'bg-primary' : 'bg-outline-variant',
                   )}
                 >
@@ -296,8 +313,8 @@ export function Availability() {
                       cm.w(5),
                       cm.h(5),
                       cm.roundedFull,
-                      'absolute top-0.5 bg-surface shadow-sm transition-transform',
-                      dayState.enabled ? 'translate-x-4' : 'translate-x-0.5',
+                      'absolute top-2.5 bg-surface shadow-sm transition-transform',
+                      dayState.enabled ? 'translate-x-6' : 'translate-x-1',
                     )}
                   />
                 </button>
@@ -331,7 +348,7 @@ export function Availability() {
                     onChange={(e) => updateDay(day.key, { start: e.target.value })}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 2),
+                      cm.sp('py', 3),
                       'bg-surface-container-low rounded-lg border border-outline-variant focus:border-primary outline-none font-mono tabular-nums text-sm',
                     )}
                   />
@@ -343,7 +360,7 @@ export function Availability() {
                     onChange={(e) => updateDay(day.key, { end: e.target.value })}
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 2),
+                      cm.sp('py', 3),
                       'bg-surface-container-low rounded-lg border border-outline-variant focus:border-primary outline-none font-mono tabular-nums text-sm',
                     )}
                   />

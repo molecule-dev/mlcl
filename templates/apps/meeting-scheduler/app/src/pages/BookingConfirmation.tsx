@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -225,6 +226,11 @@ export function BookingConfirmation() {
               }
             : prev,
         )
+        // Invitee cancelled from their confirmation link.
+        void track({
+          name: 'booking.cancelled',
+          properties: { booking_id: data.booking.id, via: 'invitee' },
+        })
       }
     } catch (error) {
       logError('bookingConfirmation.cancel', error)

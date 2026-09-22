@@ -46,6 +46,9 @@ test.describe('Meeting detail', () => {
   })
 
   test('unknown id renders not-found state', async ({ page }) => {
+    // The API 404s the unknown booking id by design; allow that expected
+    // console error so the guard doesn't fail an intentional not-found flow.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/bookings/00000000-0000-0000-0000-000000000000')
     await expect(page.getByTestId('meeting-detail-not-found')).toBeVisible({ timeout: 10000 })

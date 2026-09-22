@@ -7,6 +7,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -140,7 +141,14 @@ export function MeetingDetail() {
         status: 'cancelled',
       })
       const next = unwrapSingle<ApiBooking>(res)
-      if (next) setBooking(next)
+      if (next) {
+        setBooking(next)
+        // Host cancelled a confirmed meeting.
+        void track({
+          name: 'booking.cancelled',
+          properties: { booking_id: next.id, via: 'host' },
+        })
+      }
     } catch (error) {
       logError('meetingDetail.cancel', error)
       setCancelError(

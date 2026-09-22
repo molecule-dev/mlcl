@@ -42,6 +42,8 @@ test.describe('Reset password', () => {
   })
 
   test('invalid token shows error and stays on page', async ({ page }) => {
+    // A bad reset token 401s by design; allow the expected console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password')
       await page.locator('#reset-email').fill('nobody@example.com')

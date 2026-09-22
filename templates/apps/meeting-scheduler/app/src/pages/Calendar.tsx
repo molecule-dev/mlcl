@@ -4,7 +4,7 @@
  * default (toggleable). Clicking an event navigates to /bookings/:id.
  */
 
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -62,10 +62,12 @@ export function Calendar() {
   const [bookings, setBookings] = useState<ApiBooking[]>([])
   const [eventTypes, setEventTypes] = useState<Record<string, ApiEventType>>({})
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
       http.get('/api/bookings').then((res) => unwrapList<ApiBooking>(res)),
       http.get('/api/event-types').then((res) => unwrapList<ApiEventType>(res)),
@@ -76,7 +78,8 @@ export function Calendar() {
         setEventTypes(Object.fromEntries(etList.map((et) => [et.id, et])))
       })
       .catch(() => {
-        // Calendar still renders the grid; show empty.
+        if (cancelled) return
+        setError(t('calendar.loadError', {}, { defaultValue: 'Could not load your calendar.' }))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -84,7 +87,9 @@ export function Calendar() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
+
+  useEffect(() => load(), [load])
 
   const monday = useMemo(() => startOfWeek(anchor), [anchor])
   const days = useMemo(
@@ -225,6 +230,34 @@ export function Calendar() {
         </div>
       </header>
 
+      {error ? (
+        <div
+          role="alert"
+          data-testid="calendar-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+            cm.sp('p', 4),
+            'bg-error/10 border border-error/30 rounded-2xl',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error font-semibold')}>{error}</p>
+          <button
+            type="button"
+            data-testid="calendar-retry"
+            onClick={load}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'rounded-full uppercase tracking-widest border border-error/40 text-error hover:bg-error/10 transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
+
       {loading ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('calendar.loading', {}, { defaultValue: 'Loading bookings…' })}
@@ -238,102 +271,110 @@ export function Calendar() {
           'bg-surface-container-lowest rounded-3xl shadow-sm overflow-hidden',
         )}
       >
-        <div
-          className={cm.cn('grid border-b border-outline-variant/40')}
-          style={{ gridTemplateColumns: '64px repeat(7, minmax(0, 1fr))' }}
-        >
-          <div />
-          {days.map((d, i) => {
-            const isToday = d.toDateString() === new Date().toDateString()
-            return (
-              <div key={i} className={cm.cn(cm.sp('py', 3), cm.textCenter)}>
-                <p
-                  className={cm.cn(
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {d.toLocaleDateString(undefined, { weekday: 'short' })}
-                </p>
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    'font-extrabold tabular-nums',
-                    isToday ? 'text-primary' : 'text-on-surface',
-                  )}
-                >
-                  {d.getDate()}
-                </p>
-              </div>
-            )
-          })}
-        </div>
-
-        <div
-          className={cm.cn('relative grid')}
-          style={{ gridTemplateColumns: '64px repeat(7, minmax(0, 1fr))' }}
-        >
-          {hours.map((h) => (
+        {/* The 7-day grid is wider than a 390px viewport — scroll it
+            horizontally instead of crushing the day columns to ~40px. */}
+        <div className="overflow-x-auto -m-2 p-2">
+          <div className="min-w-[640px]">
             <div
-              key={`h-${h}`}
-              className={cm.cn(
-                cm.textRight,
-                cm.sp('pr', 2),
-                cm.sp('pt', 2),
-                'text-[10px] font-bold uppercase tracking-widest text-on-surface-variant border-t border-outline-variant/30',
-              )}
-              style={{ height: 60 }}
+              className={cm.cn('grid border-b border-outline-variant/40')}
+              style={{ gridTemplateColumns: '64px repeat(7, minmax(0, 1fr))' }}
             >
-              {`${((h - 1) % 12) + 1}${h < 12 ? 'a' : 'p'}`}
-            </div>
-          ))}
-
-          {days.map((_day, dayIdx) => (
-            <div
-              key={`col-${dayIdx}`}
-              className={cm.cn('relative border-l border-outline-variant/30')}
-              style={{
-                gridColumn: dayIdx + 2,
-                gridRow: `1 / span ${hours.length}`,
-                height: hours.length * 60,
-              }}
-            >
-              {hours.map((_h, i) => (
-                <div
-                  key={`slot-${dayIdx}-${i}`}
-                  className={cm.cn('border-t border-outline-variant/20')}
-                  style={{ height: 60 }}
-                />
-              ))}
-              {visualEvents
-                .filter((e) => e.dayIdx === dayIdx)
-                // Day view: only today's column. dayIdx is Monday-based
-                // (startOfWeek), getDay() is Sunday-based — shift by 6.
-                .filter(() => view === 'week' || dayIdx === (new Date().getDay() + 6) % 7)
-                .map((e) => {
-                  const startMin = (e.startHour - 8) * 60
-                  const heightPx = Math.max(20, e.durationHours * 60)
-                  return (
-                    <Link
-                      key={e.id}
-                      to={`/bookings/${e.id}`}
-                      data-testid={`calendar-event-${e.id}`}
+              <div />
+              {days.map((d, i) => {
+                const isToday = d.toDateString() === new Date().toDateString()
+                return (
+                  <div key={i} className={cm.cn(cm.sp('py', 3), cm.textCenter)}>
+                    <p
                       className={cm.cn(
-                        'absolute left-1 right-1 rounded-lg border-l-4 px-2 py-1 shadow-sm overflow-hidden block hover:shadow-md transition-shadow',
-                        STATUS_TONE[e.status] ?? STATUS_TONE.scheduled,
+                        'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                       )}
-                      style={{ top: startMin, height: heightPx }}
                     >
-                      <p className={cm.cn(cm.textSize('xs'), 'font-bold truncate')}>{e.title}</p>
-                      <p className={cm.cn('text-[10px] font-mono tabular-nums opacity-80')}>
-                        {new Date(
-                          `1970-01-01T${String(Math.floor(e.startHour)).padStart(2, '0')}:${String(Math.round((e.startHour % 1) * 60)).padStart(2, '0')}:00`,
-                        ).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}
-                      </p>
-                    </Link>
-                  )
-                })}
+                      {d.toLocaleDateString(undefined, { weekday: 'short' })}
+                    </p>
+                    <p
+                      className={cm.cn(
+                        cm.textSize('lg'),
+                        'font-extrabold tabular-nums',
+                        isToday ? 'text-primary' : 'text-on-surface',
+                      )}
+                    >
+                      {d.getDate()}
+                    </p>
+                  </div>
+                )
+              })}
             </div>
-          ))}
+
+            <div
+              className={cm.cn('relative grid')}
+              style={{ gridTemplateColumns: '64px repeat(7, minmax(0, 1fr))' }}
+            >
+              {hours.map((h) => (
+                <div
+                  key={`h-${h}`}
+                  className={cm.cn(
+                    cm.textRight,
+                    cm.sp('pr', 2),
+                    cm.sp('pt', 2),
+                    'text-[10px] font-bold uppercase tracking-widest text-on-surface-variant border-t border-outline-variant/30',
+                  )}
+                  style={{ height: 60 }}
+                >
+                  {`${((h - 1) % 12) + 1}${h < 12 ? 'a' : 'p'}`}
+                </div>
+              ))}
+
+              {days.map((_day, dayIdx) => (
+                <div
+                  key={`col-${dayIdx}`}
+                  className={cm.cn('relative border-l border-outline-variant/30')}
+                  style={{
+                    gridColumn: dayIdx + 2,
+                    gridRow: `1 / span ${hours.length}`,
+                    height: hours.length * 60,
+                  }}
+                >
+                  {hours.map((_h, i) => (
+                    <div
+                      key={`slot-${dayIdx}-${i}`}
+                      className={cm.cn('border-t border-outline-variant/20')}
+                      style={{ height: 60 }}
+                    />
+                  ))}
+                  {visualEvents
+                    .filter((e) => e.dayIdx === dayIdx)
+                    // Day view: only today's column. dayIdx is Monday-based
+                    // (startOfWeek), getDay() is Sunday-based — shift by 6.
+                    .filter(() => view === 'week' || dayIdx === (new Date().getDay() + 6) % 7)
+                    .map((e) => {
+                      const startMin = (e.startHour - 8) * 60
+                      const heightPx = Math.max(20, e.durationHours * 60)
+                      return (
+                        <Link
+                          key={e.id}
+                          to={`/bookings/${e.id}`}
+                          data-testid={`calendar-event-${e.id}`}
+                          className={cm.cn(
+                            'absolute left-1 right-1 rounded-lg border-l-4 px-2 py-1 shadow-sm overflow-hidden block hover:shadow-md transition-shadow',
+                            STATUS_TONE[e.status] ?? STATUS_TONE.scheduled,
+                          )}
+                          style={{ top: startMin, height: heightPx }}
+                        >
+                          <p className={cm.cn(cm.textSize('xs'), 'font-bold truncate')}>
+                            {e.title}
+                          </p>
+                          <p className={cm.cn('text-[10px] font-mono tabular-nums opacity-80')}>
+                            {new Date(
+                              `1970-01-01T${String(Math.floor(e.startHour)).padStart(2, '0')}:${String(Math.round((e.startHour % 1) * 60)).padStart(2, '0')}:00`,
+                            ).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}
+                          </p>
+                        </Link>
+                      )
+                    })}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {!loading && visualEvents.length === 0 ? (

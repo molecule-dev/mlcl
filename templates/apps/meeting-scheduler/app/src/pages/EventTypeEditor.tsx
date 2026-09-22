@@ -16,6 +16,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -203,6 +204,11 @@ export function EventTypeEditor() {
         return
       }
       setSavedAt(new Date())
+      // Host created or updated a booking-link definition.
+      void track({
+        name: isNew ? 'event_type.created' : 'event_type.updated',
+        properties: { event_type_id: et.id, slug: et.slug, duration_minutes: et.duration_minutes },
+      })
       if (isNew) {
         navigate(`/event-types/${et.id}`, { replace: true })
       } else {
@@ -282,6 +288,8 @@ export function EventTypeEditor() {
     setSaveError(null)
     try {
       await http.delete(`/api/event-types/${encodeURIComponent(id ?? '')}`)
+      // Host deleted a booking-link definition.
+      void track({ name: 'event_type.deleted', properties: { event_type_id: id } })
       navigate('/event-types', { replace: true })
     } catch (error) {
       logError('eventTypeEditor.delete', error)

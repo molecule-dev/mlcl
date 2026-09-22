@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -247,6 +248,16 @@ export function BookingPage() {
         )
         return
       }
+      // Conversion point: an invitee committed a real booking.
+      void track({
+        name: 'booking.created',
+        properties: {
+          booking_id: data.booking?.id,
+          event_type_slug: slug,
+          start_at: selectedStart,
+          invitee_timezone: tz,
+        },
+      })
       navigate(
         `/book/${encodeURIComponent(slug)}/confirmed?token=${encodeURIComponent(data.cancellationToken)}`,
       )
