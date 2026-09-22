@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -72,6 +73,10 @@ export function NewGroup() {
         name: name.trim(),
         description: description.trim() || undefined,
         member_ids: memberIds,
+      })
+      track({
+        name: 'group.created',
+        properties: { member_count: memberIds.length },
       })
       navigate('/groups')
     } catch (error) {

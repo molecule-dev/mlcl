@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -75,6 +76,7 @@ export function Contacts() {
         setList((prev) => (prev.some((c) => c.id === created.id) ? prev : [created, ...prev]))
         setAddEmail('')
         setShowAdd(false)
+        track({ name: 'contact.created', properties: { contact_id: created.id } })
       }
     } catch (error) {
       logError('contacts.addContact', error)

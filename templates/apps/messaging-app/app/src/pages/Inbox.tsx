@@ -164,9 +164,13 @@ export function Inbox() {
         onlineCount={stats.online}
       />
 
-      <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-12 items-start')}>
+      {/* Two-pane split from md up (mirrors the shell's 768px breakpoint).
+          On phones this collapses to the list alone — each row links to the
+          full-height thread at /conversations/:id, so the read-only preview
+          pane would only push the list below the fold. */}
+      <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-12 items-start')}>
         {/* Left: conversation list (5 cols on desktop) */}
-        <div className={'lg:col-span-5 stack space-y-4'}>
+        <div className={'md:col-span-5 stack space-y-4'}>
           <input
             type="search"
             value={search}
@@ -196,7 +200,7 @@ export function Inbox() {
         </div>
 
         {/* Right: thread preview + presence card (7 cols on desktop) */}
-        <div className={'lg:col-span-7 space-y-4'}>
+        <div className={'hidden md:block md:col-span-7 space-y-4'}>
           {previewConvo && (
             <MessageThread
               messages={previewMessages}

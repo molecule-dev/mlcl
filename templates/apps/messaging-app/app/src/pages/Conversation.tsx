@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
@@ -55,6 +56,13 @@ export function Conversation() {
   const [error, setError] = useState<string | null>(null)
   const [archiving, setArchiving] = useState(false)
   const [actionError, setActionError] = useState<string | null>(null)
+  const bottomRef = useRef<HTMLDivElement | null>(null)
+
+  // A messenger opens at the LATEST message (bottom of the thread), and stays
+  // pinned there as messages arrive or are sent — never land at the top.
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ block: 'end' })
+  }, [messages])
 
   useEffect(() => {
     if (!id) return
@@ -189,6 +197,10 @@ export function Conversation() {
         // Dedupe by id: our own message:created broadcast may have landed first.
         setMessages((prev) => appendMessage(prev, created))
         setComposing('')
+        track({
+          name: 'message.sent',
+          properties: { conversation_id: id, message_id: created.id },
+        })
       }
     } catch (error) {
       logError('conversation.sendMessage', error)
@@ -209,8 +221,10 @@ export function Conversation() {
         const res = await http.post(`/api/conversations/${id}/unarchive`, {})
         const updated = unwrapSingle<Conversation>(res)
         if (updated) setConvo(updated)
+        track({ name: 'conversation.unarchived', properties: { conversation_id: id } })
       } else {
         await http.post(`/api/conversations/${id}/archive`, {})
+        track({ name: 'conversation.archived', properties: { conversation_id: id } })
         navigate('/inbox')
       }
     } catch (error) {
@@ -286,9 +300,11 @@ export function Conversation() {
             convo.initials
           )}
         </div>
-        <div className={cm.flex1}>
+        <div className={cm.cn(cm.flex1, 'min-w-0')}>
           <div className={cm.flex({ align: 'baseline', gap: 'xs' })}>
-            <p className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>{convo.name}</p>
+            <p className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}>
+              {convo.name}
+            </p>
             {convo.encrypted && (
               <span
                 className={'material-symbols-outlined text-base'}
@@ -333,10 +349,10 @@ export function Conversation() {
           onClick={handleArchiveToggle}
           disabled={archiving}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
-            'rounded-full hover:bg-surface-container disabled:opacity-50',
+            'rounded-full hover:bg-surface-container disabled:opacity-50 shrink-0',
           )}
           aria-label={
             convo.is_archived
@@ -352,10 +368,10 @@ export function Conversation() {
           <Link
             to={detailsTo}
             className={cm.cn(
-              cm.h(9),
-              cm.w(9),
+              cm.h(10),
+              cm.w(10),
               cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-full hover:bg-surface-container',
+              'rounded-full hover:bg-surface-container shrink-0',
             )}
             aria-label={t('conversation.detailsAria', {}, { defaultValue: 'View details' })}
           >
@@ -384,6 +400,7 @@ export function Conversation() {
         {messages.map((m) => (
           <MessageRow key={m.id} message={m} />
         ))}
+        <div ref={bottomRef} />
         <p
           className={cm.cn(
             cm.textSize('xs'),
@@ -420,9 +437,9 @@ export function Conversation() {
           placeholder={t('conversation.composePlaceholder', {}, { defaultValue: 'Message…' })}
           className={cm.cn(
             cm.sp('px', 4),
-            cm.sp('py', 2),
+            cm.sp('py', 2.5),
             cm.flex1,
-            'border border-outline-variant rounded-full',
+            'border border-outline-variant rounded-full min-w-0',
           )}
           disabled={sending}
         />
@@ -463,7 +480,7 @@ function MessageRow({ message: m }: { message: Message }) {
         </p>
       )}
       <div
-        className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'rounded-2xl max-w-[480px]')}
+        className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'rounded-2xl max-w-[min(480px,100%)]')}
         style={
           m.self
             ? {

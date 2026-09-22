@@ -60,6 +60,12 @@ test.describe('login page', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // Bad credentials make the API answer 403; the browser logs the failed
+    // request to the console. Expected on this negative path.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/email/i).fill(`nobody-${Date.now()}@example.com`)
     await page.getByLabel(/^password$/i).fill('WrongPassword!1')

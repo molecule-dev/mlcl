@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -60,8 +61,13 @@ export function NewConversation() {
         participant_ids: [selected.contact_user_id],
       })
       const created = unwrapSingle<{ id: string }>(res)
-      if (created?.id) navigate(`/conversations/${created.id}`)
-      else throw new Error('no id returned')
+      if (created?.id) {
+        track({
+          name: 'conversation.created',
+          properties: { conversation_id: created.id, type: 'direct' },
+        })
+        navigate(`/conversations/${created.id}`)
+      } else throw new Error('no id returned')
     } catch (error) {
       logError('newConversation.start', error)
       setError(

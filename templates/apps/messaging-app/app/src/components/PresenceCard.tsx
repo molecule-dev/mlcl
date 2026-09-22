@@ -56,7 +56,10 @@ export function PresenceCard({ contacts, totalContacts }: PresenceCardProps) {
         <h3 className={'text-sm font-extrabold uppercase tracking-widest text-on-surface-variant'}>
           {t('presenceCard.title', {}, { defaultValue: 'Contacts' })}
         </h3>
-        <Link to="/contacts" className={'text-xs font-bold text-primary hover:underline'}>
+        <Link
+          to="/contacts"
+          className={'inline-block px-1 py-2.5 text-xs font-bold text-primary hover:underline'}
+        >
           {t('presenceCard.viewAll', { count: totalCount }, { defaultValue: 'All {{count}} →' })}
         </Link>
       </div>

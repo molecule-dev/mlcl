@@ -29,6 +29,12 @@ test.describe('signup page', () => {
   })
 
   test('signup with existing email surfaces an error and stays on /signup', async ({ page }) => {
+    // A duplicate email makes the API answer 403; the browser logs the failed
+    // request to the console. Expected on this negative path.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     // Sign up once, then try again with the same email.
     const email = uniqueEmail('dup')
     await page.goto(APP_BASE + '/signup')

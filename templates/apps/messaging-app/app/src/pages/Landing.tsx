@@ -74,19 +74,25 @@ export function Landing() {
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"
-              className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+              className={
+                'inline-flex items-center py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface'
+              }
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
             <Link
               to="/about"
-              className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+              className={
+                'inline-flex items-center py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface'
+              }
             >
               {t('nav.about', {}, { defaultValue: 'About' })}
             </Link>
             <Link
               to="/login"
-              className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+              className={
+                'inline-flex items-center py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface'
+              }
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
             </Link>
@@ -376,16 +382,16 @@ export function Landing() {
           )}
           aria-label={t('footer.navLabel', {}, { defaultValue: 'Footer navigation' })}
         >
-          <Link to="/pricing" className={'hover:text-on-surface'}>
+          <Link to="/pricing" className={'inline-flex items-center py-2 hover:text-on-surface'}>
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
-          <Link to="/about" className={'hover:text-on-surface'}>
+          <Link to="/about" className={'inline-flex items-center py-2 hover:text-on-surface'}>
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>
-          <Link to="/terms" className={'hover:text-on-surface'}>
+          <Link to="/terms" className={'inline-flex items-center py-2 hover:text-on-surface'}>
             {t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
           </Link>
-          <Link to="/privacy" className={'hover:text-on-surface'}>
+          <Link to="/privacy" className={'inline-flex items-center py-2 hover:text-on-surface'}>
             {t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
           </Link>
         </nav>

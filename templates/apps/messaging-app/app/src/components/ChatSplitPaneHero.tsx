@@ -33,7 +33,7 @@ export function ChatSplitPaneHero({
       className={cm.cn(
         'relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-on-surface/10',
       )}
-      style={{ backgroundColor: 'var(--color-text)', minHeight: '320px' }}
+      style={{ backgroundColor: 'var(--color-text)' }}
     >
       {/* Encryption-mesh gradient overlay */}
       <div
@@ -82,7 +82,11 @@ export function ChatSplitPaneHero({
         aria-hidden="true"
       />
 
-      <div className={'relative z-10 p-8 lg:p-10 flex flex-col justify-between min-h-[320px]'}>
+      <div
+        className={
+          'relative z-10 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[230px] sm:min-h-[320px]'
+        }
+      >
         <div className={cm.flex({ align: 'center', justify: 'between' })}>
           <div className={cm.flex({ align: 'center', gap: 'sm' })}>
             <span
@@ -131,7 +135,7 @@ export function ChatSplitPaneHero({
           </h2>
         </div>
 
-        <div className={cm.cn(cm.grid({ cols: 4, gap: 'md' }), 'mt-8')}>
+        <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 sm:grid-cols-4 mt-8')}>
           {[
             {
               label: t('chatSplitPaneHero.threads', {}, { defaultValue: 'Threads' }),
