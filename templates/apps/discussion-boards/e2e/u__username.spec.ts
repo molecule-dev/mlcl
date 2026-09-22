@@ -99,6 +99,12 @@ test.describe('/u/:username (UserProfile)', () => {
   test('Non-existent username triggers a 404 lookup and renders "User not found"', async ({
     page,
   }) => {
+    // The deliberate unknown-username lookup 404s; the browser logs that
+    // failed fetch to the console. Expected — allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/u/__nope_user_does_not_exist__')

@@ -237,7 +237,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs transition-colors',
+                'inline-flex items-center gap-1 text-xs transition-colors min-h-10 md:min-h-0',
                 hasUpvoted
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container hover:bg-primary/10 text-on-surface-variant hover:text-primary border border-outline-variant/40',
@@ -259,7 +259,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary border border-transparent transition-colors',
+                'inline-flex items-center gap-1 text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary border border-transparent transition-colors min-h-10 md:min-h-0',
               )}
             >
               <span className="material-symbols-outlined text-[16px]" aria-hidden>
@@ -277,7 +277,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary border border-transparent transition-colors',
+                'inline-flex items-center gap-1 text-xs text-on-surface-variant hover:bg-surface-container hover:text-primary border border-transparent transition-colors min-h-10 md:min-h-0',
               )}
             >
               <span className="material-symbols-outlined text-[16px]" aria-hidden>
@@ -296,7 +296,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs transition-colors border border-transparent',
+                'inline-flex items-center gap-1 text-xs transition-colors border border-transparent min-h-10 md:min-h-0',
                 bookmarked
                   ? 'text-warning bg-warning-light'
                   : 'text-on-surface-variant hover:bg-surface-container hover:text-warning',
@@ -317,7 +317,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs text-success hover:bg-success-light border border-transparent transition-colors',
+                'inline-flex items-center gap-1 text-xs text-success hover:bg-success-light border border-transparent transition-colors min-h-10 md:min-h-0',
               )}
             >
               <span className="material-symbols-outlined text-[16px]" aria-hidden>
@@ -338,7 +338,7 @@ export function PostCard({
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-1 text-xs border border-transparent transition-colors',
+                'inline-flex items-center gap-1 text-xs border border-transparent transition-colors min-h-10 md:min-h-0',
                 flagged
                   ? 'text-error bg-error-light cursor-default'
                   : 'text-on-surface-variant hover:text-error hover:bg-error-light',

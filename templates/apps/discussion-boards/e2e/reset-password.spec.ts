@@ -54,6 +54,12 @@ test.describe('/reset-password', () => {
   test('Submit fires POST /api/users/reset-password with token+password (captureNetwork invariant)', async ({
     page,
   }) => {
+    // The deliberately-invalid token is rejected 401 by the backend; the
+    // browser logs that failed fetch to the console. Expected — allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const email = uniqueEmail('reset-net')
     await page.goto(
       APP_BASE +
@@ -85,12 +91,15 @@ test.describe('/reset-password', () => {
     expect(res.status()).toBe(401)
   })
 
-  test('End-to-end reset: forgot → DB token → reset → log in with new password', async ({
+  test('Forgot round trip: the DB-stored token is a HASH — presenting it is rejected and the old password still works', async ({
     page,
   }) => {
+    // The platform stores only sha256(token); the RAW token exists solely in
+    // the reset email, so an e2e run cannot read a usable token out of the
+    // DB. Assert the security property instead: a DB dump must NOT grant a
+    // password reset.
     const email = uniqueEmail('reset-e2e')
     const oldPassword = 'OldPass123!'
-    const newPassword = 'BrandNew456!'
 
     const signup = await page.request.post(API_BASE + '/users', {
       data: { email, password: oldPassword, name: 'Reset E2E' },
@@ -100,10 +109,11 @@ test.describe('/reset-password', () => {
     const forgot = await page.request.post(API_BASE + '/users/forgot-password', {
       data: { email },
     })
+    // Always 200 (anti-enumeration), whether or not the email exists.
     expect(forgot.status()).toBe(200)
 
     const dbUrl = process.env.DATABASE_URL
-    if (!dbUrl) test.skip(true, 'DATABASE_URL not set — cannot query for password reset token')
+    if (!dbUrl) test.skip(true, 'DATABASE_URL not set — cannot verify token hashing at rest')
 
     const { Client } = await import('pg')
     const client = new Client({ connectionString: dbUrl })
@@ -124,18 +134,13 @@ test.describe('/reset-password', () => {
     expect(token, 'forgot-password must persist a passwordResetToken').toBeTruthy()
 
     const reset = await page.request.post(API_BASE + '/users/reset-password', {
-      data: { token, password: newPassword },
+      data: { token, password: 'BrandNew456!' },
     })
-    expect(reset.status()).toBe(200)
+    expect(reset.status(), 'the DB-stored value must NOT complete a reset').toBe(401)
 
     const oldLogin = await page.request.post(API_BASE + '/users/log-in', {
       data: { email, password: oldPassword },
     })
-    expect(oldLogin.status(), 'old password must no longer work').not.toBe(200)
-
-    const newLogin = await page.request.post(API_BASE + '/users/log-in', {
-      data: { email, password: newPassword },
-    })
-    expect(newLogin.status()).toBe(200)
+    expect(oldLogin.status(), 'old password must still work (no reset occurred)').toBe(200)
   })
 })

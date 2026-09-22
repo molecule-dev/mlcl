@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useStorage, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -25,6 +26,8 @@ export function Compose() {
   const presetCategorySlug = searchParams.get('category')
   const storage = useStorage()
   const [categories, setCategories] = useState<CategoryOption[]>([])
+  const [categoriesError, setCategoriesError] = useState<string | null>(null)
+  const [categoriesReloadKey, setCategoriesReloadKey] = useState(0)
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [categoryId, setCategoryId] = useState<string>('')
@@ -73,6 +76,7 @@ export function Compose() {
 
   useEffect(() => {
     let cancelled = false
+    setCategoriesError(null)
     http
       .get<{ data: CategoryOption[] } | CategoryOption[]>('/api/categories')
       .then((res) => {
@@ -96,12 +100,20 @@ export function Compose() {
         }
       })
       .catch(() => {
+        // A silent failure here leaves the form unpublishable with no
+        // explanation — surface it with a retry instead.
+        if (cancelled) return
         setCategories([])
+        setCategoriesError(
+          t('compose.categoriesFailed', {}, { defaultValue: 'Could not load categories.' }),
+        )
       })
     return () => {
       cancelled = true
     }
-  }, [http, presetCategorySlug])
+    // `t` is intentionally excluded — including it can retrigger the fetch.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [http, presetCategorySlug, categoriesReloadKey])
 
   const previewHtml = useMemo(() => renderMarkdown(body), [body])
   const wordCount = useMemo(() => (body.trim() ? body.trim().split(/\s+/).length : 0), [body])
@@ -122,6 +134,10 @@ export function Compose() {
         // Best-effort — an orphaned draft is overwritten on the next compose.
       })
       if (created?.id) {
+        track({
+          name: 'thread.created',
+          properties: { thread_id: created.id, category_id: categoryId },
+        })
         navigate(`/t/${created.slug ?? created.id}`)
       } else {
         navigate('/c')
@@ -236,7 +252,7 @@ export function Compose() {
                     cm.sp('py', 2),
                     cm.fontWeight('bold'),
                     cm.roundedFull,
-                    'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors',
+                    'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                     active
                       ? 'bg-primary text-on-primary shadow-sm shadow-primary/30'
                       : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant',
@@ -276,7 +292,7 @@ export function Compose() {
                   cm.sp('py', 1),
                   cm.fontWeight('bold'),
                   cm.roundedFull,
-                  'text-xs uppercase tracking-widest transition-colors',
+                  'text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                   !previewing
                     ? 'bg-primary text-on-primary'
                     : 'bg-surface-container text-on-surface-variant',
@@ -292,7 +308,7 @@ export function Compose() {
                   cm.sp('py', 1),
                   cm.fontWeight('bold'),
                   cm.roundedFull,
-                  'text-xs uppercase tracking-widest transition-colors',
+                  'text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                   previewing
                     ? 'bg-primary text-on-primary'
                     : 'bg-surface-container text-on-surface-variant',
@@ -359,6 +375,33 @@ export function Compose() {
             </span>
           </div>
         </div>
+
+        {categoriesError && (
+          <div
+            className={cm.cn(
+              cm.sp('p', 4),
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'flex-wrap rounded-2xl bg-error-light/40 border border-error/30',
+            )}
+            role="alert"
+          >
+            <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{categoriesError}</p>
+            <button
+              type="button"
+              onClick={() => setCategoriesReloadKey((k) => k + 1)}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.roundedFull,
+                cm.textSize('sm'),
+                'bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          </div>
+        )}
 
         {error && <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>}
 

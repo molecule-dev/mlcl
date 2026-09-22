@@ -2,6 +2,16 @@ import { expect, test } from '@molecule/app-e2e-fixtures-default'
 import { API_BASE, APP_BASE, captureNetwork, signup } from './_helpers.js'
 
 test.describe('moderation', () => {
+  // A non-moderator's queue fetch 403s by design (asserted directly by the
+  // first test), and every /moderation visit as a plain user logs that failed
+  // fetch to the browser console. Expected everywhere in this suite — allow it.
+  test.beforeEach(() => {
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
+  })
+
   test('non-moderator gets 403 from /api/moderation/queue', async ({ page }) => {
     await signup(page)
     const res = await page.request.get(`${API_BASE}/moderation/queue`)

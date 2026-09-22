@@ -11,14 +11,23 @@ test.describe('/settings', () => {
   test('Editing the email and blurring PATCHes /api/users/:id and persists across reload', async ({
     page,
   }) => {
-    const { email } = await signup(page)
+    // Email is the account-recovery anchor, so the backend requires the
+    // CURRENT PASSWORD on any email change: blur reveals an inline confirm
+    // step, and the PATCH only fires once it is filled. Walk that flow.
+    const { email, password } = await signup(page)
     const newEmail = email.replace('@', '+edit-' + Date.now() + '@')
     await page.goto(APP_BASE + '/settings')
     await expect(page.locator('#settings-email')).toHaveValue(email, { timeout: 15_000 })
 
     const reqs = await captureNetwork(page, async () => {
       await page.locator('#settings-email').fill(newEmail)
+      // First blur reveals the current-password confirm step (no PATCH yet).
       await page.locator('#settings-email').blur()
+      const pwField = page.locator('#settings-current-password')
+      await expect(pwField).toBeVisible({ timeout: 10_000 })
+      await pwField.fill(password)
+      // Enter commits the change and fires the PATCH.
+      await pwField.press('Enter')
       await page.waitForTimeout(800)
     })
     const patch = reqs.find((r) => /\/api\/users\/[^/]+$/.test(r.url) && r.method === 'PATCH')

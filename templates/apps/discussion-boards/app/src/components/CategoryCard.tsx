@@ -78,7 +78,9 @@ export function CategoryCard({
       className={cm.cn(
         cm.flex({ align: 'stretch', gap: 'lg' }),
         cm.sp('p', 5),
-        'group relative overflow-hidden rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40 transition-all',
+        // Stats wrap BELOW the text on phones (a side column crushed the
+        // name into mid-word breaks at 390px); side-by-side from sm up.
+        'group relative flex-wrap overflow-hidden rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-sm hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/40 transition-all',
       )}
     >
       <div
@@ -106,7 +108,9 @@ export function CategoryCard({
             className={cm.cn(
               cm.textSize('lg'),
               cm.fontWeight('bold'),
-              'text-on-surface group-hover:text-primary transition-colors truncate',
+              // Wrap whole words to two lines instead of truncating: category
+              // names are the primary scan target on a phone.
+              'text-on-surface group-hover:text-primary transition-colors line-clamp-2',
             )}
           >
             {name}
@@ -140,7 +144,11 @@ export function CategoryCard({
           </p>
         )}
       </div>
-      <div className={cm.cn(cm.flex({ direction: 'col', align: 'end', gap: 'sm' }), 'shrink-0')}>
+      <div
+        className={cm.cn(
+          'flex w-full flex-row items-end justify-between gap-4 border-t border-outline-variant/20 pt-3 sm:w-auto sm:flex-col sm:items-end sm:gap-2 sm:border-t-0 sm:pt-0',
+        )}
+      >
         <div className={cm.cn(cm.textRight)}>
           <p
             className={cm.cn(

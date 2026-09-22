@@ -51,12 +51,15 @@ export function CategoryDetail() {
   const [threads, setThreads] = useState<ThreadSummary[] | null>(null)
   const [sort, setSort] = useState<'recent' | 'top' | 'unanswered'>('recent')
   const [error, setError] = useState<string | null>(null)
+  const [threadsError, setThreadsError] = useState<string | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     const slug = params.slug
     if (!slug) return
     setError(null)
+    setThreadsError(null)
     http
       .get<CategoryDetail>(`/api/categories-by-slug/${slug}`)
       .then((res) => !cancelled && setCategory((res?.data as CategoryDetail) ?? null))
@@ -74,11 +77,21 @@ export function CategoryDetail() {
         else if (sort === 'unanswered') sorted = list.filter((t2) => (t2.reply_count ?? 0) === 0)
         setThreads(sorted)
       })
-      .catch(() => !cancelled && setThreads([]))
+      .catch(() => {
+        // Never render the friendly empty state for a FAILED fetch — the
+        // distinction matters ("nothing here yet" vs "we could not look").
+        if (cancelled) return
+        setThreads([])
+        setThreadsError(
+          t('categoryDetail.threadsFailed', {}, { defaultValue: 'Could not load threads.' }),
+        )
+      })
     return () => {
       cancelled = true
     }
-  }, [http, params.slug, sort])
+    // `t` is intentionally excluded — including it can retrigger the fetch.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [http, params.slug, sort, reloadKey])
 
   const cat = category
   const list = threads ?? []
@@ -200,13 +213,11 @@ export function CategoryDetail() {
           </div>
         </header>
       )}
-
       {!cat && error && (
         <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
           {error}
         </p>
-      )}
-
+      )}{' '}
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
         {SORT_OPTIONS.map((option) => {
           const isActive = sort === option.key
@@ -220,7 +231,7 @@ export function CategoryDetail() {
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'text-xs uppercase tracking-widest transition-colors',
+                'text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                 isActive
                   ? 'bg-primary text-on-primary shadow-sm shadow-primary/30'
                   : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant',
@@ -239,19 +250,76 @@ export function CategoryDetail() {
           )}
         </span>
       </div>
-
       {threads === null ? (
         <p className={cm.textMuted}>
           {t('categoryDetail.loading', {}, { defaultValue: 'Loading threads…' })}
         </p>
-      ) : list.length === 0 ? (
-        <p className={cm.textMuted}>
-          {t(
-            'categoryDetail.empty',
-            {},
-            { defaultValue: 'No threads yet. Start one — every conversation begins somewhere.' },
+      ) : threadsError ? (
+        <div
+          className={cm.cn(
+            cm.sp('p', 5),
+            cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
+            'rounded-2xl bg-surface-container-lowest border border-outline-variant/30',
           )}
-        </p>
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {threadsError}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              cm.textSize('sm'),
+              'bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : list.length === 0 ? (
+        <div
+          className={cm.cn(
+            cm.sp('p', 8),
+            cm.stack(3),
+            'rounded-2xl bg-surface-container-lowest border border-dashed border-outline-variant/40 items-center text-center',
+          )}
+        >
+          <span
+            className="material-symbols-outlined text-[32px] text-on-surface-variant"
+            aria-hidden
+          >
+            forum
+          </span>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'categoryDetail.empty',
+              {},
+              { defaultValue: 'No threads yet. Start one — every conversation begins somewhere.' },
+            )}
+          </p>
+          {cat && (
+            <Link
+              to={`/compose?category=${cat.slug}`}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.roundedFull,
+                cm.textSize('sm'),
+                'inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-primary-dark transition-colors',
+              )}
+            >
+              <span className="material-symbols-outlined text-base" aria-hidden>
+                edit_note
+              </span>
+              {t('categoryDetail.startThread', {}, { defaultValue: 'Start a thread' })}
+            </Link>
+          )}
+        </div>
       ) : (
         <div
           className={cm.cn(

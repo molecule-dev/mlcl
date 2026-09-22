@@ -1,6 +1,5 @@
 import { useTranslation } from '@molecule/app-react'
 import {
-  AccountSection,
   BillingSection,
   DevicesSection,
   LogOutDeleteSection,
@@ -12,6 +11,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Separator } from '@molecule/app-ui-react'
 
 import { Footer } from './Footer.js'
+import { SettingsAccountSection } from './SettingsAccountSection.js'
 import { SettingsAuthSection } from './SettingsAuthSection.js'
 
 function LanguageSection() {
@@ -37,7 +37,7 @@ function LanguageSection() {
 export function SettingsPanel({ onClose }: { onClose: () => void }) {
   return (
     <SettingsContainer onClose={onClose}>
-      <AccountSection />
+      <SettingsAccountSection />
       <SettingsAuthSection />
       <NotificationsSection />
       <LanguageSection />

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -115,6 +116,7 @@ export function Notifications() {
 
   const markAllRead = async () => {
     setNotifications((prev) => (prev ?? []).map((n) => ({ ...n, read: true })))
+    track({ name: 'notifications.marked_all_read' })
     try {
       await http.post('/api/notifications/mark-all-read')
     } catch (_error) {
@@ -177,7 +179,7 @@ export function Notifications() {
               cm.sp('py', 1),
               cm.fontWeight('bold'),
               cm.roundedFull,
-              'text-xs uppercase tracking-widest transition-colors',
+              'text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
               filter === key
                 ? 'bg-primary text-on-primary shadow-sm shadow-primary/30'
                 : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant',

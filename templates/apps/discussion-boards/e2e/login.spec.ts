@@ -65,6 +65,12 @@ test.describe('/login (Login form)', () => {
   })
 
   test('Wrong password surfaces an error and the user stays on /login', async ({ page }) => {
+    // The deliberate bad password is rejected 403; the browser logs that
+    // failed fetch to the console. Expected — allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('login-bad')
     const password = 'TestPass123!'
     const sign = await page.request.post(API_BASE + '/users', {

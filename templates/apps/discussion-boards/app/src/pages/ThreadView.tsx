@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -128,6 +129,10 @@ export function ThreadView() {
     setPostError(null)
     try {
       await http.post(`/api/threads/${detail.id}/posts`, { body: reply })
+      track({
+        name: 'reply.posted',
+        properties: { thread_id: detail.id, category_id: detail.category.slug },
+      })
       setReply('')
       await loadThread()
     } catch (err) {
@@ -147,9 +152,11 @@ export function ThreadView() {
       if (bookmarked) {
         await http.delete(`/api/threads/${detail.id}/bookmark`)
         setBookmarked(false)
+        track({ name: 'thread.unbookmarked', properties: { thread_id: detail.id } })
       } else {
         await http.post(`/api/threads/${detail.id}/bookmark`)
         setBookmarked(true)
+        track({ name: 'thread.bookmarked', properties: { thread_id: detail.id } })
       }
     } catch (_error) {
       /* surfaced via reload on next mount */
@@ -182,6 +189,14 @@ export function ThreadView() {
         target_type: isOp ? 'topic' : 'post',
         target_id: isOp ? detail.id : postId,
         reason: 'flagged-from-thread',
+      })
+      track({
+        name: 'post.flagged',
+        properties: {
+          thread_id: detail.id,
+          target_type: isOp ? 'topic' : 'post',
+          target_id: isOp ? detail.id : postId,
+        },
       })
       setFlagged((prev) => ({ ...prev, [postId]: true }))
     } catch (_error) {
@@ -247,7 +262,7 @@ export function ThreadView() {
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }))}>
           <h1
             className={cm.cn(
-              'text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-on-surface',
+              'min-w-0 break-words text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-on-surface',
             )}
           >
             {detail.title}

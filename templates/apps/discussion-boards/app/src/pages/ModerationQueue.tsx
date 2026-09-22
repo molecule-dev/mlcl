@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -134,6 +135,10 @@ export function ModerationQueue() {
     setResolved((prev) => ({ ...prev, [item.id]: action }))
     try {
       await http.post(`/api/moderation/${item.id}/${action}`)
+      track({
+        name: 'moderation.item_resolved',
+        properties: { report_id: item.id, action },
+      })
       setError(null)
     } catch (e) {
       // Revert the optimistic resolution so the action buttons come back
@@ -231,7 +236,7 @@ export function ModerationQueue() {
                 cm.sp('py', 1),
                 cm.fontWeight('bold'),
                 cm.roundedFull,
-                'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors',
+                'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                 active
                   ? 'bg-primary text-on-primary shadow-sm shadow-primary/30'
                   : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant',
@@ -413,7 +418,7 @@ export function ModerationQueue() {
                           cm.sp('py', 1),
                           cm.fontWeight('bold'),
                           cm.roundedFull,
-                          'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors',
+                          'inline-flex items-center gap-2 text-xs uppercase tracking-widest transition-colors min-h-10 md:min-h-0',
                           action.className,
                         )}
                       >
