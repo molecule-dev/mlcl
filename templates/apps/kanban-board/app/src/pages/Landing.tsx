@@ -72,6 +72,7 @@ export function Landing() {
       <header
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'between' }),
+          'flex-wrap gap-x-6 gap-y-2',
           cm.sp('px', 6),
           cm.sp('py', 5),
         )}
@@ -101,17 +102,33 @@ export function Landing() {
         </Link>
         <nav
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'lg' }),
+            cm.flex({ align: 'center' }),
+            'flex-wrap gap-x-3 gap-y-1 sm:gap-x-6',
             'text-sm font-semibold text-on-surface-variant',
           )}
         >
-          <a href="#features" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+          <a
+            href="#features"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('nav.features', {}, { defaultValue: 'Features' })}
           </a>
-          <Link to="/pricing" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+          <Link
+            to="/pricing"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
-          <Link to="/about" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+          <Link
+            to="/about"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>
           <ThemeToggle />
@@ -435,6 +452,7 @@ export function Landing() {
           cm.sp('px', 6),
           cm.sp('py', 8),
           cm.flex({ align: 'center', justify: 'between' }),
+          'flex-wrap gap-x-6 gap-y-2',
           'border-t border-outline-variant/20 text-sm text-on-surface-variant',
         )}
       >
@@ -442,14 +460,29 @@ export function Landing() {
           <span className="font-bold text-on-surface">{APP_NAME}</span>
           <span>· {APP_TAGLINE}</span>
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'font-semibold')}>
-          <Link to="/pricing" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'font-semibold')}>
+          <Link
+            to="/pricing"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
-          <Link to="/login" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+          <Link
+            to="/login"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
-          <Link to="/about" className={cm.cn(`hover:text-on-surface transition-colors`)}>
+          <Link
+            to="/about"
+            className={cm.cn(
+              `inline-flex items-center py-2 hover:text-on-surface transition-colors`,
+            )}
+          >
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>
         </div>

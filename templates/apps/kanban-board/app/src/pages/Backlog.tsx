@@ -50,6 +50,7 @@ export function Backlog() {
   const [createBusy, setCreateBusy] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
   const [boardChoice, setBoardChoice] = useState<string>('')
+  const [loadError, setLoadError] = useState(false)
 
   const refresh = useCallback(async () => {
     setLoading(true)
@@ -69,6 +70,9 @@ export function Backlog() {
           setBoardChoice(list[0].id)
         }
       }
+      // Both halves failing = the page cannot do its job — say so instead of
+      // rendering an empty backlog.
+      setLoadError(backlogRes.status === 'rejected' && boardsRes.status === 'rejected')
     } finally {
       setLoading(false)
     }
@@ -186,6 +190,30 @@ export function Backlog() {
           </button>
         </div>
       </header>
+
+      {loadError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'flex flex-wrap items-center gap-3 rounded-xl border border-error/40 bg-error/5',
+          )}
+        >
+          <p className="text-error font-semibold flex-1">
+            {t('backlog.loadError', {}, { defaultValue: 'Could not load the backlog.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => void refresh()}
+            className={cm.cn(
+              'px-4 py-2 rounded-xl text-sm font-bold text-white',
+              'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       {loading && items.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 8), cm.textCenter, cm.textMuted)}>

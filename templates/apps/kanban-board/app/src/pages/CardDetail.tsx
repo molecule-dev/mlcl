@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,7 +125,11 @@ export function CardDetail() {
     setPostingComment(true)
     setCommentError(null)
     try {
-      await http.post('/api/comments', { card_id: card.id, body: trimmed })
+      const postRes = await http.post('/api/comments', { card_id: card.id, body: trimmed })
+      const comment = unwrap<CommentRow>(postRes)
+      if (comment?.id) {
+        track({ name: 'card.commented', properties: { card_id: card.id, comment_id: comment.id } })
+      }
       setCommentBody('')
       const res = await http.get(`/api/comments?card_id=${card.id}`)
       const list = unwrap<CommentRow[]>(res) ?? []
@@ -144,6 +149,7 @@ export function CardDetail() {
     setBusy(true)
     try {
       await http.post(`/api/cards/${card.id}/archive`, {})
+      track({ name: 'card.archived', properties: { board_id: card.board_id, card_id: card.id } })
       navigate(`/boards/${card.board_id}`)
     } finally {
       setBusy(false)
@@ -162,6 +168,7 @@ export function CardDetail() {
     setBusy(true)
     try {
       await http.delete(`/api/cards/${card.id}`)
+      track({ name: 'card.deleted', properties: { board_id: card.board_id, card_id: card.id } })
       navigate(`/boards/${card.board_id}`)
     } finally {
       setBusy(false)
@@ -173,6 +180,10 @@ export function CardDetail() {
     setBusy(true)
     try {
       await http.patch(`/api/cards/${card.id}`, { priority })
+      track({
+        name: 'card.updated',
+        properties: { card_id: card.id, field: 'priority', value: priority },
+      })
       await refresh()
     } finally {
       setBusy(false)
@@ -184,6 +195,10 @@ export function CardDetail() {
     setBusy(true)
     try {
       await http.post(`/api/cards/${card.id}/move`, { list_id: listId, position: 0 })
+      track({
+        name: 'card.moved',
+        properties: { board_id: card.board_id, card_id: card.id, to_list_id: listId },
+      })
       await refresh()
     } finally {
       setBusy(false)
@@ -195,6 +210,7 @@ export function CardDetail() {
     setEditBusy(true)
     try {
       await http.patch(`/api/cards/${card.id}`, { title })
+      track({ name: 'card.updated', properties: { card_id: card.id, field: 'title' } })
       setEditTitleOpen(false)
       await refresh()
     } finally {
@@ -207,6 +223,7 @@ export function CardDetail() {
     setEditBusy(true)
     try {
       await http.patch(`/api/cards/${card.id}`, { description: { text } })
+      track({ name: 'card.updated', properties: { card_id: card.id, field: 'description' } })
       setEditDescOpen(false)
       await refresh()
     } finally {

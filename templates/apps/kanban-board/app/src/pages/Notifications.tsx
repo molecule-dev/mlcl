@@ -57,6 +57,7 @@ export function Notifications() {
   const [filter, setFilter] = useState<Filter>('All')
   const [loading, setLoading] = useState(true)
   const [busy, setBusy] = useState(false)
+  const [loadError, setLoadError] = useState(false)
 
   const refresh = useCallback(() => {
     setLoading(true)
@@ -65,6 +66,12 @@ export function Notifications() {
       .then((res) => {
         const list = unwrap<NotificationRow[]>(res) ?? []
         setItems(Array.isArray(list) ? list : [])
+        setLoadError(false)
+      })
+      .catch(() => {
+        // A failed fetch must surface — without this the inbox silently
+        // renders its empty state and the user believes they have no activity.
+        setLoadError(true)
       })
       .finally(() => setLoading(false))
   }, [http])
@@ -159,6 +166,30 @@ export function Notifications() {
           </button>
         ))}
       </div>
+
+      {loadError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'flex flex-wrap items-center gap-3 rounded-xl border border-error/40 bg-error/5',
+          )}
+        >
+          <p className="text-error font-semibold flex-1">
+            {t('notifications.loadError', {}, { defaultValue: 'Could not load your inbox.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => void refresh()}
+            className={cm.cn(
+              'px-4 py-2 rounded-xl text-sm font-bold text-white',
+              'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       <section
         className={cm.cn(

@@ -42,6 +42,7 @@ export function Team() {
   const [boards, setBoards] = useState<BoardRow[]>([])
   const [cards, setCards] = useState<CardRow[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   const refresh = useCallback(async () => {
     setLoading(true)
@@ -58,6 +59,9 @@ export function Team() {
         const list = unwrap<CardRow[]>(cardsRes.value) ?? []
         setCards(Array.isArray(list) ? list : [])
       }
+      // Both halves failing = the page cannot do its job — say so instead of
+      // rendering zeros that read as real data.
+      setLoadError(boardsRes.status === 'rejected' && cardsRes.status === 'rejected')
     } finally {
       setLoading(false)
     }
@@ -100,6 +104,30 @@ export function Team() {
           )}
         </p>
       </header>
+
+      {loadError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'flex flex-wrap items-center gap-3 rounded-xl border border-error/40 bg-error/5',
+          )}
+        >
+          <p className="text-error font-semibold flex-1">
+            {t('team.loadError', {}, { defaultValue: 'Could not load team stats.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => void refresh()}
+            className={cm.cn(
+              'px-4 py-2 rounded-xl text-sm font-bold text-white',
+              'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       <div className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5')}>
         <KpiTile

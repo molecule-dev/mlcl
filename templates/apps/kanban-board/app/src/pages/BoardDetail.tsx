@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -168,7 +169,11 @@ export function BoardDetail() {
     setCreateListBusy(true)
     setCreateListError(null)
     try {
-      await http.post('/api/lists', { board_id: board.id, name })
+      const res = await http.post('/api/lists', { board_id: board.id, name })
+      const list = unwrap<ListRow>(res)
+      if (list?.id) {
+        track({ name: 'column.added', properties: { board_id: board.id, list_id: list.id } })
+      }
       setCreateListOpen(false)
       await refresh()
     } catch (err) {
@@ -192,11 +197,18 @@ export function BoardDetail() {
     setCreateCardBusy(true)
     setCreateCardError(null)
     try {
-      await http.post('/api/cards', {
+      const res = await http.post('/api/cards', {
         board_id: board.id,
         list_id: createCardOpen.listId,
         title,
       })
+      const card = unwrap<CardRow>(res)
+      if (card?.id) {
+        track({
+          name: 'card.created',
+          properties: { board_id: board.id, card_id: card.id, list_id: createCardOpen.listId },
+        })
+      }
       setCreateCardOpen(null)
       await refresh()
     } catch (err) {
@@ -220,6 +232,7 @@ export function BoardDetail() {
     setRenameBusy(true)
     try {
       await http.patch(`/api/boards/${board.id}`, { name })
+      track({ name: 'board.renamed', properties: { board_id: board.id } })
       setRenameOpen(false)
       await refresh()
     } finally {
@@ -247,6 +260,10 @@ export function BoardDetail() {
         list_id: targetListId,
         position: nextPosition,
       })
+      track({
+        name: 'card.moved',
+        properties: { board_id: board.id, card_id: cardId, to_list_id: targetListId },
+      })
       await refresh()
     } finally {
       setBusy(false)
@@ -258,6 +275,7 @@ export function BoardDetail() {
     setBusy(true)
     try {
       await http.post(`/api/cards/${cardId}/archive`, {})
+      track({ name: 'card.archived', properties: { board_id: board.id, card_id: cardId } })
       await refresh()
     } finally {
       setBusy(false)
@@ -280,6 +298,7 @@ export function BoardDetail() {
     setBusy(true)
     try {
       await http.delete(`/api/lists/${listId}`)
+      track({ name: 'column.deleted', properties: { board_id: board.id, list_id: listId } })
       await refresh()
     } finally {
       setBusy(false)

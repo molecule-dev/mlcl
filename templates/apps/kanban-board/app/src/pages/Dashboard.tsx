@@ -60,6 +60,7 @@ export function Dashboard() {
   const [createOpen, setCreateOpen] = useState(false)
   const [creating, setCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState(false)
 
   const refresh = useCallback(() => {
     setLoading(true)
@@ -73,6 +74,9 @@ export function Dashboard() {
           const list = unwrap<CardRow[]>(cardsRes.value) ?? []
           setCards(Array.isArray(list) ? list : [])
         }
+        // Both halves failing = nothing on this page is real — say so instead
+        // of rendering an empty dashboard.
+        setLoadError(boardsRes.status === 'rejected' && cardsRes.status === 'rejected')
       })
       .finally(() => setLoading(false))
   }, [http])
@@ -179,6 +183,30 @@ export function Dashboard() {
           {t('dashboard.newBoardCta', {}, { defaultValue: 'New board' })}
         </button>
       </header>
+
+      {loadError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'flex flex-wrap items-center gap-3 rounded-xl border border-error/40 bg-error/5',
+          )}
+        >
+          <p className="text-error font-semibold flex-1">
+            {t('dashboard.loadError', {}, { defaultValue: 'Could not load your dashboard.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => void refresh()}
+            className={cm.cn(
+              'px-4 py-2 rounded-xl text-sm font-bold text-white',
+              'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
 
       {loading && boards.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 8), cm.textCenter, cm.textMuted)}>

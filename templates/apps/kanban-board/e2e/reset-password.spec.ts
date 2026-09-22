@@ -34,6 +34,13 @@ test.describe('/reset-password', () => {
   test('submit with bogus token fires a backend request and does not land on /dashboard', async ({
     page,
   }) => {
+    // A bogus token is EXPECTED to 401 from the backend — that is the
+    // behavior under test (rejected, no navigation). Silence the console
+    // guard for exactly that response.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(
       APP_BASE + '/reset-password?token=bogus-token-for-test&email=nobody@example.com',
     )

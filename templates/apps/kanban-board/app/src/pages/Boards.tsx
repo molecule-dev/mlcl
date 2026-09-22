@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -74,6 +75,9 @@ export function Boards() {
     try {
       const res = await http.post('/api/boards', { name })
       const board = unwrap<BoardRow>(res)
+      if (board?.id) {
+        track({ name: 'board.created', properties: { board_id: board.id } })
+      }
       setCreateOpen(false)
       if (board?.id) {
         navigate(`/boards/${board.id}`)
