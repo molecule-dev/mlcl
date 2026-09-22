@@ -8,11 +8,14 @@ test.describe('/documents', () => {
   }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/documents')
-      await page.waitForResponse(
+      // Arm the response wait BEFORE goto — the /api/documents fetch can
+      // resolve before the awaiter subscribes, causing a 15s timeout.
+      const docsResponse = page.waitForResponse(
         (r) => /\/api\/documents(?:\?|$)/.test(r.url()) && r.status() === 200,
         { timeout: 15_000 },
       )
+      await page.goto(APP_BASE + '/documents')
+      await docsResponse
     })
     const docsGet = reqs.find((r) => r.method === 'GET' && /\/api\/documents(?:\?|$)/.test(r.url))
     expect(docsGet, 'GET /api/documents must fire on page load').toBeDefined()
@@ -26,10 +29,13 @@ test.describe('/documents', () => {
   }) => {
     await signup(page)
     const uploaded = await uploadInvoice(page)
+    // Arm the response wait BEFORE goto — see the race note below.
+    const docsResponse = page.waitForResponse(
+      (r) => /\/api\/documents/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/documents')
-    await page.waitForResponse((r) => /\/api\/documents/.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    await docsResponse
     // The card is rendered with the original_name.
     await expect(page.getByText(uploaded.original_name).first()).toBeVisible({ timeout: 15_000 })
     // It should also say "Invoice" somewhere within the card area
@@ -46,8 +52,13 @@ test.describe('/documents', () => {
   test('Type filter narrows the visible list to the chosen class', async ({ page }) => {
     await signup(page)
     await uploadInvoice(page)
+    // Arm the response wait BEFORE goto — see the race note above.
+    const docsResponse = page.waitForResponse(
+      (r) => /\/api\/documents/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/documents')
-    await page.waitForResponse((r) => /\/api\/documents/.test(r.url()) && r.status() === 200)
+    await docsResponse
     // Click "Receipts" filter — invoice list should empty.
     await page
       .getByRole('button', { name: /^receipts$/i })

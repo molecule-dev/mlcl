@@ -39,6 +39,7 @@ export function Documents() {
   const [error, setError] = useState<string | null>(null)
   const [activeFilter, setActiveFilter] = useState<'all' | DocumentType>('all')
   const [search, setSearch] = useState('')
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -65,7 +66,7 @@ export function Documents() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, reloadKey])
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -79,7 +80,7 @@ export function Documents() {
   return (
     <div
       data-mol-id="documents-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
       <header className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
         <p
@@ -194,9 +195,31 @@ export function Documents() {
       </section>
 
       {error ? (
-        <p className={cm.cn(cm.textSize('xs'), cm.sp('py', 2), 'text-on-surface-variant italic')}>
-          {error}
-        </p>
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+            'rounded-lg bg-error/10 border border-error/30',
+          )}
+        >
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
+          <button
+            type="button"
+            data-mol-id="documents-retry"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'rounded-full border border-error/40 text-error hover:bg-error/10 uppercase tracking-widest',
+            )}
+            style={{ fontSize: 10 }}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
       ) : null}
 
       {loading && items.length === 0 ? (

@@ -128,7 +128,10 @@ const askAIToProcess = async (
   const stream = provider.chat({
     stream: false,
     maxTokens: 2048,
-    temperature: 0,
+    // NOTE: no explicit `temperature` — the bonded default model (claude-opus-5
+    // and the 4.6+/5 families) rejects it with "temperature is deprecated for
+    // this model", which failed every upload. The strict single-tool prompt +
+    // enum-constrained parameters give deterministic-enough classification.
     system: `You are an expert document-processing engine. For each uploaded file, you must call the "${TOOL_NAME}" tool exactly once with a complete, accurate result. Always populate every required field. Be honest about confidence (0–1). Pick exactly one of: invoice, receipt, contract, form, report, identification, letter, other. Extract every meaningful field name/value pair you can read on the document. Suggest a filing path like "Vendors/Acme Corp/2026" or "Personal/IDs" — short, hierarchical, no leading slash.`,
     tools: [
       {

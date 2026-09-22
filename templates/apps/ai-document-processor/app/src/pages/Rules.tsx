@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,7 @@ export function Rules() {
     if (!rule) return
     const next = !rule.enabled
     setRules((prev) => prev.map((r) => (r.id === id ? { ...r, enabled: next } : r)))
+    void track({ name: 'rule.toggled', properties: { rule_id: id, enabled: next } })
     try {
       await http.patch(`/api/extraction-rules/${id}`, { enabled: next })
     } catch (_error) {
@@ -118,6 +120,10 @@ export function Rules() {
       const created = res?.data as FilingRule | undefined
       if (created) {
         setRules((prev) => [created, ...prev])
+        void track({
+          name: 'rule.created',
+          properties: { rule_id: String(created.id), matched_type: created.matchedType },
+        })
       } else {
         setRules((prev) => [
           {
@@ -149,7 +155,7 @@ export function Rules() {
   return (
     <div
       data-mol-id="rules-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
       <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
@@ -509,11 +515,13 @@ export function Rules() {
                 >
                   <DocumentTypeBadge type={tpl.type} withLabel={false} />
                   <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {t(
-                      'rules.lastUsed',
-                      { date: tpl.last_used },
-                      { defaultValue: 'Used {{date}}' },
-                    )}
+                    {tpl.last_used
+                      ? t(
+                          'rules.lastUsed',
+                          { date: String(tpl.last_used) },
+                          { defaultValue: 'Used {{date}}' },
+                        )
+                      : t('rules.neverUsed', {}, { defaultValue: 'Never used' })}
                   </span>
                 </header>
                 <h3 className={cm.cn(cm.textSize('base'), 'font-bold')}>{tpl.name}</h3>

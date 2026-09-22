@@ -61,9 +61,15 @@ test.describe('/dashboard', () => {
     expect(invSeg, 'invoice segment exists in dashboard breakdown').toBeDefined()
     expect(invSeg.count).toBeGreaterThanOrEqual(1)
 
-    // The Recent table also surfaces the new doc.
+    // The Recent table also surfaces the new doc. Arm the response wait
+    // BEFORE goto — the /api/documents fetch can resolve before the awaiter
+    // subscribes, causing a 15s timeout.
+    const docsResponse = page.waitForResponse(
+      (r) => /\/api\/documents/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/dashboard')
-    await page.waitForResponse((r) => /\/api\/documents/.test(r.url()) && r.status() === 200)
+    await docsResponse
     await expect(
       page.locator('[data-mol-id="dashboard-page"] a[href^="/documents/"]').first(),
     ).toBeVisible({ timeout: 10_000 })
@@ -98,8 +104,13 @@ test.describe('/dashboard', () => {
   test('after upload, recent-table row links to /documents/:id', async ({ page }) => {
     await signup(page)
     const uploaded = await uploadInvoice(page)
+    // Arm the response wait BEFORE goto — see the race note above.
+    const docsResponse = page.waitForResponse(
+      (r) => /\/api\/documents/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/dashboard')
-    await page.waitForResponse((r) => /\/api\/documents/.test(r.url()) && r.status() === 200)
+    await docsResponse
     const link = page.locator('[data-mol-id="dashboard-page"] a[href^="/documents/"]').first()
     await expect(link).toBeVisible({ timeout: 10_000 })
     expect(await link.getAttribute('href')).toBe(`/documents/${uploaded.id}`)

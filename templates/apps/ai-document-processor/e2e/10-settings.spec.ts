@@ -230,6 +230,11 @@ test.describe('/settings', () => {
     await expect(tokenRow).toBeVisible({ timeout: 5_000 })
     const revokeBtn = tokenRow.locator('[data-mol-id^="settings-api-revoke-"]')
     const reqs = await captureNetwork(page, async () => {
+      // Two-step inline confirm: the first click arms the button
+      // ("Confirm?"), only the second fires the DELETE. One click must not
+      // destroy a credential.
+      await revokeBtn.click()
+      await expect(revokeBtn).toHaveText(/confirm/i, { timeout: 5_000 })
       await revokeBtn.click()
       await page.waitForTimeout(500)
     })

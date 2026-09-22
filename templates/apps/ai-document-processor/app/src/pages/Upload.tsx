@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -72,6 +73,7 @@ export function Upload() {
         form.append('file', file)
         const res = await http.post('/api/documents/upload', form)
         const data = (res?.data ?? {}) as {
+          id?: string
           document_type?: DocumentType | null
           classification_confidence?: number | null
         }
@@ -80,6 +82,24 @@ export function Upload() {
           progress: 100,
           type: data.document_type ?? null,
           confidence: data.classification_confidence ?? null,
+        })
+        void track({
+          name: 'document.uploaded',
+          properties: {
+            document_id: data.id ?? item.id,
+            file_size: item.size,
+            document_type: data.document_type ?? null,
+          },
+        })
+        // The upload endpoint classifies + extracts synchronously, so a 201
+        // with a resolved type IS the extraction-completed signal client-side.
+        void track({
+          name: 'extraction.completed',
+          properties: {
+            document_id: data.id ?? item.id,
+            document_type: data.document_type ?? null,
+            confidence: data.classification_confidence ?? null,
+          },
         })
       } catch (err) {
         updateItem(item.id, { status: 'error', progress: 100 })
@@ -95,7 +115,7 @@ export function Upload() {
   return (
     <div
       data-mol-id="upload-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
       <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
@@ -173,175 +193,183 @@ export function Upload() {
           </button>
         </header>
 
-        <table className={cm.cn('w-full text-left')}>
-          <thead className={cm.cn('bg-surface-container')}>
-            <tr>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 6),
-                  cm.sp('py', 3),
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('upload.queue.col.file', {}, { defaultValue: 'File' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('form.type', {}, { defaultValue: 'Type' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                )}
-              >
-                {t('nav.progress', {}, { defaultValue: 'Progress' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-center',
-                )}
-              >
-                {t('nav.status', {}, { defaultValue: 'Status' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 6),
-                  cm.sp('py', 3),
-                  'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right',
-                )}
-              >
-                {t('upload.queue.col.confidence', {}, { defaultValue: 'Confidence' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-surface-container')}>
-            {queue.length === 0 ? (
+        {/* overflow-x-auto: the queue table keeps its columns readable on a
+            390px phone by scrolling horizontally inside the card. */}
+        <div className="overflow-x-auto">
+          <table className={cm.cn('w-full text-left')}>
+            <thead className={cm.cn('bg-surface-container')}>
               <tr>
-                <td
-                  colSpan={5}
+                <th
                   className={cm.cn(
                     cm.sp('px', 6),
-                    cm.sp('py', 8),
-                    'text-center text-on-surface-variant text-sm',
+                    cm.sp('py', 3),
+                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                   )}
                 >
-                  {t(
-                    'upload.queue.empty',
-                    {},
-                    { defaultValue: 'Nothing in the queue. Drop files above to get started.' },
+                  {t('upload.queue.col.file', {}, { defaultValue: 'File' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                   )}
-                </td>
+                >
+                  {t('form.type', {}, { defaultValue: 'Type' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                  )}
+                >
+                  {t('nav.progress', {}, { defaultValue: 'Progress' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 3),
+                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-center',
+                  )}
+                >
+                  {t('nav.status', {}, { defaultValue: 'Status' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 6),
+                    cm.sp('py', 3),
+                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right',
+                  )}
+                >
+                  {t('upload.queue.col.confidence', {}, { defaultValue: 'Confidence' })}
+                </th>
               </tr>
-            ) : (
-              queue.map((item) => (
-                <tr
-                  key={item.id}
-                  className={cm.cn('hover:bg-surface-container-low transition-colors')}
-                >
-                  <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
-                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                      <span
-                        className={cm.cn(
-                          cm.flex({ align: 'center', justify: 'center' }),
-                          'w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant',
-                        )}
-                        aria-hidden="true"
-                      >
-                        <span
-                          className={cm.cn('material-symbols-outlined')}
-                          style={{ fontSize: 18 }}
-                        >
-                          insert_drive_file
-                        </span>
-                      </span>
-                      <div>
-                        <p className={cm.cn(cm.textSize('sm'), 'font-semibold line-clamp-1')}>
-                          {item.name}
-                        </p>
-                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                          {fmtSize(item.size)}
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    {item.type ? (
-                      <DocumentTypeBadge type={item.type} />
-                    ) : (
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant italic')}>
-                        {t('upload.queue.detecting', {}, { defaultValue: 'Detecting…' })}
-                      </span>
+            </thead>
+            <tbody className={cm.cn('divide-y divide-surface-container')}>
+              {queue.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className={cm.cn(
+                      cm.sp('px', 6),
+                      cm.sp('py', 8),
+                      'text-center text-on-surface-variant text-sm',
                     )}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))} style={{ minWidth: 140 }}>
-                    <div
-                      className={cm.cn('h-1.5 rounded-full bg-surface-container overflow-hidden')}
-                    >
-                      <div
-                        className={cm.cn('h-full rounded-full transition-all')}
-                        style={{
-                          width: `${item.progress}%`,
-                          background: STATUS_HEX[item.status],
-                          backgroundImage:
-                            item.status === 'processing'
-                              ? 'repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0 6px, transparent 6px 12px)'
-                              : undefined,
-                        }}
-                      />
-                    </div>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        cm.sp('mt', 1),
-                        'text-on-surface-variant tabular-nums',
-                      )}
-                    >
-                      {item.progress}%
-                    </p>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-center')}>
-                    <span
-                      className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
-                        cm.textSize('xs'),
-                        'font-semibold',
-                      )}
-                    >
-                      <span
-                        className={cm.cn('w-2 h-2 rounded-full')}
-                        style={{ background: STATUS_HEX[item.status] }}
-                        aria-hidden="true"
-                      />
-                      <span style={{ color: STATUS_HEX[item.status] }}>
-                        {t(
-                          `upload.queue.status.${item.status}`,
-                          {},
-                          { defaultValue: STATUS_DEFAULT[item.status] },
-                        )}
-                      </span>
-                    </span>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 3), 'text-right')}>
-                    {typeof item.confidence === 'number' ? (
-                      <ConfidencePill value={item.confidence} />
-                    ) : (
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>—</span>
+                  >
+                    {t(
+                      'upload.queue.empty',
+                      {},
+                      { defaultValue: 'Nothing in the queue. Drop files above to get started.' },
                     )}
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ) : (
+                queue.map((item) => (
+                  <tr
+                    key={item.id}
+                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                  >
+                    <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
+                      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                        <span
+                          className={cm.cn(
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            'w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant',
+                          )}
+                          aria-hidden="true"
+                        >
+                          <span
+                            className={cm.cn('material-symbols-outlined')}
+                            style={{ fontSize: 18 }}
+                          >
+                            insert_drive_file
+                          </span>
+                        </span>
+                        <div>
+                          <p className={cm.cn(cm.textSize('sm'), 'font-semibold line-clamp-1')}>
+                            {item.name}
+                          </p>
+                          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                            {fmtSize(item.size)}
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      {item.type ? (
+                        <DocumentTypeBadge type={item.type} />
+                      ) : (
+                        <span
+                          className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant italic')}
+                        >
+                          {t('upload.queue.detecting', {}, { defaultValue: 'Detecting…' })}
+                        </span>
+                      )}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))} style={{ minWidth: 140 }}>
+                      <div
+                        className={cm.cn('h-1.5 rounded-full bg-surface-container overflow-hidden')}
+                      >
+                        <div
+                          className={cm.cn('h-full rounded-full transition-all')}
+                          style={{
+                            width: `${item.progress}%`,
+                            background: STATUS_HEX[item.status],
+                            backgroundImage:
+                              item.status === 'processing'
+                                ? 'repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0 6px, transparent 6px 12px)'
+                                : undefined,
+                          }}
+                        />
+                      </div>
+                      <p
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          cm.sp('mt', 1),
+                          'text-on-surface-variant tabular-nums',
+                        )}
+                      >
+                        {item.progress}%
+                      </p>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-center')}>
+                      <span
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+                          cm.textSize('xs'),
+                          'font-semibold',
+                        )}
+                      >
+                        <span
+                          className={cm.cn('w-2 h-2 rounded-full')}
+                          style={{ background: STATUS_HEX[item.status] }}
+                          aria-hidden="true"
+                        />
+                        <span style={{ color: STATUS_HEX[item.status] }}>
+                          {t(
+                            `upload.queue.status.${item.status}`,
+                            {},
+                            { defaultValue: STATUS_DEFAULT[item.status] },
+                          )}
+                        </span>
+                      </span>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 6), cm.sp('py', 3), 'text-right')}>
+                      {typeof item.confidence === 'number' ? (
+                        <ConfidencePill value={item.confidence} />
+                      ) : (
+                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          —
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   )

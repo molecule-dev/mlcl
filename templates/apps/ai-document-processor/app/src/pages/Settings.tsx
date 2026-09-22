@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -79,6 +80,8 @@ export function Settings() {
 
   const [integrations, setIntegrations] = useState<IntegrationRecord[]>(DEFAULT_INTEGRATIONS)
   const [integrationLoading, setIntegrationLoading] = useState<string | null>(null)
+  // Two-step revoke: the first click arms the confirm, the second commits.
+  const [pendingRevokeId, setPendingRevokeId] = useState<string | null>(null)
 
   useEffect(() => {
     setAccountName(user?.name ?? '')
@@ -149,6 +152,7 @@ export function Settings() {
       if (created) {
         setTokens((prev) => [created, ...prev])
         if (created.secret) setNewTokenSecret(created.secret)
+        void track({ name: 'api_token.created', properties: { token_id: String(created.id) } })
       }
       setTokenLabel('')
     } catch (err) {
@@ -181,6 +185,10 @@ export function Settings() {
     setIntegrationLoading(record.id)
     const next = !record.connected
     setIntegrations((prev) => prev.map((r) => (r.id === record.id ? { ...r, connected: next } : r)))
+    void track({
+      name: next ? 'integration.connected' : 'integration.disconnected',
+      properties: { integration_id: record.id, provider: record.provider },
+    })
     try {
       if (next) {
         await http.post(`/api/integrations/${record.provider}/connect`)
@@ -200,7 +208,7 @@ export function Settings() {
   return (
     <div
       data-mol-id="settings-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}
     >
       <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
@@ -521,7 +529,14 @@ export function Settings() {
                   <button
                     type="button"
                     data-mol-id={`settings-api-revoke-${key.id}`}
-                    onClick={() => handleRevokeToken(key.id)}
+                    onClick={() => {
+                      if (pendingRevokeId === key.id) {
+                        setPendingRevokeId(null)
+                        handleRevokeToken(key.id)
+                      } else {
+                        setPendingRevokeId(key.id)
+                      }
+                    }}
                     className={cm.cn(
                       cm.sp('px', 3),
                       cm.sp('py', 1),
@@ -530,7 +545,9 @@ export function Settings() {
                     )}
                     style={{ fontSize: 10 }}
                   >
-                    {t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                    {pendingRevokeId === key.id
+                      ? t('settings.api.confirmRevoke', {}, { defaultValue: 'Confirm?' })
+                      : t('common.revoke', {}, { defaultValue: 'Revoke' })}
                   </button>
                 </div>
               </div>
@@ -568,7 +585,7 @@ export function Settings() {
               data-mol-id={`settings-integration-${i.provider}`}
               className={cm.cn(
                 cm.sp('p', 4),
-                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
                 'rounded-lg bg-surface-container-low border border-outline-variant/30',
               )}
             >

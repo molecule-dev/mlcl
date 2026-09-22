@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -152,6 +153,10 @@ export function DocumentDetail() {
       await http.post(`/api/processing/documents/${record.id}/reprocess`, {
         steps: ['extract', 'classify', 'summarize'],
       })
+      void track({
+        name: 'document.reprocess_queued',
+        properties: { document_id: record.id },
+      })
       const refreshed = unwrapSingle<DocumentRecord>(await http.get(`/api/documents/${record.id}`))
       if (refreshed) setRecord(refreshed)
       setReprocessNote(
@@ -171,7 +176,7 @@ export function DocumentDetail() {
   return (
     <div
       data-mol-id="document-detail-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(6))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(6))}
     >
       <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <Link
@@ -264,7 +269,7 @@ export function DocumentDetail() {
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 3),
-              cm.flex({ align: 'center', justify: 'between' }),
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
               'bg-surface border-b border-outline-variant/40',
             )}
           >
@@ -314,7 +319,7 @@ export function DocumentDetail() {
             </div>
             <div
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }),
                 'text-xs font-mono tabular-nums',
               )}
             >
@@ -360,7 +365,7 @@ export function DocumentDetail() {
                 </span>
               </button>
             </div>
-            <div className={cm.flex({ align: 'center', gap: 'xs' })}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }))}>
               <button
                 type="button"
                 data-mol-id="document-rotate"

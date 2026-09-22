@@ -101,7 +101,7 @@ export function Dashboard() {
   return (
     <div
       data-mol-id="dashboard-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
+      className={cm.cn('px-4 sm:px-8', cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}
     >
       <header className={cm.flex({ direction: 'col', gap: 'xs' })}>
         <p
@@ -251,104 +251,112 @@ export function Dashboard() {
             'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm overflow-hidden',
           )}
         >
-          <table className={cm.cn('w-full text-left')}>
-            <thead className={cm.cn('bg-surface-container')}>
-              <tr>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('dashboard.recent.col.name', {}, { defaultValue: 'Document' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {t('form.type', {}, { defaultValue: 'Type' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-center',
-                  )}
-                >
-                  {t('dashboard.recent.col.confidence', {}, { defaultValue: 'Confidence' })}
-                </th>
-                <th
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right',
-                  )}
-                >
-                  {t('dashboard.recent.col.uploaded', {}, { defaultValue: 'Uploaded' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-surface-container')}>
-              {recent.map((d) => (
-                <tr
-                  key={d.id}
-                  className={cm.cn('hover:bg-surface-container-low transition-colors')}
-                >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link
-                      to={`/documents/${d.id}`}
-                      className={cm.cn(cm.textSize('sm'), 'font-semibold hover:text-primary')}
-                    >
-                      {d.original_name}
-                    </Link>
-                    {d.page_count ? (
-                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                        {t(
-                          'dashboard.recent.pages',
-                          { count: d.page_count },
-                          { defaultValue: `${d.page_count} pages` },
-                        )}
-                      </p>
-                    ) : null}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    {d.document_type ? (
-                      <DocumentTypeBadge type={d.document_type} />
-                    ) : (
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant italic')}>
-                        {t(
-                          'dashboard.recent.typeUnknown',
-                          {},
-                          { defaultValue: 'Awaiting classification' },
-                        )}
-                      </span>
-                    )}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-center')}>
-                    {typeof d.classification_confidence === 'number' ? (
-                      <ConfidencePill value={d.classification_confidence} />
-                    ) : (
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>—</span>
-                    )}
-                  </td>
-                  <td
+          {/* overflow-x-auto: at 390px the four columns cannot stack — let the
+              table scroll horizontally instead of blowing out the page. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full text-left')}>
+              <thead className={cm.cn('bg-surface-container')}>
+                <tr>
+                  <th
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-right text-on-surface-variant tabular-nums',
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
                     )}
                   >
-                    {fmtRelative(d.created_at)}
-                  </td>
+                    {t('dashboard.recent.col.name', {}, { defaultValue: 'Document' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t('form.type', {}, { defaultValue: 'Type' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-center',
+                    )}
+                  >
+                    {t('dashboard.recent.col.confidence', {}, { defaultValue: 'Confidence' })}
+                  </th>
+                  <th
+                    className={cm.cn(
+                      cm.sp('px', 4),
+                      cm.sp('py', 3),
+                      'text-[10px] font-black uppercase tracking-widest text-on-surface-variant text-right',
+                    )}
+                  >
+                    {t('dashboard.recent.col.uploaded', {}, { defaultValue: 'Uploaded' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-surface-container')}>
+                {recent.map((d) => (
+                  <tr
+                    key={d.id}
+                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <Link
+                        to={`/documents/${d.id}`}
+                        className={cm.cn(cm.textSize('sm'), 'font-semibold hover:text-primary')}
+                      >
+                        {d.original_name}
+                      </Link>
+                      {d.page_count ? (
+                        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          {t(
+                            'dashboard.recent.pages',
+                            { count: d.page_count },
+                            { defaultValue: `${d.page_count} pages` },
+                          )}
+                        </p>
+                      ) : null}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      {d.document_type ? (
+                        <DocumentTypeBadge type={d.document_type} />
+                      ) : (
+                        <span
+                          className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant italic')}
+                        >
+                          {t(
+                            'dashboard.recent.typeUnknown',
+                            {},
+                            { defaultValue: 'Awaiting classification' },
+                          )}
+                        </span>
+                      )}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-center')}>
+                      {typeof d.classification_confidence === 'number' ? (
+                        <ConfidencePill value={d.classification_confidence} />
+                      ) : (
+                        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                          —
+                        </span>
+                      )}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-right text-on-surface-variant tabular-nums',
+                      )}
+                    >
+                      {fmtRelative(d.created_at)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </div>

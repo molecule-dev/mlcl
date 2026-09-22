@@ -8,17 +8,19 @@ test.describe('/rules', () => {
   }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
+      // Arm BOTH response waits BEFORE goto — the GETs can resolve before the
+      // awaiters subscribe, causing a 15s timeout. 30s absorbs the API being
+      // busy with in-flight AI upload calls from earlier tests.
+      const rulesResponse = page.waitForResponse(
+        (r) => /\/api\/extraction-rules(?:\?|$)/.test(r.url()) && r.status() === 200,
+        { timeout: 30_000 },
+      )
+      const templatesResponse = page.waitForResponse(
+        (r) => /\/api\/extraction-templates(?:\?|$)/.test(r.url()) && r.status() === 200,
+        { timeout: 30_000 },
+      )
       await page.goto(APP_BASE + '/rules')
-      await Promise.all([
-        page.waitForResponse(
-          (r) => /\/api\/extraction-rules(?:\?|$)/.test(r.url()) && r.status() === 200,
-          { timeout: 15_000 },
-        ),
-        page.waitForResponse(
-          (r) => /\/api\/extraction-templates(?:\?|$)/.test(r.url()) && r.status() === 200,
-          { timeout: 15_000 },
-        ),
-      ])
+      await Promise.all([rulesResponse, templatesResponse])
     })
     const rulesGet = reqs.find(
       (r) => r.method === 'GET' && /\/api\/extraction-rules(?:\?|$)/.test(r.url),
@@ -36,8 +38,14 @@ test.describe('/rules', () => {
     page,
   }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await page.locator('[data-mol-id="rules-new"]').click()
     await expect(page.locator('[data-mol-id="rules-new-form"]')).toBeVisible()
 
@@ -83,15 +91,27 @@ test.describe('/rules', () => {
 
   test('rules page region is rendered after data loads', async ({ page }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await expect(page.locator('[data-mol-id="rules-page"]')).toBeVisible()
   })
 
   test('"New rule" button toggles the inline form open and closed', async ({ page }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await page.locator('[data-mol-id="rules-new"]').click()
     await expect(page.locator('[data-mol-id="rules-new-form"]')).toBeVisible()
     await page.locator('[data-mol-id="rules-new"]').click()
@@ -100,8 +120,14 @@ test.describe('/rules', () => {
 
   test('Rule name input accepts typed input', async ({ page }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await page.locator('[data-mol-id="rules-new"]').click()
     await page.locator('[data-mol-id="rules-form-name"]').fill('Vendor invoices')
     await expect(page.locator('[data-mol-id="rules-form-name"]')).toHaveValue('Vendor invoices')
@@ -109,8 +135,14 @@ test.describe('/rules', () => {
 
   test('Document type select changes value', async ({ page }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await page.locator('[data-mol-id="rules-new"]').click()
     await page.locator('[data-mol-id="rules-form-type"]').selectOption('receipt')
     await expect(page.locator('[data-mol-id="rules-form-type"]')).toHaveValue('receipt')
@@ -118,8 +150,14 @@ test.describe('/rules', () => {
 
   test('Destination field accepts typed input', async ({ page }) => {
     await signup(page)
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await page.locator('[data-mol-id="rules-new"]').click()
     await page.locator('[data-mol-id="rules-form-destination"]').fill('/Inbox/Receipts')
     await expect(page.locator('[data-mol-id="rules-form-destination"]')).toHaveValue(
@@ -134,8 +172,14 @@ test.describe('/rules', () => {
       headers: { Authorization: `Bearer ${token}` },
       data: { name: `card-${Date.now()}`, matchedType: 'receipt', destination: '/Inbox/Receipts' },
     })
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     await expect(page.locator('[data-mol-id="rules-empty"]')).toHaveCount(0)
     await expect(page.locator('[data-mol-id^="rule-"]').first()).toBeVisible({ timeout: 10_000 })
   })
@@ -151,8 +195,14 @@ test.describe('/rules', () => {
     expect(seed.status()).toBeLessThan(400)
     const seeded = (await seed.json()) as { id: string }
 
+    // Arm the response wait BEFORE goto — the /api/extraction-rules fetch can
+    // resolve before the awaiter subscribes, causing a 15s timeout.
+    const rulesResponse = page.waitForResponse(
+      (r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + '/rules')
-    await page.waitForResponse((r) => /\/api\/extraction-rules/.test(r.url()) && r.status() === 200)
+    await rulesResponse
     // Wait for the seeded rule's card to actually render before we try to
     // click into it — the GET response fires before React reconciles.
     await page

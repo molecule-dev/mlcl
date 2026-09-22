@@ -16,10 +16,14 @@ test.describe('/documents/:id', () => {
     await signup(page)
     const uploaded = await uploadInvoice(page)
     const reqs = await captureNetwork(page, async () => {
+      // Arm the response wait BEFORE goto — the detail fetch can resolve
+      // before the awaiter subscribes, causing a 15s timeout.
+      const detailResponse = page.waitForResponse(
+        (r) => /\/api\/documents\//.test(r.url()) && r.status() === 200,
+        { timeout: 15_000 },
+      )
       await page.goto(APP_BASE + `/documents/${uploaded.id}`)
-      await page.waitForResponse((r) => /\/api\/documents\//.test(r.url()) && r.status() === 200, {
-        timeout: 15_000,
-      })
+      await detailResponse
     })
     const detailGet = reqs.find(
       (r) => r.method === 'GET' && new RegExp(`/api/documents/${uploaded.id}`).test(r.url),
@@ -158,8 +162,13 @@ test.describe('/documents/:id', () => {
   }) => {
     await signup(page)
     const uploaded = await uploadInvoice(page)
+    // Arm the response wait BEFORE goto — see the race note above.
+    const detailResponse = page.waitForResponse(
+      (r) => /\/api\/documents\//.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + `/documents/${uploaded.id}`)
-    await page.waitForResponse((r) => /\/api\/documents\//.test(r.url()) && r.status() === 200)
+    await detailResponse
     // Restrict to actual field BUTTONS — `document-field-highlight` is a
     // separate sibling div that the prefix selector would otherwise pick up.
     const firstField = page.locator('button[data-mol-id^="document-field-"]').first()
@@ -186,10 +195,13 @@ test.describe('/documents/:id', () => {
   }) => {
     await signup(page)
     const uploaded = await uploadInvoice(page)
+    // Arm the response wait BEFORE goto — see the race note above.
+    const detailResponse = page.waitForResponse(
+      (r) => /\/api\/documents\//.test(r.url()) && r.status() === 200,
+      { timeout: 15_000 },
+    )
     await page.goto(APP_BASE + `/documents/${uploaded.id}`)
-    await page.waitForResponse((r) => /\/api\/documents\//.test(r.url()) && r.status() === 200, {
-      timeout: 15_000,
-    })
+    await detailResponse
     const respPromise = page.waitForResponse(
       (r) =>
         r.request().method() === 'POST' &&

@@ -74,6 +74,12 @@ test.describe('/signup', () => {
     // Same email retry should not result in /dashboard.
     // Wipe local auth so the retry uses a fresh /signup.
     await page.evaluate(() => window.localStorage.clear())
+    // The duplicate POST is EXPECTED to 403 — tell the console guard before
+    // the response fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/signup')
     // Wait for the form to mount before counting. count() is a one-shot read
     // with no auto-waiting, so it can run against a still-empty React root,

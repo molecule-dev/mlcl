@@ -36,6 +36,12 @@ test.describe('/login', () => {
     const creds = await signup(page)
     await page.evaluate(() => window.localStorage.clear())
 
+    // The rejected log-in is EXPECTED to 403 — tell the console guard before
+    // the response fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').fill(creds.email)
     await page.locator('input[type="password"]').first().fill('WrongPass1234!')
