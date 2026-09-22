@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -30,6 +31,13 @@ interface SubmitResponse {
   xp_earned?: number
   correct_answer?: string
   explanation?: string
+}
+
+interface CompleteLessonResponse {
+  success?: boolean
+  xp_earned?: number
+  current_streak?: number
+  streak_incremented?: boolean
 }
 
 function parseChoices(raw: string | string[] | null | undefined): string[] {
@@ -142,6 +150,11 @@ export function LessonDetail() {
           : (res as SubmitResponse)) ?? {}
       const isCorrect = Boolean(body.is_correct)
       const earnedXp = Number(body.xp_earned ?? 0)
+      // Domain event: an exercise was answered (fire-and-forget).
+      void track({
+        name: 'exercise.answered',
+        properties: { exerciseId: exercise.id, lessonId: id, isCorrect, xp: earnedXp },
+      })
       setFeedback(isCorrect ? 'correct' : 'wrong')
       setFeedbackExplanation(String(body.explanation ?? exercise.explanation))
       setFeedbackCorrect(String(body.correct_answer ?? exercise.correctAnswer))
@@ -176,10 +189,26 @@ export function LessonDetail() {
     }
     setCompleted(true)
     try {
-      await http.post(`/api/progress/user/${encodeURIComponent(user.id)}/complete-lesson`, {
-        lesson_id: id,
-        xp_earned: xpEarned,
-      })
+      const res = await http.post<CompleteLessonResponse>(
+        `/api/progress/user/${encodeURIComponent(user.id)}/complete-lesson`,
+        {
+          lesson_id: id,
+          xp_earned: xpEarned,
+        },
+      )
+      // Domain events: the lesson committed, and (when today's goal was just
+      // crossed) the streak moved (fire-and-forget).
+      void track({ name: 'lesson.completed', properties: { lessonId: id, xpEarned } })
+      const body: CompleteLessonResponse =
+        res && typeof res === 'object' && 'data' in res
+          ? (res as { data: CompleteLessonResponse }).data
+          : (res as CompleteLessonResponse)
+      if (body?.streak_incremented) {
+        void track({
+          name: 'streak.updated',
+          properties: { lessonId: id, currentStreak: Number(body.current_streak ?? 0) },
+        })
+      }
     } catch (_error) {
       // Progress POST is best-effort; navigate so the user is never stuck.
     }

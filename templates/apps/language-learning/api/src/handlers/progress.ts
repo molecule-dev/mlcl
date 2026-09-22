@@ -114,6 +114,12 @@ router.post(
     const todayStr = today.toISOString().slice(0, 10)
     const yesterdayStr = new Date(today.getTime() - 86_400_000).toISOString().slice(0, 10)
 
+    // Streak outcome for the response (the client tracks a `streak.updated`
+    // event from it when the day's goal was just crossed). Assigned on the
+    // existing-profile path; the new-profile path returns early.
+    let currentStreakOut: number
+    let streakIncremented: boolean
+
     if (profile) {
       const isNewDay = dayStr(profile.last_activity) !== todayStr
       const dailyGoal = Number(profile.daily_goal_xp ?? DEFAULT_DAILY_GOAL_XP)
@@ -133,6 +139,8 @@ router.post(
         newStreak = dayStr(profile.last_goal_date) === yesterdayStr ? currentStreak + 1 : 1
         newLastGoalDate = todayStr
       }
+      currentStreakOut = newStreak
+      streakIncremented = crossedGoalNow
 
       await updateMany('user_profiles', [{ field: 'user_id', operator: '=', value: userId }], {
         total_xp: Number(profile.total_xp ?? 0) + xpEarned,
@@ -163,8 +171,20 @@ router.post(
         created_at: today,
         updated_at: today,
       })
+      res.json({
+        success: true,
+        xp_earned: xpEarned,
+        current_streak: hitGoal ? 1 : 0,
+        streak_incremented: hitGoal,
+      })
+      return
     }
-    res.json({ success: true, xp_earned: xpEarned })
+    res.json({
+      success: true,
+      xp_earned: xpEarned,
+      current_streak: currentStreakOut,
+      streak_incremented: streakIncremented,
+    })
   },
 )
 

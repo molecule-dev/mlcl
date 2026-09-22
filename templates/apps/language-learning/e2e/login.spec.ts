@@ -37,7 +37,14 @@ test.describe('/login', () => {
     expect(token!.split('.').length, 'JWT shape').toBe(3)
   })
 
-  test('wrong password keeps the user on /login', async ({ page }) => {
+  test('wrong password keeps the user on /login', async ({ page }, testInfo) => {
+    // Expected 4xx: the API rejects the bad credential (401/403) and the
+    // page renders its inline error banner — the browser logs the failed
+    // request, which the console guard must not treat as a regression.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[134]',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/^Email( address)?$/i).fill('does-not-exist@example.com')
     await page.getByLabel(/^Password$/i).fill('NotARealPassword!')

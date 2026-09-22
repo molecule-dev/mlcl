@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -103,6 +104,11 @@ export function Vocabulary() {
     setReviewingId(word.id)
     try {
       await http.post(`/api/vocabulary/${encodeURIComponent(word.id)}/review`, { correct })
+      // Domain event: a spaced-repetition review was graded (fire-and-forget).
+      void track({
+        name: 'vocabulary.reviewed',
+        properties: { wordId: word.id, correct },
+      })
       await load()
     } catch (_error) {
       // Surface inline error; failure is communicated to the user via setError.

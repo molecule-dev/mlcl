@@ -37,7 +37,17 @@ test.describe('/plan-updated', () => {
 })
 
 test.describe('/plan-updated — checkout return', () => {
-  test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+  test('confirms the purchase when the provider returns with a payment id', async ({
+    page,
+  }, testInfo) => {
+    // `cs_test_e2e` is not a real Stripe session, so the API correctly answers
+    // 4xx (invalid session) or 503 (provider not configured). The browser logs
+    // that failed request; what this test asserts is that the confirmation
+    // call FIRES from the return page.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (4\\d\\d|503)',
+    })
     await signup(page)
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })

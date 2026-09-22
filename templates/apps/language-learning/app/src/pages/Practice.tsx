@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -167,9 +168,16 @@ export function Practice() {
             res && typeof res === 'object' && 'data' in res
               ? (res as { data: CheckResponse }).data
               : (res as CheckResponse)
+          const correct = !!body.correct
+          const xp = Number(body.xp_earned ?? 0)
+          // Domain event: a speaking attempt was graded and persisted (fire-and-forget).
+          void track({
+            name: 'practice.attempted',
+            properties: { exerciseId: phrase.exercise_id, correct, xp },
+          })
           setFeedback({
-            correct: !!body.correct,
-            xp: Number(body.xp_earned ?? 0),
+            correct,
+            xp,
             explanation: body.explanation || '',
             correctAnswer: body.correct_answer || expected,
           })

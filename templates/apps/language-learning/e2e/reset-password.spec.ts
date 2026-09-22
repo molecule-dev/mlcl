@@ -21,7 +21,13 @@ test.describe('/reset-password', () => {
 
   test('submitting with an invalid token surfaces a real error (no silent success)', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // Expected 4xx: an invalid token must be rejected by the API; the browser
+    // logs the failed request, which the console guard must not flag.
+    testInfo.annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[134]',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(
         APP_BASE + '/reset-password?email=does-not-exist@example.com&token=definitely-not-real',

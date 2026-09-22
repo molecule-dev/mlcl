@@ -342,6 +342,7 @@ export function Settings() {
             type="button"
             role="switch"
             aria-checked={reminders}
+            aria-label={t('settings.notifyDaily', {}, { defaultValue: 'Daily practice reminder' })}
             data-testid="settings-toggle-reminder"
             onClick={() => setReminders((v) => !v)}
             className={cm.cn(
@@ -396,6 +397,7 @@ export function Settings() {
             type="button"
             role="switch"
             aria-checked={pushStreak}
+            aria-label={t('settings.notifyStreak', {}, { defaultValue: 'Streak loss alert' })}
             data-testid="settings-toggle-streak"
             onClick={() => setPushStreak((v) => !v)}
             className={cm.cn(
@@ -426,6 +428,7 @@ export function Settings() {
             type="button"
             role="switch"
             aria-checked={emailDigest}
+            aria-label={t('settings.notifyDigest', {}, { defaultValue: 'Weekly email digest' })}
             data-testid="settings-toggle-digest"
             onClick={() => setEmailDigest((v) => !v)}
             className={cm.cn(
