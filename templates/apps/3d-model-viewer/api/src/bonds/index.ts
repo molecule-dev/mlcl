@@ -9,10 +9,12 @@ import { setupMiddlewareBodyParserExpress } from './middleware-body-parser-expre
 import { setupMiddlewareCookieParserExpress } from './middleware-cookie-parser-express.js'
 import { setupMiddlewareCorsExpress } from './middleware-cors-express.js'
 import { setupPasswordBcrypt } from './password-bcrypt.js'
+import { setupPaymentsStripe } from './payments-stripe.js'
 import { setupRateLimitMemory } from './rate-limit-memory.js'
 import { setupSearchMeilisearch } from './search-meilisearch.js'
 import { setupSecretsEnv } from './secrets-env.js'
 import { setupServiceDevice } from './service-device.js'
+import { setupServicePayment } from './service-payment.js'
 import { setupTwoFactorOtplib } from './two-factor-otplib.js'
 import { setupUploadsS3 } from './uploads-s3.js'
 
@@ -46,6 +48,11 @@ export async function setupBonds(): Promise<void> {
   setupMiddlewareCorsExpress()
   setupSearchMeilisearch()
   setupUploadsS3()
+  // Payments: stripe provider + plan/paymentRecord services. The
+  // /plan-updated checkout-return page needs them to confirm a purchase —
+  // unbonded, the verify-payment route 500s on every call.
+  setupServicePayment()
+  setupPaymentsStripe()
   setupJwtJsonwebtoken()
   setupPasswordBcrypt()
   setupTwoFactorOtplib()

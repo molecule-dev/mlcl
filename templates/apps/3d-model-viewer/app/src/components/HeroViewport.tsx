@@ -46,7 +46,7 @@ function HeroViewport() {
         )}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
-          'absolute top-[30%] left-[45%]',
+          'absolute top-[30%] left-[45%] p-1.5 -m-1.5',
         )}
         onClick={() => setActivePin(activePin === 1 ? null : 1)}
       >
@@ -74,7 +74,7 @@ function HeroViewport() {
         )}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
-          'absolute top-[60%] right-[30%]',
+          'absolute top-[60%] right-[30%] p-1.5 -m-1.5',
         )}
         onClick={() => setActivePin(activePin === 2 ? null : 2)}
       >
@@ -154,8 +154,8 @@ function HeroViewport() {
         <button
           className={
             activeTool === 'rotate'
-              ? 'text-primary hover:text-primary-container transition-colors'
-              : 'text-on-surface-variant hover:text-primary transition-colors'
+              ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
+              : 'text-on-surface-variant hover:text-primary transition-colors p-1.5 rounded-md'
           }
           onClick={() => setActiveTool('rotate')}
         >
@@ -164,8 +164,8 @@ function HeroViewport() {
         <button
           className={
             activeTool === 'pan'
-              ? 'text-primary hover:text-primary-container transition-colors'
-              : 'text-on-surface-variant hover:text-primary transition-colors'
+              ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
+              : 'text-on-surface-variant hover:text-primary transition-colors p-1.5 rounded-md'
           }
           onClick={() => setActiveTool('pan')}
         >
@@ -174,8 +174,8 @@ function HeroViewport() {
         <button
           className={
             activeTool === 'zoom'
-              ? 'text-primary hover:text-primary-container transition-colors'
-              : 'text-on-surface-variant hover:text-primary transition-colors'
+              ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
+              : 'text-on-surface-variant hover:text-primary transition-colors p-1.5 rounded-md'
           }
           onClick={() => setActiveTool('zoom')}
         >
@@ -184,8 +184,8 @@ function HeroViewport() {
         <button
           className={
             activeTool === 'layers'
-              ? 'text-primary hover:text-primary-container transition-colors'
-              : 'text-on-surface-variant hover:text-primary transition-colors'
+              ? 'text-primary hover:text-primary-container transition-colors p-1.5 rounded-md'
+              : 'text-on-surface-variant hover:text-primary transition-colors p-1.5 rounded-md'
           }
           onClick={() => setActiveTool('layers')}
         >

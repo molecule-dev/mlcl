@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileBottomNav from '../components/MobileBottomNav.js'
 import ModelEditActionBar from '../components/ModelEditActionBar.js'
 import ModelEditMetadataPanel from '../components/ModelEditMetadataPanel.js'
 import ModelEditPreviewPanel from '../components/ModelEditPreviewPanel.js'
@@ -126,6 +128,11 @@ function ModelEdit() {
         tags,
       }
       await http.put(`/api/models/${id}`, payload)
+      // Domain event: metadata save commits.
+      void track({
+        name: 'model.updated',
+        properties: { modelId: id, visibility: isPublic ? 'public' : 'private' },
+      })
       setSavedAt(Date.now())
     } catch (err) {
       setError(
@@ -144,6 +151,8 @@ function ModelEdit() {
       return
     try {
       await http.delete(`/api/models/${id}`)
+      // Domain event: destructive action committed.
+      void track({ name: 'model.deleted', properties: { modelId: id } })
       navigate('/models')
     } catch (err) {
       setError(
@@ -168,7 +177,7 @@ function ModelEdit() {
           cm.flex({ direction: 'col' }),
           cm.flex1,
           cm.h('screen'),
-          'ml-[260px] overflow-hidden',
+          'md:ml-[260px] overflow-hidden',
         )}
       >
         <ModelEditTopBar modelName={name} />
@@ -234,6 +243,8 @@ function ModelEdit() {
           />
         ) : null}
       </div>
+      {/* Mobile chrome: bottom tab bar below md */}
+      <MobileBottomNav />
     </div>
   )
 }

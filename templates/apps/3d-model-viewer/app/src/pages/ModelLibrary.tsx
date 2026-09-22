@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileBottomNav from '../components/MobileBottomNav.js'
 import ModelFilterBar from '../components/ModelFilterBar.js'
 import ModelLibraryGrid from '../components/ModelLibraryGrid.js'
 import ModelLibraryHeader from '../components/ModelLibraryHeader.js'
@@ -144,7 +145,7 @@ function ModelLibrary() {
           }}
         />
         {/* Content Area */}
-        <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('pb', 12), 'overflow-y-auto')}>
+        <div className={cm.cn(cm.flex1, cm.sp('px', 8), 'pb-28 md:pb-12 overflow-y-auto')}>
           {/* Filter Row */}
           <ModelFilterBar
             format={format}
@@ -173,6 +174,8 @@ function ModelLibrary() {
           <ModelPagination page={page} totalPages={totalPages} onPage={setPage} />
         </div>
       </main>
+      {/* Mobile chrome: bottom tab bar below md (side nav is md+ only) */}
+      <MobileBottomNav />
     </div>
   )
 }

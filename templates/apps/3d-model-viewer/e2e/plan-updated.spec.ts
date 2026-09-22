@@ -45,12 +45,32 @@ test.describe('/plan-updated', () => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // The provider's success_url lands on the APP origin, so this page is what
+    // finishes the purchase — without the call the paid plan is never granted.
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
       .catch(() => null)
-    // The provider's success_url lands on the APP origin, so this page is what
-    // finishes the purchase — without the call the paid plan is never granted.
+    // Unconfigured-stripe contract (no STRIPE_SECRET_KEY in the test env): the
+    // checkout return FIRES verify-payment and the server REFUSES with the
+    // actionable 503 config.notConfigured (400 if a key is set and the fake
+    // session id fails verification). Either way it must never be a silent
+    // no-op or an UNHANDLED 500 — a 500 here means a payments bond is missing.
+    // Allow the browser's expected "Failed to load resource" log for the
+    // non-2xx refusal.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of [45]\\d\\d',
+    })
     await page.goto(APP_BASE + '/plan-updated?provider=stripe&sessionId=cs_test_e2e')
-    expect(await confirmed).not.toBeNull()
+    const resp = await confirmed
+    expect(resp, 'verify-payment call fired on checkout return').not.toBeNull()
+    const status = resp!.status()
+    expect(
+      status,
+      'checkout return must refuse (4xx) or answer the actionable 503 — never grant unverified',
+    ).toBeGreaterThanOrEqual(400)
+    expect(status, 'unhandled 500 = a payments bond is missing (crash, not a refusal)').not.toBe(
+      500,
+    )
   })
 })

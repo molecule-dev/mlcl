@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -144,6 +145,11 @@ function Annotations() {
         z: 0,
         position: nextPosition,
       })
+      // Domain event: annotation created.
+      void track({
+        name: 'annotation.created',
+        properties: { modelId: model.id, position: nextPosition },
+      })
       await refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -198,6 +204,13 @@ function Annotations() {
     setError(null)
     try {
       await http.delete(`/api/annotations/${annotation.id}`)
+      // Domain event: annotation deleted.
+      if (model) {
+        void track({
+          name: 'annotation.deleted',
+          properties: { modelId: model.id, annotationId: annotation.id },
+        })
+      }
       await refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

@@ -18,7 +18,7 @@ function DashboardTopBar() {
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
         cm.w('full'),
-        'fixed top-0 right-0 left-[260px] h-[56px] z-40 bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl',
+        'fixed top-0 right-0 left-0 md:left-[260px] h-[56px] z-40 bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl',
       )}
     >
       {/* Search Bar Area (on_left) */}
@@ -27,8 +27,8 @@ function DashboardTopBar() {
           cm.flex({ align: 'center' }),
           cm.sp('px', 4),
           cm.sp('py', 2),
-          cm.w(64),
-          'bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors',
+          'w-36 sm:w-52 md:w-64',
+          'bg-surface-container-low rounded-xl hover:bg-surface-container-high transition-colors min-w-0',
         )}
       >
         <span

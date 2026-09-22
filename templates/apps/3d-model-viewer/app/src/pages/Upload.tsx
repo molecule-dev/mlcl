@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -88,6 +89,15 @@ function Upload() {
                 ? (response as { data?: { id?: string } }).data
                 : (response as { id?: string } | undefined)
             const modelId = body?.id ?? null
+            // Domain event: the upload funnel's success point.
+            void track({
+              name: 'model.uploaded',
+              properties: {
+                modelId,
+                format: item.format,
+                sizeBytes: item.sizeBytes,
+              },
+            })
             setQueue((prev) =>
               prev.map((q) =>
                 q.id === item.id ? { ...q, status: 'ready', progress: 100, modelId } : q,

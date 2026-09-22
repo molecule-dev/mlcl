@@ -18,7 +18,7 @@ function NotificationsTopBar({ search = '', onSearch }: NotificationsTopBarProps
         cm.sp('px', 8),
         cm.h(16),
         cm.w('full'),
-        'bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 fixed top-0 right-0 left-[260px] z-40 border-b border-outline-variant/50',
+        'bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 fixed top-0 right-0 left-0 md:left-[260px] z-40 border-b border-outline-variant/50',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 4 })}>

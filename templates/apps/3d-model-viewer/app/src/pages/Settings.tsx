@@ -10,6 +10,7 @@ import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import AvatarSection from '../components/AvatarSection.js'
+import MobileBottomNav from '../components/MobileBottomNav.js'
 import ProfileFormActions from '../components/ProfileFormActions.js'
 import ProfileFormFields from '../components/ProfileFormFields.js'
 import SettingsSubNav from '../components/SettingsSubNav.js'
@@ -130,10 +131,10 @@ function Settings() {
         'bg-surface text-on-surface overflow-hidden selection:bg-primary-container selection:text-on-primary-container',
       )}
     >
-      {/* JSON Component: SideNavBar */}
+      {/* JSON Component: SideNavBar — md+ only; mobile uses MobileBottomNav */}
       <nav
         className={cm.cn(
-          cm.flex({ direction: 'col' }),
+          'hidden md:flex flex-col',
           cm.w('[260px]'),
           cm.h('screen'),
           cm.h('full'),
@@ -227,7 +228,7 @@ function Settings() {
           cm.flex({ direction: 'col' }),
           cm.flex1,
           cm.h('screen'),
-          'ml-[260px] relative bg-surface',
+          'md:ml-[260px] relative bg-surface',
         )}
       >
         {/* JSON Component: TopAppBar */}
@@ -237,7 +238,7 @@ function Settings() {
             cm.sp('px', 8),
             cm.w('full'),
             cm.h(16),
-            'fixed top-0 right-0 left-[260px] bg-surface-container-lowest/80 backdrop-blur-xl z-40',
+            'fixed top-0 right-0 left-0 md:left-[260px] bg-surface-container-lowest/80 backdrop-blur-xl z-40',
           )}
         >
           <div
@@ -392,6 +393,8 @@ function Settings() {
           </div>
         </div>
       </main>
+      {/* Mobile chrome: bottom tab bar below md */}
+      <MobileBottomNav />
     </div>
   )
 }

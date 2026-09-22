@@ -12,7 +12,7 @@ function TelemetryHUD({ triangles, renderTime }: TelemetryHUDProps = {}) {
   const triCount = (triangles ?? 0).toLocaleString()
   const frameTime = renderTime ?? '4.2'
   return (
-    <div className="absolute top-6 right-[340px] z-30">
+    <div className="absolute top-6 right-4 md:right-[340px] z-30">
       <div
         className={cm.cn(
           cm.roundedFull,

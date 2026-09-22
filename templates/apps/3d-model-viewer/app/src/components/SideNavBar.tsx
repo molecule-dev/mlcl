@@ -29,9 +29,8 @@ function SideNavBar() {
   return (
     <aside
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.h('full'),
-        'fixed w-[260px] left-0 top-0 overflow-y-auto bg-surface-container-lowest shadow-[0_12px_40px_rgba(15,15,35,0.06)] z-50',
+        // Hidden below md — mobile chrome is the bottom tab bar (MobileBottomNav).
+        'hidden md:flex flex-col h-full fixed w-[260px] left-0 top-0 overflow-y-auto bg-surface-container-lowest shadow-[0_12px_40px_rgba(15,15,35,0.06)] z-50',
       )}
     >
       {/* Header */}

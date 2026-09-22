@@ -20,14 +20,14 @@ function ViewerToolbar() {
   }
 
   return (
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30">
+    <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 max-w-[calc(100vw-1.5rem)]">
       <div
         className={cm.cn(
           cm.flex({ align: 'center', gap: 2 }),
           cm.sp('px', 3),
           cm.sp('py', 2),
           cm.roundedFull,
-          'bg-surface-container-highest/60 backdrop-blur-xl border border-outline-variant/15 shadow-[0_8px_32px_rgba(0,0,0,0.5)]',
+          'overflow-x-auto max-w-full bg-surface-container-highest/60 backdrop-blur-xl border border-outline-variant/15 shadow-[0_8px_32px_rgba(0,0,0,0.5)]',
         )}
       >
         <button

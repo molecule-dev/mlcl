@@ -8,7 +8,7 @@ function FloatingUploadButton() {
   return (
     <Link
       className={cm.cn(
-        'fixed bottom-8 right-8 h-14 px-6 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-[0_12px_40px_rgba(15,15,35,0.15)] flex items-center gap-2 hover:scale-[1.02] active:scale-98 transition-all duration-200 z-50 group',
+        'fixed bottom-20 md:bottom-8 right-4 md:right-8 h-14 px-5 md:px-6 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-[0_12px_40px_rgba(15,15,35,0.15)] flex items-center gap-2 hover:scale-[1.02] active:scale-98 transition-all duration-200 z-50 group',
       )}
       to="/upload"
     >

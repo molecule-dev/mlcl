@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { debug as logDebug } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -51,6 +52,8 @@ function ModelViewer() {
       .finally(() => setLoading(false))
     // Record the view so the dashboard's "Views This Month" stat reflects
     // real viewer opens (the API logs it as a 'rendered' activity row).
+    // Domain event: the viewer funnel's success point (model opened).
+    void track({ name: 'model.viewed', properties: { modelId: id } })
     http.post(`/api/models/${id}/render`, {}).catch((error: unknown) => {
       // Best-effort telemetry — a failed ping must never break the viewer.
       logDebug('modelViewer.renderPing failed', error)

@@ -70,7 +70,7 @@ function LandingFooter() {
           tools/pricing/learning/careers/etc. were removed because they 404'd. */}
           <Link
             className={cm.cn(
-              'text-on-surface-variant hover:text-primary text-sm transition-colors',
+              'text-on-surface-variant hover:text-primary text-sm transition-colors inline-block py-2',
             )}
             to="/models"
           >
@@ -78,7 +78,7 @@ function LandingFooter() {
           </Link>
           <Link
             className={cm.cn(
-              'text-on-surface-variant hover:text-primary text-sm transition-colors',
+              'text-on-surface-variant hover:text-primary text-sm transition-colors inline-block py-2',
             )}
             to="/upload"
           >
@@ -98,7 +98,7 @@ function LandingFooter() {
           </span>
           <Link
             className={cm.cn(
-              'text-on-surface-variant hover:text-primary text-sm transition-colors',
+              'text-on-surface-variant hover:text-primary text-sm transition-colors inline-block py-2',
             )}
             to="/about"
           >
@@ -118,7 +118,7 @@ function LandingFooter() {
           </span>
           <LegalModalLinks
             linkClassName={cm.cn(
-              'text-on-surface-variant hover:text-primary text-sm transition-colors text-left',
+              'text-on-surface-variant hover:text-primary text-sm transition-colors text-left py-2 inline-block',
             )}
             appName={APP_NAME}
             loadContent={loadContent}

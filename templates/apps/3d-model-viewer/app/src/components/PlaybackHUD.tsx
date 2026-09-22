@@ -8,7 +8,13 @@ function PlaybackHUD() {
   const { t } = useTranslation()
   const [isPlaying, setIsPlaying] = useState(false)
   return (
-    <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'absolute bottom-8 left-6 z-30')}>
+    // md+ only — on phones it would sit under the centered ViewerToolbar.
+    <div
+      className={cm.cn(
+        cm.flex({ align: 'center', gap: 4 }),
+        'hidden md:flex absolute bottom-8 left-6 z-30',
+      )}
+    >
       <div
         className={cm.cn(
           cm.flex({ align: 'center', gap: 2 }),

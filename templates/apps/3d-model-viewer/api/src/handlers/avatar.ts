@@ -1,6 +1,7 @@
 import connectBusboy from 'connect-busboy'
 import { type Request, type Response, Router } from 'express'
 
+import { getLogger } from '@molecule/api-bond'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
@@ -19,6 +20,8 @@ const MAX_BYTES = 1 * 1024 * 1024
 // the `users.avatar` text column instead; that keeps it provider-agnostic AND
 // private. This router is mounted at `/user`, under the API's `/api` base.
 const AVATAR_ROUTE = '/api/user/avatar/'
+
+const logger = getLogger()
 
 const router = Router()
 
@@ -54,7 +57,7 @@ router.post('/avatar', busboyMiddleware, (req: Request, res: Response) => {
   try {
     provider = getUploadProvider()
   } catch (err) {
-    console.error('[avatar.upload] provider lookup failed', err)
+    logger.error('avatar.upload', err)
     res.status(500).json({
       error: t('uploads.error.noProvider', {}, { defaultValue: 'Upload provider not configured.' }),
     })
@@ -97,7 +100,7 @@ router.post('/avatar', busboyMiddleware, (req: Request, res: Response) => {
 
       const file = provider.upload('file', stream, info, (err) => {
         if (limitHit) return
-        console.error('[avatar.upload] provider error', err)
+        logger.error('avatar.upload', err)
         sendError(500, err.message || 'Upload failed.')
       })
 
@@ -127,7 +130,7 @@ router.post('/avatar', busboyMiddleware, (req: Request, res: Response) => {
           } catch (err) {
             // A failed persist means the avatar wouldn't survive a reload —
             // surface it, never return 200 with an unsaved avatar.
-            console.error('[avatar.upload] profile update failed', err)
+            logger.error('avatar.update', err)
             sendError(500, t('uploads.saveFailed', {}, { defaultValue: 'Could not save avatar.' }))
             return
           }
@@ -137,7 +140,7 @@ router.post('/avatar', busboyMiddleware, (req: Request, res: Response) => {
             try {
               await provider.deleteFile(previous)
             } catch (err) {
-              console.error('[avatar.upload] old avatar cleanup failed', err)
+              logger.error('avatar.cleanup', err)
             }
           }
           responded = true
@@ -179,7 +182,7 @@ router.delete('/avatar', async (_req: Request, res: Response) => {
     } catch (err) {
       // A storage hiccup must not block clearing the column — the user still
       // sees the avatar removed; the orphaned object can be swept separately.
-      console.error('[avatar.delete] storage delete failed', err)
+      logger.error('avatar.delete', err)
     }
   }
 

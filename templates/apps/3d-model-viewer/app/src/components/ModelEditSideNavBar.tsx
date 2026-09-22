@@ -10,7 +10,8 @@ function ModelEditSideNavBar() {
   return (
     <aside
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
+        // Hidden below md — mobile chrome is the bottom tab bar (MobileBottomNav).
+        'hidden md:flex flex-col',
         cm.sp('py', 4),
         cm.h('screen'),
         cm.w('[260px]'),

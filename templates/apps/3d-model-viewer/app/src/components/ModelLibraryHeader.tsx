@@ -15,12 +15,12 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
     <header
       className={cm.cn(
         cm.h(20),
-        cm.sp('px', 8),
+        'px-4 md:px-8',
         cm.flex({ align: 'center', justify: 'between' }),
-        'z-30 sticky top-0 bg-surface/90 backdrop-blur-md',
+        'z-30 sticky top-0 bg-surface/90 backdrop-blur-md min-w-0',
       )}
     >
-      <div className={cm.flex({ align: 'center', gap: 4 })}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'hidden sm:flex min-w-0')}>
         <span
           className={cm.cn(
             cm.textSize('lg'),
@@ -45,7 +45,17 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
           {t('header.allModels', {}, { defaultValue: 'All Models' })}
         </span>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 6 })}>
+      {/* Mobile-only compact title (the breadcrumb group above is sm+ only) */}
+      <span
+        className={cm.cn(
+          cm.textSize('lg'),
+          cm.fontWeight('semibold'),
+          'text-on-surface tracking-tight sm:hidden',
+        )}
+      >
+        {t('header.allModels', {}, { defaultValue: 'All Models' })}
+      </span>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'min-w-0 shrink')}>
         {/* Search Pill */}
         <div className={cm.cn(cm.w(80), 'relative hidden lg:block')}>
           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">
@@ -66,7 +76,7 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
             onChange={(e) => onSearch(e.target.value)}
           />
         </div>
-        <div className={cm.flex({ align: 'center', gap: 3 })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), 'shrink-0')}>
           <Link
             className={cm.cn(
               'w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant transition-colors',
@@ -87,12 +97,14 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
           </Link>
           <Link
             className={cm.cn(
-              'btn-gradient text-on-primary px-5 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 hover:shadow-[0_8px_20px_rgba(99,14,212,0.25)] active:scale-95 transition-all',
+              'btn-gradient text-on-primary px-3 md:px-5 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2 hover:shadow-[0_8px_20px_rgba(99,14,212,0.25)] active:scale-95 transition-all',
             )}
             to="/upload"
           >
             <span className="material-symbols-outlined text-[18px]">cloud_upload</span>
-            {t('header.uploadModel', {}, { defaultValue: 'Upload Model' })}
+            <span className="hidden md:inline">
+              {t('header.uploadModel', {}, { defaultValue: 'Upload Model' })}
+            </span>
           </Link>
           <UserMenu />
         </div>

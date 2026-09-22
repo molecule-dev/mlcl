@@ -47,8 +47,13 @@ function LoftInteriorCard() {
             cm.h('full'),
             'object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500',
           )}
-          alt=""
-          data-alt="detailed 3d architectural interior render of a modern living room"
+          alt={t(
+            'loftInteriorCard.imageAlt',
+            {},
+            {
+              defaultValue: 'Detailed 3D architectural interior render of a modern living room',
+            },
+          )}
           src="https://picsum.photos/seed/LoftInteriorCard-1/1200/800"
         />
       </div>

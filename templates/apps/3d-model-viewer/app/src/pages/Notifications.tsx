@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileBottomNav from '../components/MobileBottomNav.js'
 import NotificationFilterBar, {
   type NotificationFilter,
 } from '../components/NotificationFilterBar.js'
@@ -175,7 +176,7 @@ function Notifications() {
     >
       <SideNavBar />
       <NotificationsTopBar search={search} onSearch={setSearch} />
-      <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'pl-[260px]')}>
+      <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'md:pl-[260px] pb-24 md:pb-16')}>
         <div className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 8), 'max-w-[880px]')}>
           <NotificationsPageHeader
             unreadCount={items.filter((n) => n.unread).length}
@@ -249,6 +250,8 @@ function Notifications() {
           </div>
         </div>
       </main>
+      {/* Mobile chrome: bottom tab bar below md */}
+      <MobileBottomNav />
     </div>
   )
 }

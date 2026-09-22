@@ -15,7 +15,9 @@ function InspectorPanel({ modelName, modelId }: { modelName?: string; modelId?: 
   return (
     <aside
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
+        // Desktop pro tool — hidden below md so a 320px panel never covers a
+        // phone-width viewport.
+        'hidden md:flex flex-col',
         'fixed right-0 top-[48px] h-[calc(100vh-48px)] w-80 bg-surface-container-high/90 backdrop-blur-2xl border-l border-outline-variant/15 z-40 shadow-[-8px_0_32px_rgba(0,0,0,0.3)]',
       )}
     >

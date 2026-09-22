@@ -3,9 +3,12 @@ import { createHash } from 'node:crypto'
 import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { hash } from '@molecule/api-password'
+
+const logger = getLogger()
 
 const router = Router()
 
@@ -94,8 +97,11 @@ router.post('/reset-password', async (req: Request, res: Response) => {
     })
 
     return res.status(200).json({ success: true })
-  } catch (_error) {
-    // DB or hash failure — surface a generic 500; details are not exposed to the client
+  } catch (error) {
+    // DB or hash failure — surface a generic 500; details are not exposed to
+    // the client, but they ARE logged with the domain event name so a failing
+    // reset flow is diagnosable.
+    logger.error('auth.resetPassword', error)
     return res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

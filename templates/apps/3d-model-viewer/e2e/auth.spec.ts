@@ -42,6 +42,12 @@ test.describe('auth — signup, login, logout, persistence', () => {
   })
 
   test('Login form rejects invalid credentials (no false positives)', async ({ page }) => {
+    // The 403 from POST /api/users/log-in is the EXPECTED rejection — the
+    // browser surfaces it as a console error. Allow exactly that.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page
       .locator('input#email, input[type=email]')

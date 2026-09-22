@@ -11,6 +11,7 @@ import ActivityFeed from '../components/ActivityFeed.js'
 import DashboardStatsRow from '../components/DashboardStatsRow.js'
 import DashboardTopBar from '../components/DashboardTopBar.js'
 import FloatingUploadButton from '../components/FloatingUploadButton.js'
+import MobileBottomNav from '../components/MobileBottomNav.js'
 import ModelCard from '../components/ModelCard.js'
 import SideNavBar from '../components/SideNavBar.js'
 import StorageBreakdown from '../components/StorageBreakdown.js'
@@ -66,10 +67,10 @@ function Dashboard() {
 
   return (
     <div className={cm.cn(cm.minH('screen'), 'bg-surface text-on-surface font-body antialiased')}>
-      {/* SideNavBar (Shared Component) */}
+      {/* SideNavBar (Shared Component) — md+ only; mobile uses MobileBottomNav */}
       <SideNavBar />
       {/* Main Content Wrapper */}
-      <main className={cm.cn(cm.minH('screen'), 'ml-[260px] relative')}>
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-[260px] relative')}>
         <DashboardTopBar />
         {/* Canvas */}
         <div
@@ -78,7 +79,7 @@ function Dashboard() {
             cm.maxW('7xl'),
             cm.mxAuto,
             cm.stack(12),
-            'pt-[88px] pb-24',
+            'pt-[88px] pb-24 md:pb-24',
           )}
         >
           {/* Welcome Header */}
@@ -138,6 +139,8 @@ function Dashboard() {
         {/* Floating Upload Button (Glass & Gradient Rule) */}
         <FloatingUploadButton />
       </main>
+      {/* Mobile chrome: bottom tab bar below md (fleet mobile-shell pattern) */}
+      <MobileBottomNav />
     </div>
   )
 }

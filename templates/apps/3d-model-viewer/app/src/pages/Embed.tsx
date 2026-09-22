@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -93,6 +94,8 @@ function Embed() {
       }
       if (embedId) {
         await http.put(`/api/embeds/${embedId}`, payload)
+        // Domain event: embed configuration updated.
+        void track({ name: 'embed.updated', properties: { modelId: id, embedId } })
       } else {
         const created = (await http.post('/api/embeds', { model_id: id, ...payload })) as {
           id?: string
@@ -100,6 +103,8 @@ function Embed() {
         }
         const newId = created?.id ?? created?.data?.id
         if (newId) setEmbedId(newId)
+        // Domain event: the embed funnel's success point.
+        void track({ name: 'embed.created', properties: { modelId: id, embedId: newId } })
       }
       setSavedAt(Date.now())
     } catch (err) {
@@ -139,7 +144,9 @@ function Embed() {
             'overflow-y-auto',
           )}
         >
-          <div className={cm.flex({ align: 'center', justify: 'between' })}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
+          >
             <EmbedPageHeader />
             <button
               type="button"
