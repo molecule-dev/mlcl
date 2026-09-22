@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ExpenseRow, type ExpenseRowItem } from '../components/ExpenseRow.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 
 const FALLBACK_AVAILABLE: ExpenseRowItem[] = [
   {
@@ -64,13 +66,12 @@ export function NewReport() {
   const [title, setTitle] = useState('')
   const [purpose, setPurpose] = useState('')
   const [approverEmail, setApproverEmail] = useState('')
-  const [available, setAvailable] = useState<ExpenseRowItem[]>(FALLBACK_AVAILABLE)
-  const [included, setIncluded] = useState<Set<string>>(
-    () => new Set(FALLBACK_AVAILABLE.slice(0, 3).map((expense) => expense.id)),
-  )
+  const [available, setAvailable] = useState<ExpenseRowItem[] | null>(null)
+  const [included, setIncluded] = useState<Set<string>>(() => new Set())
   const [submitting, setSubmitting] = useState(false)
   const [savingDraft, setSavingDraft] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -79,18 +80,19 @@ export function NewReport() {
       .then((response) => {
         if (cancelled) return
         const data = response?.data
-        if (
-          Array.isArray(data) &&
-          data.length > 0 &&
-          typeof (data[0] as ExpenseRowItem).amountCents === 'number'
-        ) {
-          setAvailable(data)
-          // Pre-select up to 3 items so the user sees a populated total.
-          setIncluded(new Set(data.slice(0, 3).map((e) => e.id)))
-        }
+        // An empty draft list is a valid result — the picker just renders
+        // zero rows; the curated fallback is only for load failures.
+        const drafts = Array.isArray(data) ? data : FALLBACK_AVAILABLE
+        setAvailable(drafts)
+        // Pre-select up to 3 items so the user sees a populated total.
+        setIncluded(new Set(drafts.slice(0, 3).map((e) => e.id)))
+        setLoadError(!Array.isArray(data))
       })
       .catch(() => {
-        // keep fallback
+        if (cancelled) return
+        setAvailable(FALLBACK_AVAILABLE)
+        setIncluded(new Set(FALLBACK_AVAILABLE.slice(0, 3).map((e) => e.id)))
+        setLoadError(true)
       })
     return () => {
       cancelled = true
@@ -99,7 +101,7 @@ export function NewReport() {
 
   const totalCents = useMemo(
     () =>
-      available
+      (available ?? [])
         .filter((expense) => included.has(expense.id))
         .reduce((sum, expense) => sum + expense.amountCents, 0),
     [available, included],
@@ -150,6 +152,16 @@ export function NewReport() {
       await http.post(`/api/reports/${encodeURIComponent(created.id)}/submit`, {
         approver_email: approverEmail || undefined,
       })
+      // Domain analytics: the core conversion — a report sent for approval.
+      void track({
+        name: 'report.submitted',
+        properties: {
+          report_id: created.id,
+          expense_count: included.size,
+          total_amount_cents: totalCents,
+          has_approver_email: Boolean(approverEmail),
+        },
+      })
       navigate('/reports/list')
     } catch (err) {
       console.warn('Submit report failed', err)
@@ -184,6 +196,15 @@ export function NewReport() {
         )
         return
       }
+      // Domain analytics: a report parked as a draft.
+      void track({
+        name: 'report.created',
+        properties: {
+          report_id: created.id,
+          expense_count: included.size,
+          total_amount_cents: totalCents,
+        },
+      })
       navigate('/reports/list')
     } catch (err) {
       console.warn('Save draft failed', err)
@@ -229,6 +250,23 @@ export function NewReport() {
           )}
         >
           {error}
+        </div>
+      ) : null}
+
+      {loadError ? (
+        <div
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'rounded-xl bg-warning-container/40 text-on-warning-container',
+          )}
+        >
+          {t(
+            'newReport.draftsFallback',
+            {},
+            { defaultValue: 'Live expense list unavailable — showing curated demo data.' },
+          )}
         </div>
       ) : null}
 
@@ -380,37 +418,43 @@ export function NewReport() {
               </span>
             </header>
             <ul className={cm.cn('divide-y divide-outline-variant/40')}>
-              {available.map((expense) => {
-                const isIncluded = included.has(expense.id)
-                return (
-                  <li
-                    key={expense.id}
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 'sm' }),
-                      cm.sp('px', 4),
-                      cm.sp('py', 1),
-                      isIncluded ? 'bg-primary-container/20' : '',
-                    )}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={isIncluded}
-                      onChange={() => toggleInclude(expense.id)}
+              {available === null ? (
+                <li>
+                  <ListSkeleton rows={4} />
+                </li>
+              ) : (
+                available.map((expense) => {
+                  const isIncluded = included.has(expense.id)
+                  return (
+                    <li
+                      key={expense.id}
                       className={cm.cn(
-                        'h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary/30',
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        cm.sp('px', 4),
+                        cm.sp('py', 1),
+                        isIncluded ? 'bg-primary-container/20' : '',
                       )}
-                      aria-label={t(
-                        'newReport.toggleAria',
-                        { merchant: expense.merchant },
-                        { defaultValue: 'Include {{merchant}}' },
-                      )}
-                    />
-                    <div className={cm.cn('flex-1')}>
-                      <ExpenseRow item={expense} />
-                    </div>
-                  </li>
-                )
-              })}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={isIncluded}
+                        onChange={() => toggleInclude(expense.id)}
+                        className={cm.cn(
+                          'h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary/30',
+                        )}
+                        aria-label={t(
+                          'newReport.toggleAria',
+                          { merchant: expense.merchant },
+                          { defaultValue: 'Include {{merchant}}' },
+                        )}
+                      />
+                      <div className={cm.cn('flex-1')}>
+                        <ExpenseRow item={expense} />
+                      </div>
+                    </li>
+                  )
+                })
+              )}
             </ul>
           </div>
         </section>

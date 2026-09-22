@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ApprovalBadge, type ApprovalStatus } from '../components/ApprovalBadge.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 import { RecoveredAmountHeroCard } from '../components/RecoveredAmountHeroCard.js'
 import { StatusKpiCard } from '../components/StatusKpiCard.js'
 
@@ -86,7 +87,7 @@ export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [snapshot, setSnapshot] = useState<DashboardSnapshot>(FALLBACK)
+  const [snapshot, setSnapshot] = useState<DashboardSnapshot | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -102,12 +103,15 @@ export function Dashboard() {
           Array.isArray((data as DashboardSnapshot).recent_reports)
         ) {
           setSnapshot(data as DashboardSnapshot)
+        } else {
+          setSnapshot(FALLBACK)
         }
         setError(null)
       })
       .catch(() => {
         if (cancelled) return
         // Keep FALLBACK fixture while showing a soft error banner.
+        setSnapshot(FALLBACK)
         setError('summary')
       })
     return () => {
@@ -191,132 +195,152 @@ export function Dashboard() {
         </div>
       ) : null}
 
-      <RecoveredAmountHeroCard
-        amountCents={snapshot.recovered_cents}
-        changeCents={snapshot.recovered_change_cents}
-        pendingCount={snapshot.pending_count}
-      />
-
-      <section
-        data-mol-id="dashboard-kpis"
-        className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4')}
-      >
-        <StatusKpiCard
-          label={t('dashboard.kpi.pendingLabel', {}, { defaultValue: 'Pending review' })}
-          value={String(snapshot.pending_count)}
-          icon="schedule"
-          tone="pending"
-          delta={t('dashboard.kpi.pendingDelta', {}, { defaultValue: '+2 this week' })}
-          deltaPositive={false}
-        />
-        <StatusKpiCard
-          label={t('dashboard.kpi.approvedLabel', {}, { defaultValue: 'Approved · MTD' })}
-          value={String(snapshot.approved_this_month)}
-          icon="check_circle"
-          tone="approved"
-          delta={t('dashboard.kpi.approvedDelta', {}, { defaultValue: '+18%' })}
-        />
-        <StatusKpiCard
-          label={t('dashboard.kpi.reimbursedLabel', {}, { defaultValue: 'Reimbursed · MTD' })}
-          value={formatUsd(snapshot.reimbursed_this_month_cents)}
-          icon="paid"
-          tone="reimbursed"
-          delta={t('dashboard.kpi.reimbursedDelta', {}, { defaultValue: '+$2.4k' })}
-        />
-        <StatusKpiCard
-          label={t('dashboard.kpi.receiptsLabel', {}, { defaultValue: 'Awaiting receipts' })}
-          value={String(snapshot.awaiting_receipts)}
-          icon="warning"
-          tone="rejected"
-          delta={t('dashboard.kpi.receiptsDelta', {}, { defaultValue: 'Action required' })}
-          deltaPositive={false}
-        />
-      </section>
-
-      <section data-mol-id="dashboard-recent" className={cm.stack(4)}>
-        <header className={cm.flex({ align: 'baseline', justify: 'between' })}>
-          <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
-            {t('dashboard.recent.title', {}, { defaultValue: 'Recent reports' })}
-          </h2>
-          <Link
-            to="/reports/list"
-            className={cm.cn(
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'text-primary-dark hover:underline',
-            )}
-          >
-            {t('dashboard.recent.viewAll', {}, { defaultValue: 'View all reports' })}
-          </Link>
-        </header>
-        <div
-          className={cm.cn(
-            'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden',
-          )}
+      {snapshot === null ? (
+        <section
+          data-mol-id="dashboard-loading"
+          className="rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden"
         >
-          <ul className={cm.cn('divide-y divide-outline-variant/40')}>
-            {snapshot.recent_reports.map((report) => (
-              <li
-                key={report.id}
+          <ListSkeleton rows={5} />
+        </section>
+      ) : (
+        <>
+          <RecoveredAmountHeroCard
+            amountCents={snapshot.recovered_cents}
+            changeCents={snapshot.recovered_change_cents}
+            pendingCount={snapshot.pending_count}
+          />
+
+          <section
+            data-mol-id="dashboard-kpis"
+            className={cm.cn('grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4')}
+          >
+            <StatusKpiCard
+              label={t('dashboard.kpi.pendingLabel', {}, { defaultValue: 'Pending review' })}
+              value={String(snapshot.pending_count)}
+              icon="schedule"
+              tone="pending"
+              delta={t('dashboard.kpi.pendingDelta', {}, { defaultValue: '+2 this week' })}
+              deltaPositive={false}
+            />
+            <StatusKpiCard
+              label={t('dashboard.kpi.approvedLabel', {}, { defaultValue: 'Approved · MTD' })}
+              value={String(snapshot.approved_this_month)}
+              icon="check_circle"
+              tone="approved"
+              delta={t('dashboard.kpi.approvedDelta', {}, { defaultValue: '+18%' })}
+            />
+            <StatusKpiCard
+              label={t('dashboard.kpi.reimbursedLabel', {}, { defaultValue: 'Reimbursed · MTD' })}
+              value={formatUsd(snapshot.reimbursed_this_month_cents)}
+              icon="paid"
+              tone="reimbursed"
+              delta={t('dashboard.kpi.reimbursedDelta', {}, { defaultValue: '+$2.4k' })}
+            />
+            <StatusKpiCard
+              label={t('dashboard.kpi.receiptsLabel', {}, { defaultValue: 'Awaiting receipts' })}
+              value={String(snapshot.awaiting_receipts)}
+              icon="warning"
+              tone="rejected"
+              delta={t('dashboard.kpi.receiptsDelta', {}, { defaultValue: 'Action required' })}
+              deltaPositive={false}
+            />
+          </section>
+
+          <section data-mol-id="dashboard-recent" className={cm.stack(4)}>
+            <header className={cm.flex({ align: 'baseline', justify: 'between' })}>
+              <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
+                {t('dashboard.recent.title', {}, { defaultValue: 'Recent reports' })}
+              </h2>
+              <Link
+                to="/reports/list"
                 className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'md' }),
-                  cm.sp('px', 5),
-                  cm.sp('py', 4),
-                  'hover:bg-surface-container-low transition-colors',
+                  cm.textSize('sm'),
+                  cm.fontWeight('semibold'),
+                  'text-primary-dark hover:underline',
                 )}
               >
-                <div
-                  className={cm.cn(
-                    cm.flex({ align: 'center', justify: 'center' }),
-                    'h-9 w-9 shrink-0 rounded-lg bg-primary-container text-on-primary-container',
-                  )}
-                  aria-hidden="true"
-                >
-                  <span className={cm.cn('material-symbols-outlined text-base')}>description</span>
-                </div>
-                <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-                  <span
-                    className={cm.cn(
-                      cm.textSize('sm'),
-                      cm.fontWeight('semibold'),
-                      'text-on-surface truncate',
-                    )}
-                  >
-                    {report.title}
-                  </span>
-                  <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                    {report.submitter_name} · {formatDate(report.submitted_at)}
-                  </span>
-                </div>
-                <ApprovalBadge status={report.status} />
-                <span
-                  className={cm.cn(
-                    'text-base font-bold tabular-nums text-on-surface tracking-tight',
-                  )}
-                >
-                  {formatUsd(report.total_amount_cents)}
-                </span>
-              </li>
-            ))}
-          </ul>
-          {snapshot.recent_reports.length === 0 ? (
+                {t('dashboard.recent.viewAll', {}, { defaultValue: 'View all reports' })}
+              </Link>
+            </header>
             <div
               className={cm.cn(
-                cm.sp('p', 6),
-                cm.textCenter,
-                cm.textSize('sm'),
-                'text-on-surface-variant',
+                'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden',
               )}
             >
-              {t(
-                'dashboard.recent.empty',
-                {},
-                { defaultValue: 'No reports yet — start your first one above.' },
-              )}
+              <ul className={cm.cn('divide-y divide-outline-variant/40')}>
+                {snapshot.recent_reports.map((report) => (
+                  <li
+                    key={report.id}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'md' }),
+                      cm.sp('px', 5),
+                      cm.sp('py', 4),
+                      'hover:bg-surface-container-low transition-colors max-md:flex-wrap',
+                    )}
+                  >
+                    <div
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        'h-9 w-9 shrink-0 rounded-lg bg-primary-container text-on-primary-container',
+                      )}
+                      aria-hidden="true"
+                    >
+                      <span className={cm.cn('material-symbols-outlined text-base')}>
+                        description
+                      </span>
+                    </div>
+                    <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-on-surface truncate',
+                        )}
+                      >
+                        {report.title}
+                      </span>
+                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {report.submitter_name} · {formatDate(report.submitted_at)}
+                      </span>
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        'max-md:w-full max-md:justify-between',
+                      )}
+                    >
+                      <ApprovalBadge status={report.status} />
+                      <span
+                        className={cm.cn(
+                          'text-base font-bold tabular-nums text-on-surface tracking-tight',
+                        )}
+                      >
+                        {formatUsd(report.total_amount_cents)}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              {snapshot.recent_reports.length === 0 ? (
+                <div
+                  className={cm.cn(
+                    cm.sp('p', 6),
+                    cm.textCenter,
+                    cm.textSize('sm'),
+                    'text-on-surface-variant',
+                  )}
+                >
+                  {t(
+                    'dashboard.recent.empty',
+                    {},
+                    { defaultValue: 'No reports yet — start your first one above.' },
+                  )}
+                </div>
+              ) : null}
             </div>
-          ) : null}
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   )
 }

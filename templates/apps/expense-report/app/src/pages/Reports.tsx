@@ -7,6 +7,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { ApprovalBadge, type ApprovalStatus } from '../components/ApprovalBadge.js'
 import { type ApprovalStep, ApprovalTimeline } from '../components/ApprovalTimeline.js'
 import { ExpenseRow, type ExpenseRowItem } from '../components/ExpenseRow.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 
 interface ReportDetail {
   id: string
@@ -126,19 +127,24 @@ export function Reports() {
   const http = useHttpClient()
   const [params] = useSearchParams()
   const reportId = params.get('id')
-  const [report, setReport] = useState<ReportDetail>(FALLBACK)
+  const [report, setReport] = useState<ReportDetail | null>(null)
+  const [notFound, setNotFound] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     // No `?id=...` query param means the user landed on /reports without
-    // selecting a report. Render the fallback skeleton (showcase data)
-    // instead of firing a doomed GET against the placeholder id, which
-    // would log a 404 in the console even though the UI handles it.
+    // selecting a report. Render an explicit empty state pointing at the
+    // report library instead of firing a doomed GET against the placeholder
+    // id (which would log a 404 in the console even though the UI handles it)
+    // or showing the curated demo detail as if it were real data.
     if (!reportId || !UUID_RE.test(reportId)) {
+      setReport(null)
+      setNotFound(true)
       setError(null)
       return
     }
     let cancelled = false
+    setNotFound(false)
     http
       .get<ReportDetail>(`/api/reports/${encodeURIComponent(reportId)}`)
       .then((response) => {
@@ -151,17 +157,90 @@ export function Reports() {
           Array.isArray((data as ReportDetail).timeline)
         ) {
           setReport(data as ReportDetail)
+        } else {
+          setReport(FALLBACK)
         }
         setError(null)
       })
       .catch(() => {
         if (cancelled) return
+        setReport(FALLBACK)
         setError('detail')
       })
     return () => {
       cancelled = true
     }
   }, [http, reportId])
+
+  if (notFound) {
+    return (
+      <div data-mol-id="page-reports" className={cm.stack(8)}>
+        <header className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
+          <Link
+            to="/reports/list"
+            className={cm.cn(
+              cm.textSize('xs'),
+              cm.fontWeight('bold'),
+              'inline-flex items-center gap-1 uppercase tracking-widest text-on-surface-variant hover:text-on-surface',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              arrow_back
+            </span>
+            {t('reports.backToList', {}, { defaultValue: 'Back to reports' })}
+          </Link>
+        </header>
+        <div
+          className={cm.cn(
+            cm.sp('p', 8),
+            cm.textCenter,
+            'rounded-2xl bg-surface border border-outline-variant/40',
+          )}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-4xl text-on-surface-variant')}
+            aria-hidden="true"
+          >
+            description
+          </span>
+          <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+            {t(
+              'reports.selectPrompt',
+              {},
+              { defaultValue: 'Select a report from the library to see its detail.' },
+            )}
+          </p>
+          <Link
+            to="/reports/list"
+            data-mol-id="reports-empty-cta"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              cm.sp('mt', 4),
+              'inline-flex rounded-full border border-outline-variant hover:bg-surface-container-low transition-colors',
+            )}
+          >
+            {t('reports.openLibrary', {}, { defaultValue: 'Open report library' })}
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
+  if (report === null) {
+    return (
+      <div data-mol-id="page-reports" className={cm.stack(8)}>
+        <div
+          data-mol-id="reports-loading"
+          className="rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden"
+        >
+          <ListSkeleton rows={6} />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div data-mol-id="page-reports" className={cm.stack(8)}>

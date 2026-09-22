@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ExpenseRow, type ExpenseRowItem } from '../components/ExpenseRow.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 
 const CATEGORY_FILTERS = [
   { key: 'all', icon: 'receipt_long', label: 'All' },
@@ -80,7 +81,7 @@ export function Expenses() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [expenses, setExpenses] = useState<ExpenseRowItem[]>(FALLBACK)
+  const [expenses, setExpenses] = useState<ExpenseRowItem[] | null>(null)
   const [filter, setFilter] = useState<string>('all')
   const [search, setSearch] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -92,17 +93,15 @@ export function Expenses() {
       .then((response) => {
         if (cancelled) return
         const data = response?.data
-        if (
-          Array.isArray(data) &&
-          data.length > 0 &&
-          typeof (data[0] as ExpenseRowItem).amountCents === 'number'
-        ) {
-          setExpenses(data)
-        }
+        // An empty list is a valid result — show the empty state, not the
+        // curated fallback rows.
+        if (Array.isArray(data)) setExpenses(data)
+        else setExpenses(FALLBACK)
         setError(null)
       })
       .catch(() => {
         if (cancelled) return
+        setExpenses(FALLBACK)
         setError('list')
       })
     return () => {
@@ -110,8 +109,9 @@ export function Expenses() {
     }
   }, [http])
 
+  const visible = useMemo(() => expenses ?? [], [expenses])
   const filtered = useMemo(() => {
-    return expenses.filter((expense) => {
+    return visible.filter((expense) => {
       if (filter !== 'all' && expense.category.toLowerCase() !== filter) return false
       if (
         search &&
@@ -122,7 +122,7 @@ export function Expenses() {
       }
       return true
     })
-  }, [expenses, filter, search])
+  }, [visible, filter, search])
 
   const totalCents = filtered.reduce((sum, item) => sum + item.amountCents, 0)
 
@@ -231,7 +231,7 @@ export function Expenses() {
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),
                     cm.sp('px', 3),
-                    cm.sp('py', 2),
+                    'py-2.5',
                     cm.textSize('xs'),
                     cm.fontWeight('semibold'),
                     'rounded-full uppercase tracking-widest transition-colors',
@@ -257,10 +257,12 @@ export function Expenses() {
           'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden divide-y divide-outline-variant/40',
         )}
       >
-        {filtered.map((expense) => (
-          <ExpenseRow key={expense.id} item={expense} />
-        ))}
-        {filtered.length === 0 ? (
+        {expenses === null ? (
+          <ListSkeleton rows={5} />
+        ) : (
+          filtered.map((expense) => <ExpenseRow key={expense.id} item={expense} />)
+        )}
+        {expenses !== null && filtered.length === 0 ? (
           <div
             className={cm.cn(
               cm.sp('p', 8),

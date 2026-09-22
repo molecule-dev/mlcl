@@ -90,19 +90,18 @@ test.describe('/approvals page', () => {
 
   test('Reject button on a queue item posts to /api/approvals/:id/reject', async ({ page }) => {
     await signup(page)
-    // The Reject handler uses window.prompt() to ask for a reason; Playwright
-    // dismisses prompts by default, which makes the handler return without
-    // POSTing. Accept the dialog with a real reason so we can verify the call.
-    page.on('dialog', (dialog) => {
-      if (dialog.type() === 'prompt') void dialog.accept('e2e: out of policy')
-      else void dialog.accept()
-    })
+    // Reject opens an inline reason entry (visible context beats a blocking
+    // window.prompt). Fill the reason and confirm so we can verify the call.
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/approvals')
       await page.waitForLoadState('networkidle')
       const reject = page.getByRole('button', { name: /^reject$/i }).first()
       if (await reject.count().catch(() => 0)) {
         await reject.click()
+        const reason = page.locator('[data-mol-id^="reject-reason-"]').first()
+        await expect(reason).toBeVisible({ timeout: 5000 })
+        await reason.fill('e2e: out of policy')
+        await page.locator('[data-mol-id^="btn-confirm-reject-"]').first().click()
         await page.waitForTimeout(1200)
       }
     })

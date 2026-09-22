@@ -6,6 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 
 type ActivityType = 'submitted' | 'approved' | 'rejected' | 'reimbursed' | 'policy' | 'reminder'
 
@@ -130,7 +131,7 @@ export function Notifications() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [events, setEvents] = useState<ActivityEvent[]>(FALLBACK)
+  const [events, setEvents] = useState<ActivityEvent[] | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -140,11 +141,12 @@ export function Notifications() {
       .then((response) => {
         if (cancelled) return
         const data = response?.data
-        if (Array.isArray(data) && data.length > 0) setEvents(data)
+        setEvents(Array.isArray(data) ? data : FALLBACK)
         setError(null)
       })
       .catch(() => {
         if (cancelled) return
+        setEvents(FALLBACK)
         setError('feed')
       })
     return () => {
@@ -192,90 +194,94 @@ export function Notifications() {
           'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden divide-y divide-outline-variant/40',
         )}
       >
-        {events.map((event) => (
-          <article
-            key={event.id}
-            className={cm.cn(
-              cm.flex({ align: 'start', gap: 'md' }),
-              cm.sp('px', 5),
-              cm.sp('py', 4),
-              'hover:bg-surface-container-low transition-colors',
-            )}
-          >
-            <div
+        {events === null ? (
+          <ListSkeleton rows={5} />
+        ) : (
+          events.map((event) => (
+            <article
+              key={event.id}
               className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                'h-10 w-10 shrink-0 rounded-xl',
-                TONE_FOR[event.type],
+                cm.flex({ align: 'start', gap: 'md' }),
+                cm.sp('px', 5),
+                cm.sp('py', 4),
+                'hover:bg-surface-container-low transition-colors',
               )}
-              aria-hidden="true"
             >
-              <span className={cm.cn('material-symbols-outlined text-base')}>
-                {ICON_FOR[event.type]}
-              </span>
-            </div>
-            <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-              <div className={cm.flex({ align: 'baseline', justify: 'between', gap: 'sm' })}>
-                <span
-                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}
-                >
-                  {event.title}
-                </span>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    'text-on-surface-variant tabular-nums shrink-0',
-                  )}
-                >
-                  {formatRelative(event.occurred_at)}
-                </span>
-              </div>
-              <p
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('medium'),
-                  'text-on-surface-variant',
-                )}
-              >
-                {event.description}
-              </p>
               <div
                 className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
-                  cm.sp('mt', 1),
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-10 w-10 shrink-0 rounded-xl',
+                  TONE_FOR[event.type],
                 )}
+                aria-hidden="true"
               >
-                <span
+                <span className={cm.cn('material-symbols-outlined text-base')}>
+                  {ICON_FOR[event.type]}
+                </span>
+              </div>
+              <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
+                <div className={cm.flex({ align: 'baseline', justify: 'between', gap: 'sm' })}>
+                  <span
+                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}
+                  >
+                    {event.title}
+                  </span>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      'text-on-surface-variant tabular-nums shrink-0',
+                    )}
+                  >
+                    {formatRelative(event.occurred_at)}
+                  </span>
+                </div>
+                <p
                   className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'uppercase tracking-widest text-on-surface-variant',
+                    cm.textSize('sm'),
+                    cm.fontWeight('medium'),
+                    'text-on-surface-variant',
                   )}
                 >
-                  {event.actor}
-                </span>
-                {event.amount_cents !== null ? (
-                  <span className={cm.cn('text-xs font-bold tabular-nums tracking-tight')}>
-                    {formatUsd(event.amount_cents)}
-                  </span>
-                ) : null}
-                {event.reportId ? (
-                  <Link
-                    to={`/reports?id=${encodeURIComponent(event.reportId)}`}
+                  {event.description}
+                </p>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+                    cm.sp('mt', 1),
+                  )}
+                >
+                  <span
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('semibold'),
-                      'text-primary-dark hover:underline',
+                      'uppercase tracking-widest text-on-surface-variant',
                     )}
                   >
-                    {t('notifications.openReport', {}, { defaultValue: 'Open report ›' })}
-                  </Link>
-                ) : null}
+                    {event.actor}
+                  </span>
+                  {event.amount_cents !== null ? (
+                    <span className={cm.cn('text-xs font-bold tabular-nums tracking-tight')}>
+                      {formatUsd(event.amount_cents)}
+                    </span>
+                  ) : null}
+                  {event.reportId ? (
+                    <Link
+                      to={`/reports?id=${encodeURIComponent(event.reportId)}`}
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('semibold'),
+                        'text-primary-dark hover:underline',
+                      )}
+                    >
+                      {t('notifications.openReport', {}, { defaultValue: 'Open report ›' })}
+                    </Link>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
-        {events.length === 0 ? (
+            </article>
+          ))
+        )}
+        {events !== null && events.length === 0 ? (
           <div
             className={cm.cn(
               cm.sp('p', 8),

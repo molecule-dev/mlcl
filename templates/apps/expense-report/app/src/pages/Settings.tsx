@@ -27,19 +27,17 @@ interface PolicyRecord {
   is_active?: boolean
 }
 
-interface ReimbursementPrefs {
-  method?: 'ach' | 'card'
-  notify?: {
-    submitted?: boolean
-    reviewed?: boolean
-    reimbursed?: boolean
-    policy?: boolean
-  }
+interface PreferencesResponse {
+  user_id: string
+  payout_method?: 'ach' | 'card'
+  notify_submitted?: boolean
+  notify_reviewed?: boolean
+  notify_reimbursed?: boolean
+  notify_policy?: boolean
 }
 
 interface UserRecord extends UserProfile {
   username?: string
-  oauthData?: ReimbursementPrefs & Record<string, unknown>
 }
 
 interface UserResponse {
@@ -96,8 +94,9 @@ export function Settings() {
   const [profileError, setProfileError] = useState<string | null>(null)
   const [policies, setPolicies] = useState<PolicyRow[]>([])
   const [policiesError, setPoliciesError] = useState<string | null>(null)
+  const [prefsError, setPrefsError] = useState<string | null>(null)
 
-  // Hydrate from `/api/users/:id` directly — `useAuth().user` is the
+  // Hydrate profile from `/api/users/:id` directly — `useAuth().user` is the
   // initial sign-up snapshot and does NOT refresh after PATCH, so values
   // saved by this page on a previous visit would otherwise round-trip as
   // stale defaults.
@@ -106,16 +105,6 @@ export function Settings() {
     if (!user?.id) return
     setName(user.name ?? user.username ?? '')
     setEmail(user.email ?? '')
-    const initialPrefs = (user.oauthData as ReimbursementPrefs | undefined) ?? {}
-    if (initialPrefs.method === 'ach' || initialPrefs.method === 'card') {
-      setReimbursementMethod(initialPrefs.method)
-    }
-    setNotify({
-      submitted: initialPrefs.notify?.submitted ?? DEFAULT_NOTIFY.submitted,
-      reviewed: initialPrefs.notify?.reviewed ?? DEFAULT_NOTIFY.reviewed,
-      reimbursed: initialPrefs.notify?.reimbursed ?? DEFAULT_NOTIFY.reimbursed,
-      policy: initialPrefs.notify?.policy ?? DEFAULT_NOTIFY.policy,
-    })
 
     void (async () => {
       try {
@@ -126,16 +115,6 @@ export function Settings() {
         if (fresh.name) setName(fresh.name)
         else if (fresh.username) setName(fresh.username)
         if (fresh.email) setEmail(fresh.email)
-        const remotePrefs = (fresh.oauthData as ReimbursementPrefs | undefined) ?? {}
-        if (remotePrefs.method === 'ach' || remotePrefs.method === 'card') {
-          setReimbursementMethod(remotePrefs.method)
-        }
-        setNotify({
-          submitted: remotePrefs.notify?.submitted ?? DEFAULT_NOTIFY.submitted,
-          reviewed: remotePrefs.notify?.reviewed ?? DEFAULT_NOTIFY.reviewed,
-          reimbursed: remotePrefs.notify?.reimbursed ?? DEFAULT_NOTIFY.reimbursed,
-          policy: remotePrefs.notify?.policy ?? DEFAULT_NOTIFY.policy,
-        })
       } catch (_error) {
         // network error — keep the snapshot we hydrated from useAuth().user; ignoring is correct
       }
@@ -145,6 +124,36 @@ export function Settings() {
       cancelled = true
     }
   }, [http, user])
+
+  // Load workspace preferences from the app's own server-side channel.
+  // The platform user resource never returns `oauthData` on reads, so prefs
+  // persisted there would reset on every reload — /api/preferences is the
+  // round-trip that actually persists.
+  useEffect(() => {
+    let cancelled = false
+    http
+      .get<PreferencesResponse>('/api/preferences')
+      .then((response) => {
+        if (cancelled) return
+        const prefs = response?.data
+        if (!prefs) return
+        if (prefs.payout_method === 'ach' || prefs.payout_method === 'card') {
+          setReimbursementMethod(prefs.payout_method)
+        }
+        setNotify({
+          submitted: prefs.notify_submitted ?? DEFAULT_NOTIFY.submitted,
+          reviewed: prefs.notify_reviewed ?? DEFAULT_NOTIFY.reviewed,
+          reimbursed: prefs.notify_reimbursed ?? DEFAULT_NOTIFY.reimbursed,
+          policy: prefs.notify_policy ?? DEFAULT_NOTIFY.policy,
+        })
+      })
+      .catch(() => {
+        // keep defaults — a failed prefs load must not block the page
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http])
 
   // Load policies from the API (real, per-user data).
   useEffect(() => {
@@ -199,30 +208,26 @@ export function Settings() {
     }
   }
 
-  async function savePrefs(next: ReimbursementPrefs): Promise<void> {
-    if (!user?.id) return
+  async function savePrefs(next: { method: 'ach' | 'card'; notify: typeof notify }): Promise<void> {
     setSavingPrefs(true)
+    setPrefsError(null)
     try {
-      // Re-read current oauthData so a sibling tab that wrote unrelated
-      // keys (e.g. analytics opt-in) doesn't get clobbered by this PATCH.
-      let currentOauth: Record<string, unknown> = {}
-      try {
-        const fresh = await http.get<UserResponse>(`/users/${encodeURIComponent(user.id)}`)
-        currentOauth = (fresh.data?.props?.oauthData as Record<string, unknown>) ?? {}
-      } catch (_error) {
-        // fallback to cached oauthData if the GET fails — ignoring fetch error is correct here
-        currentOauth = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-      }
-      const merged = {
-        ...currentOauth,
-        method: next.method,
-        notify: next.notify,
-      }
-      await http.patch(`/users/${encodeURIComponent(user.id)}`, {
-        oauthData: merged,
+      await http.patch('/api/preferences', {
+        payout_method: next.method,
+        notify_submitted: next.notify.submitted,
+        notify_reviewed: next.notify.reviewed,
+        notify_reimbursed: next.notify.reimbursed,
+        notify_policy: next.notify.policy,
       })
     } catch (err) {
       console.warn('Preference save failed', err)
+      setPrefsError(
+        t(
+          'settings.prefsSaveFailed',
+          {},
+          { defaultValue: 'Could not save preferences. Please try again.' },
+        ),
+      )
     } finally {
       setSavingPrefs(false)
     }
@@ -381,6 +386,14 @@ export function Settings() {
               },
             )}
           </p>
+          {prefsError ? (
+            <p
+              data-mol-id="settings-prefs-error"
+              className={cm.cn(cm.textSize('xs'), 'text-error')}
+            >
+              {prefsError}
+            </p>
+          ) : null}
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
             {(
               [
@@ -544,63 +557,65 @@ export function Settings() {
             'rounded-2xl bg-surface border border-outline-variant/40 overflow-hidden',
           )}
         >
-          <table className={cm.cn('w-full text-sm')}>
-            <thead>
-              <tr
-                className={cm.cn(
-                  'bg-surface-container-low text-on-surface-variant uppercase tracking-widest text-[10px]',
-                )}
-              >
-                <th className={cm.cn('text-left px-5 py-3 font-bold')}>
-                  {t('form.category', {}, { defaultValue: 'Category' })}
-                </th>
-                <th className={cm.cn('text-left px-5 py-3 font-bold')}>
-                  {t('settings.policies.cap', {}, { defaultValue: 'Daily cap' })}
-                </th>
-                <th className={cm.cn('text-left px-5 py-3 font-bold')}>
-                  {t('settings.policies.receipt', {}, { defaultValue: 'Receipt required over' })}
-                </th>
-                <th className={cm.cn('text-right px-5 py-3 font-bold')}>
-                  {t('nav.status', {}, { defaultValue: 'Status' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-              {policies.map((policy) => (
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full text-sm min-w-[560px]')}>
+              <thead>
                 <tr
-                  key={policy.id}
-                  data-mol-id={`policy-row-${policy.id}`}
-                  className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                  className={cm.cn(
+                    'bg-surface-container-low text-on-surface-variant uppercase tracking-widest text-[10px]',
+                  )}
                 >
-                  <td className={cm.cn('px-5 py-3 font-semibold')}>{policy.category}</td>
-                  <td className={cm.cn('px-5 py-3 tabular-nums text-on-surface-variant')}>
-                    {policy.cap}
-                  </td>
-                  <td className={cm.cn('px-5 py-3 tabular-nums text-on-surface-variant')}>
-                    {policy.receiptThreshold}
-                  </td>
-                  <td className={cm.cn('px-5 py-3 text-right')}>
-                    <ApprovalBadge status={policy.status} />
-                  </td>
+                  <th className={cm.cn('text-left px-5 py-3 font-bold')}>
+                    {t('form.category', {}, { defaultValue: 'Category' })}
+                  </th>
+                  <th className={cm.cn('text-left px-5 py-3 font-bold')}>
+                    {t('settings.policies.cap', {}, { defaultValue: 'Daily cap' })}
+                  </th>
+                  <th className={cm.cn('text-left px-5 py-3 font-bold')}>
+                    {t('settings.policies.receipt', {}, { defaultValue: 'Receipt required over' })}
+                  </th>
+                  <th className={cm.cn('text-right px-5 py-3 font-bold')}>
+                    {t('nav.status', {}, { defaultValue: 'Status' })}
+                  </th>
                 </tr>
-              ))}
-              {policies.length === 0 ? (
-                <tr>
-                  <td
-                    colSpan={4}
-                    className={cm.cn(
-                      cm.sp('p', 6),
-                      cm.textCenter,
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
+              </thead>
+              <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+                {policies.map((policy) => (
+                  <tr
+                    key={policy.id}
+                    data-mol-id={`policy-row-${policy.id}`}
+                    className={cm.cn('hover:bg-surface-container-low transition-colors')}
                   >
-                    {t('settings.policies.empty', {}, { defaultValue: 'No policies yet.' })}
-                  </td>
-                </tr>
-              ) : null}
-            </tbody>
-          </table>
+                    <td className={cm.cn('px-5 py-3 font-semibold')}>{policy.category}</td>
+                    <td className={cm.cn('px-5 py-3 tabular-nums text-on-surface-variant')}>
+                      {policy.cap}
+                    </td>
+                    <td className={cm.cn('px-5 py-3 tabular-nums text-on-surface-variant')}>
+                      {policy.receiptThreshold}
+                    </td>
+                    <td className={cm.cn('px-5 py-3 text-right')}>
+                      <ApprovalBadge status={policy.status} />
+                    </td>
+                  </tr>
+                ))}
+                {policies.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={4}
+                      className={cm.cn(
+                        cm.sp('p', 6),
+                        cm.textCenter,
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {t('settings.policies.empty', {}, { defaultValue: 'No policies yet.' })}
+                    </td>
+                  </tr>
+                ) : null}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </div>

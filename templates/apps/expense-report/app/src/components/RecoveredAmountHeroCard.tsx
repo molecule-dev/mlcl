@@ -42,7 +42,7 @@ export function RecoveredAmountHeroCard({
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
         cm.sp('p', 10),
-        'min-h-[280px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden shadow-xl shadow-primary/10',
+        'min-h-[280px] bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden shadow-xl shadow-primary/10 max-md:p-6',
       )}
     >
       <div className={cm.cn('relative z-10')}>
@@ -60,8 +60,12 @@ export function RecoveredAmountHeroCard({
             { defaultValue: 'Reimbursement recovered · YTD' },
           )}
         </p>
-        <div className={cm.flex({ align: 'baseline', gap: 'md' })}>
-          <span className={cm.cn('text-6xl font-extrabold tracking-tighter tabular-nums')}>
+        <div className={cm.flex({ align: 'baseline', gap: 'md', wrap: 'wrap' })}>
+          <span
+            className={cm.cn(
+              'text-6xl max-md:text-4xl font-extrabold tracking-tighter tabular-nums',
+            )}
+          >
             {formatUsd(amountCents)}
           </span>
           <span

@@ -54,6 +54,12 @@ test.describe('/login page', () => {
   })
 
   test('Wrong password surfaces an alert and stays on /login', async ({ page }) => {
+    // The 403 the wrong-password attempt returns is THE expected outcome —
+    // the browser logs it as a console resource error, which is not a bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('login-bad')
     await signup(page, email, 'TestPass!1234')
     await page.evaluate(() => window.localStorage.clear())

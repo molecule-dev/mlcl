@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,13 +80,23 @@ export function NewExpense() {
           return
         }
       }
-      await http.post('/api/expenses', {
+      const saved = await http.post<{ id?: string }>('/api/expenses', {
         merchant,
         amount: Number(amount),
         date,
         category,
         description,
         receipt_url,
+      })
+      // Domain analytics: the funnel's entry point — an expense actually filed.
+      void track({
+        name: 'expense.filed',
+        properties: {
+          expense_id: saved?.data?.id,
+          category,
+          amount_cents: Math.round(Number(amount) * 100),
+          has_receipt: Boolean(receipt_url),
+        },
       })
       navigate('/expenses')
     } catch (err) {
@@ -285,7 +296,7 @@ export function NewExpense() {
                         className={cm.cn(
                           cm.flex({ align: 'center', gap: 'xs' }),
                           cm.sp('px', 3),
-                          cm.sp('py', 2),
+                          'py-2.5',
                           cm.textSize('xs'),
                           cm.fontWeight('semibold'),
                           'rounded-full uppercase tracking-widest transition-colors',

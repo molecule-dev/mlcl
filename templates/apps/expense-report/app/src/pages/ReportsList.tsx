@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ApprovalBadge, type ApprovalStatus } from '../components/ApprovalBadge.js'
+import { ListSkeleton } from '../components/ListSkeleton.js'
 
 interface ReportSummary {
   id: string
@@ -99,7 +100,7 @@ export function ReportsList() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [reports, setReports] = useState<ReportSummary[]>(FALLBACK)
+  const [reports, setReports] = useState<ReportSummary[] | null>(null)
   const [filter, setFilter] = useState<'all' | ApprovalStatus>('all')
   const [error, setError] = useState<string | null>(null)
 
@@ -110,11 +111,12 @@ export function ReportsList() {
       .then((response) => {
         if (cancelled) return
         const data = response?.data
-        if (Array.isArray(data) && data.length > 0) setReports(data)
+        setReports(Array.isArray(data) ? data : FALLBACK)
         setError(null)
       })
       .catch(() => {
         if (cancelled) return
+        setReports(FALLBACK)
         setError('list')
       })
     return () => {
@@ -122,9 +124,10 @@ export function ReportsList() {
     }
   }, [http])
 
+  const visible = useMemo(() => reports ?? [], [reports])
   const filtered = useMemo(
-    () => (filter === 'all' ? reports : reports.filter((r) => r.status === filter)),
-    [reports, filter],
+    () => (filter === 'all' ? visible : visible.filter((r) => r.status === filter)),
+    [visible, filter],
   )
 
   return (
@@ -202,7 +205,7 @@ export function ReportsList() {
                 onClick={() => setFilter(s.key)}
                 className={cm.cn(
                   cm.sp('px', 4),
-                  cm.sp('py', 2),
+                  'py-2.5',
                   cm.textSize('xs'),
                   cm.fontWeight('semibold'),
                   'rounded-full uppercase tracking-widest transition-colors',
@@ -217,79 +220,89 @@ export function ReportsList() {
       </ul>
 
       <section className={cm.cn('grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4')}>
-        {filtered.map((report) => {
-          const accent =
-            report.status === 'approved'
-              ? 'var(--color-status-approved)'
-              : report.status === 'rejected'
-                ? 'var(--color-status-rejected)'
-                : report.status === 'reimbursed'
-                  ? 'var(--color-status-reimbursed)'
-                  : report.status === 'submitted'
-                    ? 'var(--color-status-pending)'
-                    : 'var(--color-text-muted)'
-          return (
-            <Link
-              key={report.id}
-              to={`/reports?id=${encodeURIComponent(report.id)}`}
-              data-mol-id={`report-card-${report.id}`}
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 'sm' }),
-                cm.sp('p', 5),
-                'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all',
-              )}
-              style={{ borderLeft: `4px solid ${accent}` }}
-            >
-              <div className={cm.flex({ align: 'center', justify: 'between' })}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    'uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {report.id}
-                </span>
-                <ApprovalBadge status={report.status} />
-              </div>
-              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{report.title}</h2>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {report.submitter_name} · {report.date_range}
-              </p>
-              <div
+        {reports === null ? (
+          <div
+            className={cm.cn(
+              'col-span-full rounded-2xl bg-surface border border-outline-variant/40',
+            )}
+          >
+            <ListSkeleton rows={4} />
+          </div>
+        ) : (
+          filtered.map((report) => {
+            const accent =
+              report.status === 'approved'
+                ? 'var(--color-status-approved)'
+                : report.status === 'rejected'
+                  ? 'var(--color-status-rejected)'
+                  : report.status === 'reimbursed'
+                    ? 'var(--color-status-reimbursed)'
+                    : report.status === 'submitted'
+                      ? 'var(--color-status-pending)'
+                      : 'var(--color-text-muted)'
+            return (
+              <Link
+                key={report.id}
+                to={`/reports?id=${encodeURIComponent(report.id)}`}
+                data-mol-id={`report-card-${report.id}`}
                 className={cm.cn(
-                  cm.flex({ align: 'baseline', justify: 'between' }),
-                  cm.sp('mt', 2),
+                  cm.flex({ direction: 'col', gap: 'sm' }),
+                  cm.sp('p', 5),
+                  'rounded-2xl bg-surface border border-outline-variant/40 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all',
                 )}
+                style={{ borderLeft: `4px solid ${accent}` }}
               >
-                <span
+                <div className={cm.flex({ align: 'center', justify: 'between' })}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {report.id}
+                  </span>
+                  <ApprovalBadge status={report.status} />
+                </div>
+                <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{report.title}</h2>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                  {report.submitter_name} · {report.date_range}
+                </p>
+                <div
                   className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'uppercase tracking-widest text-on-surface-variant',
+                    cm.flex({ align: 'baseline', justify: 'between' }),
+                    cm.sp('mt', 2),
                   )}
                 >
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-widest text-on-surface-variant',
+                    )}
+                  >
+                    {t(
+                      'reportsList.lineItems',
+                      { count: report.expense_count },
+                      { defaultValue: '{{count}} expenses' },
+                    )}
+                  </span>
+                  <span className={cm.cn('text-xl font-extrabold tabular-nums tracking-tight')}>
+                    {formatUsd(report.total_amount_cents)}
+                  </span>
+                </div>
+                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                   {t(
-                    'reportsList.lineItems',
-                    { count: report.expense_count },
-                    { defaultValue: '{{count}} expenses' },
+                    'reportsList.submittedOn',
+                    { date: formatDate(report.submitted_at) },
+                    { defaultValue: 'Submitted {{date}}' },
                   )}
-                </span>
-                <span className={cm.cn('text-xl font-extrabold tabular-nums tracking-tight')}>
-                  {formatUsd(report.total_amount_cents)}
-                </span>
-              </div>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {t(
-                  'reportsList.submittedOn',
-                  { date: formatDate(report.submitted_at) },
-                  { defaultValue: 'Submitted {{date}}' },
-                )}
-              </p>
-            </Link>
-          )
-        })}
-        {filtered.length === 0 ? (
+                </p>
+              </Link>
+            )
+          })
+        )}
+        {reports !== null && filtered.length === 0 ? (
           <div
             className={cm.cn(
               cm.sp('p', 8),

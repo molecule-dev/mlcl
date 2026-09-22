@@ -49,7 +49,7 @@ const cfg = (limitType: string) => configs.find((c) => c.limitType === limitType
 describe('expense-report tier limits are enforced on create', () => {
   const cases: Array<{ limitType: string; limitKey: string; table: string }> = [
     { limitType: 'maxExpenses', limitKey: 'maxExpenses', table: 'expenses' },
-    { limitType: 'maxPolicies', limitKey: 'maxPolicies', table: 'policies' },
+    { limitType: 'maxPolicies', limitKey: 'maxPolicies', table: 'expense_policies' },
   ]
 
   for (const { limitType, limitKey, table } of cases) {

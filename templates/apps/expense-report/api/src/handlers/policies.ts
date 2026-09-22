@@ -77,12 +77,13 @@ router.get('/:id', async (req: Request, res: Response) => {
 })
 
 // Enforce the per-tier policy cap (tiers.ts maxPolicies) — defined + advertised in CATALOG but
-// enforceLimit was never called, so any tier could create unlimited policies.
+// enforceLimit was never called, so any tier could create unlimited policies. Counts the REAL
+// table (`expense_policies` — a `policies` table does not exist, the count always threw 500).
 const enforcePolicyLimit = enforceLimit<ExpenseReportLimits>({
   limitType: 'maxPolicies',
   getLimit: (limits) => limits.maxPolicies,
   getCurrent: async (userId) =>
-    count('policies', [{ field: 'user_id', operator: '=', value: userId }]),
+    count('expense_policies', [{ field: 'user_id', operator: '=', value: userId }]),
 }) as unknown as RequestHandler
 
 router.post(
