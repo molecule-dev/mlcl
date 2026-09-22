@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -70,6 +71,7 @@ export function Notifications() {
     setMarking(true)
     try {
       await http.post('/api/notifications/read-all', {})
+      void track({ name: 'notification.read_all', properties: { count: unread } })
       await refetch()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to mark notifications read.')

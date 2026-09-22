@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -69,6 +70,8 @@ export function AlertDetail() {
   const [rule, setRule] = useState<AlertRule | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [pending, setPending] = useState<'toggle' | 'delete' | null>(null)
+  // Two-step destructive confirm: first click arms, second click executes.
+  const [armingDelete, setArmingDelete] = useState(false)
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -94,6 +97,10 @@ export function AlertDetail() {
         status: newStatus,
         is_enabled: newStatus === 'active',
       })
+      void track({
+        name: newStatus === 'paused' ? 'alert.paused' : 'alert.resumed',
+        properties: { alert_id: rule.id, status: newStatus },
+      })
       await reload()
     } catch (error) {
       logError('alertDetail.togglePaused', error)
@@ -108,6 +115,7 @@ export function AlertDetail() {
     setPending('delete')
     try {
       await http.delete(`/api/alerts/${rule.id}`)
+      void track({ name: 'alert.deleted', properties: { alert_id: rule.id } })
       navigate('/alerts')
     } catch (error) {
       logError('alertDetail.deleteRule', error)
@@ -256,17 +264,30 @@ export function AlertDetail() {
             type="button"
             data-testid="alert-delete"
             disabled={pending !== null}
-            onClick={() => void deleteRule()}
+            onClick={() => {
+              if (!armingDelete) {
+                setArmingDelete(true)
+                return
+              }
+              setArmingDelete(false)
+              void deleteRule()
+            }}
             className={cm.cn(
               'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest disabled:opacity-50',
             )}
             style={{
-              backgroundColor: 'var(--color-severity-critical-light)',
-              color: 'var(--color-severity-critical)',
+              backgroundColor: armingDelete
+                ? 'var(--color-severity-critical)'
+                : 'var(--color-severity-critical-light)',
+              color: armingDelete ? 'var(--color-on-primary)' : 'var(--color-severity-critical)',
               border: '1px solid var(--color-severity-critical)',
             }}
           >
-            {pending === 'delete' ? '…' : t('common.delete', {}, { defaultValue: 'Delete' })}
+            {pending === 'delete'
+              ? '…'
+              : armingDelete
+                ? t('common.confirmDelete', {}, { defaultValue: 'Confirm delete?' })
+                : t('common.delete', {}, { defaultValue: 'Delete' })}
           </button>
         </div>
       </header>

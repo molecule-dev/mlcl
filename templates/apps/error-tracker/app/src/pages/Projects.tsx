@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -86,7 +87,14 @@ export function Projects() {
     if (!newName.trim()) return
     setCreating(true)
     try {
-      await http.post('/api/projects', { name: newName.trim(), projectType: 'app' })
+      const res = await http.post<{ id?: string }>('/api/projects', {
+        name: newName.trim(),
+        projectType: 'app',
+      })
+      void track({
+        name: 'project.created',
+        properties: { project_id: res.data?.id, name: newName.trim() },
+      })
       setNewName('')
       setShowCreate(false)
       await reload()

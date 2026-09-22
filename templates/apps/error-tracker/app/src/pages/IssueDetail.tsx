@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -67,7 +68,7 @@ export function IssueDetail() {
   const [issue, setIssue] = useState<IssueDetailData | null>(null)
   const [selectedEventId, setSelectedEventId] = useState<string>('')
   const [loading, setLoading] = useState(true)
-  const [, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const [actionPending, setActionPending] = useState<'resolve' | 'ignore' | 'unresolve' | null>(
     null,
   )
@@ -84,6 +85,9 @@ export function IssueDetail() {
       setSelectedEventId((prev) => prev || single.recent_events[0]?.id || '')
     }
   }, [http, id])
+
+  // Bumped by the error state's Retry button to re-run the load effect.
+  const [retryToken, setRetryToken] = useState(0)
 
   useEffect(() => {
     if (!id) return
@@ -102,7 +106,7 @@ export function IssueDetail() {
       })
       .catch(() => {
         if (!cancelled)
-          setError(t('issueDetail.loadError', {}, { defaultValue: 'Showing sample issue.' }))
+          setError(t('issueDetail.loadError', {}, { defaultValue: "Couldn't load this issue." }))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -110,7 +114,7 @@ export function IssueDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, t, retryToken])
 
   useEffect(() => {
     let cancelled = false
@@ -143,6 +147,15 @@ export function IssueDetail() {
       setActionError(null)
       try {
         await http.put(`/api/issues/${id}/status`, { status })
+        void track({
+          name:
+            status === 'resolved'
+              ? 'issue.resolved'
+              : status === 'ignored'
+                ? 'issue.ignored'
+                : 'issue.reopened',
+          properties: { issue_id: id, status },
+        })
         await reloadIssue()
       } catch (error) {
         logError('issueDetail.triageStatus', error)
@@ -164,6 +177,10 @@ export function IssueDetail() {
         await http.put(`/api/issues/${id}/assign`, {
           assignee: member?.name ?? null,
           user_id: member?.id ?? null,
+        })
+        void track({
+          name: 'error.assigned',
+          properties: { issue_id: id, assignee: member?.name ?? null },
         })
         await reloadIssue()
         setShowAssign(false)
@@ -202,9 +219,37 @@ export function IssueDetail() {
           className={cm.cn('font-mono text-sm')}
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          {loading
-            ? t('issueDetail.loading', {}, { defaultValue: 'Loading issue…' })
-            : t('issueDetail.notFound', {}, { defaultValue: 'Issue not found.' })}
+          {loading ? (
+            t('issueDetail.loading', {}, { defaultValue: 'Loading issue…' })
+          ) : error ? (
+            <div
+              role="alert"
+              className={cm.cn('flex flex-col items-start gap-3 rounded-md p-4')}
+              style={{
+                color: 'var(--color-severity-critical)',
+                backgroundColor: 'var(--color-severity-critical-light)',
+                border: '1px solid var(--color-severity-critical)',
+              }}
+            >
+              <span>{error}</span>
+              <button
+                type="button"
+                data-mol-id="issue-detail-retry"
+                onClick={() => setRetryToken((v) => v + 1)}
+                className={cm.cn(
+                  'rounded-md border px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest transition-colors hover:opacity-90',
+                )}
+                style={{
+                  borderColor: 'var(--color-severity-critical)',
+                  color: 'var(--color-text)',
+                }}
+              >
+                {t('common.retry', {}, { defaultValue: 'Retry' })}
+              </button>
+            </div>
+          ) : (
+            t('issueDetail.notFound', {}, { defaultValue: 'Issue not found.' })
+          )}
         </div>
       </div>
     )

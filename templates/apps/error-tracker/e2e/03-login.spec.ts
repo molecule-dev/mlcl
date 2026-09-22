@@ -28,6 +28,9 @@ test.describe('/login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail('login-bad'))
     await page.locator('input[type="password"]').first().fill('WrongPass!12')
+    // The 403 from POST /api/users/log-in is the expected rejection this
+    // test exists to assert on — allow the browser's resource-error log.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page
       .getByRole('button', { name: /sign\s*in|log\s*in/i })
       .first()

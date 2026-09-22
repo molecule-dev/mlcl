@@ -200,7 +200,7 @@ export function Discover() {
               data-testid={`discover-suggest-${field}`}
               onClick={() => setQuery((q) => `${q} ${field}:`.trim())}
               className={cm.cn(
-                'inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded',
+                'inline-flex min-h-[36px] items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest px-3 rounded',
               )}
               style={{
                 backgroundColor: 'color-mix(in srgb, var(--color-info) 10%, transparent)',

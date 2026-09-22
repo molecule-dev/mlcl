@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -158,6 +159,10 @@ export function Profile() {
       const res = await http.post<ApiKey>('/api/profile/api-keys', { name: newKeyName.trim() })
       const created = res.data
       if (created?.secret) setRevealedSecret(created.secret)
+      void track({
+        name: 'apikey.created',
+        properties: { apikey_id: created?.id, prefix: created?.prefix },
+      })
       setNewKeyName('')
       setCreatingKey(false)
       await reload()
@@ -418,7 +423,7 @@ export function Profile() {
                   data-testid="profile-display-name-input"
                   value={displayNameDraft}
                   onChange={(e) => setDisplayNameDraft(e.target.value)}
-                  className={cm.cn('flex-1 px-2 py-1 rounded font-mono text-sm')}
+                  className={cm.cn('flex-1 min-w-0 px-2 py-1 rounded font-mono text-sm')}
                   style={{
                     backgroundColor: 'var(--color-background-secondary)',
                     color: 'var(--color-text)',
@@ -475,7 +480,7 @@ export function Profile() {
                   autoComplete="email"
                   value={emailDraft}
                   onChange={(e) => setEmailDraft(e.target.value)}
-                  className={cm.cn('flex-1 px-2 py-1 rounded font-mono text-sm')}
+                  className={cm.cn('flex-1 min-w-0 px-2 py-1 rounded font-mono text-sm')}
                   style={{
                     backgroundColor: 'var(--color-background-secondary)',
                     color: 'var(--color-text)',
@@ -809,7 +814,7 @@ export function Profile() {
                 data-testid="api-key-create-open"
                 onClick={() => setCreatingKey(true)}
                 className={cm.cn(
-                  'mt-3 px-3 py-1.5 rounded font-mono text-[10px] font-bold uppercase tracking-widest border',
+                  'mt-3 inline-flex min-h-[36px] items-center px-3 rounded font-mono text-[10px] font-bold uppercase tracking-widest border',
                 )}
                 style={{
                   borderColor: 'color-mix(in srgb, var(--color-primary) 40%, transparent)',
@@ -854,7 +859,7 @@ export function Profile() {
                     data-testid={`connect-${c.provider}`}
                     onClick={() => void toggleAccount(c.provider, !c.connected)}
                     className={cm.cn(
-                      'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                      'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
                     )}
                     style={{
                       color: c.connected
@@ -1007,17 +1012,21 @@ function FieldRow({
 }) {
   const cm = getClassMap()
   return (
-    <div className={cm.cn('flex items-center gap-3 py-2.5 first:pt-0 last:pb-0')}>
+    <div
+      className={cm.cn(
+        'flex flex-wrap md:flex-nowrap items-center gap-x-3 gap-y-1 py-2.5 first:pt-0 last:pb-0',
+      )}
+    >
       <span
         className={cm.cn(
-          'font-mono text-[10px] font-black uppercase tracking-widest w-40 shrink-0',
+          'font-mono text-[10px] font-black uppercase tracking-widest w-full md:w-40 shrink-0',
         )}
         style={{ color: 'var(--color-severity-muted)' }}
       >
         {label}
       </span>
       <span
-        className={mono ? 'font-mono text-sm' : 'text-sm'}
+        className={cm.cn('min-w-0 flex-1 break-words', mono ? 'font-mono text-sm' : 'text-sm')}
         style={{ color: 'var(--color-text)', ...(valueStyle ?? {}) }}
       >
         {value}
@@ -1028,7 +1037,7 @@ function FieldRow({
           type="button"
           data-testid={actionTestId}
           className={cm.cn(
-            'ml-auto font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+            'ml-auto inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
           )}
           style={{ color: 'var(--color-text-code)' }}
         >

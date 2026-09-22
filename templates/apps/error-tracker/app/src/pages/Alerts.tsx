@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -108,7 +109,7 @@ export function Alerts() {
     }
     setCreating(true)
     try {
-      await http.post('/api/alerts', {
+      const created = await http.post<{ id?: string }>('/api/alerts', {
         project_id: projects[0]?.id,
         name: draftName.trim(),
         rule_type: 'issue-frequency',
@@ -121,6 +122,10 @@ export function Alerts() {
         notification_target: draftTarget || null,
         status: 'active',
         is_enabled: true,
+      })
+      void track({
+        name: 'alert.created',
+        properties: { alert_id: created.data?.id, name: draftName.trim(), level: draftLevel },
       })
       setDraftName('')
       setDraftTarget('')

@@ -116,7 +116,7 @@ export function StackTraceBlock({
             type="button"
             onClick={() => setShowVendor((v) => !v)}
             className={cm.cn(
-              'font-mono text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-md transition-colors hover:opacity-80',
+              'inline-flex min-h-[36px] items-center px-3 font-mono text-[10px] font-black uppercase tracking-widest rounded-md transition-colors hover:opacity-80',
             )}
             style={{
               backgroundColor: 'color-mix(in srgb, var(--color-info) 10%, transparent)',

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -50,6 +51,8 @@ export function Settings() {
   const [editingOrgName, setEditingOrgName] = useState(false)
   const [savingSettings, setSavingSettings] = useState(false)
   const [creatingProject, setCreatingProject] = useState(false)
+  // Two-step destructive confirm: the id of the project whose Remove is armed.
+  const [armingProjectId, setArmingProjectId] = useState<string | null>(null)
   const [newProjectName, setNewProjectName] = useState('')
   const [creatingIntegration, setCreatingIntegration] = useState<string | null>(null)
   const [confirmingDelete, setConfirmingDelete] = useState(false)
@@ -90,9 +93,13 @@ export function Settings() {
   const createProject = useCallback(async () => {
     if (!newProjectName.trim()) return
     try {
-      await http.post('/api/projects', {
+      const created = await http.post<{ id?: string }>('/api/projects', {
         name: newProjectName.trim(),
         projectType: 'app',
+      })
+      void track({
+        name: 'project.created',
+        properties: { project_id: created.data?.id, name: newProjectName.trim() },
       })
       setNewProjectName('')
       setCreatingProject(false)
@@ -107,6 +114,7 @@ export function Settings() {
     async (id: string) => {
       try {
         await http.delete(`/api/projects/${id}`)
+        void track({ name: 'project.deleted', properties: { project_id: id } })
         await reload()
       } catch (error) {
         logError('settings.removeProject', error)
@@ -261,7 +269,7 @@ export function Settings() {
                 type="button"
                 data-testid="new-project-open"
                 className={cm.cn(
-                  'inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded hover:bg-white/5',
+                  'inline-flex min-h-[36px] items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-widest px-3 rounded hover:bg-white/5',
                 )}
                 style={{ color: 'var(--color-text-code)' }}
               >
@@ -370,13 +378,22 @@ export function Settings() {
                     <button
                       type="button"
                       data-testid="project-remove"
-                      onClick={() => void removeProject(p.id)}
+                      onClick={() => {
+                        if (armingProjectId !== p.id) {
+                          setArmingProjectId(p.id)
+                          return
+                        }
+                        setArmingProjectId(null)
+                        void removeProject(p.id)
+                      }}
                       className={cm.cn(
-                        'font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded hover:bg-white/5',
+                        'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest rounded hover:bg-white/5',
                       )}
                       style={{ color: 'var(--color-severity-critical)' }}
                     >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
+                      {armingProjectId === p.id
+                        ? t('common.confirmRemove', {}, { defaultValue: 'Confirm?' })
+                        : t('common.remove', {}, { defaultValue: 'Remove' })}
                     </button>
                   </li>
                 ))}
@@ -451,7 +468,7 @@ export function Settings() {
                       data-testid="integration-toggle"
                       onClick={() => void toggleIntegration(i)}
                       className={cm.cn(
-                        'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                        'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
                       )}
                       style={{
                         color: i.connected
@@ -468,7 +485,7 @@ export function Settings() {
                       data-testid="integration-remove"
                       onClick={() => void removeIntegration(i.id)}
                       className={cm.cn(
-                        'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                        'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
                       )}
                       style={{ color: 'var(--color-text-secondary)' }}
                     >
@@ -488,7 +505,7 @@ export function Settings() {
                     disabled={creatingIntegration === name}
                     onClick={() => void addIntegration(name)}
                     className={cm.cn(
-                      'px-3 py-1.5 rounded-md font-mono text-[10px] font-bold uppercase tracking-widest border disabled:opacity-50',
+                      'inline-flex min-h-[36px] items-center px-3 rounded-md font-mono text-[10px] font-bold uppercase tracking-widest border disabled:opacity-50',
                     )}
                     style={{
                       borderColor: 'color-mix(in srgb, var(--color-info) 30%, transparent)',
@@ -705,7 +722,7 @@ export function Settings() {
                 type="button"
                 data-testid="delete-workspace-open"
                 className={cm.cn(
-                  'font-mono text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-md transition-colors hover:opacity-90',
+                  'inline-flex min-h-[36px] items-center font-mono text-xs font-bold uppercase tracking-widest px-4 rounded-md transition-colors hover:opacity-90',
                 )}
                 style={{
                   backgroundColor: 'var(--color-severity-critical-light)',
@@ -742,17 +759,17 @@ function FieldRow({
 }) {
   const cm = getClassMap()
   return (
-    <div className={cm.cn('flex items-center gap-3')}>
+    <div className={cm.cn('flex flex-wrap md:flex-nowrap items-center gap-x-3 gap-y-1')}>
       <span
         className={cm.cn(
-          'font-mono text-[10px] font-black uppercase tracking-widest w-32 shrink-0',
+          'font-mono text-[10px] font-black uppercase tracking-widest w-full md:w-32 shrink-0',
         )}
         style={{ color: 'var(--color-severity-muted)' }}
       >
         {label}
       </span>
       <span
-        className={mono ? 'font-mono text-sm' : 'text-sm'}
+        className={cm.cn('min-w-0 flex-1 break-words', mono ? 'font-mono text-sm' : 'text-sm')}
         style={{ color: 'var(--color-text)', ...(valueStyle ?? {}) }}
       >
         {value}
@@ -763,7 +780,7 @@ function FieldRow({
           data-testid={actionTestId}
           onClick={onAction}
           className={cm.cn(
-            'ml-auto font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+            'ml-auto inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
           )}
           style={{ color: 'var(--color-text-code)' }}
         >

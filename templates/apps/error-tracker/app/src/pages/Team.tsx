@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -47,6 +48,8 @@ export function Team() {
   const [members, setMembers] = useState<Member[]>([])
   const [invites, setInvites] = useState<Invite[]>([])
   const [showInvite, setShowInvite] = useState(false)
+  // Two-step destructive confirm: the id of the member whose Remove is armed.
+  const [armingRemoveId, setArmingRemoveId] = useState<string | null>(null)
   const [inviteEmail, setInviteEmail] = useState('')
   const [inviteRole, setInviteRole] = useState<'admin' | 'dev' | 'viewer'>('dev')
   const [inviting, setInviting] = useState(false)
@@ -74,6 +77,10 @@ export function Team() {
     setError(null)
     try {
       await http.post('/api/team/invite', { email: inviteEmail.trim(), role: inviteRole })
+      void track({
+        name: 'team.invite_sent',
+        properties: { email: inviteEmail.trim(), role: inviteRole },
+      })
       setInviteEmail('')
       setShowInvite(false)
       await reload()
@@ -89,6 +96,7 @@ export function Team() {
     async (id: string) => {
       try {
         await http.delete(`/api/team/members/${id}`)
+        void track({ name: 'team.member_removed', properties: { member_id: id } })
         await reload()
       } catch (error) {
         logError('team.removeMember', error)
@@ -311,7 +319,7 @@ export function Team() {
                   data-testid="invite-cancel"
                   onClick={() => void cancelInvite(inv.id)}
                   className={cm.cn(
-                    'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                    'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
                   )}
                   style={{ color: 'var(--color-severity-critical)' }}
                 >
@@ -366,7 +374,7 @@ export function Team() {
       >
         <div
           className={cm.cn(
-            'grid grid-cols-12 px-5 py-3 border-b font-mono text-[9px] font-black uppercase tracking-widest',
+            'hidden md:grid md:grid-cols-12 px-5 py-3 border-b font-mono text-[9px] font-black uppercase tracking-widest',
           )}
           style={{ borderColor: 'var(--color-border)', color: 'var(--color-severity-muted)' }}
         >
@@ -409,10 +417,10 @@ export function Team() {
                 data-testid="team-row"
                 data-member-id={m.id}
                 className={cm.cn(
-                  'grid grid-cols-12 px-5 py-3 items-center hover:bg-surface/5 transition-colors',
+                  'px-5 py-4 md:py-3 hover:bg-surface/5 transition-colors md:grid md:grid-cols-12 md:items-center md:gap-2',
                 )}
               >
-                <div className={cm.cn('col-span-4 flex items-center gap-3 min-w-0')}>
+                <div className={cm.cn('flex items-center gap-3 min-w-0 md:col-span-4')}>
                   <span
                     className={cm.cn(
                       'h-8 w-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0',
@@ -426,17 +434,28 @@ export function Team() {
                   >
                     {(m.name?.[0] ?? '?').toUpperCase()}
                   </span>
-                  <p className={cm.cn('font-bold truncate')} style={{ color: 'var(--color-text)' }}>
-                    {m.name}
-                  </p>
+                  <div className={cm.cn('min-w-0 flex-1')}>
+                    <p
+                      className={cm.cn('font-bold truncate')}
+                      style={{ color: 'var(--color-text)' }}
+                    >
+                      {m.name}
+                    </p>
+                    <p
+                      className={cm.cn('md:hidden font-mono text-xs truncate')}
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      {m.email}
+                    </p>
+                  </div>
                 </div>
                 <span
-                  className={cm.cn('col-span-3 font-mono text-xs truncate')}
+                  className={cm.cn('hidden md:block md:col-span-3 font-mono text-xs truncate')}
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   {m.email}
                 </span>
-                <span className={cm.cn('col-span-1')}>
+                <span className={cm.cn('mt-2 md:mt-0 md:col-span-1 inline-flex')}>
                   <span
                     className={cm.cn(
                       'inline-flex items-center font-mono text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded',
@@ -449,7 +468,9 @@ export function Team() {
                     {m.role}
                   </span>
                 </span>
-                <span className={cm.cn('col-span-2 flex items-center gap-2')}>
+                <span
+                  className={cm.cn('mt-3 md:mt-0 md:col-span-2 flex flex-wrap items-center gap-2')}
+                >
                   {m.oncall ? (
                     <SeverityPill
                       severity="resolved"
@@ -468,7 +489,7 @@ export function Team() {
                     data-testid="team-toggle-oncall"
                     onClick={() => void toggleOncall(m)}
                     className={cm.cn(
-                      'font-mono text-[9px] font-bold uppercase tracking-widest hover:opacity-80',
+                      'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[9px] font-bold uppercase tracking-widest hover:opacity-80',
                     )}
                     style={{ color: 'var(--color-text-code)' }}
                   >
@@ -478,22 +499,33 @@ export function Team() {
                   </button>
                 </span>
                 <span
-                  className={cm.cn('col-span-1 text-right font-mono text-xs')}
+                  className={cm.cn(
+                    'mt-1 md:mt-0 md:col-span-1 block md:text-right font-mono text-xs',
+                  )}
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   {m.last_active ?? '—'}
                 </span>
-                <span className={cm.cn('col-span-1 text-right')}>
+                <span className={cm.cn('mt-2 md:mt-0 md:col-span-1 md:text-right inline-flex')}>
                   <button
                     type="button"
                     data-testid="team-member-remove"
-                    onClick={() => void removeMember(m.id)}
+                    onClick={() => {
+                      if (armingRemoveId !== m.id) {
+                        setArmingRemoveId(m.id)
+                        return
+                      }
+                      setArmingRemoveId(null)
+                      void removeMember(m.id)
+                    }}
                     className={cm.cn(
-                      'font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
+                      'inline-flex min-h-[36px] items-center -my-2 px-2 font-mono text-[10px] font-bold uppercase tracking-widest hover:opacity-80',
                     )}
                     style={{ color: 'var(--color-severity-critical)' }}
                   >
-                    {t('common.remove', {}, { defaultValue: 'Remove' })}
+                    {armingRemoveId === m.id
+                      ? t('common.confirmRemove', {}, { defaultValue: 'Confirm?' })
+                      : t('common.remove', {}, { defaultValue: 'Remove' })}
                   </button>
                 </span>
               </li>
