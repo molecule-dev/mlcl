@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapList, unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -49,6 +50,7 @@ export function Projects() {
   const [projects, setProjects] = useState<Project[]>([])
   const [filter, setFilter] = useState<FilterKey>('all')
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
   const [showNewModal, setShowNewModal] = useState(false)
@@ -57,6 +59,7 @@ export function Projects() {
 
   useEffect(() => {
     let cancelled = false
+    setLoadError(null)
     http
       .get<unknown>('/api/projects')
       .then((res) => {
@@ -66,14 +69,16 @@ export function Projects() {
       })
       .catch(() => {
         if (!cancelled) {
-          setProjects([])
+          setLoadError(
+            t('projects.loadFailed', {}, { defaultValue: 'Failed to load your projects.' }),
+          )
           setLoading(false)
         }
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, t])
 
   useEffect(() => {
     if (!showNewModal) return
@@ -103,6 +108,7 @@ export function Projects() {
       const res = await http.post<unknown>('/api/projects', { name, bpm: 120 })
       const created = unwrapSingle<Project>(res.data)
       if (created && created.id) {
+        track({ name: 'project.created', properties: { project_id: created.id, name } })
         setShowNewModal(false)
         setNewName('')
         navigate(`/projects/${created.id}`)
@@ -191,6 +197,43 @@ export function Projects() {
           </button>
         ))}
       </div>
+
+      {loadError && !loading && (
+        <div
+          role="alert"
+          className={cm.cn(
+            'flex items-center justify-between gap-3 flex-wrap text-sm text-on-error-container bg-error-container px-4 py-3 rounded-xl',
+          )}
+        >
+          <span>{loadError}</span>
+          <button
+            type="button"
+            data-mol-id="projects-retry"
+            onClick={() => {
+              setLoading(true)
+              setLoadError(null)
+              http
+                .get<unknown>('/api/projects')
+                .then((res) => {
+                  setProjects(unwrapList<Project>(res.data).map(decorate))
+                })
+                .catch(() => {
+                  setLoadError(
+                    t('projects.loadFailed', {}, { defaultValue: 'Failed to load your projects.' }),
+                  )
+                })
+                .finally(() => {
+                  setLoading(false)
+                })
+            }}
+            className={cm.cn(
+              'px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
 
       {loading ? (
         <p className={cm.cn('text-sm', cm.textMuted)}>

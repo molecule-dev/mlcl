@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapList, unwrapSingle } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -131,6 +132,10 @@ export function Editor() {
       })
       const created = unwrapSingle<ApiTrack>(res.data)
       if (created && created.id) {
+        track({
+          name: 'track.added',
+          properties: { track_id: created.id, project_id: id, type: kind },
+        })
         const lane = toLaneItem({ ...created, position: tracks.length })
         setTracks((prev) => [...prev, lane])
         setSelectedId(lane.id)

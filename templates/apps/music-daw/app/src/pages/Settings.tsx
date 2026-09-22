@@ -599,8 +599,11 @@ function ToggleRow({
         type="button"
         role="switch"
         aria-checked={on}
+        aria-label={label}
         onClick={onToggle}
-        className={cm.cn('w-11 h-6 rounded-full relative transition-colors shrink-0')}
+        className={cm.cn(
+          'w-11 h-6 rounded-full relative transition-colors shrink-0 before:content-[""] before:absolute before:-inset-2',
+        )}
         style={{
           // Token (not a white alpha) so the off state stays visible in light mode.
           backgroundColor: on ? 'var(--daw-primary)' : 'var(--mol-color-border-secondary)',

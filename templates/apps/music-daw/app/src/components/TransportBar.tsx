@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -70,9 +71,8 @@ export function TransportBar() {
   return (
     <div
       className={cm.cn(
-        cm.flex({ align: 'center', gap: 'md' }),
-        cm.sp('px', 6),
-        'fixed bottom-0 left-0 right-0 z-40 border-t border-outline-variant',
+        cm.flex({ align: 'center' }),
+        'gap-2 sm:gap-4 px-3 sm:px-6 fixed bottom-0 left-0 right-0 z-40 border-t border-outline-variant',
       )}
       style={{ backgroundColor: 'var(--color-background-secondary)', height: '72px' }}
       role="region"
@@ -84,10 +84,10 @@ export function TransportBar() {
           type="button"
           aria-label={t('transportBar.previous', {}, { defaultValue: 'Rewind to start' })}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
-            'rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
+            'hidden sm:flex rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
           )}
         >
           <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
@@ -96,7 +96,15 @@ export function TransportBar() {
         </button>
         <button
           type="button"
-          onClick={() => setIsPlaying((p) => !p)}
+          onClick={() => {
+            setIsPlaying((p) => {
+              const next = !p
+              if (next) {
+                track({ name: 'transport.play', properties: { bpm } })
+              }
+              return next
+            })
+          }}
           aria-pressed={isPlaying}
           aria-label={
             isPlaying
@@ -124,12 +132,20 @@ export function TransportBar() {
         </button>
         <button
           type="button"
-          onClick={() => setIsRecording((r) => !r)}
+          onClick={() => {
+            setIsRecording((r) => {
+              const next = !r
+              if (next) {
+                track({ name: 'transport.record', properties: { bpm } })
+              }
+              return next
+            })
+          }}
           aria-pressed={isRecording}
           aria-label={t('transportBar.record', {}, { defaultValue: 'Record' })}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
             'rounded-full transition-colors',
           )}
@@ -151,10 +167,10 @@ export function TransportBar() {
           type="button"
           aria-label={t('transportBar.next', {}, { defaultValue: 'Skip forward 4s' })}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
-            'rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
+            'hidden sm:flex rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
           )}
         >
           <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
@@ -163,7 +179,7 @@ export function TransportBar() {
         </button>
       </div>
 
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.flex1, 'min-w-0')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 sm:gap-6 flex-1 min-w-0')}>
         <div className={cm.flex({ direction: 'col' })}>
           <span
             className={cm.cn(
@@ -173,7 +189,9 @@ export function TransportBar() {
             {t('transportBar.timecodeLabel', {}, { defaultValue: 'Time' })}
           </span>
           <span
-            className={cm.cn('text-base font-mono tabular-nums font-semibold text-on-surface')}
+            className={cm.cn(
+              'text-sm sm:text-base font-mono tabular-nums font-semibold text-on-surface',
+            )}
             style={{ letterSpacing: '0.04em' }}
           >
             {formatTime(elapsedMs)}
@@ -196,11 +214,11 @@ export function TransportBar() {
             value={bpm}
             onChange={(e) => setBpm(Number(e.target.value))}
             className={cm.cn(
-              'text-base font-mono tabular-nums font-semibold text-on-surface bg-transparent border-0 outline-none focus:bg-surface-container rounded px-1 -ml-1 w-14',
+              'text-sm sm:text-base font-mono tabular-nums font-semibold text-on-surface bg-transparent border-0 outline-none focus:bg-surface-container rounded px-1 -ml-1 w-12 sm:w-14',
             )}
           />
         </div>
-        <div className={cm.flex({ direction: 'col' })}>
+        <div className={cm.cn(cm.flex({ direction: 'col' }), 'hidden sm:flex')}>
           <span
             className={cm.cn(
               'text-[9px] font-black uppercase tracking-widest text-on-surface-variant',
@@ -221,8 +239,8 @@ export function TransportBar() {
           aria-pressed={isLooping}
           aria-label={t('transportBar.loop', {}, { defaultValue: 'Toggle loop region' })}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
             'rounded-full transition-colors',
           )}
@@ -240,8 +258,8 @@ export function TransportBar() {
           aria-pressed={metronomeOn}
           aria-label={t('transportBar.metronome', {}, { defaultValue: 'Metronome' })}
           className={cm.cn(
-            cm.h(9),
-            cm.w(9),
+            cm.h(10),
+            cm.w(10),
             cm.flex({ align: 'center', justify: 'center' }),
             'rounded-full transition-colors',
           )}

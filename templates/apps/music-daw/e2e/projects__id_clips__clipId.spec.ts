@@ -117,6 +117,12 @@ test.describe('Piano roll page (/projects/:id/clips/:clipId)', () => {
   })
 
   test('clip-missing fallback is shown for an invalid clipId', async ({ page, request }) => {
+    // The invalid clipId 404s are the EXPECTED result under test — silence the
+    // console-guard so the fallback-alert assertion below decides pass/fail.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     const u = await apiSignup(request)
     const proj = await createProject(request, u.accessToken!)
     await loginThenGoto(page, u, `/projects/${proj.id}/clips/00000000-0000-0000-0000-000000000000`)

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { unwrapList } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -64,6 +65,8 @@ export function Mixing() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)
+  const [exporting, setExporting] = useState(false)
+  const [exportDone, setExportDone] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -107,11 +110,45 @@ export function Mixing() {
     )
     try {
       await http.put<unknown>(`/api/tracks/${trackId}`, updates)
+      track({
+        name: 'mix.updated',
+        properties: { track_id: trackId, project_id: id, ...updates },
+      })
     } catch (error) {
       setError(t('mixing.updateFailed', {}, { defaultValue: 'Failed to save change.' }))
       logError('mixing.updateTrack', error)
     } finally {
       setBusyId(null)
+    }
+  }
+
+  const handleExport = async () => {
+    if (!id || exporting) return
+    setExporting(true)
+    setExportDone(false)
+    setError(null)
+    try {
+      const res = await http.post<unknown>('/api/exports', {
+        project_id: id,
+        format: 'wav',
+        quality: 'high',
+      })
+      const body = res.data as { data?: { id?: string }; id?: string }
+      const exportId = body.data?.id ?? body.id
+      track({
+        name: 'mix.exported',
+        properties: { project_id: id, format: 'wav', quality: 'high', export_id: exportId },
+      })
+      setExportDone(true)
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : t('mixing.exportFailed', {}, { defaultValue: 'Failed to start export.' }),
+      )
+      logError('mixing.export', err)
+    } finally {
+      setExporting(false)
     }
   }
 
@@ -143,7 +180,41 @@ export function Mixing() {
         >
           {t('mixing.tracksLabel', { count: strips.length }, { defaultValue: '{{count}} tracks' })}
         </span>
+        <button
+          type="button"
+          onClick={handleExport}
+          disabled={exporting || strips.length === 0}
+          data-mol-id="mix-export"
+          className={cm.cn(
+            'inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white disabled:opacity-60 transition-opacity',
+          )}
+          style={{
+            background: 'linear-gradient(135deg, var(--daw-primary), var(--daw-secondary))',
+          }}
+        >
+          <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+            {exporting ? 'progress_activity' : 'download'}
+          </span>
+          {exporting
+            ? t('mixing.exporting', {}, { defaultValue: 'Exporting…' })
+            : t('mixing.export', {}, { defaultValue: 'Export mix' })}
+        </button>
       </header>
+
+      {exportDone && !error && (
+        <p
+          role="status"
+          className={cm.cn(
+            'text-sm text-on-surface-container bg-surface-container px-3 py-2 rounded-lg',
+          )}
+        >
+          {t(
+            'mixing.exportDone',
+            {},
+            { defaultValue: 'Export queued — your WAV will appear in the project when rendered.' },
+          )}
+        </p>
+      )}
 
       {error && (
         <p
@@ -352,7 +423,7 @@ function ChannelStripCard({
           aria-pressed={!!strip.muted}
           aria-label={t('mixing.muteAria', { name: strip.name }, { defaultValue: 'Mute {{name}}' })}
           className={cm.cn(
-            'inline-flex items-center justify-center w-6 h-6 rounded-sm text-[10px] font-black border transition-colors disabled:opacity-60',
+            'inline-flex items-center justify-center w-10 h-10 rounded-md text-xs font-black border transition-colors disabled:opacity-60',
           )}
           style={{
             backgroundColor: strip.muted ? 'var(--mol-color-text-secondary)' : 'transparent',
@@ -369,7 +440,7 @@ function ChannelStripCard({
           aria-pressed={!!strip.solo}
           aria-label={t('mixing.soloAria', { name: strip.name }, { defaultValue: 'Solo {{name}}' })}
           className={cm.cn(
-            'inline-flex items-center justify-center w-6 h-6 rounded-sm text-[10px] font-black border transition-colors disabled:opacity-60',
+            'inline-flex items-center justify-center w-10 h-10 rounded-md text-xs font-black border transition-colors disabled:opacity-60',
           )}
           style={{
             backgroundColor: strip.solo ? 'var(--daw-meter-yellow)' : 'transparent',

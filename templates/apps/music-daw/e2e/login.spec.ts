@@ -54,6 +54,12 @@ test.describe('Login page (/login)', () => {
   })
 
   test('invalid credentials show error alert and stay on /login', async ({ page }) => {
+    // The failed login 403 is the EXPECTED result under test — silence the
+    // console-guard so the alert assertion below is what decides pass/fail.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill('does-not-exist+' + Date.now() + '@example.com')
     await page.locator('#password').fill('WrongPass123!')
