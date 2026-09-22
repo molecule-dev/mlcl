@@ -15,6 +15,9 @@ test.describe('reset-password page', () => {
   })
 
   test('submitting fires PATCH /api/users/:id/password (reset endpoint)', async ({ page }) => {
+    // The fake token makes the reset endpoint legitimately answer 401;
+    // the browser logs that 401 as a console error — expected here.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=fake-test-token&email=demo@example.com')
     const pwds = page.locator('input[type="password"]')
     const count = await pwds.count()

@@ -34,11 +34,14 @@ test.describe('login page', () => {
   })
 
   test('invalid credentials show error and stay on /login', async ({ page }) => {
+    // The expected 403 from /api/users/log-in logs a browser console error;
+    // the page itself handles it inline (role=alert banner below).
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('#email').fill(uniqueEmail('nope'))
     await page.locator('#password').fill('WrongPass!')
     await page.locator('button[type="submit"]').first().click()
-    await page.waitForTimeout(2000)
+    await expect(page.locator('[data-mol-id="login-error"]')).toBeVisible({ timeout: 8000 })
     await expect(page).toHaveURL(/\/login/)
   })
 })

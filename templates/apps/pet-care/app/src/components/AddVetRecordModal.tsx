@@ -4,6 +4,7 @@
  */
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -107,6 +108,7 @@ export function AddVetRecordModal({ open, onClose, onCreated, initialPetId }: Pr
       const created = unwrapSingle<CreatedRecord>(res)
       const id = created?.id ?? created?.data?.id
       if (id) onCreated?.(id)
+      track({ name: 'vet-record.added', properties: { recordId: id ?? '', petId, kind } })
       onClose()
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

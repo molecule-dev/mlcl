@@ -82,24 +82,45 @@ export function UpgradeButton() {
     }
   }
 
-  if (planKey !== 'free') return null
+  // Single Billing section (the shared <BillingSection> is NOT rendered in
+  // SettingsPanel — it would duplicate this row with a navigate-to-self
+  // button). Paid plan: show the plan name with no upgrade CTA.
+  if (planKey !== 'free') {
+    return (
+      <section data-mol-id="settings-billing-section">
+        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
+          {t('settings.billing', undefined, { defaultValue: 'Billing' })}
+        </h3>
+        <Flex align="center" justify="between">
+          <span className={cm.textSize('sm')} data-mol-id="settings-plan-name">
+            {planName}
+          </span>
+        </Flex>
+      </section>
+    )
+  }
 
   return (
-    <Flex align="center" justify="between" className={cm.sp('mt', 3)}>
-      <span className={cm.textSize('sm')} data-mol-id="settings-plan-name">
-        {planName}
-      </span>
-      <Button
-        variant="solid"
-        size="sm"
-        loading={loading}
-        disabled={!firstPriceId}
-        onClick={handleClick}
-        testId="settings-upgrade-button"
-        data-mol-id="settings-upgrade-button"
-      >
-        {t('settings.upgrade', undefined, { defaultValue: 'Upgrade' })}
-      </Button>
-    </Flex>
+    <section data-mol-id="settings-billing-section">
+      <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
+        {t('settings.billing', undefined, { defaultValue: 'Billing' })}
+      </h3>
+      <Flex align="center" justify="between">
+        <span className={cm.textSize('sm')} data-mol-id="settings-plan-name">
+          {planName}
+        </span>
+        <Button
+          variant="solid"
+          size="sm"
+          loading={loading}
+          disabled={!firstPriceId}
+          onClick={handleClick}
+          testId="settings-upgrade-button"
+          data-mol-id="settings-upgrade-button"
+        >
+          {t('settings.upgrade', undefined, { defaultValue: 'Upgrade' })}
+        </Button>
+      </Flex>
+    </section>
   )
 }

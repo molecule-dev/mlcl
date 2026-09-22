@@ -98,7 +98,10 @@ test.describe('settings page', () => {
     const userId = await getUserId(page)
     expect(userId, 'user id should be persisted in molecule auth state').toBeTruthy()
 
-    const newEmail = `updated-${Date.now()}@example.com`
+    // The API deliberately rejects email changes without the current password
+    // (400 "Current password is required."), so this read-after-write check
+    // PATCHes the NAME only.
+    const newName = `Updated Owner ${Date.now()}`
     const reqs = await captureNetwork(page, async () => {
       // Issue PATCH from the page itself (so the network listener sees it).
       const result = await page.evaluate(
@@ -111,7 +114,7 @@ test.describe('settings page', () => {
           })
           return { status: r.status, body: await r.text() }
         },
-        { uid: userId, body: { name: 'Updated Owner', email: newEmail } },
+        { uid: userId, body: { name: newName } },
       )
       expect(result.status, `PATCH should succeed: ${result.body}`).toBeLessThan(400)
     })
@@ -133,6 +136,6 @@ test.describe('settings page', () => {
     )
     expect(verify.status).toBe(200)
     const bodyStr = JSON.stringify(verify.body)
-    expect(bodyStr, `verify body should contain new email; got ${bodyStr}`).toContain(newEmail)
+    expect(bodyStr, `verify body should contain new name; got ${bodyStr}`).toContain(newName)
   })
 })

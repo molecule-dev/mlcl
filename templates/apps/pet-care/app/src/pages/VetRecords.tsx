@@ -5,6 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AddVetRecordModal } from '../components/AddVetRecordModal.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiVetRecord {
@@ -63,14 +64,19 @@ export function VetRecords() {
   const [records, setRecords] = useState<ApiVetRecord[]>([])
   const [pets, setPets] = useState<ApiPet[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [addOpen, setAddOpen] = useState(false)
 
   const loadAll = () => {
     setLoading(true)
+    setLoadError(false)
     Promise.allSettled([http.get('/api/vet-records?limit=100'), http.get('/api/pets')]).then(
       ([r, p]) => {
         if (r.status === 'fulfilled') setRecords(unwrapList<ApiVetRecord>(r.value))
-        else console.error('[VetRecords] records failed', r.reason)
+        else {
+          console.error('[VetRecords] records failed', r.reason)
+          setLoadError(true)
+        }
         if (p.status === 'fulfilled') setPets(unwrapList<ApiPet>(p.value))
         else console.error('[VetRecords] pets failed', p.reason)
         setLoading(false)
@@ -133,7 +139,9 @@ export function VetRecords() {
         </button>
       </div>
 
-      {loading ? (
+      {loadError && !loading ? (
+        <LoadErrorBanner onRetry={() => loadAll()} />
+      ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('vetRecords.loading', {}, { defaultValue: 'Loading records…' })}
         </p>

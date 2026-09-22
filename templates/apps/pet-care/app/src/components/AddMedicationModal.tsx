@@ -3,6 +3,7 @@
  */
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -99,6 +100,10 @@ export function AddMedicationModal({ open, onClose, onCreated }: Props) {
       const created = unwrapSingle<CreatedMed>(res)
       const id = created?.id ?? created?.data?.id
       if (id) onCreated?.(id)
+      track({
+        name: 'medication.added',
+        properties: { medicationId: id ?? '', petId, name: name.trim() },
+      })
       onClose()
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

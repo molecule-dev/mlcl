@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AddPetModal } from '../components/AddPetModal.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { type HealthStatus, PetProfileCard, type PetSpecies } from '../components/PetProfileCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -55,12 +56,14 @@ export function Pets() {
   const http = useHttpClient()
   const [pets, setPets] = useState<ApiPet[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [filter, setFilter] = useState<'all' | PetSpecies>('all')
   const [addOpen, setAddOpen] = useState(false)
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     http
       .get('/api/pets?limit=100')
       .then((res) => {
@@ -69,6 +72,7 @@ export function Pets() {
       })
       .catch((err: unknown) => {
         console.error('[Pets] failed to load pets', err)
+        if (!cancelled) setLoadError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -77,6 +81,8 @@ export function Pets() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(() => load(), [load])
 
   const data = pets.map((p) => ({
     id: p.id,
@@ -173,7 +179,9 @@ export function Pets() {
         ))}
       </div>
 
-      {loading ? (
+      {loadError && !loading ? (
+        <LoadErrorBanner onRetry={() => load()} />
+      ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('pets.loading', {}, { defaultValue: 'Loading pets…' })}
         </p>

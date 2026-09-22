@@ -4,6 +4,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AddMedicationModal } from '../components/AddMedicationModal.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiMedication {
@@ -56,16 +57,21 @@ export function Medications() {
   const [meds, setMeds] = useState<ApiMedication[]>([])
   const [pets, setPets] = useState<ApiPet[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [addOpen, setAddOpen] = useState(false)
 
   const loadAll = () => {
     setLoading(true)
+    setLoadError(false)
     Promise.allSettled([
       http.get('/api/medications?active=true&limit=100'),
       http.get('/api/pets'),
     ]).then(([m, p]) => {
       if (m.status === 'fulfilled') setMeds(unwrapList<ApiMedication>(m.value))
-      else console.error('[Medications] meds failed', m.reason)
+      else {
+        console.error('[Medications] meds failed', m.reason)
+        setLoadError(true)
+      }
       if (p.status === 'fulfilled') setPets(unwrapList<ApiPet>(p.value))
       else console.error('[Medications] pets failed', p.reason)
       setLoading(false)
@@ -143,7 +149,9 @@ export function Medications() {
         </button>
       </div>
 
-      {loading ? (
+      {loadError && !loading ? (
+        <LoadErrorBanner onRetry={() => loadAll()} />
+      ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('medications.loading', {}, { defaultValue: 'Loading meds…' })}
         </p>

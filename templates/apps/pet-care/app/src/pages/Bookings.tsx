@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -9,6 +9,7 @@ import {
   BookingTimelineEntry,
   type BookingType,
 } from '../components/BookingTimelineEntry.js'
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiBooking {
@@ -61,11 +62,13 @@ export function Bookings() {
   const http = useHttpClient()
   const [bookings, setBookings] = useState<ApiBooking[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
   const [tab, setTab] = useState<'upcoming' | 'past' | 'all'>('upcoming')
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
     setLoading(true)
+    setLoadError(false)
     http
       .get('/api/bookings?limit=100')
       .then((res) => {
@@ -74,6 +77,7 @@ export function Bookings() {
       })
       .catch((err: unknown) => {
         console.error('[Bookings] failed to load', err)
+        if (!cancelled) setLoadError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -82,6 +86,8 @@ export function Bookings() {
       cancelled = true
     }
   }, [http])
+
+  useEffect(() => load(), [load])
 
   const fallbackService = t('bookings.fallbackService', {}, { defaultValue: 'Booking' })
   const fallbackSitter = t('messages.sitterFallback', {}, { defaultValue: 'Sitter' })
@@ -178,7 +184,9 @@ export function Bookings() {
         ))}
       </div>
 
-      {loading ? (
+      {loadError && !loading ? (
+        <LoadErrorBanner onRetry={() => load()} />
+      ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('bookings.loading', {}, { defaultValue: 'Loading bookings…' })}
         </p>

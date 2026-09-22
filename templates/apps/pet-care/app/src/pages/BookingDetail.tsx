@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -115,6 +116,7 @@ export function BookingDetail() {
       if (created) {
         setMessages((prev) => [...prev, created])
       }
+      track({ name: 'message.sent', properties: { bookingId: id } })
       setDraft('')
     } catch (err: unknown) {
       console.error('[BookingDetail] send failed', err)
@@ -129,6 +131,7 @@ export function BookingDetail() {
     setActionError(null)
     try {
       await http.post(`/api/bookings/${id}/cancel`, {})
+      track({ name: 'appointment.cancelled', properties: { bookingId: id } })
       loadAll(id)
       setConfirmCancel(false)
     } catch (err: unknown) {
@@ -163,7 +166,13 @@ export function BookingDetail() {
   const statusClasses = STATUS_COLOR[status] || 'bg-info-container text-on-info-container'
   const startsAt = booking.start_date ?? booking.starts_at
   const endsAt = booking.end_date ?? booking.ends_at
-  const priceDollars = booking.price_cents != null ? booking.price_cents / 100 : booking.total
+  // `total` can arrive as a pg NUMERIC string — normalize before .toFixed().
+  const priceDollars =
+    booking.price_cents != null
+      ? booking.price_cents / 100
+      : booking.total != null
+        ? Number(booking.total)
+        : null
   const isCancellable = status !== 'cancelled' && status !== 'completed'
   const userId = user?.id
   const linkedPetId = booking.pet_id ?? booking.pet_ids?.[0]

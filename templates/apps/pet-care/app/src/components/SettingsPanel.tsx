@@ -1,7 +1,6 @@
 import {
   AccountSection,
   AuthSection,
-  BillingSection,
   DevicesSection,
   LogOutDeleteSection,
   NotificationsSection,
@@ -19,7 +18,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <AccountSection />
       <AuthSection />
       <NotificationsSection />
-      <BillingSection />
+      {/* Billing is rendered by <UpgradeButton> alone — the shared
+          <BillingSection> would duplicate the row (its Upgrade button only
+          navigates back to /settings, a no-op inside this panel). */}
       <UpgradeButton />
       <DevicesSection />
       <ThisDeviceSection />

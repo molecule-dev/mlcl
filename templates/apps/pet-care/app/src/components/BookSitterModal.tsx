@@ -8,6 +8,7 @@
  */
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -151,6 +152,10 @@ export function BookSitterModal({ sitter, open, onClose, onCreated }: Props) {
       const created = unwrapSingle<CreatedBooking>(res)
       const id = created?.id ?? created?.data?.id
       if (id) onCreated?.(id)
+      track({
+        name: 'appointment.scheduled',
+        properties: { bookingId: id ?? '', sitterId: sitter.id, service },
+      })
       onClose()
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

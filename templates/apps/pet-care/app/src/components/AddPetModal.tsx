@@ -5,6 +5,7 @@
  */
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -101,6 +102,7 @@ export function AddPetModal({ open, onClose, onCreated }: Props) {
         photo_url: photoUrl.trim() || undefined,
       }
       if (pet.id) onCreated?.(pet)
+      track({ name: 'pet.added', properties: { petId: pet.id, species } })
       reset()
       onClose()
     } catch (err: unknown) {

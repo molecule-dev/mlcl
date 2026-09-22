@@ -293,9 +293,17 @@ export function PetDetail() {
               {pet.name}
             </h1>
             <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 1), 'text-white/85')}>
-              {pet.breed ? `${pet.breed} · ` : ''}
-              {fmtAge(pet.date_of_birth)}
-              {pet.weight_kg ? ` · ${pet.weight_kg} kg` : ''}
+              {
+                // Join only the non-empty meta bits — pg NUMERIC arrives as a
+                // string ("4.200"), so normalize via Number() before rendering.
+                [
+                  pet.breed,
+                  fmtAge(pet.date_of_birth),
+                  pet.weight_kg ? `${Number(pet.weight_kg)} kg` : '',
+                ]
+                  .filter(Boolean)
+                  .join(' · ')
+              }
             </p>
             {pet.microchip_id && (
               <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'xs' }), cm.sp('mt', 4))}>
@@ -368,7 +376,7 @@ export function PetDetail() {
               {
                 key: 'weight',
                 label: t('petDetail.facts.weight', {}, { defaultValue: 'Weight' }),
-                value: pet.weight_kg ? `${pet.weight_kg} kg` : '—',
+                value: pet.weight_kg ? `${Number(pet.weight_kg)} kg` : '—',
               },
               {
                 key: 'microchip',
