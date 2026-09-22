@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -117,6 +118,10 @@ export function MedicationDetail() {
       })
       const updated = unwrapSingle<Medication>(resp)
       if (updated) setMed(updated)
+      void track({
+        name: 'medication.updated',
+        properties: { medication_id: med.id },
+      })
       setEditing(false)
     } catch (error) {
       logError('medicationDetail.save', error)
@@ -132,6 +137,10 @@ export function MedicationDetail() {
     setOpError(null)
     try {
       await http.delete(`/api/medications/${med.id}`)
+      void track({
+        name: 'medication.deleted',
+        properties: { medication_id: med.id },
+      })
       navigate('/medications', { replace: true })
     } catch (error) {
       logError('medicationDetail.delete', error)
@@ -191,7 +200,14 @@ export function MedicationDetail() {
         ← {t('medicationDetail.backLink', {}, { defaultValue: 'All medications' })}
       </Link>
 
-      <header className={cm.cn(cm.card(), cm.sp('p', 6), cm.flex({ align: 'center', gap: 'md' }))}>
+      <header
+        className={cm.cn(
+          cm.card(),
+          cm.sp('p', 6),
+          cm.flex({ align: 'center', gap: 'md' }),
+          'flex-wrap',
+        )}
+      >
         <div
           className={cm.cn(
             cm.shrink0,
@@ -205,7 +221,7 @@ export function MedicationDetail() {
         >
           <span className="material-symbols-outlined text-3xl">medication</span>
         </div>
-        <div className={cm.flex1}>
+        <div className={cm.cn(cm.flex1, 'min-w-[200px]')}>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>{med.name}</h1>
           {med.generic_name && (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant', cm.sp('mt', 1))}>
@@ -216,7 +232,9 @@ export function MedicationDetail() {
             {med.dose_amount} · {med.schedule_summary}
           </p>
         </div>
-        <div className={cm.cn(cm.shrink0, cm.flex({ align: 'center', gap: 'sm' }))}>
+        <div
+          className={cm.cn(cm.shrink0, cm.flex({ align: 'center', gap: 'sm' }), 'w-full sm:w-auto')}
+        >
           {!editing && (
             <button
               type="button"
@@ -227,6 +245,7 @@ export function MedicationDetail() {
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
                 'border border-outline-variant rounded-md hover:bg-surface-container',
+                'min-h-[44px] flex-1 sm:flex-none',
               )}
             >
               {t('common.edit', {}, { defaultValue: 'Edit' })}
@@ -242,6 +261,7 @@ export function MedicationDetail() {
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
               'border border-error text-error rounded-md hover:bg-error/10 disabled:opacity-50',
+              'min-h-[44px] flex-1 sm:flex-none',
             )}
           >
             {deleting
@@ -386,7 +406,9 @@ export function MedicationDetail() {
         </div>
       )}
 
-      <section className={cm.grid({ cols: 4, gap: 'md' })}>
+      {/* 4-up on desktop, 2-up on phones — the 3xl stat values cramp into
+          ~80px columns at 390px otherwise. */}
+      <section className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4')}>
         <Stat
           label={t('medicationDetail.stat.adherence', {}, { defaultValue: 'Adherence' })}
           value={`${adherence}%`}
@@ -418,7 +440,7 @@ export function MedicationDetail() {
         >
           {t('nav.schedule', {}, { defaultValue: 'Schedule' })}
         </h2>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           {med.schedule_times.map((time) => (
             <span
               key={time}
@@ -437,7 +459,7 @@ export function MedicationDetail() {
         </div>
       </section>
 
-      <section className={cm.grid({ cols: 2, gap: 'md' })}>
+      <section className={cm.cn('grid grid-cols-1 md:grid-cols-2 gap-4')}>
         <div className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-2')}>
           <h2
             className={cm.cn(
@@ -638,10 +660,14 @@ function KV({ label, value, mono }: { label: string; value: string; mono?: boole
     <div className={cm.flex({ align: 'baseline', justify: 'between' })}>
       <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>{label}</span>
       <span
-        className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}
+        className={cm.cn(
+          cm.textSize('sm'),
+          cm.fontWeight('medium'),
+          value ? '' : 'text-on-surface-variant',
+        )}
         style={mono ? { fontFamily: 'var(--mol-font-mono)' } : undefined}
       >
-        {value}
+        {value || '—'}
       </span>
     </div>
   )

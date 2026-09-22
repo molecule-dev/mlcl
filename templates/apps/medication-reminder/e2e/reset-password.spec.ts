@@ -20,6 +20,12 @@ test.describe('/reset-password (ResetPassword)', () => {
   })
 
   test('Submit POSTs /api/users/reset-password (any token, even invalid)', async ({ page }) => {
+    // A fake token legitimately 401s — announce the expected console error so
+    // the console guard does not fail the test for it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=fake-token&email=reset-target@example.test')
     const reqs = await captureNetwork(page, async () => {
       // Page has email (prefilled), token (prefilled from query), new password,

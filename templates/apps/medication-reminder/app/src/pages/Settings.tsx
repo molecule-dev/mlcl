@@ -1,5 +1,6 @@
-import { type FormEvent, useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useState } from 'react'
 
+import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
 import type { PushToggleResult } from '@molecule/app-settings-panel-react'
 import {
@@ -8,6 +9,8 @@ import {
 } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 const SECTIONS = ['notifications', 'pharmacy', 'appearance', 'language'] as const
 type Section = (typeof SECTIONS)[number]
@@ -90,19 +93,53 @@ export function Settings() {
 
   useEffect(() => {
     if (!user) return
+    // Seed from whatever the session user still carries (first paint), then
+    // load the persisted slice from the server channel — `GET /users/me`
+    // NEVER returns `oauthData` (it is stripped as sensitive server-side), so
+    // the server channel is the only source that survives a reload.
     setSettings(merge(user.oauthData?.settings))
-  }, [user])
-
-  const baseOauthData = useMemo(() => user?.oauthData ?? {}, [user])
+    let cancelled = false
+    http
+      .get('/api/settings/me')
+      .then((res) => {
+        if (cancelled) return
+        const settings = unwrapSingle<{ settings?: Partial<SettingsData> }>(res)?.settings
+        const merged = merge(settings)
+        setSettings(merged)
+        // Re-seed the session user so other surfaces (dose rows' time
+        // format) reflect the persisted preferences without a re-login.
+        auth.setUser({ ...user, oauthData: { ...(user.oauthData ?? {}), settings: merged } })
+      })
+      .catch((err) => {
+        // Non-fatal: the page still works on session defaults.
+        logError('settings.load', err)
+      })
+    return () => {
+      cancelled = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id])
 
   const persist = async (next: SettingsData) => {
     if (!user?.id) return
     setSaving(true)
     setMessage(null)
     try {
-      const nextOauth = { ...baseOauthData, settings: next }
-      await http.patch(`/api/users/${user.id}`, { oauthData: nextOauth })
-      auth.setUser({ ...user, oauthData: nextOauth })
+      // Persist through the dedicated server-side settings channel — a
+      // `PATCH /users/:id` oauthData write is UNREADABLE (the platform user
+      // resource strips `oauthData` from every read), so settings written
+      // that way silently revert on reload.
+      await http.patch('/api/settings/me', {
+        notifications: next.notifications,
+        pharmacy: next.pharmacy,
+        appearance: next.appearance,
+      })
+      // Session consumers (dose rows' time format) read the preference off
+      // the auth user — keep the in-memory copy in step with what we saved.
+      auth.setUser({
+        ...user,
+        oauthData: { ...(user.oauthData ?? {}), settings: next },
+      })
       setMessage({
         kind: 'ok',
         text: t('common.savedPeriod', {}, { defaultValue: 'Saved.' }),

@@ -1,5 +1,6 @@
 import { type FormEvent, useCallback, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,6 +76,10 @@ export function Caregivers() {
       setShowInvite(false)
       setInviteEmail('')
       setInvitePermission('view')
+      void track({
+        name: 'caregiver.invited',
+        properties: { caregiver_id: created.id, permission: invitePermission },
+      })
       await refresh()
     } catch (err) {
       setSubmitError(
@@ -89,7 +94,9 @@ export function Caregivers() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
+      >
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('caregivers.heading', {}, { defaultValue: 'Caregivers' })}

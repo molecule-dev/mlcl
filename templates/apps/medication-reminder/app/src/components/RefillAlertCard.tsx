@@ -68,7 +68,9 @@ export function RefillAlertCard({
       className={cm.cn(
         cm.flex({ align: 'center', gap: 'md' }),
         cm.sp('p', 5),
-        'rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
+        // Row on tablet/desktop; at phone width the four sections (icon,
+        // pharmacy block, days stat, status+request) wrap instead of cramming.
+        'flex-wrap gap-y-3 rounded-2xl bg-surface-container-lowest shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all',
       )}
       style={{ borderLeft: `4px solid ${STATUS_BORDER[status]}` }}
     >
@@ -87,7 +89,7 @@ export function RefillAlertCard({
         <span className={cm.cn('material-symbols-outlined text-xl')}>medication</span>
       </div>
 
-      <div className={cm.cn(cm.flex1, 'min-w-0')}>
+      <div className={cm.cn(cm.flex1, 'min-w-[140px]')}>
         <p className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'truncate')}>
           {medicationName}
         </p>
@@ -147,7 +149,9 @@ export function RefillAlertCard({
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
+              // 44px floor — refill requests are often made by older adults
+              // on phones; sub-40px targets mis-tap.
+              'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity min-h-[44px]',
             )}
           >
             {t('refillAlertCard.request', {}, { defaultValue: 'Request' })}

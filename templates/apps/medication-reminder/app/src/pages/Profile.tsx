@@ -1,10 +1,10 @@
-import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { useAuth, useDevice, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 const SECTIONS = ['identity', 'medical', 'emergency', 'security'] as const
 type Section = (typeof SECTIONS)[number]
@@ -68,15 +68,34 @@ export function Profile() {
     text: string
   } | null>(null)
 
-  // Hydrate fields from the authenticated user.
+  // Hydrate fields from the authenticated user. The user resource NEVER
+  // returns `oauthData` (stripped server-side as sensitive), so the persisted
+  // medical/emergency slice comes from the server-side settings channel —
+  // the only read that survives a reload.
   useEffect(() => {
     if (!user) return
     setName(user.name ?? '')
     setEmail(user.email ?? '')
     setProfile({ ...emptyProfile(), ...(user.oauthData?.profile ?? {}) })
-  }, [user])
-
-  const baseOauthData = useMemo(() => user?.oauthData ?? {}, [user])
+    let cancelled = false
+    http
+      .get('/api/settings/me')
+      .then((res) => {
+        if (cancelled) return
+        const profile = unwrapSingle<{ profile?: ProfileData }>(res)?.profile
+        if (!profile) return
+        const merged = { ...emptyProfile(), ...profile }
+        setProfile(merged)
+        auth.setUser({ ...user, oauthData: { ...(user.oauthData ?? {}), profile: merged } })
+      })
+      .catch(() => {
+        /* non-fatal: identity fields still hydrate from the session user */
+      })
+    return () => {
+      cancelled = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id])
 
   const patchUser = async (body: Record<string, unknown>) => {
     if (!user?.id) throw new Error('Not signed in')
@@ -98,16 +117,10 @@ export function Profile() {
     setSavingIdentity(true)
     setIdentityMessage(null)
     try {
-      const nextProfile: ProfileData = {
-        ...profile,
-        dob: profile.dob,
-        phone: profile.phone,
-      }
-      await patchUser({
-        name,
-        email,
-        oauthData: { ...baseOauthData, profile: nextProfile },
-      })
+      // name/email are real columns on the user row (readable back); the
+      // dob/phone profile fields go through the readable settings channel.
+      await patchUser({ name, email })
+      await patchProfile(profile)
       setIdentityMessage({
         kind: 'ok',
         text: t('common.savedPeriod', {}, { defaultValue: 'Saved.' }),
@@ -125,12 +138,22 @@ export function Profile() {
     }
   }
 
+  // Medical + emergency slices persist through the server-side settings
+  // channel — a `PATCH /users/:id` oauthData write is unreadable (the user
+  // resource strips `oauthData` from every read), so fields saved that way
+  // silently revert on reload.
+  const patchProfile = async (next: ProfileData) => {
+    if (!user?.id) throw new Error('Not signed in')
+    await http.patch('/api/settings/me', { profile: next })
+    auth.setUser({ ...user, oauthData: { ...(user.oauthData ?? {}), profile: next } })
+  }
+
   const submitMedical = async (event: FormEvent) => {
     event.preventDefault()
     setSavingMedical(true)
     setMedicalMessage(null)
     try {
-      await patchUser({ oauthData: { ...baseOauthData, profile } })
+      await patchProfile(profile)
       setMedicalMessage({
         kind: 'ok',
         text: t('common.savedPeriod', {}, { defaultValue: 'Saved.' }),
@@ -153,7 +176,7 @@ export function Profile() {
     setSavingEmergency(true)
     setEmergencyMessage(null)
     try {
-      await patchUser({ oauthData: { ...baseOauthData, profile } })
+      await patchProfile(profile)
       setEmergencyMessage({
         kind: 'ok',
         text: t('common.savedPeriod', {}, { defaultValue: 'Saved.' }),

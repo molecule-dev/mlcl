@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 const PILL_COLORS = ['blue', 'green', 'orange', 'purple', 'pink', 'yellow'] as const
 type PillColor = (typeof PILL_COLORS)[number]
@@ -44,13 +47,18 @@ export function AddMedication() {
       if (warningOpts.takeWithFood) warnings.push('Take with food')
       if (warningOpts.avoidAlcohol) warnings.push('Avoid alcohol')
       if (warningOpts.drowsiness) warnings.push('May cause drowsiness')
-      await http.post('/api/medications', {
+      const resp = await http.post('/api/medications', {
         name: name.trim(),
         dose_amount: doseAmount.trim(),
         pill_color: pillColor,
         schedule_summary: scheduleSummary.trim(),
         pharmacy: pharmacy.trim(),
         warnings,
+      })
+      const created = unwrapSingle<{ id?: string }>(resp)
+      void track({
+        name: 'medication.added',
+        properties: { medication_id: created?.id, pill_color: pillColor },
       })
       navigate('/medications')
     } catch (error) {
@@ -103,8 +111,8 @@ export function AddMedication() {
                 aria-pressed={pillColor === c}
                 aria-label={t(`addMedication.pillColorName.${c}`, {}, { defaultValue: c })}
                 className={cm.cn(
-                  cm.h(10),
-                  cm.w(10),
+                  cm.h(11),
+                  cm.w(11),
                   'rounded-full border-2',
                   pillColor === c ? 'border-primary' : 'border-transparent',
                 )}

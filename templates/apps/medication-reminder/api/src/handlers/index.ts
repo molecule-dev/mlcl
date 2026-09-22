@@ -8,6 +8,7 @@ import notificationsRouter from './notifications.js'
 import refillsRouter from './refills.js'
 import reportsRouter from './reports.js'
 import schedulesRouter from './schedules.js'
+import settingsRouter from './settings.js'
 
 const router = Router()
 
@@ -19,5 +20,6 @@ router.use('/adherence', adherenceRouter)
 router.use('/reports', reportsRouter)
 router.use('/caregivers', caregiversRouter)
 router.use('/notifications', notificationsRouter)
+router.use('/settings', settingsRouter)
 
 export default router

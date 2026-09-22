@@ -1,6 +1,6 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, captureNetwork, getMyUserId, signup } from './_helpers.js'
+import { APP_BASE, captureNetwork, signup } from './_helpers.js'
 
 test.describe('/settings (Settings)', () => {
   test('Settings page renders heading', async ({ page }) => {
@@ -25,9 +25,8 @@ test.describe('/settings (Settings)', () => {
     })
   })
 
-  test('Dose-time push toggle persists after reload (PATCH /users/:id)', async ({ page }) => {
+  test('Dose-time push toggle persists after reload (PATCH /api/settings/me)', async ({ page }) => {
     await signup(page)
-    const userId = await getMyUserId(page)
     await page.goto(APP_BASE + '/settings')
     const toggle = page.getByLabel(/dose-time push notification/i).first()
     await expect(toggle).toBeChecked()
@@ -35,10 +34,11 @@ test.describe('/settings (Settings)', () => {
       await toggle.uncheck()
       await page.waitForTimeout(1200)
     })
-    const patch = reqs.find(
-      (r) => new RegExp(`/api/users/${userId}$`).test(r.url) && r.method === 'PATCH',
-    )
-    expect(patch, 'PATCH /api/users/:id issued on toggle').toBeTruthy()
+    // The settings channel is the server-side slice (`/api/settings/me`) —
+    // a `PATCH /users/:id` oauthData write is stripped on every read, so
+    // settings persisted that way never survive a reload.
+    const patch = reqs.find((r) => /\/api\/settings\/me$/.test(r.url) && r.method === 'PATCH')
+    expect(patch, 'PATCH /api/settings/me issued on toggle').toBeTruthy()
     expect(patch!.status).toBeLessThan(400)
     await page.reload()
     await expect(page.getByLabel(/dose-time push notification/i).first()).not.toBeChecked({

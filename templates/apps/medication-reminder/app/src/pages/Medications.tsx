@@ -58,7 +58,9 @@ export function Medications() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
+      >
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('medications.heading', {}, { defaultValue: 'Medications' })}

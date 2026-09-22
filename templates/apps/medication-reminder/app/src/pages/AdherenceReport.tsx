@@ -78,7 +78,8 @@ export function AdherenceReport() {
         </p>
       </header>
 
-      <section className={cm.grid({ cols: 4, gap: 'md' })}>
+      {/* 4 KPI tiles cramp to ~80px columns at 390px — 2-up on phones. */}
+      <section className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4')}>
         <Kpi
           label={t('adherence.kpi.current', {}, { defaultValue: 'Adherence' })}
           value={`${Math.round(report.current_adherence * 100)}%`}
@@ -164,56 +165,66 @@ export function AdherenceReport() {
         >
           {t('adherence.byMedHeading', {}, { defaultValue: 'By medication' })}
         </h2>
-        <ul className={cm.cn('space-y-3')}>
-          {report.by_medication.map((m) => (
-            <li key={m.medication_id}>
-              <div className={cm.flex({ align: 'center', justify: 'between' })}>
-                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
-                  {m.medication_name}
-                </span>
-                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                  {Math.round(m.adherence_rate * 100)}%
-                  <span
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'text-on-surface-variant',
-                      cm.fontWeight('normal'),
-                      cm.sp('ml', 2),
-                    )}
-                  >
-                    {t(
-                      'adherence.missedCount',
-                      { count: m.missed_count },
-                      { defaultValue: '({{count}} missed)' },
-                    )}
+        {report.by_medication.length === 0 ? (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'adherence.byMedEmpty',
+              {},
+              { defaultValue: 'No medications yet — add one to see per-medication adherence.' },
+            )}
+          </p>
+        ) : (
+          <ul className={cm.cn('space-y-3')}>
+            {report.by_medication.map((m) => (
+              <li key={m.medication_id}>
+                <div className={cm.flex({ align: 'center', justify: 'between' })}>
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {m.medication_name}
                   </span>
-                </span>
-              </div>
-              <div
-                className={cm.cn('w-full', cm.sp('mt', 1))}
-                style={{
-                  height: '6px',
-                  backgroundColor: 'var(--color-border)',
-                  borderRadius: '3px',
-                }}
-              >
+                  <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                    {Math.round(m.adherence_rate * 100)}%
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        cm.fontWeight('normal'),
+                        cm.sp('ml', 2),
+                      )}
+                    >
+                      {t(
+                        'adherence.missedCount',
+                        { count: m.missed_count },
+                        { defaultValue: '({{count}} missed)' },
+                      )}
+                    </span>
+                  </span>
+                </div>
                 <div
+                  className={cm.cn('w-full', cm.sp('mt', 1))}
                   style={{
-                    width: `${Math.round(m.adherence_rate * 100)}%`,
-                    height: '100%',
-                    backgroundColor:
-                      m.adherence_rate >= 0.9
-                        ? 'var(--color-dose-taken)'
-                        : m.adherence_rate >= 0.7
-                          ? 'var(--mol-color-secondary)'
-                          : 'var(--color-dose-missed)',
+                    height: '6px',
+                    backgroundColor: 'var(--color-border)',
                     borderRadius: '3px',
                   }}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
+                >
+                  <div
+                    style={{
+                      width: `${Math.round(m.adherence_rate * 100)}%`,
+                      height: '100%',
+                      backgroundColor:
+                        m.adherence_rate >= 0.9
+                          ? 'var(--color-dose-taken)'
+                          : m.adherence_rate >= 0.7
+                            ? 'var(--mol-color-secondary)'
+                            : 'var(--color-dose-missed)',
+                      borderRadius: '3px',
+                    }}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </div>
   )

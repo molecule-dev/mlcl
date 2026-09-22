@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -52,6 +53,8 @@ export function Dashboard() {
   const [trend, setTrend] = useState<number[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  // Bumped by the retry button so the fetch effect re-runs.
+  const [reloadKey, setReloadKey] = useState(0)
 
   const fetchAll = useCallback(async (): Promise<{
     doses: Dose[]
@@ -75,6 +78,7 @@ export function Dashboard() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     fetchAll()
       .then(({ doses, today, trend }) => {
         if (cancelled) return
@@ -91,7 +95,7 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [fetchAll, t])
+  }, [fetchAll, reloadKey, t])
 
   // Mark-taken: update the dose row optimistically so the button disappears
   // immediately, then POST and refetch the report data so the hero/triad
@@ -105,6 +109,10 @@ export function Dashboard() {
     )
     try {
       await http.post(`/api/doses/${dose.id}/take`, {})
+      void track({
+        name: 'dose.taken',
+        properties: { dose_id: dose.id, medication_id: dose.medication_id },
+      })
       const refreshed = await fetchAll()
       setDoses(refreshed.doses)
       setToday(refreshed.today)
@@ -124,7 +132,30 @@ export function Dashboard() {
     [],
   )
 
-  if (error) return <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+  if (error)
+    return (
+      <div
+        className={cm.cn(
+          cm.sp('py', 16),
+          cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+        )}
+      >
+        <p className="text-error">{error}</p>
+        <button
+          type="button"
+          onClick={() => setReloadKey((k) => k + 1)}
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'border border-outline-variant rounded-md hover:bg-surface-container min-h-[44px]',
+          )}
+        >
+          {t('common.retry', {}, { defaultValue: 'Try again' })}
+        </button>
+      </div>
+    )
   if (loading)
     return (
       <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>

@@ -78,7 +78,9 @@ export function DoseRow({
       className={cm.cn(
         cm.flex({ align: 'center', gap: 'md' }),
         cm.sp('p', 5),
-        'bg-surface/60 hover:bg-surface-container-lowest rounded-2xl transition-all group',
+        // Wrap (not cram) when a long medication name meets the status pill +
+        // Take button at phone width.
+        'bg-surface/60 hover:bg-surface-container-lowest rounded-2xl transition-all group flex-wrap',
       )}
     >
       <div
@@ -96,7 +98,7 @@ export function DoseRow({
         <span className="material-symbols-outlined">medication</span>
       </div>
 
-      <div className={cm.cn(cm.flex1, 'min-w-0')}>
+      <div className={cm.cn(cm.flex1, 'min-w-[160px]')}>
         <p className={cm.cn(cm.textSize('base'), cm.fontWeight('bold'), 'truncate')}>
           {medicationName}
         </p>
@@ -130,7 +132,9 @@ export function DoseRow({
             cm.sp('py', 2),
             cm.textSize('sm'),
             cm.fontWeight('semibold'),
-            'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity',
+            // 44px floor: dose logging is THE core action and this app's
+            // users are frequently older adults on phones.
+            'rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity min-h-[44px] min-w-[64px]',
           )}
         >
           {t('doseRow.markTaken', {}, { defaultValue: 'Take' })}

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -83,6 +84,10 @@ export function Refills() {
     )
     try {
       await http.post(`/api/refills/${refill.id}/request`, {})
+      void track({
+        name: 'refill.requested',
+        properties: { refill_id: refill.id, medication_id: refill.medication_id },
+      })
     } catch (_error) {
       /* optimistic — request-status already updated in UI; server will reconcile on next load */
     }
