@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,10 @@ export function TransactionFormModal({
         price_per_share: priceNum,
         fees: feesNum,
         account: account.trim() || undefined,
+      })
+      void track({
+        name: 'transaction.logged',
+        properties: { symbol: symbol.trim().toUpperCase(), kind, shares: sharesNum },
       })
       onSuccess?.()
       onClose()

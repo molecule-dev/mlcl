@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,6 +56,13 @@ export function WatchlistAddModal({ open, onClose, onSuccess }: WatchlistAddModa
         payload.alert_threshold_cents = Math.round(Number(thresholdDollars) * 100)
       }
       await http.post('/api/watchlist', payload)
+      void track({
+        name: 'watchlist.added',
+        properties: {
+          symbol: String(payload.symbol),
+          has_alert: Boolean(payload.alert_direction),
+        },
+      })
       onSuccess?.()
       onClose()
     } catch (err) {

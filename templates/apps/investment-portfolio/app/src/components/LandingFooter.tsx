@@ -49,23 +49,39 @@ export function LandingFooter() {
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap', cm.textSize('xs'))}
         >
-          <Link to="/about" className={cm.cn('text-on-surface-variant hover:text-on-surface')}>
+          {/* py-2 keeps every footer link a ≥28px tap target on touch screens */}
+          <Link
+            to="/about"
+            className={cm.cn(cm.sp('py', 2), 'text-on-surface-variant hover:text-on-surface')}
+          >
             {t('nav.about', {}, { defaultValue: 'About' })}
           </Link>
-          <Link to="/pricing" className={cm.cn('text-on-surface-variant hover:text-on-surface')}>
+          <Link
+            to="/pricing"
+            className={cm.cn(cm.sp('py', 2), 'text-on-surface-variant hover:text-on-surface')}
+          >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
           <LegalModalLinks
-            linkClassName={cm.cn('text-on-surface-variant hover:text-on-surface')}
+            linkClassName={cm.cn(
+              cm.sp('py', 2),
+              'inline-block text-on-surface-variant hover:text-on-surface',
+            )}
             appName={APP_NAME}
             loadContent={loadContent}
             privacyLabel={t('footer.privacyPolicy', {}, { defaultValue: 'Privacy Policy' })}
             termsLabel={t('footer.termsOfService', {}, { defaultValue: 'Terms of Service' })}
           />
-          <Link to="/login" className={cm.cn('text-on-surface-variant hover:text-on-surface')}>
+          <Link
+            to="/login"
+            className={cm.cn(cm.sp('py', 2), 'text-on-surface-variant hover:text-on-surface')}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
-          <Link to="/signup" className={cm.cn('text-on-surface-variant hover:text-on-surface')}>
+          <Link
+            to="/signup"
+            className={cm.cn(cm.sp('py', 2), 'text-on-surface-variant hover:text-on-surface')}
+          >
             {t('landing.footerSignup', {}, { defaultValue: 'Open an account' })}
           </Link>
         </div>

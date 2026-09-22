@@ -109,82 +109,84 @@ export function Reports() {
         <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
           {t('reports.performanceHeading', {}, { defaultValue: 'Performance vs benchmark' })}
         </h2>
-        <table className={cm.cn('w-full')}>
-          <thead
-            className={cm.cn(
-              cm.textSize('xs'),
-              'uppercase tracking-wide',
-              'text-on-surface-variant',
-            )}
-          >
-            <tr>
-              <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                {t('reports.col.period', {}, { defaultValue: 'Period' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.portfolio', {}, { defaultValue: 'Portfolio' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.benchmark', {}, { defaultValue: 'S&P 500' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.alpha', {}, { defaultValue: 'Alpha' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-outline-variant')}>
-            {performance.length === 0 ? (
+        <div className="overflow-x-auto">
+          <table className={cm.cn('w-full', 'min-w-[420px]')}>
+            <thead
+              className={cm.cn(
+                cm.textSize('xs'),
+                'uppercase tracking-wide',
+                'text-on-surface-variant',
+              )}
+            >
               <tr>
-                <td
-                  colSpan={4}
-                  className={cm.cn(cm.sp('py', 6), cm.textCenter, 'text-on-surface-variant')}
-                >
-                  {t('reports.noPerformance', {}, { defaultValue: 'No performance data yet.' })}
-                </td>
+                <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                  {t('reports.col.period', {}, { defaultValue: 'Period' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.portfolio', {}, { defaultValue: 'Portfolio' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.benchmark', {}, { defaultValue: 'S&P 500' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.alpha', {}, { defaultValue: 'Alpha' })}
+                </th>
               </tr>
-            ) : (
-              performance.map((p) => {
-                const portfolioPct = num(p.portfolio_pct)
-                const benchmarkPct = num(p.benchmark_pct)
-                const alpha = portfolioPct - benchmarkPct
-                return (
-                  <tr key={p.period}>
-                    <td className={cm.cn(cm.sp('py', 2), cm.fontWeight('medium'))}>{p.period}</td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('py', 2),
-                        'text-right tabular-nums',
-                        cm.fontWeight('semibold'),
-                        deltaClass(portfolioPct),
-                      )}
-                    >
-                      {fmtPct(portfolioPct)}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('py', 2),
-                        'text-right tabular-nums',
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {fmtPct(benchmarkPct)}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('py', 2),
-                        'text-right tabular-nums',
-                        cm.fontWeight('semibold'),
-                        deltaClass(alpha),
-                      )}
-                    >
-                      {fmtPct(alpha)}
-                    </td>
-                  </tr>
-                )
-              })
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className={cm.cn('divide-y divide-outline-variant')}>
+              {performance.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={4}
+                    className={cm.cn(cm.sp('py', 6), cm.textCenter, 'text-on-surface-variant')}
+                  >
+                    {t('reports.noPerformance', {}, { defaultValue: 'No performance data yet.' })}
+                  </td>
+                </tr>
+              ) : (
+                performance.map((p) => {
+                  const portfolioPct = num(p.portfolio_pct)
+                  const benchmarkPct = num(p.benchmark_pct)
+                  const alpha = portfolioPct - benchmarkPct
+                  return (
+                    <tr key={p.period}>
+                      <td className={cm.cn(cm.sp('py', 2), cm.fontWeight('medium'))}>{p.period}</td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('py', 2),
+                          'text-right tabular-nums',
+                          cm.fontWeight('semibold'),
+                          deltaClass(portfolioPct),
+                        )}
+                      >
+                        {fmtPct(portfolioPct)}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('py', 2),
+                          'text-right tabular-nums',
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {fmtPct(benchmarkPct)}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('py', 2),
+                          'text-right tabular-nums',
+                          cm.fontWeight('semibold'),
+                          deltaClass(alpha),
+                        )}
+                      >
+                        {fmtPct(alpha)}
+                      </td>
+                    </tr>
+                  )
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
@@ -276,7 +278,7 @@ export function Reports() {
         </section>
       </div>
 
-      <section className={cm.cn(cm.card(), 'overflow-hidden')}>
+      <section className={cm.cn(cm.card(), 'overflow-x-auto')}>
         <header
           className={cm.cn(
             cm.sp('px', 5),
@@ -294,7 +296,7 @@ export function Reports() {
             {t('reports.gainsHeading', {}, { defaultValue: 'Realized & unrealized gains' })}
           </h2>
         </header>
-        <table className={cm.cn('w-full')}>
+        <table className={cm.cn('w-full', 'min-w-[640px]')}>
           <thead
             className={cm.cn(
               cm.textSize('xs'),

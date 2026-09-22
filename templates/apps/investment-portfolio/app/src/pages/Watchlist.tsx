@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -94,6 +95,7 @@ export function Watchlist() {
       setRemovingId(item.id)
       try {
         await http.delete(`/api/watchlist/${item.id}`)
+        void track({ name: 'watchlist.removed', properties: { symbol: item.symbol } })
         setRows((prev) => prev.filter((r) => r.id !== item.id))
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err)
@@ -110,8 +112,10 @@ export function Watchlist() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
-        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'gap-3', 'flex-wrap')}
+      >
+        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'min-w-0')}>
           {t('watchlist.heading', {}, { defaultValue: 'Watchlist' })}
         </h1>
         <button
@@ -141,12 +145,38 @@ export function Watchlist() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : rows.length === 0 ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
-          {t('watchlist.empty', {}, { defaultValue: 'No tickers tracked yet.' })}
-        </p>
+        <div
+          className={cm.cn(
+            cm.sp('py', 16),
+            cm.textCenter,
+            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
+          )}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined text-4xl text-on-surface-variant')}
+            aria-hidden="true"
+          >
+            visibility
+          </span>
+          <p className="text-on-surface-variant">
+            {t('watchlist.empty', {}, { defaultValue: 'No tickers tracked yet.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setAddOpen(true)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary rounded-md',
+            )}
+          >
+            {t('watchlist.addCta', {}, { defaultValue: 'Track ticker' })}
+          </button>
+        </div>
       ) : (
-        <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
+        <section className={cm.cn(cm.card(), 'overflow-x-auto')}>
+          <table className={cm.cn('w-full', 'min-w-[560px]')}>
             <thead
               className={cm.cn(
                 'bg-surface-container',

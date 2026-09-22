@@ -171,7 +171,11 @@ export function Dashboard() {
         <div
           className={cm.cn(cm.flex({ align: 'baseline', gap: 'md' }), cm.sp('mt', 1), 'flex-wrap')}
         >
-          <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
+          <h1
+            className={cm.cn(
+              'text-3xl sm:text-4xl font-extrabold tracking-tight break-words min-w-0',
+            )}
+          >
             {t(
               'dashboard.heading',
               {

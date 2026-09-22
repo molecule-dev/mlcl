@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -87,6 +88,10 @@ export function Rebalance() {
         (res as { created?: unknown[]; skipped?: unknown[] })
       const created = Array.isArray(body?.created) ? body.created : []
       const skipped = Array.isArray(body?.skipped) ? body.skipped : []
+      void track({
+        name: 'rebalance.executed',
+        properties: { created: created.length, skipped: skipped.length },
+      })
       if (created.length === 0) {
         setExecuteMsg(
           t(
@@ -155,7 +160,11 @@ export function Rebalance() {
           )}
         >
           <div className={cm.cn('max-w-2xl')}>
-            <h1 className={cm.cn('text-4xl font-extrabold tracking-tight')}>
+            <h1
+              className={cm.cn(
+                'text-3xl sm:text-4xl font-extrabold tracking-tight break-words min-w-0',
+              )}
+            >
               {t(
                 'rebalance.heading',
                 {},

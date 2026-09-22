@@ -12,14 +12,24 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials keep user on /login (no auto-redirect)', async ({ page }) => {
+    // The API answers a bad password with 403; the browser logs the failed
+    // resource — expected, so allow it BEFORE the request fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('nobody@nowhere.example')
     await page.locator('input[type="password"]').first().fill('WrongPass!1234')
+    const rejected = page.waitForResponse(
+      (r) => /\/api\/users\/log-in/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page
       .getByRole('button', { name: /sign\s*in|log\s*in/i })
       .first()
       .click()
-    await page.waitForTimeout(1500)
+    await rejected
     expect(page.url()).toMatch(/\/login/)
   })
 

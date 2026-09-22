@@ -34,7 +34,7 @@ export function LandingTopNavBar() {
         )}
       >
         <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" />
+          <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt={`${APP_NAME} logo`} />
           <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}>
             {APP_NAME}
           </span>
@@ -43,6 +43,7 @@ export function LandingTopNavBar() {
           <Link
             to="/pricing"
             className={cm.cn(
+              cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('medium'),
               'text-on-surface-variant hover:text-on-surface',
@@ -69,6 +70,7 @@ export function LandingTopNavBar() {
               <Link
                 to="/login"
                 className={cm.cn(
+                  cm.sp('py', 2),
                   cm.textSize('sm'),
                   cm.fontWeight('medium'),
                   'text-on-surface-variant hover:text-on-surface',

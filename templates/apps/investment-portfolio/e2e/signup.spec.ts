@@ -15,6 +15,12 @@ test.describe('/signup', () => {
   test('signing up again with the same email surfaces a server error and stays on /signup', async ({
     page,
   }) => {
+    // Duplicate email → the API answers 403; the browser logs the failed
+    // resource — expected, so allow it BEFORE the request fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('dup')
     await signup(page, email)
     // Open a fresh tab so previous session storage doesn't auto-redirect.
@@ -25,12 +31,16 @@ test.describe('/signup', () => {
     await page.locator('input[autocomplete="name"]').first().fill('Dup User')
     await page.locator('input[type="email"]').first().fill(email)
     await page.locator('input[type="password"]').first().fill('TestPass123!')
+    const rejected = page.waitForResponse(
+      (r) => /\/api\/users(\?|$|\/)/.test(r.url()) && r.request().method() === 'POST',
+      { timeout: 15000 },
+    )
     await page
       .getByRole('button', { name: /create account|sign\s*up/i })
       .first()
       .click()
+    await rejected
     // Either a visible error message OR we never made it to /dashboard.
-    await page.waitForTimeout(1500)
     expect(page.url()).not.toMatch(/\/dashboard/)
   })
 
