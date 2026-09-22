@@ -18,7 +18,7 @@ function SettingsTopAppBar() {
           cm.w('full'),
           cm.sp('pr', 12),
           cm.sp('py', 6),
-          'fixed top-0 left-0 right-0 z-30 bg-background/80 backdrop-blur-xl pl-64',
+          'fixed top-0 left-0 right-0 z-30 bg-background/80 backdrop-blur-xl pl-64 hidden md:flex',
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>

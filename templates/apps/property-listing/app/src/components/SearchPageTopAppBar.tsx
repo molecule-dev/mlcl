@@ -189,8 +189,8 @@ export default function SearchPageTopAppBar({
                   className={cm.cn(
                     cm.roundedFull,
                     cm.cursorPointer,
-                    cm.w(8),
-                    cm.h(8),
+                    cm.w(10),
+                    cm.h(10),
                     'overflow-hidden bg-surface-container-highest border border-outline-variant',
                   )}
                   data-mol-id="btn-profile"

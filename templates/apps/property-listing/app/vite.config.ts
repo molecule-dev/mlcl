@@ -20,14 +20,23 @@ import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'
 // Bond state uses module-level singletons — pre-bundling creates duplicate
 // instances that break the bond system. They're pre-built (.js) so Vite
 // just serves them directly with no transform overhead.
+//
+// An EMPTY node_modules/@molecule must NOT stop the walk: npm workspaces
+// hoist @molecule/* to the workspace root, so intermediate projects (e.g. a
+// smoke app under a monorepo) can hold an empty dir. Stopping there made the
+// exclusion list empty, Vite pre-bundled the app-* packages that other
+// chunks import externally, and the app crashed with "useI18nProvider must
+// be used within an I18nProvider" — two module instances of @molecule/app-react
+// (one inside the pre-bundle, one served to source files) means two React
+// contexts and every useTranslation() call throws.
 let moleculePackages: string[] = []
 const findMoleculeDir = (): string | null => {
   let dir = dirname(fileURLToPath(import.meta.url))
   for (let i = 0; i < 8; i++) {
     try {
       const candidate = resolve(dir, 'node_modules/@molecule')
-      readdirSync(candidate)
-      return candidate
+      if (readdirSync(candidate).length > 0) return candidate
+      // empty @molecule dir — keep walking to the hoisting root
     } catch (_error) {
       /* keep walking — readdirSync throws until node_modules/@molecule is found */
     }
@@ -113,7 +122,7 @@ export default defineConfig({
   ],
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom', 'react-router', 'react-router'],
+    dedupe: ['react', 'react-dom', 'react-router-dom', 'react-router'],
   },
   optimizeDeps: {
     // Locale bond packages are pre-bundled (see above) — exclude wins over

@@ -16,7 +16,7 @@ function ListingEditorSideNavBar() {
         cm.h('screen'),
         cm.w(64),
         cm.sp('py', 8),
-        'fixed left-0 top-0 bg-surface-container-high border-r border-border/15',
+        'fixed left-0 top-0 bg-surface-container-high border-r border-border/15 hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('px', 8), cm.sp('mb', 12))}>

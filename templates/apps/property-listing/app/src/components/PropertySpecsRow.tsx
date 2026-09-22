@@ -7,6 +7,21 @@ interface SpecsProps {
   squareFeet?: number
   yearBuilt?: number
 }
+
+/**
+ * Postgres NUMERIC columns arrive as strings ("2.0000") — normalize to a
+ * number and trim trailing zeros so the UI shows "2 bath", not "2.0000 bath".
+ * Non-numeric strings and nulls return null (the caller renders "—").
+ */
+function asSpecNumber(v: number | string | null | undefined): number | null {
+  if (v == null || v === '') return null
+  const n = typeof v === 'number' ? v : Number(v)
+  return Number.isFinite(n) ? n : null
+}
+
+function trimNum(n: number): string {
+  return String(Math.round(n * 100) / 100)
+}
 export default function PropertySpecsRow({
   bedrooms,
   bathrooms,
@@ -16,6 +31,10 @@ export default function PropertySpecsRow({
   const { t } = useTranslation()
   const cm = getClassMap()
   const na = t('common.notAvailable', {}, { defaultValue: '—' })
+  const beds = asSpecNumber(bedrooms)
+  const baths = asSpecNumber(bathrooms)
+  const sqft = asSpecNumber(squareFeet)
+  const year = asSpecNumber(yearBuilt)
   return (
     <div
       className={cm.cn(
@@ -41,7 +60,7 @@ export default function PropertySpecsRow({
           <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t(
               'propertySpecs.bedrooms',
-              { count: bedrooms ?? na },
+              { count: beds != null ? trimNum(beds) : na },
               { defaultValue: '{{count}} bed' },
             )}
           </span>
@@ -63,7 +82,7 @@ export default function PropertySpecsRow({
           <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t(
               'propertySpecs.bathrooms',
-              { count: bathrooms ?? na },
+              { count: baths != null ? trimNum(baths) : na },
               { defaultValue: '{{count}} bath' },
             )}
           </span>
@@ -85,7 +104,7 @@ export default function PropertySpecsRow({
           <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t(
               'propertySpecs.squareFeet',
-              { count: squareFeet ? squareFeet.toLocaleString() : na },
+              { count: sqft != null ? sqft.toLocaleString() : na },
               { defaultValue: '{{count}} sqft' },
             )}
           </span>
@@ -105,7 +124,11 @@ export default function PropertySpecsRow({
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <span className={cm.cn(cm.textPrimary, 'material-symbols-outlined')}>calendar_today</span>
           <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-            {t('propertySpecs.yearBuilt', { year: yearBuilt ?? na }, { defaultValue: '{{year}}' })}
+            {t(
+              'propertySpecs.yearBuilt',
+              { year: year != null ? trimNum(year) : na },
+              { defaultValue: '{{year}}' },
+            )}
           </span>
         </div>
       </div>

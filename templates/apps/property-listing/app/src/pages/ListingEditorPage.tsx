@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { HttpResponse } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AdminMobileNav from '../components/AdminMobileNav.js'
 import ListingEditorAmenitiesSection from '../components/ListingEditorAmenitiesSection.js'
 import ListingEditorClassificationSection from '../components/ListingEditorClassificationSection.js'
 import ListingEditorFooter from '../components/ListingEditorFooter.js'
@@ -226,6 +228,10 @@ function ListingEditorPage() {
 
       if (isEditing) {
         await http.put(`/api/properties/${id}`, { ...body, status })
+        void track({
+          name: 'listing.updated',
+          properties: { listing_id: id, status },
+        })
       } else {
         // POST /api/properties does not accept `status` in its create
         // schema (always defaults to 'active' on the server). If the
@@ -239,6 +245,10 @@ function ListingEditorPage() {
         if (intent === 'draft' && createdId) {
           await http.put(`/api/properties/${createdId}`, { status: 'inactive' })
         }
+        void track({
+          name: 'listing.created',
+          properties: { listing_id: createdId, intent },
+        })
       }
       navigate('/admin/listings')
     } catch (error) {
@@ -284,7 +294,8 @@ function ListingEditorPage() {
         </div>
       )}
       <ListingEditorSideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'ml-64 pb-24')}>
+      <AdminMobileNav />
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-64 pb-24')}>
         <ListingEditorHeader />
         <div className={cm.cn(cm.mxAuto, cm.sp('px', 12), cm.sp('pt', 6), 'max-w-6xl')}>
           <h2

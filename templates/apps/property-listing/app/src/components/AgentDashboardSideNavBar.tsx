@@ -28,7 +28,7 @@ export default function AgentDashboardSideNavBar() {
           cm.h('screen'),
           cm.w(64),
           cm.surface,
-          'fixed left-0 top-0 overflow-y-auto z-50 border-r border-border/50',
+          'fixed left-0 top-0 overflow-y-auto z-50 border-r border-border/50 hidden md:flex',
         )}
         data-mol-id="sidenav_1"
       >

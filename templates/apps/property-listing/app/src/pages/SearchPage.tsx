@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -234,8 +235,10 @@ function SearchPage() {
     try {
       if (isFav) {
         await http.delete(`/api/bookmarks/property/${propertyId}`)
+        void track({ name: 'property.unfavorited', properties: { property_id: propertyId } })
       } else {
         await http.post('/api/bookmarks', { resourceType: 'property', resourceId: propertyId })
+        void track({ name: 'property.favorited', properties: { property_id: propertyId } })
       }
     } catch (_error) {
       // Revert optimistic update on failure; error is surfaced implicitly by the UI state

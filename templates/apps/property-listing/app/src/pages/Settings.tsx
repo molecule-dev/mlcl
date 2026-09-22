@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
+import AdminMobileNav from '../components/AdminMobileNav.js'
 import SettingsBottomActionBar from '../components/SettingsBottomActionBar.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsProfileCard from '../components/SettingsProfileCard.js'
@@ -43,6 +45,9 @@ function Settings() {
   const [phone, setPhone] = useState(initialProfile.phone ?? '')
   const [bio, setBio] = useState(initialProfile.bio ?? '')
 
+  // Last values the server confirmed — "Discard" reverts to these.
+  const [loadedSettings, setLoadedSettings] = useState<PropertyHubProfile>(initialProfile)
+
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -52,9 +57,9 @@ function Settings() {
   const [notifyNewLeads, setNotifyNewLeads] = useState(initialProfile.notifyNewLeads ?? true)
   const [notifyShowings, setNotifyShowings] = useState(initialProfile.notifyShowings ?? true)
 
-  // Re-fetch the canonical user row on mount so the form reflects any
-  // server-side changes made since login (defends against stale auth
-  // cache after an out-of-band update).
+  // Re-fetch the canonical user row + the server-side settings slice on
+  // mount so the form reflects any server-side changes made since login
+  // (defends against stale auth cache after an out-of-band update).
   useEffect(() => {
     if (!user?.id) return
     let cancelled = false
@@ -67,10 +72,29 @@ function Settings() {
         const raw = res.data
         const body = raw && typeof raw === 'object' && 'props' in raw ? raw.props : raw
         if (!body || typeof body !== 'object') return
-        const ph = body.oauthData?.propertyhub ?? {}
         setFirstName(body.name?.split(' ')[0] ?? '')
         setLastName(body.name?.split(' ').slice(1).join(' ') ?? '')
         setEmail(body.email ?? '')
+      })
+      .catch((error: unknown) => {
+        // Best-effort freshness refresh — the form already rendered from the
+        // auth cache, so a failed re-fetch just means possibly-stale values.
+        logError('settings.refreshUser', error)
+      })
+    // The phone/bio/preferences slice lives in the app-owned /api/settings
+    // channel (server-merged into the app_settings table) — the platform
+    // User resource never returns (or accepts) these fields on reads.
+    http
+      .get<{ data?: PropertyHubProfile } | PropertyHubProfile>('/api/settings')
+      .then((res) => {
+        if (cancelled) return
+        const raw = res.data as PropertyHubProfile | { data?: PropertyHubProfile } | undefined
+        const ph =
+          raw && typeof raw === 'object' && 'data' in raw && raw.data
+            ? (raw as { data: PropertyHubProfile }).data
+            : (raw as PropertyHubProfile | undefined)
+        if (!ph || typeof ph !== 'object') return
+        setLoadedSettings(ph)
         if (ph.phone !== undefined) setPhone(ph.phone)
         if (ph.bio !== undefined) setBio(ph.bio)
         if (ph.notifyEmail !== undefined) setNotifyEmail(ph.notifyEmail)
@@ -79,9 +103,9 @@ function Settings() {
         if (ph.notifyShowings !== undefined) setNotifyShowings(ph.notifyShowings)
       })
       .catch((error: unknown) => {
-        // Best-effort freshness refresh — the form already rendered from the
-        // auth cache, so a failed re-fetch just means possibly-stale values.
-        logError('settings.refreshUser', error)
+        // First-save users have no row yet; 401/500 surface here only on a
+        // genuinely broken channel, and defaults keep the form usable.
+        logError('settings.refreshSettings', error)
       })
     return () => {
       cancelled = true
@@ -105,26 +129,23 @@ function Settings() {
       return
     }
     try {
-      // The User resource schema only natively supports name + email on the
-      // top-level row. Phone, bio, and notification preferences ride along
-      // in the freeform `oauthData.propertyhub` namespace — that is the
-      // documented extensibility hook on the User row.
-      const existingOAuth = (user.oauthData ?? {}) as Record<string, unknown>
+      // Name + email ride the platform User resource. Phone, bio, and
+      // notification preferences go through the app-owned /api/settings
+      // channel — the User resource drops `oauthData` on writes, so the
+      // profile slice must be merged server-side into app_settings.
       await http.patch(`/api/users/${user.id}`, {
         name: `${firstName} ${lastName}`.trim(),
         email,
-        oauthData: {
-          ...existingOAuth,
-          propertyhub: {
-            phone,
-            bio,
-            notifyEmail,
-            notifySms,
-            notifyNewLeads,
-            notifyShowings,
-          },
-        },
       })
+      await http.patch('/api/settings', {
+        phone,
+        bio,
+        notifyEmail,
+        notifySms,
+        notifyNewLeads,
+        notifyShowings,
+      })
+      void track({ name: 'settings.profile_updated', properties: { user_id: user.id } })
       setProfileSuccess(
         t('settings.profileUpdateSuccess', {}, { defaultValue: 'Profile updated successfully.' }),
       )
@@ -139,16 +160,15 @@ function Settings() {
   }
 
   function handleDiscard() {
-    const ph = user?.oauthData?.propertyhub ?? {}
     setFirstName(user?.name?.split(' ')[0] ?? '')
     setLastName(user?.name?.split(' ').slice(1).join(' ') ?? '')
     setEmail(user?.email ?? '')
-    setPhone(ph.phone ?? '')
-    setBio(ph.bio ?? '')
-    setNotifyEmail(ph.notifyEmail ?? true)
-    setNotifySms(ph.notifySms ?? false)
-    setNotifyNewLeads(ph.notifyNewLeads ?? true)
-    setNotifyShowings(ph.notifyShowings ?? true)
+    setPhone(loadedSettings.phone ?? '')
+    setBio(loadedSettings.bio ?? '')
+    setNotifyEmail(loadedSettings.notifyEmail ?? true)
+    setNotifySms(loadedSettings.notifySms ?? false)
+    setNotifyNewLeads(loadedSettings.notifyNewLeads ?? true)
+    setNotifyShowings(loadedSettings.notifyShowings ?? true)
     setProfileSuccess('')
     setProfileError('')
   }
@@ -223,8 +243,9 @@ function Settings() {
       {/* Sidebar Navigation Shell */}
       <SettingsSideNavBar />
       <SettingsTopAppBar />
+      <AdminMobileNav />
       {/* Main Content Area */}
-      <main className={cm.cn(cm.sp('px', 12), 'ml-72 pt-32 pb-24 min-h-screen')}>
+      <main className={cm.cn('px-4 md:px-12', 'md:ml-72 pt-20 md:pt-32 pb-24 min-h-screen')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-5xl')}>
           <SettingsPageHeader />
           <div className={cm.grid({ cols: 12, gap: 'xl' })}>

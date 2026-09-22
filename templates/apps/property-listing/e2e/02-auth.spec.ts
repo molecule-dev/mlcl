@@ -45,6 +45,14 @@ test.describe('Auth flows', () => {
     await inputs.nth(2).fill(email)
     await inputs.nth(3).fill('TestPass123!')
     await inputs.nth(4).fill('TestPass123!')
+    // The duplicate POST /api/users is REJECTED with a 403 — the browser
+    // logs it to console and the inline form error surfaces instead. The
+    // console-guard fixture fails any test whose page console.errors, so
+    // declare this expected 4xx BEFORE the click fires it.
+    await test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page
       .getByRole('button', { name: /create account|sign\s*up|register/i })
       .first()

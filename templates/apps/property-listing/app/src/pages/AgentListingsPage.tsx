@@ -16,11 +16,13 @@ import type { MouseEvent } from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import AdminMobileNav from '../components/AdminMobileNav.js'
 
 interface Listing {
   id: string
@@ -190,6 +192,7 @@ function AgentListingsPage() {
     setListings((xs) => xs.filter((x) => x.id !== id))
     try {
       await http.delete(`/api/properties/${id}`)
+      void track({ name: 'listing.deleted', properties: { listing_id: id } })
     } catch (err: unknown) {
       logError(err instanceof Error ? err : 'Failed to delete listing')
       setListings(previous)
@@ -210,13 +213,14 @@ function AgentListingsPage() {
 
   return (
     <div className={cm.surface} data-mol-id="page-agent-listings">
+      <AdminMobileNav />
       <aside
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.sp('py', 8),
           cm.h('screen'),
           cm.w(64),
-          'fixed left-0 top-0 bg-surface-container-high overflow-y-auto z-50',
+          'fixed left-0 top-0 bg-surface-container-high overflow-y-auto z-50 hidden md:flex',
         )}
       >
         <div className={cm.cn(cm.sp('px', 8), cm.sp('mb', 12))}>
@@ -337,7 +341,8 @@ function AgentListingsPage() {
         </div>
       </aside>
 
-      <main className={cm.cn(cm.surface, cm.minH('screen'), 'ml-72')}>
+      <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
+        {/* AdminMobileNav lives inside main so the sticky bar spans the content column */}
         <header
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center' }),
@@ -711,7 +716,7 @@ function AgentListingsPage() {
             className={cm.cn('px-12 py-8 bg-surface-container-low mt-8')}
             data-mol-id="listing-stats"
           >
-            <div className={cm.cn('grid grid-cols-4 gap-8')}>
+            <div className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-8')}>
               <div className={cm.cn('space-y-1')}>
                 <p className={cm.cn('text-xs font-bold text-success/40 uppercase tracking-widest')}>
                   {t('listings.statTotal', {}, { defaultValue: 'Total Inventory' })}

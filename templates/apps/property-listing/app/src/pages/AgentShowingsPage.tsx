@@ -221,7 +221,7 @@ function AgentShowingsPage() {
         </Link>
       </header>
 
-      <main className={cm.cn(cm.sp('px', 12), cm.sp('py', 8), cm.stack(8))}>
+      <main className={cm.cn('px-4 md:px-12', cm.sp('py', 8), cm.stack(8))}>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'md' }),

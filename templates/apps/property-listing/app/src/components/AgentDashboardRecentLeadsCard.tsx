@@ -83,7 +83,10 @@ function AgentDashboardRecentLeadsCard({ leads = [] }: { leads?: Lead[] }) {
   return (
     <section
       className={cm.cn(
-        'col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-border overflow-hidden',
+        // min-w-0: a grid item defaults to min-width:auto, so the table's
+        // intrinsic width would push this card (and the page) past 390px
+        // instead of scrolling inside overflow-x-auto.
+        'col-span-12 min-w-0 bg-surface-container-lowest rounded-xl shadow-sm border border-border overflow-hidden',
       )}
       data-mol-id="recent_leads_card"
     >

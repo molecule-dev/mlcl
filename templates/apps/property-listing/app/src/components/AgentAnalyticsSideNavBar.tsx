@@ -17,7 +17,7 @@ function AgentAnalyticsSideNavBar() {
         cm.sp('py', 8),
         cm.h('screen'),
         cm.w(64),
-        'fixed left-0 top-0 bg-success-light',
+        'fixed left-0 top-0 bg-success-light hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('px', 8), cm.sp('mb', 12))}>

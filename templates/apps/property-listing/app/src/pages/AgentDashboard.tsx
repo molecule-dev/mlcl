@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AdminMobileNav from '../components/AdminMobileNav.js'
 import AgentDashboardKpiSection from '../components/AgentDashboardKpiSection.js'
 import AgentDashboardPerformanceChart from '../components/AgentDashboardPerformanceChart.js'
 import AgentDashboardRecentLeadsCard from '../components/AgentDashboardRecentLeadsCard.js'
@@ -168,8 +169,9 @@ function AgentDashboard() {
   return (
     <div className={cm.cn('text-on-surface selection:bg-primary-fixed-dim')}>
       <AgentDashboardSideNavBar />
+      <AdminMobileNav />
       {/* Main Content Wrapper */}
-      <main className={cm.cn(cm.minH('screen'), 'ml-64')} data-mol-id="main_wrapper">
+      <main className={cm.cn(cm.minH('screen'), 'md:ml-64')} data-mol-id="main_wrapper">
         <AgentDashboardTopAppBar />
         {/* Content Canvas */}
         <div className={cm.cn(cm.sp('p', 8), cm.stack(8))} data-mol-id="canvas">

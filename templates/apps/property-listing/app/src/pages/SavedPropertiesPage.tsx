@@ -10,6 +10,7 @@ import SavedPropertiesFooter from '../components/SavedPropertiesFooter.js'
 import SavedPropertiesPageHeader from '../components/SavedPropertiesPageHeader.js'
 import SavedPropertiesTopAppBar from '../components/SavedPropertiesTopAppBar.js'
 import SavedPropertyCard from '../components/SavedPropertyCard.js'
+import SearchPageBottomNavBar from '../components/SearchPageBottomNavBar.js'
 
 interface SavedProperty {
   id: string
@@ -183,6 +184,9 @@ function SavedPropertiesPage() {
         )}
       </main>
       <SavedPropertiesFooter />
+      {/* Mobile nav — the desktop links hide below md, so /saved otherwise
+          has no navigation at all on a phone. */}
+      <SearchPageBottomNavBar />
     </div>
   )
 }

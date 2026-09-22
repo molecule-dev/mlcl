@@ -14,10 +14,12 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AdminMobileNav from '../components/AdminMobileNav.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopAppBar from '../components/TopAppBar.js'
 
@@ -144,6 +146,7 @@ function AgentLeadsPage() {
     setLeads((xs) => xs.filter((l) => l.id !== id))
     try {
       await http.delete(`/api/leads/${id}`)
+      void track({ name: 'lead.deleted', properties: { lead_id: id } })
     } catch (err: unknown) {
       logError(err instanceof Error ? err : 'Failed to delete lead')
       setLeads(previous)
@@ -157,8 +160,9 @@ function AgentLeadsPage() {
     <div className={cm.cn(cm.surface, 'text-on-surface')} data-mol-id="page-agent-leads">
       <h1 className={cm.srOnly}>{t('agentLeads.pageTitle', {}, { defaultValue: 'Leads' })}</h1>
       <SideNavBar />
+      <AdminMobileNav />
       <TopAppBar />
-      <main className={cm.cn(cm.sp('pr', 12), 'pl-64 pb-20 pt-8')}>
+      <main className={cm.cn(cm.sp('pr', 12), 'pl-4 md:pl-64 pb-20 pt-8')}>
         <div className={cm.stack(8)}>
           <header className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
             <div>

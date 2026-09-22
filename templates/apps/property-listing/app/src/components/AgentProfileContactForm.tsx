@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -18,6 +19,7 @@ export default function AgentProfileContactForm({ agentId }: { agentId?: string 
     setLoading(true)
     try {
       await http.post('/api/leads', { agentId, name, email, message })
+      void track({ name: 'lead.captured', properties: { agent_id: agentId ?? null } })
       setSent(true)
     } finally {
       setLoading(false)

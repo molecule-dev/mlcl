@@ -23,7 +23,7 @@ function SettingsBottomActionBar({
         cm.flex({ justify: 'end' }),
         cm.sp('px', 12),
         cm.sp('py', 6),
-        'fixed bottom-0 left-64 right-0 bg-background/90 backdrop-blur-md z-40 border-t border-border/10',
+        'fixed bottom-0 left-0 md:left-64 right-0 bg-background/90 backdrop-blur-md z-40 border-t border-border/10',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 'md' })}>

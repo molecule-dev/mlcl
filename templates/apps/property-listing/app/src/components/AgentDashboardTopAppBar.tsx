@@ -59,9 +59,15 @@ export default function AgentDashboardTopAppBar() {
             )}
           </p>
         </div>
-        <div className={cm.flex({ align: 'center', gap: 'lg' })} data-mol-id="top_bar_right">
+        <div
+          className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 md:gap-6 min-w-0')}
+          data-mol-id="top_bar_right"
+        >
           <div
-            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'text-foreground-secondary')}
+            className={cm.cn(
+              cm.flex({ align: 'center' }),
+              'gap-1 md:gap-4 text-foreground-secondary',
+            )}
             data-mol-id="icon_actions"
           >
             <button
@@ -109,7 +115,9 @@ export default function AgentDashboardTopAppBar() {
               cm.w(10),
               cm.roundedFull,
               cm.cursorPointer,
-              'overflow-hidden bg-border ring-2 ring-emerald-50',
+              // Hidden below md: the drawer (AdminMobileNav) carries settings,
+              // and the extra 40px overflows a 390px header row.
+              'hidden sm:block overflow-hidden bg-border ring-2 ring-emerald-50',
             )}
             data-mol-id="profile_avatar"
             onClick={() => navigate('/admin/settings')}

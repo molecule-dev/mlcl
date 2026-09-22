@@ -64,14 +64,6 @@ test.describe('Settings persistence', () => {
     await signup(page)
     const token = await getAccessToken(page)
     expect(token).toBeTruthy()
-    const meResp = await page.request.get(API_BASE + '/users/me')
-    expect(meResp.status()).toBe(200)
-    const meBody = (await meResp.json()) as {
-      props?: { id: string; email: string }
-      id?: string
-      email?: string
-    }
-    const user = meBody.props ?? (meBody as { id: string; email: string })
 
     await page.goto('/admin/settings')
     await page.waitForLoadState('networkidle')
@@ -84,11 +76,14 @@ test.describe('Settings persistence', () => {
 
     // Submit profile changes. Multiple "Save" buttons exist on this page
     // (profile, password). Click the first non-disabled one in the
-    // profile section.
+    // profile section. The profile slice (phone, bio, notifications) is
+    // persisted through the app-owned PATCH /api/settings channel — the
+    // platform User resource drops `oauthData` on writes and never returns
+    // it on reads.
     const savePromise = page.waitForResponse(
       (resp) =>
         resp.request().method() === 'PATCH' &&
-        new URL(resp.url()).pathname.startsWith('/api/users/'),
+        new URL(resp.url()).pathname.startsWith('/api/settings'),
       { timeout: 10_000 },
     )
     await page
@@ -96,25 +91,22 @@ test.describe('Settings persistence', () => {
       .first()
       .click()
     const saveResp = await savePromise
-    expect(saveResp.status(), `PATCH /api/users => ${saveResp.status()}`).toBeLessThan(300)
+    expect(saveResp.status(), `PATCH /api/settings => ${saveResp.status()}`).toBeLessThan(300)
 
-    // Verify via API.
+    // Verify via the settings API.
     const ctx = await apiContext()
-    const apiResp = await ctx.get(`${API_BASE}/users/${user.id}`, {
+    const apiResp = await ctx.get(`${API_BASE}/settings`, {
       headers: { Authorization: `Bearer ${token}` },
     })
-    expect(apiResp.ok(), `GET /users/${user.id} => ${apiResp.status()}`).toBe(true)
+    expect(apiResp.ok(), `GET /api/settings => ${apiResp.status()}`).toBe(true)
     const body = (await apiResp.json()) as {
-      oauthData?: { propertyhub?: { phone?: string; bio?: string } }
-      props?: { oauthData?: { propertyhub?: { phone?: string; bio?: string } } }
-      data?: { oauthData?: { propertyhub?: { phone?: string; bio?: string } } }
+      data?: { phone?: string; bio?: string }
+      phone?: string
+      bio?: string
     }
-    const profile =
-      body.oauthData?.propertyhub ??
-      body.props?.oauthData?.propertyhub ??
-      body.data?.oauthData?.propertyhub
-    expect(profile?.phone, 'phone should persist into oauthData.propertyhub').toBe(uniquePhone)
-    expect(profile?.bio, 'bio should persist into oauthData.propertyhub').toBe(uniqueBio)
+    const profile = body.data ?? body
+    expect(profile?.phone, 'phone should persist via /api/settings').toBe(uniquePhone)
+    expect(profile?.bio, 'bio should persist via /api/settings').toBe(uniqueBio)
 
     // Reload and confirm the form re-hydrates.
     await page.reload()

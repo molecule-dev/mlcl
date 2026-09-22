@@ -16,7 +16,7 @@ export default function SettingsSideNavBar() {
         cm.sp('py', 8),
         cm.w(64),
         cm.h('screen'),
-        'fixed left-0 top-0 border-r border-border/15 bg-background z-50',
+        'fixed left-0 top-0 border-r border-border/15 bg-background z-50 hidden md:flex',
       )}
     >
       <div className={cm.cn(cm.sp('mb', 12), cm.sp('px', 8))}>

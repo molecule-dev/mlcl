@@ -27,7 +27,7 @@ function SideNavBar() {
           cm.flex({ direction: 'col' }),
           cm.h('screen'),
           cm.w(64),
-          'fixed left-0 top-0 bg-background z-50',
+          'fixed left-0 top-0 bg-background z-50 hidden md:flex',
         )}
       >
         <div

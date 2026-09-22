@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AdminMobileNav from '../components/AdminMobileNav.js'
 import AgentAnalyticsFooter from '../components/AgentAnalyticsFooter.js'
 import AgentAnalyticsSideNavBar from '../components/AgentAnalyticsSideNavBar.js'
 
@@ -12,7 +13,8 @@ function AgentAnalyticsChrome({ children }: { children: ReactNode }) {
   return (
     <div className={cm.cn('text-on-surface selection:bg-primary-fixed-dim')}>
       <AgentAnalyticsSideNavBar />
-      <main className={cm.cn('ml-64 min-h-screen flex flex-col')} data-mol-id="main_wrapper">
+      <AdminMobileNav />
+      <main className={cm.cn('md:ml-64 min-h-screen flex flex-col')} data-mol-id="main_wrapper">
         <div className={cm.cn('flex-1')}>{children}</div>
         <AgentAnalyticsFooter />
       </main>
