@@ -24,6 +24,8 @@ test.describe('/reset-password', () => {
   })
 
   test('Submitting the form fires POST /api/users/reset-password', async ({ page }) => {
+    // A bogus token 401s by design; the network 401 logs a console error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password')
     await page.getByRole('textbox', { name: /email/i }).fill('nobody@example.com')
     await page.getByRole('textbox', { name: /recovery|token|code|reset/i }).fill('badtoken')

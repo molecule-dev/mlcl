@@ -9,6 +9,7 @@
 
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -642,6 +643,10 @@ function ExpenseForm({
         vendor: vendor || undefined,
         description: description || undefined,
         occurred_at: occurredAt ? new Date(occurredAt).toISOString() : undefined,
+      })
+      void track({
+        name: 'expense.logged',
+        properties: { trip_id: trip.id, category, amount_cents: Math.round(amount * 100) },
       })
       await onSaved()
     } catch (err) {

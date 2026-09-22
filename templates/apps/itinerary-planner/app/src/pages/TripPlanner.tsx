@@ -9,6 +9,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -120,6 +121,15 @@ export function TripPlanner() {
       const resp = await http.post<TripRow>('/trips', body)
       const trip = resp.data
       if (trip && trip.id) {
+        // Fire-and-forget: track() no-ops without a bonded provider.
+        void track({
+          name: 'trip.created',
+          properties: {
+            trip_id: trip.id,
+            destination: trip.destination,
+            budget_total_cents: body.budget_total_cents,
+          },
+        })
         navigate(`/trips/${trip.id}`)
       } else {
         setError(

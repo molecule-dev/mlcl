@@ -24,6 +24,9 @@ test.describe('/login', () => {
   })
 
   test('invalid creds keep us on /login', async ({ page }) => {
+    // Invalid credentials are rejected 4xx by design (403/401, 429 when
+    // rate-limited by retries); each logs a console resource error.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4\\d\\d' })
     await page.goto(APP_BASE + '/login')
     await page.getByRole('textbox', { name: /email/i }).fill('nobody@example.com')
     await page.getByRole('textbox', { name: /password/i }).fill('WrongPass123!')

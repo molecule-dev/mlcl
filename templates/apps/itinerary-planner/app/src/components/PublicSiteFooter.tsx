@@ -50,17 +50,28 @@ export function PublicSiteFooter() {
             </p>
           </div>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.textSize('sm'))}>
-            <Link to="/about" className={'text-on-surface-variant hover:text-primary'}>
+            {/* inline-block py-2 keeps the wrapped rows at a tappable height
+                on phones (20px-tall text links fail the ~40px target rule). */}
+            <Link
+              to="/about"
+              className={'inline-block py-2 text-on-surface-variant hover:text-primary'}
+            >
               {t('nav.about', {}, { defaultValue: 'About' })}
             </Link>
-            <Link to="/login" className={'text-on-surface-variant hover:text-primary'}>
+            <Link
+              to="/login"
+              className={'inline-block py-2 text-on-surface-variant hover:text-primary'}
+            >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
             </Link>
-            <Link to="/signup" className={'text-on-surface-variant hover:text-primary'}>
+            <Link
+              to="/signup"
+              className={'inline-block py-2 text-on-surface-variant hover:text-primary'}
+            >
               {t('auth.signup.createAccount', {}, { defaultValue: 'Create account' })}
             </Link>
             <LegalModalLinks
-              linkClassName={'text-on-surface-variant hover:text-primary'}
+              linkClassName={'inline-block py-2 text-on-surface-variant hover:text-primary'}
               appName={APP_NAME}
               loadContent={loadContent}
               privacyLabel={t('nav.privacy', {}, { defaultValue: 'Privacy' })}

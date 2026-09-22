@@ -7,6 +7,7 @@
 
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -600,6 +601,7 @@ function BookingForm({
         end_at: endAt ? new Date(endAt).toISOString() : undefined,
         cost_cents: Math.max(0, Math.round(costCents * 100)),
       })
+      void track({ name: 'booking.created', properties: { trip_id: tripId, kind } })
       await onSaved()
     } catch (err) {
       setError(

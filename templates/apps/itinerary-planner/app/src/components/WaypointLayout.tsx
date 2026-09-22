@@ -4,8 +4,11 @@
  * route (Dashboard, Trips, Bookings, Calendar, Notifications, Settings).
  *
  * Delegates layout chrome to the Sweep 1 `<SidebarLayout>` from
- * `@molecule/app-sidebar-layout-react` — the bespoke part is the nav
- * inventory (curated to Waypoint's travel-journal information
+ * `@molecule/app-sidebar-layout-react` on md+ viewports; below `md` the
+ * template-local `MobileTopBar` (sticky top bar + nav drawer) takes over —
+ * the shared rail has no mobile collapse, so the chrome is swapped at the
+ * route-layout level. The nav inventory below is the single source shared
+ * by both shells (curated to Waypoint's travel-journal information
  * architecture: Dashboard → Trips → Calendar → Destinations → Bookings →
  * Expenses → Notifications → Settings).
  *
@@ -19,6 +22,7 @@ import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 
 import { APP_NAME } from '../branding.js'
+import { MobileTopBar, useIsMobile } from './MobileTopBar.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -39,12 +43,20 @@ const NAV_KEYS = [
 
 export function WaypointLayout() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`waypointLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+  // Below md (768px) the fixed 264px rail would crush a phone's content
+  // column — swap the whole chrome for the template-local mobile shell
+  // (sticky top bar + drawer). Conditionally rendered, not CSS-hidden, so
+  // nav data-mol-ids never appear twice in the DOM.
+  if (isMobile) {
+    return <MobileTopBar navItems={navItems} />
+  }
   return (
     <SidebarLayout
       appName={APP_NAME}

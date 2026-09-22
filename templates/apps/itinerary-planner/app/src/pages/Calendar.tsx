@@ -39,6 +39,18 @@ function dayKey(d: Date): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
+/**
+ * Normalize a trip boundary to a YYYY-MM-DD key. pg DATE columns arrive as
+ * date-only strings — slicing them is exact, while `new Date('YYYY-MM-DD')`
+ * parses as UTC midnight and shifts the trip a day in non-UTC timezones
+ * (grid cells are LOCAL midnights, so epoch math can never line up both
+ * sides). Full timestamps (the created_at fallback) take the local date.
+ */
+function dateOnly(s: string): string {
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10)
+  return dayKey(new Date(s))
+}
+
 function fmtMonthHeader(d: Date): string {
   return d.toLocaleDateString(undefined, { month: 'long', year: 'numeric' })
 }
@@ -78,11 +90,11 @@ export function Calendar() {
   }, [summaries.length])
 
   const tripsOnDay = (date: Date) => {
-    const tt = date.getTime()
+    const k = dayKey(date)
     return summaries.filter((trip) => {
-      const start = new Date(trip.start_iso).getTime()
-      const end = new Date(trip.end_iso).getTime()
-      return tt >= start - 86_400_000 && tt <= end
+      const a = dateOnly(trip.start_iso)
+      const b = dateOnly(trip.end_iso)
+      return k >= a && k <= b
     })
   }
 
@@ -243,85 +255,89 @@ export function Calendar() {
           </div>
         </header>
 
-        <div
-          className={cm.cn(
-            cm.sp('mt', 4),
-            'grid grid-cols-7 gap-px bg-outline-variant rounded-xl overflow-hidden',
-          )}
-        >
-          {WEEKDAYS.map((label) => (
-            <div
-              key={label}
-              className={cm.cn(
-                cm.sp('px', 2),
-                cm.sp('py', 2),
-                cm.textCenter,
-                cm.textSize('xs'),
-                cm.fontWeight('extrabold'),
-                'uppercase tracking-widest text-on-surface-variant bg-surface-container-low',
-              )}
-            >
-              {t(`calendar.weekday.${label.toLowerCase()}`, {}, { defaultValue: label })}
-            </div>
-          ))}
-          {grid.map((cell) => {
-            const tripsForCell = tripsOnDay(cell.date)
-            const k = dayKey(cell.date)
-            const isToday = k === todayKey
-            return (
+        {/* 7 columns × ~50px at phone width crushes the trip pills into
+            single letters — give the grid a readable min width and let the
+            phone swipe it, instead of truncating the data. */}
+        <div className={cm.cn(cm.sp('mt', 4), 'overflow-x-auto -mx-2 px-2')}>
+          <div
+            className={cm.cn(
+              'grid grid-cols-7 gap-px bg-outline-variant rounded-xl overflow-hidden min-w-[560px]',
+            )}
+          >
+            {WEEKDAYS.map((label) => (
               <div
-                key={k}
+                key={label}
                 className={cm.cn(
-                  cm.sp('p', 2),
-                  'min-h-[112px] bg-surface flex flex-col gap-1',
-                  cell.inMonth ? '' : 'opacity-50',
-                  isToday ? 'ring-2 ring-primary ring-inset' : '',
+                  cm.sp('px', 2),
+                  cm.sp('py', 2),
+                  cm.textCenter,
+                  cm.textSize('xs'),
+                  cm.fontWeight('extrabold'),
+                  'uppercase tracking-widest text-on-surface-variant bg-surface-container-low',
                 )}
               >
-                <span
+                {t(`calendar.weekday.${label.toLowerCase()}`, {}, { defaultValue: label })}
+              </div>
+            ))}
+            {grid.map((cell) => {
+              const tripsForCell = tripsOnDay(cell.date)
+              const k = dayKey(cell.date)
+              const isToday = k === todayKey
+              return (
+                <div
+                  key={k}
                   className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('bold'),
-                    'tabular-nums',
-                    isToday ? 'text-primary' : 'text-on-surface-variant',
+                    cm.sp('p', 2),
+                    'min-h-[112px] bg-surface flex flex-col gap-1',
+                    cell.inMonth ? '' : 'opacity-50',
+                    isToday ? 'ring-2 ring-primary ring-inset' : '',
                   )}
                 >
-                  {cell.date.getDate()}
-                </span>
-                {tripsForCell.slice(0, 2).map((trip) => {
-                  const theme = STATUS_PILL[trip.status]
-                  return (
-                    <Link
-                      key={`${k}-${trip.id}`}
-                      to={`/trips/${trip.id}`}
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'py-0.5 truncate rounded-md hover:opacity-90 transition-opacity',
-                        theme.bg,
-                        theme.text,
-                      )}
-                      title={trip.destination}
-                    >
-                      {trip.destination}
-                    </Link>
-                  )
-                })}
-                {tripsForCell.length > 2 ? (
                   <span
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'tabular-nums text-on-surface-variant',
+                      'tabular-nums',
+                      isToday ? 'text-primary' : 'text-on-surface-variant',
                     )}
                   >
-                    +{tripsForCell.length - 2}
+                    {cell.date.getDate()}
                   </span>
-                ) : null}
-              </div>
-            )
-          })}
+                  {tripsForCell.slice(0, 2).map((trip) => {
+                    const theme = STATUS_PILL[trip.status]
+                    return (
+                      <Link
+                        key={`${k}-${trip.id}`}
+                        to={`/trips/${trip.id}`}
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'py-0.5 truncate rounded-md hover:opacity-90 transition-opacity',
+                          theme.bg,
+                          theme.text,
+                        )}
+                        title={trip.destination}
+                      >
+                        {trip.destination}
+                      </Link>
+                    )
+                  })}
+                  {tripsForCell.length > 2 ? (
+                    <span
+                      className={cm.cn(
+                        cm.textSize('xs'),
+                        cm.fontWeight('bold'),
+                        'tabular-nums text-on-surface-variant',
+                      )}
+                    >
+                      +{tripsForCell.length - 2}
+                    </span>
+                  ) : null}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 

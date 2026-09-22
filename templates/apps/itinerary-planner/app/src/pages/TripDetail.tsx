@@ -8,6 +8,7 @@
 import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -203,6 +204,7 @@ export function TripDetail() {
       setTrip(updated)
       const url = `${window.location.origin}/trips/${trip.id}?share=${updated.share_token}`
       setShareInfo({ url, copied: false })
+      void track({ name: 'itinerary.shared', properties: { trip_id: trip.id } })
       try {
         await navigator.clipboard.writeText(url)
         setShareInfo({ url, copied: true })
@@ -227,6 +229,8 @@ export function TripDetail() {
       await http.post(`/collaborators`, { trip_id: trip.id, email: inviteEmail, role: 'editor' })
       setInviteSent(inviteEmail)
       setInviteEmail('')
+      // No email in properties — ids and roles only.
+      void track({ name: 'collaborator.invited', properties: { trip_id: trip.id, role: 'editor' } })
       await refresh()
     } catch (err) {
       setInviteError(
@@ -263,6 +267,10 @@ export function TripDetail() {
       })
       setActivityForm({ title: '', day_index: dayIdx, kind: 'sightseeing' })
       setShowAddActivity(false)
+      void track({
+        name: 'activity.added',
+        properties: { trip_id: trip.id, kind: activityForm.kind, day_index: dayIdx },
+      })
       await refresh()
     } catch (err) {
       setError(
@@ -401,7 +409,9 @@ export function TripDetail() {
                     {t(
                       'tripDetail.budget',
                       {
-                        used: fmtMoney(trip.budget_used_cents),
+                        // fmtMoney hides zero — an untouched budget must not
+                        // render as "/ $4,200".
+                        used: fmtMoney(trip.budget_used_cents) || '$0',
                         total: fmtMoney(trip.budget_total_cents),
                       },
                       { defaultValue: '{{used}} / {{total}}' },
@@ -679,7 +689,9 @@ export function TripDetail() {
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 3),
-                    'sticky top-0 z-10 bg-surface/95 backdrop-blur-md rounded-xl border-l-4 border-primary shadow-sm',
+                    // top-16 on mobile (below the mobile shell's sticky top
+                    // bar), top-0 on md+ where the sidebar layout has no bar.
+                    'sticky top-16 md:top-0 z-10 bg-surface/95 backdrop-blur-md rounded-xl border-l-4 border-primary shadow-sm',
                   )}
                 >
                   <p
