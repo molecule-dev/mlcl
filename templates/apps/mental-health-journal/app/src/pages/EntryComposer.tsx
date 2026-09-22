@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
+import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,7 +92,20 @@ export function EntryComposer() {
     setSaving(true)
     setError(null)
     try {
-      await http.post('/api/journal/entries', { mood, title, body, tags, prompt: activePrompt })
+      const res = await http.post('/api/journal/entries', {
+        mood,
+        title,
+        body,
+        tags,
+        prompt: activePrompt,
+      })
+      // Domain event at the commit point — fire-and-forget (no-op without a
+      // provider bonded; never blocks navigation on tracking).
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'entry.created',
+        properties: { entry_id: created?.id, mood, word_count: wordCount, prompt: activePrompt },
+      })
       navigate('/journal', { replace: true })
     } catch (err) {
       setError(
@@ -163,12 +178,7 @@ export function EntryComposer() {
           >
             {t('entryComposer.moodLabel', {}, { defaultValue: 'How are you feeling?' })}
           </h3>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-              'flex-wrap',
-            )}
-          >
+          <div className={cm.cn(cm.flex({ align: 'center' }), 'flex-wrap justify-start gap-2')}>
             {MOOD_OPTIONS.map((opt) => {
               const selected = mood === opt.key
               return (

@@ -46,13 +46,15 @@ export function Journal() {
   const [filter, setFilter] = useState<'all' | MoodLevel>('all')
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
   const [searchParams] = useSearchParams()
   const dateFilter = searchParams.get('date')
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     http
       .get('/api/journal/entries')
       .then((res) => {
@@ -60,8 +62,9 @@ export function Journal() {
         setEntries(unwrapList<JournalEntry>(res))
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('journal.loadError', {}, { defaultValue: 'Failed to load entries.' }))
+        // Flag only; the message is translated at render time (t's identity
+        // can churn on context updates and must not re-trigger the fetch).
+        if (!cancelled) setError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -69,7 +72,7 @@ export function Journal() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, reload])
 
   const filtered = useMemo(() => {
     let result = entries
@@ -203,7 +206,24 @@ export function Journal() {
           {t('journal.loading', {}, { defaultValue: 'Loading entries…' })}
         </p>
       ) : error ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 12), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {t('journal.loadError', {}, { defaultValue: 'Failed to load entries.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReload((r) => r + 1)}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+            )}
+          >
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : filtered.length === 0 ? (
         <div
           className={cm.cn(

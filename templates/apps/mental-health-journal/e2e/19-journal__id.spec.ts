@@ -59,11 +59,15 @@ test.describe('/journal/:id', () => {
 
   test('GET /api/journal/entries/:id is called on page load', async ({ page }) => {
     const { entry } = await signupAndCreateEntry(page)
+    // Arm BEFORE goto: the mount fetch can resolve before the window load
+    // event, so a post-goto listener misses it and times out.
+    const entryWait = page.waitForResponse(
+      (r) => r.url().includes('/api/journal/entries/' + entry.id),
+      { timeout: 15_000 },
+    )
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/journal/' + entry.id)
-      await page.waitForResponse((r) => r.url().includes('/api/journal/entries/' + entry.id), {
-        timeout: 10_000,
-      })
+      await entryWait
     })
     const get = reqs.find(
       (r) => r.method === 'GET' && r.url.includes('/api/journal/entries/' + entry.id),

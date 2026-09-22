@@ -77,10 +77,11 @@ test.describe('User journey — full mental-health-journal flow', () => {
     await expect(page.getByRole('heading', { level: 1, name: /Prompt library/i })).toBeVisible()
 
     // Settings: flip theme to dark and verify persistence via direct API
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const themeDark = page.getByTestId('theme-dark')
     await expect(themeDark).toBeEnabled({ timeout: 10_000 })
     const putWait = page.waitForResponse(

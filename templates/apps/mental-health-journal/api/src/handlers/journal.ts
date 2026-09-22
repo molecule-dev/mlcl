@@ -16,6 +16,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, query, updateById } from '@molecule/api-database'
 import { decrypt, encrypt, hasProvider as hasEncryption } from '@molecule/api-encryption'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { shouldEncryptEntry } from '../lib/encryption-pref.js'
@@ -131,8 +132,13 @@ async function decryptIfNeeded(row: JournalEntryRow): Promise<string> {
   if (row.body_encrypted && hasEncryption()) {
     try {
       return await decrypt(row.body_encrypted, row.user_id)
-    } catch (_error) {
-      // Decryption may fail if key rotated; fall back to plaintext column.
+    } catch (error) {
+      // Decryption may fail if key rotated; fall back to plaintext column —
+      // but log it, a silent fallback here would hide key-management bugs.
+      logger.warn('journal.entry.decryptFallback', {
+        entry_id: row.id,
+        error: error instanceof Error ? error.message : String(error),
+      })
     }
   }
   return row.body ?? ''
@@ -771,8 +777,11 @@ router.get('/insights', async (_req: Request, res: Response) => {
       }
     }
   } catch (err) {
-    // Anthropic call failed — keep deterministic summary, note it in logs.
-    console.warn('insights ai summary error', (err as Error).message)
+    // Anthropic call failed — keep deterministic summary (insights never block
+    // on the LLM) and log under the consistent <domain>.<action> event name.
+    logger.warn('journal.insights.aiSummary', {
+      error: err instanceof Error ? err.message : String(err),
+    })
   }
 
   const data: InsightsData = {
@@ -843,8 +852,11 @@ router.get('/calendar/:year/:month', async (req: Request, res: Response) => {
     if (row.body_encrypted && hasEncryption()) {
       try {
         bodyText = await decrypt(row.body_encrypted, userId)
-      } catch (_error) {
-        // ignored — fall back to plaintext column
+      } catch (error) {
+        // Same key-rotation fallback as decryptIfNeeded — logged, not silent.
+        logger.warn('journal.calendar.decryptFallback', {
+          error: error instanceof Error ? error.message : String(error),
+        })
       }
     }
     byDay.set(day, {

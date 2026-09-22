@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -146,6 +147,8 @@ export function Settings() {
         setPrefs(merged)
         if (patch.theme) applyThemeAttribute(merged.theme)
       }
+      // Domain event at the commit point (no-op without a provider bonded).
+      void track({ name: 'settings.updated', properties: { section: label } })
       setFeedback(t('common.savedPeriod', {}, { defaultValue: 'Saved.' }))
     } catch (err) {
       setFeedback(
@@ -196,6 +199,8 @@ export function Settings() {
       a.click()
       document.body.removeChild(a)
       URL.revokeObjectURL(objUrl)
+      // Domain event at the commit point (no-op without a provider bonded).
+      void track({ name: 'export.downloaded', properties: { format: format.key } })
       setFeedback(
         t(
           'settings.exportDone',
@@ -220,6 +225,8 @@ export function Settings() {
     setFeedback(null)
     try {
       await http.delete(`/api/users/${user.id}`)
+      // Domain event at the commit point (no-op without a provider bonded).
+      void track({ name: 'account.deleted', properties: { user_id: user.id } })
       await logout()
       navigate('/', { replace: true })
     } catch (err) {
@@ -342,8 +349,8 @@ export function Settings() {
                 >
                   <span
                     className={cm.cn(
-                      'absolute top-1 w-6 h-6 rounded-full bg-white shadow-sm transition-transform',
-                      on ? 'translate-x-7' : 'translate-x-1',
+                      'absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-sm transition-transform',
+                      on ? 'translate-x-6' : '',
                     )}
                   />
                 </button>
@@ -392,6 +399,11 @@ export function Settings() {
             type="button"
             onClick={() => setReminderEnabled(!prefs.reminder.enabled)}
             aria-pressed={prefs.reminder.enabled}
+            aria-label={t(
+              'settings.reminderToggleAria',
+              {},
+              { defaultValue: 'Toggle daily reminder' },
+            )}
             data-testid="reminder-toggle"
             disabled={!loaded}
             className={cm.cn(
@@ -409,8 +421,8 @@ export function Settings() {
           >
             <span
               className={cm.cn(
-                'absolute top-1 w-6 h-6 rounded-full bg-white shadow-sm transition-transform',
-                prefs.reminder.enabled ? 'translate-x-7' : 'translate-x-1',
+                'absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-sm transition-transform',
+                prefs.reminder.enabled ? 'translate-x-6' : '',
               )}
             />
           </button>

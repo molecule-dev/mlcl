@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -45,11 +46,13 @@ export function Prompts() {
   const [prompts, setPrompts] = useState<Prompt[]>([])
   const [filter, setFilter] = useState<'all' | 'favorites' | Prompt['category']>('all')
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     http
       .get('/api/journal/prompts')
       .then((res) => {
@@ -57,8 +60,8 @@ export function Prompts() {
         setPrompts(unwrapList<Prompt>(res))
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('prompts.loadError', {}, { defaultValue: 'Failed to load prompts.' }))
+        // Flag only; translated at render (see Journal note on t churn).
+        if (!cancelled) setError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -66,13 +69,20 @@ export function Prompts() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, reload])
 
   const toggleFavorite = async (id: string) => {
     const prev = prompts
-    setPrompts(prompts.map((p) => (p.id === id ? { ...p, is_favorite: !p.is_favorite } : p)))
+    const target = prompts.find((p) => p.id === id)
+    const nowFavorite = target ? !target.is_favorite : true
+    setPrompts(prompts.map((p) => (p.id === id ? { ...p, is_favorite: nowFavorite } : p)))
     try {
       await http.post(`/api/journal/prompts/${id}/favorite`, {})
+      // Domain event at the commit point (no-op without a provider bonded).
+      void track({
+        name: nowFavorite ? 'prompt.favorited' : 'prompt.unfavorited',
+        properties: { prompt_id: id },
+      })
     } catch (_error) {
       // optimistic update failed; revert to previous state
       setPrompts(prev)
@@ -143,7 +153,24 @@ export function Prompts() {
           {t('prompts.loading', {}, { defaultValue: 'Loading prompts…' })}
         </p>
       ) : error ? (
-        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 8), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {t('prompts.loadError', {}, { defaultValue: 'Failed to load prompts.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReload((r) => r + 1)}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+            )}
+          >
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : filtered.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
           {t('prompts.empty', {}, { defaultValue: 'No prompts match this filter yet.' })}
@@ -195,7 +222,8 @@ export function Prompts() {
                       { defaultValue: p.is_favorite ? 'Remove favorite' : 'Save favorite' },
                     )}
                     className={cm.cn(
-                      'text-on-surface-variant hover:text-primary transition-colors',
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'w-11 h-11 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors',
                     )}
                   >
                     <span

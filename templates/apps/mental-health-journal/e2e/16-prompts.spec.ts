@@ -17,8 +17,13 @@ test.describe('/prompts', () => {
 
   test('"Favorites" filter shows empty state for fresh user', async ({ page }) => {
     await signup(page)
+    // Arm BEFORE goto: the prompts fetch can resolve before the window load
+    // event, so a post-goto listener misses it and times out.
+    const promptsWait = page.waitForResponse((r) => r.url().includes('/api/journal/prompts'), {
+      timeout: 15_000,
+    })
     await page.goto(APP_BASE + '/prompts')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/prompts'), { timeout: 10_000 })
+    await promptsWait
     await page.getByRole('button', { name: /^Favorites$/ }).click()
     // No favorites yet — empty-state message should appear
     await expect(page.getByText(/No prompts match this filter|No favorites/i)).toBeVisible({
@@ -33,8 +38,12 @@ test.describe('/prompts', () => {
     // are content an app's owner replaces.
     const library = await getPrompts(page)
     expect(library.length, 'prompt library is non-empty').toBeGreaterThan(0)
+    // Arm BEFORE goto (see the Favorites test).
+    const promptsWait = page.waitForResponse((r) => r.url().includes('/api/journal/prompts'), {
+      timeout: 15_000,
+    })
     await page.goto(APP_BASE + '/prompts')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/prompts'), { timeout: 10_000 })
+    await promptsWait
 
     // One favorite-toggle renders per prompt card, so it counts the cards.
     const cards = page.getByRole('button', { name: /save favorite|remove favorite/i })

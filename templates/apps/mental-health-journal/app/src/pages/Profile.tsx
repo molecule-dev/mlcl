@@ -23,11 +23,13 @@ export function Profile() {
   const { user } = useAuth<UserProfile>()
   const [stats, setStats] = useState<ProfileStats | null>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     http
       .get('/api/journal/profile-stats')
       .then((res) => {
@@ -40,12 +42,12 @@ export function Profile() {
         ) {
           setStats(data)
         } else {
-          setError(t('profile.loadError', {}, { defaultValue: 'Failed to load stats.' }))
+          setError(true)
         }
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('profile.loadError', {}, { defaultValue: 'Failed to load stats.' }))
+        // Flag only; translated at render (see Journal note on t churn).
+        if (!cancelled) setError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -53,7 +55,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, reload])
 
   const memberDate = stats
     ? new Date(stats.member_since).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })
@@ -125,7 +127,24 @@ export function Profile() {
           {t('profile.loading', {}, { defaultValue: 'Refreshing your stats…' })}
         </p>
       ) : error && !stats ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+        <div className={cm.cn(cm.sp('py', 12), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {t('profile.loadError', {}, { defaultValue: 'Failed to load stats.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReload((r) => r + 1)}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+            )}
+          >
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : stats ? (
         <>
           <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 md:grid-cols-3')}>
@@ -260,40 +279,60 @@ export function Profile() {
             >
               {t('profile.milestones', {}, { defaultValue: 'Milestones' })}
             </h3>
-            <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-2')}>
-              {stats.milestones.map((m) => (
-                <li
-                  key={m.id}
-                  className={cm.cn(
-                    cm.sp('p', 4),
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    'rounded-2xl bg-surface-container',
-                  )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-2xl')}
-                    aria-hidden="true"
-                    style={{ color: 'var(--mol-color-primary)', fontVariationSettings: "'FILL' 1" }}
+            {stats.milestones.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {t(
+                  'profile.milestonesEmpty',
+                  {},
+                  {
+                    defaultValue:
+                      'Your first milestone is one entry away — write whenever you feel ready.',
+                  },
+                )}
+              </p>
+            ) : (
+              <ul className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 md:grid-cols-2')}>
+                {stats.milestones.map((m) => (
+                  <li
+                    key={m.id}
+                    className={cm.cn(
+                      cm.sp('p', 4),
+                      cm.flex({ align: 'center', gap: 'sm' }),
+                      'rounded-2xl bg-surface-container',
+                    )}
                   >
-                    {m.icon}
-                  </span>
-                  <div>
-                    <p
-                      className={cm.cn(cm.fontWeight('bold'), cm.textSize('sm'), 'text-on-surface')}
+                    <span
+                      className={cm.cn('material-symbols-outlined text-2xl')}
+                      aria-hidden="true"
+                      style={{
+                        color: 'var(--mol-color-primary)',
+                        fontVariationSettings: "'FILL' 1",
+                      }}
                     >
-                      {t(`profile.milestone.${m.id}`, {}, { defaultValue: m.label })}
-                    </p>
-                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {new Date(m.date).toLocaleDateString(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                      {m.icon}
+                    </span>
+                    <div>
+                      <p
+                        className={cm.cn(
+                          cm.fontWeight('bold'),
+                          cm.textSize('sm'),
+                          'text-on-surface',
+                        )}
+                      >
+                        {t(`profile.milestone.${m.id}`, {}, { defaultValue: m.label })}
+                      </p>
+                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {new Date(m.date).toLocaleDateString(undefined, {
+                          month: 'short',
+                          day: 'numeric',
+                          year: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         </>
       ) : null}

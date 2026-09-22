@@ -11,10 +11,13 @@ test.describe('/settings', () => {
 
   test('cloud-backup toggle flips and PUTs preferences', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const toggle = page.getByTestId('privacy-toggle-cloud_backup')
     await expect(toggle).toBeEnabled({ timeout: 10_000 })
     const before = await toggle.getAttribute('aria-pressed')
@@ -37,10 +40,13 @@ test.describe('/settings', () => {
 
   test('reminder toggle flips state', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const t = page.getByTestId('reminder-toggle')
     await expect(t).toBeEnabled({ timeout: 10_000 })
     const before = await t.getAttribute('aria-pressed')
@@ -56,10 +62,13 @@ test.describe('/settings', () => {
 
   test('reminder-time button selects 22:30', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const t = page.getByTestId('reminder-time-22:30')
     await expect(t).toBeEnabled({ timeout: 10_000 })
     const putWait = page.waitForResponse(
@@ -73,10 +82,13 @@ test.describe('/settings', () => {
 
   test('theme dark selects and persists', async ({ page }) => {
     const creds = await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const themeDark = page.getByTestId('theme-dark')
     await expect(themeDark).toBeEnabled({ timeout: 10_000 })
     const putWait = page.waitForResponse(
@@ -101,10 +113,13 @@ test.describe('/settings', () => {
 
   test('export JSON triggers GET /api/journal/export/json', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const btn = page.getByTestId('export-json')
     await expect(btn).toBeVisible()
     const reqs = await captureNetwork(page, async () => {
@@ -121,10 +136,13 @@ test.describe('/settings', () => {
 
   test('export CSV triggers GET /api/journal/export/csv', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
+    // Arm BEFORE goto: the preferences fetch can resolve before the window
+    // load event, so a post-goto listener misses it and times out.
+    const prefsWait = page.waitForResponse((r) => r.url().includes('/api/journal/preferences'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/settings')
+    await prefsWait
     const btn = page.getByTestId('export-csv')
     await expect(btn).toBeVisible()
     const reqs = await captureNetwork(page, async () => {

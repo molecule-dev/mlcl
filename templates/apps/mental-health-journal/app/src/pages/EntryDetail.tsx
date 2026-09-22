@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -43,15 +44,20 @@ export function EntryDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const [entry, setEntry] = useState<JournalEntryDetail | null>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [errorCode, setErrorCode] = useState<'not-found' | 'load-failed' | null>(null)
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [deleting, setDeleting] = useState(false)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
     setLoading(true)
+    setErrorCode(null)
     http
       .get(`/api/journal/entries/${id}`)
       .then((res) => {
@@ -60,12 +66,13 @@ export function EntryDetail() {
         if (data && (data as JournalEntryDetail).body !== undefined) {
           setEntry(data)
         } else {
-          setError(t('entryDetail.notFound', {}, { defaultValue: 'Entry not found.' }))
+          // Flag only; translated at render (identity churn on `t` must not
+          // re-trigger the fetch).
+          setErrorCode('not-found')
         }
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('entryDetail.loadError', {}, { defaultValue: 'Could not load this entry.' }))
+        if (!cancelled) setErrorCode('load-failed')
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -73,7 +80,7 @@ export function EntryDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id])
 
   if (loading || !entry) {
     return (
@@ -92,9 +99,11 @@ export function EntryDetail() {
           <span className={cm.cn('material-symbols-outlined text-base')}>arrow_back</span>
           {t('entryDetail.back', {}, { defaultValue: 'Back to journal' })}
         </Link>
-        {error ? (
+        {errorCode ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')} role="alert">
-            {error}
+            {errorCode === 'not-found'
+              ? t('entryDetail.notFound', {}, { defaultValue: 'Entry not found.' })
+              : t('entryDetail.loadError', {}, { defaultValue: 'Could not load this entry.' })}
           </p>
         ) : (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
@@ -113,9 +122,29 @@ export function EntryDetail() {
     year: 'numeric',
   })
 
+  const handleDelete = async () => {
+    if (!id) return
+    setDeleting(true)
+    setDeleteError(null)
+    try {
+      await http.delete(`/api/journal/entries/${id}`)
+      // Domain event at the commit point (no-op without a provider bonded).
+      void track({ name: 'entry.deleted', properties: { entry_id: id } })
+      navigate('/journal', { replace: true })
+    } catch (err) {
+      setDeleteError(
+        err instanceof Error
+          ? err.message
+          : t('entryDetail.deleteError', {}, { defaultValue: 'Could not delete this entry.' }),
+      )
+      setDeleting(false)
+      setConfirmDelete(false)
+    }
+  }
+
   return (
     <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 8), cm.maxW('2xl'), cm.mxAuto, 'space-y-8')}>
-      <div className={cm.flex({ align: 'center', justify: 'between' })}>
+      <div className={cm.flex({ align: 'center', justify: 'between', gap: 'sm' })}>
         <Link
           to="/journal"
           className={cm.cn(
@@ -128,22 +157,93 @@ export function EntryDetail() {
           <span className={cm.cn('material-symbols-outlined text-base')}>arrow_back</span>
           {t('entryDetail.back', {}, { defaultValue: 'Back to journal' })}
         </Link>
-        <span
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs' }),
-            cm.sp('px', 3),
-            cm.sp('py', 1),
-            cm.fontWeight('bold'),
-            'rounded-full text-[11px] uppercase tracking-widest',
-          )}
-          style={{ backgroundColor: meta.color, color: 'white' }}
-        >
-          <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-            {meta.icon}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('px', 3),
+              cm.sp('py', 1),
+              cm.fontWeight('bold'),
+              'rounded-full text-[11px] uppercase tracking-widest',
+            )}
+            style={{ backgroundColor: meta.color, color: 'white' }}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              {meta.icon}
+            </span>
+            {t(`entryDetail.mood.${entry.mood}`, {}, { defaultValue: meta.label })}
           </span>
-          {t(`entryDetail.mood.${entry.mood}`, {}, { defaultValue: meta.label })}
-        </span>
+          <button
+            type="button"
+            onClick={() => setConfirmDelete(true)}
+            aria-label={t('entryDetail.delete', {}, { defaultValue: 'Delete this entry' })}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'w-10 h-10 rounded-full text-on-surface-variant hover:text-error hover:bg-error-container transition-colors',
+            )}
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">
+              delete
+            </span>
+          </button>
+        </div>
       </div>
+
+      {confirmDelete ? (
+        <div
+          role="alertdialog"
+          aria-label={t('entryDetail.deleteConfirmTitle', {}, { defaultValue: 'Delete entry' })}
+          className={cm.cn(cm.sp('p', 4), 'rounded-xl bg-error-container space-y-3')}
+        >
+          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-error-container')}>
+            {t(
+              'entryDetail.deleteConfirm',
+              {},
+              {
+                defaultValue: 'Delete this reflection? This can’t be undone.',
+              },
+            )}
+          </p>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+            <button
+              type="button"
+              onClick={handleDelete}
+              disabled={deleting}
+              data-testid="delete-entry-confirm"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'rounded-full bg-error text-on-error hover:bg-error/90 transition-colors disabled:opacity-50',
+              )}
+            >
+              {deleting
+                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
+                : t('entryDetail.deleteForever', {}, { defaultValue: 'Delete forever' })}
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirmDelete(false)}
+              disabled={deleting}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'rounded-full border-2 border-outline-variant text-on-surface-variant hover:bg-surface-container transition-colors disabled:opacity-50',
+              )}
+            >
+              {t('entryDetail.keepEntry', {}, { defaultValue: 'Keep it' })}
+            </button>
+          </div>
+          {deleteError ? (
+            <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+              {deleteError}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
 
       <header>
         <p

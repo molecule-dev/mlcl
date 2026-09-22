@@ -26,22 +26,24 @@ export function Insights() {
   const http = useHttpClient()
   const [data, setData] = useState<InsightsData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     http
       .get('/api/journal/insights')
       .then((res) => {
         if (cancelled) return
         const d = unwrapSingle<InsightsData>(res)
         if (d && Array.isArray((d as InsightsData).mood_trend)) setData(d)
-        else setError(t('insights.loadError', {}, { defaultValue: 'Could not load insights.' }))
+        else setError(true)
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('insights.loadError', {}, { defaultValue: 'Could not load insights.' }))
+        // Flag only; translated at render (see Journal note on t churn).
+        if (!cancelled) setError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -49,7 +51,7 @@ export function Insights() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, reload])
 
   const maxThemeCount = data ? Math.max(1, ...data.top_themes.map((theme) => theme.count)) : 1
 
@@ -86,9 +88,24 @@ export function Insights() {
         </p>
       ) : null}
       {error && !data ? (
-        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')} role="alert">
-          {error}
-        </p>
+        <div className={cm.cn(cm.sp('py', 8), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {t('insights.loadError', {}, { defaultValue: 'Could not load insights.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReload((r) => r + 1)}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+            )}
+          >
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : null}
 
       {data ? (
@@ -163,49 +180,62 @@ export function Insights() {
               >
                 {t('insights.themesHeading', {}, { defaultValue: 'Top themes' })}
               </h3>
-              <ul className={cm.cn('space-y-3')}>
-                {data.top_themes.map((theme) => (
-                  <li key={theme.tag} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-                    <span
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.fontWeight('semibold'),
-                        'rounded-full text-[11px] py-0.5 shrink-0',
-                      )}
-                      style={{
-                        backgroundColor: SENTIMENT_COLORS[theme.sentiment],
-                        color: 'var(--mol-color-primary)',
-                      }}
-                    >
-                      #{theme.tag}
-                    </span>
-                    <div
-                      className={cm.cn(
-                        cm.flex1,
-                        'h-2 rounded-full bg-surface-container relative overflow-hidden',
-                      )}
-                    >
-                      <div
-                        className={cm.cn('absolute inset-y-0 left-0 rounded-full')}
+              {data.top_themes.length === 0 ? (
+                <p className={cm.cn(cm.sp('py', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'insights.themesEmpty',
+                    {},
+                    {
+                      defaultValue:
+                        'No themes yet — add a tag or two to your entries and they will gather here.',
+                    },
+                  )}
+                </p>
+              ) : (
+                <ul className={cm.cn('space-y-3')}>
+                  {data.top_themes.map((theme) => (
+                    <li key={theme.tag} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.fontWeight('semibold'),
+                          'rounded-full text-[11px] py-0.5 shrink-0',
+                        )}
                         style={{
-                          width: `${(theme.count / maxThemeCount) * 100}%`,
-                          background:
-                            'linear-gradient(90deg, var(--mol-color-primary), var(--mol-color-secondary))',
+                          backgroundColor: SENTIMENT_COLORS[theme.sentiment],
+                          color: 'var(--mol-color-primary)',
                         }}
-                      />
-                    </div>
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('extrabold'),
-                        cm.textSize('sm'),
-                        'tabular-nums shrink-0 w-8 text-right text-on-surface',
-                      )}
-                    >
-                      {theme.count}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                      >
+                        #{theme.tag}
+                      </span>
+                      <div
+                        className={cm.cn(
+                          cm.flex1,
+                          'h-2 rounded-full bg-surface-container relative overflow-hidden',
+                        )}
+                      >
+                        <div
+                          className={cm.cn('absolute inset-y-0 left-0 rounded-full')}
+                          style={{
+                            width: `${(theme.count / maxThemeCount) * 100}%`,
+                            background:
+                              'linear-gradient(90deg, var(--mol-color-primary), var(--mol-color-secondary))',
+                          }}
+                        />
+                      </div>
+                      <span
+                        className={cm.cn(
+                          cm.fontWeight('extrabold'),
+                          cm.textSize('sm'),
+                          'tabular-nums shrink-0 w-8 text-right text-on-surface',
+                        )}
+                      >
+                        {theme.count}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             <div
@@ -226,59 +256,74 @@ export function Insights() {
                   { defaultValue: 'Patterns that move your mood' },
                 )}
               </h3>
-              <ul className={cm.cn('space-y-2')}>
-                {data.triggers.map((trigger) => {
-                  const positive = trigger.mood_delta >= 0
-                  return (
-                    <li
-                      key={trigger.trigger}
-                      className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-                        cm.sp('p', 3),
-                        'rounded-xl bg-surface-container',
-                      )}
-                    >
-                      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+              {data.triggers.length === 0 ? (
+                <p className={cm.cn(cm.sp('py', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
+                  {t(
+                    'insights.triggersEmpty',
+                    {},
+                    {
+                      defaultValue:
+                        'Nothing to notice yet. A few entries over some days will show your patterns.',
+                    },
+                  )}
+                </p>
+              ) : (
+                <ul className={cm.cn('space-y-2')}>
+                  {data.triggers.map((trigger) => {
+                    const positive = trigger.mood_delta >= 0
+                    return (
+                      <li
+                        key={trigger.trigger}
+                        className={cm.cn(
+                          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+                          cm.sp('p', 3),
+                          'rounded-xl bg-surface-container',
+                        )}
+                      >
+                        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                          <span
+                            className={cm.cn('material-symbols-outlined text-2xl shrink-0')}
+                            aria-hidden="true"
+                            style={{
+                              color: positive ? 'var(--color-success)' : 'var(--color-error)',
+                              fontVariationSettings: "'FILL' 1",
+                            }}
+                          >
+                            {positive ? 'trending_up' : 'trending_down'}
+                          </span>
+                          <div>
+                            <p
+                              className={cm.cn(
+                                cm.textSize('sm'),
+                                cm.fontWeight('bold'),
+                                'text-on-surface',
+                              )}
+                            >
+                              {trigger.trigger}
+                            </p>
+                            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                              {t(
+                                'insights.triggerFrequency',
+                                { count: trigger.frequency },
+                                { defaultValue: 'noticed {{count}}× this month' },
+                              )}
+                            </p>
+                          </div>
+                        </div>
                         <span
-                          className={cm.cn('material-symbols-outlined text-2xl shrink-0')}
-                          aria-hidden="true"
+                          className={cm.cn('text-lg font-extrabold tracking-tight tabular-nums')}
                           style={{
                             color: positive ? 'var(--color-success)' : 'var(--color-error)',
-                            fontVariationSettings: "'FILL' 1",
                           }}
                         >
-                          {positive ? 'trending_up' : 'trending_down'}
+                          {positive ? '+' : ''}
+                          {(trigger.mood_delta * 100).toFixed(0)}%
                         </span>
-                        <div>
-                          <p
-                            className={cm.cn(
-                              cm.textSize('sm'),
-                              cm.fontWeight('bold'),
-                              'text-on-surface',
-                            )}
-                          >
-                            {trigger.trigger}
-                          </p>
-                          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                            {t(
-                              'insights.triggerFrequency',
-                              { count: trigger.frequency },
-                              { defaultValue: 'noticed {{count}}× this month' },
-                            )}
-                          </p>
-                        </div>
-                      </div>
-                      <span
-                        className={cm.cn('text-lg font-extrabold tracking-tight tabular-nums')}
-                        style={{ color: positive ? 'var(--color-success)' : 'var(--color-error)' }}
-                      >
-                        {positive ? '+' : ''}
-                        {(trigger.mood_delta * 100).toFixed(0)}%
-                      </span>
-                    </li>
-                  )
-                })}
-              </ul>
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
             </div>
           </section>
         </>

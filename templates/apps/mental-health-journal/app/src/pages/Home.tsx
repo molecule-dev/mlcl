@@ -43,11 +43,13 @@ export function Home() {
   const [today, setToday] = useState<TodaySummary | null>(null)
   const [recent, setRecent] = useState<JournalEntry[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(false)
     Promise.allSettled([http.get('/api/journal/today'), http.get('/api/journal/recent')])
       .then(([todayRes, recentRes]) => {
         if (cancelled) return
@@ -55,7 +57,7 @@ export function Home() {
           const today_ = unwrapSingle<TodaySummary>(todayRes.value)
           if (today_ && 'mood' in today_) setToday(today_)
         } else {
-          setError(t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' }))
+          setError(true)
         }
         if (recentRes.status === 'fulfilled') {
           setRecent(unwrapList<JournalEntry>(recentRes.value))
@@ -67,7 +69,10 @@ export function Home() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+    // `t` is deliberately not a dep: its identity can churn on context
+    // updates (e.g. the auth settle after login), which would refetch the
+    // same data for no reason. Error copy is translated at render time.
+  }, [http, reload])
 
   const todayStr = new Date().toLocaleDateString(undefined, {
     weekday: 'long',
@@ -128,9 +133,26 @@ export function Home() {
           )}
           aria-busy={loading || undefined}
         >
-          {loading
-            ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
-            : t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' })}
+          {loading ? (
+            t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+          ) : (
+            <div className={cm.cn(cm.textCenter, 'space-y-3')}>
+              <p>{t('home.loadError', {}, { defaultValue: 'Failed to load journal data.' })}</p>{' '}
+              <button
+                type="button"
+                onClick={() => setReload((r) => r + 1)}
+                className={cm.cn(
+                  cm.sp('px', 5),
+                  cm.sp('py', 2),
+                  cm.fontWeight('bold'),
+                  cm.textSize('sm'),
+                  'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+                )}
+              >
+                {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -168,7 +190,24 @@ export function Home() {
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>
         ) : error ? (
-          <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-error')}>{error}</p>
+          <div className={cm.cn(cm.sp('py', 8), cm.textCenter, 'space-y-3')}>
+            <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+              {error}
+            </p>
+            <button
+              type="button"
+              onClick={() => setReload((r) => r + 1)}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+              )}
+            >
+              {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
         ) : recent.length === 0 ? (
           <div
             className={cm.cn(

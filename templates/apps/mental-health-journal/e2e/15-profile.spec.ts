@@ -48,12 +48,15 @@ test.describe('/profile', () => {
   })
 
   test('GET /api/journal/profile-stats is called on page load', async ({ page }) => {
+    // Arm BEFORE goto: the stats fetch can resolve before the window load
+    // event, so a post-goto listener misses it and times out.
+    const statsWait = page.waitForResponse((r) => r.url().includes('/api/journal/profile-stats'), {
+      timeout: 15_000,
+    })
     const reqs = await captureNetwork(page, async () => {
       await signup(page)
       await page.goto(APP_BASE + '/profile')
-      await page.waitForResponse((r) => r.url().includes('/api/journal/profile-stats'), {
-        timeout: 10_000,
-      })
+      await statsWait
     })
     const stats = reqs.find(
       (r) => r.method === 'GET' && r.url.includes('/api/journal/profile-stats'),

@@ -41,7 +41,10 @@ test.describe('/reset-password', () => {
 
   test('submitting reset form with invalid token hits POST /api/users/reset-password', async ({
     page,
-  }) => {
+  }, testInfo) => {
+    // The invalid-token rejection IS the expected 401; the console-guard
+    // fixture would otherwise fail the test for logging it.
+    testInfo.annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password')
       await page.getByLabel(/email/i).fill(uniqueEmail('reset'))

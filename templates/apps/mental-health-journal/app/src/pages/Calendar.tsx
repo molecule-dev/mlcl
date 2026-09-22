@@ -55,12 +55,13 @@ export function Calendar() {
   const [cells, setCells] = useState<DayCell[]>([])
   const [hovered, setHovered] = useState<DayCell | null>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(false)
+  const [reload, setReload] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    setError(null)
+    setError(false)
     http
       .get(`/api/journal/calendar/${cursor.year}/${cursor.month + 1}`)
       .then((res) => {
@@ -68,8 +69,8 @@ export function Calendar() {
         setCells(unwrapList<DayCell>(res))
       })
       .catch(() => {
-        if (!cancelled)
-          setError(t('calendar.loadError', {}, { defaultValue: 'Could not load calendar.' }))
+        // Flag only; translated at render (see Journal note on t churn).
+        if (!cancelled) setError(true)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -77,7 +78,7 @@ export function Calendar() {
     return () => {
       cancelled = true
     }
-  }, [http, cursor, t])
+  }, [http, cursor, reload])
 
   const openDay = (cell: DayCell) => {
     if (!cell.has_entry) return
@@ -184,9 +185,24 @@ export function Calendar() {
       </header>
 
       {error ? (
-        <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-error')} role="alert">
-          {error}
-        </p>
+        <div className={cm.cn(cm.sp('py', 6), cm.textCenter, 'space-y-3')}>
+          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
+            {t('calendar.loadError', {}, { defaultValue: 'Could not load calendar.' })}
+          </p>
+          <button
+            type="button"
+            onClick={() => setReload((r) => r + 1)}
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'rounded-full border-2 border-outline-variant hover:border-primary text-on-surface transition-colors',
+            )}
+          >
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
       ) : null}
 
       <div

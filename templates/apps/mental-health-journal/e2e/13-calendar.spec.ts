@@ -11,10 +11,13 @@ test.describe('/calendar', () => {
 
   test('previous-month button is clickable and refetches', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/calendar')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
+    // Arm BEFORE goto: the initial calendar fetch can resolve before the
+    // window load event, so a post-goto listener misses it.
+    const initialWait = page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/calendar')
+    await initialWait
     const reqs = await captureNetwork(page, async () => {
       const btn = page.getByRole('button', { name: /previous month/i })
       await expect(btn).toBeEnabled({ timeout: 10_000 })
@@ -32,10 +35,11 @@ test.describe('/calendar', () => {
 
   test('next-month button is clickable and refetches', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/calendar')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
+    const initialWait = page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
       timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/calendar')
+    await initialWait
     const reqs = await captureNetwork(page, async () => {
       const btn = page.getByRole('button', { name: /next month/i })
       await expect(btn).toBeEnabled({ timeout: 10_000 })
@@ -65,10 +69,12 @@ test.describe('/calendar', () => {
 
   test('day cells are present (one per day of the month)', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/calendar')
-    await page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
-      timeout: 10_000,
+    // Arm BEFORE goto (see previous-month test).
+    const calWait = page.waitForResponse((r) => r.url().includes('/api/journal/calendar/'), {
+      timeout: 15_000,
     })
+    await page.goto(APP_BASE + '/calendar')
+    await calWait
     const cells = page.getByRole('button', { name: /Day \d+ —/ })
     const count = await cells.count()
     expect(count).toBeGreaterThanOrEqual(28)
