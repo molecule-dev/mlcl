@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoWithResponse, signup } from './_helpers'
 
 // /settings — four sections (account, integrations, api_keys, team).
 // Hash drives section. Account form persists via PATCH /api/profile/me.
@@ -49,8 +49,7 @@ test.describe('/settings', () => {
 
   test('saving account fields PATCHes /api/profile/me and persists on reload', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => /\/api\/profile\/me/.test(r.url()))
+    await gotoWithResponse(page, '/settings', /\/api\/profile\/me/)
     await page.locator('[data-mol-id="settings-display-name"]').fill('Walked Through')
     await page.locator('[data-mol-id="settings-organization"]').fill('WalkthruCorp')
     const reqs = await captureNetwork(page, async () => {
@@ -64,12 +63,15 @@ test.describe('/settings', () => {
     const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/profile\/me/.test(r.url))
     expect(patch).toBeDefined()
     expect(patch!.status).toBe(200)
-    // Reload and verify persistence — wait for the GET to settle then poll
-    // (React strict mode can fire useEffect twice; tolerate that.)
-    await page.reload()
-    await page.waitForResponse(
+    // Reload and verify persistence — arm the GET wait BEFORE reload (the
+    // initial-load fetch can complete before a post-reload wait would arm),
+    // then poll (React strict mode can fire useEffect twice; tolerate that.)
+    const reloadGet = page.waitForResponse(
       (r) => /\/api\/profile\/me/.test(r.url()) && r.request().method() === 'GET',
+      { timeout: 15_000 },
     )
+    await page.reload()
+    await reloadGet
     await page.waitForLoadState('networkidle').catch(() => null)
     await expect(page.locator('[data-mol-id="settings-display-name"]')).toHaveValue(
       'Walked Through',
@@ -85,8 +87,7 @@ test.describe('/settings', () => {
     page,
   }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings#integrations')
-    await page.waitForResponse((r) => /\/api\/settings/.test(r.url()))
+    await gotoWithResponse(page, '/settings#integrations', /\/api\/settings(\?|$|\b)/)
     const reqs = await captureNetwork(page, async () => {
       const respPromise = page.waitForResponse(
         (r) =>
@@ -122,8 +123,7 @@ test.describe('/settings', () => {
 
   test('display name field accepts typed input', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => /\/api\/profile\/me/.test(r.url()))
+    await gotoWithResponse(page, '/settings', /\/api\/profile\/me/)
     // Wait for React Strict-Mode double-load to settle so async fetch can't clobber typed value.
     await expect(page.locator('[data-mol-id="settings-display-name"]')).not.toHaveValue('', {
       timeout: 10_000,
@@ -136,8 +136,7 @@ test.describe('/settings', () => {
 
   test('organization field accepts typed input', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => /\/api\/profile\/me/.test(r.url()))
+    await gotoWithResponse(page, '/settings', /\/api\/profile\/me/)
     // displayName is the load-settled proxy (org is empty for a fresh user).
     await expect(page.locator('[data-mol-id="settings-display-name"]')).not.toHaveValue('', {
       timeout: 10_000,

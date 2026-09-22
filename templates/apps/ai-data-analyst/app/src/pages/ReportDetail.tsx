@@ -166,7 +166,15 @@ export function ReportDetail() {
         )}
       </section>
 
-      <div className={cm.grid({ cols: report.kpis.length, gap: 'md' })}>
+      {/* Responsive KPI row: 2-up on phones (3-4 across would cram to
+          unreadable), full count from `sm` up. */}
+      <div
+        className={cm.cn(
+          cm.grid({ cols: 2, gap: 'md' }),
+          report.kpis.length >= 3 ? 'lg:grid-cols-3' : '',
+          report.kpis.length >= 4 ? 'lg:grid-cols-4' : '',
+        )}
+      >
         {report.kpis.map((k) => (
           <div key={k.label} className={cm.cn(cm.card(), cm.sp('p', 5))}>
             <p
@@ -208,7 +216,7 @@ export function ReportDetail() {
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
         <section className={cm.cn('col-span-12 lg:col-span-8 space-y-4')}>
-          <div className={cm.grid({ cols: 2, gap: 'md' })}>
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'sm:grid-cols-2')}>
             {report.sub_charts.map((sc, i) => {
               const max = Math.max(...sc.series.map((s) => s.value), 1)
               return (
@@ -290,45 +298,49 @@ export function ReportDetail() {
             {t('reportDetail.dataHeading', {}, { defaultValue: 'Full data' })}
           </h2>
         </header>
-        <table className={'w-full'}>
-          <thead
-            className={cm.cn(
-              cm.textSize('xs'),
-              'uppercase tracking-wide',
-              'text-on-surface-variant',
-            )}
-          >
-            <tr>
-              {report.data_table.map((c) => (
-                <th
-                  key={c.col}
-                  className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'text-left font-mono')}
-                >
-                  {c.col}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className={'divide-y divide-outline-variant'}>
-            {report.data_table[0]?.values.map((_, rowIdx) => (
-              <tr key={rowIdx}>
+        {/* overflow-x-auto: wide data tables scroll inside the card on phones
+            instead of blowing out the page. */}
+        <div className={'overflow-x-auto'}>
+          <table className={'w-full'}>
+            <thead
+              className={cm.cn(
+                cm.textSize('xs'),
+                'uppercase tracking-wide',
+                'text-on-surface-variant',
+              )}
+            >
+              <tr>
                 {report.data_table.map((c) => (
-                  <td
+                  <th
                     key={c.col}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('sm'),
-                      'tabular-nums font-mono',
-                    )}
+                    className={cm.cn(cm.sp('px', 4), cm.sp('py', 2), 'text-left font-mono')}
                   >
-                    {c.values[rowIdx]}
-                  </td>
+                    {c.col}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className={'divide-y divide-outline-variant'}>
+              {report.data_table[0]?.values.map((_, rowIdx) => (
+                <tr key={rowIdx}>
+                  {report.data_table.map((c) => (
+                    <td
+                      key={c.col}
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        'tabular-nums font-mono',
+                      )}
+                    >
+                      {c.values[rowIdx]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   )

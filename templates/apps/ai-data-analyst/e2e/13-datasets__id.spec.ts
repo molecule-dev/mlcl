@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoWithResponse, signup } from './_helpers'
 
 // /datasets/:id — full schema, statistics, ai_insights aside, sample
 // preview tab loads /datasets/:id/preview lazily.
@@ -7,12 +7,11 @@ import { APP_BASE, captureNetwork, signup } from './_helpers'
 test.describe('/datasets/:id', () => {
   test('schema tab shows column rows + AI insights aside', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/datasets')
-    await page.waitForResponse((r) => /\/api\/datasets/.test(r.url()))
+    await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
     const firstLink = await page.locator('a[href^="/datasets/"]').first().getAttribute('href')
     expect(firstLink).toBeTruthy()
-    await page.goto(APP_BASE + firstLink!)
-    await page.waitForResponse((r) => new RegExp(`/api${firstLink}$`).test(r.url()))
+    // Detail wait armed BEFORE the detail navigation (gotoWithResponse).
+    await gotoWithResponse(page, firstLink!, new RegExp(`/api${firstLink}$`))
     // schema rows visible (wait for at least one row to render)
     const rows = page.locator('tbody tr')
     await rows.first().waitFor({ timeout: 10_000 })
@@ -26,8 +25,7 @@ test.describe('/datasets/:id', () => {
 
   test('Sample tab fires GET /datasets/:id/preview and renders rows', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/datasets')
-    await page.waitForResponse((r) => /\/api\/datasets/.test(r.url()))
+    await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
     const firstLink = await page.locator('a[href^="/datasets/"]').first().getAttribute('href')
     await page.goto(APP_BASE + firstLink!)
     await page.waitForLoadState('networkidle')
@@ -42,8 +40,7 @@ test.describe('/datasets/:id', () => {
 
   test('AI insights aside contains insights heading', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/datasets')
-    await page.waitForResponse((r) => /\/api\/datasets/.test(r.url()))
+    await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
     const firstLink = await page.locator('a[href^="/datasets/"]').first().getAttribute('href')
     await page.goto(APP_BASE + firstLink!)
     await page.waitForLoadState('networkidle')

@@ -1,6 +1,14 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, API_BASE, captureNetwork, getAccessToken, signup, uniqueEmail } from './_helpers'
+import {
+  APP_BASE,
+  API_BASE,
+  captureNetwork,
+  getAccessToken,
+  gotoWithResponse,
+  signup,
+  uniqueEmail,
+} from './_helpers'
 
 /**
  * Cross-page kitchen-sink user journey for ai-data-analyst.
@@ -38,8 +46,7 @@ test.describe('Kitchen-sink user journey', () => {
     expect(dashReqs.find((r) => /\/api\/insights/.test(r.url))).toBeTruthy()
 
     // 2. Datasets list — 4 seeded cards.
-    await page.goto(APP_BASE + '/datasets')
-    await page.waitForResponse((r) => /\/api\/datasets/.test(r.url()))
+    await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
     expect(await page.locator('main li').count(), 'datasets list populated').toBeGreaterThanOrEqual(
       1,
     )
@@ -77,8 +84,7 @@ test.describe('Kitchen-sink user journey', () => {
     expect(qReqs.find((r) => r.method === 'POST' && /\/api\/queries/.test(r.url))).toBeTruthy()
 
     // 5. Reports list + detail render.
-    await page.goto(APP_BASE + '/reports')
-    await page.waitForResponse((r) => /\/api\/saved_reports/.test(r.url()))
+    await gotoWithResponse(page, '/reports', /\/api\/saved_reports($|\?)/)
     expect(await page.locator('main li').count()).toBeGreaterThanOrEqual(1)
 
     const firstReportHref = await page.locator('a[href^="/reports/"]').first().getAttribute('href')
@@ -88,8 +94,7 @@ test.describe('Kitchen-sink user journey', () => {
     await expect(page.locator('main aside')).toContainText(/AI summary/i)
 
     // 6. Settings: change display name + organization, persist via PATCH.
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse((r) => /\/api\/profile\/me/.test(r.url()))
+    await gotoWithResponse(page, '/settings', /\/api\/profile\/me/)
     // Wait for the displayName input to be populated by the profile fetch
     // (React Strict Mode fires the load effect twice — wait for the second
     // settle so the user-supplied fill below can't be clobbered by the
@@ -132,8 +137,7 @@ test.describe('Kitchen-sink user journey', () => {
     expect(org, 'organization persisted server-side').toBe(newOrg)
 
     // 7. Notifications page renders without 5xx.
-    await page.goto(APP_BASE + '/notifications')
-    await page.waitForResponse((r) => /\/api\/notifications/.test(r.url()))
+    await gotoWithResponse(page, '/notifications', /\/api\/notifications($|\?)/)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     // 8. Upload a tiny CSV — POST /api/datasets/from_upload + nav to detail.

@@ -11,6 +11,12 @@ test.describe('/reset-password', () => {
   })
 
   test('bad token POSTs /api/users/reset-password and surfaces a 4xx', async ({ page }) => {
+    // A bogus token intentionally yields 401 — allow the expected console
+    // error the browser logs for the failed fetch (regex matches console text).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/reset-password?token=bogus-test')
       const pwInputs = page.locator('input[type="password"]')

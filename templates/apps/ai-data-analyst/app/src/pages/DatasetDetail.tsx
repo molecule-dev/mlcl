@@ -226,94 +226,98 @@ export function DatasetDetail() {
           </nav>
 
           {tab === 'schema' && (
-            <table className={'w-full'}>
-              <thead
-                className={cm.cn(
-                  'bg-surface-container',
-                  cm.textSize('xs'),
-                  'uppercase tracking-wide',
-                  'text-on-surface-variant',
-                )}
-              >
-                <tr>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                    {t('datasetDetail.col.name', {}, { defaultValue: 'Field' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                    {t('form.type', {}, { defaultValue: 'Type' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                    {t('datasetDetail.col.example', {}, { defaultValue: 'Example' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    {t('datasetDetail.col.unique', {}, { defaultValue: 'Unique' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                    {t('datasetDetail.col.nullable', {}, { defaultValue: 'Nullable' })}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className={'divide-y divide-outline-variant'}>
-                {dataset.schema.map((f) => (
-                  <tr key={f.name}>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        cm.fontWeight('semibold'),
-                        'font-mono',
-                      )}
-                    >
-                      {f.name}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                      <span
+            // overflow-x-auto: 5 columns don't fit a 390px phone — scroll
+            // the table inside the card instead of clipping columns.
+            <div className={'overflow-x-auto'}>
+              <table className={'w-full'}>
+                <thead
+                  className={cm.cn(
+                    'bg-surface-container',
+                    cm.textSize('xs'),
+                    'uppercase tracking-wide',
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <tr>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                      {t('datasetDetail.col.name', {}, { defaultValue: 'Field' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                      {t('form.type', {}, { defaultValue: 'Type' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                      {t('datasetDetail.col.example', {}, { defaultValue: 'Example' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      {t('datasetDetail.col.unique', {}, { defaultValue: 'Unique' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                      {t('datasetDetail.col.nullable', {}, { defaultValue: 'Nullable' })}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className={'divide-y divide-outline-variant'}>
+                  {dataset.schema.map((f) => (
+                    <tr key={f.name}>
+                      <td
                         className={cm.cn(
-                          cm.sp('px', 2),
-                          cm.textSize('xs'),
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
                           cm.fontWeight('semibold'),
-                          cm.roundedFull,
-                          TYPE_COLOR[f.type],
+                          'font-mono',
                         )}
                       >
-                        {f.type}
-                      </span>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        'text-on-surface-variant',
-                        'font-mono truncate max-w-xs',
-                      )}
-                    >
-                      {f.example}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'text-right tabular-nums',
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {f.unique_count.toLocaleString()}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {f.nullable ? 'yes' : 'no'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        {f.name}
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                        <span
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                            cm.roundedFull,
+                            TYPE_COLOR[f.type],
+                          )}
+                        >
+                          {f.type}
+                        </span>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          'text-on-surface-variant',
+                          'font-mono truncate max-w-xs',
+                        )}
+                      >
+                        {f.example}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'text-right tabular-nums',
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {f.unique_count.toLocaleString()}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {f.nullable ? 'yes' : 'no'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
           {tab === 'sample' &&
             (previewLoading ? (
@@ -389,75 +393,77 @@ export function DatasetDetail() {
               </div>
             ))}
           {tab === 'statistics' && (
-            <table className={'w-full'}>
-              <thead
-                className={cm.cn(
-                  'bg-surface-container',
-                  cm.textSize('xs'),
-                  'uppercase tracking-wide',
-                  'text-on-surface-variant',
-                )}
-              >
-                <tr>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                    {t('datasetDetail.col.name', {}, { defaultValue: 'Field' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    {t('datasetDetail.stat.min', {}, { defaultValue: 'Min' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    {t('datasetDetail.stat.max', {}, { defaultValue: 'Max' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    {t('datasetDetail.stat.mean', {}, { defaultValue: 'Mean' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    {t('datasetDetail.stat.nullPct', {}, { defaultValue: 'Null %' })}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className={'divide-y divide-outline-variant'}>
-                {dataset.statistics.map((s) => (
-                  <tr key={s.field}>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono',
-                        cm.fontWeight('semibold'),
-                      )}
-                    >
-                      {s.field}
-                    </td>
-                    <td
-                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
-                    >
-                      {s.min}
-                    </td>
-                    <td
-                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
-                    >
-                      {s.max}
-                    </td>
-                    <td
-                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
-                    >
-                      {s.mean ?? '—'}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'text-right tabular-nums',
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {s.null_pct.toFixed(1)}%
-                    </td>
+            <div className={'overflow-x-auto'}>
+              <table className={'w-full'}>
+                <thead
+                  className={cm.cn(
+                    'bg-surface-container',
+                    cm.textSize('xs'),
+                    'uppercase tracking-wide',
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <tr>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                      {t('datasetDetail.col.name', {}, { defaultValue: 'Field' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      {t('datasetDetail.stat.min', {}, { defaultValue: 'Min' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      {t('datasetDetail.stat.max', {}, { defaultValue: 'Max' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      {t('datasetDetail.stat.mean', {}, { defaultValue: 'Mean' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      {t('datasetDetail.stat.nullPct', {}, { defaultValue: 'Null %' })}
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className={'divide-y divide-outline-variant'}>
+                  {dataset.statistics.map((s) => (
+                    <tr key={s.field}>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono',
+                          cm.fontWeight('semibold'),
+                        )}
+                      >
+                        {s.field}
+                      </td>
+                      <td
+                        className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
+                      >
+                        {s.min}
+                      </td>
+                      <td
+                        className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
+                      >
+                        {s.max}
+                      </td>
+                      <td
+                        className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
+                      >
+                        {s.mean ?? '—'}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'text-right tabular-nums',
+                          'text-on-surface-variant',
+                        )}
+                      >
+                        {s.null_pct.toFixed(1)}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
           {tab === 'queries' && (
             <p className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>

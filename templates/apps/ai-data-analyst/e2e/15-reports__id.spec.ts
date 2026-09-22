@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoWithResponse, signup } from './_helpers'
 
 // /reports/:id — full report detail view from
 // GET /api/saved_reports/:id (hero, kpis, sub_charts, ai_summary,
@@ -8,16 +8,15 @@ import { APP_BASE, captureNetwork, signup } from './_helpers'
 test.describe('/reports/:id', () => {
   test('renders hero + kpis + sub-charts + AI summary + data table', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/reports')
-    await page.waitForResponse((r) => /\/api\/saved_reports/.test(r.url()))
+    await gotoWithResponse(page, '/reports', /\/api\/saved_reports($|\?)/)
     const firstLink = await page.locator('a[href^="/reports/"]').first().getAttribute('href')
     expect(firstLink).toBeTruthy()
     // The detail page fetches /api/saved_reports/:id, not /api/reports/:id.
+    // Detail wait armed BEFORE the detail navigation (gotoWithResponse).
     const reportId = firstLink!.split('/').pop()
     const apiUrl = `/api/saved_reports/${reportId}`
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + firstLink!)
-      await page.waitForResponse((r) => r.url().endsWith(apiUrl))
+      await gotoWithResponse(page, firstLink!, new RegExp(`${apiUrl}$`))
     })
     const get = reqs.find((r) => r.method === 'GET' && r.url.endsWith(apiUrl))
     expect(get).toBeDefined()
@@ -32,8 +31,7 @@ test.describe('/reports/:id', () => {
 
   test('hero series row is visible', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/reports')
-    await page.waitForResponse((r) => /\/api\/saved_reports/.test(r.url()))
+    await gotoWithResponse(page, '/reports', /\/api\/saved_reports($|\?)/)
     const firstLink = await page.locator('a[href^="/reports/"]').first().getAttribute('href')
     await page.goto(APP_BASE + firstLink!)
     await page.waitForLoadState('networkidle')
@@ -42,8 +40,7 @@ test.describe('/reports/:id', () => {
 
   test('data table rows are present', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/reports')
-    await page.waitForResponse((r) => /\/api\/saved_reports/.test(r.url()))
+    await gotoWithResponse(page, '/reports', /\/api\/saved_reports($|\?)/)
     const firstLink = await page.locator('a[href^="/reports/"]').first().getAttribute('href')
     await page.goto(APP_BASE + firstLink!)
     await page.waitForLoadState('networkidle')

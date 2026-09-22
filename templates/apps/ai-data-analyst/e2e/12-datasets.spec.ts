@@ -1,5 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
-import { APP_BASE, captureNetwork, signup } from './_helpers'
+import { APP_BASE, captureNetwork, gotoWithResponse, signup } from './_helpers'
 
 // /datasets — list view of seeded datasets. Each card links to
 // /datasets/:id. "Upload dataset" link → /upload.
@@ -9,13 +9,11 @@ test.describe('/datasets', () => {
     await signup(page)
     // The expected card count is read from the very response the page
     // rendered, not from how many rows the demo seed happens to write.
+    // The response wait is armed before the navigation (gotoWithResponse) —
+    // a post-goto waitForResponse races the page's own initial-load fetch.
     let datasets: unknown[] = []
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/datasets')
-      const resp = await page.waitForResponse(
-        (r) => /\/api\/datasets/.test(r.url()) && r.request().method() === 'GET',
-        { timeout: 15_000 },
-      )
+      const resp = await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
       datasets = (await resp.json()) as unknown[]
     })
     const get = reqs.find((r) => r.method === 'GET' && /\/api\/datasets($|\?)/.test(r.url))
@@ -35,8 +33,7 @@ test.describe('/datasets', () => {
 
   test('clicking a dataset card navigates to /datasets/:id', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/datasets')
-    await page.waitForResponse((r) => /\/api\/datasets/.test(r.url()))
+    await gotoWithResponse(page, '/datasets', /\/api\/datasets($|\?)/)
     const firstLink = page.locator('a[href^="/datasets/"]').first()
     await firstLink.click()
     await expect(page).toHaveURL(/\/datasets\/[a-f0-9-]{8,}/)

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -304,6 +305,18 @@ export function Upload() {
       })
       const created = unwrapSingle<DatasetCreated>(res)
       if (created?.id) {
+        // Domain event: the upload funnel's success point. Fire-and-forget —
+        // the analytics call must never gate the navigation below.
+        void track({
+          name: 'dataset.uploaded',
+          properties: {
+            id: created.id,
+            format: parsed.format,
+            columns: parsed.columns.length,
+            rows: parsed.sample_rows.length,
+            size_bytes: parsed.size_bytes,
+          },
+        })
         // Navigate straight into the new dataset's detail page so the user
         // immediately sees the schema + preview produced from their file.
         navigate(`/datasets/${created.id}`)

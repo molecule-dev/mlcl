@@ -5,7 +5,7 @@
 // authenticated dashboard call and populates 4 datasets, 6 insights, 3
 // reports, 5 notifications.
 
-import { Page, expect } from '@molecule/app-e2e-fixtures-default'
+import { type Page, type Response, expect } from '@molecule/app-e2e-fixtures-default'
 
 export const APP_BASE =
   process.env.APP_BASE || 'http://localhost:' + (process.env.VITE_PORT || '3040')
@@ -77,6 +77,31 @@ export async function login(page: Page, email: string, password: string): Promis
       intervals: [50, 100, 250, 500],
     })
     .toBe(true)
+}
+
+/**
+ * Navigate to `path` and resolve with the first GET response whose URL matches
+ * `pattern`.
+ *
+ * The response wait is armed BEFORE the navigation. Arming after `page.goto`
+ * races the page's own initial-load fetch: goto resolves on the load event,
+ * but the SPA's fetch can complete before that (dev bundles are cached and
+ * the API is local), so a post-goto waitForResponse sometimes waits for a
+ * response that already happened and times out. Always go through this helper
+ * for initial-load GET synchronization.
+ */
+export async function gotoWithResponse(
+  page: Page,
+  path: string,
+  pattern: RegExp,
+  timeout = 20_000,
+): Promise<Response> {
+  const respPromise = page.waitForResponse(
+    (r) => pattern.test(r.url()) && r.request().method() === 'GET',
+    { timeout },
+  )
+  await page.goto(APP_BASE + path)
+  return respPromise
 }
 
 /**

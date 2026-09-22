@@ -99,7 +99,10 @@ export function AskClarionBar({
             )}
             className={cm.cn(
               cm.textSize('base'),
-              'flex-1 bg-transparent border-0 font-mono text-on-surface placeholder:text-on-surface-variant focus:outline-none',
+              // min-w-0 lets the input shrink below its intrinsic ~20ch
+              // default width in the flex row — without it the submit button
+              // overflows the frame on phones.
+              'min-w-0 flex-1 bg-transparent border-0 font-mono text-on-surface placeholder:text-on-surface-variant focus:outline-none',
             )}
             aria-label={t(
               'askClarionBar.ariaLabel',
@@ -110,6 +113,13 @@ export function AskClarionBar({
           <button
             type="submit"
             disabled={loading}
+            // The text label is hidden below `sm`, so the button needs an
+            // explicit accessible name at phone widths (icon-only there).
+            aria-label={
+              loading
+                ? t('askClarionBar.thinking', {}, { defaultValue: 'Thinking…' })
+                : t('askClarionBar.askCta', {}, { defaultValue: 'Ask' })
+            }
             className={cm.cn(
               cm.flex({ align: 'center', gap: 2 }),
               cm.sp('px', 5),

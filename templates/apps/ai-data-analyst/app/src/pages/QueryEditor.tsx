@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -53,8 +54,21 @@ export function QueryEditor() {
     try {
       const res = await http.post('/api/queries', { prompt })
       const r = unwrapSingle<QueryResult>(res)
-      if (r) setResult(r)
-      else
+      if (r) {
+        // Domain event: the ask-analyze funnel's success point. The chart the
+        // user sees is part of this event (chart_type) — the app has no
+        // separate save-chart action to hang a `chart.created` on.
+        void track({
+          name: 'analysis.run',
+          properties: {
+            chart_type: r.chart_type,
+            series: r.series.length,
+            rows: r.rows[0]?.values.length ?? 0,
+            has_insight: Boolean(r.insight),
+          },
+        })
+        setResult(r)
+      } else
         setError(
           t(
             'queryEditor.emptyResult',
@@ -78,6 +92,11 @@ export function QueryEditor() {
 
   function downloadCsv() {
     if (!result) return
+    // Domain event: export is the query funnel's conversion-like step.
+    void track({
+      name: 'dataset.exported',
+      properties: { format: 'csv', rows: result.rows[0]?.values.length ?? 0 },
+    })
     const header = result.rows.map((r) => r.col).join(',')
     const lines: string[] = [header]
     const rowCount = result.rows[0]?.values.length ?? 0

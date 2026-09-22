@@ -1,5 +1,7 @@
 import { type NextFunction, type Request, type Response, Router } from 'express'
 
+import { mountDefaultUserResetPasswordRoute } from '@molecule/api-bonds-default-express'
+
 import templateHandlers from '../handlers/index.js'
 import billingRoutes from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
@@ -47,6 +49,11 @@ router.post(`/users`, constantTimeLoginResponse, User.create)
 router.post(`/users/log-in`, constantTimeLoginResponse, User.logIn)
 
 router.post(`/users/forgot-password`, User.forgotPassword)
+
+// Completes the forgot-password flow — the /reset-password page POSTs here
+// (authConfig.resetPasswordEndpoint). No-op when the bond's user handler map
+// carries no resetPassword (mirrors mountDefaultUserAuthRoutes gating).
+mountDefaultUserResetPasswordRoute(router, User)
 
 router.get(`/users/:id`, User.authSelf, User.read)
 
