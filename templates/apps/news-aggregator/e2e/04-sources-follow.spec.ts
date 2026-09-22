@@ -4,6 +4,7 @@ import {
   type AuthedFetchInit,
   APP_BASE,
   getAccessTokenFromPage,
+  gotoAwaitResponse,
   pickSource,
   pickTwoSources,
   signup,
@@ -86,8 +87,11 @@ test.describe('source follow', () => {
     )
     expect(followed.following).toBe(true)
 
-    await page.goto(APP_BASE + '/sources')
-    await page.waitForResponse((r) => r.url().endsWith('/api/sources') && r.status() === 200)
+    await gotoAwaitResponse(
+      page,
+      '/sources',
+      (r) => r.url().endsWith('/api/sources') && r.status() === 200,
+    )
 
     // Click Following filter.
     await page

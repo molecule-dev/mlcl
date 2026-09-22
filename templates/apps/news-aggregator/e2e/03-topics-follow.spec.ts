@@ -2,8 +2,8 @@ import { expect, test, type Page } from '@molecule/app-e2e-fixtures-default'
 
 import {
   type AuthedFetchInit,
-  APP_BASE,
   getAccessTokenFromPage,
+  gotoAwaitResponse,
   pickTopic,
   signup,
   uniqueEmail,
@@ -28,8 +28,9 @@ test.describe('topic follow', () => {
     // spec the moment the demo topics are replaced.
     const topic = await pickTopic(page)
 
-    await page.goto(APP_BASE + `/topics/${topic.slug}`)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      `/topics/${topic.slug}`,
       (r) => new RegExp(`/api/topics/${topic.slug}(\\?|$)`).test(r.url()) && r.status() === 200,
     )
 
@@ -56,8 +57,9 @@ test.describe('topic follow', () => {
     expect(detail.following).toBe(true)
 
     // Reload preserves the persisted following state.
-    await page.reload()
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      `/topics/${topic.slug}`,
       (r) => new RegExp(`/api/topics/${topic.slug}(\\?|$)`).test(r.url()) && r.status() === 200,
     )
     const btnAfter = page.getByRole('button', { name: /^Follow$|^Following$/ }).first()

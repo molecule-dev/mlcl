@@ -4,7 +4,14 @@
  */
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, authedFetch, captureNetwork, signup, uniqueEmail } from './_helpers.js'
+import {
+  APP_BASE,
+  authedFetch,
+  captureNetwork,
+  gotoAwaitResponse,
+  signup,
+  uniqueEmail,
+} from './_helpers.js'
 
 test.describe('/saved', () => {
   test('fresh user lands on /saved → empty-state copy is visible', async ({ page }) => {
@@ -30,8 +37,13 @@ test.describe('/saved', () => {
       body: JSON.stringify({ article_id: stories[0].id }),
     })
 
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/bookmarks/.test(r.url()) && r.status() === 200)
+    // Wait armed BEFORE navigation — the SPA's mount fetch can complete
+    // before page.goto() resolves (module scripts run before `load`).
+    await gotoAwaitResponse(
+      page,
+      '/saved',
+      (r) => /\/api\/bookmarks/.test(r.url()) && r.status() === 200,
+    )
     const empty = await page
       .getByText(/no saved|nothing saved/i)
       .count()
@@ -54,8 +66,11 @@ test.describe('/saved', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ article_id: stories[0].id }),
     })
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => /\/api\/bookmarks/.test(r.url()) && r.status() === 200)
+    await gotoAwaitResponse(
+      page,
+      '/saved',
+      (r) => /\/api\/bookmarks/.test(r.url()) && r.status() === 200,
+    )
     const link = page
       .getByRole('link', { name: new RegExp(stories[0].id) })
       .or(page.locator(`a[href*="/stories/"]`))

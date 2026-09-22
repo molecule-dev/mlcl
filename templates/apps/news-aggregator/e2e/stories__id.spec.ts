@@ -4,15 +4,16 @@
  */
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, authedFetch, captureNetwork, signup, uniqueEmail } from './_helpers.js'
+import { authedFetch, captureNetwork, gotoAwaitResponse, signup, uniqueEmail } from './_helpers.js'
 
 test.describe('/stories/:id', () => {
   test('story detail renders headline + Save button from /api/stories/:id', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-detail'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
     const reqs = await captureNetwork(page, async () => {
-      await page.goto(APP_BASE + '/stories/' + stories[0].id)
-      await page.waitForResponse(
+      await gotoAwaitResponse(
+        page,
+        '/stories/' + stories[0].id,
         (r) => r.url().includes(`/api/stories/${stories[0].id}`) && r.status() === 200,
       )
     })
@@ -24,8 +25,9 @@ test.describe('/stories/:id', () => {
   test('back link returns to /home', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-back'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
-    await page.goto(APP_BASE + '/stories/' + stories[0].id)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + stories[0].id,
       (r) => r.url().includes(`/api/stories/${stories[0].id}`) && r.status() === 200,
     )
     await page
@@ -38,8 +40,9 @@ test.describe('/stories/:id', () => {
   test('outbound "read on" link is rendered', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-out'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
-    await page.goto(APP_BASE + '/stories/' + stories[0].id)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + stories[0].id,
       (r) => r.url().includes(`/api/stories/${stories[0].id}/coverage`) && r.status() === 200,
     )
     // At least one external link should be on the coverage block. Auto-wait
@@ -52,8 +55,9 @@ test.describe('/stories/:id', () => {
   test('story body / excerpt is rendered (non-empty)', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-body'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
-    await page.goto(APP_BASE + '/stories/' + stories[0].id)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + stories[0].id,
       (r) => r.url().includes(`/api/stories/${stories[0].id}`) && r.status() === 200,
     )
     // Body container should have substantive content beyond the headline.
@@ -66,7 +70,11 @@ test.describe('/stories/:id', () => {
   test('Save button toggles aria-pressed and POSTs to /api/bookmarks', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-save'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
-    await page.goto(APP_BASE + '/stories/' + stories[0].id)
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + stories[0].id,
+      (r) => r.url().includes(`/api/stories/${stories[0].id}`) && r.status() === 200,
+    )
     const btn = page.getByRole('button', { name: /^Save$|^Saved$/ }).first()
     await expect(btn).toBeVisible({ timeout: 15_000 })
     const [resp] = await Promise.all([
@@ -83,8 +91,9 @@ test.describe('/stories/:id', () => {
   test('coverage list (per-source framings) renders', async ({ page }) => {
     await signup(page, uniqueEmail('na-story-coverage'))
     const stories = await authedFetch<Array<{ id: string }>>(page, '/api/stories')
-    await page.goto(APP_BASE + '/stories/' + stories[0].id)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + stories[0].id,
       (r) => r.url().includes(`/api/stories/${stories[0].id}/coverage`) && r.status() === 200,
     )
     // The "How each outlet framed it" section / coverage list should

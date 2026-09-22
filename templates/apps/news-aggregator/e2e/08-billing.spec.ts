@@ -6,11 +6,14 @@ test.describe('billing', () => {
   test('Pricing page renders tiers from /api/billing/tiers (real Stripe price ids)', async ({
     page,
   }) => {
-    await page.goto(APP_BASE + '/pricing')
-    const resp = await page.waitForResponse(
-      (r) => /\/api\/billing\/tiers/.test(r.url()) && r.status() === 200,
-      { timeout: 10_000 },
-    )
+    // Arm the waiter BEFORE the navigation — /pricing is public and its
+    // tiers fetch can complete before page.goto() resolves.
+    const [resp] = await Promise.all([
+      page.waitForResponse((r) => /\/api\/billing\/tiers/.test(r.url()) && r.status() === 200, {
+        timeout: 15_000,
+      }),
+      page.goto(APP_BASE + '/pricing'),
+    ])
     const body = (await resp.json()) as {
       data: Array<{ key: string; prices: Array<{ stripePriceId: string | null }> }>
     }

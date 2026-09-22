@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -78,6 +79,11 @@ export function Sources() {
         if (typeof value === 'boolean' && value !== next) {
           setFollowing((prevState) => ({ ...prevState, [slug]: value }))
         }
+        // Domain event: follow state committed server-side (success point).
+        void track({
+          name: next ? 'source.followed' : 'source.unfollowed',
+          properties: { source: slug, following: next },
+        })
       })
       .catch(() => {
         setFollowing((prevState) => ({ ...prevState, [slug]: prevValue }))
@@ -146,12 +152,12 @@ export function Sources() {
               type="button"
               onClick={() => setFilter(f.key)}
               className={cm.cn(
+                cm.flex({ align: 'center' }),
                 cm.sp('px', 4),
-                cm.sp('py', 2),
                 cm.roundedFull,
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'transition-colors',
+                'min-h-[40px] transition-colors',
                 active
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',

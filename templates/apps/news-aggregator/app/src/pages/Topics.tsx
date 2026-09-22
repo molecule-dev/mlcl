@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -57,6 +58,11 @@ export function Topics() {
         const persisted = unwrapSingle<{ following?: boolean }>(res)
         const next = persisted?.following ?? optimisticFollowing
         setTopics((prev) => prev.map((tt) => (tt.slug === slug ? { ...tt, following: next } : tt)))
+        // Domain event: follow state committed server-side (success point).
+        void track({
+          name: next ? 'topic.followed' : 'topic.unfollowed',
+          properties: { topic: slug, following: next },
+        })
       } catch (_error) {
         // Optimistic update failed — revert to previous state
         setTopics((prev) =>
@@ -197,7 +203,7 @@ export function Topics() {
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  'inline-flex items-center gap-1 self-start uppercase tracking-widest text-primary hover:translate-x-1 transition-transform',
+                  'inline-flex items-center min-h-[32px] gap-1 self-start uppercase tracking-widest text-primary hover:translate-x-1 transition-transform',
                 )}
               >
                 {t('topics.openLink', {}, { defaultValue: 'Open topic' })}

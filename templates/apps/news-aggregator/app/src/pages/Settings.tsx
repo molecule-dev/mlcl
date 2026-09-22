@@ -84,67 +84,68 @@ export function Settings() {
   const navigate = useNavigate()
   const { user, setUser, logout } = useAuth<UserProfile & { oauthData?: Record<string, unknown> }>()
   const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (!user) return
-    const oauthData = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-    const stored = (oauthData.preferences as Partial<Preferences> | undefined) ?? {}
-    setPrefs({
-      breakingAlerts: stored.breakingAlerts ?? DEFAULT_PREFS.breakingAlerts,
-      dailyDigest: stored.dailyDigest ?? DEFAULT_PREFS.dailyDigest,
-      emailDigest: stored.emailDigest ?? DEFAULT_PREFS.emailDigest,
-      hideRead: stored.hideRead ?? DEFAULT_PREFS.hideRead,
-      biasBalanced: stored.biasBalanced ?? DEFAULT_PREFS.biasBalanced,
-      showBiasMeters: stored.showBiasMeters ?? DEFAULT_PREFS.showBiasMeters,
-    })
-  }, [user])
-
-  // Refresh user from server on mount so reload always reflects the
-  // latest persisted preferences (rather than the locally-cached snapshot).
+  // Preferences round-trip through the app's own server-side channel
+  // (GET/PATCH /api/preferences). The platform user resource never returns
+  // `oauthData` on reads, so the old oauthData merge could not survive a
+  // reload — this channel reads/merges the slice server-side instead.
   useEffect(() => {
     if (!user?.id) return
     let cancelled = false
-    void (async () => {
-      try {
-        const resp = await http.get<{
-          props?: UserProfile & { oauthData?: Record<string, unknown> }
-        }>(`/api/users/${user.id}`)
-        const fresh = resp.data.props
-        if (!cancelled && fresh) {
-          setUser({
-            ...(user as unknown as Record<string, unknown>),
-            ...fresh,
-          } as unknown as UserProfile & {
-            oauthData?: Record<string, unknown>
-          })
-        }
-      } catch (_error) {
-        // No-op — fall back to cached user; refresh is best-effort.
-      }
-    })()
+    setLoading(true)
+    http
+      .get<{
+        breakingAlerts?: boolean
+        dailyDigest?: boolean
+        emailDigest?: boolean
+        hideRead?: boolean
+        biasBalanced?: boolean
+        showBiasMeters?: boolean
+      }>('/api/preferences')
+      .then((resp) => {
+        if (cancelled) return
+        const stored = resp.data ?? {}
+        setPrefs({
+          breakingAlerts: stored.breakingAlerts ?? DEFAULT_PREFS.breakingAlerts,
+          dailyDigest: stored.dailyDigest ?? DEFAULT_PREFS.dailyDigest,
+          emailDigest: stored.emailDigest ?? DEFAULT_PREFS.emailDigest,
+          hideRead: stored.hideRead ?? DEFAULT_PREFS.hideRead,
+          biasBalanced: stored.biasBalanced ?? DEFAULT_PREFS.biasBalanced,
+          showBiasMeters: stored.showBiasMeters ?? DEFAULT_PREFS.showBiasMeters,
+        })
+      })
+      .catch(() => {
+        // Keep defaults — the toggles stay usable; PATCH failures surface below.
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
     return () => {
       cancelled = true
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id])
+  }, [http, user?.id])
 
   async function persistPrefs(next: Preferences) {
-    if (!user) return
     setSaving(true)
     setError(null)
     try {
-      const existingOauth = (user.oauthData as Record<string, unknown> | undefined) ?? {}
-      const nextOauth = { ...existingOauth, preferences: next }
-      await http.patch(`/api/users/${user.id}`, { oauthData: nextOauth })
-      const merged = {
-        ...(user as unknown as Record<string, unknown>),
-        oauthData: nextOauth,
-      } as unknown as UserProfile & { oauthData?: Record<string, unknown> }
-      setUser(merged)
+      const merged = await http.patch<Preferences>('/api/preferences', next)
+      const saved = merged.data ?? next
+      setPrefs(saved)
       setSavedAt(Date.now())
+      // Mirror into the local auth user so live readers of
+      // `useShowBiasMeters()` (Home/Topics/Search lists) update immediately.
+      if (user) {
+        const existingOauth = (user.oauthData as Record<string, unknown> | undefined) ?? {}
+        setUser({
+          ...(user as unknown as Record<string, unknown>),
+          oauthData: { ...existingOauth, preferences: saved },
+        } as unknown as UserProfile)
+      }
     } catch (err) {
       setError(
         err instanceof Error
@@ -230,7 +231,7 @@ export function Settings() {
           <ToggleRow
             id="setting-breaking"
             value={prefs.breakingAlerts}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('breakingAlerts', v)}
             title={t('settings.breaking.title', {}, { defaultValue: 'Breaking news alerts' })}
             description={t(
@@ -244,7 +245,7 @@ export function Settings() {
           <ToggleRow
             id="setting-daily"
             value={prefs.dailyDigest}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('dailyDigest', v)}
             title={t('settings.daily.title', {}, { defaultValue: 'Daily digest' })}
             description={t(
@@ -259,7 +260,7 @@ export function Settings() {
           <ToggleRow
             id="setting-email"
             value={prefs.emailDigest}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('emailDigest', v)}
             title={t('settings.email.title', {}, { defaultValue: 'Email digest' })}
             description={t(
@@ -292,7 +293,7 @@ export function Settings() {
           <ToggleRow
             id="setting-hide-read"
             value={prefs.hideRead}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('hideRead', v)}
             title={t(
               'settings.hideRead.title',
@@ -329,7 +330,7 @@ export function Settings() {
           <ToggleRow
             id="setting-bias-balanced"
             value={prefs.biasBalanced}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('biasBalanced', v)}
             title={t(
               'settings.biasBalanced.title',
@@ -348,7 +349,7 @@ export function Settings() {
           <ToggleRow
             id="setting-bias-meters"
             value={prefs.showBiasMeters}
-            disabled={!user}
+            disabled={!user || loading}
             onChange={(v) => update('showBiasMeters', v)}
             title={t(
               'settings.showBiasMeters.title',

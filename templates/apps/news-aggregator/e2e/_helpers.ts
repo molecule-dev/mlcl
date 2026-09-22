@@ -112,6 +112,26 @@ export interface CapturedReq {
   status: number
 }
 
+/**
+ * Navigate to `path` and await the page's first matching API read.
+ *
+ * The response listener is armed BEFORE the goto. Vite serves the app as
+ * module scripts, which execute BEFORE the window `load` event — so React
+ * can mount and its fetch can complete before `page.goto()` resolves. A
+ * `waitForResponse` armed after the goto therefore misses the response and
+ * times out (the recurring flake in the topic/source/saved specs).
+ */
+export async function gotoAwaitResponse(
+  page: Page,
+  path: string,
+  predicate: (r: Response) => boolean,
+  timeout = 15_000,
+): Promise<Response> {
+  const pending = page.waitForResponse(predicate, { timeout })
+  await page.goto(APP_BASE + path)
+  return pending
+}
+
 export async function captureNetwork(page: Page, fn: () => Promise<void>): Promise<CapturedReq[]> {
   const reqs: CapturedReq[] = []
   const onResp = (resp: Response) => {

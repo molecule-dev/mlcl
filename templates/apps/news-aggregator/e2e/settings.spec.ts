@@ -23,10 +23,10 @@ test.describe('/settings', () => {
     ]) {
       await expect(page.locator(id)).toBeVisible()
     }
-    expect(reqs.some((r) => /\/api\/users\//.test(r.url) && r.method === 'GET')).toBe(true)
+    expect(reqs.some((r) => /\/api\/preferences/.test(r.url) && r.method === 'GET')).toBe(true)
   })
 
-  test('toggling a switch fires PATCH /api/users/:id', async ({ page }) => {
+  test('toggling a switch fires PATCH /api/preferences', async ({ page }) => {
     await signup(page, uniqueEmail('na-settings-patch'))
     await page.goto(APP_BASE + '/settings')
     const breaking = page.locator('#setting-breaking')
@@ -34,13 +34,13 @@ test.describe('/settings', () => {
     const reqs = await captureNetwork(page, async () => {
       await Promise.all([
         page.waitForResponse(
-          (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+          (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
           { timeout: 15_000 },
         ),
         breaking.click(),
       ])
     })
-    expect(reqs.some((r) => /\/api\/users\//.test(r.url) && r.method === 'PATCH')).toBe(true)
+    expect(reqs.some((r) => /\/api\/preferences/.test(r.url) && r.method === 'PATCH')).toBe(true)
   })
 
   test('Sign-out clears the session and redirects to /login', async ({ page }) => {
@@ -61,7 +61,7 @@ test.describe('/settings', () => {
     const before = await daily.getAttribute('aria-checked')
     await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       daily.click(),
@@ -74,14 +74,14 @@ test.describe('/settings', () => {
     )
   })
 
-  test('toggling Email digest fires PATCH /api/users/:id', async ({ page }) => {
+  test('toggling Email digest fires PATCH /api/preferences', async ({ page }) => {
     await signup(page, uniqueEmail('na-settings-email'))
     await page.goto(APP_BASE + '/settings')
     const email = page.locator('#setting-email')
     await expect(email).toBeVisible()
     const [resp] = await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       email.click(),
@@ -89,14 +89,14 @@ test.describe('/settings', () => {
     expect(resp.status()).toBe(200)
   })
 
-  test('toggling Hide-read fires PATCH /api/users/:id', async ({ page }) => {
+  test('toggling Hide-read fires PATCH /api/preferences', async ({ page }) => {
     await signup(page, uniqueEmail('na-settings-hide-read'))
     await page.goto(APP_BASE + '/settings')
     const hide = page.locator('#setting-hide-read')
     await expect(hide).toBeVisible()
     const [resp] = await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       hide.click(),
@@ -104,7 +104,7 @@ test.describe('/settings', () => {
     expect(resp.status()).toBe(200)
   })
 
-  test('toggling balanced-coverage bias preference fires PATCH /api/users/:id', async ({
+  test('toggling balanced-coverage bias preference fires PATCH /api/preferences', async ({
     page,
   }) => {
     await signup(page, uniqueEmail('na-settings-balanced'))
@@ -113,7 +113,7 @@ test.describe('/settings', () => {
     await expect(balanced).toBeVisible()
     const [resp] = await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       balanced.click(),
@@ -129,7 +129,7 @@ test.describe('/settings', () => {
     const before = await meters.getAttribute('aria-checked')
     await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       meters.click(),

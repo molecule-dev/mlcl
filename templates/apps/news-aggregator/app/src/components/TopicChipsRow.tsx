@@ -74,11 +74,10 @@ export function TopicChipsRow({ topics, activeSlug, heading }: TopicChipsRowProp
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.sp('px', 4),
-                cm.sp('py', 2),
                 cm.roundedFull,
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'transition-all',
+                'min-h-[40px] transition-all',
                 isActive
                   ? 'bg-gradient-to-r from-primary to-primary/80 text-white shadow-md shadow-primary/20'
                   : tintClasses,

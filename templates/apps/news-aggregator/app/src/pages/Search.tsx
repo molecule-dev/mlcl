@@ -138,11 +138,10 @@ export function Search() {
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),
                   cm.sp('px', 4),
-                  cm.sp('py', 2),
                   cm.roundedFull,
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'transition-colors',
+                  'min-h-[40px] transition-colors',
                   active
                     ? 'bg-primary text-on-primary'
                     : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container',

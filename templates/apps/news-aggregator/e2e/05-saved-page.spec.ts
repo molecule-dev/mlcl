@@ -2,8 +2,8 @@ import { expect, test, type Page } from '@molecule/app-e2e-fixtures-default'
 
 import {
   type AuthedFetchInit,
-  APP_BASE,
   getAccessTokenFromPage,
+  gotoAwaitResponse,
   signup,
   uniqueEmail,
 } from './_helpers.js'
@@ -23,8 +23,11 @@ async function authedFetch<T>(page: Page, url: string, init: AuthedFetchInit = {
 test.describe('saved page', () => {
   test('a fresh user sees the empty state, NOT placeholder stories', async ({ page }) => {
     await signup(page, uniqueEmail('na-saved-empty'))
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => r.url().endsWith('/api/bookmarks') && r.status() === 200)
+    await gotoAwaitResponse(
+      page,
+      '/saved',
+      (r) => r.url().endsWith('/api/bookmarks') && r.status() === 200,
+    )
 
     // The empty-state copy must appear — fresh user has 0 bookmarks.
     await expect(page.getByText(/Nothing saved yet|No saved/i).first()).toBeVisible({
@@ -48,8 +51,11 @@ test.describe('saved page', () => {
       body: JSON.stringify({ article_id: target.id }),
     })
 
-    await page.goto(APP_BASE + '/saved')
-    await page.waitForResponse((r) => r.url().endsWith('/api/bookmarks') && r.status() === 200)
+    await gotoAwaitResponse(
+      page,
+      '/saved',
+      (r) => r.url().endsWith('/api/bookmarks') && r.status() === 200,
+    )
     // Headline text from the bookmarked story is visible — no SAMPLE leak.
     await expect(page.getByText(target.headline.slice(0, 30)).first()).toBeVisible({
       timeout: 10_000,

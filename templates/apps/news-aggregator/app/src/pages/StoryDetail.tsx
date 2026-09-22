@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -50,6 +51,17 @@ export function StoryDetail() {
         setStory(fetchedStory ?? null)
         setCoverage(fetchedCoverage)
         if (fetchedStory && typeof fetchedStory.saved === 'boolean') setSaved(fetchedStory.saved)
+        // Domain event: opening a story IS the read (funnel: list → read).
+        if (fetchedStory) {
+          void track({
+            name: 'article.read',
+            properties: {
+              article: id,
+              topic: fetchedStory.topic_slug,
+              sources: fetchedStory.source_count,
+            },
+          })
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -69,6 +81,11 @@ export function StoryDetail() {
       } else {
         await http.delete(`/api/bookmarks/by-story/${id}`)
       }
+      // Domain event: bookmark state committed server-side (success point).
+      void track({
+        name: optimistic ? 'bookmark.added' : 'bookmark.removed',
+        properties: { article: id, saved: optimistic },
+      })
     } catch (_error) {
       // Optimistic update failed — revert to previous state
       setSaved(!optimistic)
@@ -110,7 +127,7 @@ export function StoryDetail() {
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors',
+              'min-h-[32px] uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             <span className="material-symbols-outlined text-base" aria-hidden="true">
@@ -140,11 +157,10 @@ export function StoryDetail() {
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 3),
-              cm.sp('py', 1),
               cm.roundedFull,
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest transition-colors ml-auto',
+              'min-h-[36px] uppercase tracking-widest transition-colors ml-auto',
               saved
                 ? 'bg-secondary-dark text-white'
                 : 'bg-surface-container-low text-on-surface hover:bg-surface-container',
@@ -322,7 +338,7 @@ export function StoryDetail() {
                   className={cm.cn(
                     cm.textSize('xs'),
                     cm.sp('mt', 3),
-                    'inline-flex items-center gap-1 font-bold text-primary-dark dark:text-primary hover:underline uppercase tracking-widest',
+                    'inline-flex items-center min-h-[32px] gap-1 font-bold text-primary-dark dark:text-primary hover:underline uppercase tracking-widest',
                   )}
                 >
                   {t('storyDetail.readSource', {}, { defaultValue: 'Read at source' })}

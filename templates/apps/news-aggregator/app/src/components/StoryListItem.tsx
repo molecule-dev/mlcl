@@ -76,7 +76,9 @@ export function StoryListItem({
         >
           <img
             src={imageUrl}
-            alt=""
+            // The thumbnail IS the link's only content — an empty alt would
+            // leave the link unnamed for screen readers.
+            alt={headline}
             loading="lazy"
             className={
               'w-full h-full object-cover hover:scale-105 transition-transform duration-300'
@@ -92,7 +94,7 @@ export function StoryListItem({
               className={cm.cn(
                 cm.sp('px', 2),
                 cm.roundedFull,
-                'text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary-dark dark:text-primary hover:bg-primary/20 transition-colors',
+                'inline-flex items-center min-h-[28px] text-[10px] font-bold uppercase tracking-widest bg-primary/10 text-primary-dark dark:text-primary hover:bg-primary/20 transition-colors',
               )}
               onClick={(e) => e.stopPropagation()}
             >

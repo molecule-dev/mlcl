@@ -7,10 +7,19 @@
  */
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, authedFetch, type CatalogStory, signup, uniqueEmail } from './_helpers.js'
+import {
+  APP_BASE,
+  authedFetch,
+  type CatalogStory,
+  gotoAwaitResponse,
+  signup,
+  uniqueEmail,
+} from './_helpers.js'
 
 test('user journey: signup → browse → save → follow → preferences → pricing', async ({ page }) => {
-  test.setTimeout(60_000)
+  // Nine pages plus read-after-write round-trips; 60s was exceeded on a
+  // loaded machine even with every step green.
+  test.setTimeout(90_000)
 
   // 1. Sign up.
   const email = uniqueEmail('na-journey')
@@ -39,10 +48,11 @@ test('user journey: signup → browse → save → follow → preferences → pr
 
   // 5. Save the first story via story detail and confirm it appears on /saved.
   const firstStoryId = stories[0].id
-  await page.goto(APP_BASE + `/stories/${firstStoryId}`)
-  await page.waitForResponse(
+  await gotoAwaitResponse(
+    page,
+    `/stories/${firstStoryId}`,
     (r) => r.url().includes(`/api/stories/${firstStoryId}`) && r.status() === 200,
-    { timeout: 15_000 },
+    30_000,
   )
   const saveBtn = page.getByRole('button', { name: /^Save$|^Saved$|bookmark/i }).first()
   await expect(saveBtn).toBeVisible()
@@ -95,19 +105,21 @@ test('user journey: signup → browse → save → follow → preferences → pr
   if ((await daily.getAttribute('aria-checked')) === 'true') {
     await Promise.all([
       page.waitForResponse(
-        (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+        (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'PATCH',
         { timeout: 15_000 },
       ),
       daily.click(),
     ])
   }
   await expect(daily).toHaveAttribute('aria-checked', 'false')
-  // Reload — UI shows persisted state.
-  await page.reload()
-  await page.waitForResponse(
-    (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'GET',
+  // Reload — UI shows persisted state (wait armed BEFORE the reload; the
+  // remount's GET can complete before page.reload() resolves).
+  const prefsGet = page.waitForResponse(
+    (r) => r.url().endsWith('/api/preferences') && r.request().method() === 'GET',
     { timeout: 15_000 },
   )
+  await page.reload()
+  await prefsGet
   await expect(page.locator('#setting-daily')).toHaveAttribute('aria-checked', 'false')
 
   // 8. Search exercises the real /api/search endpoint.

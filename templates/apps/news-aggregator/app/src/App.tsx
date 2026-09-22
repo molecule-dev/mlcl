@@ -8,6 +8,7 @@ import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { NewsAggregatorLayout } from './components/NewsAggregatorLayout.js'
+import { NotFound } from './components/NotFound.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -51,6 +52,7 @@ export function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="*" element={<NotFound />} />
             <Route element={<AuthGuard />}>
               <Route element={<NewsAggregatorLayout />}>
                 <Route path="/home" element={<Home />} />
@@ -63,6 +65,7 @@ export function App() {
                 <Route path="/search" element={<Search />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/plan-updated" element={<PlanUpdated />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
             </Route>
           </Routes>

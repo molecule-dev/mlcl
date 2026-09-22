@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,7 +56,13 @@ export function TopicDetail() {
       const res = await http.post(`/api/topics/${slug}/follow`, {})
       const next = res as { following?: boolean; data?: { following?: boolean } } | null
       const persisted = next?.following ?? next?.data?.following
+      const value = typeof persisted === 'boolean' ? persisted : optimistic
       if (typeof persisted === 'boolean') setFollowing(persisted)
+      // Domain event: follow state committed server-side (success point).
+      void track({
+        name: value ? 'topic.followed' : 'topic.unfollowed',
+        properties: { topic: slug, following: value },
+      })
     } catch (_error) {
       // Optimistic update failed — revert to previous state
       setFollowing(!optimistic)

@@ -2,8 +2,8 @@ import { expect, test, type Page } from '@molecule/app-e2e-fixtures-default'
 
 import {
   type AuthedFetchInit,
-  APP_BASE,
   getAccessTokenFromPage,
+  gotoAwaitResponse,
   pickStory,
   pickTopic,
   pickTwoTopics,
@@ -75,8 +75,9 @@ test.describe('home + stories', () => {
     expect(stories.length).toBeGreaterThan(0)
     const storyId = stories[0]!.id
 
-    await page.goto(APP_BASE + '/stories/' + storyId)
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + storyId,
       (r) => r.url().includes(`/api/stories/${storyId}`) && r.status() === 200,
     )
 
@@ -104,8 +105,9 @@ test.describe('home + stories', () => {
     ).toBe(true)
 
     // Reload preserves saved state from the server (saved=true comes from API).
-    await page.reload()
-    await page.waitForResponse(
+    await gotoAwaitResponse(
+      page,
+      '/stories/' + storyId,
       (r) => r.url().includes(`/api/stories/${storyId}`) && r.status() === 200,
     )
     const reloadBtn = page.getByRole('button', { name: /^Save$|^Saved$/ }).first()

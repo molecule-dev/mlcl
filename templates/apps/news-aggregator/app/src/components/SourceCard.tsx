@@ -92,12 +92,12 @@ export function SourceCard({ source, onToggleFollow }: SourceCardProps) {
             type="button"
             onClick={() => onToggleFollow(source.slug)}
             className={cm.cn(
+              cm.flex({ align: 'center' }),
               cm.sp('px', 3),
-              cm.sp('py', 1),
               cm.roundedFull,
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest transition-colors',
+              'min-h-[36px] uppercase tracking-widest transition-colors',
               source.following
                 ? 'bg-primary text-on-primary hover:bg-primary/90'
                 : 'bg-surface-container-low text-on-surface hover:bg-surface-container',
