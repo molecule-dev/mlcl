@@ -79,6 +79,9 @@ export function EmployeesTable({ employees, loading = false }: EmployeesTablePro
           cm.sp('py', 3),
           cm.grid({ cols: 12 }),
           'items-center text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+          // Phone: only name + salary are shown, so the column captions
+          // would describe columns that aren't there.
+          'hidden md:grid',
         )}
       >
         <span className="col-span-4">
@@ -108,7 +111,9 @@ export function EmployeesTable({ employees, loading = false }: EmployeesTablePro
                   'items-center bg-surface-container-lowest rounded-xl shadow-sm animate-pulse',
                 )}
               >
-                <div className={cm.cn(cm.flex({ align: 'center' }), 'col-span-4 gap-3')}>
+                <div
+                  className={cm.cn(cm.flex({ align: 'center' }), 'col-span-12 md:col-span-4 gap-3')}
+                >
                   <div
                     className={cm.cn(cm.w(10), cm.h(10), cm.roundedFull, 'bg-surface-container')}
                   />
@@ -117,18 +122,18 @@ export function EmployeesTable({ employees, loading = false }: EmployeesTablePro
                     <div className={cm.cn(cm.h(2), cm.w(24), 'rounded bg-surface-container')} />
                   </div>
                 </div>
-                <div className="col-span-2">
+                <div className="hidden md:block md:col-span-2">
                   <div className={cm.cn(cm.h(3), cm.w(20), 'rounded bg-surface-container')} />
                 </div>
-                <div className="col-span-3">
+                <div className="hidden md:block md:col-span-3">
                   <div className={cm.cn(cm.h(3), cm.w(28), 'rounded bg-surface-container')} />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-7 md:col-span-2">
                   <div
                     className={cm.cn(cm.h(3), cm.w(16), 'rounded bg-surface-container ml-auto')}
                   />
                 </div>
-                <div className="col-span-1">
+                <div className="col-span-5 md:col-span-1">
                   <div
                     className={cm.cn(
                       cm.h(5),
@@ -166,7 +171,12 @@ export function EmployeesTable({ employees, loading = false }: EmployeesTablePro
                     }
                   }}
                 >
-                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'col-span-4')}>
+                  <div
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'sm' }),
+                      'col-span-12 md:col-span-4',
+                    )}
+                  >
                     <div
                       className={cm.cn(
                         cm.w(10),
@@ -197,22 +207,34 @@ export function EmployeesTable({ employees, loading = false }: EmployeesTablePro
                       </p>
                     </div>
                   </div>
-                  <div className={cm.cn(cm.textSize('sm'), 'col-span-2 text-on-surface-variant')}>
+                  {/* Department + title carry no weight on a phone —
+                      they live on the employee detail page. */}
+                  <div
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      'hidden md:block md:col-span-2 text-on-surface-variant',
+                    )}
+                  >
                     {emp.department ?? t('common.noValue', {}, { defaultValue: '—' })}
                   </div>
-                  <div className={cm.cn(cm.textSize('sm'), 'col-span-3 text-on-surface')}>
+                  <div
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      'hidden md:block md:col-span-3 text-on-surface',
+                    )}
+                  >
                     {emp.title ?? t('common.noValue', {}, { defaultValue: '—' })}
                   </div>
                   <div
                     className={cm.cn(
                       cm.textSize('sm'),
                       cm.fontWeight('semibold'),
-                      'col-span-2 text-on-surface tabular-nums text-right',
+                      'col-span-7 md:col-span-2 text-on-surface tabular-nums text-right',
                     )}
                   >
                     {fmtMoney(emp.salary)}
                   </div>
-                  <div className="col-span-1 text-right">
+                  <div className="col-span-5 md:col-span-1 text-right">
                     <span
                       className={cm.cn(
                         cm.sp('px', 2),

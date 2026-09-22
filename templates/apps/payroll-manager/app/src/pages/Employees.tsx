@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -168,9 +169,12 @@ export function Employees() {
   const [status, setStatus] = useState<StatusFilter>('all')
 
   const [loaded, setLoaded] = useState(false)
+  const [loadError, setLoadError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoadError(false)
     http
       .get('/api/employees')
       .then((res) => {
@@ -181,14 +185,15 @@ export function Employees() {
       .catch(() => {
         if (cancelled) return
         // Keep showing the static placeholder so the page still renders
-        // when the API is unreachable (offline / dev with API down).
+        // when the API is unreachable (offline / dev with API down) — but
+        // say so, instead of silently pretending the roster is real.
+        setLoadError(true)
         setLoaded(true)
       })
     return () => {
       cancelled = true
     }
-  }, [http])
-  void loaded
+  }, [http, reloadKey])
 
   const filtered = useMemo(() => {
     return employees.filter((e) => {
@@ -233,7 +238,13 @@ export function Employees() {
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
           <button
             type="button"
-            onClick={() => exportCsv(filtered)}
+            onClick={() => {
+              exportCsv(filtered)
+              void track({
+                name: 'employee.roster_exported',
+                properties: { count: filtered.length },
+              })
+            }}
             data-testid="employees-export-csv"
             className={cm.cn(
               cm.sp('px', 4),
@@ -332,7 +343,7 @@ export function Employees() {
             </option>
           ))}
         </select>
-        <div className={cm.flex({ align: 'center', gap: 'xs' })}>
+        <div className={cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' })}>
           {STATUS_FILTERS.map((s) => {
             const isActive = status === s
             return (
@@ -370,7 +381,44 @@ export function Employees() {
         </div>
       </div>
 
-      <EmployeesTable employees={filtered} />
+      {loadError ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+            'rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          <span className={cm.textSize('sm')}>
+            {t(
+              'employees.loadError',
+              {},
+              {
+                defaultValue:
+                  'Live roster unavailable — showing sample data until the connection recovers.',
+              },
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : null}
+
+      <EmployeesTable employees={filtered} loading={!loaded} />
     </div>
   )
 }

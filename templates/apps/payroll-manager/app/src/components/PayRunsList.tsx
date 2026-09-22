@@ -137,7 +137,7 @@ export function PayRunsList({ payRuns, loading = false, limit, viewAllTo }: PayR
             key={run.id}
             to={`/pay-runs/${run.id}`}
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'lg' }),
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'lg' }),
               cm.sp('p', 5),
               'rounded-xl bg-surface-container-lowest border-t-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all',
               style.strip,

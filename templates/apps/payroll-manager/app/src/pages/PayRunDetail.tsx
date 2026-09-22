@@ -61,6 +61,7 @@ export function PayRunDetail() {
 
   const [run, setRun] = useState<PayRun | null>(null)
   const [audit, setAudit] = useState<AuditEntry[]>([])
+  const [notFound, setNotFound] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -71,7 +72,10 @@ export function PayRunDetail() {
     ]).then(([rRes, aRes]) => {
       if (cancelled) return
       const r = unwrapSingle<PayRun>(rRes)
-      setRun(r)
+      // A missing run must render as an error, not a spinner forever — and
+      // an error body ({error: …}) is not a run either (no id).
+      if (!r || !('id' in r)) setNotFound(true)
+      setRun(r && 'id' in r ? r : null)
       const list = unwrapList<AuditEntry>(aRes).filter((e) => e.resource_id === id)
       setAudit(list)
     })
@@ -82,10 +86,28 @@ export function PayRunDetail() {
 
   if (!run) {
     return (
-      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto)}>
-        <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-          {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-        </p>
+      <div
+        className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(4))}
+      >
+        <Link
+          to="/pay-runs"
+          className={cm.cn(
+            cm.textSize('sm'),
+            cm.fontWeight('semibold'),
+            'text-primary hover:underline',
+          )}
+        >
+          ← {t('payRunDetail.crumbRuns', {}, { defaultValue: 'Pay runs' })}
+        </Link>
+        {notFound ? (
+          <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+            {t('payRunDetail.notFound', {}, { defaultValue: 'This pay run could not be found.' })}
+          </p>
+        ) : (
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+          </p>
+        )}
       </div>
     )
   }

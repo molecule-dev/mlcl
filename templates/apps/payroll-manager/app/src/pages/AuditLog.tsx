@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -44,21 +44,32 @@ export function AuditLog() {
   const [filter, setFilter] = useState<Filter>('all')
   const [search, setSearch] = useState('')
   const [entries, setEntries] = useState<AuditEntry[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
-  useEffect(() => {
+  const load = useCallback(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     http
       .get('/api/audit-log')
       .then((res) => {
         if (!cancelled) setEntries(unwrapList<AuditEntry>(res))
       })
       .catch(() => {
-        if (!cancelled) setEntries([])
+        // Distinguish "nothing yet" from "could not load" — a failed fetch
+        // must not masquerade as an empty compliance trail.
+        if (!cancelled) setError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
       })
     return () => {
       cancelled = true
     }
   }, [http])
+
+  useEffect(() => load(), [load])
 
   const filtered = useMemo(() => {
     return entries.filter((e) => {
@@ -170,7 +181,60 @@ export function AuditLog() {
         </div>
       </div>
 
-      {filtered.length === 0 ? (
+      {loading ? (
+        <ul className={cm.stack(2)} aria-busy="true">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <li
+              key={i}
+              className={cm.cn(
+                cm.sp('p', 5),
+                cm.flex({ align: 'start', gap: 'md' }),
+                'rounded-xl bg-surface-container-lowest shadow-sm animate-pulse',
+              )}
+            >
+              <div className={cm.cn(cm.w(10), cm.h(10), cm.roundedFull, 'bg-surface-container')} />
+              <div className={cm.flex1}>
+                <div className={cm.cn(cm.h(3), cm.w(32), 'rounded bg-surface-container')} />
+                <div
+                  className={cm.cn(
+                    cm.h(3),
+                    cm.w(48),
+                    cm.sp('mt', 2),
+                    'rounded bg-surface-container',
+                  )}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : error ? (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 5),
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+            'rounded-xl bg-error-container text-on-error-container',
+          )}
+        >
+          <span className={cm.textSize('sm')}>
+            {t('auditLog.loadError', {}, { defaultValue: 'Could not load the audit log.' })}
+          </span>
+          <button
+            type="button"
+            onClick={load}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      ) : filtered.length === 0 ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t(
             'auditLog.empty',

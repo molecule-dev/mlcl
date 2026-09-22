@@ -333,7 +333,7 @@ router.post('/:id/process', async (req: Request, res: Response) => {
       total_net: Math.round(totalNet * 100) / 100,
     })
   } catch (err) {
-    console.error('[payroll-manager pay-runs.process] failed:', err)
+    logger.error('pay-runs.process', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

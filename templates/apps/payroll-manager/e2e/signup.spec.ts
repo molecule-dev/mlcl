@@ -37,6 +37,12 @@ test.describe('/signup', () => {
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill(password)
     await page.locator('input#confirmPassword').fill(password)
+    // A duplicate signup is SUPPOSED to 4xx — the browser logs the failed
+    // resource and the console-guard would fail the test without this.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[39]',
+    })
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /create account/i }).click()
       await page.waitForTimeout(1500)

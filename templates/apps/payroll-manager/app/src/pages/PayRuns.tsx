@@ -94,6 +94,7 @@ export function PayRuns() {
   const http = useHttpClient()
   const [payRuns, setPayRuns] = useState<PayRun[]>(SAMPLE_PAY_RUNS)
   const [filter, setFilter] = useState<Filter>('all')
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -102,10 +103,12 @@ export function PayRuns() {
       .then((res) => {
         if (cancelled) return
         setPayRuns(unwrapList<PayRun>(res))
+        setLoaded(true)
       })
       .catch(() => {
         // Network failed — keep the design-time sample so the list does
         // not collapse to an empty state during a brief outage.
+        if (!cancelled) setLoaded(true)
       })
     return () => {
       cancelled = true
@@ -199,7 +202,7 @@ export function PayRuns() {
         })}
       </div>
 
-      <PayRunsList payRuns={filtered} />
+      <PayRunsList payRuns={filtered} loading={!loaded} />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -142,6 +143,15 @@ export function RunPayroll() {
     try {
       await http.post(`/api/pay-runs/${draftRun.id}/approve`, {})
       await http.post(`/api/pay-runs/${draftRun.id}/process`, {})
+      void track({
+        name: 'payroll.run',
+        properties: {
+          pay_run_id: draftRun.id,
+          employee_count: includedRows.length,
+          total_gross: Math.round(grossTotal * 100) / 100,
+          total_net: Math.round(netTotal * 100) / 100,
+        },
+      })
       setStep(2)
       navigate(`/pay-runs/${draftRun.id}`)
     } catch (err) {
@@ -261,6 +271,9 @@ export function RunPayroll() {
               cm.sp('py', 3),
               cm.grid({ cols: 12 }),
               'items-center text-[10px] font-black uppercase tracking-widest text-on-surface-variant',
+              // Phone: hours hide (always 80) and the money columns pair
+              // up, so the desktop captions misdescribe the layout.
+              'hidden sm:grid',
             )}
           >
             <span className="col-span-5">
@@ -300,7 +313,7 @@ export function RunPayroll() {
                     <div
                       className={cm.cn(
                         cm.flex({ align: 'center', gap: 'sm' }),
-                        'col-span-5 min-w-0',
+                        'col-span-12 sm:col-span-5 min-w-0',
                       )}
                     >
                       <span
@@ -338,14 +351,17 @@ export function RunPayroll() {
                       </div>
                     </div>
                     <span
-                      className={cm.cn(cm.textSize('sm'), 'col-span-2 text-right tabular-nums')}
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'hidden sm:inline col-span-2 text-right tabular-nums',
+                      )}
                     >
                       {r.status === 'flagged' ? '\u2014' : r.hours.toFixed(0)}
                     </span>
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-right tabular-nums font-semibold',
+                        'col-span-5 sm:col-span-2 text-right tabular-nums font-semibold',
                       )}
                     >
                       {r.status === 'flagged' ? '\u2014' : fmtMoney(r.gross)}
@@ -353,12 +369,12 @@ export function RunPayroll() {
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-right tabular-nums font-bold text-primary',
+                        'col-span-4 sm:col-span-2 text-right tabular-nums font-bold text-primary',
                       )}
                     >
                       {r.status === 'flagged' ? '\u2014' : fmtMoney(r.net)}
                     </span>
-                    <span className="col-span-1 text-right">
+                    <span className="col-span-3 sm:col-span-1 text-right">
                       <span
                         className={cm.cn(
                           cm.sp('px', 2),

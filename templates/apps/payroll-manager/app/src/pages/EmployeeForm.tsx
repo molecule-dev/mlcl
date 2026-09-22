@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -149,10 +150,20 @@ export function EmployeeForm() {
         if (form.start_date) payload.start_date = form.start_date
         const res = await http.post<EmployeeRecord>('/api/employees', payload)
         const created = unwrapSingle<EmployeeRecord>(res)
+        if (created?.id) {
+          void track({
+            name: 'employee.added',
+            properties: { employee_id: created.id, salary, pay_frequency: form.pay_frequency },
+          })
+        }
         navigate(created?.id ? `/employees/${created.id}` : '/employees')
       } else {
         if (form.status) payload.status = form.status
         await http.put<EmployeeRecord>(`/api/employees/${id}`, payload)
+        void track({
+          name: 'employee.updated',
+          properties: { employee_id: id, salary, status: form.status },
+        })
         navigate(`/employees/${id}`)
       }
     } catch (err) {

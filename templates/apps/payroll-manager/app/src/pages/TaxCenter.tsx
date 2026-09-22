@@ -235,7 +235,13 @@ export function TaxCenter() {
                       'items-center bg-surface-container-low rounded-xl shadow-sm',
                     )}
                   >
-                    <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'col-span-2')}>
+                    <span
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'col-span-3 md:col-span-2',
+                      )}
+                    >
                       {t(
                         'taxCenter.quarterLabel',
                         { quarter: q.quarter },
@@ -245,7 +251,7 @@ export function TaxCenter() {
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-on-surface-variant tabular-nums',
+                        'col-span-3 md:col-span-2 text-on-surface-variant tabular-nums',
                       )}
                     >
                       {q.stub_count}{' '}
@@ -253,10 +259,12 @@ export function TaxCenter() {
                         ? t('taxCenter.stub', {}, { defaultValue: 'stub' })
                         : t('taxCenter.stubs', {}, { defaultValue: 'stubs' })}
                     </span>
+                    {/* Per-quarter tax split is table territory — phones get
+                        the YTD bucket cards above instead. */}
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-on-surface-variant tabular-nums',
+                        'hidden md:inline md:col-span-2 text-on-surface-variant tabular-nums',
                       )}
                     >
                       {fmtMoney(q.federal_tax)}
@@ -264,7 +272,7 @@ export function TaxCenter() {
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-on-surface-variant tabular-nums',
+                        'hidden md:inline md:col-span-2 text-on-surface-variant tabular-nums',
                       )}
                     >
                       {fmtMoney(q.fica)}
@@ -272,7 +280,7 @@ export function TaxCenter() {
                     <span
                       className={cm.cn(
                         cm.textSize('sm'),
-                        'col-span-2 text-on-surface-variant tabular-nums',
+                        'hidden md:inline md:col-span-2 text-on-surface-variant tabular-nums',
                       )}
                     >
                       {fmtMoney(q.state_tax)}
@@ -281,7 +289,7 @@ export function TaxCenter() {
                       className={cm.cn(
                         cm.textSize('sm'),
                         cm.fontWeight('semibold'),
-                        'col-span-2 text-right tabular-nums',
+                        'col-span-6 md:col-span-2 text-right tabular-nums',
                       )}
                     >
                       {fmtMoney(q.total_liability)}

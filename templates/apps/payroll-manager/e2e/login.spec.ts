@@ -24,6 +24,12 @@ test.describe('/login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('definitely-wrong-password')
+    // A rejected login is SUPPOSED to 4xx — the browser logs the failed
+    // resource and the console-guard would fail the test without this.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[39]',
+    })
     await page.getByRole('button', { name: /sign in/i }).click()
     await expect(page.getByRole('alert').first()).toBeVisible()
     await expect(page).toHaveURL(/\/login/)

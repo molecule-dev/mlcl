@@ -4,6 +4,7 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { PayrollMobileNav } from './PayrollMobileNav.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -11,6 +12,10 @@ import { UserMenu } from './UserMenu.js'
  * full-bleed content. Mirrors the SidebarLayout pattern used by
  * banking-dashboard's MeridianLayout, but inlines the chrome so the
  * sidebar can apply the brand's `#0c1f2e` navy across both themes.
+ *
+ * Below 768px the sidebar is hidden and the fleet-standard mobile shell
+ * takes over: a sticky top bar (brand + user menu) and a fixed bottom
+ * tab bar (PayrollMobileNav) so every destination stays reachable.
  *
  * Translated from banking-dashboard's MeridianLayout treatment.
  */
@@ -59,7 +64,12 @@ export function PayrollManagerLayout() {
       )}
     >
       <aside
-        className={cm.cn(cm.shrink0, cm.flex({ direction: 'col' }), cm.sp('p', 4), 'w-64')}
+        className={cm.cn(
+          cm.shrink0,
+          cm.flex({ direction: 'col' }),
+          cm.sp('p', 4),
+          'w-64 hidden md:flex',
+        )}
         style={{ backgroundColor: 'var(--color-sidebar)' }}
       >
         <Link
@@ -157,9 +167,59 @@ export function PayrollManagerLayout() {
         </div>
       </aside>
 
-      <main className={cm.cn(cm.flex1, 'min-w-0 overflow-y-auto')}>
-        <Outlet />
-      </main>
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          cm.flex1,
+          'min-w-0 min-h-screen md:h-screen',
+        )}
+      >
+        {/* Mobile top bar — the sidebar's brand + user menu, sticky. */}
+        <header
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            cm.sp('px', 4),
+            cm.sp('py', 2),
+            'sticky top-0 z-30 md:hidden border-b border-outline-variant/40',
+          )}
+          style={{ backgroundColor: 'var(--color-sidebar)' }}
+        >
+          <Link
+            to="/dashboard"
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'text-white py-2')}
+          >
+            <span
+              className={cm.cn(
+                cm.w(7),
+                cm.h(7),
+                cm.roundedFull,
+                cm.flex({ align: 'center', justify: 'center' }),
+                'bg-gradient-to-br from-primary to-secondary text-white shadow-lg',
+              )}
+              aria-hidden="true"
+            >
+              <span
+                className={cm.cn(`material-symbols-outlined text-base`)}
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                receipt_long
+              </span>
+            </span>
+            <span className={cm.cn(cm.textSize('base'), 'font-extrabold tracking-tight')}>
+              {APP_NAME}
+            </span>
+          </Link>
+          <UserMenu />
+        </header>
+
+        <main className={cm.cn(cm.flex1, 'min-w-0 md:overflow-y-auto')}>
+          <Outlet />
+        </main>
+        {/* Clear the fixed mobile bottom nav (hidden at md where the
+            sidebar takes over). */}
+        <div className={cm.cn('h-16 md:hidden')} aria-hidden="true" />
+      </div>
+      <PayrollMobileNav />
     </div>
   )
 }

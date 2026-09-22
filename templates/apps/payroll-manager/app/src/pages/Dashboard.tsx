@@ -117,6 +117,7 @@ export function Dashboard() {
   const http = useHttpClient()
   const [employees, setEmployees] = useState<Employee[]>(SAMPLE_EMPLOYEES)
   const [payRuns, setPayRuns] = useState<PayRun[]>(SAMPLE_PAY_RUNS)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -129,6 +130,7 @@ export function Dashboard() {
       const runs = unwrapList<PayRun>(prRes)
       if (emps.length > 0) setEmployees(emps)
       if (runs.length > 0) setPayRuns(runs)
+      setLoaded(true)
     })
     return () => {
       cancelled = true
@@ -245,7 +247,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('bold'),
-                'mt-auto text-primary hover:underline inline-flex items-center gap-1',
+                'mt-auto text-primary hover:underline inline-flex items-center gap-1 py-2',
               )}
             >
               {t('dashboard.compliance.viewAudit', {}, { defaultValue: 'View audit log' })}
@@ -265,12 +267,15 @@ export function Dashboard() {
           </h2>
           <Link
             to="/pay-runs"
-            className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+            className={cm.cn(
+              cm.textSize('sm'),
+              'font-bold text-primary hover:underline inline-block py-2',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
         </div>
-        <PayRunsList payRuns={payRuns} limit={3} />
+        <PayRunsList payRuns={payRuns} limit={3} loading={!loaded} />
       </section>
 
       {/* Roster glance */}
@@ -281,12 +286,15 @@ export function Dashboard() {
           </h2>
           <Link
             to="/employees"
-            className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+            className={cm.cn(
+              cm.textSize('sm'),
+              'font-bold text-primary hover:underline inline-block py-2',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
         </div>
-        <EmployeesTable employees={employees.slice(0, 5)} />
+        <EmployeesTable employees={employees.slice(0, 5)} loading={!loaded} />
       </section>
     </div>
   )

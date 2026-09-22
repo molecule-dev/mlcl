@@ -240,10 +240,12 @@ export function Reports() {
               >
                 {t(
                   'reports.spendDelta',
-                  { amount: `${spendDelta >= 0 ? '+' : ''}${fmtCompact(spendDelta)}` },
+                  {
+                    amount: `${spendDelta >= 0 ? '+' : ''}${fmtCompact(spendDelta)}`,
+                    first: spend[0].label,
+                  },
                   { defaultValue: '{{amount}} since {{first}}' },
-                )}{' '}
-                {spend[0].label}
+                )}
               </p>
             ) : null}
 
