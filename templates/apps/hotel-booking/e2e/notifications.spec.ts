@@ -13,12 +13,26 @@ import {
 async function bookOnceToTriggerSeed(page: import('@playwright/test').Page) {
   const properties = await listProperties(page)
   const rooms = await listRooms(page, properties[0].id)
-  await apiRequest(page, 'POST', '/api/reservations', {
-    room_id: rooms[0].id,
-    check_in: isoOffset(20),
-    check_out: isoOffset(22),
-    guests: 1,
-  })
+  // Room inventory is GLOBAL across users: earlier suite runs may hold the
+  // preferred room/dates (API correctly 409s). Walk rooms × date windows
+  // until a booking is ACCEPTED — the demo seed only fires on success. The
+  // rejected attempts log browser console errors, so callers annotate
+  // `allow-console-error` for "status of 409" BEFORE calling this.
+  for (let attempt = 0; attempt < rooms.length + 8; attempt++) {
+    const room = rooms[attempt % rooms.length]
+    const r = await apiRequest(page, 'POST', '/api/reservations', {
+      room_id: room.id,
+      check_in: isoOffset(20 + attempt * 3),
+      check_out: isoOffset(22 + attempt * 3),
+      guests: 1,
+    })
+    if (r.status === 201 || r.status === 200) break
+    if (r.status !== 409) {
+      throw new Error(
+        'bookOnceToTriggerSeed: unexpected status ' + r.status + ' body=' + JSON.stringify(r.body),
+      )
+    }
+  }
   // Demo seed runs as fire-and-forget after a successful booking.
   await page.waitForTimeout(1500)
 }
@@ -32,6 +46,7 @@ test.describe('/notifications (Notifications)', () => {
 
   test('shows seeded notifications after a reservation', async ({ page }) => {
     await signup(page)
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 409' })
     await bookOnceToTriggerSeed(page)
     await page.goto(APP_BASE + '/notifications', { waitUntil: 'domcontentloaded' })
     const items = page.getByRole('listitem')
@@ -42,6 +57,7 @@ test.describe('/notifications (Notifications)', () => {
 
   test('Mark all read clears the unread state and persists across reload', async ({ page }) => {
     await signup(page)
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 409' })
     await bookOnceToTriggerSeed(page)
     await page.goto(APP_BASE + '/notifications', { waitUntil: 'domcontentloaded' })
     // Wait for the page's async fetch to settle so either the unread button

@@ -379,7 +379,7 @@ export function Landing() {
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'uppercase tracking-[0.25em] text-accent',
+                      'uppercase tracking-[0.25em] text-accent-ink',
                     )}
                   >
                     {item.tag}
@@ -431,7 +431,8 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'uppercase tracking-[0.25em] text-accent',
+                /* On the red band, amber tops out ~3.5:1 — white passes (4.98:1). */
+                'uppercase tracking-[0.25em] text-on-primary',
               )}
             >
               {t(
@@ -485,7 +486,9 @@ export function Landing() {
                   cm.sp('px', 8),
                   cm.sp('py', 3),
                   cm.fontWeight('bold'),
-                  'rounded-full bg-accent text-on-primary hover:bg-accent/90 transition-colors shadow-lg',
+                  /* amber-700 (#b45309) = 5.02:1 with white text; the raw accent
+                     #ffb300 was 1.79:1 (axe serious). Same stop as the card badge. */
+                  'rounded-full bg-amber-700 text-on-primary hover:bg-amber-800 transition-colors shadow-lg',
                 )}
               >
                 {t('landing.cta.signup', {}, { defaultValue: 'Create free account' })}
@@ -525,7 +528,12 @@ export function Landing() {
                 {t('landing.footer.tagline', {}, { defaultValue: 'Stay somewhere extraordinary.' })}
               </p>
             </div>
-            <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), cm.textSize('sm'))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }),
+                cm.textSize('sm'),
+              )}
+            >
               <Link to="/about" className={'text-on-surface-variant hover:text-primary'}>
                 {t('nav.about', {}, { defaultValue: 'About' })}
               </Link>

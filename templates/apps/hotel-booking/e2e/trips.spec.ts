@@ -13,17 +13,33 @@ import {
 async function ensureOneReservation(page: import('@playwright/test').Page) {
   const properties = await listProperties(page)
   const rooms = await listRooms(page, properties[0].id)
-  const r = await apiRequest<{ id?: string }>(page, 'POST', '/api/reservations', {
-    room_id: rooms[0].id,
-    check_in: isoOffset(95),
-    check_out: isoOffset(98),
-    guests: 2,
-  })
-  if (r.status !== 201 && r.status !== 200) {
-    throw new Error(
-      'ensureOneReservation: unexpected status ' + r.status + ' body=' + JSON.stringify(r.body),
-    )
+  // Room inventory is GLOBAL across users: a previous suite run (or another
+  // test's user) may already hold a room on the preferred dates, which the
+  // API correctly rejects with 409. Walk rooms × date windows until one
+  // booking is accepted so the helper is idempotent on a dirty database.
+  // A rejected attempt logs a browser console error, so every caller must
+  // annotate `allow-console-error` for "status of 409" BEFORE calling this.
+  for (let attempt = 0; attempt < rooms.length + 8; attempt++) {
+    const room = rooms[attempt % rooms.length]
+    const r = await apiRequest<{ id?: string }>(page, 'POST', '/api/reservations', {
+      room_id: room.id,
+      check_in: isoOffset(95 + attempt * 3),
+      check_out: isoOffset(98 + attempt * 3),
+      guests: 2,
+    })
+    if (r.status === 201 || r.status === 200) return
+    if (r.status !== 409) {
+      throw new Error(
+        'ensureOneReservation: unexpected status ' + r.status + ' body=' + JSON.stringify(r.body),
+      )
+    }
   }
+  throw new Error('ensureOneReservation: every room × date window returned 409')
+}
+
+/** Annotate the expected room-conflict console noise from ensureOneReservation. */
+function allowRoomConflictConsole(test: import('@playwright/test').TestInfo) {
+  test.annotations.push({ type: 'allow-console-error', description: 'status of 409' })
 }
 
 test.describe('/trips (Trips)', () => {
@@ -35,6 +51,7 @@ test.describe('/trips (Trips)', () => {
 
   test('renders the "Upcoming" section heading after a reservation exists', async ({ page }) => {
     await signup(page)
+    allowRoomConflictConsole(test.info())
     await ensureOneReservation(page)
     await page.goto(APP_BASE + '/trips', { waitUntil: 'domcontentloaded' })
     await expect(page.getByRole('heading', { name: /^Upcoming$/i, level: 2 })).toBeVisible()
@@ -42,6 +59,7 @@ test.describe('/trips (Trips)', () => {
 
   test('every reservation row links to /trips/:id', async ({ page }) => {
     await signup(page)
+    allowRoomConflictConsole(test.info())
     await ensureOneReservation(page)
     await page.goto(APP_BASE + '/trips', { waitUntil: 'domcontentloaded' })
     const links = page.locator('a[href^="/trips/"]')
@@ -53,6 +71,7 @@ test.describe('/trips (Trips)', () => {
 
   test('trip card shows the property name', async ({ page }) => {
     await signup(page)
+    allowRoomConflictConsole(test.info())
     await ensureOneReservation(page)
     await page.goto(APP_BASE + '/trips', { waitUntil: 'domcontentloaded' })
     const props = await listProperties(page)
@@ -62,6 +81,7 @@ test.describe('/trips (Trips)', () => {
 
   test('"upcoming" status pill is present on at least one card', async ({ page }) => {
     await signup(page)
+    allowRoomConflictConsole(test.info())
     await ensureOneReservation(page)
     await page.goto(APP_BASE + '/trips', { waitUntil: 'domcontentloaded' })
     await expect(page.getByText(/^upcoming$/i).first()).toBeVisible()

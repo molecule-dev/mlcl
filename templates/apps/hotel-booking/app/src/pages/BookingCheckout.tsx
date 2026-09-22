@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -154,6 +155,19 @@ export function BookingCheckout() {
       })
       const created = unwrapSingle<{ id: string }>(res)
       const tripId = created?.id ?? id ?? ''
+      // Domain event: the booking committed — the funnel's conversion point.
+      void track({
+        name: 'booking.created',
+        properties: {
+          booking_id: tripId,
+          property_id: id,
+          room_id: selectedRoom.id,
+          check_in: checkIn,
+          check_out: checkOut,
+          guests,
+          total_cents: total,
+        },
+      })
       navigate(`/booking/${tripId}/confirmation`)
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err)

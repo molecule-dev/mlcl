@@ -13,6 +13,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -34,6 +35,16 @@ export function SojournHeroSearchCard() {
     if (checkIn) q.set('check_in', checkIn)
     if (checkOut) q.set('check_out', checkOut)
     q.set('guests', String(guests))
+    // Domain event: a search leaves the hero — the top of the booking funnel.
+    void track({
+      name: 'room.searched',
+      properties: {
+        query: destination,
+        check_in: checkIn || null,
+        check_out: checkOut || null,
+        guests,
+      },
+    })
     navigate(`/search?${q.toString()}`)
   }
 

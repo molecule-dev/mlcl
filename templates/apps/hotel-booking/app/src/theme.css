@@ -18,6 +18,13 @@
   --color-secondary: #1565c0;
   --color-secondary-light: #42a5f5;
   --color-accent: #ffb300;
+  /* Darker amber for accent TEXT on light surfaces — raw accent #ffb300 is
+     1.79:1 on white (axe serious); #8a5200 = 6.4:1. Decorative uses (stars,
+     badges with their own backgrounds) keep --color-accent. */
+  --color-accent-ink: #8a5200;
+  /* Text/icons on amber fills — white was 1.79:1 on #ffb300 (axe serious);
+     this warm near-black is ~9:1. Same in dark mode. */
+  --color-on-accent: #1a1208;
   --color-background: #f5f5f5;
   --color-surface: #ffffff;
   --color-surface-hover: #fafafa;
@@ -78,6 +85,10 @@
   --color-secondary: #64b5f6;
   --color-secondary-light: #90caf9;
   --color-accent: #ffb300;
+  /* Bright amber reads fine on warm-dark surfaces (#ffb300 = 8.6:1 on
+     #14100d), so accent-ink reverts to the accent stop in dark mode. */
+  --color-accent-ink: #ffc947;
+  --color-on-accent: #1a1208;
   --color-background: #14100d;
   --color-surface: #1d1815;
   --color-surface-hover: #28201c;

@@ -14,6 +14,12 @@ test.describe('/reset-password', () => {
   test('submitting fires a POST and either succeeds or surfaces a clear error', async ({
     page,
   }) => {
+    // The token is deliberately invalid, so the API's 401 is the expected
+    // "clear error" path — allow it in the console guard before it fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=invalid-token-abc')
     await page.locator('#password').fill('NewPass123!')
     await page.locator('#confirmPassword').fill('NewPass123!')

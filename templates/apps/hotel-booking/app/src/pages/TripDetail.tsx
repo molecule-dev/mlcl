@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,11 @@ export function TripDetail() {
       const res = await http.put(`/api/trips/${id}/cancel`, {})
       const next = unwrapSingle<Trip>(res)
       if (next) setTrip(next)
+      // Domain event: the cancellation committed.
+      void track({
+        name: 'booking.cancelled',
+        properties: { booking_id: id, status: next?.status ?? 'cancelled' },
+      })
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err)
       setCancelError(

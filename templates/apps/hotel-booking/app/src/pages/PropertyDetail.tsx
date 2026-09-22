@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { track } from '@molecule/app-analytics'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -78,7 +79,9 @@ export function PropertyDetail() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const http = useHttpClient()
+  const isAuthenticated = useIsAuthenticated()
   const [property, setProperty] = useState<Property | null>(null)
   const [rooms, setRooms] = useState<RoomType[]>([])
   const [reviews, setReviews] = useState<Review[]>([])
@@ -124,11 +127,13 @@ export function PropertyDetail() {
     }
   }, [id, http, t])
 
-  // Sync the saved/bookmarked state with the server. 401 (anonymous user)
-  // is silently treated as "not bookmarked" — we still allow the toggle
-  // click to surface a 401 the user can react to.
+  // Sync the saved/bookmarked state with the server — only when authed.
+  // An anonymous visitor must never hit /api/favorites: the 401 would log a
+  // browser console error for a fetch the user never asked for. Logging in
+  // re-runs this effect (isAuthenticated is a dependency), so the heart
+  // state arrives as soon as there is a session to read it with.
   useEffect(() => {
-    if (!id) return
+    if (!id || !isAuthenticated) return
     let cancelled = false
     http
       .get('/api/favorites')
@@ -141,18 +146,31 @@ export function PropertyDetail() {
     return () => {
       cancelled = true
     }
-  }, [id, http])
+  }, [id, http, isAuthenticated])
 
   const toggleBookmark = async () => {
     if (!id || bookmarkBusy) return
+    if (!isAuthenticated) {
+      // Anonymous hearts go to login — a POST would 401 anyway.
+      navigate('/login')
+      return
+    }
     setBookmarkBusy(true)
     const previous = bookmarked
     setBookmarked(!previous)
     try {
       if (previous) {
         await http.delete(`/api/favorites/${id}`)
+        void track({
+          name: 'favorite.removed',
+          properties: { property_id: id },
+        })
       } else {
         await http.post('/api/favorites', { property_id: id })
+        void track({
+          name: 'favorite.added',
+          properties: { property_id: id },
+        })
       }
     } catch (err) {
       console.error('[PropertyDetail] favorite toggle failed:', err)
@@ -242,7 +260,7 @@ export function PropertyDetail() {
                       cm.sp('py', 1),
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'uppercase tracking-widest rounded-full bg-accent/95 text-on-primary backdrop-blur-md',
+                      'uppercase tracking-widest rounded-full bg-accent/95 text-on-accent backdrop-blur-md',
                     )}
                   >
                     {t(`propertyDetail.badge.${b}`, {}, { defaultValue: b.replace('_', ' ') })}
@@ -546,9 +564,10 @@ export function PropertyDetail() {
                                 cm.sp('mt', 2),
                                 cm.textSize('xs'),
                                 cm.fontWeight('bold'),
-                                'uppercase tracking-widest rounded-full transition-colors',
+                                cm.flex({ align: 'center', justify: 'center' }),
+                                'min-h-9 w-full md:w-auto uppercase tracking-widest rounded-full transition-colors',
                                 isSelected
-                                  ? 'bg-accent text-on-primary'
+                                  ? 'bg-accent text-on-accent'
                                   : 'bg-primary text-on-primary hover:bg-primary-container',
                               )}
                             >

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { track } from '@molecule/app-analytics'
+import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -54,6 +55,7 @@ export function SearchResults() {
   const [params] = useSearchParams()
   const navigate = useNavigate()
   const http = useHttpClient()
+  const isAuthenticated = useIsAuthenticated()
   const q = params.get('q') ?? ''
   const guests = params.get('guests') ?? '2'
   const checkIn = params.get('check_in') ?? ''
@@ -73,7 +75,13 @@ export function SearchResults() {
     setLoading(true)
     setError(null)
     const propUrl = q ? `/api/properties?q=${encodeURIComponent(q)}` : '/api/properties'
-    Promise.all([http.get(propUrl).catch(() => null), http.get('/api/favorites').catch(() => null)])
+    // Favorites load only when there is a session — an anonymous visitor
+    // must not fire /api/favorites (the 401 logs a console error for a
+    // request the user never asked for). Logging in re-runs the effect.
+    const favorites = isAuthenticated
+      ? http.get('/api/favorites').catch(() => null)
+      : Promise.resolve(null)
+    Promise.all([http.get(propUrl).catch(() => null), favorites])
       .then(([pRes, fRes]) => {
         if (cancelled) return
         setProperties(unwrapList<Property>(pRes))
@@ -91,7 +99,7 @@ export function SearchResults() {
     return () => {
       cancelled = true
     }
-  }, [http, t, q])
+  }, [http, t, q, isAuthenticated])
 
   const visible = useMemo(() => {
     // Tokenize so "City, Country" queries (e.g. from the landing page's
@@ -123,6 +131,11 @@ export function SearchResults() {
   }, [properties, q, priceFilter, amenityFilters, sort])
 
   const toggleBookmark = (id: string) => {
+    if (!isAuthenticated) {
+      // Anonymous hearts go to login — a POST would 401 anyway.
+      navigate('/login')
+      return
+    }
     const wasBookmarked = bookmarks.has(id)
     setBookmarks((prev) => {
       const next = new Set(prev)
@@ -133,15 +146,22 @@ export function SearchResults() {
     const request = wasBookmarked
       ? http.delete(`/api/favorites/${id}`)
       : http.post('/api/favorites', { property_id: id })
-    request.catch((err) => {
-      console.error('[SearchResults] favorite toggle failed:', err)
-      setBookmarks((prev) => {
-        const revert = new Set(prev)
-        if (wasBookmarked) revert.add(id)
-        else revert.delete(id)
-        return revert
+    request
+      .then(() => {
+        void track({
+          name: wasBookmarked ? 'favorite.removed' : 'favorite.added',
+          properties: { property_id: id },
+        })
       })
-    })
+      .catch((err) => {
+        console.error('[SearchResults] favorite toggle failed:', err)
+        setBookmarks((prev) => {
+          const revert = new Set(prev)
+          if (wasBookmarked) revert.add(id)
+          else revert.delete(id)
+          return revert
+        })
+      })
   }
 
   const toggleAmenity = (a: string) => {
@@ -240,7 +260,8 @@ export function SearchResults() {
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest rounded-full transition-colors',
+              cm.flex({ align: 'center' }),
+              'min-h-10 uppercase tracking-widest rounded-full transition-colors',
               priceFilter === p.value
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary',
@@ -260,7 +281,8 @@ export function SearchResults() {
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'rounded-full transition-colors',
+              cm.flex({ align: 'center' }),
+              'min-h-10 rounded-full transition-colors',
               amenityFilters.has(a)
                 ? 'bg-accent/20 text-primary border border-accent'
                 : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary',
@@ -366,12 +388,13 @@ export function SearchResults() {
                   onMouseLeave={() => setActiveId(null)}
                   className={cm.cn(
                     cm.sp('px', 3),
-                    cm.sp('py', 1),
+                    cm.sp('py', 2),
                     cm.fontWeight('bold'),
                     cm.textSize('xs'),
-                    'absolute rounded-full shadow-md transition-all',
+                    cm.flex({ align: 'center' }),
+                    'min-h-9 absolute rounded-full shadow-md transition-all',
                     isActive
-                      ? 'bg-accent text-on-primary scale-125 z-20'
+                      ? 'bg-accent text-on-accent scale-125 z-20'
                       : 'bg-surface text-primary hover:scale-110',
                   )}
                   style={{ top: `${top}%`, left: `${left}%` }}
