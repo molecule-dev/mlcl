@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -300,6 +301,10 @@ export function Inbox() {
     try {
       const path = isDraft ? `/drafts/${id}/archive` : `/sent-emails/${id}/archive`
       await http.post(path, { archived: isArchiving })
+      void track({
+        name: isArchiving ? 'email.archived' : 'email.unarchived',
+        properties: { email_id: id, kind: isDraft ? 'draft' : 'sent' },
+      })
       const stamp = isArchiving ? new Date().toISOString() : null
       if (isDraft) {
         setDrafts((prev) => prev.map((d) => (d.id === id ? { ...d, archived_at: stamp } : d)))
@@ -336,13 +341,53 @@ export function Inbox() {
   return (
     <div
       data-mol-id="inbox-page"
-      className={cm.cn(cm.flex({ direction: 'row' }), 'h-[calc(100vh-4rem)] bg-background')}
+      className={cm.cn(cm.flex({}), 'flex-col md:flex-row bg-background md:h-[calc(100vh-4rem)]')}
     >
+      {/* Folder chips — mobile only; the vertical aside takes over ≥md */}
+      <div
+        data-mol-id="inbox-folder-chips"
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.sp('px', 4),
+          cm.sp('py', 3),
+          'md:hidden overflow-x-auto border-b border-outline-variant/50 bg-surface',
+        )}
+      >
+        {FOLDERS.map((folder) => {
+          const active = folder.key === activeFolder
+          const count = folderCounts[folder.key]
+          return (
+            <button
+              key={folder.key}
+              type="button"
+              data-mol-id={`inbox-folder-chip-${folder.key}`}
+              onClick={() => switchFolder(folder.key)}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.sp('px', 3),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                'whitespace-nowrap rounded-full border transition-colors',
+                active
+                  ? 'bg-primary/10 text-primary border-primary/40 font-bold'
+                  : 'text-on-surface-variant border-outline-variant/40 font-medium',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                {folder.icon}
+              </span>
+              {t(`inbox.folder.${folder.key}`, {}, { defaultValue: folder.defaultLabel })}
+              {count > 0 && <span className="font-bold tabular-nums">{count}</span>}
+            </button>
+          )
+        })}
+      </div>
+
       <aside
         className={cm.cn(
           cm.sp('p', 4),
           cm.flex({ direction: 'col', gap: 'sm' }),
-          'w-64 shrink-0 bg-surface border-r border-outline-variant/50',
+          'hidden md:flex w-64 shrink-0 bg-surface border-r border-outline-variant/50',
         )}
       >
         <p
@@ -408,7 +453,7 @@ export function Inbox() {
       <section
         className={cm.cn(
           cm.flex({ direction: 'col' }),
-          'w-96 shrink-0 border-r border-outline-variant/50 bg-surface',
+          'w-full md:w-96 shrink-0 border-b md:border-b-0 md:border-r border-outline-variant/50 bg-surface',
         )}
       >
         <header
@@ -486,11 +531,11 @@ export function Inbox() {
         </div>
       </section>
 
-      <section className={cm.cn('flex-1 overflow-y-auto')}>
+      <section className={cm.cn('flex-1 min-w-0 overflow-y-auto')}>
         {selected ? (
           <article
             data-mol-id="inbox-reading-pane"
-            className={cm.cn(cm.sp('p', 8), cm.maxW('4xl'), 'mx-auto')}
+            className={cm.cn('p-4 md:p-8', cm.maxW('4xl'), 'mx-auto w-full')}
           >
             <header
               className={cm.cn(
@@ -535,7 +580,7 @@ export function Inbox() {
                   t('inbox.bodyPlaceholder', {}, { defaultValue: '(no body content)' })}
               </p>
             </div>
-            <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 6))}>
+            <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap', cm.sp('mt', 6))}>
               <button
                 type="button"
                 data-mol-id="inbox-reply"

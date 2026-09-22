@@ -92,7 +92,7 @@ export function Settings() {
   return (
     <div
       data-mol-id="settings-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), 'mx-auto', cm.stack(8))}
+      className={cm.cn('px-4 py-6 md:px-8 md:py-8', cm.maxW('5xl'), 'mx-auto', cm.stack(8))}
     >
       <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>

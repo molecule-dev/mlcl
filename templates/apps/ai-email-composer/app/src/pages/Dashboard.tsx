@@ -84,10 +84,13 @@ export function Dashboard() {
   const [templates, setTemplates] = useState<TemplateRow[]>([])
   const [summary, setSummary] = useState<AnalyticsSummary | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     ;(async () => {
       try {
         const [draftsResp, sentResp, templatesResp, summaryResp] = await Promise.all([
@@ -108,6 +111,14 @@ export function Dashboard() {
         setSent(sentRows)
         setTemplates(tmplRows)
         setSummary(summaryResp.data ?? null)
+      } catch (err) {
+        if (!cancelled) {
+          setError(
+            err instanceof Error
+              ? err.message
+              : t('dashboard.loadFailed', {}, { defaultValue: 'Could not load your dashboard.' }),
+          )
+        }
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -115,7 +126,7 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey, t])
 
   const recentEmails = useMemo<RecentEmail[]>(() => {
     return sent
@@ -194,7 +205,7 @@ export function Dashboard() {
   return (
     <div
       data-mol-id="dashboard-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
+      className={cm.cn('px-4 py-6 md:px-8 md:py-8', cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
     >
       <header>
         <h1 className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tighter')}>
@@ -208,6 +219,36 @@ export function Dashboard() {
           )}
         </p>
       </header>
+
+      {error && (
+        <div
+          data-mol-id="dashboard-error"
+          role="alert"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            'flex-wrap gap-y-2',
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'bg-error-container text-on-error-container rounded-xl',
+          )}
+        >
+          <span>{error}</span>
+          <button
+            type="button"
+            data-mol-id="dashboard-retry"
+            onClick={() => setReloadKey((k) => k + 1)}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.fontWeight('semibold'),
+              'rounded-lg border border-current hover:bg-surface-container-low transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
 
       <section
         className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-12 items-stretch')}

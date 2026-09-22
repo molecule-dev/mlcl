@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -162,6 +163,10 @@ export function Templates() {
           subject: form.subject,
           body: form.body,
         })
+        void track({
+          name: 'template.updated',
+          properties: { template_id: editingId, category: form.category },
+        })
       } else {
         await http.post('/templates', {
           name: form.name,
@@ -169,6 +174,10 @@ export function Templates() {
           description: form.description,
           subject: form.subject,
           body: form.body,
+        })
+        void track({
+          name: 'template.created',
+          properties: { category: form.category },
         })
       }
       closeForm()
@@ -184,6 +193,7 @@ export function Templates() {
     setSaving(true)
     try {
       await http.delete(`/templates/${id}`)
+      void track({ name: 'template.deleted', properties: { template_id: id } })
       setDeleteConfirmId(null)
       closeForm()
       await refresh()
@@ -197,7 +207,7 @@ export function Templates() {
   return (
     <div
       data-mol-id="templates-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
+      className={cm.cn('px-4 py-6 md:px-8 md:py-8', cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
     >
       <header className={cm.flex({ align: 'start', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
@@ -350,7 +360,7 @@ export function Templates() {
             onSubmit={handleSave}
             className={cm.cn(
               cm.sp('p', 6),
-              'w-full max-w-xl mx-4 bg-surface rounded-2xl shadow-xl border border-outline-variant/40',
+              'w-full max-w-xl mx-4 max-h-[92vh] overflow-y-auto bg-surface rounded-2xl shadow-xl border border-outline-variant/40',
               cm.flex({ direction: 'col', gap: 'md' }),
             )}
           >

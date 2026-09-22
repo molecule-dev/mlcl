@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -209,6 +210,10 @@ export function Compose() {
     setErrorMessage(null)
     try {
       const saved = await ensureDraftSaved()
+      void track({
+        name: 'draft.saved',
+        properties: { draft_id: saved.id, recipient_count: recipients.length },
+      })
       setStatusMessage(t('compose.savedAt', { id: saved.id }, { defaultValue: 'Draft saved' }))
     } catch (err) {
       setErrorMessage(
@@ -227,6 +232,10 @@ export function Compose() {
       const response = await http.post<ComposeResponse>('/drafts/compose', {
         prompt: aiPrompt,
         tone,
+      })
+      void track({
+        name: 'email.generated',
+        properties: { tone, prompt_chars: aiPrompt.length },
       })
       setBody(response.data.body ?? body)
       setAiPrompt('')
@@ -260,6 +269,10 @@ export function Compose() {
         tone: newTone,
       })
       if (response.data.draft?.body) setBody(response.data.draft.body)
+      void track({
+        name: 'draft.tone_adjusted',
+        properties: { draft_id: draft.id, tone: newTone },
+      })
       setStatusMessage(
         t('compose.toneAdjusted', { tone: newTone }, { defaultValue: 'Rewrote in {{tone}} tone.' }),
       )
@@ -324,6 +337,10 @@ export function Compose() {
       // never actually sent.
       const signature = loadPreferences().signature.trim()
       await http.post<SendResponse>(`/drafts/${draft.id}/send`, signature ? { signature } : {})
+      void track({
+        name: 'email.sent',
+        properties: { draft_id: draft.id, recipient_count: recipients.length },
+      })
       setStatusMessage(t('compose.sent', {}, { defaultValue: 'Sent! Tracking it on the inbox.' }))
       navigate('/inbox?folder=sent')
     } catch (err) {
@@ -339,8 +356,7 @@ export function Compose() {
     <div
       data-mol-id="compose-page"
       className={cm.cn(
-        cm.sp('px', 8),
-        cm.sp('py', 8),
+        'px-4 py-6 md:px-8 md:py-8',
         cm.maxW('7xl'),
         'mx-auto',
         cm.grid({ gap: 'lg' }),
@@ -349,11 +365,17 @@ export function Compose() {
     >
       <section
         className={cm.cn(
-          cm.sp('p', 8),
+          'p-4 md:p-8',
           'lg:col-span-8 bg-surface-container-lowest rounded-3xl shadow-sm border border-outline-variant/40',
         )}
       >
-        <header className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}>
+        <header
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+            'flex-wrap',
+            cm.sp('mb', 6),
+          )}
+        >
           <div>
             <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
               {t('compose.eyebrow', {}, { defaultValue: 'New message' })}
@@ -505,7 +527,7 @@ export function Compose() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:opacity-80',
+                'inline-block py-2 -my-2 text-primary hover:opacity-80',
               )}
             >
               {showCcBcc

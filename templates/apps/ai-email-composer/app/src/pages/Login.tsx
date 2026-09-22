@@ -69,7 +69,10 @@ export function Login() {
             </span>
             <Link
               to="/forgot-password"
-              className={cm.cn(cm.textSize('xs'), 'font-bold text-primary hover:opacity-80')}
+              className={cm.cn(
+                cm.textSize('xs'),
+                'inline-block py-2 -my-2 font-bold text-primary hover:opacity-80',
+              )}
             >
               {t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' })}
             </Link>
@@ -94,7 +97,10 @@ export function Login() {
                       ? t('login.hidePassword', {}, { defaultValue: 'Hide password' })
                       : t('login.showPassword', {}, { defaultValue: 'Show password' })
                   }
-                  className={cm.cn('text-on-surface-variant hover:text-primary transition-colors')}
+                  className={cm.cn(
+                    cm.sp('p', 2),
+                    '-mr-2 text-on-surface-variant hover:text-primary transition-colors',
+                  )}
                 >
                   <span className={cm.cn('material-symbols-outlined text-xl')} aria-hidden="true">
                     {showPassword ? 'visibility_off' : 'visibility'}
@@ -157,7 +163,7 @@ export function Login() {
         <Link
           to="/signup"
           className={cm.cn(
-            'font-bold text-primary hover:underline decoration-2 underline-offset-4 ml-1',
+            'inline-block py-2 font-bold text-primary hover:underline decoration-2 underline-offset-4 ml-1',
           )}
         >
           {t('login.signUp', {}, { defaultValue: 'Start writing' })}

@@ -31,12 +31,19 @@ test('signup with duplicate email surfaces an error', async ({ page, browser }) 
   await page.locator('input#name, input[name="name"]').first().fill('Test User')
   await page.locator('input[type="email"], input#email').first().fill(email)
   await page.locator('input[type="password"]').first().fill(password)
+  // The duplicate signup is EXPECTED to be rejected with a 403 — the
+  // browser logs that failed request to console; tell the console guard.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: /status of 403/,
+  })
   await page
     .getByRole('button', { name: /create account|sign\s*up/i })
     .first()
     .click()
 
-  await page.waitForTimeout(2000)
+  // The error must SURFACE: an inline alert, and the user stays on /signup.
+  await expect(page.locator('[data-mol-id="signup-error"]')).toBeVisible({ timeout: 15_000 })
   await expect(page).toHaveURL(/\/signup/)
 })
 

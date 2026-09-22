@@ -1,12 +1,10 @@
 import { existsSync, readFileSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { defineConfig } from '@playwright/test'
 
 import { resolveE2EProviderName } from '@molecule/app-e2e'
-
-import { existsSync } from 'node:fs'
 
 // Load the smoke-app's `../api/.env` so e2e tests that need to verify
 // against real backend secrets (Mailgun webhook signing key, Stripe

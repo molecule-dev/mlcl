@@ -144,7 +144,7 @@ export function Billing() {
   return (
     <div
       data-mol-id="billing-page"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
+      className={cm.cn('px-4 py-6 md:px-8 md:py-8', cm.maxW('7xl'), 'mx-auto', cm.stack(8))}
     >
       <header>
         <h1 className={cm.cn(cm.textSize('4xl'), 'font-extrabold tracking-tighter')}>
