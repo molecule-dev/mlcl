@@ -1,5 +1,8 @@
-import { createDefaultAuthClientWithHttpSync } from '@molecule/app-bonds-default-react'
+import { createDefaultAuthClientWithFetchClient } from '@molecule/app-bonds-default-react'
 
-import { authConfig } from '../config.js'
+import { API_BASE_URL, authConfig } from '../config.js'
 
-export const { authClient, setupAuthDefault } = createDefaultAuthClientWithHttpSync(authConfig)
+export const { authClient, setupAuthDefault } = createDefaultAuthClientWithFetchClient(authConfig, {
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+})
