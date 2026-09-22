@@ -34,6 +34,7 @@ export function Invoices() {
   const [search, setSearch] = useState(() => searchParams.get('q') ?? '')
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setSearch(searchParams.get('q') ?? '')
@@ -44,11 +45,15 @@ export function Invoices() {
     http
       .get<InvoiceRow[]>('/api/invoices')
       .then((r) => {
-        if (active) setData(Array.isArray(r.data) ? r.data : [])
+        if (active) {
+          setData(Array.isArray(r.data) ? r.data : [])
+          setLoading(false)
+        }
       })
       .catch((err) => {
         if (active) {
           setData([])
+          setLoading(false)
           setError(err instanceof Error ? err.message : 'Could not load invoices')
         }
       })
@@ -217,7 +222,7 @@ export function Invoices() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: '16px',
         }}
       >
@@ -326,52 +331,69 @@ export function Invoices() {
         className={cm.cn('bg-surface rounded-2xl shadow-sm overflow-hidden')}
         style={{ border: '1px solid var(--mol-color-border)' }}
       >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
-            padding: '12px 16px',
-            fontSize: '10px',
-            fontWeight: 800,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--mol-color-text-tertiary)',
-            backgroundColor: 'var(--mol-color-surface-secondary)',
-            borderBottom: '1px solid var(--mol-color-border)',
-          }}
-        >
-          <span>{t('invoices.col.number', {}, { defaultValue: 'Invoice' })}</span>
-          <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
-          <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
-          <span style={{ textAlign: 'right' }}>
-            {t('form.amount', {}, { defaultValue: 'Amount' })}
-          </span>
-          <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
-          <span style={{ textAlign: 'right' }}>
-            {t('invoices.col.paid', {}, { defaultValue: 'Paid' })}
-          </span>
-        </div>
-        {filtered.length === 0 ? (
-          <div
-            data-testid="invoices-empty"
-            style={{
-              padding: '60px 24px',
-              textAlign: 'center',
-              color: 'var(--mol-color-text-tertiary)',
-              fontSize: '14px',
-            }}
-          >
-            {invoices.length === 0
-              ? t(
-                  'invoices.emptyAll',
-                  {},
-                  { defaultValue: 'No invoices yet — create your first one.' },
-                )
-              : t('invoices.empty', {}, { defaultValue: 'No invoices match those filters.' })}
+        {/* Wide table: scrolls horizontally on small screens instead of cramming. */}
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ minWidth: '640px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
+                padding: '12px 16px',
+                fontSize: '10px',
+                fontWeight: 800,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--mol-color-text-tertiary)',
+                backgroundColor: 'var(--mol-color-surface-secondary)',
+                borderBottom: '1px solid var(--mol-color-border)',
+              }}
+            >
+              <span>{t('invoices.col.number', {}, { defaultValue: 'Invoice' })}</span>
+              <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
+              <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
+              <span style={{ textAlign: 'right' }}>
+                {t('form.amount', {}, { defaultValue: 'Amount' })}
+              </span>
+              <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
+              <span style={{ textAlign: 'right' }}>
+                {t('invoices.col.paid', {}, { defaultValue: 'Paid' })}
+              </span>
+            </div>
+            {loading ? (
+              <div
+                data-testid="invoices-loading"
+                style={{
+                  padding: '60px 24px',
+                  textAlign: 'center',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontSize: '14px',
+                }}
+              >
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+              </div>
+            ) : filtered.length === 0 ? (
+              <div
+                data-testid="invoices-empty"
+                style={{
+                  padding: '60px 24px',
+                  textAlign: 'center',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontSize: '14px',
+                }}
+              >
+                {invoices.length === 0
+                  ? t(
+                      'invoices.emptyAll',
+                      {},
+                      { defaultValue: 'No invoices yet — create your first one.' },
+                    )
+                  : t('invoices.empty', {}, { defaultValue: 'No invoices match those filters.' })}
+              </div>
+            ) : (
+              filtered.map((inv) => <InvoiceTableRow key={inv.id} invoice={inv} />)
+            )}
           </div>
-        ) : (
-          filtered.map((inv) => <InvoiceTableRow key={inv.id} invoice={inv} />)
-        )}
+        </div>
       </section>
     </div>
   )

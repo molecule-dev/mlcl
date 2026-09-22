@@ -8,6 +8,7 @@ import { ActivityFeed, type ActivityItem } from '../components/ActivityFeed.js'
 import { type InvoiceRow, InvoiceTableRow } from '../components/InvoiceTableRow.js'
 import { KpiStatCard } from '../components/KpiStatCard.js'
 import { RevenueHeroCard } from '../components/RevenueHeroCard.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 interface DashboardSummary {
   outstanding_cents: number
@@ -29,6 +30,7 @@ export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const isMobile = useIsMobile()
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [activity, setActivity] = useState<ActivityItem[]>([])
   const [invoices, setInvoices] = useState<InvoiceRow[]>([])
@@ -136,12 +138,12 @@ export function Dashboard() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(12, 1fr)',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(12, 1fr)',
           gap: '20px',
           alignItems: 'stretch',
         }}
       >
-        <div style={{ gridColumn: 'span 8' }}>
+        <div style={isMobile ? undefined : { gridColumn: 'span 8' }}>
           <RevenueHeroCard
             outstandingCents={heroOutstandingCents}
             collectedCents={heroCollectedCents}
@@ -151,9 +153,10 @@ export function Dashboard() {
         </div>
         <div
           style={{
-            gridColumn: 'span 4',
+            ...(isMobile ? {} : { gridColumn: 'span 4' }),
             display: 'grid',
-            gridTemplateRows: 'repeat(2, 1fr)',
+            gridTemplateColumns: isMobile ? 'repeat(auto-fit, minmax(150px, 1fr))' : '1fr',
+            gridTemplateRows: isMobile ? undefined : 'repeat(2, 1fr)',
             gap: '20px',
           }}
         >
@@ -175,7 +178,7 @@ export function Dashboard() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
           gap: '16px',
         }}
       >
@@ -211,7 +214,7 @@ export function Dashboard() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '1.6fr 1fr',
+          gridTemplateColumns: isMobile ? '1fr' : '1.6fr 1fr',
           gap: '20px',
         }}
       >
@@ -256,49 +259,54 @@ export function Dashboard() {
               {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
             </Link>
           </div>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
-              padding: '10px 16px',
-              fontSize: '10px',
-              fontWeight: 800,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'var(--mol-color-text-tertiary)',
-              backgroundColor: 'var(--mol-color-surface-secondary)',
-              borderBottom: '1px solid var(--mol-color-border)',
-            }}
-          >
-            <span>{t('dashboard.recent.col.number', {}, { defaultValue: 'Invoice' })}</span>
-            <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
-            <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
-            <span style={{ textAlign: 'right' }}>
-              {t('form.amount', {}, { defaultValue: 'Amount' })}
-            </span>
-            <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
-            <span style={{ textAlign: 'right' }}>
-              {t('dashboard.recent.col.paid', {}, { defaultValue: 'Paid' })}
-            </span>
-          </div>
-          {invoices.length === 0 ? (
-            <div
-              style={{
-                padding: '40px 20px',
-                textAlign: 'center',
-                color: 'var(--mol-color-text-tertiary)',
-                fontSize: '13px',
-              }}
-            >
-              {t(
-                'dashboard.recent.empty',
-                {},
-                { defaultValue: 'No invoices yet — create your first one.' },
+          {/* Wide table: scrolls horizontally on small screens instead of cramming. */}
+          <div style={{ overflowX: 'auto' }}>
+            <div style={{ minWidth: '640px' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
+                  padding: '10px 16px',
+                  fontSize: '10px',
+                  fontWeight: 800,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--mol-color-text-tertiary)',
+                  backgroundColor: 'var(--mol-color-surface-secondary)',
+                  borderBottom: '1px solid var(--mol-color-border)',
+                }}
+              >
+                <span>{t('dashboard.recent.col.number', {}, { defaultValue: 'Invoice' })}</span>
+                <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
+                <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.amount', {}, { defaultValue: 'Amount' })}
+                </span>
+                <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
+                <span style={{ textAlign: 'right' }}>
+                  {t('dashboard.recent.col.paid', {}, { defaultValue: 'Paid' })}
+                </span>
+              </div>
+              {invoices.length === 0 ? (
+                <div
+                  style={{
+                    padding: '40px 20px',
+                    textAlign: 'center',
+                    color: 'var(--mol-color-text-tertiary)',
+                    fontSize: '13px',
+                  }}
+                >
+                  {t(
+                    'dashboard.recent.empty',
+                    {},
+                    { defaultValue: 'No invoices yet — create your first one.' },
+                  )}
+                </div>
+              ) : (
+                invoices.map((inv) => <InvoiceTableRow key={inv.id} invoice={inv} />)
               )}
             </div>
-          ) : (
-            invoices.map((inv) => <InvoiceTableRow key={inv.id} invoice={inv} />)
-          )}
+          </div>
         </section>
 
         <ActivityFeed items={activity} />

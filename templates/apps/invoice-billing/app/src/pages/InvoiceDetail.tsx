@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ActivityFeed, type ActivityItem, type ActivityKind } from '../components/ActivityFeed.js'
 import { type InvoiceStatus, InvoiceStatusBadge } from '../components/InvoiceStatusBadge.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 interface InvoiceData {
   id: string
@@ -70,6 +72,7 @@ export function InvoiceDetail() {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const http = useHttpClient()
+  const isMobile = useIsMobile()
 
   const [invoice, setInvoice] = useState<InvoiceData | null>(null)
   const [client, setClient] = useState<ClientData | null>(null)
@@ -77,6 +80,8 @@ export function InvoiceDetail() {
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState<'send' | 'duplicate' | 'pdf' | 'pay' | 'void' | null>(null)
   const [feedback, setFeedback] = useState<string | null>(null)
+  // Destructive-action guard: Void arms first ("Confirm void?"), second click fires.
+  const [armedVoid, setArmedVoid] = useState(false)
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -114,6 +119,7 @@ export function InvoiceDetail() {
     setFeedback(null)
     try {
       await http.post(`/api/invoices/${invoice.id}/send`, {})
+      track({ name: 'invoice.sent', properties: { invoiceId: invoice.id } })
       setFeedback(t('invoiceDetail.feedback.sent', {}, { defaultValue: 'Invoice sent.' }))
       await reload()
     } catch (err) {
@@ -139,6 +145,10 @@ export function InvoiceDetail() {
     setFeedback(null)
     try {
       const dup = await http.post<InvoiceData>(`/api/invoices/${invoice.id}/duplicate`, {})
+      track({
+        name: 'invoice.duplicated',
+        properties: { invoiceId: invoice.id, newInvoiceId: dup.data?.id },
+      })
       if (dup.data?.id) navigate(`/invoices/${dup.data.id}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Duplicate failed')
@@ -153,6 +163,7 @@ export function InvoiceDetail() {
     setFeedback(null)
     try {
       await http.post(`/api/invoices/${invoice.id}/void`, {})
+      track({ name: 'invoice.voided', properties: { invoiceId: invoice.id } })
       setFeedback(t('invoiceDetail.feedback.voided', {}, { defaultValue: 'Invoice voided.' }))
       await reload()
     } catch (err) {
@@ -179,6 +190,10 @@ export function InvoiceDetail() {
         amount: remaining,
         method: 'manual',
         reference: 'Recorded from invoice page',
+      })
+      track({
+        name: 'payment.recorded',
+        properties: { invoiceId: invoice.id, amount: remaining, method: 'manual' },
       })
       setFeedback(t('invoiceDetail.feedback.paid', {}, { defaultValue: 'Payment recorded.' }))
       await reload()
@@ -478,20 +493,28 @@ export function InvoiceDetail() {
             <button
               type="button"
               data-action="void-invoice"
-              onClick={handleVoid}
+              onClick={() => {
+                if (!armedVoid) {
+                  setArmedVoid(true)
+                  return
+                }
+                void handleVoid()
+              }}
               disabled={busy !== null}
               style={{
                 padding: '10px 18px',
                 borderRadius: '9999px',
-                backgroundColor: 'transparent',
+                backgroundColor: armedVoid ? 'rgba(255,255,255,0.22)' : 'transparent',
                 color: 'var(--color-sidebar-text-active)',
-                fontWeight: 600,
+                fontWeight: armedVoid ? 800 : 600,
                 fontSize: '13px',
                 border: '1px solid rgba(255,255,255,0.4)',
                 cursor: busy ? 'not-allowed' : 'pointer',
               }}
             >
-              {t('invoiceDetail.action.void', {}, { defaultValue: 'Void' })}
+              {armedVoid
+                ? t('invoiceDetail.action.confirmVoid', {}, { defaultValue: 'Confirm void?' })
+                : t('invoiceDetail.action.void', {}, { defaultValue: 'Void' })}
             </button>
           ) : null}
         </div>
@@ -509,7 +532,13 @@ export function InvoiceDetail() {
         />
       </section>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
+          gap: '20px',
+        }}
+      >
         <section
           className={cm.cn(cm.sp('p', 8), 'bg-surface rounded-2xl shadow-sm')}
           style={{ border: '1px solid var(--mol-color-border)' }}
@@ -573,66 +602,68 @@ export function InvoiceDetail() {
             </div>
           </div>
 
-          <div style={{ marginTop: '24px' }}>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
-                fontSize: '10px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--mol-color-text-tertiary)',
-                fontWeight: 800,
-                paddingBottom: '8px',
-                borderBottom: '1px solid var(--mol-color-border)',
-              }}
-            >
-              <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
-              <span>{t('invoiceDetail.col.qty', {}, { defaultValue: 'Qty' })}</span>
-              <span style={{ textAlign: 'right' }}>
-                {t('form.rate', {}, { defaultValue: 'Rate' })}
-              </span>
-              <span style={{ textAlign: 'right' }}>
-                {t('form.amount', {}, { defaultValue: 'Amount' })}
-              </span>
-            </div>
-            {invoice.items.map((item, idx) => (
+          <div style={{ marginTop: '24px', overflowX: 'auto' }}>
+            <div style={{ minWidth: '480px' }}>
               <div
-                key={idx}
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
-                  padding: '12px 0',
-                  borderBottom: '1px solid var(--color-draft-light)',
-                  alignItems: 'center',
-                  fontSize: '14px',
+                  fontSize: '10px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontWeight: 800,
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid var(--mol-color-border)',
                 }}
               >
-                <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
-                  {item.description}
+                <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
+                <span>{t('invoiceDetail.col.qty', {}, { defaultValue: 'Qty' })}</span>
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.rate', {}, { defaultValue: 'Rate' })}
                 </span>
-                <span style={{ color: 'var(--mol-color-text-secondary)' }}>{item.quantity}</span>
-                <span
-                  style={{
-                    textAlign: 'right',
-                    color: 'var(--mol-color-text-secondary)',
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {formatCurrency(item.unit_price, invoice.currency)}
-                </span>
-                <span
-                  style={{
-                    textAlign: 'right',
-                    color: 'var(--mol-color-text)',
-                    fontWeight: 600,
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {formatCurrency(item.quantity * item.unit_price, invoice.currency)}
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.amount', {}, { defaultValue: 'Amount' })}
                 </span>
               </div>
-            ))}
+              {invoice.items.map((item, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
+                    padding: '12px 0',
+                    borderBottom: '1px solid var(--color-draft-light)',
+                    alignItems: 'center',
+                    fontSize: '14px',
+                  }}
+                >
+                  <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
+                    {item.description}
+                  </span>
+                  <span style={{ color: 'var(--mol-color-text-secondary)' }}>{item.quantity}</span>
+                  <span
+                    style={{
+                      textAlign: 'right',
+                      color: 'var(--mol-color-text-secondary)',
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {formatCurrency(item.unit_price, invoice.currency)}
+                  </span>
+                  <span
+                    style={{
+                      textAlign: 'right',
+                      color: 'var(--mol-color-text)',
+                      fontWeight: 600,
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {formatCurrency(item.quantity * item.unit_price, invoice.currency)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div

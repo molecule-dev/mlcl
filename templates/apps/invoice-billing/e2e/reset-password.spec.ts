@@ -12,16 +12,28 @@
  *  - Mismatched password warning surfaces inline.
  */
 import { execSync } from 'node:child_process'
+import { createHash, randomBytes } from 'node:crypto'
 
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
 import { API_BASE, APP_BASE, captureNetwork, signup } from './_helpers.js'
 
-function dbPasswordResetToken(userId: string): string {
-  return execSync(
-    `docker exec molecule-dev-db-1 psql -U molecule -d invoice_billing_test -tAc "SELECT \\"passwordResetToken\\" FROM \\"usersSecrets\\" WHERE id = '${userId}'"`,
+/**
+ * The platform stores only sha256(token) at rest — `usersSecrets.passwordResetToken`
+ * holds the DIGEST, and the raw token exists solely in the reset email (a DB read
+ * must never yield a live account-takeover credential). So an e2e run cannot read
+ * a usable token out of the DB. Instead, mint a raw token here and overwrite the
+ * stored digest with sha256(rawToken) — byte-for-byte what forgot-password does,
+ * minus the email. Test-only; mirrors employee-onboarding/auth-flows.
+ */
+function seedResetToken(userId: string): string {
+  const rawToken = randomBytes(32).toString('hex')
+  const digest = createHash('sha256').update(rawToken).digest('hex')
+  execSync(
+    `docker exec molecule-dev-db-1 psql -U molecule -d invoice_billing_test -c "UPDATE \\"usersSecrets\\" SET \\"passwordResetToken\\" = '${digest}', \\"passwordResetTokenAt\\" = now() WHERE id = '${userId}'"`,
     { encoding: 'utf8' },
-  ).trim()
+  )
+  return rawToken
 }
 
 test.describe('reset-password page', () => {
@@ -38,14 +50,16 @@ test.describe('reset-password page', () => {
     page,
   }) => {
     const { email, userId } = await signup(page, undefined, 'OldPass!1234')
+    // Leave the authed Dashboard BEFORE clearing credentials so its
+    // refetches can't fire 401s into the console guard.
+    await page.goto(APP_BASE + '/reset-password')
     await page.context().clearCookies()
     await page.evaluate(() => window.localStorage.clear())
     await page.request.post(`${API_BASE}/users/forgot-password`, {
       data: { email },
       headers: { 'Content-Type': 'application/json' },
     })
-    const token = dbPasswordResetToken(userId!)
-    expect(token.length).toBeGreaterThan(20)
+    const token = seedResetToken(userId!)
 
     await page.goto(
       `${APP_BASE}/reset-password?token=${encodeURIComponent(token)}&email=${encodeURIComponent(email)}`,
@@ -73,7 +87,7 @@ test.describe('reset-password page', () => {
       data: { email },
       headers: { 'Content-Type': 'application/json' },
     })
-    const token = dbPasswordResetToken(userId!)
+    const token = seedResetToken(userId!)
     const res = await page.request.post(`${API_BASE}/users/reset-password`, {
       data: { token, password: 'BrandNew!9876' },
       headers: { 'Content-Type': 'application/json' },

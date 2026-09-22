@@ -60,7 +60,7 @@ export function RevenueHeroCard({
           style={{ flexWrap: 'wrap' }}
         >
           <span
-            className={cm.cn('text-6xl font-extrabold tracking-tighter')}
+            className={cm.cn('text-5xl min-[480px]:text-6xl font-extrabold tracking-tighter')}
             style={{ fontVariantNumeric: 'tabular-nums' }}
           >
             {formatCurrency(outstandingCents)}

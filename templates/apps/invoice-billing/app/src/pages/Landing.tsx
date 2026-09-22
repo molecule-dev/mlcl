@@ -8,6 +8,7 @@ import { ActivityFeed, type ActivityItem } from '../components/ActivityFeed.js'
 import { Footer } from '../components/Footer.js'
 import { RevenueHeroCard } from '../components/RevenueHeroCard.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 const SAMPLE_ACTIVITY: ActivityItem[] = [
   {
@@ -39,6 +40,7 @@ const SAMPLE_ACTIVITY: ActivityItem[] = [
 ]
 
 export function Landing() {
+  const isMobile = useIsMobile()
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -95,21 +97,25 @@ export function Landing() {
         </Link>
         <nav
           className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }))}
-          style={{ fontSize: '14px' }}
+          style={{ fontSize: '14px', flexShrink: 0, gap: isMobile ? '10px' : undefined }}
         >
-          <a
-            href="#features"
-            style={{ color: 'var(--mol-color-text)', textDecoration: 'none', fontWeight: 500 }}
-          >
-            {t('nav.features', {}, { defaultValue: 'Features' })}
-          </a>
-          <Link
-            to="/pricing"
-            style={{ color: 'var(--mol-color-text)', textDecoration: 'none', fontWeight: 500 }}
-          >
-            {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
-          </Link>
-          <ThemeToggle />
+          {isMobile ? null : (
+            <>
+              <a
+                href="#features"
+                style={{ color: 'var(--mol-color-text)', textDecoration: 'none', fontWeight: 500 }}
+              >
+                {t('nav.features', {}, { defaultValue: 'Features' })}
+              </a>
+              <Link
+                to="/pricing"
+                style={{ color: 'var(--mol-color-text)', textDecoration: 'none', fontWeight: 500 }}
+              >
+                {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
+              </Link>
+              <ThemeToggle />
+            </>
+          )}
           {isAuthenticated ? (
             <Link
               to="/dashboard"
@@ -158,7 +164,7 @@ export function Landing() {
 
       <section
         style={{
-          padding: '40px 40px 80px',
+          padding: isMobile ? '32px 20px 64px' : '40px 40px 80px',
           maxWidth: '1280px',
           margin: '0 auto',
           width: '100%',
@@ -183,14 +189,16 @@ export function Landing() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(12, 1fr)',
             gap: '32px',
             alignItems: 'stretch',
           }}
         >
-          <div style={{ gridColumn: 'span 7' }}>
+          <div style={isMobile ? undefined : { gridColumn: 'span 7' }}>
             <h1
-              className={cm.cn('text-5xl md:text-6xl lg:text-7xl tracking-tight font-extrabold')}
+              className={cm.cn(
+                'text-4xl min-[480px]:text-5xl md:text-6xl lg:text-7xl tracking-tight font-extrabold',
+              )}
               style={{
                 lineHeight: 0.95,
                 letterSpacing: '-0.03em',
@@ -283,7 +291,7 @@ export function Landing() {
             </div>
           </div>
 
-          <div style={{ gridColumn: 'span 5' }}>
+          <div style={isMobile ? undefined : { gridColumn: 'span 5' }}>
             <div
               style={{
                 position: 'relative',
@@ -429,7 +437,7 @@ export function Landing() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '1.4fr 1fr',
+            gridTemplateColumns: isMobile ? '1fr' : '1.4fr 1fr',
             gap: '40px',
             alignItems: 'start',
           }}

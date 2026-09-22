@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -40,6 +41,7 @@ export function Clients() {
   const [showForm, setShowForm] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [feedback, setFeedback] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
 
   const reload = useCallback(async () => {
     try {
@@ -47,6 +49,8 @@ export function Clients() {
       setData(Array.isArray(r.data) ? r.data : [])
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not load clients')
+    } finally {
+      setLoading(false)
     }
   }, [http])
 
@@ -85,7 +89,8 @@ export function Clients() {
     setError(null)
     setFeedback(null)
     try {
-      await http.post('/api/clients', payload)
+      const created = await http.post<{ id?: string }>('/api/clients', payload)
+      track({ name: 'client.added', properties: { clientId: created.data?.id } })
       setFeedback(
         t('clients.createdFeedback', { name: payload.name }, { defaultValue: '{{name}} added.' }),
       )
@@ -177,7 +182,13 @@ export function Clients() {
         </div>
       ) : null}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '16px',
+        }}
+      >
         <KpiStatCard
           label={t('clients.kpi.count', {}, { defaultValue: 'Active clients' })}
           value={String(totals.count)}
@@ -237,7 +248,20 @@ export function Clients() {
           gap: '16px',
         }}
       >
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div
+            data-testid="clients-loading"
+            style={{
+              padding: '40px 24px',
+              textAlign: 'center',
+              color: 'var(--mol-color-text-tertiary)',
+              fontSize: '14px',
+              gridColumn: '1 / -1',
+            }}
+          >
+            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+          </div>
+        ) : filtered.length === 0 ? (
           <div
             data-testid="clients-empty"
             style={{

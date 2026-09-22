@@ -72,6 +72,7 @@ export function Payments() {
   const http = useHttpClient()
   const [payments, setPayments] = useState<PaymentRow[]>([])
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true)
   const [exporting, setExporting] = useState(false)
 
   useEffect(() => {
@@ -79,10 +80,16 @@ export function Payments() {
     http
       .get<PaymentRow[]>('/api/payments')
       .then((r) => {
-        if (active) setPayments(Array.isArray(r.data) ? r.data : [])
+        if (active) {
+          setPayments(Array.isArray(r.data) ? r.data : [])
+          setLoading(false)
+        }
       })
       .catch((err) => {
-        if (active) setError(err instanceof Error ? err.message : 'Could not load payments')
+        if (active) {
+          setLoading(false)
+          setError(err instanceof Error ? err.message : 'Could not load payments')
+        }
       })
     return () => {
       active = false
@@ -181,7 +188,13 @@ export function Payments() {
         </div>
       ) : null}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '16px',
+        }}
+      >
         <KpiStatCard
           label={t('payments.kpi.collected', {}, { defaultValue: 'Collected' })}
           value={formatCurrency(totals.collected)}
@@ -238,171 +251,191 @@ export function Payments() {
               : t('common.exportCsv', {}, { defaultValue: 'Export CSV' })}
           </button>
         </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '40px 1fr 1.4fr 1fr 1fr 1fr 0.8fr',
-            padding: '12px 16px',
-            fontSize: '10px',
-            fontWeight: 800,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--mol-color-text-tertiary)',
-            backgroundColor: 'var(--mol-color-surface-secondary)',
-            borderBottom: '1px solid var(--mol-color-border)',
-            alignItems: 'center',
-          }}
-        >
-          <span />
-          <span>{t('payments.col.method', {}, { defaultValue: 'Method' })}</span>
-          <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
-          <span>{t('payments.col.invoice', {}, { defaultValue: 'Invoice' })}</span>
-          <span>{t('payments.col.reference', {}, { defaultValue: 'Reference' })}</span>
-          <span style={{ textAlign: 'right' }}>
-            {t('form.amount', {}, { defaultValue: 'Amount' })}
-          </span>
-          <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
-        </div>
-        {payments.length === 0 ? (
-          <div
-            data-testid="payments-empty"
-            style={{
-              padding: '40px 20px',
-              textAlign: 'center',
-              color: 'var(--mol-color-text-tertiary)',
-              fontSize: '14px',
-            }}
-          >
-            {t(
-              'payments.empty',
-              {},
-              { defaultValue: 'No payments yet — record one from an invoice.' },
-            )}
-          </div>
-        ) : (
-          payments.map((p) => {
-            const method = METHOD_THEME[p.method] ?? {
-              label: p.method,
-              bg: 'var(--color-payment-manual-bg)',
-              fg: 'var(--color-payment-manual-fg)',
-              icon: 'payments',
-            }
-            const status = STATUS_THEME[p.status] ?? {
-              dot: 'var(--mol-color-text-secondary)',
-              label: p.status,
-            }
-            return (
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ minWidth: '760px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '40px 1fr 1.4fr 1fr 1fr 1fr 0.8fr',
+                padding: '12px 16px',
+                fontSize: '10px',
+                fontWeight: 800,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--mol-color-text-tertiary)',
+                backgroundColor: 'var(--mol-color-surface-secondary)',
+                borderBottom: '1px solid var(--mol-color-border)',
+                alignItems: 'center',
+              }}
+            >
+              <span />
+              <span>{t('payments.col.method', {}, { defaultValue: 'Method' })}</span>
+              <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
+              <span>{t('payments.col.invoice', {}, { defaultValue: 'Invoice' })}</span>
+              <span>{t('payments.col.reference', {}, { defaultValue: 'Reference' })}</span>
+              <span style={{ textAlign: 'right' }}>
+                {t('form.amount', {}, { defaultValue: 'Amount' })}
+              </span>
+              <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
+            </div>
+            {loading ? (
               <div
-                key={p.id}
-                data-testid={`payment-${p.id}`}
+                data-testid="payments-loading"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '40px 1fr 1.4fr 1fr 1fr 1fr 0.8fr',
-                  alignItems: 'center',
-                  padding: '14px 16px',
-                  borderBottom: '1px solid var(--color-draft-light)',
-                  fontSize: '13px',
+                  padding: '40px 20px',
+                  textAlign: 'center',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontSize: '14px',
                 }}
               >
-                <span
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '8px',
-                    backgroundColor: method.bg,
-                    color: method.fg,
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                    {method.icon}
-                  </span>
-                </span>
-                <div>
-                  <div
-                    style={{ fontSize: '13px', fontWeight: 600, color: 'var(--mol-color-text)' }}
-                  >
-                    {t(`payments.method.${p.method}`, {}, { defaultValue: method.label })}
-                  </div>
-                  <div style={{ fontSize: '11px', color: 'var(--mol-color-text-tertiary)' }}>
-                    {formatDate(p.created_at)}
-                  </div>
-                </div>
-                <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
-                  {p.client_name ?? '—'}
-                </span>
-                {p.invoice_id ? (
-                  <Link
-                    to={`/invoices/${p.invoice_id}`}
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: 'var(--color-sidebar-hover)',
-                      fontWeight: 600,
-                      fontSize: '12px',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    {p.invoice_number ?? '—'}
-                  </Link>
-                ) : (
-                  <span
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      color: 'var(--color-primary-dark)',
-                      fontWeight: 600,
-                      fontSize: '12px',
-                    }}
-                  >
-                    {p.invoice_number ?? '—'}
-                  </span>
-                )}
-                <span
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    color: 'var(--mol-color-text-tertiary)',
-                    fontSize: '11px',
-                  }}
-                >
-                  {p.reference ?? '—'}
-                </span>
-                <span
-                  style={{
-                    textAlign: 'right',
-                    fontWeight: 700,
-                    color: 'var(--color-paid)',
-                    fontVariantNumeric: 'tabular-nums',
-                    fontSize: '15px',
-                  }}
-                >
-                  {formatCurrency(Number(p.amount))}
-                </span>
-                <span
-                  className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: status.dot,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: '8px',
-                      height: '8px',
-                      borderRadius: '9999px',
-                      backgroundColor: status.dot,
-                      display: 'inline-block',
-                    }}
-                  />
-                  {t(`payments.status.${p.status}`, {}, { defaultValue: status.label })}
-                </span>
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
               </div>
-            )
-          })
-        )}
+            ) : payments.length === 0 ? (
+              <div
+                data-testid="payments-empty"
+                style={{
+                  padding: '40px 20px',
+                  textAlign: 'center',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontSize: '14px',
+                }}
+              >
+                {t(
+                  'payments.empty',
+                  {},
+                  { defaultValue: 'No payments yet — record one from an invoice.' },
+                )}
+              </div>
+            ) : (
+              payments.map((p) => {
+                const method = METHOD_THEME[p.method] ?? {
+                  label: p.method,
+                  bg: 'var(--color-payment-manual-bg)',
+                  fg: 'var(--color-payment-manual-fg)',
+                  icon: 'payments',
+                }
+                const status = STATUS_THEME[p.status] ?? {
+                  dot: 'var(--mol-color-text-secondary)',
+                  label: p.status,
+                }
+                return (
+                  <div
+                    key={p.id}
+                    data-testid={`payment-${p.id}`}
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '40px 1fr 1.4fr 1fr 1fr 1fr 0.8fr',
+                      alignItems: 'center',
+                      padding: '14px 16px',
+                      borderBottom: '1px solid var(--color-draft-light)',
+                      fontSize: '13px',
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '8px',
+                        backgroundColor: method.bg,
+                        color: method.fg,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                        {method.icon}
+                      </span>
+                    </span>
+                    <div>
+                      <div
+                        style={{
+                          fontSize: '13px',
+                          fontWeight: 600,
+                          color: 'var(--mol-color-text)',
+                        }}
+                      >
+                        {t(`payments.method.${p.method}`, {}, { defaultValue: method.label })}
+                      </div>
+                      <div style={{ fontSize: '11px', color: 'var(--mol-color-text-tertiary)' }}>
+                        {formatDate(p.created_at)}
+                      </div>
+                    </div>
+                    <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
+                      {p.client_name ?? '—'}
+                    </span>
+                    {p.invoice_id ? (
+                      <Link
+                        to={`/invoices/${p.invoice_id}`}
+                        style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          color: 'var(--color-sidebar-hover)',
+                          fontWeight: 600,
+                          fontSize: '12px',
+                          textDecoration: 'none',
+                        }}
+                      >
+                        {p.invoice_number ?? '—'}
+                      </Link>
+                    ) : (
+                      <span
+                        style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          color: 'var(--color-primary-dark)',
+                          fontWeight: 600,
+                          fontSize: '12px',
+                        }}
+                      >
+                        {p.invoice_number ?? '—'}
+                      </span>
+                    )}
+                    <span
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        color: 'var(--mol-color-text-tertiary)',
+                        fontSize: '11px',
+                      }}
+                    >
+                      {p.reference ?? '—'}
+                    </span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        fontWeight: 700,
+                        color: 'var(--color-paid)',
+                        fontVariantNumeric: 'tabular-nums',
+                        fontSize: '15px',
+                      }}
+                    >
+                      {formatCurrency(Number(p.amount))}
+                    </span>
+                    <span
+                      className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
+                      style={{
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        color: status.dot,
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '9999px',
+                          backgroundColor: status.dot,
+                          display: 'inline-block',
+                        }}
+                      />
+                      {t(`payments.status.${p.status}`, {}, { defaultValue: status.label })}
+                    </span>
+                  </div>
+                )
+              })
+            )}
+          </div>
+        </div>
       </section>
     </div>
   )

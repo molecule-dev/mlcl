@@ -38,6 +38,12 @@ test.describe('login page', () => {
   })
 
   test('bad credentials show error and DO NOT persist a token or navigate', async ({ page }) => {
+    // A rejected login surfaces as a 403 from the API — the browser logs it as
+    // a console error, which is the expected outcome here, not a bug.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel('Work email', { exact: true }).fill(uniqueEmail('bad'))
     await page.getByLabel('Password', { exact: true }).fill('NotARealPassword!')
@@ -87,7 +93,11 @@ test.describe('login page', () => {
       ),
     ).toBe(true)
 
-    // Now bad creds.
+    // Now bad creds. The rejected POST 403s and the browser logs it — expected.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/login')
     const badReqs = await captureNetwork(page, async () => {

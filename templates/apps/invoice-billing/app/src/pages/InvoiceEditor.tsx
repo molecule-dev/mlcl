@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 interface ClientOption {
   id: string
@@ -48,6 +50,7 @@ const formatCurrency = (n: number) =>
 export function InvoiceEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navigate = useNavigate()
   const [params] = useSearchParams()
   const editId = params.get('edit')
@@ -178,6 +181,12 @@ export function InvoiceEditor() {
       const inv = response.data
       if (action === 'send' && inv?.id) {
         await http.post(`/api/invoices/${inv.id}/send`, {})
+        track({
+          name: 'invoice.sent',
+          properties: { invoiceId: inv.id, from: editId ? 'edit' : 'create' },
+        })
+      } else if (inv?.id && !editId) {
+        track({ name: 'invoice.created', properties: { invoiceId: inv.id, status: inv.status } })
       }
       return inv ?? null
     } catch (err) {
@@ -312,7 +321,13 @@ export function InvoiceEditor() {
         </div>
       ) : null}
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: '20px',
+        }}
+      >
         <section
           className={cm.cn(cm.sp('p', 6), 'bg-surface rounded-2xl shadow-sm')}
           style={{ border: '1px solid var(--mol-color-border)' }}
@@ -332,7 +347,7 @@ export function InvoiceEditor() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
               gap: '14px',
               marginTop: '14px',
             }}
@@ -400,93 +415,100 @@ export function InvoiceEditor() {
             {t('invoiceEditor.section.items', {}, { defaultValue: 'Line items' })}
           </h3>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr 28px',
-              gap: '8px',
-              marginTop: '12px',
-              fontSize: '10px',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: 'var(--mol-color-text-tertiary)',
-              fontWeight: 700,
-            }}
-          >
-            <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
-            <span>{t('invoiceEditor.col.qty', {}, { defaultValue: 'Qty' })}</span>
-            <span style={{ textAlign: 'right' }}>
-              {t('form.rate', {}, { defaultValue: 'Rate' })}
-            </span>
-            <span style={{ textAlign: 'right' }}>
-              {t('form.amount', {}, { defaultValue: 'Amount' })}
-            </span>
-            <span />
-          </div>
-          {items.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr 28px',
-                gap: '8px',
-                alignItems: 'center',
-                marginTop: '8px',
-              }}
-            >
-              <input
-                value={item.description}
-                onChange={(e) => updateItem(item.id, { description: e.target.value })}
-                placeholder={t(
-                  'invoiceEditor.placeholder.description',
-                  {},
-                  { defaultValue: 'What did you do?' },
-                )}
-                aria-label={t('form.description', {}, { defaultValue: 'Description' })}
-                style={inputStyle}
-              />
-              <input
-                type="number"
-                value={item.quantity}
-                onChange={(e) => updateItem(item.id, { quantity: Number(e.target.value) || 0 })}
-                aria-label={t('invoiceEditor.col.qty', {}, { defaultValue: 'Qty' })}
-                style={inputStyle}
-              />
-              <input
-                type="number"
-                value={item.unit_price}
-                onChange={(e) => updateItem(item.id, { unit_price: Number(e.target.value) || 0 })}
-                aria-label={t('form.rate', {}, { defaultValue: 'Rate' })}
-                style={{ ...inputStyle, textAlign: 'right' }}
-              />
-              <span
+          {/* Wide editor grid: scrolls horizontally on small screens. */}
+          <div style={{ overflowX: 'auto' }}>
+            <div style={{ minWidth: '560px' }}>
+              <div
                 style={{
-                  textAlign: 'right',
-                  fontWeight: 700,
-                  fontSize: '14px',
-                  fontVariantNumeric: 'tabular-nums',
-                }}
-              >
-                {formatCurrency(item.quantity * item.unit_price)}
-              </span>
-              <button
-                type="button"
-                onClick={() => removeItem(item.id)}
-                aria-label={t('invoiceEditor.removeItem', {}, { defaultValue: 'Remove item' })}
-                style={{
-                  background: 'transparent',
-                  border: 'none',
+                  display: 'grid',
+                  gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr 28px',
+                  gap: '8px',
+                  marginTop: '12px',
+                  fontSize: '10px',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
                   color: 'var(--mol-color-text-tertiary)',
-                  cursor: 'pointer',
-                  padding: '6px',
+                  fontWeight: 700,
                 }}
               >
-                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                  close
+                <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
+                <span>{t('invoiceEditor.col.qty', {}, { defaultValue: 'Qty' })}</span>
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.rate', {}, { defaultValue: 'Rate' })}
                 </span>
-              </button>
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.amount', {}, { defaultValue: 'Amount' })}
+                </span>
+                <span />
+              </div>
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr 28px',
+                    gap: '8px',
+                    alignItems: 'center',
+                    marginTop: '8px',
+                  }}
+                >
+                  <input
+                    value={item.description}
+                    onChange={(e) => updateItem(item.id, { description: e.target.value })}
+                    placeholder={t(
+                      'invoiceEditor.placeholder.description',
+                      {},
+                      { defaultValue: 'What did you do?' },
+                    )}
+                    aria-label={t('form.description', {}, { defaultValue: 'Description' })}
+                    style={inputStyle}
+                  />
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => updateItem(item.id, { quantity: Number(e.target.value) || 0 })}
+                    aria-label={t('invoiceEditor.col.qty', {}, { defaultValue: 'Qty' })}
+                    style={inputStyle}
+                  />
+                  <input
+                    type="number"
+                    value={item.unit_price}
+                    onChange={(e) =>
+                      updateItem(item.id, { unit_price: Number(e.target.value) || 0 })
+                    }
+                    aria-label={t('form.rate', {}, { defaultValue: 'Rate' })}
+                    style={{ ...inputStyle, textAlign: 'right' }}
+                  />
+                  <span
+                    style={{
+                      textAlign: 'right',
+                      fontWeight: 700,
+                      fontSize: '14px',
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {formatCurrency(item.quantity * item.unit_price)}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(item.id)}
+                    aria-label={t('invoiceEditor.removeItem', {}, { defaultValue: 'Remove item' })}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--mol-color-text-tertiary)',
+                      cursor: 'pointer',
+                      padding: '6px',
+                    }}
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                      close
+                    </span>
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
           <button
             type="button"
             onClick={addItem}
@@ -677,66 +699,68 @@ export function InvoiceEditor() {
             </p>
           </div>
 
-          <div style={{ marginTop: '20px' }}>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
-                fontSize: '10px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                color: 'var(--mol-color-text-tertiary)',
-                fontWeight: 800,
-                paddingBottom: '8px',
-                borderBottom: '1px solid var(--mol-color-border)',
-              }}
-            >
-              <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
-              <span>{t('invoiceEditor.preview.col.qty', {}, { defaultValue: 'Qty' })}</span>
-              <span style={{ textAlign: 'right' }}>
-                {t('form.rate', {}, { defaultValue: 'Rate' })}
-              </span>
-              <span style={{ textAlign: 'right' }}>
-                {t('form.amount', {}, { defaultValue: 'Amount' })}
-              </span>
-            </div>
-            {items.map((item) => (
+          <div style={{ marginTop: '20px', overflowX: 'auto' }}>
+            <div style={{ minWidth: '480px' }}>
               <div
-                key={item.id}
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
-                  padding: '10px 0',
-                  borderBottom: '1px solid var(--color-draft-light)',
-                  alignItems: 'center',
-                  fontSize: '13px',
+                  fontSize: '10px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontWeight: 800,
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid var(--mol-color-border)',
                 }}
               >
-                <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
-                  {item.description || '—'}
+                <span>{t('form.description', {}, { defaultValue: 'Description' })}</span>
+                <span>{t('invoiceEditor.preview.col.qty', {}, { defaultValue: 'Qty' })}</span>
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.rate', {}, { defaultValue: 'Rate' })}
                 </span>
-                <span style={{ color: 'var(--mol-color-text-secondary)' }}>{item.quantity}</span>
-                <span
-                  style={{
-                    textAlign: 'right',
-                    color: 'var(--mol-color-text-secondary)',
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {formatCurrency(item.unit_price)}
-                </span>
-                <span
-                  style={{
-                    textAlign: 'right',
-                    color: 'var(--mol-color-text)',
-                    fontWeight: 600,
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {formatCurrency(item.quantity * item.unit_price)}
+                <span style={{ textAlign: 'right' }}>
+                  {t('form.amount', {}, { defaultValue: 'Amount' })}
                 </span>
               </div>
-            ))}
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '2.6fr 0.6fr 0.9fr 0.9fr',
+                    padding: '10px 0',
+                    borderBottom: '1px solid var(--color-draft-light)',
+                    alignItems: 'center',
+                    fontSize: '13px',
+                  }}
+                >
+                  <span style={{ color: 'var(--mol-color-text)', fontWeight: 500 }}>
+                    {item.description || '—'}
+                  </span>
+                  <span style={{ color: 'var(--mol-color-text-secondary)' }}>{item.quantity}</span>
+                  <span
+                    style={{
+                      textAlign: 'right',
+                      color: 'var(--mol-color-text-secondary)',
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {formatCurrency(item.unit_price)}
+                  </span>
+                  <span
+                    style={{
+                      textAlign: 'right',
+                      color: 'var(--mol-color-text)',
+                      fontWeight: 600,
+                      fontVariantNumeric: 'tabular-nums',
+                    }}
+                  >
+                    {formatCurrency(item.quantity * item.unit_price)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div style={{ marginTop: '16px', display: 'grid', gap: '6px' }}>

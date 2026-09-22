@@ -105,7 +105,11 @@ test.describe('invoice detail page', () => {
     await page.goto(APP_BASE + '/invoices/' + inv.id)
     await page.waitForTimeout(1200)
 
-    await page.locator('[data-action="void-invoice"]').click()
+    // Destructive action: Void arms an inline confirm first, second click fires.
+    const voidBtn = page.locator('[data-action="void-invoice"]')
+    await voidBtn.click()
+    await expect(voidBtn).toContainText(/Confirm void\?/i)
+    await voidBtn.click()
     await expect(page.getByTestId('invoice-feedback')).toBeVisible({ timeout: 8000 })
 
     const get = await page.request.get(`${API_BASE}/invoices/${inv.id}`, {

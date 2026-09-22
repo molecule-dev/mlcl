@@ -4,6 +4,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { KpiStatCard } from '../components/KpiStatCard.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 const PALETTE = [
   '#0d7377',
@@ -58,6 +59,7 @@ export function Reports() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const isMobile = useIsMobile()
   const [period, setPeriod] = useState<'monthly' | 'quarterly' | 'annual'>('monthly')
   const [revenue, setRevenue] = useState<RevenuePoint[]>([])
   const [aging, setAging] = useState<AgingRow[]>([])
@@ -285,7 +287,13 @@ export function Reports() {
         </div>
       ) : null}
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '16px',
+        }}
+      >
         <KpiStatCard
           label={t('reports.kpi.revenue', {}, { defaultValue: 'Revenue YTD' })}
           value={formatCurrency(yearRevenue)}
@@ -313,7 +321,13 @@ export function Reports() {
         />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '16px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1.4fr 1fr',
+          gap: '16px',
+        }}
+      >
         <ChartCard
           title={t('reports.chart.revenue', {}, { defaultValue: 'Revenue overview' })}
           caption={t('reports.chart.revenueCaption', {}, { defaultValue: 'Period revenue' })}
@@ -328,7 +342,9 @@ export function Reports() {
         </ChartCard>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+      <div
+        style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '16px' }}
+      >
         <ChartCard
           title={t('reports.chart.topClients', {}, { defaultValue: 'Top clients' })}
           caption={t(

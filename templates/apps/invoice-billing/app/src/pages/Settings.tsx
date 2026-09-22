@@ -6,6 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 const SECTIONS = [
   { id: 'profile', label: 'Profile', icon: 'person' },
@@ -89,6 +90,7 @@ interface BillingTier {
 
 export function Settings() {
   const cm = getClassMap()
+  const isMobile = useIsMobile()
   const { t } = useTranslation()
   const http = useHttpClient()
   const [active, setActive] = useState<SectionId>('profile')
@@ -273,7 +275,7 @@ export function Settings() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '240px 1fr',
+          gridTemplateColumns: isMobile ? '1fr' : '240px 1fr',
           gap: '20px',
           alignItems: 'start',
         }}
@@ -850,81 +852,87 @@ function TaxRatesSection({
           border: '1px solid var(--mol-color-border)',
         }}
       >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1.5fr 0.5fr',
-            padding: '12px 16px',
-            fontSize: '10px',
-            fontWeight: 800,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--mol-color-text-tertiary)',
-            backgroundColor: 'var(--mol-color-surface-secondary)',
-            borderBottom: '1px solid var(--mol-color-border)',
-          }}
-        >
-          <span>{t('form.name', {}, { defaultValue: 'Name' })}</span>
-          <span>{t('form.rate', {}, { defaultValue: 'Rate' })}</span>
-          <span>{t('settings.tax.col.region', {}, { defaultValue: 'Region' })}</span>
-          <span />
-        </div>
-        {taxRates.length === 0 ? (
-          <div
-            data-testid="tax-rates-empty"
-            style={{
-              padding: '24px',
-              textAlign: 'center',
-              color: 'var(--mol-color-text-tertiary)',
-              fontSize: '13px',
-            }}
-          >
-            {t('settings.tax.empty', {}, { defaultValue: 'No tax rates yet.' })}
-          </div>
-        ) : (
-          taxRates.map((r) => (
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ minWidth: '560px' }}>
             <div
-              key={r.id}
-              data-testid={`tax-rate-${r.id}`}
               style={{
                 display: 'grid',
                 gridTemplateColumns: '2fr 1fr 1.5fr 0.5fr',
-                alignItems: 'center',
                 padding: '12px 16px',
-                borderBottom: '1px solid var(--color-draft-light)',
-                fontSize: '13px',
+                fontSize: '10px',
+                fontWeight: 800,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--mol-color-text-tertiary)',
+                backgroundColor: 'var(--mol-color-surface-secondary)',
+                borderBottom: '1px solid var(--mol-color-border)',
               }}
             >
-              <span style={{ fontWeight: 600, color: 'var(--mol-color-text)' }}>{r.name}</span>
-              <span
-                style={{
-                  fontVariantNumeric: 'tabular-nums',
-                  color: 'var(--color-primary-dark)',
-                  fontWeight: 700,
-                }}
-              >
-                {Number(r.rate_pct)}%
-              </span>
-              <span style={{ color: 'var(--mol-color-text-secondary)' }}>{r.region ?? '—'}</span>
-              <button
-                type="button"
-                data-action="delete"
-                onClick={() => remove(r)}
-                aria-label={t('settings.tax.delete', {}, { defaultValue: 'Delete tax rate' })}
-                style={{
-                  border: 'none',
-                  background: 'transparent',
-                  color: 'var(--mol-color-text-tertiary)',
-                  cursor: 'pointer',
-                }}
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                  delete
-                </span>
-              </button>
+              <span>{t('form.name', {}, { defaultValue: 'Name' })}</span>
+              <span>{t('form.rate', {}, { defaultValue: 'Rate' })}</span>
+              <span>{t('settings.tax.col.region', {}, { defaultValue: 'Region' })}</span>
+              <span />
             </div>
-          ))
-        )}
+            {taxRates.length === 0 ? (
+              <div
+                data-testid="tax-rates-empty"
+                style={{
+                  padding: '24px',
+                  textAlign: 'center',
+                  color: 'var(--mol-color-text-tertiary)',
+                  fontSize: '13px',
+                }}
+              >
+                {t('settings.tax.empty', {}, { defaultValue: 'No tax rates yet.' })}
+              </div>
+            ) : (
+              taxRates.map((r) => (
+                <div
+                  key={r.id}
+                  data-testid={`tax-rate-${r.id}`}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: '2fr 1fr 1.5fr 0.5fr',
+                    alignItems: 'center',
+                    padding: '12px 16px',
+                    borderBottom: '1px solid var(--color-draft-light)',
+                    fontSize: '13px',
+                  }}
+                >
+                  <span style={{ fontWeight: 600, color: 'var(--mol-color-text)' }}>{r.name}</span>
+                  <span
+                    style={{
+                      fontVariantNumeric: 'tabular-nums',
+                      color: 'var(--color-primary-dark)',
+                      fontWeight: 700,
+                    }}
+                  >
+                    {Number(r.rate_pct)}%
+                  </span>
+                  <span style={{ color: 'var(--mol-color-text-secondary)' }}>
+                    {r.region ?? '—'}
+                  </span>
+                  <button
+                    type="button"
+                    data-action="delete"
+                    onClick={() => remove(r)}
+                    aria-label={t('settings.tax.delete', {}, { defaultValue: 'Delete tax rate' })}
+                    style={{
+                      border: 'none',
+                      background: 'transparent',
+                      color: 'var(--mol-color-text-tertiary)',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+                      delete
+                    </span>
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
       {showForm ? (
         <div

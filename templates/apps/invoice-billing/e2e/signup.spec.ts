@@ -47,11 +47,20 @@ test.describe('signup page', () => {
   })
 
   test('duplicate email signup does NOT create a duplicate account', async ({ page }) => {
+    // The duplicate POST is intentionally rejected 403 (anti-enumeration) —
+    // the browser logs it as a console error, which is expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('dup')
     // First signup succeeds.
     const { accessToken } = await signup(page, email)
     expect(accessToken).toBeTruthy()
 
+    // Leave the authed Dashboard BEFORE clearing credentials so its
+    // refetches can't fire 401s into the console guard.
+    await page.goto(APP_BASE + '/signup')
     // Clear storage AND cookies; navigate back to /signup; submit same email
     // a second time. The persistent credential is the httpOnly `token` cookie
     // (getAccessToken reads it, not localStorage), so clearing only
@@ -84,6 +93,11 @@ test.describe('signup page', () => {
   test('Create account submit POSTs /api/users (success: 200/201, duplicate: 4xx) — captureNetwork', async ({
     page,
   }) => {
+    // The duplicate half intentionally lands a 403 — expected console noise.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('netcheck')
     await page.goto(APP_BASE + '/signup')
     const goodReqs = await captureNetwork(page, async () => {

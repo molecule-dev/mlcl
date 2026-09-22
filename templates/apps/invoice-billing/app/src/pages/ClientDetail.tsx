@@ -6,6 +6,7 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { ActivityFeed, type ActivityItem, type ActivityKind } from '../components/ActivityFeed.js'
 import { type InvoiceRow, InvoiceTableRow } from '../components/InvoiceTableRow.js'
+import { useIsMobile } from '../components/useIsMobile.js'
 
 interface ClientData {
   id: string
@@ -45,6 +46,7 @@ export function ClientDetail() {
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const http = useHttpClient()
+  const isMobile = useIsMobile()
   const [client, setClient] = useState<ClientData | null>(null)
   const [invoices, setInvoices] = useState<InvoiceRow[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -227,7 +229,13 @@ export function ClientDetail() {
         </div>
       </section>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
+          gap: '20px',
+        }}
+      >
         <section
           className={cm.cn('bg-surface rounded-2xl shadow-sm overflow-hidden')}
           style={{ border: '1px solid var(--mol-color-border)' }}
@@ -273,34 +281,39 @@ export function ClientDetail() {
             </div>
           ) : (
             <>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
-                  padding: '12px 16px',
-                  fontSize: '10px',
-                  fontWeight: 800,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--mol-color-text-tertiary)',
-                  backgroundColor: 'var(--mol-color-surface-secondary)',
-                  borderBottom: '1px solid var(--mol-color-border)',
-                }}
-              >
-                <span>{t('clientDetail.col.number', {}, { defaultValue: 'Invoice' })}</span>
-                <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
-                <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
-                <span style={{ textAlign: 'right' }}>
-                  {t('form.amount', {}, { defaultValue: 'Amount' })}
-                </span>
-                <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
-                <span style={{ textAlign: 'right' }}>
-                  {t('clientDetail.col.paid', {}, { defaultValue: 'Paid' })}
-                </span>
+              {/* Wide table: scrolls horizontally on small screens instead of cramming. */}
+              <div style={{ overflowX: 'auto' }}>
+                <div style={{ minWidth: '640px' }}>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1.4fr 1.6fr 1.1fr 1.4fr 1.1fr 0.8fr',
+                      padding: '12px 16px',
+                      fontSize: '10px',
+                      fontWeight: 800,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'var(--mol-color-text-tertiary)',
+                      backgroundColor: 'var(--mol-color-surface-secondary)',
+                      borderBottom: '1px solid var(--mol-color-border)',
+                    }}
+                  >
+                    <span>{t('clientDetail.col.number', {}, { defaultValue: 'Invoice' })}</span>
+                    <span>{t('nav.client', {}, { defaultValue: 'Client' })}</span>
+                    <span>{t('form.due', {}, { defaultValue: 'Due' })}</span>
+                    <span style={{ textAlign: 'right' }}>
+                      {t('form.amount', {}, { defaultValue: 'Amount' })}
+                    </span>
+                    <span>{t('nav.status', {}, { defaultValue: 'Status' })}</span>
+                    <span style={{ textAlign: 'right' }}>
+                      {t('clientDetail.col.paid', {}, { defaultValue: 'Paid' })}
+                    </span>
+                  </div>
+                  {invoices.map((inv) => (
+                    <InvoiceTableRow key={inv.id} invoice={inv} />
+                  ))}
+                </div>
               </div>
-              {invoices.map((inv) => (
-                <InvoiceTableRow key={inv.id} invoice={inv} />
-              ))}
             </>
           )}
         </section>
