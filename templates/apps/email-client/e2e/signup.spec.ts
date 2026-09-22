@@ -56,6 +56,9 @@ test('Each input accepts text', async ({ page }) => {
 })
 
 test('Duplicate-email signup is rejected', async ({ page }) => {
+  // The duplicate signup is expected to be rejected with 403 — assert that
+  // contract without the console-guard failing on the expected console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   const dup = `dup-${Date.now()}@flagship.test`
   // First signup succeeds
   await page.goto(APP_BASE + '/signup')

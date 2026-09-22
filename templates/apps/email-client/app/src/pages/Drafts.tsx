@@ -1,14 +1,17 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ConfirmButton } from '../components/ConfirmButton.js'
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
 import { MeridianThreadRow } from '../components/MeridianThreadRow.js'
 import type { EmailRow } from '../lib/api.js'
 import { emailToThreadRow, ensureArray, formatRelativeTimestamp } from '../lib/api.js'
 import { useEmails } from '../lib/useEmails.js'
+import { useIsMobile } from '../lib/useIsMobile.js'
 
 export function Drafts() {
   const cm = getClassMap()
@@ -27,15 +30,19 @@ export function Drafts() {
     limit: 100,
   })
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const isMobile = useIsMobile()
 
+  // Desktop keeps a default selection; mobile collapses to list → detail.
   const selected: EmailRow | null = useMemo(() => {
+    if (isMobile) return (drafts.find((d) => d.id === selectedId) ?? null) as EmailRow | null
     return (drafts.find((d) => d.id === selectedId) ?? drafts[0] ?? null) as EmailRow | null
-  }, [drafts, selectedId])
+  }, [drafts, selectedId, isMobile])
 
   const deleteDraft = useCallback(
     async (id: string) => {
       try {
         await http.delete(`/api/drafts/${id}`)
+        track({ name: 'draft.deleted', properties: { draft_id: id } })
       } finally {
         setSelectedId(null)
         setRefreshKey((k) => k + 1)
@@ -51,7 +58,12 @@ export function Drafts() {
         <section
           className={cm.cn(
             cm.flex({ direction: 'col' }),
-            'w-[400px] shrink-0 border-r border-outline-variant/40 bg-surface',
+            isMobile
+              ? selected
+                ? 'hidden'
+                : cm.w('full')
+              : 'w-[400px] shrink-0 border-r border-outline-variant/40',
+            'bg-surface',
           )}
         >
           <header
@@ -128,6 +140,7 @@ export function Drafts() {
         <section
           className={cm.cn(
             cm.flex1,
+            isMobile && !selected && 'hidden',
             'min-w-0 bg-surface-container-lowest overflow-y-auto relative',
           )}
         >
@@ -152,15 +165,34 @@ export function Drafts() {
               )}
             >
               <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md' })}>
-                <h1
-                  className={cm.cn(
-                    'text-2xl font-extrabold tracking-tight text-on-surface leading-tight',
+                <div className={cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' })}>
+                  {isMobile && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(null)}
+                      data-mol-id="drafts-back"
+                      aria-label={t('common.back', {}, { defaultValue: 'Back' })}
+                      className={cm.cn(
+                        cm.sp('p', 2),
+                        cm.cursorPointer,
+                        'rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                      )}
+                    >
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        arrow_back
+                      </span>
+                    </button>
                   )}
-                  data-mol-id="drafts-subject"
-                >
-                  {selected.subject ||
-                    t('meridian.inbox.noSubject', {}, { defaultValue: '(no subject)' })}
-                </h1>
+                  <h1
+                    className={cm.cn(
+                      'text-2xl font-extrabold tracking-tight text-on-surface leading-tight',
+                    )}
+                    data-mol-id="drafts-subject"
+                  >
+                    {selected.subject ||
+                      t('meridian.inbox.noSubject', {}, { defaultValue: '(no subject)' })}
+                  </h1>
+                </div>
                 <span
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),
@@ -244,24 +276,18 @@ export function Drafts() {
                   </span>
                   {t('meridian.drafts.continue', {}, { defaultValue: 'Continue editing' })}
                 </button>
-                <button
-                  type="button"
-                  onClick={() => deleteDraft(selected.id)}
-                  data-mol-id="drafts-delete"
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 4),
-                    cm.sp('py', 3),
-                    cm.fontWeight('medium'),
-                    cm.textSize('sm'),
-                    'rounded-full text-error hover:bg-error/10 transition-colors',
+                <ConfirmButton
+                  onConfirm={() => deleteDraft(selected.id)}
+                  confirmLabel={t(
+                    'meridian.drafts.confirmDelete',
+                    {},
+                    { defaultValue: 'Tap again to delete' },
                   )}
+                  data-mol-id="drafts-delete"
+                  className="text-error hover:bg-error/10"
                 >
-                  <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                    delete
-                  </span>
                   {t('meridian.drafts.delete', {}, { defaultValue: 'Delete draft' })}
-                </button>
+                </ConfirmButton>
               </div>
             </div>
           ) : (

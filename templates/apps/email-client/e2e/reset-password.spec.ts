@@ -29,6 +29,9 @@ test('Confirm-password mismatch shows an inline error and disables submit', asyn
 })
 
 test('Submitting matched passwords posts to /api/users/reset-password', async ({ page }) => {
+  // The token is intentionally fake — the backend 401s it, which the
+  // console-guard would otherwise treat as an unexpected console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(APP_BASE + '/reset-password?token=any-token-for-network-check')
   const inputs = page.locator('input[type="password"]')
   await inputs.nth(0).fill('Password123!')

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -132,7 +133,12 @@ export function Compose() {
             thread_id: state.thread_id,
           })
           const row = ((res as { data?: EmailRow }).data ?? res) as EmailRow
-          if (row?.id) setDraftRowId(row.id)
+          if (row?.id) {
+            setDraftRowId(row.id)
+            // First commit of a draft is the meaningful funnel point;
+            // subsequent PUT autosaves don't re-fire the event.
+            track({ name: 'draft.saved', properties: { draft_id: row.id } })
+          }
         }
         setSavingStatus(
           t(
@@ -227,6 +233,14 @@ export function Compose() {
         )
       } else {
         setSendStatus(t('meridian.compose.sent', {}, { defaultValue: 'Sent successfully.' }))
+        track({
+          name: 'email.sent',
+          properties: {
+            email_id: data.id ?? null,
+            recipient_count: state.to.length + state.cc.length + state.bcc.length,
+            kind: 'compose',
+          },
+        })
         setTimeout(() => navigate('/inbox'), 800)
       }
     } catch (err) {
@@ -246,6 +260,7 @@ export function Compose() {
     if (draftRowId) {
       try {
         await http.delete(`/api/drafts/${draftRowId}`)
+        track({ name: 'draft.deleted', properties: { draft_id: draftRowId } })
       } catch (_error) {
         // best-effort discard
       }

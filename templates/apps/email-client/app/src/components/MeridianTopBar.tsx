@@ -11,6 +11,11 @@ import { UserMenu } from './UserMenu.js'
 interface MeridianTopBarProps {
   /** Right-side avatar initials override (default: derived from auth user). */
   avatarInitials?: string
+  /**
+   * When provided (mobile), a hamburger button renders before the brand
+   * that opens the mail navigation drawer.
+   */
+  onMenuClick?: () => void
 }
 
 interface AuthUser {
@@ -32,7 +37,7 @@ interface AuthUser {
  * The avatar initials default to the signed-in user's initials, derived
  * from `useAuth()`. Callers can pass `avatarInitials` to override.
  */
-export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
+export function MeridianTopBar({ avatarInitials, onMenuClick }: MeridianTopBarProps = {}) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -65,9 +70,30 @@ export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
         'sticky top-0 z-40 h-[56px] bg-surface/95 backdrop-blur-md border-b border-outline-variant/40',
       )}
     >
+      {onMenuClick && (
+        <button
+          type="button"
+          onClick={onMenuClick}
+          data-mol-id="topbar-menu"
+          aria-label={t('meridian.topBar.openMenu', {}, { defaultValue: 'Open navigation menu' })}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.sp('p', 2),
+            cm.cursorPointer,
+            'w-10 h-10 rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors shrink-0',
+          )}
+        >
+          <span className="material-symbols-outlined" aria-hidden="true">
+            menu
+          </span>
+        </button>
+      )}
       <Link
         to="/inbox"
-        className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-[200px] shrink-0')}
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          'min-w-0 sm:min-w-[200px] shrink-0',
+        )}
       >
         <span
           className={cm.cn(
@@ -86,7 +112,11 @@ export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
           </span>
         </span>
         <span
-          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'text-primary tracking-tight')}
+          className={cm.cn(
+            cm.textSize('lg'),
+            cm.fontWeight('bold'),
+            'text-primary tracking-tight hidden sm:inline',
+          )}
         >
           {t('meridian.topBar.appName', {}, { defaultValue: APP_NAME })}
         </span>
@@ -96,8 +126,8 @@ export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center' }),
           cm.flex1,
-          cm.sp('px', 4),
-          'max-w-[640px]',
+          cm.sp('px', 2),
+          'min-w-0 md:px-4 max-w-[640px]',
         )}
       >
         <div
@@ -150,7 +180,7 @@ export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
       <div
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'xs' }),
-          'min-w-[200px] justify-end shrink-0',
+          'min-w-0 md:min-w-[200px] justify-end shrink-0',
         )}
       >
         <UserMenu />
@@ -166,7 +196,7 @@ export function MeridianTopBar({ avatarInitials }: MeridianTopBarProps = {}) {
             cm.textSize('xs'),
             cm.sp('ml', 2),
             cm.cursorPointer,
-            'rounded-full bg-primary-100 text-primary-700 border border-primary-200 hover:bg-primary-200 transition-colors',
+            'hidden md:inline-flex rounded-full bg-primary-100 text-primary-700 border border-primary-200 hover:bg-primary-200 transition-colors',
           )}
         >
           {initials}

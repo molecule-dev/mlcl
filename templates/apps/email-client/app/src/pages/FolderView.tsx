@@ -1,8 +1,10 @@
 import { useCallback, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ConfirmButton } from '../components/ConfirmButton.js'
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
 import { MeridianMessageCard } from '../components/MeridianMessageCard.js'
 import { MeridianThreadRow } from '../components/MeridianThreadRow.js'
@@ -14,6 +16,7 @@ import {
   formatRelativeTimestamp,
 } from '../lib/api.js'
 import { useEmails, useLabels } from '../lib/useEmails.js'
+import { useIsMobile } from '../lib/useIsMobile.js'
 
 interface FolderViewProps {
   folder: 'sent' | 'archive' | 'trash' | 'spam'
@@ -29,6 +32,7 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
   const http = useHttpClient()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
+  const isMobile = useIsMobile()
   const { emails, loading, error, refetch, setEmails } = useEmails({
     folder,
     refreshKey,
@@ -41,9 +45,12 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
     return out
   }, [labels])
 
+  // Desktop keeps a default selection; mobile collapses to list → detail
+  // (list stays full-width until a row is tapped).
   const selected: EmailRow | null = useMemo(() => {
+    if (isMobile) return (emails.find((e) => e.id === selectedId) ?? null) as EmailRow | null
     return (emails.find((e) => e.id === selectedId) ?? emails[0] ?? null) as EmailRow | null
-  }, [emails, selectedId])
+  }, [emails, selectedId, isMobile])
 
   const refresh = useCallback(() => {
     setRefreshKey((k) => k + 1)
@@ -53,8 +60,10 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
   const restoreToInbox = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setSelectedId(null)
       try {
         await http.put(`/api/emails/${id}/move`, { folder: 'inbox' })
+        track({ name: 'folder.moved', properties: { email_id: id, folder: 'inbox' } })
       } finally {
         refresh()
       }
@@ -65,13 +74,18 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
   const remove = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setSelectedId(null)
       try {
         await http.delete(`/api/emails/${id}`)
+        track({
+          name: 'email.deleted',
+          properties: { email_id: id, permanent: folder === 'trash' },
+        })
       } finally {
         refresh()
       }
     },
-    [http, setEmails, refresh],
+    [http, setEmails, refresh, folder],
   )
 
   return (
@@ -80,7 +94,12 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
         <section
           className={cm.cn(
             cm.flex({ direction: 'col' }),
-            'w-[400px] shrink-0 border-r border-outline-variant/40 bg-surface',
+            isMobile
+              ? selected
+                ? 'hidden'
+                : cm.w('full')
+              : 'w-[400px] shrink-0 border-r border-outline-variant/40',
+            'bg-surface',
           )}
         >
           <header
@@ -137,6 +156,7 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
           className={cm.cn(
             cm.flex({ direction: 'col' }),
             cm.flex1,
+            isMobile && !selected && 'hidden',
             'min-w-0 bg-surface-container-lowest',
           )}
         >
@@ -155,6 +175,23 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
                     'text-on-surface-variant',
                   )}
                 >
+                  {isMobile && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(null)}
+                      data-mol-id={`${folder}-back`}
+                      aria-label={t('common.back', {}, { defaultValue: 'Back' })}
+                      className={cm.cn(
+                        cm.sp('p', 2),
+                        cm.cursorPointer,
+                        'rounded-full hover:bg-surface-container-low transition-colors',
+                      )}
+                    >
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        arrow_back
+                      </span>
+                    </button>
+                  )}
                   {(folder === 'archive' || folder === 'trash' || folder === 'spam') && (
                     <button
                       type="button"
@@ -176,31 +213,45 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
                     </button>
                   )}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => remove(selected.id)}
-                  data-mol-id={`${folder}-delete`}
-                  aria-label={t(
-                    'meridian.folder.delete',
-                    {},
-                    { defaultValue: folder === 'trash' ? 'Permanently delete' : 'Delete' },
-                  )}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    cm.textSize('sm'),
-                    'rounded-full text-error hover:bg-error/10 transition-colors',
-                  )}
-                >
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">
-                    delete
-                  </span>
-                  {folder === 'trash'
-                    ? t('meridian.folder.deleteForever', {}, { defaultValue: 'Delete permanently' })
-                    : t('common.delete', {}, { defaultValue: 'Delete' })}
-                </button>
+                {folder === 'trash' ? (
+                  <ConfirmButton
+                    onConfirm={() => remove(selected.id)}
+                    confirmLabel={t(
+                      'meridian.folder.confirmDeleteForever',
+                      {},
+                      { defaultValue: 'Tap again to delete forever' },
+                    )}
+                    data-mol-id={`${folder}-delete`}
+                    aria-label={t(
+                      'meridian.folder.delete',
+                      {},
+                      { defaultValue: 'Permanently delete' },
+                    )}
+                    className="text-error hover:bg-error/10"
+                  >
+                    {t('meridian.folder.deleteForever', {}, { defaultValue: 'Delete permanently' })}
+                  </ConfirmButton>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => remove(selected.id)}
+                    data-mol-id={`${folder}-delete`}
+                    aria-label={t('meridian.folder.delete', {}, { defaultValue: 'Delete' })}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'xs' }),
+                      cm.sp('px', 4),
+                      cm.sp('py', 2),
+                      cm.fontWeight('semibold'),
+                      cm.textSize('sm'),
+                      'rounded-full text-error hover:bg-error/10 transition-colors',
+                    )}
+                  >
+                    <span className="material-symbols-outlined text-base" aria-hidden="true">
+                      delete
+                    </span>
+                    {t('common.delete', {}, { defaultValue: 'Delete' })}
+                  </button>
+                )}
               </header>
 
               <div className={cm.cn(cm.flex1, cm.sp('px', 8), cm.sp('py', 6), 'overflow-y-auto')}>

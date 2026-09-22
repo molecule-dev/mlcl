@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -14,6 +15,7 @@ import {
   formatRelativeTimestamp,
 } from '../lib/api.js'
 import { useEmails, useLabels } from '../lib/useEmails.js'
+import { useIsMobile } from '../lib/useIsMobile.js'
 
 const FILTERS = [
   { key: 'all', defaultLabel: 'All starred', maxAgeDays: null },
@@ -29,6 +31,7 @@ export function Starred() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['key']>('all')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
+  const isMobile = useIsMobile()
   const { emails, loading, error, refetch, setEmails } = useEmails({
     is_starred: true,
     refreshKey,
@@ -49,8 +52,9 @@ export function Starred() {
   }, [emails, filter])
 
   const selected: EmailRow | null = useMemo(() => {
+    if (isMobile) return (filtered.find((e) => e.id === selectedId) ?? null) as EmailRow | null
     return (filtered.find((e) => e.id === selectedId) ?? filtered[0] ?? null) as EmailRow | null
-  }, [filtered, selectedId])
+  }, [filtered, selectedId, isMobile])
 
   const refresh = useCallback(() => {
     setRefreshKey((k) => k + 1)
@@ -60,6 +64,7 @@ export function Starred() {
   const unstar = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setSelectedId(null)
       try {
         await http.put(`/api/emails/${id}/star`)
       } finally {
@@ -72,8 +77,10 @@ export function Starred() {
   const archive = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setSelectedId(null)
       try {
         await http.put(`/api/emails/${id}/move`, { folder: 'archive' })
+        track({ name: 'folder.moved', properties: { email_id: id, folder: 'archive' } })
       } finally {
         refresh()
       }
@@ -84,8 +91,10 @@ export function Starred() {
   const trash = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setSelectedId(null)
       try {
         await http.delete(`/api/emails/${id}`)
+        track({ name: 'email.deleted', properties: { email_id: id, permanent: false } })
       } finally {
         refresh()
       }
@@ -99,7 +108,12 @@ export function Starred() {
         <section
           className={cm.cn(
             cm.flex({ direction: 'col' }),
-            'w-[400px] shrink-0 border-r border-outline-variant/40 bg-surface',
+            isMobile
+              ? selected
+                ? 'hidden'
+                : cm.w('full')
+              : 'w-[400px] shrink-0 border-r border-outline-variant/40',
+            'bg-surface',
           )}
         >
           <header
@@ -189,6 +203,7 @@ export function Starred() {
           className={cm.cn(
             cm.flex({ direction: 'col' }),
             cm.flex1,
+            isMobile && !selected && 'hidden',
             'min-w-0 bg-surface-container-lowest',
           )}
         >
@@ -207,6 +222,23 @@ export function Starred() {
                     'text-on-surface-variant',
                   )}
                 >
+                  {isMobile && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(null)}
+                      data-mol-id="starred-back"
+                      aria-label={t('common.back', {}, { defaultValue: 'Back' })}
+                      className={cm.cn(
+                        cm.sp('p', 2),
+                        cm.cursorPointer,
+                        'rounded-full hover:bg-surface-container-low transition-colors',
+                      )}
+                    >
+                      <span className="material-symbols-outlined" aria-hidden="true">
+                        arrow_back
+                      </span>
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={() => archive(selected.id)}

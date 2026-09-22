@@ -20,6 +20,11 @@ interface MeridianMailSidebarProps {
    * mutations (send / delete / move) so badges stay fresh.
    */
   refreshKey?: number
+  /**
+   * Invoked after any sidebar navigation — the mobile drawer uses this to
+   * close itself when a destination is chosen.
+   */
+  onNavigate?: () => void
 }
 
 function formatBytes(bytes: number): string {
@@ -101,7 +106,7 @@ const LABEL_DOT_TONES: Record<string, string> = {
  * storage usage gauge computed from /api/emails/storage. Brand-blue
  * active state, pill counts, semantic colored dots for labels.
  */
-export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps) {
+export function MeridianMailSidebar({ refreshKey = 0, onNavigate }: MeridianMailSidebarProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
@@ -132,6 +137,7 @@ export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps
       <Link
         to="/compose"
         data-mol-id="sidebar-compose"
+        onClick={onNavigate}
         className={cm.cn(
           cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
           cm.fontWeight('semibold'),
@@ -159,6 +165,7 @@ export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps
               key={f.to}
               to={f.to}
               data-mol-id={`sidebar-${f.to.replace(/\W+/g, '')}`}
+              onClick={onNavigate}
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'between' }),
                 cm.sp('px', 3),
@@ -231,6 +238,7 @@ export function MeridianMailSidebar({ refreshKey = 0 }: MeridianMailSidebarProps
             <li key={l.id}>
               <Link
                 to={`/inbox?label=${encodeURIComponent(l.id)}`}
+                onClick={onNavigate}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 3),

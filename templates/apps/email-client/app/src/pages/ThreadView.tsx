@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -52,6 +53,7 @@ export function ThreadView() {
     if (!id) return
     try {
       await http.put(`/api/emails/${id}/move`, { folder: 'archive' })
+      track({ name: 'folder.moved', properties: { email_id: id, folder: 'archive' } })
       navigate('/inbox')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'archive failed')
@@ -62,6 +64,7 @@ export function ThreadView() {
     if (!id) return
     try {
       await http.delete(`/api/emails/${id}`)
+      track({ name: 'email.deleted', properties: { email_id: id, permanent: false } })
       navigate('/inbox')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'delete failed')

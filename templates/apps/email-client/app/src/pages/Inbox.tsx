@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -16,6 +17,7 @@ import {
 } from '../lib/api.js'
 import { readPrefs } from '../lib/preferences.js'
 import { useEmails, useLabels } from '../lib/useEmails.js'
+import { useIsMobile } from '../lib/useIsMobile.js'
 
 const TABS = [
   { key: 'primary', icon: 'inbox', defaultLabel: 'Primary' },
@@ -65,7 +67,9 @@ export function Inbox() {
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['key']>('primary')
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [mobileSelectedId, setMobileSelectedId] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
+  const isMobile = useIsMobile()
 
   const { emails, loading, error, refetch, setEmails } = useEmails({
     folder: searchQuery ? undefined : 'inbox',
@@ -89,7 +93,12 @@ export function Inbox() {
     return emails.filter((row) => classifyTab(row) === activeTab)
   }, [emails, labelFilter, searchQuery, activeTab])
 
-  const selected = filtered.find((e) => e.id === selectedId) ?? filtered[0] ?? null
+  // Desktop convenience: keep the first row selected when nothing was
+  // picked. Mobile collapses to list → detail: only a tap selects, so the
+  // list stays full-width until the user actually opens a message.
+  const selected = isMobile
+    ? (filtered.find((e) => e.id === mobileSelectedId) ?? null)
+    : (filtered.find((e) => e.id === selectedId) ?? filtered[0] ?? null)
   const selectedIndex = selected ? filtered.findIndex((e) => e.id === selected.id) : -1
 
   const refresh = useCallback(() => {
@@ -102,6 +111,7 @@ export function Inbox() {
       setEmails((curr) => curr.map((e) => (e.id === id ? { ...e, is_starred: !e.is_starred } : e)))
       try {
         await http.put(`/api/emails/${id}/star`)
+        track({ name: 'email.starred', properties: { email_id: id } })
       } catch (_error) {
         // optimistic update failed — refetch to restore correct state
         refresh()
@@ -115,8 +125,10 @@ export function Inbox() {
   const moveTo = useCallback(
     async (id: string, folder: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setMobileSelectedId(null)
       try {
         await http.put(`/api/emails/${id}/move`, { folder })
+        track({ name: 'folder.moved', properties: { email_id: id, folder } })
       } finally {
         setRefreshKey((k) => k + 1)
       }
@@ -127,8 +139,10 @@ export function Inbox() {
   const removeEmail = useCallback(
     async (id: string) => {
       setEmails((curr) => curr.filter((e) => e.id !== id))
+      setMobileSelectedId(null)
       try {
         await http.delete(`/api/emails/${id}`)
+        track({ name: 'email.deleted', properties: { email_id: id, permanent: false } })
       } finally {
         setRefreshKey((k) => k + 1)
       }
@@ -156,9 +170,10 @@ export function Inbox() {
         navigate(`/thread/${row.id}`)
         return
       }
-      setSelectedId(row.id)
+      if (isMobile) setMobileSelectedId(row.id)
+      else setSelectedId(row.id)
     },
-    [markRead, showPreview, navigate],
+    [markRead, showPreview, navigate, isMobile],
   )
 
   const goPrevious = () => {
@@ -172,11 +187,18 @@ export function Inbox() {
   return (
     <MeridianAppShell refreshKey={refreshKey}>
       <div className={cm.cn(cm.flex({}), 'h-full overflow-hidden')} data-mol-id="page-inbox">
-        {/* Thread list */}
+        {/* Thread list — on mobile it collapses to full width and hides
+            while a message is open (back button restores it). */}
         <section
           className={cm.cn(
             cm.flex({ direction: 'col' }),
-            showPreview ? 'w-[400px] shrink-0 border-r border-outline-variant/40' : cm.flex1,
+            showPreview
+              ? isMobile
+                ? selected
+                  ? 'hidden'
+                  : cm.w('full')
+                : 'w-[400px] shrink-0 border-r border-outline-variant/40'
+              : cm.flex1,
             'bg-surface',
           )}
         >
@@ -254,12 +276,14 @@ export function Inbox() {
           </div>
         </section>
 
-        {/* Reading pane — hidden when the "Show preview pane" preference is off */}
+        {/* Reading pane — hidden when the "Show preview pane" preference is
+            off; on mobile it is hidden until a message is opened. */}
         {showPreview && (
           <section
             className={cm.cn(
               cm.flex({ direction: 'col' }),
               cm.flex1,
+              isMobile && !selected && 'hidden',
               'min-w-0 bg-surface-container-lowest',
             )}
           >
@@ -272,6 +296,7 @@ export function Inbox() {
                   { current: selectedIndex + 1, total: filtered.length },
                   { defaultValue: '{{current}} of {{total}}' },
                 )}
+                onBack={isMobile ? () => setMobileSelectedId(null) : undefined}
                 onPrev={goPrevious}
                 onNext={goNext}
                 hasPrev={selectedIndex > 0}
@@ -309,6 +334,8 @@ interface ReadingPaneProps {
   email: EmailRow
   labelsById: Record<string, EmailLabel>
   indexLabel: string
+  /** Mobile list → detail: provided on mobile to render a back button. */
+  onBack?: () => void
   onPrev: () => void
   onNext: () => void
   hasPrev: boolean
@@ -326,6 +353,7 @@ function ReadingPane({
   email,
   labelsById,
   indexLabel,
+  onBack,
   onPrev,
   onNext,
   hasPrev,
@@ -373,6 +401,14 @@ function ReadingPane({
       const deliveryError = data.delivery_error ?? null
       if (delivery === 'sent') {
         setFeedback(t('meridian.inbox.replySent', {}, { defaultValue: 'Reply sent.' }))
+        track({
+          name: 'email.sent',
+          properties: {
+            email_id: email.thread_id ?? email.id,
+            reply_to: email.from,
+            kind: 'reply',
+          },
+        })
       } else {
         setFeedback(
           t(
@@ -405,6 +441,23 @@ function ReadingPane({
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-on-surface-variant')}>
+          {onBack && (
+            <button
+              type="button"
+              onClick={onBack}
+              data-mol-id="reading-back"
+              aria-label={t('common.back', {}, { defaultValue: 'Back' })}
+              className={cm.cn(
+                cm.sp('p', 2),
+                cm.cursorPointer,
+                'rounded-full hover:bg-surface-container-low transition-colors',
+              )}
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                arrow_back
+              </span>
+            </button>
+          )}
           <button
             type="button"
             onClick={onArchive}

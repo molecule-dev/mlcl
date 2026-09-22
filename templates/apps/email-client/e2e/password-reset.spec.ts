@@ -72,6 +72,9 @@ test('Forgot-password UI submits and shows the success state', async ({ page }) 
 })
 
 test('Reset-password UI shows mismatch error and submits with token', async ({ page }) => {
+  // The fake token makes the backend 401 — that IS the contract under test
+  // here, so the console-guard must not fail on the expected console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   await page.goto(APP_BASE + '/reset-password?token=mismatchcheck')
   // Type mismatching passwords to trigger inline error.
   const passwordInputs = page.locator('input[type="password"]')
