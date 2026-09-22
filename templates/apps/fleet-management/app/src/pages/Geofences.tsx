@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Geofence {
   id: string
@@ -104,12 +105,17 @@ export function Geofences() {
         { lat: 40.705, lng: -73.995 },
         { lat: 40.7, lng: -73.995 },
       ]
-      await http.post('/geofences', {
+      const res = await http.post('/geofences', {
         name: form.name.trim(),
         kind: form.kind,
         polygon,
         alert_on_enter: form.alert_on_enter,
         alert_on_exit: form.alert_on_exit,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'geofence.created',
+        properties: { geofence_id: created?.id, kind: form.kind },
       })
       setShowAdd(false)
       setForm({ name: '', kind: 'allowed', alert_on_enter: false, alert_on_exit: true })

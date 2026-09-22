@@ -45,6 +45,12 @@ test.describe('login', () => {
   })
 
   test('login with wrong password shows alert and stays on /login', async ({ page }) => {
+    // The failed log-in POST answers 403 — expected here, so allow the
+    // browser console record of it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('loginbad')
     await signup(page, email)
     await page.context().clearCookies()

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -85,6 +86,10 @@ export function Alerts() {
     setList((curr) => curr.map((a) => (a.id === alert.id ? { ...a, resolved: true } : a)))
     try {
       await http.post(`/alerts/${alert.id}/acknowledge`, {})
+      void track({
+        name: 'alert.acknowledged',
+        properties: { alert_id: alert.id, severity: alert.severity },
+      })
     } catch (err) {
       setList((curr) => curr.map((a) => (a.id === alert.id ? { ...a, resolved: false } : a)))
       setError(
@@ -118,7 +123,7 @@ export function Alerts() {
 
       <nav
         aria-label={t('alerts.filterLabel', {}, { defaultValue: 'Filter alerts' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {FILTERS.map((f) => {
           const active = filter === f

@@ -9,14 +9,14 @@ async function gotoSettings(page: import('@playwright/test').Page) {
 }
 
 test.describe('settings', () => {
-  test('page loads and GET /api/users/me returns 200', async ({ page }) => {
+  test('page loads and GET /api/settings returns 200', async ({ page }) => {
     const { accessToken } = await signup(page)
     await waitForSeed(page, accessToken)
     const reqs = await captureNetwork(page, async () => {
       await gotoSettings(page)
     })
-    const req = reqs.find((r) => /\/api\/users\/me/.test(r.url) && r.method === 'GET')
-    expect(req?.status, 'GET /api/users/me').toBe(200)
+    const req = reqs.find((r) => /\/api\/settings/.test(r.url) && r.method === 'GET')
+    expect(req?.status, 'GET /api/settings').toBe(200)
   })
 
   test('eyebrow "Operations & dispatch" is visible above the heading', async ({ page }) => {
@@ -169,7 +169,7 @@ test.describe('settings', () => {
     await expect(cb).toBeChecked({ checked: !before })
   })
 
-  test('Save changes PATCHes /api/users/:id and persists threshold across reload', async ({
+  test('Save changes PATCHes /api/settings and persists threshold across reload', async ({
     page,
   }) => {
     const { accessToken } = await signup(page)
@@ -179,11 +179,11 @@ test.describe('settings', () => {
     const speedField = page.getByLabel(/speeding threshold/i)
     await speedField.fill('17')
     const saveReqPromise = page.waitForResponse(
-      (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings/.test(r.url()) && r.request().method() === 'PATCH',
     )
     await page.getByRole('button', { name: /save changes/i }).click()
     const saveResp = await saveReqPromise
-    expect(saveResp.status(), 'PATCH /api/users/:id').toBe(200)
+    expect(saveResp.status(), 'PATCH /api/settings').toBe(200)
     await expect(page.getByText(/^saved\.?$/i)).toBeVisible({ timeout: 5000 })
 
     await page.reload()
@@ -202,11 +202,11 @@ test.describe('settings', () => {
     const newName = `Persisted Co ${Date.now() % 100000}`
     await orgField.fill(newName)
     const saveReqPromise = page.waitForResponse(
-      (r) => /\/api\/users\//.test(r.url()) && r.request().method() === 'PATCH',
+      (r) => /\/api\/settings/.test(r.url()) && r.request().method() === 'PATCH',
     )
     await page.getByRole('button', { name: /save changes/i }).click()
     const saveResp = await saveReqPromise
-    expect(saveResp.status(), 'PATCH /api/users/:id').toBe(200)
+    expect(saveResp.status(), 'PATCH /api/settings').toBe(200)
     await page.reload()
     await expect(page.getByRole('heading', { name: /^settings$/i, level: 1 })).toBeVisible({
       timeout: 15000,

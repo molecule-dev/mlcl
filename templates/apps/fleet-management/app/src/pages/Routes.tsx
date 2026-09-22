@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Route {
   id: string
@@ -112,13 +113,18 @@ export function Routes() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/routes', {
+      const res = await http.post('/routes', {
         name: form.name.trim(),
         vehicle_id: form.vehicle_id || undefined,
         driver_id: form.driver_id || undefined,
         scheduled_date: form.scheduled_date
           ? new Date(form.scheduled_date).toISOString()
           : undefined,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'route.created',
+        properties: { route_id: created?.id, has_driver: Boolean(form.driver_id) },
       })
       setShowAdd(false)
       setForm({ name: '', vehicle_id: '', driver_id: '', scheduled_date: '' })
@@ -303,7 +309,7 @@ export function Routes() {
 
       <nav
         aria-label={t('routes.filterLabel', {}, { defaultValue: 'Filter routes' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {STATUSES.map((s) => {
           const active = filter === s

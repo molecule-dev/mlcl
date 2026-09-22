@@ -8,6 +8,7 @@ import maintenance from './maintenance.js'
 import notifications from './notifications.js'
 import reports from './reports.js'
 import routes from './routes.js'
+import settings from './settings.js'
 import trips from './trips.js'
 import vehicles from './vehicles.js'
 
@@ -22,6 +23,7 @@ router.use('/trips', trips)
 router.use('/alerts', alerts)
 router.use('/notifications', notifications)
 router.use('/reports', reports)
+router.use('/settings', settings)
 router.use('/billing', billing)
 
 export default router

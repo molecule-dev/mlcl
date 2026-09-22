@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface MaintenanceItem {
   id: string
@@ -125,12 +126,17 @@ export function Maintenance() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/maintenance', {
+      const res = await http.post('/maintenance', {
         vehicle_id: form.vehicle_id,
         type: form.type,
         description: form.description.trim() || form.type,
         scheduled_for: new Date(form.scheduled_for).toISOString(),
         cost_estimate: form.cost_estimate ? Number(form.cost_estimate) : undefined,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'maintenance.scheduled',
+        properties: { maintenance_id: created?.id, vehicle_id: form.vehicle_id, type: form.type },
       })
       setShowAdd(false)
       setForm({
@@ -337,7 +343,7 @@ export function Maintenance() {
 
       <nav
         aria-label={t('maintenance.filterLabel', {}, { defaultValue: 'Filter maintenance' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {STATUSES.map((s) => {
           const active = filter === s

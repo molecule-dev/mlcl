@@ -45,6 +45,12 @@ test.describe('reset-password', () => {
   test('full forgot→reset→login lifecycle (UI form posts /api/users/reset-password)', async ({
     page,
   }) => {
+    // The reset POST with a bogus token answers 401 — that IS the contract
+    // under test (must not silently complete), so allow the console record.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     // Signup so the user exists.
     const email = uniqueEmail('reset-lifecycle')
     const { accessToken } = await signup(page, email)

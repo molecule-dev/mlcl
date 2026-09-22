@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AccountSection,
@@ -33,10 +34,11 @@ interface FleetSettings {
   notifyWeekly?: boolean
 }
 
-interface UserMe {
-  id?: string
-  props?: { id?: string; oauthData?: Record<string, unknown> | null }
-  oauthData?: Record<string, unknown> | null
+// The platform user resource NEVER returns `oauthData` on reads, so the
+// settings slice persists through the server-side `/settings` channel
+// (fleet_settings table, merged server-side) — not through PATCH /users/:id.
+interface SettingsPayload {
+  fleetSettings?: Partial<FleetSettings> | null
 }
 
 const DEFAULTS: Required<FleetSettings> = {
@@ -55,14 +57,10 @@ const DEFAULTS: Required<FleetSettings> = {
 }
 
 function readSettings(
-  oauthData: Record<string, unknown> | null | undefined,
+  fleetSettings: Partial<FleetSettings> | null | undefined,
 ): Required<FleetSettings> {
-  const fleet =
-    oauthData && typeof oauthData === 'object'
-      ? (oauthData as Record<string, unknown>).fleetSettings
-      : null
-  if (!fleet || typeof fleet !== 'object') return { ...DEFAULTS }
-  return { ...DEFAULTS, ...(fleet as Partial<FleetSettings>) }
+  if (!fleetSettings || typeof fleetSettings !== 'object') return { ...DEFAULTS }
+  return { ...DEFAULTS, ...fleetSettings }
 }
 
 export function Settings() {
@@ -70,8 +68,6 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('organization')
-  const [userId, setUserId] = useState<string | null>(null)
-  const [oauthData, setOauthData] = useState<Record<string, unknown> | null>(null)
   const [settings, setSettings] = useState<Required<FleetSettings>>(DEFAULTS)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -82,15 +78,11 @@ export function Settings() {
     let cancelled = false
     setLoading(true)
     http
-      .get('/users/me')
+      .get('/settings')
       .then((res) => {
         if (cancelled) return
-        const me = unwrapSingle<UserMe>(res)
-        const id = me?.props?.id ?? me?.id ?? null
-        const data = me?.props?.oauthData ?? me?.oauthData ?? null
-        setUserId(id)
-        setOauthData(data ?? null)
-        setSettings(readSettings(data))
+        const payload = unwrapSingle<SettingsPayload>(res)
+        setSettings(readSettings(payload?.fleetSettings))
       })
       .catch(() =>
         setError(t('settings.loadError', {}, { defaultValue: 'Failed to load settings.' })),
@@ -104,13 +96,13 @@ export function Settings() {
   }, [http, t])
 
   async function save() {
-    if (!userId) return
     setSaving(true)
     setError(null)
     try {
-      const next = { ...(oauthData ?? {}), fleetSettings: settings }
-      await http.patch(`/users/${userId}`, { oauthData: next })
-      setOauthData(next)
+      const res = await http.patch('/settings', { fleetSettings: settings })
+      const payload = unwrapSingle<SettingsPayload>(res)
+      setSettings(readSettings(payload?.fleetSettings))
+      void track({ name: 'settings.updated', properties: { section: 'fleetSettings' } })
       setSavedAt(new Date().toISOString())
     } catch (err) {
       setError(
@@ -359,7 +351,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={save}
-                disabled={saving || loading || !userId}
+                disabled={saving || loading}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

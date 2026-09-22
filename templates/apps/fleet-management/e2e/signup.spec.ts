@@ -42,6 +42,12 @@ test.describe('signup', () => {
   })
 
   test('signup with duplicate email shows alert / stays on /signup', async ({ page }) => {
+    // The duplicate-signup POST answers 403 — expected here, so allow the
+    // browser console record of it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('dupe-signup')
     await signup(page, email)
     await page.context().clearCookies()

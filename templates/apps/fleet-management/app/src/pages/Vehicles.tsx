@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Vehicle {
   id: string
@@ -109,13 +110,18 @@ export function Vehicles() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/vehicles', {
+      const res = await http.post('/vehicles', {
         license_plate: form.plate.trim(),
         name: form.plate.trim(),
         make: form.make.trim(),
         model: form.model.trim(),
         year: form.year ? Number(form.year) : undefined,
         vehicle_type: form.vehicle_type,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'vehicle.added',
+        properties: { vehicle_id: created?.id, vehicle_type: form.vehicle_type },
       })
       setShowAdd(false)
       setForm({ plate: '', make: '', model: '', year: '', vehicle_type: 'truck' })
@@ -323,7 +329,7 @@ export function Vehicles() {
         </div>
       ) : null}
 
-      <div className={cm.flex({ align: 'center', gap: 'md' })}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'flex-wrap gap-y-3')}>
         <input
           type="search"
           value={search}
@@ -342,7 +348,7 @@ export function Vehicles() {
         />
         <nav
           aria-label={t('vehicles.filterLabel', {}, { defaultValue: 'Filter vehicles by status' })}
-          className={cm.flex({ gap: 'xs', align: 'center' })}
+          className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
         >
           {STATUSES.map((s) => {
             const active = filter === s
@@ -406,7 +412,13 @@ export function Vehicles() {
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                     <Link
                       to={`/vehicles/${v.id}`}
-                      className={cm.cn(cm.fontWeight('medium'), 'font-mono', cm.textSize('xs'))}
+                      className={cm.cn(
+                        cm.fontWeight('medium'),
+                        'font-mono',
+                        cm.textSize('xs'),
+                        // Reachable tap target even inside a dense table row.
+                        'inline-flex items-center min-h-[32px] py-1',
+                      )}
                     >
                       {v.plate}
                     </Link>

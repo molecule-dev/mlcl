@@ -95,6 +95,12 @@ test.describe('vehicle detail (/vehicles/:id)', () => {
   test('non-existent :id renders a "Vehicle not found." graceful state, not a JS crash', async ({
     page,
   }) => {
+    // The detail GET for an unknown id answers 404 — that IS the contract
+    // under test (graceful state, not a crash), so allow the console record.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     const { accessToken } = await signup(page)
     await waitForSeed(page, accessToken)
     await page.goto(APP_BASE + `/vehicles/00000000-0000-0000-0000-000000000000`)

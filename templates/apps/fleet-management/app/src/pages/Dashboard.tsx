@@ -175,7 +175,13 @@ export function Dashboard() {
             <h2 className={'text-xl font-bold'}>
               {t('dashboard.activeVehiclesHeading', {}, { defaultValue: 'In transit + flagged' })}
             </h2>
-            <Link to="/vehicles" className={'text-sm font-bold text-primary hover:underline'}>
+            <Link
+              to="/vehicles"
+              className={cm.cn(
+                'text-sm font-bold text-primary hover:underline',
+                'inline-flex items-center min-h-[32px]',
+              )}
+            >
               {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
             </Link>
           </div>

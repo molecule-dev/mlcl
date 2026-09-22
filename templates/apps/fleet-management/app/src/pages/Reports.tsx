@@ -132,89 +132,91 @@ export function Reports() {
         >
           {t('reports.byTypeHeading', {}, { defaultValue: 'By vehicle type' })}
         </h2>
-        <table className={'w-full text-left text-sm'}>
-          <thead>
-            <tr className={'border-b border-outline-variant'}>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'text-on-surface-variant',
-                  cm.fontWeight('medium'),
-                  'uppercase tracking-wider',
-                )}
-              >
-                {t('form.type', {}, { defaultValue: 'Type' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'text-on-surface-variant',
-                  cm.fontWeight('medium'),
-                  'uppercase tracking-wider',
-                )}
-              >
-                {t('reports.col.count', {}, { defaultValue: 'Count' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'text-on-surface-variant',
-                  cm.fontWeight('medium'),
-                  'uppercase tracking-wider',
-                )}
-              >
-                {t('reports.col.miles', {}, { defaultValue: 'Miles' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'text-on-surface-variant',
-                  cm.fontWeight('medium'),
-                  'uppercase tracking-wider',
-                )}
-              >
-                {t('reports.col.fuel', {}, { defaultValue: 'Fuel (gal)' })}
-              </th>
-              <th
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'text-on-surface-variant',
-                  cm.fontWeight('medium'),
-                  'uppercase tracking-wider',
-                )}
-              >
-                {t('reports.col.mpg', {}, { defaultValue: 'MPG' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {report.by_vehicle_type.map((v) => (
-              <tr key={v.type} className={'border-b border-outline-variant'}>
-                <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{v.type}</td>
-                <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>{v.count}</td>
-                <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
-                  {v.miles.toLocaleString()}
-                </td>
-                <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
-                  {v.fuel_gal.toLocaleString()}
-                </td>
-                <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
-                  {(v.miles / v.fuel_gal).toFixed(1)}
-                </td>
+        <div className={cm.cn('overflow-x-auto')}>
+          <table className={'w-full text-left text-sm'}>
+            <thead>
+              <tr className={'border-b border-outline-variant'}>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    'text-on-surface-variant',
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider',
+                  )}
+                >
+                  {t('form.type', {}, { defaultValue: 'Type' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    'text-on-surface-variant',
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider',
+                  )}
+                >
+                  {t('reports.col.count', {}, { defaultValue: 'Count' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    'text-on-surface-variant',
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider',
+                  )}
+                >
+                  {t('reports.col.miles', {}, { defaultValue: 'Miles' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    'text-on-surface-variant',
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider',
+                  )}
+                >
+                  {t('reports.col.fuel', {}, { defaultValue: 'Fuel (gal)' })}
+                </th>
+                <th
+                  className={cm.cn(
+                    cm.sp('px', 3),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    'text-on-surface-variant',
+                    cm.fontWeight('medium'),
+                    'uppercase tracking-wider',
+                  )}
+                >
+                  {t('reports.col.mpg', {}, { defaultValue: 'MPG' })}
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {report.by_vehicle_type.map((v) => (
+                <tr key={v.type} className={'border-b border-outline-variant'}>
+                  <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{v.type}</td>
+                  <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>{v.count}</td>
+                  <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
+                    {v.miles.toLocaleString()}
+                  </td>
+                  <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
+                    {v.fuel_gal.toLocaleString()}
+                  </td>
+                  <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-mono')}>
+                    {(v.miles / v.fuel_gal).toFixed(1)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   )

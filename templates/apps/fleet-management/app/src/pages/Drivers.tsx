@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface Driver {
   id: string
@@ -93,12 +94,14 @@ export function Drivers() {
     setSubmitting(true)
     setSubmitError(null)
     try {
-      await http.post('/drivers', {
+      const res = await http.post('/drivers', {
         name: form.name.trim(),
         email: form.email.trim() || undefined,
         phone: form.phone.trim() || undefined,
         license_number: form.license_number.trim() || undefined,
       })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({ name: 'driver.added', properties: { driver_id: created?.id } })
       setShowAdd(false)
       setForm({ name: '', email: '', phone: '', license_number: '' })
       await load()

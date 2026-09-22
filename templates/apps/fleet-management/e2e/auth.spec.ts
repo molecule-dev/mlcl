@@ -40,6 +40,12 @@ test.describe('auth flow', () => {
   })
 
   test('login with wrong password shows error and does not navigate away', async ({ page }) => {
+    // The failed log-in POST answers 403 — expected here, so allow the
+    // browser console record of it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('badpw')
     await signup(page, email)
     await page.context().clearCookies()
@@ -56,6 +62,12 @@ test.describe('auth flow', () => {
   test('signup email uniqueness enforced — second signup with same email errors', async ({
     page,
   }) => {
+    // The duplicate-signup POST answers 403 — expected here, so allow the
+    // browser console record of it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const email = uniqueEmail('dupe')
     await signup(page, email)
     await page.context().clearCookies()
@@ -65,16 +77,10 @@ test.describe('auth flow', () => {
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('TestPass!1234')
     await page.getByRole('button', { name: /create account/i }).click()
-    // Must NOT silently auth — either show error or stay on /signup.
-    await page.waitForTimeout(2000)
-    const url = page.url()
-    if (!/\/signup/.test(url)) {
-      // If we navigated away, the new (auto-login?) user must NOT have access to
-      // the original user's data. Best signal: the alert role would have
-      // been shown OR redirect should still error.
-      // For now, accept silent (some auth providers create a new session); the
-      // hard contract is that the error should be visible if the same email
-      // can't be reused.
-    }
+    // The hard contract: the duplicate is REFUSED — the user stays on /signup
+    // and an error alert is rendered, never a silent re-auth into the
+    // existing account.
+    await expect(page).toHaveURL(/\/signup/, { timeout: 10000 })
+    await expect(page.getByRole('alert')).toBeVisible({ timeout: 10000 })
   })
 })
