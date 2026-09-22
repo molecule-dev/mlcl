@@ -1,6 +1,7 @@
 import { type Request, type RequestHandler, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import {
@@ -20,6 +21,8 @@ import { seedDefaultOnboardingIfMissing } from '../seedDefaultOnboarding.js'
 import type { EmployeeOnboardingLimits } from '../tiers.js'
 
 const router = Router()
+
+const logger = getLogger()
 
 const createOnboardingSchema = z.object({
   employee_id: z.string().min(1).optional(),
@@ -64,6 +67,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (_err) {
+    logger.error('onboardings.list', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -166,6 +170,7 @@ router.get('/me', async (_req: Request, res: Response) => {
       },
     })
   } catch (_err) {
+    logger.error('onboardings.me', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -194,6 +199,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     })
     res.json({ ...item, tasks })
   } catch (_err) {
+    logger.error('onboardings.read', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -235,6 +241,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (_err) {
+      logger.error('onboardings.create', _err as Error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -273,6 +280,7 @@ router.put('/:id', validateBody(updateOnboardingSchema), async (req: Request, re
     const result = await updateById('onboardings', id, updates)
     res.json(result.data)
   } catch (_err) {
+    logger.error('onboardings.update', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -297,6 +305,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('onboardings', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('onboardings.delete', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

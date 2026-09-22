@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,7 @@ export function TrainingModule() {
           started_at: new Date().toISOString(),
         })
       }
+      void track({ name: 'onboarding.training_started', properties: { module_id: id } })
       await reload()
     } catch (_error) {
       // Update failed — re-sync from the server so the UI reflects reality
@@ -122,6 +124,10 @@ export function TrainingModule() {
             quiz_score: score,
           })
         }
+        void track({
+          name: 'onboarding.training_completed',
+          properties: { module_id: id, quiz_score: score },
+        })
         await reload()
       } catch (_error) {
         // Update failed — re-sync from the server so the UI reflects reality

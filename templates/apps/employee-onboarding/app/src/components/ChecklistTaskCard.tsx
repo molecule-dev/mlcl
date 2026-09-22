@@ -117,40 +117,58 @@ export function ChecklistTaskCard({
         borderLeft: `4px solid ${cat.color}`,
       }}
     >
-      <button
-        type="button"
-        aria-pressed={checked}
-        aria-label={
-          checked
-            ? t('checklistTaskCard.markIncomplete', {}, { defaultValue: 'Mark task incomplete' })
-            : t('checklistTaskCard.markComplete', {}, { defaultValue: 'Mark task complete' })
-        }
-        onClick={(e) => {
-          e.preventDefault()
-          onToggle?.(id, !checked)
-        }}
-        className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
-        style={{
-          width: '24px',
-          height: '24px',
-          borderRadius: '8px',
-          border: `2px solid ${checked ? cat.color : 'var(--color-border, var(--mol-color-border-secondary))'}`,
-          background: checked ? cat.color : 'transparent',
-          cursor: 'pointer',
-          transition: 'all 150ms ease',
-          flexShrink: 0,
-          marginTop: '4px',
-        }}
-      >
-        {checked && (
+      {/* Toggle renders only when the caller wires onToggle — a checkbox that
+          renders but does nothing reads as a bug (dashboard "up next" cards
+          are read-only pointers into the task). */}
+      {onToggle && (
+        <button
+          type="button"
+          aria-pressed={checked}
+          aria-label={
+            checked
+              ? t('checklistTaskCard.markIncomplete', {}, { defaultValue: 'Mark task incomplete' })
+              : t('checklistTaskCard.markComplete', {}, { defaultValue: 'Mark task complete' })
+          }
+          onClick={(e) => {
+            e.preventDefault()
+            onToggle?.(id, !checked)
+          }}
+          className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
+          style={{
+            // 40px hit target (fleet minimum for touch); the visible checkbox
+            // is the 24px inner box.
+            width: '40px',
+            height: '40px',
+            borderRadius: '10px',
+            border: '2px solid transparent',
+            background: 'transparent',
+            cursor: 'pointer',
+            transition: 'all 150ms ease',
+            flexShrink: 0,
+            marginLeft: '-8px',
+          }}
+        >
           <span
-            className="material-symbols-outlined"
-            style={{ fontSize: '16px', color: 'var(--mol-color-surface)', fontWeight: 800 }}
+            className={cm.cn(cm.flex({ align: 'center', justify: 'center' }))}
+            style={{
+              width: '24px',
+              height: '24px',
+              borderRadius: '8px',
+              border: `2px solid ${checked ? cat.color : 'var(--color-border, var(--mol-color-border-secondary))'}`,
+              background: checked ? cat.color : 'transparent',
+            }}
           >
-            check
+            {checked && (
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: '16px', color: 'var(--mol-color-surface)', fontWeight: 800 }}
+              >
+                check
+              </span>
+            )}
           </span>
-        )}
-      </button>
+        </button>
+      )}
 
       <div className={cm.flex1} style={{ minWidth: 0 }}>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
@@ -240,7 +258,11 @@ export function ChecklistTaskCard({
       <Link
         to={href ?? `/checklist/${id}`}
         aria-label={t('checklistTaskCard.openLabel', {}, { defaultValue: 'Open task' })}
-        className="self-center text-on-surface-variant transition-colors"
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'center' }),
+          'self-center text-on-surface-variant transition-colors',
+        )}
+        style={{ width: '40px', height: '40px', flexShrink: 0 }}
       >
         <span className="material-symbols-outlined">arrow_forward</span>
       </Link>

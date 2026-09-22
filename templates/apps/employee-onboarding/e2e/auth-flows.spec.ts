@@ -81,8 +81,15 @@ test.describe('auth flows', () => {
     // Regression: prior to this test the per-app router was missing the
     // `POST /users/reset-password` route and `authConfig` was missing
     // `resetPasswordEndpoint`, so the whole reset flow 404'd silently.
-    // This test reads the issued token directly from the DB to drive the
-    // happy path end-to-end.
+    //
+    // The platform now stores only sha256(token) at rest — the RAW token is
+    // delivered solely by email and can never be read back from the DB
+    // (submitting the stored digest must fail: that is the takeover vector
+    // digest-at-rest exists to block). So: verify the digest was persisted,
+    // prove the digest itself does NOT reset, then mint our own raw token,
+    // persist its digest the same way forgot-password does, and submit the
+    // raw token — the exact path the email link drives.
+    const { createHash, randomBytes } = await import('node:crypto')
     const { Client } = await import('pg')
     const dbUrl =
       process.env.DATABASE_URL ||
@@ -97,22 +104,39 @@ test.describe('auth flows', () => {
 
     const client = new Client({ connectionString: dbUrl })
     await client.connect()
-    let token: string | null = null
+    let digest: string | null = null
+    let rawToken = ''
     try {
       const r = await client.query<{ passwordResetToken: string | null }>(
         'SELECT "passwordResetToken" FROM "usersSecrets" WHERE id = (SELECT id FROM users WHERE email = $1)',
         [creds.email],
       )
-      token = r.rows[0]?.passwordResetToken ?? null
+      digest = r.rows[0]?.passwordResetToken ?? null
+      expect(digest, 'forgot-password must persist a reset-token digest').toMatch(/[a-f0-9]{64}/)
+
+      // The at-rest digest must NOT work as a token (DB dump != takeover).
+      const digestAttempt = await page.request.post(`${API_BASE}/users/reset-password`, {
+        headers: { 'Content-Type': 'application/json' },
+        data: { token: digest!, password: 'BrandNewPwd!' + Date.now() },
+        failOnStatusCode: false,
+      })
+      expect(digestAttempt.status(), 'the stored digest must NOT complete a reset').toBe(401)
+
+      // Seed a known raw token exactly the way forgot-password does.
+      rawToken = randomBytes(32).toString('hex')
+      const seededDigest = createHash('sha256').update(rawToken).digest('hex')
+      await client.query(
+        'UPDATE "usersSecrets" SET "passwordResetToken" = $1, "passwordResetTokenAt" = now() WHERE id = (SELECT id FROM users WHERE email = $2)',
+        [seededDigest, creds.email],
+      )
     } finally {
       await client.end()
     }
-    expect(token, 'forgot-password must persist a real token to usersSecrets').toBeTruthy()
 
     const newPassword = 'BrandNewPwd!' + Date.now()
     const reset = await page.request.post(`${API_BASE}/users/reset-password`, {
       headers: { 'Content-Type': 'application/json' },
-      data: { token: token!, password: newPassword },
+      data: { token: rawToken, password: newPassword },
     })
     expect(reset.status(), await reset.text()).toBe(200)
 

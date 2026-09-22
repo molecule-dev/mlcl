@@ -37,7 +37,7 @@ export function StatTriad({ items }: StatTriadProps) {
 
   return (
     <div
-      className={cm.cn(cm.sp('mb', 8))}
+      className={cm.cn(cm.sp('mb', 8), 'eo-triad')}
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,

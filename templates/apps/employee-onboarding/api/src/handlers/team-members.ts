@@ -1,6 +1,7 @@
 import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
@@ -9,6 +10,8 @@ import { validateBody } from '@molecule/api-middleware-validation'
 import { seedDefaultOnboardingIfMissing } from '../seedDefaultOnboarding.js'
 
 const router = Router()
+
+const logger = getLogger()
 
 const createMemberSchema = z.object({
   name: z.string().min(1),
@@ -40,6 +43,7 @@ router.get('/', async (_req: Request, res: Response) => {
     })
     res.json(items)
   } catch (_err) {
+    logger.error('team_members.list', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -63,6 +67,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (_err) {
+    logger.error('team_members.read', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -93,6 +98,7 @@ router.post('/', validateBody(createMemberSchema), async (req: Request, res: Res
     })
     res.status(201).json(result.data)
   } catch (_err) {
+    logger.error('team_members.create', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -134,6 +140,7 @@ router.put('/:id', validateBody(updateMemberSchema), async (req: Request, res: R
     const result = await updateById('team_members', id, updates)
     res.json(result.data)
   } catch (_err) {
+    logger.error('team_members.update', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -158,6 +165,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('team_members', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('team_members.delete', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

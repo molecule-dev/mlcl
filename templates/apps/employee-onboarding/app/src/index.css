@@ -25,3 +25,25 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * Template-local responsive helpers (fleet mobile-shell pattern).
+ * Inline styles cannot express media queries; these two classes carry the
+ * page padding + two-column collapses that must stack below 768px.
+ */
+.eo-page-pad {
+  padding: 32px;
+}
+@media (max-width: 768px) {
+  .eo-page-pad {
+    padding: 16px;
+  }
+  /* main column + sidebar-as-row grids that cramp at phone widths */
+  .eo-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .eo-triad {
+    grid-template-columns: 1fr !important;
+  }
+}

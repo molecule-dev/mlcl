@@ -1,4 +1,5 @@
-import { NavLink, Outlet, useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -13,6 +14,11 @@ import { UserMenu } from './UserMenu.js'
  * Translated from crm/AppLayout.tsx + DashboardSideNavBar.tsx — sidebar nav with
  * primary/accent active rail, top bar with greeting + user menu. Embark teal/purple
  * palette and Material Symbols glyphs throughout.
+ *
+ * Mobile (≤768px): the sidebar becomes a slide-in drawer (hamburger in the top
+ * bar, overlay, Escape + route-change close) and the global search input is
+ * hidden — the Team directory page carries its own search. Follows the fleet
+ * mobile-shell pattern from crm/CrmLayout.tsx.
  */
 
 interface NavItem {
@@ -52,16 +58,20 @@ const NAV_PEOPLE: NavItem[] = [
   { to: '/settings', iconKey: 'settings', labelKey: 'nav.settings', defaultLabel: 'Settings' },
 ]
 
+const MOBILE_MQ = '(max-width: 768px)'
+
 function NavSection({
   cm,
   t,
   heading,
   items,
+  onNavigate,
 }: {
   cm: ReturnType<typeof getClassMap>
   t: ReturnType<typeof useTranslation>['t']
   heading: string
   items: NavItem[]
+  onNavigate: () => void
 }) {
   return (
     <div className={cm.sp('mb', 6)}>
@@ -79,6 +89,7 @@ function NavSection({
           <li key={item.to}>
             <NavLink
               to={item.to}
+              onClick={onNavigate}
               className={({ isActive }) =>
                 cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
@@ -107,18 +118,80 @@ export function EmployeeOnboardingLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const location = useLocation()
+  const [isMobile, setIsMobile] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_MQ)
+    setIsMobile(mq.matches)
+    const handler = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches)
+      if (!e.matches) setDrawerOpen(false)
+    }
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  // Any route change closes the mobile drawer.
+  useEffect(() => {
+    setDrawerOpen(false)
+  }, [location.pathname])
+
+  // Escape closes the drawer.
+  useEffect(() => {
+    if (!drawerOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDrawerOpen(false)
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [drawerOpen])
+
+  const closeDrawer = () => setDrawerOpen(false)
 
   return (
     <div
       className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
     >
+      {/* Mobile overlay */}
+      {isMobile && drawerOpen && (
+        <div
+          role="presentation"
+          onClick={closeDrawer}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(15, 23, 42, 0.4)',
+            zIndex: 40,
+            backdropFilter: 'blur(2px)',
+          }}
+        />
+      )}
+
       {/* Sidebar */}
       <aside
+        data-mol-id="layout-sidebar"
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           'bg-surface border-r border-outline-variant',
         )}
-        style={{ width: '260px', flexShrink: 0 }}
+        style={{
+          width: '260px',
+          flexShrink: 0,
+          ...(isMobile
+            ? {
+                position: 'fixed',
+                top: 0,
+                bottom: 0,
+                left: drawerOpen ? 0 : '-280px',
+                zIndex: 50,
+                transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                boxShadow: drawerOpen ? '8px 0 24px rgba(15, 23, 42, 0.2)' : 'none',
+                overflowY: 'auto',
+              }
+            : {}),
+        }}
       >
         <div
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 5), cm.sp('py', 5))}
@@ -153,12 +226,14 @@ export function EmployeeOnboardingLayout() {
             t={t}
             heading={t('layout.section.onboarding', {}, { defaultValue: 'Onboarding' })}
             items={NAV_PRIMARY}
+            onNavigate={closeDrawer}
           />
           <NavSection
             cm={cm}
             t={t}
             heading={t('nav.you', {}, { defaultValue: 'You' })}
             items={NAV_PEOPLE}
+            onNavigate={closeDrawer}
           />
         </nav>
       </aside>
@@ -171,46 +246,73 @@ export function EmployeeOnboardingLayout() {
             cm.sp('px', 8),
             'bg-surface border-b border-outline-variant',
           )}
-          style={{ height: '64px', flexShrink: 0 }}
+          style={{
+            height: '64px',
+            flexShrink: 0,
+            ...(isMobile ? { padding: '0 12px' } : {}),
+          }}
         >
-          <form
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
-            role="search"
-            onSubmit={(e) => {
-              e.preventDefault()
-              const q = new FormData(e.currentTarget).get('q')
-              if (typeof q === 'string' && q.trim()) {
-                navigate(`/team?q=${encodeURIComponent(q.trim())}`)
-                e.currentTarget.reset()
-              }
-            }}
-          >
-            <span
-              className="material-symbols-outlined text-on-surface-variant"
-              style={{ fontSize: '20px' }}
-            >
-              search
-            </span>
-            <input
-              type="search"
-              name="q"
-              data-mol-id="layout-search-input"
-              placeholder={t(
-                'layout.searchTeammates',
-                {},
-                { defaultValue: 'Search teammates by name or role…' },
+          {isMobile && (
+            <button
+              type="button"
+              data-mol-id="layout-menu-toggle"
+              aria-label={t('layout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
+              aria-expanded={drawerOpen}
+              onClick={() => setDrawerOpen(true)}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'border-0 bg-transparent text-on-surface hover:text-primary cursor-pointer',
               )}
-              className="bg-transparent outline-none"
-              style={{ width: '320px' }}
-            />
-          </form>
+              style={{ width: '40px', height: '40px', flexShrink: 0 }}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
+                menu
+              </span>
+            </button>
+          )}
+          {!isMobile && (
+            <form
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}
+              role="search"
+              onSubmit={(e) => {
+                e.preventDefault()
+                const q = new FormData(e.currentTarget).get('q')
+                if (typeof q === 'string' && q.trim()) {
+                  navigate(`/team?q=${encodeURIComponent(q.trim())}`)
+                  e.currentTarget.reset()
+                }
+              }}
+            >
+              <span
+                className="material-symbols-outlined text-on-surface-variant"
+                style={{ fontSize: '20px' }}
+              >
+                search
+              </span>
+              <input
+                type="search"
+                name="q"
+                data-mol-id="layout-search-input"
+                placeholder={t(
+                  'layout.searchTeammates',
+                  {},
+                  { defaultValue: 'Search teammates by name or role…' },
+                )}
+                className="bg-transparent outline-none"
+                style={{ width: '320px' }}
+              />
+            </form>
+          )}
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
             <ThemeToggle />
             <UserMenu />
           </div>
         </header>
 
-        <main className={cm.cn(cm.flex1, cm.sp('p', 8))} style={{ overflowY: 'auto' }}>
+        <main
+          className={cm.cn(cm.flex1, 'eo-page-pad')}
+          style={{ overflowY: 'auto', minHeight: 0 }}
+        >
           <Outlet />
         </main>
       </div>

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -105,6 +106,10 @@ export function TaskDetail() {
       await http.put(`/api/tasks/${task.id}`, {
         status: next,
         completed_at: next === 'complete' ? new Date().toISOString() : null,
+      })
+      void track({
+        name: next === 'complete' ? 'onboarding.task_completed' : 'onboarding.task_reopened',
+        properties: { task_id: task.id, status: next },
       })
       await reload()
     } catch (_error) {

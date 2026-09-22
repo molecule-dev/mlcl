@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -157,6 +158,10 @@ export function Checklist() {
         await http.put(`/api/tasks/${id}`, {
           status: newStatus,
           completed_at: next ? new Date().toISOString() : null,
+        })
+        void track({
+          name: next ? 'onboarding.task_completed' : 'onboarding.task_reopened',
+          properties: { task_id: id, status: newStatus },
         })
         // Re-read so server-derived fields (completed_at/by, updated_at) are
         // reflected — and so a refresh of the page shows the same state.

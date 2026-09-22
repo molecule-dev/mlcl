@@ -292,6 +292,7 @@ export function Dashboard() {
       />
 
       <div
+        className="eo-two-col"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',

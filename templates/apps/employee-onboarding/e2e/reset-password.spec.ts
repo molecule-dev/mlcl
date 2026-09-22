@@ -23,6 +23,12 @@ test.describe('/reset-password', () => {
   test('form submission POSTs to /api/users/reset-password and is rejected for an invalid token', async ({
     page,
   }) => {
+    // The whole point is a 401 from the reset endpoint — tell the console
+    // guard that the browser's "status of 401" resource error is expected.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     // Pass email + token via querystring so neither field renders as required.
     await page.goto(
       APP_BASE +

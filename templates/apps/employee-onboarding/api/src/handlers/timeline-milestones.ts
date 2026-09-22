@@ -1,6 +1,7 @@
 import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
@@ -10,6 +11,8 @@ import { validateBody } from '@molecule/api-middleware-validation'
 import { seedDefaultOnboardingIfMissing } from '../seedDefaultOnboarding.js'
 
 const router = Router()
+
+const logger = getLogger()
 
 const createMilestoneSchema = z.object({
   onboarding_id: z.string().nullable().optional(),
@@ -40,6 +43,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (_err) {
+    logger.error('timeline_milestones.list', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -63,6 +67,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (_err) {
+    logger.error('timeline_milestones.read', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -88,6 +93,7 @@ router.post('/', validateBody(createMilestoneSchema), async (req: Request, res: 
     })
     res.status(201).json(result.data)
   } catch (_err) {
+    logger.error('timeline_milestones.create', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -121,6 +127,7 @@ router.put('/:id', validateBody(updateMilestoneSchema), async (req: Request, res
     const result = await updateById('timeline_milestones', id, updates)
     res.json(result.data)
   } catch (_err) {
+    logger.error('timeline_milestones.update', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -145,6 +152,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('timeline_milestones', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('timeline_milestones.delete', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

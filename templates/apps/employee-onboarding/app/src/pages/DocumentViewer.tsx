@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -78,6 +79,10 @@ export function DocumentViewer() {
     setBusy(true)
     try {
       await http.put(`/api/documents/${doc.id}`, { signed: true })
+      void track({
+        name: 'onboarding.document_signed',
+        properties: { document_id: doc.id },
+      })
       await reload()
     } catch (_error) {
       // Sign failed — re-sync from the server so the UI reflects reality
@@ -201,6 +206,7 @@ export function DocumentViewer() {
       </header>
 
       <div
+        className="eo-two-col"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',

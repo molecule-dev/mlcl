@@ -1,6 +1,7 @@
 import { type Request, type RequestHandler, type Response, Router } from 'express'
 import { z } from 'zod'
 
+import { getLogger } from '@molecule/api-bond'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
@@ -12,6 +13,8 @@ import { seedDefaultOnboardingIfMissing } from '../seedDefaultOnboarding.js'
 import type { EmployeeOnboardingLimits } from '../tiers.js'
 
 const router = Router()
+
+const logger = getLogger()
 
 const createTaskSchema = z.object({
   onboarding_id: z.string().nullable().optional(),
@@ -59,6 +62,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (_err) {
+    logger.error('tasks.list', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -82,6 +86,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (_err) {
+    logger.error('tasks.read', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -124,6 +129,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (_err) {
+      logger.error('tasks.create', _err as Error)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -171,6 +177,7 @@ router.put('/:id', validateBody(updateTaskSchema), async (req: Request, res: Res
     const result = await updateById('onboarding_tasks', id, updates)
     res.json(result.data)
   } catch (_err) {
+    logger.error('tasks.update', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -195,6 +202,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('onboarding_tasks', id)
     res.status(204).end()
   } catch (_err) {
+    logger.error('tasks.delete', _err as Error)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

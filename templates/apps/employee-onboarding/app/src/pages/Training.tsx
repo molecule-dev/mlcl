@@ -29,7 +29,10 @@ const COLORS = ['#b91c1c', '#0f766e', '#6d28d9', '#92400e', '#166534']
 const ICONS = [
   'shield_lock',
   'engineering',
-  'product_design',
+  // `palette`, not `product_design`: the shared Material Symbols subset has no
+  // `product_design` ligature, and a missing ligature renders the RAW name as
+  // giant unstyled text across the card (seen at 390px).
+  'palette',
   'campaign',
   'sentiment_very_satisfied',
 ]
