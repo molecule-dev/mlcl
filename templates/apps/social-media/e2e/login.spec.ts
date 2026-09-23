@@ -26,6 +26,9 @@ test.describe('login page', () => {
   })
 
   test('Login with bad credentials shows an error and stays on /login', async ({ page }) => {
+    // A rejected login is SUPPOSED to 403 — the console-guard would otherwise
+    // fail the test on the browser's own "Failed to load resource" line.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail())
     await page.locator('input[type="password"]').first().fill('wrong-password')

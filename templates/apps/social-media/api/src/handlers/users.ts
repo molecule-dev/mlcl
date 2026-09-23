@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { enrichPosts, enrichUser } from '../lib/enrich-posts.js'
 import { isPostVisibleToViewer } from '../lib/visibility.js'
@@ -61,7 +62,7 @@ profile.get('/me', async (_req: Request, res: Response) => {
     const enriched = await enrichUser(user, userId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('profile.getMe', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -80,7 +81,7 @@ profile.get('/:handle', async (req: Request, res: Response) => {
     const enriched = await enrichUser(user, viewerId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('profile.getUser', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -111,7 +112,7 @@ profile.get('/:handle/posts', async (req: Request, res: Response) => {
     const enriched = await enrichPosts(posts as never[], viewerId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('profile.getUserPosts', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -151,7 +152,7 @@ search.get('/users', async (req: Request, res: Response) => {
       }))
     res.json(matched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('search.users', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -185,7 +186,7 @@ search.get('/posts', async (req: Request, res: Response) => {
     const enriched = await enrichPosts(matched as never[], viewerId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('search.posts', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -223,7 +224,7 @@ saves.post('/posts/:id/save', async (req: Request, res: Response) => {
     })
     res.json({ saved: true })
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('saves.toggleSave', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -270,7 +271,7 @@ saves.get('/saved', async (_req: Request, res: Response) => {
     const enriched = await enrichPosts(visible as never[], userId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('saves.listSaved', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

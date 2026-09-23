@@ -45,25 +45,7 @@ interface SocialPreferences {
   privTagging?: boolean
 }
 
-interface UserWithPrefs extends UserProfile {
-  oauthData?: { socialPreferences?: SocialPreferences; bio?: string } | null
-  username?: string | null
-  email?: string
-}
-
-/**
- * The molecule resource-user GET handler returns `{ props: {...}, plan }`,
- * but PATCH / POST shape vary. Unwrap so the rest of the page can deal in
- * a flat user shape regardless of which envelope the API responded with.
- */
-function unwrapUser(raw: unknown): UserWithPrefs | null {
-  if (!raw || typeof raw !== 'object') return null
-  const obj = raw as { props?: unknown } & Record<string, unknown>
-  if (obj.props && typeof obj.props === 'object') {
-    return obj.props as UserWithPrefs
-  }
-  return obj as unknown as UserWithPrefs
-}
+type UserWithPrefs = UserProfile & { email?: string }
 
 const DEFAULT_PREFS: Required<SocialPreferences> = {
   notifLikes: true,
@@ -77,10 +59,13 @@ const DEFAULT_PREFS: Required<SocialPreferences> = {
 
 /**
  * Settings — left rail of categories + right pane editor. Real-backed:
- *   - Loads /api/profile/me on mount and /api/users/me for oauthData
+ *   - Loads /api/profile/me for the profile block + /api/preferences for the
+ *     server-side preference/bio slice (the platform user resource NEVER
+ *     returns `oauthData` on reads, so prefs must be read/merged server-side)
  *   - PATCH /api/users/:id with `name` for display_name on blur
- *   - PATCH /api/users/:id with `oauthData.socialPreferences` for toggles
- *   - Round-trips across reload via /api/users/me + /api/profile/me
+ *   - PATCH /api/preferences with `{ preferences: { key: bool } }` for toggles
+ *     and `{ bio }` for the bio — the API merges into users.oauthData
+ *   - Round-trips across reload via /api/preferences + /api/profile/me
  */
 export function Settings() {
   const cm = getClassMap()
@@ -97,20 +82,26 @@ export function Settings() {
 
   const userId = user?.id
 
-  // Initial load — hydrate display name + bio from /api/profile/me, prefs from /api/users/:id oauthData.
+  // Initial load — hydrate display name from /api/profile/me, prefs + bio from
+  // the server-side /api/preferences channel.
   useEffect(() => {
     let cancelled = false
     const load = async () => {
       if (!userId) return
       try {
-        const [meRes, userRes] = await Promise.all([
+        const [meRes, prefsRes] = await Promise.all([
           http.get<MeProfile>('/profile/me'),
-          http.get<unknown>(`/users/${userId}`),
+          http.get<{ bio?: string; preferences?: SocialPreferences }>('/preferences'),
         ])
         if (cancelled) return
-        if (meRes.data) setProfile(meRes.data)
-        const userFlat = unwrapUser(userRes.data)
-        const stored = userFlat?.oauthData?.socialPreferences
+        if (meRes.data) {
+          setProfile({
+            ...meRes.data,
+            // /preferences is authoritative for bio — profile may fall back to ''
+            bio: prefsRes.data?.bio ?? meRes.data.bio,
+          })
+        }
+        const stored = prefsRes.data?.preferences
         if (stored) setPrefs({ ...DEFAULT_PREFS, ...stored })
         setLoaded(true)
       } catch (err) {
@@ -173,12 +164,11 @@ export function Settings() {
       setSaving(true)
       setError(null)
       try {
-        // bio is stored on users.oauthData (no dedicated column); we read it
-        // back via /api/profile/me which falls back to '' if not present.
-        const userRes = await http.get<unknown>(`/users/${userId}`)
-        const flat = unwrapUser(userRes.data)
-        const oauthData = (flat?.oauthData ?? {}) as Record<string, unknown>
-        await http.patch(`/users/${userId}`, { oauthData: { ...oauthData, bio: next } })
+        // bio lives on users.oauthData with no dedicated column — persisted
+        // through the server-side /preferences channel, which merges into the
+        // existing oauthData (a client-side read-merge would clobber prefs,
+        // since user reads never return oauthData).
+        await http.patch('/preferences', { bio: next })
         setProfile((prev) => (prev ? { ...prev, bio: next } : prev))
         setSavedAt(Date.now())
       } catch (err) {
@@ -198,12 +188,14 @@ export function Settings() {
       setSaving(true)
       setError(null)
       try {
-        const userRes = await http.get<unknown>(`/users/${userId}`)
-        const flat = unwrapUser(userRes.data)
-        const oauthData = (flat?.oauthData ?? {}) as Record<string, unknown>
-        await http.patch(`/users/${userId}`, {
-          oauthData: { ...oauthData, socialPreferences: next },
+        // Server-side merge: only the flipped key is sent, the API merges it
+        // into users.oauthData.socialPreferences and returns the full slice.
+        const res = await http.patch<{ preferences?: Partial<SocialPreferences> }>('/preferences', {
+          preferences: { [key]: !prefs[key] },
         })
+        if (res.data?.preferences) {
+          setPrefs((prev) => ({ ...prev, ...res.data!.preferences }))
+        }
         setSavedAt(Date.now())
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Could not save preference')

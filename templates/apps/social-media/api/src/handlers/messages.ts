@@ -106,7 +106,7 @@ router.get('/threads', async (_req: Request, res: Response) => {
     )
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('messages.getThreads', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -208,7 +208,7 @@ router.get('/threads/:id/messages', async (req: Request, res: Response) => {
       })),
     )
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('messages.getThreadMessages', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

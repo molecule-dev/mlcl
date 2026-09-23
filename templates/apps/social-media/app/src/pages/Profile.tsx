@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { warn as logWarn } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -32,11 +33,16 @@ export function Profile() {
     setFollowBusy(true)
     setFollowError(null)
     try {
-      if (profile.is_following) {
-        await http.delete(`/follows/users/${profile.id}`)
-      } else {
+      const following = !profile.is_following
+      if (following) {
         await http.post(`/follows/users/${profile.id}`)
+      } else {
+        await http.delete(`/follows/users/${profile.id}`)
       }
+      track({
+        name: 'follow.toggled',
+        properties: { target_id: profile.id, following },
+      })
       await refetchProfile()
     } catch (err) {
       setFollowError(err instanceof Error ? err.message : 'Could not update follow')

@@ -70,7 +70,7 @@ router.get('/', async (req: Request, res: Response) => {
     const enriched = await enrichPosts(posts as never[], viewerId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('posts.listPosts', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -112,7 +112,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     const [enriched] = await enrichPosts([post as never], userId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('posts.getPost', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -159,7 +159,7 @@ router.post('/', enforcePostLimit, async (req: Request, res: Response) => {
     const [enriched] = await enrichPosts([result.data as never], userId)
     res.status(201).json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('posts.createPost', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -353,7 +353,7 @@ router.get('/:id/comments', async (req: Request, res: Response) => {
     })
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('posts.listComments', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

@@ -29,6 +29,9 @@ test.describe('post detail page (/posts/:id)', () => {
   })
 
   test('PostDetail returns 404 for unknown post id', async ({ page }) => {
+    // The unknown id 404s twice (post + comments) BY DESIGN — allow the
+    // browser's expected resource errors through the console-guard.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/posts/00000000-0000-0000-0000-000000000000')
     await expect(page.locator('text=/Post not found|not found|404/i').first()).toBeVisible({

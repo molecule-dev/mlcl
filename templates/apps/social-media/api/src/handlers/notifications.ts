@@ -85,7 +85,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('notifications.list', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { enrichPosts } from '../lib/enrich-posts.js'
 
@@ -63,7 +64,7 @@ router.get('/', async (req: Request, res: Response) => {
     const enriched = await enrichPosts(rawPosts as never[], userId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('feed.getFeed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -92,7 +93,7 @@ router.get('/explore', async (req: Request, res: Response) => {
     const enriched = await enrichPosts(rawPosts as never[], userId)
     res.json(enriched)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('feed.getExplore', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -144,7 +145,7 @@ router.get('/suggestions', async (_req: Request, res: Response) => {
       })),
     )
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('feed.getSuggestions', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -171,7 +172,7 @@ router.get('/hashtags', async (_req: Request, res: Response) => {
       .map(([tag, count]) => ({ tag, post_count: count, delta_pct: 0 }))
     res.json(ranked)
   } catch (err) {
-    console.error('social-media 500:', err)
+    logger.error('feed.getHashtags', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -44,7 +45,10 @@ export function PostDetail() {
     setLikeOverride(next)
     try {
       const res = await http.post<{ liked: boolean; like_count: number }>(`/posts/${post.id}/like`)
-      if (res.data) setLikeOverride({ liked: res.data.liked, like_count: res.data.like_count })
+      if (res.data) {
+        setLikeOverride({ liked: res.data.liked, like_count: res.data.like_count })
+        track({ name: 'post.liked', properties: { post_id: post.id, liked: res.data.liked } })
+      }
     } catch (err) {
       logError('postDetail.toggleLike', err)
       setLikeOverride({ liked, like_count: likeCount })
@@ -59,6 +63,7 @@ export function PostDetail() {
       setComposeError(null)
       try {
         await http.post(`/posts/${post.id}/comments`, { body: draft.trim() })
+        track({ name: 'comment.added', properties: { post_id: post.id } })
         setDraft('')
         await Promise.all([refetchComments(), refetchPost()])
       } catch (err) {
@@ -76,6 +81,10 @@ export function PostDetail() {
     setFollowError(null)
     try {
       await http.post(`/follows/users/${post.author.id}`)
+      track({
+        name: 'follow.toggled',
+        properties: { target_id: post.author.id, following: true },
+      })
     } catch (err) {
       setFollowError(err instanceof Error ? err.message : 'Could not follow user')
       setFollowing(false)

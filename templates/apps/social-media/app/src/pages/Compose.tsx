@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -38,6 +39,10 @@ export function Compose() {
       }
       const res = await http.post<{ id: string }>('/posts', body)
       const id = res.data?.id
+      track({
+        name: 'post.created',
+        properties: { post_id: id ?? null, visibility, hashtags: hashtags.length },
+      })
       if (id) {
         navigate(`/posts/${id}`)
       } else {

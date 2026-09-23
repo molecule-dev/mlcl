@@ -45,9 +45,11 @@ export function Search() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced])
 
-  const { data: people } = useSearchUsers(stripped)
-  const { data: posts } = useSearchPosts(stripped)
+  const { data: people, loading: peopleLoading, error: peopleError } = useSearchUsers(stripped)
+  const { data: posts, loading: postsLoading, error: postsError } = useSearchPosts(stripped)
   const { data: hashtags } = useTrendingHashtags()
+
+  const searchError = peopleError ?? postsError
 
   const matchingTags = useMemo(() => {
     const all = hashtags ?? []
@@ -116,7 +118,8 @@ export function Search() {
             type="button"
             onClick={() => setQuery('')}
             className={cm.cn(
-              'text-on-surface-variant hover:text-on-surface transition-colors mr-3',
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-10 w-10 shrink-0 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors mr-2',
             )}
             aria-label={t('search.clearAria', {}, { defaultValue: 'Clear' })}
           >
@@ -124,6 +127,18 @@ export function Search() {
           </button>
         )}
       </div>
+
+      {searchError && (
+        <div
+          role="alert"
+          className={cm.cn(
+            'rounded-2xl border border-red-300 bg-error-light text-error px-4 py-3 mb-6 text-sm',
+          )}
+        >
+          {t('search.error', {}, { defaultValue: 'Search failed. Try again.' })}{' '}
+          {searchError.message}
+        </div>
+      )}
 
       <div
         className={cm.cn(
@@ -212,7 +227,18 @@ export function Search() {
                 </Link>
               </li>
             ))}
-            {stripped && (people ?? []).length === 0 && (
+            {stripped && peopleLoading && (
+              <li
+                className={cm.cn(
+                  cm.sp('py', 8),
+                  cm.textCenter,
+                  'text-on-surface-variant text-sm italic col-span-full',
+                )}
+              >
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+              </li>
+            )}
+            {!peopleLoading && stripped && (people ?? []).length === 0 && (
               <li
                 className={cm.cn(
                   cm.sp('py', 8),
@@ -348,7 +374,12 @@ export function Search() {
               )
             })}
           </ul>
-          {stripped && (posts ?? []).length === 0 && (
+          {stripped && postsLoading && (
+            <p className={cm.cn(cm.sp('py', 4), cm.textCenter, 'text-on-surface-variant text-sm')}>
+              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+            </p>
+          )}
+          {!postsLoading && stripped && (posts ?? []).length === 0 && (
             <p className={cm.cn(cm.sp('py', 4), cm.textCenter, 'text-on-surface-variant text-sm')}>
               {t('search.noPosts', { q: query }, { defaultValue: 'No posts match "{{q}}".' })}
             </p>

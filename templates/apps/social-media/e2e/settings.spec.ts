@@ -60,7 +60,7 @@ test.describe('settings page', () => {
     })
   })
 
-  test('Bio textarea save-on-blur persists via /api/users/:id and survives reload', async ({
+  test('Bio textarea save-on-blur persists via /api/preferences and survives reload', async ({
     page,
   }) => {
     const me = await signup(page)
@@ -108,17 +108,15 @@ test.describe('settings page', () => {
     const after = await toggle.getAttribute('aria-pressed')
     expect(after).not.toBe(before)
 
-    const userRes = await page.request.get(`/api/users/${me.userId}`, {
+    // Persistence is verified through the server-side /api/preferences
+    // channel — the platform user resource NEVER returns `oauthData` on
+    // reads, so /api/users/:id can't witness this write.
+    const prefsRes = await page.request.get('/api/preferences', {
       headers: { Authorization: `Bearer ${me.accessToken}` },
     })
-    expect(userRes.status()).toBe(200)
-    const userBody = (await userRes.json()) as {
-      props?: { oauthData?: { socialPreferences?: { notifLikes?: boolean } } }
-      oauthData?: { socialPreferences?: { notifLikes?: boolean } }
-    }
-    const persistedLikes =
-      userBody.props?.oauthData?.socialPreferences?.notifLikes ??
-      userBody.oauthData?.socialPreferences?.notifLikes
+    expect(prefsRes.status()).toBe(200)
+    const prefsBody = (await prefsRes.json()) as { preferences?: { notifLikes?: boolean } }
+    const persistedLikes = prefsBody.preferences?.notifLikes
     expect(typeof persistedLikes).toBe('boolean')
 
     await page.reload()

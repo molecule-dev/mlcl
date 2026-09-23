@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -14,10 +15,16 @@ export function Messages() {
   const http = useHttpClient()
   const [params] = useSearchParams()
   const initialThread = params.get('thread')
-  const { data: conversations, loading: convosLoading, refetch: refetchConvos } = useConversations()
+  const {
+    data: conversations,
+    loading: convosLoading,
+    error: convosError,
+    refetch: refetchConvos,
+  } = useConversations()
   const [activeId, setActiveId] = useState<string | null>(initialThread)
   const [draft, setDraft] = useState('')
   const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState<string | null>(null)
   const [filter, setFilter] = useState('')
 
   useEffect(() => {
@@ -37,12 +44,15 @@ export function Messages() {
       e.preventDefault()
       if (!activeId || !draft.trim()) return
       setSending(true)
+      setSendError(null)
       try {
         await http.post(`/messages/threads/${activeId}/messages`, { content: draft.trim() })
+        track({ name: 'message.sent', properties: { thread_id: activeId } })
         setDraft('')
         await Promise.all([refetchMessages(), refetchConvos()])
       } catch (err) {
         logError('messages.sendMessage', err)
+        setSendError(err instanceof Error ? err.message : 'Message failed to send — try again.')
       } finally {
         setSending(false)
       }
@@ -81,6 +91,27 @@ export function Messages() {
               )}
         </p>
       </header>
+
+      {convosError && (
+        <div
+          role="alert"
+          data-testid="messages-error"
+          className={cm.cn(
+            'rounded-2xl border border-red-300 bg-error-light text-error px-4 py-3 mb-4 text-sm flex items-center gap-3',
+          )}
+        >
+          <span>{t('messages.error', {}, { defaultValue: 'Could not load conversations.' })}</span>
+          <button
+            type="button"
+            onClick={() => void refetchConvos()}
+            className={cm.cn(
+              'shrink-0 rounded-full border border-current px-3 py-1 text-xs font-bold hover:bg-surface-container transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )}
 
       <div
         className={cm.cn(
@@ -274,6 +305,15 @@ export function Messages() {
                 ))}
               </ul>
 
+              {sendError && (
+                <p
+                  role="alert"
+                  data-testid="message-send-error"
+                  className={cm.cn(cm.sp('px', 4), cm.sp('pb', 2), cm.textSize('xs'), 'text-error')}
+                >
+                  {sendError}
+                </p>
+              )}
               <form
                 onSubmit={sendMessage}
                 className={cm.cn(

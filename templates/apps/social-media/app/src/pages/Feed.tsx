@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -38,6 +39,7 @@ export function Feed() {
       })
       try {
         await http.post(`/follows/users/${userId}`)
+        track({ name: 'follow.toggled', properties: { target_id: userId, following: true } })
       } catch (err) {
         logError('feed.followSuggestion', err)
         setFollowedIds((prev) => {
@@ -69,6 +71,10 @@ export function Feed() {
             ...prev,
             [postId]: { liked: res.data.liked, like_count: res.data.like_count },
           }))
+          track({
+            name: 'post.liked',
+            properties: { post_id: postId, liked: res.data.liked },
+          })
         }
       } catch (err) {
         logError('feed.toggleLike', err)
@@ -120,7 +126,7 @@ export function Feed() {
           className={cm.cn(
             cm.sp('px', 4),
             cm.sp('py', 2),
-            'rounded-full text-sm font-bold bg-primary text-on-primary hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
+            'shrink-0 self-start whitespace-nowrap rounded-full text-sm font-bold bg-primary text-on-primary hover:bg-primary/90 transition-colors inline-flex items-center gap-2',
           )}
           data-testid="compose-link"
         >
@@ -143,6 +149,30 @@ export function Feed() {
       <div className={cm.cn('grid grid-cols-1 lg:grid-cols-12 gap-8')}>
         <div className={cm.cn('lg:col-span-8 xl:col-span-8')}>
           <div className={cm.cn(cm.flex({ direction: 'col' }), 'gap-6')}>
+            {loading && (
+              <div
+                className={cm.cn(cm.flex({ direction: 'col' }), 'gap-6')}
+                aria-hidden="true"
+                data-testid="feed-loading"
+              >
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl border border-outline-variant/40 overflow-hidden bg-surface-container-lowest"
+                  >
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 4))}>
+                      <div className="w-10 h-10 rounded-full bg-surface-container animate-pulse" />
+                      <div className="flex-1 space-y-2">
+                        <div className="h-3 w-32 rounded bg-surface-container animate-pulse" />
+                        <div className="h-2.5 w-24 rounded bg-surface-container animate-pulse" />
+                      </div>
+                    </div>
+                    <div className="aspect-square bg-surface-container animate-pulse" />
+                  </div>
+                ))}
+              </div>
+            )}
+
             {!loading && posts.length === 0 && (
               <div
                 className={cm.cn(
@@ -188,9 +218,8 @@ export function Feed() {
               </div>
             )}
 
-            {posts.map((post) => (
-              <PostCard key={post.id} post={post} onToggleLike={toggleLike} />
-            ))}
+            {!loading &&
+              posts.map((post) => <PostCard key={post.id} post={post} onToggleLike={toggleLike} />)}
           </div>
         </div>
 

@@ -19,6 +19,9 @@ test.describe('reset-password page', () => {
   })
 
   test('submits new password to /api/users/reset-password', async ({ page }) => {
+    // The fake token intentionally 401s — allow that expected resource error
+    // through the console-guard; the assertion below is on the network record.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=invalid-fake-token&email=foo@bar.com')
     const pwInputs = page.locator('input[type="password"]')
     await pwInputs.first().fill('NewPass123!')

@@ -120,7 +120,10 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
             onClick={() => {
               void copyPostLink(post.id)
             }}
-            className={cm.cn('text-on-surface-variant hover:text-on-surface transition-colors')}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-10 w-10 rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
+            )}
             aria-label={t('postCard.moreAria', {}, { defaultValue: 'More options' })}
           >
             <span className={cm.cn('material-symbols-outlined text-[20px]')}>more_horiz</span>
@@ -182,14 +185,15 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
             cm.flex({ align: 'center', justify: 'between' }),
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), '-mx-2')}>
             <button
               type="button"
               onClick={() => onToggleLike?.(post.id)}
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                'min-h-11 min-w-11 px-2 rounded-full',
                 post.liked ? 'text-error' : 'text-on-surface',
                 'transition-colors hover:text-error',
               )}
@@ -207,9 +211,10 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
             <Link
               to={`/posts/${post.id}#comments`}
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                'min-h-11 min-w-11 px-2 rounded-full',
                 'text-on-surface hover:text-primary transition-colors',
               )}
               aria-label={t('postCard.commentAria', {}, { defaultValue: 'View comments' })}
@@ -223,9 +228,10 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
                 void copyPostLink(post.id)
               }}
               className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
+                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                'min-h-11 min-w-11 px-2 rounded-full',
                 'text-on-surface hover:text-primary transition-colors',
               )}
               aria-label={t('common.share', {}, { defaultValue: 'Share' })}
@@ -238,6 +244,8 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
             type="button"
             onClick={() => onToggleSave?.(post.id)}
             className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'min-h-11 min-w-11 rounded-full',
               post.saved ? 'text-primary' : 'text-on-surface-variant',
               'hover:text-primary transition-colors',
             )}
