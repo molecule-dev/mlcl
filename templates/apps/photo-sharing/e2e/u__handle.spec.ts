@@ -29,6 +29,9 @@ test('Profile heading visible (data-testid="profile-name")', async ({ page }) =>
 })
 
 test('Unknown handle renders profile-error testid', async ({ page }) => {
+  // The profile fetch for an unknown handle 404s by contract — allow the
+  // expected console noise.
+  test.info().annotations.push({ type: 'allow-console-error', description: /status of 404/ })
   await signup(page)
   await page.goto(`${APP_BASE}/u/definitely-not-a-real-handle-xyz`)
   await expect(page.getByTestId('profile-error')).toBeVisible({ timeout: 15_000 })

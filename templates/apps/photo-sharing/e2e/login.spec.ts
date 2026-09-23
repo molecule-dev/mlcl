@@ -63,6 +63,9 @@ test('Sign up link → /signup', async ({ page }) => {
 })
 
 test('Bad password keeps user on /login', async ({ page }) => {
+  // The bad-credential attempt intentionally 403s on /api/users/log-in —
+  // allow the expected console noise.
+  test.info().annotations.push({ type: 'allow-console-error', description: /status of 403/ })
   await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').fill(uniqueEmail('nobody'))
   await page.locator('input#password').fill('not-a-real-password')

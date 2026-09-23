@@ -38,6 +38,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **albums** — `api/src/handlers/albums.ts`
 - **galleries** — `api/src/handlers/galleries.ts`
 - **photos** — `api/src/handlers/photos.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **profiles** — `api/src/handlers/profiles.ts`
 - **uploads** — `api/src/handlers/uploads.ts`
 
