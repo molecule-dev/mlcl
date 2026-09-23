@@ -53,18 +53,26 @@ export function Shipments() {
   const [upcoming, setUpcoming] = useState<BoxWithShipment | null>(null)
   const [history, setHistory] = useState<BoxWithShipment[]>([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
+    let failed = false
     Promise.all([
       http
         .get('/api/boxes/mine/upcoming')
         .then(unwrapSingle<ApiBox>)
-        .catch(() => null),
+        .catch(() => {
+          failed = true
+          return null
+        }),
       http
         .get('/api/boxes/mine/history')
         .then(unwrapList<ApiBox>)
-        .catch(() => []),
+        .catch(() => {
+          failed = true
+          return []
+        }),
     ])
       .then(async ([up, hist]) => {
         if (cancelled) return
@@ -77,6 +85,7 @@ export function Shipments() {
         if (cancelled) return
         setUpcoming(upWithShip)
         setHistory(histWithShip)
+        setLoadError(failed)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -120,6 +129,39 @@ export function Shipments() {
           data-testid="shipments-loading"
         >
           {t('shipments.loading', {}, { defaultValue: 'Loading shipments…' })}
+        </div>
+      ) : loadError ? (
+        <div
+          role="alert"
+          data-testid="shipments-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+            cm.sp('p', 5),
+            'rounded-2xl bg-error/10 text-error',
+          )}
+        >
+          <span className={cm.cn(cm.fontWeight('medium'))}>
+            {t(
+              'shipments.loadError',
+              {},
+              {
+                defaultValue: 'We could not load your shipments. Check your connection and retry.',
+              },
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className={cm.cn(
+              cm.sp('px', 4),
+              'min-h-[40px]',
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'text-sm border-2 border-error text-error hover:bg-error hover:text-surface transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
         </div>
       ) : (
         <>

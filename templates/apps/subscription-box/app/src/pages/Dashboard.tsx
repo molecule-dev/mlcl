@@ -36,29 +36,46 @@ export function Dashboard() {
     plans: [],
   })
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
+    let failed = false
     Promise.all([
       http
         .get('/api/billing/status')
         .then(unwrapSingle<ApiBillingStatus>)
-        .catch(() => null),
+        .catch(() => {
+          failed = true
+          return null
+        }),
       http
         .get('/api/subscriptions/mine')
         .then(unwrapSingle<ApiSubscription>)
-        .catch(() => null),
+        .catch(() => {
+          failed = true
+          return null
+        }),
       http
         .get('/api/boxes/mine/upcoming')
         .then(unwrapSingle<ApiBox>)
-        .catch(() => null),
+        .catch(() => {
+          failed = true
+          return null
+        }),
       http
         .get('/api/plans')
         .then(unwrapList<ApiPlan>)
-        .catch(() => []),
+        .catch(() => {
+          failed = true
+          return []
+        }),
     ])
       .then(([status, subscription, upcomingBox, plans]) => {
-        if (!cancelled) setData({ status, subscription, upcomingBox, plans })
+        if (!cancelled) {
+          setData({ status, subscription, upcomingBox, plans })
+          setLoadError(failed)
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -166,6 +183,39 @@ export function Dashboard() {
           data-testid="dashboard-loading"
         >
           {t('dashboard.loading', {}, { defaultValue: 'Loading dashboard…' })}
+        </div>
+      ) : loadError ? (
+        <div
+          role="alert"
+          data-testid="dashboard-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+            cm.sp('p', 5),
+            'rounded-2xl bg-error/10 text-error',
+          )}
+        >
+          <span className={cm.cn(cm.fontWeight('medium'))}>
+            {t(
+              'dashboard.loadError',
+              {},
+              {
+                defaultValue: 'We could not load your dashboard. Check your connection and retry.',
+              },
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className={cm.cn(
+              cm.sp('px', 4),
+              'min-h-[40px]',
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'text-sm border-2 border-error text-error hover:bg-error hover:text-surface transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
         </div>
       ) : subscription && plan ? (
         <ActiveSubscriptionView

@@ -3,11 +3,14 @@
  * real API and gets a 200 (no enumeration), reset-password consumes a
  * real DB-issued token and lets the user log in with the new password.
  *
- * The reset token is fetched directly from the `usersSecrets` table via
- * the postgres docker container. This keeps the test honest: we don't
- * mock email delivery, we just read the token the API actually wrote.
+ * The reset-token DIGEST is read directly from the `usersSecrets` table via
+ * the postgres docker container. The platform stores only sha256(token) at
+ * rest (hash-at-rest contract — the DB-read value can NEVER complete a
+ * reset), so the round-trip test seeds a known raw token's digest the way
+ * forgot-password persists it, then drives the UI with the raw token.
  */
 import { execSync } from 'node:child_process'
+import { createHash, randomBytes } from 'node:crypto'
 
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
@@ -17,13 +20,27 @@ const PG_CONTAINER = process.env.SB_PG_CONTAINER || 'molecule-dev-db-1'
 const PG_DB = process.env.SB_PG_DB || 'subscription_box_test'
 const PG_USER = process.env.SB_PG_USER || 'molecule'
 
-function readResetToken(email: string): string {
-  const sql = `SELECT s."passwordResetToken" FROM "usersSecrets" s JOIN users u ON u.id = s.id WHERE u.email = '${email.replace(/'/g, "''")}' LIMIT 1;`
-  const out = execSync(
+function psql(sql: string): string {
+  return execSync(
     `docker exec ${PG_CONTAINER} psql -U ${PG_USER} -d ${PG_DB} -At -c "${sql.replace(/"/g, '\\"')}"`,
     { encoding: 'utf8' },
   )
-  return out.trim()
+}
+
+function sqlEmail(email: string): string {
+  return email.replace(/'/g, "''")
+}
+
+function readResetTokenDigest(email: string): string {
+  return psql(
+    `SELECT s."passwordResetToken" FROM "usersSecrets" s JOIN users u ON u.id = s.id WHERE u.email = '${sqlEmail(email)}' LIMIT 1;`,
+  ).trim()
+}
+
+function seedResetTokenDigest(email: string, digest: string): void {
+  psql(
+    `UPDATE "usersSecrets" SET "passwordResetToken" = '${digest}', "passwordResetTokenAt" = now() WHERE id = (SELECT id FROM users WHERE email = '${sqlEmail(email)}');`,
+  )
 }
 
 async function signupViaApi(
@@ -89,11 +106,19 @@ test('Reset-password consumes a real DB token and lets the user log in with the 
   })
   expect(forgot.status(), await forgot.text()).toBe(200)
 
-  const token = readResetToken(email)
-  expect(token, 'reset token was not written to usersSecrets').toMatch(/^[a-f0-9]{64}$/)
+  const digest = readResetTokenDigest(email)
+  expect(digest, 'forgot-password must persist a reset-token DIGEST (sha256-at-rest)').toMatch(
+    /^[a-f0-9]{64}$/,
+  )
+
+  // Hash-at-rest: the DB only ever holds sha256(rawToken), so seed a known
+  // raw token's digest the way forgot-password does, then drive the page
+  // with the raw token the email would have delivered.
+  const rawToken = randomBytes(32).toString('hex')
+  seedResetTokenDigest(email, createHash('sha256').update(rawToken).digest('hex'))
 
   // Drive the reset-password page with the token in the URL.
-  await page.goto(`${APP_BASE}/reset-password?token=${token}&email=${encodeURIComponent(email)}`)
+  await page.goto(`${APP_BASE}/reset-password?token=${rawToken}&email=${encodeURIComponent(email)}`)
   await page.locator('input[type="password"]').first().fill(newPassword)
   await page.locator('input[type="password"]').nth(1).fill(newPassword)
   await page

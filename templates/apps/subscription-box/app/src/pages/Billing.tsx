@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -87,10 +88,12 @@ export function Billing() {
         await http.post('/api/billing/checkout', { priceId }),
       )
       if (result?.checkoutUrl) {
+        track({ name: 'billing.checkout_started', properties: { priceId, source: 'billing' } })
         window.location.href = result.checkoutUrl
         return
       }
       if (result?.updated) {
+        track({ name: 'box.subscribed', properties: { priceId, method: 'stripe' } })
         setFeedback(t('nav.subscriptionUpdated', {}, { defaultValue: 'Subscription updated.' }))
         const [s, , , sub] = await refresh()
         setStatus(s)
@@ -488,8 +491,8 @@ export function Billing() {
                               disabled={actioning}
                               data-testid={`billing-tier-${tier.key}-${price.period}`}
                               className={cm.cn(
-                                cm.sp('px', 3),
-                                cm.sp('py', 1),
+                                cm.sp('px', 4),
+                                'min-h-[40px]',
                                 cm.fontWeight('bold'),
                                 cm.roundedFull,
                                 'text-xs uppercase tracking-widest bg-primary text-on-primary hover:bg-primary-hover transition-all disabled:opacity-60',

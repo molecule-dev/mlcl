@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,10 +68,15 @@ export function BoxDetail() {
           await http.post('/api/billing/checkout', { priceId: plan.stripe_price_id }),
         )
         if (result?.checkoutUrl) {
+          track({
+            name: 'billing.checkout_started',
+            properties: { planId: plan.id, planName: plan.name, priceId: plan.stripe_price_id },
+          })
           window.location.href = result.checkoutUrl
           return
         }
         if (result?.updated) {
+          track({ name: 'box.subscribed', properties: { planId: plan.id, method: 'stripe' } })
           setFeedback(t('nav.subscriptionUpdated', {}, { defaultValue: 'Subscription updated.' }))
         }
       } else {
@@ -82,6 +88,10 @@ export function BoxDetail() {
           }),
         )
         if (sub) {
+          track({
+            name: 'box.subscribed',
+            properties: { planId: plan.id, subscriptionId: sub.id, method: 'manual' },
+          })
           setSubscription({ ...sub, plan })
           setFeedback(
             t(

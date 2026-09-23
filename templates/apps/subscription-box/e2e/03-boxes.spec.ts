@@ -64,6 +64,12 @@ test('/boxes/:id renders the plan detail (name, price, items)', async ({ page })
 })
 
 test('/boxes/:id for an unknown id renders the missing state', async ({ page }) => {
+  // The detail page's GET /api/plans/:id 404s by design here — the missing
+  // state under test IS the 404 path.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 404',
+  })
   await signup(page)
   await page.goto(APP_BASE + '/boxes/00000000-0000-0000-0000-000000000000')
   await expect(page.getByTestId('box-detail-missing')).toBeVisible()

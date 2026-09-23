@@ -10,7 +10,13 @@ export function Header() {
       appName={APP_NAME}
       logoSize={LOGO_SIZE}
       themeToggle={<ThemeToggle />}
-      userMenu={<UserMenu />}
+      // Nudge the shared UserMenu trigger to a 36px+ tap target (fleet QA:
+      // the bare trigger is ~24px — under the 40px mobile target floor).
+      userMenu={
+        <span className="inline-flex [&_button]:min-h-[36px] [&_button]:min-w-[36px]">
+          <UserMenu />
+        </span>
+      }
     />
   )
 }

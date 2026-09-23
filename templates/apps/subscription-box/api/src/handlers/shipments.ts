@@ -48,13 +48,11 @@ router.get(
       { field: 'box_id', operator: '=', value: req.params.boxId },
     ])
 
-    if (!shipment) {
-      res
-        .status(404)
-        .json({ error: t('shipment.notFound', {}, { defaultValue: 'Shipment not found' }) })
-      return
-    }
-    res.json(shipment)
+    // A box with no shipment yet is an EXPECTED state (a pending box has not
+    // shipped), not an error — respond 200 with null so the client renders
+    // the not-yet-shipped timeline instead of logging a console 404 on every
+    // fresh subscriber visit.
+    res.json(shipment ?? null)
   }),
 )
 

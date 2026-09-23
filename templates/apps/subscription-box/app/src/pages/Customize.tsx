@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,6 +103,14 @@ export function Customize() {
         excludedItems: Array.from(excluded),
       }
       await http.put('/api/subscriptions/mine/preferences', { preferences: newPrefs })
+      track({
+        name: 'box.customized',
+        properties: {
+          subscriptionId: subscription.id,
+          planId: subscription.plan_id,
+          excludedCount: excluded.size,
+        },
+      })
       setFeedback(t('customize.saved', {}, { defaultValue: 'Customization saved.' }))
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
@@ -121,10 +130,22 @@ export function Customize() {
           await http.post('/api/billing/checkout', { priceId: newPlan.stripe_price_id }),
         )
         if (result?.checkoutUrl) {
+          track({
+            name: 'plan.changed',
+            properties: {
+              fromPlanId: subscription.plan_id,
+              toPlanId: newPlan.id,
+              method: 'stripe',
+            },
+          })
           window.location.href = result.checkoutUrl
           return
         }
       }
+      track({
+        name: 'plan.changed',
+        properties: { fromPlanId: subscription.plan_id, toPlanId: newPlan.id, method: 'checkout' },
+      })
       setFeedback(t('customize.switched', {}, { defaultValue: 'Tier switch initiated.' }))
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))

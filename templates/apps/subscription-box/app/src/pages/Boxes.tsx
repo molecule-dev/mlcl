@@ -30,20 +30,32 @@ export function Boxes() {
   const [plans, setPlans] = useState<ApiPlan[]>([])
   const [subscription, setSubscription] = useState<ApiSubscription | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
+    let failed = false
     Promise.all([
-      http.get('/api/plans').then(unwrapList<ApiPlan>),
+      http
+        .get('/api/plans')
+        .then(unwrapList<ApiPlan>)
+        .catch(() => {
+          failed = true
+          return []
+        }),
       http
         .get('/api/subscriptions/mine')
         .then(unwrapSingle<ApiSubscription>)
-        .catch(() => null),
+        .catch(() => {
+          failed = true
+          return null
+        }),
     ])
       .then(([list, sub]) => {
         if (cancelled) return
         setPlans(list)
         setSubscription(sub)
+        setLoadError(failed)
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -151,6 +163,37 @@ export function Boxes() {
           data-testid="boxes-loading"
         >
           {t('boxes.loading', {}, { defaultValue: 'Loading editions…' })}
+        </div>
+      ) : loadError ? (
+        <div
+          role="alert"
+          data-testid="boxes-error"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'md' }),
+            cm.sp('p', 5),
+            'rounded-2xl bg-error/10 text-error',
+          )}
+        >
+          <span className={cm.cn(cm.fontWeight('medium'))}>
+            {t(
+              'boxes.loadError',
+              {},
+              { defaultValue: 'We could not load the editions. Check your connection and retry.' },
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className={cm.cn(
+              cm.sp('px', 4),
+              'min-h-[40px]',
+              cm.fontWeight('bold'),
+              cm.roundedFull,
+              'text-sm border-2 border-error text-error hover:bg-error hover:text-surface transition-colors',
+            )}
+          >
+            {t('common.retry', {}, { defaultValue: 'Retry' })}
+          </button>
         </div>
       ) : visible.length === 0 ? (
         <div

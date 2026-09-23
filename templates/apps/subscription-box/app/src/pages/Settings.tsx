@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -158,6 +159,7 @@ export function Settings() {
         email,
       }
       setUser(merged)
+      track({ name: 'settings.profile_updated', properties: { userId } })
       setProfileFeedback(t('common.profileSavedPeriod', {}, { defaultValue: 'Profile saved.' }))
     } catch (err) {
       setProfileError(err instanceof Error ? err.message : String(err))
@@ -172,6 +174,10 @@ export function Settings() {
     setAddressError(null)
     try {
       await persistPreferences({ address })
+      track({
+        name: 'settings.address_updated',
+        properties: { subscriptionId: subscription?.id ?? null },
+      })
       setAddressFeedback(
         subscription
           ? t('settings.address.saved', {}, { defaultValue: 'Shipping address saved.' })
@@ -194,6 +200,10 @@ export function Settings() {
     if (subscription) {
       try {
         await persistPreferences({ notifications: next })
+        track({
+          name: 'settings.notifications_changed',
+          properties: { subscriptionId: subscription.id, preference: id, enabled: next[id] },
+        })
       } catch (_error) {
         // intentional noop: optimistic update is rolled back; error is best-effort
         setPrefs(prefs)
@@ -211,6 +221,10 @@ export function Settings() {
         await http.post('/api/subscriptions/mine/pause', {}),
       )
       if (updated) setSubscription(updated)
+      track({
+        name: 'subscription.paused',
+        properties: { subscriptionId: subscription.id, planId: subscription.plan_id },
+      })
       setPauseFeedback(t('settings.danger.paused', {}, { defaultValue: 'Subscription paused.' }))
     } catch (err) {
       setPauseError(err instanceof Error ? err.message : String(err))
@@ -241,6 +255,10 @@ export function Settings() {
         await http.post('/api/subscriptions/mine/cancel', { reason: 'user-initiated' }),
       )
       if (updated) setSubscription(updated)
+      track({
+        name: 'subscription.cancelled',
+        properties: { subscriptionId: subscription.id, planId: subscription.plan_id },
+      })
       setPauseFeedback(
         t('nav.subscriptionCancelled', {}, { defaultValue: 'Subscription cancelled.' }),
       )
@@ -504,6 +522,7 @@ export function Settings() {
                 type="button"
                 role="switch"
                 aria-checked={prefs[pref.id]}
+                aria-label={t(pref.labelKey, {}, { defaultValue: pref.labelDefault })}
                 onClick={() => togglePref(pref.id)}
                 data-testid={`settings-pref-${pref.id}`}
                 className={cm.cn(
