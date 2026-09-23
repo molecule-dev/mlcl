@@ -346,8 +346,12 @@ export function JobDetail() {
                   .filter((tech) => tech.active)
                   .map((tech) => (
                     <option key={tech.id} value={tech.id}>
-                      {tech.name} · {tech.trade} · {tech.active_jobs}{' '}
-                      {t('technicians.openJobs', {}, { defaultValue: 'open' })}
+                      {tech.name} · {tech.trade} ·{' '}
+                      {t(
+                        'technicians.openJobs',
+                        { count: tech.active_jobs },
+                        { defaultValue: '{{count}} open' },
+                      )}
                     </option>
                   ))}
               </select>

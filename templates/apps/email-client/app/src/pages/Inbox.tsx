@@ -424,7 +424,7 @@ function ReadingPane({
       setFeedback(
         err instanceof Error
           ? err.message
-          : t('meridian.inbox.replyFailed', { error: 'unknown' }, { defaultValue: 'Reply failed' }),
+          : t('meridian.inbox.replyFailedGeneric', {}, { defaultValue: 'Reply failed' }),
       )
     } finally {
       setSending(false)

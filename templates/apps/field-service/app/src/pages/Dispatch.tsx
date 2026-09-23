@@ -302,8 +302,12 @@ export function Dispatch() {
                       </option>
                       {activeTechs.map((tech) => (
                         <option key={tech.id} value={tech.id}>
-                          {tech.name} · {tech.trade} · {tech.active_jobs}{' '}
-                          {t('technicians.openJobs', {}, { defaultValue: 'open' })}
+                          {tech.name} · {tech.trade} ·{' '}
+                          {t(
+                            'technicians.openJobs',
+                            { count: tech.active_jobs },
+                            { defaultValue: '{{count}} open' },
+                          )}
                         </option>
                       ))}
                     </select>
@@ -418,8 +422,12 @@ export function Dispatch() {
                         {tech.name}
                       </span>
                       <span className={cm.cn(cm.textSize('xs'), 'block text-on-surface-variant')}>
-                        {tech.trade} · {tech.active_jobs}{' '}
-                        {t('technicians.openJobs', {}, { defaultValue: 'open' })}
+                        {tech.trade} ·{' '}
+                        {t(
+                          'technicians.openJobs',
+                          { count: tech.active_jobs },
+                          { defaultValue: '{{count}} open' },
+                        )}
                       </span>
                     </td>
                     {dayColumns.map((d) => {

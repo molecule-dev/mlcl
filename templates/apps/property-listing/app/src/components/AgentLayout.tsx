@@ -194,7 +194,7 @@ export function AgentLayout() {
                 margin: 0,
               }}
             >
-              {t('brand.name', {}, { defaultValue: 'Evergreen Estate' })}
+              {t('brand.name', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
             </h1>
           </NavLink>
           <p
