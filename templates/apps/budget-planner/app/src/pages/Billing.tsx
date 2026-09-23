@@ -303,80 +303,85 @@ export function Billing() {
                   )}
                 </p>
               ) : (
-                <table className={cm.cn('w-full text-sm')} data-testid="billing-invoices-table">
-                  <thead>
-                    <tr
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'text-on-surface-variant uppercase tracking-widest',
-                      )}
-                    >
-                      <th className={cm.cn('text-left font-extrabold py-3')}>
-                        {t('form.date', {}, { defaultValue: 'Date' })}
-                      </th>
-                      <th className={cm.cn('text-left font-extrabold py-3')}>
-                        {t('form.description', {}, { defaultValue: 'Description' })}
-                      </th>
-                      <th className={cm.cn('text-right font-extrabold py-3')}>
-                        {t('form.amount', {}, { defaultValue: 'Amount' })}
-                      </th>
-                      <th className={cm.cn('text-left font-extrabold py-3 pl-4')}>
-                        {t('nav.status', {}, { defaultValue: 'Status' })}
-                      </th>
-                      <th className={cm.cn('text-right font-extrabold py-3')}>
-                        {t('billing.col.receipt', {}, { defaultValue: 'Receipt' })}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-outline-variant/40">
-                    {invoices.map((inv) => (
+                <div className="overflow-x-auto">
+                  <table className={cm.cn('w-full text-sm')} data-testid="billing-invoices-table">
+                    <thead>
                       <tr
-                        key={inv.id}
-                        className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'text-on-surface-variant uppercase tracking-widest',
+                        )}
                       >
-                        <td className={cm.cn('py-3 tabular-nums text-on-surface-variant')}>
-                          {fmtDate(inv.created_at)}
-                        </td>
-                        <td className={cm.cn('py-3 font-semibold')}>{inv.description}</td>
-                        <td className={cm.cn('py-3 text-right tabular-nums font-bold')}>
-                          {fmtAmount(inv.amount_cents, inv.currency)}
-                        </td>
-                        <td className={cm.cn('py-3 pl-4')}>
-                          <span
-                            className={cm.cn(
-                              'inline-flex px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-success/15 text-success',
-                            )}
-                          >
-                            {inv.status}
-                          </span>
-                        </td>
-                        <td className={cm.cn('py-3 text-right')}>
-                          {inv.receiptUrl ? (
-                            <a
-                              href={inv.receiptUrl}
-                              target="_blank"
-                              rel="noreferrer"
+                        <th className={cm.cn('text-left font-extrabold py-3')}>
+                          {t('form.date', {}, { defaultValue: 'Date' })}
+                        </th>
+                        <th className={cm.cn('text-left font-extrabold py-3')}>
+                          {t('form.description', {}, { defaultValue: 'Description' })}
+                        </th>
+                        <th className={cm.cn('text-right font-extrabold py-3')}>
+                          {t('form.amount', {}, { defaultValue: 'Amount' })}
+                        </th>
+                        <th className={cm.cn('text-left font-extrabold py-3 pl-4')}>
+                          {t('nav.status', {}, { defaultValue: 'Status' })}
+                        </th>
+                        <th className={cm.cn('text-right font-extrabold py-3')}>
+                          {t('billing.col.receipt', {}, { defaultValue: 'Receipt' })}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-outline-variant/40">
+                      {invoices.map((inv) => (
+                        <tr
+                          key={inv.id}
+                          className={cm.cn('hover:bg-surface-container-low transition-colors')}
+                        >
+                          <td className={cm.cn('py-3 tabular-nums text-on-surface-variant')}>
+                            {fmtDate(inv.created_at)}
+                          </td>
+                          <td className={cm.cn('py-3 font-semibold')}>{inv.description}</td>
+                          <td className={cm.cn('py-3 text-right tabular-nums font-bold')}>
+                            {fmtAmount(inv.amount_cents, inv.currency)}
+                          </td>
+                          <td className={cm.cn('py-3 pl-4')}>
+                            <span
                               className={cm.cn(
-                                cm.fontWeight('bold'),
-                                cm.textPrimary,
-                                'hover:underline text-xs inline-flex items-center gap-1',
+                                'inline-flex px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-success/15 text-success',
                               )}
                             >
-                              <span
-                                className={cm.cn(cm.textSize('base'), 'material-symbols-outlined')}
+                              {inv.status}
+                            </span>
+                          </td>
+                          <td className={cm.cn('py-3 text-right')}>
+                            {inv.receiptUrl ? (
+                              <a
+                                href={inv.receiptUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={cm.cn(
+                                  cm.fontWeight('bold'),
+                                  cm.textPrimary,
+                                  'hover:underline text-xs inline-flex items-center gap-1',
+                                )}
                               >
-                                open_in_new
-                              </span>
-                              {t('billing.viewReceipt', {}, { defaultValue: 'View' })}
-                            </a>
-                          ) : (
-                            <span className={cm.cn('text-xs text-on-surface-variant')}>—</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                                <span
+                                  className={cm.cn(
+                                    cm.textSize('base'),
+                                    'material-symbols-outlined',
+                                  )}
+                                >
+                                  open_in_new
+                                </span>
+                                {t('billing.viewReceipt', {}, { defaultValue: 'View' })}
+                              </a>
+                            ) : (
+                              <span className={cm.cn('text-xs text-on-surface-variant')}>—</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
           </section>

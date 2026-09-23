@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -63,7 +64,7 @@ export function AddTransaction() {
     }
     setSubmitting(true)
     void http
-      .post('/api/transactions', {
+      .post<{ id?: string }>('/api/transactions', {
         account_id: accountId,
         category_id: categoryId || null,
         payee: payee || null,
@@ -72,7 +73,18 @@ export function AddTransaction() {
         date,
         memo: memo || null,
       })
-      .then(() => navigate('/transactions'))
+      .then((created) => {
+        track({
+          name: 'expense.logged',
+          properties: {
+            transactionId: created?.data?.id,
+            type,
+            accountId,
+            amountCents: Math.abs(cents),
+          },
+        })
+        navigate('/transactions')
+      })
       .catch((err: unknown) => {
         const msg = err instanceof Error ? err.message : String(err)
         setError(msg || t('common.saveFailed', {}, { defaultValue: 'Save failed.' }))

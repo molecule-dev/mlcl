@@ -30,6 +30,12 @@ test('Login with correct credentials sets token and routes to /dashboard', async
 })
 
 test('Login with wrong password shows error and stays on /login', async ({ page }) => {
+  // The failed log-in legitimately 403s; that browser console noise is the
+  // expected contract here, not a bug.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   const { email } = await signup(page)
   await page.evaluate(() => window.localStorage.clear())
   await page.goto(APP_BASE + '/login')

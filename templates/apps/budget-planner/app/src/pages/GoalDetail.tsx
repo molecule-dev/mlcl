@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -91,6 +92,10 @@ export function GoalDetail() {
     setContribError(null)
     try {
       await http.post(`/api/goals/${id}/contributions`, { amount_cents: Math.round(dollars * 100) })
+      track({
+        name: 'goal.contribution_added',
+        properties: { goalId: id, amountCents: Math.round(dollars * 100) },
+      })
       setContribAmount('')
       setReload((n) => n + 1)
     } catch (err: unknown) {
@@ -118,6 +123,7 @@ export function GoalDetail() {
       return
     try {
       await http.delete(`/api/goals/${id}`)
+      track({ name: 'goal.deleted', properties: { goalId: id } })
       navigate('/goals')
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

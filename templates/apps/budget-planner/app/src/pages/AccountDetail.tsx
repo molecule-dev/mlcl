@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -131,6 +132,7 @@ export function AccountDetail() {
       return
     try {
       await http.delete(`/api/accounts/${id}`)
+      track({ name: 'account.deleted', properties: { accountId: id } })
       navigate('/accounts')
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

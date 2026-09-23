@@ -210,65 +210,74 @@ export function Reports() {
             { defaultValue: 'Income vs expenses (6 months)' },
           )}
         </h2>
-        <table className={cm.cn('w-full')}>
-          <thead
-            className={cm.cn(
-              cm.textSize('xs'),
-              'uppercase tracking-wide',
-              'text-on-surface-variant',
-            )}
-          >
-            <tr>
-              <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                {t('reports.col.month', {}, { defaultValue: 'Month' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.income', {}, { defaultValue: 'Income' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.expenses', {}, { defaultValue: 'Expenses' })}
-              </th>
-              <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                {t('reports.col.net', {}, { defaultValue: 'Net' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-outline-variant">
-            {data.income_vs_expenses.map((r) => {
-              const net = r.income_cents - r.expenses_cents
-              return (
-                <tr key={r.month}>
-                  <td className={cm.cn(cm.sp('py', 2), cm.textSize('sm'))}>{fmtMonth(r.month)}</td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('py', 2),
-                      cm.textSize('sm'),
-                      'text-right tabular-nums text-success',
-                    )}
-                  >
-                    {fmt(r.income_cents)}
-                  </td>
-                  <td
-                    className={cm.cn(cm.sp('py', 2), cm.textSize('sm'), 'text-right tabular-nums')}
-                  >
-                    {fmt(r.expenses_cents)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('py', 2),
-                      cm.textSize('sm'),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                      net < 0 ? 'text-error' : 'text-success',
-                    )}
-                  >
-                    {fmt(net)}
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        {/* Seven month columns don't fit 390px — scroll inside the card. */}
+        <div className="overflow-x-auto">
+          <table className={cm.cn('w-full')}>
+            <thead
+              className={cm.cn(
+                cm.textSize('xs'),
+                'uppercase tracking-wide',
+                'text-on-surface-variant',
+              )}
+            >
+              <tr>
+                <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                  {t('reports.col.month', {}, { defaultValue: 'Month' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.income', {}, { defaultValue: 'Income' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.expenses', {}, { defaultValue: 'Expenses' })}
+                </th>
+                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                  {t('reports.col.net', {}, { defaultValue: 'Net' })}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-outline-variant">
+              {data.income_vs_expenses.map((r) => {
+                const net = r.income_cents - r.expenses_cents
+                return (
+                  <tr key={r.month}>
+                    <td className={cm.cn(cm.sp('py', 2), cm.textSize('sm'))}>
+                      {fmtMonth(r.month)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        'text-right tabular-nums text-success',
+                      )}
+                    >
+                      {fmt(r.income_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        'text-right tabular-nums',
+                      )}
+                    >
+                      {fmt(r.expenses_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                        net < 0 ? 'text-error' : 'text-success',
+                      )}
+                    >
+                      {fmt(net)}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   )

@@ -73,6 +73,12 @@ test('Delete tx removes it from list and navigates back to /transactions', async
 })
 
 test('Visiting unknown id shows not-found state with back link', async ({ page }) => {
+  // The unknown-id GET legitimately 404s; the page's not-found state is the
+  // behavior under test, so that console noise is expected.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 404',
+  })
   await signup(page)
   await page.goto(APP_BASE + '/transactions/00000000-0000-0000-0000-000000000000')
   await expect(page.getByText(/transaction not found/i)).toBeVisible({ timeout: 10000 })

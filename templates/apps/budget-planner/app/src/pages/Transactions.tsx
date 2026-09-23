@@ -71,8 +71,10 @@ export function Transactions() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
-        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }), 'flex-wrap')}
+      >
+        <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'), 'min-w-0')}>
           {t('nav.transactions', {}, { defaultValue: 'Transactions' })}
         </h1>
         <div className={cm.flex({ align: 'center', gap: 'sm' })}>
@@ -127,103 +129,128 @@ export function Transactions() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : filtered.length === 0 ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
-          {t('transactions.empty', {}, { defaultValue: 'No transactions match.' })}
-        </p>
-      ) : (
-        <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
-            <thead
+        <div className={cm.cn(cm.sp('py', 16), cm.textCenter, 'space-y-3')}>
+          <p className="text-on-surface-variant">
+            {query.trim()
+              ? t('transactions.empty', {}, { defaultValue: 'No transactions match.' })
+              : t(
+                  'transactions.emptyYet',
+                  {},
+                  { defaultValue: 'No transactions yet — log your first one.' },
+                )}
+          </p>
+          {!query.trim() ? (
+            <Link
+              to="/transactions/new"
               className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('semibold'),
+                cm.textSize('sm'),
+                'bg-primary text-on-primary rounded-md inline-block',
               )}
             >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.date', {}, { defaultValue: 'Date' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('transactions.col.payee', {}, { defaultValue: 'Payee' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.category', {}, { defaultValue: 'Category' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('settings.account', {}, { defaultValue: 'Account' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.amount', {}, { defaultValue: 'Amount' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {filtered.map((tx) => (
-                <tr key={tx.id} className={cm.cn('hover:bg-surface-container')}>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'tabular-nums whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(tx.posted_at)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      cm.fontWeight('medium'),
-                    )}
-                  >
-                    <Link
-                      to={`/transactions/${tx.id}`}
-                      className={cm.cn('hover:underline hover:text-primary transition-colors')}
-                    >
-                      {tx.payee}
-                    </Link>
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {tx.category}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {tx.account_name}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      cm.fontWeight('semibold'),
-                      'text-right tabular-nums',
-                      tx.amount_cents >= 0 ? 'text-success' : '',
-                    )}
-                  >
-                    {fmt(tx.amount_cents)}
-                  </td>
+              {t('transactions.emptyCta', {}, { defaultValue: 'Log your first transaction' })}
+            </Link>
+          ) : null}
+        </div>
+      ) : (
+        <section className={cm.cn(cm.card(), 'overflow-hidden')}>
+          {/* Five money columns don't fit 390px — scroll the table, keep the card. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full')}>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.date', {}, { defaultValue: 'Date' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('transactions.col.payee', {}, { defaultValue: 'Payee' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.category', {}, { defaultValue: 'Category' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('settings.account', {}, { defaultValue: 'Account' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.amount', {}, { defaultValue: 'Amount' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {filtered.map((tx) => (
+                  <tr key={tx.id} className={cm.cn('hover:bg-surface-container')}>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'tabular-nums whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(tx.posted_at)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        cm.fontWeight('medium'),
+                      )}
+                    >
+                      <Link
+                        to={`/transactions/${tx.id}`}
+                        className={cm.cn('hover:underline hover:text-primary transition-colors')}
+                      >
+                        {tx.payee}
+                      </Link>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {tx.category}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {tx.account_name}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        cm.fontWeight('semibold'),
+                        'text-right tabular-nums',
+                        tx.amount_cents >= 0 ? 'text-success' : '',
+                      )}
+                    >
+                      {fmt(tx.amount_cents)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -85,6 +86,10 @@ export function Budget() {
       month: m,
       year: y,
       assigned: dollars,
+    })
+    track({
+      name: 'budget.assigned',
+      properties: { categoryId, month, year: y, dollars },
     })
     // Refetch so the row's assigned/remaining/progress bar reflects the
     // new value on the next render — the user expects the bar to update,

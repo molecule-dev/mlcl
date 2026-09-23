@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -160,6 +161,7 @@ export function TransactionDetail() {
       return
     try {
       await http.delete(`/api/transactions/${id}`)
+      track({ name: 'transaction.deleted', properties: { transactionId: id } })
       navigate('/transactions')
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err)

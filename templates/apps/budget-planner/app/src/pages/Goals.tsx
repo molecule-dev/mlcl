@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -221,13 +222,22 @@ function GoalForm({ onSaved }: { onSaved: () => void }) {
     }
     setSubmitting(true)
     void http
-      .post('/api/goals', {
+      .post<{ id?: string }>('/api/goals', {
         name: name.trim(),
         target_cents: cents,
         monthly_contribution_cents: Math.round((Number(monthly) || 0) * 100),
         target_date: targetDate || null,
       })
-      .then(() => onSaved())
+      .then((created) => {
+        track({
+          name: 'goal.created',
+          properties: {
+            goalId: created?.data?.id,
+            targetCents: cents,
+          },
+        })
+        onSaved()
+      })
       .catch((err: unknown) => {
         const msg = err instanceof Error ? err.message : String(err)
         setError(msg || t('goals.error.create', {}, { defaultValue: 'Could not create goal.' }))

@@ -1,4 +1,5 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
+import { createHash, randomBytes } from 'node:crypto'
 import { Client } from 'pg'
 
 import { API_BASE, APP_BASE, captureNetwork, signup, login } from './_helpers.js'
@@ -7,16 +8,16 @@ const DATABASE_URL =
   process.env.DATABASE_URL || 'postgres://molecule:molecule@127.0.0.1:5432/budget_planner_test'
 
 /**
- * Read the `passwordResetToken` for the given email directly from the
- * `usersSecrets` table. The forgot-password handler writes the token to
- * the DB and emails it to the user; in dev/test there's no inbox to
- * intercept, so we read the DB row that the same handler just wrote.
+ * Read the stored `passwordResetToken` digest for the given email directly
+ * from the `usersSecrets` table. This is read-after-write verification that
+ * the forgot-password handler persisted a token.
  *
- * This is read-after-write verification of the same column the production
- * reset-password handler validates against — no debug endpoints, no
- * production code shaped around test-only concerns.
+ * The column holds sha256(rawToken): the raw token exists solely in the reset
+ * email (a DB read must never yield a live account-takeover credential), so
+ * the digest itself is NOT a usable token — submitting it must 401, and that
+ * is the digest-at-rest design working, not a bug.
  */
-async function readResetToken(email: string): Promise<string> {
+async function readResetTokenDigest(email: string): Promise<string> {
   const client = new Client({ connectionString: DATABASE_URL })
   await client.connect()
   try {
@@ -30,6 +31,32 @@ async function readResetToken(email: string): Promise<string> {
   } finally {
     await client.end()
   }
+}
+
+/**
+ * Mint a raw token the way forgot-password does and overwrite the stored
+ * digest with sha256(rawToken) — byte-for-byte what the handler writes, minus
+ * the email. Returns the raw token to submit, the exact path the email link
+ * drives. Test-only seeding; the reset-password handler under test is the
+ * real production code.
+ */
+async function seedResetToken(email: string): Promise<string> {
+  const raw = randomBytes(32).toString('hex')
+  const digest = createHash('sha256').update(raw).digest('hex')
+  const client = new Client({ connectionString: DATABASE_URL })
+  await client.connect()
+  try {
+    await client.query(
+      `UPDATE "usersSecrets" s
+          SET "passwordResetToken" = $1, "passwordResetTokenAt" = now()
+         FROM users u
+        WHERE u.id = s.id AND u.email = $2`,
+      [digest, email],
+    )
+  } finally {
+    await client.end()
+  }
+  return raw
 }
 
 test('reset-password form renders password + confirm fields', async ({ page }) => {
@@ -72,11 +99,16 @@ test('end-to-end: forgot-password → use issued token → reset → log in with
   await page.getByRole('button', { name: /send reset link/i }).click()
   await expect(page.getByRole('status')).toBeVisible({ timeout: 10000 })
 
-  // The handler stored the token on usersSecrets — read it directly.
-  // This is the same column the production reset-password handler
-  // validates against, so the round-trip exercises the real flow.
-  const token = await readResetToken(email)
-  expect(token, 'forgot-password should write passwordResetToken to usersSecrets').toBeTruthy()
+  // The handler stored the token digest on usersSecrets — verify it landed.
+  const digest = await readResetTokenDigest(email)
+  expect(digest, 'forgot-password should write passwordResetToken to usersSecrets').toMatch(
+    /[a-f0-9]{64}/,
+  )
+
+  // The digest at rest is NOT the token (only the emailed link holds the raw
+  // value) — seed a raw token whose digest we control and submit it, exactly
+  // as the email link would.
+  const token = await seedResetToken(email)
 
   // Submit the token + new password to /api/users/reset-password.
   const newPassword = 'NewPass456!'
@@ -85,6 +117,13 @@ test('end-to-end: forgot-password → use issued token → reset → log in with
     failOnStatusCode: false,
   })
   expect(reset.status()).toBe(200)
+
+  // The reset invalidated every device session, so the signup-era cookie is
+  // now dead. Clear it BEFORE the next navigation so the app boot's
+  // /api/users/me can't fire a 401 into the console guard, then log in with
+  // the new password through the UI.
+  await page.context().clearCookies()
+  await page.evaluate(() => window.localStorage.clear())
 
   // The new password works at login.
   await login(page, email, newPassword)

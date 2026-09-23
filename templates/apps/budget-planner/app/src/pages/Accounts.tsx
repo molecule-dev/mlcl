@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -163,7 +164,7 @@ function AddAccountForm({ onCreated }: { onCreated: () => void }) {
     }
     setSubmitting(true)
     void http
-      .post('/api/accounts', {
+      .post<{ id?: string }>('/api/accounts', {
         name: name.trim(),
         type: kind,
         institution: institution || undefined,
@@ -171,7 +172,16 @@ function AddAccountForm({ onCreated }: { onCreated: () => void }) {
         balance_cents: Math.round((Number(balance) || 0) * 100),
         on_budget: onBudget,
       })
-      .then(() => onCreated())
+      .then((created) => {
+        track({
+          name: 'account.created',
+          properties: {
+            accountId: created?.data?.id,
+            kind,
+          },
+        })
+        onCreated()
+      })
       .catch((err: unknown) => {
         const msg = err instanceof Error ? err.message : String(err)
         setError(

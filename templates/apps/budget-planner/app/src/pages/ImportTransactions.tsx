@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -154,6 +155,10 @@ export function ImportTransactions() {
       })
       const body = unwrapSingle<CommitResponse>(res)
       const n = body?.inserted ?? 0
+      track({
+        name: 'transactions.imported',
+        properties: { accountId, count: n },
+      })
       setSuccess(
         t('import.success', { count: n }, { defaultValue: 'Imported {{count}} transactions.' }),
       )

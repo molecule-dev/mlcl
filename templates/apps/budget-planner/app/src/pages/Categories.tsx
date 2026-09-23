@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,6 +69,7 @@ export function Categories() {
 
   async function archive(id: string) {
     await http.put(`/api/categories/${id}`, { archived: true })
+    track({ name: 'category.archived', properties: { categoryId: id } })
     reload()
   }
 
@@ -208,8 +210,20 @@ function CategoryForm({ onSaved }: { onSaved: () => void }) {
     }
     setSubmitting(true)
     void http
-      .post('/api/categories', { name: name.trim(), group_name: group.trim() || undefined })
-      .then(() => onSaved())
+      .post<{ id?: string }>('/api/categories', {
+        name: name.trim(),
+        group_name: group.trim() || undefined,
+      })
+      .then((created) => {
+        track({
+          name: 'category.created',
+          properties: {
+            categoryId: created?.data?.id,
+            group: group.trim() || undefined,
+          },
+        })
+        onSaved()
+      })
       .catch((err: unknown) => {
         const msg = err instanceof Error ? err.message : String(err)
         setError(
@@ -304,7 +318,10 @@ function CategoryEditInline({
     setSaving(true)
     void http
       .put(`/api/categories/${cat.id}`, { name, group_name: group })
-      .then(() => onSaved())
+      .then(() => {
+        track({ name: 'category.updated', properties: { categoryId: cat.id } })
+        onSaved()
+      })
       .finally(() => setSaving(false))
   }
 
