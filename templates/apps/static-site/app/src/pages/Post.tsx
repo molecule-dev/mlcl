@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -20,6 +22,16 @@ export function Post() {
   const { t } = useTranslation()
   const { slug = '' } = useParams<{ slug: string }>()
   const post = findPost(slug)
+  // Reading a post is this site's conversion: fire once per mounted post,
+  // client-side only (an effect never runs in the prerender). No-op without
+  // an analytics provider.
+  useEffect(() => {
+    if (post)
+      void track({
+        name: 'post.read',
+        properties: { slug: post.slug, minutes: post.readingMinutes },
+      })
+  }, [post])
   if (!post) return <NotFound />
 
   return (

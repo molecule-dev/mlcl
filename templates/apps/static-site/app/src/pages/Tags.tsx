@@ -29,9 +29,10 @@ export function Tags() {
               data-mol-id={`tag-${tag}`}
             >
               {tag}{' '}
-              <span className={cm.textMuted}>
-                {t('tags.count', { count }, { defaultValue: '({{count}})' })}
-              </span>
+              {/* Inherits the pill's text color: a muted grey span on the
+                  secondary badge's grey background renders at ~1:1 contrast —
+                  unreadable. The parens set the count apart. */}
+              <span>{t('tags.count', { count }, { defaultValue: '({{count}})' })}</span>
             </Link>
           </li>
         ))}

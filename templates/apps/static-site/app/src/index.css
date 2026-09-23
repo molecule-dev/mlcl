@@ -182,6 +182,28 @@ header[data-mol-id='site-header'] button {
   }
 }
 
+/* The same story for the page's other compact text links — the tags-page
+   pills, the footer's file links, the pagination links and the post-card
+   titles: keep the visual size, grow the hit area on touch input only.
+   (The mobile-nav rows and the header controls are ≥44px by other rules.) */
+[data-mol-id='tag-list'] a,
+[data-mol-id='site-footer'] nav a,
+[data-mol-id='pagination'] a,
+[data-mol-id^='post-card-'] h2 a {
+  position: relative;
+}
+
+@media (pointer: coarse) {
+  [data-mol-id='tag-list'] a::before,
+  [data-mol-id='site-footer'] nav a::before,
+  [data-mol-id='pagination'] a::before,
+  [data-mol-id^='post-card-'] h2 a::before {
+    content: '';
+    position: absolute;
+    inset: -10px -6px;
+  }
+}
+
 @media (max-width: 767px) {
   .site-nav {
     display: none;

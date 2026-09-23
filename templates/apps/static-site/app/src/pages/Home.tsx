@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_DESCRIPTION } from '../branding.js'
+import { APP_DESCRIPTION, APP_NAME } from '../branding.js'
 import { PageMeta } from '../components/PageMeta.js'
 import { Pagination } from '../components/Pagination.js'
 import { PostCard } from '../components/PostCard.js'
@@ -30,7 +30,10 @@ export function Home() {
         description={APP_DESCRIPTION}
       />
       {/* No site-name h1: the site header above already carries the name —
-          repeating it here pushed every list down. The tagline stays. */}
+          repeating it here pushed every list down. The tagline stays. An
+          h1 still exists (visually hidden): every other page opens at h1,
+          and a page whose first heading is a card's h2 skips a level. */}
+      <h1 className="sr-only">{APP_NAME}</h1>
       <p className={cm.cn(cm.sp('pb', 8), cm.textMuted)}>
         {t('home.tagline', undefined, { defaultValue: APP_DESCRIPTION })}
       </p>

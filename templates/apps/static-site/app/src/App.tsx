@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router'
 
+import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
@@ -22,6 +23,8 @@ import { Tags } from './pages/Tags.js'
 export function App() {
   return (
     <MoleculeProvider theme={themeProvider} storage={getStorageProvider()} i18n={i18nProvider}>
+      {/* Page views on every client-side navigation — no-op without a provider. */}
+      <AnalyticsRouteListener />
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />

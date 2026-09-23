@@ -1,3 +1,4 @@
+import { setupAppAnalytics } from './app-analytics.js'
 import { setupAppFontsArimo } from './app-fonts-arimo.js'
 import { setupAppIconsMolecule } from './app-icons-molecule.js'
 import { setupAppMarkdownMarked } from './app-markdown-marked.js'
@@ -25,4 +26,7 @@ export function setupProviders(): void {
   setupAppThemeCssVariables()
   setupAppUiTailwind()
   setupI18nDefault()
+  // Last: it reads the routing bond wired above (getRouter) and captures the
+  // analytics provider once at setup time.
+  setupAppAnalytics()
 }
