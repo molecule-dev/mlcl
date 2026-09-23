@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
-import { useTranslation } from '@molecule/app-react'
+import { track } from '@molecule/app-analytics'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { unwrapSingle } from '../lib/unwrap.js'
 
 interface ThreadMessage {
   id: string
@@ -10,6 +13,15 @@ interface ThreadMessage {
   body: string
   attachment_url?: string | null
   sent_at_iso: string
+}
+
+/** Shape of one message inside the endpoint's `{ thread, messages }` envelope. */
+interface RawThreadMessage {
+  id: string
+  body: string
+  is_self?: boolean
+  attachments?: unknown[]
+  created_at_iso: string
 }
 
 const FALLBACK_MESSAGES: ThreadMessage[] = [
@@ -47,23 +59,81 @@ function fmtTime(iso: string): string {
 export function MessageThread() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const http = useHttpClient()
   const { id } = useParams<{ id: string }>()
   const [messages, setMessages] = useState<ThreadMessage[]>(FALLBACK_MESSAGES)
   const [draft, setDraft] = useState('')
+  const [sending, setSending] = useState(false)
 
-  const send = (e: React.FormEvent) => {
+  // Load the real thread; the demo fallback only stands in when the
+  // API has nothing for this id yet. The endpoint answers the bespoke
+  // `{ thread, messages }` envelope, so unwrapSingle hands back the
+  // whole body for us to read `.messages` off.
+  useEffect(() => {
+    if (!id) return
+    let cancelled = false
+    http
+      .get(`/api/messages/${encodeURIComponent(id)}`)
+      .then((res) => {
+        if (cancelled) return
+        const body = unwrapSingle<{ messages?: RawThreadMessage[] }>(res)
+        const list = body?.messages ?? []
+        if (list.length > 0) {
+          setMessages(
+            list.map((m) => ({
+              id: m.id,
+              fromHost: !m.is_self,
+              body: m.body,
+              attachment_url:
+                Array.isArray(m.attachments) && m.attachments.length > 0
+                  ? String(m.attachments[0])
+                  : null,
+              sent_at_iso: m.created_at_iso,
+            })),
+          )
+        }
+      })
+      .catch(() => {
+        /* keep fallback */
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [http, id])
+
+  const send = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!draft.trim()) return
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: `tm-${Date.now()}`,
-        fromHost: false,
-        body: draft.trim(),
-        sent_at_iso: new Date().toISOString(),
-      },
-    ])
+    const body = draft.trim()
+    if (!body || !id || sending) return
+    setSending(true)
+    const optimistic: ThreadMessage = {
+      id: `tm-${Date.now()}`,
+      fromHost: false,
+      body,
+      sent_at_iso: new Date().toISOString(),
+    }
+    setMessages((prev) => [...prev, optimistic])
     setDraft('')
+    try {
+      const res = await http.post(`/api/messages/${encodeURIComponent(id)}/messages`, { body })
+      const saved = unwrapSingle<{ id: string; created_at_iso: string }>(res)
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === optimistic.id
+            ? { ...m, id: saved?.id ?? m.id, sent_at_iso: saved?.created_at_iso ?? m.sent_at_iso }
+            : m,
+        ),
+      )
+      // Domain event: guest↔host engagement.
+      track({ name: 'message.sent', properties: { thread_id: id } })
+    } catch (_error) {
+      // Roll the optimistic bubble back out on a real rejection so the
+      // user can retry instead of believing the host saw it.
+      setMessages((prev) => prev.filter((m) => m.id !== optimistic.id))
+      setDraft(body)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -195,7 +265,7 @@ export function MessageThread() {
         />
         <button
           type="submit"
-          disabled={!draft.trim()}
+          disabled={!draft.trim() || sending}
           className={cm.cn(
             cm.sp('px', 5),
             cm.sp('py', 3),

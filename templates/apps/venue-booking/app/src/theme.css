@@ -27,7 +27,12 @@
   --color-primary-dark: #1e272e;
   --color-secondary: #e17055;
   --color-secondary-light: #fab1a0;
-  --color-accent: #00b894;
+  /* Darker teal: 4.53:1 on white AND 4.53:1 for white text on it — #00b894
+     was 2.54:1 both ways (axe color-contrast serious on landing eyebrows). */
+  --color-accent: #00875f;
+  /* Bright accent for accent TEXT on dark surfaces (hero gradient panels):
+     #00875f is only 2.80:1 on the primary ink; #00d4a8 is 6.63:1. */
+  --color-accent-bright: #00d4a8;
   --color-background: #f9f9f9;
   --color-surface: #ffffff;
   --color-surface-hover: #f5f5f5;
@@ -109,6 +114,7 @@
   --color-secondary: #e17055; /* keep coral at brand stop */
   --color-secondary-light: #ff8b6f;
   --color-accent: #00b894;
+  --color-accent-bright: #00d4a8;
   --color-on-primary: #161412; /* dark text on warm bone primary in dark mode */
   --color-on-secondary: #3a0b00; /* dark on coral #e17055: 5.42:1 — replaces #ffffff which was 3.16:1 */
   --color-on-success: #ffffff;

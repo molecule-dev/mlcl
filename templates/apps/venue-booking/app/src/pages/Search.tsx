@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -133,12 +134,38 @@ export function Search() {
   }, [venues, q, typeFilter, priceFilter, featureFilters])
 
   const toggleBookmark = (id: string) => {
+    const wasBookmarked = bookmarks.has(id)
     setBookmarks((prev) => {
       const next = new Set(prev)
       if (next.has(id)) next.delete(id)
       else next.add(id)
       return next
     })
+    // Persist like Favorites does — a local-only set loses the save on
+    // reload and never reaches the /favorites page.
+    if (wasBookmarked) {
+      http.delete(`/api/favorites/by-venue/${encodeURIComponent(id)}`).catch(() => {
+        setBookmarks((prev) => {
+          const next = new Set(prev)
+          next.add(id)
+          return next
+        })
+      })
+      track({ name: 'favorite.removed', properties: { venue_id: id, source: 'search' } })
+    } else {
+      http
+        .post('/api/favorites', { venue_id: id })
+        .then(() =>
+          track({ name: 'favorite.added', properties: { venue_id: id, source: 'search' } }),
+        )
+        .catch(() => {
+          setBookmarks((prev) => {
+            const next = new Set(prev)
+            next.delete(id)
+            return next
+          })
+        })
+    }
   }
 
   const toggleFeature = (f: string) => {
@@ -210,7 +237,7 @@ export function Search() {
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest rounded-full transition-colors',
+              'min-h-[40px] uppercase tracking-widest rounded-full transition-colors',
               typeFilter === p.value
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary',
@@ -233,7 +260,7 @@ export function Search() {
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-widest rounded-full transition-colors',
+              'min-h-[40px] uppercase tracking-widest rounded-full transition-colors',
               priceFilter === p.value
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary',
@@ -253,7 +280,7 @@ export function Search() {
               cm.sp('py', 2),
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'rounded-full transition-colors',
+              'min-h-[40px] rounded-full transition-colors',
               featureFilters.has(f)
                 ? 'bg-accent/20 text-primary border border-accent'
                 : 'bg-surface border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary',

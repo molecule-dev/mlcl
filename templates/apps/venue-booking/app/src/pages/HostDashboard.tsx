@@ -192,7 +192,7 @@ export function HostDashboard() {
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-accent',
+              'uppercase tracking-[0.25em] text-accent-bright',
             )}
           >
             {t('hostDashboard.eyebrow', {}, { defaultValue: 'Host overview' })}

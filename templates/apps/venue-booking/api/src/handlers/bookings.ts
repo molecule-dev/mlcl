@@ -25,11 +25,17 @@ import type { FindManyOptions, WhereCondition } from '@molecule/api-database'
 import { count, create, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { VenueBookingLimits } from '../tiers.js'
 
 const router = Router()
+
+// Postgres uuid columns reject non-uuid strings with SQLSTATE 22P02, which
+// used to surface as an unhandled 500. Treat any malformed id as
+// "not found" instead (URLs are user-editable).
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 const createBookingSchema = z.object({
   venue_id: z.string().min(1),
@@ -109,7 +115,7 @@ router.get('/', validateQuery(listBookingsQuery), async (req: Request, res: Resp
     const bookings = await findMany('bookings', options)
     res.json({ data: bookings, page })
   } catch (err) {
-    console.error('[bookings.list]', err)
+    logger.error('bookings.list', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -125,6 +131,11 @@ router.get('/:id', async (req: Request, res: Response) => {
         .json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     }
     const id = req.params.id as string
+    if (!UUID_RE.test(id)) {
+      return res
+        .status(404)
+        .json({ error: t('booking.notFound', {}, { defaultValue: 'Booking not found' }) })
+    }
     const booking = await findById<Record<string, unknown>>('bookings', id)
     if (!booking) {
       return res
@@ -144,7 +155,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(booking)
   } catch (err) {
-    console.error('[bookings.get]', err)
+    logger.error('bookings.get', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -262,7 +273,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (err) {
-      console.error('[bookings.create]', err)
+      logger.error('bookings.create', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -279,6 +290,11 @@ router.put('/:id/confirm', async (req: Request, res: Response) => {
         .json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     }
     const id = req.params.id as string
+    if (!UUID_RE.test(id)) {
+      return res
+        .status(404)
+        .json({ error: t('booking.notFound', {}, { defaultValue: 'Booking not found' }) })
+    }
     const booking = await findById<Record<string, unknown>>('bookings', id)
     if (!booking) {
       return res
@@ -317,7 +333,7 @@ router.put('/:id/confirm', async (req: Request, res: Response) => {
     })
     res.json(updated.data)
   } catch (err) {
-    console.error('[bookings.confirm]', err)
+    logger.error('bookings.confirm', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -333,6 +349,11 @@ router.put('/:id/cancel', async (req: Request, res: Response) => {
         .json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     }
     const id = req.params.id as string
+    if (!UUID_RE.test(id)) {
+      return res
+        .status(404)
+        .json({ error: t('booking.notFound', {}, { defaultValue: 'Booking not found' }) })
+    }
     const booking = await findById<Record<string, unknown>>('bookings', id)
     if (!booking) {
       return res
@@ -372,7 +393,7 @@ router.put('/:id/cancel', async (req: Request, res: Response) => {
     })
     res.json(updated.data)
   } catch (err) {
-    console.error('[bookings.cancel]', err)
+    logger.error('bookings.cancel', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

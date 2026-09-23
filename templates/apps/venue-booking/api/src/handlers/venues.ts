@@ -27,6 +27,11 @@ import { decorateVenue, decorateVenues } from './_decorate.js'
 
 const router = Router()
 
+// Postgres uuid columns reject non-uuid strings with SQLSTATE 22P02, which
+// used to surface as an unhandled 500. Treat any malformed id as
+// "not found" instead (URLs are user-editable).
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 const venueTypeEnum = z.enum([
   'studio',
   'loft',
@@ -144,6 +149,11 @@ router.get('/', validateQuery(listVenuesQuery), async (req: Request, res: Respon
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id as string
+    if (!UUID_RE.test(id)) {
+      return res
+        .status(404)
+        .json({ error: t('venue.notFound', {}, { defaultValue: 'Venue not found' }) })
+    }
     const venue = await findById<Record<string, unknown>>('venues', id)
     if (!venue) {
       return res
@@ -223,7 +233,7 @@ router.post(
       // Surface the underlying error to the API logs so failures are
       // diagnosable from the verify-script smoke logs without manual
       // re-instrumentation.
-      console.error('[venues.create]', err)
+      logger.error('venues.create', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -261,7 +271,7 @@ router.put('/:id', validateBody(updateVenueSchema), async (req: Request, res: Re
     const result = await updateById('venues', id, updateData)
     res.json(result.data)
   } catch (err) {
-    console.error('[venues.update]', err)
+    logger.error('venues.update', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

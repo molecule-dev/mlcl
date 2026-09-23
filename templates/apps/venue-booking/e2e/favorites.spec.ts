@@ -19,13 +19,21 @@ test('GET /api/favorites fires and renders some seeded favorites', async ({ page
 
 test('toggling a bookmark fires DELETE /api/favorites/by-venue/:id', async ({ page }) => {
   await signup(page)
-  // Make sure we have at least one favorite
+  // The per-user demo seed (favorites + notifications + thread) runs on the
+  // user's first authed request; a parallel bootstrap request may still be
+  // finishing when this test's first fetch lands, so poll instead of skip —
+  // the seed contract guarantees at least one favorite.
+  await expect
+    .poll(
+      async () => {
+        const list = await apiRequest(page, 'GET', '/favorites')
+        return ((list.body as { data?: unknown[] })?.data ?? []).length
+      },
+      { timeout: 10_000, intervals: [250, 500, 1_000] },
+    )
+    .toBeGreaterThan(0)
   const list = await apiRequest(page, 'GET', '/favorites')
   const favorites = (list.body as { data?: { id: string; venue_id: string }[] })?.data ?? []
-  if (favorites.length === 0) {
-    test.skip(true, 'no seeded favorites for this user — skipping')
-    return
-  }
 
   const reqs = await captureNetwork(page, async () => {
     await page.goto(APP_BASE + '/favorites')
@@ -53,13 +61,19 @@ test('toggling a bookmark fires DELETE /api/favorites/by-venue/:id', async ({ pa
 
 test('after un-favoriting, reload no longer shows the removed venue', async ({ page }) => {
   await signup(page)
+  // Poll for the seeded favorite (see the toggle test above) — never skip.
+  await expect
+    .poll(
+      async () => {
+        const list = await apiRequest(page, 'GET', '/favorites')
+        return ((list.body as { data?: unknown[] })?.data ?? []).length
+      },
+      { timeout: 10_000, intervals: [250, 500, 1_000] },
+    )
+    .toBeGreaterThan(0)
   const list = await apiRequest(page, 'GET', '/favorites')
   const favorites =
     (list.body as { data?: { id: string; venue_id: string; venue_name?: string }[] })?.data ?? []
-  if (favorites.length === 0) {
-    test.skip(true, 'no seeded favorites — skipping')
-    return
-  }
   const removed = favorites[0]
   const removeRes = await apiRequest(page, 'DELETE', '/favorites/by-venue/' + removed.venue_id)
   expect([200, 204]).toContain(removeRes.status)

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -56,26 +57,36 @@ export function Favorites() {
       // Optimistically remove the row, then ask the API to drop it.
       const previous = favorites
       setFavorites((prev) => prev.filter((v) => (v.venue_id ?? v.id) !== id))
-      http.delete(`/api/favorites/by-venue/${encodeURIComponent(id)}`).catch(() => {
-        // Roll back if the server rejects.
-        setFavorites(previous)
-        setBookmarks((prev) => {
-          const next = new Set(prev)
-          next.add(id)
-          return next
+      http
+        .delete(`/api/favorites/by-venue/${encodeURIComponent(id)}`)
+        .then(() =>
+          track({ name: 'favorite.removed', properties: { venue_id: id, source: 'favorites' } }),
+        )
+        .catch(() => {
+          // Roll back if the server rejects.
+          setFavorites(previous)
+          setBookmarks((prev) => {
+            const next = new Set(prev)
+            next.add(id)
+            return next
+          })
         })
-      })
     } else {
       // Re-favoriting from this page is rare (the row has already
       // been removed) but we still kick the POST so a future
       // restore action lands.
-      http.post('/api/favorites', { venue_id: id }).catch(() => {
-        setBookmarks((prev) => {
-          const next = new Set(prev)
-          next.delete(id)
-          return next
+      http
+        .post('/api/favorites', { venue_id: id })
+        .then(() =>
+          track({ name: 'favorite.added', properties: { venue_id: id, source: 'favorites' } }),
+        )
+        .catch(() => {
+          setBookmarks((prev) => {
+            const next = new Set(prev)
+            next.delete(id)
+            return next
+          })
         })
-      })
     }
   }
 

@@ -65,24 +65,33 @@ test('user isolation — A’s reservations never leak to B', async ({ browser }
   const b = await ctxB.newPage()
   await signup(b)
 
-  // user A creates a reservation
+  // user A creates a reservation. The window is unique per run: a fixed
+  // slot double-books against earlier runs' confirmed bookings (409, no
+  // id in the response) and the rest of the test degenerates.
   const venueId = await firstVenueId(a)
+  const start = new Date(Date.now() + 90 * 24 * 3600 * 1000)
+  const end = new Date(start.getTime() + 5 * 60 * 1000)
   const r = await apiRequest(a, 'POST', '/reservations', {
     venue_id: venueId,
-    starts_at_iso: '2027-05-22T10:00:00.000Z',
-    ends_at_iso: '2027-05-22T15:00:00.000Z',
+    starts_at_iso: start.toISOString(),
+    ends_at_iso: end.toISOString(),
     guest_count: 4,
   })
+  expect([200, 201]).toContain(r.status)
   const created = ((r.body as { data?: { id: string } })?.data ?? r.body) as { id: string }
+  expect(created.id, 'reservation created (got id)').toBeTruthy()
 
   // user B's reservations should not include A's
   const listB = await apiRequest(b, 'GET', '/reservations')
-  const reservationsB = (listB.body as { data?: { id: string }[] })?.data ?? []
+  const reservationsB = (listB.body as { data?: { id?: string }[] })?.data ?? []
   expect(reservationsB.some((res) => res.id === created.id)).toBe(false)
 
   // user B cannot fetch A's reservation by id either
   const probe = await apiRequest(b, 'GET', '/reservations/' + created.id)
   expect([403, 404]).toContain(probe.status)
+
+  // cleanup: free the venue slot so reruns don't collide
+  await apiRequest(a, 'PUT', '/reservations/' + created.id + '/cancel')
 
   await ctxA.close()
   await ctxB.close()

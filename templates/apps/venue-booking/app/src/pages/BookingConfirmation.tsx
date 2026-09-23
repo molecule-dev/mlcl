@@ -68,7 +68,7 @@ export function BookingConfirmation() {
             )}
           >
             <span
-              className="material-symbols-outlined text-5xl text-accent"
+              className="material-symbols-outlined text-5xl text-accent-bright"
               aria-hidden="true"
               style={{ fontVariationSettings: "'FILL' 1" }}
             >
@@ -80,7 +80,7 @@ export function BookingConfirmation() {
               cm.textSize('xs'),
               cm.fontWeight('bold'),
               cm.sp('mt', 6),
-              'uppercase tracking-[0.25em] text-accent',
+              'uppercase tracking-[0.25em] text-accent-bright',
             )}
           >
             {t('bookingConfirmation.eyebrow', {}, { defaultValue: 'Booking confirmed' })}

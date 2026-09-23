@@ -32,6 +32,11 @@ import { seedDemoForUser } from './_seed.js'
 
 const router = Router()
 
+// Postgres uuid columns reject non-uuid strings with SQLSTATE 22P02, which
+// used to surface as an unhandled 500. Treat any malformed id as
+// "not found" instead (URLs are user-editable).
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 const listQuerySchema = z.object({
   status: z
     .enum(['upcoming', 'in_progress', 'completed', 'cancelled', 'pending', 'confirmed'])
@@ -116,6 +121,12 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     return
   }
   const id = String(req.params.id)
+  if (!UUID_RE.test(id)) {
+    res
+      .status(404)
+      .json({ error: t('reservation.notFound', {}, { defaultValue: 'Reservation not found' }) })
+    return
+  }
   const booking = await findById<Record<string, unknown>>('bookings', id)
   if (!booking) {
     res
@@ -287,6 +298,12 @@ router.put('/:id/cancel', validateParams(idParamSchema), async (req: Request, re
     return
   }
   const id = String(req.params.id)
+  if (!UUID_RE.test(id)) {
+    res
+      .status(404)
+      .json({ error: t('reservation.notFound', {}, { defaultValue: 'Reservation not found' }) })
+    return
+  }
   const booking = await findById<Record<string, unknown>>('bookings', id)
   if (!booking) {
     res

@@ -397,7 +397,7 @@ export function Landing() {
                 <div className="aspect-[4/3] bg-surface-variant overflow-hidden">
                   <img
                     src={item.thumbnail}
-                    alt=""
+                    alt={item.title}
                     className={cm.cn(
                       cm.w('full'),
                       cm.h('full'),
@@ -473,7 +473,7 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('bold'),
-                'uppercase tracking-[0.25em] text-accent',
+                'uppercase tracking-[0.25em] text-accent-bright',
               )}
             >
               {t('landing.cta.eyebrow', {}, { defaultValue: 'Become a host' })}

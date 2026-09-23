@@ -30,5 +30,9 @@
    in :root — register them in @theme so the utilities compile (the :root/.dark
    definitions keep overriding at runtime for theming). */
 @theme {
-  --color-accent: #00b894;
+  /* Keep in sync with theme.css :root — darkened from #00b894 so the
+     compiled text-accent/bg-accent utilities pass WCAG AA (4.53:1).
+     accent-bright is for accent text on DARK surfaces (hero panels). */
+  --color-accent: #00875f;
+  --color-accent-bright: #00d4a8;
 }

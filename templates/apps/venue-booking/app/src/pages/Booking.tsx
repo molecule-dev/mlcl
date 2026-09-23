@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -36,6 +37,7 @@ export function Booking() {
   const [venue, setVenue] = useState<Venue | null>(null)
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [date, setDate] = useState(params.get('date') ?? '')
   const [startTime, setStartTime] = useState('14:00')
   const [endTime, setEndTime] = useState('20:00')
@@ -85,6 +87,7 @@ export function Booking() {
     e.preventDefault()
     if (!venueId) return
     setSubmitting(true)
+    setSubmitError(null)
     try {
       const res = await http.post('/api/reservations', {
         venue_id: venueId,
@@ -98,10 +101,33 @@ export function Booking() {
         total_cents: totalCents,
       })
       const data = unwrapSingle<{ id: string }>(res)
-      navigate(`/booking/confirmation/${data?.id ?? 'new'}`)
-    } catch (_error) {
-      // Demo mock — even without API, route to confirmation
-      navigate(`/booking/confirmation/preview-${venueId}`)
+      if (data?.id) {
+        // Domain event: the conversion point of the funnel.
+        track({
+          name: 'booking.created',
+          properties: { reservation_id: data.id, venue_id: venueId, total_cents: totalCents },
+        })
+        navigate(`/booking/confirmation/${data.id}`)
+      } else {
+        setSubmitError(
+          t(
+            'booking.submitFailed',
+            {},
+            { defaultValue: 'We could not send your request — please try again.' },
+          ),
+        )
+      }
+    } catch (error) {
+      // Surface real API rejections (double-booking 409, over-capacity
+      // 400, auth 401…) instead of faking a confirmation.
+      const message =
+        (error as { response?: { data?: { error?: string } } })?.response?.data?.error ??
+        t(
+          'booking.submitFailed',
+          {},
+          { defaultValue: 'We could not send your request — please try again.' },
+        )
+      setSubmitError(message)
     } finally {
       setSubmitting(false)
     }
@@ -477,6 +503,21 @@ export function Booking() {
                 <span className="tabular-nums">{fmtPrice(totalCents)}</span>
               </div>
             </div>
+
+            {submitError ? (
+              <p
+                role="alert"
+                className={cm.cn(
+                  cm.sp('mt', 4),
+                  cm.sp('px', 4),
+                  cm.sp('py', 3),
+                  cm.textSize('sm'),
+                  'rounded-xl bg-error/10 text-error border border-error/30',
+                )}
+              >
+                {submitError}
+              </p>
+            ) : null}
 
             <button
               type="submit"

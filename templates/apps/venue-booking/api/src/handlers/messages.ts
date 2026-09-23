@@ -31,6 +31,11 @@ import {
 
 const router = Router()
 
+// Postgres uuid columns reject non-uuid strings with SQLSTATE 22P02, which
+// used to surface as an unhandled 500. Treat any malformed id as
+// "not found" instead (URLs are user-editable).
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 const sendMessageSchema = z.object({
   body: z.string().min(1),
   attachments: z.array(z.string()).optional(),
@@ -79,6 +84,10 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     return
   }
   const threadId = String(req.params.id)
+  if (!UUID_RE.test(threadId)) {
+    res.status(404).json({ error: t('thread.notFound', {}, { defaultValue: 'Thread not found' }) })
+    return
+  }
   const thread = await findById<Record<string, unknown>>('message_threads', threadId)
   if (!thread) {
     res.status(404).json({ error: t('thread.notFound', {}, { defaultValue: 'Thread not found' }) })

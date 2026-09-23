@@ -132,7 +132,7 @@ export function AlcoveAuthShell({
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  'uppercase tracking-[0.25em] text-accent',
+                  'uppercase tracking-[0.25em] text-accent-bright',
                 )}
               >
                 {t('alcoveAuthShell.brand.eyebrow', {}, { defaultValue: 'Every space, a story' })}
@@ -164,7 +164,7 @@ export function AlcoveAuthShell({
               )}
             >
               <span
-                className="material-symbols-outlined text-3xl text-accent"
+                className="material-symbols-outlined text-3xl text-accent-bright"
                 aria-hidden="true"
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >

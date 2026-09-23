@@ -42,6 +42,13 @@ test('login returns the user to a protected page after sign-in', async ({ page, 
 })
 
 test('wrong password keeps user on /login and surfaces an error', async ({ page, browser }) => {
+  // The failed POST /users/log-in is EXPECTED to 4xx — the browser always
+  // logs failed responses to the console, which the console guard would
+  // otherwise treat as an app error.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 40[134]',
+  })
   const email = uniqueEmail('badlogin')
   const password = 'TestPass123!'
   const ctx = await browser.newContext()

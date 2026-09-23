@@ -19,14 +19,22 @@ test('GET /api/notifications fires and renders the feed', async ({ page }) => {
 
 test('mark-all-read button calls PUT /api/notifications/read-all', async ({ page }) => {
   await signup(page)
-  // Ensure there's at least one unread notif by checking the seed
-  const list = await apiRequest(page, 'GET', '/notifications')
-  const items = (list.body as { data?: { unread?: boolean }[] })?.data ?? []
-  const unread = items.filter((n) => n.unread)
-  if (unread.length === 0) {
-    test.skip(true, 'no unread notifications seeded — skipping')
-    return
-  }
+  // Fresh users are seeded with unread demo notifications on their first
+  // authed request. Poll instead of skip: a parallel bootstrap request may
+  // still be finishing when this test's first fetch lands, but the seed
+  // contract guarantees unread items — the read-all call must be proven.
+  let unread = 0
+  await expect
+    .poll(
+      async () => {
+        const list = await apiRequest(page, 'GET', '/notifications')
+        const items = (list.body as { data?: { unread?: boolean }[] })?.data ?? []
+        unread = items.filter((n) => n.unread).length
+        return unread
+      },
+      { timeout: 10_000, intervals: [250, 500, 1_000] },
+    )
+    .toBeGreaterThan(0)
 
   const reqs = await captureNetwork(page, async () => {
     await page.goto(APP_BASE + '/notifications')

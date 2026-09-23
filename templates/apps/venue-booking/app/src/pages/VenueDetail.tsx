@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -81,6 +82,8 @@ export function VenueDetail() {
         setVenue(v)
         const list = unwrapList<Review>(reviewsRes)
         setReviews(list)
+        // Domain event: the top of the booking funnel.
+        track({ name: 'venue.viewed', properties: { venue_id: v.id, venue_name: v.name } })
       })
       .catch(() => {
         if (cancelled) return

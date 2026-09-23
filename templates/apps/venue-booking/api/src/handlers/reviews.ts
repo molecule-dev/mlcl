@@ -115,7 +115,7 @@ router.post(
       })
       res.status(201).json(result.data)
     } catch (err) {
-      console.error('[reviews.create]', err)
+      logger.error('reviews.create', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -149,7 +149,7 @@ router.put('/:id', validateBody(updateReviewSchema), async (req: Request, res: R
     })
     res.json(result.data)
   } catch (err) {
-    console.error('[reviews.update]', err)
+    logger.error('reviews.update', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

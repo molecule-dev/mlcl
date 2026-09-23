@@ -167,7 +167,7 @@ export function Messages() {
                 {c.host_avatar_url ? (
                   <img
                     src={c.host_avatar_url}
-                    alt=""
+                    alt={c.host_name}
                     className={'w-12 h-12 rounded-full object-cover flex-shrink-0'}
                   />
                 ) : (
