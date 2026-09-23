@@ -46,6 +46,9 @@ test('clicking an article opens its detail page with body content', async ({ pag
 })
 
 test('non-existent article id shows not-found state', async ({ page }) => {
+  // The 404 console error IS the contract here — the detail fetch must miss
+  // loudly for the not-found state to render.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
   await signup(page)
   await page.goto(APP_BASE + '/coaching/00000000-0000-0000-0000-000000000000')
   await page.waitForLoadState('networkidle')

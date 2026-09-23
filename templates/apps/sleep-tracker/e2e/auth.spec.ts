@@ -35,6 +35,11 @@ test('signup persists access token and the new user can call protected endpoints
 
 test('login round-trips to /dashboard with the same credentials', async ({ page }) => {
   const { email, password } = await signup(page)
+  // Leave the authed Dashboard BEFORE invalidating the session (same
+  // artifact as forgot-password.spec.ts): clearing cookies while it is
+  // still mounted makes its in-flight refetches log 401 console errors.
+  await page.goto(APP_BASE + '/login')
+  await page.waitForLoadState('networkidle')
   await page.context().clearCookies()
   await page.evaluate(() => window.localStorage.clear())
   await login(page, email, password)
@@ -61,9 +66,13 @@ test('signup→logout→login restores access (state is server-persisted, not ju
   page,
 }) => {
   const { email, password } = await signup(page)
+  // Leave the authed Dashboard BEFORE invalidating the session (same
+  // artifact as forgot-password.spec.ts): clearing cookies while it is
+  // still mounted makes its in-flight refetches log 401 console errors.
+  await page.goto(APP_BASE + '/login')
+  await page.waitForLoadState('networkidle')
   await page.evaluate(() => window.localStorage.clear())
   await page.context().clearCookies()
-  await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').fill(email)
   await page.locator('input[type="password"]').fill(password)
   await page.getByRole('button', { name: /sign\s*in/i }).click()

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -65,6 +66,7 @@ export function Devices() {
   const [showLink, setShowLink] = useState(false)
   const [draftProvider, setDraftProvider] = useState(PROVIDERS[0]!.value)
   const [busy, setBusy] = useState(false)
+  const [linkError, setLinkError] = useState<string | null>(null)
 
   async function refresh() {
     const res = await http.get('/api/wearables').catch(() => null)
@@ -90,6 +92,7 @@ export function Devices() {
 
   const link = async () => {
     setBusy(true)
+    setLinkError(null)
     try {
       const res = await http.post('/api/wearables', {
         provider: draftProvider,
@@ -101,7 +104,21 @@ export function Devices() {
       } else {
         await refresh()
       }
+      track({
+        name: 'device.linked',
+        properties: { device_id: created?.id, provider: draftProvider },
+      })
       setShowLink(false)
+    } catch (_error) {
+      setLinkError(
+        t(
+          'devices.errors.linkFailed',
+          {},
+          {
+            defaultValue: 'Connecting the device failed — please try again.',
+          },
+        ),
+      )
     } finally {
       setBusy(false)
     }
@@ -110,11 +127,13 @@ export function Devices() {
   const togglePause = async (conn: WearableConnection) => {
     const next = !(conn.is_active ?? true)
     setConns((prev) => prev.map((c) => (c.id === conn.id ? { ...c, is_active: next } : c)))
+    track({ name: 'device.pause_toggled', properties: { device_id: conn.id, active: next } })
     await http.patch(`/api/wearables/${conn.id}`, { is_active: next }).catch(() => refresh())
   }
 
   const unlink = async (conn: WearableConnection) => {
     setConns((prev) => prev.filter((c) => c.id !== conn.id))
+    track({ name: 'device.unlinked', properties: { device_id: conn.id, provider: conn.provider } })
     await http.delete(`/api/wearables/${conn.id}`).catch(() => refresh())
   }
 
@@ -165,6 +184,24 @@ export function Devices() {
           <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t('devices.linkDialog', {}, { defaultValue: 'Connect a device' })}
           </h2>
+          {linkError ? (
+            <p
+              role="alert"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'rounded-xl',
+              )}
+              style={{
+                backgroundColor: 'var(--color-badge-red-bg)',
+                color: 'var(--color-badge-red-fg)',
+              }}
+            >
+              {linkError}
+            </p>
+          ) : null}
           <label className={cm.cn('block space-y-1')}>
             <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
               {t('devices.providerField', {}, { defaultValue: 'Provider' })}

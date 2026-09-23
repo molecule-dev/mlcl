@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LogNightForm } from '../components/LogNightForm.js'
 import { RecoveryRingsTriad } from '../components/RecoveryRingsTriad.js'
 import type { SleepQuality } from '../components/SleepScoreHeroCard.js'
 import { SleepScoreHeroCard } from '../components/SleepScoreHeroCard.js'
@@ -116,6 +117,8 @@ export function Night() {
   const [log, setLog] = useState<SleepLog | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
+  const [showLogForm, setShowLogForm] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     if (!date) {
@@ -145,7 +148,7 @@ export function Night() {
     return () => {
       cancelled = true
     }
-  }, [http, date])
+  }, [http, date, reloadKey])
 
   const stageSegments = useMemo(() => buildStageSegments(log?.sleep_stages), [log])
   const score = log?.quality_score ?? 0
@@ -221,6 +224,18 @@ export function Night() {
         )}
       </header>
 
+      {showLogForm && (notFound || !log) ? (
+        <LogNightForm
+          defaultDate={date}
+          onCreated={() => {
+            setShowLogForm(false)
+            setNotFound(false)
+            setReloadKey((k) => k + 1)
+          }}
+          onCancel={() => setShowLogForm(false)}
+        />
+      ) : null}
+
       {loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('night.loading', {}, { defaultValue: 'Loading night details…' })}
@@ -243,18 +258,37 @@ export function Night() {
               { defaultValue: 'We don’t have a sleep record for this date.' },
             )}
           </p>
-          <Link
-            to="/history"
-            className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow',
-            )}
-          >
-            {t('night.notFound.cta', {}, { defaultValue: 'Back to history' })}
-          </Link>
+          <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap justify-center')}>
+            <button
+              type="button"
+              onClick={() => setShowLogForm(true)}
+              data-mol-id="night-log-this"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow min-h-10',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                bedtime
+              </span>
+              {t('night.notFound.logCta', {}, { defaultValue: 'Log this night' })}
+            </button>
+            <Link
+              to="/history"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'inline-flex items-center gap-2 rounded-full border-2 border-outline-variant min-h-10',
+              )}
+            >
+              {t('night.notFound.cta', {}, { defaultValue: 'Back to history' })}
+            </Link>
+          </div>
         </section>
       ) : (
         <>

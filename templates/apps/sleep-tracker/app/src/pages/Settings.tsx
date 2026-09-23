@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -83,6 +84,19 @@ export function Settings() {
     saveSleepGoals({ sleepGoalHours, bedtimeGoal, wakeGoal })
   }, [sleepGoalHours, bedtimeGoal, wakeGoal])
 
+  // Analytics: a goal edit commits when the input loses focus, so the
+  // `goal.updated` event fires once per edit (not per keystroke/drag).
+  const trackGoalUpdated = () => {
+    track({
+      name: 'goal.updated',
+      properties: {
+        sleep_goal_hours: sleepGoalHours,
+        bedtime_goal: bedtimeGoal,
+        wake_goal: wakeGoal,
+      },
+    })
+  }
+
   return (
     <div className={cm.cn(cm.sp('p', 8), 'space-y-8')}>
       <header>
@@ -140,6 +154,7 @@ export function Settings() {
               type="time"
               value={bedtimeGoal}
               onChange={(e) => setBedtimeGoal(e.target.value)}
+              onBlur={trackGoalUpdated}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 3),
@@ -162,6 +177,7 @@ export function Settings() {
               type="time"
               value={wakeGoal}
               onChange={(e) => setWakeGoal(e.target.value)}
+              onBlur={trackGoalUpdated}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 3),
@@ -187,6 +203,7 @@ export function Settings() {
               step={0.5}
               value={sleepGoalHours}
               onChange={(e) => setSleepGoalHours(Number(e.target.value))}
+              onBlur={trackGoalUpdated}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 3),

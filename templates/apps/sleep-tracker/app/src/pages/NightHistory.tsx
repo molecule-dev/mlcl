@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LogNightForm } from '../components/LogNightForm.js'
 import { NightHistoryRow } from '../components/NightHistoryRow.js'
 import type { SleepQuality } from '../components/SleepScoreHeroCard.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -42,6 +43,8 @@ export function NightHistory() {
   const [logs, setLogs] = useState<SleepLog[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['key']>('all')
+  const [showLogForm, setShowLogForm] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
@@ -58,7 +61,7 @@ export function NightHistory() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const nights = useMemo(
     () =>
@@ -113,6 +116,36 @@ export function NightHistory() {
           })}
         </div>
       </header>
+
+      <div className={cm.cn(cm.flex({ justify: 'end' }))}>
+        <button
+          type="button"
+          onClick={() => setShowLogForm((v) => !v)}
+          data-mol-id="history-log-night"
+          className={cm.cn(
+            cm.sp('px', 5),
+            cm.sp('py', 2),
+            cm.fontWeight('bold'),
+            cm.textSize('sm'),
+            'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow min-h-10',
+          )}
+        >
+          <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+            bedtime
+          </span>
+          {t('nightHistory.logNight', {}, { defaultValue: 'Log a night' })}
+        </button>
+      </div>
+
+      {showLogForm ? (
+        <LogNightForm
+          onCreated={() => {
+            setShowLogForm(false)
+            setReloadKey((k) => k + 1)
+          }}
+          onCancel={() => setShowLogForm(false)}
+        />
+      ) : null}
 
       <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
         {loading

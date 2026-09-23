@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LogNightForm } from '../components/LogNightForm.js'
 import { NightHistoryRow } from '../components/NightHistoryRow.js'
 import { RecoveryRingsTriad } from '../components/RecoveryRingsTriad.js'
 import type { SleepQuality } from '../components/SleepScoreHeroCard.js'
@@ -67,6 +68,10 @@ export function Dashboard() {
   const [stats, setStats] = useState<SleepStats | null>(null)
   const [recentLogs, setRecentLogs] = useState<SleepLog[] | null>(null)
   const [loading, setLoading] = useState(true)
+  const [showLogForm, setShowLogForm] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
+
+  const reload = () => setReloadKey((k) => k + 1)
 
   useEffect(() => {
     let cancelled = false
@@ -87,7 +92,7 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const recent = recentLogs ?? []
   const hasData = recent.length > 0
@@ -148,20 +153,52 @@ export function Dashboard() {
             )}
           </h1>
         </div>
-        <Link
-          to="/history"
-          className={cm.cn(
-            cm.sp('px', 5),
-            cm.sp('py', 2),
-            cm.fontWeight('bold'),
-            cm.textSize('sm'),
-            'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow',
-          )}
-        >
-          <span className={cm.cn('material-symbols-outlined text-base')}>history</span>
-          {t('dashboard.viewAll', {}, { defaultValue: 'All nights' })}
-        </Link>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
+          <button
+            type="button"
+            onClick={() => setShowLogForm((v) => !v)}
+            data-mol-id="dashboard-log-night"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'inline-flex items-center gap-2 rounded-full min-h-10',
+              hasData
+                ? 'border-2 border-outline-variant text-on-surface'
+                : 'bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              bedtime
+            </span>
+            {t('dashboard.logNight', {}, { defaultValue: 'Log a night' })}
+          </button>
+          <Link
+            to="/history"
+            className={cm.cn(
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+              'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')}>history</span>
+            {t('dashboard.viewAll', {}, { defaultValue: 'All nights' })}
+          </Link>
+        </div>
       </header>
+
+      {showLogForm ? (
+        <LogNightForm
+          onCreated={() => {
+            setShowLogForm(false)
+            reload()
+          }}
+          onCancel={() => setShowLogForm(false)}
+        />
+      ) : null}
 
       {hasData ? (
         <>
@@ -218,18 +255,39 @@ export function Dashboard() {
               },
             )}
           </p>
-          <Link
-            to="/devices"
-            className={cm.cn(
-              cm.sp('px', 5),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-              'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow',
-            )}
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap justify-center')}
           >
-            {t('dashboard.empty.cta', {}, { defaultValue: 'Connect a wearable' })}
-          </Link>
+            <button
+              type="button"
+              onClick={() => setShowLogForm(true)}
+              data-mol-id="dashboard-empty-log-night"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary shadow-md hover:shadow-lg transition-shadow min-h-10',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                bedtime
+              </span>
+              {t('dashboard.logNight', {}, { defaultValue: 'Log a night' })}
+            </button>
+            <Link
+              to="/devices"
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.fontWeight('bold'),
+                cm.textSize('sm'),
+                'inline-flex items-center gap-2 rounded-full border-2 border-outline-variant min-h-10',
+              )}
+            >
+              {t('dashboard.empty.cta', {}, { defaultValue: 'Connect a wearable' })}
+            </Link>
+          </div>
         </section>
       ) : null}
 
@@ -240,7 +298,12 @@ export function Dashboard() {
           </h2>
           <Link
             to="/history"
-            className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), cm.textPrimary)}
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.fontWeight('bold'),
+              cm.textPrimary,
+              'inline-flex min-h-10 items-center',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>

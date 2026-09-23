@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -42,6 +43,7 @@ export function SmartAlarm() {
   const [loading, setLoading] = useState(true)
   const [showNew, setShowNew] = useState(false)
   const [busy, setBusy] = useState(false)
+  const [formError, setFormError] = useState<string | null>(null)
   const [draftLabel, setDraftLabel] = useState('Weekday wake')
   const [draftTime, setDraftTime] = useState('06:30')
   const [draftWindow, setDraftWindow] = useState(30)
@@ -75,16 +77,19 @@ export function SmartAlarm() {
 
   const toggle = async (id: string, enabled: boolean) => {
     setAlarms((prev) => prev.map((a) => (a.id === id ? { ...a, enabled } : a)))
+    track({ name: 'alarm.toggled', properties: { alarm_id: id, enabled } })
     await http.patch(`/api/alarms/${id}`, { enabled }).catch(() => refresh())
   }
 
   const remove = async (id: string) => {
     setAlarms((prev) => prev.filter((a) => a.id !== id))
+    track({ name: 'alarm.deleted', properties: { alarm_id: id } })
     await http.delete(`/api/alarms/${id}`).catch(() => refresh())
   }
 
   const create = async () => {
     setBusy(true)
+    setFormError(null)
     try {
       const res = await http.post('/api/alarms', {
         label: draftLabel,
@@ -100,12 +105,26 @@ export function SmartAlarm() {
       } else {
         await refresh()
       }
+      track({
+        name: 'alarm.created',
+        properties: { alarm_id: created?.id, alarm_time: draftTime, sound: draftSound },
+      })
       setShowNew(false)
       setDraftLabel('Weekday wake')
       setDraftTime('06:30')
       setDraftWindow(30)
       setDraftDays([1, 2, 3, 4, 5])
       setDraftSound('sunrise')
+    } catch (_error) {
+      setFormError(
+        t(
+          'smartAlarm.errors.saveFailed',
+          {},
+          {
+            defaultValue: 'Saving the alarm failed — please try again.',
+          },
+        ),
+      )
     } finally {
       setBusy(false)
     }
@@ -161,6 +180,24 @@ export function SmartAlarm() {
           <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t('smartAlarm.newDialog', {}, { defaultValue: 'New alarm' })}
           </h2>
+          {formError ? (
+            <p
+              role="alert"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                'rounded-xl',
+              )}
+              style={{
+                backgroundColor: 'var(--color-badge-red-bg)',
+                color: 'var(--color-badge-red-fg)',
+              }}
+            >
+              {formError}
+            </p>
+          ) : null}
           <label className={cm.cn('block space-y-1')}>
             <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
               {t('smartAlarm.labelField', {}, { defaultValue: 'Label' })}

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -157,6 +158,7 @@ export function Notifications() {
       await Promise.all(
         unread.map((n) => http.post(`/api/notifications/${n.id}/read`, {}).catch(() => null)),
       )
+      track({ name: 'notifications.read', properties: { count: unread.length } })
       await refresh()
     } finally {
       setBusy(false)

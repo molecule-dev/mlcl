@@ -174,9 +174,9 @@ export function Trends() {
               onClick={() => setPeriod(p)}
               className={cm.cn(
                 cm.sp('px', 4),
-                cm.sp('py', 1),
+                cm.sp('py', 2),
                 cm.fontWeight('bold'),
-                'text-xs rounded-full uppercase tracking-widest transition-colors',
+                'text-xs rounded-full uppercase tracking-widest transition-colors min-h-10',
                 period === p
                   ? 'bg-primary text-on-primary'
                   : 'text-on-surface-variant hover:text-on-surface',

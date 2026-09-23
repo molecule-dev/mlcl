@@ -16,10 +16,14 @@ import { API_BASE, APP_BASE, login, signup, uniqueEmail } from './_helpers.js'
 test('forgot-password form transitions to a confirmation state on submit', async ({ page }) => {
   const email = uniqueEmail('reset')
   await signup(page, email)
+  // Leave the authed Dashboard BEFORE invalidating the session: clearing
+  // cookies while it is still mounted makes its in-flight refetches log 401
+  // console errors (an artifact of the test, not the app).
+  await page.goto(APP_BASE + '/forgot-password')
+  await page.waitForLoadState('networkidle')
   await page.evaluate(() => window.localStorage.clear())
   await page.context().clearCookies()
 
-  await page.goto(APP_BASE + '/forgot-password')
   await page.locator('input[type="email"]').fill(email)
   await page.getByRole('button', { name: /send.*reset.*link/i }).click()
 
