@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -88,6 +89,10 @@ export function InvoiceDetail() {
     setError(null)
     try {
       await http.put(`/api/invoices/${invoice.id}`, { status })
+      void track({
+        name: 'invoice.status_changed',
+        properties: { invoice_id: invoice.id, status },
+      })
       setVersion((n) => n + 1)
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to update')

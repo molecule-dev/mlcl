@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -13,7 +14,7 @@ import {
 } from '../lib/format.js'
 import { useTimer } from '../lib/TimerContext.js'
 import type { ApiProject, ApiTimeEntry } from '../lib/types.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 type Filter = 'all' | 'billable' | 'non-billable'
 
@@ -141,6 +142,7 @@ export function TimeEntries() {
     }
     try {
       await http.delete(`/api/entries/${id}`)
+      void track({ name: 'entry.deleted', properties: { entry_id: id } })
       await reloadEntries()
       await refreshTimer()
     } catch (err: unknown) {
@@ -161,12 +163,22 @@ export function TimeEntries() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post('/api/entries', {
+      const res = await http.post('/api/entries', {
         description: form.description,
         project_id: form.project_id || null,
         started_at,
         ended_at,
         is_billable: form.is_billable,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'entry.created',
+        properties: {
+          entry_id: created?.id ?? null,
+          project_id: form.project_id || null,
+          is_billable: form.is_billable,
+          manual: true,
+        },
       })
       setForm(defaultManualForm())
       setShowAdd(false)

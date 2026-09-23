@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ProjectBudgetCard } from '../components/ProjectBudgetCard.js'
 import { useTimer } from '../lib/TimerContext.js'
 import type { ApiClient, ApiProject, ApiTimeEntry } from '../lib/types.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 const COLOR_PRESETS = [
   '#2563eb',
@@ -127,13 +128,22 @@ export function Projects() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post('/api/projects', {
+      const res = await http.post('/api/projects', {
         name: form.name.trim(),
         client_id: form.client_id || null,
         color: form.color,
         hourly_rate_cents: form.hourly_rate_cents ? Number(form.hourly_rate_cents) * 100 : null,
         budget_cents: form.budget_cents ? Number(form.budget_cents) * 100 : null,
         billable: form.billable,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'project.created',
+        properties: {
+          project_id: created?.id ?? null,
+          client_id: form.client_id || null,
+          billable: form.billable,
+        },
       })
       setForm(defaultForm())
       setShowForm(false)

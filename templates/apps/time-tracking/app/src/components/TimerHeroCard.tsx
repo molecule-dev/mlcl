@@ -35,8 +35,7 @@ export function TimerHeroCard({
     <div
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
-        cm.sp('p', 10),
-        'min-h-[320px] bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 rounded-[2rem] text-white relative overflow-hidden',
+        'min-h-[320px] p-6 sm:p-10 bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 rounded-[2rem] text-white relative overflow-hidden',
       )}
     >
       <div className={cm.cn('relative z-10')}>
@@ -52,7 +51,9 @@ export function TimerHeroCard({
         </h2>
         <div className={cm.cn(cm.flex({ align: 'baseline', gap: 'md' }), 'flex-wrap')}>
           <span
-            className={cm.cn('text-6xl font-extrabold tracking-tighter font-mono tabular-nums')}
+            className={cm.cn(
+              'text-4xl sm:text-6xl font-extrabold tracking-tighter font-mono tabular-nums',
+            )}
           >
             {t('timerHeroCard.tracked', { time: trackedToday }, { defaultValue: '{{time}}' })}
           </span>

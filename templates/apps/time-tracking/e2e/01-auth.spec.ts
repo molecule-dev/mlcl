@@ -41,6 +41,13 @@ test.describe('01: auth — signup, login, sign-out, password change, forgot pas
   test('change password — old password rejected, new password accepted on next login', async ({
     page,
   }) => {
+    // Expected 4xx noise the console guard must allow: after the password
+    // change the platform revokes the session, so the sign-out POST returns
+    // 401, and the deliberate old-password login attempt returns 403.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (401|403)',
+    })
     const email = uniqueEmail('pw')
     const oldPw = 'TestPass!1234'
     const newPw = 'BrandNew!9876'

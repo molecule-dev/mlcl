@@ -58,7 +58,13 @@ export async function signup(
   await expect(page).not.toHaveURL(/\/signup/, { timeout: 15000 })
   await page.waitForURL('**/dashboard', { timeout: 15000 })
   // Wait for the layout to mount so the auth client has finished hydrating.
-  await page.locator('[data-test=sign-out]').waitFor({ timeout: 10000 })
+  // The shell is viewport-dependent: the desktop sidebar carries `sign-out`,
+  // while below 768px the mobile shell carries `mobile-nav-toggle` (its
+  // sign-out lives inside the drawer). Accept either.
+  await page
+    .locator('[data-test=sign-out], [data-test=mobile-nav-toggle]')
+    .first()
+    .waitFor({ timeout: 10000 })
   await expect
     .poll(async () => (await getAccessToken(page)) !== null, {
       timeout: 10000,
@@ -98,9 +104,16 @@ export async function login(page: Page, email: string, password: string) {
   await expect(page).not.toHaveURL(/\/login/, { timeout: 15000 })
 }
 
-/** Sign out via the sidebar user menu. */
+/** Sign out via the sidebar user menu (opens the mobile drawer first on phones). */
 export async function logout(page: Page) {
-  const out = page.locator('[data-test=sign-out]').first()
+  let out = page.locator('[data-test=sign-out]').first()
+  if (!(await out.isVisible().catch(() => false))) {
+    const toggle = page.locator('[data-test=mobile-nav-toggle]')
+    if (await toggle.isVisible().catch(() => false)) {
+      await toggle.click()
+      out = page.locator('#mobile-nav-drawer [data-test=sign-out]').first()
+    }
+  }
   if (await out.count().catch(() => 0)) {
     await out.click({ force: true })
     await page.waitForURL(/\/login/, { timeout: 10000 }).catch(() => undefined)

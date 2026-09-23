@@ -49,6 +49,12 @@ test.describe('/reset-password page', () => {
   test('submit without a valid token stays on /reset-password (or surfaces error)', async ({
     page,
   }) => {
+    // The whole point of this test is that the backend rejects a tokenless
+    // reset (4xx) — allow the browser's console log of the failed request.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4\\d\\d',
+    })
     await page.goto(APP_BASE + '/reset-password')
     await page.getByRole('textbox', { name: /new password/i }).fill('NewStrongPassw0rd!')
     await page.getByRole('textbox', { name: /confirm password/i }).fill('NewStrongPassw0rd!')

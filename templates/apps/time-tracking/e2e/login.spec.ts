@@ -68,6 +68,12 @@ test.describe('/login page', () => {
   })
 
   test('invalid credentials surface an inline error and stay on /login', async ({ page }) => {
+    // The deliberate wrong-password login is rejected with 401/403 — the
+    // browser logs the failed request and the console guard must allow it.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of (401|403)',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('[data-test="login-email"]').fill(uniqueEmail())
     await page.locator('[data-test="login-password"]').fill('not-the-real-password')

@@ -39,20 +39,23 @@ export function Timesheet() {
   const [projects, setProjects] = useState<ReadonlyArray<ApiProject>>([])
   const [clients, setClients] = useState<ReadonlyArray<ApiClient>>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
-      http.get('/api/entries').catch(() => null),
-      http.get('/api/projects').catch(() => null),
-      http.get('/api/clients').catch(() => null),
+      http.get('/api/entries').catch((err: unknown) => err),
+      http.get('/api/projects').catch((err: unknown) => err),
+      http.get('/api/clients').catch((err: unknown) => err),
     ])
       .then(([e, p, c]) => {
         if (cancelled) return
-        setEntries(unwrapList<ApiTimeEntry>(e))
-        setProjects(unwrapList<ApiProject>(p))
-        setClients(unwrapList<ApiClient>(c))
+        if (e instanceof Error) setError(e.message)
+        else setEntries(unwrapList<ApiTimeEntry>(e))
+        if (!(p instanceof Error)) setProjects(unwrapList<ApiProject>(p))
+        if (!(c instanceof Error)) setClients(unwrapList<ApiClient>(c))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -201,193 +204,216 @@ export function Timesheet() {
         </div>
       </section>
 
-      <section className={cm.cn('bg-surface rounded-2xl shadow-sm overflow-hidden')}>
-        <div
+      {error && (
+        <p
           className={cm.cn(
-            'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
+            cm.sp('p', 3),
+            cm.textSize('sm'),
+            'text-error bg-rose-50 border border-rose-200 rounded-lg',
           )}
-          style={{
-            gridTemplateColumns: 'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
-          }}
+          data-test="timesheet-error"
         >
-          <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
-            {t('timesheet.column.project', {}, { defaultValue: 'Project' })}
-          </div>
-          {DAY_LABELS.map((label, i) => (
-            <div
-              key={label}
-              className={cm.cn(
-                cm.textCenter,
-                cm.sp('py', 3),
-                'tabular-nums',
-                i === todayIdx ? 'text-blue-600' : '',
-              )}
-            >
-              {label}
-              <div className={cm.cn('text-[11px] tracking-normal text-foreground-secondary')}>
-                {days[i].getDate()}
-              </div>
-            </div>
-          ))}
-          <div className={cm.cn(cm.textRight, cm.sp('px', 6), cm.sp('py', 3))}>
-            {t('nav.total', {}, { defaultValue: 'Total' })}
-          </div>
-        </div>
+          {t(
+            'timesheet.errorMessage',
+            { error },
+            { defaultValue: 'Could not load the timesheet: {{error}}' },
+          )}
+        </p>
+      )}
 
-        {loading ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-          >
-            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-          </p>
-        ) : rows.length === 0 ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-            data-test="timesheet-empty"
-          >
-            {t('timesheet.empty', {}, { defaultValue: 'No tracked entries this week.' })}
-          </p>
-        ) : (
-          rows.map((r) => {
-            const rowTotal = r.hours.reduce((a, b) => a + b, 0)
-            return (
-              <div
-                key={r.projectId || r.projectName}
-                className={cm.cn(
-                  'grid items-center border-b border-border hover:bg-surface-secondary transition-colors',
-                )}
-                style={{
-                  gridTemplateColumns:
-                    'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
-                }}
-                data-test={`timesheet-row-${r.projectId || 'no-project'}`}
-              >
+      <section className={cm.cn('bg-surface rounded-2xl shadow-sm overflow-hidden')}>
+        <div className="overflow-x-auto">
+          <div className="min-w-[760px]">
+            <div
+              className={cm.cn(
+                'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
+              )}
+              style={{
+                gridTemplateColumns:
+                  'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
+              }}
+            >
+              <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
+                {t('timesheet.column.project', {}, { defaultValue: 'Project' })}
+              </div>
+              {DAY_LABELS.map((label, i) => (
                 <div
+                  key={label}
                   className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
+                    cm.textCenter,
+                    cm.sp('py', 3),
+                    'tabular-nums',
+                    i === todayIdx ? 'text-blue-600' : '',
                   )}
                 >
-                  <span
-                    className={cm.cn(cm.w(2.5), cm.h(2.5), cm.roundedFull, 'shrink-0')}
-                    style={{ backgroundColor: r.color }}
-                  />
-                  <div className={cm.cn('min-w-0')}>
-                    {r.projectId ? (
-                      <Link
-                        to={`/projects/${r.projectId}`}
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          cm.fontWeight('semibold'),
-                          'text-foreground truncate hover:underline',
-                        )}
-                      >
-                        {r.projectName}
-                      </Link>
-                    ) : (
-                      <span
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          cm.fontWeight('semibold'),
-                          'text-foreground truncate',
-                        )}
-                      >
-                        {r.projectName}
-                      </span>
+                  {label}
+                  <div className={cm.cn('text-[11px] tracking-normal text-foreground-secondary')}>
+                    {days[i].getDate()}
+                  </div>
+                </div>
+              ))}
+              <div className={cm.cn(cm.textRight, cm.sp('px', 6), cm.sp('py', 3))}>
+                {t('nav.total', {}, { defaultValue: 'Total' })}
+              </div>
+            </div>
+
+            {loading ? (
+              <p
+                className={cm.cn(
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
+                )}
+              >
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+              </p>
+            ) : rows.length === 0 ? (
+              <p
+                className={cm.cn(
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
+                )}
+                data-test="timesheet-empty"
+              >
+                {t('timesheet.empty', {}, { defaultValue: 'No tracked entries this week.' })}
+              </p>
+            ) : (
+              rows.map((r) => {
+                const rowTotal = r.hours.reduce((a, b) => a + b, 0)
+                return (
+                  <div
+                    key={r.projectId || r.projectName}
+                    className={cm.cn(
+                      'grid items-center border-b border-border hover:bg-surface-secondary transition-colors',
                     )}
-                    <p
+                    style={{
+                      gridTemplateColumns:
+                        'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
+                    }}
+                    data-test={`timesheet-row-${r.projectId || 'no-project'}`}
+                  >
+                    <div
                       className={cm.cn(
-                        'text-[11px] text-foreground-secondary truncate uppercase tracking-wider',
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
                       )}
                     >
-                      {r.client}
-                    </p>
+                      <span
+                        className={cm.cn(cm.w(2.5), cm.h(2.5), cm.roundedFull, 'shrink-0')}
+                        style={{ backgroundColor: r.color }}
+                      />
+                      <div className={cm.cn('min-w-0')}>
+                        {r.projectId ? (
+                          <Link
+                            to={`/projects/${r.projectId}`}
+                            className={cm.cn(
+                              cm.textSize('sm'),
+                              cm.fontWeight('semibold'),
+                              'text-foreground truncate hover:underline',
+                            )}
+                          >
+                            {r.projectName}
+                          </Link>
+                        ) : (
+                          <span
+                            className={cm.cn(
+                              cm.textSize('sm'),
+                              cm.fontWeight('semibold'),
+                              'text-foreground truncate',
+                            )}
+                          >
+                            {r.projectName}
+                          </span>
+                        )}
+                        <p
+                          className={cm.cn(
+                            'text-[11px] text-foreground-secondary truncate uppercase tracking-wider',
+                          )}
+                        >
+                          {r.client}
+                        </p>
+                      </div>
+                    </div>
+                    {r.hours.map((h, i) => (
+                      <div
+                        key={i}
+                        className={cm.cn(
+                          cm.textCenter,
+                          cm.sp('py', 4),
+                          cm.textSize('sm'),
+                          'tabular-nums font-mono',
+                          h === 0 ? 'text-foreground-tertiary' : 'text-foreground font-semibold',
+                          i === todayIdx ? 'bg-blue-50/40' : '',
+                        )}
+                      >
+                        {fmtHours(h)}
+                      </div>
+                    ))}
+                    <div
+                      className={cm.cn(
+                        cm.textRight,
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
+                        cm.textSize('sm'),
+                        'tabular-nums font-mono font-bold text-foreground',
+                      )}
+                    >
+                      {rowTotal.toFixed(2)}
+                    </div>
                   </div>
-                </div>
-                {r.hours.map((h, i) => (
-                  <div
-                    key={i}
-                    className={cm.cn(
-                      cm.textCenter,
-                      cm.sp('py', 4),
-                      cm.textSize('sm'),
-                      'tabular-nums font-mono',
-                      h === 0 ? 'text-foreground-tertiary' : 'text-foreground font-semibold',
-                      i === todayIdx ? 'bg-blue-50/40' : '',
-                    )}
-                  >
-                    {fmtHours(h)}
-                  </div>
-                ))}
+                )
+              })
+            )}
+
+            <div
+              className={cm.cn('grid items-center bg-surface-secondary border-t-2 border-border')}
+              style={{
+                gridTemplateColumns:
+                  'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
+              }}
+            >
+              <div
+                className={cm.cn(
+                  cm.sp('px', 6),
+                  cm.sp('py', 4),
+                  cm.textSize('sm'),
+                  cm.fontWeight('bold'),
+                  'text-foreground uppercase tracking-wider',
+                )}
+              >
+                {t('timesheet.dailyTotal', {}, { defaultValue: 'Daily total' })}
+              </div>
+              {dayTotals.map((d, i) => (
                 <div
+                  key={i}
                   className={cm.cn(
-                    cm.textRight,
-                    cm.sp('px', 6),
+                    cm.textCenter,
                     cm.sp('py', 4),
                     cm.textSize('sm'),
-                    'tabular-nums font-mono font-bold text-foreground',
+                    'tabular-nums font-mono font-bold',
+                    i === todayIdx ? 'text-blue-700' : 'text-foreground',
                   )}
                 >
-                  {rowTotal.toFixed(2)}
+                  {d > 0 ? d.toFixed(2) : '—'}
                 </div>
+              ))}
+              <div
+                className={cm.cn(
+                  cm.textRight,
+                  cm.sp('px', 6),
+                  cm.sp('py', 4),
+                  cm.textSize('lg'),
+                  'tabular-nums font-mono font-extrabold text-blue-700',
+                )}
+                data-test="timesheet-total"
+              >
+                {weekTotal.toFixed(2)}
               </div>
-            )
-          })
-        )}
-
-        <div
-          className={cm.cn('grid items-center bg-surface-secondary border-t-2 border-border')}
-          style={{
-            gridTemplateColumns: 'minmax(220px,1.4fr) repeat(7, minmax(0,1fr)) minmax(80px,0.8fr)',
-          }}
-        >
-          <div
-            className={cm.cn(
-              cm.sp('px', 6),
-              cm.sp('py', 4),
-              cm.textSize('sm'),
-              cm.fontWeight('bold'),
-              'text-foreground uppercase tracking-wider',
-            )}
-          >
-            {t('timesheet.dailyTotal', {}, { defaultValue: 'Daily total' })}
-          </div>
-          {dayTotals.map((d, i) => (
-            <div
-              key={i}
-              className={cm.cn(
-                cm.textCenter,
-                cm.sp('py', 4),
-                cm.textSize('sm'),
-                'tabular-nums font-mono font-bold',
-                i === todayIdx ? 'text-blue-700' : 'text-foreground',
-              )}
-            >
-              {d > 0 ? d.toFixed(2) : '—'}
             </div>
-          ))}
-          <div
-            className={cm.cn(
-              cm.textRight,
-              cm.sp('px', 6),
-              cm.sp('py', 4),
-              cm.textSize('lg'),
-              'tabular-nums font-mono font-extrabold text-blue-700',
-            )}
-            data-test="timesheet-total"
-          >
-            {weekTotal.toFixed(2)}
           </div>
         </div>
       </section>

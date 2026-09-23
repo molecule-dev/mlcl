@@ -36,10 +36,15 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
         cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
         cm.sp('px', 4),
         cm.sp('py', 3),
-        'group hover:bg-surface-secondary transition-colors',
+        // Phones: let the meta cluster wrap under the description instead of
+        // squeezing it to 0 width (row inner width at 390px is ~294px).
+        'group flex-wrap gap-y-1 sm:flex-nowrap hover:bg-surface-secondary transition-colors',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.flex1, 'min-w-0')}>
+      {/* min-w floor lives on the ROW'S flex item: without it the item
+          shrinks to ~40px on phones and the description bleeds under the
+          meta cluster; with it the meta cluster wraps to its own line. */}
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.flex1, 'min-w-[150px]')}>
         <span
           className={cm.cn(cm.w(2.5), cm.h(2.5), cm.roundedFull, 'shrink-0')}
           style={{ backgroundColor: entry.projectColor ?? 'var(--color-non-billable)' }}
@@ -74,7 +79,9 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
             <span className={cm.cn(cm.textSize('xs'), 'material-symbols-outlined')}>
               attach_money
             </span>
-            {t('timeEntryRow.billable', {}, { defaultValue: 'Billable' })}
+            <span className="hidden sm:inline">
+              {t('timeEntryRow.billable', {}, { defaultValue: 'Billable' })}
+            </span>
           </span>
         )}
         <span
@@ -101,7 +108,9 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
-            'opacity-0 group-hover:opacity-100 transition-opacity',
+            // Touch devices have no hover — keep the actions visible below md
+            // instead of revealing them only on group-hover.
+            'opacity-0 group-hover:opacity-100 focus-within:opacity-100 max-md:opacity-100 transition-opacity',
           )}
         >
           <button
@@ -111,7 +120,8 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
             className={cm.cn(
               cm.sp('p', 1),
               cm.roundedFull,
-              'text-foreground-tertiary hover:text-foreground hover:bg-surface-secondary transition-colors',
+              // Larger hit area on phones, where the buttons are always shown.
+              'max-md:p-2 text-foreground-tertiary hover:text-foreground hover:bg-surface-secondary transition-colors',
             )}
           >
             <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>edit</span>
@@ -123,7 +133,7 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
             className={cm.cn(
               cm.sp('p', 1),
               cm.roundedFull,
-              'text-foreground-tertiary hover:text-error hover:bg-rose-50 transition-colors',
+              'max-md:p-2 text-foreground-tertiary hover:text-error hover:bg-rose-50 transition-colors',
             )}
           >
             <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>delete</span>

@@ -297,6 +297,8 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                cm.sp('px', 2),
+                cm.sp('py', 2),
                 'text-blue-600 hover:underline',
               )}
             >
@@ -369,6 +371,8 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
+                cm.sp('px', 2),
+                cm.sp('py', 2),
                 'text-blue-600 hover:underline',
               )}
             >

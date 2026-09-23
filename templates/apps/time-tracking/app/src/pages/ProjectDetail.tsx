@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -158,6 +159,10 @@ export function ProjectDetail() {
     setArchiving(true)
     try {
       await http.post(`/api/projects/${project.id}/archive`, {})
+      void track({
+        name: 'project.archived',
+        properties: { project_id: project.id },
+      })
       navigate('/projects')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to archive')

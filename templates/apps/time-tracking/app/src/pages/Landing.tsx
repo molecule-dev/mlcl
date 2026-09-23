@@ -472,7 +472,9 @@ export function Landing() {
             linkClassName={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'hover:text-blue-600 transition-colors',
+              // inline-flex + min-h-11 keeps the footer links at a 44px tap
+              // target on touch viewports without changing their text size.
+              'inline-flex items-center min-h-11 px-2 hover:text-blue-600 transition-colors',
             )}
             appName={APP_NAME}
             loadContent={loadContent}

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -180,6 +181,16 @@ export function Invoices() {
       }
       const res = await http.post('/api/invoices', payload)
       const created = unwrapSingle<ApiInvoice>(res)
+      void track({
+        name: 'invoice.created',
+        properties: {
+          invoice_id: created?.id ?? null,
+          client_id: form.client_id,
+          entry_count: form.source_entry_ids.length,
+          total_cents: created?.total_cents ?? null,
+          status: created?.status ?? 'draft',
+        },
+      })
       setForm(defaultForm())
       setShowForm(false)
       setVersion((n) => n + 1)
@@ -446,130 +457,136 @@ export function Invoices() {
       </section>
 
       <section className={cm.cn('bg-surface rounded-2xl shadow-sm overflow-hidden')}>
-        <div
-          className={cm.cn(
-            'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
-          )}
-          style={{
-            gridTemplateColumns:
-              'minmax(140px,0.7fr) minmax(220px,1.3fr) minmax(110px,0.7fr) minmax(110px,0.7fr) minmax(140px,0.9fr) minmax(120px,0.6fr)',
-          }}
-        >
-          <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
-            {t('invoices.col.number', {}, { defaultValue: 'Invoice' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('nav.client', {}, { defaultValue: 'Client' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('invoices.col.issued', {}, { defaultValue: 'Issued' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>{t('form.due', {}, { defaultValue: 'Due' })}</div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('form.amount', {}, { defaultValue: 'Amount' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('nav.status', {}, { defaultValue: 'Status' })}
+        <div className="overflow-x-auto">
+          <div className="min-w-[860px]">
+            <div
+              className={cm.cn(
+                'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
+              )}
+              style={{
+                gridTemplateColumns:
+                  'minmax(140px,0.7fr) minmax(220px,1.3fr) minmax(110px,0.7fr) minmax(110px,0.7fr) minmax(140px,0.9fr) minmax(120px,0.6fr)',
+              }}
+            >
+              <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
+                {t('invoices.col.number', {}, { defaultValue: 'Invoice' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('nav.client', {}, { defaultValue: 'Client' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('invoices.col.issued', {}, { defaultValue: 'Issued' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('form.due', {}, { defaultValue: 'Due' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('form.amount', {}, { defaultValue: 'Amount' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('nav.status', {}, { defaultValue: 'Status' })}
+              </div>
+            </div>
+            {loading ? (
+              <p
+                className={cm.cn(
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
+                )}
+              >
+                {t('invoices.loading', {}, { defaultValue: 'Loading invoices…' })}
+              </p>
+            ) : invoices.length === 0 ? (
+              <p
+                className={cm.cn(
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
+                )}
+                data-test="invoices-empty"
+              >
+                {t(
+                  'invoices.empty',
+                  {},
+                  { defaultValue: 'No invoices yet. Create your first invoice above.' },
+                )}
+              </p>
+            ) : (
+              invoices.map((inv) => {
+                const status = computedStatus(inv)
+                const client = clientById.get(inv.client_id)
+                return (
+                  <Link
+                    key={inv.id}
+                    to={`/invoices/${inv.id}`}
+                    className={cm.cn(
+                      'grid items-center border-b border-border last:border-b-0 hover:bg-surface-secondary transition-colors',
+                    )}
+                    style={{
+                      gridTemplateColumns:
+                        'minmax(140px,0.7fr) minmax(220px,1.3fr) minmax(110px,0.7fr) minmax(110px,0.7fr) minmax(140px,0.9fr) minmax(120px,0.6fr)',
+                    }}
+                    data-test={`invoice-row-${inv.id}`}
+                  >
+                    <div
+                      className={cm.cn(
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'text-foreground tabular-nums font-mono',
+                      )}
+                    >
+                      {inv.number}
+                    </div>
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('py', 4))}>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-foreground',
+                        )}
+                      >
+                        {client?.name ?? inv.client_id}
+                      </span>
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-foreground-secondary tabular-nums font-mono',
+                      )}
+                    >
+                      {fmtShort(inv.issued_at)}
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'text-foreground-secondary tabular-nums font-mono',
+                      )}
+                    >
+                      {inv.due_at ? fmtShort(inv.due_at) : '—'}
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        cm.fontWeight('bold'),
+                        'text-foreground tabular-nums font-mono',
+                      )}
+                    >
+                      {formatCents(inv.total_cents ?? 0, inv.currency)}
+                    </div>
+                    <div>
+                      <InvoiceStatusPill status={status} />
+                    </div>
+                  </Link>
+                )
+              })
+            )}
           </div>
         </div>
-        {loading ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-          >
-            {t('invoices.loading', {}, { defaultValue: 'Loading invoices…' })}
-          </p>
-        ) : invoices.length === 0 ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-            data-test="invoices-empty"
-          >
-            {t(
-              'invoices.empty',
-              {},
-              { defaultValue: 'No invoices yet. Create your first invoice above.' },
-            )}
-          </p>
-        ) : (
-          invoices.map((inv) => {
-            const status = computedStatus(inv)
-            const client = clientById.get(inv.client_id)
-            return (
-              <Link
-                key={inv.id}
-                to={`/invoices/${inv.id}`}
-                className={cm.cn(
-                  'grid items-center border-b border-border last:border-b-0 hover:bg-surface-secondary transition-colors',
-                )}
-                style={{
-                  gridTemplateColumns:
-                    'minmax(140px,0.7fr) minmax(220px,1.3fr) minmax(110px,0.7fr) minmax(110px,0.7fr) minmax(140px,0.9fr) minmax(120px,0.6fr)',
-                }}
-                data-test={`invoice-row-${inv.id}`}
-              >
-                <div
-                  className={cm.cn(
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
-                    cm.textSize('sm'),
-                    cm.fontWeight('bold'),
-                    'text-foreground tabular-nums font-mono',
-                  )}
-                >
-                  {inv.number}
-                </div>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('py', 4))}>
-                  <span
-                    className={cm.cn(
-                      cm.textSize('sm'),
-                      cm.fontWeight('semibold'),
-                      'text-foreground',
-                    )}
-                  >
-                    {client?.name ?? inv.client_id}
-                  </span>
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    'text-foreground-secondary tabular-nums font-mono',
-                  )}
-                >
-                  {fmtShort(inv.issued_at)}
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    'text-foreground-secondary tabular-nums font-mono',
-                  )}
-                >
-                  {inv.due_at ? fmtShort(inv.due_at) : '—'}
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.fontWeight('bold'),
-                    'text-foreground tabular-nums font-mono',
-                  )}
-                >
-                  {formatCents(inv.total_cents ?? 0, inv.currency)}
-                </div>
-                <div>
-                  <InvoiceStatusPill status={status} />
-                </div>
-              </Link>
-            )
-          })
-        )}
       </section>
     </div>
   )

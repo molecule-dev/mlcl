@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatCents } from '../lib/format.js'
 import { useTimer } from '../lib/TimerContext.js'
 import type { ApiClient, ApiInvoice, ApiProject, ApiTimeEntry } from '../lib/types.js'
-import { unwrapList } from '../lib/unwrap.js'
+import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
 interface ClientForm {
   name: string
@@ -130,11 +131,16 @@ export function Clients() {
     setSubmitting(true)
     setError(null)
     try {
-      await http.post('/api/clients', {
+      const res = await http.post('/api/clients', {
         name: form.name.trim(),
         email: form.email.trim() || null,
         billing_currency: form.billing_currency || 'USD',
         hourly_rate_cents: form.hourly_rate ? Number(form.hourly_rate) * 100 : null,
+      })
+      const created = unwrapSingle<{ id?: string }>(res)
+      void track({
+        name: 'client.created',
+        properties: { client_id: created?.id ?? null },
       })
       setForm(defaultForm())
       setShowForm(false)

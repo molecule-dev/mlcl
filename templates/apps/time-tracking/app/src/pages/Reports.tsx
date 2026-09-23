@@ -54,21 +54,24 @@ export function Reports() {
   const [projects, setProjects] = useState<ReadonlyArray<ApiProject>>([])
   const [clients, setClients] = useState<ReadonlyArray<ApiClient>>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [range, setRange] = useState<RangeKey>('this-week')
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
-      http.get('/api/entries').catch(() => null),
-      http.get('/api/projects').catch(() => null),
-      http.get('/api/clients').catch(() => null),
+      http.get('/api/entries').catch((err: unknown) => err),
+      http.get('/api/projects').catch((err: unknown) => err),
+      http.get('/api/clients').catch((err: unknown) => err),
     ])
       .then(([e, p, c]) => {
         if (cancelled) return
-        setEntries(unwrapList<ApiTimeEntry>(e))
-        setProjects(unwrapList<ApiProject>(p))
-        setClients(unwrapList<ApiClient>(c))
+        if (e instanceof Error) setError(e.message)
+        else setEntries(unwrapList<ApiTimeEntry>(e))
+        if (!(p instanceof Error)) setProjects(unwrapList<ApiProject>(p))
+        if (!(c instanceof Error)) setClients(unwrapList<ApiClient>(c))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -248,6 +251,23 @@ export function Reports() {
           ))}
         </div>
       </section>
+
+      {error && (
+        <p
+          className={cm.cn(
+            cm.sp('p', 3),
+            cm.textSize('sm'),
+            'text-error bg-rose-50 border border-rose-200 rounded-lg',
+          )}
+          data-test="reports-error"
+        >
+          {t(
+            'reports.errorMessage',
+            { error },
+            { defaultValue: 'Could not load reports: {{error}}' },
+          )}
+        </p>
+      )}
 
       <section className={cm.cn('grid grid-cols-2 lg:grid-cols-4 gap-4')}>
         <DurationKpiCard
@@ -433,138 +453,142 @@ export function Reports() {
             {t('common.exportCsv', {}, { defaultValue: 'Export CSV' })}
           </button>
         </div>
-        <div
-          className={cm.cn(
-            'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
-          )}
-          style={{
-            gridTemplateColumns:
-              'minmax(220px,1.6fr) minmax(120px,0.8fr) minmax(120px,0.8fr) minmax(160px,1fr)',
-          }}
-        >
-          <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
-            {t('reports.col.project', {}, { defaultValue: 'Project' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('reports.col.hours', {}, { defaultValue: 'Hours' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3))}>
-            {t('common.share', {}, { defaultValue: 'Share' })}
-          </div>
-          <div className={cm.cn(cm.sp('py', 3), cm.textRight, cm.sp('pr', 6))}>
-            {t('reports.col.revenue', {}, { defaultValue: 'Revenue' })}
-          </div>
-        </div>
-        {loading ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-          >
-            {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-          </p>
-        ) : rows.length === 0 ? (
-          <p
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-foreground-secondary',
-            )}
-            data-test="reports-table-empty"
-          >
-            {t('reports.empty', {}, { defaultValue: 'No tracked time in this period.' })}
-          </p>
-        ) : (
-          rows.map((r) => {
-            const share = totalSeconds > 0 ? (r.seconds / totalSeconds) * 100 : 0
-            return (
-              <div
-                key={r.project_id ?? '__no_project'}
+        <div className="overflow-x-auto">
+          <div className="min-w-[680px]">
+            <div
+              className={cm.cn(
+                'grid items-center bg-surface-secondary border-b border-border text-[10px] uppercase tracking-widest font-bold text-foreground-secondary',
+              )}
+              style={{
+                gridTemplateColumns:
+                  'minmax(220px,1.6fr) minmax(120px,0.8fr) minmax(120px,0.8fr) minmax(160px,1fr)',
+              }}
+            >
+              <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 3))}>
+                {t('reports.col.project', {}, { defaultValue: 'Project' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('reports.col.hours', {}, { defaultValue: 'Hours' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3))}>
+                {t('common.share', {}, { defaultValue: 'Share' })}
+              </div>
+              <div className={cm.cn(cm.sp('py', 3), cm.textRight, cm.sp('pr', 6))}>
+                {t('reports.col.revenue', {}, { defaultValue: 'Revenue' })}
+              </div>
+            </div>
+            {loading ? (
+              <p
                 className={cm.cn(
-                  'grid items-center border-b border-border last:border-b-0 hover:bg-surface-secondary transition-colors',
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
                 )}
-                style={{
-                  gridTemplateColumns:
-                    'minmax(220px,1.6fr) minmax(120px,0.8fr) minmax(120px,0.8fr) minmax(160px,1fr)',
-                }}
-                data-test={`report-row-${r.project_id ?? 'no-project'}`}
               >
-                <div
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    cm.sp('px', 6),
-                    cm.sp('py', 4),
-                  )}
-                >
-                  <span
-                    className={cm.cn(cm.w(2.5), cm.h(2.5), cm.roundedFull, 'shrink-0')}
-                    style={{ backgroundColor: r.color }}
-                  />
-                  <div className={cm.cn('min-w-0')}>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                        'text-foreground truncate',
-                      )}
-                    >
-                      {r.name}
-                    </p>
-                    <p
-                      className={cm.cn(
-                        'text-[11px] text-foreground-secondary truncate uppercase tracking-wider',
-                      )}
-                    >
-                      {r.client}
-                    </p>
-                  </div>
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    'tabular-nums font-mono font-bold text-foreground',
-                  )}
-                >
-                  {(r.seconds / 3600).toFixed(1)}h
-                </div>
-                <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+              </p>
+            ) : rows.length === 0 ? (
+              <p
+                className={cm.cn(
+                  cm.sp('py', 12),
+                  cm.textCenter,
+                  cm.textSize('sm'),
+                  'text-foreground-secondary',
+                )}
+                data-test="reports-table-empty"
+              >
+                {t('reports.empty', {}, { defaultValue: 'No tracked time in this period.' })}
+              </p>
+            ) : (
+              rows.map((r) => {
+                const share = totalSeconds > 0 ? (r.seconds / totalSeconds) * 100 : 0
+                return (
                   <div
+                    key={r.project_id ?? '__no_project'}
                     className={cm.cn(
-                      'relative h-2 w-32 rounded-full bg-surface-secondary overflow-hidden',
+                      'grid items-center border-b border-border last:border-b-0 hover:bg-surface-secondary transition-colors',
                     )}
+                    style={{
+                      gridTemplateColumns:
+                        'minmax(220px,1.6fr) minmax(120px,0.8fr) minmax(120px,0.8fr) minmax(160px,1fr)',
+                    }}
+                    data-test={`report-row-${r.project_id ?? 'no-project'}`}
                   >
                     <div
-                      className={cm.cn('absolute inset-y-0 left-0 rounded-full')}
-                      style={{ width: `${share}%`, backgroundColor: r.color }}
-                    />
+                      className={cm.cn(
+                        cm.flex({ align: 'center', gap: 'sm' }),
+                        cm.sp('px', 6),
+                        cm.sp('py', 4),
+                      )}
+                    >
+                      <span
+                        className={cm.cn(cm.w(2.5), cm.h(2.5), cm.roundedFull, 'shrink-0')}
+                        style={{ backgroundColor: r.color }}
+                      />
+                      <div className={cm.cn('min-w-0')}>
+                        <p
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('semibold'),
+                            'text-foreground truncate',
+                          )}
+                        >
+                          {r.name}
+                        </p>
+                        <p
+                          className={cm.cn(
+                            'text-[11px] text-foreground-secondary truncate uppercase tracking-wider',
+                          )}
+                        >
+                          {r.client}
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.textSize('sm'),
+                        'tabular-nums font-mono font-bold text-foreground',
+                      )}
+                    >
+                      {(r.seconds / 3600).toFixed(1)}h
+                    </div>
+                    <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+                      <div
+                        className={cm.cn(
+                          'relative h-2 w-32 rounded-full bg-surface-secondary overflow-hidden',
+                        )}
+                      >
+                        <div
+                          className={cm.cn('absolute inset-y-0 left-0 rounded-full')}
+                          style={{ width: `${share}%`, backgroundColor: r.color }}
+                        />
+                      </div>
+                      <span
+                        className={cm.cn(
+                          cm.textSize('xs'),
+                          'tabular-nums font-mono font-bold text-foreground-secondary',
+                        )}
+                      >
+                        {share.toFixed(0)}%
+                      </span>
+                    </div>
+                    <div
+                      className={cm.cn(
+                        cm.sp('pr', 6),
+                        cm.textRight,
+                        cm.textSize('sm'),
+                        'tabular-nums font-mono font-bold text-foreground',
+                      )}
+                    >
+                      {r.revenueCents > 0 ? formatCents(r.revenueCents) : '—'}
+                    </div>
                   </div>
-                  <span
-                    className={cm.cn(
-                      cm.textSize('xs'),
-                      'tabular-nums font-mono font-bold text-foreground-secondary',
-                    )}
-                  >
-                    {share.toFixed(0)}%
-                  </span>
-                </div>
-                <div
-                  className={cm.cn(
-                    cm.sp('pr', 6),
-                    cm.textRight,
-                    cm.textSize('sm'),
-                    'tabular-nums font-mono font-bold text-foreground',
-                  )}
-                >
-                  {r.revenueCents > 0 ? formatCents(r.revenueCents) : '—'}
-                </div>
-              </div>
-            )
-          })
-        )}
+                )
+              })
+            )}
+          </div>
+        </div>
       </section>
     </div>
   )

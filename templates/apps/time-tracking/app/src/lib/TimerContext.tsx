@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient } from '@molecule/app-react'
 
 import type { ApiTimeEntry } from './types.js'
@@ -106,6 +107,14 @@ export function TimerProvider({ children }: { children: ReactNode }) {
       const value = unwrapSingle<ApiTimeEntry>(res)
       if (value) setRunning(value)
       setEntriesVersion((n) => n + 1)
+      void track({
+        name: 'timer.started',
+        properties: {
+          entry_id: value?.id ?? null,
+          project_id: input.project_id ?? value?.project_id ?? null,
+          is_billable: input.is_billable ?? true,
+        },
+      })
       return value
     },
     [http],
@@ -117,6 +126,14 @@ export function TimerProvider({ children }: { children: ReactNode }) {
     const value = unwrapSingle<ApiTimeEntry>(res)
     setRunning(null)
     setEntriesVersion((n) => n + 1)
+    void track({
+      name: 'timer.stopped',
+      properties: {
+        entry_id: value?.id ?? running.id,
+        duration_seconds: value?.duration_seconds ?? null,
+        project_id: running.project_id ?? null,
+      },
+    })
     return value
   }, [http, running])
 
@@ -127,6 +144,20 @@ export function TimerProvider({ children }: { children: ReactNode }) {
       const value = unwrapSingle<ApiTimeEntry>(res)
       if (value) setRunning(value)
       setEntriesVersion((n) => n + 1)
+      void track({
+        name: 'entry.updated',
+        properties: {
+          entry_id: value?.id ?? running.id,
+          project_id: value?.project_id ?? running.project_id ?? null,
+          assigned_project: input.project_id != null,
+        },
+      })
+      if (input.project_id != null) {
+        void track({
+          name: 'project.tracked',
+          properties: { project_id: input.project_id, entry_id: value?.id ?? running.id },
+        })
+      }
       return value
     },
     [http, running],

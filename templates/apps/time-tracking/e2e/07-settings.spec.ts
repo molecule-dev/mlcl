@@ -137,6 +137,9 @@ test.describe('07: settings — profile, billing, security; persistence across r
   test('password-form is visible on Security tab', async ({ page }) => {
     await signup(page)
     await page.goto(APP_BASE + '/settings')
+    // Wait for the default panel to render before clicking: a click that
+    // lands during React hydration can be swallowed by the re-render.
+    await expect(page.locator('[data-test=profile-form]')).toBeVisible()
     await page.locator('[data-test=settings-tab-security]').click()
     await expect(page.locator('[data-test=password-form]')).toBeVisible()
   })
@@ -200,6 +203,12 @@ test.describe('07: settings — profile, billing, security; persistence across r
   test('security tab — set new password, success message, sign out then login with new password works', async ({
     page,
   }) => {
+    // Expected 401 noise: the password change revokes the session, so the
+    // sign-out POST that immediately follows returns 401 by design.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const email = `pwflow-${Date.now()}@flagship.test`
     const oldPw = 'TestPass!1234'
     const newPw = 'BrandNew!9876'
