@@ -35,6 +35,7 @@ import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
 import { sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { generateLocaleArrayCode } from './locales.js'
+import { readMigrateRunner } from './migrate-runner.js'
 import {
   findRegistryPackage,
   getMoleculeVersion,
@@ -1874,20 +1875,9 @@ export function setupEntitlements(): void {
     (p) => p.molecule?.category === 'database' && allMolecules.includes(p.name),
   )
   if (hasDatabase) {
-    const templatesDir = join(__dirname, '..', '..', 'templates')
-    // Pick the runner matching the chosen database provider (identified by
-    // package name). The default is Postgres (pg.Client + CREATE DATABASE).
-    // SQLite needs no server-side DB and applies files via better-sqlite3
-    // exec(); MySQL creates the schema and applies files over a multi-statement
-    // connection. Each delegates to its bond's createMigrator.
-    const usesSqlite = allMolecules.includes('@molecule/api-database-sqlite')
-    const usesMysql = allMolecules.includes('@molecule/api-database-mysql')
-    const migrateTpl = usesSqlite
-      ? 'api/migrate-sqlite.ts.tpl'
-      : usesMysql
-        ? 'api/migrate-mysql.ts.tpl'
-        : 'api/migrate.ts.tpl'
-    const migrateContent = await readFile(join(templatesDir, migrateTpl), 'utf-8')
+    // The runner matching the chosen database provider — `mlcl swap` rewrites
+    // it through the same helper when the database changes.
+    const migrateContent = await readMigrateRunner(allMolecules)
     files.push({
       action: 'create',
       targetPath: join(projectPath, 'src', 'scripts', 'migrate.ts'),

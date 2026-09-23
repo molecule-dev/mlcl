@@ -256,6 +256,10 @@ export const messages: LocaleMessages = {
   'commands.swap.labels.multipleProvidersNote': 'Found multiple providers',
   'commands.swap.errors.multipleProvidersDetail':
     'Use --replace to specify which provider to swap out.',
+  'commands.swap.prompts.whichToReplace': 'Which provider should be replaced?',
+  'commands.swap.messages.migrateRunnerUpdated': 'Updated {file} for the new database',
+  'commands.swap.messages.convertMigrations':
+    'Your migrations/ files are written for the previous database: convert them to the new dialect, point DATABASE_URL at the new database, and move any data you want to keep.',
   'commands.swap.errors.alreadyInstalled': '{name} is already installed',
   'commands.swap.errors.alreadyInstalledDetail': 'New provider is the same as the existing one.',
   'commands.swap.spinners.foundExisting': 'Found {old} \u2192 swapping to {new}',

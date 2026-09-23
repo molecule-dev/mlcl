@@ -17,6 +17,7 @@ import {
   detectProjectRoot,
   resolveBondPaths,
 } from '../lib/integrate.js'
+import { syncMigrateRunner } from '../lib/migrate-runner.js'
 import { getMoleculeVersion, getPackageStack, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
@@ -151,19 +152,33 @@ export default class Swap extends Command {
 
       if (candidates.length > 1) {
         spinner.stop(
-          chalk.red(
+          chalk.yellow(
             t('commands.swap.errors.multipleProviders', { interface: implementsInterface }),
           ),
         )
-        p.note(
-          candidates.map((c) => `  ${c.name}`).join('\n'),
-          t('commands.swap.labels.multipleProvidersNote'),
-        )
-        p.cancel(t('commands.swap.errors.multipleProvidersDetail'))
-        this.exit(1)
+        // Interactive: ask which one to replace. Non-interactive has nobody to
+        // ask, so it needs --replace.
+        if (flags['no-interactive']) {
+          p.note(
+            candidates.map((c) => `  ${c.name}`).join('\n'),
+            t('commands.swap.labels.multipleProvidersNote'),
+          )
+          p.cancel(t('commands.swap.errors.multipleProvidersDetail'))
+          this.exit(1)
+        }
+        const picked = await p.select({
+          message: t('commands.swap.prompts.whichToReplace'),
+          options: candidates.map((c) => ({ value: c.name, label: c.name })),
+        })
+        if (p.isCancel(picked)) {
+          p.cancel(t('commands.swap.prompts.cancelled'))
+          this.exit(0)
+        }
+        oldPkg = candidates.find((c) => c.name === picked) ?? candidates[0]
+        spinner.start(t('commands.swap.spinners.findingExisting'))
+      } else {
+        oldPkg = candidates[0]
       }
-
-      oldPkg = candidates[0]
     }
 
     if (oldPkg.name === newName) {
@@ -321,6 +336,25 @@ export default class Swap extends Command {
           ),
         )
       }
+    }
+
+    // 6c. A database swap: the migration runner imports the database bond, so it
+    // follows the swap; the migrations themselves are SQL in the old dialect and
+    // are the user's to convert (the CLI cannot rewrite their schema for them).
+    if (newPkg.molecule?.category === 'database') {
+      try {
+        const runner = await syncMigrateRunner(projectPath, newName)
+        if (runner?.updated) {
+          this.log(
+            chalk.cyan(
+              `  ${t('commands.swap.messages.migrateRunnerUpdated', { file: rel(runner.path) })}`,
+            ),
+          )
+        }
+      } catch (error) {
+        this.warn(`Could not update the migration runner: ${error}`)
+      }
+      this.log(chalk.yellow(`  ${t('commands.swap.messages.convertMigrations')}`))
     }
 
     // 7. npm install
