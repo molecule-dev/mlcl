@@ -6,6 +6,7 @@ import { idParamSchema } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { count, findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateParams, validateQuery } from '@molecule/api-middleware-validation'
 import { search } from '@molecule/api-search'
 
@@ -81,7 +82,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
     const total = await count('properties', where)
     res.json({ data: properties, total, page, limit })
   } catch (err) {
-    console.error('GET /accommodations failed:', err)
+    logger.error('accommodations.list', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -116,7 +117,7 @@ router.get('/:id', validateParams(idParamSchema), async (req: Request, res: Resp
     }
     res.json(property)
   } catch (err) {
-    console.error('GET /accommodations/:id failed:', err)
+    logger.error('accommodations.get', err)
     res
       .status(500)
       .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -152,7 +153,7 @@ router.get(
       })
       res.json(rooms)
     } catch (err) {
-      console.error('GET /accommodations/:id/rooms failed:', err)
+      logger.error('accommodations.rooms', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })
@@ -184,7 +185,7 @@ router.get(
       })
       res.json({ data: reviews, page, limit })
     } catch (err) {
-      console.error('GET /accommodations/:id/reviews failed:', err)
+      logger.error('accommodations.reviews', err)
       res
         .status(500)
         .json({ error: t('common.serverError', {}, { defaultValue: 'Internal server error' }) })

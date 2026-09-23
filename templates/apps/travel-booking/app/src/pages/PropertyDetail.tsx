@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -120,6 +121,12 @@ export function PropertyDetail() {
       .then(([pRes, revRes, favRes]) => {
         if (cancelled) return
         const raw = unwrapSingle<Property>(pRes)
+        if (raw) {
+          track({
+            name: 'destination.viewed',
+            properties: { property_id: id, city: raw.city, country: raw.country },
+          })
+        }
         setProperty(
           raw
             ? {
@@ -230,7 +237,7 @@ export function PropertyDetail() {
                       cm.sp('py', 1),
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'uppercase tracking-widest rounded-full bg-accent/95 text-on-primary backdrop-blur-md',
+                      'uppercase tracking-widest rounded-full bg-accent/95 text-on-accent backdrop-blur-md',
                     )}
                   >
                     {t(`propertyDetail.badge.${b}`, {}, { defaultValue: b.replace('_', ' ') })}
@@ -246,6 +253,10 @@ export function PropertyDetail() {
                   try {
                     if (next) await http.post(`/api/favorites/${property.id}`, {})
                     else await http.delete(`/api/favorites/${property.id}`)
+                    track({
+                      name: next ? 'favorite.added' : 'favorite.removed',
+                      properties: { property_id: property.id },
+                    })
                   } catch (error) {
                     logError('propertyDetail.toggleBookmark', error)
                     setBookmarked(!next)

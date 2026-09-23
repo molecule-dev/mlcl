@@ -50,6 +50,9 @@ test('wrong password keeps user on /login', async ({ page, browser }) => {
   await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').first().fill(email)
   await page.locator('input[type="password"]').first().fill('wrong-password!!!')
+  // A rejected login is the subject of this test — the API's 403 is expected
+  // browser noise, not a failure.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.getByRole('button', { name: /sign in/i }).click()
   await page.waitForTimeout(2_000)
   await expect(page).toHaveURL(/\/login/)

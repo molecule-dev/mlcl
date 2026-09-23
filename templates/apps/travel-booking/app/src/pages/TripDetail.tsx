@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -117,6 +118,8 @@ export function TripDetail() {
     setActionError(null)
     try {
       await http.post(`/api/trips/${id}/host-message`, { message: hostMessage.trim() })
+      // The host message persists as an itinerary_item (kind=note).
+      track({ name: 'itinerary.item_added', properties: { trip_id: id, kind: 'note' } })
       setMessageSent(true)
       setHostMessage('')
       setTrip((prev) =>
@@ -137,6 +140,7 @@ export function TripDetail() {
     setActionError(null)
     try {
       await http.put(`/api/trips/${id}/cancel`, { reason: cancelReason || null })
+      track({ name: 'trip.cancelled', properties: { trip_id: id } })
       setTrip((prev) =>
         prev ? { ...prev, status: 'cancelled', cancellable: false, modifiable: false } : prev,
       )
@@ -232,7 +236,7 @@ export function TripDetail() {
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'uppercase tracking-widest text-accent tabular-nums',
+                      'uppercase tracking-widest text-white tabular-nums',
                     )}
                   >
                     {t(
@@ -271,7 +275,7 @@ export function TripDetail() {
                     cm.sp('py', 2),
                     cm.fontWeight('bold'),
                     cm.flex({ align: 'center', gap: 'sm' }),
-                    'rounded-full bg-accent text-on-primary hover:bg-accent-hover transition-colors shadow-md',
+                    'rounded-full bg-accent text-on-accent hover:bg-accent-hover transition-colors shadow-md',
                   )}
                 >
                   <span className={'material-symbols-outlined text-base'} aria-hidden="true">

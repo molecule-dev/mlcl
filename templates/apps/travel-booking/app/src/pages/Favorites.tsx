@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -73,6 +74,10 @@ export function Favorites() {
     try {
       if (wasRemoved) await http.post(`/api/favorites/${propertyId}`, {})
       else await http.delete(`/api/favorites/${propertyId}`)
+      track({
+        name: wasRemoved ? 'favorite.added' : 'favorite.removed',
+        properties: { property_id: propertyId },
+      })
     } catch (error) {
       logError('favorites.toggle', error)
       setRemoved((prev) => {

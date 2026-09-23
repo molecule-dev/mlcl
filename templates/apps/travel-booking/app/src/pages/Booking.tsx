@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -187,6 +188,18 @@ export function Booking() {
       })
       const data = (created.data ?? created) as { id?: string }
       const tripId = data?.id
+      // The conversion event of this app's whole funnel.
+      track({
+        name: 'trip.booked',
+        properties: {
+          trip_id: tripId ?? null,
+          property_id: id ?? null,
+          room_id: selectedRoom.id,
+          guests,
+          nights,
+          total_cents: total,
+        },
+      })
       navigate(tripId ? `/trips/${tripId}` : '/trips', { replace: true })
     } catch (err) {
       setError(

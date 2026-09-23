@@ -27,7 +27,11 @@
   --color-primary-dark: #096272;
   --color-secondary: #064e5c;
   --color-secondary-light: #a5f3fc;
-  --color-accent: #0e9aad;
+  /* qa-a11y: #097b8a keeps 4.99:1 on white (was #0e9aad = 3.36 FAIL) so
+     bg-accent CTAs with white text and text-accent labels both pass WCAG AA. */
+  --color-accent: #097b8a;
+  --color-accent-hover: #086d7b;
+  --color-on-accent: #ffffff;
   --color-background: #f8fafb;
   --color-surface: #ffffff;
   --color-surface-hover: #eef4f6;
@@ -133,6 +137,8 @@
   --color-secondary: #ffd54f;
   --color-secondary-light: #ffe082;
   --color-accent: #2dd4bf;
+  --color-accent-hover: #5eead4;
+  --color-on-accent: #04252b; /* dark on bright teal #2dd4bf = 8.65:1 PASS */
 
   --color-background: #050e1a;
   --color-surface: #0d1e30;

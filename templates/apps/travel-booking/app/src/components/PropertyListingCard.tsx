@@ -32,7 +32,7 @@ interface PropertyListing {
 }
 
 const BADGE_THEME: Record<string, { bg: string; text: string; label: string }> = {
-  editor_pick: { bg: 'bg-accent/95', text: 'text-on-primary', label: "Editor's pick" },
+  editor_pick: { bg: 'bg-accent/95', text: 'text-on-accent', label: "Editor's pick" },
   rare_find: { bg: 'bg-violet-600', text: 'text-white', label: 'Rare find' },
   new: { bg: 'bg-emerald-700', text: 'text-white', label: 'New' },
 }

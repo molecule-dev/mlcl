@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -138,6 +139,10 @@ export function Search() {
     try {
       if (wasBookmarked) await http.delete(`/api/favorites/${id}`)
       else await http.post(`/api/favorites/${id}`, {})
+      track({
+        name: wasBookmarked ? 'favorite.removed' : 'favorite.added',
+        properties: { property_id: id },
+      })
     } catch (error) {
       logError('search.toggleBookmark', error)
       setBookmarks((prev) => {
@@ -362,12 +367,13 @@ export function Search() {
                   onMouseLeave={() => setActiveId(null)}
                   className={cm.cn(
                     cm.sp('px', 3),
-                    cm.sp('py', 1),
                     cm.fontWeight('bold'),
                     cm.textSize('xs'),
-                    'absolute rounded-full shadow-md transition-all',
+                    // qa-tap-target: price pins were 24px tall — keep them
+                    // ≥32px so they stay tappable on touch screens.
+                    'min-h-[32px] absolute rounded-full shadow-md transition-all',
                     isActive
-                      ? 'bg-accent text-on-primary scale-125 z-20'
+                      ? 'bg-accent text-on-accent scale-125 z-20'
                       : 'bg-surface text-primary hover:scale-110',
                   )}
                   style={{ top: `${top}%`, left: `${left}%` }}

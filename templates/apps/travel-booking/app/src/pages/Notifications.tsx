@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -112,6 +113,7 @@ export function Notifications() {
     setNotifs((prev) => prev.map((n) => (n.id === id ? { ...n, unread: false } : n)))
     try {
       await http.post(`/api/notifications/${id}/read`, {})
+      track({ name: 'notification.read', properties: { notification_id: id } })
     } catch (error) {
       logError('notifications.markRead', error)
       setNotifs((prev) => prev.map((n) => (n.id === id ? { ...n, unread: true } : n)))
@@ -125,6 +127,7 @@ export function Notifications() {
     setNotifs((prev) => prev.map((n) => ({ ...n, unread: false })))
     try {
       await http.post('/api/notifications/read-all', {})
+      track({ name: 'notification.read_all', properties: { count: ids.length } })
     } catch (error) {
       logError('notifications.markAllRead', error)
       setNotifs(previous)

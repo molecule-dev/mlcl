@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -46,6 +47,9 @@ export function Account() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
+  // Two-step inline confirm for card removal — deleting a saved payment
+  // method is destructive and must not fire on a single stray click.
+  const [confirmRemoveId, setConfirmRemoveId] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -76,6 +80,7 @@ export function Account() {
       const fresh = unwrapSingle<AccountProfile>(res)
       if (fresh) setProfile(fresh)
       setSavedAt(Date.now())
+      track({ name: 'profile.updated', properties: { user_id: profile.id } })
     } catch (error) {
       logError('account.patchProfile', error)
       setProfile(profile)
@@ -129,6 +134,7 @@ export function Account() {
           ? (fresh.data as AccountProfile)
           : (fresh as AccountProfile)
       if (profileFromResp) setProfile(profileFromResp)
+      track({ name: 'payment_method.added', properties: { user_id: profile.id } })
     } catch (error) {
       logError('account.addPaymentMethod', error)
       setError(t('account.addPaymentError', {}, { defaultValue: 'Could not add payment method.' }))
@@ -147,6 +153,8 @@ export function Account() {
           ? (fresh.data as AccountProfile)
           : (fresh as AccountProfile)
       if (profileFromResp) setProfile(profileFromResp)
+      setConfirmRemoveId(null)
+      track({ name: 'payment_method.removed', properties: { user_id: profile.id } })
     } catch (error) {
       logError('account.removePayment', error)
       setProfile({ ...profile, paymentMethods: previous })
@@ -268,7 +276,7 @@ export function Account() {
                     className={cm.cn(
                       cm.textSize('xs'),
                       cm.fontWeight('bold'),
-                      'uppercase tracking-[0.25em] text-accent',
+                      'uppercase tracking-[0.25em]',
                     )}
                   >
                     {t('account.loyalty.tier', {}, { defaultValue: 'Current tier' })}
@@ -395,18 +403,48 @@ export function Account() {
                         ) : null}
                       </p>
                     </div>
-                    <button
-                      type="button"
-                      data-testid={`account-payment-remove-${p.id}`}
-                      onClick={() => removePayment(p.id)}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                        'text-primary hover:underline',
-                      )}
-                    >
-                      {t('common.remove', {}, { defaultValue: 'Remove' })}
-                    </button>
+                    {confirmRemoveId === p.id ? (
+                      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                        <button
+                          type="button"
+                          onClick={() => setConfirmRemoveId(null)}
+                          className={cm.cn(
+                            cm.textSize('sm'),
+                            cm.fontWeight('semibold'),
+                            'text-on-surface-variant hover:underline',
+                          )}
+                        >
+                          {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                        </button>
+                        <button
+                          type="button"
+                          data-testid={`account-payment-remove-${p.id}`}
+                          onClick={() => removePayment(p.id)}
+                          className={cm.cn(
+                            cm.sp('px', 3),
+                            cm.sp('py', 2),
+                            cm.textSize('sm'),
+                            cm.fontWeight('bold'),
+                            'rounded-lg bg-error text-on-error hover:opacity-90',
+                          )}
+                        >
+                          {t('account.confirmRemove', {}, { defaultValue: 'Confirm remove' })}
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        data-testid={`account-payment-arm-${p.id}`}
+                        onClick={() => setConfirmRemoveId(p.id)}
+                        className={cm.cn(
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          'text-primary hover:underline',
+                        )}
+                      >
+                        {t('common.remove', {}, { defaultValue: 'Remove' })}
+                      </button>
+                    )}
                   </div>
                 ))}
                 <button

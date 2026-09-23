@@ -72,7 +72,7 @@ export function SojournHeroSearchCard() {
             cm.textSize('xs'),
             cm.sp('mb', 4),
             cm.flex({ align: 'center', gap: 'sm' }),
-            'tracking-[0.25em] uppercase text-accent',
+            'tracking-[0.25em] uppercase',
           )}
         >
           <span className={'material-symbols-outlined text-base'} aria-hidden="true">
@@ -244,7 +244,7 @@ export function SojournHeroSearchCard() {
             cm.sp('py', 3),
             cm.fontWeight('bold'),
             cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
-            'bg-accent text-on-primary rounded-xl hover:bg-accent-hover transition-colors shadow-lg',
+            'bg-accent text-on-accent rounded-xl hover:bg-accent-hover transition-colors shadow-lg',
           )}
         >
           <span className={'material-symbols-outlined text-xl'} aria-hidden="true">
@@ -269,7 +269,7 @@ export function SojournHeroSearchCard() {
           )}
         >
           <span
-            className="material-symbols-outlined text-accent"
+            className="material-symbols-outlined text-white"
             aria-hidden="true"
             style={{ fontVariationSettings: "'FILL' 1" }}
           >
@@ -288,7 +288,7 @@ export function SojournHeroSearchCard() {
             'text-white/85',
           )}
         >
-          <span className="material-symbols-outlined text-accent" aria-hidden="true">
+          <span className="material-symbols-outlined text-white" aria-hidden="true">
             shield_lock
           </span>
           {t(
@@ -304,7 +304,7 @@ export function SojournHeroSearchCard() {
             'text-white/85',
           )}
         >
-          <span className="material-symbols-outlined text-accent" aria-hidden="true">
+          <span className="material-symbols-outlined text-white" aria-hidden="true">
             workspace_premium
           </span>
           {t(

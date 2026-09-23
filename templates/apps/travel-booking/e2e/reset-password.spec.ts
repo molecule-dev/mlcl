@@ -36,6 +36,9 @@ test('valid form submission fires POST to reset endpoint', async ({ page }) => {
   await page.goto(APP_BASE + '/reset-password?token=fake-token&email=foo@example.com')
   await page.locator('input[type="password"]').first().fill('NewPassword1!')
   await page.locator('input[type="password"]').nth(1).fill('NewPassword1!')
+  // token=fake-token is rejected by the API (401) — this test only asserts the
+  // POST fires, so the console error is expected noise.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   const reqs = await captureNetwork(page, async () => {
     await page.getByRole('button', { name: /Reset password/i }).click()
     await page.waitForTimeout(2_000)

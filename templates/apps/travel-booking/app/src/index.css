@@ -28,7 +28,11 @@
 
 /* qa-theme-tokens: custom tokens used as Tailwind utilities but only defined
    in :root — register them in @theme so the utilities compile (the :root/.dark
-   definitions keep overriding at runtime for theming). */
+   definitions keep overriding at runtime for theming). The light values here
+   MUST keep ≥4.5:1 against white — bg-accent CTAs pair with text-on-accent
+   (white) and text-accent labels sit on white surfaces (axe color-contrast). */
 @theme {
-  --color-accent: #0e9aad;
+  --color-accent: #097b8a;
+  --color-accent-hover: #086d7b;
+  --color-on-accent: #ffffff;
 }

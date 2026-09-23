@@ -59,7 +59,7 @@ export function DestinationDiscoveryCard({ destination }: { destination: Destina
             cm.sp('py', 1),
             cm.textSize('xs'),
             cm.fontWeight('bold'),
-            'absolute top-4 left-4 uppercase tracking-widest rounded-full bg-accent/95 text-on-primary backdrop-blur-md',
+            'absolute top-4 left-4 uppercase tracking-widest rounded-full bg-accent/95 text-on-accent backdrop-blur-md',
           )}
         >
           {destination.pill}
