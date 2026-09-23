@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -93,6 +94,7 @@ export function History() {
         change_summary: summary?.trim() ? summary.trim() : null,
       })
       if (res.data) setVersions((prev) => [res.data!, ...prev])
+      track({ name: 'snapshot.created', properties: { workbook_id: spreadsheetId } })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -115,6 +117,10 @@ export function History() {
     setError(null)
     try {
       await http.post(`/spreadsheet-versions/${version.id}/restore`, {})
+      track({
+        name: 'version.restored',
+        properties: { workbook_id: spreadsheetId, version_id: version.id },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {

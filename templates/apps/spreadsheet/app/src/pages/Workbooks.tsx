@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -109,6 +110,7 @@ export function Workbooks() {
       const res = await http.post<SpreadsheetApiRow>('/spreadsheets', { title })
       const created = res.data
       if (created?.id) {
+        track({ name: 'workbook.created', properties: { workbook_id: created.id } })
         navigate(`/workbooks/${created.id}`)
       }
     } catch (err) {
@@ -122,6 +124,7 @@ export function Workbooks() {
     setWorkbooks((prev) => prev.map((wb) => (wb.id === id ? { ...wb, starred: nextStarred } : wb)))
     try {
       await http.patch(`/spreadsheets/${id}`, { is_starred: nextStarred })
+      track({ name: 'workbook.starred', properties: { workbook_id: id, starred: nextStarred } })
     } catch (err) {
       // Roll back optimistic update on failure so the UI reflects truth.
       setWorkbooks((prev) =>

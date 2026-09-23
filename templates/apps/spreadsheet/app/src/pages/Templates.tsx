@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -134,6 +135,10 @@ export function Templates() {
       )
       const created = res.data
       if (created?.id) {
+        track({
+          name: 'template.instantiated',
+          properties: { template_id: tpl.id, workbook_id: created.id },
+        })
         navigate(`/workbooks/${created.id}`)
       }
     } catch (err) {
@@ -303,9 +308,9 @@ export function Templates() {
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
                     <Link
                       to={`/templates/${tpl.id}`}
-                      className={
-                        'text-xs font-bold text-on-surface-variant hover:text-primary transition-colors'
-                      }
+                      className={cm.cn(
+                        'px-2 py-2 -my-2 text-xs font-bold text-on-surface-variant hover:text-primary transition-colors',
+                      )}
                     >
                       {t('templates.preview', {}, { defaultValue: 'Preview' })}
                     </Link>

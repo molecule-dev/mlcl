@@ -90,7 +90,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (err) {
-    console.error('[notifications] list failed', err)
+    logger.error('notification.list', err)
     res.status(500).json({
       error: t('notification.error.list', {}, { defaultValue: 'Failed to list notifications' }),
     })
@@ -108,7 +108,7 @@ router.get('/unread-count', async (_req: Request, res: Response) => {
     ])
     res.json({ count: total })
   } catch (err) {
-    console.error('[notifications] count failed', err)
+    logger.error('notification.unread-count', err)
     res
       .status(500)
       .json({ error: t('notification.error.count', {}, { defaultValue: 'Failed to read count' }) })

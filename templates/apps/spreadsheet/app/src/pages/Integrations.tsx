@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,7 +125,10 @@ export function Integrations() {
         provider,
         status: 'connected',
       })
-      if (res.data) setConnections((prev) => [res.data!, ...prev])
+      if (res.data) {
+        setConnections((prev) => [res.data!, ...prev])
+        track({ name: 'integration.connected', properties: { provider } })
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {

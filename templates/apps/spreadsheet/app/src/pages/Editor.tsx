@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
+import { PromptDialog } from '../components/PromptDialog.js'
 import { SpreadsheetSidebar } from '../components/SpreadsheetSidebar.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
@@ -58,6 +60,8 @@ export function Editor() {
   const [editingValue, setEditingValue] = useState('')
   const [titleDraft, setTitleDraft] = useState('')
   const [renamingTitle, setRenamingTitle] = useState(false)
+  /** Which in-page name dialog is open (replaces blocking window.prompt). */
+  const [nameDialog, setNameDialog] = useState<'sheet' | 'column' | null>(null)
 
   // Mirror the actively-edited cell into a ref so the realtime merge can skip a
   // remote cell:updated for the cell the local user is typing WITHOUT the sheet
@@ -316,6 +320,7 @@ export function Editor() {
         title: titleDraft.trim(),
       })
       setWorkbook({ ...workbook, title: titleDraft.trim() })
+      track({ name: 'workbook.renamed', properties: { workbook_id: workbook.id } })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
@@ -323,48 +328,53 @@ export function Editor() {
     }
   }
 
-  async function addSheet() {
+  function addSheet() {
     if (!workbook) return
-    const name = (
-      window.prompt(
-        t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' }),
-        `Sheet ${workbook.sheets.length + 1}`,
-      ) ?? ''
-    ).trim()
-    if (!name) return
-    try {
-      const res = await http.post<SheetRow>('/sheets', {
-        spreadsheet_id: workbook.id,
-        name,
-        position: workbook.sheets.length,
-      })
-      if (res.data) {
-        const newSheet = res.data
-        setWorkbook({ ...workbook, sheets: [...workbook.sheets, newSheet] })
-        setActiveSheetId(newSheet.id)
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
-    }
+    setNameDialog('sheet')
   }
 
-  async function addColumn() {
+  function addColumn() {
     if (!activeSheetId) return
-    const name = (
-      window.prompt(
-        t('editor.prompt.columnName', {}, { defaultValue: 'Column name' }),
-        `Column ${columns.length + 1}`,
-      ) ?? ''
-    ).trim()
-    if (!name) return
+    setNameDialog('column')
+  }
+
+  /** Commits the open name dialog — creates the sheet or column it names. */
+  async function confirmNameDialog(value: string) {
+    const kind = nameDialog
+    setNameDialog(null)
+    if (!kind || !workbook) return
     try {
+      if (kind === 'sheet') {
+        const res = await http.post<SheetRow>('/sheets', {
+          spreadsheet_id: workbook.id,
+          name: value,
+          position: workbook.sheets.length,
+        })
+        if (res.data) {
+          const newSheet = res.data
+          setWorkbook({ ...workbook, sheets: [...workbook.sheets, newSheet] })
+          setActiveSheetId(newSheet.id)
+          track({
+            name: 'sheet.created',
+            properties: { sheet_id: newSheet.id, workbook_id: workbook.id },
+          })
+        }
+        return
+      }
+      if (!activeSheetId) return
       const res = await http.post<ColumnRow>('/columns', {
         sheet_id: activeSheetId,
-        name,
+        name: value,
         type: 'text',
         position: columns.length,
       })
-      if (res.data) setColumns([...columns, res.data])
+      if (res.data) {
+        setColumns([...columns, res.data])
+        track({
+          name: 'column.created',
+          properties: { column_id: res.data.id, sheet_id: activeSheetId },
+        })
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -378,20 +388,32 @@ export function Editor() {
         cells: {},
         position: rows.length,
       })
-      if (res.data) setRows([...rows, res.data])
+      if (res.data) {
+        setRows([...rows, res.data])
+        track({ name: 'row.created', properties: { row_id: res.data.id, sheet_id: activeSheetId } })
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
   }
 
   function startEdit(rowId: string, columnId: string, current: unknown) {
+    editingCellRef.current = { rowId, columnId }
     setEditingCell({ rowId, columnId })
     setEditingValue(typeof current === 'string' ? current : current == null ? '' : String(current))
   }
 
+  // One commit per edit session: Enter triggers commitEdit, then the unmount
+  // blur re-runs it from a stale closure (double PATCH). Reading the cell from
+  // editingCellRef (nulled in the finally, updated by the effect below) makes
+  // the second call a no-op; committingRef serializes concurrent Enter+blur.
+  const committingRef = useRef(false)
+
   async function commitEdit() {
-    if (!editingCell) return
-    const { rowId, columnId } = editingCell
+    const cell = editingCellRef.current
+    if (!cell || committingRef.current) return
+    committingRef.current = true
+    const { rowId, columnId } = cell
     const targetRow = rows.find((r) => r.id === rowId)
     if (!targetRow) {
       setEditingCell(null)
@@ -404,11 +426,17 @@ export function Editor() {
           r.id === rowId ? { ...r, cells: { ...r.cells, [columnId]: editingValue } } : r,
         ),
       )
+      track({
+        name: 'cell.edited',
+        properties: { row_id: rowId, column_id: columnId, sheet_id: activeSheetId ?? undefined },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
+      editingCellRef.current = null
       setEditingCell(null)
       setEditingValue('')
+      committingRef.current = false
     }
   }
 
@@ -421,10 +449,13 @@ export function Editor() {
   if (loading) {
     return (
       <div
-        className={cm.cn(cm.flex({ direction: 'col' }), 'min-h-screen bg-surface text-on-surface')}
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          'md:flex-row min-h-screen bg-surface text-on-surface',
+        )}
       >
         <SpreadsheetSidebar />
-        <main className={cm.cn(cm.flex1, cm.sp('p', 12))}>
+        <main className={cm.cn(cm.flex1, cm.sp('p', 6), 'md:p-12')}>
           <p>{t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}</p>
         </main>
       </div>
@@ -434,10 +465,13 @@ export function Editor() {
   if (error || !workbook) {
     return (
       <div
-        className={cm.cn(cm.flex({ direction: 'col' }), 'min-h-screen bg-surface text-on-surface')}
+        className={cm.cn(
+          cm.flex({ direction: 'col' }),
+          'md:flex-row min-h-screen bg-surface text-on-surface',
+        )}
       >
         <SpreadsheetSidebar />
-        <main className={cm.cn(cm.flex1, cm.sp('p', 12))}>
+        <main className={cm.cn(cm.flex1, cm.sp('p', 6), 'md:p-12')}>
           <p className="text-error" role="alert">
             {error ?? t('editor.notFound', {}, { defaultValue: 'Workbook not found' })}
           </p>
@@ -450,14 +484,19 @@ export function Editor() {
   }
 
   return (
-    <div className={cm.cn(cm.flex({}), 'min-h-screen bg-surface text-on-surface antialiased')}>
+    <div
+      className={cm.cn(
+        cm.flex({}),
+        'flex-col md:flex-row min-h-screen bg-surface text-on-surface antialiased',
+      )}
+    >
       <SpreadsheetSidebar />
       <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
         <header
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.sp('px', 8),
-            cm.sp('py', 4),
+            cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+            cm.sp('px', 4),
+            'md:px-8 py-4',
             'border-b border-outline-variant/40 bg-surface-container-lowest',
           )}
         >
@@ -657,7 +696,10 @@ export function Editor() {
                           return (
                             <td
                               key={c.id}
-                              className="px-3 py-2 align-top"
+                              className={cm.cn(
+                                'px-3 py-1 align-top',
+                                isEditing && 'bg-cell-editing',
+                              )}
                               data-testid={`cell-${r.id}-${c.id}`}
                               onDoubleClick={() => startEdit(r.id, c.id, value)}
                             >
@@ -674,17 +716,21 @@ export function Editor() {
                                   onKeyDown={(e) => {
                                     if (e.key === 'Enter') commitEdit()
                                     if (e.key === 'Escape') {
+                                      editingCellRef.current = null
                                       setEditingCell(null)
                                       setEditingValue('')
                                     }
                                   }}
-                                  className="w-full bg-transparent border-b border-primary outline-none text-sm"
+                                  className="w-full bg-transparent border-b-2 border-primary outline-none text-sm"
                                 />
                               ) : (
                                 <button
                                   type="button"
                                   onClick={() => startEdit(r.id, c.id, value)}
-                                  className="text-left w-full block text-sm text-on-surface min-h-[1.25em]"
+                                  className={cm.cn(
+                                    'text-left w-full block text-sm text-on-surface min-h-9 rounded-sm',
+                                    'focus-visible:bg-cell-selected focus-visible:outline focus-visible:outline-1 focus-visible:outline-primary',
+                                  )}
                                 >
                                   {value == null || value === '' ? (
                                     <span className="text-on-surface-variant/60">—</span>
@@ -734,7 +780,7 @@ export function Editor() {
               type="button"
               aria-label={t('editor.addSheet', {}, { defaultValue: 'Add sheet' })}
               className={
-                'ml-2 inline-flex items-center justify-center w-7 h-7 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors'
+                'ml-2 inline-flex items-center justify-center w-9 h-9 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors'
               }
             >
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
@@ -743,6 +789,28 @@ export function Editor() {
             </button>
           </div>
         </div>
+
+        <PromptDialog
+          open={nameDialog !== null}
+          title={
+            nameDialog === 'sheet'
+              ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
+              : t('editor.addDialogTitle', {}, { defaultValue: 'Add column' })
+          }
+          label={
+            nameDialog === 'sheet'
+              ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
+              : t('editor.prompt.columnName', {}, { defaultValue: 'Column name' })
+          }
+          initialValue={
+            nameDialog === 'sheet'
+              ? `Sheet ${workbook.sheets.length + 1}`
+              : `Column ${columns.length + 1}`
+          }
+          confirmLabel={t('common.add', {}, { defaultValue: 'Add' })}
+          onConfirm={(value) => void confirmNameDialog(value)}
+          onClose={() => setNameDialog(null)}
+        />
       </main>
     </div>
   )

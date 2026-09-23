@@ -21,10 +21,18 @@ interface WorkbenchLayoutProps {
 export function WorkbenchLayout({ children, maxWidth = '1440px' }: WorkbenchLayoutProps) {
   const cm = getClassMap()
   return (
-    <div className={cm.cn(cm.flex({}), 'min-h-screen bg-surface text-on-surface antialiased')}>
+    <div
+      className={cm.cn(
+        cm.flex({}),
+        'flex-col md:flex-row min-h-screen bg-surface text-on-surface antialiased',
+      )}
+    >
       <SpreadsheetSidebar />
       <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
-        <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 10), cm.stack(8))} style={{ maxWidth }}>
+        <div
+          className={cm.cn(cm.sp('px', 4), 'md:px-8 md:py-10 py-6', cm.stack(8))}
+          style={{ maxWidth }}
+        >
           {children}
         </div>
       </main>

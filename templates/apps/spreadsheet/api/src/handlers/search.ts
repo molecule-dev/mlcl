@@ -15,6 +15,7 @@ import { z } from 'zod'
 import { requireUser } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { hasProvider as hasSearch, search as searchDocs } from '@molecule/api-search'
 
 interface SpreadsheetRow {
@@ -72,7 +73,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json({ hits })
   } catch (err) {
-    console.error('[search] failed', err instanceof Error ? err.message : err)
+    logger.error('search.query', err)
     res.status(500).json({
       error: t('search.error.list', {}, { defaultValue: 'Search failed' }),
     })

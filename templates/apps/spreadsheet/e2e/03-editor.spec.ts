@@ -36,11 +36,17 @@ test.describe('editor', () => {
     await expect(page).toHaveURL(/\/workbooks\/[0-9a-f-]{36}/, { timeout: 15000 })
 
     // The default sheet is empty. Add first column via the empty-state button.
-    page.once('dialog', (d) => d.accept('Customer'))
+    // It opens the in-page name dialog — native window.prompt is intercepted by
+    // the molecule e2e-preview client (no dialog ever reaches Playwright under
+    // `vite dev`), so the app must not rely on it and neither may this spec.
     await page
       .getByRole('button', { name: /add first column/i })
       .first()
       .click()
+    const columnNameInput = page.getByRole('textbox', { name: /column name/i })
+    await expect(columnNameInput).toBeVisible({ timeout: 5000 })
+    await columnNameInput.fill('Customer')
+    await page.getByRole('button', { name: /^add$/i }).click()
     await expect(page.getByRole('columnheader', { name: 'Customer' })).toBeVisible({
       timeout: 5000,
     })

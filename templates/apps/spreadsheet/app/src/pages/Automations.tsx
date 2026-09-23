@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -104,6 +105,10 @@ export function Automations() {
     try {
       await http.patch(`/automations/${item.id}`, { is_active: next })
       setItems((prev) => prev.map((a) => (a.id === item.id ? { ...a, is_active: next } : a)))
+      track({
+        name: 'automation.toggled',
+        properties: { automation_id: item.id, active: next },
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -119,6 +124,7 @@ export function Automations() {
     try {
       await http.delete(`/automations/${item.id}`)
       setItems((prev) => prev.filter((a) => a.id !== item.id))
+      track({ name: 'automation.deleted', properties: { automation_id: item.id } })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }
@@ -137,7 +143,10 @@ export function Automations() {
         action: { type: actionKind },
         is_active: true,
       })
-      if (res.data) setItems((prev) => [res.data!, ...prev])
+      if (res.data) {
+        setItems((prev) => [res.data!, ...prev])
+        track({ name: 'automation.created', properties: { automation_id: res.data.id } })
+      }
       setName('')
       setShowForm(false)
     } catch (err) {

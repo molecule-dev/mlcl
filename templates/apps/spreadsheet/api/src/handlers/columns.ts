@@ -192,7 +192,7 @@ router.post('/', async (req: Request, res: Response) => {
     }
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('[columns] create failed:', err)
+    logger.error('column.create', err)
     res
       .status(500)
       .json({ error: t('column.error.create', {}, { defaultValue: 'Failed to create column' }) })

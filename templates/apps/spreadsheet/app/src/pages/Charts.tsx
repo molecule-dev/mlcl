@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,7 +120,10 @@ export function Charts() {
         type: chartType,
         config: {},
       })
-      if (res.data) setCharts((prev) => [res.data!, ...prev])
+      if (res.data) {
+        setCharts((prev) => [res.data!, ...prev])
+        track({ name: 'chart.created', properties: { chart_id: res.data.id } })
+      }
       setName('')
       setShowForm(false)
     } catch (err) {
@@ -139,6 +143,7 @@ export function Charts() {
     try {
       await http.delete(`/charts/${chart.id}`)
       setCharts((prev) => prev.filter((c) => c.id !== chart.id))
+      track({ name: 'chart.deleted', properties: { chart_id: chart.id } })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     }

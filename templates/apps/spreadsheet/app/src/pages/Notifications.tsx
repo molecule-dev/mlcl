@@ -300,7 +300,9 @@ export function Notifications() {
                       <button
                         type="button"
                         onClick={() => markRead(n.id)}
-                        className={'ml-2 text-primary hover:underline'}
+                        className={cm.cn(
+                          'px-2 py-2 -my-2 text-[11px] uppercase tracking-widest font-bold text-primary hover:underline',
+                        )}
                       >
                         {t('common.markRead', {}, { defaultValue: 'Mark read' })}
                       </button>

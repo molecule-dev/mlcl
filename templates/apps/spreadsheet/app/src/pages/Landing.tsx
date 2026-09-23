@@ -145,7 +145,7 @@ export function Landing() {
           <a
             href="#features"
             className={
-              'text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('nav.features', {}, { defaultValue: 'Features' })}
@@ -153,7 +153,7 @@ export function Landing() {
           <a
             href="#formulas"
             className={
-              'text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('landing.nav.formulas', {}, { defaultValue: 'Formulas' })}
@@ -161,7 +161,7 @@ export function Landing() {
           <Link
             to="/templates"
             className={
-              'text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
+              'inline-block py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors'
             }
           >
             {t('nav.templates', {}, { defaultValue: 'Templates' })}
@@ -448,7 +448,7 @@ export function Landing() {
             <Link
               to="/login"
               className={
-                'text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
               }
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -456,7 +456,7 @@ export function Landing() {
             <Link
               to="/signup"
               className={
-                'text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
               }
             >
               {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
@@ -464,7 +464,7 @@ export function Landing() {
             <a
               href="mailto:hello@calcite.dev"
               className={
-                'text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
+                'inline-block py-3 text-[10px] font-bold uppercase tracking-[0.25em] hover:text-primary transition-colors'
               }
             >
               {t('nav.contact', {}, { defaultValue: 'Contact' })}
