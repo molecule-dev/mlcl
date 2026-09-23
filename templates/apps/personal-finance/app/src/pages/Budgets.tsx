@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import BottomNavBar from '../components/BottomNavBar.js'
 import BudgetCategoryCard from '../components/BudgetCategoryCard.js'
 import BudgetsFooter from '../components/BudgetsFooter.js'
 import BudgetSummaryCard from '../components/BudgetSummaryCard.js'
@@ -70,7 +71,7 @@ function Budgets() {
       <SideNavBar />
       <TopNavBar month={month} year={year} onPrev={prevMonth} onNext={nextMonth} />
       <main
-        className={cm.cn(cm.sp('px', 12), cm.sp('pb', 12), cm.minH('screen'), 'md:ml-64 pt-24')}
+        className={cm.cn(cm.sp('px', 12), cm.minH('screen'), 'md:ml-64 pt-24 pb-28 md:pb-12')}
         data-mol-id="main-content"
       >
         {error && (
@@ -168,6 +169,8 @@ function Budgets() {
         </section>
         <BudgetsFooter />
       </main>
+      {/* Mobile Navigation (Fixed Bottom) */}
+      <BottomNavBar />
       <LiveSyncIndicator />
     </div>
   )

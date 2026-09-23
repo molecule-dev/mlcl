@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileNavBar from '../components/MobileNavBar.js'
+import BottomNavBar from '../components/BottomNavBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopAppBar from '../components/TopAppBar.js'
 import TransactionFilters from '../components/TransactionFilters.js'
@@ -94,8 +94,8 @@ function Transactions() {
       <main className={cm.cn(cm.minH('screen'), 'md:ml-64')}>
         {/* TopAppBar */}
         <TopAppBar />
-        {/* Content Canvas */}
-        <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl', cm.mxAuto, cm.stack(8))}>
+        {/* Content Canvas — pb clears the fixed mobile bottom nav */}
+        <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl pb-28 md:pb-8', cm.mxAuto, cm.stack(8))}>
           {/* Page Header */}
           <TransactionsPageHeader activeRange={activeRange} onRangeChange={setActiveRange} />
           {/* Filters & Stats Section */}
@@ -114,7 +114,7 @@ function Transactions() {
         </div>
       </main>
       {/* Mobile Navigation (Fixed Bottom) */}
-      <MobileNavBar />
+      <BottomNavBar />
     </div>
   )
 }

@@ -45,6 +45,42 @@ function BottomNavBar() {
         className={cm.cn(
           cm.flex({ direction: 'col', align: 'center' }),
           'gap-1',
+          location.pathname.startsWith('/transactions') && location.pathname !== '/transactions/new'
+            ? 'text-success'
+            : 'text-foreground-secondary',
+        )}
+        data-mol-id="mob-nav-transactions"
+        to="/transactions"
+      >
+        <span
+          className={cm.cn('material-symbols-outlined')}
+          style={
+            location.pathname.startsWith('/transactions') &&
+            location.pathname !== '/transactions/new'
+              ? { fontVariationSettings: "'FILL' 1" }
+              : undefined
+          }
+        >
+          receipt_long
+        </span>
+        <span
+          className={cm.cn(
+            cm.fontWeight(
+              location.pathname.startsWith('/transactions') &&
+                location.pathname !== '/transactions/new'
+                ? 'bold'
+                : 'medium',
+            ),
+            'text-[10px] uppercase tracking-tighter',
+          )}
+        >
+          {t('nav.transactions', {}, { defaultValue: 'Transactions' })}
+        </span>
+      </Link>
+      <Link
+        className={cm.cn(
+          cm.flex({ direction: 'col', align: 'center' }),
+          'gap-1',
           location.pathname === '/accounts' ? 'text-success' : 'text-foreground-secondary',
         )}
         data-mol-id="mob-nav-acc"

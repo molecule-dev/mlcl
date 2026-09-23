@@ -28,12 +28,12 @@ function AccountsTopNavBar() {
       )}
       data-mol-id="top-nav"
     >
-      <div className={cm.flex({ align: 'center', gap: 'md' })}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'min-w-0 flex-1')}>
         <Link
           className={cm.cn(
             cm.textSize('2xl'),
             cm.fontWeight('bold'),
-            'tracking-tighter text-success md:hidden',
+            'tracking-tighter text-success md:hidden shrink-0',
           )}
           data-mol-id="mobile-logo"
           to="/"
@@ -45,8 +45,7 @@ function AccountsTopNavBar() {
             cm.sp('px', 4),
             cm.sp('py', 2),
             cm.roundedFull,
-            cm.w(96),
-            'hidden md:flex items-center bg-surface-container-low',
+            'hidden md:flex items-center bg-surface-container-low w-full max-w-96 min-w-0',
           )}
           data-mol-id="search-container"
         >
@@ -74,7 +73,7 @@ function AccountsTopNavBar() {
           />
         </div>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 'lg' })}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'shrink-0')}>
         <div className={cm.flex({ align: 'center', gap: 'md' })}>
           <Link
             to="/notifications"

@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,6 +56,7 @@ function AddAccount() {
         currency: currency.trim() || 'USD',
         initial_balance: balance,
       })
+      void track({ name: 'account.created', properties: { type, currency } })
       navigate('/accounts')
     } catch (err) {
       setError(

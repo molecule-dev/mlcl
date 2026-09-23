@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import BottomNavBar from '../components/BottomNavBar.js'
 import ReportsFilterBar from '../components/ReportsFilterBar.js'
 import ReportsPageHeader from '../components/ReportsPageHeader.js'
 import SideNavBar from '../components/SideNavBar.js'
@@ -177,7 +178,7 @@ function Reports() {
       <TopNavBar />
       <SideNavBar />
       <main
-        className={cm.cn(cm.sp('p', 8), cm.sp('pb', 12), 'md:ml-64 pt-24')}
+        className={cm.cn(cm.sp('p', 8), 'md:ml-64 pt-24 pb-28 md:pb-12')}
         data-mol-id="main-canvas"
         data-loading={loading}
       >
@@ -449,6 +450,8 @@ function Reports() {
           </div>
         </div>
       </main>
+      {/* Mobile Navigation (Fixed Bottom) */}
+      <BottomNavBar />
     </div>
   )
 }

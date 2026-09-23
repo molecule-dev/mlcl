@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -60,6 +61,7 @@ function AddGoal() {
         target_date: targetDate ? targetDate : null,
         icon,
       })
+      void track({ name: 'goal.created', properties: { target_amount: target } })
       navigate('/goals')
     } catch (err) {
       setError(

@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -78,6 +79,10 @@ function AddBudget() {
         amount: amountNum,
         month: Number(month),
         year: Number(year),
+      })
+      void track({
+        name: 'budget.created',
+        properties: { category_id: categoryId, amount: amountNum, month: Number(month), year },
       })
       navigate('/budgets')
     } catch (err) {

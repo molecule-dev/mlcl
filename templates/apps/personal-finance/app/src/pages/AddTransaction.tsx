@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -80,6 +81,10 @@ function AddTransaction() {
       // Map the UI toggle to the API's `recurring` flag; `tags` already matches the API field.
       // (recurring_frequency has no column yet, so it's intentionally not sent.)
       await http.post('/api/transactions', { ...formData, recurring: formData.recurring_enabled })
+      void track({
+        name: 'transaction.created',
+        properties: { type: formData.type, account_id: formData.account_id },
+      })
       navigate('/transactions')
     } catch (_error) {
       // Failure is surfaced to the user via the error banner below.

@@ -48,6 +48,11 @@ test.describe('/transactions/:id: transaction detail page', () => {
   test('Unknown id surfaces "Transaction not found" + Back to Transactions link', async ({
     page,
   }) => {
+    // The unknown id legitimately 404s; the fetch logs to the browser console.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/transactions/00000000-0000-0000-0000-000000000000')
     await expect(page.getByText(/Transaction not found/i)).toBeVisible({ timeout: 10_000 })

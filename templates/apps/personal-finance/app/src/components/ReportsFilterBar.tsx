@@ -23,7 +23,10 @@ function ReportsFilterBar({ activeTab, onTabChange }: ReportsFilterBarProps) {
       data-mol-id="filter-section"
     >
       <div
-        className={cm.cn(cm.sp('p', 1), 'inline-flex bg-surface-container-low rounded-xl')}
+        className={cm.cn(
+          cm.sp('p', 1),
+          'inline-flex bg-surface-container-low rounded-xl max-w-full overflow-x-auto',
+        )}
         data-mol-id="date-tabs"
       >
         {RANGES.map((range) => (
@@ -33,7 +36,7 @@ function ReportsFilterBar({ activeTab, onTabChange }: ReportsFilterBarProps) {
               cm.sp('px', 6),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              'rounded-lg transition-all',
+              'rounded-lg transition-all whitespace-nowrap shrink-0',
               activeTab === range.key
                 ? cm.cn(cm.fontWeight('bold'), cm.textPrimary, 'bg-surface shadow-sm')
                 : cm.cn(cm.fontWeight('semibold'), 'hover:bg-surface-container-high'),

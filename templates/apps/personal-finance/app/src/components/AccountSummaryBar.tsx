@@ -3,7 +3,7 @@ import { getClassMap } from '@molecule/app-ui'
 function formatCurrency(n: number) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n)
 }
-export default function AccountSummaryBar({
+function AccountSummaryBar({
   totalAssets = 0,
   totalLiabilities = 0,
   netWorth = 0,
@@ -14,6 +14,17 @@ export default function AccountSummaryBar({
 }) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  // A zero liabilities line must read "$0.00", not "-$0.00" — the sign is
+  // part of the translation default ('-{{amount}}'), so it is only applied
+  // when there is something to subtract.
+  const liabilitiesDisplay =
+    totalLiabilities > 0
+      ? t(
+          'accountSummaryBar.liabilitiesAmount',
+          { amount: formatCurrency(totalLiabilities) },
+          { defaultValue: '-{{amount}}' },
+        )
+      : formatCurrency(0)
   return (
     <div
       className={cm.cn(
@@ -76,11 +87,7 @@ export default function AccountSummaryBar({
             )}
             data-mol-id="stat-val-2"
           >
-            {t(
-              'accountSummaryBar.liabilitiesAmount',
-              { amount: formatCurrency(totalLiabilities) },
-              { defaultValue: '-{{amount}}' },
-            )}
+            {liabilitiesDisplay}
           </span>
           <div
             className={cm.cn(
@@ -130,4 +137,5 @@ export default function AccountSummaryBar({
     </div>
   )
 }
+export default AccountSummaryBar
 export { AccountSummaryBar }

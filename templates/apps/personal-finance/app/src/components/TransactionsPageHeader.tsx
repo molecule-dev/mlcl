@@ -28,7 +28,7 @@ function TransactionsPageHeader({
     <div
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between', gap: 'lg' }),
-        'md:flex-row md:items-end',
+        'flex-wrap md:flex-row md:items-end',
       )}
     >
       <div>

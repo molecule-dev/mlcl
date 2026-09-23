@@ -133,7 +133,18 @@ function DynamicGoalCard({ goal, onDelete }: { goal: Goal; onDelete?: (id: strin
           aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
           onClick={(e) => {
             e.stopPropagation()
-            onDelete(goal.id)
+            // Destructive: confirm before deleting (matches the accounts grid).
+            if (
+              window.confirm(
+                t(
+                  'goalsGrid.deleteConfirm',
+                  { name: goal.name },
+                  { defaultValue: 'Delete the goal "{{name}}"?' },
+                ),
+              )
+            ) {
+              onDelete(goal.id)
+            }
           }}
         >
           ×

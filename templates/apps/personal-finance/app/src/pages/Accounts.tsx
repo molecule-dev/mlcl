@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,8 +59,8 @@ function Accounts() {
       <main className={cm.cn(cm.minH('screen'), 'md:pl-64')}>
         {/* TopNavBar */}
         <AccountsTopNavBar />
-        {/* Canvas */}
-        <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'max-w-7xl', cm.mxAuto)}>
+        {/* Canvas — pb clears the fixed mobile bottom nav */}
+        <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'max-w-7xl pb-28 md:pb-8', cm.mxAuto)}>
           {/* Page Header */}
           {error && (
             <div role="alert" className={cm.alert({ variant: 'error' })}>
@@ -79,9 +80,10 @@ function Accounts() {
             loading={loading}
             onAccountClick={(id) => navigate(`/accounts/${id}`)}
             onDeleteAccount={(id) =>
-              http
-                .delete(`/api/accounts/${id}`)
-                .then(() => setAccounts((as) => as.filter((a) => a.id !== id)))
+              http.delete(`/api/accounts/${id}`).then(() => {
+                void track({ name: 'account.deleted', properties: { id } })
+                setAccounts((as) => as.filter((a) => a.id !== id))
+              })
             }
           />
         </div>

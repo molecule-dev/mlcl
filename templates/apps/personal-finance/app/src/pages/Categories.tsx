@@ -1,8 +1,10 @@
 import { type CSSProperties, type ReactNode, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import BottomNavBar from '../components/BottomNavBar.js'
 import CategoriesSideNavBar from '../components/CategoriesSideNavBar.js'
 import CategoriesTopNavBar from '../components/CategoriesTopNavBar.js'
 
@@ -21,6 +23,8 @@ function CategoriesChrome({
       <div className="md:ml-64">
         <CategoriesTopNavBar search={search} onSearchChange={onSearchChange} />
         {children}
+        {/* Mobile Navigation (Fixed Bottom) */}
+        <BottomNavBar />
       </div>
     </div>
   )
@@ -272,133 +276,6 @@ interface Category {
   progress?: number
 }
 
-const DEFAULT_CREATED_AT = '2026-01-01T00:00:00.000Z'
-
-// Default categories data matching the design reference
-const defaultExpenseCategories: Category[] = [
-  {
-    id: '1',
-    name: 'Housing',
-    icon: 'home',
-    color: '#006948',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 12,
-    amount: 2450.0,
-    progress: 85,
-  },
-  {
-    id: '2',
-    name: 'Food & Dining',
-    icon: 'utensils',
-    color: '#4648d4',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 48,
-    amount: 842.15,
-    progress: 60,
-  },
-  {
-    id: '3',
-    name: 'Transportation',
-    icon: 'car',
-    color: '#059669',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 22,
-    amount: 320.0,
-    progress: 40,
-  },
-  {
-    id: '4',
-    name: 'Entertainment',
-    icon: 'film',
-    color: '#6366f1',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 8,
-    amount: 145.0,
-    progress: 25,
-  },
-  {
-    id: '5',
-    name: 'Shopping',
-    icon: 'shopping-bag',
-    color: '#e11d48',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 35,
-    amount: 1120.0,
-    progress: 95,
-  },
-  {
-    id: '6',
-    name: 'Health',
-    icon: 'medical-services',
-    color: '#0891b2',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 3,
-    amount: 210.0,
-    progress: 15,
-  },
-  {
-    id: '7',
-    name: 'Education',
-    icon: 'school',
-    color: '#d97706',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 1,
-    amount: 5000.0,
-    progress: 100,
-  },
-  {
-    id: '8',
-    name: 'Utilities',
-    icon: 'flash-on',
-    color: '#ea580c',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'expense',
-    transactionCount: 5,
-    amount: 385.0,
-    progress: 55,
-  },
-]
-
-const defaultIncomeCategories: Category[] = [
-  {
-    id: '9',
-    name: 'Salary',
-    icon: 'payments',
-    color: '#006948',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'income',
-    transactionCount: 2,
-    amount: 8500.0,
-  },
-  {
-    id: '10',
-    name: 'Investments',
-    icon: 'trending-up',
-    color: '#4648d4',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'income',
-    transactionCount: 15,
-    amount: 1240.5,
-  },
-  {
-    id: '11',
-    name: 'Freelance',
-    icon: 'work',
-    color: '#0d9488',
-    created_at: DEFAULT_CREATED_AT,
-    type: 'income',
-    transactionCount: 4,
-    amount: 2100.0,
-  },
-]
-
 export function Categories() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -433,34 +310,44 @@ export function Categories() {
   ]
 
   useEffect(() => {
+    let cancelled = false
     async function fetchCategories() {
       try {
         const data = await http.get('/api/categories')
-        if (Array.isArray(data) && data.length > 0) {
-          setCategories(
-            data.map((c: Category) => ({
-              ...c,
-              type: 'expense',
-              transactionCount: 0,
-              amount: 0,
-              progress: 0,
-            })),
-          )
-        } else {
-          // Use default categories for the design
-          setCategories([...defaultExpenseCategories, ...defaultIncomeCategories])
-        }
+        if (cancelled) return
+        // Render ONLY the user's real categories. The previous fallback to
+        // polished design-mockup rows (Housing $2,450, Salary +$8,500, …)
+        // leaked fake numbers onto a fresh user's screen and masked fetch
+        // failures behind data that was never theirs.
+        setCategories(
+          (Array.isArray(data) ? data : []).map((c: Category) => ({
+            ...c,
+            type: c.type ?? 'expense',
+            transactionCount: c.transactionCount ?? 0,
+            amount: c.amount ?? 0,
+            progress: c.progress ?? 0,
+          })),
+        )
         setFetchError(null)
-      } catch (_error) {
-        // Use default categories on error — falling back to defaults is the intended behavior here
-        setCategories([...defaultExpenseCategories, ...defaultIncomeCategories])
-        setFetchError(null)
+      } catch (err) {
+        if (cancelled) return
+        // Surface the failure with the retry banner — never a silent blank.
+        setFetchError(
+          err instanceof Error
+            ? err.message
+            : t('categories.loadError', undefined, {
+                defaultValue: 'Failed to load categories.',
+              }),
+        )
       } finally {
-        setIsLoading(false)
+        if (!cancelled) setIsLoading(false)
       }
     }
     fetchCategories()
-  }, [http])
+    return () => {
+      cancelled = true
+    }
+  }, [http, t])
 
   const matchesSearch = useMemo(() => {
     const q = search.trim().toLowerCase()
@@ -529,12 +416,17 @@ export function Categories() {
       }
       if (editingCategory) {
         await http.put(`/api/categories/${editingCategory.id}`, payload)
+        void track({
+          name: 'category.updated',
+          properties: { id: editingCategory.id, name: payload.name },
+        })
         setCategories((prev) =>
           prev.map((c) => (c.id === editingCategory.id ? { ...c, ...payload } : c)),
         )
       } else {
         const res = await http.post<Category>('/api/categories', payload)
         const newCategory = (res as { data?: Category })?.data ?? (res as unknown as Category)
+        void track({ name: 'category.created', properties: { id: newCategory?.id } })
         setCategories((prev) => [
           ...prev,
           { ...newCategory, type: 'expense', transactionCount: 0, amount: 0, progress: 0 },
@@ -554,6 +446,7 @@ export function Categories() {
   const handleDelete = async (id: string) => {
     try {
       await http.delete(`/api/categories/${id}`)
+      void track({ name: 'category.deleted', properties: { id } })
       setCategories((prev) => prev.filter((c) => c.id !== id))
       setDeleteConfirmId(null)
     } catch (err: unknown) {
@@ -633,13 +526,15 @@ export function Categories() {
 
   return (
     <CategoriesChrome search={search} onSearchChange={setSearch}>
-      <div style={{ padding: '24px' }}>
+      <div style={{ padding: '24px', paddingBottom: '112px' }}>
         {/* Page Header */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
+            flexWrap: 'wrap',
+            gap: '16px',
             marginBottom: '64px',
           }}
         >
@@ -790,6 +685,13 @@ export function Categories() {
                   >
                     <button
                       onClick={() => openModal(category)}
+                      aria-label={t(
+                        'categories.editCategory',
+                        { name: category.name },
+                        {
+                          defaultValue: 'Edit {{name}}',
+                        },
+                      )}
                       style={{
                         padding: '8px',
                         borderRadius: '8px',
@@ -812,6 +714,13 @@ export function Categories() {
                     </button>
                     <button
                       onClick={() => setDeleteConfirmId(category.id)}
+                      aria-label={t(
+                        'categories.deleteCategory',
+                        { name: category.name },
+                        {
+                          defaultValue: 'Delete {{name}}',
+                        },
+                      )}
                       style={{
                         padding: '8px',
                         borderRadius: '8px',
@@ -943,7 +852,7 @@ export function Categories() {
                         style={{
                           padding: '8px 16px',
                           backgroundColor: 'var(--color-surface-hover)',
-                          color: 'var(--color-surface-hover)',
+                          color: 'var(--mol-color-text)',
                           border: 'none',
                           borderRadius: '8px',
                           cursor: 'pointer',
@@ -1050,6 +959,13 @@ export function Categories() {
                   >
                     <button
                       onClick={() => openModal(category)}
+                      aria-label={t(
+                        'categories.editCategory',
+                        { name: category.name },
+                        {
+                          defaultValue: 'Edit {{name}}',
+                        },
+                      )}
                       style={{
                         padding: '8px',
                         borderRadius: '8px',
@@ -1072,6 +988,13 @@ export function Categories() {
                     </button>
                     <button
                       onClick={() => setDeleteConfirmId(category.id)}
+                      aria-label={t(
+                        'categories.deleteCategory',
+                        { name: category.name },
+                        {
+                          defaultValue: 'Delete {{name}}',
+                        },
+                      )}
                       style={{
                         padding: '8px',
                         borderRadius: '8px',
@@ -1179,7 +1102,7 @@ export function Categories() {
                         style={{
                           padding: '8px 16px',
                           backgroundColor: 'var(--color-surface-hover)',
-                          color: 'var(--color-surface-hover)',
+                          color: 'var(--mol-color-text)',
                           border: 'none',
                           borderRadius: '8px',
                           cursor: 'pointer',
@@ -1314,10 +1237,16 @@ export function Categories() {
           </>
         )}
 
-        {/* CSS for hover effects on action buttons */}
+        {/* CSS for hover effects on action buttons. On touch / narrow
+            viewports there is no hover, so the actions stay visible. */}
         <style>{`
         div[class*="category-actions"]:hover {
           opacity: 1 !important;
+        }
+        @media (hover: none), (max-width: 767px) {
+          div[class*="category-actions"] {
+            opacity: 1 !important;
+          }
         }
       `}</style>
       </div>

@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import BottomNavBar from '../components/BottomNavBar.js'
 import DashboardTopNavBar from '../components/DashboardTopNavBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 
@@ -199,7 +200,7 @@ function Dashboard() {
         onNextMonth={() => setCurrentDate((d) => new Date(d.getFullYear(), d.getMonth() + 1, 1))}
       />
       <main
-        className={cm.cn(cm.sp('p', 8), cm.minH('screen'), 'md:ml-64 pt-24')}
+        className={cm.cn(cm.sp('p', 8), cm.minH('screen'), 'md:ml-64 pt-24 pb-28 md:pb-8')}
         aria-label={t('dashboard.mainRegion', {}, { defaultValue: 'Dashboard main content' })}
       >
         <div className={cm.cn('max-w-7xl', cm.mxAuto, cm.stack(8))}>
@@ -625,6 +626,8 @@ function Dashboard() {
           </div>
         </div>
       </main>
+      {/* Mobile Navigation (Fixed Bottom) */}
+      <BottomNavBar />
     </div>
   )
 }

@@ -35,9 +35,8 @@ function DashboardTopNavBar({
       className={cm.cn(
         cm.flex({ justify: 'between', align: 'center' }),
         cm.w('full'),
-        cm.sp('pr', 8),
         cm.sp('py', 4),
-        'pl-4 md:pl-64 fixed top-0 z-50 bg-surface/80 backdrop-blur-xl',
+        'pl-4 pr-4 md:pr-8 md:pl-64 fixed top-0 z-50 bg-surface/80 backdrop-blur-xl',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>
@@ -77,7 +76,7 @@ function DashboardTopNavBar({
           </span>
         </button>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-6')}>
+      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-2 sm:gap-6 shrink-0')}>
         <Link
           to="/notifications"
           aria-label={t(
@@ -111,9 +110,12 @@ function DashboardTopNavBar({
             ></span>
           )}
         </Link>
+        {/* The mobile bottom nav's center FAB covers "add transaction" on
+            phones — the pill only renders from sm up to avoid right-edge
+            clipping at 390px. */}
         <Link
           className={cm.cn(
-            'bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-manrope font-semibold text-sm shadow-sm hover:shadow-md transition-all active:scale-95',
+            'hidden sm:inline-flex bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-manrope font-semibold text-sm shadow-sm hover:shadow-md transition-all active:scale-95',
           )}
           to="/transactions/new"
         >

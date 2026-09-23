@@ -19,6 +19,11 @@ test.describe('/reset-password: setting a new password from email link', () => {
   })
 
   test('Submitting with a token POSTs /api/users/reset-password', async ({ page }) => {
+    // An invalid token legitimately 401s; the failed fetch logs to the browser console.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=invalid-but-defined')
     await page.locator('input[type="email"]').first().fill('reset@flagship.test')
     await page.locator('input[type="password"]').first().fill('NewPass!1234')

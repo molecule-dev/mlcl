@@ -65,6 +65,11 @@ test.describe('/accounts/:id: account detail page', () => {
   test('Unknown account id surfaces the not-found state with Back to Accounts CTA', async ({
     page,
   }) => {
+    // The unknown id legitimately 404s; the fetch logs to the browser console.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(APP_BASE + '/accounts/00000000-0000-0000-0000-000000000000')
     await expect(page.getByText(/Account not found/i)).toBeVisible({ timeout: 10_000 })

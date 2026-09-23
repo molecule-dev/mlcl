@@ -27,8 +27,9 @@ function CategoriesTopNavBar({
   return (
     <header
       className={cm.cn(
-        cm.flex({ justify: 'between', align: 'center' }),
-        cm.sp('px', 8),
+        cm.flex({ justify: 'between', align: 'center', gap: 'sm' }),
+        cm.sp('px', 4),
+        'md:px-8',
         cm.w('full'),
         cm.sp('py', 4),
         'sticky top-0 z-50 bg-surface/80 backdrop-blur-xl',
@@ -39,14 +40,19 @@ function CategoriesTopNavBar({
           className={cm.cn(
             cm.textSize('lg'),
             cm.fontWeight('bold'),
-            'text-success font-manrope uppercase tracking-widest text-[10px]',
+            'text-success font-manrope uppercase tracking-widest text-[10px] hidden sm:inline',
           )}
         >
           {t('categoriesTopNavBar.sectionTitle', {}, { defaultValue: 'Financial Architecture' })}
         </span>
       </div>
-      <div className={cm.flex({ align: 'center', gap: 'lg' })}>
-        <div className={cm.cn('relative')}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          'md:gap-4 min-w-0 flex-1 sm:flex-none sm:min-w-0 justify-end',
+        )}
+      >
+        <div className={cm.cn('relative min-w-0 flex-1 sm:flex-none')}>
           <span
             className={cm.cn(
               cm.textSize('xl'),
@@ -63,8 +69,13 @@ function CategoriesTopNavBar({
               cm.sp('pr', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
-              cm.w(64),
+              'w-full sm:w-64',
               'bg-surface-container-low border-none focus:ring-2 focus:ring-primary/20 transition-all',
+            )}
+            aria-label={t(
+              'categoriesTopNavBar.searchPlaceholder',
+              {},
+              { defaultValue: 'Search categories...' },
             )}
             placeholder={t(
               'categoriesTopNavBar.searchPlaceholder',
@@ -76,7 +87,7 @@ function CategoriesTopNavBar({
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className={cm.flex({ gap: 'md' })}>
+        <div className={cm.cn(cm.flex({ gap: 'sm' }), 'shrink-0')}>
           <Link
             to="/notifications"
             aria-label={t(
