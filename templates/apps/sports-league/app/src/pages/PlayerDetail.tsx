@@ -74,7 +74,7 @@ export function PlayerDetail() {
   }, [http, id])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
       <Link
         to="/players"
         className={cm.cn(
@@ -89,7 +89,9 @@ export function PlayerDetail() {
       </Link>
 
       <section
-        className={cm.cn('rounded-[2rem] text-white relative overflow-hidden shadow-xl p-10')}
+        className={cm.cn(
+          'rounded-[2rem] text-white relative overflow-hidden shadow-xl p-5 sm:p-8 md:p-10',
+        )}
         style={{
           background: `linear-gradient(135deg, ${player.team_color ?? 'var(--color-primary)'} 0%, #0c4a6e 60%, #0f172a 100%)`,
         }}

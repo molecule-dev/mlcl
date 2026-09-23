@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -90,6 +91,7 @@ export function Pricing() {
     }
     setStarting(true)
     try {
+      void track({ name: 'checkout.started', properties: { price_id: priceId } })
       const res = await http.post<{ checkoutUrl?: string; updated?: boolean }>(
         '/api/billing/checkout',
         { priceId },

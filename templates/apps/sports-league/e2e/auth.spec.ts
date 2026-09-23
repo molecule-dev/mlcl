@@ -25,6 +25,12 @@ test('Signup succeeds, drops user on /dashboard, persists session across reload'
 })
 
 test('Login screen rejects bogus credentials with a visible error', async ({ page }) => {
+  // The bogus-credentials POST /api/users/log-in intentionally 403s, and the
+  // browser logs every failed fetch to the console — expected here.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 403',
+  })
   await page.goto(APP_BASE + '/login')
   await page.locator('input#email').fill('does-not-exist@example.com')
   await page.locator('input#password').fill('WrongPassword!')

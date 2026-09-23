@@ -63,9 +63,9 @@ export function StandingsTable({ rows, playoffLine, showDivision }: StandingsTab
 
   return (
     <div
-      className={cm.cn('overflow-hidden rounded-2xl border border-outline-variant/40 shadow-sm')}
+      className={cm.cn('overflow-x-auto rounded-2xl border border-outline-variant/40 shadow-sm')}
     >
-      <table className={cm.cn(cm.w('full'), 'border-collapse')}>
+      <table className={cm.cn(cm.w('full'), 'min-w-[640px] border-collapse')}>
         <thead
           style={{ backgroundColor: 'var(--color-secondary)' }}
           className={cm.cn('text-on-secondary')}
@@ -163,9 +163,14 @@ export function StandingsTable({ rows, playoffLine, showDivision }: StandingsTab
                   {r.rank}
                 </td>
                 <td className={cm.cn('px-4 py-3')}>
+                  {/* -my-3 py-3: stretch the link over the cell's vertical
+                      padding so the tap target is the full row height. */}
                   <Link
                     to={`/teams/${r.team_id}`}
-                    className={cm.flex({ align: 'center', gap: 'sm' })}
+                    className={cm.cn(
+                      cm.flex({ align: 'center', gap: 'sm' }),
+                      '-my-3 py-3 min-h-[44px]',
+                    )}
                   >
                     {r.color ? (
                       <span

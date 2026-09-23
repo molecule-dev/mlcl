@@ -97,7 +97,7 @@ export function TeamDetail() {
   const goalDiff = (team.goals_for ?? 0) - (team.goals_against ?? 0)
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('6xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('6xl'), cm.mxAuto, cm.stack(8))}>
       <Link
         to="/teams"
         className={cm.cn(
@@ -112,7 +112,9 @@ export function TeamDetail() {
       </Link>
 
       <section
-        className={cm.cn('rounded-[2rem] text-white relative overflow-hidden shadow-xl p-10')}
+        className={cm.cn(
+          'rounded-[2rem] text-white relative overflow-hidden shadow-xl p-5 sm:p-8 md:p-10',
+        )}
         style={{
           background: `linear-gradient(135deg, ${team.color ?? 'var(--color-primary)'} 0%, #0c4a6e 75%, #0f172a 100%)`,
         }}
@@ -225,10 +227,10 @@ export function TeamDetail() {
         </h2>
         <div
           className={cm.cn(
-            'overflow-hidden rounded-2xl border border-outline-variant/40 bg-surface',
+            'overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface',
           )}
         >
-          <table className={cm.cn(cm.w('full'))}>
+          <table className={cm.cn(cm.w('full'), 'min-w-[480px]')}>
             <thead
               style={{ backgroundColor: 'var(--color-secondary)' }}
               className={cm.cn('text-on-secondary')}

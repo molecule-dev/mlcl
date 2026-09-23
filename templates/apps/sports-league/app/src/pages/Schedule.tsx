@@ -148,7 +148,7 @@ export function Schedule() {
   }, [games, monthOffset])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('7xl'), cm.mxAuto, cm.stack(6))}>
       <header>
         <p
           className={cm.cn('text-[11px] font-black uppercase tracking-[0.28em] text-primary mb-2')}
@@ -215,11 +215,11 @@ export function Schedule() {
       </div>
 
       <div
-        className={cm.cn('rounded-2xl border border-outline-variant/40 bg-surface overflow-hidden')}
+        className={cm.cn('overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface')}
       >
         <div
           className={cm.cn(
-            'grid grid-cols-7 border-b border-outline-variant/40 bg-surface-container-lowest',
+            'grid min-w-[640px] grid-cols-7 border-b border-outline-variant/40 bg-surface-container-lowest',
           )}
         >
           {DAY_LABELS.map((d) => (
@@ -233,7 +233,7 @@ export function Schedule() {
             </div>
           ))}
         </div>
-        <div className={cm.cn('grid grid-cols-7')}>
+        <div className={cm.cn('grid min-w-[640px] grid-cols-7')}>
           {weeks.flat().map((cell, i) => (
             <div
               key={i}
@@ -280,7 +280,7 @@ export function Schedule() {
                       to={`/matches/${g.id}`}
                       className={cm.cn(
                         cm.flex({ align: 'center', gap: 'xs' }),
-                        'border-l-2 px-2 py-1 rounded-r text-[11px] font-bold tabular-nums hover:bg-primary/10 transition-colors',
+                        'border-l-2 px-2 py-2 rounded-r text-[11px] font-bold tabular-nums hover:bg-primary/10 transition-colors',
                         tone,
                       )}
                     >

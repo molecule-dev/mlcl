@@ -60,12 +60,16 @@ export function Profile() {
   }, [http])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
       <section
-        className={cm.cn('rounded-[2rem] text-white relative overflow-hidden shadow-xl p-10')}
+        className={cm.cn(
+          'rounded-[2rem] text-white relative overflow-hidden shadow-xl p-5 sm:p-8 md:p-10',
+        )}
         style={{
+          // scoreboard (not secondary): the hero carries white text and must
+          // end near-black in BOTH modes — secondary flips light in dark.
           background:
-            'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 60%, var(--color-secondary) 100%)',
+            'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 60%, var(--color-scoreboard) 100%)',
         }}
       >
         <div

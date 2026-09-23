@@ -21,7 +21,10 @@ interface ScoreboardTickerProps {
 const STATUS_STYLE: Record<TickerGame['status'], { dot: string; label: string }> = {
   live: { dot: 'bg-live animate-pulse', label: 'text-live' },
   in_progress: { dot: 'bg-live animate-pulse', label: 'text-live' },
-  scheduled: { dot: 'bg-upcoming', label: 'text-upcoming' },
+  // The bar is scoreboard-navy in BOTH themes, so the raw upcoming token
+  // (light teal in light mode) fails contrast here — use the dedicated
+  // on-scoreboard token (bright cyan, 9.8:1 on navy).
+  scheduled: { dot: 'bg-upcoming', label: 'text-on-scoreboard' },
   final: { dot: 'bg-final', label: 'text-white/60' },
   postponed: { dot: 'bg-draw', label: 'text-white/60' },
 }
@@ -56,7 +59,6 @@ export function ScoreboardTicker({ games }: ScoreboardTickerProps) {
           cm.textSize('sm'),
           'h-16 bg-scoreboard text-white/70 rounded-2xl',
         )}
-        style={{ backgroundColor: 'var(--color-secondary)' }}
       >
         {t(
           'scoreboardTicker.empty',
@@ -69,8 +71,7 @@ export function ScoreboardTicker({ games }: ScoreboardTickerProps) {
 
   return (
     <div
-      className={cm.cn('relative overflow-hidden rounded-2xl text-white shadow-lg')}
-      style={{ backgroundColor: 'var(--color-secondary)' }}
+      className={cm.cn('relative overflow-hidden rounded-2xl bg-scoreboard text-white shadow-lg')}
     >
       <div
         className={cm.cn(

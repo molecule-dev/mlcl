@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -126,6 +127,7 @@ export function Notifications() {
     setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)))
     try {
       await http.post(`/api/notifications/${id}/read`, {})
+      void track({ name: 'notification.read', properties: { notification_id: id } })
     } catch (error) {
       logError('notifications.markOne', error)
       void refresh()
@@ -140,6 +142,7 @@ export function Notifications() {
     setItems((prev) => prev.map((n) => ({ ...n, read: true })))
     try {
       await http.post('/api/notifications/read-all', {})
+      void track({ name: 'notifications.read_all', properties: { count: unread } })
     } catch (error) {
       logError('notifications.markAll', error)
       void refresh()
@@ -161,7 +164,7 @@ export function Notifications() {
   ]
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('4xl'), cm.mxAuto, cm.stack(6))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('4xl'), cm.mxAuto, cm.stack(6))}>
       <header>
         <p
           className={cm.cn('text-[11px] font-black uppercase tracking-[0.28em] text-primary mb-2')}

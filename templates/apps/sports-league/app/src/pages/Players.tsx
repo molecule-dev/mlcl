@@ -166,7 +166,7 @@ export function Players() {
   }, [players, position, search])
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
       <header>
         <p
           className={cm.cn('text-[11px] font-black uppercase tracking-[0.28em] text-primary mb-2')}
@@ -240,9 +240,9 @@ export function Players() {
       </div>
 
       <div
-        className={cm.cn('overflow-hidden rounded-2xl border border-outline-variant/40 bg-surface')}
+        className={cm.cn('overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface')}
       >
-        <table className={cm.cn(cm.w('full'))}>
+        <table className={cm.cn(cm.w('full'), 'min-w-[560px]')}>
           <thead
             style={{ backgroundColor: 'var(--color-secondary)' }}
             className={cm.cn('text-on-secondary')}

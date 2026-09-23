@@ -96,11 +96,11 @@ export function Landing() {
             cm.mxAuto,
           )}
         >
-          <Link to="/" className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <Link to="/" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 shrink')}>
             <span
               aria-hidden="true"
               className={cm.cn(
-                'inline-flex items-center justify-center w-9 h-9 rounded-lg shadow-md shadow-primary/30',
+                'inline-flex items-center justify-center w-9 h-9 rounded-lg shadow-md shadow-primary/30 shrink-0',
               )}
               style={{
                 background:
@@ -114,11 +114,18 @@ export function Landing() {
                 shield
               </span>
             </span>
-            <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                'font-extrabold tracking-tight truncate whitespace-nowrap',
+              )}
+            >
               {APP_NAME}
             </span>
           </Link>
-          <div className={cm.flex({ align: 'center', gap: 'md' })}>
+          <div
+            className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'shrink-0 whitespace-nowrap')}
+          >
             <Link
               to="/pricing"
               className={cm.cn(
@@ -143,7 +150,12 @@ export function Landing() {
                     'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
                 }}
               >
-                {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+                <span className={cm.cn('hidden sm:inline')}>
+                  {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
+                </span>
+                <span className={cm.cn('sm:hidden')}>
+                  {t('common.dashboard', {}, { defaultValue: 'Dashboard' })}
+                </span>
               </Link>
             ) : (
               <>

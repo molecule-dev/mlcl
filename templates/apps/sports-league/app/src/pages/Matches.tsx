@@ -199,7 +199,7 @@ export function Matches() {
   ]
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
       <header>
         <p
           className={cm.cn('text-[11px] font-black uppercase tracking-[0.28em] text-primary mb-2')}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -92,6 +93,10 @@ export function Settings() {
     setSavedKey(null)
     try {
       await http.patch('/api/profile/me', { notifications: { [key]: !notifs[key] } })
+      void track({
+        name: 'preferences.updated',
+        properties: { preference: `notifications.${key}`, value: !notifs[key] },
+      })
       setSavedKey(key)
       setTimeout(() => setSavedKey((k) => (k === key ? null : k)), 1500)
     } catch (error) {
@@ -106,6 +111,7 @@ export function Settings() {
     setFavorites((prev) => prev.filter((f) => f.id !== favId))
     try {
       await http.delete(`/api/favorite-teams/${favId}`)
+      void track({ name: 'favorite.removed', properties: { favorite_id: favId } })
     } catch (error) {
       logError('settings.removeFavorite', error)
       setFavorites(previous)
@@ -118,7 +124,7 @@ export function Settings() {
   }))
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
       <header>
         <p
           className={cm.cn('text-[11px] font-black uppercase tracking-[0.28em] text-primary mb-2')}

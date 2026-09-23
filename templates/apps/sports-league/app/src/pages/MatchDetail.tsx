@@ -241,7 +241,7 @@ export function MatchDetail() {
   const awayWon = isFinal && (match.away_score ?? 0) > (match.home_score ?? 0)
 
   return (
-    <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
+    <div className={cm.cn('px-4 py-6 sm:px-8 sm:py-8', cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>
       <Link
         to="/matches"
         className={cm.cn(
@@ -256,10 +256,14 @@ export function MatchDetail() {
       </Link>
 
       <section
-        className={cm.cn('rounded-[2rem] text-white relative overflow-hidden shadow-xl p-10')}
+        className={cm.cn(
+          'rounded-[2rem] text-white relative overflow-hidden shadow-xl p-5 sm:p-8 md:p-10',
+        )}
         style={{
+          // scoreboard (not secondary): the hero carries white text and must
+          // start near-black in BOTH modes — secondary flips light in dark.
           background:
-            'linear-gradient(135deg, var(--color-secondary), var(--color-primary-dark) 60%, var(--color-primary))',
+            'linear-gradient(135deg, var(--color-scoreboard), var(--color-primary-dark) 60%, var(--color-primary))',
         }}
       >
         <div className={cm.cn('relative z-10')}>
@@ -274,7 +278,7 @@ export function MatchDetail() {
                 ? t('matchDetail.finalScore', {}, { defaultValue: 'Final' })
                 : t('status.upcoming', {}, { defaultValue: 'Upcoming' })}
           </p>
-          <div className={cm.cn('grid grid-cols-3 items-center gap-6')}>
+          <div className={cm.cn('grid grid-cols-3 items-center gap-2 sm:gap-4 md:gap-6')}>
             <div className={cm.cn('text-center md:text-left')}>
               <div
                 className={cm.cn('flex items-center gap-3 justify-center md:justify-start mb-2')}
@@ -292,7 +296,7 @@ export function MatchDetail() {
                 className={cm.cn(
                   'block tabular-nums leading-none',
                   awayWon ? 'text-white/50' : 'text-white',
-                  'text-7xl md:text-8xl font-extrabold tracking-tighter',
+                  'text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter',
                 )}
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
@@ -361,7 +365,7 @@ export function MatchDetail() {
                 className={cm.cn(
                   'block tabular-nums leading-none',
                   homeWon ? 'text-white/50' : 'text-white',
-                  'text-7xl md:text-8xl font-extrabold tracking-tighter',
+                  'text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter',
                 )}
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
