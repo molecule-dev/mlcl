@@ -54,7 +54,7 @@ export function Editor() {
       logError('editor.saveVersion', error)
       setSavingState('idle')
     }
-  }, [http, params.id])
+  }, [http, params.id, tool])
 
   const addLayer = useCallback(() => {
     setLayers((prev) => [...prev, `Layer ${prev.length + 1}`])
