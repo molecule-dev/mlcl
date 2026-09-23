@@ -1,6 +1,6 @@
 import { test, expect } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, API_BASE, api, getAccessToken, getTeams, signup } from './_helpers.js'
+import { APP_BASE, API_BASE, api, apiRaw, getAccessToken, getTeams, signup } from './_helpers.js'
 
 test('Authenticated user can create a team and read it back (read-after-write)', async ({
   page,
@@ -19,6 +19,11 @@ test('Authenticated user can create a team and read it back (read-after-write)',
   const fresh = await api<{ id: string; name: string }>(page, 'GET', `/teams/${created.id}`)
   expect(fresh.id).toBe(created.id)
   expect(fresh.name).toBe('My Local FC')
+
+  // Cleanup: the suite shares one seeded DB across runs — a leftover fixed-name
+  // team breaks seed.spec's abbreviation-uniqueness invariant on every re-run.
+  const del = await apiRaw(page, 'DELETE', `/teams/${created.id}`)
+  expect(del.status(), 'owner can delete the team they created').toBe(204)
 })
 
 test('Owner can update their own team but not someone else’s', async ({ page, browser }) => {
@@ -50,6 +55,10 @@ test('Owner can update their own team but not someone else’s', async ({ page, 
   expect(resp.status()).toBe(403)
 
   await ctx2.close()
+
+  // Cleanup (see first test): remove the fixed-abbreviation team this run made.
+  const del = await apiRaw(page, 'DELETE', `/teams/${team.id}`)
+  expect(del.status(), 'cleanup delete succeeded').toBe(204)
 })
 
 test('Teams page renders every team the API returns', async ({ page }) => {
