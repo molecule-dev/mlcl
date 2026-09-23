@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,7 @@ export function MaintenanceNew() {
       const res = (await http.post('/api/maintenance', payload)) as
         CreatedTicket | { data?: CreatedTicket }
       const created = (res as { data?: CreatedTicket })?.data ?? (res as CreatedTicket)
+      track({ name: 'maintenance.requested', properties: { ticket_id: created?.id, priority } })
       if (created?.id) {
         navigate(`/maintenance/${created.id}`)
       } else {

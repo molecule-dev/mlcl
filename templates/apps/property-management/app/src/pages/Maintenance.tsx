@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import type { MaintenanceTicket } from '../components/MaintenanceQueueList.js'
 
 interface MaintenanceApi {
@@ -68,9 +69,13 @@ export function Maintenance() {
   const http = useHttpClient()
   const [tickets, setTickets] = useState<MaintenanceTicket[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     Promise.all([
       http.get('/api/maintenance?limit=200').catch(() => null),
       http.get('/api/properties?limit=100').catch(() => null),
@@ -78,6 +83,14 @@ export function Maintenance() {
     ])
       .then(([mRes, pRes, uRes]) => {
         if (cancelled) return
+        // The work-order fetch is the primary one — if IT failed, the page
+        // must show an error banner, not a fake "no work orders" empty state.
+        // The property/unit lookups only decorate rows, so they may degrade.
+        if (!mRes) {
+          setError(true)
+          setLoading(false)
+          return
+        }
         const mApi = unwrap<MaintenanceApi>(mRes)
         const pApi = unwrap<PropertyApi>(pRes)
         const uApi = unwrap<UnitApi>(uRes)
@@ -105,7 +118,7 @@ export function Maintenance() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(6))}>
@@ -153,6 +166,8 @@ export function Maintenance() {
         >
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
+      ) : error ? (
+        <LoadErrorBanner testId="maintenance-error" onRetry={() => setReloadKey((k) => k + 1)} />
       ) : tickets.length === 0 ? (
         <div
           className={cm.cn(

@@ -188,8 +188,19 @@ export function Tenants() {
             )}
           </p>
         </div>
-        <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'relative')}>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }),
+            cm.w('full'),
+            'sm:w-auto',
+          )}
+        >
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              'relative flex-1 min-w-0 sm:flex-none',
+            )}
+          >
             <span
               className="material-symbols-outlined text-on-surface-variant absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
               aria-hidden="true"
@@ -206,7 +217,7 @@ export function Tenants() {
                 cm.sp('pr', 4),
                 cm.sp('py', 2),
                 cm.textSize('sm'),
-                cm.w(72),
+                'w-full sm:w-72',
                 'rounded-full bg-surface border border-outline-variant focus:outline-none focus:ring-2 ring-primary/30',
               )}
             />

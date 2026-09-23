@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { MaintenanceQueueList, type MaintenanceTicket } from '../components/MaintenanceQueueList.js'
 import { OccupancyKpiQuad } from '../components/OccupancyKpiQuad.js'
 import { PortfolioHeroCard } from '../components/PortfolioHeroCard.js'
@@ -58,16 +59,26 @@ export function Dashboard() {
   const [stats, setStats] = useState<DashboardStats>(EMPTY_STATS)
   const [tickets, setTickets] = useState<MaintenanceTicket[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     Promise.all([
       http.get('/api/dashboard/overview').catch(() => null),
       http.get('/api/maintenance?status=open&limit=4').catch(() => null),
     ]).then(([statsRes, ticketsRes]) => {
       if (cancelled) return
       const s = pickSingle<DashboardStats>(statsRes)
-      if (s && typeof s.total_rent_collected_cents === 'number') setStats(s)
+      // A failed overview fetch must not read as an all-zero (or "empty
+      // portfolio") dashboard — surface the error and offer a retry.
+      if (!statsRes) {
+        setError(true)
+      } else if (s && typeof s.total_rent_collected_cents === 'number') {
+        setStats(s)
+      }
       const list = pickList<MaintenanceTicket>(ticketsRes)
       setTickets(list.slice(0, 4))
       setLoading(false)
@@ -75,7 +86,7 @@ export function Dashboard() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const isEmpty = !loading && stats.total_units === 0 && tickets.length === 0
 
@@ -112,6 +123,10 @@ export function Dashboard() {
           {t('dashboard.addProperty', {}, { defaultValue: 'Add property' })}
         </Link>
       </header>
+
+      {error ? (
+        <LoadErrorBanner testId="dashboard-error" onRetry={() => setReloadKey((k) => k + 1)} />
+      ) : null}
 
       {isEmpty ? (
         <div

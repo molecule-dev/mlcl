@@ -25,6 +25,7 @@ import { validateBody } from '@molecule/api-middleware-validation'
 
 import { requireUserOwnership } from '../lib/authz.js'
 import type { PropertyManagementLimits } from '../tiers.js'
+import { isUuid } from './_uuid.js'
 
 const router = Router()
 
@@ -55,6 +56,16 @@ router.get('/', async (req: Request, res: Response) => {
     return
   }
   const { tenant_id, lease_id, status, page = '1', limit = '50' } = req.query
+  // tenant_id/lease_id are uuid columns — a non-UUID filter would make the
+  // query throw 22P02 (a 500). A non-UUID id matches no rows by definition.
+  if (tenant_id && !isUuid(tenant_id)) {
+    res.json([])
+    return
+  }
+  if (lease_id && !isUuid(lease_id)) {
+    res.json([])
+    return
+  }
   const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
   if (tenant_id) where.push({ field: 'tenant_id', operator: '=', value: String(tenant_id) })
   if (lease_id) where.push({ field: 'lease_id', operator: '=', value: String(lease_id) })
@@ -77,6 +88,18 @@ router.get('/summary/overview', async (req: Request, res: Response) => {
     return
   }
   const { property_id } = req.query
+  // property_id is a uuid column — guard the shape before the query (22P02).
+  if (property_id && !isUuid(property_id)) {
+    res.json({
+      total_collected: 0,
+      total_pending: 0,
+      total_overdue: 0,
+      count_paid: 0,
+      count_pending: 0,
+      count_overdue: 0,
+    })
+    return
+  }
   const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
   if (property_id) where.push({ field: 'property_id', operator: '=', value: String(property_id) })
 

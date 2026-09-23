@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -89,6 +90,10 @@ export function LeaseNew() {
         status: 'active',
       })) as CreatedLease | { data?: CreatedLease }
       const created = (res as { data?: CreatedLease })?.data ?? (res as CreatedLease)
+      track({
+        name: 'lease.created',
+        properties: { lease_id: created?.id, tenant_id: tenantId, unit_id: unitId },
+      })
       if (created?.id) {
         navigate('/leases')
       } else {

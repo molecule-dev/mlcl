@@ -25,6 +25,7 @@ import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { PropertyManagementLimits } from '../tiers.js'
+import { isUuid } from './_uuid.js'
 
 const router = Router()
 
@@ -170,6 +171,14 @@ router.get('/:id', async (req: Request, res: Response) => {
     return
   }
   const id = getParamId(req)
+  // properties.id is a UUID column — a non-UUID shape would make the query
+  // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+  if (!isUuid(id)) {
+    res
+      .status(404)
+      .json({ error: t('property.notFound', undefined, { defaultValue: 'Property not found' }) })
+    return
+  }
   const row = await findById<PropertyRow>('properties', id)
   if (!row || row.user_id !== userId) {
     res
@@ -232,6 +241,12 @@ router.put('/:id', validateBody(updatePropertySchema), async (req: Request, res:
     return
   }
   const id = getParamId(req)
+  if (!isUuid(id)) {
+    res
+      .status(404)
+      .json({ error: t('property.notFound', undefined, { defaultValue: 'Property not found' }) })
+    return
+  }
   const existing = await findById<PropertyRow>('properties', id)
   if (!existing || existing.user_id !== userId) {
     res
@@ -254,6 +269,12 @@ router.delete('/:id', async (req: Request, res: Response) => {
     return
   }
   const id = getParamId(req)
+  if (!isUuid(id)) {
+    res
+      .status(404)
+      .json({ error: t('property.notFound', undefined, { defaultValue: 'Property not found' }) })
+    return
+  }
   const existing = await findById<Record<string, unknown>>('properties', id)
   if (!existing || existing.user_id !== userId) {
     res

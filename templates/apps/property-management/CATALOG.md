@@ -35,6 +35,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 
 _These endpoints already exist — open and extend the named file, never recreate it._
 
+- **\_uuid** — `api/src/handlers/_uuid.ts`
 - **dashboard** — `api/src/handlers/dashboard.ts`
 - **finances** — `api/src/handlers/finances.ts`
 - **leases** — `api/src/handlers/leases.ts`

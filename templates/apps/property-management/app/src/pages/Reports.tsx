@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+
 interface Kpis {
   gross_revenue_cents: number
   net_income_cents: number
@@ -11,11 +13,16 @@ interface Kpis {
 }
 
 interface BreakdownRow {
-  property_id: string
+  // Shape served by GET /api/reports/overview (handlers/reports.ts):
+  // rows carry `id`, `units_count`, `occupancy_pct` — NOT property_id/
+  // units/occupancy. Reading the wrong names here rendered "undefined"
+  // React keys (console errors) and "NaN%" occupancy bars.
+  id: string
   name: string
-  units: number
+  units_count: number
+  occupied_count: number
+  occupancy_pct: number
   revenue_cents: number
-  occupancy: number
   arrears_cents: number
 }
 
@@ -35,9 +42,13 @@ export function Reports() {
   const http = useHttpClient()
   const [data, setData] = useState<ReportsApi | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     http
       .get<ReportsApi>('/api/reports/overview')
       .then((res) => {
@@ -51,12 +62,15 @@ export function Reports() {
         setLoading(false)
       })
       .catch(() => {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) {
+          setError(true)
+          setLoading(false)
+        }
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const kpis = data?.kpis ?? {
     gross_revenue_cents: 0,
@@ -123,6 +137,8 @@ export function Reports() {
         >
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </section>
+      ) : error ? (
+        <LoadErrorBanner testId="reports-error" onRetry={() => setReloadKey((k) => k + 1)} />
       ) : (
         <>
           <section
@@ -198,10 +214,10 @@ export function Reports() {
             ) : (
               <ul className={cm.stack(3)} data-testid="reports-breakdown">
                 {breakdown.map((p) => {
-                  const pct = p.occupancy
+                  const pct = p.occupancy_pct ?? 0
                   return (
                     <li
-                      key={p.property_id}
+                      key={p.id ?? p.name}
                       className={cm.cn(
                         cm.sp('p', 4),
                         cm.grid({ gap: 'md' }),
@@ -215,7 +231,7 @@ export function Reports() {
                         <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                           {t(
                             'reports.unitsLabel',
-                            { count: p.units },
+                            { count: p.units_count },
                             { defaultValue: '{{count}} units' },
                           )}
                         </p>

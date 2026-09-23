@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -79,6 +80,7 @@ export function TenantNew() {
       const res = (await http.post('/api/tenants', payload)) as
         CreatedTenant | { data?: CreatedTenant }
       const created = (res as { data?: CreatedTenant })?.data ?? (res as CreatedTenant)
+      track({ name: 'tenant.created', properties: { tenant_id: created?.id } })
       if (created?.id) {
         navigate(`/tenants/${created.id}`)
       } else {

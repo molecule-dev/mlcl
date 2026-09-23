@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -176,6 +177,7 @@ export function MaintenanceDetail() {
     setCompleting(true)
     try {
       await http.put(`/api/maintenance/${id}/complete`, {})
+      track({ name: 'maintenance.completed', properties: { ticket_id: id } })
       await loadTicket()
     } finally {
       setCompleting(false)
@@ -205,11 +207,21 @@ export function MaintenanceDetail() {
       <div
         className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('3xl'), cm.mxAuto, cm.textCenter)}
       >
-        <p
-          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}
+        <h1
+          className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}
           data-testid="maintenance-detail-error"
         >
           {error ?? t('maintenanceDetail.notFound', {}, { defaultValue: 'Work order not found' })}
+        </h1>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+          {t(
+            'maintenanceDetail.notFoundBody',
+            {},
+            {
+              defaultValue:
+                'It may have been removed, or the link is incorrect. Head back to your work orders.',
+            },
+          )}
         </p>
         <Link
           to="/maintenance"

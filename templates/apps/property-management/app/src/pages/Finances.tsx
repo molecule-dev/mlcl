@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -99,6 +100,7 @@ export function Finances() {
       a.click()
       document.body.removeChild(a)
       URL.revokeObjectURL(objUrl)
+      track({ name: 'finances.rent_roll_exported', properties: { format: 'csv' } })
     } catch (err) {
       // The http client throws HttpError (with `.status`) on non-2xx responses.
       const status = (err as { status?: number })?.status

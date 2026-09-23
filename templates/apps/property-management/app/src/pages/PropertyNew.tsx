@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -36,6 +37,7 @@ export function PropertyNew() {
         status: 'active',
       })) as CreatedProperty | { data?: CreatedProperty }
       const created = (res as { data?: CreatedProperty })?.data ?? (res as CreatedProperty)
+      track({ name: 'property.added', properties: { property_id: created?.id } })
       if (created?.id) {
         navigate(`/properties/${created.id}`)
       } else {

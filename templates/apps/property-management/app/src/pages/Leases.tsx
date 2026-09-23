@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+
 interface LeaseApi {
   id: string
   tenant_id: string
@@ -85,9 +87,13 @@ export function Leases() {
   const http = useHttpClient()
   const [leases, setLeases] = useState<LeaseView[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     Promise.all([
       http.get('/api/leases?limit=200').catch(() => null),
       http.get('/api/tenants?limit=200').catch(() => null),
@@ -96,6 +102,14 @@ export function Leases() {
     ])
       .then(([lRes, tRes, uRes, pRes]) => {
         if (cancelled) return
+        // The lease fetch is the primary one — if IT failed, show an error
+        // banner instead of a fake "no leases" empty state. The tenant/unit/
+        // property lookups only decorate rows, so they may degrade.
+        if (!lRes) {
+          setError(true)
+          setLoading(false)
+          return
+        }
         const lApi = unwrap<LeaseApi>(lRes)
         const tApi = unwrap<TenantApi>(tRes)
         const uApi = unwrap<UnitApi>(uRes)
@@ -126,7 +140,7 @@ export function Leases() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const expiringSoon = leases.filter((l) => l.status === 'expiring').length
   const totalMonthly = leases.reduce((acc, l) => acc + l.rent_cents, 0)
@@ -180,6 +194,8 @@ export function Leases() {
         >
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </section>
+      ) : error ? (
+        <LoadErrorBanner testId="leases-error" onRetry={() => setReloadKey((k) => k + 1)} />
       ) : leases.length === 0 ? (
         <section
           className={cm.cn(

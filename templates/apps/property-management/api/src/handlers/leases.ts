@@ -23,6 +23,7 @@ import { validateBody } from '@molecule/api-middleware-validation'
 
 import { requireUserOwnership } from '../lib/authz.js'
 import type { PropertyManagementLimits } from '../tiers.js'
+import { isUuid } from './_uuid.js'
 
 const router = Router()
 
@@ -30,6 +31,7 @@ const createLeaseSchema = z
   .object({
     unit_id: z.string().min(1),
     tenant_id: z.string().min(1),
+    property_id: z.string().min(1).optional(),
     secondary_tenant_ids: z.array(z.string()).optional(),
     start_date: z.string().min(1),
     end_date: z.string().nullable().optional(),
@@ -93,6 +95,11 @@ function normalizeBody(body: Record<string, unknown>): Record<string, unknown> {
     out.deposit = out.deposit_cents === null ? null : fromCents(Number(out.deposit_cents))
   }
   delete out.deposit_cents
+  // The leases table has NO property_id column — a lease reaches its property
+  // through its unit. The create schema accepts the field because the UI sends
+  // it for context, but passing it through to `create` makes the INSERT name a
+  // nonexistent column (42703 → 500). Drop it; ownership scoping still applies.
+  delete out.property_id
   return out
 }
 
@@ -115,6 +122,16 @@ router.get('/', async (req: Request, res: Response) => {
     return
   }
   const { unit_id, tenant_id, status, page = '1', limit = '50' } = req.query
+  // unit_id/tenant_id are uuid columns — a non-UUID filter would make the
+  // query throw 22P02 (a 500). A non-UUID id matches no rows by definition.
+  if (unit_id && !isUuid(unit_id)) {
+    res.json([])
+    return
+  }
+  if (tenant_id && !isUuid(tenant_id)) {
+    res.json([])
+    return
+  }
   const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
   if (unit_id) where.push({ field: 'unit_id', operator: '=', value: String(unit_id) })
   if (tenant_id) where.push({ field: 'tenant_id', operator: '=', value: String(tenant_id) })

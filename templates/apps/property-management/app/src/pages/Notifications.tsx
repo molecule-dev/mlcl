@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+
 interface NotificationItem {
   id: string
   category: 'maintenance' | 'lease' | 'payment' | 'system'
@@ -56,10 +58,12 @@ export function Notifications() {
   const http = useHttpClient()
   const [items, setItems] = useState<NotificationItem[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [marking, setMarking] = useState(false)
 
   const load = () => {
     setLoading(true)
+    setError(false)
     http
       .get<NotificationApi>('/api/notifications')
       .then((res) => {
@@ -72,6 +76,7 @@ export function Notifications() {
         setLoading(false)
       })
       .catch(() => {
+        setError(true)
         setLoading(false)
       })
   }
@@ -157,6 +162,8 @@ export function Notifications() {
         >
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
+      ) : error ? (
+        <LoadErrorBanner testId="notifications-error" onRetry={load} />
       ) : items.length === 0 ? (
         <div
           className={cm.cn(

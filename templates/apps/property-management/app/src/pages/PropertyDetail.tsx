@@ -206,11 +206,21 @@ export function PropertyDetail() {
       <div
         className={cm.cn(cm.sp('px', 8), cm.sp('py', 16), cm.maxW('3xl'), cm.mxAuto, cm.textCenter)}
       >
-        <p
-          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}
+        <h1
+          className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}
           data-testid="property-detail-error"
         >
           {error ?? t('propertyDetail.notFound', {}, { defaultValue: 'Property not found' })}
+        </h1>
+        <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
+          {t(
+            'propertyDetail.notFoundBody',
+            {},
+            {
+              defaultValue:
+                'It may have been removed, or the link is incorrect. Head back to your portfolio.',
+            },
+          )}
         </p>
         <Link
           to="/properties"

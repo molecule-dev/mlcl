@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { PropertyListCard, type PropertySummary } from '../components/PropertyListCard.js'
 
 const FILTERS = [
@@ -21,11 +22,15 @@ export function Properties() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [properties, setProperties] = useState<PropertySummary[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
   const [search, setSearch] = useState('')
   const filter = (searchParams.get('filter') as FilterKey) || 'all'
 
   useEffect(() => {
     let cancelled = false
+    setLoading(true)
+    setError(false)
     http
       .get('/api/properties?limit=100')
       .then((res) => {
@@ -47,12 +52,15 @@ export function Properties() {
         setLoading(false)
       })
       .catch(() => {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) {
+          setError(true)
+          setLoading(false)
+        }
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, reloadKey])
 
   const visible = useMemo(() => {
     return properties.filter((p) => {
@@ -180,6 +188,8 @@ export function Properties() {
         >
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
+      ) : error ? (
+        <LoadErrorBanner testId="properties-error" onRetry={() => setReloadKey((k) => k + 1)} />
       ) : visible.length === 0 ? (
         <div
           className={cm.cn(
