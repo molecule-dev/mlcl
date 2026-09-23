@@ -11,8 +11,9 @@ import { molE2EPreviewPlugin } from '@molecule/app-e2e-preview/vite'
  *    `vite preview` it serves a tiny page client, injects it into every
  *    document and attaches a WebSocket hub to the server, so the e2e specs in
  *    `e2e/` can drive the live preview as a Playwright-shaped page
- *    (`npm run test:e2e` inside a molecule sandbox, where there is no browser
- *    binary). Inert in `vite build`. Turn it off with `MOL_E2E_PREVIEW_PLUGIN=0`.
+ *    (`MOL_E2E_PROVIDER=preview npm run test:e2e`; by default a molecule
+ *    sandbox runs them on the Chromium it ships, with no tab involved). Inert
+ *    in `vite build`. Turn it off with `MOL_E2E_PREVIEW_PLUGIN=0`.
  *
  * `index.html` carries an inline `<script>` "preview bridge" — delimited by
  * `<!-- mol:preview-bridge:start -->` / `<!-- mol:preview-bridge:end -->` — that,
