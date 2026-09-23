@@ -65,11 +65,7 @@ export function MobileNavShell({ logoTo = '/home', navItems }: MobileNavShellPro
     }
   }, [drawerOpen])
 
-  const navAriaLabel = t(
-    'reverbLayout.primaryNavLabel',
-    {},
-    { defaultValue: 'Primary navigation' },
-  )
+  const navAriaLabel = t('reverbLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
   return (
     <div

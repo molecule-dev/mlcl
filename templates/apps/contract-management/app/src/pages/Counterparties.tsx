@@ -291,125 +291,127 @@ export function Counterparties() {
           {/* 6 columns don't fit a 390px screen — scroll the table, never clip it. */}
           <div className="overflow-x-auto">
             <table className={'w-full min-w-[640px]'} data-testid="counterparties-table">
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.organization', {}, { defaultValue: 'Organization' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('nav.contact', {}, { defaultValue: 'Contact' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('status.active', {}, { defaultValue: 'Active' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('counterparties.col.value', {}, { defaultValue: 'Total value' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('counterparties.col.lastSigned', {}, { defaultValue: 'Last signed' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('nav.actions', {}, { defaultValue: 'Actions' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {filtered.map((r) => (
-                <tr
-                  key={r.id}
-                  className={'hover:bg-surface-container'}
-                  data-testid={`counterparty-row-${r.id}`}
-                >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <p className={cm.fontWeight('semibold')}>{r.organization}</p>
-                    {r.type ? (
-                      <span
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.organization', {}, { defaultValue: 'Organization' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('nav.contact', {}, { defaultValue: 'Contact' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('status.active', {}, { defaultValue: 'Active' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('counterparties.col.value', {}, { defaultValue: 'Total value' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('counterparties.col.lastSigned', {}, { defaultValue: 'Last signed' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('nav.actions', {}, { defaultValue: 'Actions' })}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {filtered.map((r) => (
+                  <tr
+                    key={r.id}
+                    className={'hover:bg-surface-container'}
+                    data-testid={`counterparty-row-${r.id}`}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <p className={cm.fontWeight('semibold')}>{r.organization}</p>
+                      {r.type ? (
+                        <span
+                          className={cm.cn(
+                            cm.sp('px', 2),
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                            cm.roundedFull,
+                            'inline-block bg-primary-container',
+                            cm.textPrimary,
+                            cm.sp('mt', 1),
+                          )}
+                        >
+                          {r.type}
+                        </span>
+                      ) : null}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
+                      <p>{r.contact_name || '\u2014'}</p>
+                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {r.contact_email || '\u2014'}
+                      </p>
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}
+                    >
+                      {r.active_contracts}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                      )}
+                    >
+                      {fmtUsd(r.total_value_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(r.last_signed_at)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right whitespace-nowrap',
+                      )}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => openEdit(r)}
                         className={cm.cn(
                           cm.sp('px', 2),
-                          cm.textSize('xs'),
-                          cm.fontWeight('semibold'),
-                          cm.roundedFull,
-                          'inline-block bg-primary-container',
+                          cm.textSize('sm'),
                           cm.textPrimary,
-                          cm.sp('mt', 1),
+                          'hover:underline',
                         )}
                       >
-                        {r.type}
-                      </span>
-                    ) : null}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
-                    <p>{r.contact_name || '\u2014'}</p>
-                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {r.contact_email || '\u2014'}
-                    </p>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right tabular-nums')}>
-                    {r.active_contracts}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                    )}
-                  >
-                    {fmtUsd(r.total_value_cents)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(r.last_signed_at)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right whitespace-nowrap',
-                    )}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => openEdit(r)}
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('sm'),
-                        cm.textPrimary,
-                        'hover:underline',
-                      )}
-                    >
-                      {t('common.edit', {}, { defaultValue: 'Edit' })}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => remove(r)}
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('sm'),
-                        'text-error hover:underline',
-                      )}
-                    >
-                      {t('common.delete', {}, { defaultValue: 'Delete' })}
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                        {t('common.edit', {}, { defaultValue: 'Edit' })}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => remove(r)}
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.textSize('sm'),
+                          'text-error hover:underline',
+                        )}
+                      >
+                        {t('common.delete', {}, { defaultValue: 'Delete' })}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       )}

@@ -94,16 +94,12 @@ router.get('/', async (_req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
     if (!userId) {
-      res
-        .status(401)
-        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+      res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
       return
     }
     const user = await findById<DbUser>('users', userId)
     if (!user) {
-      res
-        .status(401)
-        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+      res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
       return
     }
     res.json({ photoPrefs: mergedPrefs(storedPrefs(user)) })
@@ -117,22 +113,18 @@ router.patch('/', validateBody(prefsPatchSchema), async (req: Request, res: Resp
   try {
     const userId = getUserId(res)
     if (!userId) {
-      res
-        .status(401)
-        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+      res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
       return
     }
     const user = await findById<DbUser>('users', userId)
     if (!user) {
-      res
-        .status(401)
-        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+      res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
       return
     }
     const patch = req.body as PrefsPatch
-    const oauth = (user.oauthData && typeof user.oauthData === 'object'
-      ? user.oauthData
-      : {}) as Record<string, unknown>
+    const oauth = (
+      user.oauthData && typeof user.oauthData === 'object' ? user.oauthData : {}
+    ) as Record<string, unknown>
     const current = storedPrefs(user)
     const nextPrefs = { ...current }
     for (const [key, value] of Object.entries(patch)) {

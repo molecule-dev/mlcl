@@ -343,11 +343,7 @@ function CompactBar() {
 
       {/* Cover + info + transport, one tappable row */}
       <div
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 'xs' }),
-          cm.sp('px', 2),
-          cm.sp('py', 1),
-        )}
+        className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('px', 2), cm.sp('py', 1))}
       >
         <div
           className={cm.cn(cm.h(11), cm.w(11), 'rounded shrink-0')}
@@ -372,10 +368,7 @@ function CompactBar() {
           }}
           aria-pressed={effectiveLiked}
           aria-label={t('nowPlaying.likeAria', {}, { defaultValue: 'Like track' })}
-          className={cm.cn(
-            cm.shrink0,
-            'h-10 w-10 rounded-full flex items-center justify-center',
-          )}
+          className={cm.cn(cm.shrink0, 'h-10 w-10 rounded-full flex items-center justify-center')}
           style={{
             color: effectiveLiked ? 'var(--color-primary)' : 'inherit',
             opacity: effectiveLiked ? 1 : 0.7,
@@ -398,7 +391,11 @@ function CompactBar() {
           className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
           style={{ color: 'inherit', opacity: 0.75 }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: '24px' }} aria-hidden="true">
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: '24px' }}
+            aria-hidden="true"
+          >
             skip_previous
           </span>
         </button>
@@ -429,7 +426,11 @@ function CompactBar() {
           className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
           style={{ color: 'inherit', opacity: 0.75 }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: '24px' }} aria-hidden="true">
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: '24px' }}
+            aria-hidden="true"
+          >
             skip_next
           </span>
         </button>
@@ -442,7 +443,11 @@ function CompactBar() {
           className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
           style={{ color: 'inherit', opacity: 0.75 }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: '22px' }} aria-hidden="true">
+          <span
+            className="material-symbols-outlined"
+            style={{ fontSize: '22px' }}
+            aria-hidden="true"
+          >
             queue_music
           </span>
         </button>

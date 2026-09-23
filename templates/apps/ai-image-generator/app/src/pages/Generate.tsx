@@ -293,9 +293,7 @@ export function Generate() {
           </article>
         </section>
 
-        <aside
-          className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-4 min-w-0')}
-        >
+        <aside className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }), 'lg:col-span-4 min-w-0')}>
           <article
             className={cm.cn(
               cm.sp('p', 6),

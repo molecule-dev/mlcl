@@ -84,7 +84,12 @@ export function MobileNav() {
           </button>
           <Link
             to="/dashboard"
-            className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0', focusRing, cm.roundedFull)}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'min-w-0',
+              focusRing,
+              cm.roundedFull,
+            )}
           >
             <span
               aria-hidden
@@ -155,10 +160,7 @@ export function MobileNav() {
             style={{ backgroundColor: 'var(--color-nav-bg)' }}
           >
             <div
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'between' }),
-                cm.sp('mb', 6),
-              )}
+              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
             >
               <span className={cm.flex({ direction: 'col' })}>
                 <span
@@ -181,13 +183,19 @@ export function MobileNav() {
                   focusRing,
                 )}
               >
-                <span className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')} aria-hidden>
+                <span
+                  className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}
+                  aria-hidden
+                >
                   close
                 </span>
               </button>
             </div>
 
-            <nav aria-label={t('mobileNav.mainNavigation', {}, { defaultValue: 'Main navigation' })} className={cm.cn(cm.flex1, cm.stack(5), 'overflow-y-auto')}>
+            <nav
+              aria-label={t('mobileNav.mainNavigation', {}, { defaultValue: 'Main navigation' })}
+              className={cm.cn(cm.flex1, cm.stack(5), 'overflow-y-auto')}
+            >
               {NAV_SECTIONS.map((section) => (
                 <div key={section.key} className={cm.stack(1)}>
                   <p

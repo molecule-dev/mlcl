@@ -12,8 +12,7 @@ import { signupAndLogin } from './_shared/auth.js'
 export const APP_BASE: string =
   process.env.APP_BASE ??
   process.env.BASE_URL ??
-  'http://localhost:' +
-    (process.env.VITE_PORT ?? '3501')
+  'http://localhost:' + (process.env.VITE_PORT ?? '3501')
 
 const API_URL: string =
   process.env.API_URL ?? 'http://localhost:' + (process.env.API_PORT ?? '4501')

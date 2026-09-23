@@ -249,11 +249,7 @@ router.post(
         // never confirmed.
         console.error('[plans/confirm-checkout] session retrieve failed:', err)
         return res.status(402).json({
-          error: t(
-            'plans.confirmUnpaid',
-            {},
-            { defaultValue: 'Checkout session is not yet paid' },
-          ),
+          error: t('plans.confirmUnpaid', {}, { defaultValue: 'Checkout session is not yet paid' }),
           paymentStatus: null,
         })
       }

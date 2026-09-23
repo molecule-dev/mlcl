@@ -286,45 +286,45 @@ export function Reports() {
         ) : (
           <div className="overflow-x-auto">
             <table className={'w-full min-w-[420px]'}>
-            <thead
-              className={cm.cn(
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                  {t('reports.col.counterparty', {}, { defaultValue: 'Counterparty' })}
-                </th>
-                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                  {t('reports.col.count', {}, { defaultValue: 'Contracts' })}
-                </th>
-                <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
-                  {t('reports.col.value', {}, { defaultValue: 'Value' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {data.renewal_pipeline.map((p) => (
-                <tr key={p.counterparty}>
-                  <td className={cm.cn(cm.sp('py', 2), cm.fontWeight('medium'))}>
-                    {p.counterparty || '\u2014'}
-                  </td>
-                  <td className={cm.cn(cm.sp('py', 2), 'text-right tabular-nums')}>{p.count}</td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('py', 2),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                    )}
-                  >
-                    {fmtUsd(p.total_cents)}
-                  </td>
+              <thead
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                    {t('reports.col.counterparty', {}, { defaultValue: 'Counterparty' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                    {t('reports.col.count', {}, { defaultValue: 'Contracts' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('py', 2), 'text-right')}>
+                    {t('reports.col.value', {}, { defaultValue: 'Value' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {data.renewal_pipeline.map((p) => (
+                  <tr key={p.counterparty}>
+                    <td className={cm.cn(cm.sp('py', 2), cm.fontWeight('medium'))}>
+                      {p.counterparty || '\u2014'}
+                    </td>
+                    <td className={cm.cn(cm.sp('py', 2), 'text-right tabular-nums')}>{p.count}</td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('py', 2),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                      )}
+                    >
+                      {fmtUsd(p.total_cents)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </section>

@@ -132,13 +132,7 @@ export function NewContract() {
           const isActive = i === stepIndex
           const isDone = i < stepIndex
           return (
-            <li
-              key={s}
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                'shrink-0',
-              )}
-            >
+            <li key={s} className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'shrink-0')}>
               <span
                 className={cm.cn(
                   'h-8 w-8 rounded-full grid place-items-center text-sm',

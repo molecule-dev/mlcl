@@ -80,7 +80,9 @@ export function Contracts() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }))}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }))}
+      >
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('contracts.heading', {}, { defaultValue: 'Contracts' })}
         </h1>
@@ -194,101 +196,101 @@ export function Contracts() {
           {/* 7 columns don't fit a 390px screen — scroll the table, never clip it. */}
           <div className="overflow-x-auto">
             <table className={'w-full min-w-[640px]'}>
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.title', {}, { defaultValue: 'Title' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('contracts.col.counterparty', {}, { defaultValue: 'Counterparty' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.type', {}, { defaultValue: 'Type' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('nav.status', {}, { defaultValue: 'Status' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('form.amount', {}, { defaultValue: 'Amount' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('contracts.col.expires', {}, { defaultValue: 'Expires' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('contracts.col.owner', {}, { defaultValue: 'Owner' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {filtered.map((c) => (
-                <tr key={c.id} className={'hover:bg-surface-container'}>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link
-                      to={`/contracts/${c.id}`}
-                      className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
-                    >
-                      {c.title}
-                    </Link>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
-                    {c.counterparty}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('xs'),
-                      'text-on-surface-variant',
-                      'uppercase',
-                    )}
-                  >
-                    {c.type}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <ContractStatusPill status={c.status} />
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                    )}
-                  >
-                    {fmtUsd(c.amount_cents)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(c.expires_at)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {c.owner_name}
-                  </td>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.title', {}, { defaultValue: 'Title' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('contracts.col.counterparty', {}, { defaultValue: 'Counterparty' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.type', {}, { defaultValue: 'Type' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('nav.status', {}, { defaultValue: 'Status' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('form.amount', {}, { defaultValue: 'Amount' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('contracts.col.expires', {}, { defaultValue: 'Expires' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('contracts.col.owner', {}, { defaultValue: 'Owner' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {filtered.map((c) => (
+                  <tr key={c.id} className={'hover:bg-surface-container'}>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <Link
+                        to={`/contracts/${c.id}`}
+                        className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
+                      >
+                        {c.title}
+                      </Link>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
+                      {c.counterparty}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('xs'),
+                        'text-on-surface-variant',
+                        'uppercase',
+                      )}
+                    >
+                      {c.type}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <ContractStatusPill status={c.status} />
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                      )}
+                    >
+                      {fmtUsd(c.amount_cents)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(c.expires_at)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {c.owner_name}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       )}

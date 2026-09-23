@@ -261,7 +261,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         // (search row, album, playlist, queue, now-playing). Fire-and-forget.
         void trackEvent({
           name: 'track.played',
-          properties: { track_id: track.id, ...(track.artist_id ? { artist_id: track.artist_id } : {}) },
+          properties: {
+            track_id: track.id,
+            ...(track.artist_id ? { artist_id: track.artist_id } : {}),
+          },
         }).catch(() => {
           /* analytics is best-effort */
         })

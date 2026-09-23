@@ -103,9 +103,7 @@ export function VellumMobileShell({ children }: { children?: ReactNode }) {
         </div>
       </header>
 
-      <main className={cm.flex1}>
-        {children ?? <Outlet />}
-      </main>
+      <main className={cm.flex1}>{children ?? <Outlet />}</main>
 
       {/* Slide-in drawer + scrim */}
       {drawerOpen ? (
@@ -160,7 +158,10 @@ export function VellumMobileShell({ children }: { children?: ReactNode }) {
                   'h-11 w-11 text-on-surface-variant hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
                 )}
               >
-                <span className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')} aria-hidden>
+                <span
+                  className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}
+                  aria-hidden
+                >
                   close
                 </span>
               </button>

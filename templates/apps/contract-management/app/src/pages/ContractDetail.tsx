@@ -192,9 +192,7 @@ export function ContractDetail() {
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
       <div
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
-        )}
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }))}
       >
         <Link
           to="/contracts"
