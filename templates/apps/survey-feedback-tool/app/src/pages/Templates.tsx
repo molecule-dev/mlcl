@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -116,6 +117,11 @@ export function Templates() {
       const response = await http.post<{ id?: string }>(`/api/templates/${templateId}/apply`)
       const survey = response?.data
       if (survey?.id) {
+        // Domain event: template→survey is the app's second creation funnel.
+        void track({
+          name: 'template.applied',
+          properties: { template_id: String(templateId), survey_id: String(survey.id) },
+        })
         navigate(`/surveys/${survey.id}/build`)
       } else {
         throw new Error('No survey id returned')

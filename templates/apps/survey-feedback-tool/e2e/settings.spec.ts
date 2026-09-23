@@ -30,14 +30,19 @@ test.describe('settings (/settings)', () => {
 
   test('UI: tier list shows at least one plan option', async ({ page }) => {
     await signup(page)
-    await page.goto(APP_BASE + '/settings')
-    await page.waitForResponse(
+    // Arm the wait BEFORE the navigation — the tiers fetch can settle while
+    // goto is still resolving (create→readback race class).
+    const tiersResp = page.waitForResponse(
       (resp) => resp.url().includes('/api/billing/tiers') && resp.status() === 200,
       { timeout: 15_000 },
     )
-    // At least one upgrade button or "Free" / "Pro" tier label is present
-    await expect(page.getByText(/free|pro|team|business|starter|growth/i).first()).toBeVisible({
-      timeout: 10_000,
-    })
+    await page.goto(APP_BASE + '/settings')
+    await tiersResp
+    // At least one tier card is present. Headings (not getByText) — the app
+    // shell's nav carries words like "Profile" that a bare /pro/i text scan
+    // would match, including the mobile chip nav hidden on desktop.
+    await expect(
+      page.getByRole('heading', { name: /free|pro|team|business|starter|growth/i }).first(),
+    ).toBeVisible({ timeout: 10_000 })
   })
 })

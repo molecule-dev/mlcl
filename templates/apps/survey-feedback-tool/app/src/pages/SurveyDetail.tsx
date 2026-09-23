@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -130,7 +131,11 @@ export function SurveyDetail() {
     setError(null)
     try {
       const response = await http.post<SurveyApiRow>(`/api/surveys/${surveyId}/publish`)
-      if (response?.data) setSurvey(response.data)
+      if (response?.data) {
+        // Domain event: go-live from the overview page.
+        void track({ name: 'survey.published', properties: { survey_id: String(surveyId) } })
+        setSurvey(response.data)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not publish the survey.')
     } finally {
@@ -144,7 +149,11 @@ export function SurveyDetail() {
     setError(null)
     try {
       const response = await http.post<SurveyApiRow>(`/api/surveys/${surveyId}/close`)
-      if (response?.data) setSurvey(response.data)
+      if (response?.data) {
+        // Domain event: survey lifecycle end.
+        void track({ name: 'survey.closed', properties: { survey_id: String(surveyId) } })
+        setSurvey(response.data)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not close the survey.')
     } finally {

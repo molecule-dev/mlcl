@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -141,6 +142,15 @@ export function PublicSurvey() {
         answers,
         status: 'completed',
         ...(score !== null ? { score } : {}),
+      })
+      // Domain event: the public-survey conversion point.
+      void track({
+        name: 'response.submitted',
+        properties: {
+          survey_id: String(survey.id),
+          question_count: total,
+          score,
+        },
       })
       navigate(`/s/${slug}/thank-you`)
     } catch (err) {
@@ -420,6 +430,51 @@ export function PublicSurvey() {
                   )
                 })}
               </ul>
+            )}
+
+            {question?.type === 'rating' && (
+              <div className={cm.cn(cm.flex({ gap: 1 }), 'flex-wrap')} role="radiogroup">
+                {[1, 2, 3, 4, 5].map((value) => {
+                  const raw = answers[question.id]
+                  const current = typeof raw === 'number' ? raw : 0
+                  const selected = current === value
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      role="radio"
+                      aria-checked={selected}
+                      aria-label={t(
+                        'publicSurvey.stars',
+                        { count: value },
+                        { defaultValue: '{{count}} star(s)' },
+                      )}
+                      data-testid={`rating-${value}`}
+                      onClick={() => setAnswer(value)}
+                      className={cm.cn(
+                        cm.flex({ align: 'center', justify: 'center' }),
+                        cm.flex1,
+                        'h-12 min-w-[48px] rounded-md border transition-colors',
+                        selected
+                          ? 'border-primary bg-primary/10'
+                          : 'border-[color:var(--color-border)] bg-surface-secondary hover:border-primary/40',
+                      )}
+                    >
+                      <span
+                        className="material-symbols-outlined"
+                        style={{
+                          fontSize: 26,
+                          color: current >= value ? 'var(--color-primary)' : undefined,
+                          opacity: current >= value ? 1 : 0.35,
+                        }}
+                        aria-hidden="true"
+                      >
+                        star
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
             )}
 
             {question?.type === 'long_text' && (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,8 @@ export function Surveys() {
       })
       const draft = response?.data
       if (draft?.id) {
+        // Domain event: the create-a-survey funnel entry point.
+        void track({ name: 'survey.created', properties: { survey_id: String(draft.id) } })
         navigate(`/surveys/${draft.id}/build`)
       } else {
         throw new Error('No survey id returned')
@@ -217,9 +220,10 @@ export function Surveys() {
           <Link
             to="/templates"
             className={cm.cn(
+              cm.flex({ align: 'center' }),
               cm.fontWeight('semibold'),
               cm.textSize('sm'),
-              'text-primary hover:underline',
+              'inline-flex min-h-[36px] items-center text-primary hover:underline',
             )}
           >
             {t('surveys.browseTemplates', {}, { defaultValue: 'Browse templates →' })}

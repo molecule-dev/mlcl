@@ -101,9 +101,11 @@ export function LandingTopNavBar() {
             <Link
               to="/login"
               className={cm.cn(
+                cm.flex({ align: 'center' }),
+                cm.sp('px', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-primary transition-colors',
+                'min-h-[36px] items-center text-on-surface-variant hover:text-primary transition-colors',
               )}
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

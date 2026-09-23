@@ -4,6 +4,7 @@ import { z } from 'zod'
 import type { WhereCondition } from '@molecule/api-database'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { authorization } from '@molecule/api-resource-user'
 
@@ -193,8 +194,10 @@ router.post(
           }),
           created_at: new Date().toISOString(),
         })
-      } catch (_error) {
-        // notification failure is non-fatal — response was already created successfully
+      } catch (error) {
+        // notification failure is non-fatal — response was already created
+        // successfully — but it must not vanish without a trace.
+        logger.error('response.notify', error)
       }
     }
 

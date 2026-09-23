@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -94,6 +95,7 @@ export function Builder() {
   const [survey, setSurvey] = useState<SurveyApi | null>(null)
   const [questions, setQuestions] = useState<BuilderQuestion[]>([])
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -149,6 +151,11 @@ export function Builder() {
       })
       const created = response?.data
       if (created?.id) {
+        // Domain event: builder usage per question type.
+        void track({
+          name: 'question.added',
+          properties: { survey_id: String(surveyId), question_id: String(created.id), type },
+        })
         setQuestions((qs) => [...qs, created])
         setActiveQuestionId(created.id)
       }
@@ -161,6 +168,11 @@ export function Builder() {
     setError(null)
     try {
       await http.delete(`/api/questions/${qid}`)
+      // Domain event: content removal.
+      void track({
+        name: 'question.deleted',
+        properties: { survey_id: String(surveyId), question_id: String(qid) },
+      })
       const next = questions.filter((q) => q.id !== qid)
       setQuestions(next)
       if (activeQuestionId === qid) {
@@ -210,6 +222,11 @@ export function Builder() {
       const response = await http.post<SurveyApi>(`/api/surveys/${surveyId}/publish`)
       const updated = response?.data
       if (updated) {
+        // Domain event: the go-live moment of the survey funnel.
+        void track({
+          name: 'survey.published',
+          properties: { survey_id: String(surveyId), question_count: questions.length },
+        })
         setSurvey((s) => (s ? { ...s, ...updated } : updated))
         navigate(`/surveys/${surveyId}`)
       }
@@ -533,16 +550,38 @@ export function Builder() {
                         <button
                           type="button"
                           data-testid={`delete-question-${question.id}`}
-                          onClick={() => deleteQuestion(question.id)}
+                          aria-label={
+                            confirmDeleteId === question.id
+                              ? t(
+                                  'builder.confirmDelete',
+                                  {},
+                                  { defaultValue: 'Click again to delete this question' },
+                                )
+                              : undefined
+                          }
+                          onClick={() => {
+                            // Destructive: first click arms, second click confirms.
+                            if (confirmDeleteId === question.id) {
+                              void deleteQuestion(question.id)
+                              setConfirmDeleteId(null)
+                            } else {
+                              setConfirmDeleteId(question.id)
+                            }
+                          }}
                           className={cm.cn(
                             cm.sp('px', 3),
-                            cm.sp('py', 1),
+                            cm.sp('py', 2),
                             cm.fontWeight('semibold'),
                             cm.textSize('xs'),
-                            'rounded-md text-[color:var(--color-on-error)] hover:bg-error-light transition-colors',
+                            'min-h-[32px] rounded-md transition-colors',
+                            confirmDeleteId === question.id
+                              ? 'bg-error-light text-[color:var(--color-on-error)]'
+                              : 'text-[color:var(--color-on-error)] hover:bg-error-light',
                           )}
                         >
-                          {t('common.delete', {}, { defaultValue: 'Delete' })}
+                          {confirmDeleteId === question.id
+                            ? t('builder.clickAgainToDelete', {}, { defaultValue: 'Confirm?' })
+                            : t('common.delete', {}, { defaultValue: 'Delete' })}
                         </button>
                       </div>
                     </div>
@@ -600,9 +639,9 @@ export function Builder() {
                     )
                   }
                   onBlur={(e) => {
+                    // Only PATCH when the text actually changed — the previous
+                    // code fired a write on every blur, changed or not.
                     if (e.target.value !== activeQuestion.text) {
-                      patchQuestion(activeQuestion.id, { text: e.target.value })
-                    } else {
                       patchQuestion(activeQuestion.id, { text: e.target.value })
                     }
                   }}

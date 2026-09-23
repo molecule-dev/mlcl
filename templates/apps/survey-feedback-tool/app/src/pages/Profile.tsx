@@ -91,6 +91,7 @@ export function Profile() {
 
   const [devices, setDevices] = useState<DeviceRow[] | null>(null)
   const [devicesError, setDevicesError] = useState<string | null>(null)
+  const [confirmRevokeId, setConfirmRevokeId] = useState<string | null>(null)
 
   useEffect(() => {
     const initialName = (authUser?.name as string) ?? ''
@@ -461,17 +462,39 @@ export function Profile() {
                   <StatusPill variant="active" />
                   <button
                     type="button"
-                    onClick={() => revokeDevice(session.id)}
+                    onClick={() => {
+                      // Destructive: first click arms, second click confirms.
+                      if (confirmRevokeId === session.id) {
+                        void revokeDevice(session.id)
+                        setConfirmRevokeId(null)
+                      } else {
+                        setConfirmRevokeId(session.id)
+                      }
+                    }}
                     data-testid={`revoke-session-${session.id}`}
+                    aria-label={
+                      confirmRevokeId === session.id
+                        ? t(
+                            'profile.sessions.confirmRevoke',
+                            {},
+                            { defaultValue: 'Click again to revoke this session' },
+                          )
+                        : undefined
+                    }
                     className={cm.cn(
                       cm.sp('px', 3),
-                      cm.sp('py', 1),
+                      cm.sp('py', 2),
                       cm.fontWeight('semibold'),
                       cm.textSize('xs'),
-                      'rounded-md text-[color:var(--color-on-error)] hover:bg-error-light transition-colors',
+                      'min-h-[32px] rounded-md transition-colors',
+                      confirmRevokeId === session.id
+                        ? 'bg-error-light text-[color:var(--color-on-error)]'
+                        : 'text-[color:var(--color-on-error)] hover:bg-error-light',
                     )}
                   >
-                    {t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                    {confirmRevokeId === session.id
+                      ? t('profile.sessions.confirmRevokeShort', {}, { defaultValue: 'Confirm?' })
+                      : t('common.revoke', {}, { defaultValue: 'Revoke' })}
                   </button>
                 </div>
               </li>

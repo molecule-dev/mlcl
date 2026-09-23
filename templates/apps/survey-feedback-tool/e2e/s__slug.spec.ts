@@ -171,6 +171,12 @@ test.describe('public survey /s/:slug', () => {
 
   test('UI: unknown slug shows survey-unavailable copy', async ({ page }) => {
     await page.goto(`${APP_BASE}/s/never-was-${Date.now()}`)
+    // The 404 from /api/surveys/by-slug is the test's premise — the browser
+    // logs it as a console resource error, which is expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await expect(page.getByText(/not found|unavailable|no longer|invalid/i).first()).toBeVisible({
       timeout: 10_000,
     })

@@ -151,13 +151,16 @@ test.describe('survey-feedback-tool: full user journey', () => {
     expect(notifBody.items.length).toBe(3)
     expect(notifBody.unread_count).toBe(3)
 
-    // SPA reload: the survey title still shows on /surveys.
+    // SPA reload: the survey title still shows on /surveys. Arm the response
+    // wait BEFORE the reload — the refetch can complete before a
+    // wait-armed-after would start listening (create→readback race class).
     await page.goto(APP_BASE + '/surveys')
-    await page.reload()
-    await page.waitForResponse(
+    const surveysResp = page.waitForResponse(
       (resp) => resp.url().endsWith('/api/surveys') && resp.status() === 200,
       { timeout: 15_000 },
     )
+    await page.reload()
+    await surveysResp
     await expect(page.getByText('Q3 Customer Pulse').first()).toBeVisible({ timeout: 15_000 })
   })
 })

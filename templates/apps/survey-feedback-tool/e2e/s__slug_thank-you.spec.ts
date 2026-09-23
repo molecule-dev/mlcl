@@ -16,6 +16,12 @@ test.describe('public thank-you /s/:slug/thank-you', () => {
 
   test('"Take another response" navigates back to /s/:slug', async ({ page }) => {
     await page.goto(`${APP_BASE}/s/${SPEC_SLUG}/thank-you`)
+    // Retaking lands on the public survey for a spec-owned slug that does not
+    // exist in the DB — its 404 console resource error is expected.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await page
       .getByRole('link', { name: /take another|retake|replay/i })
       .first()
@@ -34,6 +40,11 @@ test.describe('public thank-you /s/:slug/thank-you', () => {
 
   test('preserves slug parameter when retaking', async ({ page }) => {
     await page.goto(`${APP_BASE}/s/${OTHER_SPEC_SLUG}/thank-you`)
+    // Same as above: the retaken slug does not exist, its 404 is expected.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await page
       .getByRole('link', { name: /take another|retake|replay/i })
       .first()

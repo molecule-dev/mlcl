@@ -35,6 +35,12 @@ test.describe('login', () => {
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').fill(email)
     await page.locator('input[autocomplete="current-password"]').fill('NotTheRightPassword')
+    // The failed log-in is the test's subject: the browser logs the API's 401/403
+    // as a console resource error, which is expected here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 40[13]',
+    })
     await page
       .getByRole('button', { name: /sign\s*in|log\s*in/i })
       .first()
