@@ -23,6 +23,12 @@ test.describe('/login', () => {
   })
 
   test('wrong password keeps the user on /login with the error visible', async ({ page }) => {
+    // The 401/403 from the login POST IS the case under test — allow the
+    // console noise the browser logs for that rejected request.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 40[13]/,
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill('does-not-exist@example.com')
     await page.locator('input[type="password"]').first().fill('WrongPass123!')
@@ -32,6 +38,8 @@ test.describe('/login', () => {
       .click()
     await page.waitForTimeout(2000)
     await expect(page).toHaveURL(/\/login/)
+    // The title promises a visible error — assert the alert actually renders.
+    await expect(page.getByRole('alert')).toBeVisible()
   })
 
   test('"Forgot?" link navigates to /forgot-password', async ({ page }) => {

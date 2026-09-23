@@ -5,9 +5,13 @@ import { APP_BASE, captureNetwork, getPrompts, signup } from './_helpers.js'
 test.describe('/prompts', () => {
   test('renders Prompt lab h1 and fetches prompts', async ({ page }) => {
     await signup(page)
+    // The page's data fetch fires from a mount effect — after the top-bar h1
+    // is already visible — so the capture must stay attached until the network
+    // settles (networkidle), not just until the heading renders.
     const reqs = await captureNetwork(page, async () => {
       await page.goto(APP_BASE + '/prompts')
       await expect(page.getByRole('heading', { name: /Prompt lab/i, level: 1 })).toBeVisible()
+      await page.waitForLoadState('networkidle', { timeout: 10_000 }).catch(() => {})
     })
     expect(reqs.some((r) => /\/api\/prompts/.test(r.url) && r.method === 'GET')).toBeTruthy()
   })

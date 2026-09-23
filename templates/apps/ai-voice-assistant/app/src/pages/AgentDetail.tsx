@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -148,6 +149,11 @@ function AgentDetail() {
       })
       if (res.data) setAgent(res.data)
       setSavedAt(new Date())
+      // Domain event: persona configuration committed.
+      track({
+        name: 'agent.updated',
+        properties: { agentId: agent.id, voiceId: voice },
+      })
     } catch (e) {
       setError(
         e instanceof Error
@@ -177,6 +183,8 @@ function AgentDetail() {
     setError(null)
     try {
       await http.delete(`/agents/${agent.id}`)
+      // Domain event: persona deleted (after the destructive action commits).
+      track({ name: 'agent.deleted', properties: { agentId: agent.id } })
       navigate('/agents')
     } catch (e) {
       setError(

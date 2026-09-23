@@ -21,6 +21,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 interface UserRow {
   id: string
@@ -87,7 +88,7 @@ router.get('/', async (_req, res) => {
     const user = await findById<UserRow>('users', userId)
     res.json(readPrefs(user))
   } catch (error) {
-    console.error(error)
+    logger.error('preferences.get', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -123,7 +124,7 @@ router.put('/', async (req, res) => {
     await updateById<UserRow>('users', userId, { oauthData })
     res.json(next)
   } catch (error) {
-    console.error(error)
+    logger.error('preferences.update', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,7 +120,14 @@ function Conversation() {
             agent_id: requestedAgentId,
           })
           if (cancelled) return
-          if (created.data?.id) setActiveId(created.data.id)
+          if (created.data?.id) {
+            setActiveId(created.data.id)
+            // Domain event: a fresh session bound to a persona began.
+            track({
+              name: 'conversation.started',
+              properties: { conversationId: created.data.id, agentId: requestedAgentId },
+            })
+          }
           setTurns([])
           return
         }
@@ -170,7 +178,12 @@ function Conversation() {
         ...(requestedAgentId ? { agent_id: requestedAgentId } : {}),
       })
       const id = created.data?.id ?? null
-      if (id) setActiveId(id)
+      if (id) {
+        setActiveId(id)
+        // Domain event: an ad-hoc session began (first message in a
+        // thread that did not exist yet).
+        track({ name: 'conversation.started', properties: { conversationId: id } })
+      }
       return id
     } catch (_error) {
       // Creation failed — caller receives null and surfaces an error to the user.
@@ -240,6 +253,18 @@ function Conversation() {
       const assistant = res.data?.assistantMessage
       if (assistant) {
         setTurns((prev) => [...(prev ?? []), rowToTurn(assistant)])
+        // Domain event: a delivered turn — voice-sourced sends are the
+        // app's core funnel (voice.command), typed sends are message.sent.
+        track({
+          name: source === 'voice' ? 'voice.command' : 'message.sent',
+          properties: {
+            conversationId: id,
+            ...(requestedAgentId ? { agentId: requestedAgentId } : {}),
+            ...(durationMs && durationMs > 0
+              ? { durationMs: Math.round(durationMs) }
+              : {}),
+          },
+        })
         // Auto-play the assistant's reply for voice-first interaction.
         // Always synthesize when the user spoke; for typed messages the
         // user still gets audio playback unless they've muted it.

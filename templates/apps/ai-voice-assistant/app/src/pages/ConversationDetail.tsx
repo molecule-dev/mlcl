@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -204,6 +205,11 @@ function ConversationDetail() {
     if (messages.length === 0) return
     playingRef.current = true
     setPlaying(true)
+    // Domain event: a saved transcript is being replayed aloud.
+    track({
+      name: 'transcript.played',
+      properties: { ...(params.id ? { conversationId: params.id } : {}), turns: messages.length },
+    })
     for (let i = 0; i < messages.length; i++) {
       if (!playingRef.current) break
       setActiveIdx(i)
@@ -217,7 +223,7 @@ function ConversationDetail() {
     if (playingRef.current) {
       stopPlayback()
     }
-  }, [messages, playOne, stopPlayback])
+  }, [messages, params.id, playOne, stopPlayback])
 
   function togglePlay() {
     if (playing) {

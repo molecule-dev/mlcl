@@ -20,6 +20,7 @@ import { requireProvider as requireAi } from '@molecule/api-ai'
 import { getUserId, uuidParamSchema as idParamSchema } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 interface ConversationRow {
   id: string
@@ -84,7 +85,7 @@ router.get('/', async (_req, res) => {
     })
     res.json(conversations)
   } catch (error) {
-    console.error(error)
+    logger.error('conversations.list', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -114,7 +115,7 @@ router.get('/:id', async (req, res) => {
     })
     res.json({ ...conversation, messages })
   } catch (error) {
-    console.error(error)
+    logger.error('conversations.get', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -144,7 +145,7 @@ router.post('/', async (req, res) => {
     })
     res.status(201).json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('conversations.create', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -239,7 +240,7 @@ router.post('/:id/messages', async (req, res) => {
 
     res.json({ userMessage: userMessage.data, assistantMessage: assistantMessage.data })
   } catch (error) {
-    console.error(error)
+    logger.error('conversations.sendMessage', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -266,7 +267,7 @@ router.delete('/:id', async (req, res) => {
     await deleteById('conversations', params.data.id)
     res.status(204).send()
   } catch (error) {
-    console.error(error)
+    logger.error('conversations.delete', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })

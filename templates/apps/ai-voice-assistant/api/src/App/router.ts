@@ -13,6 +13,7 @@ import {
 import agentsRouter from '../handlers/agents.js'
 import conversationsRouter from '../handlers/conversations.js'
 import preferencesRouter from '../handlers/preferences.js'
+import profileRouter from '../handlers/profile.js'
 import speechRouter from '../handlers/speech.js'
 import billingRouter from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
@@ -37,4 +38,5 @@ router.use('/agents', agentsRouter)
 router.use('/conversations', conversationsRouter)
 router.use('/speech', speechRouter)
 router.use('/preferences', preferencesRouter)
+router.use('/profile', profileRouter)
 router.use('/billing', billingRouter)

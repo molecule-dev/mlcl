@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -99,6 +100,9 @@ function Billing() {
       )
       const url = res.data?.checkoutUrl
       if (url) {
+        // Domain event: the conversion flow's entry point — a checkout
+        // session was actually handed back.
+        track({ name: 'billing.checkout_started', properties: { priceId } })
         window.location.assign(url)
         return
       }

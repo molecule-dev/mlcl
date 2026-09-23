@@ -14,6 +14,7 @@ import { z } from 'zod'
 import { requireProvider } from '@molecule/api-ai-speech'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 import { resolvePreferredVoice } from '../lib/voice.js'
 
@@ -72,7 +73,7 @@ router.post('/transcribe', async (req, res) => {
 
     res.json({ text: result.text, language: result.language })
   } catch (error) {
-    console.error(error)
+    logger.error('speech.transcribe', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -133,7 +134,7 @@ router.post('/synthesize', async (req, res) => {
       ),
     })
   } catch (error) {
-    console.error(error)
+    logger.error('speech.synthesize', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -190,7 +191,7 @@ router.get('/voices', async (req, res) => {
       ],
     })
   } catch (error) {
-    console.error(error)
+    logger.error('speech.voices', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })

@@ -15,11 +15,14 @@ interface UserResponse {
     id: string
     email: string
     name?: string
-    oauthData?: { profile?: { handle?: string; bio?: string; publicProfile?: boolean } } & Record<
-      string,
-      unknown
-    >
   }
+}
+
+interface ProfileExtrasResponse {
+  handle?: string
+  bio?: string
+  publicProfile?: boolean
+  avatarUrl?: string | null
 }
 
 test.describe('/profile (display name + handle + bio + public toggle)', () => {
@@ -66,8 +69,11 @@ test.describe('/profile (display name + handle + bio + public toggle)', () => {
     expect(id).toMatch(/^[0-9a-f-]{36}$/)
     const me = await apiGet<UserResponse>(page, `/users/${id}`)
     expect(me.props.name).toBe(display)
-    expect(me.props.oauthData?.profile?.handle).toBe(handle)
-    expect(me.props.oauthData?.profile?.bio).toBe(bio)
+    // The platform user resource NEVER returns `oauthData` on reads — the
+    // extras slice is served by the server-side /profile channel instead.
+    const extras = await apiGet<ProfileExtrasResponse>(page, '/profile')
+    expect(extras.handle).toBe(handle)
+    expect(extras.bio).toBe(bio)
 
     await page.reload()
     // Same field set as above — text inputs only, so index 1 is the handle and
@@ -93,9 +99,9 @@ test.describe('/profile (display name + handle + bio + public toggle)', () => {
     await page.getByRole('button', { name: /save profile/i }).click()
     await expect(page.getByText(/saved at/i)).toBeVisible({ timeout: 15_000 })
 
-    const id = await getUserId(page)
-    const me = await apiGet<UserResponse>(page, `/users/${id}`)
-    expect(me.props.oauthData?.profile?.publicProfile).toBe(after === 'true')
+    // Read the persisted slice back through the server-side /profile channel.
+    const extras = await apiGet<ProfileExtrasResponse>(page, '/profile')
+    expect(extras.publicProfile).toBe(after === 'true')
   })
 
   test('avatar pick + save persists across reload as a data: URL', async ({ page }) => {
@@ -122,11 +128,9 @@ test.describe('/profile (display name + handle + bio + public toggle)', () => {
     await page.getByRole('button', { name: /save profile/i }).click()
     await expect(page.getByText(/saved at/i)).toBeVisible({ timeout: 15_000 })
 
-    const id = await getUserId(page)
-    const me = await apiGet<
-      UserResponse & { props: { oauthData?: { profile?: { avatarUrl?: string } } } }
-    >(page, `/users/${id}`)
-    const stored = me.props.oauthData?.profile?.avatarUrl ?? ''
+    // Read the stored avatar through the server-side /profile channel
+    // (GET /users/:id never returns `oauthData`).
+    const stored = (await apiGet<ProfileExtrasResponse>(page, '/profile')).avatarUrl ?? ''
     expect(stored.startsWith('data:image/'), `expected data: URL, got ${stored.slice(0, 40)}`).toBe(
       true,
     )

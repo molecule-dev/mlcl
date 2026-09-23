@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ThemeToggle } from '@molecule/app-ui-react'
@@ -98,6 +99,9 @@ function Toggle({
       onClick={() => onChange(!enabled)}
       className={cm.cn(
         'relative h-6 w-11 rounded-full transition-colors shrink-0',
+        // Expand the tap target to ~40px without changing the visual size:
+        // a 24px-tall switch is under the fleet's touch-target floor.
+        'before:absolute before:left-1/2 before:top-1/2 before:h-10 before:w-10 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full',
         enabled ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-border',
       )}
     >
@@ -170,6 +174,11 @@ function Settings() {
     try {
       await http.put('/preferences', next)
       setSavedAt(Date.now())
+      // Domain event: preferences committed (voice/language/privacy/notifications).
+      track({
+        name: 'settings.updated',
+        properties: { voice: next.voice, language: next.language },
+      })
     } catch (e) {
       setError(
         e instanceof Error

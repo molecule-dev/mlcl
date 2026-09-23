@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,6 +68,8 @@ function Agents() {
       })
       if (res.data) {
         setAgents((prev) => [res.data, ...(prev ?? [])])
+        // Domain event: a persona was created — the agent funnel's entry point.
+        track({ name: 'agent.created', properties: { agentId: res.data.id } })
       }
     } catch (e) {
       setError(

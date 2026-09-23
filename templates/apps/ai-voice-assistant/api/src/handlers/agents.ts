@@ -14,6 +14,7 @@ import { z } from 'zod'
 import { getUserId, uuidParamSchema as idParamSchema } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 interface AgentRow {
   id: string
@@ -70,7 +71,7 @@ router.get('/', async (_req, res) => {
     })
     res.json(agents)
   } catch (error) {
-    console.error(error)
+    logger.error('agents.list', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -96,7 +97,7 @@ router.get('/:id', async (req, res) => {
     }
     res.json(agent)
   } catch (error) {
-    console.error(error)
+    logger.error('agents.get', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -125,7 +126,7 @@ router.post('/', async (req, res) => {
     })
     res.status(201).json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('agents.create', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -153,7 +154,7 @@ router.patch('/:id', async (req, res) => {
     const result = await updateById<AgentRow>('agents', params.data.id, body.data)
     res.json(result.data)
   } catch (error) {
-    console.error(error)
+    logger.error('agents.update', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })
@@ -180,7 +181,7 @@ router.delete('/:id', async (req, res) => {
     await deleteById('agents', params.data.id)
     res.status(204).end()
   } catch (error) {
-    console.error(error)
+    logger.error('agents.delete', error)
     res.status(500).json({ error: t('errors.server', {}, { defaultValue: 'Server error' }) })
   }
 })

@@ -1,19 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-interface ProfileExtras {
-  handle?: string
-  bio?: string
-  publicProfile?: boolean
-  avatarUrl?: string
-}
-
 interface ProfileUser extends UserProfile {
   name?: string
-  oauthData?: { profile?: ProfileExtras } | Record<string, unknown>
 }
 
 function Profile() {
@@ -49,9 +42,10 @@ function Profile() {
     avatarUrl: false,
   })
 
-  // Hydrate the editable extras (handle/bio/publicProfile/avatar) from
-  // /users/:id — the server returns the full row including `oauthData`,
-  // which is where we persist these per-app fields. Without this load
+  // Hydrate the editable extras (handle/bio/publicProfile/avatar) from the
+  // server-side GET /profile channel — the platform user resource NEVER
+  // returns `oauthData` on reads, so reading the extras off /users/:id (the
+  // old approach) silently reset them on every reload. Without this load
   // the extras only live in local UI state and disappear on reload.
   useEffect(() => {
     let cancelled = false
@@ -59,18 +53,24 @@ function Profile() {
     void (async () => {
       try {
         const res = await http.get<{
-          props?: { name?: string; email?: string; oauthData?: Record<string, unknown> }
+          props?: { name?: string; email?: string }
         }>(`/users/${user.id}`)
+        const extrasRes = await http.get<{
+          handle?: string
+          bio?: string
+          publicProfile?: boolean
+          avatarUrl?: string | null
+        }>('/profile')
         if (cancelled) return
         const props = res.data?.props
-        const oauthData = (props?.oauthData ?? {}) as Record<string, unknown>
-        const extras = (oauthData.profile ?? {}) as ProfileExtras
         if (!dirty.current.displayName) setDisplayName(props?.name ?? user.name ?? '')
         if (!dirty.current.email) setEmail(props?.email ?? user.email ?? '')
-        if (!dirty.current.handle) setHandle(extras.handle ?? '')
-        if (!dirty.current.bio) setBio(extras.bio ?? '')
-        if (!dirty.current.publicProfile) setPublicProfile(extras.publicProfile ?? true)
-        if (!dirty.current.avatarUrl) setAvatarUrl(extras.avatarUrl ?? null)
+        if (!dirty.current.handle) setHandle(extrasRes.data?.handle ?? '')
+        if (!dirty.current.bio) setBio(extrasRes.data?.bio ?? '')
+        if (!dirty.current.publicProfile) {
+          setPublicProfile(extrasRes.data?.publicProfile ?? true)
+        }
+        if (!dirty.current.avatarUrl) setAvatarUrl(extrasRes.data?.avatarUrl ?? null)
         hydratedRef.current = true
       } catch (_error) {
         // Ignore — UI falls back to whatever is on the auth session state.
@@ -146,25 +146,27 @@ function Profile() {
     setSaving(true)
     setError(null)
     try {
-      // Read-modify-write the user's oauthData so we don't clobber other
-      // apps' keys (voicePreferences, etc.).
-      const current = await http
-        .get<{ props?: { oauthData?: Record<string, unknown> } }>(`/users/${user.id}`)
-        .then((res) => (res.data?.props?.oauthData ?? {}) as Record<string, unknown>)
-        .catch(() => ({}) as Record<string, unknown>)
-      const profileExtras: ProfileExtras = {
-        handle: handle.trim() || undefined,
-        bio: bio.trim() || undefined,
-        publicProfile,
-        avatarUrl: avatarUrl ?? undefined,
-      }
-      const oauthData: Record<string, unknown> = { ...current, profile: profileExtras }
+      // Identity (name/email) goes through the platform's own PATCH
+      // /users/:id route. The extras (handle/bio/publicProfile/avatar)
+      // go through the server-side PATCH /profile channel, which merges
+      // them into `users.oauthData.profile` ON THE SERVER — the client
+      // must never send a whole `oauthData` object, because GET
+      // /users/:id does not return `oauthData` and a client-side
+      // read-modify-write would silently wipe sibling keys (it clobbered
+      // the /preferences `voicePreferences` slice once).
       await http.patch(`/users/${user.id}`, {
         name: displayName,
         email: email.trim(),
-        oauthData,
+      })
+      await http.patch('/profile', {
+        handle: handle.trim(),
+        bio: bio.trim(),
+        publicProfile,
+        avatarUrl: avatarUrl ?? undefined,
       })
       setSavedAt(new Date())
+      // Domain event: public identity committed.
+      track({ name: 'profile.updated', properties: { userId: user.id } })
     } catch (err) {
       setError(
         err instanceof Error
@@ -369,6 +371,10 @@ function Profile() {
                 }}
                 className={cm.cn(
                   'relative h-6 w-11 rounded-full transition-colors shrink-0',
+                  // Same ~40px invisible tap-target expansion as the
+                  // Settings switches — a 24px switch is under the
+                  // touch-target floor on mobile.
+                  'before:absolute before:left-1/2 before:top-1/2 before:h-10 before:w-10 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full',
                   publicProfile ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-border',
                 )}
               >

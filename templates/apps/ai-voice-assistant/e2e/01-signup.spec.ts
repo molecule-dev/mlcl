@@ -48,6 +48,13 @@ test.describe('/signup', () => {
     page,
     browser,
   }) => {
+    // The 403 from POST /api/users IS the case under test — the console
+    // guard would otherwise fail the test for logging exactly the
+    // rejection we asked for.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 403/,
+    })
     const email = uniqueEmail('dup')
     const password = 'TestPass1234!'
     const ctx = await browser.newContext()
@@ -76,6 +83,9 @@ test.describe('/signup', () => {
       .click()
     await page.waitForTimeout(2000)
     await expect(page).toHaveURL(/\/signup/)
+    // The title promises a visible error — assert the alert actually renders
+    // (the page sets role="alert" with the API's rejection message).
+    await expect(page.getByRole('alert')).toBeVisible()
   })
 
   test('auth state survives a hard reload after signup', async ({ page }) => {

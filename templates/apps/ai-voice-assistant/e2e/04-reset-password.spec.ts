@@ -15,6 +15,12 @@ test.describe('/reset-password', () => {
   })
 
   test('submitting without a token surfaces the "invalid or expired" error', async ({ page }) => {
+    // The API's 400 "Token is required." IS the case under test — allow
+    // the console noise the browser logs for that rejected request.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 400/,
+    })
     await page.goto(APP_BASE + '/reset-password')
     const pws = page.locator('input[type="password"]')
     await pws.nth(0).fill('NewPass1234!')
