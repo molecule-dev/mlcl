@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
 
@@ -52,9 +53,10 @@ export function Notifications() {
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.h('screen'),
-          'ml-[260px] w-[calc(100%-260px)]',
+          'ml-0 w-full md:ml-[260px] md:w-[calc(100%-260px)]',
         )}
       >
+        <MobileTopBar />
         <TopNavBar />
         <main
           data-mol-id="page-notifications"

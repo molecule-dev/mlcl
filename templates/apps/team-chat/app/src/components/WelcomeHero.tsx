@@ -28,7 +28,9 @@ export function WelcomeHero() {
       </div>
       <h2
         data-mol-id="welcome-hero-title"
-        className={cm.cn(cm.textSize('5xl'), 'font-extrabold tracking-tight text-on-surface')}
+        className={cm.cn(
+          'text-3xl font-extrabold tracking-tight text-on-surface sm:text-4xl md:text-5xl',
+        )}
       >
         {firstName
           ? t(titleKey, { name: firstName }, { defaultValue: 'Welcome back, {{name}}' })

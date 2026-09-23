@@ -20,6 +20,14 @@ import {
 
 test.describe('thread page', () => {
   test('shows "not found" when the messageId does not exist', async ({ page }) => {
+    // The 404s (parent + replies fetch for a nonexistent id) are the ASSERTED
+    // behavior; the browser + app logger both log them as console.error
+    // ("...status of 404" from the resource line, "...status 404" from the
+    // logger), tripping the guard.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status (of )?404',
+    })
     const { accessToken } = await apiSignupAndPrime(page, uniqueEmail('thr-404'))
     const ch = await seedChannel(page, accessToken, { name: 'qa-thread-404' })
     await page.goto(APP_BASE + `/channels/${ch.id}/threads/00000000-0000-0000-0000-000000000000`)
@@ -39,6 +47,10 @@ test.describe('thread page', () => {
     const parent = page.locator('[data-mol-id="thread-parent"]')
     await expect(parent).toBeVisible({ timeout: 5000 })
     await expect(parent).toContainText('parent message body for spec')
+    // The single-message GET hydrates the author, so the real sender renders
+    // instead of the component's "Alex Chen" sample fallback.
+    await expect(parent).toContainText('Thread Author')
+    await expect(parent).not.toContainText('Alex Chen')
   })
 
   test('replies list reflects /api/threads/:messageId/replies', async ({ page }) => {

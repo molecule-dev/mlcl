@@ -12,6 +12,7 @@ import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 
 interface AuthUser {
@@ -112,8 +113,14 @@ function Settings() {
     <div className={cm.cn(cm.flex(), 'bg-surface text-on-surface min-h-screen')}>
       <SideNavBar />
 
-      {/* Main Content Area */}
-      <main className={cm.cn(cm.minH('screen'), 'ml-[260px] w-[calc(100%-260px)] bg-surface')}>
+      {/* Main Content Area — full-width below 768px (the sidebar is a drawer there) */}
+      <main
+        className={cm.cn(
+          cm.minH('screen'),
+          'ml-0 w-full bg-surface md:ml-[260px] md:w-[calc(100%-260px)]',
+        )}
+      >
+        <MobileTopBar />
         <header
           className={cm.cn(
             cm.h(16),
@@ -392,15 +399,20 @@ function Settings() {
                       data-mol-id={`settings-toggle-${row.key}`}
                       role="switch"
                       aria-checked={row.value}
+                      aria-label={t(
+                        `settings.notifications.${row.key}Title`,
+                        {},
+                        { defaultValue: row.defaultTitle },
+                      )}
                       onClick={() => togglePref(row.key)}
                       className={cm.cn(
-                        'w-12 h-6 rounded-full relative transition-colors',
+                        'w-14 h-9 shrink-0 rounded-full relative transition-colors',
                         row.value ? 'bg-primary-container' : 'bg-surface-container',
                       )}
                     >
                       <span
                         className={cm.cn(
-                          'absolute top-1 w-4 h-4 bg-white rounded-full transition-all',
+                          'absolute top-2 w-5 h-5 bg-white rounded-full shadow transition-all',
                           row.value ? 'right-1' : 'left-1',
                         )}
                       ></span>
@@ -445,7 +457,7 @@ function Settings() {
                         data-mol-id={`settings-theme-${mode}`}
                         onClick={() => setTheme(mode)}
                         className={cm.cn(
-                          'flex-1 py-2 text-xs font-bold rounded-md transition-colors',
+                          'flex-1 py-2.5 text-xs font-bold rounded-md transition-colors',
                           themeName === mode
                             ? 'text-primary bg-white shadow-sm'
                             : 'text-on-surface-variant hover:text-on-surface',

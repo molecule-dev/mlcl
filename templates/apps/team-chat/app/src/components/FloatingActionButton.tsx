@@ -17,6 +17,10 @@ function FloatingActionButton({ onClick }: FloatingActionButtonProps) {
         cm.h(14),
         cm.roundedFull,
         'fixed bottom-8 right-8 bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-2xl hover:scale-110 active:scale-95 transition-all z-50',
+        // Below 768px the FAB hovers over the quick-action cards / "View All"
+        // link it duplicates (create-channel is the top quick action there),
+        // so it stays desktop-only.
+        'hidden md:flex',
       )}
     >
       <span

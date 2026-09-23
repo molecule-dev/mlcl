@@ -52,6 +52,9 @@ export default function TopNavBar() {
         cm.sp('px', 6),
         cm.h(14),
         'sticky top-0 z-40 w-full glass-header shadow-[0_1px_0_0_rgba(0,0,0,0.05)]',
+        // <768px the drawer (SideNavBar) + MobileTopBar own navigation; the
+        // desktop utility bar would duplicate them and overflow 390px.
+        'max-md:hidden',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 6 })}>
@@ -128,7 +131,8 @@ export default function TopNavBar() {
           to="/notifications"
           aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
           className={cm.cn(
-            'material-symbols-outlined text-on-surface-variant transition-colors hover:text-primary',
+            cm.flex({ align: 'center', justify: 'center' }),
+            'material-symbols-outlined h-9 w-9 rounded-md text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-primary',
           )}
         >
           notifications

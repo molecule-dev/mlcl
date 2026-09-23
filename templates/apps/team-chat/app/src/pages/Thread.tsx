@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import ParentMessage from '../components/ParentMessage.js'
 import ReplyInput from '../components/ReplyInput.js'
 import SideNavBar from '../components/SideNavBar.js'
@@ -21,14 +23,14 @@ interface Reply {
 function Thread() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  // The route also carries :channelId, but this view only needs the message.
-  const { messageId } = useParams<{ channelId: string; messageId: string }>()
+  const { channelId, messageId } = useParams<{ channelId: string; messageId: string }>()
   const http = useHttpClient()
   const [parentMessage, setParentMessage] = useState<Record<string, unknown> | null>(null)
   const [replies, setReplies] = useState<Reply[]>([])
   const [newReply, setNewReply] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!messageId) return
@@ -67,13 +69,27 @@ function Thread() {
       const created = body && 'data' in body ? body.data : body
       if (created) setReplies((prev) => [...prev, created])
       setNewReply('')
+      setSendError(null)
+      // Domain analytics: the thread-reply funnel's success point.
+      track({
+        name: 'thread.reply_sent',
+        properties: {
+          thread_id: String(messageId ?? ''),
+          channel_id: String(channelId ?? ''),
+          reply_id: String((created as { id?: string | number })?.id ?? ''),
+        },
+      })
     } catch (error) {
-      // Keep the typed draft in the composer so the user can retry.
+      // Keep the typed draft in the composer so the user can retry, and tell
+      // them the send failed instead of only logging it.
       logError('thread.sendReply', error)
+      setSendError(
+        t('thread.replyError', {}, { defaultValue: 'Reply failed to send — try again.' }),
+      )
     } finally {
       setSending(false)
     }
-  }, [http, newReply, messageId, sending])
+  }, [http, newReply, messageId, channelId, sending, t])
 
   if (loading) {
     return (
@@ -116,7 +132,7 @@ function Thread() {
       )}
     >
       <div className={cm.cn(cm.flex(), cm.h('screen'), cm.w('full'))}>
-        {/* SideNavBar Navigation Shell */}
+        {/* SideNavBar Navigation Shell — off-canvas drawer below 768px */}
         <SideNavBar />
         {/* Main Content Area */}
         <main
@@ -124,19 +140,15 @@ function Thread() {
             cm.flex1,
             cm.flex({ direction: 'col' }),
             cm.h('screen'),
-            'ml-[260px] bg-surface',
+            'ml-0 min-w-0 bg-surface md:ml-[260px]',
           )}
         >
+          <MobileTopBar />
           {/* TopNavBar Component */}
-          <ThreadHeader />
+          <ThreadHeader channelId={channelId} />
           {/* Thread Feed */}
           <div
-            className={cm.cn(
-              cm.flex1,
-              cm.sp('px', 12),
-              cm.sp('py', 8),
-              'overflow-y-auto no-scrollbar',
-            )}
+            className={cm.cn(cm.flex1, 'overflow-y-auto no-scrollbar px-4 py-5 md:px-12 md:py-8')}
           >
             <div className={cm.cn(cm.maxW('4xl'), cm.mxAuto, cm.stack(10))}>
               {/* Parent Message */}
@@ -148,22 +160,35 @@ function Thread() {
                 data-mol-id="thread-replies"
                 className={cm.cn(
                   cm.stack(8),
-                  cm.sp('pl', 10),
-                  'border-l-2 border-surface-container-high/50',
+                  'border-l-2 border-surface-container-high/50 pl-4 md:pl-10',
                 )}
               >
                 {replies.map((reply, i) => (
                   <div key={reply.id ?? i} className={cm.flex({ gap: 4 })}>
                     <div className={cm.shrink0}>
-                      <img
-                        className={cm.cn(cm.w(10), cm.h(10), 'rounded-xl object-cover shadow-sm')}
-                        src={String(
-                          reply.avatar ?? `https://picsum.photos/seed/Thread-${i + 1}/1200/800`,
-                        )}
-                        alt={String(
-                          reply.user_name ?? t('common.user', {}, { defaultValue: 'User' }),
-                        )}
-                      />
+                      {reply.avatar ? (
+                        <img
+                          className={cm.cn(cm.w(10), cm.h(10), 'rounded-xl object-cover shadow-sm')}
+                          src={String(reply.avatar)}
+                          alt={String(
+                            reply.user_name ?? t('common.user', {}, { defaultValue: 'User' }),
+                          )}
+                        />
+                      ) : (
+                        <div
+                          className={cm.cn(
+                            cm.w(10),
+                            cm.h(10),
+                            cm.flex({ align: 'center', justify: 'center' }),
+                            'rounded-xl bg-gradient-to-br from-primary-container to-primary text-sm font-bold text-on-primary shadow-sm',
+                          )}
+                          aria-hidden="true"
+                        >
+                          {String(reply.user_name || 'U')
+                            .charAt(0)
+                            .toUpperCase()}
+                        </div>
+                      )}
                     </div>
                     <div className={cm.flex1}>
                       <div
@@ -203,9 +228,30 @@ function Thread() {
                     </div>
                   </div>
                 ))}
+                {replies.length === 0 && (
+                  <p
+                    data-mol-id="thread-replies-empty"
+                    className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+                  >
+                    {t(
+                      'thread.noReplies',
+                      {},
+                      { defaultValue: 'No replies yet — start the thread below.' },
+                    )}
+                  </p>
+                )}
               </div>
             </div>
           </div>
+          {sendError && (
+            <p
+              role="alert"
+              data-mol-id="thread-reply-error"
+              className={cm.cn(cm.textSize('sm'), 'px-4 pb-1 text-error md:px-12')}
+            >
+              {sendError}
+            </p>
+          )}
           <ReplyInput
             value={newReply}
             onChange={setNewReply}

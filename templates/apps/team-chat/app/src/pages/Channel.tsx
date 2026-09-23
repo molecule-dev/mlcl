@@ -1,10 +1,12 @@
 import { type ReactNode, useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
+import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
 import {
   appendMessage,
@@ -19,8 +21,11 @@ function ChannelChrome({ children }: { children: ReactNode }) {
   return (
     <div style={{ height: '100%', width: '100%' }}>
       <SideNavBar />
-      <div style={{ marginLeft: '260px', height: '100%', width: 'calc(100% - 260px)' }}>
-        {children}
+      {/* <768px: the sidebar becomes an overlay drawer (see SideNavBar), so the
+          content column takes the full width and carries the mobile top bar. */}
+      <div className="ml-0 flex h-full w-full flex-col md:ml-[260px] md:w-[calc(100%-260px)]">
+        <MobileTopBar />
+        <div className="min-h-0 w-full flex-1">{children}</div>
       </div>
     </div>
   )
@@ -44,6 +49,7 @@ export function ChannelPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState<string | null>(null)
 
   const toggleReaction = useCallback(
     async (messageId: string, emoji: string) => {
@@ -178,13 +184,26 @@ export function ChannelPage() {
         content: newMessage,
       })
       // Dedupe by id: our own message:created broadcast may have landed first.
-      setMessages((prev) => appendMessage(prev, res.data))
+      const created = res.data as Record<string, unknown> | undefined
+      setMessages((prev) => appendMessage(prev, created))
       setNewMessage('')
+      setSendError(null)
+      // Domain analytics: the send funnel's success point.
+      track({
+        name: 'message.sent',
+        properties: { channel_id: String(channelId ?? ''), message_id: String(created?.id ?? '') },
+      })
+    } catch (_error) {
+      // A failed send keeps the draft in the composer and surfaces inline —
+      // it used to reject unhandled (silent failure from the user's view).
+      setSendError(
+        t('channel.sendError', {}, { defaultValue: 'Message failed to send — try again.' }),
+      )
     } finally {
       setSending(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newMessage, channelId, sending]) // http is stable across renders; including it would re-fetch on every call
+  }, [newMessage, channelId, sending, t]) // http is stable across renders; including it would re-fetch on every call
 
   // Wraps the current selection in the given prefix/suffix, or inserts the
   // suffix at the cursor if there's no selection. Toolbar buttons used to
@@ -357,7 +376,8 @@ export function ChannelPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '0 24px',
+            padding: '0 clamp(12px, 4vw, 24px)',
+            gap: '8px',
             height: '56px',
             backgroundColor: 'var(--color-surface)',
             borderBottom:
@@ -371,7 +391,7 @@ export function ChannelPage() {
           }}
         >
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
               <div className={cm.flex({ align: 'center' })} style={{ gap: '6px' }}>
                 <span
                   style={{
@@ -379,6 +399,9 @@ export function ChannelPage() {
                     fontWeight: 600,
                     color: 'var(--mol-color-text)',
                     lineHeight: 1,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   #{String(channel.name)}
@@ -413,6 +436,7 @@ export function ChannelPage() {
                       }}
                     />
                     <span
+                      className={cm.cn('max-md:max-w-[140px] md:max-w-[300px]')}
                       style={{
                         fontSize: '12px',
                         color: 'var(--color-outline)',
@@ -420,7 +444,6 @@ export function ChannelPage() {
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
-                        maxWidth: '300px',
                       }}
                     >
                       {String(channel.topic)}
@@ -431,9 +454,10 @@ export function ChannelPage() {
             </div>
           </div>
 
-          <div className={cm.flex({ align: 'center' })} style={{ gap: '16px' }}>
-            {/* Search Input */}
-            <div style={{ position: 'relative' }}>
+          <div className={cm.flex({ align: 'center' })} style={{ gap: '16px', flexShrink: 0 }}>
+            {/* Search Input — <1024px it drops (it filters the feed in-page;
+                the toolbar stays reachable) so tablet/mobile headers fit. */}
+            <div className={cm.cn('relative hidden lg:block')}>
               <span
                 className="material-symbols-outlined"
                 style={{
@@ -471,7 +495,7 @@ export function ChannelPage() {
                   fontSize: '12px',
                   fontWeight: 400,
                   lineHeight: '16px',
-                  width: '256px',
+                  width: 'min(256px, 22vw)',
                   outline: 'none',
                   color: 'var(--mol-color-text)',
                   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -606,14 +630,14 @@ export function ChannelPage() {
         )}
 
         {/* ── Body: Messages + optional Members sidebar ── */}
-        <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+        <div style={{ display: 'flex', flex: 1, overflow: 'hidden', position: 'relative' }}>
           {/* ── Message Feed ── */}
           <div
             data-mol-id="message-feed"
             style={{
               flex: 1,
               overflowY: 'auto',
-              padding: '32px 24px',
+              padding: '24px clamp(12px, 4vw, 24px)',
               display: 'flex',
               flexDirection: 'column',
               backgroundColor: 'var(--color-background)',
@@ -1045,9 +1069,13 @@ export function ChannelPage() {
             )}
           </div>
 
-          {/* ── Members Sidebar ── */}
+          {/* ── Members Sidebar — overlays the feed below 768px (a static
+              256px column would squeeze the 390px feed to ~130px) ── */}
           {showMembers && (
             <aside
+              className={cm.cn(
+                'max-md:absolute max-md:inset-y-0 max-md:right-0 max-md:z-20 max-md:shadow-xl',
+              )}
               style={{
                 width: '256px',
                 padding: '16px',
@@ -1193,8 +1221,17 @@ export function ChannelPage() {
             e.preventDefault()
             sendMessage()
           }}
-          style={{ padding: '0 24px 24px' }}
+          style={{ padding: '0 clamp(12px, 4vw, 24px) 16px' }}
         >
+          {sendError && (
+            <p
+              role="alert"
+              data-mol-id="message-send-error"
+              className={cm.cn(cm.textSize('sm'), cm.sp('mb', 2), 'text-error')}
+            >
+              {sendError}
+            </p>
+          )}
           <div
             data-mol-id="message-input"
             className="ch-input-wrap"
@@ -1318,7 +1355,7 @@ export function ChannelPage() {
             <div style={{ padding: '12px' }}>
               <textarea
                 data-mol-id="input-message"
-                className="ch-textarea"
+                className={cm.cn('ch-textarea h-16 md:h-24')}
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 onKeyDown={(e) => {
@@ -1338,7 +1375,6 @@ export function ChannelPage() {
                   border: 'none',
                   outline: 'none',
                   resize: 'none',
-                  height: '96px',
                   fontSize: '0.875rem',
                   lineHeight: '1.625',
                   fontFamily: 'Inter, sans-serif',

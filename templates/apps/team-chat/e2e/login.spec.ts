@@ -15,6 +15,9 @@ test.describe('login page', () => {
   })
 
   test('login with bogus credentials stays on /login (network 4xx)', async ({ page }) => {
+    // The 403 from the bad login IS the asserted behavior; the browser logs it
+    // as console.error and the console guard would otherwise fail the test.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     await page.goto(APP_BASE + '/login')
     await page
       .locator('input[type="email"]')

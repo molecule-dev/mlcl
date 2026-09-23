@@ -1,22 +1,40 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { Link } from 'react-router'
 
-import { useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-function ThreadHeader() {
+interface ThreadHeaderProps {
+  /** The :channelId route param — drives the back link + the real channel name. */
+  channelId?: string
+}
+
+function ThreadHeader({ channelId }: ThreadHeaderProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [searchQuery, setSearchQuery] = useState('')
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
-  const navigate = useNavigate()
+  const http = useHttpClient()
+  const { user } = useAuth<{ name?: string; email?: string }>()
+  const [channelName, setChannelName] = useState<string | null>(null)
 
+  // The header used to hardcode "#engineering" for every thread; resolve the
+  // real channel so the title matches the page you navigated from.
   useEffect(() => {
-    if (!isUserMenuOpen) return
-    const handleClick = () => setIsUserMenuOpen(false)
-    setTimeout(() => document.addEventListener('click', handleClick), 0)
-    return () => document.removeEventListener('click', handleClick)
-  }, [isUserMenuOpen])
+    if (!channelId) return
+    let active = true
+    http
+      .get<{ name?: string }>(`/api/channels/${channelId}`)
+      .then((res) => {
+        if (active) setChannelName(String(res.data?.name ?? ''))
+      })
+      .catch(() => {
+        if (active) setChannelName('')
+      })
+    return () => {
+      active = false
+    }
+  }, [http, channelId])
+
+  const userInitial = (user?.name || user?.email || 'U').charAt(0).toUpperCase()
 
   return (
     <header
@@ -25,60 +43,77 @@ function ThreadHeader() {
         cm.sp('px', 6),
         cm.h(14),
         cm.w('full'),
-        'sticky top-0 z-40 bg-surface/80 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.05)]',
+        'sticky top-0 z-40 shrink-0 bg-surface/80 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.05)]',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-            {t(
-              'threadHeader.channelName',
-              { channel: 'engineering' },
-              { defaultValue: '#{{channel}}' },
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), 'min-w-0')}>
+        {channelId && (
+          <Link
+            data-mol-id="thread-back"
+            to={`/channels/${channelId}`}
+            aria-label={t('thread.backToChannel', {}, { defaultValue: 'Back to channel' })}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              'h-9 w-9 shrink-0 rounded-md border-none bg-transparent text-on-surface-variant hover:bg-surface-container-high hover:text-primary',
             )}
-          </span>
-          <span className={cm.cn(cm.fontWeight('medium'), 'text-on-surface-variant opacity-40')}>
-            {t('common.separator', {}, { defaultValue: '·' })}
-          </span>
-          <span
-            className={cm.cn(cm.fontWeight('medium'), cm.textSize('sm'), 'text-on-surface-variant')}
           >
-            {t('threadHeader.contentType', {}, { defaultValue: 'Thread' })}
+            <span className={cm.cn('material-symbols-outlined text-[22px]')}>arrow_back</span>
+          </Link>
+        )}
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'min-w-0')}>
+          <span
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'truncate text-on-surface')}
+          >
+            {channelName
+              ? t(
+                  'threadHeader.channelName',
+                  { channel: channelName },
+                  { defaultValue: '#{{channel}}' },
+                )
+              : t('threadHeader.contentType', {}, { defaultValue: 'Thread' })}
           </span>
+          {channelName && (
+            <>
+              <span
+                className={cm.cn(cm.fontWeight('medium'), 'text-on-surface-variant opacity-40')}
+              >
+                {t('common.separator', {}, { defaultValue: '·' })}
+              </span>
+              <span
+                className={cm.cn(
+                  cm.fontWeight('medium'),
+                  cm.textSize('sm'),
+                  'text-on-surface-variant',
+                )}
+              >
+                {t('threadHeader.contentType', {}, { defaultValue: 'Thread' })}
+              </span>
+            </>
+          )}
         </div>
       </div>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }))}>
+      <div
+        className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'hidden md:flex')}
+        aria-hidden="true"
+      >
+        {/* Participant cluster — decorative placeholder chips (the API does not
+            expose thread participants), rendered locally instead of the remote
+            stock photos this used to fetch. */}
         <div className={cm.cn(cm.flex(), '-space-x-2')}>
-          <img
-            className={cm.cn(
-              cm.w(7),
-              cm.h(7),
-              'rounded-md border-2 border-surface-container-lowest',
-            )}
-            alt=""
-            data-alt="avatar of a man with short dark hair, minimal style"
-            src="https://picsum.photos/seed/ThreadHeader-1/1200/800"
-          />
-          <img
-            className={cm.cn(
-              cm.w(7),
-              cm.h(7),
-              'rounded-md border-2 border-surface-container-lowest',
-            )}
-            alt=""
-            data-alt="avatar of a woman with long hair, professional look"
-            src="https://picsum.photos/seed/ThreadHeader-2/1200/800"
-          />
-          <img
-            className={cm.cn(
-              cm.w(7),
-              cm.h(7),
-              'rounded-md border-2 border-surface-container-lowest',
-            )}
-            alt=""
-            data-alt="avatar of a man with beard, tech professional"
-            src="https://picsum.photos/seed/ThreadHeader-3/1200/800"
-          />
+          {['A', 'M', 'J'].map((initial) => (
+            <div
+              key={initial}
+              className={cm.cn(
+                cm.w(7),
+                cm.h(7),
+                cm.flex({ align: 'center', justify: 'center' }),
+                cm.fontWeight('bold'),
+                'rounded-md border-2 border-surface-container-lowest bg-primary-container text-[11px] text-on-primary-container',
+              )}
+            >
+              {initial}
+            </div>
+          ))}
           <div
             className={cm.cn(
               cm.w(7),
@@ -122,40 +157,40 @@ function ThreadHeader() {
               { defaultValue: 'Search thread...' },
             )}
             type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label={t('threadHeader.searchPlaceholder', {}, { defaultValue: 'Search thread' })}
           />
         </div>
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
-          <button
-            className={cm.cn('text-outline hover:text-primary transition-colors')}
-            onClick={() => navigate('/settings')}
-          >
-            <span className={cm.cn('material-symbols-outlined')} data-icon="settings">
-              settings
-            </span>
-          </button>
-          <button
-            type="button"
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.cursorPointer,
-              'rounded-lg overflow-hidden border border-outline-variant/30',
-            )}
-            onClick={(e) => {
-              e.stopPropagation()
-              setIsUserMenuOpen((v) => !v)
-            }}
-          >
-            <img
-              alt={t('threadHeader.userAvatarAlt', {}, { defaultValue: 'User Profile Avatar' })}
-              className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
-              data-alt="smiling software engineer headshot, clean studio lighting, high resolution"
-              src="https://picsum.photos/seed/ThreadHeader-4/1200/800"
-            />
-          </button>
-        </div>
+      </div>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+        <Link
+          to="/settings"
+          data-mol-id="thread-header-settings"
+          aria-label={t('nav.settings', {}, { defaultValue: 'Settings' })}
+          title={t('nav.settings', {}, { defaultValue: 'Settings' })}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'h-9 w-9 rounded-md text-outline hover:text-primary transition-colors',
+          )}
+        >
+          <span className={cm.cn('material-symbols-outlined')} data-icon="settings">
+            settings
+          </span>
+        </Link>
+        <Link
+          to="/settings"
+          data-mol-id="thread-header-user"
+          aria-label={t('threadHeader.userAvatarAlt', {}, { defaultValue: 'User profile' })}
+          title={user?.name || user?.email || undefined}
+          className={cm.cn(
+            cm.w(8),
+            cm.h(8),
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.cursorPointer,
+            'rounded-lg bg-primary text-sm font-bold text-on-primary overflow-hidden border border-outline-variant/30',
+          )}
+        >
+          {userInitial}
+        </Link>
       </div>
     </header>
   )

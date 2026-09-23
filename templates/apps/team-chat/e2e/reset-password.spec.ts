@@ -18,6 +18,9 @@ test.describe('reset-password page', () => {
   })
 
   test('submits new password to /api/users/reset-password', async ({ page }) => {
+    // An invalid token 401s — that IS the path exercised here; allow the
+    // console noise the browser makes for the failed fetch.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     const requests: { method: string; url: string }[] = []
     page.on('request', (req) => {
       if (req.url().includes('/api/users/reset-password')) {

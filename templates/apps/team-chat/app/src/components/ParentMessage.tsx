@@ -38,9 +38,10 @@ export default function ParentMessage(props: ParentMessageProps) {
     (fallbackAuthorName
       ? {
           name: fallbackAuthorName,
-          avatar:
-            fallbackAvatar ??
-            `https://ui-avatars.com/api/?name=${encodeURIComponent(fallbackAuthorName)}&background=4a154b&color=fff`,
+          // Only a REAL stored avatar URL becomes an <img>; without one the
+          // initials tile renders (the old ui-avatars.com fallback was an
+          // external network fetch that broke offline and lagged first paint).
+          avatar: fallbackAvatar,
           avatarAlt: fallbackAuthorName,
         }
       : undefined)
@@ -63,15 +64,30 @@ export default function ParentMessage(props: ParentMessageProps) {
     <section className={cm.cn('group relative')}>
       <div className={cm.cn(cm.flex({ gap: 4 }))}>
         <div className={cm.cn(cm.shrink0)}>
-          <img
-            className={cm.cn(cm.w(12), cm.h(12), 'rounded-xl object-cover shadow-sm')}
-            data-alt="portrait of a male developer Alex Chen, warm indoor lighting, slightly blurry tech background"
-            src={author?.avatar ?? 'https://picsum.photos/seed/ParentMessage-1/1200/800'}
-            alt={
-              author?.avatarAlt ??
-              t('parentMessage.avatarAlt', {}, { defaultValue: 'Author avatar' })
-            }
-          />
+          {author?.avatar ? (
+            <img
+              className={cm.cn(cm.w(12), cm.h(12), 'rounded-xl object-cover shadow-sm')}
+              src={author.avatar}
+              alt={
+                author?.avatarAlt ??
+                t('parentMessage.avatarAlt', {}, { defaultValue: 'Author avatar' })
+              }
+            />
+          ) : (
+            <div
+              className={cm.cn(
+                cm.w(12),
+                cm.h(12),
+                cm.flex({ align: 'center', justify: 'center' }),
+                'rounded-xl bg-gradient-to-br from-primary-container to-primary text-base font-bold text-on-primary shadow-sm',
+              )}
+              aria-hidden="true"
+            >
+              {String(author?.name || 'U')
+                .charAt(0)
+                .toUpperCase()}
+            </div>
+          )}
         </div>
         <div className={cm.cn(cm.flex1, 'min-w-0')}>
           <div className={cm.cn(cm.flex({ align: 'baseline', gap: 2 }), cm.sp('mb', 1))}>

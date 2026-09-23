@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -10,6 +11,7 @@ import { getClassMap } from '@molecule/app-ui'
 import DashboardRightColumn from '../components/DashboardRightColumn.js'
 import FloatingActionButton from '../components/FloatingActionButton.js'
 import MessagePreviewCard from '../components/MessagePreviewCard.js'
+import MobileTopBar from '../components/MobileTopBar.js'
 import QuickActionCard from '../components/QuickActionCard.js'
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
@@ -20,10 +22,12 @@ interface Message {
   channel?: string
   channelId?: string
   channel_id?: string
+  channel_name?: string
   time?: string
   created_at?: string
   author?: string
   user?: string
+  user_name?: string
   content?: string
   message?: string
   body?: string
@@ -45,8 +49,12 @@ function Dashboard() {
   const [createError, setCreateError] = useState<string | null>(null)
 
   useEffect(() => {
+    // The recent-messages feed has its own endpoint: the plain
+    // GET /api/messages requires a channel_id scope and 400s without one,
+    // which used to kill this column (and trip the e2e console guard) on
+    // every dashboard visit.
     http
-      .get<Message[] | { data: Message[] }>('/api/messages')
+      .get<Message[] | { data: Message[] }>('/api/messages/recent')
       .then((res) => {
         const body = res.data
         setMessages(Array.isArray(body) ? body : Array.isArray(body?.data) ? body.data : [])
@@ -105,6 +113,8 @@ function Dashboard() {
       setShowCreate(false)
       setNewChannelName('')
       setNewChannelDesc('')
+      // Domain analytics: the create-channel funnel's success point.
+      track({ name: 'channel.created', properties: { channel_id: String(id ?? ''), name } })
       if (id) navigate(`/channels/${id}`)
     } catch (e: unknown) {
       setCreateError(
@@ -130,11 +140,12 @@ function Dashboard() {
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.h('screen'),
-          'ml-[260px] w-[calc(100%-260px)]',
+          'ml-0 w-full md:ml-[260px] md:w-[calc(100%-260px)]',
         )}
       >
+        <MobileTopBar />
         <TopNavBar />
-        <main className={cm.cn(cm.sp('p', 12), cm.flex1, cm.surface, 'overflow-y-auto')}>
+        <main className={cm.cn(cm.flex1, cm.surface, 'overflow-y-auto p-4 sm:p-6 md:p-12')}>
           <div className={cm.cn(cm.mxAuto, cm.stack(12), cm.maxW('5xl'))}>
             {/* Welcome Hero Section */}
             <WelcomeHero />
@@ -222,7 +233,7 @@ function Dashboard() {
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
                         cm.textPrimary,
-                        'hover:underline',
+                        'flex min-h-[36px] items-center px-2 hover:underline',
                       )}
                       to="/channels"
                     >
@@ -266,7 +277,8 @@ function Dashboard() {
                         >
                           <MessagePreviewCard
                             channel={String(
-                              msg.channel ||
+                              msg.channel_name ||
+                                msg.channel ||
                                 t(
                                   'messagePreviewCard.unknownChannel',
                                   {},
@@ -274,7 +286,7 @@ function Dashboard() {
                                 ),
                             )}
                             time={String(msg.time || msg.created_at || '')}
-                            author={String(msg.author || msg.user || '')}
+                            author={String(msg.author || msg.user || msg.user_name || '')}
                             message={String(
                               msg.content || msg.message || msg.body || msg.text || '',
                             )}

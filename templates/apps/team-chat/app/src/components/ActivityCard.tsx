@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface MessageRow {
@@ -16,27 +16,23 @@ export default function ActivityCard() {
   const navigate = useNavigate()
   const cm = getClassMap()
   const http = useHttpClient()
-  const { user } = useAuth<{ id?: string; name?: string }>()
   const [mentionsCount, setMentionsCount] = useState<number | null>(null)
   const [reactionsCount, setReactionsCount] = useState<number | null>(null)
 
   useEffect(() => {
     let active = true
-    const handle = (user?.name?.split(' ')[0] || '').toLowerCase()
+    // The mentions feed is the same server-scoped source the Notifications
+    // page renders — one derivation, consistent counts. (The plain
+    // GET /api/messages requires a channel_id scope and 400s without one,
+    // which used to log a console error on every dashboard visit.)
     http
-      .get<MessageRow[]>('/api/messages')
+      .get<MessageRow[]>('/api/messages/mentions')
       .then((res) => {
         if (!active) return
         const list = Array.isArray(res?.data) ? res.data : []
-        const myMentions = handle
-          ? list.filter(
-              (m) =>
-                typeof m.content === 'string' && m.content.toLowerCase().includes(`@${handle}`),
-            ).length
-          : 0
+        setMentionsCount(list.length)
         // Reactions counter falls back to 0 until a per-user reactions endpoint
         // is wired (current API exposes /reactions/:messageId only).
-        setMentionsCount(myMentions)
         setReactionsCount(0)
       })
       .catch(() => {
@@ -47,7 +43,7 @@ export default function ActivityCard() {
     return () => {
       active = false
     }
-  }, [http, user?.name])
+  }, [http])
 
   const mentions = mentionsCount ?? 0
   const reactions = reactionsCount ?? 0

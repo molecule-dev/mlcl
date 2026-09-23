@@ -265,6 +265,46 @@ router.get('/mentions', requireAuth, async (_req, res) => {
   }
 })
 
+/**
+ * GET /messages/recent — the dashboard's "recent messages" feed: the newest
+ * messages across every channel the caller belongs to, each tagged with its
+ * channel name so the client can render one row per message without N
+ * follow-up requests. Declared BEFORE `/:id` so "recent" is not captured as
+ * a message id. (The plain `GET /messages` route requires a `channel_id`
+ * scope, so a dashboard-wide fetch has to go through this dedicated feed.)
+ */
+router.get('/recent', requireAuth, async (req, res) => {
+  try {
+    const userId = getUserId(res)
+    if (!userId) {
+      return res
+        .status(401)
+        .json({ error: t('auth.unauthorized', undefined, { defaultValue: 'Unauthorized' }) })
+    }
+    const channelIds = await listMemberChannelIds(userId)
+    if (channelIds.length === 0) return res.json([])
+    const limit = Math.min(Number(req.query.limit) || 10, 50)
+    const recent = (await findMany('messages', {
+      where: [{ field: 'channel_id', operator: 'in', value: channelIds }],
+      limit,
+      orderBy: [{ field: 'created_at', direction: 'desc' }],
+    })) as Record<string, unknown>[]
+    if (recent.length === 0) return res.json([])
+    const channelRows = (await findMany('channels', {
+      where: [{ field: 'id', operator: 'in', value: channelIds }],
+      limit: channelIds.length,
+    })) as Record<string, unknown>[]
+    const channelNames = new Map(channelRows.map((c) => [String(c.id), String(c.name ?? '')]))
+    const hydrated = await hydrateUsers(recent)
+    res.json(hydrated.map((m) => ({ ...m, channel_name: channelNames.get(String(m.channel_id)) })))
+  } catch (error) {
+    logger.error('messages.recent', error)
+    res.status(500).json({
+      error: t('messages.recentError', undefined, { defaultValue: 'Failed to list messages' }),
+    })
+  }
+})
+
 router.get('/:id', requireAuth, async (req, res) => {
   try {
     // Reading a single message requires membership of its channel, matching the
@@ -272,7 +312,11 @@ router.get('/:id', requireAuth, async (req, res) => {
     // (unchanged) and 403s a non-member; legitimate members still get the row.
     const auth = await authorizeChannelForMessage(req, res, req.params.id as string)
     if (!auth) return
-    res.json(auth.message)
+    // Hydrate author name/avatar exactly like the list endpoint — without this
+    // the thread page's parent message fell back to its sample author ("Alex
+    // Chen") because the raw row carries only user_id.
+    const [hydrated] = await hydrateUsers([auth.message as Record<string, unknown>])
+    res.json(hydrated)
   } catch (error) {
     logger.error('messages.read', error)
     res.status(500).json({
