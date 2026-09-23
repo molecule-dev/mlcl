@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -103,10 +104,16 @@ export function Billing() {
       })
       const body = (res.data ?? res) as CheckoutResponse
       if (body?.checkoutUrl) {
+        // Conversion-funnel point: the user is leaving for Stripe.
+        track({
+          name: 'billing.checkout_started',
+          properties: { tier: tier.key, period: price.period, price_id: price.stripePriceId },
+        })
         window.location.href = body.checkoutUrl
         return
       }
       if (body?.updated) {
+        track({ name: 'billing.plan_updated', properties: { tier: tier.key, status: 'updated' } })
         setMessage(
           t(
             'billing.upgraded',
@@ -153,6 +160,10 @@ export function Billing() {
     setMessage(null)
     try {
       await http.post('/api/billing/cancel', {})
+      track({
+        name: 'billing.subscription_cancelled',
+        properties: { tier: status.planKey, status: 'cancelled' },
+      })
       setMessage(t('nav.subscriptionCancelled', {}, { defaultValue: 'Subscription cancelled.' }))
       await refresh()
     } catch (err) {

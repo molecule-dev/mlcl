@@ -5,6 +5,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteMany, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import type { CurrentWeather, DailyForecast, HourlyForecast } from '@molecule/api-weather'
 import {
@@ -225,8 +226,14 @@ router.get('/current/:locationId', async (req: Request, res: Response) => {
 
   let row = rows[0]
   if (!row || !isCurrentFresh(row)) {
-    const fresh = await refreshCurrent(location)
-    if (fresh) row = fresh
+    // Provider failures must not hang the request: fall back to the last
+    // cached reading when one exists, 503 only when there is nothing.
+    try {
+      const fresh = await refreshCurrent(location)
+      if (fresh) row = fresh
+    } catch (error) {
+      logger.error('forecasts.refreshCurrent', error)
+    }
   }
 
   if (!row) {
@@ -258,13 +265,19 @@ router.get('/hourly/:locationId', async (req: Request, res: Response) => {
 
   const stale = forecasts.length === 0 || !isFetchedFresh(forecasts[0]!)
   if (stale) {
-    const refreshed = await refreshHourly(location, hours)
-    if (refreshed.length > 0) {
-      forecasts = await findMany<Record<string, unknown>>('forecast_hourly', {
-        where: [{ field: 'location_id', operator: '=', value: location.id }],
-        orderBy: [{ field: 'hour_at', direction: 'asc' }],
-        limit: hours,
-      })
+    try {
+      const refreshed = await refreshHourly(location, hours)
+      if (refreshed.length > 0) {
+        forecasts = await findMany<Record<string, unknown>>('forecast_hourly', {
+          where: [{ field: 'location_id', operator: '=', value: location.id }],
+          orderBy: [{ field: 'hour_at', direction: 'asc' }],
+          limit: hours,
+        })
+      }
+    } catch (error) {
+      // Serve whatever cached rows exist (possibly none — the page renders
+      // its empty state) rather than leaving the request hanging.
+      logger.error('forecasts.refreshHourly', error)
     }
   }
 
@@ -284,13 +297,19 @@ router.get('/daily/:locationId', async (req: Request, res: Response) => {
 
   const stale = forecasts.length === 0 || !isFetchedFresh(forecasts[0]!)
   if (stale) {
-    const refreshed = await refreshDaily(location, days)
-    if (refreshed.length > 0) {
-      forecasts = await findMany<Record<string, unknown>>('forecast_daily', {
-        where: [{ field: 'location_id', operator: '=', value: location.id }],
-        orderBy: [{ field: 'day_at', direction: 'asc' }],
-        limit: days,
-      })
+    try {
+      const refreshed = await refreshDaily(location, days)
+      if (refreshed.length > 0) {
+        forecasts = await findMany<Record<string, unknown>>('forecast_daily', {
+          where: [{ field: 'location_id', operator: '=', value: location.id }],
+          orderBy: [{ field: 'day_at', direction: 'asc' }],
+          limit: days,
+        })
+      }
+    } catch (error) {
+      // Serve whatever cached rows exist (possibly none — the page renders
+      // its empty state) rather than leaving the request hanging.
+      logger.error('forecasts.refreshDaily', error)
     }
   }
 
@@ -325,16 +344,33 @@ router.post(
     const hours = Math.min(Number(req.body?.hours) || 24, 96)
     const days = Math.min(Number(req.body?.days) || 7, 14)
 
-    const current = await refreshCurrent(location)
-    const hourly = await refreshHourly(location, hours)
-    const daily = await refreshDaily(location, days)
+    // Each refresh is independently best-effort: a provider failure on one
+    // series must not 500 the whole refresh when the others succeeded.
+    let current: Record<string, unknown> | null = null
+    let hourlyCount = 0
+    let dailyCount = 0
+    try {
+      current = await refreshCurrent(location)
+    } catch (error) {
+      logger.error('forecasts.refreshCurrent', error)
+    }
+    try {
+      hourlyCount = (await refreshHourly(location, hours)).length
+    } catch (error) {
+      logger.error('forecasts.refreshHourly', error)
+    }
+    try {
+      dailyCount = (await refreshDaily(location, days)).length
+    } catch (error) {
+      logger.error('forecasts.refreshDaily', error)
+    }
 
     await updateById('locations', location.id, {
       forecast_stale: false,
       updated_at: new Date(),
     })
 
-    res.json({ current, hourly_count: hourly.length, daily_count: daily.length })
+    res.json({ current, hourly_count: hourlyCount, daily_count: dailyCount })
   },
 )
 

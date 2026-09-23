@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -69,6 +70,7 @@ export function Locations() {
     setItems((current) => current.filter((loc) => loc.id !== id))
     try {
       await http.delete(`/api/locations/${id}`)
+      track({ name: 'location.removed', properties: { location_id: id } })
     } catch (error) {
       logError('locations.remove', error)
       setItems(previous)
@@ -81,6 +83,7 @@ export function Locations() {
     setItems((current) => current.map((loc) => ({ ...loc, is_default: loc.id === id })))
     try {
       await http.put(`/api/locations/${id}`, { is_default: true })
+      track({ name: 'location.default_set', properties: { location_id: id } })
       await loadLocations()
     } catch (error) {
       logError('locations.setDefault', error)
@@ -115,7 +118,16 @@ export function Locations() {
       const body: Record<string, unknown> = { address: formAddress.trim() }
       if (formName.trim()) body['name'] = formName.trim()
       if (formMakeDefault) body['is_default'] = true
-      await http.post('/api/locations', body)
+      const created = await http.post('/api/locations', body)
+      const createdBody = unwrapBody(created)
+      const createdId =
+        createdBody && typeof createdBody === 'object' && 'id' in createdBody
+          ? String((createdBody as { id: unknown }).id)
+          : null
+      track({
+        name: 'location.added',
+        properties: { location_id: createdId, is_default: formMakeDefault },
+      })
       setFormAddress('')
       setFormName('')
       setFormMakeDefault(false)
@@ -177,19 +189,19 @@ export function Locations() {
         </p>
       </header>
 
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'sm' }),
             cm.sp('p', 2),
             cm.sp('px', 5),
             cm.roundedFull,
-            'flex-1 bg-surface-container-lowest border border-outline-variant/40 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20',
+            'flex-1 min-w-0 bg-surface-container-lowest border border-outline-variant/40 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20',
           )}
         >
           <span
             className={cm.cn(
-              'material-symbols-outlined text-on-surface-variant',
+              'material-symbols-outlined text-on-surface-variant shrink-0',
               cm.textSize('xl'),
             )}
             aria-hidden="true"
@@ -206,7 +218,7 @@ export function Locations() {
               { defaultValue: 'Search saved locations…' },
             )}
             className={cm.cn(
-              'flex-1 bg-transparent border-0 outline-none text-base text-on-surface placeholder:text-on-surface-variant',
+              'flex-1 min-w-0 bg-transparent border-0 outline-none text-base text-on-surface placeholder:text-on-surface-variant',
               cm.sp('py', 2),
             )}
             aria-label={t('locations.searchAria', {}, { defaultValue: 'Search saved locations' })}

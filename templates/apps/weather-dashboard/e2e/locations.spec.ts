@@ -59,7 +59,9 @@ test('Remove pip deletes the location and it disappears from /api/locations', as
     address: 'Sydney, Australia',
   })
   await page.goto(APP_BASE + '/locations')
+  // Destructive remove is a two-step inline confirm: arm, then commit.
   await page.locator('button[aria-label="Remove Sydney"]').click()
+  await page.locator('button[aria-label="Confirm removing Sydney"]').click()
   await page.waitForTimeout(800)
   // Backend invariant
   const list = await api<Array<{ id: string }>>(page, 'GET', '/locations')

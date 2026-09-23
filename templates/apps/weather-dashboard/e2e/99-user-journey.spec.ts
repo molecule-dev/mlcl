@@ -236,6 +236,9 @@ test('Reset password page renders the email field', async ({ page }) => {
 })
 
 test('Login form rejects bad credentials with a non-2xx response', async ({ page }) => {
+  // The whole point of this test is the rejected POST /api/users/log-in —
+  // the browser logs that 403 as a console error, which is expected here.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
   await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').fill('definitely-not-a-real-user@example.com')
   await page.locator('input[type="password"]').fill('WrongPass987!')

@@ -80,7 +80,9 @@ export function DailyForecastRow({ day, minLow, maxHigh, unit = '°' }: DailyFor
       >
         {fmtDay(day.date)}
       </span>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'w-32 shrink-0')}>
+      {/* Condition block: icon-only under sm (390px has no room for the
+          text column), icon + truncated text from sm up. */}
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'sm:w-32 shrink-0')}>
         <span
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
@@ -98,7 +100,12 @@ export function DailyForecastRow({ day, minLow, maxHigh, unit = '°' }: DailyFor
             {day.icon || 'partly_cloudy_day'}
           </span>
         </span>
-        <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}>
+        <span
+          className={cm.cn(
+            cm.textSize('xs'),
+            'text-on-surface-variant truncate hidden sm:inline min-w-0',
+          )}
+        >
           {day.condition || '—'}
         </span>
       </div>
@@ -145,11 +152,12 @@ export function DailyForecastRow({ day, minLow, maxHigh, unit = '°' }: DailyFor
         </span>
       </div>
 
+      {/* Precip % hides under sm — the hourly strip already carries it. */}
       <span
         className={cm.cn(
           cm.textSize('xs'),
           cm.fontWeight('semibold'),
-          'tabular-nums w-12 text-right',
+          'tabular-nums w-12 text-right hidden sm:block',
           precip >= 30 ? 'text-info' : 'text-on-surface-variant/60',
         )}
       >

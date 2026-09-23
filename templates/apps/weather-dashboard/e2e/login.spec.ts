@@ -27,6 +27,8 @@ test('Login with a known account routes off /login', async ({ page }) => {
 })
 
 test('Login with bad credentials returns non-2xx and stays on /login', async ({ page }) => {
+  // The rejected POST is the subject of this test — allow its console 4xx.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4' })
   await page.goto(APP_BASE + '/login')
   await page.locator('input[type="email"]').fill('definitely-not-real@example.com')
   await page.locator('input[type="password"]').fill('WrongPass987!')

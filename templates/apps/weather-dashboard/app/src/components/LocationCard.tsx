@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
@@ -47,6 +48,30 @@ export function LocationCard({ location, to, onRemove, onSetDefault }: LocationC
   const cm = getClassMap()
   const { t } = useTranslation()
   const tempPref = getUnitPreferences().temperature
+  // Two-step inline confirm for the destructive remove: the first click
+  // arms the pip (error tint + "confirm" label), the second click within
+  // the arm window commits. Clicking elsewhere or waiting disarms.
+  const [confirmingRemove, setConfirmingRemove] = useState(false)
+  const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => {
+    return () => {
+      if (confirmTimer.current) clearTimeout(confirmTimer.current)
+    }
+  }, [])
+  const armRemove = () => {
+    setConfirmingRemove(true)
+    if (confirmTimer.current) clearTimeout(confirmTimer.current)
+    confirmTimer.current = setTimeout(() => setConfirmingRemove(false), 4000)
+  }
+  const handleRemoveClick = () => {
+    if (!confirmingRemove) {
+      armRemove()
+      return
+    }
+    if (confirmTimer.current) clearTimeout(confirmTimer.current)
+    setConfirmingRemove(false)
+    onRemove?.(location.id)
+  }
   const accent = location.is_default
     ? 'border-l-4 border-l-primary bg-primary/8'
     : 'border-l-4 border-l-transparent'
@@ -175,27 +200,40 @@ export function LocationCard({ location, to, onRemove, onSetDefault }: LocationC
             type="button"
             onClick={(e) => {
               e.preventDefault()
-              onRemove(location.id)
+              handleRemoveClick()
             }}
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
+              cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
+              confirmingRemove ? cm.sp('px', 3) : cm.w(8),
               cm.h(8),
               cm.roundedFull,
-              'bg-surface-container hover:bg-error/20 text-on-surface-variant hover:text-error transition-colors',
+              confirmingRemove
+                ? 'bg-error text-on-error font-bold hover:opacity-90'
+                : 'bg-surface-container hover:bg-error/20 text-on-surface-variant hover:text-error transition-colors',
             )}
-            aria-label={t(
-              'locationCard.removeAria',
-              { name: location.name },
-              { defaultValue: 'Remove {{name}}' },
-            )}
+            aria-label={
+              confirmingRemove
+                ? t(
+                    'locationCard.confirmRemoveAria',
+                    { name: location.name },
+                    { defaultValue: 'Confirm removing {{name}}' },
+                  )
+                : t(
+                    'locationCard.removeAria',
+                    { name: location.name },
+                    { defaultValue: 'Remove {{name}}' },
+                  )
+            }
           >
             <span
               className={cm.cn('material-symbols-outlined', cm.textSize('base'))}
               aria-hidden="true"
             >
-              close
+              {confirmingRemove ? 'delete' : 'close'}
             </span>
+            {confirmingRemove
+              ? t('locationCard.confirmRemove', {}, { defaultValue: 'Sure?' })
+              : null}
           </button>
         ) : null}
       </div>

@@ -27,6 +27,9 @@ test('Signup with valid credentials hits /api/users and lands on /dashboard', as
 })
 
 test('Signup with a pre-existing email returns 4xx and stays on /signup', async ({ page }) => {
+  // The duplicate POST is SUPPOSED to fail — the browser logs that 4xx as
+  // a console error, which this test intentionally exercises.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4' })
   // Burn a user first.
   const existing = uniqueEmail('weather-dup')
   await page.goto(APP_BASE + '/signup')

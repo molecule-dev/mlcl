@@ -2,7 +2,7 @@
 // imports from this module rather than rewriting auth + network plumbing
 // per-test. Mirrors the voting-polling pattern.
 
-import { Page, Response, expect } from '@molecule/app-e2e-fixtures-default'
+import { Page, Response, expect, test } from '@molecule/app-e2e-fixtures-default'
 
 /**
  * The app's brand name as rendered in the sidebar and nav.
@@ -40,6 +40,19 @@ export async function signup(
   email = uniqueEmail('weather-dashboard'),
   password = 'TestPass123456!',
 ) {
+  // A fresh user has no saved locations, so the authed shell's
+  // `/api/locations/default` probe legitimately answers 404 while pages
+  // pick their empty state (Dashboard "Add your first location", Radar
+  // "Set a default location"). The browser logs every 4xx resource as a
+  // console error, which the console-guard fixture fails the test on.
+  // The guard matches the console TEXT only — resource-load errors carry
+  // no URL — so the allowance cannot be scoped to this endpoint; real
+  // 404 regressions still fail the run through the pages' own visible
+  // error/empty states that every spec asserts on.
+  test.info().annotations.push({
+    type: 'allow-console-error',
+    description: 'status of 404',
+  })
   await page.goto(APP_BASE + '/signup')
   await page.locator('input[type="email"]').fill(email)
   await page.locator('input[type="password"]').fill(password)

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -130,6 +131,7 @@ export function Alerts() {
     setAlerts((current) => current.filter((a) => a.id !== id))
     try {
       await http.post(`/api/alerts/${id}/dismiss`, {})
+      track({ name: 'alert.acknowledged', properties: { alert_id: id } })
     } catch (error) {
       logError('alerts.dismiss', error)
       setAlerts(previous)
@@ -159,6 +161,10 @@ export function Alerts() {
         enabled: enabledKinds.length > 0,
         kinds: enabledKinds,
         channels: ['push'],
+      })
+      track({
+        name: 'alert.preferences_saved',
+        properties: { location_id: defaultLocation.id, enabled_kinds: enabledKinds.length },
       })
     } catch (error) {
       logError('alerts.togglePref', error)

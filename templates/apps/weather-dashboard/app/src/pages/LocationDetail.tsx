@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -226,6 +227,8 @@ export function LocationDetail() {
           })),
         )
         setAlerts(unwrapList<WeatherAlertItem>(al))
+        // Deep-view funnel point: a location's full forecast was loaded.
+        track({ name: 'forecast.viewed', properties: { location_id: id } })
       } catch (error) {
         logError('locationDetail.load', error)
         if (!cancelled) {

@@ -36,6 +36,9 @@ test('Reset-password page exposes a "Go back" button that navigates to /login', 
 test('Submit button on the reset-password form fires POST /api/users/reset-password', async ({
   page,
 }) => {
+  // The form posts a junk token — the API's 4xx rejection is expected and
+  // the browser logs it as a console error.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 4' })
   await page.goto(APP_BASE + '/reset-password')
   // Fields, in order: 1× email, 2× password (1=token, 2=new-password), 1× number (2FA).
   await page.locator('input[type="email"]').first().fill('someone@example.com')
