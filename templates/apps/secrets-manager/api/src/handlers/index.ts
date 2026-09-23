@@ -7,6 +7,7 @@ import integrations from './integrations.js'
 import notifications from './notifications.js'
 import rotations from './rotations.js'
 import secrets from './secrets.js'
+import settings from './settings.js'
 import teamMembers from './team-members.js'
 import vaults from './vaults.js'
 
@@ -19,6 +20,7 @@ router.use(integrations)
 router.use(notifications)
 router.use(rotations)
 router.use(secrets)
+router.use('/settings', settings)
 router.use(teamMembers)
 router.use(vaults)
 

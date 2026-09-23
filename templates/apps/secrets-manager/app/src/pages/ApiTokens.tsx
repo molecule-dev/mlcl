@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -86,6 +87,8 @@ export function ApiTokens() {
       })
       const created = res.data as TokenApi | undefined
       if (created?.token) setPlaintext(created.token)
+      // Plaintext token shown once in-UI; never enters telemetry.
+      void track({ name: 'token.created', properties: { token_id: created?.id } })
       setName('')
       setPerms(new Set(['read']))
       setCreating(false)
@@ -102,6 +105,7 @@ export function ApiTokens() {
       return
     try {
       await http.post(`/api/api-tokens/${id}/revoke`, {})
+      void track({ name: 'token.revoked', properties: { token_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'revoke failed')
@@ -121,6 +125,7 @@ export function ApiTokens() {
       return
     try {
       await http.delete(`/api/api-tokens/${id}`)
+      void track({ name: 'token.deleted', properties: { token_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'delete failed')

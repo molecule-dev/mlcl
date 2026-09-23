@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -92,6 +93,7 @@ export function Integrations() {
     setSubmitting(true)
     try {
       await http.post('/api/integrations', { name: name.trim(), category, config: {} })
+      void track({ name: 'integration.connected', properties: { category } })
       setName('')
       setCategory('aws')
       setAdding(false)
@@ -106,6 +108,7 @@ export function Integrations() {
   const sync = async (id: string) => {
     try {
       await http.post(`/api/integrations/${id}/sync`, {})
+      void track({ name: 'integration.synced', properties: { integration_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'sync failed')
@@ -121,6 +124,7 @@ export function Integrations() {
       return
     try {
       await http.delete(`/api/integrations/${id}`)
+      void track({ name: 'integration.removed', properties: { integration_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'delete failed')

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -77,9 +78,17 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
       await navigator.clipboard.writeText(secret.value as string)
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
+      // Metadata only — never the secret value in telemetry.
+      void track({ name: 'secret.copied', properties: { secret_id: secret.id } })
     } catch (_error) {
       /* clipboard not available — silently noop */
     }
+  }
+
+  function revealStart() {
+    if (!hasValue || revealed) return
+    setRevealed(true)
+    void track({ name: 'secret.revealed', properties: { secret_id: secret.id } })
   }
 
   return (
@@ -145,13 +154,13 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
           }
           disabled={!hasValue}
           onClick={(e) => e.stopPropagation()}
-          onMouseDown={() => hasValue && setRevealed(true)}
+          onMouseDown={revealStart}
           onMouseUp={() => setRevealed(false)}
           onMouseLeave={() => setRevealed(false)}
-          onTouchStart={() => hasValue && setRevealed(true)}
+          onTouchStart={revealStart}
           onTouchEnd={() => setRevealed(false)}
           className={cm.cn(
-            'inline-flex h-7 w-7 items-center justify-center rounded border border-border/60 text-muted',
+            'inline-flex h-8 w-8 items-center justify-center rounded border border-border/60 text-muted',
             'transition-colors hover:border-primary hover:text-primary',
             !hasValue && 'cursor-not-allowed opacity-40',
           )}
@@ -166,10 +175,11 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
           disabled={!hasValue}
           onClick={handleCopy}
           className={cm.cn(
-            'inline-flex h-7 w-7 items-center justify-center rounded border border-border/60 text-muted opacity-0',
-            'transition-all group-hover:opacity-100 hover:border-primary hover:text-primary',
+            // Always visible on touch (no hover to reveal it); hover-reveal on md+.
+            'inline-flex h-8 w-8 items-center justify-center rounded border border-border/60 text-muted md:opacity-0',
+            'transition-all md:group-hover:opacity-100 hover:border-primary hover:text-primary',
             copied && 'opacity-100 border-primary text-primary',
-            !hasValue && 'cursor-not-allowed opacity-40 group-hover:opacity-40',
+            !hasValue && 'cursor-not-allowed opacity-40 md:group-hover:opacity-40',
           )}
         >
           <span className="material-symbols-outlined text-[16px]">

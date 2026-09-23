@@ -5,6 +5,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { encrypt } from '@molecule/api-encryption'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -41,7 +42,8 @@ router.get('/integrations', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'name', direction: 'asc' }],
     })
     res.json(rows.map((r) => ({ ...r, config: undefined })))
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`integrations.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -64,7 +66,8 @@ router.get('/integrations/:id', async (req: Request, res: Response) => {
       })
     }
     res.json({ ...row, config: undefined })
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`integrations.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -93,7 +96,8 @@ router.post(
       })
       const created = result.data as Record<string, unknown> | null
       res.status(201).json({ ...(created ?? {}), config: undefined })
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`integrations.create failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -130,7 +134,8 @@ router.put(
       const result = await updateById<Record<string, unknown>>('integrations', id, updates)
       const updated = result.data as Record<string, unknown> | null
       res.json({ ...(updated ?? {}), config: undefined })
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`integrations.update failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -159,7 +164,8 @@ router.post('/integrations/:id/sync', async (req: Request, res: Response) => {
     })
     const updated = result.data as Record<string, unknown> | null
     res.json({ ...(updated ?? {}), config: undefined })
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`integrations.sync failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -183,7 +189,8 @@ router.delete('/integrations/:id', async (req: Request, res: Response) => {
     }
     await deleteById('integrations', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`integrations.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

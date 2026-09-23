@@ -42,6 +42,14 @@ test.describe('/reset-password', () => {
   })
 
   test('invalid token POSTs /api/users/reset-password and surfaces a non-2xx', async ({ page }) => {
+    // The endpoint's 401 for a bad token logs a browser network console
+    // error ("Failed to load resource … status of 401"). That IS the
+    // contract under test here — the page surfaces it inline via the
+    // reset-error alert — so allow exactly that expected console line.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     const creds = await signup(page, { email: uniqueEmail('resetuser'), password: 'TestPass1234!' })
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/reset-password')

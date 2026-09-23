@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -34,6 +35,9 @@ export function Login() {
     try {
       await login({ email, password })
       clearAuthForm()
+      // Domain conversion event — Arcanum's "unlock" is the login moment.
+      // No identifiers: email is PII and never enters telemetry.
+      void track({ name: 'vault.unlocked' })
       navigate(from, { replace: true })
     } catch (_error) {
       /* error rendered below via error hook state */

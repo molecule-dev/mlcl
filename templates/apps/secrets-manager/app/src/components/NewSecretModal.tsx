@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,6 +59,11 @@ export function NewSecretModal({
       })
       const id = (res.data as { id?: string } | undefined)?.id
       if (!id) throw new Error('secret create returned no id')
+      // Metadata only — never the secret value (or key name) in telemetry.
+      void track({
+        name: 'secret.created',
+        properties: { secret_id: id, vault_id: vaultId, kind, environment },
+      })
       await onCreated(id)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'create failed')
@@ -86,7 +92,7 @@ export function NewSecretModal({
         <form
           onSubmit={submit}
           className={cm.cn(
-            'flex w-full flex-col gap-3 rounded-xl border border-border bg-surface p-6 shadow-xl',
+            'flex max-h-[calc(100vh-3rem)] w-full flex-col gap-3 overflow-y-auto rounded-xl border border-border bg-surface p-6 shadow-xl',
           )}
         >
           <div className={cm.cn('flex items-center justify-between')}>
@@ -165,7 +171,7 @@ export function NewSecretModal({
             />
           </label>
 
-          <div className={cm.cn('grid grid-cols-3 gap-3')}>
+          <div className={cm.cn('grid grid-cols-1 gap-3 sm:grid-cols-3')}>
             <label
               className={cm.cn(
                 'flex flex-col gap-1 font-mono text-xs uppercase tracking-widest text-muted',

@@ -11,6 +11,7 @@ import {
   type WhereCondition,
 } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -46,7 +47,8 @@ router.get(
         limit: q.limit ?? 50,
       })
       res.json(rows)
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`notifications.list failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -71,7 +73,8 @@ router.post('/notifications/read-all', async (_req: Request, res: Response) => {
       { read_at: new Date() },
     )
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`notifications.readAll failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -95,7 +98,8 @@ router.post('/notifications/:id/read', async (req: Request, res: Response) => {
     }
     await updateById('notifications', id, { read_at: new Date() })
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`notifications.read failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -119,7 +123,8 @@ router.delete('/notifications/:id', async (req: Request, res: Response) => {
     }
     await deleteById('notifications', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`notifications.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

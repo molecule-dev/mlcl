@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -67,6 +68,8 @@ export function Team() {
     setSubmitting(true)
     try {
       await http.post('/api/team-members', { email: email.trim(), role })
+      // Role only — the invited email is PII and stays out of telemetry.
+      void track({ name: 'member.invited', properties: { role } })
       setEmail('')
       setRole('editor')
       setInviting(false)
@@ -83,6 +86,7 @@ export function Team() {
       return
     try {
       await http.delete(`/api/team-members/${id}`)
+      void track({ name: 'member.removed', properties: { member_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'remove failed')

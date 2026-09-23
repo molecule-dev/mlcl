@@ -6,6 +6,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { hash } from '@molecule/api-encryption'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -39,7 +40,8 @@ router.get('/api-tokens', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(rows.map((r) => ({ ...r, token_hash: undefined })))
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`apiTokens.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -70,7 +72,8 @@ router.post('/api-tokens', validateBody(createTokenSchema), async (req: Request,
       token_hash: undefined,
       token: plaintext,
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`apiTokens.create failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -94,7 +97,8 @@ router.post('/api-tokens/:id/revoke', async (req: Request, res: Response) => {
     }
     await updateById('api_tokens', id, { revoked_at: new Date() })
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`apiTokens.revoke failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -118,7 +122,8 @@ router.delete('/api-tokens/:id', async (req: Request, res: Response) => {
     }
     await deleteById('api_tokens', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`apiTokens.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

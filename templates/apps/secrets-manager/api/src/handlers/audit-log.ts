@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { query as auditQuery } from '@molecule/api-audit'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -54,7 +55,8 @@ router.get('/audit-log', validateQuery(listQuerySchema), async (req: Request, re
       vault_id: r.resource === 'vault' ? r.resourceId : null,
     }))
     res.json(rows)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`auditLog.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

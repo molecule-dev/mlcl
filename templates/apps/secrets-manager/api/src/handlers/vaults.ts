@@ -11,6 +11,7 @@ import {
   updateById,
 } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import { type RotatableSecret, soonestRotation } from '../lib/rotation.js'
@@ -72,7 +73,8 @@ router.get('/vaults', async (_req: Request, res: Response) => {
       next_rotation: soonestRotation(byVault.get(String(vault.id)) ?? []),
     }))
     res.json(decorated)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`vaults.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -98,7 +100,8 @@ router.get('/vaults/:id', async (req: Request, res: Response) => {
       where: [{ field: 'vault_id', operator: '=', value: id }],
     })
     res.json({ ...vault, next_rotation: soonestRotation(vaultSecrets) })
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`vaults.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -124,7 +127,8 @@ router.post('/vaults', validateBody(createVaultSchema), async (req: Request, res
       compliance: JSON.stringify(body.compliance ?? {}),
     })
     res.status(201).json(result.data ?? {})
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`vaults.create failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -158,7 +162,8 @@ router.put('/vaults/:id', validateBody(updateVaultSchema), async (req: Request, 
 
     const result = await updateById<Record<string, unknown>>('vaults', id, updates)
     res.json(result.data ?? {})
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`vaults.update failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -186,7 +191,8 @@ router.delete('/vaults/:id', async (req: Request, res: Response) => {
     ])
     await deleteById('vaults', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`vaults.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

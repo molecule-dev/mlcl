@@ -7,6 +7,7 @@ import { count, create, deleteById, findById, findMany, updateById } from '@mole
 import { decrypt, encrypt } from '@molecule/api-encryption'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { SecretsManagerLimits } from '../tiers.js'
@@ -80,7 +81,8 @@ router.get('/secrets', validateQuery(listQuerySchema), async (req: Request, res:
     })
     const safe = rows.map((r) => ({ ...r, value: undefined, has_value: !!r.value }))
     res.json(safe)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`secrets.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -114,7 +116,8 @@ router.get('/secrets/:id', async (req: Request, res: Response) => {
       ip: req.ip,
     })
     res.json({ ...secret, value })
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`secrets.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -175,7 +178,8 @@ router.post(
       }
 
       res.status(201).json({ ...(created ?? {}), value: undefined })
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`secrets.create failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -239,7 +243,8 @@ router.put(
       })
       const updated = result.data as Record<string, unknown> | null
       res.json({ ...(updated ?? {}), value: undefined })
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`secrets.update failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -322,7 +327,8 @@ router.post(
       })
       const updated = result.data as Record<string, unknown> | null
       res.json({ ...(updated ?? {}), value: undefined })
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`secrets.rotate failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -355,7 +361,8 @@ router.delete('/secrets/:id', async (req: Request, res: Response) => {
       ip: req.ip,
     })
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`secrets.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

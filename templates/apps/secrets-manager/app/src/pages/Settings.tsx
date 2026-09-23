@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -13,7 +14,14 @@ interface UserMe {
     id: string
     name?: string | null
     email?: string | null
-    oauthData?: Record<string, unknown> | null
+  }
+}
+
+interface AppSettings {
+  settings: {
+    org: {
+      name: string
+    }
   }
 }
 
@@ -54,15 +62,19 @@ export function Settings() {
 
   const reload = async () => {
     try {
-      const [meRes, billingRes] = await Promise.all([
+      const [meRes, billingRes, settingsRes] = await Promise.all([
         http.get<UserMe>('/api/users/me'),
         http.get<BillingStatus>('/api/billing/status'),
+        // Org prefs come from the app-owned server-side slice — the platform
+        // user resource never returns `oauthData` on reads, so a write via
+        // PATCH /api/users/:id would silently evaporate on the next load.
+        http.get<AppSettings>('/api/settings/me'),
       ])
       const meData = (meRes.data as UserMe) ?? null
       setMe(meData)
       setBilling((billingRes.data as BillingStatus) ?? null)
-      const oauth = meData?.props?.oauthData as Record<string, unknown> | null | undefined
-      setOrgName(typeof oauth?.org_name === 'string' ? (oauth.org_name as string) : '')
+      const slice = (settingsRes.data as AppSettings | undefined)?.settings
+      setOrgName(typeof slice?.org?.name === 'string' ? slice.org.name : '')
       setAccountName(typeof meData?.props?.name === 'string' ? meData.props.name : '')
       setError(null)
     } catch (e) {
@@ -87,12 +99,13 @@ export function Settings() {
 
   const saveOrg = async (e: FormEvent) => {
     e.preventDefault()
-    if (!me) return
     setSavingOrg(true)
     try {
-      const oauthData = { ...(me.props.oauthData ?? {}), org_name: orgName.trim() }
-      await http.patch(`/api/users/${me.props.id}`, { oauthData })
+      // Server-side slice channel: merged + readable back (see
+      // api/src/handlers/settings.ts for why oauthData via /users/:id fails).
+      await http.patch('/api/settings/me', { org: { name: orgName.trim() } })
       setOrgSavedAt(Date.now())
+      void track({ name: 'settings.updated', properties: { section: 'org' } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'org save failed')

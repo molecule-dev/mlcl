@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -42,7 +43,8 @@ router.get('/team-members', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'email', direction: 'asc' }],
     })
     res.json(rows)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`teamMembers.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -65,7 +67,8 @@ router.get('/team-members/:id', async (req: Request, res: Response) => {
         .json({ error: t('team.notFound', undefined, { defaultValue: 'Team member not found' }) })
     }
     res.json(row)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`teamMembers.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -93,7 +96,8 @@ router.post(
         status: 'invited',
       })
       res.status(201).json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`teamMembers.create failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -129,7 +133,8 @@ router.put(
 
       const result = await updateById<Record<string, unknown>>('team_members', id, updates)
       res.json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`teamMembers.update failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -154,7 +159,8 @@ router.delete('/team-members/:id', async (req: Request, res: Response) => {
     }
     await deleteById('team_members', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`teamMembers.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

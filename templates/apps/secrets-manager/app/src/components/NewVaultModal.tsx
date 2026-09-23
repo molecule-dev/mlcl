@@ -1,5 +1,6 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -41,6 +42,7 @@ export function NewVaultModal({ onClose, onCreated }: NewVaultModalProps) {
       })
       const id = (res.data as { id?: string } | undefined)?.id
       if (!id) throw new Error('vault create returned no id')
+      void track({ name: 'vault.created', properties: { vault_id: id, environment } })
       await onCreated(id)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'create failed')
@@ -69,7 +71,7 @@ export function NewVaultModal({ onClose, onCreated }: NewVaultModalProps) {
         <form
           onSubmit={submit}
           className={cm.cn(
-            'flex w-full flex-col gap-4 rounded-xl border border-border bg-surface p-6 shadow-xl',
+            'flex max-h-[calc(100vh-3rem)] w-full flex-col gap-4 overflow-y-auto rounded-xl border border-border bg-surface p-6 shadow-xl',
           )}
         >
           <div className={cm.cn('flex items-center justify-between')}>

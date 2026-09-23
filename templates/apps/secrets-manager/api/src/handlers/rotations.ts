@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -37,7 +38,8 @@ router.get('/rotations', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'scheduled_at', direction: 'desc' }],
     })
     res.json(rows)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`rotations.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -60,7 +62,8 @@ router.get('/rotations/:id', async (req: Request, res: Response) => {
         .json({ error: t('rotations.notFound', undefined, { defaultValue: 'Rotation not found' }) })
     }
     res.json(row)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`rotations.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -95,7 +98,8 @@ router.post(
         by_actor: uid,
       })
       res.status(201).json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`rotations.create failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -129,7 +133,8 @@ router.put(
 
       const result = await updateById<Record<string, unknown>>('rotations', id, updates)
       res.json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`rotations.update failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -154,7 +159,8 @@ router.delete('/rotations/:id', async (req: Request, res: Response) => {
     }
     await deleteById('rotations', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`rotations.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

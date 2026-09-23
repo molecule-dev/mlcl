@@ -5,6 +5,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { count, create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { SecretsManagerLimits } from '../tiers.js'
@@ -42,7 +43,8 @@ router.get('/access-policies', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'name', direction: 'asc' }],
     })
     res.json(rows)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`accessPolicies.list failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -65,7 +67,8 @@ router.get('/access-policies/:id', async (req: Request, res: Response) => {
       })
     }
     res.json(policy)
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`accessPolicies.get failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })
@@ -102,7 +105,8 @@ router.post(
         expires_at: body.expires_at ?? null,
       })
       res.status(201).json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`accessPolicies.create failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -142,7 +146,8 @@ router.put(
 
       const result = await updateById<Record<string, unknown>>('access_policies', id, updates)
       res.json(result.data ?? {})
-    } catch (_err) {
+    } catch (err) {
+      logger.error(`accessPolicies.update failed: ${(err as Error)?.stack ?? err}`)
       res.status(500).json({
         error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
       })
@@ -167,7 +172,8 @@ router.delete('/access-policies/:id', async (req: Request, res: Response) => {
     }
     await deleteById('access_policies', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error(`accessPolicies.delete failed: ${(err as Error)?.stack ?? err}`)
     res.status(500).json({
       error: t('errors.internalServer', undefined, { defaultValue: 'Internal server error' }),
     })

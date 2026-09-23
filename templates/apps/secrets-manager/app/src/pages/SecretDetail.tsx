@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -98,9 +99,18 @@ export function SecretDetail() {
       await navigator.clipboard.writeText(value)
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
+      // Metadata only — never the secret value in telemetry.
+      void track({ name: 'secret.copied', properties: { secret_id: id } })
     } catch (_error) {
       /* clipboard not available */
     }
+  }
+
+  const toggleReveal = () => {
+    setRevealed((r) => {
+      if (!r) void track({ name: 'secret.revealed', properties: { secret_id: id } })
+      return !r
+    })
   }
 
   const submitRotation = async (e: FormEvent) => {
@@ -115,6 +125,7 @@ export function SecretDetail() {
       setRotateOpen(false)
       setNewValue('')
       setRotateComment('')
+      void track({ name: 'secret.rotated', properties: { secret_id: id } })
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'rotate failed')
@@ -132,6 +143,7 @@ export function SecretDetail() {
     setDeleting(true)
     try {
       await http.delete(`/api/secrets/${id}`)
+      void track({ name: 'secret.deleted', properties: { secret_id: id } })
       if (secret.vault_id) navigate(`/vaults/${secret.vault_id}`)
       else navigate('/vaults')
     } catch (err) {
@@ -256,7 +268,7 @@ export function SecretDetail() {
                     <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
                       <button
                         type="button"
-                        onClick={() => setRevealed((r) => !r)}
+                        onClick={toggleReveal}
                         data-mol-id="secret-value-toggle"
                         className={cm.cn(
                           'inline-flex h-7 items-center gap-1 rounded border border-border bg-surface px-2 font-mono text-[11px] text-muted transition-colors hover:border-primary hover:text-primary',

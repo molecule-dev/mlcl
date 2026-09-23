@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -138,6 +139,7 @@ export function VaultDetail() {
     setDeleting(true)
     try {
       await http.delete(`/api/vaults/${id}`)
+      void track({ name: 'vault.deleted', properties: { vault_id: id } })
       navigate('/vaults')
     } catch (e) {
       setError(e instanceof Error ? e.message : 'delete failed')

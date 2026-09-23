@@ -27,7 +27,7 @@ test.describe('/settings', () => {
     await expect(cta).toHaveAttribute('href', /\/pricing/)
   })
 
-  test('Saving the organisation name PATCHes /api/users/:id and persists to oauthData', async ({
+  test('Saving the organisation name PATCHes /api/settings/me and persists across reload', async ({
     page,
   }) => {
     await signup(page)
@@ -39,18 +39,22 @@ test.describe('/settings', () => {
       await page.locator('[data-mol-id="settings-org-save"]').click()
       await page.waitForTimeout(1500)
     })
-    const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/users\/[^/]+$/.test(r.url))
-    expect(patch, 'PATCH /api/users/:id should fire on org save').toBeDefined()
+    // The org pref lives in the app-owned server-side slice. The platform
+    // user resource NEVER returns `oauthData` on reads, so a write via
+    // PATCH /api/users/:id evaporates on the next GET /users/me — the
+    // settings channel is the only persistence that survives a reload.
+    const patch = reqs.find((r) => r.method === 'PATCH' && /\/api\/settings\/me$/.test(r.url))
+    expect(patch, 'PATCH /api/settings/me should fire on org save').toBeDefined()
     expect(patch!.status, 'org save should succeed').toBeLessThan(300)
-    // Reload-and-read: org name persists in oauthData on the user record.
+    // Reload-and-read: org name persists through the settings channel.
     await page.reload()
     await page.waitForTimeout(1500)
     await expect(page.locator('[data-mol-id="settings-org-name"]')).toHaveValue(orgName)
     // Truth from API.
-    const me = await apiFetch(page, 'GET', '/users/me')
-    const oauth =
-      (me.json as { props: { oauthData?: Record<string, unknown> } }).props.oauthData ?? {}
-    expect(oauth.org_name).toBe(orgName)
+    const me = await apiFetch(page, 'GET', '/settings/me')
+    expect(me.status).toBe(200)
+    const slice = me.json as { settings: { org: { name: string } } }
+    expect(slice.settings.org.name).toBe(orgName)
   })
 
   test('Saving the account display name PATCHes /api/users/:id and persists across reload', async ({
