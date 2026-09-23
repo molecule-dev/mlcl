@@ -9,6 +9,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid } from '../lib/is-uuid.js'
 import type { ApiDocumentationLimits } from '../tiers.js'
 
 const router = Router()
@@ -54,6 +55,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    if (!isUuid(getParamId(req))) return res.status(404).json({ error: t('specs.notFound') })
     const row = await findById<Record<string, unknown>>('api_specs', getParamId(req))
     if (!row || row.user_id !== userId) {
       return res.status(404).json({ error: t('specs.notFound') })
@@ -111,6 +113,7 @@ router.put('/:id', validateBody(updateSpecSchema), async (req: Request, res: Res
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('specs.notFound') })
     const existing = await findById<Record<string, unknown>>('api_specs', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('specs.notFound') })
@@ -134,6 +137,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('specs.notFound') })
     const existing = await findById<Record<string, unknown>>('api_specs', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('specs.notFound') })

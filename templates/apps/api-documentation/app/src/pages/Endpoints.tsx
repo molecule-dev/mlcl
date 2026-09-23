@@ -213,7 +213,13 @@ export function Endpoints() {
                         'block hover:bg-surface-container',
                       )}
                     >
-                      <div className={cm.flex({ align: 'center', gap: 'md' })}>
+                      <div
+                        className={cm.flex({
+                          align: 'center',
+                          gap: 'md',
+                          wrap: 'wrap',
+                        })}
+                      >
                         <span
                           className={cm.cn(
                             cm.sp('px', 2),
@@ -232,7 +238,7 @@ export function Endpoints() {
                         <code
                           className={cm.cn(
                             cm.fontWeight('semibold'),
-                            'font-mono',
+                            'font-mono min-w-0 [overflow-wrap:anywhere]',
                             e.deprecated ? 'line-through' : '',
                           )}
                         >
@@ -257,7 +263,7 @@ export function Endpoints() {
                           cm.textSize('sm'),
                           cm.sp('mt', 1),
                           'text-on-surface-variant',
-                          'pl-20',
+                          'sm:pl-20',
                         )}
                       >
                         {e.summary}

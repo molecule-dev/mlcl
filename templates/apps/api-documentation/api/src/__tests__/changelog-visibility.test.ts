@@ -5,6 +5,11 @@ import { describe, expect, it, vi } from 'vitest'
 // clause and GET /:id ignored it — so a non-public entry leaked to every visitor. Both public reads now
 // gate on is_public.
 
+// The changelog table keys on a uuid PK and GET /:id guards non-uuid params
+// to 404 before querying — the fixture id must be uuid-shaped to reach the
+// is_public logic these tests exist to check.
+const ENTRY_ID = '3f2504e0-4f89-11d3-9a0c-0305e82c3301'
+
 const db = {
   findMany: vi.fn(async (..._a: unknown[]) => [] as unknown[]),
   findById: vi.fn(async (..._a: unknown[]) => null as unknown),
@@ -20,7 +25,7 @@ vi.mock('@molecule/api-database', () => ({
   updateById: (...a: unknown[]) => db.updateById(...a),
 }))
 vi.mock('@molecule/api-bonds-default-express', () => ({
-  getParamId: () => 'id1',
+  getParamId: () => ENTRY_ID,
   getUserId: () => 'u1',
 }))
 vi.mock('@molecule/api-i18n', () => ({ t: (k: string) => k }))
@@ -71,17 +76,17 @@ describe('changelog public reads gate on is_public', () => {
   })
 
   it('detail returns 404 for a non-public entry', async () => {
-    db.findById.mockResolvedValueOnce({ id: 'id1', is_public: false })
+    db.findById.mockResolvedValueOnce({ id: ENTRY_ID, is_public: false })
     const res = makeRes()
-    await getHandler('/:id', 'get')({ params: { id: 'id1' } } as unknown as Request, res)
+    await getHandler('/:id', 'get')({ params: { id: ENTRY_ID } } as unknown as Request, res)
     expect(res.statusCode).toBe(404)
   })
 
   it('detail returns a public entry', async () => {
-    db.findById.mockResolvedValueOnce({ id: 'id1', is_public: true })
+    db.findById.mockResolvedValueOnce({ id: ENTRY_ID, is_public: true })
     const res = makeRes()
-    await getHandler('/:id', 'get')({ params: { id: 'id1' } } as unknown as Request, res)
+    await getHandler('/:id', 'get')({ params: { id: ENTRY_ID } } as unknown as Request, res)
     expect(res.statusCode).toBe(200)
-    expect((res.body as { id: string }).id).toBe('id1')
+    expect((res.body as { id: string }).id).toBe(ENTRY_ID)
   })
 })

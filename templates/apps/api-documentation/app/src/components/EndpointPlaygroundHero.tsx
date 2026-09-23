@@ -272,7 +272,7 @@ export function EndpointPlaygroundHero({
               <p className="text-emerald-300">
                 200 OK <span className={cm.cn('text-white/70 ml-2')}>· 47ms · 2.3KB</span>
               </p>
-              <pre className="text-white/85 overflow-x-auto">
+              <pre className="text-white/85 [overflow-wrap:anywhere] whitespace-pre-wrap">
                 {`{
   "data": [
     {

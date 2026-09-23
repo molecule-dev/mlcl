@@ -10,6 +10,8 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid } from '../lib/is-uuid.js'
+
 const router = Router()
 
 const createKeySchema = z.object({
@@ -52,6 +54,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    if (!isUuid(getParamId(req))) return res.status(404).json({ error: t('apiKeys.notFound') })
     const row = await findById<Record<string, unknown>>('api_keys', getParamId(req))
     if (!row || row.user_id !== userId) {
       return res.status(404).json({ error: t('apiKeys.notFound') })
@@ -94,6 +97,7 @@ router.put('/:id', validateBody(updateKeySchema), async (req: Request, res: Resp
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('apiKeys.notFound') })
     const existing = await findById<Record<string, unknown>>('api_keys', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('apiKeys.notFound') })
@@ -118,6 +122,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('apiKeys.notFound') })
     const existing = await findById<Record<string, unknown>>('api_keys', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('apiKeys.notFound') })

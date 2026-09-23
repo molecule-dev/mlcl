@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -40,29 +41,39 @@ async function writeConnectedIds(userId: string, ids: Set<string>): Promise<void
 }
 
 router.get('/', async (_req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
-  const connected = await readConnectedIds(userId)
-  const list: Integration[] = CATALOG.map((c) => ({
-    ...c,
-    status: connected.has(c.id) ? 'connected' : 'not_connected',
-  }))
-  res.json(list)
+  try {
+    const userId = getUserId(res)
+    if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    const connected = await readConnectedIds(userId)
+    const list: Integration[] = CATALOG.map((c) => ({
+      ...c,
+      status: connected.has(c.id) ? 'connected' : 'not_connected',
+    }))
+    res.json(list)
+  } catch (error) {
+    logger.error('integrations.list', error)
+    res.status(500).json({ error: t('errors.internalServer') })
+  }
 })
 
 router.post('/:id/toggle', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
-  const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
-  const known = CATALOG.find((c) => c.id === id)
-  if (!known) return res.status(404).json({ error: t('integrations.notFound') })
+  try {
+    const userId = getUserId(res)
+    if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id
+    const known = CATALOG.find((c) => c.id === id)
+    if (!known) return res.status(404).json({ error: t('integrations.notFound') })
 
-  const connected = await readConnectedIds(userId)
-  if (connected.has(id)) connected.delete(id)
-  else connected.add(id)
-  await writeConnectedIds(userId, connected)
+    const connected = await readConnectedIds(userId)
+    if (connected.has(id)) connected.delete(id)
+    else connected.add(id)
+    await writeConnectedIds(userId, connected)
 
-  res.json({ id, status: connected.has(id) ? 'connected' : 'not_connected' })
+    res.json({ id, status: connected.has(id) ? 'connected' : 'not_connected' })
+  } catch (error) {
+    logger.error('integrations.toggle', error)
+    res.status(500).json({ error: t('errors.internalServer') })
+  }
 })
 
 export default router

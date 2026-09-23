@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -96,11 +97,13 @@ export function Billing() {
       .then((res) => {
         const payload = res?.data as { checkoutUrl?: string; updated?: boolean } | undefined
         if (payload?.checkoutUrl && typeof window !== 'undefined') {
+          track({ name: 'billing.checkout_started', properties: { price_id: priceId } })
           window.location.assign(payload.checkoutUrl)
           return
         }
         if (payload?.updated) {
           setShowPlanPicker(false)
+          track({ name: 'billing.plan_updated', properties: { price_id: priceId } })
           // Re-read billing summary so plan_name reflects the upgrade.
           http
             .get('/api/billing')

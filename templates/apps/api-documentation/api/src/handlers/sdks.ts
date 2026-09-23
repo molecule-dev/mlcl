@@ -8,6 +8,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid } from '../lib/is-uuid.js'
 import { requireAdmin } from '../middleware/require-admin.js'
 
 const router = Router()
@@ -36,6 +37,7 @@ router.get('/', async (_req: Request, res: Response) => {
 
 router.get('/:id', async (req: Request, res: Response) => {
   try {
+    if (!isUuid(getParamId(req))) return res.status(404).json({ error: t('sdks.notFound') })
     const row = await findById<Record<string, unknown>>('sdks', getParamId(req))
     if (!row) return res.status(404).json({ error: t('sdks.notFound') })
     res.json(row)
@@ -69,6 +71,7 @@ router.put(
       const userId = getUserId(res)
       if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
       const id = getParamId(req)
+      if (!isUuid(id)) return res.status(404).json({ error: t('sdks.notFound') })
       const existing = await findById<Record<string, unknown>>('sdks', id)
       if (!existing) return res.status(404).json({ error: t('sdks.notFound') })
       const result = await updateById('sdks', id, req.body)
@@ -85,6 +88,7 @@ router.delete('/:id', requireAdmin, async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('sdks.notFound') })
     const existing = await findById<Record<string, unknown>>('sdks', id)
     if (!existing) return res.status(404).json({ error: t('sdks.notFound') })
     await deleteById('sdks', id)

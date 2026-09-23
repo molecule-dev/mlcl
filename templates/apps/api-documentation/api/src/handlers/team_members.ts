@@ -8,6 +8,8 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid } from '../lib/is-uuid.js'
+
 const router = Router()
 
 const inviteSchema = z.object({
@@ -54,6 +56,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    if (!isUuid(getParamId(req))) return res.status(404).json({ error: t('teamMembers.notFound') })
     const row = await findById<Record<string, unknown>>('team_members', getParamId(req))
     if (!row) return res.status(404).json({ error: t('teamMembers.notFound') })
     // Authorization: caller must share the team or be the inviter.
@@ -117,6 +120,7 @@ router.put('/:id', validateBody(updateSchema), async (req: Request, res: Respons
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('teamMembers.notFound') })
     const existing = await findById<Record<string, unknown>>('team_members', id)
     if (!existing) return res.status(404).json({ error: t('teamMembers.notFound') })
     // The team owner (team_id == userId) or the row's owner can update.
@@ -139,6 +143,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('teamMembers.notFound') })
     const existing = await findById<Record<string, unknown>>('team_members', id)
     if (!existing) return res.status(404).json({ error: t('teamMembers.notFound') })
     if (existing.team_id !== userId && existing.user_id !== userId) {

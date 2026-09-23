@@ -182,7 +182,9 @@ export function DocsHome() {
           </h2>
           <Link
             to="/docs/endpoints"
-            className={cm.cn('text-sm font-bold text-primary hover:underline')}
+            className={cm.cn(
+              'text-sm font-bold text-primary hover:underline inline-flex items-center py-2',
+            )}
           >
             {t('docsHome.viewAllEndpoints', {}, { defaultValue: 'Browse all →' })}
           </Link>
@@ -197,7 +199,9 @@ export function DocsHome() {
           </h2>
           <Link
             to="/docs/guides"
-            className={cm.cn('text-sm font-bold text-primary hover:underline')}
+            className={cm.cn(
+              'text-sm font-bold text-primary hover:underline inline-flex items-center py-2',
+            )}
           >
             {t('docsHome.viewAllGuides', {}, { defaultValue: 'All guides →' })}
           </Link>

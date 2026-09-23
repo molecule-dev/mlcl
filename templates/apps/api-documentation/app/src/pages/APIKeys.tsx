@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -37,6 +38,10 @@ export function APIKeys() {
   const [newKeyName, setNewKeyName] = useState('')
   const [revealedKey, setRevealedKey] = useState<{ name: string; secret: string } | null>(null)
   const [revealCopied, setRevealCopied] = useState(false)
+  // Revoke is destructive and irreversible — the first tap ARMS the row
+  // (label flips to a confirm), the second tap within the window executes.
+  const [pendingRevokeId, setPendingRevokeId] = useState<string | null>(null)
+  const [actionError, setActionError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -77,6 +82,7 @@ export function APIKeys() {
             setRevealedKey({ name: created.name, secret: created.key })
             setRevealCopied(false)
           }
+          track({ name: 'api_key.created', properties: { id: created.id } })
         } else {
           http
             .get('/api/api_keys')
@@ -104,10 +110,24 @@ export function APIKeys() {
   }
 
   function handleRevoke(id: string) {
+    if (pendingRevokeId !== id) {
+      setPendingRevokeId(id)
+      setActionError(null)
+      // Disarm if the user walks away — the destructive window is short.
+      window.setTimeout(() => {
+        setPendingRevokeId((current) => (current === id ? null : current))
+      }, 4000)
+      return
+    }
+    setPendingRevokeId(null)
+    const snapshot = keys
     setKeys((prev) => prev.filter((k) => k.id !== id))
     http.delete(`/api/api_keys/${id}`).catch(() => {
-      /* optimistic */
+      // Optimistic remove failed — put the key back and say so.
+      setKeys(snapshot)
+      setActionError(t('apiKeys.revokeError', {}, { defaultValue: 'Could not revoke key.' }))
     })
+    track({ name: 'api_key.revoked', properties: { id } })
   }
 
   return (
@@ -287,6 +307,12 @@ export function APIKeys() {
         </section>
       ) : null}
 
+      {actionError ? (
+        <p role="alert" className={cm.cn(cm.textSize('sm'), 'text-error')}>
+          {actionError}
+        </p>
+      ) : null}
+
       {error ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
       ) : loading ? (
@@ -303,101 +329,131 @@ export function APIKeys() {
         </p>
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('form.name', {}, { defaultValue: 'Name' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('apiKeys.col.key', {}, { defaultValue: 'Key' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('apiKeys.col.scopes', {}, { defaultValue: 'Scopes' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('apiKeys.col.lastUsed', {}, { defaultValue: 'Last used' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('apiKeys.col.created', {}, { defaultValue: 'Created' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-outline-variant">
-              {keys.map((k) => (
-                <tr key={k.id} className={cm.cn('hover:bg-surface-container')}>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}>
-                    {k.name}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <code
-                      className={cm.cn(cm.textSize('xs'), 'font-mono', 'text-on-surface-variant')}
-                    >
-                      {k.key_masked}
-                    </code>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap')}>
-                      {(k.scopes ?? []).map((s) => (
-                        <span
-                          key={s}
-                          className={cm.cn(
-                            cm.sp('px', 2),
-                            cm.textSize('xs'),
-                            cm.fontWeight('semibold'),
-                            cm.roundedFull,
-                            'bg-surface-container font-mono',
-                            'text-on-surface-variant',
-                          )}
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(k.last_used_at, t('apiKeys.never', {}, { defaultValue: 'never' }))}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(k.created_at)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    <button
-                      type="button"
-                      onClick={() => handleRevoke(k.id)}
-                      className={cm.cn(cm.textSize('sm'), 'text-error hover:underline')}
-                    >
-                      {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                    </button>
-                  </td>
+          {/* Six columns cannot fit a 390px phone — scroll horizontally
+              instead of crushing the cells. */}
+          <div className="overflow-x-auto">
+            <table className={cm.cn('w-full min-w-[640px]')}>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('form.name', {}, { defaultValue: 'Name' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('apiKeys.col.key', {}, { defaultValue: 'Key' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('apiKeys.col.scopes', {}, { defaultValue: 'Scopes' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('apiKeys.col.lastUsed', {}, { defaultValue: 'Last used' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('apiKeys.col.created', {}, { defaultValue: 'Created' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-outline-variant">
+                {keys.map((k) => (
+                  <tr key={k.id} className={cm.cn('hover:bg-surface-container')}>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}
+                    >
+                      {k.name}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <code
+                        className={cm.cn(cm.textSize('xs'), 'font-mono', 'text-on-surface-variant')}
+                      >
+                        {k.key_masked}
+                      </code>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap')}>
+                        {(k.scopes ?? []).map((s) => (
+                          <span
+                            key={s}
+                            className={cm.cn(
+                              cm.sp('px', 2),
+                              cm.textSize('xs'),
+                              cm.fontWeight('semibold'),
+                              cm.roundedFull,
+                              'bg-surface-container font-mono',
+                              'text-on-surface-variant',
+                            )}
+                          >
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(k.last_used_at, t('apiKeys.never', {}, { defaultValue: 'never' }))}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(k.created_at)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                      <button
+                        type="button"
+                        onClick={() => handleRevoke(k.id)}
+                        aria-label={
+                          pendingRevokeId === k.id
+                            ? t(
+                                'apiKeys.confirmRevokeAria',
+                                { name: k.name },
+                                { defaultValue: 'Confirm revoke of {{name}}' },
+                              )
+                            : t(
+                                'apiKeys.revokeAria',
+                                { name: k.name },
+                                { defaultValue: 'Revoke key {{name}}' },
+                              )
+                        }
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 1),
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                          cm.roundedFull,
+                          pendingRevokeId === k.id
+                            ? 'bg-error text-on-error'
+                            : 'text-error hover:bg-error/10',
+                        )}
+                      >
+                        {pendingRevokeId === k.id
+                          ? t('apiKeys.confirmRevoke', {}, { defaultValue: 'Confirm?' })
+                          : t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

@@ -21,6 +21,13 @@ test.describe('/reset-password', () => {
   })
 
   test('submit fires POST to /api/users (confirm-reset endpoint)', async ({ page }) => {
+    // The confirm-reset endpoint answers a bogus token with 401 by contract;
+    // the browser logs the failed fetch and the console guard would fail the
+    // test for exactly the behavior this spec asserts.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password')
     await page.locator('#email').fill('test@example.com')
     await page.locator('#token').fill('definitely-not-a-real-token')

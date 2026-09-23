@@ -131,7 +131,7 @@ export function SDKs() {
               <pre
                 className={cm.cn(
                   cm.sp('p', 3),
-                  'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+                  'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
                 )}
               >
                 {s.install_command}
@@ -139,7 +139,7 @@ export function SDKs() {
               <pre
                 className={cm.cn(
                   cm.sp('p', 3),
-                  'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+                  'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
                 )}
               >
                 {s.example}

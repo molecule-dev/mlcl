@@ -3,6 +3,8 @@ import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { PrismMobileShell } from './PrismMobileShell.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
@@ -26,12 +28,34 @@ const NAV_KEYS = [
 export function PrismLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`prismLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+
+  // Below md (768px) the fixed 240px sidebar rail would crush a phone's
+  // content column, so the template-local mobile shell (sticky top bar +
+  // slide-in drawer) renders INSTEAD of the shared sidebar — conditionally
+  // rendered via matchMedia, never CSS-hidden (no duplicated data-mol-ids).
+  // min-w-0 on the popover root lets the account card truncate inside the
+  // narrow top bar instead of clipping past the viewport edge.
+  if (isMobile) {
+    return (
+      <PrismMobileShell
+        navItems={navItems}
+        userMenu={
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 1 }), 'min-w-0')}>
+            <ThemeToggle />
+            <UserMenu className="min-w-0 max-w-full" />
+          </div>
+        }
+      />
+    )
+  }
+
   return (
     <SidebarLayout
       appName={APP_NAME}

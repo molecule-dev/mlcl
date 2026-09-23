@@ -165,7 +165,7 @@ export function APIPlayground() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' })}>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('playground.heading', {}, { defaultValue: 'API playground' })}
         </h1>
@@ -189,7 +189,16 @@ export function APIPlayground() {
         </div>
       </header>
 
-      <section className={cm.cn(cm.card(), cm.sp('p', 4), cm.flex({ gap: 'sm' }))}>
+      <section
+        className={cm.cn(
+          cm.card(),
+          cm.sp('p', 4),
+          cm.flex({ gap: 'sm' }),
+          // Stack method / URL / Send vertically on phones; the one-row
+          // toolbar leaves a ~90px URL input at 390px.
+          'flex-col sm:flex-row',
+        )}
+      >
         <select
           value={method}
           onChange={(e) => setMethod(e.target.value as Method)}
@@ -199,6 +208,7 @@ export function APIPlayground() {
             cm.fontWeight('bold'),
             'font-mono uppercase rounded-md shrink-0',
           )}
+          aria-label={t('playground.methodLabel', {}, { defaultValue: 'HTTP method' })}
           style={{ backgroundColor: METHOD_BG[method], color: METHOD_FG[method] }}
         >
           {METHODS.map((m) => (
@@ -215,7 +225,7 @@ export function APIPlayground() {
           className={cm.cn(
             cm.sp('px', 3),
             cm.sp('py', 2),
-            'flex-1 border border-outline-variant rounded-md font-mono text-sm',
+            'min-w-0 flex-1 border border-outline-variant rounded-md font-mono text-sm',
           )}
         />
         <button
@@ -226,7 +236,7 @@ export function APIPlayground() {
             cm.sp('px', 5),
             cm.sp('py', 2),
             cm.fontWeight('semibold'),
-            'bg-primary text-on-primary rounded-md disabled:opacity-50',
+            'bg-primary text-on-primary rounded-md disabled:opacity-50 shrink-0',
           )}
         >
           {running
@@ -290,7 +300,7 @@ export function APIPlayground() {
               <pre
                 className={cm.cn(
                   cm.sp('p', 4),
-                  'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+                  'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
                 )}
               >
                 {`Authorization: Bearer prsm_••••••••••••••••••••••••
@@ -440,7 +450,7 @@ X-Environment: ${environment}`}
           <pre
             className={cm.cn(
               cm.sp('p', 4),
-              'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+              'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
             )}
           >
             {response.body || t('playground.responseEmpty', {}, { defaultValue: '(empty body)' })}

@@ -8,6 +8,8 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import { isUuid } from '../lib/is-uuid.js'
+
 const router = Router()
 
 const createSchema = z.object({
@@ -43,6 +45,8 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
+    if (!isUuid(getParamId(req)))
+      return res.status(404).json({ error: t('notifications.notFound') })
     const row = await findById<Record<string, unknown>>('notifications', getParamId(req))
     if (!row || row.user_id !== userId) {
       return res.status(404).json({ error: t('notifications.notFound') })
@@ -76,6 +80,7 @@ router.put('/:id', validateBody(updateSchema), async (req: Request, res: Respons
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('notifications.notFound') })
     const existing = await findById<Record<string, unknown>>('notifications', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('notifications.notFound') })
@@ -93,6 +98,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) return res.status(401).json({ error: t('auth.unauthorized') })
     const id = getParamId(req)
+    if (!isUuid(id)) return res.status(404).json({ error: t('notifications.notFound') })
     const existing = await findById<Record<string, unknown>>('notifications', id)
     if (!existing || existing.user_id !== userId) {
       return res.status(404).json({ error: t('notifications.notFound') })

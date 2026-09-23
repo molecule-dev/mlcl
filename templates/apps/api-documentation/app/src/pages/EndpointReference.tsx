@@ -73,21 +73,32 @@ export function EndpointReference() {
   const [activeSample, setActiveSample] = useState<CodeSample['language']>('curl')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [notFound, setNotFound] = useState(false)
+  const [retryTick, setRetryTick] = useState(0)
 
   useEffect(() => {
     if (!id) return
     let cancelled = false
     setLoading(true)
+    setError(null)
+    setNotFound(false)
     http
       .get(`/api/endpoints/${id}`)
       .then((res) => {
         if (!cancelled) setEndpoint(unwrapSingle<EndpointDetail>(res))
       })
-      .catch(() => {
-        if (!cancelled)
+      .catch((err: unknown) => {
+        if (cancelled) return
+        // A 404 means the id is bogus (or someone else's) — say so instead
+        // of the generic "failed to load"; anything else offers a retry.
+        const status = err instanceof Error && 'status' in err ? Number(err.status) : NaN
+        if (status === 404) {
+          setNotFound(true)
+        } else {
           setError(
             t('endpointReference.loadError', {}, { defaultValue: 'Failed to load endpoint.' }),
           )
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -95,7 +106,7 @@ export function EndpointReference() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, retryTick, t])
 
   if (loading)
     return (
@@ -103,10 +114,56 @@ export function EndpointReference() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || !endpoint)
+  if (error || notFound || !endpoint)
     return (
-      <div className={cm.cn(cm.sp('p', 8), 'text-error')}>
-        {error ?? t('endpointReference.notFound', {}, { defaultValue: 'Endpoint not found.' })}
+      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
+        <Link
+          to="/docs/endpoints"
+          className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}
+        >
+          ← {t('endpointReference.back', {}, { defaultValue: 'All endpoints' })}
+        </Link>
+        <div
+          role="alert"
+          className={cm.cn(cm.card(), cm.sp('p', 8), cm.stack(4), 'items-center text-center')}
+        >
+          <span
+            className={cm.cn(
+              cm.textSize('3xl'),
+              'material-symbols-outlined text-on-surface-variant',
+            )}
+            aria-hidden="true"
+          >
+            {notFound ? 'search_off' : 'cloud_off'}
+          </span>
+          <p
+            className={cm.cn(
+              cm.textSize('lg'),
+              cm.fontWeight('semibold'),
+              notFound ? 'text-on-surface-variant' : 'text-error',
+            )}
+          >
+            {notFound
+              ? t('endpointReference.notFound', {}, { defaultValue: 'Endpoint not found.' })
+              : error}
+          </p>
+          {!notFound ? (
+            <button
+              type="button"
+              onClick={() => setRetryTick((v) => v + 1)}
+              className={cm.cn(
+                cm.sp('px', 5),
+                cm.sp('py', 2),
+                cm.textSize('sm'),
+                cm.fontWeight('semibold'),
+                cm.roundedFull,
+                'bg-primary text-on-primary hover:opacity-90',
+              )}
+            >
+              {t('common.retry', {}, { defaultValue: 'Retry' })}
+            </button>
+          ) : null}
+        </div>
       </div>
     )
 
@@ -122,7 +179,7 @@ export function EndpointReference() {
       </Link>
 
       <header className={cm.cn(cm.card(), cm.sp('p', 6))}>
-        <div className={cm.flex({ align: 'center', gap: 'md' })}>
+        <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
           <span
             className={cm.cn(
               cm.sp('px', 3),
@@ -138,7 +195,13 @@ export function EndpointReference() {
           >
             {endpoint.method}
           </span>
-          <code className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'font-mono')}>
+          <code
+            className={cm.cn(
+              cm.textSize('xl'),
+              cm.fontWeight('bold'),
+              'font-mono min-w-0 [overflow-wrap:anywhere]',
+            )}
+          >
             {endpoint.path}
           </code>
         </div>
@@ -156,73 +219,77 @@ export function EndpointReference() {
             <h2 className={cm.cn(cm.sectionHeading, cm.sp('mb', 4))}>
               {t('endpointReference.parametersHeading', {}, { defaultValue: 'Parameters' })}
             </h2>
-            <table className={cm.cn('w-full')}>
-              <thead
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  'uppercase tracking-wide',
-                  'text-on-surface-variant',
-                )}
-              >
-                <tr>
-                  <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                    {t('endpointReference.col.name', {}, { defaultValue: 'Name' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                    {t('endpointReference.col.in', {}, { defaultValue: 'In' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                    {t('endpointReference.col.type', {}, { defaultValue: 'Type' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
-                    {t('endpointReference.col.required', {}, { defaultValue: 'Required' })}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-outline-variant">
-                {endpoint.parameters.map((p) => (
-                  <tr key={`${p.location}-${p.name}`}>
-                    <td className={cm.cn(cm.sp('py', 3), 'font-mono', cm.fontWeight('semibold'))}>
-                      {p.name}
-                      <p
+            {/* 4 columns don't fit a 390px phone — scroll horizontally rather
+                than crush the cells. */}
+            <div className="-mx-2 px-2 overflow-x-auto">
+              <table className={cm.cn('w-full min-w-[420px]')}>
+                <thead
+                  className={cm.cn(
+                    cm.textSize('xs'),
+                    'uppercase tracking-wide',
+                    'text-on-surface-variant',
+                  )}
+                >
+                  <tr>
+                    <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                      {t('endpointReference.col.name', {}, { defaultValue: 'Name' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                      {t('endpointReference.col.in', {}, { defaultValue: 'In' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                      {t('endpointReference.col.type', {}, { defaultValue: 'Type' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('py', 2), 'text-left')}>
+                      {t('endpointReference.col.required', {}, { defaultValue: 'Required' })}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-outline-variant">
+                  {endpoint.parameters.map((p) => (
+                    <tr key={`${p.location}-${p.name}`}>
+                      <td className={cm.cn(cm.sp('py', 3), 'font-mono', cm.fontWeight('semibold'))}>
+                        {p.name}
+                        <p
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            cm.sp('mt', 1),
+                            'text-on-surface-variant',
+                            'font-sans',
+                          )}
+                        >
+                          {p.description}
+                        </p>
+                      </td>
+                      <td
                         className={cm.cn(
+                          cm.sp('py', 3),
                           cm.textSize('xs'),
-                          cm.sp('mt', 1),
                           'text-on-surface-variant',
-                          'font-sans',
+                          'uppercase',
                         )}
                       >
-                        {p.description}
-                      </p>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('py', 3),
-                        cm.textSize('xs'),
-                        'text-on-surface-variant',
-                        'uppercase',
-                      )}
-                    >
-                      {p.location}
-                    </td>
-                    <td className={cm.cn(cm.sp('py', 3), 'font-mono text-sm')}>{p.type}</td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        p.required
-                          ? cm.cn('text-error', cm.fontWeight('semibold'))
-                          : 'text-on-surface-variant',
-                      )}
-                    >
-                      {p.required
-                        ? t('endpointReference.requiredYes', {}, { defaultValue: 'yes' })
-                        : t('endpointReference.requiredNo', {}, { defaultValue: 'no' })}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        {p.location}
+                      </td>
+                      <td className={cm.cn(cm.sp('py', 3), 'font-mono text-sm')}>{p.type}</td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          p.required
+                            ? cm.cn('text-error', cm.fontWeight('semibold'))
+                            : 'text-on-surface-variant',
+                        )}
+                      >
+                        {p.required
+                          ? t('endpointReference.requiredYes', {}, { defaultValue: 'yes' })
+                          : t('endpointReference.requiredNo', {}, { defaultValue: 'no' })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div className={cm.cn(cm.card(), cm.sp('p', 6))}>
@@ -251,7 +318,7 @@ export function EndpointReference() {
                   <pre
                     className={cm.cn(
                       cm.sp('p', 4),
-                      'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+                      'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
                     )}
                   >
                     {r.body}
@@ -297,7 +364,7 @@ export function EndpointReference() {
           <pre
             className={cm.cn(
               cm.sp('p', 4),
-              'bg-secondary text-on-secondary rounded-md font-mono text-xs overflow-x-auto',
+              'bg-secondary text-on-secondary rounded-md font-mono text-xs [overflow-wrap:anywhere] whitespace-pre-wrap',
             )}
           >
             {sample?.code ?? ''}

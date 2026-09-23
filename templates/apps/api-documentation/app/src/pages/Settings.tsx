@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
@@ -183,6 +184,10 @@ export function Settings() {
           })
         }
         setAccountSavedAt(Date.now())
+        track({
+          name: 'settings.profile_updated',
+          properties: { ...(user?.id ? { id: user.id } : {}), email_changed: emailChanged },
+        })
       })
       .catch(() => {
         setAccountError(
@@ -387,6 +392,7 @@ export function Settings() {
     http.delete(`/api/team_members/${id}`).catch(() => {
       /* optimistic */
     })
+    track({ name: 'team_member.removed', properties: { id } })
   }
 
   function handleToggleIntegration(id: string) {

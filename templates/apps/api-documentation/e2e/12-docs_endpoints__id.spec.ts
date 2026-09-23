@@ -8,6 +8,13 @@ import { APP_BASE, captureNetwork, signup } from './_helpers'
 // summary headers.
 
 test.describe('/docs/endpoints/:id', () => {
+  // Every test in this describe intentionally loads a bogus endpoint id; the
+  // API answers 404 by contract (the page renders its not-found state) and
+  // the browser logs the failed fetch — expected, not a regression.
+  test.beforeEach(async () => {
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
+  })
+
   test('GET /api/endpoints/:id fires on mount', async ({ page }) => {
     await signup(page)
     const reqs = await captureNetwork(page, async () => {
