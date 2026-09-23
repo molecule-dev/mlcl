@@ -13,7 +13,7 @@ ShipBob-like warehouse fulfillment with orders, picking, packing, shipping, and 
 
 `auth`, `search`, `realtime`, `picking`, `packing`, `shipping`, `reporting`
 
-## Data model (20 domain tables)
+## Data model (21 domain tables)
 
 _Already created by the existing SQL in `api/migrations/` — do NOT add new migrations for these tables._
 
@@ -37,6 +37,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 - **shipment_events** — id, user_id, shipment_id, status, description, location, created_at
 - **shipments** — id, user_id, order_id, carrier, tracking_number, label_s3_key, weight_oz, status, shipped_at, delivered_at, created_at, updated_at
 - **zones** — id, user_id, name, kind, description, created_at, updated_at
+- **user_preferences** — user_id, data, updated_at
 
 ## API surface (handlers)
 
@@ -48,6 +49,7 @@ _These endpoints already exist — open and extend the named file, never recreat
 - **orders** — `api/src/handlers/orders.ts`
 - **packing** — `api/src/handlers/packing.ts`
 - **picks** — `api/src/handlers/picks.ts`
+- **preferences** — `api/src/handlers/preferences.ts`
 - **receipts** — `api/src/handlers/receipts.ts`
 - **returns** — `api/src/handlers/returns.ts`
 - **setup** — `api/src/handlers/setup.ts`

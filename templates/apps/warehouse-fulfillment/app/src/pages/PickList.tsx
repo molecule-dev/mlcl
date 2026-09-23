@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -144,6 +145,7 @@ export function PickList() {
       const status = order.status ?? 'pending'
       const next = status === 'pending' || status === 'picking' ? 'packed' : status
       await http.patch(`/orders/${orderId}`, { status: next })
+      void track({ name: 'order.packed', properties: { orderId } })
       window.location.href = `/orders/${orderId}`
     } finally {
       setAdvancing(false)
@@ -161,7 +163,12 @@ export function PickList() {
   if (!order) {
     return (
       <div className={cm.stack(4)} data-testid="picklist-empty">
-        <Link to="/orders" className="text-primary hover:underline">
+        <Link
+          to="/orders"
+          className={cm.cn(
+            'inline-flex min-h-[36px] items-center self-start text-primary hover:underline',
+          )}
+        >
           ← {t('pickList.back', {}, { defaultValue: 'Back to orders' })}
         </Link>
         <p className={cm.textMuted}>

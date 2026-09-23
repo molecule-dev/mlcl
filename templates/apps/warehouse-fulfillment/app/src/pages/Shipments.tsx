@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -97,6 +98,7 @@ export function Shipments() {
         weight_oz: 16,
         status: 'label_created',
       })
+      void track({ name: 'shipment.created', properties: { carrier } })
       setShowForm(false)
       await refresh()
     } finally {
@@ -235,120 +237,126 @@ export function Shipments() {
         )}
         data-testid="shipments-table"
       >
-        <table className={cm.cn('w-full text-sm')}>
-          <thead>
-            <tr
-              className={cm.cn('text-left text-[10px] uppercase tracking-[0.2em] text-white')}
-              style={{ backgroundColor: 'var(--color-sidebar)' }}
-            >
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('shipments.cols.manifest', {}, { defaultValue: 'Manifest' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('shipments.cols.carrier', {}, { defaultValue: 'Carrier' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('shipments.cols.tracking', {}, { defaultValue: 'Tracking' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
-                {t('shipments.cols.weight', {}, { defaultValue: 'Weight' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('shipments.cols.state', {}, { defaultValue: 'State' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-outline-variant/50')}>
-            {loading && (
-              <tr>
-                <td
-                  colSpan={5}
-                  className={cm.cn(cm.sp('p', 6), cm.textMuted, 'text-center text-sm')}
-                >
-                  {t('shipments.loading', {}, { defaultValue: 'Loading shipments…' })}
-                </td>
+        <div className={cm.cn('overflow-x-auto')}>
+          <table className={cm.cn('w-full min-w-[560px] text-sm')}>
+            <thead>
+              <tr
+                className={cm.cn('text-left text-[10px] uppercase tracking-[0.2em] text-white')}
+                style={{ backgroundColor: 'var(--color-sidebar)' }}
+              >
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('shipments.cols.manifest', {}, { defaultValue: 'Manifest' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('shipments.cols.carrier', {}, { defaultValue: 'Carrier' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('shipments.cols.tracking', {}, { defaultValue: 'Tracking' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
+                  {t('shipments.cols.weight', {}, { defaultValue: 'Weight' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('shipments.cols.state', {}, { defaultValue: 'State' })}
+                </th>
               </tr>
-            )}
-            {!loading && rows.length === 0 && (
-              <tr>
-                <td
-                  colSpan={5}
-                  className={cm.cn(cm.sp('p', 6), cm.textMuted, 'text-center text-sm')}
-                  data-testid="shipments-empty"
-                >
-                  {t(
-                    'shipments.empty',
-                    {},
-                    { defaultValue: 'No shipments yet — create one above.' },
-                  )}
-                </td>
-              </tr>
-            )}
-            {!loading &&
-              rows.map((row) => {
-                const meta = STATE_META[row.status ?? 'label_created'] ?? STATE_META.label_created
-                return (
-                  <tr
-                    key={row.id}
-                    className={cm.cn('hover:bg-background-secondary transition-colors')}
-                    data-testid="shipment-row"
+            </thead>
+            <tbody className={cm.cn('divide-y divide-outline-variant/50')}>
+              {loading && (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className={cm.cn(cm.sp('p', 6), cm.textMuted, 'text-center text-sm')}
                   >
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-xs font-bold',
-                      )}
-                      style={{ color: 'var(--color-sku)' }}
+                    {t('shipments.loading', {}, { defaultValue: 'Loading shipments…' })}
+                  </td>
+                </tr>
+              )}
+              {!loading && rows.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className={cm.cn(cm.sp('p', 6), cm.textMuted, 'text-center text-sm')}
+                    data-testid="shipments-empty"
+                  >
+                    {t(
+                      'shipments.empty',
+                      {},
+                      { defaultValue: 'No shipments yet — create one above.' },
+                    )}
+                  </td>
+                </tr>
+              )}
+              {!loading &&
+                rows.map((row) => {
+                  const meta = STATE_META[row.status ?? 'label_created'] ?? STATE_META.label_created
+                  return (
+                    <tr
+                      key={row.id}
+                      className={cm.cn('hover:bg-background-secondary transition-colors')}
+                      data-testid="shipment-row"
                     >
-                      <Link to={`/shipments/${row.id}`} className={cm.cn('hover:underline')}>
-                        {row.manifest_number ?? row.id.slice(0, 8)}
-                      </Link>
-                    </td>
-                    <td
-                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface uppercase')}
-                    >
-                      {row.carrier}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-xs text-on-surface-variant',
-                      )}
-                    >
-                      {row.tracking_number ?? '—'}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-right tabular-nums',
-                      )}
-                    >
-                      {(Number(row.weight_oz ?? 0) / 16).toFixed(1)} lb
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                      <span
+                      <td
                         className={cm.cn(
-                          'inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-xs font-bold',
                         )}
-                        style={{ backgroundColor: meta.bg, color: meta.color }}
+                        style={{ color: 'var(--color-sku)' }}
                       >
+                        <Link to={`/shipments/${row.id}`} className={cm.cn('hover:underline')}>
+                          {row.manifest_number ?? row.id.slice(0, 8)}
+                        </Link>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'text-on-surface uppercase',
+                        )}
+                      >
+                        {row.carrier}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-xs text-on-surface-variant',
+                        )}
+                      >
+                        {row.tracking_number ?? '—'}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-right tabular-nums',
+                        )}
+                      >
+                        {(Number(row.weight_oz ?? 0) / 16).toFixed(1)} lb
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
                         <span
-                          className={cm.cn('material-symbols-outlined text-[12px]')}
-                          data-icon={meta.icon}
+                          className={cm.cn(
+                            'inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
+                          )}
+                          style={{ backgroundColor: meta.bg, color: meta.color }}
                         >
-                          {meta.icon}
+                          <span
+                            className={cm.cn('material-symbols-outlined text-[12px]')}
+                            data-icon={meta.icon}
+                          >
+                            {meta.icon}
+                          </span>
+                          {meta.label}
                         </span>
-                        {meta.label}
-                      </span>
-                    </td>
-                  </tr>
-                )
-              })}
-          </tbody>
-        </table>
+                      </td>
+                    </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+        </div>
       </article>
     </div>
   )

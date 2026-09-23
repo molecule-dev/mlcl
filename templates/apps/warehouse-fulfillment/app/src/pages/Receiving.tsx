@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,7 @@ export function Receiving() {
         expected_units: Number(units) || 0,
         status: 'expected',
       })
+      void track({ name: 'receipt.created', properties: { supplier: supplier.trim() } })
       setSupplier('')
       setPoNumber('')
       setUnits('100')
@@ -110,6 +112,7 @@ export function Receiving() {
       status: 'received',
       received_at: new Date().toISOString(),
     })
+    void track({ name: 'receipt.completed', properties: { receiptId: id } })
     await refresh()
   }
 

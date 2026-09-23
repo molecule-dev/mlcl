@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -119,6 +120,7 @@ export function OrderDetail() {
     setUpdating(true)
     try {
       await http.patch(`/orders/${id}`, { status: next })
+      void track({ name: `order.${next}`, properties: { orderId: id } })
       await refresh()
     } finally {
       setUpdating(false)
@@ -129,6 +131,7 @@ export function OrderDetail() {
     setUpdating(true)
     try {
       await http.post(`/orders/${id}/cancel`, {})
+      void track({ name: 'order.cancelled', properties: { orderId: id } })
       await refresh()
     } finally {
       setUpdating(false)
@@ -344,80 +347,82 @@ export function OrderDetail() {
               {t('orderDetail.items.empty', {}, { defaultValue: 'No items.' })}
             </p>
           ) : (
-            <table className={cm.cn('w-full text-sm')}>
-              <thead>
-                <tr
-                  className={cm.cn(
-                    'text-left text-[10px] uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/50',
-                  )}
-                >
-                  <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold')}>
-                    {t('nav.product', {}, { defaultValue: 'Product' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold text-right')}>
-                    {t('orderDetail.items.qty', {}, { defaultValue: 'Qty' })}
-                  </th>
-                  <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold text-right')}>
-                    {t('orderDetail.items.line', {}, { defaultValue: 'Line' })}
-                  </th>
-                </tr>
-              </thead>
-              <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
-                {items.map((item) => (
+            <div className={cm.cn('overflow-x-auto')}>
+              <table className={cm.cn('w-full min-w-[480px] text-sm')}>
+                <thead>
                   <tr
-                    key={item.id}
-                    className={cm.cn('hover:bg-background-secondary transition-colors')}
-                    data-testid="order-item-row"
+                    className={cm.cn(
+                      'text-left text-[10px] uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/50',
+                    )}
                   >
-                    <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 3), 'text-on-surface')}>
-                      {item.name}
+                    <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold')}>
+                      {t('nav.product', {}, { defaultValue: 'Product' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold text-right')}>
+                      {t('orderDetail.items.qty', {}, { defaultValue: 'Qty' })}
+                    </th>
+                    <th className={cm.cn(cm.sp('px', 3), cm.sp('py', 2), 'font-bold text-right')}>
+                      {t('orderDetail.items.line', {}, { defaultValue: 'Line' })}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className={cm.cn('divide-y divide-outline-variant/40')}>
+                  {items.map((item) => (
+                    <tr
+                      key={item.id}
+                      className={cm.cn('hover:bg-background-secondary transition-colors')}
+                      data-testid="order-item-row"
+                    >
+                      <td className={cm.cn(cm.sp('px', 3), cm.sp('py', 3), 'text-on-surface')}>
+                        {item.name}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 3),
+                          'font-mono text-right tabular-nums font-bold',
+                        )}
+                      >
+                        {item.quantity ?? 1}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 3),
+                          cm.sp('py', 3),
+                          'font-mono text-right tabular-nums',
+                        )}
+                      >
+                        ${((Number(item.price ?? 0) * Number(item.quantity ?? 1)) / 100).toFixed(2)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className={cm.cn('border-t-2 border-outline-variant')}>
+                    <td
+                      colSpan={2}
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 3),
+                        'text-right text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant',
+                      )}
+                    >
+                      {t('orderDetail.items.total', {}, { defaultValue: 'Order total' })}
                     </td>
                     <td
                       className={cm.cn(
                         cm.sp('px', 3),
                         cm.sp('py', 3),
-                        'font-mono text-right tabular-nums font-bold',
+                        'font-mono text-right tabular-nums text-lg font-extrabold',
                       )}
+                      data-testid="order-total"
                     >
-                      {item.quantity ?? 1}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 3),
-                        'font-mono text-right tabular-nums',
-                      )}
-                    >
-                      ${((Number(item.price ?? 0) * Number(item.quantity ?? 1)) / 100).toFixed(2)}
+                      ${(Number(order.total ?? 0) / 100).toFixed(2)}
                     </td>
                   </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className={cm.cn('border-t-2 border-outline-variant')}>
-                  <td
-                    colSpan={2}
-                    className={cm.cn(
-                      cm.sp('px', 3),
-                      cm.sp('py', 3),
-                      'text-right text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant',
-                    )}
-                  >
-                    {t('orderDetail.items.total', {}, { defaultValue: 'Order total' })}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 3),
-                      cm.sp('py', 3),
-                      'font-mono text-right tabular-nums text-lg font-extrabold',
-                    )}
-                    data-testid="order-total"
-                  >
-                    ${(Number(order.total ?? 0) / 100).toFixed(2)}
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
+                </tfoot>
+              </table>
+            </div>
           )}
         </article>
 

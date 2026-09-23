@@ -4,7 +4,7 @@ import { APP_BASE, apiHeaders, API_BASE, signup } from './_helpers.js'
 
 test.describe('/settings persists warehouse preferences', () => {
   test('changing prefs + saving + reloading retains the values', async ({ page }) => {
-    const { accessToken, userId } = await signup(page)
+    const { accessToken } = await signup(page)
     await page.goto(APP_BASE + '/settings')
     await expect(page.getByTestId('settings-page')).toBeVisible()
     await expect(page.getByTestId('settings-form')).toBeVisible()
@@ -18,15 +18,15 @@ test.describe('/settings persists warehouse preferences', () => {
     await page.getByTestId('settings-save').click()
     await expect(page.getByTestId('settings-saved')).toBeVisible({ timeout: 8000 })
 
-    // Verify backend invariant: the user row's oauthData.warehousePrefs reflects our pick.
-    const res = await page.request.get(`${API_BASE}/users/${userId}`, {
+    // Verify backend invariant: the per-user preferences row reflects our pick.
+    // (The platform user resource never returns oauthData on reads — the
+    // server-side /preferences channel is the persistence of record.)
+    const res = await page.request.get(`${API_BASE}/preferences`, {
       headers: apiHeaders(accessToken),
     })
     expect(res.ok()).toBe(true)
-    const json = (await res.json()) as {
-      props: { oauthData?: { warehousePrefs?: Record<string, unknown> } }
-    }
-    const stored = json.props?.oauthData?.warehousePrefs ?? {}
+    const json = (await res.json()) as { warehousePrefs?: Record<string, unknown> }
+    const stored = json.warehousePrefs ?? {}
     expect(Number(stored.lowStockThreshold)).toBe(77)
     expect(stored.defaultCarrier).toBe('fedex')
     expect(stored.autoAllocateRush).toBe(false)

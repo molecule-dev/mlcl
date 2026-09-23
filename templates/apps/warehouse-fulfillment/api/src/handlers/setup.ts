@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, findMany, query } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -477,7 +478,7 @@ router.post('/seed', async (_req: Request, res: Response): Promise<unknown> => {
 
     res.status(201).json(result)
   } catch (err) {
-    console.error('setup 500:', err)
+    logger.error('setup.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -515,7 +516,7 @@ router.post('/reset', async (_req: Request, res: Response): Promise<unknown> => 
     await query('DELETE FROM products WHERE "userId" = $1', [userId])
     res.json({ reset: true })
   } catch (err) {
-    console.error('setup 500:', err)
+    logger.error('setup.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

@@ -29,6 +29,7 @@ export function Reports() {
   const [counts, setCounts] = useState<ApiCounts>({})
   const [invStats, setInvStats] = useState<ApiInventoryStats>({})
   const [loading, setLoading] = useState(true)
+  const [loadFailed, setLoadFailed] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -48,6 +49,7 @@ export function Reports() {
         if (cancelled) return
         setCounts(c ?? {})
         setInvStats(i ?? {})
+        setLoadFailed(c === null && i === null)
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -100,6 +102,21 @@ export function Reports() {
           )}
         </p>
       </header>
+
+      {loadFailed && !loading && (
+        <p
+          role="alert"
+          data-testid="reports-error"
+          className={cm.cn(
+            cm.sp('px', 4),
+            cm.sp('py', 3),
+            cm.textSize('sm'),
+            'rounded-lg border border-error/40 bg-error/10 text-error',
+          )}
+        >
+          {t('reports.loadError', {}, { defaultValue: 'Could not load report data.' })}
+        </p>
+      )}
 
       <section className={cm.cn('grid grid-cols-2 md:grid-cols-4 gap-4')}>
         <FulfillmentKpiCard

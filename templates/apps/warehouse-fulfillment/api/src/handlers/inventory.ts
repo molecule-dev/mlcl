@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, query, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -47,7 +48,7 @@ router.get('/', async (_req: Request, res: Response): Promise<unknown> => {
     })
     res.json(rows)
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -75,7 +76,7 @@ router.get('/stats', async (_req: Request, res: Response): Promise<unknown> => {
       outOfStock: Number(row.oos ?? 0),
     })
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -110,7 +111,7 @@ router.get('/:id', async (req: Request, res: Response): Promise<unknown> => {
     })
     res.json({ ...row, movements })
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -151,7 +152,7 @@ router.post('/', async (req: Request, res: Response): Promise<unknown> => {
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -196,7 +197,7 @@ router.patch('/:id', async (req: Request, res: Response): Promise<unknown> => {
     const result = await updateById('products', id, updates)
     res.json(result.data)
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -264,7 +265,7 @@ router.post('/:id/adjust', async (req: Request, res: Response): Promise<unknown>
     })
     res.json(result.rows[0])
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -295,7 +296,7 @@ router.delete('/:id', async (req: Request, res: Response): Promise<unknown> => {
     await deleteById('products', id)
     res.status(204).end()
   } catch (err) {
-    console.error('inventory 500:', err)
+    logger.error('inventory.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

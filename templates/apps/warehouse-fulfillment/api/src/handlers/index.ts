@@ -6,6 +6,7 @@ import notifications from './notifications.js'
 import orders from './orders.js'
 import packing from './packing.js'
 import picks from './picks.js'
+import preferences from './preferences.js'
 import receipts from './receipts.js'
 import returns from './returns.js'
 import setup from './setup.js'
@@ -24,6 +25,7 @@ router.use('/locations', locations)
 router.use('/receipts', receipts)
 router.use('/returns', returns)
 router.use('/notifications', notifications)
+router.use('/preferences', preferences)
 router.use('/setup', setup)
 
 export default router

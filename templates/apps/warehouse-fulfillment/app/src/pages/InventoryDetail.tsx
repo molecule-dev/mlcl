@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -75,6 +76,10 @@ export function InventoryDetail() {
       const numeric = Number(delta)
       if (Number.isFinite(numeric) && numeric !== 0) {
         await http.post(`/inventory/${id}/adjust`, { delta: numeric, reason })
+        void track({
+          name: 'stock.adjusted',
+          properties: { productId: id, delta: numeric, reason },
+        })
       }
       setAdjustOpen(false)
       setDelta('1')

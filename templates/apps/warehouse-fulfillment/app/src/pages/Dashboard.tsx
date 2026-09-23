@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -158,6 +159,7 @@ export function Dashboard() {
     setSeeding(true)
     try {
       await http.post('/setup/seed', {})
+      void track({ name: 'warehouse.seeded', properties: {} })
       window.location.reload()
     } finally {
       setSeeding(false)
@@ -350,7 +352,7 @@ export function Dashboard() {
             <Link
               to="/orders"
               className={cm.cn(
-                'text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:underline',
+                'inline-flex min-h-[32px] items-center self-start text-[10px] font-bold uppercase tracking-[0.2em] text-primary hover:underline',
               )}
             >
               {t('dashboard.queue.viewAll', {}, { defaultValue: 'Open queue' })}

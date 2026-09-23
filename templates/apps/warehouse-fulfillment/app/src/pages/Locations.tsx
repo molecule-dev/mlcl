@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -101,6 +102,7 @@ export function Locations() {
     setCreating(true)
     try {
       await http.post('/zones', { name: name.trim(), kind })
+      void track({ name: 'zone.created', properties: { name: name.trim(), kind } })
       setName('')
       setShowForm(false)
       await refresh()

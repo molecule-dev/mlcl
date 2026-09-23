@@ -46,12 +46,12 @@ export function Settings() {
     async function load() {
       setLoading(true)
       try {
-        const res = await http.get<{
-          props?: { oauthData?: { warehousePrefs?: Partial<Preferences> } }
-        }>(`/users/${userId}`)
+        // Server-side preferences channel — the platform user resource never
+        // returns `oauthData` on reads, so blobs written to /users/:id were
+        // write-only. See api/src/handlers/preferences.ts.
+        const res = await http.get<{ warehousePrefs?: Partial<Preferences> }>('/preferences')
         if (cancelled) return
-        const oauthData = res?.data?.props?.oauthData ?? {}
-        const stored = oauthData.warehousePrefs ?? {}
+        const stored = res?.data?.warehousePrefs ?? {}
         setPrefs({ ...DEFAULTS, ...stored })
       } catch (_error) {
         if (!cancelled)
@@ -71,9 +71,7 @@ export function Settings() {
     setSaving(true)
     setError(null)
     try {
-      await http.patch(`/users/${userId}`, {
-        oauthData: { warehousePrefs: prefs },
-      })
+      await http.patch('/preferences', { warehousePrefs: prefs })
       // Refresh the cached auth user so consumers (e.g. the new-shipment carrier default) pick up
       // the saved prefs without a re-login.
       if (auth.user) {

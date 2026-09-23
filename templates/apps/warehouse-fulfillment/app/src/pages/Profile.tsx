@@ -55,14 +55,21 @@ export function Profile() {
     let cancelled = false
     async function load() {
       try {
-        const [userRes, orderRes, invRes] = await Promise.all([
+        const [userRes, prefsRes, orderRes, invRes] = await Promise.all([
           http.get<{ props?: UserBlob }>(`/users/${userId}`),
+          http
+            .get<{ profile?: { displayName?: string; role?: string; shift?: string } }>(
+              '/preferences',
+            )
+            .catch(() => null),
           http.get<OrderStats>(`/orders/stats/counts`).catch(() => null),
           http.get<InventoryStats>(`/inventory/stats`).catch(() => null),
         ])
         if (cancelled) return
         const blob = userRes.data?.props
-        const profile = blob?.oauthData?.profile ?? {}
+        // Profile details live in the server-side preferences channel — the
+        // platform user resource never returns `oauthData` on reads.
+        const profile = prefsRes?.data?.profile ?? {}
         if (profile.displayName) setDisplayName(profile.displayName)
         else if (blob?.name) setDisplayName(blob.name)
         if (profile.role) setRole(profile.role)
@@ -85,10 +92,13 @@ export function Profile() {
     setSaving(true)
     setError(null)
     try {
-      await http.patch(`/users/${userId}`, {
-        name: displayName,
-        oauthData: { profile: { displayName, role, shift } },
-      })
+      await Promise.all([
+        // Operator details persist server-side (oauthData reads never come
+        // back); the display name also syncs to the user row so the shell
+        // sidebar shows it.
+        http.patch('/preferences', { profile: { displayName, role, shift } }),
+        http.patch(`/users/${userId}`, { name: displayName }),
+      ])
       setSavedAt(new Date())
     } catch (err) {
       setError(

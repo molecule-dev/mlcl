@@ -86,25 +86,33 @@ export function Landing() {
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), 'hidden md:flex')}>
           <a
             href="#features"
-            className={cm.cn('text-sm font-semibold text-on-surface-variant hover:text-on-surface')}
+            className={cm.cn(
+              'inline-flex items-center px-3 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface',
+            )}
           >
             {t('nav.features', {}, { defaultValue: 'Features' })}
           </a>
           <a
             href="#proof"
-            className={cm.cn('text-sm font-semibold text-on-surface-variant hover:text-on-surface')}
+            className={cm.cn(
+              'inline-flex items-center px-3 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface',
+            )}
           >
             {t('landing.nav.proof', { appName: APP_NAME }, { defaultValue: 'Why {{appName}}' })}
           </a>
           <a
             href="#preview"
-            className={cm.cn('text-sm font-semibold text-on-surface-variant hover:text-on-surface')}
+            className={cm.cn(
+              'inline-flex items-center px-3 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface',
+            )}
           >
             {t('landing.nav.preview', {}, { defaultValue: 'Inside the dock' })}
           </a>
           <Link
             to="/pricing"
-            className={cm.cn('text-sm font-semibold text-on-surface-variant hover:text-on-surface')}
+            className={cm.cn(
+              'inline-flex items-center px-3 py-2 text-sm font-semibold text-on-surface-variant hover:text-on-surface',
+            )}
           >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
@@ -491,13 +499,22 @@ export function Landing() {
           )}
         </p>
         <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
-          <Link to="/pricing" className={cm.cn('hover:text-on-surface')}>
+          <Link
+            to="/pricing"
+            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
+          >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
           </Link>
-          <Link to="/login" className={cm.cn('hover:text-on-surface')}>
+          <Link
+            to="/login"
+            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
-          <Link to="/signup" className={cm.cn('hover:text-on-surface')}>
+          <Link
+            to="/signup"
+            className={cm.cn('inline-flex items-center py-2 pr-3 hover:text-on-surface')}
+          >
             {t('auth.login.signUp', {}, { defaultValue: 'Sign up' })}
           </Link>
         </div>

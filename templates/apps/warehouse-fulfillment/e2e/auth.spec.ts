@@ -31,6 +31,11 @@ test.describe('auth: signup → dashboard, login round-trip', () => {
   })
 
   test('bad password stays on /login', async ({ page }) => {
+    // A rejected login is an expected 403 — tell the console guard up front.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').first().fill(uniqueEmail('nope'))
     await page.locator('input[type="password"]').first().fill('wrongPass!9')

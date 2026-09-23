@@ -166,7 +166,7 @@ export function Scanner() {
           to="/dashboard"
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'xs' }),
-            'text-[11px] font-bold uppercase tracking-[0.22em] text-white/70 hover:text-white',
+            'inline-flex min-h-[36px] items-center rounded-md text-[11px] font-bold uppercase tracking-[0.22em] text-white/70 hover:text-white',
           )}
         >
           <span className={cm.cn('material-symbols-outlined text-[14px]')} data-icon="arrow_back">

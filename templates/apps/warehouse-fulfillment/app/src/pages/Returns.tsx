@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -90,6 +91,7 @@ export function Returns() {
     setCreating(true)
     try {
       await http.post('/returns', { reason: reason.trim(), status: 'issued' })
+      void track({ name: 'return.created', properties: { reason: reason.trim() } })
       setReason('')
       setShowForm(false)
       await refresh()
@@ -100,6 +102,7 @@ export function Returns() {
 
   async function setStatus(id: string, next: string) {
     await http.patch(`/returns/${id}`, { status: next })
+    void track({ name: 'return.status_changed', properties: { returnId: id, to: next } })
     await refresh()
   }
 

@@ -207,124 +207,126 @@ export function Inventory() {
             />
           </div>
         </header>
-        <table className={cm.cn('w-full text-sm')}>
-          <thead>
-            <tr
-              className={cm.cn('text-left text-[10px] uppercase tracking-[0.2em] text-white')}
-              style={{ backgroundColor: 'var(--color-sidebar)' }}
-            >
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('inventory.cols.sku', {}, { defaultValue: 'SKU' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('nav.product', {}, { defaultValue: 'Product' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('inventory.cols.bin', {}, { defaultValue: 'Bin' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
-                {t('inventory.cols.onHand', {}, { defaultValue: 'On hand' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
-                {t('inventory.cols.reorder', {}, { defaultValue: 'Reorder pt' })}
-              </th>
-              <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
-                {t('nav.status', {}, { defaultValue: 'Status' })}
-              </th>
-            </tr>
-          </thead>
-          <tbody className={cm.cn('divide-y divide-outline-variant/50')}>
-            {loading && (
-              <tr>
-                <td
-                  colSpan={6}
-                  className={cm.cn(cm.sp('p', 6), cm.textMuted, cm.textSize('sm'), 'text-center')}
-                >
-                  {t('inventory.loading', {}, { defaultValue: 'Loading inventory…' })}
-                </td>
+        <div className={cm.cn('overflow-x-auto')}>
+          <table className={cm.cn('w-full min-w-[560px] text-sm')}>
+            <thead>
+              <tr
+                className={cm.cn('text-left text-[10px] uppercase tracking-[0.2em] text-white')}
+                style={{ backgroundColor: 'var(--color-sidebar)' }}
+              >
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('inventory.cols.sku', {}, { defaultValue: 'SKU' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('nav.product', {}, { defaultValue: 'Product' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('inventory.cols.bin', {}, { defaultValue: 'Bin' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
+                  {t('inventory.cols.onHand', {}, { defaultValue: 'On hand' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold text-right')}>
+                  {t('inventory.cols.reorder', {}, { defaultValue: 'Reorder pt' })}
+                </th>
+                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-bold')}>
+                  {t('nav.status', {}, { defaultValue: 'Status' })}
+                </th>
               </tr>
-            )}
-            {!loading &&
-              filtered.map((row) => {
-                const status = statusOf(row)
-                return (
-                  <tr
-                    key={row.id}
-                    className={cm.cn('hover:bg-background-secondary transition-colors')}
-                    data-testid="inventory-row"
+            </thead>
+            <tbody className={cm.cn('divide-y divide-outline-variant/50')}>
+              {loading && (
+                <tr>
+                  <td
+                    colSpan={6}
+                    className={cm.cn(cm.sp('p', 6), cm.textMuted, cm.textSize('sm'), 'text-center')}
                   >
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-xs font-bold',
-                      )}
-                      style={{ color: 'var(--color-sku)' }}
+                    {t('inventory.loading', {}, { defaultValue: 'Loading inventory…' })}
+                  </td>
+                </tr>
+              )}
+              {!loading &&
+                filtered.map((row) => {
+                  const status = statusOf(row)
+                  return (
+                    <tr
+                      key={row.id}
+                      className={cm.cn('hover:bg-background-secondary transition-colors')}
+                      data-testid="inventory-row"
                     >
-                      <Link to={`/inventory/${row.id}`} className={cm.cn('hover:underline')}>
-                        {row.sku}
-                      </Link>
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface')}>
-                      {row.productName}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-mono text-xs')}>
-                      <span
-                        className={cm.cn('inline-flex rounded px-2 py-0.5 font-bold')}
-                        style={{
-                          backgroundColor: 'var(--color-background-secondary)',
-                          color: 'var(--color-text)',
-                          border: '1px solid var(--color-border)',
-                        }}
-                      >
-                        {row.bin}
-                      </span>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-right tabular-nums font-bold text-on-surface',
-                      )}
-                      data-testid="inventory-onhand"
-                    >
-                      {row.onHand}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 4),
-                        cm.sp('py', 3),
-                        'font-mono text-right tabular-nums text-on-surface-variant',
-                      )}
-                    >
-                      {row.reorderPoint}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                      <span
+                      <td
                         className={cm.cn(
-                          'inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-xs font-bold',
                         )}
-                        style={{ backgroundColor: status.bg, color: status.color }}
+                        style={{ color: 'var(--color-sku)' }}
                       >
-                        {status.label}
-                      </span>
-                    </td>
-                  </tr>
-                )
-              })}
-            {!loading && filtered.length === 0 && (
-              <tr>
-                <td
-                  colSpan={6}
-                  className={cm.cn(cm.sp('p', 6), cm.textMuted, cm.textSize('sm'), 'text-center')}
-                  data-testid="inventory-empty"
-                >
-                  {t('inventory.empty', {}, { defaultValue: 'No SKUs match your search.' })}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+                        <Link to={`/inventory/${row.id}`} className={cm.cn('hover:underline')}>
+                          {row.sku}
+                        </Link>
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-on-surface')}>
+                        {row.productName}
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'font-mono text-xs')}>
+                        <span
+                          className={cm.cn('inline-flex rounded px-2 py-0.5 font-bold')}
+                          style={{
+                            backgroundColor: 'var(--color-background-secondary)',
+                            color: 'var(--color-text)',
+                            border: '1px solid var(--color-border)',
+                          }}
+                        >
+                          {row.bin}
+                        </span>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-right tabular-nums font-bold text-on-surface',
+                        )}
+                        data-testid="inventory-onhand"
+                      >
+                        {row.onHand}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 4),
+                          cm.sp('py', 3),
+                          'font-mono text-right tabular-nums text-on-surface-variant',
+                        )}
+                      >
+                        {row.reorderPoint}
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                        <span
+                          className={cm.cn(
+                            'inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em]',
+                          )}
+                          style={{ backgroundColor: status.bg, color: status.color }}
+                        >
+                          {status.label}
+                        </span>
+                      </td>
+                    </tr>
+                  )
+                })}
+              {!loading && filtered.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={6}
+                    className={cm.cn(cm.sp('p', 6), cm.textMuted, cm.textSize('sm'), 'text-center')}
+                    data-testid="inventory-empty"
+                  >
+                    {t('inventory.empty', {}, { defaultValue: 'No SKUs match your search.' })}
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
         {errored && (
           <p
             className={cm.cn(cm.sp('p', 4), cm.textSize('xs'), 'text-error italic')}

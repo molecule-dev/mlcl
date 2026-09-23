@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById, findMany, query, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -66,7 +67,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(orders)
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -105,7 +106,7 @@ router.get('/stats/counts', async (_req: Request, res: Response) => {
     counts.total = rows.reduce((s, r) => s + r.count, 0)
     res.json(counts)
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -143,7 +144,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     })
     res.json({ ...order, items, events })
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -215,7 +216,7 @@ router.post('/', async (req: Request, res: Response) => {
 
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -268,7 +269,7 @@ router.patch('/:id', async (req: Request, res: Response) => {
 
     res.json(result.data)
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -317,7 +318,7 @@ router.post('/:id/cancel', async (req: Request, res: Response) => {
     })
     res.json(result.data)
   } catch (err) {
-    console.error('orders 500:', err)
+    logger.error('order.handler', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })

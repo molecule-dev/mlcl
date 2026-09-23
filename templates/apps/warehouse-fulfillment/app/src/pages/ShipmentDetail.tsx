@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -81,6 +82,7 @@ export function ShipmentDetail() {
     setUpdating(true)
     try {
       await http.post(`/shipments/${id}/status`, { status: next, description: `Marked ${next}` })
+      void track({ name: 'shipment.status_changed', properties: { shipmentId: id, to: next } })
       await refresh()
     } finally {
       setUpdating(false)
