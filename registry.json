@@ -54204,7 +54204,7 @@
       "@molecule/api-emails-sendmail": "1.0.4",
       "@molecule/api-image-sharp": "1.0.3",
       "@molecule/api-smtp": "1.0.3",
-      "@molecule/app-e2e": "1.1.0",
+      "@molecule/app-e2e": "1.2.0",
       "@molecule/app-e2e-preview": "1.0.8",
       "@molecule/app-e2e-playwright": "1.0.2",
       "@molecule/app-e2e-fixtures-default": "1.1.2",
