@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Байланыс',
   'subs.col.trade': 'Мамандық',
   'subs.col.value': 'Шарт құны',
+  'subs.confirmTerminate': 'Аяқтауды растау',
   'subs.createError': 'Мердігерді қосу сәтсіз аяқталды.',
   'subs.empty': 'Бұл жобада әлі мердігерлер жоқ.',
   'subs.field.contact': 'Байланыс',

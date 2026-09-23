@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Адегенде теманы жазыңыз.',
   'issueEditor.title': 'Чыгарылыш редактору',
   'issues.delete': 'Өчүрүү',
+  'issues.deleteConfirm': 'Бул көйгөйдү жок кыласызбы? Муну артка кайтаруу мүмкүн эмес.',
   'issues.deleteError': 'Чыгарылышты өчүрүү ишке ашкан жок',
   'issues.edit': 'Түзөтүү',
   'issues.loadError': 'Чыгарылыштарды жүктөө ишке ашкан жок',
@@ -161,10 +162,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Жазылуудан баш тартуу',
   'settingsNotificationsSection.mentionsDescription':
     'Жазылуучу тизмеден жазылуудан баш тартканда мага билдирүү жөнөтүңүз.',
+  'settingsNotificationsSection.newFollowers': 'Жаңы жазылуучулар',
   'settingsNotificationsSection.sectionDescription':
     'Жаңыртуулар менен качан тынчтандырылгыңыз келерин чечиңиз.',
   'settingsPageHeader.title': 'Каттоо эсебинин жөндөөлөрү',
   'settingsPrivacySection.description': 'Маалыматтарыңыздын жана болуунун көрүнүшүн башкаруу.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Коомдук профилдин көрүнүү мүмкүнчүлүгү',
   'settingsProfileSection.profileImage': 'Профиль сүрөтү',
   'settingsProfileSection.sectionDescription':
     'Басылманын автору катары көрсөтүлгөн жеке маалымат.',
@@ -181,6 +184,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Чыгарылыштар',
   'sideNavBar.newsletterSuite': 'Жаңылыктар топтому',
+  'sideNavBar.primary': 'Негизги',
   'sideNavBar.signOut': 'Чыгуу',
   'sideNavBar.subscribers': 'Жазылуучулар',
   'signup.error': 'Катталуу ишке ашкан жок',

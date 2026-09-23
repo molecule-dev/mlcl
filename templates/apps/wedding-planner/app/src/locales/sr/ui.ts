@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Додај',
   'vendors.noContact': 'Још нема контакта',
   'vendors.title': 'Добављачи',
+  'weddingLayout.openNav': 'Отвори мени за навигацију',
   'weddingLayout.primaryNavLabel': 'Примарна навигација',
 }

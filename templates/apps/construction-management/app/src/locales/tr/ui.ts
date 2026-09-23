@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'İletişim',
   'subs.col.trade': 'Branş',
   'subs.col.value': 'Sözleşme değeri',
+  'subs.confirmTerminate': 'Sonlandırmayı onayla',
   'subs.createError': 'Taşeron eklenemedi.',
   'subs.empty': 'Bu projede henüz taşeron yok.',
   'subs.field.contact': 'İletişim',

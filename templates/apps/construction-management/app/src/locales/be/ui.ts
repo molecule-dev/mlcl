@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Кантакт',
   'subs.col.trade': 'Спецыялізацыя',
   'subs.col.value': 'Сума кантракту',
+  'subs.confirmTerminate': 'Пацвердзіць завяршэнне',
   'subs.createError': 'Не ўдалося дадаць субпадрадчыка.',
   'subs.empty': 'На гэтым праекце яшчэ няма субпадрадчыкаў.',
   'subs.field.contact': 'Кантакт',

@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'បន្ថែម',
   'vendors.noContact': 'មិនទាន់មានទំនាក់ទំនងនៅឡើយទេ',
   'vendors.title': 'អ្នកផ្គត់ផ្គង់',
+  'weddingLayout.openNav': 'បើកម៉ឺនុយរុករក',
   'weddingLayout.primaryNavLabel': 'ការរុករកចម្បង',
 }

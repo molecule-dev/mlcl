@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Liên hệ',
   'subs.col.trade': 'Ngành nghề',
   'subs.col.value': 'Giá trị hợp đồng',
+  'subs.confirmTerminate': 'Xác nhận chấm dứt',
   'subs.createError': 'Không thể thêm nhà thầu phụ.',
   'subs.empty': 'Chưa có nhà thầu phụ nào trong dự án này.',
   'subs.field.contact': 'Liên hệ',

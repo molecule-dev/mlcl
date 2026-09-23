@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakti',
   'subs.col.trade': 'Zanati',
   'subs.col.value': 'Vlera e kontratës',
+  'subs.confirmTerminate': 'Konfirmo përfundimin',
   'subs.createError': 'Dështoi shtimi i nënkontraktorit.',
   'subs.empty': 'Ende pa nënkontraktorë në këtë projekt.',
   'subs.field.contact': 'Kontakti',

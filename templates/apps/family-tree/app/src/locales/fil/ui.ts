@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Pumunta sa iyong puno',
   'common.loadingEllipsis': 'Naglo-load…',
   'common.requestANewLink': 'Humiling ng bagong link',
+  'common.retry': 'Subukan muli',
   'common.savingEllipsis': 'Sine-save…',
   'common.signingInEllipsis': 'Nagsa-sign in…',
   'common.whatYouGet': 'Ano ang makukuha mo',

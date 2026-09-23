@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Voeg by',
   'vendors.noContact': 'Nog geen kontak nie',
   'vendors.title': 'Verskaffers',
+  'weddingLayout.openNav': 'Maak navigasiekieslys oop',
   'weddingLayout.primaryNavLabel': 'Primêre navigasie',
 }

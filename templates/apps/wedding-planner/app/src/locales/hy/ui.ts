@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ավելացնել',
   'vendors.noContact': 'Դեռ կոնտակտ չկա',
   'vendors.title': 'Մատակարարներ',
+  'weddingLayout.openNav': 'Բացել նավիգացիոն ցանկը',
   'weddingLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

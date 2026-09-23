@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Перайсці да вашага дрэва',
   'common.loadingEllipsis': 'Загрузка…',
   'common.requestANewLink': 'Запытаць новую спасылку',
+  'common.retry': 'Паспрабуйце яшчэ раз',
   'common.savingEllipsis': 'Захаванне…',
   'common.signingInEllipsis': 'Уваход…',
   'common.whatYouGet': 'Што вы атрымліваеце',

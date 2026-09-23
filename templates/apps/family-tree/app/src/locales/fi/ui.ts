@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Siirry puuhusi',
   'common.loadingEllipsis': 'Ladataan…',
   'common.requestANewLink': 'Pyydä uusi linkki',
+  'common.retry': 'Yritä uudelleen',
   'common.savingEllipsis': 'Tallennetaan…',
   'common.signingInEllipsis': 'Kirjaudutaan sisään…',
   'common.whatYouGet': 'Mitä saat',

@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Escribe primeiro un asunto.',
   'issueEditor.title': 'Editor de números',
   'issues.delete': 'Eliminar',
+  'issues.deleteConfirm': 'Queres eliminar este problema? Isto non se pode desfacer.',
   'issues.deleteError': 'Erro ao eliminar o número',
   'issues.edit': 'Editar',
   'issues.loadError': 'Erro ao cargar os números',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Baixas',
   'settingsNotificationsSection.mentionsDescription':
     'Notificarme cando un subscritor se dá de baixa da lista.',
+  'settingsNotificationsSection.newFollowers': 'Novos subscritores',
   'settingsNotificationsSection.sectionDescription':
     'Decide cando queres ser interrumpido por actualizacións.',
   'settingsPageHeader.title': 'Configuración da conta',
   'settingsPrivacySection.description': 'Controla a visibilidade dos teus datos e presenza.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilidade do perfil público',
   'settingsProfileSection.profileImage': 'Imaxe de perfil',
   'settingsProfileSection.sectionDescription':
     'Detalles persoais mostrados como firma da publicación.',
@@ -179,6 +182,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Números',
   'sideNavBar.newsletterSuite': 'Suite de boletíns',
+  'sideNavBar.primary': 'Primaria',
   'sideNavBar.signOut': 'Pechar sesión',
   'sideNavBar.subscribers': 'Subscritores',
   'signup.error': 'Erro no rexistro',

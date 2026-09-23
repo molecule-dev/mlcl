@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Модон руугаа очих',
   'common.loadingEllipsis': 'Ачааллаж байна…',
   'common.requestANewLink': 'Шинэ холбоос хүсэх',
+  'common.retry': 'Дахин оролдоно уу',
   'common.savingEllipsis': 'Хадгалж байна…',
   'common.signingInEllipsis': 'Нэвтэрч байна…',
   'common.whatYouGet': 'Та юу авах вэ',

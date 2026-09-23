@@ -206,6 +206,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ဆက်သွယ်ရန်',
   'subs.col.trade': 'အလုပ်အကိုင်',
   'subs.col.value': 'စာချုပ်တန်ဖိုး',
+  'subs.confirmTerminate': 'ရပ်စဲရန် အတည်ပြုပါ',
   'subs.createError': 'အငှားသမားကို ထည့်၍မရပါ။',
   'subs.empty': 'ဤပရောဂျက်တွင် အငှားသမားများမရှိသေးပါ။',
   'subs.field.contact': 'ဆက်သွယ်ရန်',

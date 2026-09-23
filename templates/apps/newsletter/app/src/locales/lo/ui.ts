@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ຂຽນຫົວຂໍ້ກ່ອນ.',
   'issueEditor.title': 'ຕົວແກ້ໄຂສະບັບ',
   'issues.delete': 'ລຶບ',
+  'issues.deleteConfirm': 'ລຶບບັນຫານີ້ບໍ? ສິ່ງນີ້ບໍ່ສາມາດຍົກເລີກໄດ້.',
   'issues.deleteError': 'ລຶບສະບັບລົ້ມເຫລວ',
   'issues.edit': 'ແກ້ໄຂ',
   'issues.loadError': 'ໂຫຼດສະບັບລົ້ມເຫລວ',
@@ -155,10 +156,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'ການຍົກເລີກການສະໝັກ',
   'settingsNotificationsSection.mentionsDescription':
     'ແຈ້ງເຕືອນຂ້ອຍເມື່ອສະມາຊິກຍົກເລີກການສະໝັກຈາກລາຍການ.',
+  'settingsNotificationsSection.newFollowers': 'ຜູ້ສະໝັກໃຊ້ໃໝ່',
   'settingsNotificationsSection.sectionDescription':
     'ຕັດສິນໃຈເວລາທີ່ທ່ານຕ້ອງການໃຫ້ມີການແຈ້ງເຕືອນອັບເດດ.',
   'settingsPageHeader.title': 'ການຕັ້ງຄ່າບັນຊີ',
   'settingsPrivacySection.description': 'ຄວບຄຸມການເບິ່ງເຫັນຂໍ້ມູນ ແລະ ການປາກົດຕົວຂອງທ່ານ.',
+  'settingsPrivacySection.profileVisibilityLabel': 'ການເບິ່ງເຫັນໂປຣໄຟລ໌ສາທາລະນະ',
   'settingsProfileSection.profileImage': 'ຮູບໂປຣໄຟລ໌',
   'settingsProfileSection.sectionDescription': 'ລາຍລະອຽດສ່ວນຕົວທີ່ສະແດງເປັນຊື່ຜູ້ຂຽນການເຜີຍແຜ່.',
   'settingsPublication.fromName': 'ຊື່ຜູ້ສົ່ງ',
@@ -173,6 +176,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ສະບັບ',
   'sideNavBar.newsletterSuite': 'ຊຸດຈົດໝາຍຂ່າວ',
+  'sideNavBar.primary': 'ຫຼັກ',
   'sideNavBar.signOut': 'ອອກຈາກລະບົບ',
   'sideNavBar.subscribers': 'ຜູ້ສະໝັກໃຊ້',
   'signup.error': 'ລົງທະບຽນລົ້ມເຫລວ',

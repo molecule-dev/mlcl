@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Оди на вашето дрво',
   'common.loadingEllipsis': 'Се вчитува…',
   'common.requestANewLink': 'Побарајте нов линк',
+  'common.retry': 'Обидете се повторно',
   'common.savingEllipsis': 'Се зачувува…',
   'common.signingInEllipsis': 'Се најавувате…',
   'common.whatYouGet': 'Што добивате',

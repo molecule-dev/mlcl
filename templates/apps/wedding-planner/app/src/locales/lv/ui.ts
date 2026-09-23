@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Pievienot',
   'vendors.noContact': 'Vēl nav kontaktu',
   'vendors.title': 'Piegādātāji',
+  'weddingLayout.openNav': 'Atvērt navigācijas izvēlni',
   'weddingLayout.primaryNavLabel': 'Galvenā navigācija',
 }

@@ -82,6 +82,8 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Schreiben Sie zuerst einen Betreff.',
   'issueEditor.title': 'Ausgaben-Editor',
   'issues.delete': 'Löschen',
+  'issues.deleteConfirm':
+    'Dieses Problem löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.',
   'issues.deleteError': 'Ausgabe konnte nicht gelöscht werden',
   'issues.edit': 'Bearbeiten',
   'issues.loadError': 'Ausgaben konnten nicht geladen werden',
@@ -160,11 +162,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Abmeldungen',
   'settingsNotificationsSection.mentionsDescription':
     'Benachrichtigen Sie mich, wenn sich ein Abonnent von der Liste abmeldet.',
+  'settingsNotificationsSection.newFollowers': 'Neue Abonnenten',
   'settingsNotificationsSection.sectionDescription':
     'Entscheiden Sie, wann Sie durch Updates unterbrochen werden möchten.',
   'settingsPageHeader.title': 'Kontoeinstellungen',
   'settingsPrivacySection.description':
     'Kontrollieren Sie die Sichtbarkeit Ihrer Daten und Präsenz.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Sichtbarkeit des öffentlichen Profils',
   'settingsProfileSection.profileImage': 'Profilbild',
   'settingsProfileSection.sectionDescription':
     'Persönliche Details, die als Publikations-Byline angezeigt werden.',
@@ -181,6 +185,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Ausgaben',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Grundschule',
   'sideNavBar.signOut': 'Abmelden',
   'sideNavBar.subscribers': 'Abonnenten',
   'signup.error': 'Registrierung fehlgeschlagen',

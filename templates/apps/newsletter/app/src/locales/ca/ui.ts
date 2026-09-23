@@ -82,6 +82,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Primer escriu un assumpte.',
   'issueEditor.title': 'Editor de números',
   'issues.delete': 'Suprimeix',
+  'issues.deleteConfirm': 'Voleu suprimir aquest problema? Això no es pot desfer.',
   'issues.deleteError': 'Error en eliminar el número',
   'issues.edit': 'Edita',
   'issues.loadError': 'Error en carregar els números',
@@ -160,9 +161,11 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Baixes',
   'settingsNotificationsSection.mentionsDescription':
     "Notifica'm quan un subscriptor es doni de baixa de la llista.",
+  'settingsNotificationsSection.newFollowers': 'Nous subscriptors',
   'settingsNotificationsSection.sectionDescription': 'Decideix quan vols rebre actualitzacions.',
   'settingsPageHeader.title': 'Configuració del compte',
   'settingsPrivacySection.description': 'Controla la visibilitat de les teves dades i presència.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilitat del perfil públic',
   'settingsProfileSection.profileImage': 'Imatge de perfil',
   'settingsProfileSection.sectionDescription':
     'Dades personals mostrades com a signatura de la publicació.',
@@ -179,6 +182,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Números',
   'sideNavBar.newsletterSuite': 'Suite de butlletins',
+  'sideNavBar.primary': 'Primària',
   'sideNavBar.signOut': 'Tanca la sessió',
   'sideNavBar.subscribers': 'Subscriptors',
   'signup.error': 'Error en registrar-se',

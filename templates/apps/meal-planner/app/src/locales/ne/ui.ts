@@ -50,6 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'वस्तु थप्न सकिएन।',
   'simmer.groceries.clearChecked': 'जाँच गरिएका हटाउनुहोस्',
   'simmer.groceries.empty.title': 'किनमेल गर्न केही छैन',
+  'simmer.groceries.eyebrow': '{{जाँच गरिएको}} को<x> {{कुल}}</x> झोलामा राखिएका सामानहरू',
   'simmer.groceries.fetchError': 'सूची लोड गर्न सकिएन।',
   'simmer.groceries.heading': 'किराना सूची',
   'simmer.groceries.loading': 'सूची लोड गर्दै...',

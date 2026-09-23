@@ -204,5 +204,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'ያክሉ',
   'vendors.noContact': 'እስካሁን ግንኙነት የለም',
   'vendors.title': 'አቅራቢዎች',
+  'weddingLayout.openNav': 'የአሰሳ ምናሌን ክፈት',
   'weddingLayout.primaryNavLabel': 'ዋና አሰሳ',
 }

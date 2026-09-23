@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': "Mynd i'ch coeden",
   'common.loadingEllipsis': 'Yn llwytho…',
   'common.requestANewLink': 'Gofyn am ddolen newydd',
+  'common.retry': 'Rhowch gynnig arall arni',
   'common.savingEllipsis': 'Yn cadw…',
   'common.signingInEllipsis': 'Yn mewngofnodi…',
   'common.whatYouGet': 'Beth gewch chi',

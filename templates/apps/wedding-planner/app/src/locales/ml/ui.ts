@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'ചേർക്കുന്നു...',
   'seating.form.submit': 'ടേബിൾ ചേർക്കുക',
   'seating.poolTitle': 'ഇരുത്താത്ത അതിഥികൾ',
+  'seating.subtitle':
+    '{{ഇരുന്നു}} ഇരിക്കുന്നത്<x> {{ശേഷി}}</x> സീറ്റുകൾ ·<x> {{പൂൾ}}</x> കുളത്തിൽ അതിഥികൾ കാത്തിരിക്കുന്നു',
   'seating.title': 'സീറ്റിംഗ് ചാർട്ട്',
   'settings.billing': 'ബില്ലിംഗ്',
   'settings.changePassword': 'പാസ്‌വേഡ് മാറ്റുക',
@@ -208,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'ചേർക്കുക',
   'vendors.noContact': 'ഇതുവരെ ബന്ധപ്പെട്ടിട്ടില്ല',
   'vendors.title': 'വെൻഡേഴ്സ്',
+  'weddingLayout.openNav': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'weddingLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

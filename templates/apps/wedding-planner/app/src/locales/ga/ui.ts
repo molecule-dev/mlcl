@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Cuir leis',
   'vendors.noContact': 'Gan teagmháil fós',
   'vendors.title': 'Soláthróirí',
+  'weddingLayout.openNav': 'Oscail an roghchlár nascleanúna',
   'weddingLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

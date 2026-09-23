@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Ugrás a fájához',
   'common.loadingEllipsis': 'Betöltés…',
   'common.requestANewLink': 'Új link kérése',
+  'common.retry': 'Próbáld meg újra',
   'common.savingEllipsis': 'Mentés…',
   'common.signingInEllipsis': 'Bejelentkezés…',
   'common.whatYouGet': 'Mit kap',

@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Prejsť na váš strom',
   'common.loadingEllipsis': 'Načítava sa…',
   'common.requestANewLink': 'Požiadať o nový odkaz',
+  'common.retry': 'Skúste to znova',
   'common.savingEllipsis': 'Ukladá sa…',
   'common.signingInEllipsis': 'Prihlasuje sa…',
   'common.whatYouGet': 'Čo získate',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Najprv napíšte predmet.',
   'issueEditor.title': 'Editor vydaní',
   'issues.delete': 'Odstrániť',
+  'issues.deleteConfirm': 'Chcete tento problém odstrániť? Túto akciu nie je možné vrátiť späť.',
   'issues.deleteError': 'Nepodarilo sa odstrániť vydanie',
   'issues.edit': 'Upraviť',
   'issues.loadError': 'Nepodarilo sa načítať vydania',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Odhlásenia',
   'settingsNotificationsSection.mentionsDescription':
     'Upozorniť ma, keď sa odberateľ odhláse zo zoznamu.',
+  'settingsNotificationsSection.newFollowers': 'Noví predplatitelia',
   'settingsNotificationsSection.sectionDescription':
     'Rozhodnite, kedy chcete byť vyrušovaní aktualizáciami.',
   'settingsPageHeader.title': 'Nastavenia účtu',
   'settingsPrivacySection.description': 'Ovládajte viditeľnosť svojich údajov a prítomnosti.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Zviditeľnenie verejného profilu',
   'settingsProfileSection.profileImage': 'Profilová fotografia',
   'settingsProfileSection.sectionDescription': 'Osobné údaje zobrazované ako podpis publikácie.',
   'settingsPublication.fromName': 'Meno odosielateľa',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Vydania',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Základná škola',
   'sideNavBar.signOut': 'Odhlásiť sa',
   'sideNavBar.subscribers': 'Predplatitelia',
   'signup.error': 'Registrácia zlyhala',

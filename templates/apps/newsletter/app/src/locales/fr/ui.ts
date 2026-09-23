@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': "Écrivez d'abord un objet.",
   'issueEditor.title': 'Éditeur de numéro',
   'issues.delete': 'Supprimer',
+  'issues.deleteConfirm': 'Supprimer ce ticket ? Cette action est irréversible.',
   'issues.deleteError': 'Échec de la suppression du numéro',
   'issues.edit': 'Modifier',
   'issues.loadError': 'Échec du chargement des numéros',
@@ -160,11 +161,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Désabonnements',
   'settingsNotificationsSection.mentionsDescription':
     "Me notifier lorsqu'un abonné se désabonne de la liste.",
+  'settingsNotificationsSection.newFollowers': 'Nouveaux abonnés',
   'settingsNotificationsSection.sectionDescription':
     'Décidez quand vous souhaitez être interrompu par des mises à jour.',
   'settingsPageHeader.title': 'Paramètres du compte',
   'settingsPrivacySection.description':
     'Contrôlez la visibilité de vos données et de votre présence.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilité du profil public',
   'settingsProfileSection.profileImage': 'Image de profil',
   'settingsProfileSection.sectionDescription':
     'Informations personnelles affichées comme signature de la publication.',
@@ -181,6 +184,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numéros',
   'sideNavBar.newsletterSuite': 'Suite newsletter',
+  'sideNavBar.primary': 'Primaire',
   'sideNavBar.signOut': 'Se déconnecter',
   'sideNavBar.subscribers': 'Abonnés',
   'signup.error': "Échec de l'inscription",

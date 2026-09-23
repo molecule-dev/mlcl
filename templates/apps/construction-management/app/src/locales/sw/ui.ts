@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Mawasiliano',
   'subs.col.trade': 'Biashara',
   'subs.col.value': 'Thamani ya mkataba',
+  'subs.confirmTerminate': 'Thibitisha kusitisha',
   'subs.createError': 'Imeshindwa kuongeza mkandarasi mdogo.',
   'subs.empty': 'Hakuna wanakandarasi wadogo kwenye mradi huu bado.',
   'subs.field.contact': 'Mawasiliano',

@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'ເພີ່ມ',
   'vendors.noContact': 'ຍັງບໍ່ໄດ້ຕິດຕໍ່',
   'vendors.title': 'ຜູ້ໃຫ້ບໍລິການ',
+  'weddingLayout.openNav': 'ເປີດເມນູນຳທາງ',
   'weddingLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
 }

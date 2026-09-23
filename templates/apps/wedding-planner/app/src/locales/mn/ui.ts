@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Нэмэх',
   'vendors.noContact': 'Холбоо барихгүй байна',
   'vendors.title': 'Нийлүүлэгчид',
+  'weddingLayout.openNav': 'Навигацийн цэсийг нээх',
   'weddingLayout.primaryNavLabel': 'Үндсэн навигаци',
 }

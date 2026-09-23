@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Schrijf eerst een onderwerp.',
   'issueEditor.title': 'Editie-editor',
   'issues.delete': 'Verwijderen',
+  'issues.deleteConfirm': 'Dit probleem verwijderen? Dit kan niet ongedaan worden gemaakt.',
   'issues.deleteError': 'Editie verwijderen mislukt',
   'issues.edit': 'Bewerken',
   'issues.loadError': 'Edities laden mislukt',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Afmeldingen',
   'settingsNotificationsSection.mentionsDescription':
     'Stuur me een melding wanneer een abonnee zich afmeldt van de lijst.',
+  'settingsNotificationsSection.newFollowers': 'Nieuwe abonnees',
   'settingsNotificationsSection.sectionDescription':
     'Bepaal wanneer je onderbroken wilt worden door updates.',
   'settingsPageHeader.title': 'Accountinstellingen',
   'settingsPrivacySection.description': 'Beheer de zichtbaarheid van je gegevens en aanwezigheid.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Zichtbaarheid van het openbare profiel',
   'settingsProfileSection.profileImage': 'Profielfoto',
   'settingsProfileSection.sectionDescription':
     'Persoonlijke gegevens weergegeven als de publicatie-byline.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Edities',
   'sideNavBar.newsletterSuite': 'Nieuwsbriefsuite',
+  'sideNavBar.primary': 'Basisonderwijs',
   'sideNavBar.signOut': 'Uitloggen',
   'sideNavBar.subscribers': 'Abonnees',
   'signup.error': 'Registreren mislukt',

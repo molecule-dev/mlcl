@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Επικοινωνία',
   'subs.col.trade': 'Ειδικότητα',
   'subs.col.value': 'Αξία σύμβασης',
+  'subs.confirmTerminate': 'Επιβεβαίωση τερματισμού',
   'subs.createError': 'Αποτυχία προσθήκης του υπεργολάβου.',
   'subs.empty': 'Δεν υπάρχουν ακόμα υπεργολάβοι σε αυτό το έργο.',
   'subs.field.contact': 'Επικοινωνία',

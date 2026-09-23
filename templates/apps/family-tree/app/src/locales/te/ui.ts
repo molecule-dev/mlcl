@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'మీ ట్రీకి వెళ్లండి',
   'common.loadingEllipsis': 'లోడ్ అవుతోంది…',
   'common.requestANewLink': 'కొత్త లింక్ అభ్యర్థించండి',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'common.savingEllipsis': 'సేవ్ అవుతోంది…',
   'common.signingInEllipsis': 'సైన్ ఇన్ అవుతోంది…',
   'common.whatYouGet': 'మీకు లభించేవి',

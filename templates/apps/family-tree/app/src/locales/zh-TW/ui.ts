@@ -32,6 +32,7 @@ export const ui: UiTranslations = {
   'common.goToTree': '前往您的家族樹',
   'common.loadingEllipsis': '載入中…',
   'common.requestANewLink': '申請新連結',
+  'common.retry': '請再試一次',
   'common.savingEllipsis': '儲存中…',
   'common.signingInEllipsis': '登入中…',
   'common.whatYouGet': '您將獲得',

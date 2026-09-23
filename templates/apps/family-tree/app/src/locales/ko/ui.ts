@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': '내 가족 트리로 이동',
   'common.loadingEllipsis': '로딩 중…',
   'common.requestANewLink': '새 링크 요청',
+  'common.retry': '다시 시도해 보세요',
   'common.savingEllipsis': '저장 중…',
   'common.signingInEllipsis': '로그인 중…',
   'common.whatYouGet': '제공되는 기능',

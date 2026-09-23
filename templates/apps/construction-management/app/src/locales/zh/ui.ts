@@ -198,6 +198,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': '联系方式',
   'subs.col.trade': '工种',
   'subs.col.value': '合同金额',
+  'subs.confirmTerminate': '确认终止',
   'subs.createError': '添加分包商失败。',
   'subs.empty': '此项目尚无分包商。',
   'subs.field.contact': '联系方式',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Эхлээд сэдэв бичнэ үү.',
   'issueEditor.title': 'Дугаар засварлагч',
   'issues.delete': 'Устгах',
+  'issues.deleteConfirm': 'Энэ асуудлыг устгах уу? Үүнийг буцаах боломжгүй.',
   'issues.deleteError': 'Дугаар устгаж чадсангүй',
   'issues.edit': 'Засварлах',
   'issues.loadError': 'Дугаарууд ачаалж чадсангүй',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Захиалга цуцлалт',
   'settingsNotificationsSection.mentionsDescription':
     'Захиалагч жагсаалтаас захиалга цуцлахад надад мэдэгдэх.',
+  'settingsNotificationsSection.newFollowers': 'Шинэ захиалагчид',
   'settingsNotificationsSection.sectionDescription':
     'Хэзээ шинэчлэлтээр тасалдахыг хүсэж байгаагаа шийдээрэй.',
   'settingsPageHeader.title': 'Бүртгэлийн тохиргоо',
   'settingsPrivacySection.description': 'Таны өгөгдөл болон оршихуйн харагдах байдлыг удирдах.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Олон нийтийн профайлын харагдац',
   'settingsProfileSection.profileImage': 'Профайл зураг',
   'settingsProfileSection.sectionDescription':
     'Хэвлэлийн зохиогчийн нэр болгон харуулах хувийн мэдээлэл.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Дугаарууд',
   'sideNavBar.newsletterSuite': 'Мэдээллийн товхимлын багц',
+  'sideNavBar.primary': 'Үндсэн',
   'sideNavBar.signOut': 'Гарах',
   'sideNavBar.subscribers': 'Захиалагчид',
   'signup.error': 'Бүртгэл амжилтгүй боллоо',

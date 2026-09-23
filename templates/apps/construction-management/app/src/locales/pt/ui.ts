@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Contato',
   'subs.col.trade': 'Especialidade',
   'subs.col.value': 'Valor do contrato',
+  'subs.confirmTerminate': 'Confirmar encerramento',
   'subs.createError': 'Falha ao adicionar o subempreiteiro.',
   'subs.empty': 'Ainda sem subempreiteiros neste projeto.',
   'subs.field.contact': 'Contato',

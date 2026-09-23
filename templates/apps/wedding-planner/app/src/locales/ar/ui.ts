@@ -206,5 +206,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'إضافة',
   'vendors.noContact': 'لا يوجد اتصال بعد',
   'vendors.title': 'الموردون',
+  'weddingLayout.openNav': 'فتح قائمة التنقل',
   'weddingLayout.primaryNavLabel': 'التنقل الرئيسي',
 }

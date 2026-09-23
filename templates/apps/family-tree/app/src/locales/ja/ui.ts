@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'ツリーに移動',
   'common.loadingEllipsis': '読み込み中…',
   'common.requestANewLink': '新しいリンクをリクエスト',
+  'common.retry': 'もう一度試してみてください',
   'common.savingEllipsis': '保存中…',
   'common.signingInEllipsis': 'サインイン中…',
   'common.whatYouGet': '提供される機能',

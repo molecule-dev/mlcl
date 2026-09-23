@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': '連絡先',
   'subs.col.trade': '職種',
   'subs.col.value': '契約金額',
+  'subs.confirmTerminate': '終了を確認',
   'subs.createError': '下請業者を追加できませんでした。',
   'subs.empty': 'このプロジェクトにはまだ下請業者がいません。',
   'subs.field.contact': '連絡先',

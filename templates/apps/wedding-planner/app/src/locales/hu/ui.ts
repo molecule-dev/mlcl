@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Hozzáadás',
   'vendors.noContact': 'Még nincs kapcsolat',
   'vendors.title': 'Szolgáltatók',
+  'weddingLayout.openNav': 'Navigációs menü megnyitása',
   'weddingLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

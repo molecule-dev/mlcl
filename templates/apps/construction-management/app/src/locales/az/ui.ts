@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Əlaqə',
   'subs.col.trade': 'İxtisas',
   'subs.col.value': 'Müqavilə dəyəri',
+  'subs.confirmTerminate': 'Ləğv etməyi təsdiqləyin',
   'subs.createError': 'Subpodratçı əlavə edilə bilmədi.',
   'subs.empty': 'Bu layihədə hələ subpodratçı yoxdur.',
   'subs.field.contact': 'Əlaqə',

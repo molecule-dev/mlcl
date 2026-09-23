@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Engeza',
   'vendors.noContact': 'Akukho ukuxhumana okwamanje',
   'vendors.title': 'Abahlinzeki',
+  'weddingLayout.openNav': 'Vula imenyu yokuzulazula',
   'weddingLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

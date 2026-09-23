@@ -170,6 +170,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'যোগ করা হচ্ছে…',
   'seating.form.submit': 'টেবিল যোগ করুন',
   'seating.poolTitle': 'যাদের আসন দেওয়া হয়নি',
+  'seating.subtitle':
+    '<x>উপবিষ্ট</x> বসে থাকা<x> ধারণক্ষমতা</x> আসন ·<x> {{পুল}}</x> পুলে অপেক্ষারত অতিথিরা',
   'seating.title': 'বসার চার্ট',
   'settings.billing': 'বিলিং',
   'settings.changePassword': 'পাসওয়ার্ড পরিবর্তন করুন',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'যোগ করুন',
   'vendors.noContact': 'এখনও কোনো যোগাযোগ নেই',
   'vendors.title': 'ভেন্ডর',
+  'weddingLayout.openNav': 'নেভিগেশন মেনু খুলুন',
   'weddingLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

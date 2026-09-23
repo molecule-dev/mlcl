@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Спочатку напишіть тему.',
   'issueEditor.title': 'Редактор випусків',
   'issues.delete': 'Видалити',
+  'issues.deleteConfirm': 'Видалити цю проблему? Цю дію неможливо скасувати.',
   'issues.deleteError': 'Не вдалося видалити випуск',
   'issues.edit': 'Редагувати',
   'issues.loadError': 'Не вдалося завантажити випуски',
@@ -156,10 +157,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Відписки',
   'settingsNotificationsSection.mentionsDescription':
     'Сповістити мене, коли підписник відписується від списку.',
+  'settingsNotificationsSection.newFollowers': 'Нові передплатники',
   'settingsNotificationsSection.sectionDescription':
     'Вирішіть, коли ви хочете отримувати оновлення.',
   'settingsPageHeader.title': 'Налаштування облікового запису',
   'settingsPrivacySection.description': 'Керуйте видимістю ваших даних та присутності.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Видимість публічного профілю',
   'settingsProfileSection.profileImage': 'Зображення профілю',
   'settingsProfileSection.sectionDescription':
     'Особисті дані, які відображаються як авторський рядок публікації.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Випуски',
   'sideNavBar.newsletterSuite': 'Набір розсилок',
+  'sideNavBar.primary': 'Початкова',
   'sideNavBar.signOut': 'Вийти',
   'sideNavBar.subscribers': 'Передплатники',
   'signup.error': 'Не вдалося зареєструватися',

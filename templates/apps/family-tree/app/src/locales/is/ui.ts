@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Fara í tréð þitt',
   'common.loadingEllipsis': 'Hleð…',
   'common.requestANewLink': 'Biðja um nýjan tengil',
+  'common.retry': 'Reyndu aftur',
   'common.savingEllipsis': 'Vista…',
   'common.signingInEllipsis': 'Skrái inn…',
   'common.whatYouGet': 'Það sem þú færð',

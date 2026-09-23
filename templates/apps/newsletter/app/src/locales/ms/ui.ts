@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Tulis subjek dahulu.',
   'issueEditor.title': 'Editor isu',
   'issues.delete': 'Padam',
+  'issues.deleteConfirm': 'Padamkan isu ini? Ini tidak boleh dibuat asal.',
   'issues.deleteError': 'Gagal memadam isu',
   'issues.edit': 'Sunting',
   'issues.loadError': 'Gagal memuatkan isu',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Berhenti langganan',
   'settingsNotificationsSection.mentionsDescription':
     'Beritahu saya apabila pelanggan berhenti melanggan dari senarai.',
+  'settingsNotificationsSection.newFollowers': 'Pelanggan baharu',
   'settingsNotificationsSection.sectionDescription':
     'Tentukan bila anda mahu diganggu dengan kemas kini.',
   'settingsPageHeader.title': 'Tetapan Akaun',
   'settingsPrivacySection.description': 'Kawal keterlihatan data dan kehadiran anda.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Keterlihatan Profil Awam',
   'settingsProfileSection.profileImage': 'Gambar profil',
   'settingsProfileSection.sectionDescription':
     'Butiran peribadi yang dipaparkan sebagai barisan nama penerbitan.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Isu',
   'sideNavBar.newsletterSuite': 'Suite Surat Berita',
+  'sideNavBar.primary': 'Utama',
   'sideNavBar.signOut': 'Log Keluar',
   'sideNavBar.subscribers': 'Pelanggan',
   'signup.error': 'Pendaftaran gagal',

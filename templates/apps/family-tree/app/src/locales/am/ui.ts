@@ -32,6 +32,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'ወደ ዛፍዎ ሂድ',
   'common.loadingEllipsis': 'በመጫን ላይ…',
   'common.requestANewLink': 'አዲስ አገናኝ ጠይቅ',
+  'common.retry': 'እንደገና ሞክር',
   'common.savingEllipsis': 'በማስቀመጥ ላይ…',
   'common.signingInEllipsis': 'በመግባት ላይ…',
   'common.whatYouGet': 'የሚያገኙት',

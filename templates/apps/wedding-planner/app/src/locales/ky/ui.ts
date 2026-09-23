@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'Кошулууда…',
   'seating.form.submit': 'Стол кошуу',
   'seating.poolTitle': 'Отургузулбаган конокторуңуз',
+  'seating.subtitle':
+    '{{отурган}} отурган<x> {{сыйымдылык}}</x> орундуктар ·<x> {{пул}}</x> бассейнде күтүп жаткан коноктор',
   'seating.title': 'Отургучтар чиймеси',
   'settings.billing': 'Төлөм',
   'settings.changePassword': 'Сыр сөздү өзгөртүү',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Кошуу',
   'vendors.noContact': 'Али байланыш жок',
   'vendors.title': 'Жеткирүүчүлөр',
+  'weddingLayout.openNav': 'Навигация менюсун ачуу',
   'weddingLayout.primaryNavLabel': 'Негизги навигация',
 }

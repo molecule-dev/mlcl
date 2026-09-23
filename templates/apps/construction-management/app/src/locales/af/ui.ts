@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontak',
   'subs.col.trade': 'Vak',
   'subs.col.value': 'Kontrak waarde',
+  'subs.confirmTerminate': 'Bevestig beëindiging',
   'subs.createError': 'Kon nie die subkontrakteur byvoeg nie.',
   'subs.empty': 'Nog geen subkontrakteurs op hierdie projek nie.',
   'subs.field.contact': 'Kontak',

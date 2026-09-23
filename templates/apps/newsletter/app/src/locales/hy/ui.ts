@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Նախ գրեք թեման:',
   'issueEditor.title': 'Համարի խմբագրիչ',
   'issues.delete': 'Ջնջել',
+  'issues.deleteConfirm': 'Ջնջե՞լ այս խնդիրը։ Սա հնարավոր չէ հետարկել։',
   'issues.deleteError': 'Չհաջողվեց ջնջել համարը',
   'issues.edit': 'Խմբագրել',
   'issues.loadError': 'Չհաջողվեց բեռնել համարները',
@@ -160,10 +161,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Ապաբաժանորդագրումներ',
   'settingsNotificationsSection.mentionsDescription':
     'Ծանուցել ինձ, երբ բաժանորդը ապաբաժանորդագրվում է ցուցակից:',
+  'settingsNotificationsSection.newFollowers': 'Նոր բաժանորդներ',
   'settingsNotificationsSection.sectionDescription':
     'Որոշեք, թե երբ ցանկանում եք ընդհատվել թարմացումներով:',
   'settingsPageHeader.title': 'Հաշվի կարգավորումներ',
   'settingsPrivacySection.description': 'Վերահսկեք ձեր տվյալների և ներկայության տեսանելիությունը:',
+  'settingsPrivacySection.profileVisibilityLabel': 'Հանրային պրոֆիլի տեսանելիություն',
   'settingsProfileSection.profileImage': 'Պրոֆիլի նկար',
   'settingsProfileSection.sectionDescription':
     'Անձնական տվյալներ, որոնք ցուցադրվում են որպես հրապարակման ստորագրություն:',
@@ -180,6 +183,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Համարներ',
   'sideNavBar.newsletterSuite': 'Տեղեկագրի փաթեթ',
+  'sideNavBar.primary': 'Հիմնական',
   'sideNavBar.signOut': 'Դուրս գալ',
   'sideNavBar.subscribers': 'Բաժանորդներ',
   'signup.error': 'Գրանցումը ձախողվեց',

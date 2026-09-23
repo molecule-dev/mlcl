@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'අමතන්න',
   'subs.col.trade': 'වෙළඳාම',
   'subs.col.value': 'කොන්ත්‍රාත් වටිනාකම',
+  'subs.confirmTerminate': 'අවසන් කිරීම තහවුරු කරන්න',
   'subs.createError': 'උප කොන්ත්‍රාත්කරු එකතු කිරීම අසාර්ථක විය.',
   'subs.empty': 'මෙම ව්‍යාපෘතියේ තවම උප කොන්ත්‍රාත්කරුවන් නැත.',
   'subs.field.contact': 'අමතන්න',

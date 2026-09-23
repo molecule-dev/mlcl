@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Escreva um assunto primeiro.',
   'issueEditor.title': 'Editor de edições',
   'issues.delete': 'Excluir',
+  'issues.deleteConfirm': 'Deseja excluir esta solicitação? Essa ação não pode ser revertida.',
   'issues.deleteError': 'Falha ao excluir edição',
   'issues.edit': 'Editar',
   'issues.loadError': 'Falha ao carregar edições',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Cancelamentos de inscrição',
   'settingsNotificationsSection.mentionsDescription':
     'Me notificar quando um assinante cancelar a inscrição da lista.',
+  'settingsNotificationsSection.newFollowers': 'Novos assinantes',
   'settingsNotificationsSection.sectionDescription':
     'Decida quando você quer ser interrompido por atualizações.',
   'settingsPageHeader.title': 'Configurações da Conta',
   'settingsPrivacySection.description': 'Controle a visibilidade dos seus dados e presença.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilidade do perfil público',
   'settingsProfileSection.profileImage': 'Imagem de perfil',
   'settingsProfileSection.sectionDescription':
     'Detalhes pessoais exibidos como assinatura da publicação.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Edições',
   'sideNavBar.newsletterSuite': 'Suite de Newsletter',
+  'sideNavBar.primary': 'Primário',
   'sideNavBar.signOut': 'Sair',
   'sideNavBar.subscribers': 'Assinantes',
   'signup.error': 'Falha no cadastro',

@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Холбоо барих',
   'subs.col.trade': 'Мэргэжил',
   'subs.col.value': 'Гэрээний дүн',
+  'subs.confirmTerminate': 'Дуусгахыг баталгаажуулах',
   'subs.createError': 'Дэд гэрээлэгч нэмж чадсангүй.',
   'subs.empty': 'Энэ төсөл дээр одоогоор дэд гэрээлэгч байхгүй.',
   'subs.field.contact': 'Холбоо барих',

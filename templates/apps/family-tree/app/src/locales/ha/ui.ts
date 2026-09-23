@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Je zuwa itacen ka',
   'common.loadingEllipsis': 'Ana loɗawa…',
   'common.requestANewLink': 'Nemi sabuwar hanya',
+  'common.retry': 'Gwada kuma',
   'common.savingEllipsis': 'Ana adanawa…',
   'common.signingInEllipsis': 'Ana shiga…',
   'common.whatYouGet': 'Abin da zaka samu',

@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Μετάβαση στο δέντρο σας',
   'common.loadingEllipsis': 'Φόρτωση…',
   'common.requestANewLink': 'Αίτηση νέου συνδέσμου',
+  'common.retry': 'Δοκίμασε ξανά',
   'common.savingEllipsis': 'Αποθήκευση…',
   'common.signingInEllipsis': 'Σύνδεση…',
   'common.whatYouGet': 'Τι περιλαμβάνεται',

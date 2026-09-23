@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Doties uz savu koku',
   'common.loadingEllipsis': 'Ielādē…',
   'common.requestANewLink': 'Pieprasīt jaunu saiti',
+  'common.retry': 'Mēģini vēlreiz',
   'common.savingEllipsis': 'Saglabā…',
   'common.signingInEllipsis': 'Pierakstās…',
   'common.whatYouGet': 'Ko jūs saņemat',

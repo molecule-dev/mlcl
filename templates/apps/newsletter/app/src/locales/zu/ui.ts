@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Bhala isihloko kuqala.',
   'issueEditor.title': 'Umhleli woshicilelo',
   'issues.delete': 'Susa',
+  'issues.deleteConfirm': 'Susa le nkinga? Lokhu akukwazi ukuhlehliswa.',
   'issues.deleteError': 'Ukususa kuhlulekile ushicilelo',
   'issues.edit': 'Hlela',
   'issues.loadError': 'Kulayisha kwehlulekile izishicilelo',
@@ -160,10 +161,12 @@ export const ui: UiTranslations = {
     'Ngazisa lapho ushicilelo luqeda ukuthumelela ohlwini.',
   'settingsNotificationsSection.mentions': 'Ukuhoxa',
   'settingsNotificationsSection.mentionsDescription': 'Ngazisa lapho umbhalisi ehoxa ohlwini.',
+  'settingsNotificationsSection.newFollowers': 'Ababhalisile abasha',
   'settingsNotificationsSection.sectionDescription':
     'Nquma lapho ufuna ukuphazamiseka izibuyekezo.',
   'settingsPageHeader.title': 'Izilungiselelo Ze-akhawunti',
   'settingsPrivacySection.description': 'Lawula ukubonakala kwedatha yakho nobukhona.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Ukubonakala Kwephrofayela Yomphakathi',
   'settingsProfileSection.profileImage': 'Isithombe sephrofayela',
   'settingsProfileSection.sectionDescription':
     'Imininingwane yomuntu siqu eboniswe njengegama lombhali wokushicilelwa.',
@@ -180,6 +183,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Izishicilelo',
   'sideNavBar.newsletterSuite': 'I-Newsletter Suite',
+  'sideNavBar.primary': 'Okuyinhloko',
   'sideNavBar.signOut': 'Phuma',
   'sideNavBar.subscribers': 'Ababhalisile',
   'signup.error': 'Ukubhalisela kuhlulekile',

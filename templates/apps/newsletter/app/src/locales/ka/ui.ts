@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ჯერ დაწერეთ თემა.',
   'issueEditor.title': 'გამოშვების რედაქტორი',
   'issues.delete': 'წაშლა',
+  'issues.deleteConfirm': 'წაიშალოს ეს პრობლემა? ამის გაუქმება შეუძლებელია.',
   'issues.deleteError': 'გამოშვების წაშლა ვერ მოხერხდა',
   'issues.edit': 'რედაქტირება',
   'issues.loadError': 'გამოშვებების ჩატვირთვა ვერ მოხერხდა',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'გამოწერის გაუქმებები',
   'settingsNotificationsSection.mentionsDescription':
     'შემატყობინე, როდესაც გამომწერი გააუქმებს სიიდან გამოწერას.',
+  'settingsNotificationsSection.newFollowers': 'ახალი გამომწერები',
   'settingsNotificationsSection.sectionDescription':
     'გადაწყვიტეთ, როდის გსურთ განახლებებით შეფერხება.',
   'settingsPageHeader.title': 'ანგარიშის პარამეტრები',
   'settingsPrivacySection.description': 'გააკონტროლეთ თქვენი მონაცემების და არსებობის ხილვადობა.',
+  'settingsPrivacySection.profileVisibilityLabel': 'საჯარო პროფილის ხილვადობა',
   'settingsProfileSection.profileImage': 'პროფილის სურათი',
   'settingsProfileSection.sectionDescription':
     'პირადი დეტალები, რომლებიც ნაჩვენებია როგორც გამოცემის ავტორი.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'გამოშვებები',
   'sideNavBar.newsletterSuite': 'სიახლეების ბიულეტენის პაკეტი',
+  'sideNavBar.primary': 'ძირითადი',
   'sideNavBar.signOut': 'გასვლა',
   'sideNavBar.subscribers': 'გამომწერები',
   'signup.error': 'რეგისტრაცია ვერ მოხერხდა',

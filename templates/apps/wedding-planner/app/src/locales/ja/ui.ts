@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': '追加',
   'vendors.noContact': '連絡先未登録',
   'vendors.title': '業者',
+  'weddingLayout.openNav': 'ナビゲーションメニューを開く',
   'weddingLayout.primaryNavLabel': 'メインナビゲーション',
 }

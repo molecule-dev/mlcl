@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Żid',
   'vendors.noContact': 'L-ebda kuntatt għad',
   'vendors.title': 'Fornituri',
+  'weddingLayout.openNav': 'Iftaħ il-menù tan-navigazzjoni',
   'weddingLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

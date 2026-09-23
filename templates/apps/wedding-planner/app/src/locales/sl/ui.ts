@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Dodaj',
   'vendors.noContact': 'Še ni kontakta',
   'vendors.title': 'Dobavitelji',
+  'weddingLayout.openNav': 'Odpri navigacijski meni',
   'weddingLayout.primaryNavLabel': 'Primarna navigacija',
 }

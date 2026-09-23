@@ -170,6 +170,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'जोडत आहे…',
   'seating.form.submit': 'टेबल जोडा',
   'seating.poolTitle': 'न बसलेले पाहुणे',
+  'seating.subtitle':
+    '<x>बसलेले</x> बसलेले<x> {{क्षमता}}</x> जागा ·<x> {{pool}}</x> पूलमध्ये वाट पाहणारे पाहुणे',
   'seating.title': 'बसण्याचा चार्ट',
   'settings.billing': 'बिलिंग',
   'settings.changePassword': 'पासवर्ड बदला',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'जोडा',
   'vendors.noContact': 'अद्याप कोणताही संपर्क नाही',
   'vendors.title': 'विक्रेते',
+  'weddingLayout.openNav': 'नेव्हिगेशन मेनू उघडा',
   'weddingLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
 }

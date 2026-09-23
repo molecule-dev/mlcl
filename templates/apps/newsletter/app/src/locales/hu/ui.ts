@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Először írj egy tárgyat.',
   'issueEditor.title': 'Számszerkesztő',
   'issues.delete': 'Törlés',
+  'issues.deleteConfirm': 'Törölje ezt a problémát? Ez a művelet visszafordíthatatlan.',
   'issues.deleteError': 'Szám törlése sikertelen',
   'issues.edit': 'Szerkesztés',
   'issues.loadError': 'Számok betöltése sikertelen',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Leiratkozások',
   'settingsNotificationsSection.mentionsDescription':
     'Értesíts, amikor egy feliratkozó leiratkozik a listáról.',
+  'settingsNotificationsSection.newFollowers': 'Új előfizetők',
   'settingsNotificationsSection.sectionDescription':
     'Döntsd el, mikor szeretnél értesítéseket kapni.',
   'settingsPageHeader.title': 'Fiókbeállítások',
   'settingsPrivacySection.description': 'Szabályozd adataid és jelenléteid láthatóságát.',
+  'settingsPrivacySection.profileVisibilityLabel': 'A nyilvános profil láthatósága',
   'settingsProfileSection.profileImage': 'Profilkép',
   'settingsProfileSection.sectionDescription':
     'Személyes adatok, amelyek a kiadvány szerzőjeként jelennek meg.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Számok',
   'sideNavBar.newsletterSuite': 'Hírlevél csomag',
+  'sideNavBar.primary': 'Elsődleges',
   'sideNavBar.signOut': 'Kijelentkezés',
   'sideNavBar.subscribers': 'Előfizetők',
   'signup.error': 'Regisztráció sikertelen',

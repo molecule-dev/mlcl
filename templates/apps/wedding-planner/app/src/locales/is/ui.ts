@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Bæta við',
   'vendors.noContact': 'Enginn tengiliður enn',
   'vendors.title': 'Þjónustuaðilar',
+  'weddingLayout.openNav': 'Opna flakkvalmynd',
   'weddingLayout.primaryNavLabel': 'Aðalflakk',
 }

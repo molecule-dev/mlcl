@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Idagdag',
   'vendors.noContact': 'Walang contact pa',
   'vendors.title': 'Mga Vendor',
+  'weddingLayout.openNav': 'Buksan ang menu ng nabigasyon',
   'weddingLayout.primaryNavLabel': 'Pangunahing navigation',
 }

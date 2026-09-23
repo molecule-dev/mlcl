@@ -204,5 +204,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': '添加',
   'vendors.noContact': '尚無聯絡方式',
   'vendors.title': '供應商',
+  'weddingLayout.openNav': '開啟導覽選單',
   'weddingLayout.primaryNavLabel': '主導航',
 }

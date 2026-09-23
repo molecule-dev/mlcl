@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Viết chủ đề trước.',
   'issueEditor.title': 'Trình chỉnh sửa số',
   'issues.delete': 'Xóa',
+  'issues.deleteConfirm': 'Xóa vấn đề này? Không thể hoàn tác.',
   'issues.deleteError': 'Không xóa được số',
   'issues.edit': 'Chỉnh sửa',
   'issues.loadError': 'Không tải được các số',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Hủy đăng ký',
   'settingsNotificationsSection.mentionsDescription':
     'Thông báo cho tôi khi người đăng ký hủy đăng ký khỏi danh sách.',
+  'settingsNotificationsSection.newFollowers': 'Người đăng ký mới',
   'settingsNotificationsSection.sectionDescription':
     'Quyết định khi nào bạn muốn bị gián đoạn bởi các cập nhật.',
   'settingsPageHeader.title': 'Cài đặt tài khoản',
   'settingsPrivacySection.description': 'Kiểm soát khả năng hiển thị dữ liệu và hiện diện của bạn.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Khả năng hiển thị hồ sơ công khai',
   'settingsProfileSection.profileImage': 'Ảnh hồ sơ',
   'settingsProfileSection.sectionDescription':
     'Chi tiết cá nhân hiển thị dưới dạng chữ ký xuất bản.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Các số',
   'sideNavBar.newsletterSuite': 'Bộ bản tin',
+  'sideNavBar.primary': 'Sơ đẳng',
   'sideNavBar.signOut': 'Đăng xuất',
   'sideNavBar.subscribers': 'Người đăng ký',
   'signup.error': 'Đăng ký thất bại',

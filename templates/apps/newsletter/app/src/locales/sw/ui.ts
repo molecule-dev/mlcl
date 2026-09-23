@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Andika somo kwanza.',
   'issueEditor.title': 'Kihariri cha toleo',
   'issues.delete': 'Futa',
+  'issues.deleteConfirm': 'Ungependa kufuta tatizo hili? Hili haliwezi kutenduliwa.',
   'issues.deleteError': 'Imeshindwa kufuta toleo',
   'issues.edit': 'Hariri',
   'issues.loadError': 'Imeshindwa kupakia matoleo',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Kujiondoa',
   'settingsNotificationsSection.mentionsDescription':
     'Nijulishe mwanachama anapojiondoa kwenye orodha.',
+  'settingsNotificationsSection.newFollowers': 'Wasajili wapya',
   'settingsNotificationsSection.sectionDescription':
     'Amua wakati unapotaka kukatizwa na masasisho.',
   'settingsPageHeader.title': 'Mipangilio ya Akaunti',
   'settingsPrivacySection.description': 'Dhibiti mwonekano wa data yako na uwepo wako.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Mwonekano wa Wasifu wa Umma',
   'settingsProfileSection.profileImage': 'Picha ya wasifu',
   'settingsProfileSection.sectionDescription':
     'Maelezo ya kibinafsi yanayooneshwa kama jina la mwandishi wa uchapishaji.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Matoleo',
   'sideNavBar.newsletterSuite': 'Kifurushi cha Jarida',
+  'sideNavBar.primary': 'Msingi',
   'sideNavBar.signOut': 'Toka',
   'sideNavBar.subscribers': 'Wasajili',
   'signup.error': 'Usajili umeshindikana',

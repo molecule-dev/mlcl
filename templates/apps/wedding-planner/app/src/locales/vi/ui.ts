@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Thêm',
   'vendors.noContact': 'Chưa có liên hệ',
   'vendors.title': 'Nhà cung cấp',
+  'weddingLayout.openNav': 'Mở menu điều hướng',
   'weddingLayout.primaryNavLabel': 'Điều hướng chính',
 }

@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Eiti į savo medį',
   'common.loadingEllipsis': 'Įkeliama…',
   'common.requestANewLink': 'Prašyti naujos nuorodos',
+  'common.retry': 'Pabandykite dar kartą',
   'common.savingEllipsis': 'Išsaugoma…',
   'common.signingInEllipsis': 'Prisijungiama…',
   'common.whatYouGet': 'Ką gausite',

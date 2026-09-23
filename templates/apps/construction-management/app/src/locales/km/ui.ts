@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ទំនាក់ទំនង',
   'subs.col.trade': 'ជំនាញ',
   'subs.col.value': 'តម្លៃកិច្ចសន្យា',
+  'subs.confirmTerminate': 'បញ្ជាក់ការបញ្ចប់',
   'subs.createError': 'បរាជ័យក្នុងការបន្ថែមអ្នកម៉ៅការបរទេស។',
   'subs.empty': 'មិនទាន់មានអ្នកម៉ៅការបរទេសនៅលើគម្រោងនេះនៅឡើយទេ។',
   'subs.field.contact': 'ទំនាក់ទំនង',

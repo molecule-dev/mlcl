@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Aloqa',
   'subs.col.trade': 'Kasb',
   'subs.col.value': 'Shartnoma qiymati',
+  'subs.confirmTerminate': 'Tugatishni tasdiqlang',
   'subs.createError': "Subpudratchi qo'shib bo'lmadi.",
   'subs.empty': "Bu loyihada hali subpudratchilar yo'q.",
   'subs.field.contact': 'Aloqa',

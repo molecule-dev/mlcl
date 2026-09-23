@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ongeza',
   'vendors.noContact': 'Hakuna mawasiliano bado',
   'vendors.title': 'Wasambazaji',
+  'weddingLayout.openNav': 'Fungua menyu ya kusogeza',
   'weddingLayout.primaryNavLabel': 'Usogezaji mkuu',
 }

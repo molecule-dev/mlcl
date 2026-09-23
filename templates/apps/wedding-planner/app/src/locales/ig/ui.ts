@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Tinye',
   'vendors.noContact': 'Enwebeghị kọntaktị',
   'vendors.title': 'Ndị na-ere ahịa',
+  'weddingLayout.openNav': 'Mepee menu nsoroụzọ',
   'weddingLayout.primaryNavLabel': 'Ntugharị isi',
 }

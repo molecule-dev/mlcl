@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Pridať',
   'vendors.noContact': 'Zatiaľ žiadny kontakt',
   'vendors.title': 'Dodávatelia',
+  'weddingLayout.openNav': 'Otvoriť navigačné menu',
   'weddingLayout.primaryNavLabel': 'Hlavná navigácia',
 }

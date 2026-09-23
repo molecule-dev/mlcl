@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Rubuta jigo da farko.',
   'issueEditor.title': 'Mai gyaran batu',
   'issues.delete': 'Goge',
+  'issues.deleteConfirm': 'A goge wannan matsalar? Ba za a iya gyara wannan ba.',
   'issues.deleteError': 'An kasa share batu',
   'issues.edit': 'Gyara',
   'issues.loadError': 'An kasa loda batutuwa',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Soke biyan kuɗi',
   'settingsNotificationsSection.mentionsDescription':
     'Sanar da ni lokacin da mai biyan kuɗi ya soke biyan kuɗi daga jerin.',
+  'settingsNotificationsSection.newFollowers': 'Sabbin masu biyan kuɗi',
   'settingsNotificationsSection.sectionDescription':
     'Yanke shawarar lokacin da kuke son a katse ku da sabuntawa.',
   'settingsPageHeader.title': 'Saitunan Asusu',
   'settingsPrivacySection.description': 'Sarrafa ganin bayanan ku da kasancewa.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Ganuwa ga Bayanan Jama&#39;a',
   'settingsProfileSection.profileImage': 'Hoton bayanan martaba',
   'settingsProfileSection.sectionDescription':
     'Bayanan sirri da aka nuna a matsayin layin marubucin wallafe-wallafe.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Batutuwa',
   'sideNavBar.newsletterSuite': 'Tsarin Jarida',
+  'sideNavBar.primary': 'Babban Firamare',
   'sideNavBar.signOut': 'Fita',
   'sideNavBar.subscribers': 'Masu biyan kuɗi',
   'signup.error': 'Yin rajista bai yi nasara ba',

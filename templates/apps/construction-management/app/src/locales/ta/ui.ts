@@ -206,6 +206,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'தொடர்பு',
   'subs.col.trade': 'வர்த்தகம்',
   'subs.col.value': 'ஒப்பந்த மதிப்பு',
+  'subs.confirmTerminate': 'நிறுத்தத்தை உறுதிப்படுத்து',
   'subs.createError': 'துணை ஒப்பந்தக்காரரைச் சேர்க்க முடியவில்லை.',
   'subs.empty': 'இந்தத் திட்டத்தில் இதுவரை துணை ஒப்பந்தக்காரர்கள் இல்லை.',
   'subs.field.contact': 'தொடர்பு',

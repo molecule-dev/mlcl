@@ -82,6 +82,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Ikteb suġġett l-ewwel.',
   'issueEditor.title': 'Editur tal-ħarġiet',
   'issues.delete': 'Ħassar',
+  'issues.deleteConfirm': 'Tħassar din il-kwistjoni? Dan ma jistax jitneħħa.',
   'issues.deleteError': 'Naqas iż-żamma tal-ħarġa',
   'issues.edit': 'Editja',
   'issues.loadError': 'Naqas il-ġbir tal-ħarġiet',
@@ -160,10 +161,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': "Tneħħija ta' sottoskrizzjonijiet",
   'settingsNotificationsSection.mentionsDescription':
     'Infurmani meta subscriber jitneħħa mil-lista.',
+  'settingsNotificationsSection.newFollowers': 'Abbonati ġodda',
   'settingsNotificationsSection.sectionDescription':
     'Iddeċiedi meta trid tiġi interrott minn aġġornamenti.',
   'settingsPageHeader.title': 'Settings tal-Kont',
   'settingsPrivacySection.description': 'Ikkontrolla l-viżibbiltà tad-data u l-preżenza tiegħek.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Viżibilità tal-Profil Pubbliku',
   'settingsProfileSection.profileImage': 'Immaġni tal-profil',
   'settingsProfileSection.sectionDescription':
     'Dettalji personali murija bħala byline tal-pubblikazzjoni.',
@@ -180,6 +183,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Ħarġiet',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Primarja',
   'sideNavBar.signOut': 'Oħroġ',
   'sideNavBar.subscribers': 'Abbonati',
   'signup.error': 'Ir-reġistrazzjoni naqset',

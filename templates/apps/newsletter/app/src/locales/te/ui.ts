@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ముందుగా ఒక విషయం రాయండి.',
   'issueEditor.title': 'ఇష్యూ ఎడిటర్',
   'issues.delete': 'తొలగించు',
+  'issues.deleteConfirm': 'ఈ సమస్యను తొలగించాలా? దీన్ని వెనక్కి తీసుకోలేము.',
   'issues.deleteError': 'ఇష్యూని తొలగించడం విఫలమైంది',
   'issues.edit': 'సవరించు',
   'issues.loadError': 'ఇష్యూలను లోడ్ చేయడం విఫలమైంది',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'అన్‌సబ్‌స్క్రైబ్‌లు',
   'settingsNotificationsSection.mentionsDescription':
     'సబ్‌స్క్రైబర్ లిస్ట్ నుండి అన్‌సబ్‌స్క్రైబ్ చేసినప్పుడు నాకు తెలియజేయండి.',
+  'settingsNotificationsSection.newFollowers': 'కొత్త చందాదారులు',
   'settingsNotificationsSection.sectionDescription':
     'అప్‌డేట్ల ద్వారా మీరు ఎప్పుడు అంతరాయం కలగాలనుకుంటున్నారో నిర్ణయించండి.',
   'settingsPageHeader.title': 'ఖాతా సెట్టింగ్స్',
   'settingsPrivacySection.description': 'మీ డేటా మరియు ఉనికి యొక్క దృశ్యతను నియంత్రించండి.',
+  'settingsPrivacySection.profileVisibilityLabel': 'పబ్లిక్ ప్రొఫైల్ విజిబిలిటీ',
   'settingsProfileSection.profileImage': 'ప్రొఫైల్ చిత్రం',
   'settingsProfileSection.sectionDescription': 'ప్రచురణ బైలైన్‌గా ప్రదర్శించబడే వ్యక్తిగత వివరాలు.',
   'settingsPublication.fromName': 'పంపినవారి పేరు',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ఇష్యూలు',
   'sideNavBar.newsletterSuite': 'న్యూస్‌లెటర్ సూట్',
+  'sideNavBar.primary': 'ప్రాథమిక',
   'sideNavBar.signOut': 'సైన్ అవుట్',
   'sideNavBar.subscribers': 'చందాదారులు',
   'signup.error': 'సైన్అప్ విఫలమైంది',

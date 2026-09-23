@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Yhteyshenkilö',
   'subs.col.trade': 'Ala',
   'subs.col.value': 'Sopimuksen arvo',
+  'subs.confirmTerminate': 'Vahvista lopettaminen',
   'subs.createError': 'Alihankkijan lisääminen epäonnistui.',
   'subs.empty': 'Ei vielä alihankkijoita tässä projektissa.',
   'subs.field.contact': 'Yhteyshenkilö',

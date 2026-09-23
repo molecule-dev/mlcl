@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ਪਹਿਲਾਂ ਵਿਸ਼ਾ ਲਿਖੋ।',
   'issueEditor.title': 'ਅੰਕ ਸੰਪਾਦਕ',
   'issues.delete': 'ਮਿਟਾਓ',
+  'issues.deleteConfirm': 'ਕੀ ਇਸ ਸਮੱਸਿਆ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ? ਇਸਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।',
   'issues.deleteError': 'ਅੰਕ ਮਿਟਾਉਣ ਵਿੱਚ ਅਸਫਲ',
   'issues.edit': 'ਸੋਧੋ',
   'issues.loadError': 'ਅੰਕ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ',
@@ -156,10 +157,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'ਅਨਸਬਸਕ੍ਰਾਈਬ',
   'settingsNotificationsSection.mentionsDescription':
     'ਜਦੋਂ ਕੋਈ ਸਬਸਕ੍ਰਾਈਬਰ ਸੂਚੀ ਤੋਂ ਅਨਸਬਸਕ੍ਰਾਈਬ ਕਰੇ ਤਾਂ ਮੈਨੂੰ ਸੂਚਿਤ ਕਰੋ।',
+  'settingsNotificationsSection.newFollowers': 'ਨਵੇਂ ਗਾਹਕ',
   'settingsNotificationsSection.sectionDescription':
     'ਫੈਸਲਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਅੱਪਡੇਟਾਂ ਦੁਆਰਾ ਕਦੋਂ ਰੁਕਾਵਟ ਚਾਹੁੰਦੇ ਹੋ।',
   'settingsPageHeader.title': 'ਖਾਤਾ ਸੈਟਿੰਗਾਂ',
   'settingsPrivacySection.description': 'ਆਪਣੇ ਡੇਟਾ ਅਤੇ ਮੌਜੂਦਗੀ ਦੀ ਦਿੱਖ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰੋ।',
+  'settingsPrivacySection.profileVisibilityLabel': 'ਜਨਤਕ ਪ੍ਰੋਫਾਈਲ ਦ੍ਰਿਸ਼ਟੀ',
   'settingsProfileSection.profileImage': 'ਪ੍ਰੋਫਾਈਲ ਤਸਵੀਰ',
   'settingsProfileSection.sectionDescription': 'ਪ੍ਰਕਾਸ਼ਨ ਬਾਇਲਾਈਨ ਵਜੋਂ ਦਿਖਾਏ ਗਏ ਨਿੱਜੀ ਵੇਰਵੇ।',
   'settingsPublication.fromName': 'ਭੇਜਣ ਵਾਲੇ ਦਾ ਨਾਂ',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ਅੰਕ',
   'sideNavBar.newsletterSuite': 'ਨਿਊਜ਼ਲੈਟਰ ਸੂਟ',
+  'sideNavBar.primary': 'ਪ੍ਰਾਇਮਰੀ',
   'sideNavBar.signOut': 'ਸਾਈਨ ਆਉਟ',
   'sideNavBar.subscribers': 'ਗਾਹਕ',
   'signup.error': 'ਸਾਈਨਅੱਪ ਅਸਫਲ ਰਿਹਾ',

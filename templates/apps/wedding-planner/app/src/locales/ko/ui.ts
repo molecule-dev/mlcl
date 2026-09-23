@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': '추가',
   'vendors.noContact': '아직 연락 없음',
   'vendors.title': '업체',
+  'weddingLayout.openNav': '탐색 메뉴 열기',
   'weddingLayout.primaryNavLabel': '기본 탐색',
 }

@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Lọ sí igi rẹ',
   'common.loadingEllipsis': 'Ń gbé wọlé…',
   'common.requestANewLink': 'Bèèrè fún ọ̀nà tuntun',
+  'common.retry': 'Gbiyanju lẹẹkansi',
   'common.savingEllipsis': 'Ń fi pamọ́…',
   'common.signingInEllipsis': 'Ń wọlé…',
   'common.whatYouGet': 'Ohun tí o máa rí',

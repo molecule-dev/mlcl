@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ആദ്യം ഒരു വിഷയം എഴുതുക.',
   'issueEditor.title': 'ലക്കം എഡിറ്റർ',
   'issues.delete': 'ഇല്ലാതാക്കുക',
+  'issues.deleteConfirm': 'ഈ പ്രശ്നം ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'issues.deleteError': 'ലക്കം ഇല്ലാതാക്കുന്നതിൽ പരാജയപ്പെട്ടു',
   'issues.edit': 'എഡിറ്റ് ചെയ്യുക',
   'issues.loadError': 'ലക്കങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
@@ -161,11 +162,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'അൺസബ്‌സ്ക്രൈബുകൾ',
   'settingsNotificationsSection.mentionsDescription':
     'ഒരു സബ്‌സ്ക്രൈബർ പട്ടികയിൽ നിന്ന് അൺസബ്‌സ്ക്രൈബ് ചെയ്യുമ്പോൾ എന്നെ അറിയിക്കുക.',
+  'settingsNotificationsSection.newFollowers': 'പുതിയ സബ്‌സ്‌ക്രൈബർമാർ',
   'settingsNotificationsSection.sectionDescription':
     'അപ്‌ഡേറ്റുകളാൽ എപ്പോൾ തടസ്സപ്പെടണമെന്ന് തീരുമാനിക്കുക.',
   'settingsPageHeader.title': 'അക്കൗണ്ട് ക്രമീകരണങ്ങൾ',
   'settingsPrivacySection.description':
     'നിങ്ങളുടെ ഡാറ്റയുടെയും സാന്നിധ്യത്തിന്റെയും ദൃശ്യത നിയന്ത്രിക്കുക.',
+  'settingsPrivacySection.profileVisibilityLabel': 'പൊതു പ്രൊഫൈൽ ദൃശ്യപരത',
   'settingsProfileSection.profileImage': 'പ്രൊഫൈൽ ചിത്രം',
   'settingsProfileSection.sectionDescription':
     'പ്രസിദ്ധീകരണ ബൈലൈനായി പ്രദർശിപ്പിക്കുന്ന വ്യക്തിഗത വിശദാംശങ്ങൾ.',
@@ -181,6 +184,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ലക്കങ്ങൾ',
   'sideNavBar.newsletterSuite': 'ന്യൂസ്‌ലെറ്റർ സ്യൂട്ട്',
+  'sideNavBar.primary': 'പ്രാഥമികം',
   'sideNavBar.signOut': 'സൈൻ ഔട്ട്',
   'sideNavBar.subscribers': 'വരിക്കാർ',
   'signup.error': 'സൈൻഅപ്പ് പരാജയപ്പെട്ടു',

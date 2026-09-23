@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Escribe un asunto primero.',
   'issueEditor.title': 'Editor de ediciones',
   'issues.delete': 'Eliminar',
+  'issues.deleteConfirm': '¿Deseas eliminar este problema? Esta acción no se puede deshacer.',
   'issues.deleteError': 'Error al eliminar la edición',
   'issues.edit': 'Editar',
   'issues.loadError': 'Error al cargar las ediciones',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Bajas',
   'settingsNotificationsSection.mentionsDescription':
     'Notificarme cuando un suscriptor se dé de baja de la lista.',
+  'settingsNotificationsSection.newFollowers': 'Nuevos suscriptores',
   'settingsNotificationsSection.sectionDescription':
     'Decide cuándo quieres ser interrumpido por actualizaciones.',
   'settingsPageHeader.title': 'Configuración de la cuenta',
   'settingsPrivacySection.description': 'Controla la visibilidad de tus datos y presencia.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilidad del perfil público',
   'settingsProfileSection.profileImage': 'Imagen de perfil',
   'settingsProfileSection.sectionDescription':
     'Datos personales mostrados como la firma de la publicación.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Ediciones',
   'sideNavBar.newsletterSuite': 'Suite de boletines',
+  'sideNavBar.primary': 'Primaria',
   'sideNavBar.signOut': 'Cerrar sesión',
   'sideNavBar.subscribers': 'Suscriptores',
   'signup.error': 'Error al registrarse',

@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Scrivi prima un oggetto.',
   'issueEditor.title': 'Editor edizione',
   'issues.delete': 'Elimina',
+  'issues.deleteConfirm': 'Elimina questo problema? Questa operazione non può essere annullata.',
   'issues.deleteError': "Impossibile eliminare l'edizione",
   'issues.edit': 'Modifica',
   'issues.loadError': 'Impossibile caricare le edizioni',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Disiscrizioni',
   'settingsNotificationsSection.mentionsDescription':
     'Avvisami quando un iscritto si disiscrive dalla lista.',
+  'settingsNotificationsSection.newFollowers': 'Nuovi abbonati',
   'settingsNotificationsSection.sectionDescription':
     'Decidi quando vuoi essere interrotto dagli aggiornamenti.',
   'settingsPageHeader.title': 'Impostazioni account',
   'settingsPrivacySection.description': 'Controlla la visibilità dei tuoi dati e presenza.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilità del profilo pubblico',
   'settingsProfileSection.profileImage': 'Immagine profilo',
   'settingsProfileSection.sectionDescription':
     'Dettagli personali visualizzati come firma della pubblicazione.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Edizioni',
   'sideNavBar.newsletterSuite': 'Suite Newsletter',
+  'sideNavBar.primary': 'Primaria',
   'sideNavBar.signOut': 'Esci',
   'sideNavBar.subscribers': 'Iscritti',
   'signup.error': 'Registrazione non riuscita',

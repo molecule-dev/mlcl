@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'প্রথমে একটি বিষয় লিখুন।',
   'issueEditor.title': 'ইস্যু এডিটর',
   'issues.delete': 'মুছে ফেলুন',
+  'issues.deleteConfirm': 'এই সমস্যাটি মুছে ফেলবেন? এটি আর পূর্বাবস্থায় ফেরানো যাবে না।',
   'issues.deleteError': 'ইস্যু মুছতে ব্যর্থ',
   'issues.edit': 'সম্পাদনা',
   'issues.loadError': 'ইস্যু লোড করতে ব্যর্থ',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'আনসাবস্ক্রাইব',
   'settingsNotificationsSection.mentionsDescription':
     'লিস্ট থেকে কোনো সাবস্ক্রাইবার আনসাবস্ক্রাইব করলে আমাকে জানান।',
+  'settingsNotificationsSection.newFollowers': 'নতুন গ্রাহকদের',
   'settingsNotificationsSection.sectionDescription':
     'কখন আপডেট দ্বারা বিরক্ত হতে চান তা নির্ধারণ করুন।',
   'settingsPageHeader.title': 'অ্যাকাউন্ট সেটিংস',
   'settingsPrivacySection.description': 'আপনার ডেটা এবং উপস্থিতির দৃশ্যমানতা নিয়ন্ত্রণ করুন।',
+  'settingsPrivacySection.profileVisibilityLabel': 'জনসাধারণের কাছে পরিচিতি',
   'settingsProfileSection.profileImage': 'প্রোফাইল ছবি',
   'settingsProfileSection.sectionDescription': 'প্রকাশনা বাইলাইন হিসাবে প্রদর্শিত ব্যক্তিগত বিবরণ।',
   'settingsPublication.fromName': 'প্রেরক নাম',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ইস্যু',
   'sideNavBar.newsletterSuite': 'নিউজলেটার স্যুট',
+  'sideNavBar.primary': 'প্রাথমিক',
   'sideNavBar.signOut': 'সাইন আউট করুন',
   'sideNavBar.subscribers': 'সাবস্ক্রাইবাররা',
   'signup.error': 'সাইন আপ ব্যর্থ হয়েছে',

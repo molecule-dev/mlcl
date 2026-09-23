@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'เพิ่ม',
   'vendors.noContact': 'ยังไม่มีข้อมูลติดต่อ',
   'vendors.title': 'ผู้ให้บริการ',
+  'weddingLayout.openNav': 'เปิดเมนูนำทาง',
   'weddingLayout.primaryNavLabel': 'การนำทางหลัก',
 }

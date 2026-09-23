@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Joan zure zuhaitzera',
   'common.loadingEllipsis': 'Kargatzen…',
   'common.requestANewLink': 'Eskatu esteka berri bat',
+  'common.retry': 'Saiatu berriro',
   'common.savingEllipsis': 'Gordetzen…',
   'common.signingInEllipsis': 'Saioa hasten…',
   'common.whatYouGet': 'Zer lortzen duzu',

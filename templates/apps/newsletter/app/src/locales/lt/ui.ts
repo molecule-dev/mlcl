@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Pirmiausia parašykite temą.',
   'issueEditor.title': 'Numerio redaktorius',
   'issues.delete': 'Ištrinti',
+  'issues.deleteConfirm': 'Ar norite ištrinti šią problemą? Šio veiksmo negalima atšaukti.',
   'issues.deleteError': 'Nepavyko ištrinti numerio',
   'issues.edit': 'Redaguoti',
   'issues.loadError': 'Nepavyko įkelti numerių',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Atsisakymai',
   'settingsNotificationsSection.mentionsDescription':
     'Pranešti man, kai prenumeratorius atsisakė prenumeratos.',
+  'settingsNotificationsSection.newFollowers': 'Nauji prenumeratoriai',
   'settingsNotificationsSection.sectionDescription':
     'Nuspręskite, kada norite būti pertraukiami pranešimų.',
   'settingsPageHeader.title': 'Paskyros nustatymai',
   'settingsPrivacySection.description': 'Valdykite savo duomenų ir buvimo matomumą.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Viešo profilio matomumas',
   'settingsProfileSection.profileImage': 'Profilio nuotrauka',
   'settingsProfileSection.sectionDescription':
     'Asmeniniai duomenys, rodomi kaip leidinio autorius.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numeriai',
   'sideNavBar.newsletterSuite': 'Naujienlaiškių rinkinys',
+  'sideNavBar.primary': 'Pradinis',
   'sideNavBar.signOut': 'Atsijungti',
   'sideNavBar.subscribers': 'Prenumeratoriai',
   'signup.error': 'Registracija nepavyko',

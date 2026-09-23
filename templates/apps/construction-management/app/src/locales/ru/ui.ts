@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Контакт',
   'subs.col.trade': 'Специализация',
   'subs.col.value': 'Сумма контракта',
+  'subs.confirmTerminate': 'Подтвердить прекращение',
   'subs.createError': 'Не удалось добавить субподрядчика.',
   'subs.empty': 'Пока нет субподрядчиков в этом проекте.',
   'subs.field.contact': 'Контакт',

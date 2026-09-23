@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Спачатку напішыце тэму.',
   'issueEditor.title': 'Рэдактар выпускаў',
   'issues.delete': 'Выдаліць',
+  'issues.deleteConfirm': 'Выдаліць гэтую праблему? Гэта нельга адмяніць.',
   'issues.deleteError': 'Не ўдалося выдаліць выпуск',
   'issues.edit': 'Рэдагаваць',
   'issues.loadError': 'Не ўдалося загрузіць выпускі',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Адпіскі',
   'settingsNotificationsSection.mentionsDescription':
     'Паведаміць мне, калі падпісчык адпісваецца ад спісу.',
+  'settingsNotificationsSection.newFollowers': 'Новыя падпісчыкі',
   'settingsNotificationsSection.sectionDescription':
     'Вырашыце, калі вы хочаце атрымліваць апавяшчэнні.',
   'settingsPageHeader.title': 'Налады ўліковага запісу',
   'settingsPrivacySection.description': 'Кантралюйце бачнасць вашых даных і прысутнасці.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Бачнасць публічнага профілю',
   'settingsProfileSection.profileImage': 'Выява профілю',
   'settingsProfileSection.sectionDescription':
     'Асабістыя даныя, якія адлюстроўваюцца ў якасці аўтарскага радка публікацыі.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Выпускі',
   'sideNavBar.newsletterSuite': 'Пакет рассылак',
+  'sideNavBar.primary': 'Пачатковая',
   'sideNavBar.signOut': 'Выйсці',
   'sideNavBar.subscribers': 'Падпісчыкі',
   'signup.error': 'Рэгістрацыя не ўдалася',

@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Gaan na jou boom',
   'common.loadingEllipsis': 'Laai…',
   'common.requestANewLink': "Versoek 'n nuwe skakel",
+  'common.retry': 'Probeer weer',
   'common.savingEllipsis': 'Stoor…',
   'common.signingInEllipsis': 'Meld aan…',
   'common.whatYouGet': 'Wat jy kry',

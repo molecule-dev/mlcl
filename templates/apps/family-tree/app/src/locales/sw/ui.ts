@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Nenda kwenye mti wako',
   'common.loadingEllipsis': 'Inapakia…',
   'common.requestANewLink': 'Omba kiungo kipya',
+  'common.retry': 'Jaribu tena',
   'common.savingEllipsis': 'Inahifadhi…',
   'common.signingInEllipsis': 'Inaingia…',
   'common.whatYouGet': 'Unachopata',

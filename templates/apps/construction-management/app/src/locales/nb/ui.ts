@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Fag',
   'subs.col.value': 'Kontraktsverdi',
+  'subs.confirmTerminate': 'Bekreft avslutning',
   'subs.createError': 'Kunne ikke legge til underleverandøren.',
   'subs.empty': 'Ingen underleverandører på dette prosjektet ennå.',
   'subs.field.contact': 'Kontakt',

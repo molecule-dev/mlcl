@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'Əlavə olunur…',
   'seating.form.submit': 'Masa əlavə et',
   'seating.poolTitle': 'Oturmamış qonaqlar',
+  'seating.subtitle':
+    '{{oturmuş}} oturmuş<x> {{tutumun}}</x> oturacaqlar ·<x> {{pool}}</x> Hovuzda qonaqlar gözləyir',
   'seating.title': 'Oturacaq planı',
   'settings.billing': 'Ödəniş',
   'settings.changePassword': 'Şifrəni dəyişdir',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Əlavə et',
   'vendors.noContact': 'Hələ əlaqə yoxdur',
   'vendors.title': 'Təchizatçılar',
+  'weddingLayout.openNav': 'Naviqasiya menyusunu açın',
   'weddingLayout.primaryNavLabel': 'Əsas naviqasiya',
 }

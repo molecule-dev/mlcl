@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Shkruaj fillimisht një subjekt.',
   'issueEditor.title': 'Editori i numrit',
   'issues.delete': 'Fshij',
+  'issues.deleteConfirm': 'Të fshihet ky problem? Kjo nuk mund të zhbëhet.',
   'issues.deleteError': 'Fshirja e numrit dështoi',
   'issues.edit': 'Modifiko',
   'issues.loadError': 'Ngarkimi i numrave dështoi',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Çabonimet',
   'settingsNotificationsSection.mentionsDescription':
     'Më njofto kur një abonent çabonohet nga lista.',
+  'settingsNotificationsSection.newFollowers': 'Abonentë të rinj',
   'settingsNotificationsSection.sectionDescription':
     'Vendos kur dëshiron të ndërpritesh nga përditësimet.',
   'settingsPageHeader.title': 'Cilësimet e Llogarisë',
   'settingsPrivacySection.description': 'Kontrollo dukshmërinë e të dhënave dhe prezencës tënde.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Dukshmëria Publike e Profilit',
   'settingsProfileSection.profileImage': 'Imazhi i profilit',
   'settingsProfileSection.sectionDescription':
     'Detajet personale të shfaqura si linja e autorit të publikimit.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numrat',
   'sideNavBar.newsletterSuite': 'Paketa Buletini',
+  'sideNavBar.primary': 'Kryesore',
   'sideNavBar.signOut': 'Dil',
   'sideNavBar.subscribers': 'Abonentët',
   'signup.error': 'Regjistrimi dështoi',

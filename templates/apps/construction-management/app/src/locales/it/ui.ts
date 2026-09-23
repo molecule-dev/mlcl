@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Contatto',
   'subs.col.trade': 'Mestiere',
   'subs.col.value': 'Valore contratto',
+  'subs.confirmTerminate': 'Conferma la chiusura',
   'subs.createError': 'Impossibile aggiungere il subappaltatore.',
   'subs.empty': 'Nessun subappaltatore su questo progetto ancora.',
   'subs.field.contact': 'Contatto',

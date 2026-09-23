@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Teagmháil',
   'subs.col.trade': 'Ceird',
   'subs.col.value': 'Luach conartha',
+  'subs.confirmTerminate': 'Deimhnigh deireadh',
   'subs.createError': 'Theip ar chur leis an fhochonraitheoir.',
   'subs.empty': 'Gan fochonraitheoirí ar an tionscadal seo fós.',
   'subs.field.contact': 'Teagmháil',

@@ -82,6 +82,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'အရင်ဆုံး ခေါင်းစဉ် ရေးပါ။',
   'issueEditor.title': 'ထုတ်ဝေမှု တည်းဖြတ်ကိရိယာ',
   'issues.delete': 'ဖျက်ရန်',
+  'issues.deleteConfirm': 'ဤပြဿနာကို ဖျက်မလား။ ၎င်းကို ပြန်ပြင်၍မရပါ။',
   'issues.deleteError': 'ထုတ်ဝေမှု ဖျက်ခြင်း မအောင်မြင်ပါ',
   'issues.edit': 'တည်းဖြတ်ရန်',
   'issues.loadError': 'ထုတ်ဝေမှုများ တင်ခြင်း မအောင်မြင်ပါ',
@@ -163,10 +164,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'စာရင်းမှ ထွက်ခြင်း',
   'settingsNotificationsSection.mentionsDescription':
     'စာရင်းသွင်းသူတစ်ဦး စာရင်းမှ ထွက်သောအခါ အကြောင်းကြားပါ။',
+  'settingsNotificationsSection.newFollowers': 'စာရင်းသွင်းသူအသစ်များ',
   'settingsNotificationsSection.sectionDescription':
     'အပ်ဒိတ်များကြောင့် အဖြစ်မဖြစ် ရပ်နားစေလိုသော အချိန် ဆုံးဖြတ်ပါ။',
   'settingsPageHeader.title': 'အကောင့် ဆက်တင်များ',
   'settingsPrivacySection.description': 'သင့်ဒေတာနှင့် တည်ရှိမှု၏ မြင်နိုင်မှုကို ထိန်းချုပ်ပါ။',
+  'settingsPrivacySection.profileVisibilityLabel': 'အများပြည်သူပရိုဖိုင် မြင်နိုင်မှု',
   'settingsProfileSection.profileImage': 'ပရိုဖိုင် ပုံ',
   'settingsProfileSection.sectionDescription':
     'ထုတ်ဝေမှု ဖြည့်စွက်အချက်အလက်အဖြစ် ပြသသော ကိုယ်ရေး အသေးစိတ်များ။',
@@ -183,6 +186,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ထုတ်ဝေမှုများ',
   'sideNavBar.newsletterSuite': 'သတင်းလွှာ စုံလင်ခြင်း',
+  'sideNavBar.primary': 'မူလတန်း',
   'sideNavBar.signOut': 'ထွက်ရန်',
   'sideNavBar.subscribers': 'စာရင်းသွင်းသူများ',
   'signup.error': 'အကောင့်ဖွင့်ခြင်း မအောင်မြင်ပါ',

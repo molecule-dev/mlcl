@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'شامل کریں۔',
   'vendors.noContact': 'ابھی تک کوئی رابطہ نہیں',
   'vendors.title': 'وینڈرز',
+  'weddingLayout.openNav': 'نیویگیشن مینو کھولیں۔',
   'weddingLayout.primaryNavLabel': 'بنیادی نیویگیشن',
 }

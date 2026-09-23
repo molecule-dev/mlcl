@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ychwanegu',
   'vendors.noContact': 'Dim cyswllt eto',
   'vendors.title': 'Cyflenwyr',
+  'weddingLayout.openNav': 'Agor y ddewislen lywio',
   'weddingLayout.primaryNavLabel': 'Prif lywio',
 }

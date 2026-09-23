@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Първо напишете заглавие.',
   'issueEditor.title': 'Редактор на брой',
   'issues.delete': 'Изтриване',
+  'issues.deleteConfirm': 'Да изтрием този проблем? Това действие не може да бъде отменено.',
   'issues.deleteError': 'Неуспешно изтриване на броя',
   'issues.edit': 'Редактиране',
   'issues.loadError': 'Неуспешно зареждане на броевете',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Отписвания',
   'settingsNotificationsSection.mentionsDescription':
     'Уведоми ме, когато абонат се отпише от списъка.',
+  'settingsNotificationsSection.newFollowers': 'Нови абонати',
   'settingsNotificationsSection.sectionDescription':
     'Решете кога искате да бъдете прекъсвани от актуализации.',
   'settingsPageHeader.title': 'Настройки на акаунта',
   'settingsPrivacySection.description': 'Контролирайте видимостта на вашите данни и присъствие.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Видимост на публичния профил',
   'settingsProfileSection.profileImage': 'Снимка на профила',
   'settingsProfileSection.sectionDescription':
     'Лични данни, показвани като авторска линия на публикацията.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Броеве',
   'sideNavBar.newsletterSuite': 'Пакет за бюлетини',
+  'sideNavBar.primary': 'Начално',
   'sideNavBar.signOut': 'Изход',
   'sideNavBar.subscribers': 'Абонати',
   'signup.error': 'Неуспешна регистрация',

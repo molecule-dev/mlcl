@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Nejprve napište předmět.',
   'issueEditor.title': 'Editor vydání',
   'issues.delete': 'Smazat',
+  'issues.deleteConfirm': 'Chcete tento problém smazat? Tento úkon nelze vrátit zpět.',
   'issues.deleteError': 'Smazání vydání selhalo',
   'issues.edit': 'Upravit',
   'issues.loadError': 'Načtení vydání selhalo',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Odhlášení z odběru',
   'settingsNotificationsSection.mentionsDescription':
     'Upozornit mě, když se odběratel odhlásí ze seznamu.',
+  'settingsNotificationsSection.newFollowers': 'Noví předplatitelé',
   'settingsNotificationsSection.sectionDescription':
     'Rozhodněte, kdy chcete být vyrušováni aktualizacemi.',
   'settingsPageHeader.title': 'Nastavení účtu',
   'settingsPrivacySection.description': 'Ovládejte viditelnost svých dat a přítomnosti.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Viditelnost veřejného profilu',
   'settingsProfileSection.profileImage': 'Profilový obrázek',
   'settingsProfileSection.sectionDescription':
     'Osobní údaje zobrazené jako autorská značka publikace.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Vydání',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Základní',
   'sideNavBar.signOut': 'Odhlásit se',
   'sideNavBar.subscribers': 'Předplatitelé',
   'signup.error': 'Registrace selhala',

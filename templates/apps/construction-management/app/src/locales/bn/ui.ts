@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'যোগাযোগ করুন',
   'subs.col.trade': 'ট্রেড',
   'subs.col.value': 'চুক্তির মূল্য',
+  'subs.confirmTerminate': 'সমাপ্তি নিশ্চিত করুন',
   'subs.createError': 'সাবকন্ট্রাক্টর যোগ করা ব্যর্থ হয়েছে।',
   'subs.empty': 'এই প্রজেক্টে এখনও কোনো সাবকন্ট্রাক্টর নেই।',
   'subs.field.contact': 'যোগাযোগ করুন',

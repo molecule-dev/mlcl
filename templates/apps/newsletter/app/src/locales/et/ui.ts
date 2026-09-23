@@ -80,6 +80,8 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Kirjuta esmalt teema.',
   'issueEditor.title': 'Numbri redaktor',
   'issues.delete': 'Kustuta',
+  'issues.deleteConfirm':
+    'Kas soovid selle probleemi kustutada? Seda tegevust ei saa tagasi võtta.',
   'issues.deleteError': 'Numbri kustutamine ebaõnnestus',
   'issues.edit': 'Redigeeri',
   'issues.loadError': 'Numbrite laadimine ebaõnnestus',
@@ -156,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Tellimusest loobumine',
   'settingsNotificationsSection.mentionsDescription':
     'Teavita mind, kui tellija loobub nimekirjast.',
+  'settingsNotificationsSection.newFollowers': 'Uued tellijad',
   'settingsNotificationsSection.sectionDescription':
     'Otsusta, millal soovid uuenduste tõttu häiritud saada.',
   'settingsPageHeader.title': 'Konto seaded',
   'settingsPrivacySection.description': 'Kontrolli oma andmete ja kohaloleku nähtavust.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Avaliku profiili nähtavus',
   'settingsProfileSection.profileImage': 'Profiilipilt',
   'settingsProfileSection.sectionDescription':
     'Isiklikud üksikasjad, mida kuvatakse väljaande allkirjana.',
@@ -176,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numbrid',
   'sideNavBar.newsletterSuite': 'Uudiskirjade komplekt',
+  'sideNavBar.primary': 'Esmane',
   'sideNavBar.signOut': 'Logi välja',
   'sideNavBar.subscribers': 'Tellijad',
   'signup.error': 'Registreerimine ebaõnnestus',

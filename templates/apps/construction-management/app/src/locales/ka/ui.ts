@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'კონტაქტი',
   'subs.col.trade': 'სპეციალობა',
   'subs.col.value': 'ხელშეკრულების ღირებულება',
+  'subs.confirmTerminate': 'დაადასტურეთ შეწყვეტა',
   'subs.createError': 'ქვეკონტრაქტორის დამატება ვერ მოხერხდა.',
   'subs.empty': 'ამ პროექტზე ჯერ არ არის ქვეკონტრაქტორები.',
   'subs.field.contact': 'კონტაქტი',

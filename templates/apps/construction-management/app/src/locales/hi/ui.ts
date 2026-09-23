@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'संपर्क',
   'subs.col.trade': 'व्यापार',
   'subs.col.value': 'अनुबंध मूल्य',
+  'subs.confirmTerminate': 'समाप्ति की पुष्टि करें',
   'subs.createError': 'उपठेकेदार जोड़ने में विफल।',
   'subs.empty': 'इस परियोजना पर अभी तक कोई उपठेकेदार नहीं।',
   'subs.field.contact': 'संपर्क',

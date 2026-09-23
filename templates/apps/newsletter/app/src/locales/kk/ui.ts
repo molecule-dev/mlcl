@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Алдымен тақырып жазыңыз.',
   'issueEditor.title': 'Шығарылым редакторы',
   'issues.delete': 'Жою',
+  'issues.deleteConfirm': 'Бұл мәселені жою керек пе? Мұны қайтару мүмкін емес.',
   'issues.deleteError': 'Шығарылымды жою сәтсіз аяқталды',
   'issues.edit': 'Өңдеу',
   'issues.loadError': 'Шығарылымдарды жүктеу сәтсіз аяқталды',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Жазылудан шығулар',
   'settingsNotificationsSection.mentionsDescription':
     'Жазылушы тізімнен жазылудан шығып қалғанда маған хабарландыру.',
+  'settingsNotificationsSection.newFollowers': 'Жаңа жазылушылар',
   'settingsNotificationsSection.sectionDescription':
     'Жаңартулармен қашан мазалағыңыз келетінін шешіңіз.',
   'settingsPageHeader.title': 'Тіркелгі параметрлері',
   'settingsPrivacySection.description': 'Деректеріңіз бен қатысуыңыздың көрінуін басқарыңыз.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Жалпыға қолжетімді профильдің көрінуі',
   'settingsProfileSection.profileImage': 'Профиль суреті',
   'settingsProfileSection.sectionDescription':
     'Басылым авторы ретінде көрсетілетін жеке мәліметтер.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Шығарылымдар',
   'sideNavBar.newsletterSuite': 'Бюллетень жинағы',
+  'sideNavBar.primary': 'Негізгі',
   'sideNavBar.signOut': 'Шығу',
   'sideNavBar.subscribers': 'Жазылушылар',
   'signup.error': 'Тіркелу сәтсіз аяқталды',

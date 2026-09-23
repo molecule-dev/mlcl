@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Scrie mai întâi un subiect.',
   'issueEditor.title': 'Editor ediție',
   'issues.delete': 'Ștergeți',
+  'issues.deleteConfirm': 'Vrei să ștergi această problemă? Această acțiune nu poate fi anulată.',
   'issues.deleteError': 'Ștergerea ediției a eșuat',
   'issues.edit': 'Editați',
   'issues.loadError': 'Încărcarea edițiilor a eșuat',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Dezabonări',
   'settingsNotificationsSection.mentionsDescription':
     'Anunță-mă când un abonat se dezabonează de la listă.',
+  'settingsNotificationsSection.newFollowers': 'Abonați noi',
   'settingsNotificationsSection.sectionDescription':
     'Decide când vrei să fii întrerupt de actualizări.',
   'settingsPageHeader.title': 'Setări cont',
   'settingsPrivacySection.description': 'Controlează vizibilitatea datelor și prezenței tale.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Vizibilitatea profilului public',
   'settingsProfileSection.profileImage': 'Imagine de profil',
   'settingsProfileSection.sectionDescription': 'Detalii personale afișate ca semnătură publicație.',
   'settingsPublication.fromName': 'Nume expeditor',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Ediții',
   'sideNavBar.newsletterSuite': 'Suite Newsletter',
+  'sideNavBar.primary': 'Primar',
   'sideNavBar.signOut': 'Deconectare',
   'sideNavBar.subscribers': 'Abonați',
   'signup.error': 'Înregistrarea a eșuat',

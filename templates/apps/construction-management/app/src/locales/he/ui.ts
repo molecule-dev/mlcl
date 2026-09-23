@@ -198,6 +198,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'מַגָע',
   'subs.col.trade': 'מקצוע',
   'subs.col.value': 'שווי חוזה',
+  'subs.confirmTerminate': 'אישור סיום',
   'subs.createError': 'הוספת קבלן המשנה נכשלה.',
   'subs.empty': 'אין עדיין קבלני משנה בפרויקט הזה.',
   'subs.field.contact': 'מַגָע',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'මුලින්ම විෂයයක් ලියන්න.',
   'issueEditor.title': 'නිකුතු සංස්කාරකය',
   'issues.delete': 'මකන්න',
+  'issues.deleteConfirm': 'මෙම ගැටලුව මකන්නද? මෙය අහෝසි කළ නොහැක.',
   'issues.deleteError': 'නිකුතුව මැකීම අසාර්ථකයි',
   'issues.edit': 'සංස්කරණය කරන්න',
   'issues.loadError': 'නිකුතු පූරණය කිරීම අසාර්ථකයි',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'දායකත්වයෙන් ඉවත් වීම්',
   'settingsNotificationsSection.mentionsDescription':
     'දායකයෙකු ලැයිස්තුවෙන් දායකත්වයෙන් ඉවත් වූ විට මට දැනුම් දෙන්න.',
+  'settingsNotificationsSection.newFollowers': 'නව ග්‍රාහකයින්',
   'settingsNotificationsSection.sectionDescription':
     'යාවත්කාලීන මගින් ඔබ බාධා කළ යුත්තේ කවදාද යන්න තීරණය කරන්න.',
   'settingsPageHeader.title': 'ගිණුම් සැකසුම්',
   'settingsPrivacySection.description': 'ඔබේ දත්ත සහ පැමිණීමේ දෘශ්‍යතාව පාලනය කරන්න.',
+  'settingsPrivacySection.profileVisibilityLabel': 'පොදු පැතිකඩ දෘශ්‍යතාව',
   'settingsProfileSection.profileImage': 'පැතිකඩ රූපය',
   'settingsProfileSection.sectionDescription': 'ප්‍රකාශන කර්තෘ රේඛාව ලෙස පෙන්වන පුද්ගලික විස්තර.',
   'settingsPublication.fromName': 'වෙතින් නම',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'නිකුතු',
   'sideNavBar.newsletterSuite': 'පුවත් පත්‍රිකා කට්ටලය',
+  'sideNavBar.primary': 'ප්‍රාථමික',
   'sideNavBar.signOut': 'පිටවන්න',
   'sideNavBar.subscribers': 'ග්‍රාහකයින්',
   'signup.error': 'ලියාපදිංචිය අසාර්ථකයි',

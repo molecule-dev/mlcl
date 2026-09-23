@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Կապ',
   'subs.col.trade': 'Մասնագիտություն',
   'subs.col.value': 'Պայմանագրի արժեք',
+  'subs.confirmTerminate': 'Հաստատեք դադարեցումը',
   'subs.createError': 'Չհաջողվեց ավելացնել ենթապայմանագրին։',
   'subs.empty': 'Այս նախագծում դեռ ենթապայմանագրեր չկան։',
   'subs.field.contact': 'Կապ',

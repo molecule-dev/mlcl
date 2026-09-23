@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Байланыш',
   'subs.col.trade': 'Тармагы',
   'subs.col.value': 'Келишимдин суммасы',
+  'subs.confirmTerminate': 'Аяктоону ырастоо',
   'subs.createError': 'Субтөлөөчүнү кошуу ишке ашпады.',
   'subs.empty': 'Бул долбоордо азырынча субтөлөөчүлөр жок.',
   'subs.field.contact': 'Байланыш',

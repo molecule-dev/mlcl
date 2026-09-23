@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'ထည့်သွင်းနေသည်…',
   'seating.form.submit': 'စားပွဲထည့်ပါ',
   'seating.poolTitle': 'မထိုင်သေးသော ဧည့်သည်များ',
+  'seating.subtitle':
+    '{{ထိုင်}} ထိုင်နေသော<x> {{စွမ်းရည်}}</x> ထိုင်ခုံများ ·<x> {{ရေကန်}}</x> ရေကူးကန်ထဲမှာ ဧည့်သည်တွေ စောင့်နေကြတယ်',
   'seating.title': 'ထိုင်ခုံအစီအစဉ်',
   'settings.billing': 'ငွေတောင်းခံမှု',
   'settings.changePassword': 'စကားဝှက်ပြောင်းပါ',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'ထည့်ရန်',
   'vendors.noContact': 'ဆက်သွယ်မှုမရှိသေးပါ',
   'vendors.title': 'ရောင်းချသူများ',
+  'weddingLayout.openNav': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'weddingLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

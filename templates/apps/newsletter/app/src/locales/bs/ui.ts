@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Prvo napišite naslov.',
   'issueEditor.title': 'Uređivač izdanja',
   'issues.delete': 'Izbriši',
+  'issues.deleteConfirm': 'Izbrisati ovaj problem? Ovo se ne može poništiti.',
   'issues.deleteError': 'Neuspjelo brisanje izdanja',
   'issues.edit': 'Uredi',
   'issues.loadError': 'Neuspjelo učitavanje izdanja',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Odjave',
   'settingsNotificationsSection.mentionsDescription':
     'Obavijesti me kada se pretplatnik odjavi sa liste.',
+  'settingsNotificationsSection.newFollowers': 'Novi pretplatnici',
   'settingsNotificationsSection.sectionDescription':
     'Odlučite kada želite biti ometani ažuriranjima.',
   'settingsPageHeader.title': 'Postavke naloga',
   'settingsPrivacySection.description': 'Kontrolišite vidljivost vaših podataka i prisustva.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Vidljivost javnog profila',
   'settingsProfileSection.profileImage': 'Profilna slika',
   'settingsProfileSection.sectionDescription': 'Lični detalji prikazani kao potpis publikacije.',
   'settingsPublication.fromName': 'Ime pošiljaoca',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Izdanja',
   'sideNavBar.newsletterSuite': 'Paket biltena',
+  'sideNavBar.primary': 'Primarni',
   'sideNavBar.signOut': 'Odjavi se',
   'sideNavBar.subscribers': 'Pretplatnici',
   'signup.error': 'Registracija neuspješna',

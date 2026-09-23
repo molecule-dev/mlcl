@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Yiya emthini wakho',
   'common.loadingEllipsis': 'Iyalayisha…',
   'common.requestANewLink': 'Cela isixhumanisi esisha',
+  'common.retry': 'Zama futhi',
   'common.savingEllipsis': 'Iyalondoloza…',
   'common.signingInEllipsis': 'Iyangenisa…',
   'common.whatYouGet': 'Lokho okutholayo',

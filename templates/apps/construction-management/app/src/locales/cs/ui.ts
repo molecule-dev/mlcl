@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Obor',
   'subs.col.value': 'Hodnota smlouvy',
+  'subs.confirmTerminate': 'Potvrdit ukončení',
   'subs.createError': 'Subdodavatele se nepodařilo přidat.',
   'subs.empty': 'Na tomto projektu zatím nejsou žádní subdodavatelé.',
   'subs.field.contact': 'Kontakt',

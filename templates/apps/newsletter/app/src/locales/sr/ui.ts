@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Прво напишите наслов.',
   'issueEditor.title': 'Уређивач издања',
   'issues.delete': 'Обриши',
+  'issues.deleteConfirm': 'Да ли желите да избришете овај проблем? Ово се не може поништити.',
   'issues.deleteError': 'Брисање издања није успело',
   'issues.edit': 'Измени',
   'issues.loadError': 'Учитавање издања није успело',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Одјаве',
   'settingsNotificationsSection.mentionsDescription':
     'Обавести ме када се претплатник одјави са листе.',
+  'settingsNotificationsSection.newFollowers': 'Нови претплатници',
   'settingsNotificationsSection.sectionDescription':
     'Одлучите када желите да будете прекинути ажурирањима.',
   'settingsPageHeader.title': 'Подешавања налога',
   'settingsPrivacySection.description': 'Контролишите видљивост својих података и присуства.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Видљивост јавног профила',
   'settingsProfileSection.profileImage': 'Слика профила',
   'settingsProfileSection.sectionDescription': 'Лични подаци приказани као аутор публикације.',
   'settingsPublication.fromName': 'Име пошиљаоца',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Издања',
   'sideNavBar.newsletterSuite': 'Пакет билтена',
+  'sideNavBar.primary': 'Примарни',
   'sideNavBar.signOut': 'Одјави се',
   'sideNavBar.subscribers': 'Претплатници',
   'signup.error': 'Регистрација није успела',

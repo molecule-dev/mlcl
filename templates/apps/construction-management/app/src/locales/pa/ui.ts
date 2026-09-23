@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ਸੰਪਰਕ',
   'subs.col.trade': 'ਵਪਾਰ',
   'subs.col.value': 'ਇਕਰਾਰਨਾਮਾ ਮੁੱਲ',
+  'subs.confirmTerminate': 'ਸਮਾਪਤ ਕਰਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
   'subs.createError': 'ਸਬ-ਕੰਟਰੈਕਟਰ ਸ਼ਾਮਲ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'subs.empty': "ਇਸ ਪ੍ਰੋਜੈਕਟ 'ਤੇ ਅਜੇ ਕੋਈ ਸਬ-ਕੰਟਰੈਕਟਰ ਨਹੀਂ।",
   'subs.field.contact': 'ਸੰਪਰਕ',

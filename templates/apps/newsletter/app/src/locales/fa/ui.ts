@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ابتدا موضوع بنویسید.',
   'issueEditor.title': 'ویرایشگر شماره',
   'issues.delete': 'حذف',
+  'issues.deleteConfirm': 'این مشکل را حذف کنید؟ این قابل بازگشت نیست.',
   'issues.deleteError': 'حذف شماره ناموفق بود',
   'issues.edit': 'ویرایش',
   'issues.loadError': 'بارگذاری شماره‌ها ناموفق بود',
@@ -156,10 +157,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'لغو اشتراک‌ها',
   'settingsNotificationsSection.mentionsDescription':
     'وقتی یک مشترک از لیست لغو اشتراک می‌کند به من اطلاع بده.',
+  'settingsNotificationsSection.newFollowers': 'مشترکین جدید',
   'settingsNotificationsSection.sectionDescription':
     'تصمیم بگیرید چه زمانی می‌خواهید توسط به‌روزرسانی‌ها مختل شوید.',
   'settingsPageHeader.title': 'تنظیمات حساب',
   'settingsPrivacySection.description': 'کنترل قابلیت مشاهده داده‌ها و حضور شما.',
+  'settingsPrivacySection.profileVisibilityLabel': 'قابلیت مشاهده پروفایل عمومی',
   'settingsProfileSection.profileImage': 'تصویر نمایه',
   'settingsProfileSection.sectionDescription':
     'جزئیات شخصی که به عنوان نام نویسنده نشریه نمایش داده می‌شود.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'شماره‌ها',
   'sideNavBar.newsletterSuite': 'مجموعه خبرنامه',
+  'sideNavBar.primary': 'اولیه',
   'sideNavBar.signOut': 'خروج',
   'sideNavBar.subscribers': 'مشترکین',
   'signup.error': 'ثبت‌نام ناموفق بود',

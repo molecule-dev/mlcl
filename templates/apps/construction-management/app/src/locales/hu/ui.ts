@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kapcsolat',
   'subs.col.trade': 'Szakma',
   'subs.col.value': 'Szerződés értéke',
+  'subs.confirmTerminate': 'A leállítás megerősítése',
   'subs.createError': 'Az alvállalkozó hozzáadása sikertelen.',
   'subs.empty': 'Még nincsenek alvállalkozók ezen a projekten.',
   'subs.field.contact': 'Kapcsolat',

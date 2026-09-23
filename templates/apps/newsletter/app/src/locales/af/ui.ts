@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': "Skryf eers 'n onderwerp.",
   'issueEditor.title': 'Uitgawe redigeerder',
   'issues.delete': 'Vee uit',
+  'issues.deleteConfirm': 'Vee hierdie kwessie uit? Dit kan nie ongedaan gemaak word nie.',
   'issues.deleteError': 'Kon nie uitgawe skrap nie',
   'issues.edit': 'Wysig',
   'issues.loadError': 'Kon nie uitgawes laai nie',
@@ -156,10 +157,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Uittekeninge',
   'settingsNotificationsSection.mentionsDescription':
     "Stel my in kennis wanneer 'n intekenaar uitteken van die lys.",
+  'settingsNotificationsSection.newFollowers': 'Nuwe intekenaars',
   'settingsNotificationsSection.sectionDescription':
     'Besluit wanneer jy deur opdaterings onderbreek wil word.',
   'settingsPageHeader.title': 'Rekening Instellings',
   'settingsPrivacySection.description': 'Beheer die sigbaarheid van jou data en teenwoordigheid.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Openbare Profiel Sigbaarheid',
   'settingsProfileSection.profileImage': 'Profiel prent',
   'settingsProfileSection.sectionDescription':
     'Persoonlike besonderhede vertoon as die publikasie bylyn.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Uitgawes',
   'sideNavBar.newsletterSuite': 'Nuusbrief Suite',
+  'sideNavBar.primary': 'Primêr',
   'sideNavBar.signOut': 'Meld Af',
   'sideNavBar.subscribers': 'Intekenaars',
   'signup.error': 'Registrasie het misluk',

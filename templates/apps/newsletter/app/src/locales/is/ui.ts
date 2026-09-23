@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Skrifaðu efnislínu fyrst.',
   'issueEditor.title': 'Útgáfuritill',
   'issues.delete': 'Eyða',
+  'issues.deleteConfirm': 'Eyða þessu vandamáli? Þetta er ekki hægt að afturkalla.',
   'issues.deleteError': 'Mistókst að eyða útgáfu',
   'issues.edit': 'Breyta',
   'issues.loadError': 'Mistókst að hlaða inn útgáfum',
@@ -157,9 +158,11 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Afskráningar',
   'settingsNotificationsSection.mentionsDescription':
     'Tilkynna mér þegar áskrifandi afskráir sig af listanum.',
+  'settingsNotificationsSection.newFollowers': 'Nýir áskrifendur',
   'settingsNotificationsSection.sectionDescription': 'Ákveðið hvenær þér viljið fá uppfærslur.',
   'settingsPageHeader.title': 'Reikningsstillingar',
   'settingsPrivacySection.description': 'Stjórna sýnileika gagnanna þinna.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Sýnileiki opinbers prófíls',
   'settingsProfileSection.profileImage': 'Prófílmynd',
   'settingsProfileSection.sectionDescription':
     'Persónulegar upplýsingar sem birtast sem höfundalína.',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Útgáfur',
   'sideNavBar.newsletterSuite': 'Fréttabréfaheild',
+  'sideNavBar.primary': 'Aðal',
   'sideNavBar.signOut': 'Skrá út',
   'sideNavBar.subscribers': 'Áskrifendur',
   'signup.error': 'Skráning mistókst',

@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Γράψτε πρώτα ένα θέμα.',
   'issueEditor.title': 'Επεξεργαστής τεύχους',
   'issues.delete': 'Διαγραφή',
+  'issues.deleteConfirm': 'Να διαγραφεί αυτό το ζήτημα; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.',
   'issues.deleteError': 'Αποτυχία διαγραφής τεύχους',
   'issues.edit': 'Επεξεργασία',
   'issues.loadError': 'Αποτυχία φόρτωσης τευχών',
@@ -161,11 +162,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Διαγραφές συνδρομών',
   'settingsNotificationsSection.mentionsDescription':
     'Ειδοποίησέ με όταν ένας συνδρομητής διαγράψει τη συνδρομή του από τη λίστα.',
+  'settingsNotificationsSection.newFollowers': 'Νέοι συνδρομητές',
   'settingsNotificationsSection.sectionDescription':
     'Αποφασίστε πότε θέλετε να διακόπτεστε από ενημερώσεις.',
   'settingsPageHeader.title': 'Ρυθμίσεις Λογαριασμού',
   'settingsPrivacySection.description':
     'Ελέγξτε την ορατότητα των δεδομένων και της παρουσίας σας.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Ορατότητα δημόσιου προφίλ',
   'settingsProfileSection.profileImage': 'Φωτογραφία προφίλ',
   'settingsProfileSection.sectionDescription':
     'Προσωπικές λεπτομέρειες που εμφανίζονται ως υπογραφή της δημοσίευσης.',
@@ -182,6 +185,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Τεύχη',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Πρωτοβάθμια',
   'sideNavBar.signOut': 'Αποσύνδεση',
   'sideNavBar.subscribers': 'Συνδρομητές',
   'signup.error': 'Η εγγραφή απέτυχε',

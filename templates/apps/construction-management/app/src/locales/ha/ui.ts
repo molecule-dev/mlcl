@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Tuntuɓi',
   'subs.col.trade': "Sana'a",
   'subs.col.value': 'Darajar kwangila',
+  'subs.confirmTerminate': 'Tabbatar da ƙarewa',
   'subs.createError': 'An kasa ƙara ƙaramin ƙwararre.',
   'subs.empty': 'Har yanzu babu ƙananan ƙwararru akan wannan aikin.',
   'subs.field.contact': 'Tuntuɓi',

@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Makipag-ugnayan',
   'subs.col.trade': 'Trade',
   'subs.col.value': 'Halaga ng kontrata',
+  'subs.confirmTerminate': 'Kumpirmahin ang pagtatapos',
   'subs.createError': 'Nabigo ang pagdagdag ng subcontractor.',
   'subs.empty': 'Walang subcontractors pa sa proyektong ito.',
   'subs.field.contact': 'Makipag-ugnayan',

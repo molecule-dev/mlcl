@@ -80,6 +80,8 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'முதலில் பொருளை எழுதுங்கள்.',
   'issueEditor.title': 'இதழ் திருத்தி',
   'issues.delete': 'நீக்கு',
+  'issues.deleteConfirm':
+    'இந்தப் பிரச்சினையை நீக்கவா? இதை மீண்டும் பழைய நிலைக்குக் கொண்டுவர முடியாது.',
   'issues.deleteError': 'இதழை நீக்க முடியவில்லை',
   'issues.edit': 'திருத்து',
   'issues.loadError': 'இதழ்களை ஏற்ற முடியவில்லை',
@@ -160,11 +162,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'குழுவிலகல்கள்',
   'settingsNotificationsSection.mentionsDescription':
     'ஒரு குழுசேர்ந்தவர் பட்டியலிலிருந்து விலகும்போது எனக்கு அறிவிக்கவும்.',
+  'settingsNotificationsSection.newFollowers': 'புதிய சந்தாதாரர்கள்',
   'settingsNotificationsSection.sectionDescription':
     'புதுப்பிப்புகளால் நீங்கள் எப்போது தொந்தரவு செய்யப்பட வேண்டும் என்பதை முடிவு செய்யுங்கள்.',
   'settingsPageHeader.title': 'கணக்கு அமைப்புகள்',
   'settingsPrivacySection.description':
     'உங்கள் தரவு மற்றும் இருப்பின் தெரிவுநிலையைக் கட்டுப்படுத்துங்கள்.',
+  'settingsPrivacySection.profileVisibilityLabel': 'பொது சுயவிவரத் தெரிவுநிலை',
   'settingsProfileSection.profileImage': 'சுயவிவரப் படம்',
   'settingsProfileSection.sectionDescription':
     'வெளியீட்டு கையொப்பமாகக் காட்டப்படும் தனிப்பட்ட விவரங்கள்.',
@@ -180,6 +184,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'இதழ்கள்',
   'sideNavBar.newsletterSuite': 'செய்திமடல் தொகுப்பு',
+  'sideNavBar.primary': 'முதன்மை',
   'sideNavBar.signOut': 'வெளியேறு',
   'sideNavBar.subscribers': 'சந்தாதாரர்கள்',
   'signup.error': 'பதிவு தோல்வியடைந்தது',

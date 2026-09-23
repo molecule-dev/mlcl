@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Scríobh ábhar ar dtús.',
   'issueEditor.title': 'Eagarthóir eagráin',
   'issues.delete': 'Scrios',
+  'issues.deleteConfirm': 'Scrios an cheist seo? Ní féidir é seo a chealú.',
   'issues.deleteError': 'Theip ar scriosadh eagráin',
   'issues.edit': 'Cuir in Eagar',
   'issues.loadError': 'Theip ar lódáil eagrán',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Díliostálacha',
   'settingsNotificationsSection.mentionsDescription':
     'Cuir ar an eolas mé nuair a dhíliostálann síntiúsóir ón liosta.',
+  'settingsNotificationsSection.newFollowers': 'Síntiúsóirí nua',
   'settingsNotificationsSection.sectionDescription':
     'Socraigh cathain ba mhaith leat a bheith curtha isteach orthu ag nuashonruithe.',
   'settingsPageHeader.title': 'Socruithe Cuntais',
   'settingsPrivacySection.description': 'Rialú infheictheacht do shonraí agus do láithreacht.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Infheictheacht Phróifíle Phoiblí',
   'settingsProfileSection.profileImage': 'Íomhá phróifíle',
   'settingsProfileSection.sectionDescription':
     'Sonraí pearsanta a thaispeántar mar bhealach údar an fhoilseacháin.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Eagráin',
   'sideNavBar.newsletterSuite': 'Sraith Nuachtlitreach',
+  'sideNavBar.primary': 'Príomhúil',
   'sideNavBar.signOut': 'Sínigh Amach',
   'sideNavBar.subscribers': 'Síntiúsóirí',
   'signup.error': 'Theip ar chlárú',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'पहिले विषय लेख्नुहोस्।',
   'issueEditor.title': 'अंक सम्पादक',
   'issues.delete': 'मेटाउनुहोस्',
+  'issues.deleteConfirm': 'यो समस्या मेटाउने हो? यसलाई पूर्ववत गर्न सकिँदैन।',
   'issues.deleteError': 'अंक मेटाउन असफल',
   'issues.edit': 'सम्पादन गर्नुहोस्',
   'issues.loadError': 'अंकहरू लोड गर्न असफल',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'सदस्यता रद्द',
   'settingsNotificationsSection.mentionsDescription':
     'सदस्यले सूचीबाट सदस्यता रद्द गर्दा मलाई सूचित गर्नुहोस्।',
+  'settingsNotificationsSection.newFollowers': 'नयाँ सदस्यहरू',
   'settingsNotificationsSection.sectionDescription':
     'तपाईं कहिले अद्यावधिकहरूद्वारा अवरुद्ध हुन चाहनुहुन्छ निर्णय गर्नुहोस्।',
   'settingsPageHeader.title': 'खाता सेटिङहरू',
   'settingsPrivacySection.description': 'तपाईंको डेटा र उपस्थितिको दृश्यता नियन्त्रण गर्नुहोस्।',
+  'settingsPrivacySection.profileVisibilityLabel': 'सार्वजनिक प्रोफाइल दृश्यता',
   'settingsProfileSection.profileImage': 'प्रोफाइल तस्बिर',
   'settingsProfileSection.sectionDescription':
     'प्रकाशन बायलाइनको रूपमा प्रदर्शित व्यक्तिगत विवरणहरू।',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'अंकहरू',
   'sideNavBar.newsletterSuite': 'समाचारपत्र सुइट',
+  'sideNavBar.primary': 'प्राथमिक',
   'sideNavBar.signOut': 'साइन आउट',
   'sideNavBar.subscribers': 'सदस्यहरू',
   'signup.error': 'साइन अप असफल भयो',

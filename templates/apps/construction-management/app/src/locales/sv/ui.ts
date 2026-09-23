@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Bransch',
   'subs.col.value': 'Kontraktsvärde',
+  'subs.confirmTerminate': 'Bekräfta avslutning',
   'subs.createError': 'Misslyckades att lägga till underentreprenören.',
   'subs.empty': 'Inga underentreprenörer i detta projekt ännu.',
   'subs.field.contact': 'Kontakt',

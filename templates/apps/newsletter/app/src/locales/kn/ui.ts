@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'ಮೊದಲು ವಿಷಯವನ್ನು ಬರೆಯಿರಿ.',
   'issueEditor.title': 'ಸಂಚಿಕೆ ಸಂಪಾದಕ',
   'issues.delete': 'ಅಳಿಸಿ',
+  'issues.deleteConfirm': 'ಈ ಸಮಸ್ಯೆಯನ್ನು ಅಳಿಸಬೇಕೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
   'issues.deleteError': 'ಸಂಚಿಕೆಯನ್ನು ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ',
   'issues.edit': 'ಸಂಪಾದಿಸಿ',
   'issues.loadError': 'ಸಂಚಿಕೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'ಚಂದಾದಾರಿಕೆ ರದ್ದತಿಗಳು',
   'settingsNotificationsSection.mentionsDescription':
     'ಚಂದಾದಾರರೊಬ್ಬರು ಪಟ್ಟಿಯಿಂದ ಚಂದಾದಾರಿಕೆ ರದ್ದುಗೊಳಿಸಿದಾಗ ನನಗೆ ತಿಳಿಸಿ.',
+  'settingsNotificationsSection.newFollowers': 'ಹೊಸ ಚಂದಾದಾರರು',
   'settingsNotificationsSection.sectionDescription':
     'ನವೀಕರಣಗಳಿಂದ ನೀವು ಯಾವಾಗ ಅಡಚಣೆಯಾಗಬೇಕೆಂದು ನಿರ್ಧರಿಸಿ.',
   'settingsPageHeader.title': 'ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
   'settingsPrivacySection.description': 'ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಉಪಸ್ಥಿತಿಯ ದೃಶ್ಯತೆಯನ್ನು ನಿಯಂತ್ರಿಸಿ.',
+  'settingsPrivacySection.profileVisibilityLabel': 'ಸಾರ್ವಜನಿಕ ಪ್ರೊಫೈಲ್ ಗೋಚರತೆ',
   'settingsProfileSection.profileImage': 'ಪ್ರೊಫೈಲ್ ಚಿತ್ರ',
   'settingsProfileSection.sectionDescription': 'ಪ್ರಕಟಣೆಯ ಬೈಲೈನ್ ಆಗಿ ಪ್ರದರ್ಶಿಸಲಾದ ವೈಯಕ್ತಿಕ ವಿವರಗಳು.',
   'settingsPublication.fromName': 'ಕಳುಹಿಸಿದವರ ಹೆಸರು',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ಸಂಚಿಕೆಗಳು',
   'sideNavBar.newsletterSuite': 'ಸುದ್ದಿಪತ್ರ ಸೂಟ್',
+  'sideNavBar.primary': 'ಪ್ರಾಥಮಿಕ',
   'sideNavBar.signOut': 'ಸೈನ್ ಔಟ್',
   'sideNavBar.subscribers': 'ಚಂದಾದಾರರು',
   'signup.error': 'ಸೈನ್ ಅಪ್ ವಿಫಲವಾಗಿದೆ',

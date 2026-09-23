@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Najprej napiši zadevo.',
   'issueEditor.title': 'Urejevalnik izdaj',
   'issues.delete': 'Izbriši',
+  'issues.deleteConfirm': 'Želite to težavo izbrisati? Te odločitve ni mogoče preklicati.',
   'issues.deleteError': 'Izdaje ni bilo mogoče izbrisati',
   'issues.edit': 'Uredi',
   'issues.loadError': 'Izdaj ni bilo mogoče naložiti',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Odjave',
   'settingsNotificationsSection.mentionsDescription':
     'Obvesti me, ko se naročnik odjavi s seznama.',
+  'settingsNotificationsSection.newFollowers': 'Novi naročniki',
   'settingsNotificationsSection.sectionDescription':
     'Odloči, kdaj želiš biti prekinjen z obvestili.',
   'settingsPageHeader.title': 'Nastavitve računa',
   'settingsPrivacySection.description': 'Nadzoruj vidnost svojih podatkov in prisotnosti.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Javna vidnost profila',
   'settingsProfileSection.profileImage': 'Profilna slika',
   'settingsProfileSection.sectionDescription': 'Osebni podatki, prikazani kot avtor publikacije.',
   'settingsPublication.fromName': 'Ime pošiljatelja',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Izdaje',
   'sideNavBar.newsletterSuite': 'Paket glasil',
+  'sideNavBar.primary': 'Osnovnošolsko',
   'sideNavBar.signOut': 'Odjavi se',
   'sideNavBar.subscribers': 'Naročniki',
   'signup.error': 'Registracija neuspešna',

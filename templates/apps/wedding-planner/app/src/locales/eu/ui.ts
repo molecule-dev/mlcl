@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Gehitu',
   'vendors.noContact': 'Oraindik kontakturik ez',
   'vendors.title': 'Hornitzaileak',
+  'weddingLayout.openNav': 'Ireki nabigazio menua',
   'weddingLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

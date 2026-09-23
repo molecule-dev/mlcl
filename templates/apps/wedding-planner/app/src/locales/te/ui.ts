@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'జోడించండి',
   'vendors.noContact': 'ఇంకా సంప్రదింపు లేదు',
   'vendors.title': 'విక్రేతలు',
+  'weddingLayout.openNav': 'నావిగేషన్ మెనూను తెరవండి',
   'weddingLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

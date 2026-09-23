@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Adăugați',
   'vendors.noContact': 'Fără contact încă',
   'vendors.title': 'Furnizori',
+  'weddingLayout.openNav': 'Deschide meniul de navigare',
   'weddingLayout.primaryNavLabel': 'Navigare principală',
 }

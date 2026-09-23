@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Pridėti',
   'vendors.noContact': 'Dar nėra kontaktų',
   'vendors.title': 'Tiekėjai',
+  'weddingLayout.openNav': 'Atidaryti navigacijos meniu',
   'weddingLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Skriv et emne først.',
   'issueEditor.title': 'Utgivelsesverktøy',
   'issues.delete': 'Slett',
+  'issues.deleteConfirm': 'Skal dette problemet slettes? Dette kan ikke angres.',
   'issues.deleteError': 'Kunne ikke slette utgave',
   'issues.edit': 'Rediger',
   'issues.loadError': 'Kunne ikke laste utgaver',
@@ -157,11 +158,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Avmeldinger',
   'settingsNotificationsSection.mentionsDescription':
     'Varsle meg når en abonnent melder seg av listen.',
+  'settingsNotificationsSection.newFollowers': 'Nye abonnenter',
   'settingsNotificationsSection.sectionDescription':
     'Bestem når du vil bli forstyrret av oppdateringer.',
   'settingsPageHeader.title': 'Kontoinnstillinger',
   'settingsPrivacySection.description':
     'Kontroller synligheten av dataene og tilstedeværelsen din.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Synlighet for offentlige profiler',
   'settingsProfileSection.profileImage': 'Profilbilde',
   'settingsProfileSection.sectionDescription': 'Personlige detaljer som vises som forfatterlinje.',
   'settingsPublication.fromName': 'Fra-navn',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Utgaver',
   'sideNavBar.newsletterSuite': 'Nyhetsbrevpakke',
+  'sideNavBar.primary': 'Grunnskole',
   'sideNavBar.signOut': 'Logg ut',
   'sideNavBar.subscribers': 'Abonnenter',
   'signup.error': 'Registrering mislyktes',

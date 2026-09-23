@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Önce bir konu yazın.',
   'issueEditor.title': 'Sayı editörü',
   'issues.delete': 'Sil',
+  'issues.deleteConfirm': 'Bu sorunu silmek ister misiniz? Bu işlem geri alınamaz.',
   'issues.deleteError': 'Sayı silinemedi',
   'issues.edit': 'Düzenle',
   'issues.loadError': 'Sayılar yüklenemedi',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Abonelikten çıkmalar',
   'settingsNotificationsSection.mentionsDescription':
     'Bir abone listeden aboneliğini iptal ettiğinde bana bildir.',
+  'settingsNotificationsSection.newFollowers': 'Yeni aboneler',
   'settingsNotificationsSection.sectionDescription':
     'Güncellemeler tarafından ne zaman rahatsız edilmek istediğinize karar verin.',
   'settingsPageHeader.title': 'Hesap Ayarları',
   'settingsPrivacySection.description': 'Verilerinizin ve varlığınızın görünürlüğünü kontrol edin.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Herkese Açık Profil Görünürlüğü',
   'settingsProfileSection.profileImage': 'Profil resmi',
   'settingsProfileSection.sectionDescription': 'Yayın imzası olarak görüntülenen kişisel detaylar.',
   'settingsPublication.fromName': 'Gönderen adı',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Sayılar',
   'sideNavBar.newsletterSuite': 'Bülten Paketi',
+  'sideNavBar.primary': 'İlkokul',
   'sideNavBar.signOut': 'Çıkış Yap',
   'sideNavBar.subscribers': 'Aboneler',
   'signup.error': 'Kayıt başarısız',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'पहले विषय लिखें।',
   'issueEditor.title': 'अंक संपादक',
   'issues.delete': 'हटाएँ',
+  'issues.deleteConfirm': 'क्या इस समस्या को हटाना है? इसे वापस नहीं लिया जा सकता।',
   'issues.deleteError': 'अंक डिलीट करने में विफल',
   'issues.edit': 'संपादित करें',
   'issues.loadError': 'अंक लोड करने में विफल',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'अनसब्सक्राइब',
   'settingsNotificationsSection.mentionsDescription':
     'जब कोई सब्सक्राइबर सूची से अनसब्सक्राइब करे तो मुझे सूचित करें।',
+  'settingsNotificationsSection.newFollowers': 'नए सब्सक्राइबर',
   'settingsNotificationsSection.sectionDescription':
     'तय करें कि आप कब अपडेट से बाधित होना चाहते हैं।',
   'settingsPageHeader.title': 'खाता सेटिंग्स',
   'settingsPrivacySection.description': 'अपने डेटा और उपस्थिति की दृश्यता नियंत्रित करें।',
+  'settingsPrivacySection.profileVisibilityLabel': 'सार्वजनिक प्रोफ़ाइल दृश्यता',
   'settingsProfileSection.profileImage': 'प्रोफ़ाइल चित्र',
   'settingsProfileSection.sectionDescription':
     'प्रकाशन बायलाइन के रूप में प्रदर्शित व्यक्तिगत विवरण।',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'अंक',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'प्राथमिक',
   'sideNavBar.signOut': 'साइन आउट करें',
   'sideNavBar.subscribers': 'ग्राहक',
   'signup.error': 'साइन अप विफल रहा',

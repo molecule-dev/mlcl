@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'សរសេរប្រធានបទជាមុនសិន។',
   'issueEditor.title': 'កម្មវិធីកែសម្រួលលេខ',
   'issues.delete': 'លុប',
+  'issues.deleteConfirm': 'លុបបញ្ហានេះ? បញ្ហានេះមិនអាចត្រឡប់វិញបានទេ។',
   'issues.deleteError': 'ការលុបលេខបានបរាជ័យ',
   'issues.edit': 'កែសម្រួល',
   'issues.loadError': 'ការផ្ទុកលេខបានបរាជ័យ',
@@ -156,10 +157,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.commentsDescription': 'ជូនដំណឹងខ្ញុំនៅពេលលេខបញ្ចប់ការផ្ញើទៅបញ្ជី។',
   'settingsNotificationsSection.mentions': 'ការឈប់ជាវ',
   'settingsNotificationsSection.mentionsDescription': 'ជូនដំណឹងខ្ញុំនៅពេលអ្នកជាវឈប់ជាវពីបញ្ជី។',
+  'settingsNotificationsSection.newFollowers': 'អ្នកជាវថ្មី',
   'settingsNotificationsSection.sectionDescription':
     'សម្រេចចិត្តថាពេលណាអ្នកចង់ត្រូវបានរំខានដោយការធ្វើបច្ចុប្បន្នភាព។',
   'settingsPageHeader.title': 'ការកំណត់គណនី',
   'settingsPrivacySection.description': 'ត្រួតពិនិត្យភាពមើលឃើញនៃទិន្នន័យ និងវត្តមានរបស់អ្នក។',
+  'settingsPrivacySection.profileVisibilityLabel': 'ភាពមើលឃើញនៃប្រវត្តិរូបសាធារណៈ',
   'settingsProfileSection.profileImage': 'រូបភាពប្រវត្តិរូប',
   'settingsProfileSection.sectionDescription':
     'ព័ត៌មានលម្អិតផ្ទាល់ខ្លួនដែលបង្ហាញជាឈ្មោះអ្នកនិពន្ធនៃការបោះពុម្ពផ្សាយ។',
@@ -175,6 +178,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'លេខ',
   'sideNavBar.newsletterSuite': 'កញ្ចប់ព័ត៌មាន',
+  'sideNavBar.primary': 'បឋម',
   'sideNavBar.signOut': 'ចាកចេញ',
   'sideNavBar.subscribers': 'អ្នកជាវ',
   'signup.error': 'ការចុះឈ្មោះបានបរាជ័យ',

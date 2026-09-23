@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'එකතු කරන්න',
   'vendors.noContact': 'තවම සම්බන්ධතාවයක් නැත',
   'vendors.title': 'වෙළෙන්දෝ',
+  'weddingLayout.openNav': 'සංචාලන මෙනුව විවෘත කරන්න',
   'weddingLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
 }

@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontaktas',
   'subs.col.trade': 'Specialybė',
   'subs.col.value': 'Sutarties vertė',
+  'subs.confirmTerminate': 'Patvirtinti nutraukimą',
   'subs.createError': 'Nepavyko pridėti subrangovo.',
   'subs.empty': 'Šiame projekte dar nėra subrangovų.',
   'subs.field.contact': 'Kontaktas',

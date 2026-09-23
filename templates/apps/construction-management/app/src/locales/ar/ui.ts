@@ -199,6 +199,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'جهة الاتصال',
   'subs.col.trade': 'التخصص',
   'subs.col.value': 'قيمة العقد',
+  'subs.confirmTerminate': 'تأكيد الإنهاء',
   'subs.createError': 'فشل إضافة المقاول من الباطن.',
   'subs.empty': 'لا يوجد مقاولون من الباطن في هذا المشروع بعد.',
   'subs.field.contact': 'جهة الاتصال',

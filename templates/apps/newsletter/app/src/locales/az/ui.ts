@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Əvvəlcə mövzu yazın.',
   'issueEditor.title': 'Buraxılış redaktoru',
   'issues.delete': 'Sil',
+  'issues.deleteConfirm': 'Bu problem silinsin? Bunu geri qaytarmaq mümkün deyil.',
   'issues.deleteError': 'Buraxılışı silmək uğursuz oldu',
   'issues.edit': 'Redaktə edin',
   'issues.loadError': 'Buraxılışları yükləmək uğursuz oldu',
@@ -157,11 +158,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Abunəlikdən çıxmalar',
   'settingsNotificationsSection.mentionsDescription':
     'Abunəçi siyahıdan abunəlikdən çıxdıqda mənə bildir.',
+  'settingsNotificationsSection.newFollowers': 'Yeni abunəçilər',
   'settingsNotificationsSection.sectionDescription':
     'Yeniləmələrlə nə vaxt narahat edilmək istədiyinizə qərar verin.',
   'settingsPageHeader.title': 'Hesab Tənzimləmələri',
   'settingsPrivacySection.description':
     'Məlumatlarınızın və mövcudluğunuzun görünürlüyünü idarə edin.',
+  'settingsPrivacySection.profileVisibilityLabel': 'İctimai Profil Görünüşü',
   'settingsProfileSection.profileImage': 'Profil şəkli',
   'settingsProfileSection.sectionDescription':
     'Nəşrin müəllif sətri kimi göstərilən şəxsi məlumatlar.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Buraxılışlar',
   'sideNavBar.newsletterSuite': 'Xəbər Bülleteni Dəsti',
+  'sideNavBar.primary': 'Əsas',
   'sideNavBar.signOut': 'Çıxış',
   'sideNavBar.subscribers': 'Abunəçilər',
   'signup.error': 'Qeydiyyat uğursuz oldu',

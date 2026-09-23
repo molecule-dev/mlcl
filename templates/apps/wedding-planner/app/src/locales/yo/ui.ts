@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Fi kún un',
   'vendors.noContact': 'Kò tíì sí ìbánisọ̀rọ̀',
   'vendors.title': 'Àwọn olùtà',
+  'weddingLayout.openNav': 'Ṣí àkójọ ìlọ kiri',
   'weddingLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
 }

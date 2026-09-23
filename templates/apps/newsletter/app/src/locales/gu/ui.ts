@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'પહેલા વિષય લખો.',
   'issueEditor.title': 'અંક સંપાદક',
   'issues.delete': 'કાઢી નાખો',
+  'issues.deleteConfirm': 'આ સમસ્યા કાઢી નાખીએ? આ પૂર્વવત્ કરી શકાતી નથી.',
   'issues.deleteError': 'અંક કાઢી નાખવામાં નિષ્ફળ',
   'issues.edit': 'ફેરફાર કરો',
   'issues.loadError': 'અંકો લોડ કરવામાં નિષ્ફળ',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'અનસબ્સ્ક્રાઇબ',
   'settingsNotificationsSection.mentionsDescription':
     'જ્યારે કોઈ સબ્સ્ક્રાઇબર સૂચિમાંથી અનસબ્સ્ક્રાઇબ થાય ત્યારે મને સૂચિત કરો.',
+  'settingsNotificationsSection.newFollowers': 'નવા સબ્સ્ક્રાઇબર્સ',
   'settingsNotificationsSection.sectionDescription':
     'તમે ક્યારે અપડેટ્સ દ્વારા વિક્ષેપિત થવા માંગો છો તે નક્કી કરો.',
   'settingsPageHeader.title': 'એકાઉન્ટ સેટિંગ્સ',
   'settingsPrivacySection.description': 'તમારા ડેટા અને હાજરીની દૃશ્યતાને નિયંત્રિત કરો.',
+  'settingsPrivacySection.profileVisibilityLabel': 'સાર્વજનિક પ્રોફાઇલ દૃશ્યતા',
   'settingsProfileSection.profileImage': 'પ્રોફાઇલ છબી',
   'settingsProfileSection.sectionDescription':
     'પ્રકાશન બાયલાઇન તરીકે દર્શાવવામાં આવતી વ્યક્તિગત વિગતો.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'અંકો',
   'sideNavBar.newsletterSuite': 'ન્યૂઝલેટર સ્યુટ',
+  'sideNavBar.primary': 'પ્રાથમિક',
   'sideNavBar.signOut': 'સાઇન આઉટ',
   'sideNavBar.subscribers': 'સબ્સ્ક્રાઇબર્સ',
   'signup.error': 'સાઇન અપ નિષ્ફળ',

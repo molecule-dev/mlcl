@@ -206,6 +206,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ബന്ധപ്പെടുക',
   'subs.col.trade': 'ട്രേഡ്',
   'subs.col.value': 'കരാർ മൂല്യം',
+  'subs.confirmTerminate': 'അവസാനിപ്പിക്കൽ സ്ഥിരീകരിക്കുക',
   'subs.createError': 'സബ് കോൺട്രാക്ടർ ചേർക്കാൻ പരാജയപ്പെട്ടു.',
   'subs.empty': 'ഈ പ്രോജക്ടിൽ ഇതുവരെ സബ് കോൺട്രാക്ടർമാരില്ല.',
   'subs.field.contact': 'ബന്ധപ്പെടുക',

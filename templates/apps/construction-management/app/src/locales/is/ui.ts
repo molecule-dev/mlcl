@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Hafðu samband',
   'subs.col.trade': 'Iðngrein',
   'subs.col.value': 'Samningsverðmæti',
+  'subs.confirmTerminate': 'Staðfesta uppsögn',
   'subs.createError': 'Tókst ekki að bæta við undirverktaka.',
   'subs.empty': 'Engir undirverktakar á þessu verkefni ennþá.',
   'subs.field.contact': 'Hafðu samband',

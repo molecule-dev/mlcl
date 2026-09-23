@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kuntatt',
   'subs.col.trade': 'Snajja',
   'subs.col.value': 'Valur tal-kuntratt',
+  'subs.confirmTerminate': 'Ikkonferma t-terminazzjoni',
   'subs.createError': 'Naqas milli jiżdied is-subkuntrattur.',
   'subs.empty': 'L-ebda subkuntratturi fuq dan il-proġett għadhom.',
   'subs.field.contact': 'Kuntatt',

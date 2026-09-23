@@ -201,6 +201,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'رابطہ کریں۔',
   'subs.col.trade': 'ٹریڈ',
   'subs.col.value': 'معاہدے کی قیمت',
+  'subs.confirmTerminate': 'ختم کرنے کی تصدیق کریں۔',
   'subs.createError': 'سب کنٹریکٹر شامل کرنے میں ناکام۔',
   'subs.empty': 'اس پروجیکٹ پر ابھی تک کوئی سب کنٹریکٹرز نہیں۔',
   'subs.field.contact': 'رابطہ کریں۔',

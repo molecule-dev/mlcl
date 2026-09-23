@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Cyswllt',
   'subs.col.trade': 'Masnach',
   'subs.col.value': 'Gwerth contract',
+  'subs.confirmTerminate': 'Cadarnhau terfynu',
   'subs.createError': "Methu ychwanegu'r is-gontractwr.",
   'subs.empty': 'Dim is-gontractwyr ar y prosiect hwn eto.',
   'subs.field.contact': 'Cyswllt',

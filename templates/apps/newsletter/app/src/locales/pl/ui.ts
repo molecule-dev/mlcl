@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Najpierw napisz temat.',
   'issueEditor.title': 'Edytor wydań',
   'issues.delete': 'Usuń',
+  'issues.deleteConfirm': 'Czy chcesz usunąć tę sprawę? Nie da się cofnąć tej czynności.',
   'issues.deleteError': 'Nie udało się usunąć wydania',
   'issues.edit': 'Edytuj',
   'issues.loadError': 'Nie udało się załadować wydań',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Wypisania',
   'settingsNotificationsSection.mentionsDescription':
     'Powiadom mnie, gdy subskrybent wypisze się z listy.',
+  'settingsNotificationsSection.newFollowers': 'Nowi subskrybenci',
   'settingsNotificationsSection.sectionDescription':
     'Zdecyduj, kiedy chcesz być powiadamiany o aktualizacjach.',
   'settingsPageHeader.title': 'Ustawienia konta',
   'settingsPrivacySection.description': 'Kontroluj widoczność swoich danych i obecności.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Widoczność profilu publicznego',
   'settingsProfileSection.profileImage': 'Zdjęcie profilowe',
   'settingsProfileSection.sectionDescription': 'Dane osobowe wyświetlane jako podpis publikacji.',
   'settingsPublication.fromName': 'Nazwa nadawcy',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Wydania',
   'sideNavBar.newsletterSuite': 'Pakiet newsletterowy',
+  'sideNavBar.primary': 'Podstawowe',
   'sideNavBar.signOut': 'Wyloguj się',
   'sideNavBar.subscribers': 'Subskrybenci',
   'signup.error': 'Rejestracja nie powiodła się',

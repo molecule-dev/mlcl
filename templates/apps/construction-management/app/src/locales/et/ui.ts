@@ -200,6 +200,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Eriala',
   'subs.col.value': 'Lepingu väärtus',
+  'subs.confirmTerminate': 'Kinnita lõpetamine',
   'subs.createError': 'Alltöövõtja lisamine ebaõnnestus.',
   'subs.empty': 'Sellel projektil pole veel alltöövõtjaid.',
   'subs.field.contact': 'Kontakt',

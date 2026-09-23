@@ -207,5 +207,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Shto',
   'vendors.noContact': 'Ende pa kontakt',
   'vendors.title': 'Furnitorët',
+  'weddingLayout.openNav': 'Hap menynë e navigimit',
   'weddingLayout.primaryNavLabel': 'Navigimi kryesor',
 }

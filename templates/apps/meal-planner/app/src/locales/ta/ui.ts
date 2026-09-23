@@ -50,6 +50,7 @@ export const ui: UiTranslations = {
   'simmer.groceries.addError': 'பொருளைச் சேர்க்க முடியவில்லை.',
   'simmer.groceries.clearChecked': 'தேர்வுசெய்யப்பட்டவற்றை அழி',
   'simmer.groceries.empty.title': 'இன்னும் வாங்க எதுவும் இல்லை',
+  'simmer.groceries.eyebrow': '{{சரிபார்க்கப்பட்டது}} இன்<x> {{மொத்தம்}}</x> பொருட்கள் பைகள்',
   'simmer.groceries.fetchError': 'பட்டியலை ஏற்ற முடியவில்லை.',
   'simmer.groceries.heading': 'மளிகைப் பட்டியல்',
   'simmer.groceries.loading': 'பட்டியலை ஏற்றுகிறது…',

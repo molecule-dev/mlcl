@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Contact',
   'subs.col.trade': 'Meserie',
   'subs.col.value': 'Valoare contract',
+  'subs.confirmTerminate': 'Confirmare încheiere',
   'subs.createError': 'Nu s-a putut adăuga subcontractorul.',
   'subs.empty': 'Niciun subcontractor pe acest proiect încă.',
   'subs.field.contact': 'Contact',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Kọ kókó ọ̀rọ̀ ní àkọ́kọ́.',
   'issueEditor.title': 'Olutọ́ka ẹ̀dá',
   'issues.delete': 'Paarẹ́',
+  'issues.deleteConfirm': 'Pa ìṣòro yìí rẹ́? A kò le ṣe àtúnṣe èyí.',
   'issues.deleteError': 'Àṣìṣe ní píparẹ́ ẹ̀dá',
   'issues.edit': 'Ṣe àtúnṣe',
   'issues.loadError': 'Àṣìṣe ní gbígbé àwọn ẹ̀dá',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Àwọn ìfagílé',
   'settingsNotificationsSection.mentionsDescription':
     'Kìlọ̀ fún mi nígbà tí olùṣàbẹ́wo bá fagílé ní àtòjọ.',
+  'settingsNotificationsSection.newFollowers': 'Awọn alabapin tuntun',
   'settingsNotificationsSection.sectionDescription':
     'Pinnu ìgbà tó o fẹ́ kí a dá ọ dúró nípa àwọn àtúnṣe.',
   'settingsPageHeader.title': 'Àwọn Ètò Àkáǹtì',
   'settingsPrivacySection.description': 'Ṣàkóso hí han àwọn dátà àti ìwà rẹ.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Ìríran Ìrísí Gbogbogbò',
   'settingsProfileSection.profileImage': 'Àwòrán àkọsílẹ̀',
   'settingsProfileSection.sectionDescription': 'Àwọn àlàyé ara ẹni tó hàn gẹ́gẹ́ bí orúkọ olùtẹ̀jáde.',
   'settingsPublication.fromName': 'Orúkọ ẹni tó ránṣẹ́',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Àwọn Ẹ̀dá',
   'sideNavBar.newsletterSuite': 'Àkójọpọ̀ Ìwé Ìròyìn',
+  'sideNavBar.primary': 'Àkọ́bẹ̀rẹ̀',
   'sideNavBar.signOut': 'Jáde',
   'sideNavBar.subscribers': 'Àwọn Olùforúkọsílẹ̀',
   'signup.error': 'Ìforúkọsílẹ̀ kùnà',

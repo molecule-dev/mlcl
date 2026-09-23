@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'சேர்',
   'vendors.noContact': 'இன்னும் தொடர்பு இல்லை',
   'vendors.title': 'விற்பனையாளர்கள்',
+  'weddingLayout.openNav': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'weddingLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

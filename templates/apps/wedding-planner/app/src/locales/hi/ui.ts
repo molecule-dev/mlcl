@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'जोड़ा जा रहा है…',
   'seating.form.submit': 'टेबल जोड़ें',
   'seating.poolTitle': 'बिना सीट वाले मेहमान',
+  'seating.subtitle':
+    '{{बैठे हुए}} बैठे हुए<x> {{क्षमता}}</x> सीटें ·<x> {{पूल}}</x> पूल में मेहमान इंतजार कर रहे हैं',
   'seating.title': 'बैठक चार्ट',
   'settings.billing': 'बिलिंग',
   'settings.changePassword': 'पासवर्ड बदलें',
@@ -207,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'जोड़ें',
   'vendors.noContact': 'अभी तक कोई संपर्क नहीं',
   'vendors.title': 'वेंडर्स',
+  'weddingLayout.openNav': 'नेविगेशन मेनू खोलें',
   'weddingLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
 }

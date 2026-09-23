@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'સંપર્ક કરો',
   'subs.col.trade': 'ટ્રેડ',
   'subs.col.value': 'કોન્ટ્રાક્ટ વેલ્યુ',
+  'subs.confirmTerminate': 'સમાપ્તિની પુષ્ટિ કરો',
   'subs.createError': 'સબકોન્ટ્રાક્ટર ઉમેરવામાં નિષ્ફળ.',
   'subs.empty': 'આ પ્રોજેક્ટ પર હજી કોઈ સબકોન્ટ્રાક્ટર્સ નથી.',
   'subs.field.contact': 'સંપર્ક કરો',

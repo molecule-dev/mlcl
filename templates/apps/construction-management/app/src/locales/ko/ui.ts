@@ -199,6 +199,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': '연락처',
   'subs.col.trade': '업종',
   'subs.col.value': '계약 금액',
+  'subs.confirmTerminate': '종료 확인',
   'subs.createError': '하도급업체를 추가하지 못했습니다.',
   'subs.empty': '이 프로젝트에 아직 하도급업체가 없습니다.',
   'subs.field.contact': '연락처',

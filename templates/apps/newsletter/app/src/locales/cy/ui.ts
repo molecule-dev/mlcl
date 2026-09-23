@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Ysgrifennwch bwnc yn gyntaf.',
   'issueEditor.title': 'Golygydd rhifyn',
   'issues.delete': 'Dileu',
+  'issues.deleteConfirm': 'Dileu&#39;r broblem hon? Ni ellir dadwneud hyn.',
   'issues.deleteError': 'Methwyd dileu rhifyn',
   'issues.edit': 'Golygu',
   'issues.loadError': 'Methwyd llwytho rhifynnau',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Dad-danysgrifiadau',
   'settingsNotificationsSection.mentionsDescription':
     "Hysbyswch fi pan mae tanysgrifwr yn dad-danysgrifio o'r rhestr.",
+  'settingsNotificationsSection.newFollowers': 'Tanysgrifwyr newydd',
   'settingsNotificationsSection.sectionDescription':
     'Penderfynu pryd rydych chi eisiau cael eich tarfu gan ddiweddariadau.',
   'settingsPageHeader.title': 'Gosodiadau Cyfrif',
   'settingsPrivacySection.description': "Rheoli gwelededd eich data a'ch presenoldeb.",
+  'settingsPrivacySection.profileVisibilityLabel': 'Gwelededd Proffil Cyhoeddus',
   'settingsProfileSection.profileImage': 'Delwedd proffil',
   'settingsProfileSection.sectionDescription':
     "Manylion personol sy'n cael eu harddangos fel llinell awdur y cyhoeddiad.",
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Rhifynnau',
   'sideNavBar.newsletterSuite': 'Cyfres Cylchlythyr',
+  'sideNavBar.primary': 'Cynradd',
   'sideNavBar.signOut': 'Allgofnodi',
   'sideNavBar.subscribers': 'Tanysgrifwyr',
   'signup.error': 'Methodd y cofrestriad',

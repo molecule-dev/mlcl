@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'ನಿಮ್ಮ ವೃಕ್ಷಕ್ಕೆ ಹೋಗಿ',
   'common.loadingEllipsis': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'common.requestANewLink': 'ಹೊಸ ಲಿಂಕ್‌ಗಾಗಿ ವಿನಂತಿಸಿ',
+  'common.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
   'common.savingEllipsis': 'ಉಳಿಸಲಾಗುತ್ತಿದೆ…',
   'common.signingInEllipsis': 'ಸೈನ್ ಇನ್ ಆಗುತ್ತಿದೆ…',
   'common.whatYouGet': 'ನೀವು ಪಡೆಯುವುದು',

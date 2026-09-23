@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Tilføj',
   'vendors.noContact': 'Ingen kontakt endnu',
   'vendors.title': 'Leverandører',
+  'weddingLayout.openNav': 'Åbn navigationsmenuen',
   'weddingLayout.primaryNavLabel': 'Primær navigation',
 }

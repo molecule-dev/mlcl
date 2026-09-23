@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Téigh go dtí do chrann',
   'common.loadingEllipsis': 'Á lódáil…',
   'common.requestANewLink': 'Iarr nasc nua',
+  'common.retry': 'Bain triail eile as',
   'common.savingEllipsis': 'Á shábháil…',
   'common.signingInEllipsis': 'Á shíniú isteach…',
   'common.whatYouGet': 'Cad a fhaigheann tú',

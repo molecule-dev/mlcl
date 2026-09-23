@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Xhumana',
   'subs.col.trade': 'Ubucwebe',
   'subs.col.value': 'Inani lenkontileka',
+  'subs.confirmTerminate': 'Qinisekisa ukuqeda',
   'subs.createError': 'Kwehlulekile ukufaka omunye umkhiqizi.',
   'subs.empty': 'Abakho abanye abakhiqizi kule phrojekthi okwamanje.',
   'subs.field.contact': 'Xhumana',

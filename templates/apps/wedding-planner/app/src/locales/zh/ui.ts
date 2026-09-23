@@ -204,5 +204,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': '添加',
   'vendors.noContact': '尚未联系',
   'vendors.title': '供应商',
+  'weddingLayout.openNav': '打开导航菜单',
   'weddingLayout.primaryNavLabel': '主导航',
 }

@@ -171,6 +171,8 @@ export const ui: UiTranslations = {
   'seating.form.saving': 'ಸೇರಿಸಲಾಗುತ್ತಿದೆ...',
   'seating.form.submit': 'ಟೇಬಲ್ ಸೇರಿಸಿ',
   'seating.poolTitle': 'ಆಸನ ಇಲ್ಲದ ಅತಿಥಿಗಳು',
+  'seating.subtitle':
+    '{{ಕುಳಿತುಕೊಂಡಿರುವ}} ಕುಳಿತಿರುವ<x> {{ಸಾಮರ್ಥ್ಯ}}</x> ಆಸನಗಳು ·<x> {{ಪೂಲ್}}</x> ಅತಿಥಿಗಳು ಈಜುಕೊಳದಲ್ಲಿ ಕಾಯುತ್ತಿದ್ದಾರೆ',
   'seating.title': 'ಆಸನ ಚಾರ್ಟ್',
   'settings.billing': 'ಬಿಲ್ಲಿಂಗ್',
   'settings.changePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಿಸಿ',
@@ -208,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'ಸೇರಿಸಿ',
   'vendors.noContact': 'ಇನ್ನೂ ಸಂಪರ್ಕವಿಲ್ಲ',
   'vendors.title': 'ಮಾರಾಟಗಾರರು',
+  'weddingLayout.openNav': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'weddingLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

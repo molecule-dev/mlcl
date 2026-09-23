@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Pergi ke pokok anda',
   'common.loadingEllipsis': 'Memuatkan…',
   'common.requestANewLink': 'Minta pautan baharu',
+  'common.retry': 'Cuba lagi',
   'common.savingEllipsis': 'Menyimpan…',
   'common.signingInEllipsis': 'Log masuk…',
   'common.whatYouGet': 'Apa yang anda dapat',

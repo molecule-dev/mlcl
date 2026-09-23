@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Mur għas-siġra tiegħek',
   'common.loadingEllipsis': 'Qed jillowdja…',
   'common.requestANewLink': 'Itlob link ġdid',
+  'common.retry': 'Erġa&#39; pprova',
   'common.savingEllipsis': 'Qed jissejvja…',
   'common.signingInEllipsis': 'Qed jidħol…',
   'common.whatYouGet': "X'tieħu",

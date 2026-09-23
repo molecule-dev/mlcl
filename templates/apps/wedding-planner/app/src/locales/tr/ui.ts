@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ekle',
   'vendors.noContact': 'Henüz iletişim yok',
   'vendors.title': 'Tedarikçiler',
+  'weddingLayout.openNav': 'Gezinti menüsünü aç',
   'weddingLayout.primaryNavLabel': 'Birincil gezinme',
 }

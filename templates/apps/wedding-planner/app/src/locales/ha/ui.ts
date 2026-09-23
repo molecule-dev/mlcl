@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Ƙara',
   'vendors.noContact': 'Babu tuntuɓar tukuna',
   'vendors.title': 'Masu samarwa',
+  'weddingLayout.openNav': 'Buɗe menu na kewayawa',
   'weddingLayout.primaryNavLabel': 'Babban kewayawa',
 }

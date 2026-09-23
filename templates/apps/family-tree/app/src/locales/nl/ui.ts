@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Ga naar je stamboom',
   'common.loadingEllipsis': 'Laden…',
   'common.requestANewLink': 'Nieuwe link aanvragen',
+  'common.retry': 'Probeer het nog eens',
   'common.savingEllipsis': 'Opslaan…',
   'common.signingInEllipsis': 'Inloggen…',
   'common.whatYouGet': 'Wat je krijgt',

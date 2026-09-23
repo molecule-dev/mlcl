@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Tulis subjek terlebih dahulu.',
   'issueEditor.title': 'Editor edisi',
   'issues.delete': 'Hapus',
+  'issues.deleteConfirm': 'Hapus masalah ini? Tindakan ini tidak dapat dibatalkan.',
   'issues.deleteError': 'Gagal menghapus edisi',
   'issues.edit': 'Sunting',
   'issues.loadError': 'Gagal memuat edisi',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Berhenti berlangganan',
   'settingsNotificationsSection.mentionsDescription':
     'Beri tahu saya ketika pelanggan berhenti berlangganan dari daftar.',
+  'settingsNotificationsSection.newFollowers': 'Pelanggan baru',
   'settingsNotificationsSection.sectionDescription':
     'Tentukan kapan Anda ingin diganggu oleh pembaruan.',
   'settingsPageHeader.title': 'Pengaturan Akun',
   'settingsPrivacySection.description': 'Kontrol visibilitas data dan kehadiran Anda.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Visibilitas Profil Publik',
   'settingsProfileSection.profileImage': 'Foto profil',
   'settingsProfileSection.sectionDescription':
     'Detail pribadi yang ditampilkan sebagai byline publikasi.',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Edisi',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Sekolah Dasar',
   'sideNavBar.signOut': 'Keluar',
   'sideNavBar.subscribers': 'Pelanggan',
   'signup.error': 'Pendaftaran gagal',

@@ -206,5 +206,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'დამატება',
   'vendors.noContact': 'ჯერ არ არის კონტაქტი',
   'vendors.title': 'მომწოდებლები',
+  'weddingLayout.openNav': 'ნავიგაციის მენიუს გახსნა',
   'weddingLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

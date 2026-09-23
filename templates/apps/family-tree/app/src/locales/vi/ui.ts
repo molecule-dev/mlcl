@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'Đến cây gia đình của bạn',
   'common.loadingEllipsis': 'Đang tải…',
   'common.requestANewLink': 'Yêu cầu liên kết mới',
+  'common.retry': 'Hãy thử lại',
   'common.savingEllipsis': 'Đang lưu…',
   'common.signingInEllipsis': 'Đang đăng nhập…',
   'common.whatYouGet': 'Những gì bạn nhận được',

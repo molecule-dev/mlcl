@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Añadir',
   'vendors.noContact': 'Sin contacto aún',
   'vendors.title': 'Proveedores',
+  'weddingLayout.openNav': 'Abrir el menú de navegación',
   'weddingLayout.primaryNavLabel': 'Navegación principal',
 }

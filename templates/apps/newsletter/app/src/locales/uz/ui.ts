@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Avval mavzuni yozing.',
   'issueEditor.title': 'Son muharriri',
   'issues.delete': "O'chirish",
+  'issues.deleteConfirm': 'Bu muammo o&#39;chirib tashlansinmi? Buni ortga qaytarib bo&#39;lmaydi.',
   'issues.deleteError': "Sonni o'chirib bo'lmadi",
   'issues.edit': 'Tahrirlash',
   'issues.loadError': 'Sonlarni yuklash muvaffaqiyatsiz tugadi',
@@ -160,11 +161,13 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Obunadan chiqishlar',
   'settingsNotificationsSection.mentionsDescription':
     "Obunachi ro'yxatdan obunani bekor qilganda menga xabar bering.",
+  'settingsNotificationsSection.newFollowers': 'Yangi obunachilar',
   'settingsNotificationsSection.sectionDescription':
     "Yangilanishlar bilan qachon bezovta bo'lishni xohlayotganingizni belgilang.",
   'settingsPageHeader.title': 'Hisob sozlamalari',
   'settingsPrivacySection.description':
     "Ma'lumotlaringiz va mavjudligingiz ko'rinishini boshqaring.",
+  'settingsPrivacySection.profileVisibilityLabel': 'Ommaviy profil ko&#39;rinishi',
   'settingsProfileSection.profileImage': 'Profil rasmi',
   'settingsProfileSection.sectionDescription':
     "Nashr muallifligi sifatida ko'rsatiladigan shaxsiy ma'lumotlar.",
@@ -180,6 +183,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Sonlar',
   'sideNavBar.newsletterSuite': "Axborot byulleteni to'plami",
+  'sideNavBar.primary': 'Asosiy',
   'sideNavBar.signOut': 'Chiqish',
   'sideNavBar.subscribers': 'Obunachilar',
   'signup.error': "Ro'yxatdan o'tish muvaffaqiyatsiz tugadi",

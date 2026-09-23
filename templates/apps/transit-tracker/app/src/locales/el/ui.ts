@@ -42,6 +42,7 @@ export const ui: UiTranslations = {
   'common.creatingAccountEllipsis': 'Δημιουργία λογαριασμού…',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα Ελέγχου',
   'common.resettingEllipsis': 'Επαναφορά…',
+  'common.retry': 'Επανάληψη',
   'common.saveChanges': 'Αποθήκευση αλλαγών',
   'common.savedPeriod': 'Αποθηκεύτηκε.',
   'common.savingEllipsis': 'Αποθήκευση…',
@@ -96,6 +97,10 @@ export const ui: UiTranslations = {
   'routeDetail.stopsHeading': 'Στάσεις',
   'routeDetail.towards': 'Προς',
   'savedStops.emptyTitle': 'Δεν υπάρχουν αποθηκευμένες στάσεις ακόμα',
+  'savedStops.error':
+    'Δεν ήταν δυνατή η φόρτωση των αποθηκευμένων στάσεων. Παρακαλώ δοκιμάστε ξανά.',
+  'savedStops.eyebrow': 'Το δίκτυό σας',
+  'savedStops.loading': 'Φόρτωση αποθηκευμένων στάσεων…',
   'savedStops.title': 'Αποθηκευμένες στάσεις',
   'settings.account': 'Λογαριασμός',
   'settings.billing': 'Χρέωση',
@@ -115,6 +120,7 @@ export const ui: UiTranslations = {
   'stopBoard.saveLabel': 'Αποθήκευση στάσης',
   'stopPicker.chooseStop': 'Επιλέξτε στάση…',
   'transitLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'tripPlanner.destinationLabel': 'Προς',
   'tripPlanner.error':
     'Δεν ήταν δυνατός ο προγραμματισμός αυτού του ταξιδιού. Παρακαλούμε δοκιμάστε ξανά.',
   'tripPlanner.eyebrow': 'Σχεδιαστής διαδρομών',

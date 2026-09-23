@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Struka',
   'subs.col.value': 'Vrijednost ugovora',
+  'subs.confirmTerminate': 'Potvrdi prekid',
   'subs.createError': 'Neuspješno dodavanje podizvođača.',
   'subs.empty': 'Još nema podizvođača na ovom projektu.',
   'subs.field.contact': 'Kontakt',

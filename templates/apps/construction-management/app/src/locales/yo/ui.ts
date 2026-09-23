@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Olùbáṣepọ̀',
   'subs.col.trade': 'Iṣẹ́ọwọ́',
   'subs.col.value': 'Iye ìwé àdéhùn',
+  'subs.confirmTerminate': 'Jẹ́rìí sí ìfòpinsí',
   'subs.createError': 'Kò ṣe é ṣe láti fikún alágbàṣiṣẹ́.',
   'subs.empty': 'Kò sí alágbàṣiṣẹ́ lórí iṣẹ́ àkànṣe yìí síbẹ̀.',
   'subs.field.contact': 'Olùbáṣepọ̀',

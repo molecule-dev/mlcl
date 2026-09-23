@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'پہلے موضوع لکھیں۔',
   'issueEditor.title': 'شمارہ ایڈیٹر',
   'issues.delete': 'حذف کریں۔',
+  'issues.deleteConfirm': 'اس مسئلے کو حذف کریں؟ اسے کالعدم نہیں کیا جا سکتا۔',
   'issues.deleteError': 'شمارہ حذف کرنے میں ناکامی',
   'issues.edit': 'ترمیم کریں۔',
   'issues.loadError': 'شمارے لوڈ کرنے میں ناکامی',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'ان سبسکرائب',
   'settingsNotificationsSection.mentionsDescription':
     'مجھے مطلع کریں جب کوئی سبسکرائبر لسٹ سے ان سبسکرائب کر دے۔',
+  'settingsNotificationsSection.newFollowers': 'نئے سبسکرائبرز',
   'settingsNotificationsSection.sectionDescription':
     'فیصلہ کریں کہ آپ کب اپ ڈیٹس سے پریشان ہونا چاہتے ہیں۔',
   'settingsPageHeader.title': 'اکاؤنٹ کی ترتیبات',
   'settingsPrivacySection.description': 'اپنے ڈیٹا اور موجودگی کی مرئیت کو کنٹرول کریں۔',
+  'settingsPrivacySection.profileVisibilityLabel': 'عوامی پروفائل کی مرئیت',
   'settingsProfileSection.profileImage': 'پروفائل تصویر',
   'settingsProfileSection.sectionDescription':
     'اشاعت کی بائی لائن کے طور پر دکھائی جانے والی ذاتی تفصیلات۔',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'شمارے',
   'sideNavBar.newsletterSuite': 'نیوز لیٹر سویٹ',
+  'sideNavBar.primary': 'پرائمری',
   'sideNavBar.signOut': 'سائن آؤٹ کریں',
   'sideNavBar.subscribers': 'سبسکرائبرز',
   'signup.error': 'سائن اپ ناکام ہوا',

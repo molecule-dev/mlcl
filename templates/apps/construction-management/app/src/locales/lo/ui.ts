@@ -199,6 +199,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ຕິດຕໍ່',
   'subs.col.trade': 'ການຄ້າ',
   'subs.col.value': 'ມູນຄ່າສັນຍາ',
+  'subs.confirmTerminate': 'ຢືນຢັນການຢຸດຕິ',
   'subs.createError': 'ບໍ່ສາມາດເພີ່ມຜູ້ຮັບເໝົາຊ່ວງໄດ້.',
   'subs.empty': 'ຍັງບໍ່ມີຜູ້ຮັບເໝົາຊ່ວງໃນໂຄງການນີ້.',
   'subs.field.contact': 'ຕິດຕໍ່',

@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Sumulat muna ng paksa.',
   'issueEditor.title': 'Issue editor',
   'issues.delete': 'Burahin',
+  'issues.deleteConfirm': 'Burahin ang isyung ito? Hindi na ito maaaring i-undo.',
   'issues.deleteError': 'Nabigo ang pagbura ng isyu',
   'issues.edit': 'I-edit',
   'issues.loadError': 'Nabigo ang pag-load ng mga isyu',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Mga pag-unsubscribe',
   'settingsNotificationsSection.mentionsDescription':
     'Abisuhan ako kapag nag-unsubscribe ang isang subscriber mula sa listahan.',
+  'settingsNotificationsSection.newFollowers': 'Mga bagong subscriber',
   'settingsNotificationsSection.sectionDescription':
     'Magpasya kung kailan mo gustong ma-istorbo ng mga update.',
   'settingsPageHeader.title': 'Mga Setting ng Account',
   'settingsPrivacySection.description': 'Kontrolin ang visibility ng iyong data at presensya.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Pagiging Visible ng Pampublikong Profile',
   'settingsProfileSection.profileImage': 'Larawan ng profile',
   'settingsProfileSection.sectionDescription':
     'Mga personal na detalye na ipinapakita bilang byline ng publikasyon.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Mga Isyu',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Pangunahin',
   'sideNavBar.signOut': 'Mag-Sign Out',
   'sideNavBar.subscribers': 'Mga subscriber',
   'signup.error': 'Nabigo ang pag-signup',

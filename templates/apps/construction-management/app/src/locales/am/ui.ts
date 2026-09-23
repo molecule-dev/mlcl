@@ -198,6 +198,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'እውቂያ',
   'subs.col.trade': 'ሙያ',
   'subs.col.value': 'የውል ዋጋ',
+  'subs.confirmTerminate': 'ማቋረጥን ያረጋግጡ',
   'subs.createError': 'ንዑስ ተቋራጭ መጨመር አልተሳካም።',
   'subs.empty': 'በዚህ ፕሮጀክት ላይ ገና ምንም ንዑስ ተቋራጮች የሉም።',
   'subs.field.contact': 'እውቂያ',

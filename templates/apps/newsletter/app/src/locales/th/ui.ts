@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'เขียนหัวเรื่องก่อน',
   'issueEditor.title': 'โปรแกรมแก้ไขฉบับ',
   'issues.delete': 'ลบ',
+  'issues.deleteConfirm': 'ลบปัญหานี้? ไม่สามารถยกเลิกได้',
   'issues.deleteError': 'ลบฉบับไม่สำเร็จ',
   'issues.edit': 'แก้ไข',
   'issues.loadError': 'โหลดฉบับไม่สำเร็จ',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'ยกเลิกการติดตาม',
   'settingsNotificationsSection.mentionsDescription':
     'แจ้งเตือนฉันเมื่อผู้ติดตามยกเลิกการติดตามจากรายชื่อ',
+  'settingsNotificationsSection.newFollowers': 'สมาชิกใหม่',
   'settingsNotificationsSection.sectionDescription':
     'กำหนดว่าคุณต้องการให้มีการแจ้งเตือนอัปเดตเมื่อใด',
   'settingsPageHeader.title': 'การตั้งค่าบัญชี',
   'settingsPrivacySection.description': 'ควบคุมการมองเห็นข้อมูลและสถานะของคุณ',
+  'settingsPrivacySection.profileVisibilityLabel': 'การมองเห็นโปรไฟล์สาธารณะ',
   'settingsProfileSection.profileImage': 'รูปโปรไฟล์',
   'settingsProfileSection.sectionDescription':
     'รายละเอียดส่วนบุคคลที่แสดงเป็นบรรทัดผู้เขียนสิ่งพิมพ์',
@@ -176,6 +179,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'ฉบับ',
   'sideNavBar.newsletterSuite': 'ชุดจดหมายข่าว',
+  'sideNavBar.primary': 'หลัก',
   'sideNavBar.signOut': 'ออกจากระบบ',
   'sideNavBar.subscribers': 'สมาชิก',
   'signup.error': 'สมัครสมาชิกไม่สำเร็จ',

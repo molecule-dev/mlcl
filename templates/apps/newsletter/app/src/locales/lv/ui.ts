@@ -81,6 +81,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Vispirms uzrakstiet tēmu.',
   'issueEditor.title': 'Izdevuma redaktors',
   'issues.delete': 'Dzēst',
+  'issues.deleteConfirm': 'Dzēst šo problēmu? Šo darbību nevar atcelt.',
   'issues.deleteError': 'Neizdevās dzēst izdevumu',
   'issues.edit': 'Rediģēt',
   'issues.loadError': 'Neizdevās ielādēt izdevumus',
@@ -160,9 +161,11 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Atteikumi',
   'settingsNotificationsSection.mentionsDescription':
     'Paziņot man, kad abonents atsakās no saraksta.',
+  'settingsNotificationsSection.newFollowers': 'Jauni abonenti',
   'settingsNotificationsSection.sectionDescription': 'Izlemiet, kad vēlaties saņemt paziņojumus.',
   'settingsPageHeader.title': 'Konta iestatījumi',
   'settingsPrivacySection.description': 'Kontrolējiet savu datu un klātbūtnes redzamību.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Publiskā profila redzamība',
   'settingsProfileSection.profileImage': 'Profila attēls',
   'settingsProfileSection.sectionDescription':
     'Personīgie dati, kas tiek rādīti kā publikācijas paraksts.',
@@ -179,6 +182,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Izdevumi',
   'sideNavBar.newsletterSuite': 'Jaunumu vēstuļu komplekts',
+  'sideNavBar.primary': 'Pamatskola',
   'sideNavBar.signOut': 'Izrakstīties',
   'sideNavBar.subscribers': 'Abonenti',
   'signup.error': 'Reģistrēšanās neizdevās',

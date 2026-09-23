@@ -203,6 +203,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontakt',
   'subs.col.trade': 'Poklic',
   'subs.col.value': 'Vrednost pogodbe',
+  'subs.confirmTerminate': 'Potrdi prekinitev',
   'subs.createError': 'Podizvajalca ni bilo mogoče dodati.',
   'subs.empty': 'Na tem projektu še ni podizvajalcev.',
   'subs.field.contact': 'Kontakt',

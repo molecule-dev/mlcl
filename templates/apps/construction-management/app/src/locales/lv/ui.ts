@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontaktinformācija',
   'subs.col.trade': 'Nozare',
   'subs.col.value': 'Līguma vērtība',
+  'subs.confirmTerminate': 'Apstiprināt pārtraukšanu',
   'subs.createError': 'Neizdevās pievienot apakšuzņēmēju.',
   'subs.empty': 'Šajā projektā vēl nav apakšuzņēmēju.',
   'subs.field.contact': 'Kontaktinformācija',

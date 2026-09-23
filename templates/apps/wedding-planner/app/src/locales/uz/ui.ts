@@ -210,5 +210,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': "Qo'shish",
   'vendors.noContact': "Hali aloqa yo'q",
   'vendors.title': 'Yetkazib beruvchilar',
+  'weddingLayout.openNav': 'Navigatsiya menyusini ochish',
   'weddingLayout.primaryNavLabel': 'Asosiy navigatsiya',
 }

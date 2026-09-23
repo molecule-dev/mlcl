@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Додати',
   'vendors.noContact': 'Ще немає контакту',
   'vendors.title': 'Постачальники',
+  'weddingLayout.openNav': 'Відкрити меню навігації',
   'weddingLayout.primaryNavLabel': 'Основна навігація',
 }

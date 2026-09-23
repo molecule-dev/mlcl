@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Skriv ett ämne först.',
   'issueEditor.title': 'Nummerredigerare',
   'issues.delete': 'Ta bort',
+  'issues.deleteConfirm': 'Vill du ta bort detta ärende? Det här går inte att ångra.',
   'issues.deleteError': 'Kunde inte ta bort numret',
   'issues.edit': 'Redigera',
   'issues.loadError': 'Kunde inte ladda nummer',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Avprenumerationer',
   'settingsNotificationsSection.mentionsDescription':
     'Meddela mig när en prenumerant avprenumererar från listan.',
+  'settingsNotificationsSection.newFollowers': 'Nya prenumeranter',
   'settingsNotificationsSection.sectionDescription':
     'Bestäm när du vill bli avbruten av uppdateringar.',
   'settingsPageHeader.title': 'Kontoinställningar',
   'settingsPrivacySection.description': 'Styr synligheten för dina data och närvaro.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Synlighet för offentliga profiler',
   'settingsProfileSection.profileImage': 'Profilbild',
   'settingsProfileSection.sectionDescription':
     'Personliga uppgifter som visas som publikationens signatur.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Nummer',
   'sideNavBar.newsletterSuite': 'Nyhetsbrevsvit',
+  'sideNavBar.primary': 'Grundskola',
   'sideNavBar.signOut': 'Logga ut',
   'sideNavBar.subscribers': 'Prenumeranter',
   'signup.error': 'Registrering misslyckades',

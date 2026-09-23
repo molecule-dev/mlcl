@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Tambah',
   'vendors.noContact': 'Belum ada kontak',
   'vendors.title': 'Vendor',
+  'weddingLayout.openNav': 'Buka menu navigasi',
   'weddingLayout.primaryNavLabel': 'Navigasi utama',
 }

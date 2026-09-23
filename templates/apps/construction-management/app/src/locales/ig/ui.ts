@@ -199,6 +199,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kpọtụrụ',
   'subs.col.trade': 'Ọrụ aka',
   'subs.col.value': 'Uru nkwekọrịta',
+  'subs.confirmTerminate': 'Kwenye ịkwụsị',
   'subs.createError': 'Ọ dara ada itinye onye nkwado.',
   'subs.empty': "Enweghị ndị nkwado n'ọrụ a.",
   'subs.field.contact': 'Kpọtụrụ',

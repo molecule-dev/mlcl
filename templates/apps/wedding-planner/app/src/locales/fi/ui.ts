@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Lisää',
   'vendors.noContact': 'Ei yhteystietoa vielä',
   'vendors.title': 'Palveluntarjoajat',
+  'weddingLayout.openNav': 'Avaa navigointivalikko',
   'weddingLayout.primaryNavLabel': 'Päänavigaatio',
 }

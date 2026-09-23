@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Сначала напишите тему.',
   'issueEditor.title': 'Редактор выпусков',
   'issues.delete': 'Удалить',
+  'issues.deleteConfirm': 'Удалить эту проблему? Это действие нельзя отменить.',
   'issues.deleteError': 'Не удалось удалить выпуск',
   'issues.edit': 'Редактировать',
   'issues.loadError': 'Не удалось загрузить выпуски',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Отписки',
   'settingsNotificationsSection.mentionsDescription':
     'Уведомлять меня, когда подписчик отписывается от списка.',
+  'settingsNotificationsSection.newFollowers': 'Новые подписчики',
   'settingsNotificationsSection.sectionDescription':
     'Решите, когда вы хотите получать уведомления об обновлениях.',
   'settingsPageHeader.title': 'Настройки аккаунта',
   'settingsPrivacySection.description': 'Управляйте видимостью ваших данных и присутствием.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Настройки видимости публичного профиля',
   'settingsProfileSection.profileImage': 'Изображение профиля',
   'settingsProfileSection.sectionDescription':
     'Личные данные, отображаемые как подпись к публикации.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Выпуски',
   'sideNavBar.newsletterSuite': 'Набор для рассылок',
+  'sideNavBar.primary': 'Начальная школа',
   'sideNavBar.signOut': 'Выйти',
   'sideNavBar.subscribers': 'Подписчики',
   'signup.error': 'Ошибка регистрации',

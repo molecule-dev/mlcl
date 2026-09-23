@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Idatzi gaia lehenik.',
   'issueEditor.title': 'Ale-editorea',
   'issues.delete': 'Ezabatu',
+  'issues.deleteConfirm': 'Arazo hau ezabatu? Ezin da desegin.',
   'issues.deleteError': 'Ezin izan da alea ezabatu',
   'issues.edit': 'Editatu',
   'issues.loadError': 'Ezin izan dira aleak kargatu',
@@ -159,10 +160,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Harpidetza-baxak',
   'settingsNotificationsSection.mentionsDescription':
     'Jakinarazi harpidedun bat zerrendatik kentzen denean.',
+  'settingsNotificationsSection.newFollowers': 'Harpidedun berriak',
   'settingsNotificationsSection.sectionDescription':
     'Erabaki noiz nahi dituzun eguneratzeek etena egitea.',
   'settingsPageHeader.title': 'Kontuaren ezarpenak',
   'settingsPrivacySection.description': 'Kontrolatu zure datuen eta presentziaren ikusgaitasuna.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Profil Publikoaren Ikusgarritasuna',
   'settingsProfileSection.profileImage': 'Profilaren irudia',
   'settingsProfileSection.sectionDescription':
     'Argitalpenaren egileen linean bistaratuko diren xehetasun pertsonalak.',
@@ -178,6 +181,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Aleak',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Lehen mailakoa',
   'sideNavBar.signOut': 'Itxi saioa',
   'sideNavBar.subscribers': 'Harpidedunak',
   'signup.error': 'Izena ematea huts egin du',

@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'تماس',
   'subs.col.trade': 'تخصص',
   'subs.col.value': 'ارزش قرارداد',
+  'subs.confirmTerminate': 'تأیید خاتمه',
   'subs.createError': 'افزودن پیمانکار فرعی ناموفق بود.',
   'subs.empty': 'هنوز پیمانکار فرعی در این پروژه وجود ندارد.',
   'subs.field.contact': 'تماس',

@@ -205,6 +205,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kontaktua',
   'subs.col.trade': 'Ogibidea',
   'subs.col.value': 'Kontratu balioa',
+  'subs.confirmTerminate': 'Amaiera berretsi',
   'subs.createError': 'Huts egin du azpikontratista gehitzean.',
   'subs.empty': 'Azpikontratista ez oraindik proiektu honetan.',
   'subs.field.contact': 'Kontaktua',

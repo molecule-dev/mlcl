@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'اضافه کردن',
   'vendors.noContact': 'هنوز تماسی نیست',
   'vendors.title': 'تأمین‌کنندگان',
+  'weddingLayout.openNav': 'منوی ناوبری را باز کنید',
   'weddingLayout.primaryNavLabel': 'ناوبری اولیه',
 }

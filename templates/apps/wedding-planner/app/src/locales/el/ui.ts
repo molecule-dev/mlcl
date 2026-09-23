@@ -209,5 +209,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Προσθήκη',
   'vendors.noContact': 'Καμία επικοινωνία ακόμα',
   'vendors.title': 'Προμηθευτές',
+  'weddingLayout.openNav': 'Άνοιγμα μενού πλοήγησης',
   'weddingLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

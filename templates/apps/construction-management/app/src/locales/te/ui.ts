@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'సంప్రదించండి',
   'subs.col.trade': 'ట్రేడ్',
   'subs.col.value': 'కాంట్రాక్ట్ విలువ',
+  'subs.confirmTerminate': 'ముగింపును నిర్ధారించండి',
   'subs.createError': 'సబ్‌కాంట్రాక్టర్‌ను జోడించడం విఫలమైంది.',
   'subs.empty': 'ఈ ప్రాజెక్ట్‌లో ఇంకా సబ్‌కాంట్రాక్టర్‌లు లేరు.',
   'subs.field.contact': 'సంప్రదించండి',

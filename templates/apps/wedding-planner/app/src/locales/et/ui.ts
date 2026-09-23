@@ -208,5 +208,6 @@ export const ui: UiTranslations = {
   'vendors.form.submit': 'Lisa',
   'vendors.noContact': 'Kontakti pole veel',
   'vendors.title': 'Teenusepakkujad',
+  'weddingLayout.openNav': 'Ava navigeerimismenüü',
   'weddingLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

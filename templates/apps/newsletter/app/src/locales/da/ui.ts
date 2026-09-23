@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Skriv et emne først.',
   'issueEditor.title': 'Udgaveeditor',
   'issues.delete': 'Slet',
+  'issues.deleteConfirm': 'Skal dette problem slettes? Dette kan ikke fortrydes.',
   'issues.deleteError': 'Kunne ikke slette udgave',
   'issues.edit': 'Rediger',
   'issues.loadError': 'Kunne ikke indlæse udgaver',
@@ -158,10 +159,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Afmeldinger',
   'settingsNotificationsSection.mentionsDescription':
     'Giv mig besked når en abonnent afmelder listen.',
+  'settingsNotificationsSection.newFollowers': 'Nye abonnenter',
   'settingsNotificationsSection.sectionDescription':
     'Beslut hvornår du vil forstyrres af opdateringer.',
   'settingsPageHeader.title': 'Kontoindstillinger',
   'settingsPrivacySection.description': 'Kontroller synligheden af dine data og tilstedeværelse.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Synlighed af offentlige profiler',
   'settingsProfileSection.profileImage': 'Profilbillede',
   'settingsProfileSection.sectionDescription':
     'Personlige detaljer vist som publikationens signatur.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Udgaver',
   'sideNavBar.newsletterSuite': 'Nyhedsbrevpakke',
+  'sideNavBar.primary': 'Grundskole',
   'sideNavBar.signOut': 'Log ud',
   'sideNavBar.subscribers': 'Abonnenter',
   'signup.error': 'Oprettelse mislykkedes',

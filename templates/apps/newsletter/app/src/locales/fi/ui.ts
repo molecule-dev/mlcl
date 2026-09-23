@@ -80,6 +80,7 @@ export const ui: UiTranslations = {
   'issueEditor.subjectRequired': 'Kirjoita ensin aihe.',
   'issueEditor.title': 'Numeroeditori',
   'issues.delete': 'Poista',
+  'issues.deleteConfirm': 'Poistetaanko tämä ongelma? Tätä toimintoa ei voi peruuttaa.',
   'issues.deleteError': 'Numeron poistaminen epäonnistui',
   'issues.edit': 'Muokkaa',
   'issues.loadError': 'Numeroiden lataaminen epäonnistui',
@@ -157,10 +158,12 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentions': 'Tilausten peruutukset',
   'settingsNotificationsSection.mentionsDescription':
     'Ilmoita minulle, kun tilaaja peruuttaa tilauksen listalta.',
+  'settingsNotificationsSection.newFollowers': 'Uudet tilaajat',
   'settingsNotificationsSection.sectionDescription':
     'Päätä, milloin haluat häiriöitä päivityksistä.',
   'settingsPageHeader.title': 'Tilin asetukset',
   'settingsPrivacySection.description': 'Hallitse tietojesi ja läsnäolosi näkyvyyttä.',
+  'settingsPrivacySection.profileVisibilityLabel': 'Julkisen profiilin näkyvyys',
   'settingsProfileSection.profileImage': 'Profiilikuva',
   'settingsProfileSection.sectionDescription':
     'Henkilökohtaiset tiedot, jotka näytetään julkaisun tekijätietoina.',
@@ -177,6 +180,7 @@ export const ui: UiTranslations = {
   'sideNavBar.dispatch': '{{appName}}',
   'sideNavBar.issues': 'Numerot',
   'sideNavBar.newsletterSuite': 'Newsletter Suite',
+  'sideNavBar.primary': 'Peruskoulu',
   'sideNavBar.signOut': 'Kirjaudu ulos',
   'sideNavBar.subscribers': 'Tilaajat',
   'signup.error': 'Rekisteröityminen epäonnistui',

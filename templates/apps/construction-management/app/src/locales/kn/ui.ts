@@ -204,6 +204,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ಸಂಪರ್ಕಿಸಿ',
   'subs.col.trade': 'ವ್ಯಾಪಾರ',
   'subs.col.value': 'ಒಪ್ಪಂದದ ಮೌಲ್ಯ',
+  'subs.confirmTerminate': 'ಮುಕ್ತಾಯವನ್ನು ದೃಢೀಕರಿಸಿ',
   'subs.createError': 'ಉಪಗುತ್ತಿಗೆದಾರರನ್ನು ಸೇರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'subs.empty': 'ಈ ಯೋಜನೆಯಲ್ಲಿ ಇನ್ನೂ ಉಪಗುತ್ತಿಗೆದಾರರಿಲ್ಲ.',
   'subs.field.contact': 'ಸಂಪರ್ಕಿಸಿ',

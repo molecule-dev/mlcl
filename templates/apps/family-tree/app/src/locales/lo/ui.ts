@@ -33,6 +33,7 @@ export const ui: UiTranslations = {
   'common.goToTree': 'ໄປຫາຕົ້ນໄມ້ຂອງທ່ານ',
   'common.loadingEllipsis': 'ກຳລັງໂຫຼດ…',
   'common.requestANewLink': 'ຂໍລິ້ງໃໝ່',
+  'common.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
   'common.savingEllipsis': 'ກຳລັງບັນທຶກ…',
   'common.signingInEllipsis': 'ກຳລັງເຂົ້າສູ່ລະບົບ…',
   'common.whatYouGet': 'ສິ່ງທີ່ທ່ານໄດ້ຮັບ',

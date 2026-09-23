@@ -202,6 +202,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'Kenalan',
   'subs.col.trade': 'Bidang',
   'subs.col.value': 'Nilai kontrak',
+  'subs.confirmTerminate': 'Sahkan tamatkan',
   'subs.createError': 'Gagal menambah subkontraktor.',
   'subs.empty': 'Tiada subkontraktor pada projek ini lagi.',
   'subs.field.contact': 'Kenalan',

@@ -199,6 +199,7 @@ export const ui: UiTranslations = {
   'subs.col.contact': 'ติดต่อ',
   'subs.col.trade': 'สาขาช่าง',
   'subs.col.value': 'มูลค่าสัญญา',
+  'subs.confirmTerminate': 'ยืนยันการยุติ',
   'subs.createError': 'ไม่สามารถเพิ่มผู้รับเหมาช่วงได้',
   'subs.empty': 'ยังไม่มีผู้รับเหมาช่วงในโครงการนี้',
   'subs.field.contact': 'ติดต่อ',
