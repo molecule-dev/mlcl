@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -109,11 +110,12 @@ export function Monitors() {
         { n: (monitors?.length ?? 0) + 1 },
         { defaultValue: 'Untitled monitor {{n}}' },
       )
-      await http.post('/api/monitors', {
+      const created = await http.post<{ id?: string }>('/api/monitors', {
         name: defaultName,
         cron_schedule: '0 * * * *',
         is_active: false,
       })
+      void track({ name: 'monitor.created', properties: { monitor_id: created.data?.id } })
       await load()
     } catch (err) {
       setError(
@@ -158,6 +160,10 @@ export function Monitors() {
         networkError?: string | null
       }>(`/api/monitors/${monitor.id}/run`, {})
       const data = res.data ?? {}
+      void track({
+        name: 'monitor.ran',
+        properties: { monitor_id: monitor.id, status: data.status, status_code: data.statusCode },
+      })
       if (data.networkError) {
         setRunMessage(
           t(
@@ -201,6 +207,7 @@ export function Monitors() {
     setBusyId(monitor.id)
     try {
       await http.delete(`/api/monitors/${monitor.id}`)
+      void track({ name: 'monitor.deleted', properties: { monitor_id: monitor.id } })
       await load()
     } catch (err) {
       setError(

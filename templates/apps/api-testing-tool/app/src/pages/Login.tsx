@@ -133,7 +133,9 @@ export function Login() {
             </label>
             <Link
               to="/forgot-password"
-              className={cm.cn('text-xs font-bold transition-opacity hover:opacity-80')}
+              className={cm.cn(
+                'text-xs font-bold transition-opacity hover:opacity-80 inline-block py-2 -my-2',
+              )}
               style={{ color: 'var(--color-primary)' }}
             >
               {t('auth.login.forgotShort', {}, { defaultValue: 'Forgot?' })}
@@ -166,7 +168,7 @@ export function Login() {
               type="button"
               onClick={() => setShowPassword((v) => !v)}
               className={cm.cn(
-                'absolute right-3 top-1/2 -translate-y-1/2 transition-colors hover:opacity-80',
+                'absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 inline-flex items-center justify-center transition-colors hover:opacity-80',
               )}
               style={{ color: 'var(--color-text-secondary)' }}
               aria-label={

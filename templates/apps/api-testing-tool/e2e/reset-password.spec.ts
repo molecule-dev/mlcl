@@ -34,6 +34,12 @@ test.describe('/reset-password', () => {
   test('"Reset password" actually fires the reset endpoint (proves the form is wired)', async ({
     page,
   }) => {
+    // The bogus token deliberately provokes a 401 from the reset endpoint —
+    // that rejection IS the wired behaviour this test proves.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password')
     await page.getByLabel(/Email address/i).fill('me@pylon.test')
     await page.getByLabel(/Reset token/i).fill('bogus-token-for-test')

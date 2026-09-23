@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -134,9 +135,13 @@ export function Collections() {
         { n: (collections?.length ?? 0) + 1 },
         { defaultValue: 'Untitled collection {{n}}' },
       )
-      await http.post<CollectionRow>('/api/collections', {
+      const created = await http.post<CollectionRow>('/api/collections', {
         name: defaultName,
         description: '',
+      })
+      void track({
+        name: 'collection.created',
+        properties: { collection_id: created.data?.id },
       })
       await load()
     } catch (err) {

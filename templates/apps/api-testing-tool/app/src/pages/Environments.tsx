@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -106,10 +107,14 @@ export function Environments() {
         { n: (environments?.length ?? 0) + 1 },
         { defaultValue: 'Untitled environment {{n}}' },
       )
-      await http.post('/api/environments', {
+      const created = await http.post<{ id?: string }>('/api/environments', {
         name: defaultName,
         variables: [],
         is_active: false,
+      })
+      void track({
+        name: 'environment.created',
+        properties: { environment_id: created.data?.id },
       })
       await load()
     } catch (err) {

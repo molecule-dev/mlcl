@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,6 +125,10 @@ export function TestRunner() {
       )
       const results = Array.isArray(res.data?.results) ? res.data.results : []
       setRunResults((prev) => ({ ...prev, [id]: results }))
+      void track({
+        name: 'test.executed',
+        properties: { test_id: id, status: res.data?.status ?? 'failed' },
+      })
       return { status: res.data?.status ?? 'failed', results }
     } catch (_error) {
       // runOne returns null on failure; handleRunAll skips failed runs gracefully
@@ -153,10 +158,11 @@ export function TestRunner() {
         { n: (tests?.length ?? 0) + 1 },
         { defaultValue: 'Untitled test {{n}}' },
       )
-      await http.post('/api/tests', {
+      const created = await http.post<{ id?: string }>('/api/tests', {
         name: defaultName,
         assertions: [{ field: 'status', operator: 'equals', expected: 200 }],
       })
+      void track({ name: 'test.created', properties: { test_id: created.data?.id } })
       await load()
     } catch (err) {
       setError(

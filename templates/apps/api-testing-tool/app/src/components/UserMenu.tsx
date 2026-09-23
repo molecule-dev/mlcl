@@ -69,7 +69,7 @@ export function UserMenu() {
         aria-expanded={open}
         aria-label={t('userMenu.open', {}, { defaultValue: 'Open user menu' })}
         className={cm.cn(
-          'inline-flex items-center justify-center h-9 w-9 rounded-lg transition-colors hover:bg-white/[0.06]',
+          'inline-flex items-center justify-center h-10 w-10 rounded-lg transition-colors hover:bg-white/[0.06]',
         )}
         style={{ color: 'var(--color-text-primary)' }}
         data-mol-id="user-menu-trigger"

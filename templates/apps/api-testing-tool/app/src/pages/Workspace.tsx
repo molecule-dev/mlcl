@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -18,6 +19,12 @@ interface SavedRequest {
   name?: string
   method?: string
   url?: string
+  headers?: string | Record<string, string>
+  query_params?: string | Record<string, string>
+  body_type?: string
+  body_content?: string
+  auth_type?: string
+  auth_config?: string | Record<string, unknown>
   collection_id?: string | null
 }
 
@@ -76,6 +83,74 @@ function formatBody(body: unknown): string {
   }
 }
 
+/** One editable key/value row (params + headers editors). */
+interface KVRow {
+  id: number
+  key: string
+  value: string
+  enabled: boolean
+}
+
+let kvRowSeq = 1
+function emptyRow(): KVRow {
+  return { id: kvRowSeq++, key: '', value: '', enabled: true }
+}
+
+/** Parse the API's JSON-string (or object) columns into editable rows. */
+function rowsFromSaved(raw: unknown): KVRow[] {
+  let obj: Record<string, unknown> = {}
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+    obj = raw as Record<string, unknown>
+  } else if (typeof raw === 'string' && raw.trim()) {
+    try {
+      const parsed: unknown = JSON.parse(raw)
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        obj = parsed as Record<string, unknown>
+      }
+    } catch (_error) {
+      // malformed JSON column — fall back to an empty editor
+    }
+  }
+  const rows = Object.entries(obj).map(([key, value]) => ({
+    id: kvRowSeq++,
+    key,
+    value: typeof value === 'string' ? value : String(value ?? ''),
+    enabled: true,
+  }))
+  return rows.length > 0 ? [...rows, emptyRow()] : [emptyRow()]
+}
+
+/** Collapse editable rows into the API's record shape (enabled + named only). */
+function collectRows(rows: KVRow[]): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const row of rows) {
+    if (row.enabled && row.key.trim()) out[row.key.trim()] = row.value
+  }
+  return out
+}
+
+function parseAuthConfig(raw: unknown): Record<string, string> {
+  let obj: Record<string, unknown> = {}
+  if (raw && typeof raw === 'object') obj = raw as Record<string, unknown>
+  else if (typeof raw === 'string' && raw.trim()) {
+    try {
+      const parsed: unknown = JSON.parse(raw)
+      if (parsed && typeof parsed === 'object') obj = parsed as Record<string, unknown>
+    } catch (_error) {
+      // malformed auth_config JSON — treat as empty
+    }
+  }
+  const out: Record<string, string> = {}
+  for (const [k, v] of Object.entries(obj)) out[k] = typeof v === 'string' ? v : String(v ?? '')
+  return out
+}
+
+type AuthType = 'none' | 'basic' | 'bearer' | 'oauth' | 'apikey'
+
+const AUTH_TYPES: AuthType[] = ['none', 'basic', 'bearer', 'oauth', 'apikey']
+
+type BodyType = 'none' | 'json' | 'text'
+
 type RequestTab = 'params' | 'auth' | 'headers' | 'body' | 'tests'
 
 const VALID_TABS: RequestTab[] = ['params', 'auth', 'headers', 'body', 'tests']
@@ -83,6 +158,107 @@ const VALID_TABS: RequestTab[] = ['params', 'auth', 'headers', 'body', 'tests']
 function tabFromHash(hash: string): RequestTab {
   const candidate = hash.replace(/^#/, '') as RequestTab
   return VALID_TABS.includes(candidate) ? candidate : 'auth'
+}
+
+/** Inline key/value row editor shared by the Params and Headers tabs. */
+function KeyValueEditor({
+  rows,
+  onChange,
+  keyPlaceholder,
+  valuePlaceholder,
+  keyLabel,
+  valueLabel,
+  removeLabel,
+  addLabel,
+}: {
+  rows: KVRow[]
+  onChange: (rows: KVRow[]) => void
+  keyPlaceholder: string
+  valuePlaceholder: string
+  keyLabel: string
+  valueLabel: string
+  removeLabel: string
+  addLabel: string
+}) {
+  const cm = getClassMap()
+  const update = (id: number, patch: Partial<KVRow>) => {
+    onChange(rows.map((r) => (r.id === id ? { ...r, ...patch } : r)))
+  }
+  return (
+    <div className={cm.cn('flex flex-col gap-2')} data-mol-id="kv-editor">
+      {/* Visually-hidden column headers keep the inputs labelled for screen readers. */}
+      <div className={cm.cn('sr-only')}>
+        <span>{keyLabel}</span>
+        <span>{valueLabel}</span>
+      </div>
+      {rows.map((row) => (
+        <div key={row.id} className={cm.cn('flex items-center gap-2')}>
+          <input
+            type="checkbox"
+            checked={row.enabled}
+            onChange={(e) => update(row.id, { enabled: e.target.checked })}
+            aria-label={`${keyLabel}: ${row.key || keyPlaceholder} — enabled`}
+            className={cm.cn('h-4 w-4 shrink-0 accent-current')}
+            style={{ accentColor: 'var(--color-primary)' }}
+          />
+          <input
+            type="text"
+            value={row.key}
+            onChange={(e) => update(row.id, { key: e.target.value })}
+            placeholder={keyPlaceholder}
+            aria-label={keyLabel}
+            className={cm.cn('min-w-0 flex-1 px-2 py-2 rounded-md font-mono text-xs outline-none')}
+            style={{
+              backgroundColor: 'var(--color-background)',
+              color: 'var(--color-text-primary)',
+              border: `1px solid ${PANEL_BORDER}`,
+            }}
+          />
+          <input
+            type="text"
+            value={row.value}
+            onChange={(e) => update(row.id, { value: e.target.value })}
+            placeholder={valuePlaceholder}
+            aria-label={valueLabel}
+            className={cm.cn(
+              'min-w-0 flex-[1.4] px-2 py-2 rounded-md font-mono text-xs outline-none',
+            )}
+            style={{
+              backgroundColor: 'var(--color-background)',
+              color: 'var(--color-text-primary)',
+              border: `1px solid ${PANEL_BORDER}`,
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => onChange(rows.filter((r) => r.id !== row.id))}
+            aria-label={removeLabel}
+            className={cm.cn(
+              'shrink-0 h-9 w-9 inline-flex items-center justify-center rounded-md transition-colors hover:opacity-80',
+            )}
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+              delete
+            </span>
+          </button>
+        </div>
+      ))}
+      <button
+        type="button"
+        onClick={() => onChange([...rows, emptyRow()])}
+        className={cm.cn(
+          'self-start inline-flex items-center gap-1 px-3 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest transition-colors hover:opacity-80',
+        )}
+        style={{ color: 'var(--color-primary)' }}
+      >
+        <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+          add
+        </span>
+        {addLabel}
+      </button>
+    </div>
+  )
 }
 
 export function Workspace() {
@@ -102,8 +278,35 @@ export function Workspace() {
   const [response, setResponse] = useState<ExecuteResponse | null>(null)
   const [busy, setBusy] = useState<'send' | 'save' | null>(null)
   const [statusMsg, setStatusMsg] = useState<string | null>(null)
+  const [statusTone, setStatusTone] = useState<'ok' | 'error'>('ok')
 
-  // Load existing saved requests + active environment.
+  // Builder state — hydrated from the first saved request, persisted on save/send.
+  const [paramRows, setParamRows] = useState<KVRow[]>([emptyRow()])
+  const [headerRows, setHeaderRows] = useState<KVRow[]>([emptyRow()])
+  const [bodyType, setBodyType] = useState<BodyType>('none')
+  const [bodyContent, setBodyContent] = useState('')
+  const [authType, setAuthType] = useState<AuthType>('bearer')
+  const [authToken, setAuthToken] = useState('')
+  const [authUsername, setAuthUsername] = useState('')
+  const [authPassword, setAuthPassword] = useState('')
+  const [authKeyName, setAuthKeyName] = useState('')
+  const [authKeyValue, setAuthKeyValue] = useState('')
+  const hydratedRef = useRef(false)
+
+  const buildAuthConfig = (): Record<string, string> => {
+    if (authType === 'basic') {
+      return { username: authUsername, password: authPassword }
+    }
+    if (authType === 'apikey') {
+      return { key: authKeyName, value: authKeyValue }
+    }
+    if (authType === 'bearer' || authType === 'oauth') {
+      return { token: authToken }
+    }
+    return {}
+  }
+
+  // Load existing saved requests + active environment, then hydrate the builder.
   useEffect(() => {
     let cancelled = false
     Promise.all([
@@ -119,9 +322,24 @@ export function Workspace() {
       const active = envs.find((e) => e.is_active) ?? envs[0] ?? null
       setActiveEnv(active)
       const first = rows[0]
-      if (first) {
+      if (first && !hydratedRef.current) {
+        hydratedRef.current = true
         setMethod((first.method as HttpMethod) ?? 'GET')
         setUrl(first.url ?? '')
+        setParamRows(rowsFromSaved(first.query_params))
+        setHeaderRows(rowsFromSaved(first.headers))
+        setBodyType(
+          first.body_type === 'json' || first.body_type === 'text' ? first.body_type : 'none',
+        )
+        setBodyContent(typeof first.body_content === 'string' ? first.body_content : '')
+        const type = String(first.auth_type ?? 'none').toLowerCase() as AuthType
+        if (AUTH_TYPES.includes(type)) setAuthType(type)
+        const cfg = parseAuthConfig(first.auth_config)
+        setAuthToken(cfg.token ?? cfg.accessToken ?? '')
+        setAuthUsername(cfg.username ?? '')
+        setAuthPassword(cfg.password ?? '')
+        setAuthKeyName(cfg.key ?? cfg.headerName ?? '')
+        setAuthKeyValue(cfg.value ?? '')
       }
     })
     return () => {
@@ -129,34 +347,54 @@ export function Workspace() {
     }
   }, [http])
 
+  /** The full builder payload the API persists. */
+  const builderPayload = () => ({
+    method,
+    url,
+    headers: collectRows(headerRows),
+    query_params: collectRows(paramRows),
+    body_type: bodyType,
+    body_content: bodyType === 'none' ? '' : bodyContent,
+    auth_type: authType,
+    auth_config: buildAuthConfig(),
+  })
+
   const handleSend = async () => {
     if (busy) return
     setBusy('send')
     setStatusMsg(null)
     try {
-      // Persist a request (or reuse the first saved) so we can use the
+      // Persist the request (or reuse the first saved) so we can use the
       // existing /api/requests/:id/execute endpoint.
       let target: SavedRequest | null = saved?.[0] ?? null
       if (!target) {
         const created = await http.post<SavedRequest>('/api/requests', {
           name: t('workspace.unnamed', {}, { defaultValue: 'Untitled request' }),
-          method,
-          url,
+          ...builderPayload(),
         })
         target = created.data
         setSaved([target, ...(saved ?? [])])
+        void track({ name: 'request.created', properties: { request_id: target.id, method } })
       } else {
-        await http.put<SavedRequest>(`/api/requests/${target.id}`, {
-          method,
-          url,
-        })
+        await http.put<SavedRequest>(`/api/requests/${target.id}`, builderPayload())
       }
       const exec = await http.post<ExecuteResponse>(`/api/requests/${target.id}/execute`, {})
       setResponse(exec.data)
+      void track({
+        name: 'request.sent',
+        properties: {
+          request_id: target.id,
+          method,
+          status: exec.data?.status ?? 0,
+          duration_ms: exec.data?.duration_ms ?? 0,
+        },
+      })
+      setStatusTone('ok')
       setStatusMsg(
         t('workspace.statusSent', {}, { defaultValue: 'Request fired — see response below.' }),
       )
     } catch (err) {
+      setStatusTone('error')
       setStatusMsg(
         err instanceof Error
           ? err.message
@@ -174,22 +412,28 @@ export function Workspace() {
     try {
       const target = saved?.[0]
       if (target) {
-        await http.put<SavedRequest>(`/api/requests/${target.id}`, { method, url })
+        await http.put<SavedRequest>(`/api/requests/${target.id}`, builderPayload())
+        setStatusTone('ok')
         setStatusMsg(
           t('workspace.statusSaved', {}, { defaultValue: 'Request saved to this workspace.' }),
         )
       } else {
         const created = await http.post<SavedRequest>('/api/requests', {
           name: t('workspace.unnamed', {}, { defaultValue: 'Untitled request' }),
-          method,
-          url,
+          ...builderPayload(),
         })
         setSaved([created.data, ...(saved ?? [])])
+        void track({
+          name: 'request.created',
+          properties: { request_id: created.data?.id, method },
+        })
+        setStatusTone('ok')
         setStatusMsg(
           t('workspace.statusSaved', {}, { defaultValue: 'Request saved to this workspace.' }),
         )
       }
     } catch (err) {
+      setStatusTone('error')
       setStatusMsg(
         err instanceof Error
           ? err.message
@@ -200,11 +444,14 @@ export function Workspace() {
     }
   }
 
+  const enabledParams = paramRows.filter((r) => r.enabled && r.key.trim()).length
+  const enabledHeaders = headerRows.filter((r) => r.enabled && r.key.trim()).length
+
   const requestTabs = [
-    { key: 'params', defaultLabel: 'Params', badge: '0' },
-    { key: 'auth', defaultLabel: 'Auth', badge: '1' },
-    { key: 'headers', defaultLabel: 'Headers', badge: '0' },
-    { key: 'body', defaultLabel: 'Body', badge: method === 'GET' ? '–' : '1' },
+    { key: 'params', defaultLabel: 'Params', badge: String(enabledParams) },
+    { key: 'auth', defaultLabel: 'Auth', badge: authType === 'none' ? '0' : '1' },
+    { key: 'headers', defaultLabel: 'Headers', badge: String(enabledHeaders) },
+    { key: 'body', defaultLabel: 'Body', badge: bodyType === 'none' ? '–' : '1' },
     { key: 'tests', defaultLabel: 'Tests', badge: '5' },
   ] as const
 
@@ -216,11 +463,21 @@ export function Workspace() {
       ? response.body.length
       : JSON.stringify(response.body).length
     : 0
+  const responseHeaders = response?.headers ?? {}
+  const responseHeaderEntries = Object.entries(responseHeaders)
+
+  const editorInputStyle = {
+    backgroundColor: 'var(--color-background)',
+    color: 'var(--color-text-primary)',
+    border: `1px solid ${PANEL_BORDER}`,
+  }
 
   return (
-    <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'p-6')}>
-      <header className={cm.cn('flex items-start justify-between gap-6 flex-wrap mb-6')}>
-        <div>
+    <div
+      className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'p-4 md:p-6')}
+    >
+      <header className={cm.cn('flex items-start justify-between gap-4 flex-wrap mb-6')}>
+        <div className={cm.cn('min-w-0')}>
           <p
             className={cm.cn('font-mono text-xs font-bold uppercase tracking-widest mb-2')}
             style={{ color: 'var(--color-primary)' }}
@@ -279,7 +536,7 @@ export function Workspace() {
               ? t('common.sendingEllipsis', {}, { defaultValue: 'Sending…' })
               : t('common.send', {}, { defaultValue: 'Send' })}
             <span
-              className={cm.cn('px-1 rounded text-[10px] font-mono')}
+              className={cm.cn('px-1 rounded text-[10px] font-mono hidden sm:inline')}
               style={{ backgroundColor: 'color-mix(in srgb, var(--color-text) 25%, transparent)' }}
             >
               ⌘↵
@@ -291,11 +548,19 @@ export function Workspace() {
       {statusMsg ? (
         <div
           className={cm.cn('mb-4 px-4 py-2 rounded-md font-mono text-xs')}
-          style={{
-            backgroundColor: 'color-mix(in srgb, var(--color-success) 10%, transparent)',
-            border: '1px solid color-mix(in srgb, var(--color-success) 30%, transparent)',
-            color: 'var(--color-success)',
-          }}
+          style={
+            statusTone === 'error'
+              ? {
+                  backgroundColor: 'color-mix(in srgb, var(--color-error) 10%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--color-error) 30%, transparent)',
+                  color: 'var(--color-error)',
+                }
+              : {
+                  backgroundColor: 'color-mix(in srgb, var(--color-success) 10%, transparent)',
+                  border: '1px solid color-mix(in srgb, var(--color-success) 30%, transparent)',
+                  color: 'var(--color-success)',
+                }
+          }
           role="status"
           data-mol-id="workspace-status-message"
         >
@@ -388,7 +653,7 @@ export function Workspace() {
           value={method}
           onChange={(e) => setMethod(e.target.value as HttpMethod)}
           className={cm.cn(
-            'bg-transparent border-none outline-none font-extrabold text-sm pr-2 cursor-pointer',
+            'bg-transparent border-none outline-none font-extrabold text-sm pr-2 cursor-pointer shrink-0',
           )}
           style={{ color: 'var(--color-text-primary)' }}
           aria-label={t('workspace.methodLabel', {}, { defaultValue: 'HTTP method' })}
@@ -400,7 +665,9 @@ export function Workspace() {
             </option>
           ))}
         </select>
-        <span style={{ color: 'var(--color-surface)' }}>|</span>
+        <span className={cm.cn('shrink-0')} style={{ color: 'var(--color-surface)' }}>
+          |
+        </span>
         <input
           type="text"
           value={url}
@@ -410,15 +677,16 @@ export function Workspace() {
             {},
             { defaultValue: 'https://api.example.com/v1/resource' },
           )}
-          className={cm.cn('flex-1 bg-transparent border-none outline-none text-sm')}
+          className={cm.cn('flex-1 min-w-0 bg-transparent border-none outline-none text-sm')}
           style={{ color: 'var(--color-text-primary)' }}
           aria-label={t('workspace.urlLabel', {}, { defaultValue: 'Request URL' })}
           data-mol-id="workspace-url"
         />
         <span
           className={cm.cn(
-            'font-mono text-[11px] font-bold uppercase tracking-widest px-2 py-1 rounded',
+            'font-mono text-[11px] font-bold uppercase tracking-widest px-2 py-1 rounded shrink-0 truncate max-w-24 hidden sm:inline-block',
           )}
+          title={activeEnv?.name}
           style={{
             backgroundColor: 'color-mix(in srgb, var(--color-method-patch) 18%, transparent)',
             color: 'var(--color-method-patch)',
@@ -435,7 +703,7 @@ export function Workspace() {
           style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
         >
           <header
-            className={cm.cn('flex items-center gap-1 px-2 border-b')}
+            className={cm.cn('flex items-center gap-1 px-2 border-b overflow-x-auto')}
             style={{
               borderColor: PANEL_BORDER,
               backgroundColor: 'color-mix(in srgb, var(--color-background) 40%, transparent)',
@@ -449,7 +717,7 @@ export function Workspace() {
                   type="button"
                   onClick={() => setActiveRequestTab(tab.key)}
                   className={cm.cn(
-                    'px-3 py-3 font-mono text-[11px] font-extrabold uppercase tracking-widest border-b-2 transition-colors',
+                    'px-3 py-3 font-mono text-[11px] font-extrabold uppercase tracking-widest border-b-2 transition-colors whitespace-nowrap shrink-0',
                   )}
                   style={{
                     color: active ? 'var(--color-primary)' : 'var(--color-text-secondary)',
@@ -472,92 +740,346 @@ export function Workspace() {
               )
             })}
           </header>
-          <div className={cm.cn('p-5 flex-1')}>
-            <div className={cm.cn('mb-4 flex items-center gap-3')}>
-              <span
-                className={cm.cn('text-[10px] font-black uppercase tracking-widest font-mono')}
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {t('workspace.authType', {}, { defaultValue: 'Type' })}
-              </span>
-              <select
-                className={cm.cn('px-3 py-2 rounded-md font-mono text-xs')}
+          <div className={cm.cn('p-4 md:p-5 flex-1')}>
+            {activeRequestTab === 'params' ? (
+              <KeyValueEditor
+                rows={paramRows}
+                onChange={setParamRows}
+                keyPlaceholder={t('workspace.kv.key', {}, { defaultValue: 'Key' })}
+                valuePlaceholder={t('workspace.kv.value', {}, { defaultValue: 'Value' })}
+                keyLabel={t('workspace.kv.paramKey', {}, { defaultValue: 'Query param key' })}
+                valueLabel={t('workspace.kv.paramValue', {}, { defaultValue: 'Query param value' })}
+                removeLabel={t('workspace.kv.removeRow', {}, { defaultValue: 'Remove row' })}
+                addLabel={t('workspace.kv.addParam', {}, { defaultValue: 'Add param' })}
+              />
+            ) : activeRequestTab === 'headers' ? (
+              <KeyValueEditor
+                rows={headerRows}
+                onChange={setHeaderRows}
+                keyPlaceholder={t('workspace.kv.key', {}, { defaultValue: 'Key' })}
+                valuePlaceholder={t('workspace.kv.value', {}, { defaultValue: 'Value' })}
+                keyLabel={t('workspace.kv.headerKey', {}, { defaultValue: 'Header name' })}
+                valueLabel={t('workspace.kv.headerValue', {}, { defaultValue: 'Header value' })}
+                removeLabel={t('workspace.kv.removeRow', {}, { defaultValue: 'Remove row' })}
+                addLabel={t('workspace.kv.addHeader', {}, { defaultValue: 'Add header' })}
+              />
+            ) : activeRequestTab === 'body' ? (
+              <div className={cm.cn('flex flex-col gap-3')}>
+                <div className={cm.cn('flex items-center gap-3')}>
+                  <label
+                    className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                    htmlFor="workspace-body-type"
+                  >
+                    {t('workspace.body.type', {}, { defaultValue: 'Type' })}
+                  </label>
+                  <select
+                    id="workspace-body-type"
+                    value={bodyType}
+                    onChange={(e) => setBodyType(e.target.value as BodyType)}
+                    className={cm.cn('px-3 py-2 rounded-md font-mono text-xs')}
+                    style={editorInputStyle}
+                  >
+                    <option value="none">
+                      {t('workspace.body.none', {}, { defaultValue: 'None' })}
+                    </option>
+                    <option value="json">
+                      {t('workspace.body.json', {}, { defaultValue: 'JSON' })}
+                    </option>
+                    <option value="text">
+                      {t('workspace.body.text', {}, { defaultValue: 'Raw text' })}
+                    </option>
+                  </select>
+                </div>
+                {bodyType !== 'none' ? (
+                  <textarea
+                    value={bodyContent}
+                    onChange={(e) => setBodyContent(e.target.value)}
+                    rows={8}
+                    spellCheck={false}
+                    placeholder={
+                      bodyType === 'json' ? '{\n  "key": "{{value}}"\n}' : 'raw payload…'
+                    }
+                    aria-label={t(
+                      'workspace.body.contentLabel',
+                      {},
+                      { defaultValue: 'Request body' },
+                    )}
+                    data-mol-id="workspace-body-content"
+                    className={cm.cn(
+                      'w-full px-3 py-2 rounded-md font-mono text-xs outline-none resize-y min-h-32',
+                    )}
+                    style={editorInputStyle}
+                  />
+                ) : (
+                  <p className={cm.cn('text-[11px]')} style={{ color: 'var(--color-text-muted)' }}>
+                    {t(
+                      'workspace.body.noneHint',
+                      {},
+                      {
+                        defaultValue:
+                          'No request body will be sent. Pick JSON or raw text to add one.',
+                      },
+                    )}
+                  </p>
+                )}
+                <p
+                  className={cm.cn('text-[11px]')}
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  {t(
+                    'workspace.body.hint',
+                    {},
+                    {
+                      defaultValue:
+                        '{{envVars}} are substituted before the request fires. Bodies are sent on POST/PUT/PATCH/DELETE.',
+                    },
+                  )}
+                </p>
+              </div>
+            ) : activeRequestTab === 'tests' ? (
+              <div
+                className={cm.cn('rounded-md p-4 text-center')}
                 style={{
-                  backgroundColor: 'var(--color-background)',
-                  color: 'var(--color-text-primary)',
+                  backgroundColor: 'color-mix(in srgb, var(--color-background) 50%, transparent)',
                   border: `1px solid ${PANEL_BORDER}`,
                 }}
-                defaultValue="bearer"
-                aria-label={t('workspace.authTypeLabel', {}, { defaultValue: 'Auth type' })}
               >
-                <option value="none">
-                  {t('workspace.authOption.none', {}, { defaultValue: 'None' })}
-                </option>
-                <option value="basic">
-                  {t('workspace.authOption.basic', {}, { defaultValue: 'Basic Auth' })}
-                </option>
-                <option value="bearer">
-                  {t('workspace.authOption.bearer', {}, { defaultValue: 'Bearer Token' })}
-                </option>
-                <option value="oauth">
-                  {t('workspace.authOption.oauth', {}, { defaultValue: 'OAuth 2.0' })}
-                </option>
-                <option value="apikey">
-                  {t('workspace.authOption.apikey', {}, { defaultValue: 'API Key' })}
-                </option>
-              </select>
-            </div>
-            <div
-              className={cm.cn('rounded-md p-4')}
-              style={{
-                backgroundColor: 'color-mix(in srgb, var(--color-background) 50%, transparent)',
-                border: `1px solid ${PANEL_BORDER}`,
-              }}
-            >
-              <div className={cm.cn('flex items-center justify-between mb-2')}>
-                <label
-                  className={cm.cn('font-mono text-[10px] font-black uppercase tracking-widest')}
-                  style={{ color: 'var(--color-text-secondary)' }}
-                  htmlFor="workspace-token"
-                >
-                  {t('workspace.token', {}, { defaultValue: 'Token' })}
-                </label>
                 <span
-                  className={cm.cn('font-mono text-[10px] font-bold px-2 py-0.5 rounded')}
+                  className={cm.cn(
+                    'material-symbols-outlined text-3xl opacity-40 mb-2 inline-block',
+                  )}
+                  aria-hidden="true"
+                >
+                  checklist
+                </span>
+                <p className={cm.cn('text-sm mb-1')} style={{ color: 'var(--color-text-primary)' }}>
+                  {t(
+                    'workspace.tests.autoTitle',
+                    {},
+                    { defaultValue: 'Built-in assertions run on every response' },
+                  )}
+                </p>
+                <p
+                  className={cm.cn('text-[11px]')}
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  {t(
+                    'workspace.tests.autoHint',
+                    {},
+                    {
+                      defaultValue:
+                        'Status family, latency, body size, and transport health are asserted automatically — results appear under “Test results” in the response panel.',
+                    },
+                  )}
+                </p>
+              </div>
+            ) : (
+              /* auth (default tab) */
+              <div className={cm.cn('flex flex-col gap-4')}>
+                <div className={cm.cn('flex items-center gap-3')}>
+                  <span
+                    className={cm.cn('text-[10px] font-black uppercase tracking-widest font-mono')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {t('workspace.authType', {}, { defaultValue: 'Type' })}
+                  </span>
+                  <select
+                    value={authType}
+                    onChange={(e) => setAuthType(e.target.value as AuthType)}
+                    className={cm.cn('px-3 py-2 rounded-md font-mono text-xs')}
+                    style={editorInputStyle}
+                    aria-label={t('workspace.authTypeLabel', {}, { defaultValue: 'Auth type' })}
+                    data-mol-id="workspace-auth-type"
+                  >
+                    <option value="none">
+                      {t('workspace.authOption.none', {}, { defaultValue: 'None' })}
+                    </option>
+                    <option value="basic">
+                      {t('workspace.authOption.basic', {}, { defaultValue: 'Basic Auth' })}
+                    </option>
+                    <option value="bearer">
+                      {t('workspace.authOption.bearer', {}, { defaultValue: 'Bearer Token' })}
+                    </option>
+                    <option value="oauth">
+                      {t('workspace.authOption.oauth', {}, { defaultValue: 'OAuth 2.0' })}
+                    </option>
+                    <option value="apikey">
+                      {t('workspace.authOption.apikey', {}, { defaultValue: 'API Key' })}
+                    </option>
+                  </select>
+                </div>
+                <div
+                  className={cm.cn('rounded-md p-4')}
                   style={{
-                    backgroundColor:
-                      'color-mix(in srgb, var(--color-method-patch) 18%, transparent)',
-                    color: 'var(--color-method-patch)',
+                    backgroundColor: 'color-mix(in srgb, var(--color-background) 50%, transparent)',
+                    border: `1px solid ${PANEL_BORDER}`,
                   }}
                 >
-                  {t('workspace.envVar', {}, { defaultValue: 'env variable' })}
-                </span>
+                  {authType === 'basic' ? (
+                    <div className={cm.cn('flex flex-col gap-3')}>
+                      <div className={cm.cn('flex flex-col gap-1')}>
+                        <label
+                          className={cm.cn(
+                            'font-mono text-[10px] font-black uppercase tracking-widest',
+                          )}
+                          style={{ color: 'var(--color-text-secondary)' }}
+                          htmlFor="workspace-auth-username"
+                        >
+                          {t('workspace.auth.username', {}, { defaultValue: 'Username' })}
+                        </label>
+                        <input
+                          id="workspace-auth-username"
+                          type="text"
+                          value={authUsername}
+                          onChange={(e) => setAuthUsername(e.target.value)}
+                          autoComplete="off"
+                          className={cm.cn(
+                            'w-full px-3 py-2 rounded-md font-mono text-sm outline-none',
+                          )}
+                          style={editorInputStyle}
+                        />
+                      </div>
+                      <div className={cm.cn('flex flex-col gap-1')}>
+                        <label
+                          className={cm.cn(
+                            'font-mono text-[10px] font-black uppercase tracking-widest',
+                          )}
+                          style={{ color: 'var(--color-text-secondary)' }}
+                          htmlFor="workspace-auth-password"
+                        >
+                          {t('workspace.auth.password', {}, { defaultValue: 'Password' })}
+                        </label>
+                        <input
+                          id="workspace-auth-password"
+                          type="password"
+                          value={authPassword}
+                          onChange={(e) => setAuthPassword(e.target.value)}
+                          autoComplete="off"
+                          className={cm.cn(
+                            'w-full px-3 py-2 rounded-md font-mono text-sm outline-none',
+                          )}
+                          style={editorInputStyle}
+                        />
+                      </div>
+                    </div>
+                  ) : authType === 'apikey' ? (
+                    <div className={cm.cn('flex flex-col gap-3')}>
+                      <div className={cm.cn('flex flex-col gap-1')}>
+                        <label
+                          className={cm.cn(
+                            'font-mono text-[10px] font-black uppercase tracking-widest',
+                          )}
+                          style={{ color: 'var(--color-text-secondary)' }}
+                          htmlFor="workspace-auth-key"
+                        >
+                          {t('workspace.auth.keyName', {}, { defaultValue: 'Header name' })}
+                        </label>
+                        <input
+                          id="workspace-auth-key"
+                          type="text"
+                          value={authKeyName}
+                          onChange={(e) => setAuthKeyName(e.target.value)}
+                          placeholder="X-API-Key"
+                          className={cm.cn(
+                            'w-full px-3 py-2 rounded-md font-mono text-sm outline-none',
+                          )}
+                          style={editorInputStyle}
+                        />
+                      </div>
+                      <div className={cm.cn('flex flex-col gap-1')}>
+                        <label
+                          className={cm.cn(
+                            'font-mono text-[10px] font-black uppercase tracking-widest',
+                          )}
+                          style={{ color: 'var(--color-text-secondary)' }}
+                          htmlFor="workspace-auth-key-value"
+                        >
+                          {t('workspace.auth.keyValue', {}, { defaultValue: 'Key value' })}
+                        </label>
+                        <input
+                          id="workspace-auth-key-value"
+                          type="password"
+                          value={authKeyValue}
+                          onChange={(e) => setAuthKeyValue(e.target.value)}
+                          className={cm.cn(
+                            'w-full px-3 py-2 rounded-md font-mono text-sm outline-none',
+                          )}
+                          style={editorInputStyle}
+                        />
+                      </div>
+                    </div>
+                  ) : authType === 'none' ? (
+                    <p
+                      className={cm.cn('text-[11px]')}
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
+                      {t(
+                        'workspace.auth.noneHint',
+                        {},
+                        { defaultValue: 'No authorization header will be sent with this request.' },
+                      )}
+                    </p>
+                  ) : (
+                    <>
+                      <div className={cm.cn('flex items-center justify-between mb-2')}>
+                        <label
+                          className={cm.cn(
+                            'font-mono text-[10px] font-black uppercase tracking-widest',
+                          )}
+                          style={{ color: 'var(--color-text-secondary)' }}
+                          htmlFor="workspace-token"
+                        >
+                          {t('workspace.token', {}, { defaultValue: 'Token' })}
+                        </label>
+                        <span
+                          className={cm.cn('font-mono text-[10px] font-bold px-2 py-0.5 rounded')}
+                          style={{
+                            backgroundColor:
+                              'color-mix(in srgb, var(--color-method-patch) 18%, transparent)',
+                            color: 'var(--color-method-patch)',
+                          }}
+                        >
+                          {t('workspace.envVar', {}, { defaultValue: 'env variable' })}
+                        </span>
+                      </div>
+                      <input
+                        id="workspace-token"
+                        type="password"
+                        value={authToken}
+                        onChange={(e) => setAuthToken(e.target.value)}
+                        placeholder={t(
+                          'workspace.tokenPlaceholder',
+                          {},
+                          { defaultValue: '{{API_TOKEN}}' },
+                        )}
+                        className={cm.cn(
+                          'w-full px-3 py-2 rounded-md font-mono text-sm outline-none',
+                        )}
+                        style={{
+                          backgroundColor: 'var(--color-background)',
+                          color: 'var(--color-method-patch)',
+                          border: `1px solid ${PANEL_BORDER}`,
+                        }}
+                      />
+                      <p
+                        className={cm.cn('mt-2 text-[11px]')}
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
+                        {t(
+                          'workspace.tokenHint',
+                          {},
+                          {
+                            defaultValue:
+                              'Sent as Authorization: Bearer <token> on every request in this collection.',
+                          },
+                        )}
+                      </p>
+                    </>
+                  )}
+                </div>
               </div>
-              <input
-                id="workspace-token"
-                type="password"
-                placeholder={t('workspace.tokenPlaceholder', {}, { defaultValue: '{{API_TOKEN}}' })}
-                className={cm.cn('w-full px-3 py-2 rounded-md font-mono text-sm outline-none')}
-                style={{
-                  backgroundColor: 'var(--color-background)',
-                  color: 'var(--color-method-patch)',
-                  border: `1px solid ${PANEL_BORDER}`,
-                }}
-              />
-              <p
-                className={cm.cn('mt-2 text-[11px]')}
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {t(
-                  'workspace.tokenHint',
-                  {},
-                  {
-                    defaultValue:
-                      'Sent as Authorization: Bearer <token> on every request in this collection.',
-                  },
-                )}
-              </p>
-            </div>
+            )}
           </div>
         </section>
 
@@ -567,13 +1089,13 @@ export function Workspace() {
           style={{ backgroundColor: SURFACE_PANEL, border: `1px solid ${PANEL_BORDER}` }}
         >
           <header
-            className={cm.cn('flex items-center justify-between px-4 py-3 border-b')}
+            className={cm.cn('flex items-center justify-between px-4 py-3 border-b gap-2')}
             style={{
               borderColor: PANEL_BORDER,
               backgroundColor: 'color-mix(in srgb, var(--color-background) 40%, transparent)',
             }}
           >
-            <div className={cm.cn('flex items-center gap-2')}>
+            <div className={cm.cn('flex items-center gap-2 min-w-0')}>
               <MethodBadge method={method} />
               {response?.status ? (
                 <StatusPill
@@ -597,14 +1119,19 @@ export function Workspace() {
               )}
             </div>
             <div
-              className={cm.cn('flex items-center gap-3 font-mono text-[11px]')}
+              className={cm.cn('flex items-center gap-3 font-mono text-[11px] shrink-0 min-w-0')}
               style={{ color: 'var(--color-text-secondary)' }}
             >
               {response?.duration_ms ? (
                 <>
-                  <span style={{ color: 'var(--color-success)' }}>{response.duration_ms} ms</span>
-                  <span>·</span>
-                  <span>
+                  <span
+                    className={cm.cn('whitespace-nowrap')}
+                    style={{ color: 'var(--color-success)' }}
+                  >
+                    {response.duration_ms} ms
+                  </span>
+                  <span aria-hidden="true">·</span>
+                  <span className={cm.cn('whitespace-nowrap')}>
                     {responseSize >= 1024
                       ? `${(responseSize / 1024).toFixed(1)} KB`
                       : `${responseSize} B`}
@@ -615,13 +1142,30 @@ export function Workspace() {
               )}
             </div>
           </header>
+          {response?.error ? (
+            <div
+              className={cm.cn('mx-4 mt-4 px-3 py-2 rounded-md font-mono text-xs')}
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--color-error) 10%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--color-error) 30%, transparent)',
+                color: 'var(--color-error)',
+              }}
+              role="alert"
+              data-mol-id="workspace-response-error"
+            >
+              {response.error}
+            </div>
+          ) : null}
           <pre
-            className={cm.cn('flex-1 p-5 m-0 font-mono text-[12px] leading-relaxed overflow-auto')}
+            className={cm.cn(
+              'flex-1 p-4 md:p-5 m-0 font-mono text-[12px] leading-relaxed overflow-auto whitespace-pre-wrap break-words max-h-[50vh] lg:max-h-none',
+            )}
             style={{
               backgroundColor: 'var(--color-background)',
               color: 'var(--color-text-primary)',
               minHeight: '12rem',
             }}
+            data-mol-id="workspace-response-body"
           >
             {response
               ? formatBody(response.body)
@@ -631,6 +1175,37 @@ export function Workspace() {
                   { defaultValue: '// Press Send to fire the request and capture the response.' },
                 )}
           </pre>
+          {response && responseHeaderEntries.length > 0 ? (
+            <details
+              className={cm.cn('border-t px-4 py-2')}
+              style={{ borderColor: PANEL_BORDER }}
+              data-mol-id="workspace-response-headers"
+            >
+              <summary
+                className={cm.cn(
+                  'font-mono text-[11px] font-extrabold uppercase tracking-widest cursor-pointer select-none',
+                )}
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {t(
+                  'workspace.responseHeaders',
+                  { count: responseHeaderEntries.length },
+                  { defaultValue: 'Response headers ({{count}})' },
+                )}
+              </summary>
+              <ul className={cm.cn('py-2 max-h-40 overflow-auto')}>
+                {responseHeaderEntries.map(([name, value]) => (
+                  <li
+                    key={name}
+                    className={cm.cn('font-mono text-[11px] px-1 py-0.5 break-all')}
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    <span style={{ color: 'var(--color-text-primary)' }}>{name}:</span> {value}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : null}
           <footer
             className={cm.cn('border-t')}
             style={{
@@ -707,7 +1282,7 @@ export function Workspace() {
                     }}
                   >
                     <span
-                      className={cm.cn('material-symbols-outlined text-base')}
+                      className={cm.cn('material-symbols-outlined text-base shrink-0')}
                       style={{
                         color: assertion.passed
                           ? 'var(--color-method-get)'

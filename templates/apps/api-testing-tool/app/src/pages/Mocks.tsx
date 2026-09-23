@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -82,7 +83,7 @@ export function Mocks() {
         { n: (mocks?.length ?? 0) + 1 },
         { defaultValue: 'Untitled mock {{n}}' },
       )
-      await http.post('/api/mocks', {
+      const created = await http.post<{ id?: string }>('/api/mocks', {
         name: defaultName,
         path_pattern: '/v1/example',
         method: 'GET',
@@ -90,6 +91,7 @@ export function Mocks() {
         response_body: DEFAULT_RESPONSE_BODY,
         latency_ms: 0,
       })
+      void track({ name: 'mock.created', properties: { mock_id: created.data?.id } })
       await load()
     } catch (err) {
       setError(
@@ -107,6 +109,10 @@ export function Mocks() {
     setBusyId(mock.id)
     try {
       await http.put(`/api/mocks/${mock.id}`, { is_public: !mock.is_public })
+      void track({
+        name: 'mock.visibility_toggled',
+        properties: { mock_id: mock.id, is_public: !mock.is_public },
+      })
       await load()
     } catch (err) {
       setError(
@@ -124,6 +130,7 @@ export function Mocks() {
     setBusyId(mock.id)
     try {
       await http.delete(`/api/mocks/${mock.id}`)
+      void track({ name: 'mock.deleted', properties: { mock_id: mock.id } })
       await load()
     } catch (err) {
       setError(

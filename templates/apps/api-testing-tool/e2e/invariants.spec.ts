@@ -134,6 +134,11 @@ test.describe('backend invariants', () => {
   test('POST /api/billing/checkout refuses an unknown priceId (no free upgrade)', async ({
     page,
   }) => {
+    // The 400 IS the invariant under test — allow its console line through.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 400',
+    })
     await signup(page)
     const bogus = await apiRequest<{ error?: string }>(page, 'POST', '/api/billing/checkout', {
       priceId: 'price_does_not_exist',
@@ -187,6 +192,11 @@ test.describe('backend invariants', () => {
   test('unauthenticated /api/collections requests are rejected', async ({ page }) => {
     // Land on the public landing page first, clear the auth cookie so the
     // request goes out with no credentials, then talk to the API.
+    // The 401 IS the invariant under test — allow its console line through.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto('/')
     await page.context().clearCookies()
     const resp = await apiRequest(page, 'GET', '/api/collections')
@@ -197,6 +207,12 @@ test.describe('backend invariants', () => {
   })
 
   test('public mock token serves the configured response anonymously', async ({ page }) => {
+    // Flipping the mock to private must make the same token 404 — that
+    // deliberate 404 is part of the contract under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     const { body: mock } = await apiRequest<{ id?: string; public_token?: string }>(
       page,
