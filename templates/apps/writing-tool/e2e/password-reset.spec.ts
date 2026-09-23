@@ -54,6 +54,10 @@ test.describe('/reset-password', () => {
   test('submitting the form POSTs /api/users/reset-password (route must exist)', async ({
     page,
   }) => {
+    // The token is deliberately invalid: the mounted route must answer 401
+    // (never 404), and that 401 logs a browser console resource error the
+    // console guard would otherwise flag.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
     await page.goto(APP_BASE + '/reset-password?token=invalid-but-defined')
     await page.locator('input[type="email"]').first().fill('reset@flagship.test')
     await page.locator('input[type="password"]').first().fill('NewPass!1234')

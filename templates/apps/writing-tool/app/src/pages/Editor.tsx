@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -132,6 +133,7 @@ export function Editor() {
   const handlePin = useCallback(async () => {
     if (!doc) return
     await persist({ pinned: !doc.pinned })
+    void track({ name: 'doc.pin_toggled', properties: { doc_id: doc.id, pinned: !doc.pinned } })
     setActionMsg(
       !doc.pinned
         ? t('editor.pinned', {}, { defaultValue: 'Pinned' })
@@ -143,6 +145,10 @@ export function Editor() {
     if (!doc) return
     const next = doc.status === 'published' ? 'draft' : 'published'
     await persist({ status: next })
+    void track({
+      name: next === 'published' ? 'doc.published' : 'doc.unpublished',
+      properties: { doc_id: doc.id, status: next },
+    })
     setActionMsg(
       next === 'published'
         ? t('status.published', {}, { defaultValue: 'Published' })
@@ -156,6 +162,7 @@ export function Editor() {
     try {
       await http.post(`/documents/${doc.id}/versions/snapshot`, { body_md: body })
       setSaveState('saved')
+      void track({ name: 'doc.snapshot_created', properties: { doc_id: doc.id } })
       setActionMsg(t('editor.snapshotSaved', {}, { defaultValue: 'Version snapshot saved' }))
     } catch (error) {
       logError('editor.handleSnapshot', error)
@@ -175,6 +182,7 @@ export function Editor() {
     }
     try {
       await http.post(`/documents/${doc.id}/trash`, {})
+      void track({ name: 'doc.trashed', properties: { doc_id: doc.id } })
       navigate('/library')
     } catch (error) {
       logError('editor.handleTrash', error)
@@ -211,6 +219,10 @@ export function Editor() {
         a.remove()
         // Revoke after a tick so the browser has a chance to start the download.
         setTimeout(() => URL.revokeObjectURL(url), 1_500)
+        void track({
+          name: 'export.completed',
+          properties: { doc_id: doc.id, export_id: payload.id, format: payload.format },
+        })
         setActionMsg(
           t(
             'editor.exportDelivered',
@@ -462,12 +474,24 @@ export function Editor() {
         <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
-            cm.sp('px', 6),
-            cm.sp('py', 3),
+            cm.sp('px', 3),
+            'sm:px-6 py-2 sm:py-3 gap-y-2 flex-wrap',
             'border-b border-outline-variant/30 bg-surface-container-low/20',
           )}
         >
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
+            <Link
+              to="/library"
+              aria-label={t('nav.library', {}, { defaultValue: 'Library' })}
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'w-8 h-8 rounded-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors lg:hidden',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[20px]')} aria-hidden="true">
+                arrow_back
+              </span>
+            </Link>
             {toolbar.map((btn) => (
               <button
                 key={btn.icon}
@@ -484,16 +508,16 @@ export function Editor() {
               </button>
             ))}
           </div>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
             <span
               className={cm.cn('text-[11px] font-bold tabular-nums text-on-surface-variant')}
               data-testid="editor-word-count"
             >
               {t('common.countWords', { count: wordCount }, { defaultValue: '{{count}} words' })}
             </span>
-            <span className={cm.cn('text-[11px] text-on-surface-variant')}>·</span>
+            <span className={cm.cn('text-[11px] text-on-surface-variant hidden sm:inline')}>·</span>
             <span
-              className={cm.cn('text-[11px] tabular-nums text-on-surface-variant')}
+              className={cm.cn('text-[11px] tabular-nums text-on-surface-variant hidden sm:inline')}
               aria-label={t(
                 'editor.charCount',
                 { count: charCount },
@@ -502,11 +526,13 @@ export function Editor() {
             >
               {charCount.toLocaleString()} ch
             </span>
-            <span className={cm.cn('text-[11px] text-on-surface-variant')}>·</span>
-            <span className={cm.cn('text-[11px] tabular-nums text-on-surface-variant')}>
+            <span className={cm.cn('text-[11px] text-on-surface-variant hidden sm:inline')}>·</span>
+            <span
+              className={cm.cn('text-[11px] tabular-nums text-on-surface-variant hidden sm:inline')}
+            >
               {readingMinutes} min
             </span>
-            <span className={cm.cn('text-[11px] text-on-surface-variant')}>·</span>
+            <span className={cm.cn('text-[11px] text-on-surface-variant hidden sm:inline')}>·</span>
             <span
               data-testid="editor-save-state"
               className={cm.cn(
@@ -515,7 +541,9 @@ export function Editor() {
                   ? 'text-error'
                   : saveState === 'saving'
                     ? 'text-on-surface-variant'
-                    : 'text-success',
+                    : saveState === 'saved'
+                      ? 'text-success'
+                      : 'text-on-surface-variant/70',
               )}
             >
               <span
@@ -525,7 +553,9 @@ export function Editor() {
                     ? 'bg-error'
                     : saveState === 'saving'
                       ? 'bg-on-surface-variant/40 animate-pulse'
-                      : 'bg-emerald-500',
+                      : saveState === 'saved'
+                        ? 'bg-emerald-500'
+                        : 'bg-on-surface-variant/40',
                 )}
                 aria-hidden="true"
               />
@@ -533,7 +563,9 @@ export function Editor() {
                 ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
                 : saveState === 'error'
                   ? t('editor.saveError', {}, { defaultValue: 'Save failed' })
-                  : t('common.saved', {}, { defaultValue: 'Saved' })}
+                  : saveState === 'saved'
+                    ? t('common.saved', {}, { defaultValue: 'Saved' })
+                    : t('editor.autosaveOn', {}, { defaultValue: 'Autosave on' })}
             </span>
             <button
               type="button"
@@ -550,6 +582,105 @@ export function Editor() {
           </div>
         </div>
 
+        {/* Document actions on phone/tablet (< lg) — the action sidebar is
+            hidden below lg, so publish/pin/snapshot/focus/history/trash
+            would be unreachable. Horizontally scrollable chip row; testids
+            carry a `-m` suffix so desktop specs never hit strict-mode
+            collisions with these CSS-hidden twins. */}
+        <div
+          data-testid="editor-mobile-actions"
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            'lg:hidden overflow-x-auto px-3 py-2 border-b border-outline-variant/20 bg-surface-container-low/10',
+          )}
+        >
+          {(
+            [
+              {
+                icon: doc.status === 'published' ? 'check_circle' : 'publish',
+                label:
+                  doc.status === 'published'
+                    ? t('editor.unpublishCta', {}, { defaultValue: 'Move to draft' })
+                    : t('common.publish', {}, { defaultValue: 'Publish' }),
+                testid: 'editor-m-publish',
+                onClick: handlePublish,
+              },
+              {
+                icon: 'push_pin',
+                label: doc.pinned
+                  ? t('editor.unpinCta', {}, { defaultValue: 'Unpin' })
+                  : t('editor.pinCta', {}, { defaultValue: 'Pin' }),
+                testid: 'editor-m-pin',
+                onClick: handlePin,
+              },
+              {
+                icon: 'save',
+                label: t('editor.snapshotCta', {}, { defaultValue: 'Snapshot' }),
+                testid: 'editor-m-snapshot',
+                onClick: handleSnapshot,
+              },
+              {
+                icon: 'center_focus_strong',
+                label: t('editor.focusCta', {}, { defaultValue: 'Focus' }),
+                testid: 'editor-m-focus',
+                href: `/editor/${doc.id}/focus`,
+              },
+              {
+                icon: 'history',
+                label: t('editor.historyCta', {}, { defaultValue: 'History' }),
+                testid: 'editor-m-history',
+                href: `/editor/${doc.id}/history`,
+              },
+              {
+                icon: 'delete',
+                label: t('editor.trashCta', {}, { defaultValue: 'Trash' }),
+                testid: 'editor-m-trash',
+                onClick: handleTrash,
+              },
+            ] as ReadonlyArray<{
+              icon: string
+              label: string
+              testid: string
+              onClick?: () => void
+              href?: string
+            }>
+          ).map((a) =>
+            a.href ? (
+              <Link
+                key={a.testid}
+                to={a.href}
+                data-testid={a.testid}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'shrink-0 px-3 h-9 rounded-full text-[12px] font-semibold border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors whitespace-nowrap',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  {a.icon}
+                </span>
+                {a.label}
+              </Link>
+            ) : (
+              <button
+                key={a.testid}
+                type="button"
+                onClick={a.onClick}
+                data-testid={a.testid}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'shrink-0 px-3 h-9 rounded-full text-[12px] font-semibold border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors whitespace-nowrap',
+                  a.testid === 'editor-m-trash' ? 'border-error/40 text-error' : undefined,
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  {a.icon}
+                </span>
+                {a.label}
+              </button>
+            ),
+          )}
+        </div>
+
         {actionMsg ? (
           <div
             role="status"
@@ -562,7 +693,7 @@ export function Editor() {
         ) : null}
 
         <div className={cm.cn(cm.flex1, 'overflow-y-auto')}>
-          <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 12), 'mx-auto w-full max-w-[760px]')}>
+          <div className={cm.cn('px-4 sm:px-8 py-8 sm:py-12 mx-auto w-full max-w-[760px]')}>
             <input
               type="text"
               value={title}

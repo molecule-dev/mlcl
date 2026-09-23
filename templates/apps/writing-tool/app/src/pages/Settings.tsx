@@ -392,6 +392,7 @@ export function Settings() {
                 type="button"
                 role="switch"
                 aria-checked={toggles[row.id]}
+                aria-label={row.label}
                 onClick={() => persistToggle(row.id, !toggles[row.id])}
                 data-testid={`settings-toggle-${row.id}`}
                 className={cm.cn(

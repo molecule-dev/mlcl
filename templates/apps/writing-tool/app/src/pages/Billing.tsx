@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -99,10 +100,15 @@ export function Billing() {
           { priceId },
         )
         if (res.data?.checkoutUrl) {
+          void track({
+            name: 'billing.checkout_started',
+            properties: { tier: key, price_id: priceId },
+          })
           window.location.href = res.data.checkoutUrl
           return
         }
         if (res.data?.updated) {
+          void track({ name: 'billing.plan_updated', properties: { tier: key, price_id: priceId } })
           setActionMsg(t('nav.subscriptionUpdated', {}, { defaultValue: 'Subscription updated.' }))
           await reload()
         } else {
@@ -133,6 +139,7 @@ export function Billing() {
     setPendingKey('cancel')
     try {
       await http.post('/billing/cancel', {})
+      void track({ name: 'billing.subscription_cancelled' })
       setActionMsg(t('nav.subscriptionCancelled', {}, { defaultValue: 'Subscription cancelled.' }))
       await reload()
     } catch (error) {

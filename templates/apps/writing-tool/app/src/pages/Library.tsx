@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -111,6 +112,10 @@ export function Library() {
       })
       const created = res.data
       if (created?.id) {
+        void track({
+          name: 'doc.created',
+          properties: { doc_id: created.id, folder_id: activeFolderId ?? undefined },
+        })
         navigate(`/editor/${created.id}`)
       } else {
         setError(
@@ -131,6 +136,7 @@ export function Library() {
     try {
       const res = await http.post<FolderRow>('/folders', { name })
       if (res.data) {
+        void track({ name: 'folder.created', properties: { folder_id: res.data.id } })
         setFolders((prev) => [...prev, res.data as FolderRow])
         setActiveFolderId(res.data.id)
       }
@@ -446,6 +452,56 @@ export function Library() {
                   </span>
                 </button>
               </div>
+            </div>
+
+            {/* Collections on phones (< md) — the folder rail is hidden below
+                md, so folder filtering would be unreachable. Horizontally
+                scrollable chips mirror the rail's selection state. */}
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'xs' }),
+                'md:hidden overflow-x-auto -mx-1 px-1 pb-1 mb-4',
+              )}
+              data-testid="library-mobile-collections"
+            >
+              <button
+                type="button"
+                onClick={() => setActiveFolderId(null)}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'xs' }),
+                  'shrink-0 px-3 h-9 rounded-full text-[12px] font-bold border transition-colors whitespace-nowrap',
+                  activeFolderId === null
+                    ? 'bg-primary/10 border-primary/30 text-primary'
+                    : 'border-outline-variant text-on-surface-variant hover:bg-surface-container',
+                )}
+              >
+                <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
+                  inbox
+                </span>
+                {t('library.allDocs', {}, { defaultValue: 'All documents' })}
+              </button>
+              {folders.map((folder) => (
+                <button
+                  key={folder.id}
+                  type="button"
+                  onClick={() => setActiveFolderId(folder.id)}
+                  className={cm.cn(
+                    cm.flex({ align: 'center', gap: 'xs' }),
+                    'shrink-0 px-3 h-9 rounded-full text-[12px] font-bold border transition-colors whitespace-nowrap',
+                    activeFolderId === folder.id
+                      ? 'bg-primary/10 border-primary/30 text-primary'
+                      : 'border-outline-variant text-on-surface-variant hover:bg-surface-container',
+                  )}
+                >
+                  <span
+                    className={cm.cn('material-symbols-outlined text-[16px]')}
+                    aria-hidden="true"
+                  >
+                    folder
+                  </span>
+                  {folder.name}
+                </button>
+              ))}
             </div>
 
             <div className={cm.cn(cm.flex({ align: 'center', wrap: 'wrap' }), 'gap-2 mb-6')}>

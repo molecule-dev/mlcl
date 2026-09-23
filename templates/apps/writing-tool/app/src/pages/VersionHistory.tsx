@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -74,6 +75,10 @@ export function VersionHistory() {
     if (!doc) return
     try {
       await http.post(`/documents/${doc.id}/versions/snapshot`, {})
+      void track({
+        name: 'doc.snapshot_created',
+        properties: { doc_id: doc.id, source: 'version-history' },
+      })
       setActionMsg(t('versionHistory.snapshotSaved', {}, { defaultValue: 'Snapshot saved' }))
       await reload()
     } catch (error) {
@@ -97,6 +102,10 @@ export function VersionHistory() {
     }
     try {
       await http.post(`/documents/${doc.id}/versions/${active.id}/restore`, {})
+      void track({
+        name: 'version.restored',
+        properties: { doc_id: doc.id, version_id: active.id },
+      })
       navigate(`/editor/${doc.id}`)
     } catch (error) {
       logError('versionHistory.handleRestore', error)

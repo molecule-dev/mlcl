@@ -152,7 +152,9 @@ export function FocusMode() {
               ? 'text-error'
               : saveState === 'saving'
                 ? 'text-on-surface-variant'
-                : 'text-success',
+                : saveState === 'saved'
+                  ? 'text-success'
+                  : 'text-on-surface-variant/70',
           )}
         >
           <span
@@ -162,7 +164,9 @@ export function FocusMode() {
                 ? 'bg-error'
                 : saveState === 'saving'
                   ? 'bg-on-surface-variant/40 animate-pulse'
-                  : 'bg-emerald-500',
+                  : saveState === 'saved'
+                    ? 'bg-emerald-500'
+                    : 'bg-on-surface-variant/40',
             )}
             aria-hidden="true"
           />
@@ -170,7 +174,9 @@ export function FocusMode() {
             ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
             : saveState === 'error'
               ? t('focus.saveError', {}, { defaultValue: 'Save failed' })
-              : t('common.saved', {}, { defaultValue: 'Saved' })}
+              : saveState === 'saved'
+                ? t('common.saved', {}, { defaultValue: 'Saved' })
+                : t('focus.autosaveOn', {}, { defaultValue: 'Autosave on' })}
         </div>
       </header>
 

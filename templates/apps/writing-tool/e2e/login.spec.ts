@@ -35,6 +35,12 @@ test.describe('/login', () => {
   })
 
   test('login with bogus credentials shows an error and stays on /login', async ({ page }) => {
+    // A rejected login is the test's premise — the API answers 403 (and 429
+    // once the attempt limiter kicks in on retries), each of which logs a
+    // browser console resource error the console guard would otherwise flag.
+    test
+      .info()
+      .annotations.push({ type: 'allow-console-error', description: 'status of (401|403|429)' })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').fill('does-not-exist@flagship.test')
     await page.locator('input[type="password"]').fill('not-a-real-password')
