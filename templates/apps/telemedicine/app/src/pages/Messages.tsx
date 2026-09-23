@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -71,6 +72,11 @@ export function Messages() {
       await http.post('/api/messages', {
         body,
         ...(selected ? { thread_id: selected.thread_id } : {}),
+      })
+      // Domain event — thread id only, never message content (health data).
+      track({
+        name: 'message.sent',
+        properties: { thread_id: selected?.thread_id },
       })
       setReply('')
       setRefreshKey((k) => k + 1)
@@ -149,9 +155,12 @@ export function Messages() {
           : null}
       </header>
 
-      <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))} style={{ minHeight: '480px' }}>
+      <div
+        className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 lg:grid-cols-12')}
+        style={{ minHeight: '480px' }}
+      >
         <aside
-          className={cm.cn('col-span-4', cm.card(), 'overflow-y-auto')}
+          className={cm.cn('col-span-1 lg:col-span-4', cm.card(), 'overflow-y-auto')}
           style={{ maxHeight: '600px' }}
         >
           <ul className="divide-y divide-outline-variant">
@@ -227,7 +236,7 @@ export function Messages() {
           </ul>
         </aside>
 
-        <main className={cm.cn('col-span-8 space-y-3', cm.card(), cm.sp('p', 5))}>
+        <main className={cm.cn('col-span-1 lg:col-span-8 space-y-3', cm.card(), cm.sp('p', 5))}>
           {selected ? (
             <>
               <header className={cm.cn(cm.sp('pb', 3), 'border-b border-outline-variant')}>

@@ -40,6 +40,23 @@
   /* Video consult controls */
   --color-consult-end-call: #b91c1c; /* dark red — white text = 6.86:1 */
 
+  /* Video consult stage — always a dark "video room" surface in both modes so
+     the white participant labels / call-control icons stay legible (the panel
+     is decorative-dark like --color-hero-surface, not mode-following). */
+  --color-consult-bg: #0f2937;
+  --color-consult-surface: #134e4a;
+
+  /* Clinical vitals trend colors (consult side panel) — AA on white cards. */
+  --color-vital-good: #1d6a62;
+  --color-vital-warn: #a15c00;
+  --color-vital-bad: #b91c1c;
+
+  /* Care-team role badges (secure inbox) — AA on card surfaces. */
+  --color-role-doctor: #0f766e;
+  --color-role-nurse: #6d28d9;
+  --color-role-patient: #0077b6;
+  --color-role-admin: #52606d;
+
   /* Hero panel surface — deep dark overlay used on the clinical hero card
      regardless of light/dark mode (it's always a dark decorative panel). */
   --color-hero-surface: #0f2937;
@@ -162,6 +179,21 @@
 
   /* Video consult controls */
   --color-consult-end-call: #c62828; /* dark red dark-mode — white text = 5.65:1 */
+
+  /* Video consult stage — dark in both modes (see light-mode note). */
+  --color-consult-bg: #081420;
+  --color-consult-surface: #173049;
+
+  /* Clinical vitals trend colors — lifted for AA on dark cards. */
+  --color-vital-good: #4ecdc4;
+  --color-vital-warn: #f4d35e;
+  --color-vital-bad: #ff8a73;
+
+  /* Care-team role badges — lifted for AA on dark cards. */
+  --color-role-doctor: #48cae4;
+  --color-role-nurse: #b794f6;
+  --color-role-patient: #90e0ef;
+  --color-role-admin: #8892a0;
 
   --color-status-scheduled: #48cae4;
   --color-status-waiting: #f4d35e;

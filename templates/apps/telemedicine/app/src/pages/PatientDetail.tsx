@@ -400,7 +400,7 @@ export function PatientDetail() {
                 <div className={cm.cn(cm.flex1, 'min-w-0')}>
                   <p
                     className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'truncate')}
-                    style={{ fontFamily: 'var(--mol-font-mono)' }}
+                    style={{ fontFamily: 'var(--font-family-mono)' }}
                   >
                     {rx.drug} {rx.dose}
                   </p>

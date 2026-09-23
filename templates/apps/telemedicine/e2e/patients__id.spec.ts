@@ -29,6 +29,12 @@ test.describe('/patients/:id — Patient detail', () => {
   test('Unknown patient id 404s by either showing not-found copy or redirecting', async ({
     page,
   }) => {
+    // The 404 GET is the behavior under test — allow its expected console
+    // line so the console guard does not fail the not-found assertions.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     await page.goto(`${APP_BASE}/patients/00000000-0000-0000-0000-000000000000`)
     // Either: "not found" message renders after data fetch completes, or

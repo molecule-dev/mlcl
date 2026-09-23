@@ -100,7 +100,7 @@ export function MedicalRecords() {
 
       <nav
         aria-label={t('records.filterLabel', {}, { defaultValue: 'Filter by type' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {(['all', 'visit', 'lab', 'rx', 'imaging', 'note'] as const).map((typ) => {
           const active = typeFilter === typ

@@ -35,23 +35,47 @@ export function Providers() {
   const [specialties, setSpecialties] = useState<Specialty[]>([])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedSpecialty, setSelectedSpecialty] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    http.get('/api/providers/specialties').then((res) => setSpecialties(unwrapList<Specialty>(res)))
+    http
+      .get('/api/providers/specialties')
+      .then((res) => setSpecialties(unwrapList<Specialty>(res)))
+      .catch(() => {
+        // Specialty chips are optional refinement — the directory still works.
+      })
   }, [http])
 
   useEffect(() => {
-    if (searchQuery.length >= 2) {
-      http
-        .get(`/api/providers/search?q=${encodeURIComponent(searchQuery)}`)
-        .then((res) => setProviders(unwrapList<Provider>(res)))
-    } else {
-      const params = new URLSearchParams()
-      if (selectedSpecialty) params.set('specialty', selectedSpecialty)
-      params.set('available', 'true')
-      http.get(`/api/providers?${params}`).then((res) => setProviders(unwrapList<Provider>(res)))
+    let cancelled = false
+    setLoading(true)
+    const load =
+      searchQuery.length >= 2
+        ? http.get(`/api/providers/search?q=${encodeURIComponent(searchQuery)}`)
+        : (() => {
+            const params = new URLSearchParams()
+            if (selectedSpecialty) params.set('specialty', selectedSpecialty)
+            params.set('available', 'true')
+            return http.get(`/api/providers?${params}`)
+          })()
+    load
+      .then((res) => {
+        if (cancelled) return
+        setProviders(unwrapList<Provider>(res))
+        setError(null)
+      })
+      .catch(() => {
+        if (!cancelled)
+          setError(t('providers.loadError', {}, { defaultValue: 'Failed to load providers.' }))
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
     }
-  }, [http, searchQuery, selectedSpecialty])
+  }, [http, searchQuery, selectedSpecialty, t])
 
   const inputClass = cm.cn(
     cm.sp('px', 3),
@@ -101,7 +125,15 @@ export function Providers() {
         </select>
       </div>
 
-      {providers.length === 0 ? (
+      {error ? (
+        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')} role="alert">
+          {error}
+        </p>
+      ) : loading ? (
+        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
+          {t('providers.loading', {}, { defaultValue: 'Loading…' })}
+        </p>
+      ) : providers.length === 0 ? (
         <p className={cm.cn(cm.card(), cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('providers.noResults', {}, { defaultValue: 'No providers found.' })}
         </p>

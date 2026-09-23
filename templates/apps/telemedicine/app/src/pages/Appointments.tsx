@@ -122,7 +122,7 @@ export function Appointments() {
 
       <nav
         aria-label={t('appointments.filterLabel', {}, { defaultValue: 'Filter appointments' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {FILTERS.map((f) => {
           const active = filter === f

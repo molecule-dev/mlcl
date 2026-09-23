@@ -178,7 +178,10 @@ export function Dashboard() {
           <h2 className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight')}>
             {t('dashboard.upNextHeading', {}, { defaultValue: 'Up next today' })}
           </h2>
-          <Link to="/appointments" className={'text-sm font-bold text-primary hover:underline'}>
+          <Link
+            to="/appointments"
+            className={cm.cn(cm.sp('py', 2), 'text-sm font-bold text-primary hover:underline')}
+          >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
         </div>
@@ -191,7 +194,10 @@ export function Dashboard() {
             <h2 className={'text-xl font-bold'}>
               {t('dashboard.flaggedHeading', {}, { defaultValue: 'Flagged patients' })}
             </h2>
-            <Link to="/patients" className={'text-sm font-bold text-primary hover:underline'}>
+            <Link
+              to="/patients"
+              className={cm.cn(cm.sp('py', 2), 'text-sm font-bold text-primary hover:underline')}
+            >
               {t('dashboard.viewAllPatients', {}, { defaultValue: 'All patients →' })}
             </Link>
           </div>

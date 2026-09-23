@@ -94,7 +94,7 @@ export function Prescriptions() {
 
       <nav
         aria-label={t('prescriptions.filterLabel', {}, { defaultValue: 'Filter prescriptions' })}
-        className={cm.flex({ gap: 'xs', align: 'center' })}
+        className={cm.cn(cm.flex({ gap: 'xs', align: 'center' }), 'flex-wrap')}
       >
         {FILTERS.map((f) => {
           const active = filter === f
@@ -149,7 +149,7 @@ export function Prescriptions() {
                           cm.fontWeight('semibold'),
                           'truncate',
                         )}
-                        style={{ fontFamily: 'var(--mol-font-mono)' }}
+                        style={{ fontFamily: 'var(--font-family-mono)' }}
                       >
                         {p.drug}
                       </p>

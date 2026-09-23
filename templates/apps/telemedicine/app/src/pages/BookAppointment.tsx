@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -94,12 +95,20 @@ export function BookAppointmentPage() {
       const durationMinutes = Number.isNaN(endsAt.getTime())
         ? 30
         : Math.max(1, Math.round((endsAt.getTime() - startsAt.getTime()) / 60000))
-      await http.post('/api/appointments', {
+      const created = await http.post('/api/appointments', {
         provider_id: providerId,
         scheduled_at: startsAt.toISOString(),
         duration_minutes: durationMinutes,
         type: appointmentType === 'chat' ? 'messaging' : appointmentType,
         reason,
+      })
+      // Domain event — ids only, never the visit reason (health content).
+      track({
+        name: 'appointment.booked',
+        properties: {
+          appointment_id: unwrapSingle<{ id?: string }>(created)?.id,
+          provider_id: providerId,
+        },
       })
       navigate('/appointments')
     } catch (_error) {

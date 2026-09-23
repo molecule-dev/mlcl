@@ -74,7 +74,10 @@ export function Landing() {
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <Link
               to="/pricing"
-              className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+              className={cm.cn(
+                cm.sp('py', 2),
+                'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+              )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
             </Link>
@@ -91,7 +94,10 @@ export function Landing() {
               <>
                 <Link
                   to="/login"
-                  className={'text-sm font-medium text-on-surface-variant hover:text-on-surface'}
+                  className={cm.cn(
+                    cm.sp('py', 2),
+                    'text-sm font-medium text-on-surface-variant hover:text-on-surface',
+                  )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
                 </Link>

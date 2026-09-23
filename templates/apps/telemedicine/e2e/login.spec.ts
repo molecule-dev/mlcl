@@ -25,6 +25,13 @@ test.describe('/login — Sign in', () => {
   })
 
   test('Sign in with bad password surfaces an error and stays on /login', async ({ page }) => {
+    // The 403 from the failed login is the expected behavior under test —
+    // allow the browser's "Failed to load resource: … status of 403" console
+    // line so the console guard does not fail the assertion that follows.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const { email } = await signup(page)
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill(email)

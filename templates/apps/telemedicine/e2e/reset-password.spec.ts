@@ -20,6 +20,12 @@ test.describe('/reset-password — Confirm new password', () => {
   test('Submitting an invalid token surfaces an error and stays on /reset-password', async ({
     page,
   }) => {
+    // The failed reset POST is the behavior under test — allow its expected
+    // 4xx console line so the console guard does not fail the assertions.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4',
+    })
     await page.goto(APP_BASE + '/reset-password')
     const reqs = await captureNetwork(page, async () => {
       await page.locator('input#email').fill('nobody+nope@example.com')

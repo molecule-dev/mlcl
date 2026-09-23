@@ -76,6 +76,13 @@ test.describe('/signup — Account creation', () => {
   })
 
   test('Resigning up with the same email returns a duplicate-account error', async ({ page }) => {
+    // The duplicate-email rejection (403) is the behavior under test — allow
+    // its expected console line so the console guard does not fail the
+    // error-alert assertions that follow.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     const { email } = await signup(page)
     await page.goto(APP_BASE + '/signup')
     await page.locator('input#name').fill('Dup User')

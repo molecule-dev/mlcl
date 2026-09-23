@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -140,6 +141,8 @@ export function Consult() {
           lastPersistedNotes.current = notes
         }
         await http.post(`/api/appointments/${id}/complete`, { summary: notes })
+        // Domain event — id only, never note content (health data).
+        track({ name: 'consultation.completed', properties: { appointment_id: id } })
       } catch (_error) {
         // swallow — endCall must still navigate even if completion failed
       }
@@ -181,9 +184,9 @@ export function Consult() {
         </p>
       </div>
 
-      <div className={cm.grid({ cols: 3, gap: 'md' })}>
-        {/* Video panel — col-span-2 */}
-        <div className={'col-span-2 space-y-3'}>
+      <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-1 lg:grid-cols-3')}>
+        {/* Video panel — spans 2 of 3 columns on desktop */}
+        <div className={'col-span-1 lg:col-span-2 space-y-3'}>
           <div
             className={cm.cn(
               'rounded-lg overflow-hidden relative',
@@ -192,7 +195,7 @@ export function Consult() {
             style={{
               backgroundColor: 'var(--color-consult-bg)',
               aspectRatio: '16/9',
-              minHeight: '380px',
+              minHeight: 'min(380px, 56vw)',
             }}
           >
             <div className={cm.cn(cm.textCenter)} style={{ color: 'white' }}>
@@ -230,10 +233,11 @@ export function Consult() {
             </div>
           </div>
 
-          {/* Call controls */}
+          {/* Call controls — wrap on narrow phones so the end-call button stays reachable */}
           <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
+              'flex-wrap',
               cm.sp('p', 3),
               'rounded-lg',
             )}
@@ -328,7 +332,7 @@ export function Consult() {
                 cm.sp('py', 2),
                 'w-full border border-outline-variant rounded-md',
               )}
-              style={{ fontFamily: 'var(--mol-font-mono)' }}
+              style={{ fontFamily: 'var(--font-family-mono)' }}
             />
           </div>
         </div>
@@ -339,13 +343,18 @@ export function Consult() {
             <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
               {appointment.patient_name}
             </h2>
-            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
-              {t(
-                'consult.dob',
-                { dob: appointment.patient_dob, age: appointment.patient_age },
-                { defaultValue: 'DOB {{dob}} · age {{age}}' },
-              )}
-            </p>
+            {appointment.patient_dob ? (
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 1))}>
+                {t(
+                  'consult.dob',
+                  {
+                    dob: new Date(appointment.patient_dob).toLocaleDateString(),
+                    age: appointment.patient_age,
+                  },
+                  { defaultValue: 'DOB {{dob}} · age {{age}}' },
+                )}
+              </p>
+            ) : null}
             <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2))}>{appointment.reason}</p>
           </header>
 
@@ -365,7 +374,7 @@ export function Consult() {
                 <span className={cm.cn(cm.textSize('sm'))}>{v.label}</span>
                 <span
                   className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}
-                  style={{ color: VITAL_COLOR[v.state], fontFamily: 'var(--mol-font-mono)' }}
+                  style={{ color: VITAL_COLOR[v.state], fontFamily: 'var(--font-family-mono)' }}
                 >
                   {v.value}{' '}
                   <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
