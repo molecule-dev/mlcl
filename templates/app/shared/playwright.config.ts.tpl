@@ -50,8 +50,13 @@ export default defineConfig({
   fullyParallel: !preview,
   workers: preview ? 1 : '50%',
   retries: sandbox ? 0 : 1,
+  // Inside a sandbox a run that is failing everywhere (usually specs pointed at
+  // the wrong server or base path) stops after 8 failures instead of waiting out
+  // every test's timeouts: X0 x40 spent two runs of 280 s each learning nothing.
+  // The failures it did hit are still reported in full.
+  maxFailures: sandbox ? 8 : 0,
   reporter: [['list']],
-  timeout: 60_000,
+  timeout: sandbox ? 30_000 : 60_000,
   expect: { timeout: 10_000 },
   use: {
     baseURL: process.env.APP_BASE || `http://localhost:${VITE_PORT}`,
