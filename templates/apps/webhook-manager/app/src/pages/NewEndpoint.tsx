@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -72,6 +73,7 @@ export function NewEndpoint() {
         is_active: true,
       })
       const id = res.data?.id
+      track({ name: 'webhook.created', properties: { webhook_id: id ?? null } })
       navigate(id ? `/endpoints/${id}` : '/endpoints')
     } catch (err) {
       setSubmitted(false)

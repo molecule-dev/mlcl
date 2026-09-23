@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -80,7 +81,8 @@ export function Billing() {
   const { data: status, refetch: refetchStatus } = useApi<BillingStatus>('/billing/status')
   const { data: tiersResp } = useApi<{ data: PricingTier[] }>('/billing/tiers')
   const { data: deliveriesData } = useApi<ApiDelivery[]>('/deliveries?limit=500')
-  const { data: webhooksData } = useApi<ApiWebhook[]>('/webhooks?limit=500')
+  // webhooks list caps limit at 200 (zod .max(200) server-side) — 400s on 500.
+  const { data: webhooksData } = useApi<ApiWebhook[]>('/webhooks?limit=200')
 
   const [showPlans, setShowPlans] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -123,10 +125,12 @@ export function Billing() {
       )
       const data = res.data
       if (data?.checkoutUrl) {
+        track({ name: 'billing.checkout_started', properties: { price_id: priceId } })
         window.location.href = data.checkoutUrl
         return
       }
       if (data?.updated) {
+        track({ name: 'billing.plan_updated', properties: { price_id: priceId } })
         setShowPlans(false)
         refetchStatus()
       }

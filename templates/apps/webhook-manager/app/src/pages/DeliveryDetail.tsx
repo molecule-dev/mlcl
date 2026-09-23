@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -72,6 +73,10 @@ export function DeliveryDetail() {
       const client = getHttpClient()
       const res = await client.post<{ id: string }>(`/deliveries/${id}/replay`)
       const newId = res.data?.id
+      track({
+        name: 'delivery.retried',
+        properties: { delivery_id: id, ...(newId ? { new_delivery_id: newId } : {}) },
+      })
       if (newId) navigate(`/deliveries/${newId}`)
     } catch (err) {
       setActionError(err instanceof Error ? err.message : 'Replay failed')
@@ -131,8 +136,14 @@ export function DeliveryDetail() {
         <span style={{ color: 'var(--mol-color-text-secondary)' }}>{delivery.id.slice(0, 8)}</span>
       </div>
 
-      <div className={cm.cn('flex items-end justify-between gap-4 flex-wrap mb-6')}>
-        <div className={cm.cn('min-w-0 flex-1')}>
+      {/* Stack below md: a squeezed flex-1 column wraps the mono meta line
+          char-by-char behind the transparent action buttons. */}
+      <div
+        className={cm.cn(
+          'flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-4 flex-wrap mb-6',
+        )}
+      >
+        <div className={cm.cn('min-w-0')}>
           <div className={cm.cn('flex items-center gap-2 flex-wrap mb-2')}>
             <MethodBadge method={(delivery.method as 'POST') ?? 'POST'} density="default" />
             <StatusPill

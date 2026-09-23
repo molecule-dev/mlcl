@@ -23,6 +23,9 @@ test.describe('/login', () => {
   })
 
   test('login with bad password keeps the user on /login', async ({ page }) => {
+    // The rejected POST /api/users/log-in 403s by design — the console noise
+    // is the expected failed-resource log, not an app bug.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const creds = await signup(page)
     await page.evaluate(() => window.localStorage.clear())
     await page.goto(APP_BASE + '/login')

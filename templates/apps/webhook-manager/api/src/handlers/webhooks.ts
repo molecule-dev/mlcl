@@ -87,7 +87,7 @@ router.get('/', validateQuery(listWebhooksQuerySchema), async (req: Request, res
     })
     res.json(webhooks)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.list')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -113,7 +113,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(webhook)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.get')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -156,7 +156,7 @@ router.post('/', validateBody(createWebhookSchema), async (req: Request, res: Re
     })
     res.status(201).json(created)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.create')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -231,7 +231,7 @@ router.put('/:id', validateBody(updateWebhookSchema), async (req: Request, res: 
     }
     res.json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.update')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -356,7 +356,7 @@ router.post('/:id/test', validateBody(testWebhookSchema), async (req: Request, r
     })
     res.json({ status, status_code: statusCode, duration_ms: duration })
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.test')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -390,7 +390,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     })
     res.status(204).end()
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'webhooks.delete')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

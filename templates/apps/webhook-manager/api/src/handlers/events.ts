@@ -86,7 +86,7 @@ router.get(
       })
       res.json(types)
     } catch (err) {
-      logger.error(err)
+      logger.error({ err }, 'events.types_list')
       res
         .status(500)
         .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -114,7 +114,7 @@ router.post('/types', validateBody(createEventTypeSchema), async (req: Request, 
     })
     res.status(201).json(result.data)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'events.type_create')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -149,7 +149,7 @@ router.get('/', validateQuery(listEventsQuerySchema), async (req: Request, res: 
     })
     res.json(events)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'events.list')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -180,7 +180,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     })
     res.json({ ...event, deliveries })
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'events.get')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -277,7 +277,7 @@ router.post('/', validateBody(createEventSchema), async (req: Request, res: Resp
 
     res.status(201).json(event)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'events.emit')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -127,6 +128,7 @@ export function Team() {
         role: inviteRole,
         name: inviteName.trim() || undefined,
       })
+      track({ name: 'team_member.invited', properties: { role: inviteRole } })
       setInviteEmail('')
       setInviteName('')
       setInviteRole('developer')
@@ -156,6 +158,7 @@ export function Team() {
     try {
       const client = getHttpClient()
       await client.delete(`/team_members/${id}`)
+      track({ name: 'team_member.removed', properties: { team_member_id: id } })
       setOpenMenuId(null)
       refetch()
     } catch (err) {

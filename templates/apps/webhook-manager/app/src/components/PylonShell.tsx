@@ -2,6 +2,8 @@ import { useTranslation } from '@molecule/app-react'
 import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 
 import { APP_NAME } from '../branding.js'
+import { useIsMobile } from '../lib/use-is-mobile.js'
+import { PylonMobileShell } from './PylonMobileShell.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
@@ -12,10 +14,12 @@ import { UserMenu } from './UserMenu.js'
  * package) so we get the polished aside + main + outlet wiring for
  * free.
  *
- * Translated from api-testing-tool's PylonShell — same
- * SidebarLayout primitive, nav items repointed at webhook-manager's
- * IA: dashboard, endpoints, deliveries, events, notifications,
- * audit, settings.
+ * Below the `md` breakpoint (768px) the fixed 240px rail would crush a
+ * 390px phone's content column to ~150px, so a template-local
+ * `PylonMobileShell` takes over instead (sticky top bar + slide-in
+ * drawer; the fleet mobile-shell pattern). The two shells are
+ * conditionally RENDERED off matchMedia — never CSS-hidden — so nav
+ * `data-mol-id`s are never duplicated in the DOM.
  */
 
 const NAV_KEYS = [
@@ -36,19 +40,26 @@ const NAV_KEYS = [
 
 export function PylonShell() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`pylonShell.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
+  const navAriaLabel = t('pylonShell.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  if (isMobile) {
+    return <PylonMobileShell navItems={navItems} navAriaLabel={navAriaLabel} />
+  }
+
   return (
     <SidebarLayout
       appName={APP_NAME}
       logoTo="/dashboard"
       navItems={navItems}
       userMenu={<UserMenu />}
-      navAriaLabel={t('pylonShell.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
+      navAriaLabel={navAriaLabel}
     />
   )
 }

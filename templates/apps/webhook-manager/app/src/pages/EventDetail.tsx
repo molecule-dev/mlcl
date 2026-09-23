@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -58,7 +59,8 @@ export function EventDetail() {
     `/events?name=${encodeURIComponent(eventId)}&limit=200`,
     [eventId],
   )
-  const { data: endpoints } = useApi<ApiWebhook[]>('/webhooks?limit=500')
+  // webhooks list caps limit at 200 server-side — 500 is a 400.
+  const { data: endpoints } = useApi<ApiWebhook[]>('/webhooks?limit=200')
 
   const typeDef = useMemo(
     () => (types ?? []).find((tp) => tp.name === eventId) ?? null,
@@ -108,6 +110,7 @@ export function EventDetail() {
         description: typeDef?.description,
         payload: { test: true, fired_at: new Date().toISOString() },
       })
+      track({ name: 'event.emitted', properties: { event_type: eventId } })
       setFireOk(true)
       await refetchEvents()
     } catch (err) {

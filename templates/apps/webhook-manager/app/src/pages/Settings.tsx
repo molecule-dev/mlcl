@@ -145,7 +145,8 @@ export function Settings() {
       // Best-effort: delete every webhook the user owns. The audit entries
       // remain (intentional). The user account itself stays so they can
       // restart the workspace from scratch.
-      const res = await client.get<Array<{ id: string }>>('/webhooks?limit=500')
+      // webhooks list caps limit at 200 server-side — 500 is a 400.
+      const res = await client.get<Array<{ id: string }>>('/webhooks?limit=200')
       const webhooks = res.data ?? []
       await Promise.all(webhooks.map((w) => client.delete(`/webhooks/${w.id}`)))
       setSavedAt(Date.now())

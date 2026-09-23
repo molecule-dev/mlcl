@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
@@ -150,6 +151,7 @@ export function APIKeys() {
         scopes: Array.from(selectedScopes),
       })
       const data = res.data
+      track({ name: 'api_key.created', properties: { env, scopes: Array.from(selectedScopes) } })
       setRevealed({ name: data?.name || name.trim(), key: data?.key || '' })
       setName('')
       setSelectedScopes(new Set(['endpoints:read', 'deliveries:read']))
@@ -180,6 +182,7 @@ export function APIKeys() {
     try {
       const client = getHttpClient()
       await client.post(`/api_keys/${id}/revoke`, {})
+      track({ name: 'api_key.revoked', properties: { api_key_id: id } })
       refetch()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Revoke failed')

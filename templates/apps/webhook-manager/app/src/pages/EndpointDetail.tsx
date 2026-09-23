@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -111,6 +112,7 @@ export function EndpointDetail() {
     try {
       const client = getHttpClient()
       await client.post(`/webhooks/${id}/test`, { event_type: 'test' })
+      track({ name: 'endpoint.tested', properties: { webhook_id: id } })
       setActionStatus('sent')
       refetchDeliveries()
     } catch (err) {
@@ -125,6 +127,10 @@ export function EndpointDetail() {
     try {
       const client = getHttpClient()
       await client.put(`/webhooks/${id}`, { is_active: !webhook.is_active })
+      track({
+        name: webhook.is_active ? 'webhook.paused' : 'webhook.resumed',
+        properties: { webhook_id: id },
+      })
       refetch()
     } catch (err) {
       setActionError(err instanceof Error ? err.message : 'Toggle failed')
@@ -147,6 +153,7 @@ export function EndpointDetail() {
     try {
       const client = getHttpClient()
       await client.delete(`/webhooks/${id}`)
+      track({ name: 'webhook.deleted', properties: { webhook_id: id } })
       navigate('/endpoints')
     } catch (err) {
       setActionError(err instanceof Error ? err.message : 'Delete failed')
@@ -211,8 +218,14 @@ export function EndpointDetail() {
         <span style={{ color: 'var(--mol-color-text-secondary)' }}>{webhook.id.slice(0, 8)}</span>
       </div>
 
-      <div className={cm.cn('flex items-end justify-between gap-4 flex-wrap mb-6')}>
-        <div className={cm.cn('min-w-0 flex-1')}>
+      {/* Stack below md: a squeezed flex-1 column wraps the URL/title behind
+          the action buttons at phone widths. */}
+      <div
+        className={cm.cn(
+          'flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-4 flex-wrap mb-6',
+        )}
+      >
+        <div className={cm.cn('min-w-0')}>
           <div className={cm.cn('flex items-center gap-2 flex-wrap mb-2')}>
             <StatusPill
               status={status}

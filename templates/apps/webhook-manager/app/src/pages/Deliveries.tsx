@@ -198,7 +198,9 @@ export function Deliveries() {
           })}
         </div>
         <div
-          className={cm.cn('flex-1 min-w-[200px] flex items-center gap-2 px-3 py-1.5 rounded-md')}
+          className={cm.cn(
+            'flex-1 min-w-[200px] flex items-center gap-2 px-3 py-1.5 rounded-md focus-within:outline focus-within:outline-2 focus-within:outline-offset-1 focus-within:outline-[var(--mol-color-primary)]',
+          )}
           style={{
             backgroundColor: 'color-mix(in srgb, var(--mol-color-background) 70%, transparent)',
             border: '1px solid var(--mol-color-border)',

@@ -40,6 +40,9 @@ test.describe('/deliveries/:id', () => {
   })
 
   test('non-existent delivery shows the not-found state', async ({ page }) => {
+    // GET /api/deliveries/<unknown> 404s by design — the page renders its
+    // not-found state off that response; the console log is expected.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 404' })
     await signup(page)
     await page.goto(APP_BASE + '/deliveries/00000000-0000-0000-0000-000000000000')
     await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})

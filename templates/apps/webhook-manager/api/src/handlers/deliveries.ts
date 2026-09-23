@@ -58,7 +58,7 @@ router.get('/', validateQuery(listDeliveriesQuerySchema), async (req: Request, r
     })
     res.json(deliveries)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'deliveries.list')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -84,7 +84,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(delivery)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'deliveries.get')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -133,7 +133,7 @@ router.post('/:id/replay', async (req: Request, res: Response) => {
     if (replayId) await enqueueDelivery(replayId)
     res.status(201).json(replay.data)
   } catch (err) {
-    logger.error(err)
+    logger.error({ err }, 'deliveries.replay')
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

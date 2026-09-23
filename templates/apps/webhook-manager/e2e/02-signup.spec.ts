@@ -28,6 +28,9 @@ test.describe('/signup', () => {
   test('signup with duplicate email surfaces an error and does not navigate away', async ({
     page,
   }) => {
+    // The duplicate POST /api/users 403s by design — the browser logs the
+    // failed resource load, which is expected here, not an app bug.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dup')
     await signup(page, { email })
     // Now try to sign up again with the same email

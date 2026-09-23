@@ -94,6 +94,9 @@ export function Endpoints() {
     return true
   })
 
+  // No forced "0.0K" at zero — plain counts render as plain numbers.
+  const fmtDeliveries = (n: number): string =>
+    n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}K` : String(n)
   const totalDeliveries = endpoints.reduce((s, e) => s + e.deliveries_24h, 0)
   const totalFailures = endpoints.reduce((s, e) => s + e.failures_24h, 0)
   const successRate = totalDeliveries === 0 ? 1 : 1 - totalFailures / totalDeliveries
@@ -171,7 +174,7 @@ export function Endpoints() {
         />
         <MetricStatCard
           eyebrow={t('endpoints.metric.delivered', {}, { defaultValue: 'Delivered 24h' })}
-          value={(totalDeliveries / 1000).toFixed(1) + 'K'}
+          value={fmtDeliveries(totalDeliveries)}
           caption={t(
             'endpoints.metric.deliveredCaption',
             {},
@@ -251,7 +254,9 @@ export function Endpoints() {
           })}
         </div>
         <div
-          className={cm.cn('flex-1 min-w-[200px] flex items-center gap-2 px-3 py-1.5 rounded-md')}
+          className={cm.cn(
+            'flex-1 min-w-[200px] flex items-center gap-2 px-3 py-1.5 rounded-md focus-within:outline focus-within:outline-2 focus-within:outline-offset-1 focus-within:outline-[var(--mol-color-primary)]',
+          )}
           style={{
             backgroundColor: 'color-mix(in srgb, var(--mol-color-background) 70%, transparent)',
             border: '1px solid var(--mol-color-border)',
