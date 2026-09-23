@@ -15,6 +15,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 import type { Filter, Measure } from '@molecule/api-reporting'
 import { aggregate, timeSeries } from '@molecule/api-reporting'
@@ -103,7 +104,8 @@ router.get(
         credit_limit_cents,
         balance_history_30d,
       })
-    } catch (_err) {
+    } catch (err) {
+      logger.error('reports.dashboard_stats', err)
       res.status(500).json({ error: t('errors.internalServer') })
     }
   },
@@ -131,7 +133,8 @@ router.get('/spending_by_category_30d', async (_req: Request, res: Response) => 
       orderBy: [{ field: 'amount_cents', direction: 'asc' }],
     })
     res.json(report)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('reports.spending_by_category_30d', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -159,7 +162,8 @@ router.get('/balance_history_30d', async (_req: Request, res: Response) => {
       endDate,
     })
     res.json(report)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('reports.balance_history_30d', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

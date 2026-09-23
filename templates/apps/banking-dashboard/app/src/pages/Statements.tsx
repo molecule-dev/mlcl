@@ -156,7 +156,7 @@ export function Statements() {
               className={cm.cn(
                 cm.card(),
                 cm.sp('p', 4),
-                cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
+                cm.flex({ align: 'center', justify: 'between', gap: 'md', wrap: 'wrap' }),
               )}
             >
               <div className={cm.flex({ align: 'center', gap: 'md' })}>
@@ -170,7 +170,7 @@ export function Statements() {
                   <p className={cm.fontWeight('semibold')}>
                     {fmtPeriod(s.period_start_iso, s.period_end_iso)}
                   </p>
-                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, 'font-mono')}>
+                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, 'font-mono truncate')}>
                     {s.account_name} · •••• {s.account_last4}
                   </p>
                 </div>

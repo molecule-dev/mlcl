@@ -36,6 +36,13 @@ test.describe('pricing page', () => {
   test('logged-in user clicking the Pro upgrade hits POST /api/billing/checkout', async ({
     page,
   }) => {
+    // Unconfigured-Stripe contract: the smoke env has no real price ids, so
+    // the shared billing router refuses the checkout POST with 503
+    // provider-unavailable. That console error is the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 50[23]/,
+    })
     await signup(page)
     await page.goto(APP_BASE + '/pricing')
     const buttons = page.getByRole('button', {
@@ -48,6 +55,12 @@ test.describe('pricing page', () => {
     })
     const checkout = reqs.find((r) => /\/api\/billing\/checkout/.test(r.url) && r.method === 'POST')
     expect(checkout, JSON.stringify(reqs)).toBeTruthy()
+    // Checkout must never silently "succeed" without a billing provider: it
+    // either starts checkout (200 + checkoutUrl) or refuses (>= 400).
+    expect(
+      checkout?.status === 200 || (checkout?.status ?? 0) >= 400,
+      `checkout status ${checkout?.status}`,
+    ).toBe(true)
   })
 
   test('unauth user CTA leads to signup or login (auth wall)', async ({ page }) => {

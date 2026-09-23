@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -106,7 +107,17 @@ export function Transfers() {
       if (toType === 'account') body.to_account_id = to
       else body.recipient_id = to
       try {
-        await http.post('/api/transfers', body)
+        const res = await http.post<{ id?: string }>('/api/transfers', body)
+        // Domain analytics: the money-moving conversion point. Fire-and-forget
+        // (no-ops without a provider bonded — VITE_POSTHOG_KEY unset).
+        void track({
+          name: 'transfer.created',
+          properties: {
+            transfer_id: (res as { data?: { id?: string } }).data?.id ?? null,
+            to_type: toType,
+            amount_cents: cents,
+          },
+        })
       } catch (err) {
         const message =
           err && typeof err === 'object' && 'message' in err
@@ -123,7 +134,8 @@ export function Transfers() {
       }
       // Refresh balances after a successful POST so the form's "available"
       // hint reflects the new ledger immediately.
-      await http.get('/api/accounts').catch(() => null)
+      const refreshed = await http.get('/api/accounts').catch(() => null)
+      if (refreshed) setAccounts(unwrapList<Account>(refreshed))
       setSubmitted(true)
       setTimeout(() => setSubmitted(false), 2500)
     } finally {

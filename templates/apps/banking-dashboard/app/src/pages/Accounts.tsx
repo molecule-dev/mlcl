@@ -136,9 +136,11 @@ export function Accounts() {
                   'block hover:shadow-md transition-shadow',
                 )}
               >
-                <div>
+                <div className={cm.cn(cm.flex1, 'min-w-0')}>
                   <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                    <h2 className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'))}>
+                    <h2
+                      className={cm.cn(cm.textSize('base'), cm.fontWeight('semibold'), 'truncate')}
+                    >
                       {a.name}
                     </h2>
                     <span
@@ -147,17 +149,18 @@ export function Accounts() {
                         cm.textSize('xs'),
                         cm.fontWeight('medium'),
                         cm.roundedFull,
+                        'shrink-0',
                         STATUS_BADGE[a.status],
                       )}
                     >
                       {t(`accounts.status.${a.status}`, {}, { defaultValue: a.status })}
                     </span>
                   </div>
-                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, 'font-mono')}>
+                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, 'font-mono truncate')}>
                     {t(`accounts.kind.${a.kind}`, {}, { defaultValue: a.kind })} · •••• {a.last4}
                   </p>
                 </div>
-                <div className={cm.textRight}>
+                <div className={cm.cn(cm.textRight, 'shrink-0 pl-2')}>
                   <p className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tabular-nums')}>
                     {formatMoney(a.balance_cents, a.currency)}
                   </p>

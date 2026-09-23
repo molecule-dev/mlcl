@@ -15,6 +15,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -108,7 +109,8 @@ router.get('/', async (_req: Request, res: Response) => {
       .slice(0, 25)
 
     res.json({ data: items, total: items.length })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('notifications.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

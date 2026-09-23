@@ -17,6 +17,11 @@ test.describe('login page', () => {
   test('login with bogus credentials surfaces an inline alert and stays on /login', async ({
     page,
   }) => {
+    // The 403 from POST /api/users/log-in IS the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 403/,
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input#email').fill('nobody-' + Date.now() + '@flagship.test')
     await page.locator('input#password').fill('WrongPass!9999')

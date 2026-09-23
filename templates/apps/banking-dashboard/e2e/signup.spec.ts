@@ -37,6 +37,12 @@ test.describe('signup page', () => {
   test('signing up with a duplicate email surfaces an error and stays on /signup', async ({
     page,
   }) => {
+    // The API refuses the duplicate POST /api/users with 403 — that refusal
+    // IS the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 403/,
+    })
     const email = uniqueEmail('dup')
     const password = 'TestPass!1234'
     await page.goto(APP_BASE + '/signup')

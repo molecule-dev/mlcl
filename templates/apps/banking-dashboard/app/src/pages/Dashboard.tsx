@@ -58,6 +58,14 @@ export function Dashboard() {
   const [stats, setStats] = useState<DashboardStats | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [ok, setOk] = useState<{ a: boolean; t: boolean; s: boolean }>({
+    a: true,
+    t: true,
+    s: true,
+  })
+  const aOk = ok.a
+  const tOk = ok.t
+  const sOk = ok.s
 
   useEffect(() => {
     let cancelled = false
@@ -70,6 +78,10 @@ export function Dashboard() {
     ])
       .then(([aRes, tRes, sRes]) => {
         if (cancelled) return
+        // Per-request success flags: every GET above swallows its own failure,
+        // so "all three failed" is the only reliable total-failure signal and
+        // must surface the error state instead of a silent empty dashboard.
+        setOk({ a: aRes !== null, t: tRes !== null, s: sRes !== null })
         setAccounts(unwrapList<Account>(aRes))
         setRecent(unwrapList<Transaction>(tRes).slice(0, 5))
         setStats(unwrapSingle<DashboardStats>(sRes))
@@ -88,8 +100,12 @@ export function Dashboard() {
     }
   }, [http, t])
 
-  if (error) {
-    return <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+  if (error || (!loading && !aOk && !tOk && !sOk)) {
+    return (
+      <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>
+        {error ?? t('nav.failedToLoadDashboard', {}, { defaultValue: 'Failed to load dashboard.' })}
+      </p>
+    )
   }
   if (loading) {
     return (
@@ -136,7 +152,11 @@ export function Dashboard() {
           </h2>
           <Link
             to="/accounts"
-            className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+            className={cm.cn(
+              cm.textSize('sm'),
+              'font-bold text-primary hover:underline',
+              'inline-flex items-center min-h-[36px] self-center',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
@@ -150,7 +170,11 @@ export function Dashboard() {
         titleAction={
           <Link
             to="/transactions"
-            className={cm.cn(cm.textSize('sm'), 'font-bold text-primary hover:underline')}
+            className={cm.cn(
+              cm.textSize('sm'),
+              'font-bold text-primary hover:underline',
+              'inline-flex items-center min-h-[36px] self-center',
+            )}
           >
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>

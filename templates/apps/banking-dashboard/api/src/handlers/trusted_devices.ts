@@ -13,6 +13,7 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -50,7 +51,8 @@ router.get('/', async (req: Request, res: Response) => {
     }))
 
     res.json({ data, total: data.length })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('trusted_devices.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

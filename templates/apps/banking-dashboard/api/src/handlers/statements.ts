@@ -17,6 +17,7 @@ import { count, create, findById, findMany } from '@molecule/api-database'
 import { decrypt } from '@molecule/api-encryption'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { BankingDashboardLimits } from '../tiers.js'
@@ -106,7 +107,8 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
       orderBy: [{ field: 'period_start', direction: 'desc' }],
     })
     res.json(await Promise.all(statements.map(shape)))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('statements.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -121,7 +123,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: t('statements.notFound') })
     }
     res.json(await shape(stmt))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('statements.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -153,7 +156,8 @@ router.get('/:id/download', async (req: Request, res: Response) => {
     res.setHeader('Content-Type', 'application/octet-stream')
     res.setHeader('Content-Disposition', `attachment; filename="statement-${stmt.id}.txt"`)
     res.send(body)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('statements.download', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -194,7 +198,8 @@ router.post(
       })
       const data = (result as unknown as { data: StatementRow }).data
       res.status(201).json(await shape(data))
-    } catch (_err) {
+    } catch (err) {
+      logger.error('statements.create', err)
       res.status(500).json({ error: t('errors.internalServer') })
     }
   },

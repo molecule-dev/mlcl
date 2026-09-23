@@ -20,6 +20,7 @@ import { connect, count, create, findById, findMany } from '@molecule/api-databa
 import { sendMail } from '@molecule/api-emails'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { BankingDashboardLimits } from '../tiers.js'
@@ -46,7 +47,8 @@ router.get('/', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(transfers)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('transfers.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -61,7 +63,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: t('transfers.notFound') })
     }
     res.json(tr)
-  } catch (_err) {
+  } catch (err) {
+    logger.error('transfers.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -297,7 +300,8 @@ router.post(
       }
 
       res.status(201).json(transferRow)
-    } catch (_err) {
+    } catch (err) {
+      logger.error('transfers.create', err)
       res.status(500).json({ error: t('errors.internalServer') })
     }
   },

@@ -148,6 +148,12 @@ test.describe('/transfers (Move money)', () => {
   test('UI submit on insufficient funds renders [data-mol-id="transfers-error"]', async ({
     page,
   }) => {
+    // The 400 from POST /api/transfers (insufficient_funds) IS the case
+    // under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 400/,
+    })
     const { accessToken } = await signup(page)
     const a = await seedAccount(page, accessToken, { name: 'Zero A' })
     await seedAccount(page, accessToken, { name: 'Zero B' })

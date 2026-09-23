@@ -18,6 +18,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -85,7 +86,8 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
       offset: Number(offset) || 0,
     })
     res.json(transactions.map(shape))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('transactions.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -100,7 +102,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: t('transactions.notFound') })
     }
     res.json(shape(tx))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('transactions.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

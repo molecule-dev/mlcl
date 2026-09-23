@@ -54,8 +54,7 @@ export function BalanceHeroCard({ totalCents, changeCents, history }: BalanceHer
     <div
       className={cm.cn(
         cm.flex({ direction: 'col', justify: 'between' }),
-        cm.sp('p', 10),
-        'min-h-[320px] lg:col-span-8 bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
+        'min-h-[320px] p-6 sm:p-10 lg:col-span-8 bg-gradient-to-br from-primary to-primary-container rounded-[2rem] text-white relative overflow-hidden',
       )}
     >
       <div className={cm.cn('relative z-10')}>
@@ -70,7 +69,9 @@ export function BalanceHeroCard({ totalCents, changeCents, history }: BalanceHer
           {t('balanceHeroCard.title', {}, { defaultValue: 'Total Balance' })}
         </h2>
         <div className={cm.flex({ align: 'baseline', gap: 'md' })}>
-          <span className={cm.cn('text-6xl font-extrabold tracking-tighter tabular-nums')}>
+          <span
+            className={cm.cn('text-4xl sm:text-6xl font-extrabold tracking-tighter tabular-nums')}
+          >
             {fmt(totalCents)}
           </span>
           <span

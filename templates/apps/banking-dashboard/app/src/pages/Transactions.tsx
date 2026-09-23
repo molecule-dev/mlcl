@@ -27,6 +27,8 @@ export function TransactionsPage() {
   const cm = getClassMap()
 
   const [rows, setRows] = useState<Transaction[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [filterStart, setFilterStart] = useState('')
   const [filterEnd, setFilterEnd] = useState('')
 
@@ -35,6 +37,8 @@ export function TransactionsPage() {
     if (filterStart) params.set('start', filterStart)
     if (filterEnd) params.set('end', filterEnd)
     let cancelled = false
+    setLoading(true)
+    setError(null)
     http
       .get(`/api/transactions?${params.toString()}`)
       .then((res) => {
@@ -42,12 +46,20 @@ export function TransactionsPage() {
         setRows(unwrapList<Transaction>(res))
       })
       .catch(() => {
-        /* failures handled at top-level error boundary */
+        // Local state (NOT the top-level error boundary — a rejected page
+        // fetch here would otherwise render as a silent, empty table).
+        if (!cancelled)
+          setError(
+            t('transactions.loadError', {}, { defaultValue: 'Failed to load transactions.' }),
+          )
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
       })
     return () => {
       cancelled = true
     }
-  }, [http, filterStart, filterEnd])
+  }, [http, t, filterStart, filterEnd])
 
   return (
     <div data-mol-id="page-transactions" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8))}>
@@ -96,37 +108,45 @@ export function TransactionsPage() {
         />
       </div>
 
-      {rows.length === 0 ? (
+      {error ? (
+        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-error')}>{error}</p>
+      ) : loading ? (
+        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
+          {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+        </p>
+      ) : rows.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.textMuted)}>
           {t('transactions.empty', {}, { defaultValue: 'No transactions yet.' })}
         </p>
       ) : (
-        <table className={cm.table}>
-          <thead className={cm.tableHeader}>
-            <tr className={cm.tableRow}>
-              <th className={cm.tableHead}>{t('form.date', {}, { defaultValue: 'Date' })}</th>
-              <th className={cm.tableHead}>
-                {t('transactions.merchant', {}, { defaultValue: 'Merchant' })}
-              </th>
-              <th className={cm.tableHead}>
-                {t('form.category', {}, { defaultValue: 'Category' })}
-              </th>
-              <th className={cm.tableHead}>{t('form.amount', {}, { defaultValue: 'Amount' })}</th>
-              <th className={cm.tableHead}>{t('nav.status', {}, { defaultValue: 'Status' })}</th>
-            </tr>
-          </thead>
-          <tbody className={cm.tableBody}>
-            {rows.map((r) => (
-              <tr key={r.id} className={cm.tableRow}>
-                <td className={cm.tableCell}>{new Date(r.posted_at).toLocaleDateString()}</td>
-                <td className={cm.tableCell}>{r.merchant ?? '—'}</td>
-                <td className={cm.tableCell}>{r.category ?? '—'}</td>
-                <td className={cm.tableCell}>{fmtCents(r.amount_cents)}</td>
-                <td className={cm.tableCell}>{r.status ?? 'posted'}</td>
+        <div className={cm.cn('overflow-x-auto -mx-2 px-2')}>
+          <table className={cm.table}>
+            <thead className={cm.tableHeader}>
+              <tr className={cm.tableRow}>
+                <th className={cm.tableHead}>{t('form.date', {}, { defaultValue: 'Date' })}</th>
+                <th className={cm.tableHead}>
+                  {t('transactions.merchant', {}, { defaultValue: 'Merchant' })}
+                </th>
+                <th className={cm.tableHead}>
+                  {t('form.category', {}, { defaultValue: 'Category' })}
+                </th>
+                <th className={cm.tableHead}>{t('form.amount', {}, { defaultValue: 'Amount' })}</th>
+                <th className={cm.tableHead}>{t('nav.status', {}, { defaultValue: 'Status' })}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className={cm.tableBody}>
+              {rows.map((r) => (
+                <tr key={r.id} className={cm.tableRow}>
+                  <td className={cm.tableCell}>{new Date(r.posted_at).toLocaleDateString()}</td>
+                  <td className={cm.tableCell}>{r.merchant ?? '—'}</td>
+                  <td className={cm.tableCell}>{r.category ?? '—'}</td>
+                  <td className={cm.tableCell}>{fmtCents(r.amount_cents)}</td>
+                  <td className={cm.tableCell}>{r.status ?? 'posted'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   )

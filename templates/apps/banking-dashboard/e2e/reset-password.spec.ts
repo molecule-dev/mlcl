@@ -24,6 +24,11 @@ test.describe('reset-password page', () => {
   test('submitting with an invalid token surfaces an error and stays on /reset-password', async ({
     page,
   }) => {
+    // The 401 from POST /api/users/reset-password IS the case under test.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 401/,
+    })
     await page.goto(APP_BASE + '/reset-password')
     await page.locator('input#email').fill(uniqueEmail('rp-bad'))
     await page.locator('input#token').fill('NOT-A-REAL-TOKEN')

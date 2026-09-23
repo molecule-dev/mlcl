@@ -16,6 +16,7 @@ import { count, create, findById, findMany } from '@molecule/api-database'
 import { decrypt, encrypt } from '@molecule/api-encryption'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 import type { BankingDashboardLimits } from '../tiers.js'
@@ -68,7 +69,8 @@ router.get('/', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(await Promise.all(accounts.map(maskRow)))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('accounts.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -83,7 +85,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: t('accounts.notFound') })
     }
     res.json(await maskRow(account))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('accounts.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -104,7 +107,8 @@ router.get('/:id/balance', async (req: Request, res: Response) => {
       balance_cents: current,
       pending_cents: current - available,
     })
-  } catch (_err) {
+  } catch (err) {
+    logger.error('accounts.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -149,7 +153,8 @@ router.post(
         created_at: new Date(),
       })
       res.status(201).json(await maskRow((result as { data: Record<string, unknown> }).data))
-    } catch (_err) {
+    } catch (err) {
+      logger.error('accounts.create', err)
       res.status(500).json({ error: t('errors.internalServer') })
     }
   },

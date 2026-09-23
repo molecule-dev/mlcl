@@ -17,6 +17,7 @@ import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 
 const router = Router()
@@ -66,7 +67,8 @@ router.get('/', async (_req: Request, res: Response) => {
       orderBy: [{ field: 'created_at', direction: 'desc' }],
     })
     res.json(rows.map(shape))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('recipients.list', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -81,7 +83,8 @@ router.get('/:id', async (req: Request, res: Response) => {
       return res.status(404).json({ error: t('recipients.notFound') })
     }
     res.json(shape(r))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('recipients.get', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -101,7 +104,8 @@ router.post('/', validateBody(createRecipientSchema), async (req: Request, res: 
       created_at: new Date(),
     })
     res.status(201).json(shape((result as unknown as { data: RecipientRow }).data))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('recipients.create', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -122,7 +126,8 @@ router.put('/:id', validateBody(updateRecipientSchema), async (req: Request, res
     }
     const result = await updateById('recipients', id, updates)
     res.json(shape((result as unknown as { data: RecipientRow }).data))
-  } catch (_err) {
+  } catch (err) {
+    logger.error('recipients.update', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })
@@ -139,7 +144,8 @@ router.delete('/:id', async (req: Request, res: Response) => {
     }
     await deleteById('recipients', id)
     res.status(204).end()
-  } catch (_err) {
+  } catch (err) {
+    logger.error('recipients.delete', err)
     res.status(500).json({ error: t('errors.internalServer') })
   }
 })

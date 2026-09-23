@@ -82,7 +82,10 @@ test.describe('/accounts/:id (account detail)', () => {
     // Without the wait the count check races React's first useEffect fetch
     // and consistently returns 0 even though the SVG is in the source.
     await expect(page.getByText(acct.name).first()).toBeVisible({ timeout: 15000 })
-    await expect(page.locator('header svg')).toHaveCount(1)
+    // Scoped to the page's own hero header (`main header`): the app shell's
+    // mobile top bar is also a <header> (theme-toggle icon svg inside), which
+    // a bare 'header svg' locator double-counts.
+    await expect(page.locator('main header svg')).toHaveCount(1)
   })
 
   test('"Transactions" heading renders', async ({ page }) => {
@@ -123,6 +126,12 @@ test.describe('/accounts/:id (account detail)', () => {
   })
 
   test('unknown id renders the "no longer available" guard', async ({ page }) => {
+    // The 404 from GET /api/accounts/:id IS the case under test (console
+    // guard otherwise fails the test on the browser's resource-error log).
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: /status of 404/,
+    })
     await signup(page)
     await page.goto(APP_BASE + '/accounts/00000000-0000-0000-0000-000000000000')
     await expect(page.getByText(/no longer available/i)).toBeVisible({ timeout: 15000 })
