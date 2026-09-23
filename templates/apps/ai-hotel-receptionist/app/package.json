@@ -49,7 +49,7 @@
     "@molecule/app-locales-http": "1.0.2",
     "@molecule/app-locales-i18n": "1.0.2",
     "@molecule/app-locales-icons": "1.0.2",
-    "@molecule/app-locales-ide": "1.9.3",
+    "@molecule/app-locales-ide": "1.10.0",
     "@molecule/app-locales-legal-default": "1.0.2",
     "@molecule/app-locales-live-preview": "1.0.2",
     "@molecule/app-locales-oauth-buttons": "1.0.2",

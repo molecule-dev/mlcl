@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@molecule/api-ai": "1.2.1",
-    "@molecule/api-ai-anthropic": "1.1.1",
+    "@molecule/api-ai-anthropic": "1.2.0",
     "@molecule/api-ai-speech": "1.0.2",
     "@molecule/api-ai-summarization": "1.0.2",
     "@molecule/api-ai-summarization-llm": "1.0.2",
