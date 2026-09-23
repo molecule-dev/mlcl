@@ -8,6 +8,7 @@ import {
 } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -67,7 +68,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (err) {
-    console.error('GET /jobs failed', err)
+    logger.error('jobs.list_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -96,7 +97,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (err) {
-    console.error('GET /jobs/:id failed', err)
+    logger.error('jobs.get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -135,7 +136,7 @@ router.post('/', async (req: Request, res: Response) => {
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('POST /jobs failed', err)
+    logger.error('jobs.create_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -178,7 +179,7 @@ router.put('/:id', async (req: Request, res: Response) => {
     const result = await updateById('jobs', params.data.id, updates)
     res.json(result.data)
   } catch (err) {
-    console.error('PUT /jobs/:id failed', err)
+    logger.error('jobs.update_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -208,7 +209,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('jobs', params.data.id)
     res.status(204).end()
   } catch (err) {
-    console.error('DELETE /jobs/:id failed', err)
+    logger.error('jobs.delete_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

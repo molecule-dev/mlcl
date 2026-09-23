@@ -126,7 +126,7 @@ export function Dashboard() {
   return (
     <div
       data-mol-id="page-dashboard"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}
+      className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8')}
     >
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
@@ -176,7 +176,7 @@ export function Dashboard() {
           {error}
         </div>
       ) : null}
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      <div className={cm.cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-4')}>
         <KpiTile
           icon="work"
           label={t('dashboard.kpi.openJobs', {}, { defaultValue: 'Open jobs' })}
@@ -231,7 +231,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:text-primary-container transition-colors',
+                'text-primary hover:text-primary-container transition-colors py-2',
               )}
             >
               {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
@@ -327,7 +327,7 @@ export function Dashboard() {
             className={cm.cn(
               cm.textSize('xs'),
               cm.fontWeight('semibold'),
-              'text-primary hover:text-primary-container transition-colors',
+              'text-primary hover:text-primary-container transition-colors py-2',
             )}
           >
             {t('dashboard.viewAllCandidates', {}, { defaultValue: 'All candidates →' })}

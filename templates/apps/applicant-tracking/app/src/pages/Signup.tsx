@@ -251,7 +251,7 @@ export function Signup() {
             <Link
               to="/login"
               data-mol-id="signup-login-link"
-              className={cm.cn(cm.fontWeight('bold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('bold'), 'text-primary hover:underline py-2')}
             >
               {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
             </Link>
@@ -270,7 +270,7 @@ export function Signup() {
               type="button"
               onClick={openTerms}
               data-mol-id="signup-terms-link"
-              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline py-2')}
             >
               {t('nav.terms', {}, { defaultValue: 'Terms' })}
             </button>{' '}
@@ -279,7 +279,7 @@ export function Signup() {
               type="button"
               onClick={openPrivacy}
               data-mol-id="signup-privacy-link"
-              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline py-2')}
             >
               {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
             </button>

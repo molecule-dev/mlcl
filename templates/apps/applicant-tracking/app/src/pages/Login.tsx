@@ -167,7 +167,7 @@ export function Login() {
                 className={cm.cn(
                   cm.textSize('xs'),
                   cm.fontWeight('semibold'),
-                  'text-primary hover:text-primary-container transition-colors',
+                  'text-primary hover:text-primary-container transition-colors py-2',
                 )}
               >
                 {t('auth.login.forgotPassword', {}, { defaultValue: 'Forgot password?' })}
@@ -209,7 +209,7 @@ export function Login() {
             <Link
               to="/signup"
               data-mol-id="login-signup-link"
-              className={cm.cn(cm.fontWeight('bold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('bold'), 'text-primary hover:underline py-2')}
             >
               {t('auth.signup.createAnAccount', {}, { defaultValue: 'Create an account' })}
             </Link>
@@ -228,7 +228,7 @@ export function Login() {
               type="button"
               onClick={openTerms}
               data-mol-id="login-terms-link"
-              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline py-2')}
             >
               {t('nav.terms', {}, { defaultValue: 'Terms' })}
             </button>{' '}
@@ -237,7 +237,7 @@ export function Login() {
               type="button"
               onClick={openPrivacy}
               data-mol-id="login-privacy-link"
-              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline')}
+              className={cm.cn(cm.fontWeight('semibold'), 'text-primary hover:underline py-2')}
             >
               {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
             </button>

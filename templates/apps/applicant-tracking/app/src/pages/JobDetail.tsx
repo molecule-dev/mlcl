@@ -154,7 +154,7 @@ export function JobDetail() {
   return (
     <div
       data-mol-id="page-job-detail"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}
+      className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8')}
     >
       <Link
         to="/jobs"
@@ -234,7 +234,7 @@ export function JobDetail() {
         </div>
       </header>
 
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      <div className={cm.cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-4')}>
         <KpiTile
           icon="group"
           label={t('jobDetail.kpi.applicants', {}, { defaultValue: 'Applicants' })}

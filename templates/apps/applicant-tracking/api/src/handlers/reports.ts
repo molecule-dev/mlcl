@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -44,7 +45,7 @@ router.get('/dashboard_stats', async (req: Request, res: Response) => {
     const interviews = await findMany<{ scheduled_at?: string | Date }>('interviews', {
       where: [{ field: 'user_id', operator: '=', value: userId }],
     }).catch((err) => {
-      console.error('GET /reports/dashboard_stats: interviews query failed', err)
+      logger.error('reports.dashboard_stats_interviews_failed', err)
       return []
     })
 
@@ -87,7 +88,7 @@ router.get('/dashboard_stats', async (req: Request, res: Response) => {
       })),
     })
   } catch (err) {
-    console.error('GET /reports/dashboard_stats failed', err)
+    logger.error('reports.dashboard_stats_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -274,7 +275,7 @@ router.get('/full', async (req: Request, res: Response) => {
       fairness: [],
     })
   } catch (err) {
-    console.error('GET /reports/full failed', err)
+    logger.error('reports.full_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

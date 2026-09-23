@@ -67,7 +67,7 @@ export function Jobs() {
   }, [http, t])
 
   return (
-    <div data-mol-id="page-jobs" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
+    <div data-mol-id="page-jobs" className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8 space-y-6')}>
       <header className={cm.flex({ align: 'center', justify: 'between' })}>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('jobs.heading', {}, { defaultValue: 'Jobs' })}

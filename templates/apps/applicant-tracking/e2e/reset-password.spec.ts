@@ -32,12 +32,19 @@ test.describe('reset-password page', () => {
   })
 
   test('invalid token surfaces error from server', async ({ page }) => {
+    // The 401 from POST /users/reset-password is the expected server
+    // response — the browser logs it as a console error, which the console
+    // guard would fail the test on without this annotation.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await page.goto(APP_BASE + '/reset-password?token=does-not-exist')
     const requests = await captureNetwork(page, async () => {
       await page.getByLabel(/^new password$/i).fill('AnotherPass!1234')
       await page.getByLabel(/confirm new password/i).fill('AnotherPass!1234')
       await page.getByRole('button', { name: /reset password/i }).click()
-      await page.waitForTimeout(2000)
+      await expect(page.locator('[data-mol-id="reset-error"]')).toBeVisible()
     })
     expect(
       requests.some(

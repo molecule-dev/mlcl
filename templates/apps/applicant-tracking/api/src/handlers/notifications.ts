@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -39,7 +40,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(rows)
   } catch (err) {
-    console.error('GET /notifications failed', err)
+    logger.error('notifications.list_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

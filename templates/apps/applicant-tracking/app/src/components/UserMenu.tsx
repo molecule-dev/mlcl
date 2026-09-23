@@ -4,9 +4,9 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, SidebarUserCard, usePanelClose } from '@molecule/app-ui-react'
 
-export function UserMenu() {
+export function UserMenu({ dataMolId = 'user-menu' }: { dataMolId?: string }) {
   return (
-    <SidebarUserCard ariaLabelKey="userMenu.open" dataMolId="user-menu">
+    <SidebarUserCard ariaLabelKey="userMenu.open" dataMolId={dataMolId}>
       <UserMenuPanel />
     </SidebarUserCard>
   )

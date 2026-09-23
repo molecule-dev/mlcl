@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -136,11 +137,18 @@ export function Candidates() {
     setAdding(true)
     setAddError(null)
     try {
-      await http.post('/api/candidates', {
+      const res = await http.post<{ id?: string }>('/api/candidates', {
         first_name: first.trim(),
         last_name: last.trim(),
         email: email.trim(),
         source: source.trim() || undefined,
+      })
+      const created =
+        ((res as { data?: { id?: string } }).data as { id?: string } | undefined) ??
+        (res as { id?: string })
+      track({
+        name: 'candidate.created',
+        properties: { candidate_id: created?.id, source: source.trim() || undefined },
       })
       setFirst('')
       setLast('')
@@ -193,10 +201,7 @@ export function Candidates() {
   }, [normalized, query, jobFilter])
 
   return (
-    <div
-      data-mol-id="page-candidates"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}
-    >
+    <div data-mol-id="page-candidates" className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8 space-y-6')}>
       <header className={cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
@@ -246,7 +251,7 @@ export function Candidates() {
               {addError}
             </p>
           ) : null}
-          <div className={cm.grid({ cols: 4, gap: 'sm' })}>
+          <div className={cm.cn('grid gap-3 md:grid-cols-2 lg:grid-cols-4')}>
             <input
               type="text"
               value={first}
@@ -368,127 +373,129 @@ export function Candidates() {
         </p>
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={cm.cn('w-full')}>
-            <thead
-              className={cm.cn(
-                'bg-surface-container',
-                cm.textSize('xs'),
-                'uppercase tracking-wide',
-                'text-on-surface-variant',
-              )}
-            >
-              <tr>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('candidates.col.name', {}, { defaultValue: 'Candidate' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('candidates.col.role', {}, { defaultValue: 'Applied for' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('candidates.col.stage', {}, { defaultValue: 'Stage' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('candidates.col.score', {}, { defaultValue: 'AI score' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('candidates.col.source', {}, { defaultValue: 'Source' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                  {t('candidates.col.daysInStage', {}, { defaultValue: 'Days in stage' })}
-                </th>
-                <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
-                  {t('candidates.col.applied', {}, { defaultValue: 'Applied' })}
-                </th>
-              </tr>
-            </thead>
-            <tbody className={cm.cn('divide-y divide-outline-variant')}>
-              {filtered.map((c) => (
-                <tr
-                  key={c.id}
-                  data-mol-id="candidates-row"
-                  className={cm.cn('hover:bg-surface-container')}
-                >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <Link
-                      to={`/candidates/${c.id}`}
-                      data-mol-id="candidates-row-link"
-                      className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
-                    >
-                      {c.name}
-                    </Link>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
-                    <p>{c.role}</p>
-                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {c.job_title}
-                    </p>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <span
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        cm.roundedFull,
-                      )}
-                      style={{
-                        backgroundColor: STAGE_BG_COLOR[c.stage],
-                        color: STAGE_FG_COLOR[c.stage],
-                      }}
-                    >
-                      {t(
-                        `stagePill.${c.stage}`,
-                        {},
-                        { defaultValue: STAGE_DEFAULT_LABEL[c.stage] },
-                      )}
-                    </span>
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      cm.fontWeight('semibold'),
-                      scoreColor(c.ai_score),
-                    )}
-                  >
-                    {c.ai_score}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {c.source}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right tabular-nums',
-                      'text-on-surface-variant',
-                    )}
-                  >
-                    {c.days_in_stage}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      cm.textSize('sm'),
-                      'text-on-surface-variant',
-                      'whitespace-nowrap',
-                    )}
-                  >
-                    {fmtDate(c.applied_at)}
-                  </td>
+          <div className={cm.cn('overflow-x-auto')}>
+            <table className={cm.cn('w-full min-w-[720px]')}>
+              <thead
+                className={cm.cn(
+                  'bg-surface-container',
+                  cm.textSize('xs'),
+                  'uppercase tracking-wide',
+                  'text-on-surface-variant',
+                )}
+              >
+                <tr>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('candidates.col.name', {}, { defaultValue: 'Candidate' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('candidates.col.role', {}, { defaultValue: 'Applied for' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('candidates.col.stage', {}, { defaultValue: 'Stage' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('candidates.col.score', {}, { defaultValue: 'AI score' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('candidates.col.source', {}, { defaultValue: 'Source' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
+                    {t('candidates.col.daysInStage', {}, { defaultValue: 'Days in stage' })}
+                  </th>
+                  <th className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-left')}>
+                    {t('candidates.col.applied', {}, { defaultValue: 'Applied' })}
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className={cm.cn('divide-y divide-outline-variant')}>
+                {filtered.map((c) => (
+                  <tr
+                    key={c.id}
+                    data-mol-id="candidates-row"
+                    className={cm.cn('hover:bg-surface-container')}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <Link
+                        to={`/candidates/${c.id}`}
+                        data-mol-id="candidates-row-link"
+                        className={cm.cn(cm.fontWeight('semibold'), 'hover:underline')}
+                      >
+                        {c.name}
+                      </Link>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textSize('sm'))}>
+                      <p>{c.role}</p>
+                      <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                        {c.job_title}
+                      </p>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          cm.roundedFull,
+                        )}
+                        style={{
+                          backgroundColor: STAGE_BG_COLOR[c.stage],
+                          color: STAGE_FG_COLOR[c.stage],
+                        }}
+                      >
+                        {t(
+                          `stagePill.${c.stage}`,
+                          {},
+                          { defaultValue: STAGE_DEFAULT_LABEL[c.stage] },
+                        )}
+                      </span>
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        cm.fontWeight('semibold'),
+                        scoreColor(c.ai_score),
+                      )}
+                    >
+                      {c.ai_score}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {c.source}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right tabular-nums',
+                        'text-on-surface-variant',
+                      )}
+                    >
+                      {c.days_in_stage}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        cm.textSize('sm'),
+                        'text-on-surface-variant',
+                        'whitespace-nowrap',
+                      )}
+                    >
+                      {fmtDate(c.applied_at)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
     </div>

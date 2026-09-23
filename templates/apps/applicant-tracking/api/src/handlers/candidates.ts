@@ -8,8 +8,13 @@ import {
 } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
+
+const noteBodySchema = z.object({
+  body: z.string().min(1).max(4000),
+})
 
 const listQuerySchema = z.object({
   search: z.string().optional(),
@@ -59,7 +64,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (err) {
-    console.error('GET /candidates failed', err)
+    logger.error('candidates.list_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -88,7 +93,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (err) {
-    console.error('GET /candidates/:id failed', err)
+    logger.error('candidates.get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -124,7 +129,7 @@ router.post('/', async (req: Request, res: Response) => {
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('POST /candidates failed', err)
+    logger.error('candidates.create_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -161,7 +166,7 @@ router.put('/:id', async (req: Request, res: Response) => {
     })
     res.json(result.data)
   } catch (err) {
-    console.error('PUT /candidates/:id failed', err)
+    logger.error('candidates.update_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -191,7 +196,83 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('candidates', params.data.id)
     res.status(204).end()
   } catch (err) {
-    console.error('DELETE /candidates/:id failed', err)
+    logger.error('candidates.delete_failed', err)
+    res
+      .status(500)
+      .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
+  }
+})
+
+router.get('/:id/notes', async (req: Request, res: Response) => {
+  try {
+    const userId = getUserId(res)
+    if (!userId)
+      return res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+    const params = idParamSchema.safeParse({ id: getParamId(req) })
+    if (!params.success) {
+      return res.status(400).json({
+        error: t('validation.failed', {}, { defaultValue: 'Validation failed' }),
+        errors: params.error.issues,
+      })
+    }
+    const candidate = await findById<Record<string, unknown>>('candidates', params.data.id)
+    if (!candidate || candidate.user_id !== userId) {
+      return res
+        .status(404)
+        .json({ error: t('candidate.notFound', {}, { defaultValue: 'Candidate not found' }) })
+    }
+    const items = await findMany('notes', {
+      where: [
+        { field: 'user_id', operator: '=', value: userId },
+        { field: 'candidate_id', operator: '=', value: params.data.id },
+      ],
+      orderBy: [{ field: 'created_at', direction: 'desc' }],
+    })
+    res.json(items)
+  } catch (err) {
+    logger.error('candidates.notes_list_failed', err)
+    res
+      .status(500)
+      .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
+  }
+})
+
+router.post('/:id/notes', async (req: Request, res: Response) => {
+  try {
+    const userId = getUserId(res)
+    if (!userId)
+      return res
+        .status(401)
+        .json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+    const params = idParamSchema.safeParse({ id: getParamId(req) })
+    const body = noteBodySchema.safeParse(req.body)
+    if (!params.success || !body.success) {
+      return res.status(400).json({
+        error: t('validation.failed', {}, { defaultValue: 'Validation failed' }),
+        errors: [
+          ...(params.success ? [] : params.error.issues),
+          ...(body.success ? [] : body.error.issues),
+        ],
+      })
+    }
+    const candidate = await findById<Record<string, unknown>>('candidates', params.data.id)
+    if (!candidate || candidate.user_id !== userId) {
+      return res
+        .status(404)
+        .json({ error: t('candidate.notFound', {}, { defaultValue: 'Candidate not found' }) })
+    }
+    const result = await create('notes', {
+      user_id: userId,
+      candidate_id: params.data.id,
+      author_user_id: userId,
+      body: body.data.body,
+      created_at: new Date(),
+    })
+    res.status(201).json(result.data)
+  } catch (err) {
+    logger.error('candidates.note_create_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

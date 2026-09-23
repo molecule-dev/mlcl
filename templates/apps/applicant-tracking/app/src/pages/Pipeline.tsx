@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -39,6 +40,13 @@ const VISIBLE_STAGES: Exclude<Stage, 'rejected'>[] = [
   'offer',
   'hired',
 ]
+
+/** The next stage in the funnel, or null when already hired. */
+function nextStageOf(stage: Stage): Stage | null {
+  const idx = VISIBLE_STAGES.indexOf(stage as (typeof VISIBLE_STAGES)[number])
+  if (idx < 0 || idx >= VISIBLE_STAGES.length - 1) return null
+  return VISIBLE_STAGES[idx + 1] ?? null
+}
 
 const STAGE_LABEL_DEFAULT: Record<Stage, string> = {
   sourced: 'Sourced',
@@ -82,15 +90,21 @@ export function Pipeline() {
   const moveCandidate = useCallback(
     async (candidateId: string, nextStage: Stage) => {
       setMoveError(null)
+      let fromStage: Stage | undefined
       setCandidates((current) => {
         const target = current.find((c) => c.id === candidateId)
         if (!target || target.stage === nextStage) return current
+        fromStage = target.stage
         return current.map((c) =>
           c.id === candidateId ? { ...c, stage: nextStage, days_in_stage: 0 } : c,
         )
       })
       try {
         await http.put(`/api/candidates/${candidateId}`, { stage: nextStage })
+        track({
+          name: 'application.status_changed',
+          properties: { candidate_id: candidateId, from: fromStage, to: nextStage },
+        })
       } catch (err) {
         const message = err instanceof Error ? err.message : ''
         setMoveError(
@@ -162,7 +176,7 @@ export function Pipeline() {
     )
 
   return (
-    <div data-mol-id="page-pipeline" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
+    <div data-mol-id="page-pipeline" className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8')}>
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
           <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
@@ -268,7 +282,7 @@ export function Pipeline() {
                 if (id) void moveCandidate(id, stage)
               }}
               className={cm.cn(
-                'rounded-2xl border border-outline-variant/20 bg-surface-container-low overflow-hidden flex flex-col min-h-[400px]',
+                'rounded-2xl border border-outline-variant/20 bg-surface-container-low overflow-hidden flex flex-col min-h-[160px] md:min-h-[400px]',
                 isDropTarget && 'ring-2 ring-primary/40',
               )}
               style={{ borderTopColor: STAGE_FG[stage], borderTopWidth: '4px' }}
@@ -393,6 +407,37 @@ export function Pipeline() {
                           </span>
                         </div>
                       </Link>
+                      {/* Touch-friendly stage advance: drag-and-drop does not
+                          exist on touch screens, so small screens get a tap
+                          target to move the candidate one step forward. */}
+                      {nextStageOf(c.stage ?? 'sourced') ? (
+                        <button
+                          type="button"
+                          data-mol-id="pipeline-card-advance"
+                          onClick={() => {
+                            const next = nextStageOf(c.stage ?? 'sourced')
+                            if (next) void moveCandidate(c.id, next)
+                          }}
+                          className={cm.cn(
+                            cm.sp('mt', 2),
+                            cm.sp('px', 3),
+                            cm.sp('py', 2),
+                            cm.textSize('xs'),
+                            cm.fontWeight('semibold'),
+                            'md:hidden w-full rounded-lg border border-outline-variant/30 text-on-surface hover:bg-surface-container-low min-h-[36px]',
+                          )}
+                        >
+                          {t('pipeline.advanceTo', {}, { defaultValue: 'Advance' })} →{' '}
+                          {t(
+                            `pipeline.stage.${nextStageOf(c.stage ?? 'sourced')}`,
+                            {},
+                            {
+                              defaultValue:
+                                STAGE_LABEL_DEFAULT[nextStageOf(c.stage ?? 'sourced') ?? 'hired'],
+                            },
+                          )}
+                        </button>
+                      ) : null}
                     </li>
                   ))
                 )}

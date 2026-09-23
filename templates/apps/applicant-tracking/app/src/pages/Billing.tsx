@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,6 +59,7 @@ export function Billing() {
   const [error, setError] = useState<string | null>(null)
   const [actionMessage, setActionMessage] = useState<string | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
+  const [pendingAction, setPendingAction] = useState<'seats' | 'upgrade' | 'card' | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -84,38 +86,57 @@ export function Billing() {
   async function manageSeats() {
     setActionError(null)
     setActionMessage(null)
+    setPendingAction('seats')
     try {
-      await http.post('/api/billing/seats', { seats: (plan?.seats ?? 1) + 1 })
+      const nextSeats = (plan?.seats ?? 1) + 1
+      await http.post('/api/billing/seats', { seats: nextSeats })
+      setPlan((p) => (p ? { ...p, seats: nextSeats } : p))
+      track({ name: 'billing.seats_updated', properties: { seats: nextSeats } })
       setActionMessage(t('billing.seatsAdded', {}, { defaultValue: 'Seat count updated.' }))
     } catch (err) {
       const message = err instanceof Error ? err.message : ''
       setActionError(
-        message ||
-          t(
-            'billing.seatsError',
-            {},
-            { defaultValue: 'This plan is single-seat. Upgrade to Team for multi-seat usage.' },
-          ),
+        message || t('billing.seatsError', {}, { defaultValue: 'Could not update seats.' }),
       )
+    } finally {
+      setPendingAction(null)
     }
   }
 
   async function upgradePlan() {
     setActionError(null)
     setActionMessage(null)
+    setPendingAction('upgrade')
     try {
-      const result = await http.post<{ checkoutUrl?: string; updated?: boolean }>(
-        '/api/billing/upgrade',
-        { plan: 'team' },
-      )
+      const result = await http.post<{
+        checkoutUrl?: string
+        updated?: boolean
+        unconfigured?: boolean
+      }>('/api/billing/upgrade', { plan: 'team' })
       const data =
-        (result as { data?: { checkoutUrl?: string; updated?: boolean } }).data ??
-        (result as { checkoutUrl?: string; updated?: boolean })
+        (result as { data?: { checkoutUrl?: string; updated?: boolean; unconfigured?: boolean } })
+          .data ?? (result as { checkoutUrl?: string; updated?: boolean; unconfigured?: boolean })
+      if (data?.unconfigured) {
+        track({ name: 'billing.upgrade_blocked_unconfigured', properties: { plan: 'team' } })
+        setActionMessage(
+          t(
+            'billing.upgradeUnconfigured',
+            {},
+            {
+              defaultValue:
+                'Online upgrades are disabled — this deployment has no payment provider configured.',
+            },
+          ),
+        )
+        return
+      }
       if (data?.checkoutUrl) {
+        track({ name: 'billing.upgrade_started', properties: { plan: 'team' } })
         window.location.assign(data.checkoutUrl)
         return
       }
       if (data?.updated) {
+        track({ name: 'billing.upgrade_applied', properties: { plan: 'team' } })
         setActionMessage(
           t(
             'billing.upgradeApplied',
@@ -134,19 +155,25 @@ export function Billing() {
           ? err.message
           : t('nav.couldNotStartCheckout', {}, { defaultValue: 'Could not start checkout.' }),
       )
+    } finally {
+      setPendingAction(null)
     }
   }
 
   async function updateCard() {
     setActionError(null)
     setActionMessage(null)
+    setPendingAction('card')
     try {
       await http.post('/api/billing/card-link', {})
       setActionMessage(
         t(
-          'billing.cardLinkSent',
+          'billing.cardLinkUnavailable',
           {},
-          { defaultValue: 'Card-update flow started — check your email.' },
+          {
+            defaultValue:
+              'Card updates are not available — this deployment has no payment provider configured.',
+          },
         ),
       )
     } catch (err) {
@@ -159,11 +186,13 @@ export function Billing() {
               { defaultValue: 'Could not start the update-card flow.' },
             ),
       )
+    } finally {
+      setPendingAction(null)
     }
   }
 
   return (
-    <div data-mol-id="page-billing" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
+    <div data-mol-id="page-billing" className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8')}>
       <header>
         <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
           {t('billing.eyebrow', {}, { defaultValue: 'Plan & usage' })}
@@ -250,12 +279,15 @@ export function Billing() {
                 cm.sp('py', 2.5),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-xl bg-surface/15 backdrop-blur-md text-on-primary border border-surface/15 hover:bg-surface/20 transition-colors',
+                'rounded-xl bg-surface/15 backdrop-blur-md text-on-primary border border-surface/15 hover:bg-surface/20 transition-colors disabled:opacity-60',
               )}
               onClick={manageSeats}
+              disabled={pendingAction !== null}
               data-mol-id="billing-manage-seats"
             >
-              {t('billing.manageSeats', {}, { defaultValue: 'Manage seats' })}
+              {pendingAction === 'seats'
+                ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                : t('billing.manageSeats', {}, { defaultValue: 'Manage seats' })}
             </button>
             <button
               type="button"
@@ -265,18 +297,21 @@ export function Billing() {
                 cm.sp('py', 2.5),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-xl bg-surface/95 text-primary hover:bg-surface transition-colors',
+                'rounded-xl bg-surface/95 text-primary hover:bg-surface transition-colors disabled:opacity-60',
               )}
               onClick={upgradePlan}
+              disabled={pendingAction !== null}
             >
-              {t('billing.upgrade', {}, { defaultValue: 'Upgrade to Team' })}
+              {pendingAction === 'upgrade'
+                ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+                : t('billing.upgrade', {}, { defaultValue: 'Upgrade to Team' })}
             </button>
           </div>
         </div>
       </section>
 
       {/* Usage gauges */}
-      <div className={cm.grid({ cols: 3, gap: 'md' })}>
+      <div className={cm.cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-3')}>
         {usage === null ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant col-span-3')}>
             {t('billing.usageLoading', {}, { defaultValue: 'Loading usage…' })}
@@ -388,11 +423,14 @@ export function Billing() {
               cm.sp('py', 2),
               cm.fontWeight('semibold'),
               cm.textSize('xs'),
-              'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors',
+              'rounded-xl border border-outline-variant/30 text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-60',
             )}
             onClick={updateCard}
+            disabled={pendingAction !== null}
           >
-            {t('billing.editCard', {}, { defaultValue: 'Update card' })}
+            {pendingAction === 'card'
+              ? t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })
+              : t('billing.editCard', {}, { defaultValue: 'Update card' })}
           </button>
         </section>
 

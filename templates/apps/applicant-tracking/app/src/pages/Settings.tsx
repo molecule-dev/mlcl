@@ -213,7 +213,7 @@ export function Settings() {
   return (
     <div
       data-mol-id="page-settings"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.grid({ cols: 12, gap: 'lg' }))}
+      className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8', cm.grid({ cols: 12, gap: 'lg' }))}
     >
       <aside className={cm.cn('col-span-12 md:col-span-3')}>
         <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 4))}>

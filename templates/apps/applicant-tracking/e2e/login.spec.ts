@@ -48,11 +48,18 @@ test.describe('login page', () => {
   })
 
   test('invalid credentials surface an error and stay on /login', async ({ page }) => {
+    // The 403 from POST /users/log-in is the expected server response — the
+    // browser logs it as a console error, which the console guard would fail
+    // the test on without this annotation.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.getByLabel(/email/i).fill(`nobody-${Date.now()}@example.com`)
     await page.getByLabel(/^password$/i).fill('WrongPassword!1')
     await page.getByRole('button', { name: /^sign in$/i }).click()
-    await page.waitForTimeout(2000)
+    await expect(page.locator('[data-mol-id="login-error"]')).toBeVisible()
     await expect(page).toHaveURL(/\/login$/)
   })
 

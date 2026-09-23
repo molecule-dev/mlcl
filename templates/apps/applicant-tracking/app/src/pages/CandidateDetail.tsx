@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -22,6 +23,12 @@ interface ActivityEvent {
   occurred_at: string
   actor: string
   action: string
+}
+
+interface NoteItem {
+  id: string
+  body: string
+  created_at: string
 }
 
 interface CandidateDetail {
@@ -132,6 +139,56 @@ export function CandidateDetail() {
   const [interviewer, setInterviewer] = useState<string>('')
   const [scheduling, setScheduling] = useState(false)
   const [scheduleError, setScheduleError] = useState<string | null>(null)
+  const [fetchedNotes, setFetchedNotes] = useState<NoteItem[]>([])
+  const [noteBody, setNoteBody] = useState('')
+  const [noteSaving, setNoteSaving] = useState(false)
+  const [noteError, setNoteError] = useState<string | null>(null)
+
+  function refreshNotes(candidateId: string) {
+    return http
+      .get(`/api/candidates/${candidateId}/notes`)
+      .then((res) => {
+        const list = Array.isArray(res) ? res : ((res as { data?: unknown })?.data ?? [])
+        setFetchedNotes((Array.isArray(list) ? list : []) as NoteItem[])
+      })
+      .catch(() => setFetchedNotes([]))
+  }
+
+  async function handleAddNote(e: React.FormEvent) {
+    e.preventDefault()
+    if (!candidate || !noteBody.trim()) {
+      setNoteError(t('candidateDetail.noteEmpty', {}, { defaultValue: 'Write something first.' }))
+      return
+    }
+    setNoteSaving(true)
+    setNoteError(null)
+    try {
+      const res = await http.post<NoteItem>(`/api/candidates/${candidate.id}/notes`, {
+        body: noteBody.trim(),
+      })
+      const created = (res as unknown as { data?: NoteItem }).data ?? (res as unknown as NoteItem)
+      setFetchedNotes((prev) => [
+        {
+          id: created?.id ?? `local-${Date.now()}`,
+          body: noteBody.trim(),
+          created_at: created?.created_at ?? new Date().toISOString(),
+        },
+        ...prev,
+      ])
+      setNoteBody('')
+      track({
+        name: 'note.added',
+        properties: { candidate_id: candidate.id },
+      })
+    } catch (err) {
+      const message = err instanceof Error ? err.message : ''
+      setNoteError(
+        message || t('candidateDetail.noteError', {}, { defaultValue: 'Could not save the note.' }),
+      )
+    } finally {
+      setNoteSaving(false)
+    }
+  }
 
   function refreshInterviews(candidateId: string) {
     return http
@@ -162,6 +219,7 @@ export function CandidateDetail() {
         if (!cancelled) setLoading(false)
       })
     void refreshInterviews(id)
+    void refreshNotes(id)
     return () => {
       cancelled = true
     }
@@ -188,9 +246,20 @@ export function CandidateDetail() {
       if (candidate.job_id) payload.job_id = candidate.job_id
       const interviewerName = interviewer.trim()
       if (interviewerName) payload.notes = `Interviewer: ${interviewerName}`
-      await http.post('/api/interviews', payload)
+      const res = await http.post<{ id?: string }>('/api/interviews', payload)
+      const created =
+        ((res as { data?: { id?: string } }).data as { id?: string } | undefined) ??
+        (res as { id?: string })
       await refreshInterviews(candidate.id)
       setInterviewer('')
+      track({
+        name: 'interview.scheduled',
+        properties: {
+          interview_id: created?.id,
+          candidate_id: candidate.id,
+          duration_minutes: interviewMinutes,
+        },
+      })
     } catch (err) {
       const message = err instanceof Error ? err.message : ''
       setScheduleError(
@@ -216,6 +285,12 @@ export function CandidateDetail() {
     setCandidate({ ...candidate, stage: target })
     http
       .put(`/api/candidates/${candidate.id}`, { stage: target })
+      .then(() => {
+        track({
+          name: 'application.status_changed',
+          properties: { candidate_id: candidate.id, from: previous.stage ?? 'sourced', to: target },
+        })
+      })
       .catch(() => {
         setCandidate(previous)
         setAdvanceError(
@@ -275,13 +350,21 @@ export function CandidateDetail() {
   const resumeSummary = candidate.resume_summary ?? []
   const interviews = scheduledInterviews.length ? scheduledInterviews : (candidate.interviews ?? [])
   const activity = candidate.activity ?? []
-  const notes = candidate.notes ?? []
+  // Server-fetched notes are the source of truth; fall back to any notes the
+  // detail payload carried inline (legacy shape: bare strings).
+  const noteList: NoteItem[] = fetchedNotes.length
+    ? fetchedNotes
+    : (candidate.notes ?? []).map((body, i) => ({
+        id: `inline-${i}`,
+        body,
+        created_at: '',
+      }))
   const appliedAt = candidate.applied_at ?? candidate.created_at ?? new Date().toISOString()
 
   return (
     <div
       data-mol-id="page-candidate-detail"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}
+      className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8 space-y-6')}
     >
       <Link
         to="/candidates"
@@ -454,7 +537,7 @@ export function CandidateDetail() {
                       {scheduleError}
                     </p>
                   ) : null}
-                  <div className={cm.grid({ cols: 3, gap: 'sm' })}>
+                  <div className={cm.cn('grid gap-3 md:grid-cols-3')}>
                     <label
                       className={cm.cn(
                         cm.textSize('xs'),
@@ -624,19 +707,94 @@ export function CandidateDetail() {
               </div>
             )}
             {tab === 'notes' && (
-              <div className={cm.cn(cm.sp('p', 6), 'space-y-2')}>
-                {notes.length === 0 ? (
+              <div className={cm.cn(cm.sp('p', 6), 'space-y-4')}>
+                <form
+                  onSubmit={handleAddNote}
+                  data-mol-id="candidate-note-form"
+                  className={cm.cn(
+                    cm.sp('p', 4),
+                    'border border-outline-variant rounded-md space-y-3',
+                  )}
+                >
+                  <label
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      cm.flex({ direction: 'col', gap: 'xs' }),
+                    )}
+                    htmlFor="candidate-note-input"
+                  >
+                    {t('candidateDetail.addNote', {}, { defaultValue: 'Add a note' })}
+                    <textarea
+                      id="candidate-note-input"
+                      value={noteBody}
+                      onChange={(e) => setNoteBody(e.target.value)}
+                      rows={3}
+                      placeholder={t(
+                        'candidateDetail.notePlaceholder',
+                        {},
+                        { defaultValue: 'Share feedback, interview impressions, next steps…' },
+                      )}
+                      data-mol-id="candidate-note-input"
+                      className={cm.cn(
+                        cm.sp('px', 3),
+                        cm.sp('py', 2),
+                        cm.textSize('sm'),
+                        'border border-outline-variant rounded-md bg-surface-container-lowest w-full',
+                      )}
+                    />
+                  </label>
+                  {noteError ? (
+                    <p
+                      role="alert"
+                      data-mol-id="candidate-note-error"
+                      className={cm.cn(cm.textSize('xs'), 'text-error')}
+                    >
+                      {noteError}
+                    </p>
+                  ) : null}
+                  <div className={cm.flex({ justify: 'end' })}>
+                    <button
+                      type="submit"
+                      disabled={noteSaving}
+                      data-mol-id="candidate-note-submit"
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 2),
+                        cm.fontWeight('semibold'),
+                        cm.textSize('sm'),
+                        'rounded-md bg-primary text-on-primary disabled:opacity-50',
+                      )}
+                    >
+                      {noteSaving
+                        ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                        : t('candidateDetail.noteSave', {}, { defaultValue: 'Save note' })}
+                    </button>
+                  </div>
+                </form>
+                {noteList.length === 0 ? (
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t('candidateDetail.noNotes', {}, { defaultValue: 'No notes yet.' })}
                   </p>
                 ) : (
-                  notes.map((n, i) => (
-                    <p
-                      key={i}
-                      className={cm.cn(cm.textSize('sm'), 'border-l-2 border-primary pl-3')}
+                  noteList.map((n) => (
+                    <div
+                      key={n.id}
+                      className={cm.cn(cm.sp('py', 2), 'border-l-2 border-primary pl-3')}
                     >
-                      {n}
-                    </p>
+                      <p className={cm.cn(cm.textSize('sm'))}>{n.body}</p>
+                      {n.created_at ? (
+                        <p
+                          className={cm.cn(
+                            cm.textSize('xs'),
+                            'text-on-surface-variant',
+                            cm.sp('mt', 1),
+                          )}
+                        >
+                          {fmtDateTime(n.created_at)}
+                        </p>
+                      ) : null}
+                    </div>
                   ))
                 )}
               </div>

@@ -66,12 +66,12 @@ export function Reports() {
   const maxStage = Math.max(...timeInStage.map((s) => s.days), 1)
 
   return (
-    <div data-mol-id="page-reports" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
+    <div data-mol-id="page-reports" className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8 space-y-6')}>
       <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
         {t('nav.reports', {}, { defaultValue: 'Reports' })}
       </h1>
 
-      <div className={cm.grid({ cols: 4, gap: 'md' })}>
+      <div className={cm.cn('grid gap-4 sm:grid-cols-2 lg:grid-cols-4')}>
         {kpi.map((k) => (
           <div key={k.label} className={cm.cn(cm.card(), cm.sp('p', 5))}>
             <p

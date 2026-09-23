@@ -101,7 +101,7 @@ export function Landing() {
   const footerLinkClass = cm.cn(
     cm.textSize('sm'),
     cm.fontWeight('semibold'),
-    'hover:text-primary transition-colors',
+    'hover:text-primary transition-colors inline-block py-2',
   )
 
   return (
@@ -154,7 +154,7 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface transition-colors',
+                    'text-on-surface-variant hover:text-on-surface transition-colors py-2',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}

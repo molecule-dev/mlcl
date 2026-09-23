@@ -1,9 +1,12 @@
 import { type Request, type Response, Router } from 'express'
+import { z } from 'zod'
 
-import { createBillingRouter } from '@molecule/api-bonds-default-express'
-import { getUserId } from '@molecule/api-bonds-default-express'
-import { findById, findMany } from '@molecule/api-database'
+import { get as getBond } from '@molecule/api-bond'
+import { createBillingRouter, getUserId } from '@molecule/api-bonds-default-express'
+import { findById, findMany, updateById } from '@molecule/api-database'
 import { getProvider as getTierRegistry } from '@molecule/api-entitlements'
+import { logger } from '@molecule/api-logger'
+import type { PaymentProvider } from '@molecule/api-payments'
 
 import {
   type ApplicantTrackingLimits,
@@ -12,6 +15,14 @@ import {
 } from '../tiers.js'
 
 const router = Router()
+
+const seatsSchema = z.object({
+  seats: z.number().int().min(1).max(999),
+})
+
+const upgradeSchema = z.object({
+  plan: z.string().min(1).max(64),
+})
 
 interface UserRow {
   planKey?: string | null
@@ -103,6 +114,109 @@ router.get('/invoices', async (_req: Request, res: Response): Promise<void> => {
     url: extractInvoiceUrl(p.data),
   }))
   res.json({ data })
+})
+
+/**
+ * POST /billing/seats — persist the signed-in user's seat count.
+ * The `users.seats` column is created by migration
+ * 1779000000002_add_user_seats.sql; the free tier is single-seat by
+ * convention but the count itself is user-manageable on any plan.
+ */
+router.post('/seats', async (req: Request, res: Response): Promise<void> => {
+  const userId = getUserId(res)
+  if (!userId) {
+    res.status(401).json({ error: 'Unauthorized' })
+    return
+  }
+  const parsed = seatsSchema.safeParse(req.body)
+  if (!parsed.success) {
+    res.status(400).json({
+      error: 'Validation failed',
+      errors: parsed.error.issues,
+    })
+    return
+  }
+  try {
+    await updateById('users', userId, { seats: parsed.data.seats })
+    logger.info('billing.seats_updated', { userId, seats: parsed.data.seats })
+    res.json({ seats: parsed.data.seats })
+  } catch (err) {
+    logger.error('billing.seats_update_failed', err)
+    res.status(500).json({ error: 'Could not update seats. Try again later.' })
+  }
+})
+
+/**
+ * POST /billing/upgrade — start the plan-upgrade flow for a paid tier.
+ * With Stripe configured (a `stripePriceId` on the tier's prices) this
+ * delegates to the bonded payment provider exactly like `POST /billing/checkout`
+ * and returns `{ checkoutUrl }` or `{ updated: true }`. Without Stripe
+ * configuration the flow cannot start: the response is
+ * `{ unconfigured: true }` (NOT an error) so the UI can explain instead of
+ * the browser logging a failed request.
+ */
+router.post('/upgrade', async (req: Request, res: Response): Promise<void> => {
+  const userId = getUserId(res)
+  if (!userId) {
+    res.status(401).json({ error: 'Unauthorized' })
+    return
+  }
+  const parsed = upgradeSchema.safeParse(req.body)
+  if (!parsed.success) {
+    res.status(400).json({
+      error: 'Validation failed',
+      errors: parsed.error.issues,
+    })
+    return
+  }
+  const tier = getPricingTiers().find((p) => p.key === parsed.data.plan)
+  const price = tier?.prices.find((p) => p.stripePriceId) ?? tier?.prices[0]
+  const priceId = price?.stripePriceId
+  if (!priceId) {
+    logger.info('billing.upgrade_unconfigured', { userId, plan: parsed.data.plan })
+    res.json({ unconfigured: true })
+    return
+  }
+  const provider = getBond<PaymentProvider>('payments', 'stripe')
+  if (!provider?.updateSubscription) {
+    logger.info('billing.upgrade_unconfigured', { userId, plan: parsed.data.plan })
+    res.json({ unconfigured: true })
+    return
+  }
+  try {
+    const result = await provider.updateSubscription({ userId, newProductId: priceId })
+    if (result.checkoutUrl) {
+      logger.info('billing.upgrade_checkout_started', { userId, plan: parsed.data.plan })
+      res.json({ checkoutUrl: result.checkoutUrl })
+      return
+    }
+    if (result.updated) {
+      logger.info('billing.upgrade_applied', { userId, plan: parsed.data.plan })
+      res.json({ updated: true, subscription: result.subscription })
+      return
+    }
+    res.status(502).json({ error: 'Could not start checkout. Try again later.' })
+  } catch (err) {
+    logger.error('billing.upgrade_failed', err)
+    res.status(500).json({ error: 'Could not start checkout. Try again later.' })
+  }
+})
+
+/**
+ * POST /billing/card-link — start the update-card flow. The bonded payment
+ * provider interface (`PaymentProvider`) exposes no hosted card-update or
+ * billing-portal session, so there is currently no flow to start: the honest
+ * contract is `{ unconfigured: true }` (200), which the UI renders as a
+ * neutral explanation instead of a failed request in the console.
+ */
+router.post('/card-link', async (_req: Request, res: Response): Promise<void> => {
+  const userId = getUserId(res)
+  if (!userId) {
+    res.status(401).json({ error: 'Unauthorized' })
+    return
+  }
+  logger.info('billing.card_link_unavailable', { userId })
+  res.json({ unconfigured: true })
 })
 
 router.use(

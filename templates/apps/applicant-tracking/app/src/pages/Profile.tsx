@@ -122,7 +122,7 @@ export function Profile() {
   }
 
   return (
-    <div data-mol-id="page-profile" className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8))}>
+    <div data-mol-id="page-profile" className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8')}>
       <header>
         <p className={cm.cn('text-[10px] font-black uppercase tracking-widest text-primary')}>
           {t('nav.yourAccount', {}, { defaultValue: 'Your account' })}
@@ -180,7 +180,7 @@ export function Profile() {
           </div>
         </div>
 
-        <div className={cm.cn(cm.sp('mt', 6), cm.grid({ cols: 2, gap: 'md' }))}>
+        <div className={cm.cn(cm.sp('mt', 6), 'grid gap-4 md:grid-cols-2')}>
           <Field
             id="name"
             label={t('form.displayName', {}, { defaultValue: 'Display name' })}

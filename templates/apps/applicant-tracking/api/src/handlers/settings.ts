@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -105,7 +106,7 @@ router.get('/team', async (_req: Request, res: Response) => {
     const { user, settings } = await loadSettings(userId)
     res.json([ownerMember(user), ...(settings.team_invites ?? [])])
   } catch (err) {
-    console.error('GET /settings/team failed', err)
+    logger.error('settings.team_get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -139,7 +140,7 @@ router.post('/team/invite', async (req: Request, res: Response) => {
     await saveSettings(user, next)
     res.status(201).json(member)
   } catch (err) {
-    console.error('POST /settings/team/invite failed', err)
+    logger.error('settings.team_invite_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -158,7 +159,7 @@ router.delete('/team/:id', async (req: Request, res: Response) => {
     await saveSettings(user, next)
     res.status(204).end()
   } catch (err) {
-    console.error('DELETE /settings/team/:id failed', err)
+    logger.error('settings.team_remove_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -178,7 +179,7 @@ router.get('/integrations', async (_req: Request, res: Response) => {
     const { settings } = await loadSettings(userId)
     res.json(settings.integrations ?? DEFAULT_INTEGRATIONS.map((i) => ({ ...i })))
   } catch (err) {
-    console.error('GET /settings/integrations failed', err)
+    logger.error('settings.integrations_get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -201,7 +202,7 @@ router.put('/integrations/:id', async (req: Request, res: Response) => {
     await saveSettings(user, { ...settings, integrations: list })
     res.json(list[idx])
   } catch (err) {
-    console.error('PUT /settings/integrations/:id failed', err)
+    logger.error('settings.integrations_update_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -215,7 +216,7 @@ router.get('/pipeline-stages', async (_req: Request, res: Response) => {
     const { settings } = await loadSettings(userId)
     res.json(settings.pipeline_stages ?? DEFAULT_STAGES.map((s) => ({ ...s })))
   } catch (err) {
-    console.error('GET /settings/pipeline-stages failed', err)
+    logger.error('settings.stages_get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -234,7 +235,7 @@ router.delete('/pipeline-stages/:id', async (req: Request, res: Response) => {
     })
     res.status(204).end()
   } catch (err) {
-    console.error('DELETE /settings/pipeline-stages/:id failed', err)
+    logger.error('settings.stages_delete_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

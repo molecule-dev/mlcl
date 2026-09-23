@@ -3,6 +3,7 @@ import { type Request, type Response, Router } from 'express'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -47,7 +48,7 @@ router.get('/', async (_req: Request, res: Response) => {
     if (!user) return unauthorized(res)
     res.json(readProfile(user))
   } catch (err) {
-    console.error('GET /profile failed', err)
+    logger.error('profile.get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -72,7 +73,7 @@ router.put('/', async (req: Request, res: Response) => {
     await updateById('users', userId, { oauthData })
     res.json(next)
   } catch (err) {
-    console.error('PUT /profile failed', err)
+    logger.error('profile.update_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -93,7 +94,7 @@ router.get('/recent-hires', async (_req: Request, res: Response) => {
     })
     res.json(candidates)
   } catch (err) {
-    console.error('GET /profile/recent-hires failed', err)
+    logger.error('profile.recent_hires_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

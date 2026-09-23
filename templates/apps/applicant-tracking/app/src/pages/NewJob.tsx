@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -65,7 +66,7 @@ export function NewJob() {
     setSaving(true)
     setError(null)
     try {
-      await http.post('/api/jobs', {
+      const res = await http.post<{ id?: string }>('/api/jobs', {
         title,
         department,
         location,
@@ -79,6 +80,10 @@ export function NewJob() {
         salary_max: salaryMax ? Number(salaryMax) : null,
         ai_screening: aiScreening,
       })
+      const created =
+        ((res as { data?: { id?: string } }).data as { id?: string } | undefined) ??
+        (res as { id?: string })
+      track({ name: 'job.created', properties: { job_id: created?.id, title } })
       navigate('/jobs')
     } catch (err) {
       setError(
@@ -95,7 +100,7 @@ export function NewJob() {
     <form
       onSubmit={handleSubmit}
       data-mol-id="page-new-job"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.stack(8), 'pb-24')}
+      className={cm.cn(cm.sp('py', 8), cm.stack(8), 'px-4 md:px-8 pb-24')}
     >
       <header className={cm.flex({ align: 'end', justify: 'between', wrap: 'wrap', gap: 'md' })}>
         <div>
@@ -161,7 +166,7 @@ export function NewJob() {
               onChange={setTitle}
               required
             />
-            <div className={cm.grid({ cols: 2, gap: 'md' })}>
+            <div className={cm.cn('grid gap-4 md:grid-cols-2')}>
               <Field
                 id="department"
                 label={t('newJob.departmentLabel', {}, { defaultValue: 'Department' })}
@@ -223,7 +228,7 @@ export function NewJob() {
           </Section>
 
           <Section title={t('newJob.compHeading', {}, { defaultValue: 'Compensation' })}>
-            <div className={cm.grid({ cols: 2, gap: 'md' })}>
+            <div className={cm.cn('grid gap-4 md:grid-cols-2')}>
               <Field
                 id="salaryMin"
                 type="number"
@@ -338,7 +343,7 @@ export function NewJob() {
       {/* Sticky save bar */}
       <div
         className={cm.cn(
-          'fixed bottom-0 inset-x-0 lg:left-60 z-40 border-t border-outline-variant/30 bg-surface/90 backdrop-blur-md px-8 py-4 flex items-center justify-end gap-3',
+          'fixed bottom-0 inset-x-0 md:left-60 z-40 border-t border-outline-variant/30 bg-surface/90 backdrop-blur-md px-4 md:px-8 py-4 flex items-center justify-end gap-3',
         )}
       >
         <Link

@@ -8,6 +8,7 @@ import {
 } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
+import { logger } from '@molecule/api-logger'
 
 const router = Router()
 
@@ -62,7 +63,7 @@ router.get('/', async (req: Request, res: Response) => {
     })
     res.json(items)
   } catch (err) {
-    console.error('GET /applications failed', err)
+    logger.error('applications.list_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -91,7 +92,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
     res.json(item)
   } catch (err) {
-    console.error('GET /applications/:id failed', err)
+    logger.error('applications.get_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -126,7 +127,7 @@ router.post('/', async (req: Request, res: Response) => {
     })
     res.status(201).json(result.data)
   } catch (err) {
-    console.error('POST /applications failed', err)
+    logger.error('applications.create_failed', err)
     res.status(500).json({
       error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }),
     })
@@ -163,7 +164,7 @@ router.put('/:id', async (req: Request, res: Response) => {
     })
     res.json(result.data)
   } catch (err) {
-    console.error('PUT /applications/:id failed', err)
+    logger.error('applications.update_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })
@@ -193,7 +194,7 @@ router.delete('/:id', async (req: Request, res: Response) => {
     await deleteById('applications', params.data.id)
     res.status(204).end()
   } catch (err) {
-    console.error('DELETE /applications/:id failed', err)
+    logger.error('applications.delete_failed', err)
     res
       .status(500)
       .json({ error: t('errors.internalServer', {}, { defaultValue: 'Internal server error' }) })

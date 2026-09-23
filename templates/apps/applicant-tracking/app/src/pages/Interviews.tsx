@@ -114,10 +114,7 @@ export function Interviews() {
   }
 
   return (
-    <div
-      data-mol-id="page-interviews"
-      className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}
-    >
+    <div data-mol-id="page-interviews" className={cm.cn(cm.sp('py', 8), 'px-4 md:px-8 space-y-6')}>
       <header className={cm.flex({ align: 'center', justify: 'between' })}>
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
@@ -134,71 +131,85 @@ export function Interviews() {
       </header>
 
       <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-        <div className={cm.cn(cm.grid({ cols: 7, gap: 'sm' }), cm.sp('p', 4))}>
-          {days.map((d) => {
-            const dk = dayKey(d.toISOString())
-            const todays = interviews
-              .filter((iv) => dayKey(iv.scheduled_at) === dk)
-              .sort((a, b) => a.scheduled_at.localeCompare(b.scheduled_at))
-            const isToday = dk === dayKey(new Date().toISOString())
-            return (
-              <div
-                key={dk}
-                className={cm.cn(
-                  'min-h-[280px]',
-                  cm.sp('p', 3),
-                  'rounded-md',
-                  isToday ? 'bg-primary-container' : 'bg-surface-container',
-                )}
-              >
-                <header
+        {/* 7 day columns: horizontal scroll below md so the columns keep a
+            usable width instead of cramming into the viewport (playbook:
+            horizontal scroll is acceptable when it is a real scroll area). */}
+        <div className={cm.cn('overflow-x-auto')}>
+          <div
+            className={cm.cn('grid grid-cols-7 gap-2 md:gap-3 min-w-[760px]', cm.sp('p', 4))}
+            data-mol-id="interviews-week-grid"
+          >
+            {days.map((d) => {
+              const dk = dayKey(d.toISOString())
+              const todays = interviews
+                .filter((iv) => dayKey(iv.scheduled_at) === dk)
+                .sort((a, b) => a.scheduled_at.localeCompare(b.scheduled_at))
+              const isToday = dk === dayKey(new Date().toISOString())
+              return (
+                <div
+                  key={dk}
                   className={cm.cn(
-                    cm.textSize('xs'),
-                    cm.fontWeight('semibold'),
-                    'uppercase tracking-wide',
-                    isToday ? cm.textPrimary : 'text-on-surface-variant',
+                    'min-h-[220px] md:min-h-[280px]',
+                    cm.sp('p', 3),
+                    'rounded-md',
+                    isToday ? 'bg-primary-container' : 'bg-surface-container',
                   )}
                 >
-                  {fmtDayLabel(d.toISOString())}
-                </header>
-                <ul className={cm.cn(cm.sp('mt', 3), 'space-y-2')}>
-                  {todays.length === 0 ? (
-                    <li className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>—</li>
-                  ) : (
-                    todays.map((iv) => (
-                      <li key={iv.id}>
-                        <Link
-                          to={`/candidates/${iv.candidate_id}`}
-                          className={cm.cn(cm.sp('p', 2), 'block rounded-md hover:opacity-90')}
-                          style={{
-                            backgroundColor: STAGE_BG[iv.stage],
-                            borderLeft: `3px solid ${STAGE_FG[iv.stage]}`,
-                          }}
-                        >
-                          <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
-                            {fmtTime(iv.scheduled_at)} · {iv.duration_minutes}m
-                          </p>
-                          <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
-                            {iv.candidate_name}
-                          </p>
-                          <p className={cm.cn(cm.textSize('xs'))}>{iv.job_title}</p>
-                          <p
-                            className={cm.cn(
-                              cm.textSize('xs'),
-                              'text-on-surface-variant',
-                              'truncate',
-                            )}
+                  <header
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-wide whitespace-nowrap',
+                      isToday ? cm.textPrimary : 'text-on-surface-variant',
+                    )}
+                  >
+                    {fmtDayLabel(d.toISOString())}
+                  </header>
+                  <ul className={cm.cn(cm.sp('mt', 3), 'space-y-2')}>
+                    {todays.length === 0 ? (
+                      <li className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>—</li>
+                    ) : (
+                      todays.map((iv) => (
+                        <li key={iv.id}>
+                          <Link
+                            to={`/candidates/${iv.candidate_id}`}
+                            className={cm.cn(cm.sp('p', 2), 'block rounded-md hover:opacity-90')}
+                            style={{
+                              backgroundColor: STAGE_BG[iv.stage],
+                              borderLeft: `3px solid ${STAGE_FG[iv.stage]}`,
+                            }}
                           >
-                            w/ {(iv.panel ?? []).join(', ')}
-                          </p>
-                        </Link>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              </div>
-            )
-          })}
+                            <p className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}>
+                              {fmtTime(iv.scheduled_at)} · {iv.duration_minutes}m
+                            </p>
+                            <p
+                              className={cm.cn(
+                                cm.textSize('xs'),
+                                cm.fontWeight('semibold'),
+                                'truncate',
+                              )}
+                            >
+                              {iv.candidate_name}
+                            </p>
+                            <p className={cm.cn(cm.textSize('xs'), 'truncate')}>{iv.job_title}</p>
+                            <p
+                              className={cm.cn(
+                                cm.textSize('xs'),
+                                'text-on-surface-variant',
+                                'truncate',
+                              )}
+                            >
+                              w/ {(iv.panel ?? []).join(', ')}
+                            </p>
+                          </Link>
+                        </li>
+                      ))
+                    )}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
     </div>
