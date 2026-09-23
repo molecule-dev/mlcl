@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -83,11 +84,16 @@ export function Reviews() {
         )
         return
       }
-      await client.post<ReviewRow>('/api/reviews', {
+      const created = await client.post<ReviewRow>('/api/reviews', {
         employee_user_id: employeeId,
         reviewer_user_id: employeeId,
         status: 'draft',
         summary: '',
+      })
+      // Domain event (fire-and-forget; no-ops without an analytics provider).
+      track({
+        name: 'review.created',
+        properties: { review_id: created.data?.id, status: created.data?.status },
       })
       void refetch()
     } catch (err) {
@@ -136,7 +142,7 @@ export function Reviews() {
             cm.sp('py', 2),
             cm.fontWeight('bold'),
             cm.textSize('sm'),
-            'rounded-xl bg-primary text-on-primary hover:opacity-90 transition-colors disabled:opacity-60',
+            'shrink-0 whitespace-nowrap rounded-xl bg-primary text-on-primary hover:opacity-90 transition-colors disabled:opacity-60',
           )}
         >
           {creating

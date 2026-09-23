@@ -287,7 +287,9 @@ export function Dashboard() {
             <Link
               to="/objectives"
               className={cm.cn(
-                'text-sm font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
+                // inline-flex + py: a bare text link is ~20px tall — under the
+                // mobile tap-target floor (fleet-qa 2026-09-22).
+                'inline-flex items-center py-2 text-sm font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
               )}
             >
               {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
@@ -434,7 +436,7 @@ export function Dashboard() {
             <Link
               to="/notifications"
               className={cm.cn(
-                'text-xs font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
+                'inline-flex items-center py-2 text-xs font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
               )}
             >
               {t('dashboard.allActivity', {}, { defaultValue: 'See all activity →' })}
@@ -482,7 +484,7 @@ export function Dashboard() {
             <Link
               to="/check-in"
               className={cm.cn(
-                'text-xs font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
+                'inline-flex items-center py-2 text-xs font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
               )}
             >
               {t('dashboard.coachCta', {}, { defaultValue: 'Open weekly check-in →' })}

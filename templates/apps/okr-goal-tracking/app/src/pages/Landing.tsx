@@ -100,7 +100,11 @@ export function Landing() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('medium'),
-              'text-on-surface-variant hover:text-on-surface transition-colors',
+              // Hidden below `sm`: at 390px the logo + both links + CTA
+              // over-run the row and the wordmark collides with "Features"
+              // (fleet-qa 2026-09-22). The page footer carries the same links.
+              // inline-flex + py keeps the 20px text at the tap-target floor.
+              'hidden sm:inline-flex sm:items-center sm:py-2 text-on-surface-variant hover:text-on-surface transition-colors',
             )}
           >
             {t('nav.features', {}, { defaultValue: 'Features' })}
@@ -110,7 +114,7 @@ export function Landing() {
             className={cm.cn(
               cm.textSize('sm'),
               cm.fontWeight('medium'),
-              'text-on-surface-variant hover:text-on-surface transition-colors',
+              'hidden sm:inline-flex sm:items-center sm:py-2 text-on-surface-variant hover:text-on-surface transition-colors',
             )}
           >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -123,7 +127,7 @@ export function Landing() {
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-xl text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
+                'whitespace-nowrap rounded-xl text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
               )}
             >
               {t('common.goToDashboard', {}, { defaultValue: 'Go to Dashboard' })}
@@ -135,7 +139,7 @@ export function Landing() {
                 className={cm.cn(
                   cm.textSize('sm'),
                   cm.fontWeight('semibold'),
-                  'text-indigo-700 hover:text-indigo-900 transition-colors',
+                  'inline-flex items-center py-2 text-indigo-700 hover:text-indigo-900 transition-colors',
                 )}
               >
                 {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -147,7 +151,7 @@ export function Landing() {
                   cm.sp('py', 2),
                   cm.fontWeight('bold'),
                   cm.textSize('sm'),
-                  'rounded-xl text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
+                  'whitespace-nowrap rounded-xl text-white bg-gradient-to-br from-indigo-600 to-sky-500 shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.99] transition-transform',
                 )}
               >
                 {t('common.startFree', {}, { defaultValue: 'Start free' })}
@@ -474,12 +478,21 @@ export function Landing() {
             { defaultValue: '© {{year}} {{name}} — {{tagline}}' },
           )}
         </span>
-        <div className={cm.cn(cm.flex({ gap: 'lg' }))}>
+        {/* flex-wrap: at 390px the six links + gaps over-run one row and the
+            row (unclipped, outside every overflow-hidden section) pushed the
+            document to 485px scroll width (fleet-qa 2026-09-22). py on each
+            link lifts the 16px text to a ~36px tap target. */}
+        <div
+          className={cm.cn(
+            cm.flex({ gap: 'md', wrap: 'wrap' }),
+            'gap-y-2 justify-end flex-1 min-w-0',
+          )}
+        >
           <Link
             to="/login"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -488,7 +501,7 @@ export function Landing() {
             to="/pricing"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -497,7 +510,7 @@ export function Landing() {
             to="/about"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('nav.about', {}, { defaultValue: 'About' })}
@@ -506,7 +519,7 @@ export function Landing() {
             to="/terms"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('nav.terms', {}, { defaultValue: 'Terms' })}
@@ -515,7 +528,7 @@ export function Landing() {
             to="/privacy"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
@@ -526,7 +539,7 @@ export function Landing() {
             rel="noopener noreferrer"
             className={cm.cn(
               cm.fontWeight('bold'),
-              'text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
+              'inline-flex items-center py-2 text-[10px] uppercase tracking-[0.18em] text-on-surface-variant hover:text-primary transition-colors',
             )}
           >
             {t('landing.footerBuiltOn', {}, { defaultValue: 'Built on Molecule.dev' })}

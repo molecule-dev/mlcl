@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -95,6 +96,10 @@ export function ReviewDetail() {
         rating: draftRating,
         status,
       })
+      // Domain event (fire-and-forget; no-ops without an analytics provider).
+      if (status === 'completed') {
+        track({ name: 'review.submitted', properties: { review_id: id, rating: draftRating } })
+      }
       setFeedback(
         status === 'completed'
           ? t('reviewDetail.submittedToast', {}, { defaultValue: 'Review submitted' })

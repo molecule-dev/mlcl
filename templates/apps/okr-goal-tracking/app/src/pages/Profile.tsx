@@ -87,10 +87,12 @@ export function Profile() {
   const { t } = useTranslation()
   const { user } = useAuth<UserProfile>()
 
-  const { data: rawObjectives, loading } = useGet<ObjectiveRow[]>(
-    '/api/objectives?archived=false',
-    { immediate: true },
-  )
+  const {
+    data: rawObjectives,
+    loading,
+    error,
+    execute,
+  } = useGet<ObjectiveRow[]>('/api/objectives?archived=false', { immediate: true })
   const { data: rawCheckIns } = useGet<CheckInRow[]>('/api/check-ins', {
     immediate: true,
   })
@@ -197,14 +199,38 @@ export function Profile() {
             <Link
               to="/objectives"
               className={cm.cn(
-                'text-sm font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
+                // inline-flex + py: a bare text link is ~16-20px tall — under
+                // the mobile tap-target floor (fleet-qa 2026-09-22).
+                'inline-flex items-center py-2 text-sm font-bold text-indigo-700 hover:text-indigo-900 transition-colors',
               )}
             >
               {t('profile.allObjectives', {}, { defaultValue: 'All objectives →' })}
             </Link>
           </div>
           <div className={cm.cn(cm.stack(3))} data-testid="profile-objective-list">
-            {loading ? (
+            {error ? (
+              <div
+                role="alert"
+                className={cm.cn(
+                  cm.sp('p', 4),
+                  cm.stack(2),
+                  'rounded-2xl border border-error/30 bg-error-light text-error',
+                )}
+              >
+                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
+                  {t('profile.loadError', {}, { defaultValue: 'Could not load your objectives.' })}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => void execute()}
+                  className={cm.cn(
+                    'self-start rounded-lg px-3 py-2 text-xs font-bold text-error hover:bg-error/10 transition-colors',
+                  )}
+                >
+                  {t('common.retry', {}, { defaultValue: 'Retry' })}
+                </button>
+              </div>
+            ) : loading ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('profile.loading', {}, { defaultValue: 'Loading objectives…' })}
               </p>

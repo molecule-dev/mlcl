@@ -8,7 +8,10 @@ function UserMenuPanel() {
 
 export function UserMenu() {
   return (
-    <MoleculeUserMenu>
+    // 44px trigger — the shared ghost `sm` button is ~36px, under the 40px
+    // mobile tap-target floor (fleet-qa 2026-09-22). className composes last
+    // onto the trigger button, so this overrides the size classes.
+    <MoleculeUserMenu className="h-11 w-11">
       <UserMenuPanel />
     </MoleculeUserMenu>
   )

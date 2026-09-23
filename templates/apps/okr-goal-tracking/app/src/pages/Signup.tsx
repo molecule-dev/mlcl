@@ -59,7 +59,14 @@ export function Signup() {
       footerPrompt={
         <span>
           {t('signup.haveAccountPrompt', {}, { defaultValue: 'Already have an account? ' })}
-          <Link to="/login" className={cm.cn('font-bold text-indigo-700 hover:text-indigo-900')}>
+          <Link
+            to="/login"
+            className={cm.cn(
+              // py: bare text link is ~16px tall — under the mobile tap-target
+              // floor (fleet-qa 2026-09-22).
+              'inline-flex items-center py-2 font-bold text-indigo-700 hover:text-indigo-900',
+            )}
+          >
             {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
           </Link>
         </span>
@@ -193,7 +200,9 @@ export function Signup() {
           linkClassName={cm.cn(
             cm.textSize('xs'),
             cm.fontWeight('semibold'),
-            'text-on-surface-variant hover:text-on-surface transition-colors',
+            // py lifts the ~16px trigger buttons to the mobile tap-target floor
+            // (fleet-qa 2026-09-22).
+            'py-2 text-on-surface-variant hover:text-on-surface transition-colors',
           )}
           appName={APP_NAME}
           loadContent={loadContent}

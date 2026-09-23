@@ -331,7 +331,9 @@ export function NewObjective() {
                         type="button"
                         onClick={() => setKrs((prev) => prev.filter((k) => k.id !== kr.id))}
                         className={cm.cn(
-                          'text-xs font-bold text-error hover:text-error transition-colors',
+                          // py: bare text button is ~16px tall — under the
+                          // mobile tap-target floor (fleet-qa 2026-09-22).
+                          '-my-1 py-2 px-2 text-xs font-bold text-error hover:text-error transition-colors',
                         )}
                       >
                         {t('common.remove', {}, { defaultValue: 'Remove' })}
